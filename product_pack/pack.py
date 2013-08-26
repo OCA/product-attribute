@@ -13,7 +13,7 @@
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+#    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -21,9 +21,10 @@
 ##################################################################################
 
 import math
-from osv import fields,osv
+from openerp.osv import fields, orm
 
-class product_pack( osv.osv ):
+
+class product_pack(orm.Model):
     _name = 'product.pack.line'
     _rec_name = 'product_id'
     _columns = {
@@ -32,7 +33,7 @@ class product_pack( osv.osv ):
         'product_id': fields.many2one( 'product.product', 'Product', required=True ),
     }
 
-class product_product( osv.osv ):
+class product_product(orm.Model):
     _inherit = 'product.product'
     _columns = {
         'stock_depends': fields.boolean( 'Stock depends of components', help='Mark if pack stock is calcualted from component stock' ),
@@ -40,15 +41,15 @@ class product_product( osv.osv ):
         'pack_line_ids': fields.one2many( 'product.pack.line','parent_product_id', 'Pack Products', help='List of products that are part of this pack.' ),
     }
 
-    def get_product_available( self, cr, uid, ids, context=None ):
+    def get_product_available(self, cr, uid, ids, context=None):
         """ Calulate stock for packs, return  maximum stock that lets complete pack """
         result={}
         for product in self.browse( cr, uid, ids, context=context ):
-            stock = super( product_product, self ).get_product_available( cr, uid, [ product.id ], context=context )
+            stock = super(product_product, self).get_product_available(cr, uid, [product.id], context=context)
 
             # Check if product stock depends on it's subproducts stock.
             if not product.stock_depends:
-                result[ product.id ] = stock[ product.id ]
+                result[product.id] = stock[product.id]
                 continue
 
             first_subproduct = True
@@ -58,7 +59,7 @@ class product_product( osv.osv ):
             if product.pack_line_ids:
 
                 # Take the stock/virtual stock of all subproducts
-                subproducts_stock = self.get_product_available( cr, uid, [ line.product_id.id for line in product.pack_line_ids ], context=context )
+                subproducts_stock = self.get_product_available(cr, uid, [line.product_id.id for line in product.pack_line_ids], context=context)
 
                 # Go over all subproducts, take quantity needed for the pack and its available stock
                 for subproduct in product.pack_line_ids:
@@ -68,33 +69,34 @@ class product_product( osv.osv ):
                         continue
                     if first_subproduct:
                         subproduct_quantity = subproduct.quantity
-                        subproduct_stock = subproducts_stock[ subproduct.product_id.id ]
+                        subproduct_stock = subproducts_stock[subproduct.product_id.id]
                         if subproduct_quantity == 0:
                             continue
 
                         # Calculate real stock for current pack from the subproduct stock and needed quantity
-                        pack_stock = math.floor( subproduct_stock / subproduct_quantity )
+                        pack_stock = math.floor(subproduct_stock / subproduct_quantity)
                         first_subproduct = False
                         continue
 
                     # Take the info of the next subproduct
                     subproduct_quantity_next = subproduct.quantity
-                    subproduct_stock_next = subproducts_stock[ subproduct.product_id.id ]
+                    subproduct_stock_next = subproducts_stock[subproduct.product_id.id]
                     if subproduct_quantity_next == 0 or subproduct_quantity_next == 0.0:
                         continue
-                    pack_stock_next = math.floor( subproduct_stock_next / subproduct_quantity_next )
+                    pack_stock_next = math.floor(subproduct_stock_next / subproduct_quantity_next)
 
                     # compare the stock of a subproduct and the next subproduct
                     if pack_stock_next < pack_stock:
                         pack_stock = pack_stock_next
 
                 # result is the minimum stock of all subproducts
-                result[ product.id ] = pack_stock
+                result[product.id] = pack_stock
             else:
-                result[ product.id ] = stock[ product.id ]
+                result[product.id] = stock[product.id]
         return result
 
-class sale_order_line(osv.osv):
+
+class sale_order_line(orm.Model):
     _inherit = 'sale.order.line'
     _columns = {
         'pack_depth': fields.integer('Depth', required=True, help='Depth of the product if it is part of a pack.'),
@@ -105,7 +107,8 @@ class sale_order_line(osv.osv):
         'pack_depth': lambda *a: 0,
     }
 
-class sale_order(osv.osv):
+
+class sale_order(orm.Model):
     _inherit = 'sale.order'
 
     def create(self, cr, uid, vals, context=None):
@@ -247,7 +250,8 @@ class sale_order(osv.osv):
             self.expand_packs(cr, uid, ids, context, depth+1)
         return
 
-class purchase_order_line(osv.osv):
+
+class purchase_order_line(orm.Model):
     _inherit = 'purchase.order.line'
     _columns = {
         'sequence': fields.integer('Sequence', help="Gives the sequence order when displaying a list of purchase order lines."),
@@ -259,7 +263,8 @@ class purchase_order_line(osv.osv):
         'pack_depth': lambda *a: 0,
     }
 
-class purchase_order(osv.osv):
+
+class purchase_order(orm.Model):
     _inherit = 'purchase.order'
 
     def create(self, cr, uid, vals, context=None):

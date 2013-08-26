@@ -13,7 +13,7 @@
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+#    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -22,21 +22,19 @@
 {
 	"name" : "Product Pack",
 	"version" : "0.2",
+	"category": "Warehouse Management",
 	"description" : """
-Based on the NAN_product_pack this module allows configuring products as a collection of other products.
-If such a product is added in a sale order or a purchase order, all the products of the pack will be added
-automatically (when storing the order) as children of the pack product.
-""",
+	Based on the NAN_product_pack this module allows configuring products as a collection of other products.
+	If such a product is added in a sale order or a purchase order, all the products of the pack will be added
+	automatically (when storing the order) as children of the pack product.
+	""",
 	"author" : "Agile Business Group & NaN·tic",
 	"website" : "http://www.agilebg.com",
 	"depends" : [
 		'sale',
 		'purchase',
 	],
-	"category" : "Warehouse Management",
-	"init_xml" : [],
-	"demo_xml" : [],
-	"update_xml" : [
+	"data" : [
 		'security/ir.model.access.csv',
 		'pack_view.xml'
 	],
