@@ -28,23 +28,23 @@ class product_pack(orm.Model):
     _name = 'product.pack.line'
     _rec_name = 'product_id'
     _columns = {
-        'parent_product_id': fields.many2one( 'product.product', 'Parent Product', ondelete='cascade', required=True ),
-        'quantity': fields.float( 'Quantity', required=True ),
-        'product_id': fields.many2one( 'product.product', 'Product', required=True ),
+        'parent_product_id': fields.many2one('product.product', 'Parent Product', ondelete='cascade', required=True),
+        'quantity': fields.float('Quantity', required=True),
+        'product_id': fields.many2one('product.product', 'Product', required=True),
     }
 
 class product_product(orm.Model):
     _inherit = 'product.product'
     _columns = {
-        'stock_depends': fields.boolean( 'Stock depends of components', help='Mark if pack stock is calcualted from component stock' ),
-        'pack_fixed_price': fields.boolean( 'Pack has fixed price', help='Mark this field if the public price of the pack should be fixed. Do not mark it if the price should be calculated from the sum of the prices of the products in the pack.' ),
-        'pack_line_ids': fields.one2many( 'product.pack.line','parent_product_id', 'Pack Products', help='List of products that are part of this pack.' ),
+        'stock_depends': fields.boolean('Stock depends of components', help='Mark if pack stock is calcualted from component stock'),
+        'pack_fixed_price': fields.boolean('Pack has fixed price', help='Mark this field if the public price of the pack should be fixed. Do not mark it if the price should be calculated from the sum of the prices of the products in the pack.'),
+        'pack_line_ids': fields.one2many('product.pack.line','parent_product_id', 'Pack Products', help='List of products that are part of this pack.'),
     }
 
     def get_product_available(self, cr, uid, ids, context=None):
         """ Calulate stock for packs, return  maximum stock that lets complete pack """
         result={}
-        for product in self.browse( cr, uid, ids, context=context ):
+        for product in self.browse(cr, uid, ids, context=context):
             stock = super(product_product, self).get_product_available(cr, uid, [product.id], context=context)
 
             # Check if product stock depends on it's subproducts stock.
@@ -145,9 +145,9 @@ class sale_order(orm.Model):
             last_had_children = False
             for line in order.order_line:
                 if last_had_children and not line.pack_parent_line_id:
-                    reorder.append( line.id )
+                    reorder.append(line.id)
                     if line.product_id.pack_line_ids and not order.id in updated_orders:
-                        updated_orders.append( order.id )
+                        updated_orders.append(order.id)
                     continue
 
                 sequence += 1
@@ -231,11 +231,11 @@ class sale_order(orm.Model):
 
                     # It's a control for the case that the nan_external_prices was installed with the product pack
                     if 'prices_used' in line:
-                        vals[ 'prices_used' ] = line.prices_used
+                        vals['prices_used'] = line.prices_used
 
                     self.pool.get('sale.order.line').create(cr, uid, vals, context)
                     if not order.id in updated_orders:
-                        updated_orders.append( order.id )
+                        updated_orders.append(order.id)
 
                 for id in reorder:
                     sequence += 1
@@ -247,7 +247,7 @@ class sale_order(orm.Model):
 
             # Try to expand again all those orders that had a pack in this iteration.
             # This way we support packs inside other packs.
-            self.expand_packs(cr, uid, ids, context, depth+1)
+            self.expand_packs(cr, uid, ids, context, depth + 1)
         return
 
 
@@ -301,9 +301,9 @@ class purchase_order(orm.Model):
             last_had_children = False
             for line in order.order_line:
                 if last_had_children and not line.pack_parent_line_id:
-                    reorder.append( line.id )
+                    reorder.append(line.id)
                     if line.product_id.pack_line_ids and not order.id in updated_orders:
-                        updated_orders.append( order.id )
+                        updated_orders.append(order.id)
                     continue
 
                 sequence += 1
@@ -351,7 +351,7 @@ class purchase_order(orm.Model):
 
                     vals = {
                         'order_id': order.id,
-                        'name': '%s%s' % ('> '* (line.pack_depth+1), subproduct_name),
+                        'name': '%s%s' % ('> '* (line.pack_depth + 1), subproduct_name),
                         'date_planned': line.date_planned or 0.0,
                         'sequence': sequence,
                         'product_id': subproduct.id,
@@ -368,11 +368,11 @@ class purchase_order(orm.Model):
 
                     # It's a control for the case that the nan_external_prices was installed with the product pack
                     if 'prices_used' in line:
-                        vals[ 'prices_used' ] = line.prices_used
+                        vals['prices_used'] = line.prices_used
 
                     self.pool.get('purchase.order.line').create(cr, uid, vals, context)
                     if not order.id in updated_orders:
-                        updated_orders.append( order.id )
+                        updated_orders.append(order.id)
 
                 for id in reorder:
                     sequence += 1
@@ -384,5 +384,5 @@ class purchase_order(orm.Model):
 
             # Try to expand again all those orders that had a pack in this iteration.
             # This way we support packs inside other packs.
-            self.expand_packs(cr, uid, ids, context, depth+1)
+            self.expand_packs(cr, uid, ids, context, depth + 1)
         return
