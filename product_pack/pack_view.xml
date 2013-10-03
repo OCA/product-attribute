@@ -11,9 +11,10 @@
 				<notebook position="inside">
 					<page string="Pack">
 						<label string="If you add products in the 'Pack Products' field, all those products will be added automatically when a new quotation or order is created." colspan="4"/>
-						<field name="stock_depends"/>
-						<field name="pack_fixed_price"/>
-						<label string=""/>
+						<group>
+							<field name="stock_depends" />
+							<field name="pack_fixed_price" />
+						</group>
 						<separator string="Pack Products" colspan="4"/>
 						<field name="pack_line_ids" colspan="4" nolabel="1"/>
 					</page>
