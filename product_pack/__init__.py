@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-##################################################################################
+###############################################################################
 #
 #    Copyright (c) 2009 Angel Alvarez - NaN  (http://www.nan-tic.com)
-#    Copyright (C) 2012 Agile Business Group sagl (<http://www.agilebg.com>)
 #    Copyright (C) 2012 Domsense srl (<http://www.domsense.com>)
+#    Copyright (C) 2013 Agile Business Group sagl (<http://www.agilebg.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -18,5 +18,5 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##################################################################################
+###############################################################################
 import pack
