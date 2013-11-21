@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  pricelist configurator by bom for OpenERP
+  Copyright (C) 2013 Agile Business Group sagl (<http://www.agilebg.com>).
+    Authors, Nicola Malcontenti, nicola.malcontenti@agilebg.com
+  The licence is in the file __openerp__.py
+-->
+<openerp>  
+    <data>
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_form">
+            <field name="name">product.pricelist.configurator.form</field>
+            <field name="model">product.pricelist.configurator</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="product.pricelist.configurator">
+                    <field name="product_id" on_change="on_change_bom_id(bom_id)"/>
+                    <field name="partner_id"/>
+                    <field name="pricelist_item_id"/>
+                    <field name="line_ids"/>
+                    <field name="amount"/>
+                    <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_tree">
+            <field name="name">product.pricelist.configurator.tree</field>
+            <field name="model">product.pricelist.configurator</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="product.brand">
+                  <field name="product_id"/>
+                  <field name="partner_id"/>
+                  <field name="pricelist_item_id"/>
+                  <field name="line_ids"/>
+                  <field name="amount"/>
+                  <field name="bom_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_line_form">
+            <field name="name">product.pricelist.configurator.line.form</field>
+            <field name="model">product.pricelist.configurator.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="product.pricelist.configurator.line">
+                    <field name="product_id"/>
+                    <field name="cost_price"/>
+                    <field name="margin"/>
+                    <field name="quantity"/>
+                    <field name="bom_id"/>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_product_testing">
+            <field name="name">Testt</field>
+            <field name="res_model">product.pricelist.configurator</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Test" id="menu_product_testing" action="action_product_testing" parent="product.prod_config_main"/>
+    </data>
+</openerp>
