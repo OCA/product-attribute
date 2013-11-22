@@ -13,34 +13,23 @@
             <field eval="7" name="priority"/>
             <field name="arch" type="xml">
                 <form string="Configurator" version="7.0">
+                    <header>
+                        <button name="compute_final_price" string="Compute Final Price" type="object"/>
+                        <button name="create_pricelist_item" string="Create Price" attrs="{'invisible':[('pricelist_item_id','!=',False)]}" type="object" />
+                        <button name="write_pricelist_item" string="Write Pricelist" type="object" attrs="{'invisible':[('pricelist_item_id','=',False)]}" confirm="This method will overwrite the pricelist"/>
+                    </header>
                     <sheet string="Configurator">
-                        <div>
                             <label for="product_id" string="Product"/>
                             <field name="product_id" on_change="on_change_product_id(product_id)"/>
-                        </div>
-                        <div>
                             <label for="partner_id" string="Partner"/>
                             <field name="partner_id"/>
-                        </div>
-                        <div>
                             <label for="pricelist_item_id" string="Pricelist"/>
                             <field name="pricelist_item_id"/>
-                        </div>
-                        <div>
-                            <label for="line_ids" string="Line"/>    
                             <field name="line_ids"/>
-                        </div>
-                        <div>
                             <label for="amount" string="Amount"/>    
                             <field name="amount"/>
-                        </div>
-                        <div>
                             <label for="bom_id" string="Bom"/>
                             <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
-                        </div>
-                        <button name="compute_final_price" string="Compute Final Price" type="object"/>
-                        <button name="create_pricelist_item" string="Create Price" type="object" />
-                        <button name="write_pricelist_item" string="Write Pricelist" type="object" attrs="{'invisible':[('pricelist_item_id','=',False)]}"/>
                     </sheet>
                 </form>
             </field>
@@ -96,6 +85,6 @@
             <field name="view_mode">tree,form</field>
         </record>
         
-        <menuitem name="Configurator" id="menu_product_priecelist_configurator" action="action_product_priecelist_configurator" parent="product.prod_config_main"/>
+        <menuitem name="Configurator" id="menu_product_priecelist_configurator" action="action_product_priecelist_configurator" parent="base.menu_product"/>
     </data>
 </openerp>

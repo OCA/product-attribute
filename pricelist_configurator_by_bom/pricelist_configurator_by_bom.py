@@ -20,6 +20,7 @@
 ##############################################################################
 from openerp.osv.orm import Model
 from openerp.osv import fields, osv
+import datetime
 
 class product_pricelist_configurator_line(Model):
     _name = 'product.pricelist.configurator.line'
@@ -30,6 +31,7 @@ class product_pricelist_configurator_line(Model):
 		'margin': fields.float('Margin',required=True),
 		'quantity': fields.float('Description',readonly=True),
 		'bom_id': fields.many2one('mrp.bom','Bom',readonly=True),
+        'configurator_id': fields.many2one('product.pricelist.configurator','Configurator'),
     }
 
 
@@ -57,16 +59,35 @@ class product_pricelist_configurator(Model):
         for conf in self.browse(cr, uid, ids):
             if conf.line_ids:
                 for l in conf.line_ids:
-                    self.pool.get('product.pricelist.configurator.line').write(cr, uid, l.id, {'amount':l.cost_price*l.margin}, context=context)
+                    self.pool.get('product.pricelist.configurator').write(cr, uid, conf.id, {'amount':l.cost_price*l.margin}, context=context)
         return True
 
     def create_pricelist_item(self, cr, uid, ids, context=None):
-
-
+        for conf in self.browse(cr, uid, ids):
+            pricelist_id=conf.partner_id.property_product_pricelist
+            pricelist_version_ids = self.pool.get('product.pricelist.version').search(cr, uid, [
+                                                            ('pricelist_id', 'in', [pricelist_id.id]),
+                                                            '|',
+                                                            ('date_start', '=', False),
+                                                            ('date_start', '<=', datetime.datetime.today()),
+                                                            '|',
+                                                            ('date_end', '=', False),
+                                                            ('date_end', '>=', datetime.datetime.today()),
+                                                        ])
+            #One active version at time
+            if pricelist_version_ids==False:
+                raise osv.except_osv(('Warning!'),("At least one pricelist has no active version !\nPlease create or activate one."))
+            else:
+                for price in self.pool.get('product.pricelist.version').browse(cr,uid,pricelist_version_ids):
+                    for item in price.items_id:
+                        if item.product_id == conf.product_id:
+                            raise osv.except_osv(('Warning!'),("Error Message"))
+                    val={'price_version_id':price.id,'product_id':conf.product_id.id,'price_discount':-1,'price_surcharge':conf.amount,'name':str(conf.product_id.name)+"-"+str(conf.partner_id.name)}
+                    pricelist_id=self.pool.get('product.pricelist.item').create(cr, uid, val)
+                    conf.write({'pricelist_item_id':pricelist_id})
         return True    
 
     def write_pricelist_item(self, cr, uid, ids, context=None):
-        raise osv.except_osv(('alert'), (' Your message'))
         for conf in self.browse(cr, uid, ids):
             if conf.pricelist_item_id:
                 self.pool.get('product.pricelist.item').write(cr, uid, conf.pricelist_item_id.id, {'price_surcharge':conf.amount}, context=context)
@@ -75,7 +96,7 @@ class product_pricelist_configurator(Model):
     _columns = {
         'product_id': fields.many2one('product.product','Product',required=True),
         'partner_id': fields.many2one('res.partner','Partner',required=True),
-		'line_ids': fields.one2many('product.pricelist.configurator.line', 'product_id', string='Line'),
+		'line_ids': fields.one2many('product.pricelist.configurator.line', 'configurator_id', string='Line'),
 		'amount': fields.float('Amount',readonly=True),
 		'pricelist_item_id': fields.many2one('product.pricelist.item','Pricelist'),
 		'bom_id': fields.many2one('mrp.bom','Bom'),
