@@ -30,12 +30,12 @@
     """,
     'author': 'Agile Business Group',
     'website': 'http://www.agilebg.com/',
-    'depends': ['product'],
+    'depends': ['product','sale','mrp'],
     'init_xml': [],
     'update_xml': [
            'pricelist_configurator_by_bom_view.xml',
     ],
     'demo_xml': [],
-    'installable': False,
+    'installable': True,
     'active': False,
 }

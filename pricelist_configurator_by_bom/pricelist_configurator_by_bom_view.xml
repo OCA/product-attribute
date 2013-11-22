@@ -7,18 +7,41 @@
 -->
 <openerp>  
     <data>
-        <record model="ir.ui.view" id="view_product_pricelist_configurator_form">
+        <record id="view_product_pricelist_configurator_form" model="ir.ui.view">
             <field name="name">product.pricelist.configurator.form</field>
             <field name="model">product.pricelist.configurator</field>
-            <field name="type">form</field>
+            <field eval="7" name="priority"/>
             <field name="arch" type="xml">
-                <form string="product.pricelist.configurator">
-                    <field name="product_id" on_change="on_change_bom_id(bom_id)"/>
-                    <field name="partner_id"/>
-                    <field name="pricelist_item_id"/>
-                    <field name="line_ids"/>
-                    <field name="amount"/>
-                    <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
+                <form string="Configurator" version="7.0">
+                    <sheet string="Configurator">
+                        <div>
+                            <label for="product_id" string="Product"/>
+                            <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                        </div>
+                        <div>
+                            <label for="partner_id" string="Partner"/>
+                            <field name="partner_id"/>
+                        </div>
+                        <div>
+                            <label for="pricelist_item_id" string="Pricelist"/>
+                            <field name="pricelist_item_id"/>
+                        </div>
+                        <div>
+                            <label for="line_ids" string="Line"/>    
+                            <field name="line_ids"/>
+                        </div>
+                        <div>
+                            <label for="amount" string="Amount"/>    
+                            <field name="amount"/>
+                        </div>
+                        <div>
+                            <label for="bom_id" string="Bom"/>
+                            <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
+                        </div>
+                        <button name="compute_final_price" string="Compute Final Price" type="object"/>
+                        <button name="create_pricelist_item" string="Create Price" type="object" />
+                        <button name="write_pricelist_item" string="Write Pricelist" type="object" attrs="{'invisible':[('pricelist_item_id','=',False)]}"/>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -26,9 +49,8 @@
         <record model="ir.ui.view" id="view_product_pricelist_configurator_tree">
             <field name="name">product.pricelist.configurator.tree</field>
             <field name="model">product.pricelist.configurator</field>
-            <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="product.brand">
+                <tree string="Configurator">
                   <field name="product_id"/>
                   <field name="partner_id"/>
                   <field name="pricelist_item_id"/>
@@ -42,9 +64,8 @@
         <record model="ir.ui.view" id="view_product_pricelist_configurator_line_form">
             <field name="name">product.pricelist.configurator.line.form</field>
             <field name="model">product.pricelist.configurator.line</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="product.pricelist.configurator.line">
+                <form string="Configurator Line">
                     <field name="product_id"/>
                     <field name="cost_price"/>
                     <field name="margin"/>
@@ -53,14 +74,28 @@
                 </form>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_line_tree">
+            <field name="name">product.pricelist.configurator.line.tree</field>
+            <field name="model">product.pricelist.configurator.line</field>
+            <field name="arch" type="xml">
+                <tree string="Configurator Line">
+                    <field name="product_id"/>
+                    <field name="cost_price"/>
+                    <field name="margin"/>
+                    <field name="quantity"/>
+                    <field name="bom_id"/>
+                </tree>
+            </field>
+        </record>
         
-        <record model="ir.actions.act_window" id="action_product_testing">
-            <field name="name">Testt</field>
+        <record model="ir.actions.act_window" id="action_product_priecelist_configurator">
+            <field name="name">Configurator</field>
             <field name="res_model">product.pricelist.configurator</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
         
-        <menuitem name="Test" id="menu_product_testing" action="action_product_testing" parent="product.prod_config_main"/>
+        <menuitem name="Configurator" id="menu_product_priecelist_configurator" action="action_product_priecelist_configurator" parent="product.prod_config_main"/>
     </data>
 </openerp>

@@ -20,3 +20,4 @@
 ##############################################################################
 
 import product
+import pricelist_configurator_by_bom
