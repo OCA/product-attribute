@@ -33,13 +33,18 @@ Production lot custom attributes
 This module adds the possibility to easily create custom fields on stock
 production lots. Each lot can be linked to an attribute set.
 Each attribute has custom fields (for example, you don't need the same field
-for a fridge and a camera).
+for a frigde and a camera).
 In particular it's used by the Magento Magentoerpconnect module to match the
 EAV flexibility of Magento.
+
+Warning: This module is not compatible with product_custom_attributes from 6.1.
+To make the two compatible, product_custom_attributes should be split to depend
+from base_custom_attributes, like it is already in 7.0.
+
 This module is inspired by the module product_custom_attributes by
 Benoît GUILLOT, Akretion
 
- """,
+""",
  'complexity': 'normal',
  'author': 'Camptocamp',
  'website': 'http://www.camptocamp.com/',
@@ -49,9 +54,8 @@ Benoît GUILLOT, Akretion
                 'custom_attributes_view.xml',
                 'wizard/open_lot_by_attribute_set.xml'
                 ],
- 'test': [
-     'test/lot_attribute_test.yml',
- ],
+ 'test': ['test/lot_attribute_test.yml',
+          ],
  'demo_xml': [],
  'installable': True,
  'active': False,

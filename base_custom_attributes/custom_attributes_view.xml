@@ -215,7 +215,7 @@
             <field name="priority" eval="6"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Attribute Option" col="6">
+                <form string="Attribute Option">
                     <field name="name" colspan="2"/>
                     <field name="value_ref" colspan="2" groups="base.group_advanced_attribute"/>
                     <field name="sequence" colspan="2"/>
@@ -228,7 +228,7 @@
             <field name="model">attribute.option</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Attribute Option" col="6">
+                <form string="Attribute Option">
                     <field name="name" colspan="2"/>
                     <field name="value_ref" colspan="2" groups="base.group_advanced_attribute"/>
                     <field name="sequence" colspan="2"/>
@@ -259,7 +259,6 @@
             <field name="arch" type="xml">
                 <search string="Search Attribute Options">
                     <field name="name" />
-                    <field name="value_ref" groups="base.group_advanced_attribute"/>
                     <field name="attribute_id"/>
                </search>
             </field>

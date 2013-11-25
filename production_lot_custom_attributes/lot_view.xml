@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  production_lot_custom_attributes for OpenERP
-  Copyright (C) 2011-2013 Akretion (http://www.akretion.com/)
-  @author: Benoît GUILLOT <benoit.guillot@akretion.com>
-  The licence is in the file __openerp__.py
--->
 
 <openerp>
     <data>
@@ -30,17 +24,16 @@
             <field name="model">stock.production.lot</field>
             <field name="priority">20</field>
             <field name="arch" type="xml">
-                <form string="Lot" version="7.0">
-                    <group name="name_set">
+                <form string="Lot">
+                    <group name="name_set" colspan='4' col='8'>
                         <field name="name"/>
                         <field name="attribute_set_id" />
                     </group>
                     <separator string="attributes_placeholder" colspan="4"/>
-                    <footer>
-                        <button name="save_and_close_lot_attributes" string="Save and Close" type="object" class="oe_highlight"/>
-                        or
-                        <button special="cancel" string="Cancel" class="oe_link"/>
-                    </footer>
+                    <group colspan='4' col='4'>
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-ok" name="save_and_close_lot_attributes" string="Save and Close" type="object"/>
+                    </group>
                 </form>
             </field>
         </record>
