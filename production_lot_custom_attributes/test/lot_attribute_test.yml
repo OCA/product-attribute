@@ -35,7 +35,7 @@
   Then I create a Serial Number and set some Attributes
 -
   !record {model: stock.production.lot, id: lot_A}:
-    product_id: product.product_product_7
+    product_id: product.product_product_pc2
     name: 0005
     attribute_set_id: lot_attribute_set_A
     x_color: green
