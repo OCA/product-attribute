@@ -1,0 +1,16 @@
+-
+  In order to pricelist configurator by bom module in OpenERP I create a pricelist configurator
+-
+  !record {model: product.pricelist.configurator, id: product_pricelist_configurator_0, view: view_product_pricelist_configurator_form}:
+    product_id: product.product_product_18
+    partner_id: base.res_partner_4
+-
+  I clicked on Create Price button to create a line
+-
+  !python {model: product.pricelist.configurator}: |
+    self.create_pricelist_item(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})
+-
+  I clicked on Compute Price
+-
+  !python {model: product.pricelist.configurator}: |
+    self.compute_final_price(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})

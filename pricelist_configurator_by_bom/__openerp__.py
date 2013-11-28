@@ -32,8 +32,12 @@
     'website': 'http://www.agilebg.com/',
     'depends': ['product','sale','mrp'],
     'init_xml': [],
-    'update_xml': [
+    'data': [
            'pricelist_configurator_by_bom_view.xml',
+           'test/pricelist_configurator_by_bom.yml'
+    ],
+    'test': [
+        'test/pricelist_configurator_by_bom.yml'
     ],
     'demo_xml': [],
     'installable': True,
