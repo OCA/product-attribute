@@ -44,7 +44,7 @@ class product_pricelist_configurator(Model):
         if bom_id:
         	bom_obj=self.pool.get('mrp.bom').browse(cr, uid, bom_id)
         	for line in bom_obj.bom_lines:
-        		val.append({'product_id':line.product_id.id, 'cost_price':line.product_id.standard_price,'bom_id':bom_obj.id,'quantity':line.product_qty})      
+        		val.append({'product_id':line.product_id.id, 'cost_price':line.product_id.standard_price,'bom_id':line.id,'quantity':line.product_qty})      
         res['value']['line_ids']=val
         return res
 
@@ -57,10 +57,14 @@ class product_pricelist_configurator(Model):
 
     def compute_final_price(self, cr, uid, ids, context=None):
         val=0
+        import pdb;pdb.set_trace()
         for conf in self.browse(cr, uid, ids):
             if conf.line_ids:
                 for l in conf.line_ids:
-                    val=val+l.cost_price*l.margin*l.quantity
+                    if l.margin!=0:
+                        val=val+l.cost_price*l.margin*l.quantity
+                    else:
+                        val=val+l.cost_price*l.quantity
                 self.pool.get('product.pricelist.configurator').write(cr, uid, conf.id, {'amount':val+conf.amount}, context=context)
         return True
 
