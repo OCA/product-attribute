@@ -27,9 +27,9 @@ class product_pricelist_configurator_line(Model):
 
     _columns = {
         'product_id': fields.related('bom_id','product_id',type="many2one",relation='product.product',readonly=True, string="Product"),
-		'cost_price': fields.related('product_id', 'standard_price', type="float", store=False, readonly=True, string="Price"),
+		'cost_price': fields.related('product_id', 'standard_price', type="float", store=False, readonly=True, string="Cost Price"),
 		'margin': fields.float('Margin',required=True),
-		'quantity': fields.float('Description',readonly=True),
+		'quantity': fields.float('Quantity',readonly=True),
 		'bom_id': fields.many2one('mrp.bom','Bom',readonly=True),
         'configurator_id': fields.many2one('product.pricelist.configurator','Configurator'),
     }
@@ -44,22 +44,24 @@ class product_pricelist_configurator(Model):
         if bom_id:
         	bom_obj=self.pool.get('mrp.bom').browse(cr, uid, bom_id)
         	for line in bom_obj.bom_lines:
-        		val.append({'product_id':bom_obj.product_id.id, 'cost_price':bom_obj.product_id.standard_price,'bom_id':bom_obj.id,'quantity':bom_obj.product_qty})      
+        		val.append({'product_id':line.product_id.id, 'cost_price':line.product_id.standard_price,'bom_id':bom_obj.id,'quantity':line.product_qty})      
         res['value']['line_ids']=val
         return res
 
     def on_change_product_id(self, cr, uid, ids, product_id):
-    	res = {'value': {"bom_id": ''}}
+    	res = {'value': {"bom_id": ''}}        
     	bom_ids=self.pool.get('mrp.bom').search(cr,uid,[('product_id','=',product_id)])
         if bom_ids:
             res['value']['bom_id']=bom_ids[0]
     	return res
 
     def compute_final_price(self, cr, uid, ids, context=None):
+        val=0
         for conf in self.browse(cr, uid, ids):
             if conf.line_ids:
                 for l in conf.line_ids:
-                    self.pool.get('product.pricelist.configurator').write(cr, uid, conf.id, {'amount':l.cost_price*l.margin}, context=context)
+                    val=val+l.cost_price*l.margin*l.quantity
+                self.pool.get('product.pricelist.configurator').write(cr, uid, conf.id, {'amount':val+conf.amount}, context=context)
         return True
 
     def create_pricelist_item(self, cr, uid, ids, context=None):
