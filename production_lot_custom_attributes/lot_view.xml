@@ -19,6 +19,16 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="search_product_lot_filter">
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.search_product_lot_filter"/>
+            <field name="arch" type="xml">
+                <field name="date" position="after">
+                    <field name="search_all_attributes"/>
+                </field>
+            </field>
+        </record>
+
         <record model="ir.ui.view" id="lot_attributes_form_view">
             <field name="name">lot.attributes.normal.wizard</field>
             <field name="model">stock.production.lot</field>
