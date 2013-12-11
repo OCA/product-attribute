@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="lot_form_view_set_button">
+            <field name="name">attributes.lot.normal.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Attributes">
+                        <group name="attribute_fields">
+                            <field name="attribute_set_id" />
+                            <button name="open_attributes" string="Open Attributes" type="object" icon="gtk-ok" attrs="{'invisible':[('attribute_set_id', '=', False)]}"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="search_product_lot_filter">
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.search_product_lot_filter"/>
+            <field name="arch" type="xml">
+                <field name="date" position="after">
+                    <field name="search_all_attributes"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="lot_attributes_form_view">
+            <field name="name">lot.attributes.normal.wizard</field>
+            <field name="model">stock.production.lot</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <form string="Lot">
+                    <group name="name_set" colspan='4' col='8'>
+                        <field name="name"/>
+                        <field name="attribute_set_id" />
+                    </group>
+                    <separator string="attributes_placeholder" colspan="4"/>
+                    <group colspan='4' col='4'>
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-ok" name="save_and_close_lot_attributes" string="Save and Close" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
