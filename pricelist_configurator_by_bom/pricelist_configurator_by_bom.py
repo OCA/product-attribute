@@ -65,7 +65,7 @@ class product_pricelist_configurator(Model):
                         val=val+l.cost_price*l.margin*l.quantity
                     else:
                         val=val+l.cost_price*l.quantity
-                self.pool.get('product.pricelist.configurator').write(cr, uid, conf.id, {'amount':val+conf.amount}, context=context)
+                self.pool.get('product.pricelist.configurator').write(cr, uid, conf.id, {'amount':val}, context=context)
         return True
 
     def create_pricelist_item(self, cr, uid, ids, context=None):
