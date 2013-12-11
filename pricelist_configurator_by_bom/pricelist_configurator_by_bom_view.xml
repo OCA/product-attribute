@@ -15,12 +15,14 @@
                 <form string="Configurator" version="7.0">
                     <header>
                         <button name="compute_final_price" string="Compute Final Price" type="object"/>
-                        <button name="create_pricelist_item" string="Create Price" attrs="{'invisible':[('pricelist_item_id','!=',False)]}" type="object" />
-                        <button name="write_pricelist_item" string="Write Pricelist" type="object" attrs="{'invisible':[('pricelist_item_id','=',False)]}" confirm="This method will overwrite the pricelist"/>
+                        <button name="create_pricelist_item" string="Create List Price" attrs="{'invisible':[('pricelist_item_id','!=',False)]}" type="object" />
+                        <button name="write_pricelist_item" string="Update List Price" type="object" attrs="{'invisible':[('pricelist_item_id','=',False)]}" confirm="This method will overwrite the pricelist"/>
                     </header>
                     <sheet string="Configurator">
                             <label for="product_id" string="Product"/>
                             <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                            <label for="bom_id" string="Bom"/>
+                            <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
                             <label for="partner_id" string="Partner"/>
                             <field name="partner_id"/>
                             <label for="pricelist_item_id" string="Pricelist"/>
@@ -28,8 +30,6 @@
                             <field name="line_ids"/>
                             <label for="amount" string="Amount"/>    
                             <field name="amount"/>
-                            <label for="bom_id" string="Bom"/>
-                            <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
                     </sheet>
                 </form>
             </field>
@@ -85,6 +85,6 @@
             <field name="view_mode">tree,form</field>
         </record>
         
-        <menuitem name="Configurator" id="menu_product_priecelist_configurator" action="action_product_priecelist_configurator" parent="base.menu_product"/>
+        <menuitem name="Pricelist Configurator" id="menu_product_priecelist_configurator" action="action_product_priecelist_configurator" parent="product.menu_product_pricelist_main"/>
     </data>
 </openerp>

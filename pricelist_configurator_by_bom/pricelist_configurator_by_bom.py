@@ -24,6 +24,7 @@ import datetime
 
 class product_pricelist_configurator_line(Model):
     _name = 'product.pricelist.configurator.line'
+    _rec_name = 'bom_id'
 
     _columns = {
         'product_id': fields.related('bom_id','product_id',type="many2one",relation='product.product',readonly=True, string="Product"),
