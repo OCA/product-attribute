@@ -21,6 +21,7 @@
 from openerp.osv.orm import Model
 from openerp.osv import fields, osv
 import datetime
+import openerp.addons.decimal_precision as dp
 
 class product_pricelist_configurator_line(Model):
     _name = 'product.pricelist.configurator.line'
@@ -28,9 +29,9 @@ class product_pricelist_configurator_line(Model):
 
     _columns = {
         'product_id': fields.related('bom_id','product_id',type="many2one",relation='product.product',readonly=True, string="Product"),
-		'cost_price': fields.related('product_id', 'standard_price', type="float", store=False, readonly=True, string="Cost Price"),
-		'margin': fields.float('Margin',required=True),
-		'quantity': fields.float('Quantity',readonly=True),
+		'cost_price': fields.related('product_id', 'standard_price', type="float", digits_compute=dp.get_precision('Product Price'), store=False, readonly=True, string="Cost Price"),
+		'margin': fields.float('Margin', digits_compute=dp.get_precision('Product Price'), required=True),
+		'quantity': fields.float('Quantity', digits_compute=dp.get_precision('Product Unit of Measure'), readonly=True),
 		'bom_id': fields.many2one('mrp.bom','Bom',readonly=True),
         'configurator_id': fields.many2one('product.pricelist.configurator','Configurator'),
     }
@@ -103,7 +104,7 @@ class product_pricelist_configurator(Model):
         'product_id': fields.many2one('product.product','Product',required=True),
         'partner_id': fields.many2one('res.partner','Partner',required=True),
 		'line_ids': fields.one2many('product.pricelist.configurator.line', 'configurator_id', string='Line'),
-		'amount': fields.float('Amount',readonly=True),
+		'amount': fields.float('Amount', digits_compute=dp.get_precision('Product Price'), readonly=True),
 		'pricelist_item_id': fields.many2one('product.pricelist.item','Pricelist'),
 		'bom_id': fields.many2one('mrp.bom','Bom'),
     }

@@ -24,7 +24,7 @@
                             <label for="bom_id" string="Bom"/>
                             <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
                             <label for="partner_id" string="Partner"/>
-                            <field name="partner_id"/>
+                            <field name="partner_id" domain="['|',('customer','=',True),('supplier','=',True)]"/>
                             <label for="pricelist_item_id" string="Pricelist"/>
                             <field name="pricelist_item_id"/>
                             <field name="line_ids"/>
@@ -43,7 +43,6 @@
                   <field name="product_id"/>
                   <field name="partner_id"/>
                   <field name="pricelist_item_id"/>
-                  <field name="line_ids"/>
                   <field name="amount"/>
                   <field name="bom_id"/>
                 </tree>
