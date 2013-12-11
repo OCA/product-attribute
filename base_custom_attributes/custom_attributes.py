@@ -245,21 +245,33 @@ class attribute_attribute(orm.Model):
                  "but not in the database"),
         }
 
+    def name_create(self, cr, uid, name, context=None):
+        if context is None:
+            context = {}
+        rec_id = self.create(cr, uid, {
+            'field_description': name,
+            'name': 'x_{0}'.format(name),
+        }, context=context)
+        return self.name_get(cr, uid, [rec_id], context)[0]
+
     def create(self, cr, uid, vals, context=None):
         if vals.get('relation_model_id'):
             relation = self.pool.get('ir.model').read(
                 cr, uid, [vals.get('relation_model_id')], ['model'])[0]['model']
         else:
             relation = 'attribute.option'
-        if vals['attribute_type'] == 'select':
+        if vals.get('attribute_type') == 'select':
             vals['ttype'] = 'many2one'
             vals['relation'] = relation
-        elif vals['attribute_type'] == 'multiselect':
+        elif vals.get('attribute_type') == 'multiselect':
             vals['ttype'] = 'many2many'
             vals['relation'] = relation
             vals['serialized'] = True
         else:
-            vals['ttype'] = vals['attribute_type']
+            vals['ttype'] = (
+                vals.get('attribute_type')
+                or self._defaults.get('attribute_type')
+            )
 
         if vals.get('serialized'):
             field_obj = self.pool.get('ir.model.fields')
@@ -322,7 +334,8 @@ class attribute_attribute(orm.Model):
         return None
 
     _defaults = {
-        'model_id': _get_default_model
+        'model_id': _get_default_model,
+        'attribute_type': 'char',
     }
 
 
