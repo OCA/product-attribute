@@ -57,7 +57,6 @@ class product_pricelist_configurator(Model):
 
     def compute_final_price(self, cr, uid, ids, context=None):
         val=0
-        import pdb;pdb.set_trace()
         for conf in self.browse(cr, uid, ids):
             if conf.line_ids:
                 for l in conf.line_ids:
