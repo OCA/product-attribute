@@ -252,7 +252,7 @@ class attribute_attribute(orm.Model):
             'field_description': name,
             'name': 'x_{0}'.format(name),
         }, context=context)
-        return self.name_get(cr, uid, [rec_id], context)[0]
+        return self.name_get(cr, uid, [rec_id], context=context)[0]
 
     def create(self, cr, uid, vals, context=None):
         if vals.get('relation_model_id'):
