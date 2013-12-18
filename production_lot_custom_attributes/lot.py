@@ -47,28 +47,25 @@ class stock_production_lot(osv.Model):
 
         def expand_serialized(arg):
             """Expand the args in a trivial domain ('id', 'in', ids)"""
-            if isinstance(arg, tuple) and arg[0] == name:
-                if arg[1] == 'like':
-                    operator = '~'
-                elif arg[1] == 'ilike':
-                    operator = '~*'
-                else:
-                    raise osv.except_osv(
-                        _('Not Implemented!'),
-                        _('Search not supported for this field'))
-
-                cr.execute(
-                    """
-                        select id
-                        from {0}
-                        where x_custom_json_attrs {1} %s;
-                    """.format(self._table, operator),
-                    (ur'.*: "[^"]*%s' % re.escape(arg[2]),)
-                )
-                sql_ids = [line[0] for line in cr.fetchall()]
-                return [('id', 'in', sql_ids)]
+            if arg[1] == 'like':
+                operator = '~'
+            elif arg[1] == 'ilike':
+                operator = '~*'
             else:
-                return [arg]
+                raise osv.except_osv(
+                    _('Not Implemented!'),
+                    _('Search not supported for this field'))
+
+            cr.execute(
+                """
+                    select id
+                    from {0}
+                    where x_custom_json_attrs {1} %s;
+                """.format(self._table, operator),
+                (ur'.*: "[^"]*%s' % re.escape(arg[2]),)
+            )
+            sql_ids = [line[0] for line in cr.fetchall()]
+            return [('id', 'in', sql_ids)]
 
         def expand_not_serialized(arg):
             """Expand the args in a domain like
@@ -91,9 +88,11 @@ class stock_production_lot(osv.Model):
 
         def expand(arg):
             """Expand each argument in a domain we can pass upstream"""
-            return ['|'] + expand_serialized(arg) + expand_not_serialized(arg)
-
-        return itertools.chain(*[expand(arg) for arg in args])
+            if isinstance(arg, tuple) and arg[0] == name:
+                return ['|'] + expand_serialized(arg) + expand_not_serialized(arg)
+            else:
+                return [arg]
+        return list(itertools.chain(*[expand(arg) for arg in args]))
 
     _columns = {
         'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
