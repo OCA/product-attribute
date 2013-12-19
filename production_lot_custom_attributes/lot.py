@@ -92,7 +92,7 @@ class stock_production_lot(osv.Model):
                 return ['|'] + expand_serialized(arg) + expand_not_serialized(arg)
             else:
                 return [arg]
-        return list(itertools.chain(*[expand(arg) for arg in args]))
+        return list(itertools.chain.from_iterable(expand(arg) for arg in args))
 
     _columns = {
         'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
