@@ -93,7 +93,8 @@ class stock_production_lot(osv.Model):
 
             field_ids = attribute_pool.search(cr, uid, [
                 ('model_id.model', '=', self._name),
-                ('serialized', '=', False)
+                ('serialized', '=', False),
+                ('attribute_type', '=', 'char'),
             ], context=context)
             fields = attribute_pool.browse(cr, uid, field_ids, context=context)
             terms = [(f.name, arg[1], arg[2]) for f in fields]
