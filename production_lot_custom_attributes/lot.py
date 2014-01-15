@@ -47,7 +47,8 @@ class stock_production_lot(osv.Model):
 
         def expand_serialized(arg):
             """Expand the args in a trivial domain ('id', 'in', ids)"""
-            ser_attributes = self.pool['attribute.attribute'].search(
+            attribute_pool = self.pool.get('attribute.attribute')
+            ser_attributes = attribute_pool.search(
                 cr, uid, [
                     ('name', '=', self._name),
                     ('serialized', '=', True),
