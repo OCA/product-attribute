@@ -21,6 +21,7 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.     #
 #                                                                             #
 ###############################################################################
+"""Production lot customization: custom attributes."""
 
 from openerp.osv import fields, osv
 from tools.translate import _
@@ -30,10 +31,21 @@ import itertools
 
 
 class stock_production_lot(osv.Model):
+
+    """
+    Add to the production lot custom attributes.
+
+    This is done in a way similar to the custom attributes of the product.
+
+    Additionally, we add a field to search in all attributes, stored or not,
+    from the search view.
+
+    """
+
     _inherit = "stock.production.lot"
 
     def _search_all_attributes(self, cr, uid, obj, name, args, context):
-        """Search in all serialized attributes
+        """Search in all serialized attributes. Return domain.
 
         Receives a domain in args, and expands all relevant terms into ids
         to search into all attributes. The ORM will take care of security
@@ -103,7 +115,11 @@ class stock_production_lot(osv.Model):
         def expand(arg):
             """Expand each argument in a domain we can pass upstream"""
             if isinstance(arg, tuple) and arg[0] == name:
-                return ['|'] + expand_serialized(arg) + expand_not_serialized(arg)
+                return (
+                    ['|'] +
+                    expand_serialized(arg) +
+                    expand_not_serialized(arg)
+                )
             else:
                 return [arg]
         return list(itertools.chain.from_iterable(expand(arg) for arg in args))
@@ -125,7 +141,9 @@ class stock_production_lot(osv.Model):
     }
 
     def _fix_size_bug(self, cr, uid, result, context=None):
-        """When created a field text dynamicaly, its size is limited to 64 in
+        """Workaround for the size of text fields. Return fixed fields.
+
+        When created a field text dynamically, its size is limited to 64 in
         the view. The bug is fixed but not merged
         https://code.launchpad.net/~openerp-dev/openerp-web/6.1-opw-579462-cpa
         To remove when the fix will be merged
@@ -138,7 +156,7 @@ class stock_production_lot(osv.Model):
         return result
 
     def open_attributes(self, cr, uid, ids, context=None):
-        """Open the attributes of an object
+        """Open the attributes of an object. Return action.
 
         This method is called when the user presses the Open Attributes button
         in the form view of the object. It opens a dinamically-built form view.
@@ -179,11 +197,12 @@ class stock_production_lot(osv.Model):
             }
 
     def save_and_close_lot_attributes(self, cr, uid, ids, context=None):
+        """Button to save and close. Return action."""
         return {'type': 'ir.actions.act_window_close'}
 
     def fields_view_get(self, cr, uid, view_id=None, view_type='form',
                         context=None, toolbar=False, submenu=False):
-        """Dinamically adds attributes to the view
+        """Dinamically add attributes to the view. Return field_view_get.
 
         Modifies dinamically the view to show the attributes. If the users
         presses the Open Attributes button, the attributes are shown in a
