@@ -47,25 +47,37 @@ class stock_production_lot(osv.Model):
 
         def expand_serialized(arg):
             """Expand the args in a trivial domain ('id', 'in', ids)"""
-            if arg[1] == 'like':
-                operator = '~'
-            elif arg[1] == 'ilike':
-                operator = '~*'
-            else:
-                raise osv.except_osv(
-                    _('Not Implemented!'),
-                    _('Search not supported for this field'))
+            ser_attributes = self.pool['attribute.attribute'].search(
+                cr, uid, [
+                    ('name', '=', self._name),
+                    ('serialized', '=', True),
+                ], context=context)
 
-            cr.execute(
-                """
-                    select id
-                    from {0}
-                    where x_custom_json_attrs {1} %s;
-                """.format(self._table, operator),
-                (ur'.*: "[^"]*%s' % re.escape(arg[2]),)
-            )
-            sql_ids = [line[0] for line in cr.fetchall()]
-            return [('id', 'in', sql_ids)]
+            #  we need this check, otherwise the column x_custom_json_attrs
+            #  does not exist in the database. Because of transactions, we
+            #  cannot try-pass errors on the database.
+            if ser_attributes:
+                if arg[1] == 'like':
+                    operator = '~'
+                elif arg[1] == 'ilike':
+                    operator = '~*'
+                else:
+                    raise osv.except_osv(
+                        _('Not Implemented!'),
+                        _('Search not supported for this field'))
+
+                cr.execute(
+                    """
+                        select id
+                        from {0}
+                        where x_custom_json_attrs {1} %s;
+                    """.format(self._table, operator),
+                    (ur'.*: "[^"]*%s' % re.escape(arg[2]),)
+                )
+                sql_ids = [line[0] for line in cr.fetchall()]
+                return [('id', 'in', sql_ids)]
+            else:
+                return [('id', 'in', [])]
 
         def expand_not_serialized(arg):
             """Expand the args in a domain like
