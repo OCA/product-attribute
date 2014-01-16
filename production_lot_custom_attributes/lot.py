@@ -21,35 +21,55 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.     #
 #                                                                             #
 ###############################################################################
+"""Production lot customization: custom attributes."""
 
 from openerp.osv import fields, osv
 from tools.translate import _
 from lxml import etree
 import re
+import itertools
 
 
 class stock_production_lot(osv.Model):
+
+    """
+    Add to the production lot custom attributes.
+
+    This is done in a way similar to the custom attributes of the product.
+
+    Additionally, we add a field to search in all attributes, stored or not,
+    from the search view.
+
+    """
+
     _inherit = "stock.production.lot"
 
     def _search_all_attributes(self, cr, uid, obj, name, args, context):
-        """Search in all serialized attributes
+        """Search in all serialized attributes. Return domain.
 
         Receives a domain in args, and expands all relevant terms into ids
         to search into all attributes. The ORM will take care of security
         afterwards, so it' OK to use SQL here.
 
-        In the future, we could consider storing attributes as native PostgreSQL
-        hstore or JSON instead of strings, and substitute this rough regexp
-        search with native PostgreSQL goodness.
+        In the future, we could consider storing attributes as native
+        PostgreSQL hstore or JSON instead of strings, and substitute this rough
+        regexp search with native PostgreSQL goodness.
 
         """
 
-        def expand_arg(arg):
-            """Takes a single argument of the domain, and when possible expands
-            it to a trivial domain ('in', 'in', list)
+        def expand_serialized(arg):
+            """Expand the args in a trivial domain ('id', 'in', ids)"""
+            attribute_pool = self.pool.get('attribute.attribute')
+            ser_attributes = attribute_pool.search(
+                cr, uid, [
+                    ('name', '=', self._name),
+                    ('serialized', '=', True),
+                ], context=context)
 
-            """
-            if isinstance(arg, tuple) and arg[0] == name:
+            #  we need this check, otherwise the column x_custom_json_attrs
+            #  does not exist in the database. Because of transactions, we
+            #  cannot try-pass errors on the database.
+            if ser_attributes:
                 if arg[1] == 'like':
                     operator = '~'
                 elif arg[1] == 'ilike':
@@ -64,18 +84,45 @@ class stock_production_lot(osv.Model):
                         select id
                         from {0}
                         where x_custom_json_attrs {1} %s;
-                    """.format(
-                        self._table,
-                        operator
-                    ),
-                    (ur'.*: "[^"]*%s' % re.escape(arg[2]) ,)
+                    """.format(self._table, operator),
+                    (ur'.*: "[^"]*%s' % re.escape(arg[2]),)
                 )
                 sql_ids = [line[0] for line in cr.fetchall()]
-                return ('id', 'in', sql_ids)
+                return [('id', 'in', sql_ids)]
             else:
-                return arg
+                return [('id', 'in', [])]
 
-        return [expand_arg(arg) for arg in args]
+        def expand_not_serialized(arg):
+            """Expand the args in a domain like
+            ['|', ('real_field_1', operator, string),
+            ('real_field_2', operator, string)"""
+            if arg[1] not in ('like', 'ilike'):
+                raise osv.except_osv(
+                    _('Not Implemented!'),
+                    _('Search not supported for this field'))
+
+            attribute_pool = self.pool.get('attribute.attribute')
+
+            field_ids = attribute_pool.search(cr, uid, [
+                ('model_id.model', '=', self._name),
+                ('serialized', '=', False),
+                ('attribute_type', '=', 'char'),
+            ], context=context)
+            fields = attribute_pool.browse(cr, uid, field_ids, context=context)
+            terms = [(f.name, arg[1], arg[2]) for f in fields]
+            return ['|'] * (len(terms) - 1) + terms
+
+        def expand(arg):
+            """Expand each argument in a domain we can pass upstream"""
+            if isinstance(arg, tuple) and arg[0] == name:
+                return (
+                    ['|'] +
+                    expand_serialized(arg) +
+                    expand_not_serialized(arg)
+                )
+            else:
+                return [arg]
+        return list(itertools.chain.from_iterable(expand(arg) for arg in args))
 
     _columns = {
         'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
@@ -94,7 +141,9 @@ class stock_production_lot(osv.Model):
     }
 
     def _fix_size_bug(self, cr, uid, result, context=None):
-        """When created a field text dynamicaly, its size is limited to 64 in
+        """Workaround for the size of text fields. Return fixed fields.
+
+        When created a field text dinamically, its size is limited to 64 in
         the view. The bug is fixed but not merged
         https://code.launchpad.net/~openerp-dev/openerp-web/6.1-opw-579462-cpa
         To remove when the fix will be merged
@@ -107,7 +156,7 @@ class stock_production_lot(osv.Model):
         return result
 
     def open_attributes(self, cr, uid, ids, context=None):
-        """Open the attributes of an object
+        """Open the attributes of an object. Return action.
 
         This method is called when the user presses the Open Attributes button
         in the form view of the object. It opens a dinamically-built form view.
@@ -148,11 +197,12 @@ class stock_production_lot(osv.Model):
             }
 
     def save_and_close_lot_attributes(self, cr, uid, ids, context=None):
+        """Button to save and close. Return action."""
         return {'type': 'ir.actions.act_window_close'}
 
     def fields_view_get(self, cr, uid, view_id=None, view_type='form',
                         context=None, toolbar=False, submenu=False):
-        """Dinamically adds attributes to the view
+        """Dinamically add attributes to the view. Return field_view_get.
 
         Modifies dinamically the view to show the attributes. If the users
         presses the Open Attributes button, the attributes are shown in a
