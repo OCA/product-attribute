@@ -1,0 +1,117 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* pricelist_configurator_by_bom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-20 16:41+0000\n"
+"PO-Revision-Date: 2014-01-20 17:58+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 1.6.2\n"
+
+#. module: pricelist_configurator_by_bom
+#: field:product.pricelist.configurator.line,cost_price:0
+msgid "Cost Price"
+msgstr "Costo"
+
+#. module: pricelist_configurator_by_bom
+#: model:ir.model,name:pricelist_configurator_by_bom.model_product_pricelist_configurator
+msgid "product.pricelist.configurator"
+msgstr "Configuratore"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+#: field:product.pricelist.configurator,pricelist_item_id:0
+msgid "Pricelist"
+msgstr "Listino"
+
+#. module: pricelist_configurator_by_bom
+#: model:ir.model,name:pricelist_configurator_by_bom.model_product_pricelist_configurator_line
+msgid "product.pricelist.configurator.line"
+msgstr "Linea Configuratore"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+msgid "This method will overwrite the pricelist"
+msgstr "Questo metodo sovrascriverà il precedente listino"
+
+#. module: pricelist_configurator_by_bom
+#: model:ir.ui.menu,name:pricelist_configurator_by_bom.menu_product_priecelist_configurator
+msgid "Pricelist Configurator"
+msgstr "Configuratore Listini"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+msgid "Create List Price"
+msgstr "Crea Lista Prezzi"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+#: field:product.pricelist.configurator,product_id:0
+#: field:product.pricelist.configurator.line,product_id:0
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+#: field:product.pricelist.configurator,amount:0
+msgid "Amount"
+msgstr "Totale"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+msgid "Update List Price"
+msgstr "Aggiorna Lista Prezzi"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+#: field:product.pricelist.configurator,bom_id:0
+#: field:product.pricelist.configurator.line,bom_id:0
+msgid "Bom"
+msgstr "Bom"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+msgid "Compute Final Price"
+msgstr "Calcola Prezzo Finale"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator:0
+#: field:product.pricelist.configurator,partner_id:0
+msgid "Partner"
+msgstr "Partner"
+
+#. module: pricelist_configurator_by_bom
+#: view:product.pricelist.configurator.line:0
+msgid "Configurator Line"
+msgstr "Linea Configuratore"
+
+#. module: pricelist_configurator_by_bom
+#: field:product.pricelist.configurator.line,quantity:0
+msgid "Quantity"
+msgstr "Quantità"
+
+#. module: pricelist_configurator_by_bom
+#: field:product.pricelist.configurator.line,margin:0
+msgid "Margin"
+msgstr "Margine"
+
+#. module: pricelist_configurator_by_bom
+#: field:product.pricelist.configurator,line_ids:0
+msgid "Line"
+msgstr "Linea"
+
+#. module: pricelist_configurator_by_bom
+#: model:ir.actions.act_window,name:pricelist_configurator_by_bom.action_product_priecelist_configurator
+#: view:product.pricelist.configurator:0
+#: field:product.pricelist.configurator.line,configurator_id:0
+msgid "Configurator"
+msgstr "Configuratore"

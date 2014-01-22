@@ -11,3 +11,17 @@
     self.create_pricelist_item(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})
     for conf in self.browse(cr, uid, [ref("product_pricelist_configurator_0")]):
     	assert conf.pricelist_item_id != False, "Pricelist Item not created"
+-
+  I clicked on Update Price button to update the line
+-
+  !python {model: product.pricelist.configurator}: |
+    self.write_pricelist_item(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})
+    for conf in self.browse(cr, uid, [ref("product_pricelist_configurator_0")]):
+    	assert conf.pricelist_item_id != False, "Pricelist Item not updated"
+-
+  I clicked on Compute Final Price button to calculate the final price
+-
+  !python {model: product.pricelist.configurator}: |
+    self.compute_final_price(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})
+    for conf in self.browse(cr, uid, [ref("product_pricelist_configurator_0")]):
+    	assert conf.amount == 0, "Final Price Not calculated"
