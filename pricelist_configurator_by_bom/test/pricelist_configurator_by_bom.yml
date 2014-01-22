@@ -22,6 +22,8 @@
   I clicked on Compute Final Price button to calculate the final price
 -
   !python {model: product.pricelist.configurator}: |
+    for line in self.browse(cr, uid, [ref("product_pricelist_configurator_0")])
+      line.write(cr,uid,line.id,{'margin': 5.0})
     self.compute_final_price(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})
     for conf in self.browse(cr, uid, [ref("product_pricelist_configurator_0")]):
-    	assert conf.amount == 0, "Final Price Not calculated"
+    	assert conf.amount != 0, "Final Price Not calculated"

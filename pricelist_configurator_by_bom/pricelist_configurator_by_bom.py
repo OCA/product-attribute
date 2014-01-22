@@ -77,6 +77,7 @@ class product_pricelist_configurator(Model):
         return res
 
     def compute_final_price(self, cr, uid, ids, context=None):
+        import pdb; pdb.set_trace()
         val = 0
         for conf in self.browse(cr, uid, ids):
             if conf.line_ids:
