@@ -42,7 +42,7 @@ class product_pricelist_configurator_line(Model):
             required=True),
         'quantity': fields.float(
             'Quantity',
-            digits_compute=dp.get_precision('Product Unit of Measure'),
+            digits_compute=dp.get_precision('Product Unit of Measu  re'),
             readonly=True),
         'bom_id': fields.many2one('mrp.bom', 'Bom', readonly=True),
         'configurator_id': fields.many2one(
@@ -77,7 +77,6 @@ class product_pricelist_configurator(Model):
         return res
 
     def compute_final_price(self, cr, uid, ids, context=None):
-        import pdb; pdb.set_trace()
         val = 0
         for conf in self.browse(cr, uid, ids):
             if conf.line_ids:
