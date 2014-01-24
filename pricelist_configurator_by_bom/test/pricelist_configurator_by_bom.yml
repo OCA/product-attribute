@@ -32,8 +32,6 @@
   I clicked on Update Price button to update the line
 -
   !python {model: product.pricelist.configurator}: |
-    for conf in self.browse(cr, uid, [ref("product_pricelist_configurator_0")]):
-      conf.write({'amount': 25.0})
     self.write_pricelist_item(cr, uid, [ref("product_pricelist_configurator_0")],{'lang': 'en_US', 'tz': 'Europe/Brussels'})
     for conf in self.browse(cr, uid, [ref("product_pricelist_configurator_0")]):
-      assert conf.pricelist_item_id.price_surcharge != '25.0', "Pricelist Item not updated"
+      assert conf.pricelist_item_id.price_surcharge != '15300.0', "Pricelist Item not updated"
