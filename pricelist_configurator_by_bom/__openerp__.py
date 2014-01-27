@@ -29,24 +29,22 @@
 Introduction
 ------------
 This module is a calculator that establishes the final product’s price based on
-various margins on the single cost of the bill of material. In OpenERP the
-product’s price is on the price list, every partner can have his price list and
-every price list is connected to a product. So this is a calculator for the
-price list.
+the margins applied to the costs of the components of the bill of material.
+In OpenERP the product’s price is computed by the price list, every partner can
+have his price list and every price list item con be connected to a product.
 
 This module provides a configurator where the user selects the final product
-and the partner. The system propose the BOM with the cost of every component.
-The User can finally set the margin for every component.
+and the partner. The system propose the BOM with the costs of every component.
+The user can finally set the margin for every component and compute the final
+price.
 
 How To Use
 ----------
  - In the configurator, fill the Product and Partner fields, the system will
-   automatically set the bom (changeable) and the lines
- - Work on the several lines
- - Create or Update the Price List
- - Compute the final price
-
-    """,
+   automatically load the bom (changeable) and the lines
+ - Work on the several lines setting the margin you want to apply
+ - Compute the final price and create (or update) the price list
+""",
     'author': 'Agile Business Group',
     'website': 'http://www.agilebg.com/',
     'depends': ['product', 'sale', 'mrp'],
