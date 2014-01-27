@@ -29,7 +29,8 @@
 Introduction
 ------------
 This module is a calculator that establishes the final product’s price based on
-the margins applied to the costs of the components of the bill of material.
+different margins applied to the costs of the components of the bill of
+material.
 In OpenERP the product’s price is computed by the price list, every partner can
 have his price list and every price list item con be connected to a product.
 
