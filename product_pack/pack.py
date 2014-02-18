@@ -150,7 +150,7 @@ class sale_order_line(orm.Model):
             'sale.order.line', 'pack_parent_line_id', 'Lines in pack'),
     }
     _defaults = {
-        'pack_depth': lambda *a: 0,
+        'pack_depth': 0,
     }
 
 
@@ -340,7 +340,7 @@ class purchase_order_line(orm.Model):
         ),
     }
     _defaults = {
-        'pack_depth': lambda *a: 0,
+        'pack_depth': 0,
     }
 
 
