@@ -115,11 +115,16 @@ class stock_production_lot(osv.Model):
         def expand(arg):
             """Expand each argument in a domain we can pass upstream"""
             if isinstance(arg, tuple) and arg[0] == name:
-                return (
-                    ['|'] +
-                    expand_serialized(arg) +
-                    expand_not_serialized(arg)
-                )
+                # this is never empty, at worst it is [('id', 'in', [])]
+                res = expand_serialized(arg)
+
+                # this can be an empty list
+                not_serialized = expand_not_serialized(arg)
+                if not_serialized:
+                    res = ['|'] + res + not_serialized
+
+                return res
+
             else:
                 return [arg]
         return list(itertools.chain.from_iterable(expand(arg) for arg in args))
