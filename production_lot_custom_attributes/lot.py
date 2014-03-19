@@ -24,7 +24,7 @@
 """Production lot customization: custom attributes."""
 
 from openerp.osv import fields, osv
-from tools.translate import _
+from tools.translate import translate, _
 from lxml import etree
 import re
 import itertools
@@ -217,6 +217,13 @@ class stock_production_lot(osv.Model):
         """
         if context is None:
             context = {}
+
+        def translate_view(source):
+            """Return a translation of type view of source."""
+            return translate(
+                cr, None, 'view', context.get('lang'), source
+            ) or source
+
         attr_pool = self.pool.get('attribute.attribute')
         result = super(stock_production_lot, self).fields_view_get(
             cr, uid, view_id, view_type, context, toolbar=toolbar,
@@ -250,11 +257,11 @@ class stock_production_lot(osv.Model):
                 # in this case, we know the attribute set beforehand, and we
                 # add the attributes to the current view
                 main_page = etree.Element(
-                    'page', string=_('Custom Attributes')
+                    'page', string=translate_view('Custom Attributes')
                 )
                 main_page.append(attributes_notebook)
                 info_page = eview.xpath(
-                    "//page[@string='%s']" % (_('Stock Moves'),)
+                    "//page[@string='%s']" % (translate_view('Stock Moves'),)
                 )[0]
                 info_page.addnext(main_page)
             result['arch'] = etree.tostring(eview, pretty_print=True)
