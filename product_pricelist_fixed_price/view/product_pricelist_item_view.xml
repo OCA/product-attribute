@@ -51,6 +51,18 @@
                 <label string=" ) + " position="attributes">
                     <attribute name="attrs">{'invisible': [('base_ext', '=', -3)]}</attribute>
                 </label>
+                <field name="price_round" position="attributes">
+                    <attribute name="attrs"
+                        >{'invisible': [('base_ext', '=', -3)]}</attribute>
+                </field>
+                <field name="price_min_margin" position="attributes">
+                    <attribute name="attrs"
+                        >{'invisible': [('base_ext', '=', -3)]}</attribute>
+                </field>
+                <field name="price_max_margin" position="attributes">
+                    <attribute name="attrs"
+                        >{'invisible': [('base_ext', '=', -3)]}</attribute>
+                </field>
             </field>
         </record>
 
