@@ -67,27 +67,52 @@ class product_pricelist_item(orm.Model):
             'invalid values for fixed price', ['base_ext']),
     ]
 
+    def _auto_end(self, cr, context=None):
+        '''Make sure that after updating database tables for this module,
+        existing values in pricelist item are set correctly.'''
+        cr.execute(
+            'update product_pricelist_item'
+            ' set base_ext = base'
+            ' where base_ext != -3 and base != base_ext'
+        )
+        return super(product_pricelist_item, self)._auto_end(
+            cr, context=context)
+
     def _modify_vals(self, cr, uid, vals, browse_obj=None, context=None):
-        '''Ensure consistent values for fixed pricelists.
-        The passed vals parameter is used for both input and output.'''
-        # First determine wether a fixed price should apply
-        fixed_price = False
-        if browse_obj:
-            fixed_price = (browse_obj.base_ext == FIXED_PRICE_TYPE)
-        else:
-            # new record
-            fixed_price = (
-                'base_ext' in vals and
-                vals['base_ext'] == FIXED_PRICE_TYPE or False)
-        if not fixed_price:
+        '''Ensure consistent values for fixed pricelist items.
+        The passed vals parameter is used for both input and output.
+        base should be 1 if base-ext = -1, in all other cases base and
+        base_ext should be the same. The value passed should be leading,
+        with the exception that a fixed price item should never be changed
+        into something else through base.'''
+        # Check wether any action is needed
+        if not ('base_ext' in vals or 'base' in vals):
             return
+        # Get base and base_ext values
+        if 'base_ext' in vals:
+            base_ext = vals['base_ext']
+            base = (base_ext == FIXED_PRICE_TYPE) and 1 or base_ext
+        else:
+            # getting here we are sure base is in vals
+            base = vals['base']
+            # check against changing fixed price (should not happen)
+            if browse_obj:
+                assert browse_obj.base_ext != FIXED_PRICE_TYPE, (
+                    _('Can not change fixed pricelist item through base'))
+            base_ext = base
+        # Synchronize base and base_ext values
         vals.update({
-            'price_discount': -1.0,
-            'price_round': 0.0,
-            'base': 1,
-            'price_min_margin': 0.0,
-            'price_max_margin': 0.0,
+            'base_ext': base_ext,
+            'base': base,
         })
+        # Make sure other values valid for fixed price
+        if base_ext == FIXED_PRICE_TYPE:
+            vals.update({
+                'price_discount': -1.0,
+                'price_round': 0.0,
+                'price_min_margin': 0.0,
+                'price_max_margin': 0.0,
+            })
 
     def create(self, cr, uid, vals, context=None):
         '''override create to get computed values'''
