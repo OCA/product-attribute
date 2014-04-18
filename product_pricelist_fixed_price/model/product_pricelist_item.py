@@ -50,7 +50,7 @@ class product_pricelist_item(orm.Model):
     def _check_fixed_price(self, cr, uid, ids):
         '''Ensure fixed prices always refer to a specific product.'''
         for this_obj in self.browse(cr, uid, ids):
-            if this_obj.base_ext == FIXED_PRICE_TYPE:
+            if not this_obj.base_ext == FIXED_PRICE_TYPE:
                 return True
             if not this_obj.product_id:
                 raise orm.except_orm(
