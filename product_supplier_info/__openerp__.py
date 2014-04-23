@@ -22,7 +22,7 @@
 
 {
     'name': 'Product Supplier Info',
-    'version': '1.0',
+    'version': '1.1',
     'category': 'purchase',
     'summary': 'Product Supplier Info',
     'description': """
