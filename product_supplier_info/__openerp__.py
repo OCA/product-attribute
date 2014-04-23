@@ -23,11 +23,16 @@
 {
     'name': 'Product Supplier Info',
     'version': '1.1',
-    'category': 'purchase',
+    'category': 'Product',
     'summary': 'Product Supplier Info',
     'description': """
-Add a specific view for supplier
+Product Supplier Info
 ==================================================
+This module categorizes each product item by supplier.
+It allows for users to be able to view a compiled list
+of products supplied by the supplier.
+
+Users can also directly add new products to the supplier's list.
 
 Contributors
 ------------
