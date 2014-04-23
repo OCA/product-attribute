@@ -26,9 +26,14 @@
     'category': 'purchase',
     'summary': 'Product Supplier Info',
     'description': """
-Add a specific View for Supplier
+Add a specific view for supplier
 ==================================================
-    """,
+
+Contributors
+------------
+
+* Alex Comba <alex.comba@agilebg.com>
+""",
     'author': 'Elico Corp',
     'website': 'http://www.elico-corp.com',
     'license': 'AGPL-3',
