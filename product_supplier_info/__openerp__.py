@@ -24,16 +24,17 @@
     'name': 'Product Supplier Info',
     'version': '1.0',
     'category': 'purchase',
-    'sequence': 19,
     'summary': 'Product Supplier Info',
     'description': """
-Add a specific View for Supplier 
+Add a specific View for Supplier
 ==================================================
     """,
     'author': 'Elico Corp',
     'website': 'http://www.elico-corp.com',
-    'images' : [],
-    'depends': ['product','stock'],#TO REMOVE joomlaconnector for standard
+    'license': 'AGPL-3',
+    'depends': [
+        'product', 'stock',
+    ],
     'data': [
         'product_view.xml',
     ],
