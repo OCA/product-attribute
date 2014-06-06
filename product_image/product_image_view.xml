@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_product_image_form" model="ir.ui.view">
+            <field name="model">product.image</field>
+            <field name="arch" type="xml">
+                <form string="Product Images" version="7.0">
+                    <sheet>
+                        <field name="image_small" widget="image" class="oe_avatar oe_left" filename="file_name"/>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name"/>
+                            </div>
+                            <field name="name"/>
+                            <div class="oe_edit_only">
+                                <label for="file_name"/>
+                            </div>
+                            <field name="file_name" on_change="onchange_name(file_name, name, context)"/>
+                            <label for="sequence"/>
+                            <field name="sequence"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_image_tree" model="ir.ui.view">
+            <field name="model">product.image</field>
+            <field name="arch" type="xml">
+                <tree string="Product Images">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_form_img_inh" model="ir.ui.view">
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook" position="inside">
+                    <page string="Images">
+                        <field name="image_ids" nolabel="1" mode="kanban"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_image_kanban_view" model="ir.ui.view">
+            <field name="model">product.image</field>
+            <field name="arch" type="xml">
+                <kanban quick_create="false" create="true" delete="true">
+                    <field name="image_small"/>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_project oe_kanban_global_click">
+                               <div class="oe_kanban_content">
+                                    <a type="open">
+                                        <img t-att-src="kanban_image('product.image', 'image_small', record.id.value)"
+                                        class="oe_kanban_image"/>
+                                    </a>
+                                </div>
+                                <div class="oe_edit_only oe_right" groups="base.group_user">
+                                    <a type="delete" class="oe_e">[</a>
+                                </div>
+ 
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    </data>
+</openerp>

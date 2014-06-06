@@ -21,13 +21,44 @@
 #
 ###############################################################################
 
+from openerp.osv import fields, orm
+import os
+
+
 class ProductImage(orm.Model):
     "Products Image"
     _name = "product.image"
+    _order='sequence,name'
 
     _columns = {
+        'sequence': fields.integer('Sequence'),
         'name': fields.char('Image Title'),
         'file_name': fields.char('File name', required=True),
         'description': fields.text('Description'),
+        'image': fields.ImageField('Image'),
+        'image_medium': fields.ImageResizeField(
+            related_field='image',
+            string='Image',
+            height=128,
+            width=128,
+            ),
+        'image_small': fields.ImageResizeField(
+            related_field='image',
+            string='Image',
+            height=64,
+            width=64,
+            ),
         'product_id': fields.many2one('product.product', 'Product'),
-      }
+    }
+
+    _defaults= {
+        'sequence': 0,
+    }
+
+    def onchange_name(self, cr, uid, ids, file_name, name, context=None):
+        if not name:
+            name, extension = os.path.splitext(file_name)
+            for mapping in [('_', ' '), ('.', ' ')]:
+                name = name.replace(mapping[0], mapping[1])
+            return {'value': {'name': name}}
+        return {}

@@ -33,35 +33,44 @@ class ProductProduct(orm.Model):
         default.update({
             'image_ids': False,
         })
-        return super(product_product, self).copy(cr, uid, id, default, context=context)
+        return super(ProductProduct, self).\
+            copy(cr, uid, id, default, context=context)
 
-    def get_main_image(self, cr, uid, id, context=None):
-        if isinstance(id, list):
-            id = id[0]
-        images_ids = self.read(cr, uid, id, ['image_ids'], context=context)['image_ids']
-        if images_ids:
-            return images_ids[0]
-        return False
+    def _get_main_image_id(self, cr, uid, product_id, context=None):
+        product = self.read(cr, uid, product_id, ['image_ids'],
+                            context=context)
+        if product['image_ids']:
+            return product['image_ids'][0]
+        return None
 
-    def _get_main_image(self, cr, uid, ids, field_name, arg, context=None):
+    def __get_main_image(self, cr, uid, ids, field_name, arg, context=None):
         res = {}
-        img_obj = self.pool.get('product.images')
-        for id in ids:
-            image_id = self.get_main_image(cr, uid, id, context=context)
+        img_obj = self.pool.get('product.image')
+        for product_id in ids:
+            image_id = self._get_main_image_id(
+                cr, uid, product_id, context=context)
             if image_id:
                 image = img_obj.browse(cr, uid, image_id, context=context)
-                res[id] = image.file
+                res[product_id] = image[field_name]
             else:
-                res[id] = False
+                res[product_id] = None
         return res
-
+    
     _columns = {
         'image_ids': fields.one2many(
                 'product.image',
                 'product_id',
                 string='Product Image'),
-        'product_image': fields.function(
-            _get_main_image,
+        'image': fields.function(
+            __get_main_image,
             type="binary",
             string="Main Image"),
-    }
+        'image_medium': fields.function(
+            __get_main_image,
+            type="binary",
+            string="Medium-sized image"),
+        'image_small': fields.function(
+            __get_main_image,
+            type="binary",
+            string="Small-sized image"),
+        }
