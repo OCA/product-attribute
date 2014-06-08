@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="product_dimensions_normal_form_view">
+            <field name="name">product_dimensions_normal_form_view</field>
+            <field name="priority" eval="30"/>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <!-- <field name="volume" position="replace"/> -->
+                <field name="volume" position="replace">
+                
+                <!-- <xpath expr="//page[@string='Information']/group[2]" position="after" > -->
+                    <!-- <group colspan="2" col="2" groups="base.group_extended"> -->
+                        <!-- <separator string="Dimensiones" colspan="2"/> -->
+                        <field name="dimensional_uom"
+                                on_change="onchange_calculate_volume(length, high, width, dimensional_uom)"/>
+                        <field name="length" attrs="{'readonly':[('type','=','service')]}"
+                                on_change="onchange_calculate_volume(length, high, width, dimensional_uom)"/>
+                        <field name="high" attrs="{'readonly':[('type','=','service')]}"
+                                on_change="onchange_calculate_volume(length, high, width, dimensional_uom)"/>
+                        <field name="width" attrs="{'readonly':[('type','=','service')]}"
+                                on_change="onchange_calculate_volume(length, high, width, dimensional_uom)"/>
+                        <field name="volume" string="Volumen en m3"/>
+                    <!-- </group> -->
+                <!-- </xpath> -->
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
