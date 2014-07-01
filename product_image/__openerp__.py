@@ -27,7 +27,11 @@
  'license': 'AGPL-3',
  'category': 'Generic Modules',
  'description': """
- 
+This Module implements an Image Gallery for products.
+You can add images to every product.
+A thumbnail of every image is visible in the product form view
+in the tab 'Images'.
+This module replace the module 'product_images'
  """,
  'depends': [
      'product',
