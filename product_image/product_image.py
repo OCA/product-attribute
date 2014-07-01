@@ -36,15 +36,15 @@ class ProductImage(orm.Model):
         'file_name': fields.char('File name', required=True),
         'description': fields.text('Description'),
         'image': fields.ImageField('Image'),
-        'image_medium': fields.ImageResizeField(
-            related_field='image',
-            string='Image',
+        'image_medium': fields.ImageField(
+            'Image',
+            based_on_field='image',
             height=128,
             width=128,
             ),
-        'image_small': fields.ImageResizeField(
-            related_field='image',
-            string='Image',
+        'image_small': fields.ImageField(
+            'Image',
+            based_on_field='image',
             height=64,
             width=64,
             ),
