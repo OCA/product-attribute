@@ -38,13 +38,13 @@ class ProductImage(orm.Model):
         'image': fields.ImageField('Image'),
         'image_medium': fields.ImageField(
             'Image',
-            based_on_field='image',
+            resize_based_on='image',
             height=128,
             width=128,
             ),
         'image_small': fields.ImageField(
             'Image',
-            based_on_field='image',
+            resize_based_on='image',
             height=64,
             width=64,
             ),
