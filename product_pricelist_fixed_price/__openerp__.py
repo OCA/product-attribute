@@ -1,13 +1,14 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2011 Domsense s.r.l. (<http://www.domsense.com>).
+#    Copyright (c) 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
+#                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com> 
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -19,20 +20,28 @@
 #
 ##############################################################################
 
-
 {
-    "name": "Price List Fixed Price",
-    "version": "1.0",
-    'category': 'Generic Modules/Inventory Control',
-    "depends": ["product"],
-    "author": "Agile Business Group & Domsense",
-    "description": """This module allows to specify a fixed price for price list rules. So, if the rule is based on 'fixed price', this price will be used without any computation""",
-    'website': 'http://www.agilebg.com',
-    'init_xml': [],
-    'update_xml': [
-        'pricelist_view.xml',
-        ],
-    'demo_xml': [],
-    'installable': False,
-    'active': False,
+    "name": "Fixed price in pricelists",
+    "version": "2.0",
+    "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza",
+    "category": "Sales Management",
+    "description": """
+Fixed price on pricelist rule
+=============================
+
+Adds a new option on pricelist rules to set a fixed price. This is made using
+a trick that writes on the back 100% in the discount to the base price to get
+a zero base that will add only the price we put in the surcharge price.
+    """,
+    "website": "www.serviciosbaeza.com",
+    "license": "AGPL-3",
+    "depends": [
+        "product",
+    ],
+    "demo": [],
+    "data": [
+        'view/product_pricelist_item_view.xml',
+    ],
+    "installable": True,
+    "active": False,
 }

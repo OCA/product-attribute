@@ -23,8 +23,15 @@ from openerp.osv.orm import Model
 from openerp.osv import fields
 from openerp.osv.osv import except_osv
 from openerp.osv.orm import setup_modifiers
-from tools.translate import _
+from tools.translate import translate
 from lxml import etree
+
+class product_template(Model):
+    _inherit = "product.template"
+
+    _columns = {
+        'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
+    }
 
 
 class product_product(Model):
@@ -36,27 +43,16 @@ class product_product(Model):
             set_id = self.read(cr, uid, [i], fields=['attribute_set_id'],
                      context=context)[0]['attribute_set_id']
             if not set_id:
-                raise except_osv(_('User Error'), _('Please choose \
-                an attribute set before opening the product attributes'))
-            res[i] = self.pool.get('attribute.group').search(cr, uid,
+                res[i] = []
+            else:
+                res[i] = self.pool.get('attribute.group').search(cr, uid,
                       [('attribute_set_id', '=', set_id[0])])
         return res
 
     _columns = {
-        'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
-        'attribute_group_ids': fields.function(_attr_grp_ids, type='one2many',
+        'attribute_group_ids': fields.function(_attr_grp_ids, type='many2many',
         relation='attribute.group', string='Groups')
     }
-
-    def _fix_size_bug(self, cr, uid, result, context=None):
-    #When created a field text dynamicaly, its size is limited to 64 in the view.
-    #The bug is fixed but not merged
-    #https://code.launchpad.net/~openerp-dev/openerp-web/6.1-opw-579462-cpa/+merge/128003
-    #TO remove when the fix will be merged
-        for field in result['fields']:
-            if result['fields'][field]['type'] == 'text':
-                if 'size' in result['fields'][field]: del result['fields'][field]['size']
-        return result
 
     def open_attributes(self, cr, uid, ids, context=None):
         ir_model_data_obj = self.pool.get('ir.model.data')
@@ -85,6 +81,13 @@ class product_product(Model):
     def fields_view_get(self, cr, uid, view_id=None, view_type='form', context=None, toolbar=False, submenu=False):
         if context is None:
             context = {}
+
+        def translate_view(source):
+            """Return a translation of type view of source."""
+            return translate(
+                cr, None, 'view', context.get('lang'), source
+            ) or source
+
         result = super(product_product, self).fields_view_get(cr, uid, view_id,view_type,context,toolbar=toolbar, submenu=submenu)
         if view_type == 'form' and context.get('attribute_group_ids'):
             eview = etree.fromstring(result['arch'])
@@ -99,10 +102,14 @@ class product_product(Model):
                 placeholder = eview.xpath("//separator[@string='attributes_placeholder']")[0]
                 placeholder.getparent().replace(placeholder, attributes_notebook)
             elif context.get('open_product_by_attribute_set'):
-                main_page = etree.Element('page', string=_('Custom Attributes'))
+                main_page = etree.Element(
+                    'page',
+                    string=translate_view('Custom Attributes')
+                )
                 main_page.append(attributes_notebook)
-                info_page = eview.xpath("//page[@string='%s']" % (_('Information'),))[0]
+                info_page = eview.xpath(
+                    "//page[@string='%s']" % (translate_view('Information'),)
+                )[0]
                 info_page.addnext(main_page)
             result['arch'] = etree.tostring(eview, pretty_print=True)
-            result = self._fix_size_bug(cr, uid, result, context=context)
         return result
