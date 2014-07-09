@@ -6,18 +6,15 @@ virtualenv:
   system_site_packages: true
 
 install:
- - git clone https://github.com/gurneyalex/maintainer-quality-tools.git $HOME/maintainer-quality-tools
+ - git clone https://github.com/OCA/maintainer-quality-tools.git $HOME/maintainer-quality-tools
  - export PATH=$HOME/maintainer-quality-tools/travis:$PATH
- - $HOME/maintainer-quality-tools/travis/travis_install_nightly 7.0
+ - travis_install_nightly 7.0
  - pip install coveralls flake8
  - pip install unidecode
 
-services:
-  - postgresql
-
 script:
     - travis_run_flake8
-    - travis_run_tests 7.0 openerp_test
+    - travis_run_tests 7.0
 
 after_success:
   coveralls
