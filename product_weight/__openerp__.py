@@ -4,6 +4,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2015 Akretion (<http://www.akretion.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,24 +21,17 @@
 #
 ##############################################################################
 
-{
-    "name": "Product Weight Calculation",
-    "version": "0.1",
-    "author": "Savoir-faire Linux",
-    "website": "http://www.savoirfairelinux.com",
-    "license": "AGPL-3",
-    "category": "Warehouse",
-    "description": """
-    This module updates product net weight based on it's components weight
-    """,
-    "depends": [
-        "base",
-        "mrp",
-    ],
-    "demo": [],
-    "data": [
-        "wizard/product_weight_update_view.xml",
-        "product_view.xml",
-    ],
-    "installable": True,
-}
+{'name': 'Product Weight Calculation',
+ 'version': '8.0.0.2.0',
+ 'author': 'Savoir-faire Linux,Akretion,Odoo Community Association (OCA)',
+ 'website': 'http://www.savoirfairelinux.com',
+ 'license': 'AGPL-3',
+ 'category': 'Warehouse',
+ 'summary': 'Allows to calculate products weight from its components.',
+ 'depends': ['mrp',
+             ],
+ 'data': ['wizard/product_weight_update_view.xml',
+          'product_view.xml',
+          ],
+ 'installable': True,
+ }
