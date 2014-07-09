@@ -8,7 +8,7 @@ virtualenv:
 install:
  - git clone https://github.com/gurneyalex/maintainer-quality-tools.git $HOME/maintainer-quality-tools
  - export PATH=$HOME/maintainer-quality-tools/travis:$PATH
- - $HOME/maintainer-quality-tools/travis/travis_install_nightly 7.0
+ - $HOME/maintainer-quality-tools/travis/travis_install_nightly 6.1
  - pip install coveralls flake8
 
 services:
@@ -16,7 +16,7 @@ services:
 
 script:
     - travis_run_flake8
-    - travis_run_tests 7.0 openerp_test
+    - travis_run_tests 6.1 openerp_test
 
 after_success:
   coveralls
