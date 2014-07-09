@@ -4,6 +4,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2015 Akretion (<http://www.akretion.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,73 +21,95 @@
 #
 ##############################################################################
 
+from openerp import models, fields, api
 import logging
-from openerp.osv import fields, osv
-from openerp.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 
 
-class product_weight_update(osv.osv_memory):
+class ProductWeightUpdate(models.TransientModel):
     _name = "product.weight.update"
     _description = "Update Product Weight"
-    _columns = {
-        'product_id': fields.many2one('product.product', 'Product'),
-        'bom_id': fields.many2one('mrp.bom', 'BoM', domain="[('product_id', '=', product_id)]"),
-    }
 
-    def default_get(self, cr, uid, fields, context):
-        """ To get default values for the object.
-         @param self: The object pointer.
-         @param cr: A database cursor
-         @param uid: ID of the user currently logged in
-         @param fields: List of fields for which we want default values
-         @param context: A standard dictionary
-         @return: A dictionary which of fields with values.
-        """
-        product_id = context and context.get('active_id', False) or False
-        res = super(product_weight_update, self).default_get(cr, uid, fields, context=context)
+    product_tmpl_id = fields.Many2one('product.template', 'Product')
+    bom_id = fields.Many2one(
+        'mrp.bom',
+        'BoM',
+        domain="[('product_tmpl_id', '=', product_tmpl_id)]")
 
-        bom_id = self.pool.get('mrp.bom').search(
-            cr, uid, [('product_id', '=', product_id)])[0]
+    @api.model
+    def default_get(self, fields):
+        res = super(ProductWeightUpdate, self).default_get(fields)
+        if not fields:
+            return res
+        context = self.env.context
+        if context.get('active_model') == 'product.template':
+            product_tmpl_id = context.get('active_id', False)
+            domain_template = [('product_tmpl_id', '=', product_tmpl_id)]
+            domain_product = []
+        else:
+            product_id = context.get('active_id', False)
+            product = self.env['product.product'].browse(product_id)
+            product_tmpl_id = product.product_tmpl_id.id
+            domain_template = [('product_tmpl_id', '=', product_tmpl_id)]
+            domain_product = [('product_id', '=', product_id)]
+        bom = False
+        if domain_product:
+            bom = self.env['mrp.bom'].search(domain_product, limit=1)
+        if not domain_product or not bom:
+            bom = self.env['mrp.bom'].search(domain_template, limit=1)
+        if bom:
+            res.update({'bom_id': bom.id})
 
-        if 'product_id' in fields:
-            res.update({'product_id': product_id})
-
-        res.update({'bom_id': bom_id})
-
+        if 'product_tmpl_id' in fields:
+            res.update({'product_tmpl_id': product_tmpl_id})
         return res
 
-    def update_weight(self, cr, uid, ids, context=None):
-        mrp_bom = self.pool.get("mrp.bom")
-        product_uom_categ = self.pool.get("product.uom.categ")
-        product_product = self.pool.get("product.product")
+    @api.multi
+    def calculate_product_bom_weight(self, bom):
+        uom_obj = self.env['product.uom']
+        product_tmpl = bom.product_tmpl_id
+        tmpl_qty = uom_obj._compute_qty(
+            bom.product_uom.id,
+            bom.product_qty,
+            product_tmpl.uom_id.id)
+        bom_lines = bom.bom_line_ids.get_final_components()
+        weight_gross = 0.0
+        weight_net = 0.0
+        for line in bom_lines:
+            component_tmpl = line.product_id.product_tmpl_id
+            component_qty = uom_obj._compute_qty(
+                line.product_uom.id,
+                line.product_qty,
+                component_tmpl.uom_id.id)
+            weight_net += component_tmpl.weight_net * component_qty
+            weight_gross += component_tmpl.weight * component_qty
+            _logger.info("%s : %0.2f | %0.2f",
+                         bom.product_tmpl_id.name,
+                         weight_net, weight_gross)
+        weight_net = weight_net / tmpl_qty
+        weight_gross = weight_gross / tmpl_qty
+        product_tmpl.write({'weight': weight_gross, 'weight_net': weight_net})
 
-        if context is None:
-            context = {}
-
-        rec_id = context and context.get('active_id', False)
-        assert rec_id, _('Active ID is not set in Context')
-
-        for i in self.browse(cr, uid, ids, context=context):
-            weight_net = 0.0
-            bom_ids = mrp_bom.search(cr, uid,
-                                     [('bom_id', '=', i.bom_id.id)])
-            for bom in mrp_bom.browse(cr, uid, bom_ids, context=context):
-                _logger.warning(_('Weight'))
-                if bom.product_uom.category_id.id == 2:
-                    weight_net += bom.product_qty
-                else:
-                    weight_net += (bom.product_qty * bom.product_id.weight_net)
-
-                _logger.warning("%s (%s): %0.2f" % (
-                    bom.product_id.name,
-                    bom.product_uom.category_id.name, weight_net))
-            weight_net = weight_net / mrp_bom.browse(
-                cr, uid, i.bom_id.id, context=context).product_qty
-            product_product.write(cr, uid, rec_id,
-                       {'weight_net': weight_net},
-                       context=context)
+    @api.multi
+    def update_single_weight(self):
+        self.ensure_one()
+        self.calculate_product_bom_weight(self.bom_id)
         return {}
 
-product_weight_update()
+    @api.multi
+    def update_multi_product_weight(self):
+        self.ensure_one()
+        product_obj = self.env['product.product']
+        context = self.env.context
+        if context.get('active_model') == 'product.template':
+            template_ids = context.get('active_ids', [])
+        else:
+            product_ids = context.get('active_ids', [])
+            products = product_obj.browse(product_ids)
+            template_ids = products.mapped('product_tmpl_id').ids
+        for template_id in template_ids:
+            bom = self.env['mrp.bom'].search(
+                [('product_tmpl_id', '=', template_id)], limit=1)
+            if bom:
+                self.calculate_product_bom_weight(bom)
