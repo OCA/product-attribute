@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="product_category_form_view" model="ir.ui.view">
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <div class="oe_title" position="before">
+                    <field name="image_medium"
+                           widget="image"
+                           filename="image_name"
+                           class="oe_avatar oe_left"/>
+                    <field name="image_name" invisible="1"/>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</openerp>
