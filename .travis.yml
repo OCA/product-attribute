@@ -15,9 +15,6 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
 
-services:
-  - postgresql
-
 script:
     - travis_run_flake8
     - travis_run_tests
