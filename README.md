@@ -4,3 +4,4 @@
 Odoo Product Attribute
 ======================
 
+Various addons related to attribute management for products. 
