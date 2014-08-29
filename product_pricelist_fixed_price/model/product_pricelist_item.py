@@ -44,8 +44,10 @@ class product_pricelist_item(orm.Model):
     def onchange_base_ext(self, cr, uid, ids, base_ext, context=None):
         if base_ext == -3:
             # Simulate be based on first found price that allows the trick
+            base = self.pool['product.price.type'].search(cr, uid, [],
+                                                          limit=1, order='id')
             return {
-                'value': {'base': 1,
-                          'price_discount': -1,}
+                'value': {'base': base[0],
+                          'price_discount': -1, }
             }
         return {'value': {'base': base_ext}}
