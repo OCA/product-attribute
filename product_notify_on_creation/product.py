@@ -45,7 +45,10 @@ class product_product(orm.Model):
                 _('The current user must have an email address configured '
                   'in User Preferences to be able to send outgoing emails.')
             )
+<<<<<<< HEAD
         # Company informations
+=======
+>>>>>>> 72bd330d2d2853435e03432008efbf41ee22ebb3
         company = self.pool.get('res.users').browse(
             cr, uid, uid, context=context).company_id
         html_body = """
