@@ -38,8 +38,7 @@ class product_product(orm.Model):
         tmpl_obj = self.pool.get('email.template')
         tmpl_ids = tmpl_obj.search(
             cr, uid, [('name', '=', 'Product Notify on Creation')])
-        if tmpl_ids:
-            context['default_composition_mode'] = 'mass_mail'
+        
         for product in self.browse(cr, uid, [product_id], context=context):
             self.pool.get('email.template').send_mail(
                 cr, uid, tmpl_ids[0], product.id, True, context=context)
