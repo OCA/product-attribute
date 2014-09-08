@@ -54,6 +54,7 @@ Contributors
         'python': [],
     },
     'data': [
+        'product_mail_template.xml',
     ],
     'demo': [],
     'test': [],
