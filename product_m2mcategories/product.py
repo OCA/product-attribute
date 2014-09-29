@@ -20,7 +20,6 @@ from openerp.osv import orm, fields
 
 
 class product_product(orm.Model):
-
     _inherit = "product.template"
 
     _columns = {
@@ -31,7 +30,8 @@ class product_product(orm.Model):
                                     domain="[('type', '=', 'normal')]",
                                     help="Select category for the current "
                                          "product. The accounting and stock "
-                                         "properties come from this category."),
+                                         "properties come from "
+                                         "this category."),
         'categ_ids': fields.many2many('product.category',
                                       'product_categ_rel',
                                       'product_id',
