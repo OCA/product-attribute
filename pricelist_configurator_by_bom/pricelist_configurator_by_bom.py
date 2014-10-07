@@ -103,7 +103,7 @@ class product_pricelist_configurator(Model):
                     ('date_end', '=', False),
                     ('date_end', '>=', datetime.datetime.today()),
                     ])
-            #One active version at time
+            # One active version at time
             if not pricelist_version_ids:
                 raise osv.except_osv(('Warning!'), (
                     """At least one pricelist has no active version

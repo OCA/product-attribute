@@ -49,17 +49,12 @@ How To Use
     'author': 'Agile Business Group',
     'website': 'http://www.agilebg.com/',
     'depends': ['product', 'sale', 'mrp'],
-    'init_xml': [],
     'data': [
-            'pricelist_configurator_by_bom_view.xml',
-    ],
-    'update_xml': [
         'security/ir.model.access.csv'
+        'pricelist_configurator_by_bom_view.xml',
     ],
     'test': [
         'test/pricelist_configurator_by_bom.yml'
     ],
-    'demo_xml': [],
     'installable': True,
-    'active': False,
 }
