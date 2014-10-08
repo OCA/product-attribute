@@ -24,10 +24,6 @@ import base64
 import cStringIO
 import tempfile
 import csv
-try:
-    import pyExcelerator
-except:
-    exceptions.Warning(_('pyExcelerator Python module not installed'))
 
 
 class ImportPriceFile(models.TransientModel):
