@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <!-- ************* file_load Tree View  *************** -->
+        <record id="product_pricelist_load_tree_view" model="ir.ui.view">
+            <field name="name">product.pricelist.load.tree.view</field>
+            <field name="model">product.pricelist.load</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="File Loads">
+                    <field name="name" />
+                    <field name="date" />
+                </tree>
+            </field>
+        </record>
+
+    <!-- ************* file_load form View  *************** -->
+        <record id="product_pricelist_load_form_view" model="ir.ui.view">
+            <field name="name">product.pricelist.load.form.view</field>
+            <field name="model">product.pricelist.load</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="File Load">
+                    <group col="8">
+                        <button name="%(action_import_file)d" string="Load File" type="action"/>
+                        <field name="name"/>
+                        <field name="file_name"/>
+                        <field name="date"/>
+                        <newline/>
+                        <button name="process_lines" string="Proccess" type="object"/>
+                        <field name="process"/>
+                        <field name="fails" />
+                    </group>
+                    <field name="file_lines" nolabel="1">
+                    <tree string="Import Lines" colors="red:fail==True;green:fail==False" editable="bottom">
+                        <field name="code" />
+                        <field name="info" />
+                        <field name="price"/>
+                        <field name="discount_1"/>
+                        <field name="discount_2"/>
+                        <field name="retail"/>
+                        <field name="pdv1"/>
+                        <field name="pdv2"/>
+                        <field name="fail"/>
+                        <field name="fail_reason" />
+                    </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+            <!-- ************* file_load search View  *************** -->
+        <record id="file_price_load_search_view" model="ir.ui.view">
+            <field name="name">product.pricelist.load.search.view</field>
+            <field name="model">product.pricelist.load</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search File load">
+                 <group>
+                        <field name="date" />
+                        <field name="file_name" />
+                </group>
+                </search>
+                </field>
+         </record>
+
+       <record id="action_file_price_load" model="ir.actions.act_window">
+            <field name="name">action_file_price_load</field>
+            <field name="res_model">product.pricelist.load</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+       </record>
+       
+       <act_window name="Fail Lines"
+            domain="[('file_load', '=', active_id),
+                       ('fail', '=', True)]"
+            context="{'file_load':active_id}"
+            res_model="product.pricelist.load.line"
+            src_model="product.pricelist.load"
+            id="act_fail_lines"/>
+
+    <menuitem action="action_file_price_load"
+     id="menu_file_load" name="Load File" parent="purchase.menu_purchase_config_purchase" sequence="30"/>
+    </data>
+</openerp>

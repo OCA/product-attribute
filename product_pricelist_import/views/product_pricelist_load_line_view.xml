@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <!-- ************* file_line Tree View  *************** -->
+        <record id="product_pricelist_load_line_tree_view" model="ir.ui.view">
+            <field name="name">product.pricelist.load.line.tree.view</field>
+            <field name="model">product.pricelist.load.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="File Lines">
+                    <field name="code" />
+                    <field name="info" />
+                    <field name="price"/>
+                    <field name="discount_1"/>
+                    <field name="discount_2"/>
+                    <field name="retail"/>
+                    <field name="pdv1"/>
+                    <field name="pdv2"/>
+                    <field name="fail"/>
+                    <field name="fail_reason" />
+                </tree>
+            </field>
+        </record>
+    <!-- ************* file_load form View  *************** -->
+        <record id="product_pricelist_load_line_form_view" model="ir.ui.view">
+            <field name="name">product.pricelist.load.line.form.view</field>
+            <field name="model">product.pricelist.load.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="File Load">
+                    <group colspan="4">
+                        <field name="code" />
+                        <field name="info" />
+                        <field name="price"/>
+                        <field name="discount_1"/>
+                        <field name="discount_2"/>
+                        <field name="retail"/>
+                        <field name="pdv1"/>
+                        <field name="pdv2"/>
+                        <field name="fail"/>
+                        <field name="fail_reason" />
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
