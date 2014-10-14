@@ -24,7 +24,7 @@
     "version": "1.0",
     "description": """
     This module allows to load product price list from a file.
-    The file format must have this colummns:
+    The file format must have these colummns:
 
     keys = ['code', 'info', 'price', 'discount_1', 'discount_2', 'retail',
     'pdv1', 'pdv2']

@@ -21,15 +21,17 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="File Load">
-                    <group col="8">
-                        <button name="%(action_import_file)d" string="Load File" type="action"/>
+                <header>
+                    <button name="%(action_import_file)d" string="Load File" class="oe_highlight" type="action"/>
+                    <button class="oe_highlight" name="process_lines" string="Proccess" type="object"/>
+                </header>
+                    <group col="6">
                         <field name="name"/>
                         <field name="file_name"/>
                         <field name="date"/>
-                        <newline/>
-                        <button name="process_lines" string="Proccess" type="object"/>
                         <field name="process"/>
                         <field name="fails" />
+                        <field name="supplier"  domain="[('supplier', '=', True)]"/>
                     </group>
                     <field name="file_lines" nolabel="1">
                     <tree string="Import Lines" colors="red:fail==True;green:fail==False" editable="bottom">

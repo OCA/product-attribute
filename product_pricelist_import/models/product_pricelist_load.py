@@ -33,11 +33,16 @@ class ProductPricelistLoad(models.Model):
                                  'Product Price List Lines')
     fails = fields.Integer('Fail Lines:', readonly=True)
     process = fields.Integer('Lines to Process:', readonly=True)
+    supplier = fields.Many2one('res.partner')
 
     @api.multi
     def process_lines(self):
         for file_load in self:
+            if not file_load.supplier:
+                raise exceptions.Warning(_("You must select a Supplier"))
             product_obj = self.env['product.product']
+            psupplinfo_obj = self.env['product.supplierinfo']
+            pricepinfo_obj = self.env['pricelist.partnerinfo']
             if not file_load.file_lines:
                 raise exceptions.Warning(_("There must be one line at least to"
                                            " process"))
@@ -49,8 +54,14 @@ class ProductPricelistLoad(models.Model):
                         product_lst = product_obj.search([('default_code', '=',
                                                            line.code)])
                         if product_lst:
-                            product_lst[0].standard_price = line.price
-                            product_lst[0].lst_price = line.retail
+                            psupplinfo = psupplinfo_obj.create(
+                                {'name': file_load.supplier.id,
+                                 'product_tmpl_id':
+                                 product_lst[0].product_tmpl_id.id})
+                            pricepinfo_obj.create(
+                                {'suppinfo_id': psupplinfo.id,
+                                 'min_quantity': psupplinfo.min_qty,
+                                 'price': line.price})
                             file_load.fails -= 1
                             line.write(
                                 {'fail': False,
