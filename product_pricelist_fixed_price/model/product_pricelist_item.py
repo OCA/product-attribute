@@ -77,6 +77,20 @@ class ProductPrice(orm.Model):
             ' set base_ext = base'
             ' where base_ext != -3 and base != base_ext'
         )
+        # If older version of this module installed, migrate data. In older
+        # versions -3 was used as fixed price indicator in base, instead of
+        # in base_ext, and fixed price was in fixed_price, instead of in
+        # price_surcharge.
+        cr.execute('select -3 in (select base from product_pricelist_item)')
+        migrate_old = cr.fetchone()[0]
+        if migrate_old:
+            cr.execute(
+                'update product_pricelist_item'
+                ' set base_ext = -3'
+                ' , price_surcharge = fixed_price'
+                ' , base = (select min(id) from product_price_type)'
+                ' where base = -3'
+            )
         return super(ProductPrice, self)._auto_end(
             cr, context=context)
 
