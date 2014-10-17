@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                      #
+#   product_custom_attributes for OpenERP                                     #
 #   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
@@ -25,13 +25,17 @@ from openerp.osv.osv import except_osv
 from lxml import etree
 from tools.translate import _
 
+
 class product_template(Model):
 
     _inherit = "product.template"
 
     _columns = {
-        'attribute_custom_tmpl': fields.serialized('Custom Template Attributes'),
+        'attribute_custom_tmpl': fields.serialized(
+            'Custom Template Attributes'
+        ),
     }
+
 
 class product_product(Model):
 
@@ -39,28 +43,46 @@ class product_product(Model):
 
     _columns = {
         'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
-        'attribute_custom_variant': fields.serialized('Custom Variant Attributes'),
+        'attribute_custom_variant': fields.serialized(
+            'Custom Variant Attributes'
+        ),
     }
 
     def _fix_size_bug(self, cr, uid, result, context=None):
-	#When created a field text dynamicaly, its size is limited to 64 in the view.
-	#The bug is fixed but not merged
-	#https://code.launchpad.net/~openerp-dev/openerp-web/6.1-opw-579462-cpa/+merge/128003
-	#TO remove when the fix will be merged
+        # When created a field text dynamically, its size is limited to 64 in
+        # the view.
+        # The bug is fixed but not merged
+        # https://code.launchpad.net/~openerp-dev/openerp-web/
+        # 6.1-opw-579462-cpa/+merge/128003
+        # TO remove when the fix will be merged
         for field in result['fields']:
             if result['fields'][field]['type'] == 'text':
-                if 'size' in result['fields'][field]: del result['fields'][field]['size']
+                if 'size' in result['fields'][field]:
+                    del result['fields'][field]['size']
         return result
 
     def open_attributes(self, cr, uid, ids, context=None):
         ir_model_data_obj = self.pool.get('ir.model.data')
-        ir_model_data_id = ir_model_data_obj.search(cr, uid, [['model', '=', 'ir.ui.view'], ['name', '=', 'product_attributes_form_view']], context=context)
+        ir_model_data_id = ir_model_data_obj.search(
+            cr, uid, [
+                ['model', '=', 'ir.ui.view'],
+                ['name', '=', 'product_attributes_form_view']
+            ], context=context
+        )
         if ir_model_data_id:
-            res_id = ir_model_data_obj.read(cr, uid, ir_model_data_id, fields=['res_id'])[0]['res_id']
-        set_id = self.read(cr, uid, ids, fields=['attribute_set_id'], context=context)[0]['attribute_set_id']
+            res_id = ir_model_data_obj.read(
+                cr, uid, ir_model_data_id, fields=['res_id']
+            )[0]['res_id']
+        set_id = self.read(
+            cr, uid, ids, fields=['attribute_set_id'], context=context
+        )[0]['attribute_set_id']
 
         if not set_id:
-            raise except_osv(_('User Error'), _('Please choose an attribute set before opening the product attributes'))
+            raise except_osv(
+                _('User Error'),
+                _('Please choose an attribute set before opening the product '
+                  'attributes')
+            )
 
         return {
             'name': 'Product Attributes',
@@ -68,7 +90,8 @@ class product_product(Model):
             'view_mode': 'form',
             'view_id': [res_id],
             'res_model': self._name,
-            'context': "{'set_id': %s, 'open_attributes': %s}"%(set_id[0], True),
+            'context': "{'set_id': %s, 'open_attributes': %s}" %
+                       (set_id[0], True),
             'type': 'ir.actions.act_window',
             'nodestroy': True,
             'target': 'new',
@@ -83,43 +106,71 @@ class product_product(Model):
         kwargs = {'name': "%s" % attribute.name}
         if attribute.ttype == 'many2many':
             parent = etree.SubElement(page, 'group', colspan="2", col="4")
-            sep = etree.SubElement(parent, 'separator',
-                                    string="%s" % attribute.field_description, colspan="4")
+            etree.SubElement(
+                parent,
+                'separator',
+                string="%s" % attribute.field_description,
+                colspan="4"
+            )
             kwargs['nolabel'] = "1"
         if attribute.ttype in ['many2one', 'many2many']:
-            kwargs['domain'] = "[('attribute_id', '=', %s)]" % attribute.attribute_id.id
-        field = etree.SubElement(parent, 'field', **kwargs)
+            kwargs['domain'] = "[('attribute_id', '=', %s)]" % \
+                attribute.attribute_id.id
+        etree.SubElement(parent, 'field', **kwargs)
         return parent
 
     def _build_attributes_notebook(self, cr, uid, set_id, context=None):
-        attribute_set = self.pool.get('attribute.set').browse(cr, uid, set_id, context=context)
-        notebook = etree.Element('notebook', name="attributes_notebook", colspan="4")
+        attribute_set = self.pool.get('attribute.set').browse(
+            cr, uid, set_id, context=context
+        )
+        notebook = etree.Element(
+            'notebook', name="attributes_notebook", colspan="4"
+        )
         toupdate_fields = []
         for group in attribute_set.attribute_group_ids:
-            page = etree.SubElement(notebook, 'page', string=group.name.capitalize())
+            page = etree.SubElement(
+                notebook, 'page', string=group.name.capitalize()
+            )
             for attribute in group.attribute_ids:
                 toupdate_fields.append(attribute.name)
-                self._build_attribute_field(cr, uid, page, attribute, context=context)
+                self._build_attribute_field(
+                    cr, uid, page, attribute, context=context
+                )
         return notebook, toupdate_fields
 
-    def fields_view_get(self, cr, uid, view_id=None, view_type='form', context=None, toolbar=False, submenu=False):
-        if context==None:
-	    context={}
-        result = super(product_product, self).fields_view_get(cr, uid, view_id,view_type,context,toolbar=toolbar, submenu=submenu)
+    def fields_view_get(self, cr, uid, view_id=None, view_type='form',
+                        context=None, toolbar=False, submenu=False):
+        if context is None:
+            context = {}
+        result = super(product_product, self).fields_view_get(
+            cr, uid, view_id, view_type, context, toolbar=toolbar,
+            submenu=submenu
+        )
         if view_type == 'form' and context.get('set_id'):
             eview = etree.fromstring(result['arch'])
-            #hide button under the name
+            # hide button under the name
             button = eview.xpath("//button[@name='open_attributes']")
             if button:
                 button = button[0]
                 button.getparent().remove(button)
-            attributes_notebook, toupdate_fields = self._build_attributes_notebook(cr, uid, context['set_id'], context=context)
-            result['fields'].update(self.fields_get(cr, uid, toupdate_fields, context))
+            attributes_notebook, toupdate_fields = (
+                self._build_attributes_notebook(cr, uid, context['set_id'],
+                                                context=context)
+            )
+            result['fields'].update(
+                self.fields_get(cr, uid, toupdate_fields, context)
+            )
             if context.get('open_attributes'):
-                placeholder = eview.xpath("//separator[@string='attributes_placeholder']")[0]
-                placeholder.getparent().replace(placeholder, attributes_notebook)
+                placeholder = eview.xpath(
+                    "//separator[@string='attributes_placeholder']"
+                )[0]
+                placeholder.getparent().replace(
+                    placeholder, attributes_notebook
+                )
             elif context.get('open_product_by_attribute_set'):
-                main_page = etree.Element('page', string=_('Custom Attributes'))
+                main_page = etree.Element(
+                    'page', string=_('Custom Attributes')
+                )
                 main_page.append(attributes_notebook)
                 info_page = eview.xpath("//page[@string='Information']")[0]
                 info_page.addnext(main_page)

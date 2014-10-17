@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_prices_on_variant for OpenERP                                          #
+#   product_prices_on_variant for OpenERP                                     #
 #   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
@@ -19,8 +19,6 @@
 #                                                                             #
 ###############################################################################
 
-
-
 {
     'name': 'product_prices_on_variant',
     'version': '6.1.0',
@@ -28,14 +26,15 @@
     'license': 'AGPL-3',
     'description': """
     This module move the field price from the template to the variant.
-    This module is needed by product_multi_price. Be careful when using this module.
+    This module is needed by product_multi_price. Be careful when using this
+    module.
     As this change the original behaviour of OpenERP when using variant.
     """,
     'author': 'Akretion',
     'website': 'http://www.akretion.com/',
     'depends': [
         'product',
-        ],
+    ],
     'init_xml': [],
     'update_xml': [
     ],
@@ -43,4 +42,3 @@
     'installable': True,
     'active': False,
 }
-

@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -14,20 +14,24 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
-import datetime
-from osv import fields,osv
+from osv import fields, osv
 import pooler
+
 
 class stock_production_lot(osv.osv):
     _inherit = 'stock.production.lot'
+
     def _get_size(dtype):
-        def calc_date(self, cr, uid, context={}):
-            if context.get('product_id', False):
-                product = pooler.get_pool(cr.dbname).get('product.product').browse(cr, uid, [context['product_id']])[0]
+        def calc_date(self, cr, uid, context=None):
+            if context is None:
+                context = {}
+            if context.get('product_id'):
+                product = pooler.get_pool(cr.dbname).get('product.product').\
+                    browse(cr, uid, [context['product_id']])[0]
                 duree = getattr(product, dtype) or 0
                 return duree
             else:
@@ -44,12 +48,21 @@ class stock_production_lot(osv.osv):
         'length': _get_size('length'),
         'thickness': _get_size('thickness'),
     }
-    def name_get(self,cr, uid, ids, context):
+
+    def name_get(self, cr, uid, ids, context):
         if not len(ids):
             return []
-        res = [(r['id'], (r['name'] or '') + ' ('+str(int(r['width']))+','+str(int(r['length']))+','+str(int(r['thickness']))+')') for r in self.read(cr, uid, ids, ['name','width','length','thickness'], context)]
+        res = [
+            (r['id'], (r['name'] or '') +
+             ' (' + str(int(r['width'])) + ',' +
+             str(int(r['length'])) + ',' + str(int(r['thickness'])) + ')')
+            for r in self.read(
+                cr, uid, ids,
+                ['name', 'width', 'length', 'thickness'], context)
+        ]
         return res
 stock_production_lot()
+
 
 class product_product(osv.osv):
     _inherit = 'product.product'
@@ -60,11 +73,15 @@ class product_product(osv.osv):
     }
 product_product()
 
+
 class sale_order(osv.osv):
     _inherit = 'sale.order.line'
     _columns = {
-        'prodlot_id' : fields.many2one('stock.production.lot', 'Production lot', help="Production lot is used to put a serial number on the production"),
+        'prodlot_id': fields.many2one(
+            'stock.production.lot',
+            'Production lot',
+            help="Production lot is used to put a serial number on the "
+                 "production"
+        ),
     }
 sale_order()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

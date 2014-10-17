@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -14,21 +14,24 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 {
-    "name" : "Products Lot Foundry",
-    "version" : "1.0",
-    "author" : "Tiny",
-    "category" : "Enterprise Specific Modules/Metal Industries",
-    "depends" : ["base", "account", "product", "stock", "sale"],
-    "init_xml" : [],
-    "demo_xml" : ["product_lot_foundry_demo.xml"],
-    "description": "Lots management for a metal company: cutting, heatcode, sizes",
-    "update_xml" : ["security/ir.model.access.csv","product_lot_foundry_view.xml","sale_order_view.xml"],
+    "name": "Products Lot Foundry",
+    "version": "1.0",
+    "author": "Tiny",
+    "category": "Enterprise Specific Modules/Metal Industries",
+    "depends": ["base", "account", "product", "stock", "sale"],
+    "init_xml": [],
+    "demo_xml": ["product_lot_foundry_demo.xml"],
+    "description": "Lots management for a metal company: cutting, heatcode, "
+                   "sizes",
+    "update_xml": [
+        "security/ir.model.access.csv",
+        "product_lot_foundry_view.xml",
+        "sale_order_view.xml",
+    ],
     "active": False,
     "installable": True
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

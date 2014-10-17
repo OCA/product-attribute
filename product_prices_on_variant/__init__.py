@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_prices_on_variant for OpenERP                                          #
+#   product_prices_on_variant for OpenERP                                     #
 #   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
@@ -19,10 +19,4 @@
 #                                                                             #
 ###############################################################################
 
-
-
 import product
-
-
-
-

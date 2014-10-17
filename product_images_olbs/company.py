@@ -21,19 +21,22 @@
 from openerp.osv.orm import Model
 from openerp.osv import fields
 
+
 class ResCompany(Model):
     """Override company to add images configuration"""
     _inherit = "res.company"
     _columns = {
-        'local_media_repository':fields.char(
-                        'Images Repository Path',
-                        size=256,
-                        help='Local mounted path on OpenERP server where all your images are stored.'
-            ),
-        }
+        'local_media_repository': fields.char(
+            'Images Repository Path',
+            size=256,
+            help='Local mounted path on OpenERP server where all your images '
+                 'are stored.'
+        ),
+    }
 
     def get_local_media_repository(self, cr, uid, id=None, context=None):
         if id:
-            return self.browse(cr, uid, id, context=context).local_media_repository
+            return self.browse(
+                cr, uid, id, context=context).local_media_repository
         user = self.pool.get('res.users').browse(cr, uid, uid, context=context)
         return user.company_id.local_media_repository

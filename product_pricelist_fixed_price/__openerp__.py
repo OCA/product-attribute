@@ -26,12 +26,16 @@
     'category': 'Generic Modules/Inventory Control',
     "depends": ["product"],
     "author": "Agile Business Group & Domsense",
-    "description": """This module allows to specify a fixed price for price list rules. So, if the rule is based on 'fixed price', this price will be used without any computation""",
+    "description": """
+This module allows to specify a fixed price for price list rules.
+So, if the rule is based on 'fixed price', this price will be used without any
+computation
+""",
     'website': 'http://www.agilebg.com',
     'init_xml': [],
     'update_xml': [
         'pricelist_view.xml',
-        ],
+    ],
     'demo_xml': [],
     'installable': True,
     'active': False,
