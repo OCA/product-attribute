@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
-#                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com> 
+#                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 #                  2014 Therp BV (http://www.therp.nl)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -27,21 +27,24 @@ from openerp.tools.translate import _
 
 FIXED_PRICE_TYPE = -3
 
-class product_pricelist_item(orm.Model):
+class ProductPrice(orm.Model):
     '''Inherit existing model to add functionality for fixed prices'''
     _inherit = 'product.pricelist.item'
 
     def _price_field_get_ext(self, cr, uid, context=None):
+        '''Added fixed price to pricetypes'''
         result = super(
-            product_pricelist_item, self)._price_field_get(
+            ProductPrice, self)._price_field_get(
                 cr, uid, context=context)
         result.append((FIXED_PRICE_TYPE, _('Fixed Price')))
         return result
 
     _columns = {
-        'base_ext': fields.selection(_price_field_get_ext, 'Based on',
-                                     required=True, size=-1,
-                                     help="Base price for computation."),
+        'base_ext': fields.selection(
+            _price_field_get_ext, 'Based on',
+            required=True, size=-1,
+            help="Base price for computation."
+        ),
     }
     _defaults = {
         'base_ext': -1,
@@ -63,8 +66,7 @@ class product_pricelist_item(orm.Model):
         return True
 
     _constraints = [
-        (_check_fixed_price,
-            'invalid values for fixed price', ['base_ext']),
+        (_check_fixed_price, 'invalid values for fixed price', ['base_ext']),
     ]
 
     def _auto_end(self, cr, context=None):
@@ -75,7 +77,7 @@ class product_pricelist_item(orm.Model):
             ' set base_ext = base'
             ' where base_ext != -3 and base != base_ext'
         )
-        return super(product_pricelist_item, self)._auto_end(
+        return super(ProductPrice, self)._auto_end(
             cr, context=context)
 
     def _modify_vals(self, cr, uid, vals, browse_obj=None, context=None):
@@ -95,8 +97,10 @@ class product_pricelist_item(orm.Model):
                 base = base_ext
             else:
                 # Use id of first record in product.price.type (normally 1):
-                base = self.pool['product.price.type'].search(
+                base_id = self.pool['product.price.type'].search(
                     cr, uid, [], limit=1, order='id')
+                assert base_id, _('No record found in product.price.type')
+                base = base_id[0]
         else:
             # getting here we are sure base is in vals
             base = vals['base']
@@ -122,7 +126,7 @@ class product_pricelist_item(orm.Model):
     def create(self, cr, uid, vals, context=None):
         '''override create to get computed values'''
         self._modify_vals(cr, uid, vals, browse_obj=None, context=context)
-        return super(product_pricelist_item, self).create(
+        return super(ProductPrice, self).create(
             cr, uid, vals, context)
 
     def write(self, cr, uid, ids, vals, context=None):
@@ -135,11 +139,12 @@ class product_pricelist_item(orm.Model):
             browse_obj = browse_records[0]
             self._modify_vals(
                 cr, uid, vals, browse_obj=browse_obj, context=context)
-            super(product_pricelist_item, self).write(
+            super(ProductPrice, self).write(
                 cr, uid, [object_id], vals, context=context)
         return True
 
     def onchange_base_ext(self, cr, uid, ids, base_ext, context=None):
+        '''Make sure values for base and base_ext keep in sync in the UI'''
         vals = {'base_ext': base_ext}
         self._modify_vals(cr, uid, vals, context=context)
         return {'value': vals}
