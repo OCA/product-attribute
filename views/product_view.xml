@@ -22,7 +22,7 @@
             <field name="inherit_id" ref="product.attribute_tree_view" />
             <field name="arch" type="xml">
                 <field name="name" position="after">
-                    <field name="type" />
+                    <field name="attr_type" />
                 </field>
             </field>
         </record>
