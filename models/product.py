@@ -16,43 +16,37 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import models, fields
 
 
-class ProductAttribute(orm.Model):
+class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
-    _columns = {
-        'type': fields.selection([
+    type = fields.Selection(selection=[
             ('radio', 'Radio'),
             ('select', 'Select'),
             ('color', 'Color'),
             ('hidden', 'Hidden'),
             ('range', 'Range'),
             ('numeric', 'Numeric'),
-            ('custom', 'Custom')], string="Type", type="char"),
-    }
+            ('custom', 'Custom')], string="Type")
 
 
-class ProductAttributeLine(orm.Model):
+class ProductAttributeLine(models.Model):
     _inherit = "product.attribute.line"
 
-    _columns = {
-        'required': fields.boolean('Required'),
-        'default': fields.many2one('product.attribute.value', 'Default'),
-        'attr_type': fields.related('attribute_id', 'type', type='char',
-                                    string='Type', store=True),
-    }
+    required = fields.Boolean('Required')
+    default = fields.Many2one('product.attribute.value', 'Default')
+    attr_type = fields.Selection(string='Type', store=True,
+                                 related='attribute_id.type')
 
 
-class ProductAttributeValue(orm.Model):
+class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
 
-    _columns = {
-        'attr_type': fields.related('attribute_id', 'type', type='char',
-                                    string='Type', store=False),
-        'custom_value': fields.char('Custom Value', size=128),
-        'numeric_value': fields.float('Numeric Value', digits=(12, 6)),
-        'min_range': fields.float('Min', digits=(12, 6)),
-        'max_range': fields.float('Max', digits=(12, 6)),
-    }
+    attr_type = fields.Selection(string='Type', store=False,
+                                 related='attribute_id.type')
+    custom_value = fields.Char('Custom Value')
+    numeric_value = fields.Float('Numeric Value', digits=(12, 6))
+    min_range = fields.Float('Min', digits=(12, 6))
+    max_range = fields.Float('Max', digits=(12, 6))

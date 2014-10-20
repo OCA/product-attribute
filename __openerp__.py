@@ -18,7 +18,7 @@
 ##############################################################################
 
 {
-    "name": "Product attributes extension",
+    "name": "Product attribute types",
     "version": "1.0",
     "depends": [
         "product",
