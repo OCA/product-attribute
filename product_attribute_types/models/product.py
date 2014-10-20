@@ -22,14 +22,10 @@ from openerp import models, fields
 class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
-    type = fields.Selection(selection=[
-            ('radio', 'Radio'),
+    attr_type = fields.Selection(selection=[
             ('select', 'Select'),
-            ('color', 'Color'),
-            ('hidden', 'Hidden'),
             ('range', 'Range'),
-            ('numeric', 'Numeric'),
-            ('custom', 'Custom')], string="Type")
+            ('numeric', 'Numeric')], string="Type")
 
 
 class ProductAttributeLine(models.Model):
@@ -38,15 +34,14 @@ class ProductAttributeLine(models.Model):
     required = fields.Boolean('Required')
     default = fields.Many2one('product.attribute.value', 'Default')
     attr_type = fields.Selection(string='Type', store=True,
-                                 related='attribute_id.type')
+                                 related='attribute_id.attr_type')
 
 
 class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
 
     attr_type = fields.Selection(string='Type', store=False,
-                                 related='attribute_id.type')
-    custom_value = fields.Char('Custom Value')
+                                 related='attribute_id.attr_type')
     numeric_value = fields.Float('Numeric Value', digits=(12, 6))
     min_range = fields.Float('Min', digits=(12, 6))
     max_range = fields.Float('Max', digits=(12, 6))
