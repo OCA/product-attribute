@@ -100,9 +100,9 @@ class ImportPriceFile(models.TransientModel):
         keys = ['code', 'info', 'price', 'discount_1',
                 'discount_2', 'retail', 'pdv1', 'pdv2']
         # keys2 = sheet.row_values(0,0, end_colx=sheet.ncols)
-        for counter in range(sheet.nrows-1):
+        for counter in range(sheet.nrows - 1):
             # grab the current row
-            rowValues = sheet.row_values(counter+1, 0,
+            rowValues = sheet.row_values(counter + 1, 0,
                                          end_colx=sheet.ncols)
             row = map(lambda x: str(x), rowValues)
             values = dict(zip(keys, row))
