@@ -23,9 +23,9 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     attr_type = fields.Selection(selection=[
-            ('select', 'Select'),
-            ('range', 'Range'),
-            ('numeric', 'Numeric')], string="Type")
+        ('select', 'Select'),
+        ('range', 'Range'),
+        ('numeric', 'Numeric')], string="Type")
 
 
 class ProductAttributeLine(models.Model):
