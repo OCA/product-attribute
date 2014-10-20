@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_attributes_extension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-17 08:33+0000\n"
+"PO-Revision-Date: 2014-09-17 08:33+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attributes_extension
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_search_view
+msgid "Attribute"
+msgstr ""
+
+#. module: product_attributes_extension
+#: model:ir.actions.act_window,name:product_attributes_extension.action_product_attribute_line
+#: model:ir.ui.menu,name:product_attributes_extension.mi_product_attribute_line
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_form_view
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_search_view
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_tree_view
+msgid "Attribute lines"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Color"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Custom"
+msgstr ""
+
+#. module: product_attributes_extension
+#: field:product.attribute.value,custom_value:0
+msgid "Custom Value"
+msgstr ""
+
+#. module: product_attributes_extension
+#: field:product.attribute.line,default:0
+msgid "Default"
+msgstr ""
+
+#. module: product_attributes_extension
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Hidden"
+msgstr ""
+
+#. module: product_attributes_extension
+#: field:product.attribute.value,max_range:0
+msgid "Max"
+msgstr ""
+
+#. module: product_attributes_extension
+#: field:product.attribute.value,min_range:0
+msgid "Min"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Numeric"
+msgstr ""
+
+#. module: product_attributes_extension
+#: field:product.attribute.value,numeric_value:0
+msgid "Numeric Value"
+msgstr ""
+
+#. module: product_attributes_extension
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_search_view
+msgid "Optional"
+msgstr ""
+
+#. module: product_attributes_extension
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_search_view
+msgid "Product"
+msgstr ""
+
+#. module: product_attributes_extension
+#: model:ir.model,name:product_attributes_extension.model_product_attribute
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_attributes_extension
+#: model:ir.model,name:product_attributes_extension.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_attributes_extension
+#: model:ir.model,name:product_attributes_extension.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Radio"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Range"
+msgstr ""
+
+#. module: product_attributes_extension
+#: view:product.attribute.line:product_attributes_extension.product_attribute_line_search_view
+#: field:product.attribute.line,required:0
+msgid "Required"
+msgstr ""
+
+#. module: product_attributes_extension
+#: selection:product.attribute,type:0
+msgid "Select"
+msgstr ""
+
+#. module: product_attributes_extension
+#: code:addons/product_attributes_extension/models/product.py:76
+#: code:addons/product_attributes_extension/models/product.py:109
+#, python-format
+msgid "This value is not in template values"
+msgstr ""
+
+#. module: product_attributes_extension
+#: field:product.attribute,type:0
+#: field:product.attribute.line,attr_type:0
+msgid "Type"
+msgstr ""
+
