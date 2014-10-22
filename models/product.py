@@ -29,11 +29,11 @@ class ProductProduct(models.Model):
         if product_tmpl_id and attribute_value_ids:
             default_code = False
             if product.attribute_value_ids:
-                for attribute in product.attribute_value_ids:
+                for attribute_value in product.attribute_value_ids:
                     if not default_code:
-                        default_code = attribute.attribute_code
+                        default_code = attribute_value.attribute_code
                     else:
-                        default_code += '/' + attribute.attribute_code
+                        default_code += '/' + attribute_value.attribute_code
             product.default_code = default_code
         return product
 
