@@ -33,14 +33,14 @@ class ProductAttributeLine(models.Model):
 
     required = fields.Boolean('Required')
     default = fields.Many2one('product.attribute.value', 'Default')
-    attr_type = fields.Selection(string='Type', store=True,
+    attr_type = fields.Selection(string='Type',
                                  related='attribute_id.attr_type')
 
 
 class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
 
-    attr_type = fields.Selection(string='Type', store=False,
+    attr_type = fields.Selection(string='Type',
                                  related='attribute_id.attr_type')
     numeric_value = fields.Float('Numeric Value', digits=(12, 6))
     min_range = fields.Float('Min', digits=(12, 6))
