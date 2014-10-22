@@ -22,10 +22,10 @@ from openerp import models, fields
 class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
-    attr_type = fields.Selection(selection=[
+    attr_type = fields.Selection(required=True, selection=[
         ('select', 'Select'),
         ('range', 'Range'),
-        ('numeric', 'Numeric')], string="Type")
+        ('numeric', 'Numeric')], string="Type", default='select')
 
 
 class ProductAttributeLine(models.Model):
