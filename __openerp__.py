@@ -22,11 +22,16 @@
     "category": "Product",
     "website": "http://www.odoomrp.com",
     "description": """
-    This module automatically generates the default code field of product
-    variants.
+    This module adds:
+
+    1.- In 'product.attribute.value' object is added the new field
+        'Attribute Code'.
+
+    2.- Reference code field of product is calculated automatically, taking as
+        the value of the new field 'Attribute Code'.
     """,
     "depends": ['product',
                 ],
-    "data": [],
+    "data": ['views/product_attribute_value_view.xml', ],
     "installable": True
 }

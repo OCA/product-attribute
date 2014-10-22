@@ -15,7 +15,7 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-from openerp import models, api
+from openerp import models, fields, api
 
 
 class ProductProduct(models.Model):
@@ -31,8 +31,14 @@ class ProductProduct(models.Model):
             if product.attribute_value_ids:
                 for attribute in product.attribute_value_ids:
                     if not default_code:
-                        default_code = attribute.name
+                        default_code = attribute.attribute_code
                     else:
-                        default_code += '/' + attribute.name
+                        default_code += '/' + attribute.attribute_code
             product.default_code = default_code
         return product
+
+
+class ProductAttributeValue(models.Model):
+    _inherit = 'product.attribute.value'
+
+    attribute_code = fields.Char(string='Attribute Code', required=True)
