@@ -43,10 +43,7 @@ class ProductAttributeValue(models.Model):
 
     @api.model
     def _default_attribute_code(self):
-        if self.name:
-            return self.name[0:1]
-        else:
-            return False
+        self.onchange_name()
 
     attribute_code = fields.Char(string='Attribute Code', required=True,
                                  default=_default_attribute_code)
