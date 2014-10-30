@@ -40,7 +40,6 @@ class ProductProduct(models.Model):
 class ProductAttributeValue(models.Model):
     _inherit = 'product.attribute.value'
 
-
     @api.onchange('name')
     def onchange_name(self):
         if self.name:
