@@ -40,12 +40,8 @@ class ProductProduct(models.Model):
 class ProductAttributeValue(models.Model):
     _inherit = 'product.attribute.value'
 
-    @api.model
-    def _default_attribute_code(self):
-        self.onchange_name()
-
     attribute_code = fields.Char(string='Attribute Code', required=True,
-                                 default=_default_attribute_code)
+                                 default=onchange_name)
 
     @api.onchange('name')
     def onchange_name(self):
