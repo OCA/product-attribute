@@ -46,4 +46,4 @@ class ProductAttributeValue(models.Model):
             self.attribute_code = self.name[0:1]
 
     attribute_code = fields.Char(string='Attribute Code', required=True,
-                                 default='onchange_name')
+                                 default=onchange_name)
