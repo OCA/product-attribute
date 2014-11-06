@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <openerp>
     <data>
 
@@ -16,7 +15,7 @@
 
         <record model="ir.ui.view" id="product_product_form_view_set_button">
             <field name="name">attributes.product.normal.form</field>
-            <field name="model">product.product</field>
+            <field name="model">product.template</field>
             <field name="inherit_id" ref="product_custom_attributes.product_product_form_view_set_button" />
             <field name="arch" type="xml">
                 <field name="attribute_set_id" position="replace">
@@ -39,7 +38,7 @@
 
         <record id="product_attributes_form_view" model="ir.ui.view">
             <field name="name">product_attributes_form_view</field>
-            <field name="model">product.product</field>
+            <field name="model">product.template</field>
             <field name="inherit_id" ref="product_custom_attributes.product_attributes_form_view" />
             <field name="arch" type="xml">
                     <field name="attribute_set_id" position="replace">
