@@ -1,0 +1,9 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_pricelist_configurator_sales","product.pricelist.configurator","model_product_pricelist_configurator","base.group_sale_manager",1,1,1,1
+"access_pricelist_configurator_purchase","product.pricelist.configurator","model_product_pricelist_configurator","purchase.group_purchase_manager",1,1,1,1
+"access_pricelist_configurator_mrp","product.pricelist.configurator","model_product_pricelist_configurator","mrp.group_mrp_manager",1,1,1,1
+"access_pricelist_configurator_stock","product.pricelist.configurator","model_product_pricelist_configurator","stock.group_stock_manager",1,1,1,1
+"access_pricelist_configurator_line_sales","product.pricelist.configurator","model_product_pricelist_configurator","base.group_sale_manager",1,1,1,1
+"access_pricelist_configurator_line_purchase","product.pricelist.configurator","model_product_pricelist_configurator","purchase.group_purchase_manager",1,1,1,1
+"access_pricelist_configurator_line_mrp","product.pricelist.configurator","model_product_pricelist_configurator","mrp.group_mrp_manager",1,1,1,1
+"access_pricelist_configurator_line_stock","product.pricelist.configurator","model_product_pricelist_configurator_line","stock.group_stock_manager",1,1,1,1

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  pricelist configurator by bom for OpenERP
+  Copyright (C) 2013 Agile Business Group sagl (<http://www.agilebg.com>).
+    Authors, Nicola Malcontenti, nicola.malcontenti@agilebg.com
+  The licence is in the file __openerp__.py
+-->
+<openerp>  
+    <data>
+        <record id="view_product_pricelist_configurator_form" model="ir.ui.view">
+            <field name="name">product.pricelist.configurator.form</field>
+            <field name="model">product.pricelist.configurator</field>
+            <field eval="7" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Configurator" version="7.0">
+                    <header>
+                        <button name="compute_final_price" string="Compute Final Price" type="object"/>
+                        <button name="create_pricelist_item" string="Create List Price" attrs="{'invisible':[('pricelist_item_id','!=',False)]}" type="object" />
+                        <button name="write_pricelist_item" string="Update List Price" type="object" attrs="{'invisible':[('pricelist_item_id','=',False)]}" confirm="This method will overwrite the pricelist"/>
+                    </header>
+                    <sheet string="Configurator">
+                            <label for="product_id" string="Product"/>
+                            <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                            <label for="bom_id" string="Bom"/>
+                            <field name="bom_id" on_change="on_change_bom_id(bom_id)"/>
+                            <label for="partner_id" string="Partner"/>
+                            <field name="partner_id" domain="['|',('customer','=',True),('supplier','=',True)]"/>
+                            <label for="pricelist_item_id" string="Pricelist"/>
+                            <field name="pricelist_item_id"/>
+                            <field name="line_ids"/>
+                            <label for="amount" string="Amount"/>    
+                            <field name="amount"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_tree">
+            <field name="name">product.pricelist.configurator.tree</field>
+            <field name="model">product.pricelist.configurator</field>
+            <field name="arch" type="xml">
+                <tree string="Configurator">
+                  <field name="product_id"/>
+                  <field name="partner_id"/>
+                  <field name="pricelist_item_id"/>
+                  <field name="amount"/>
+                  <field name="bom_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_line_form">
+            <field name="name">product.pricelist.configurator.line.form</field>
+            <field name="model">product.pricelist.configurator.line</field>
+            <field name="arch" type="xml">
+                <form string="Configurator Line">
+                    <field name="product_id"/>
+                    <field name="cost_price"/>
+                    <field name="margin"/>
+                    <field name="quantity"/>
+                    <field name="bom_id"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_pricelist_configurator_line_tree">
+            <field name="name">product.pricelist.configurator.line.tree</field>
+            <field name="model">product.pricelist.configurator.line</field>
+            <field name="arch" type="xml">
+                <tree string="Configurator Line">
+                    <field name="product_id"/>
+                    <field name="cost_price"/>
+                    <field name="margin"/>
+                    <field name="quantity"/>
+                    <field name="bom_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_product_priecelist_configurator">
+            <field name="name">Configurator</field>
+            <field name="res_model">product.pricelist.configurator</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Pricelist Configurator" id="menu_product_priecelist_configurator" action="action_product_priecelist_configurator" parent="product.menu_product_pricelist_main"/>
+    </data>
+</openerp>
