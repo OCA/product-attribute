@@ -310,7 +310,8 @@ class attribute_attribute(orm.Model):
                     cr, uid, f_vals, {'manual': True})
         vals['state'] = 'manual'
         # set fields_by_model to None to force the reload of _columns in _init
-        # This change is mandatory to create column specific to attribute in the database when import csv
+        # This change is mandatory to create column specific to attribute
+        # in the database when import csv
         old_vals = self.pool.fields_by_model
         try:
             self.pool.fields_by_model = None
