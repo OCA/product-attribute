@@ -76,5 +76,5 @@ class ProductAttributeValue(models.Model):
         if self.name:
             self.attribute_code = self.name[0:1]
 
-    attribute_code = fields.Char(string='Attribute Code', required=True,
-                                 default=onchange_name)
+    attribute_code = fields.Char(
+        string='Attribute Code', default=onchange_name)
