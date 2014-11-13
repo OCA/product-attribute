@@ -38,7 +38,7 @@ class ProductTemplate(models.Model):
                         my_code = attribute_value.attribute_code
                     else:
                         my_code += '/' + attribute_value.attribute_code
-                default_code = self.template_default_code
+                default_code = (self.template_default_code, '')
                 if my_code:
                     default_code += ' - ' + my_code
                 product.default_code = default_code
