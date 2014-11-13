@@ -56,10 +56,11 @@ class ProductProduct(models.Model):
         if product_tmpl_id and attribute_value_ids:
             my_code = False
             for attribute_value in product.attribute_value_ids:
-                if not my_code:
-                    my_code = attribute_value.attribute_code
-                else:
-                    my_code += '/' + attribute_value.attribute_code
+                if attribute_value.attribute_code:
+                    if not my_code:
+                        my_code = attribute_value.attribute_code
+                    else:
+                        my_code += '/' + attribute_value.attribute_code
             default_code = product.template_default_code
             if my_code:
                 default_code += ' - ' + my_code
