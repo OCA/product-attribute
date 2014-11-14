@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #    Copyright (C) 2010-2011 OpenERP S.A. (<http://www.openerp.com>).
@@ -15,12 +15,13 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 from osv import fields
 from osv import osv
+
 
 class product_supplierinfo(osv.osv):
     _inherit = 'product.supplierinfo'
@@ -29,7 +30,8 @@ class product_supplierinfo(osv.osv):
     def _last_order(self, cr, uid, ids, name, arg, context=None):
         res = dict.fromkeys(ids, False)
         for supinfo in self.browse(cr, uid, ids, context=context):
-            cr.execute("select po.id, max(po.date_approve) from purchase_order as po, purchase_order_line as line where po.id=line.order_id and line.product_id=%s and po.partner_id=%s and po.state='approved' group by po.id", (supinfo.product_id.id, supinfo.name.id,))
+            cr.execute("select po.id, max(po.date_approve) from purchase_order as po, purchase_order_line as line where po.id=line.order_id and line.product_id=%s and po.partner_id=%s and po.state='approved' group by po.id",
+                       (supinfo.product_id.id, supinfo.name.id,))
             record = cr.fetchone()
             if record:
                 res[supinfo.id] = record[0]
@@ -39,16 +41,18 @@ class product_supplierinfo(osv.osv):
         res = dict.fromkeys(ids, False)
         po = self.pool.get('purchase.order')
         last_orders = self._last_order(cr, uid, ids, name, arg, context)
-        dates = po.read(cr, uid, filter(None, last_orders.values()), ['date_approve'])
+        dates = po.read(
+            cr, uid, filter(None, last_orders.values()), ['date_approve'])
         for suppinfo in ids:
-            date_approve = [x['date_approve'] for x in dates if x['id']==last_orders[suppinfo]]
+            date_approve = [x['date_approve']
+                            for x in dates if x['id'] == last_orders[suppinfo]]
             if date_approve:
                 res[suppinfo] = date_approve[0]
         return res
 
     _columns = {
-        'last_order' : fields.function(_last_order, type='many2one', obj='purchase.order', method=True, string='Last Order'),
-        'last_order_date' : fields.function(_last_order_date, type='date', method=True, string='Last Order date'),
+        'last_order': fields.function(_last_order, type='many2one', obj='purchase.order', method=True, string='Last Order'),
+        'last_order_date': fields.function(_last_order_date, type='date', method=True, string='Last Order date'),
     }
 product_supplierinfo()
 
@@ -56,11 +60,12 @@ product_supplierinfo()
 class product_product(osv.osv):
     _name = 'product.product'
     _inherit = 'product.product'
-    
+
     def _find_op(self, cr, uid, ids, name, arg, context):
         res = dict.fromkeys(ids, False)
         for product_id in ids:
-            cr.execute('SELECT swo.id from stock_warehouse_orderpoint AS swo WHERE product_id=%s', (product_id,))
+            cr.execute(
+                'SELECT swo.id from stock_warehouse_orderpoint AS swo WHERE product_id=%s', (product_id,))
             op_id = cr.fetchone()
             if op_id:
                 res[product_id] = op_id[0]
@@ -74,7 +79,6 @@ class product_product(osv.osv):
             res[p_id] = now[p_id] + out[p_id]
         return res
 
-
     _columns = {
         'calculate_price': fields.boolean('Compute standard price', help="Check this box if the standard price must be computed from the BoM."),
         'orderpoint_ids': fields.one2many('stock.warehouse.orderpoint', 'product_id', 'Orderpoints'),
@@ -82,11 +86,12 @@ class product_product(osv.osv):
     }
 
     _defaults = {
-        'calculate_price': lambda w,x,y,z: False,
+        'calculate_price': lambda w, x, y, z: False,
     }
 
     def compute_price(self, cr, uid, ids, context=None):
-        if context is None: context = {}
+        if context is None:
+            context = {}
         proxy = self.pool.get('mrp.bom')
         for prod_id in ids:
             bom_ids = proxy.search(cr, uid, [('product_id', '=', prod_id)])
@@ -94,7 +99,7 @@ class product_product(osv.osv):
                 for bom in proxy.browse(cr, uid, bom_ids):
                     self._calc_price(cr, uid, bom)
         return True
-                    
+
     def _calc_price(self, cr, uid, bom):
         if not bom.product_id.calculate_price:
             return bom.product_id.standard_price
@@ -106,16 +111,18 @@ class product_product(osv.osv):
                     price += self._calc_price(cr, uid, sbom) * my_qty
             else:
                 bom_obj = self.pool.get('mrp.bom')
-                no_child_bom = bom_obj.search(cr, uid, [('product_id', '=', bom.product_id.id), ('bom_id', '=', False)])
+                no_child_bom = bom_obj.search(
+                    cr, uid, [('product_id', '=', bom.product_id.id), ('bom_id', '=', False)])
                 if no_child_bom and bom.id not in no_child_bom:
                     other_bom = bom_obj.browse(cr, uid, no_child_bom)[0]
                     if not other_bom.product_id.calculate_price:
-                        price += self._calc_price(cr, uid, other_bom) * other_bom.product_qty
+                        price += self._calc_price(cr, uid,
+                                                  other_bom) * other_bom.product_qty
                     else:
-#                        price += other_bom.product_qty * other_bom.product_id.standard_price
+                        #                        price += other_bom.product_qty * other_bom.product_id.standard_price
                         price += other_bom.product_id.standard_price
                 else:
-#                    price += bom.product_qty * bom.product_id.standard_price
+                    #                    price += bom.product_qty * bom.product_id.standard_price
                     price += bom.product_id.standard_price
 #                if no_child_bom:
 #                    other_bom = bom_obj.browse(cr, uid, no_child_bom)[0]
@@ -126,23 +133,27 @@ class product_product(osv.osv):
                 for wline in bom.routing_id.workcenter_lines:
                     wc = wline.workcenter_id
                     cycle = wline.cycle_nbr
-                    hour = (wc.time_start + wc.time_stop + cycle * wc.time_cycle) *  (wc.time_efficiency or 1.0)
+                    hour = (wc.time_start + wc.time_stop + cycle *
+                            wc.time_cycle) * (wc.time_efficiency or 1.0)
                     price += wc.costs_cycle * cycle + wc.costs_hour * hour
-                    price = self.pool.get('product.uom')._compute_price(cr,uid,bom.product_uom.id,price,bom.product_id.uom_id.id)
+                    price = self.pool.get('product.uom')._compute_price(
+                        cr, uid, bom.product_uom.id, price, bom.product_id.uom_id.id)
             if bom.bom_lines:
-                self.write(cr, uid, [bom.product_id.id], {'standard_price' : price/bom.product_qty})
+                self.write(
+                    cr, uid, [bom.product_id.id], {'standard_price': price / bom.product_qty})
             if bom.product_uom.id != bom.product_id.uom_id.id:
-                price = self.pool.get('product.uom')._compute_price(cr,uid,bom.product_uom.id,price,bom.product_id.uom_id.id)
+                price = self.pool.get('product.uom')._compute_price(
+                    cr, uid, bom.product_uom.id, price, bom.product_id.uom_id.id)
             return price
 product_product()
 
+
 class product_bom(osv.osv):
     _inherit = 'mrp.bom'
-            
+
     _columns = {
-        'standard_price': fields.related('product_id','standard_price',type="float",relation="product.product",string="Standard Price",store=False)
+        'standard_price': fields.related('product_id', 'standard_price', type="float", relation="product.product", string="Standard Price", store=False)
     }
 
 product_bom()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

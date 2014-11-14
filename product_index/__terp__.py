@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -14,21 +14,20 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 {
-    "name" : "Manage indexes on products prices",
-    "version" : "1.0",
-    "author" : "Tiny",
-    "category" : "Generic Modules/Sales & Purchases",
+    "name": "Manage indexes on products prices",
+    "version": "1.0",
+    "author": "Tiny",
+    "category": "Generic Modules/Sales & Purchases",
     "website": "http://www.openerp.com",
-    "depends" : ["product"],
-    "demo_xml" : ['product.index.csv'],
-    "init_xml" : [],
-    "update_xml" : ['security/ir.model.access.csv','product_data.xml', "product_index_view.xml", "product_view.xml"],
+    "depends": ["product"],
+    "demo_xml": ['product.index.csv'],
+    "init_xml": [],
+    "update_xml": ['security/ir.model.access.csv', 'product_data.xml', "product_index_view.xml", "product_view.xml"],
     "active": False,
     'installable': False
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

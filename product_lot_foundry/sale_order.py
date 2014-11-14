@@ -20,56 +20,61 @@
 #
 ##############################################################################
 
-import time
 from osv import fields, osv
+
 
 class sale_order_line(osv.osv):
     _inherit = "sale.order.line"
+
     def product_id_change(self, cr, uid, ids, pricelist, product, qty=0,
-            uom=False, qty_uos=0, uos=False, name='', partner_id=False, fiscal_position=False,
-            lang=False, update_tax=True):
-        res = super(sale_order_line,self).product_id_change(cr, uid, ids, pricelist, product,
-            qty=qty, uom=uom, qty_uos=qty_uos, uos=uos, name=name, partner_id=partner_id, fiscal_position=fiscal_position, lang=lang, update_tax=update_tax)
+                          uom=False, qty_uos=0, uos=False, name='', partner_id=False, fiscal_position=False,
+                          lang=False, update_tax=True):
+        res = super(sale_order_line, self).product_id_change(cr, uid, ids, pricelist, product,
+                                                             qty=qty, uom=uom, qty_uos=qty_uos, uos=uos, name=name, partner_id=partner_id, fiscal_position=fiscal_position, lang=lang, update_tax=update_tax)
         if product:
             p = self.pool.get('product.product').browse(cr, uid, product)
             res['value']['size_x'] = p.size_x
             res['value']['size_y'] = p.size_y
             res['value']['size_z'] = p.size_z
         return res
+
     def size_change(self, cr, uid, ids, size_x, size_y, size_z, product_id, qty, context={}):
         if (not product_id) or not (size_x and size_y and size_z):
             return {}
-        res= {}
+        res = {}
         p = self.pool.get('product.product').browse(cr, uid, product_id)
         if size_y and size_z:
-            res['product_uos_qty'] = size_x*size_y*size_z*p.weight*qty / 1000000
+            res['product_uos_qty'] = size_x * size_y * \
+                size_z * p.weight * qty / 1000000
         else:
-            res['product_uos_qty'] = size_x*p.weight*qty / 1000
+            res['product_uos_qty'] = size_x * p.weight * qty / 1000
         return {'value': res}
 
-
     _columns = {
-        'prodlot_id' : fields.many2one('stock.production.lot', 'Production lot', help="Production lot is used to put a serial number on the production"),
-        'prodlot_ids' : fields.one2many('stock.production.lot.all', 'line_id', 'Lots Assignation', help="Production lot is used to put a serial number on the production"),
-        'size_x' : fields.float(digits=(16,2), string='Width'),
-        'size_y' : fields.float(digits=(16,2), string='Height'),
-        'size_z' : fields.float(digits=(16,2), string='Thickness'),
+        'prodlot_id': fields.many2one('stock.production.lot', 'Production lot', help="Production lot is used to put a serial number on the production"),
+        'prodlot_ids': fields.one2many('stock.production.lot.all', 'line_id', 'Lots Assignation', help="Production lot is used to put a serial number on the production"),
+        'size_x': fields.float(digits=(16, 2), string='Width'),
+        'size_y': fields.float(digits=(16, 2), string='Height'),
+        'size_z': fields.float(digits=(16, 2), string='Thickness'),
     }
 sale_order_line()
 
+
 class prod_lot_lines(osv.osv):
-    _name='stock.production.lot.all'
+    _name = 'stock.production.lot.all'
     _columns = {
         'name': fields.float('Quantity'),
         'lot_id': fields.many2one('stock.production.lot', 'Lot'),
     }
 prod_lot_lines()
 
+
 class sale_order(osv.osv):
     _inherit = "sale.order"
+
     def action_wait(self, cr, uid, ids, *args):
         print 'Confirm'
-        res = super(sale_order,self).action_wait(cr, uid, ids, *args)
+        res = super(sale_order, self).action_wait(cr, uid, ids, *args)
         for sale in self.browse(cr, uid, ids):
             for line in sale.order_line:
                 if line.prodlot_id.id:
@@ -88,4 +93,3 @@ class sale_order(osv.osv):
         return res
 sale_order()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

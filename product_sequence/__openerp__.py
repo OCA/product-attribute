@@ -21,21 +21,21 @@
 ##############################################################################
 
 {
-    'name' : 'Product Sequence',
-    'version' : '0.1',
+    'name': 'Product Sequence',
+    'version': '0.1',
     "author": "Zikzakmedia SL",
     "website": "http://www.zikzakmedia.com",
-    "license" : "AGPL-3",
-    "category" : "Generic Modules/Inventory Control",
+    "license": "AGPL-3",
+    "category": "Generic Modules/Inventory Control",
     "description": """
 This module allows to associate a sequence to the product reference.
 The reference (default code) is unique (SQL constraint) and required.
 Note: This module is incompatible with nan_product_sequence.
     """,
-    'depends' : [
+    'depends': [
         'product',
     ],
-    "data" : [
+    "data": [
         'product_sequence.xml',
     ],
     'installable': True,

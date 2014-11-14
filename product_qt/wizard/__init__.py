@@ -27,8 +27,8 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ###############################################################################
 
-import qt_raw_material
-import qt_in_production
-import qt_finish_goods
+from . import qt_raw_material
+from . import qt_in_production
+from . import qt_finish_goods
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

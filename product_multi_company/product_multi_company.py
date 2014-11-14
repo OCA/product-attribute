@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,44 +15,46 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 from osv import osv, fields
 
+
 class product_template(osv.osv):
     _inherit = "product.template"
     _description = "Product Template"
-    _columns={
+    _columns = {
         'list_price': fields.property('product.template',
-            type='float',
-            string='Public Price',
-            method=True,
-            view_load=True,
-            required=True,
-            help="Base price for computing the customer price. Sometimes called the catalog price."),
+                                      type='float',
+                                      string='Public Price',
+                                      method=True,
+                                      view_load=True,
+                                      required=True,
+                                      help="Base price for computing the customer price. Sometimes called the catalog price."),
         'standard_price': fields.property('product.template',
-            type='float',
-            string='Standard Price',
-            method=True,
-            view_load=True,
-            required=True,
-            help="Product's cost for accounting stock valuation. It is the base price for the supplier price."),
-        }
+                                          type='float',
+                                          string='Standard Price',
+                                          method=True,
+                                          view_load=True,
+                                          required=True,
+                                          help="Product's cost for accounting stock valuation. It is the base price for the supplier price."),
+    }
 product_template()
 
+
 class pricelist_partnerinfo(osv.osv):
-    _inherit = 'pricelist.partnerinfo' 
+    _inherit = 'pricelist.partnerinfo'
     _description = "Pricelist Partner"
     _columns = {
         'price': fields.property('pricelist.partnerinfo',
-            type='float',
-            string='Seller Price',
-            method=True,
-            view_load=True,
-            required=True,
-            help="This price will be considered as a price for the supplier UoM if any or the default Unit of Measure of the product otherwise"),
+                                 type='float',
+                                 string='Seller Price',
+                                 method=True,
+                                 view_load=True,
+                                 required=True,
+                                 help="This price will be considered as a price for the supplier UoM if any or the default Unit of Measure of the product otherwise"),
     }
 pricelist_partnerinfo()
 

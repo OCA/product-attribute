@@ -20,7 +20,6 @@
 ###############################################################################
 
 
-
 {
     'name': 'product_custom_attributes',
     'version': '0.2.1',
@@ -36,12 +35,11 @@ In particular it's used by the Magento Magentoerpconnect module to match the EAV
     'depends': ['product', 'base_custom_attributes'],
     'init_xml': [],
     'update_xml': [
-           'product_view.xml',
-           'custom_attributes_view.xml',
-           'wizard/open_product_by_attribute_set.xml',
+        'product_view.xml',
+        'custom_attributes_view.xml',
+        'wizard/open_product_by_attribute_set.xml',
     ],
     'demo_xml': [],
     'installable': True,
     'active': False,
 }
-

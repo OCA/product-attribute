@@ -102,7 +102,7 @@ class product_pricelist_configurator(Model):
                     '|',
                     ('date_end', '=', False),
                     ('date_end', '>=', datetime.datetime.today()),
-                    ])
+                ])
             # One active version at time
             if not pricelist_version_ids:
                 raise osv.except_osv(('Warning!'), (
@@ -117,8 +117,8 @@ class product_pricelist_configurator(Model):
                             raise osv.except_osv(('Warning!'), (
                                 """A pricelist item already existing
                                 for product %s and partner %s.""" % (
-                                conf.product_id.name,
-                                conf.partner_id.name)))
+                                    conf.product_id.name,
+                                    conf.partner_id.name)))
                     val = {
                         'price_version_id': price.id,
                         'product_id': conf.product_id.id,

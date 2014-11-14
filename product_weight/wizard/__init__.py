@@ -20,4 +20,4 @@
 #
 ##############################################################################
 
-import product_weight_update
+from . import product_weight_update

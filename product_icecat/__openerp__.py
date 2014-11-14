@@ -20,14 +20,14 @@
 ##############################################################################
 
 {
-    "name" : "Product Information Import from icecat",
-    "version" : "1.0",
-    "author" : "Zikzakmedia",
-    "website" : "http://www.zikzakmedia.com",
-    "category" : "Added functionality",
-    "depends" : ["base","product","product_images_olbs"],
-    "init_xml" : [],
-    "demo_xml" : [],
+    "name": "Product Information Import from icecat",
+    "version": "1.0",
+    "author": "Zikzakmedia",
+    "website": "http://www.zikzakmedia.com",
+    "category": "Added functionality",
+    "depends": ["base", "product", "product_images_olbs"],
+    "init_xml": [],
+    "demo_xml": [],
     "description": """
     Import information XML from icecat to OpenERP products.
     This wizard download XML in openerp-server (addons/product_icecat/xml) and after process data mapping line to product import.
@@ -41,7 +41,7 @@
         'product_icecat.xml',
         'wizard/wizard_product_icecat.xml',
     ],
-    'test':[''],
+    'test': [''],
     'installable': False,
     'active': False,
 }

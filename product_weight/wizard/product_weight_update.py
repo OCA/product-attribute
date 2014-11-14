@@ -45,7 +45,8 @@ class product_weight_update(osv.osv_memory):
          @return: A dictionary which of fields with values.
         """
         product_id = context and context.get('active_id', False) or False
-        res = super(product_weight_update, self).default_get(cr, uid, fields, context=context)
+        res = super(product_weight_update, self).default_get(
+            cr, uid, fields, context=context)
 
         bom_id = self.pool.get('mrp.bom').search(
             cr, uid, [('product_id', '=', product_id)])[0]
@@ -59,7 +60,6 @@ class product_weight_update(osv.osv_memory):
 
     def update_weight(self, cr, uid, ids, context=None):
         mrp_bom = self.pool.get("mrp.bom")
-        product_uom_categ = self.pool.get("product.uom.categ")
         product_product = self.pool.get("product.product")
 
         if context is None:
@@ -85,8 +85,8 @@ class product_weight_update(osv.osv_memory):
             weight_net = weight_net / mrp_bom.browse(
                 cr, uid, i.bom_id.id, context=context).product_qty
             product_product.write(cr, uid, rec_id,
-                       {'weight_net': weight_net},
-                       context=context)
+                                  {'weight_net': weight_net},
+                                  context=context)
         return {}
 
 product_weight_update()

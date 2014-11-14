@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#################################################################################
+##########################################################################
 #                                                                               #
 #    product_is_a_gift for OpenERP                                              #
 #    Copyright (C) 2011 Akretion Sébastien BEAU <sebastien.beau@akretion.com>   #
@@ -18,7 +18,7 @@
 #    You should have received a copy of the GNU Affero General Public License   #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.      #
 #                                                                               #
-#################################################################################
+##########################################################################
 
 from openerp.osv.orm import Model
 from openerp.osv import fields
@@ -28,11 +28,12 @@ class sale_order(Model):
     _inherit = "sale.order"
     _columns = {
         'gift_message': fields.text('Gift Message'),
-        }
+    }
 
     def _prepare_order_picking(self, cr, uid, order, *args, **kwargs):
-        values = super(sale_order, self)._prepare_order_picking(cr, uid, order, *args, **kwargs)
-        values.update({'gift_message' : order.gift_message})
+        values = super(sale_order, self)._prepare_order_picking(
+            cr, uid, order, *args, **kwargs)
+        values.update({'gift_message': order.gift_message})
         return values
 
 
@@ -41,10 +42,11 @@ class sale_order_line(Model):
     _columns = {
         'gift_message': fields.text('Gift Message'),
         'need_gift_wrap': fields.boolean('Add Gift Wrap'),
-        }
+    }
 
     def _prepare_order_line_move(self, cr, uid, order, line, picking_id, date_planned, *args, **kwargs):
-        values = super(sale_order_line, self)._prepare_order_line_move(cr, uid, order, line, picking_id, date_planned, *args, **kwargs)
+        values = super(sale_order_line, self)._prepare_order_line_move(
+            cr, uid, order, line, picking_id, date_planned, *args, **kwargs)
         values.update({'gift_message': line.gift_message,
                        'need_gift_wrap': line.need_gift_wrap})
         return values

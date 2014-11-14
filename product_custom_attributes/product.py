@@ -21,10 +21,9 @@
 
 from openerp.osv.orm import Model
 from openerp.osv import fields
-from openerp.osv.osv import except_osv
-from openerp.osv.orm import setup_modifiers
 from tools.translate import translate
 from lxml import etree
+
 
 class product_template(Model):
     _inherit = "product.template"
@@ -41,25 +40,28 @@ class product_product(Model):
         res = {}
         for i in ids:
             set_id = self.read(cr, uid, [i], fields=['attribute_set_id'],
-                     context=context)[0]['attribute_set_id']
+                               context=context)[0]['attribute_set_id']
             if not set_id:
                 res[i] = []
             else:
                 res[i] = self.pool.get('attribute.group').search(cr, uid,
-                      [('attribute_set_id', '=', set_id[0])])
+                                                                 [('attribute_set_id', '=', set_id[0])])
         return res
 
     _columns = {
         'attribute_group_ids': fields.function(_attr_grp_ids, type='many2many',
-        relation='attribute.group', string='Groups')
+                                               relation='attribute.group', string='Groups')
     }
 
     def open_attributes(self, cr, uid, ids, context=None):
         ir_model_data_obj = self.pool.get('ir.model.data')
-        ir_model_data_id = ir_model_data_obj.search(cr, uid, [['model', '=', 'ir.ui.view'], ['name', '=', 'product_attributes_form_view']], context=context)
+        ir_model_data_id = ir_model_data_obj.search(cr, uid, [['model', '=', 'ir.ui.view'], [
+                                                    'name', '=', 'product_attributes_form_view']], context=context)
         if ir_model_data_id:
-            res_id = ir_model_data_obj.read(cr, uid, ir_model_data_id, fields=['res_id'])[0]['res_id']
-        grp_ids = self._attr_grp_ids(cr, uid, [ids[0]], [], None, context)[ids[0]]
+            res_id = ir_model_data_obj.read(
+                cr, uid, ir_model_data_id, fields=['res_id'])[0]['res_id']
+        grp_ids = self._attr_grp_ids(
+            cr, uid, [ids[0]], [], None, context)[ids[0]]
         ctx = {'open_attributes': True, 'attribute_group_ids': grp_ids}
 
         return {
@@ -88,19 +90,24 @@ class product_product(Model):
                 cr, None, 'view', context.get('lang'), source
             ) or source
 
-        result = super(product_product, self).fields_view_get(cr, uid, view_id,view_type,context,toolbar=toolbar, submenu=submenu)
+        result = super(product_product, self).fields_view_get(
+            cr, uid, view_id, view_type, context, toolbar=toolbar, submenu=submenu)
         if view_type == 'form' and context.get('attribute_group_ids'):
             eview = etree.fromstring(result['arch'])
-            #hide button under the name
+            # hide button under the name
             button = eview.xpath("//button[@name='open_attributes']")
             if button:
                 button = button[0]
                 button.getparent().remove(button)
-            attributes_notebook, toupdate_fields = self.pool.get('attribute.attribute')._build_attributes_notebook(cr, uid, context['attribute_group_ids'], context=context)
-            result['fields'].update(self.fields_get(cr, uid, toupdate_fields, context))
+            attributes_notebook, toupdate_fields = self.pool.get('attribute.attribute')._build_attributes_notebook(
+                cr, uid, context['attribute_group_ids'], context=context)
+            result['fields'].update(
+                self.fields_get(cr, uid, toupdate_fields, context))
             if context.get('open_attributes'):
-                placeholder = eview.xpath("//separator[@string='attributes_placeholder']")[0]
-                placeholder.getparent().replace(placeholder, attributes_notebook)
+                placeholder = eview.xpath(
+                    "//separator[@string='attributes_placeholder']")[0]
+                placeholder.getparent().replace(
+                    placeholder, attributes_notebook)
             elif context.get('open_product_by_attribute_set'):
                 main_page = etree.Element(
                     'page',

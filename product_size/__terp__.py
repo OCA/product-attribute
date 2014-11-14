@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -14,21 +14,20 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 {
-    "name" : "Sizes of lots (width, length, thickness)",
-    "version" : "1.0",
-    "author" : "Tiny",
-    "category" : "Enterprise Specific Modules/Food Industries",
-    "depends" : ["base", "account", "product", "stock", "mrp","sale"],
-    "init_xml" : [],
-    "demo_xml" : ["product_size_demo.xml"],
+    "name": "Sizes of lots (width, length, thickness)",
+    "version": "1.0",
+    "author": "Tiny",
+    "category": "Enterprise Specific Modules/Food Industries",
+    "depends": ["base", "account", "product", "stock", "mrp", "sale"],
+    "init_xml": [],
+    "demo_xml": ["product_size_demo.xml"],
     "description": "Manage 3 dimensions size on lots.\nImplements demo data for a complex workflow on steel.",
-    "update_xml" : ["product_size_view.xml"],
+    "update_xml": ["product_size_view.xml"],
     "active": False,
     'installable': False
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

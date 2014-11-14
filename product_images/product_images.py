@@ -26,12 +26,13 @@ from openerp.tools.translate import _
 import logging
 _logger = logging.getLogger(__name__)
 
-#TODO find a good solution in order to roll back changed done on file system
-#TODO add the possibility to move from a store system to an other
+# TODO find a good solution in order to roll back changed done on file system
+# TODO add the possibility to move from a store system to an other
 # (example : moving existing image on database to file system)
 
 
 class product_images(orm.Model):
+
     "Products Image gallery"
     _name = "product.images"
     _description = __doc__
@@ -59,25 +60,30 @@ class product_images(orm.Model):
         if vals.get('name') or vals.get('extension'):
             images = self.browse(cr, uid, upd_ids, context=context)
             for image in images:
-                old_full_path = self._image_path(cr, uid, image, context=context)
+                old_full_path = self._image_path(
+                    cr, uid, image, context=context)
                 if not old_full_path:
                     continue
-                # all the stuff below is there to manage the files on the filesystem
+                # all the stuff below is there to manage the files on the
+                # filesystem
                 if vals.get('name') and (image.name != vals['name']) \
-                    or vals.get('extension') and (image.extension != vals['extension']):
+                        or vals.get('extension') and (image.extension != vals['extension']):
                     super(product_images, self).write(
                         cr, uid, image.id, vals, context=context)
                     upd_ids.remove(image.id)
                     if 'file' in vals:
                         # a new image have been loaded we should remove the old image
                         # TODO it's look like there is something wrong with function
-                        # field in openerp indeed the preview is always added in the write :(
+                        # field in openerp indeed the preview is always added
+                        # in the write :(
                         if os.path.isfile(old_full_path):
                             os.remove(old_full_path)
                     else:
-                        new_image = self.browse(cr, uid, image.id, context=context)
-                        new_full_path = self._image_path(cr, uid, new_image, context=context)
-                        #we have to rename the image on the file system
+                        new_image = self.browse(
+                            cr, uid, image.id, context=context)
+                        new_full_path = self._image_path(
+                            cr, uid, new_image, context=context)
+                        # we have to rename the image on the file system
                         if os.path.isfile(old_full_path):
                             os.rename(old_full_path, new_full_path)
         return super(product_images, self).write(cr, uid, upd_ids, vals, context=context)
@@ -85,7 +91,7 @@ class product_images(orm.Model):
     def _image_path(self, cr, uid, image, context=None):
         full_path = False
         local_media_repository = self.pool.get('res.company').\
-             get_local_media_repository(cr, uid, context=context)
+            get_local_media_repository(cr, uid, context=context)
         if local_media_repository:
             full_path = os.path.join(
                 local_media_repository,
@@ -105,12 +111,15 @@ class product_images(orm.Model):
         else:
             try:
                 if isinstance(image.product_id.default_code, bool):
-                    _logger.debug('product not completely setup, no image available')
+                    _logger.debug(
+                        'product not completely setup, no image available')
                     full_path = False
                 else:
-                    full_path = self._image_path(cr, uid, image, context=context)
+                    full_path = self._image_path(
+                        cr, uid, image, context=context)
             except Exception, e:
-                _logger.error("Can not find the path for image %s: %s", id, e, exc_info=True)
+                _logger.error(
+                    "Can not find the path for image %s: %s", id, e, exc_info=True)
                 return False
             if full_path:
                 if os.path.exists(full_path):
@@ -144,8 +153,8 @@ class product_images(orm.Model):
                 os.makedirs(dir_path)
         except OSError, e:
             raise osv.except_osv(
-                    _('Error'),
-                    _('The image filestore can not be created, %s') % e)
+                _('Error'),
+                _('The image filestore can not be created, %s') % e)
         return True
 
     def _save_file(self, path, b64_file):
@@ -177,11 +186,11 @@ class product_images(orm.Model):
         'url': fields.char('File Location'),
         'comments': fields.text('Comments'),
         'product_id': fields.many2one('product.product', 'Product')
-        }
+    }
 
     _defaults = {
         'link': False,
-        }
+    }
 
     _sql_constraints = [('uniq_name_product_id',
                          'UNIQUE(product_id, name)',

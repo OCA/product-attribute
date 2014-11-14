@@ -20,7 +20,6 @@
 ###############################################################################
 
 
-
 {
     'name': 'product_categ_attributes',
     'version': '0.1',
@@ -39,4 +38,3 @@
     'installable': True,
     'active': False,
 }
-

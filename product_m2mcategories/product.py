@@ -40,4 +40,4 @@ class product_product(orm.Model):
                                       domain="[('type', '=', 'normal')]",
                                       help="Select additional categories "
                                            "for the current product")
-        }
+    }

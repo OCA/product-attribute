@@ -22,11 +22,12 @@
 from openerp.osv.orm import Model
 from openerp.osv import fields
 
+
 class account_tax(Model):
     _inherit = 'account.tax'
     _columns = {
-        'related_inc_tax_id': fields.many2one('account.tax', 'Related Included Tax', domain=[('price_include','=', True)]),
-        }
+        'related_inc_tax_id': fields.many2one('account.tax', 'Related Included Tax', domain=[('price_include', '=', True)]),
+    }
 
     # overload def compute all but add a choice for the decimal precision
     def compute_all_with_precision(self, cr, uid, taxes, price_unit, quantity, address_id=None, product=None, partner=None, force_excluded=False, precision=None):
@@ -41,7 +42,8 @@ class account_tax(Model):
             }
         """
         if not precision:
-            precision = self.pool.get('decimal.precision').precision_get(cr, uid, 'Account')
+            precision = self.pool.get(
+                'decimal.precision').precision_get(cr, uid, 'Account')
         totalin = totalex = round(price_unit * quantity, precision)
         tin = []
         tex = []
@@ -50,19 +52,21 @@ class account_tax(Model):
                 tex.append(tax)
             else:
                 tin.append(tax)
-        tin = self.compute_inv(cr, uid, tin, price_unit, quantity, address_id=address_id, product=product, partner=partner)
+        tin = self.compute_inv(cr, uid, tin, price_unit, quantity,
+                               address_id=address_id, product=product, partner=partner)
         for r in tin:
             totalex -= r.get('amount', 0.0)
         totlex_qty = 0.0
         try:
-            totlex_qty = totalex/quantity
+            totlex_qty = totalex / quantity
         except:
             pass
-        tex = self._compute(cr, uid, tex, totlex_qty, quantity, address_id=address_id, product=product, partner=partner)
+        tex = self._compute(cr, uid, tex, totlex_qty, quantity,
+                            address_id=address_id, product=product, partner=partner)
         for r in tex:
             totalin += r.get('amount', 0.0)
         return {
             'total': totalex,
             'total_included': totalin,
             'taxes': tin + tex
-            }
+        }

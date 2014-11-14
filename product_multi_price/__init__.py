@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#################################################################################
+##########################################################################
 #                                                                               #
 #    product_multi_price for OpenERP                                          #
 #    Copyright (C) 2011 Akretion Sébastien BEAU <sebastien.beau@akretion.com>   #
@@ -17,13 +17,9 @@
 #    You should have received a copy of the GNU Affero General Public License   #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.      #
 #                                                                               #
-#################################################################################
+##########################################################################
 
 
-import product_price_fields
-import product
-import account
-
-
-
-
+from . import product_price_fields
+from . import product
+from . import account

@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -14,14 +14,12 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 
-
 import pooler
-import time
 import wizard
 
 _pricelist_form = '''<?xml version="1.0"?>
@@ -41,61 +39,63 @@ _done_form = '''<?xml version="1.0"?>
 </form>'''
 
 _done_fields = {
-    'update_products': {'string':'Upgraded list price of Products', 'type':'float', 'readonly': True},
+    'update_products': {'string': 'Upgraded list price of Products', 'type': 'float', 'readonly': True},
 
 
 }
 
+
 class wizard_product_pricelist(wizard.interface):
 
-
     def _get_pricelist(self, cr, uid, context):
-        pricelist_obj=pooler.get_pool(cr.dbname).get('product.pricelist')
-        ids=pricelist_obj.search(cr, uid, [('type', '=', 'internal'),])
-        pricelists=pricelist_obj.browse(cr, uid, ids)
-        return [(pricelist.id, pricelist.name ) for pricelist in pricelists]
+        pricelist_obj = pooler.get_pool(cr.dbname).get('product.pricelist')
+        ids = pricelist_obj.search(cr, uid, [('type', '=', 'internal'), ])
+        pricelists = pricelist_obj.browse(cr, uid, ids)
+        return [(pricelist.id, pricelist.name) for pricelist in pricelists]
 
     def _upgrade_listprice(self, cr, uid, data, context):
-        self.update_products=0
-        categories_ids=data['form']['product_category']
-        pricelist_obj=pooler.get_pool(cr.dbname).get('product.pricelist')
+        self.update_products = 0
+        categories_ids = data['form']['product_category']
+        pricelist_obj = pooler.get_pool(cr.dbname).get('product.pricelist')
         cat_obj = pooler.get_pool(cr.dbname).get('product.category')
         product_obj = pooler.get_pool(cr.dbname).get('product.product')
-        pricelist_id=data['form']['pricelist']
+        pricelist_id = data['form']['pricelist']
 
         def _upgrade(category_id):
-            if data['form']['upgrade']==True:
-                child_ids=cat_obj.search(cr, uid, [('parent_id', '=', category_id),])
+            if data['form']['upgrade'] == True:
+                child_ids = cat_obj.search(
+                    cr, uid, [('parent_id', '=', category_id), ])
                 for child_id in child_ids:
                     _upgrade(child_id)
-            product_ids=product_obj.search(cr, uid, [('categ_id', '=', category_id),])
+            product_ids = product_obj.search(
+                cr, uid, [('categ_id', '=', category_id), ])
             for product_id in product_ids:
-                list_price=pricelist_obj.price_get(cr, uid, [pricelist_id], product_id, 1)
+                list_price = pricelist_obj.price_get(
+                    cr, uid, [pricelist_id], product_id, 1)
                 product_obj.write(cr, uid, [product_id], {
-                            'list_price': list_price[pricelist_id]})
+                    'list_price': list_price[pricelist_id]})
                 self.update_products += 1
 
         for category_id in categories_ids[0][2]:
             _upgrade(category_id)
 
-        return {'update_products':self.update_products}
+        return {'update_products': self.update_products}
 
     _pricelist_fields = {
-        'pricelist': {'string':'Pricelist', 'type':'many2one', 'relation': 'product.pricelist','domain':[('type','=','internal')], 'required':True},
-        'product_category': {'string':'Product Category', 'type':'many2many', 'relation': 'product.category', 'required':True},
-        'upgrade' : {'string':'Upgrade Child categories', 'type':'boolean', 'default': lambda x,y,z: True}
+        'pricelist': {'string': 'Pricelist', 'type': 'many2one', 'relation': 'product.pricelist', 'domain': [('type', '=', 'internal')], 'required': True},
+        'product_category': {'string': 'Product Category', 'type': 'many2many', 'relation': 'product.category', 'required': True},
+        'upgrade': {'string': 'Upgrade Child categories', 'type': 'boolean', 'default': lambda x, y, z: True}
     }
 
     states = {
         'init': {
             'actions': [],
-            'result': {'type':'form', 'arch':_pricelist_form, 'fields':_pricelist_fields, 'state':[('end','Cancel'),('upgrade','Upgrade')]}
+            'result': {'type': 'form', 'arch': _pricelist_form, 'fields': _pricelist_fields, 'state': [('end', 'Cancel'), ('upgrade', 'Upgrade')]}
         },
-        'upgrade':{
-             'actions':[_upgrade_listprice],
-             'result':{'type': 'form', 'arch': _done_form, 'fields': _done_fields,'state':[('end', 'End')]}
-       }
+        'upgrade': {
+            'actions': [_upgrade_listprice],
+            'result': {'type': 'form', 'arch': _done_form, 'fields': _done_fields, 'state': [('end', 'End')]}
+        }
     }
 wizard_product_pricelist('product.listprice')
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-
