@@ -21,17 +21,12 @@ msgid "Attribute Code"
 msgstr "Código atributo"
 
 #. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_product
-msgid "Product"
-msgstr "Producto"
+#: field:product.template,default_prefix:0
+msgid "Reference prefix"
+msgstr "Prefijo de la referencia"
 
 #. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
-
-#. module: product_variant_default_code
-#: field:product.template,template_default_code:0
-msgid "Template Internal Reference"
-msgstr "Referencia interna plantilla"
+#: help:product.template,default_prefix:0
+msgid "Prefix for using when building internal references for the variants generated from this template"
+msgstr "Prefijo para usar cuando se construyen las referencias internas para las variantes generadas desde esta plantilla"
 
