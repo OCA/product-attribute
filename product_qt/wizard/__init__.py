@@ -30,5 +30,3 @@
 import qt_raw_material
 import qt_in_production
 import qt_finish_goods
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

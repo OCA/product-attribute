@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                      #
+#   product_custom_attributes for OpenERP                                     #
 #   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
@@ -28,8 +28,8 @@ class open_product_by_attribute_set(TransientModel):
     _description = 'Wizard to open product by attributes set'
 
     _columns = {
-        'attribute_set_id':fields.many2one('attribute.set', 'Attribute Set'),
-        }
+        'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
+    }
 
     def open_product_by_attribute(self, cr, uid, ids, context=None):
         """
@@ -43,14 +43,18 @@ class open_product_by_attribute_set(TransientModel):
         act_obj = self.pool.get('ir.actions.act_window')
         if context is None:
             context = {}
-        attribute_set = self.browse(cr, uid, ids[0], context=context).attribute_set_id
-        data = self.read(cr, uid, ids, [], context=context)[0] # XXX used?
-        result = mod_obj.get_object_reference(cr, uid, 'product', 'product_normal_action')
+        attribute_set = self.browse(
+            cr, uid, ids[0], context=context
+        ).attribute_set_id
+        self.read(cr, uid, ids, [], context=context)[0]  # XXX used?
+        result = mod_obj.get_object_reference(
+            cr, uid, 'product', 'product_normal_action'
+        )
         id = result[1] if result else False
         result = act_obj.read(cr, uid, [id], context=context)[0]
-        result['context'] = "{'set_id': %s, 'open_product_by_attribute_set': %s}"%(attribute_set.id, True)
+        result['context'] = "{'set_id': %s, " \
+                            "'open_product_by_attribute_set': %s}"\
+                            % (attribute_set.id, True)
         result['domain'] = "[('attribute_set_id', '=', %s)]" % attribute_set.id
         result['name'] = attribute_set.name
         return result
-
-

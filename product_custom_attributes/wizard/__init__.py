@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                      #
+#   product_custom_attributes for OpenERP                                     #
 #   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
@@ -19,11 +19,4 @@
 #                                                                             #
 ###############################################################################
 
-
-
 import open_product_by_attribute_set
-
-
-
-
-

@@ -23,23 +23,27 @@ from openerp.osv.orm import Model
 from openerp.osv import fields
 from openerp.tools.translate import _
 
+
 class product_product(Model):
     _inherit = 'product.product'
     _columns = {
-        'default_code' : fields.char('Reference', size=64, required=True),
-        }
+        'default_code': fields.char('Reference', size=64, required=True),
+    }
     _sql_constraints = [
-        ('uniq_default_code', 'unique(default_code)', "The reference must be unique"),
-        ]
+        ('uniq_default_code', 'unique(default_code)',
+         "The reference must be unique"),
+    ]
     _defaults = {
         'default_code': lambda * a: '/',
-        }
+    }
 
     def create(self, cr, uid, vals, context=None):
         if context is None:
             context = {}
-        if not 'default_code' in vals or vals['default_code'] == '/':
-            vals['default_code'] = self.pool.get('ir.sequence').get(cr, uid, 'product.product')
+        if 'default_code' not in vals or vals['default_code'] == '/':
+            vals['default_code'] = self.pool.get('ir.sequence').get(
+                cr, uid, 'product.product'
+            )
         return super(product_product, self).create(cr, uid, vals, context)
 
     def write(self, cr, uid, ids, vals, context=None):
@@ -47,19 +51,31 @@ class product_product(Model):
             ids = [ids]
         if context is None:
             context = {}
-        products_without_code = self.search(cr, uid, [('default_code', 'in', [False, '/']),('id', 'in', ids)], context=context)
+        products_without_code = self.search(
+            cr, uid, [
+                ('default_code', 'in', [False, '/']),
+                ('id', 'in', ids)
+            ], context=context)
         direct_write_ids = set(ids) - set(products_without_code)
-        super(product_product, self).write(cr, uid, list(direct_write_ids), vals, context)
+        super(product_product, self).write(
+            cr, uid, list(direct_write_ids), vals, context
+        )
         for product_id in products_without_code:
-            vals['default_code'] = self.pool.get('ir.sequence').get(cr, uid, 'product.product')
-            super(product_product, self).write(cr, uid, product_id, vals, context)
+            vals['default_code'] = self.pool.get('ir.sequence').get(
+                cr, uid, 'product.product'
+            )
+            super(product_product, self).write(
+                cr, uid, product_id, vals, context
+            )
         return True
 
-    def copy(self, cr, uid, id, default={}, context=None):
+    def copy(self, cr, uid, id, default=None, context=None):
+        if default is None:
+            default = {}
         product = self.read(cr, uid, id, ['default_code'], context=context)
-        if  product['default_code']:
+        if product['default_code']:
             default.update({
-                'default_code': product['default_code']+ _('-copy'),
+                'default_code': product['default_code'] + _('-copy'),
             })
 
         return super(product_product, self).copy(cr, uid, id, default, context)

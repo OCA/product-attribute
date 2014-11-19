@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,25 +15,24 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 {
-    "name" : "Product multi company ",
-    "version" : "1.1",
-    "author" : "OpenERP SA",
-    "category" : "Generic Modules/Inventory Control",
-    "depends" : [ "product"],
-    "init_xml" : [],
-    "demo_xml" : [],
+    "name": "Product multi company ",
+    "version": "1.1",
+    "author": "OpenERP SA",
+    "category": "Generic Modules/Inventory Control",
+    "depends": ["product"],
+    "init_xml": [],
+    "demo_xml": [],
     "description": """
-        This module updates the definitions of standard price, public price and seller price with property fields.
+        This module updates the definitions of standard price, public price
+        and seller price with property fields.
     """,
     'update_xml': [],
-    'test':[],
+    'test': [],
     'installable': True,
     'active': False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

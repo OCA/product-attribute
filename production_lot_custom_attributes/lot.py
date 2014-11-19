@@ -136,7 +136,7 @@ class stock_production_lot(osv.Model):
             'attribute_group_ids',
             type='many2many',
             relation='attribute.group'
-            ),
+        ),
         'search_all_attributes': fields.function(
             lambda self, cr, uid, ids, field, args, context: u'',
             type="char",
@@ -231,7 +231,7 @@ class stock_production_lot(osv.Model):
         )
         if view_type == 'form' and context.get('attribute_group_ids'):
             eview = etree.fromstring(result['arch'])
-            #hide button under the name
+            # hide button under the name
             button = eview.xpath("//button[@name='open_attributes']")
             if button:
                 button = button[0]
