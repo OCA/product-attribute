@@ -67,3 +67,10 @@ class ProductAttributeValue(models.Model):
 
     attribute_code = fields.Char(
         string='Attribute Code', default=onchange_name)
+
+    @api.model
+    def create(self, values):
+        if 'attribute_code' not in values:
+            values['attribute_code'] = values.get('name')[0:1]
+        value = super(ProductAttributeValue, self).create(values)
+        return value
