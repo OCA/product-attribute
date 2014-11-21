@@ -50,7 +50,7 @@ How To Use
     'website': 'http://www.agilebg.com/',
     'depends': ['product', 'sale', 'mrp'],
     'data': [
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
         'pricelist_configurator_by_bom_view.xml',
     ],
     'test': [
