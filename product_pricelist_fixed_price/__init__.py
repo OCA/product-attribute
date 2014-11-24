@@ -15,4 +15,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+'''Import all directories containing python files'''
 from . import model
