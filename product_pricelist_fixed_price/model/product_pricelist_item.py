@@ -27,6 +27,7 @@ from openerp.tools.translate import _
 
 FIXED_PRICE_TYPE = -3
 
+
 class ProductPrice(orm.Model):
     '''Inherit existing model to add functionality for fixed prices'''
     _inherit = 'product.pricelist.item'
@@ -162,4 +163,3 @@ class ProductPrice(orm.Model):
         vals = {'base_ext': base_ext}
         self._modify_vals(cr, uid, vals, context=context)
         return {'value': vals}
-
