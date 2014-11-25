@@ -9,7 +9,11 @@
 			menu="False"
 			id="wizard_product_listprice"/>
 		
-		<menuitem name="Pricelists" id="menu_wizard_pricelist" parent="product.menu_main_product"/> 
+        <menuitem
+            name="Pricelists"
+            id="menu_wizard_pricelist"
+            parent="product.menu_product_pricelist_main"
+        /> 
 		<menuitem name="Upgrade Product List price" id="menu_wizard_pricelist_upgrade" parent="menu_wizard_pricelist" action="wizard_product_listprice" type="wizard"/>
 
 	</data>

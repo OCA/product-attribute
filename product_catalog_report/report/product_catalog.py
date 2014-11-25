@@ -20,8 +20,11 @@
 
 import time
 import urllib
+import logging
 import base64
 from report import report_sxw
+
+_logger = logging.getLogger(__name__)
 
 
 class product_catalog(report_sxw.rml_parse):
@@ -60,11 +63,11 @@ class product_catalog(report_sxw.rml_parse):
                         )
                         return img_data
                     except Exception, innerEx:
-                        print innerEx
+                        _logger.error(innerEx)
                 elif datas[0]['datas']:
                     return datas[0]['datas']
             except Exception as e:
-                print e
+                _logger.error(e)
         return None
 
     def setCat(self, cats):

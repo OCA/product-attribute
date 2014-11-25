@@ -15,5 +15,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-'''Import all directories containing python files'''
-from . import model
+'''Contains all the models for the module'''
+from . import product_pricelist_item
