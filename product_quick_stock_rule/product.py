@@ -47,7 +47,6 @@ class product_product(Model):
 
     def _set_min_stock(self, cr, uid, product_id, name, value, arg,
                        context=None):
-        print 'set stock'
         orderpoint_obj = self.pool.get('stock.warehouse.orderpoint')
         op_ids = orderpoint_obj.search(
             cr, uid, [('product_id', '=', product_id)], context=context
