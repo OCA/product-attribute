@@ -309,7 +309,18 @@ class attribute_attribute(orm.Model):
                 vals['serialization_field_id'] = field_obj.create(
                     cr, uid, f_vals, {'manual': True})
         vals['state'] = 'manual'
-        return super(attribute_attribute, self).create(cr, uid, vals, context)
+        # set fields_by_model to None to force the reload of _columns in _init
+        # This change is mandatory to create column specific to attribute
+        # in the database when import csv
+        old_vals = self.pool.fields_by_model
+        try:
+            self.pool.fields_by_model = None
+            res = super(attribute_attribute, self).create(cr, uid, vals, context)
+        except Exception:
+            raise
+        finally:
+            self.pool.fields_by_model = old_vals
+        return res
 
     def onchange_field_description(self, cr, uid, ids, field_description,
                                    name, create_date, context=None):
