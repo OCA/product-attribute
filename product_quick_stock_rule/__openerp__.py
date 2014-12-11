@@ -20,7 +20,6 @@
 ###############################################################################
 
 
-
 {
     'name': 'product_quick_stock_rule',
     'version': '0.1',
@@ -31,7 +30,7 @@
         Two fields have been added on product view : 'active_rule' and 'min_qty'
         If you click on 'active rule' and select a 'min_qty' a stock rule will be automatically
         generated.
-        If you unselect the 'active rule' the rule will be deactivated 
+        If you unselect the 'active rule' the rule will be deactivated
         and the field min_qty will be read only.
         """,
     'author': 'Akretion',
@@ -39,10 +38,9 @@
     'depends': ['procurement'],
     'init_xml': [],
     'update_xml': [
-           'product_view.xml',
+        'product_view.xml',
     ],
     'demo_xml': [],
     'installable': False,
     'active': False,
 }
-

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2012 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
@@ -15,12 +15,12 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 from osv import fields, osv
-from crm import crm
+
 
 class product_supplierinfo(osv.osv):
     _inherit = "product.supplierinfo"
@@ -36,7 +36,7 @@ class product_supplierinfo(osv.osv):
         return result
 
     _columns = {
-        'unit_price': fields.function(_compute_unit_price,string='Unit Price',type='float'),
+        'unit_price': fields.function(_compute_unit_price, string='Unit Price', type='float'),
     }
 
 product_supplierinfo()

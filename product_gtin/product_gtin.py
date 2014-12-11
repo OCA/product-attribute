@@ -39,8 +39,8 @@ def check_ean(eancode):
         return False
     sum = 0
     ean13_len = int(len(eancode))
-    for i in range(ean13_len-1):
-        pos = int(ean13_len-2-i)
+    for i in range(ean13_len - 1):
+        pos = int(ean13_len - 2 - i)
         if is_pair(i):
             sum += 3 * int(eancode[pos])
         else:
@@ -48,7 +48,7 @@ def check_ean(eancode):
     check = 10 - operator.mod(sum, 10)
     if check == 10:
         check = 0
-    if check != int(eancode[ean13_len-1]):  # last digit
+    if check != int(eancode[ean13_len - 1]):  # last digit
         return False
     return True
 
@@ -85,7 +85,7 @@ class product_packaging(orm.Model):
         'ean': fields.char(
             'EAN', size=14,
             help='Barcode number for EAN8 EAN13 UPC JPC GTIN'),
-        }
+    }
 
     _constraints = [(_check_ean_key, 'Error: Invalid EAN code', ['ean'])]
 
@@ -104,6 +104,6 @@ class res_partner(orm.Model):
             'EAN', size=14,
             help="Code for EAN8 EAN13 UPC JPC GTIN "
             "http://en.wikipedia.org/wiki/Global_Trade_Item_Number"),
-        }
+    }
 
     _constraints = [(_check_ean_key, 'Error: Invalid EAN code', ['ean13'])]

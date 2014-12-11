@@ -20,27 +20,29 @@
 #
 ##############################################################################
 
-from osv import fields,osv
+from osv import fields, osv
+
+
 class product_series(osv.osv):
-	_name = "product.series"
-	_description = "Partner Product Series"
-	_columns = {
-		'partner_id' : fields.many2one('res.partner','Manufacturer',required=True,select=True),
-		'code': fields.char('Code', size=64, select=True),
-		'name': fields.char('Name', size=64, select=True),
-		'description': fields.char('Description', size=128, select=True),
-	}
+    _name = "product.series"
+    _description = "Partner Product Series"
+    _columns = {
+        'partner_id': fields.many2one('res.partner', 'Manufacturer', required=True, select=True),
+        'code': fields.char('Code', size=64, select=True),
+        'name': fields.char('Name', size=64, select=True),
+        'description': fields.char('Description', size=128, select=True),
+    }
 
 
 product_series()
 
 
 class product_product(osv.osv):
-	_inherit ="product.product"
-	_name = "product.product"
-	_columns = {
-		'series': fields.many2one('product.series','Series'),
-	}
+    _inherit = "product.product"
+    _name = "product.product"
+    _columns = {
+        'series': fields.many2one('product.series', 'Series'),
+    }
 
 product_product()
 

@@ -22,10 +22,9 @@
 
 import ast
 from openerp.osv import orm, fields
-from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
 from lxml import etree
-from unidecode import unidecode # Debian package python-unidecode
+from unidecode import unidecode  # Debian package python-unidecode
 import re
 
 
@@ -34,13 +33,13 @@ def safe_column_name(string):
     with other DBMS system
     Use case : if you synchronise attributes with other applications """
     string = unidecode(string.replace(' ', '_').lower())
-    return re.sub(r'[^0-9a-z_]','', string)
+    return re.sub(r'[^0-9a-z_]', '', string)
 
 
 class attribute_option(orm.Model):
     _name = "attribute.option"
     _description = "Attribute Option"
-    _order="sequence"
+    _order = "sequence"
 
     def _get_model_list(self, cr, uid, context=None):
         model_pool = self.pool.get('ir.model')
@@ -89,7 +88,7 @@ class attribute_option_wizard(orm.TransientModel):
 
     _defaults = {
         'attribute_id': lambda self, cr, uid, context:
-                            context.get('attribute_id',False)
+        context.get('attribute_id', False)
     }
 
     def validate(self, cr, uid, ids, context=None):
@@ -103,13 +102,15 @@ class attribute_option_wizard(orm.TransientModel):
         opt_obj.unlink(cr, uid, op_ids)
         for op_id in (vals.get("option_ids") and vals['option_ids'][0][2] or []):
             model = attr.relation_model_id.model
-            name = self.pool.get(model).name_get(cr, uid, [op_id], context)[0][1]
+            name = self.pool.get(model).name_get(
+                cr, uid, [op_id], context)[0][1]
             opt_obj.create(cr, uid, {
                 'attribute_id': vals['attribute_id'],
                 'name': name,
                 'value_ref': "%s,%s" % (attr.relation_model_id.model, op_id)
             })
-        res = super(attribute_option_wizard, self).create(cr, uid, vals, context)
+        res = super(attribute_option_wizard, self).create(
+            cr, uid, vals, context)
         return res
 
     def fields_view_get(self, cr, uid, view_id=None, view_type='form',
@@ -119,20 +120,21 @@ class attribute_option_wizard(orm.TransientModel):
         if view_type == 'form' and context and context.get("attribute_id"):
             attr_obj = self.pool.get("attribute.attribute")
             model_id = attr_obj.read(cr, uid, [context.get("attribute_id")],
-                            ['relation_model_id'])[0]['relation_model_id'][0]
+                                     ['relation_model_id'])[0]['relation_model_id'][0]
             relation = self.pool.get("ir.model").read(cr, uid, [model_id],
                                                       ["model"])[0]["model"]
             res['fields'].update({'option_ids': {
-                            'domain': [],
-                            'string': "Options",
-                            'type': 'many2many',
-                            'relation': relation,
-                            'required': True,
-                            }
-                        })
+                'domain': [],
+                'string': "Options",
+                'type': 'many2many',
+                'relation': relation,
+                'required': True,
+            }
+            })
             eview = etree.fromstring(res['arch'])
             options = etree.Element('field', name='option_ids', colspan='6')
-            placeholder = eview.xpath("//separator[@string='options_placeholder']")[0]
+            placeholder = eview.xpath(
+                "//separator[@string='options_placeholder']")[0]
             placeholder.getparent().replace(placeholder, options)
             res['arch'] = etree.tostring(eview, pretty_print=True)
         return res
@@ -149,9 +151,9 @@ class attribute_attribute(orm.Model):
         if attribute.ttype in ['many2many', 'text']:
             parent = etree.SubElement(parent, 'group', colspan="2", col="4")
             etree.SubElement(parent,
-                                   'separator',
-                                    string="%s" % attribute.field_description,
-                                    colspan="4")
+                             'separator',
+                             string="%s" % attribute.field_description,
+                             colspan="4")
             kwargs['nolabel'] = "1"
         if attribute.ttype in ['many2one', 'many2many']:
             if attribute.relation_model_id:
@@ -166,8 +168,10 @@ class attribute_attribute(orm.Model):
                     ids = [op.value_ref.id for op in attribute.option_ids]
                     kwargs['domain'] = "[('id', 'in', %s)]" % ids
             else:
-                kwargs['domain'] = "[('attribute_id', '=', %s)]" % attribute.attribute_id.id
-        kwargs['context'] = "{'default_attribute_id': %s}" % attribute.attribute_id.id
+                kwargs[
+                    'domain'] = "[('attribute_id', '=', %s)]" % attribute.attribute_id.id
+        kwargs[
+            'context'] = "{'default_attribute_id': %s}" % attribute.attribute_id.id
         kwargs['required'] = str(attribute.required or
                                  attribute.required_on_views)
         field = etree.SubElement(parent, 'field', **kwargs)
@@ -243,7 +247,7 @@ class attribute_attribute(orm.Model):
             'Required (on views)',
             help="If activated, the attribute will be mandatory on the views, "
                  "but not in the database"),
-        }
+    }
 
     def create(self, cr, uid, vals, context=None):
         """ Create an attribute.attribute
@@ -262,7 +266,8 @@ class attribute_attribute(orm.Model):
             # not allowed to write on it. So we call `create()` without
             # changing the fields values.
             field_obj = self.pool.get('ir.model.fields')
-            field = field_obj.browse(cr, uid, vals['field_id'], context=context)
+            field = field_obj.browse(
+                cr, uid, vals['field_id'], context=context)
             if vals.get('serialized'):
                 raise orm.except_orm(
                     _('Error'),
@@ -337,7 +342,7 @@ class attribute_attribute(orm.Model):
             name = u'%s' % name
         res = {'value': {'name': unidecode(name)}}
 
-        #FILTER ON MODEL
+        # FILTER ON MODEL
         model_name = context.get('force_model')
         if not model_name:
             model_id = context.get('default_model_id')
@@ -355,8 +360,8 @@ class attribute_attribute(orm.Model):
     def _get_default_model(self, cr, uid, context=None):
         if context and context.get('force_model'):
             model_id = self.pool['ir.model'].search(cr, uid, [
-                                        ('model', '=', context['force_model'])
-                                                             ], context=context)
+                ('model', '=', context['force_model'])
+            ], context=context)
             if model_id:
                 return model_id[0]
         return None
@@ -369,7 +374,7 @@ class attribute_attribute(orm.Model):
 class attribute_group(orm.Model):
     _name = "attribute.group"
     _description = "Attribute Group"
-    _order ="sequence"
+    _order = "sequence"
 
     _columns = {
         'name': fields.char(
@@ -429,7 +434,7 @@ class attribute_set(orm.Model):
             'ir.model',
             'Model',
             required=True),
-        }
+    }
 
     def _get_default_model(self, cr, uid, context=None):
         if context and context.get('force_model'):
@@ -448,7 +453,7 @@ class attribute_set(orm.Model):
 class attribute_location(orm.Model):
     _name = "attribute.location"
     _description = "Attribute Location"
-    _order="sequence"
+    _order = "sequence"
     _inherits = {'attribute.attribute': 'attribute_id'}
 
     def _get_attribute_loc_from_group(self, cr, uid, ids, context=None):
@@ -477,4 +482,4 @@ class attribute_location(orm.Model):
             'Attribute Group',
             required=True),
         'sequence': fields.integer('Sequence'),
-        }
+    }

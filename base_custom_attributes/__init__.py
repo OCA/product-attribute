@@ -20,10 +20,5 @@
 ###############################################################################
 
 
-
-import ir_model
-import custom_attributes
-
-
-
-
+from . import ir_model
+from . import custom_attributes

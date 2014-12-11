@@ -20,7 +20,6 @@
 ###############################################################################
 
 
-
 {
     'name': 'base_custom_attributes',
     'version': '0.1.1',
@@ -33,16 +32,15 @@
     'depends': ['base'],
     'init_xml': [],
     'update_xml': [
-           'security/ir.model.access.csv',
-           'security/attribute_security.xml',
-           'custom_attributes_view.xml',
+        'security/ir.model.access.csv',
+        'security/attribute_security.xml',
+        'custom_attributes_view.xml',
     ],
     'demo_xml': [],
     'installable': True,
     'active': False,
-    'external_dependencies' : {
-        'python' : ['unidecode'],
+    'external_dependencies': {
+        'python': ['unidecode'],
     }
 
 }
-

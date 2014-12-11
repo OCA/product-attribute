@@ -19,12 +19,12 @@
 #########################################################################
 
 {
-    "name" : "Product Image Gallery",
-    "version" : "0.2",
-    "author" : "Sharoon Thomas, Open Labs Business Solutions, Akretion",
-    "website" : "http://openlabs.co.in/",
-    "category" : "Generic Modules",
-    "depends" : ['product_sequence'],
+    "name": "Product Image Gallery",
+    "version": "0.2",
+    "author": "Sharoon Thomas, Open Labs Business Solutions, Akretion",
+    "website": "http://openlabs.co.in/",
+    "category": "Generic Modules",
+    "depends": ['product_sequence'],
     "description": """
 This Module implements an Image Gallery for products.
 You can add images to every product.

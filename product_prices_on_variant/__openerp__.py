@@ -20,7 +20,6 @@
 ###############################################################################
 
 
-
 {
     'name': 'product_prices_on_variant',
     'version': '0.1',
@@ -35,7 +34,7 @@
     'website': 'http://www.akretion.com/',
     'depends': [
         'product',
-        ],
+    ],
     'init_xml': [],
     'update_xml': [
     ],
@@ -43,4 +42,3 @@
     'installable': False,
     'active': False,
 }
-

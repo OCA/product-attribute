@@ -38,7 +38,7 @@ class stock_production_lot(Model):
             'attribute_group_ids',
             type='many2many',
             relation='attribute.group'
-            )
+        )
     }
 
     def open_attributes(self, cr, uid, ids, context=None):
@@ -103,7 +103,7 @@ class stock_production_lot(Model):
         )
         if view_type == 'form' and context.get('attribute_group_ids'):
             eview = etree.fromstring(result['arch'])
-            #hide button under the name
+            # hide button under the name
             button = eview.xpath("//button[@name='open_attributes']")
             if button:
                 button = button[0]

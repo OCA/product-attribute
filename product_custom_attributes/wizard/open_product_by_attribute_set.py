@@ -30,7 +30,7 @@ class open_product_by_attribute_set(TransientModel):
 
     _columns = {
         'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
-        }
+    }
 
     def open_product_by_attribute(self, cr, uid, ids, context=None):
         """
@@ -44,16 +44,17 @@ class open_product_by_attribute_set(TransientModel):
         act_obj = self.pool.get('ir.actions.act_window')
         if context is None:
             context = {}
-        attribute_set = self.browse(cr, uid, ids[0], context=context).attribute_set_id
-        result = mod_obj.get_object_reference(cr, uid, 'product', 'product_normal_action')
+        attribute_set = self.browse(
+            cr, uid, ids[0], context=context).attribute_set_id
+        result = mod_obj.get_object_reference(
+            cr, uid, 'product', 'product_normal_action')
         id = result[1] if result else False
         result = act_obj.read(cr, uid, [id], context=context)[0]
-        grp_ids = self.pool.get('attribute.group').search(cr, uid, [('attribute_set_id', '=', attribute_set.id)])
+        grp_ids = self.pool.get('attribute.group').search(
+            cr, uid, [('attribute_set_id', '=', attribute_set.id)])
         ctx = "{'open_product_by_attribute_set': %s, \
               'attribute_group_ids': %s}" % (True, grp_ids)
         result['context'] = ctx
         result['domain'] = "[('attribute_set_id', '=', %s)]" % attribute_set.id
         result['name'] = attribute_set.name
         return result
-
-

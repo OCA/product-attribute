@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#################################################################################
+##########################################################################
 #                                                                               #
 #    product_multi_price for OpenERP                                          #
 #    Copyright (C) 2011 Akretion Sébastien BEAU <sebastien.beau@akretion.com>   #
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License   #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.      #
 #                                                                               #
-#################################################################################
+##########################################################################
 
 
 {
@@ -28,17 +28,16 @@
     'description': """empty""",
     'author': 'Akretion',
     'website': 'http://www.akretion.com/',
-    'depends': ['product','account', 'sale','product_prices_on_variant'],
+    'depends': ['product', 'account', 'sale', 'product_prices_on_variant'],
     'init_xml': [],
     'update_xml': [
-           'product_price_fields_view.xml',
-           'product_view.xml',
-           'product_price_field_config.xml',
-           'account_view.xml',
-           'security/ir.model.access.csv',
+        'product_price_fields_view.xml',
+        'product_view.xml',
+        'product_price_field_config.xml',
+        'account_view.xml',
+        'security/ir.model.access.csv',
     ],
     'demo_xml': [],
     'installable': False,
     'active': False,
 }
-

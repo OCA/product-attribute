@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
-#                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com> 
+#                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -28,7 +28,7 @@ class product_pricelist_item(orm.Model):
 
     def _price_field_get_ext(self, cr, uid, context=None):
         result = super(product_pricelist_item, self)._price_field_get(
-                                    cr, uid, context=context)
+            cr, uid, context=context)
         result.append((-3, _('Fixed Price')))
         return result
 

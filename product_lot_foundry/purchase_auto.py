@@ -1,5 +1,5 @@
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -14,24 +14,26 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
-import time
 import netsvc
-from osv import fields, osv
+from osv import osv
+
 
 class mrp_procurement(osv.osv):
     _inherit = "mrp.procurement"
-    def action_po_assign(self,cr, uid, ids):
-        res = super(mrp_procurement,self).action_po_assign(cr, uid, ids)
+
+    def action_po_assign(self, cr, uid, ids):
+        res = super(mrp_procurement, self).action_po_assign(cr, uid, ids)
         wf_service = netsvc.LocalService("workflow")
-        wf_service.trg_validate(uid, 'purchase.order', res, 'purchase_confirm', cr)
-        wf_service.trg_validate(uid, 'purchase.order', res, 'purchase_approve', cr)
+        wf_service.trg_validate(
+            uid, 'purchase.order', res, 'purchase_confirm', cr)
+        wf_service.trg_validate(
+            uid, 'purchase.order', res, 'purchase_approve', cr)
         return res
 
 mrp_procurement()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

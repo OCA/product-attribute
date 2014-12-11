@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#################################################################################
+##########################################################################
 #                                                                               #
 #    product_is_a_gift for OpenERP                                              #
 #    Copyright (C) 2011 Akretion Sébastien BEAU <sebastien.beau@akretion.com>   #
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License   #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.      #
 #                                                                               #
-#################################################################################
+##########################################################################
 
 from openerp.osv.orm import Model
 from openerp.osv import fields
@@ -27,7 +27,7 @@ class stock_picking(Model):
     _inherit = "stock.picking"
     _columns = {
         'gift_message': fields.text('Gift Message'),
-        }
+    }
 
 
 class stock_move(Model):
@@ -35,9 +35,10 @@ class stock_move(Model):
     _columns = {
         'gift_message': fields.text('Gift Message'),
         'need_gift_wrap': fields.boolean('Need Gift Wrap'),
-        }
+    }
 
     def _prepare_chained_picking(self, cr, uid, pick_name, picking, ptype, move, context=None):
-        res = super(stock_move, self)._prepare_chained_picking(cr, uid, pick_name, picking, ptype, move, context=context)
+        res = super(stock_move, self)._prepare_chained_picking(
+            cr, uid, pick_name, picking, ptype, move, context=context)
         res['gift_message'] = picking.gift_message
         return res

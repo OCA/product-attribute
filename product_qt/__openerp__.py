@@ -27,13 +27,13 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ###############################################################################
 {
-    "name" : "Products & Pricelists - Define quality control and testing parameters in product",
-    "version" : "1.0",
-    "author" : "Tiny",
-    "category" : "Generic Modules/Inventory Control",
-    "depends" : ["base", "process", "product","stock","mrp"],
-    "init_xml" : [],
-    "demo_xml" : [],
+    "name": "Products & Pricelists - Define quality control and testing parameters in product",
+    "version": "1.0",
+    "author": "Tiny",
+    "category": "Generic Modules/Inventory Control",
+    "depends": ["base", "process", "product", "stock", "mrp"],
+    "init_xml": [],
+    "demo_xml": [],
     "description": """
     This module add quality control and testing parameters in product
     1> configure QC parameters for particular product.
@@ -41,15 +41,14 @@
     3> QC testing during production.
     3> QC testing on finished goods.
     """,
-    "update_xml" : [
+    "update_xml": [
         "security/ir.model.access.csv",
         "wizard_view.xml",
         "product_qt_view.xml",
 
-        ],
+    ],
     "active": False,
     'installable': False
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

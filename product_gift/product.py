@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#################################################################################
+##########################################################################
 #                                                                               #
 #    product_is_a_gift for OpenERP                                              #
 #    Copyright (C) 2011 Akretion Sébastien BEAU <sebastien.beau@akretion.com>   #
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License   #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.      #
 #                                                                               #
-#################################################################################
+##########################################################################
 
 from openerp.osv.orm import Model
 from openerp.osv import fields
@@ -27,7 +27,7 @@ class product_product(Model):
     _inherit = "product.product"
     _columns = {
         'allow_gift_wrap': fields.boolean('Allow Gift Wrap', help="Determine if the product can have the option gift wrap on the sale order line"),
-        }
+    }
     _defaults = {
         'allow_gift_wrap': True,
-        }
+    }

@@ -38,7 +38,7 @@ class ResPartner(osv.Model):
             'attribute_group_ids',
             type='many2many',
             relation='attribute.group'
-            ),
+        ),
     }
 
     def open_attributes(self, cr, uid, ids, context=None):
