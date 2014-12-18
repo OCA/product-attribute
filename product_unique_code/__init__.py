@@ -2,9 +2,10 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2011 Zikzakmedia S.L. (http://zikzakmedia.com) All Rights Reserved.
-#    Copyright (C) 2013-TODAY Akretion <http://www.akretion.com>.
-#     @author Chafique DELLI <chafique.delli@akretion.com>
+#    Copyright (c) 2011 Zikzakmedia S.L. (http://zikzakmedia.com)
+#                  2013-TODAY Akretion <http://www.akretion.com>.
+#                  @author Chafique DELLI <chafique.delli@akretion.com>
+#    All Rights Reserved.
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,4 +23,4 @@
 #
 ##############################################################################
 
-import product
+from . import product

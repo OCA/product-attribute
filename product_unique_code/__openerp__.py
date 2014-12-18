@@ -2,9 +2,10 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2011 Zikzakmedia S.L. (http://zikzakmedia.com) All Rights Reserved.
-#    Copyright (C) 2013-TODAY Akretion <http://www.akretion.com>.
-#     @author Chafique DELLI <chafique.delli@akretion.com>
+#    Copyright (c) 2011 Zikzakmedia S.L. (http://zikzakmedia.com)
+#                  2013-TODAY Akretion <http://www.akretion.com>.
+#                  @author Chafique DELLI <chafique.delli@akretion.com>
+#    All Rights Reserved.
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -23,19 +24,20 @@
 ##############################################################################
 
 {
-    'name' : 'Product Unique Code',
-    'version' : '0.1',
+    'name': 'Product Unique Code',
+    'version': '0.1',
     "author": "Akretion",
     "website": "http://www.akretion.com",
-    "license" : "AGPL-3",
-    "category" : "Generic Modules/Inventory Control",
+    "license": "AGPL-3",
+    "category": "Generic Modules/Inventory Control",
     "description": """
-This module allows to verify that the code (default code) is unique (SQL constraint).
+This module allows to verify that the code (default code) is unique
+(SQL constraint).
     """,
-    'depends' : [
+    'depends': [
         'product',
     ],
-    "data" : [
+    "data": [
     ],
     'installable': True,
     'active': False,
