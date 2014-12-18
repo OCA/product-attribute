@@ -1,5 +1,6 @@
 from openerp import models, fields, api
 
+
 class ProductUniqueCode(models.Model):
     _inherit = 'product.product'
 

@@ -26,7 +26,7 @@
     'category': 'Product',
     'description': """
 Product Unique Codes
-===========================
+====================
 Enforce a unique constraint on the internal (default) product code.
 It also makes it required, because it doesn't make sense to have an unique
 field that can be null.
