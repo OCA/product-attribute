@@ -30,7 +30,7 @@
     2.- In 'product.attribute.value' object is added the new field
         'Attribute Code'.
 
-    3.- Reference mask is automatically created according to the attribute 
+    3.- Reference mask is automatically created according to the attribute
         line settings on the product template. The mask can be changed
         adaptively later on and the default code for vaiants will be
         generated accodingly.
