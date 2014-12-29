@@ -7,8 +7,8 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
                 <field name="default_code" position="before">
-                    <field name="default_prefix"
-                           attrs="{'invisible': [('product_variant_count', '=', 1)]}"/>
+                  <field name="reference_mask"
+                           modifiers="{'invisible': [['attribute_line_ids', '=', False]]}"/>
                 </field>
             </field>
         </record>

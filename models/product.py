@@ -16,30 +16,88 @@
 #
 ##############################################################################
 from openerp import models, fields, api
+from openerp.exceptions import except_orm
+from openerp.tools.translate import _
+import re
+from string import Template
+from collections import defaultdict
 
+DEFAULT_REFERENCE_SEPERATOR = '-'
+PLACE_HOLDER_4_MISSING_VALUE = '/'
+
+class ReferenceMask(Template):
+    pattern = r'''\[(?:
+                    (?P<escaped>\[) |
+                    (?P<named>[^\]]+?)\] |
+                    (?P<braced>[^\]]+?)\] |
+                    (?P<invalid>)
+                    )'''
+
+def extract_token(s):
+    pattern = re.compile(r'\[([^\]]+?)\]')
+    return set(pattern.findall(s))
+
+def sanitize_reference_mask(product, mask):
+    tokens = extract_token(mask)
+    attribute_names = set()
+    for line in product.attribute_line_ids:
+        attribute_names.add(line.attribute_id.name)
+    return tokens.issubset(attribute_names)
+
+def render_default_code(product, mask):
+    product_attrs = defaultdict(str)
+    reference_mask = ReferenceMask(mask)
+    for value in product.attribute_value_ids:
+        if value.attribute_code:
+            product_attrs[value.attribute_id.name] += value.attribute_code
+    all_attrs = extract_token(mask) 
+    missing_attrs = all_attrs - set(product_attrs.keys())
+    missing = dict.fromkeys(missing_attrs, PLACE_HOLDER_4_MISSING_VALUE)
+    product_attrs.update(missing)
+    default_code = reference_mask.substitute(product_attrs)
+    product.default_code = default_code
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    default_prefix = fields.Char(
-        string='Reference prefix',
-        help='Prefix for using when building internal references for the '
-             'variants generated from this template')
+    reference_mask = fields.Char(
+        string='Variant reference mask',
+        help='Reference mask for building internal references of a'
+             'variant generated from this template.'
+             'eg. "PREFIX-[r]-[d]-[f]-APPENDIX" where the "[]" surrounded '
+             'string like "r,d,f" are attribute name for the current product '
+             'When rendering, the "[xxx]" part will be replaced '
+             'by the corresponding code of attribute value for the variant.\n'
+             'Note: make sure characters "[,]" do not appear in your '
+             'attribute name')
+
+    @api.model
+    def create(self, vals):
+        product = self.new(vals)
+        if not vals.get('reference_mask') and product.attribute_line_ids:
+            attribute_names = []
+            for line in product.attribute_line_ids:
+                attribute_names.append("[{}]".format(line.attribute_id.name))
+            default_mask = DEFAULT_REFERENCE_SEPERATOR.join(attribute_names)
+            vals['reference_mask'] = default_mask
+        elif product.attribute_line_ids:
+            if not sanitize_reference_mask(product, vals['reference_mask']):
+                raise except_orm(_('Error'), _('Found unrecognized attribute'
+                    'name in "Variant Reference Mask"'))
+        return super(ProductTemplate, self).create(vals)
 
     @api.one
     def write(self, vals):
-        product_obj = self.env['product.product']
-        result = super(ProductTemplate, self).write(vals)
-        if 'default_prefix' in vals:
+        if vals.get('reference_mask'):
+            if not sanitize_reference_mask(self, vals['reference_mask']):
+                raise except_orm(_('Error'), _('Found unrecognized attribute'
+                    'name in "Variant Reference Mask"'))
+            product_obj = self.env['product.product']
             cond = [('product_tmpl_id', '=', self.id)]
             products = product_obj.search(cond)
             for product in products:
-                default_code = self.default_prefix or ''
-                for value in product.attribute_value_ids:
-                    if value.attribute_code:
-                        default_code += '/%s' % value.attribute_code
-                product.default_code = default_code
-        return result
+                render_default_code(product, vals['reference_mask'])
+        return super(ProductTemplate, self).write(vals)
 
 
 class ProductProduct(models.Model):
@@ -48,13 +106,16 @@ class ProductProduct(models.Model):
     @api.model
     def create(self, values):
         product = super(ProductProduct, self).create(values)
-        default_code = product.default_prefix or ''
-        for value in product.attribute_value_ids:
-            if value.attribute_code:
-                default_code += '/%s' % value.attribute_code
-        if default_code:
-            product.default_code = default_code
+        if product.attribute_value_ids:
+            render_default_code(product, product.reference_mask)
         return product
+
+class ProductAttribute(models.Model):
+    _inherit = 'product.attribute'
+
+    _sql_constraints = [
+        ('number_uniq', 'unique(name)', _('Attribute Name must be unique!')),]
+    
 
 
 class ProductAttributeValue(models.Model):
