@@ -25,6 +25,7 @@ from collections import defaultdict
 DEFAULT_REFERENCE_SEPERATOR = '-'
 PLACE_HOLDER_4_MISSING_VALUE = '/'
 
+
 class ReferenceMask(Template):
     pattern = r'''\[(?:
                     (?P<escaped>\[) |
@@ -33,16 +34,21 @@ class ReferenceMask(Template):
                     (?P<invalid>)
                     )'''
 
+
 def extract_token(s):
     pattern = re.compile(r'\[([^\]]+?)\]')
     return set(pattern.findall(s))
+
 
 def sanitize_reference_mask(product, mask):
     tokens = extract_token(mask)
     attribute_names = set()
     for line in product.attribute_line_ids:
         attribute_names.add(line.attribute_id.name)
-    return tokens.issubset(attribute_names)
+    if not tokens.issubset(attribute_names):
+        raise except_orm(_('Error'), _('Found unrecognized attribute name in '
+                                       '"Variant Reference Mask"'))
+
 
 def render_default_code(product, mask):
     product_attrs = defaultdict(str)
@@ -50,12 +56,13 @@ def render_default_code(product, mask):
     for value in product.attribute_value_ids:
         if value.attribute_code:
             product_attrs[value.attribute_id.name] += value.attribute_code
-    all_attrs = extract_token(mask) 
+    all_attrs = extract_token(mask)
     missing_attrs = all_attrs - set(product_attrs.keys())
     missing = dict.fromkeys(missing_attrs, PLACE_HOLDER_4_MISSING_VALUE)
     product_attrs.update(missing)
     default_code = reference_mask.substitute(product_attrs)
     product.default_code = default_code
+
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
@@ -81,17 +88,13 @@ class ProductTemplate(models.Model):
             default_mask = DEFAULT_REFERENCE_SEPERATOR.join(attribute_names)
             vals['reference_mask'] = default_mask
         elif product.attribute_line_ids:
-            if not sanitize_reference_mask(product, vals['reference_mask']):
-                raise except_orm(_('Error'), _('Found unrecognized attribute'
-                    'name in "Variant Reference Mask"'))
+            sanitize_reference_mask(product, vals['reference_mask'])
         return super(ProductTemplate, self).create(vals)
 
     @api.one
     def write(self, vals):
         if vals.get('reference_mask'):
-            if not sanitize_reference_mask(self, vals['reference_mask']):
-                raise except_orm(_('Error'), _('Found unrecognized attribute'
-                    'name in "Variant Reference Mask"'))
+            sanitize_reference_mask(self, vals['reference_mask'])
             product_obj = self.env['product.product']
             cond = [('product_tmpl_id', '=', self.id)]
             products = product_obj.search(cond)
@@ -110,12 +113,12 @@ class ProductProduct(models.Model):
             render_default_code(product, product.reference_mask)
         return product
 
+
 class ProductAttribute(models.Model):
     _inherit = 'product.attribute'
 
     _sql_constraints = [
-        ('number_uniq', 'unique(name)', _('Attribute Name must be unique!')),]
-    
+        ('number_uniq', 'unique(name)', _('Attribute Name must be unique!'))]
 
 
 class ProductAttributeValue(models.Model):
