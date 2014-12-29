@@ -44,5 +44,20 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="product_attribute_value_search_view">
+            <field name="name">product.attribute.value.search</field>
+            <field name="model">product.attribute.value</field>
+            <field name="arch" type="xml">
+                <search string="Variant Values">
+                    <field name="attribute_id"/>
+                    <field name="attr_type" />
+                    <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Attribute" domain="" context="{'group_by':'attribute_id'}"/>
+                        <filter string="Attribute Type" domain="" context="{'group_by':'attr_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
     </data>
 </openerp>
