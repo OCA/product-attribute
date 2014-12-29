@@ -110,8 +110,7 @@ class ProductProduct(models.Model):
     @api.model
     def create(self, values):
         product = super(ProductProduct, self).create(values)
-        if product.attribute_value_ids:
-            render_default_code(product, product.reference_mask)
+        render_default_code(product, product.reference_mask)
         return product
 
 
