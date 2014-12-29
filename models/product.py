@@ -87,12 +87,13 @@ class ProductTemplate(models.Model):
                 attribute_names.append("[{}]".format(line.attribute_id.name))
             default_mask = DEFAULT_REFERENCE_SEPERATOR.join(attribute_names)
             vals['reference_mask'] = default_mask
-        elif product.attribute_line_ids:
+        elif vals.get('reference_mask'):
             sanitize_reference_mask(product, vals['reference_mask'])
         return super(ProductTemplate, self).create(vals)
 
     @api.one
     def write(self, vals):
+        result = super(ProductTemplate, self).write(vals)
         if vals.get('reference_mask'):
             sanitize_reference_mask(self, vals['reference_mask'])
             product_obj = self.env['product.product']
@@ -100,7 +101,7 @@ class ProductTemplate(models.Model):
             products = product_obj.search(cond)
             for product in products:
                 render_default_code(product, vals['reference_mask'])
-        return super(ProductTemplate, self).write(vals)
+        return result
 
 
 class ProductProduct(models.Model):
