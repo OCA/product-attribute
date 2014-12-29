@@ -109,7 +109,8 @@ class ProductProduct(models.Model):
     @api.model
     def create(self, values):
         product = super(ProductProduct, self).create(values)
-        render_default_code(product, product.reference_mask)
+        if product.reference_mask:
+            render_default_code(product, product.reference_mask)
         return product
 
 
