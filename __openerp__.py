@@ -18,7 +18,7 @@
 {
     "name": "Product Variant Default Code",
     "version": "2.0",
-    "author": "Shine IT(http:www.openerp.cn), OdooMRP team",
+    "author": "Shine IT(http://www.openerp.cn), OdooMRP team",
     "contributors": "Tony Gu<tony@openerp.cn>",
     "category": "Product",
     "website": "http://www.odoomrp.com",

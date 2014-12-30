@@ -59,7 +59,7 @@ def render_default_code(product, mask):
     missing_attrs = all_attrs - set(product_attrs.keys())
     missing = dict.fromkeys(missing_attrs, PLACE_HOLDER_4_MISSING_VALUE)
     product_attrs.update(missing)
-    default_code = reference_mask.substitute(product_attrs)
+    default_code = reference_mask.safe_substitute(product_attrs)
     product.default_code = default_code
 
 
