@@ -68,12 +68,27 @@ class ProductTemplate(models.Model):
 
     reference_mask = fields.Char(
         string='Variant reference mask',
-        help='Reference mask for building internal references of a'
-             'variant generated from this template.'
-             'eg. "PREFIX-[r]-[d]-[f]-APPENDIX" where the "[]" surrounded '
-             'string like "r,d,f" are attribute name for the current product '
-             'When rendering, the "[xxx]" part will be replaced '
-             'by the corresponding code of attribute value for the variant.\n'
+        help='Reference mask for building internal references of a '
+             'variant generated from this template.\n'
+
+             'Example:\n'
+             'A product named ABC with 2 attributes: Size and Color:\n'
+
+             'Product: ABC\n'
+             'Color: Red(r), Yellow(y), Black(b)  #Red, Yellow, Black are '
+             'the attribute value, `r`, `y`, `b` are the corresponding code\n'
+             'Size: L (l), XL(x)\n'
+
+             'When setting Variant reference mask to `[Color]-[Size]`, the '
+             'default code on the variants will be something like `r-l` '
+             '`b-l` `r-x` ...\n'
+
+             'If you like, You can even have the attribute name appear more'
+             ' than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]`'
+             ' When saved, the default code on variants will be something like'
+             ' `fancyA/l~r~l` (for variant with Color "Red" and Size "L") '
+             '`fancyA/x~y~x` (for variant with Color "Yellow" and Size "XL")\n'
+
              'Note: make sure characters "[,]" do not appear in your '
              'attribute name')
 
