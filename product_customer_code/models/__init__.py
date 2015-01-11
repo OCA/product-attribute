@@ -24,4 +24,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import models
+from . import product_customer_code
+from . import product
