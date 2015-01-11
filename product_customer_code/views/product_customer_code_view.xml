@@ -6,11 +6,14 @@
             <field name="name">view.product.customer.code.form</field>
             <field name="model">product.customer.code</field>
             <field name="arch" type="xml">
-                <form string="Product Customer Code" version="7.0">
-                    <field name="product_code"/>
-                    <field name="partner_id"/>
-                    <field name="product_id"/>
-                    <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                <form string="Product Customer Code">
+                    <group>
+                        <field name="product_id"/>
+                        <field name="product_code"/>
+                        <field name="product_name"/>
+                        <field name="partner_id"/>
+                        <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                    </group>
                 </form>
             </field>
         </record>
@@ -20,10 +23,11 @@
             <field name="model">product.customer.code</field>
             <field name="arch" type="xml">
                 <tree string="Product Customer Code">
+                    <field name="product_id"/>
                     <field name="product_code"/>
+                    <field name="product_name"/>
                     <field name="partner_id"/>
                     <field name="company_id"/>
-                    <field name="product_id"/>
                 </tree>
             </field>
         </record>
@@ -40,10 +44,11 @@
             <field name="model">product.customer.code</field>
             <field name="arch" type="xml">
                 <search string="Product Customer Code">
+                    <field name="product_id"/>
                     <field name="product_code"/>
+                    <field name="product_name"/>
                     <field name="partner_id"/>
                     <field name="company_id"/>
-                    <field name="product_id"/>
                     <newline/>
                     <group expand="0" string="Group By...">
                         <filter string="Company" icon="terp-partner" domain="[]" context="{'group_by':'company_id'}"/>
