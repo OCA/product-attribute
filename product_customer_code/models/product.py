@@ -25,7 +25,6 @@
 #
 ##############################################################################
 from openerp import models, fields, api
-from openerp.tools.translate import _
 
 
 class ProductTemplate(models.Model):
