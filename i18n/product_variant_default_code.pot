@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-12 16:00+0000\n"
-"PO-Revision-Date: 2014-11-12 16:00+0000\n"
+"POT-Creation-Date: 2015-01-16 10:44+0000\n"
+"PO-Revision-Date: 2015-01-16 10:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,54 @@ msgid "Attribute Code"
 msgstr ""
 
 #. module: product_variant_default_code
-#: field:product.template,default_prefix:0
-msgid "Reference prefix"
+#: code:addons/product_variant_default_code/models/product.py:147
+#: sql_constraint:product.attribute:0
+#, python-format
+msgid "Attribute Name must be unique!"
 msgstr ""
 
 #. module: product_variant_default_code
-#: help:product.template,default_prefix:0
-msgid "Prefix for using when building internal references for the variants generated from this template"
+#: code:addons/product_variant_default_code/models/product.py:48
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:48
+#, python-format
+msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
+msgstr ""
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_attribute
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_variant_default_code
+#: help:product.template,reference_mask:0
+msgid "Reference mask for building internal references of a variant generated from this template.\n"
+"Example:\n"
+"A product named ABC with 2 attributes: Size and Color:\n"
+"Product: ABC\n"
+"Color: Red(r), Yellow(y), Black(b)  #Red, Yellow, Black are the attribute value, `r`, `y`, `b` are the corresponding code\n"
+"Size: L (l), XL(x)\n"
+"When setting Variant reference mask to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
+"If you like, You can even have the attribute name appear more than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
+"Note: make sure characters \"[,]\" do not appear in your attribute name"
+msgstr ""
+
+#. module: product_variant_default_code
+#: field:product.template,reference_mask:0
+msgid "Variant reference mask"
 msgstr ""
 

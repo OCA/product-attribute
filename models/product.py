@@ -121,12 +121,22 @@ class ProductTemplate(models.Model):
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    @api.model
-    def create(self, values):
-        product = super(ProductProduct, self).create(values)
-        if product.reference_mask:
-            render_default_code(product, product.reference_mask)
-        return product
+    @api.one
+    @api.depends('product_tmpl_id.reference_mask', 'attribute_value_ids',
+                 'attribute_value_ids.attribute_code')
+    def _compute_default_code(self):
+        self.reference_mask = self.product_tmpl_id.reference_mask
+        if self.reference_mask:
+            render_default_code(self, self.reference_mask)
+        else:
+            attribute_names = []
+            for line in self.attribute_line_ids:
+                attribute_names.append("[{}]".format(line.attribute_id.name))
+            self.default_code = DEFAULT_REFERENCE_SEPERATOR.join(
+                attribute_names)
+
+    default_code = fields.Char(string='Internal Reference', store=True,
+                               compute='_compute_default_code')
 
 
 class ProductAttribute(models.Model):
@@ -142,7 +152,7 @@ class ProductAttributeValue(models.Model):
     @api.onchange('name')
     def onchange_name(self):
         if self.name:
-            self.attribute_code = self.name[0:1]
+            self.attribute_code = self.name[0:2]
 
     attribute_code = fields.Char(
         string='Attribute Code', default=onchange_name)
@@ -150,6 +160,6 @@ class ProductAttributeValue(models.Model):
     @api.model
     def create(self, values):
         if 'attribute_code' not in values:
-            values['attribute_code'] = values.get('name', '')[0:1]
+            values['attribute_code'] = values.get('name', '')[0:2]
         value = super(ProductAttributeValue, self).create(values)
         return value
