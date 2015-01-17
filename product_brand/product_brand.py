@@ -37,7 +37,8 @@ class product_brand(orm.Model):
         'name': fields.char('Brand Name'),
         'description': fields.text('Description', translate=True),
         'partner_id': fields.many2one('res.partner', 'partner', \
-          help='Select a partner for this brand if it exists.', ondelete='restrict'),
+          help='Select a partner for this brand if it exists.', \
+            ondelete='restrict'),
         'logo': fields.binary('Logo File')
     }
 
