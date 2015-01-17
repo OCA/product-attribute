@@ -36,9 +36,7 @@ class product_brand(orm.Model):
     _columns = {
         'name': fields.char('Brand Name'),
         'description': fields.text('Description', translate=True),
-        'partner_id': fields.many2one('res.partner', 'partner', \
-          help='Select a partner for this brand if it exists.', \
-            ondelete='restrict'),
+        'partner_id': fields.many2one('res.partner', 'partner', help='Select a partner for this brand if it exists.', ondelete='restrict'),
         'logo': fields.binary('Logo File')
     }
 
@@ -46,6 +44,5 @@ class product_brand(orm.Model):
 class product_template(orm.Model):
     _inherit = 'product.template'
     _columns = {
-        'product_brand_id': fields.many2one('product.brand', 'Brand', \
-          help='Select a brand for this product.')
+        'product_brand_id': fields.many2one('product.brand', 'Brand', help='Select a brand for this product.')
     }
