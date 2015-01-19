@@ -48,7 +48,6 @@ class product_template(orm.Model):
     _inherit = 'product.template'
     _columns = {
         'product_brand_id': fields.many2one(
-            'product.brand', 
-            'Brand',
-            help='Select a brand for this product.')
+            'product.brand', 'Brand',
+            help='Select a brand for this product.'),
     }
