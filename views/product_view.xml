@@ -12,5 +12,15 @@
                 </field>
             </field>
         </record>
+        <record id="product_normal_form_view_inh_variantdefaultcode" model="ir.ui.view">
+            <field name="name">product.normal.form.view.inh.variantdefaultcode</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="default_code" position="before">
+                    <field name="manual_code" invisible="1"/>
+                </field>
+            </field>
+        </record>
     </data>
 </openerp>

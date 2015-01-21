@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-16 10:45+0000\n"
-"PO-Revision-Date: 2015-01-16 12:01+0100\n"
+"POT-Creation-Date: 2015-01-21 11:56+0000\n"
+"PO-Revision-Date: 2015-01-21 12:58+0100\n"
 "Last-Translator: Alfredo <alfredodelafuente@avanzosc.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgid "Attribute Code"
 msgstr "Código atributo"
 
 #. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:147
+#: code:addons/product_variant_default_code/models/product.py:152
 #: sql_constraint:product.attribute:0
 #, python-format
 msgid "Attribute Name must be unique!"
@@ -38,6 +38,11 @@ msgstr "Error"
 #, python-format
 msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
 msgstr "Encontrado un nombre de atribuco no reconocido en la \"Referencia máscara variante\""
+
+#. module: product_variant_default_code
+#: field:product.product,manual_code:0
+msgid "Manual code"
+msgstr "Código manual"
 
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_product

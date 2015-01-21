@@ -107,36 +107,44 @@ class ProductTemplate(models.Model):
 
     @api.one
     def write(self, vals):
+        product_obj = self.env['product.product']
+        if 'reference_mask' in vals and not vals['reference_mask']:
+            if self.attribute_line_ids:
+                attribute_names = []
+                for line in self.attribute_line_ids:
+                    attribute_names.append("[{}]".format(
+                        line.attribute_id.name))
+                default_mask = DEFAULT_REFERENCE_SEPERATOR.join(
+                    attribute_names)
+                vals['reference_mask'] = default_mask
         result = super(ProductTemplate, self).write(vals)
+        cond = [('product_tmpl_id', '=', self.id),
+                ('manual_code', '=', False)]
+        products = product_obj.search(cond)
         if vals.get('reference_mask'):
-            sanitize_reference_mask(self, vals['reference_mask'])
-            product_obj = self.env['product.product']
-            cond = [('product_tmpl_id', '=', self.id)]
-            products = product_obj.search(cond)
             for product in products:
-                render_default_code(product, vals['reference_mask'])
+                render_default_code(product, product.reference_mask)
         return result
 
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    @api.one
-    @api.depends('product_tmpl_id.reference_mask', 'attribute_value_ids',
-                 'attribute_value_ids.attribute_code')
-    def _compute_default_code(self):
-        self.reference_mask = self.product_tmpl_id.reference_mask
-        if self.reference_mask:
-            render_default_code(self, self.reference_mask)
-        else:
-            attribute_names = []
-            for line in self.attribute_line_ids:
-                attribute_names.append("[{}]".format(line.attribute_id.name))
-            self.default_code = DEFAULT_REFERENCE_SEPERATOR.join(
-                attribute_names)
+    manual_code = fields.Boolean(string='Manual code')
 
-    default_code = fields.Char(string='Internal Reference', store=True,
-                               compute='_compute_default_code')
+    @api.model
+    def create(self, values):
+        product = super(ProductProduct, self).create(values)
+        if product.reference_mask:
+            render_default_code(product, product.reference_mask)
+        return product
+
+    @api.one
+    @api.onchange('default_code')
+    def onchange_default_code(self):
+        self.manual_code = False
+        if self.default_code:
+            self.manual_code = True
 
 
 class ProductAttribute(models.Model):
@@ -149,6 +157,7 @@ class ProductAttribute(models.Model):
 class ProductAttributeValue(models.Model):
     _inherit = 'product.attribute.value'
 
+    @api.one
     @api.onchange('name')
     def onchange_name(self):
         if self.name:
@@ -163,3 +172,19 @@ class ProductAttributeValue(models.Model):
             values['attribute_code'] = values.get('name', '')[0:2]
         value = super(ProductAttributeValue, self).create(values)
         return value
+
+    @api.one
+    def write(self, vals):
+        attribute_line_obj = self.env['product.attribute.line']
+        product_obj = self.env['product.product']
+        result = super(ProductAttributeValue, self).write(vals)
+        if 'attribute_code' in vals:
+            cond = [('attribute_id', '=', self.attribute_id.id)]
+            attribute_lines = attribute_line_obj.search(cond)
+            for line in attribute_lines:
+                cond = [('product_tmpl_id', '=', line.product_tmpl_id.id),
+                        ('manual_code', '=', False)]
+                products = product_obj.search(cond)
+                for product in products:
+                    render_default_code(product, product.reference_mask)
+        return result
