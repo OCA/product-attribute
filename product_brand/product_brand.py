@@ -39,7 +39,8 @@ class product_brand(orm.Model):
         'partner_id': fields.many2one(
             'res.partner', 'partner',
             help='Select a partner for this brand if it exists.',
-            ondelete='restrict'),
+            ondelete='restrict'
+        ),
         'logo': fields.binary('Logo File'),
     }
 
@@ -49,5 +50,6 @@ class product_template(orm.Model):
     _columns = {
         'product_brand_id': fields.many2one(
             'product.brand', 'Brand',
-            help='Select a brand for this product.'),
+            help='Select a brand for this product.'
+        ),
     }
