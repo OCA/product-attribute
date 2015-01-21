@@ -21,7 +21,7 @@ import re
 from string import Template
 from collections import defaultdict
 
-DEFAULT_REFERENCE_SEPERATOR = '-'
+DEFAULT_REFERENCE_SEPARATOR = '-'
 PLACE_HOLDER_4_MISSING_VALUE = '/'
 
 
@@ -99,7 +99,7 @@ class ProductTemplate(models.Model):
             attribute_names = []
             for line in product.attribute_line_ids:
                 attribute_names.append("[{}]".format(line.attribute_id.name))
-            default_mask = DEFAULT_REFERENCE_SEPERATOR.join(attribute_names)
+            default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
             vals['reference_mask'] = default_mask
         elif vals.get('reference_mask'):
             sanitize_reference_mask(product, vals['reference_mask'])
@@ -114,14 +114,14 @@ class ProductTemplate(models.Model):
                 for line in self.attribute_line_ids:
                     attribute_names.append("[{}]".format(
                         line.attribute_id.name))
-                default_mask = DEFAULT_REFERENCE_SEPERATOR.join(
+                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
                     attribute_names)
                 vals['reference_mask'] = default_mask
         result = super(ProductTemplate, self).write(vals)
-        cond = [('product_tmpl_id', '=', self.id),
-                ('manual_code', '=', False)]
-        products = product_obj.search(cond)
         if vals.get('reference_mask'):
+            cond = [('product_tmpl_id', '=', self.id),
+                    ('manual_code', '=', False)]
+            products = product_obj.search(cond)
             for product in products:
                 render_default_code(product, product.reference_mask)
         return result
@@ -142,9 +142,7 @@ class ProductProduct(models.Model):
     @api.one
     @api.onchange('default_code')
     def onchange_default_code(self):
-        self.manual_code = False
-        if self.default_code:
-            self.manual_code = True
+        self.manual_code = bool(self.default_code)
 
 
 class ProductAttribute(models.Model):
