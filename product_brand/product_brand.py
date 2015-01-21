@@ -40,7 +40,7 @@ class product_brand(orm.Model):
             'res.partner', 'partner',
             help='Select a partner for this brand if it exists.',
             ondelete='restrict'),
-        'logo': fields.binary('Logo File')
+        'logo': fields.binary('Logo File'),
     }
 
 
