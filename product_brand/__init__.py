@@ -28,4 +28,4 @@
 # Product Brand is an Openobject module wich enable Brand management          #
 # for products                                                                #
 ###############################################################################
-from . import brand
+from . import product_brand
