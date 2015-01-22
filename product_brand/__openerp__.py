@@ -9,7 +9,7 @@
 # Mathieu Lemercier, mathieu@netandco.net, #                                  #
 # Franck Bret, franck@netandco.net #                                          #
 # Seraphine Lantible, s.lantible@gmail.com, http://www.prisnet.ch             #
-# #                                                                           # 
+# #                                                                           #
 # This program is free software: you can redistribute it and/or modify #      #
 # it under the terms of the GNU Affero General Public License as #            #
 # published by the Free Software Foundation, either version 3 of the #        #
