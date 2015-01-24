@@ -28,10 +28,3 @@
 # Product Brand is an Openobject module wich enable Brand management for      #
 # products                                                                    #
 ###############################################################################
-{
-    'name': 'Product Brand Manager',
-    'version': '0.1',
-    'category': 'Product',
-    'summary': ' brand',
-    'description': """
-Product Brand Manager
