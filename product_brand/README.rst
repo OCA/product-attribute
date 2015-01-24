@@ -1,3 +1,11 @@
+{
+'name': 'Product Brand Manager',
+'version': '0.1',
+'category': 'Product',
+'summary': ' brand',
+'description': """
+Product Brand Manager
+
 =====================
 This module allows your user to easily manage product brands. You can
 define brands, attach a logo and a description to them. It also allows to
