@@ -47,8 +47,8 @@ To do / To come:
     'website': 'http://www.prisnet.ch ',
     'depends': ['product'],
     'data': [
-    'product_brand_view.xml',
-    'security/ir.model.access.csv'
-    ],
+        'product_brand_view.xml',
+        'security/ir.model.access.csv'
+        ],
     'installable': True,
 }
