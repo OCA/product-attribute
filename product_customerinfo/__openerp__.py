@@ -24,16 +24,9 @@
         "product",
     ],
     "author": "OdooMRP team",
-    "contributors": [
-        "Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>",
-    ],
     "category": "Sales Management",
     "website": "http://www.odoomrp.com",
     "summary": "",
-    "description": """
-This module extends product.supplierinfo object with a combo to allow using
-it for sale pricelists
-    """,
     "data": [
         "views/product_view.xml",
     ],
