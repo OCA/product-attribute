@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-05 11:46+0000\n"
-"PO-Revision-Date: 2014-09-05 11:46+0000\n"
+"POT-Creation-Date: 2015-02-05 14:08+0000\n"
+"PO-Revision-Date: 2015-02-05 14:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.actions.act_window,help:product_supplierinfo_for_customer.product_supplierinfo_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new product.supplierinfo.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"Pulse para definir una nueva definición de producto-empresa.\n"
+"</p>\n"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: selection:product.supplierinfo,type:0
+#: field:product.template,customer_ids:0
 msgid "Customer"
 msgstr "Cliente"
 
@@ -26,32 +38,65 @@ msgid "Customers"
 msgstr "Clientes"
 
 #. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.actions.act_window,name:product_supplierinfo_for_customer.product_supplierinfo_action
+#: model:ir.ui.menu,name:product_supplierinfo_for_customer.product_supplierinfo_sale_menu
+msgid "Information about a product"
+msgstr "Información sobre un producto"
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
 msgid "Information about a product supplier"
 msgstr "Información de un proveedor de producto"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_tree_view
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+msgid "Partner Product Code"
+msgstr "Código de producto para la empresa"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+msgid "Partner Product Name"
+msgstr "Nombre de producto para la empresa"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+msgid "Partner Unit of Measure"
+msgstr "Unidad de medida de empresa"
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: selection:product.supplierinfo,type:0
+#: field:product.template,supplier_ids:0
 msgid "Supplier"
 msgstr "Proveedor"
 
 #. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Supplierinfo search"
+msgstr "Búsqueda de producto-empresa"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: field:product.supplierinfo,type:0
 msgid "Type"
 msgstr "Tipo"
-
-#. module: product_supplierinfo_for_customer
-#: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
-msgid "[('type','=','supplier')]"
-msgstr "[('type','=','supplier')]"
-
-#. module: product_supplierinfo_for_customer
-#: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
-msgid "{'default_search_type':'supplier','default_type':'supplier'}"
-msgstr "{'default_search_type':'supplier','default_type':'supplier'}"
 
