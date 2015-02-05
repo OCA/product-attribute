@@ -1,0 +1,123 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* product_images
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-04 19:36+0000\n"
+"PO-Revision-Date: 2015-02-04 20:38+0100\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: product_images
+#: field:product.product,product_image:0
+msgid "Main Image"
+msgstr ""
+
+#. module: product_images
+#: field:product.images,extension:0
+msgid "file extension"
+msgstr ""
+
+#. module: product_images
+#: field:product.images,file:0
+msgid "File"
+msgstr ""
+
+#. module: product_images
+#: code:addons/product_images/product_images.py:188
+#: sql_constraint:product.images:0
+#, python-format
+msgid "A product can have only one image with the same name"
+msgstr ""
+
+#. module: product_images
+#: view:product.images:0
+msgid "Image"
+msgstr ""
+
+#. module: product_images
+#: code:addons/product_images/product_images.py:148
+#, python-format
+msgid "The image filestore can not be created, %s"
+msgstr ""
+
+#. module: product_images
+#: model:ir.model,name:product_images.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: product_images
+#: model:ir.model,name:product_images.model_product_product
+#: field:product.images,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: product_images
+#: view:product.images:0 field:product.images,comments:0
+msgid "Comments"
+msgstr ""
+
+#. module: product_images
+#: view:product.images:0 field:product.product,image_ids:0 view:res.company:0
+msgid "Product Images"
+msgstr ""
+
+#. module: product_images
+#: help:product.images,link:0
+msgid ""
+"Images can be linked from files on your file system or remote (Preferred)"
+msgstr ""
+
+#. module: product_images
+#: field:product.images,name:0
+msgid "Image Title"
+msgstr ""
+
+#. module: product_images
+#: field:product.images,url:0
+msgid "File Location"
+msgstr ""
+
+#. module: product_images
+#: code:addons/product_images/product_images.py:147
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: product_images
+#: view:product.product:0
+msgid "Images"
+msgstr ""
+
+#. module: product_images
+#: help:res.company,local_media_repository:0
+msgid "Local directory on the OpenERP server where all images are stored."
+msgstr ""
+
+#. module: product_images
+#: model:ir.model,name:product_images.model_product_images
+msgid "Products Image gallery"
+msgstr ""
+
+#. module: product_images
+#: field:product.images,file_db_store:0
+msgid "Image stored in database"
+msgstr ""
+
+#. module: product_images
+#: field:product.images,link:0
+msgid "Link?"
+msgstr ""
+
+#. module: product_images
+#: field:res.company,local_media_repository:0
+msgid "Images Repository Path"
+msgstr ""
