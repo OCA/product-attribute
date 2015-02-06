@@ -1,0 +1,142 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* product_images_olbs
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.14\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-04 19:36+0000\n"
+"PO-Revision-Date: 2015-02-04 20:54+0100\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: product_images
+#: field:product.product,product_image:0
+msgid "Main Image"
+msgstr "Hauptbild"
+
+#. module: product_images
+#: field:product.images,extension:0
+#, fuzzy
+msgid "file extension"
+msgstr "Dateierweiterung"
+
+#. module: product_images
+#: field:product.images,file:0
+#, fuzzy
+msgid "File"
+msgstr "Datei"
+
+#. module: product_images
+#: code:addons/product_images/product_images.py:188
+#: sql_constraint:product.images:0
+#, fuzzy, python-format
+msgid "A product can have only one image with the same name"
+msgstr "Ein Produkt darf nur ein Bild mit gleichem Namen haben"
+
+#. module: product_images
+#: view:product.images:0
+#, fuzzy
+msgid "Image"
+msgstr "Bild"
+
+#. module: product_images
+#: code:addons/product_images/product_images.py:148
+#, fuzzy, python-format
+msgid "The image filestore can not be created, %s"
+msgstr "Der Bild-Ordner kann nicht angelegt werden, %s"
+
+#. module: product_images
+#: model:ir.model,name:product_images.model_res_company
+#, fuzzy
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: product_images
+#: model:ir.model,name:product_images.model_product_product
+#: field:product.images,product_id:0
+#, fuzzy
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_images
+#: view:product.images:0 field:product.images,comments:0
+#, fuzzy
+msgid "Comments"
+msgstr "Bemerkungen"
+
+#. module: product_images
+#: view:product.images:0 field:product.product,image_ids:0 view:res.company:0
+#, fuzzy
+msgid "Product Images"
+msgstr "Produktbilder"
+
+#. module: product_images
+#: help:product.images,link:0
+#, fuzzy
+msgid ""
+"Images can be linked from files on your file system or remote (Preferred)"
+msgstr ""
+"Bilder können aus Ihrem Dateisystem oder (bevorzugt) entfernt verknüpft "
+"werden"
+
+#. module: product_images
+#: field:product.images,name:0
+#, fuzzy
+msgid "Image Title"
+msgstr "Bild-Titel"
+
+#. module: product_images
+#: field:product.images,url:0
+#, fuzzy
+msgid "File Location"
+msgstr "Datei-Speicherort"
+
+#. module: product_images
+#: code:addons/product_images/product_images.py:147
+#, fuzzy, python-format
+msgid "Error"
+msgstr "Fehler"
+
+#. module: product_images
+#: view:product.product:0
+#, fuzzy
+msgid "Images"
+msgstr "Bilder"
+
+#. module: product_images
+#: help:res.company,local_media_repository:0
+#, fuzzy
+msgid "Local directory on the OpenERP server where all images are stored."
+msgstr ""
+"Lokales Verzeichnis auf dem OpenERP-Server, wo die Bilder abgelegt werden."
+
+#. module: product_images
+#: model:ir.model,name:product_images.model_product_images
+msgid "Products Image gallery"
+msgstr "Produkt-Bildergalerie"
+
+#. module: product_images
+#: field:product.images,file_db_store:0
+#, fuzzy
+msgid "Image stored in database"
+msgstr "Bild in Datenbank abgelegt"
+
+#. module: product_images
+#: field:product.images,link:0
+#, fuzzy
+msgid "Link?"
+msgstr "Verknüpfung?"
+
+#. module: product_images
+#: field:res.company,local_media_repository:0
+#, fuzzy
+msgid "Images Repository Path"
+msgstr "Pfad zum Bildervorrat"
