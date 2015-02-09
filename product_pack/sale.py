@@ -191,7 +191,7 @@ class sale_order(models.Model):
 
                 if line.state != 'draft':
                     continue
-                if not line.product_id:
+                if not line.product_id or not line.product_id.pack or line.product_id.sale_order_pack:
                     continue
 
                 """ If pack was already expanded (in another create/write
@@ -253,7 +253,7 @@ class sale_order(models.Model):
                             '> ' * (line.pack_depth+1), subproduct_name
                         ),
                         'sequence': sequence,
-                        'delay': subproduct.sale_delay or 0.0,
+                        # 'delay': subproduct.sale_delay or 0.0,
                         'product_id': subproduct.id,
                         # 'procurement_ids': (
                         #     [(4, x.id) for x in line.procurement_ids]
