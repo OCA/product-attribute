@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_images","access_product_images","model_product_image","base.group_user",1,0,0,0
+"access_product_images_manager","access_product_images_manager","model_product_image","base.group_sale_manager",1,1,1,1
