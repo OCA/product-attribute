@@ -18,24 +18,21 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import models, fields, api
 
 
-class ResCompany(orm.Model):
+class ResCompany(models.Model):
     """Override company to add images configuration"""
     _inherit = "res.company"
-    _columns = {
-        'local_media_repository': fields.char(
-            'Images Repository Path',
-            help='Local directory on the OpenERP server '
-                 'where all images are stored.'),
-        }
 
-    def get_local_media_repository(self, cr, uid, id=None, context=None):
-        if isinstance(id, (tuple, list)):
-            assert len(id) == 1, "One ID expected"
-            id = id[0]
-        if id:
-            return self.browse(cr, uid, id, context=context).local_media_repository
-        user = self.pool.get('res.users').browse(cr, uid, uid, context=context)
-        return user.company_id.local_media_repository
+    local_media_repository = fields.Char(
+        string='Images Repository Path',
+        help='Local directory on the Odoo server where all images are '
+             'stored.')
+
+    @api.multi
+    def get_local_media_repository(self):
+        if self:
+            return self.local_media_repository
+        else:
+            return self.env.user.company_id.local_media_repository
