@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_product_image_form" model="ir.ui.view">
+            <field name="name">product.image.form</field>
+            <field name="model">product.image</field>
+            <field name="arch" type="xml">
+                <form string="Product image">
+                    <notebook colspan="4">
+                        <page string="Image" name="page_image">
+                            <group>
+                                <group>
+                                    <field name="name" />
+                                    <field name="type"/>
+                                </group>
+                                <group>
+                                    <field name="extension" invisible="1"/>
+                                    <field name="extension2"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Options">
+                                    <field name="url"
+                                           attrs="{'invisible': [('type', '!=', 'url')], 'required': [('type', '=', 'url')]}"
+                                           widget="url"/>
+                                    <field name="path"
+                                           attrs="{'invisible': [('type', '!=', 'file')], 'required': [('type', '=', 'file')]}" />
+                                    <field name="filename" invisible="1"/>
+                                    <field name="file_db_store"
+                                           attrs="{'invisible': [('type', '!=', 'db')], 'required': [('type', '=', 'db')]}"
+                                           filename="filename" />
+                                </group>
+                                <group string="Preview">
+                                    <field name="image_medium"
+                                           widget="image"
+                                           readonly="True"
+                                           nolabel="1" />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Comments" name="page_comments">
+                            <group colspan="4">
+                                <field name="comments" nolabel="1" />
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_image_tree" model="ir.ui.view">
+            <field name="name">product.image.tree</field>
+            <field name="model">product.image</field>
+            <field name="arch" type="xml">
+                <tree string="Product images">
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_image_kanban" model="ir.ui.view">
+            <field name="name">product.image.kanban</field>
+            <field name="model">product.image</field>
+            <field name="arch" type="xml">
+                <kanban string="Product Images">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div style="position: relative">
+                                <a t-if="! read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+                                <div class="oe_module_vignette">
+                                    <a type="open">
+                                        <img t-att-src="kanban_image('product.image', 'image_small', record.id.value)" class="oe_kanban_image"/>
+                                    </a>
+                                    <div class="oe_module_desc">
+                                        <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_color_border">
+                                            <table class="oe_kanban_table">
+                                                <tr>
+                                                    <td class="oe_kanban_title1" align="left" valign="middle">
+                                                        <h4><a type="open"><field name="name"/></a></h4>
+                                                        <field name="type"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    </data>
+</openerp>
