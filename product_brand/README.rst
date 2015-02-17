@@ -1,5 +1,5 @@
-Product Brand Manage [product_brand]
-===========
+Product Brand Manager [product_brand]
+=====================================
 
 This module allows odoo users to easily manage product brands. You can
 define brands, attach a logo and a description to them. 
@@ -35,9 +35,18 @@ For further information, please visit:
 Known issues / Roadmap
 ======================
 
-* A view to list or sort products by brand
 * add a field with brands assiciated to a Customer or Supplier on 
   the Customers/Suppliers Form View
+
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
+`here <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_brand%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+
 
 Credits
 =======
@@ -45,10 +54,11 @@ Credits
 Contributors
 ------------
 
-Mathieu Lemercier <mathieu@netandco.net>
-Franck Bret <franck@netandco.net>
-Seraphine Lantible <s.lantible@gmail.com>
-Gunnar Wagner <vrms@netcologne.de>
+* Mathieu Lemercier <mathieu@netandco.net>
+* Franck Bret <franck@netandco.net>
+* Seraphine Lantible <s.lantible@gmail.com>
+* Gunnar Wagner <vrms@netcologne.de>
+* Leonardo Donelli <donelli@webmonks.it>
 
 Maintainer
 ----------
