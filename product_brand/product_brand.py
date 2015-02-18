@@ -69,3 +69,37 @@ class ProductTemplate(models.Model):
         string='Brand',
         help='Select a brand for this product'
     )
+
+    @api.multi
+    def name_get(self):
+        res = super(ProductTemplate, self).name_get()
+        res2 = []
+        for name_tuple in res:
+            product = self.browse(name_tuple[0])
+            if not product.product_brand_id:
+                res2.append(name_tuple)
+                continue
+            res2.append((
+                name_tuple[0],
+                u'{} ({})'.format(name_tuple[1], product.product_brand_id.name)
+            ))
+        return res2
+
+
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
+
+    @api.multi
+    def name_get(self):
+        res = super(ProductProduct, self).name_get()
+        res2 = []
+        for name_tuple in res:
+            product = self.browse(name_tuple[0])
+            if not product.product_brand_id:
+                res2.append(name_tuple)
+                continue
+            res2.append((
+                name_tuple[0],
+                u'{} ({})'.format(name_tuple[1], product.product_brand_id.name)
+            ))
+        return res2
