@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<record id="product_pricelist_view" model="ir.ui.view">
+    <field name="model">product.pricelist</field>
+    <field name="inherit_id" ref="product.product_pricelist_view"/>
+    <field name="arch" type="xml">
+        <field name="type" position="after">
+            <field name="price_grid"/>
+        </field>
+    </field>
+</record>
+
+<record id="product_pricelist_view_tree" model="ir.ui.view">
+    <field name="model">product.pricelist</field>
+    <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+    <field name="arch" type="xml">
+        <field name="type" position="after">
+            <field name="price_grid"/>
+        </field>
+    </field>
+</record>
+
+
+    </data>
+</openerp>
