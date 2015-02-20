@@ -1,20 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pricelist_per_product
+#	* pricelist_per_product
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 17:24+0000\n"
-"PO-Revision-Date: 2015-02-17 18:25+0100\n"
-"Last-Translator: David BEAL <david.beal@akretion.com>\n"
+"POT-Creation-Date: 2015-02-20 11:17+0000\n"
+"PO-Revision-Date: 2015-02-20 11:17+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.5.4\n"
+
+#. module: pricelist_per_product
+#: help:product.pricelist,price_grid:0
+msgid "Define if the price list items are fulfilled from product form\n"
+"with a grid of specific values for each product"
+msgstr "Defini si les élements de la liste de prix sont complété depuis le formulaire des produits\n"
+"avec une grille de valeurs specifiques pour chaque produit"
+
+#. module: pricelist_per_product
+#: model:ir.actions.client,name:pricelist_per_product.action_pricelist_per_product_module_install
+msgid "Open pricelist per product Menu"
+msgstr "Open pricelist per product Menu"
 
 #. module: pricelist_per_product
 #: view:product.template:pricelist_per_product.product_template_form_view
@@ -22,7 +33,7 @@ msgid "Price"
 msgstr "Prix"
 
 #. module: pricelist_per_product
-#: view:product.template:pricelist_per_product.product_template_form_view
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist
 msgid "Pricelist"
 msgstr "Liste de prix"
 
@@ -32,6 +43,29 @@ msgid "Pricelist Items"
 msgstr "Eléments de liste de prix"
 
 #. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr "Élément de la liste de prix"
+
+#. module: pricelist_per_product
+#: field:product.pricelist,price_grid:0
+msgid "Product Price Grid"
+msgstr "Grille Tarifaire Produit"
+
+#. module: pricelist_per_product
 #: model:ir.model,name:pricelist_per_product.model_product_template
 msgid "Product Template"
-msgstr "Modèle d'article"
+msgstr "Article Modèle"
+
+#. module: pricelist_per_product
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid "Public price"
+msgstr "Prix Publique"
+
+#. module: pricelist_per_product
+#: help:product.template,pricelist_item_ids:0
+msgid "These prices are defined with absolute values\n"
+"(no calculation with discount)"
+msgstr "Ces prix sont définis en valeurs absolues\n"
+"(pas de calcul avec remise)"
+
