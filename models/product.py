@@ -123,7 +123,8 @@ class ProductTemplate(models.Model):
                     ('manual_code', '=', False)]
             products = product_obj.search(cond)
             for product in products:
-                render_default_code(product, product.reference_mask)
+                if product.reference_mask:
+                    render_default_code(product, product.reference_mask)
         return result
 
 
@@ -184,5 +185,6 @@ class ProductAttributeValue(models.Model):
                         ('manual_code', '=', False)]
                 products = product_obj.search(cond)
                 for product in products:
-                    render_default_code(product, product.reference_mask)
+                    if product.reference_mask:
+                        render_default_code(product, product.reference_mask)
         return result
