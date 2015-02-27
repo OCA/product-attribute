@@ -23,5 +23,53 @@
 </record>
 
 
+<record id="product_pricelist_version_form_view" model="ir.ui.view">
+    <field name="model">product.pricelist.version</field>
+    <field name="inherit_id" ref="product.product_pricelist_version_form_view"/>
+    <field name="arch" type="xml">
+        <field name="pricelist_id" position="after">
+            <field name="price_grid"/>
+        </field>
+        <xpath expr="//group[1]" position="after">
+            <group attrs="{'invisible': [('price_grid', '=', False)]}" col="4">
+                <button name="goto_products_in_version"
+                        string="Products in this Version"
+                        class="oe_link" type="object"
+                        help="Click to mass edit prices below"/>
+                <field name="product_in_version_count" nolabel="1"
+                       attrs="{'invisible': [('price_grid', '=', False)]}"/>
+<!--                <button name="goto_products_outside_version"
+                        string="Products outside this Version"
+                        class="oe_link" type="object"
+                        help="Click to add a version on them"/>
+                <field name="product_out_version_count" nolabel="1"/>-->
+            </group>
+        </xpath>
+        <xpath expr="//notebook/page[@string='Item List']"
+               position="attributes">
+            <attribute name="attrs">{'invisible': [('price_grid', '=', True)]}</attribute>
+        </xpath>
+        <xpath expr="//notebook[last()]" position="inside">
+            <page name="grid" string="Grid" attrs="{'invisible': [('price_grid', '=', False)]}">
+                <group col="4">
+                    <field name="item_grid_ids" nolabel="1">
+                        <tree string="Price Grid" editable="1">
+                            <button name="goto_product_template"
+                                    icon="terp-stock_symbol-selection"
+                                    class="oe_link" type="object"
+                                    help="Click to see this product"/>
+                            <field name="id"/>
+                            <field name="product_tmpl_id"/>
+                            <field name="price_surcharge" string="Price"/>
+                            <field name="sequence"/>
+                        </tree>
+                    </field>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+
     </data>
 </openerp>

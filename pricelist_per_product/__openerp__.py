@@ -34,6 +34,7 @@
         'install_view.xml',
         'product_view.xml',
         'pricelist_view.xml',
+        'transient/view.xml',
     ],
     'tests': [],
     'installable': True,
