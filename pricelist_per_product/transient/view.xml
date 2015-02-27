@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+<record id="view_transient_set_price_item" model="ir.ui.view">
+    <field name="model">product.priceitem.transient</field>
+    <field name="arch" type="xml">
+        <form string="Set Price Items">
+            <group col="4">
+                <p colspan="4">
+Fill these values to update Pricelist Items of producs below:
+                </p>
+                <field name="price" default_focus="1"/>
+                <field name="keep_price"/>
+                <field name="sequence"/>
+                <field name="keep_sequence"/>
+                <field name="products"/>
+            </group>
+            <footer>
+                <button name="apply" string="Apply"
+                    type="object" class="oe_highlight"/>
+                or
+                <button special="cancel" string="Cancel" class="oe_link"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+
+<!--Action-->
+
+<act_window
+    id="action_set_product_priceitem"
+    name="Set Price Items"
+    view_mode="form"
+    view_type="form"
+    view_id="view_transient_set_price_item"
+    target="new"
+    multi="1"
+    key2="client_action_multi"
+    src_model="product.template"
+    res_model="product.priceitem.transient"/>
+
+<record id="ir_action_set_priceitem_product" model="ir.values">
+    <field eval="'client_action_multi'" name="key2"/>
+    <field name="model">product.priceitem.transient</field>
+    <field name="name">Set Price Items</field>
+    <field eval="'ir.actions.act_window,%d'%action_set_product_priceitem"
+           name="value"/>
+</record>
+
+
+    </data>
+</openerp>
