@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Author: Sylvain CALADOR
+#    Author: David BEAL
 #    Copyright 2015 Akretion
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,9 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    product,
-    pricelist,
-    transient,
-)
-
+from . import price_item

@@ -1,7 +1,7 @@
 Pricelist Per Product
 ======================
 
-This module allows to see all sale prices on product form
+This module allows to see and edit all sale prices on product form
 
 Installation
 ============
@@ -15,7 +15,7 @@ Configuration
 * Sales / Customer feature :
   check "Use pricelists to adapt your price per customers"
 * Menu Sales / Configuration / Pricelist Versions
-  Check Product Price Grid field in your pricelists of your choice.
+  Check Product Price Grid field in your pricelists of your choice
 
 .. image:: static/description/pricelist.png
 
@@ -23,11 +23,14 @@ Configuration
 Usage
 =====
 
- * Go to the product form (Sales tab)
+* Go to the product form (Sales tab): add a Price version
 
 .. image:: static/description/product.png
 
+* Menu Sales / Configuration / Pricelist Versions
+  See Pricelist version put on product:
 
+* 
 
 Known issues / Roadmap
 ======================
