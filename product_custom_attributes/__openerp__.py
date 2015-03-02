@@ -33,7 +33,7 @@
     Need to install the lib unicode2ascii,
     http://github.com/akretion/unicode2ascii.git
     """,
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com/',
     'depends': ['product', 'stock'],
     'init_xml': [],

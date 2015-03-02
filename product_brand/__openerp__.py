@@ -37,7 +37,7 @@ One installed check the menu Product/configuration/brand
 To do / To come :
     - A view to seeing products by brand.
 """,
-    'author': 'NetAndCo',
+    'author': "NetAndCo,Odoo Community Association (OCA)",
     'website': 'http://ww.netandco.net',
     'depends': ['product'],
     'init_xml': [],

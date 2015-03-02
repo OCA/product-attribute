@@ -18,7 +18,7 @@
 {
     "name": "Product Image Gallery",
     "version": "6.1.1",
-    "author": "Sharoon Thomas, Open Labs Business Solutions",
+    "author": "Sharoon Thomas, Open Labs Business Solutions,Odoo Community Association (OCA)",
     "website": "http://openlabs.co.in/",
     "category": "Added functionality - Product Extension",
     "depends": ['product_sequence'],

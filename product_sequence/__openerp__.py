@@ -23,7 +23,7 @@
 {
     'name': 'Product Sequence',
     'version': '6.1.0',
-    "author": "Zikzakmedia SL",
+    "author": "Zikzakmedia SL,Odoo Community Association (OCA)",
     "website": "http://www.zikzakmedia.com",
     "license": "AGPL-3",
     "category": "Generic Modules/Inventory Control",

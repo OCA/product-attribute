@@ -32,7 +32,7 @@ automatically generated.
 If you unselect the 'active rule' the rule will be deactivated
 and the field min_qty will be read only.
 """,
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com/',
     'depends': ['procurement'],
     'init_xml': [],

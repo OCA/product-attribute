@@ -18,7 +18,7 @@
 {
     "name": "Product - Many Categories",
     "version": "6.1.0",
-    "author": "Sharoon Thomas",
+    "author": "Sharoon Thomas,Odoo Community Association (OCA)",
     "website": "",
     "category": "Added functionality",
     "depends": ['base', 'product'],
