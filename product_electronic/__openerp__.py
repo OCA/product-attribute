@@ -18,11 +18,12 @@
 #
 ##############################################################################
 {
-    "name" : "Products Attributes & Manufacturers",
-    "version" : "1.0",
-    "author" : "Tiny",
-    "category" : "Enterprise Specific Modules/Electronic Industries",
-    "depends" : ["base", "account", "product", "stock"],
+    "name" : "Product multi company ",
+    "version" : "1.1",
+    "author" : "OpenERP SA,Odoo Community Association (OCA)",
+    "license": "AGPL-3",
+    "category" : "Generic Modules/Inventory Control",
+    "depends" : [ "product"],
     "init_xml" : [],
     "demo_xml" : [],
     "description": "A module that add manufacturers and attributes on the product form",

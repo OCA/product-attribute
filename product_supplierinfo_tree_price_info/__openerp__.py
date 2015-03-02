@@ -19,21 +19,24 @@
 #
 ##############################################################################
 {
-    'name': 'Supplier Unit Price',
-    'summary': 'Supplier Unit Price on Product Form',
-    'version': '8.0.1.0',
-    'author': 'Savoir-faire Linux,GRAP,Odoo Community Association (OCA)',
-    'website': 'https://odoo-community.org/',
-    'license': 'AGPL-3',
-    'category': 'Product',
-    'depends': [
-        'product',
-    ],
-    'data': [
-        'views/product_supplierinfo.xml',
-    ],
-    'demo': [
-        'demo/res_groups.yml',
-        'demo/product_template.yml',
+    "name" : "Supplier unit price",
+    "version" : "0.1",
+    "author" : "Savoir-faire Linux,Odoo Community Association (OCA)",
+    "website" : "http://www.savoirfairelinux.com",
+    "license" : "GPL-3",
+    "category" : "Product",
+    "complexity" : "easy",
+    "description": """
+	On the product form, in the suppliers tab, you have to click on the 
+        line to get the prices of the product from that supplier.
+
+        This module displays the unit price directly on the product form by
+        adding a function field to store the unit price to the supplierinfo
+        object and adding it to its tree view.
+    """,
+    "depends" : ['product'],
+    "init_xml" : [],
+    "update_xml" : [
+        'supplierinfo_view.xml'
     ],
 }
