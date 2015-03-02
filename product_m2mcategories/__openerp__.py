@@ -19,7 +19,7 @@
 {
     "name" : "Product - Many Categories",
     "version" : "0.1",
-    "author" : "Sharoon Thomas",
+    "author" : "Sharoon Thomas,Odoo Community Association (OCA)",
     "website" : "",
     "category" : "Generic Modules",
     "depends" : ['product'],

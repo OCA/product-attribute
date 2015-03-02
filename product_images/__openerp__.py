@@ -21,7 +21,7 @@
 {
     "name" : "Product Image Gallery",
     "version" : "0.2",
-    "author" : "Sharoon Thomas, Open Labs Business Solutions, Akretion",
+    "author" : "Sharoon Thomas, Open Labs Business Solutions, Akretion,Odoo Community Association (OCA)",
     "website" : "http://openlabs.co.in/",
     "category" : "Generic Modules",
     "depends" : ['product_sequence'],

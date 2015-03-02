@@ -46,7 +46,7 @@ How To Use
  - Work on the several lines setting the margin you want to apply
  - Compute the final price and create (or update) the price list
 """,
-    'author': 'Agile Business Group',
+    'author': "Agile Business Group,Odoo Community Association (OCA)",
     'website': 'http://www.agilebg.com/',
     'depends': ['product', 'sale', 'mrp'],
     'data': [
