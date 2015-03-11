@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -27,17 +26,11 @@
     "contributors": [
         "Mikel Arregi <mikelarregi@avanzosc.es>",
         "Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>",
+        "Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>",
+        "Ana Juaristi <ajuaristio@gmail.com>"
     ],
     "category": "Product Management",
     "website": "http://www.odoomrp.com",
-    "description": """
-This module provide :
-    New features in product attributes:
-        * Mandatory fields
-        * Default attribute value
-        * Range based type of attribute
-        * ...
-    """,
     'data': [
         "views/product_view.xml",
     ],
