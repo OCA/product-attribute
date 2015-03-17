@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_template_internal_refence_search_view"
+                model="ir.ui.view">
+            <field name="name">Product Template: add internal reference in search options</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id"
+                   ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="default_code"
+                           filter_domain="[('default_code', 'ilike', self)]"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+
+
