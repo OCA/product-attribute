@@ -25,8 +25,12 @@ from openerp.osv import orm, fields
 from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
 from lxml import etree
-from unidecode import unidecode # Debian package python-unidecode
 import re
+
+try:
+    from unidecode import unidecode # Debian package python-unidecode
+except ImportError:
+    unidecode = None
 
 
 def safe_column_name(string):
