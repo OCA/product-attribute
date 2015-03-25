@@ -29,7 +29,9 @@
     keys = ['code', 'info', 'price', 'discount_1', 'discount_2', 'retail',
     'pdv1', 'pdv2']
     """,
-    'author': 'OdooMRP team',
+    "author": "OdooMRP team,"
+              "AvanzOSC,"
+              "Serv. Tecnol. Avanzados - Pedro M. Baeza",
     'website': "http://www.odoomrp.com",
     "depends": ['purchase'],
     "category": "Manufacturing",
