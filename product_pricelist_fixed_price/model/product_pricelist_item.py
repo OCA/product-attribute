@@ -133,14 +133,13 @@ class ProductPrice(orm.Model):
         '''override write to get computed values.
         We need the loop, because computed values might depend on existing
         values.'''
-        for object_id in ids:
-            browse_records = self.browse(
-                cr, uid, [object_id], context=context)
-            browse_obj = browse_records[0]
-            self._modify_vals(
-                cr, uid, vals, browse_obj=browse_obj, context=context)
-            super(ProductPrice, self).write(
-                cr, uid, [object_id], vals, context=context)
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        for browse_obj in self.browse(cr, uid, ids, context=context):
+            self._modify_vals(cr, uid, vals, browse_obj=browse_obj,
+                              context=context)
+            super(ProductPrice, self).write(cr, uid, browse_obj.id,
+                                            vals, context=context)
         return True
 
     def onchange_base_ext(self, cr, uid, ids, base_ext, context=None):
@@ -148,4 +147,3 @@ class ProductPrice(orm.Model):
         vals = {'base_ext': base_ext}
         self._modify_vals(cr, uid, vals, context=context)
         return {'value': vals}
-
