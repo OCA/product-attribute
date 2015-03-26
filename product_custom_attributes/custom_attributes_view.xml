@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  base_custom_attributes for OpenERP
-  Copyright (C) 2011-2013 Akretion (http://www.akretion.com/)
-  @author: Benoît GUILLOT <benoit.guillot@akretion.com>
-  The licence is in the file __openerp__.py
--->
-
 <openerp>
     <data>
-
         <menuitem
             id="menu_attribute_in_config_product" name="Attributes"
             parent="product.prod_config_main" sequence="20"/>
@@ -52,6 +44,5 @@
         <menuitem
              action="attribute_attribute_form_action" id="menu_attribute_attribute_action"
              parent="product_custom_attributes.menu_attribute_in_config_product" sequence="4"/>
-
     </data>
 </openerp>

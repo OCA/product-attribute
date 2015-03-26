@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  product_custom_attributes for OpenERP
-  Copyright (C) 2011-2013 Akretion (http://www.akretion.com/)
-  @author: Benoît GUILLOT <benoit.guillot@akretion.com>
-  The licence is in the file __openerp__.py
--->
-
 <openerp>
     <data>
-
         <record model="ir.ui.view" id="product_product_form_view_set_button">
             <field name="name">attributes.product.normal.form</field>
             <field name="model">product.product</field>
@@ -41,6 +33,5 @@
                 </form>
             </field>
         </record>
-
     </data>
 </openerp>

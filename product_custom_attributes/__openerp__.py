@@ -18,9 +18,6 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.     #
 #                                                                             #
 ###############################################################################
-
-
-
 {
     'name': 'product_custom_attributes',
     'version': '0.2.1',
@@ -34,14 +31,12 @@ In particular it's used by the Magento Magentoerpconnect module to match the EAV
     'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com/',
     'depends': ['product', 'base_custom_attributes'],
-    'init_xml': [],
-    'update_xml': [
-           'product_view.xml',
-           'custom_attributes_view.xml',
-           'wizard/open_product_by_attribute_set.xml',
+    'data': [
+        'product_view.xml',
+        'custom_attributes_view.xml',
+        'wizard/open_product_by_attribute_set.xml',
     ],
-    'demo_xml': [],
-    'installable': False,
+    'demo': [],
+    'installable': True,
     'active': False,
 }
-

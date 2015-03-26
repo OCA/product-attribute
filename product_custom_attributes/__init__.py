@@ -1,2 +1,2 @@
-import product
-import wizard
+from . import product
+from . import wizard
