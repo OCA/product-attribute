@@ -62,7 +62,7 @@ class AttributeOption(models.Model):
         required=True)
     sequence = fields.Integer()
 
-    @api.onchange('name', 'attribute_id.relation_model_id')
+    @api.onchange('name')
     def name_change(self):
         if self.attribute_id.relation_model_id:
             warning = {'title': _('Error!'),
@@ -187,11 +187,10 @@ class AttributeAttribute(models.Model):
                     self._build_attribute_field(page, attribute)
         return notebook, toupdate_fields
 
-    @api.multi
-    def relation_model_id_change(self, relation_model_id,
-                                 option_ids):
+    @api.onchange('relation_model_id')
+    def relation_model_id_change(self):
         "removed selected options as they would be inconsistent"
-        return {'value': {'option_ids': [(2, i[1]) for i in option_ids]}}
+        return {'value': {'option_ids': [(2, i[1]) for i in self.option_ids]}}
 
     @api.multi
     def button_add_options(self):
@@ -312,7 +311,7 @@ class AttributeAttribute(models.Model):
         vals['state'] = 'manual'
         return super(AttributeAttribute, self).create(vals)
 
-    @api.onchange('field_description', 'name', 'create_date')
+    @api.onchange('field_description')
     def onchange_field_description(self):
         name = self.name or u'x_'
         if self.field_description and not self.create_date:
@@ -421,10 +420,6 @@ class AttributeLocation(models.Model):
     _order = "sequence"
     _inherits = {'attribute.attribute': 'attribute_id'}
 
-    def _get_attribute_loc_from_group(self, cr, uid, ids, context=None):
-        return self.pool.get('attribute.location').search(
-            cr, uid, [('attribute_group_id', 'in', ids)], context=context)
-
     attribute_id = fields.Many2one(
         comodel_name='attribute.attribute',
         string='Product Attribute',
@@ -435,17 +430,6 @@ class AttributeLocation(models.Model):
         related='attribute_group_id.attribute_set_id',
         string='Attribute Set',
     )
-    # attribute_set_id = fields.related(
-    #         'attribute_group_id',
-    #         'attribute_set_id',
-    #         type='many2one',
-    #         relation='attribute.set',
-    #         string='Attribute Set',
-    #         readonly=True,
-    #         store={
-    #             'attribute.group': (_get_attribute_loc_from_group,
-    #                                 ['attribute_set_id'], 10),
-    #         }),
     attribute_group_id = fields.Many2one(
         comodel_name='attribute.group',
         string='Attribute Group',
