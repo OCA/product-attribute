@@ -27,7 +27,7 @@ class OpenProductByAttributeSet(models.TransientModel):
     _description = 'Wizard to open product by attributes set'
 
     attribute_set_id = fields.Many2one(
-        comodel='attribute.set',
+        comodel_name='attribute.set',
         string='Attribute Set')
 
     @api.multi

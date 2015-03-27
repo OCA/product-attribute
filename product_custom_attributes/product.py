@@ -19,7 +19,7 @@
 #                                                                             #
 ###############################################################################
 from openerp import models, fields, api
-from tools.translate import translate
+from openerp.tools.translate import translate
 from lxml import etree
 
 
@@ -27,7 +27,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     attribute_set_id = fields.Many2one(
-        comodel='attribute.set',
+        comodel_name='attribute.set',
         string='Attribute Set')
 
 
@@ -35,18 +35,19 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     @api.one
-    @api.depends()
     def _attr_grp_ids(self):
-        set_id = self.attribute_set_id
-        if not set_id:
+        import pdb
+        pdb.set_trace()
+        attr_set = self.attribute_set_id
+        if not attr_set:
             self.attribute_group_ids = False
         else:
             group_ids = self.env['attribute.group'].search(
-                [('attribute_set_id', '=', set_id)])
+                [('attribute_set_id', '=', attr_set.id)])
             self.attribute_group_ids = group_ids
 
     attribute_group_ids = fields.Many2many(
-        comodel='attribute.group',
+        comodel_name='attribute.group',
         string='Groups',
         compute='_attr_grp_ids'
     )
@@ -54,11 +55,13 @@ class ProductProduct(models.Model):
     @api.multi
     def open_attributes(self):
         self.ensure_one()
+        import pdb
+        pdb.set_trace()
         form_view = self.env.ref(
             'product_custom_attributes.product_attributes_form_view', False)
         if form_view:
-            res_id = form_view.res_id
-        grp_ids = self._attr_grp_ids()
+            res_id = form_view.id
+        grp_ids = [i.id for i in self.attribute_group_ids]
         ctx = {'open_attributes': True, 'attribute_group_ids': grp_ids}
 
         return {
@@ -99,6 +102,8 @@ class ProductProduct(models.Model):
             if button:
                 button = button[0]
                 button.getparent().remove(button)
+            import pdb
+            pdb.set_trace()
             attributes_notebook, toupdate_fields =\
                 self.env['attribute.attribute']._build_attributes_notebook(
                     self._context['attribute_group_ids'])
