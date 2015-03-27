@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  product_custom_attributes for OpenERP
-  Copyright (C) 2011-2013 Akretion (http://www.akretion.com/)
-  @author: Benoît GUILLOT <benoit.guillot@akretion.com>
-  The licence is in the file __openerp__.py
--->
-
 <openerp>
     <data>
-
         <record id="open_product_by_attribute_set_view" model="ir.ui.view">
             <field name="name">open.product.by.attribute.set.view</field>
             <field name="model">open.product.by.attribute.set</field>
@@ -36,6 +28,5 @@
         </record>
 
         <menuitem action="open_product_by_attribute_set" id="open_product_wizard" parent="base.menu_product" sequence="20"/>
-
     </data>
 </openerp>
