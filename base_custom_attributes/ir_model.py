@@ -19,30 +19,18 @@
 #                                                                             #
 ###############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields
 
 
-class ir_model_fields(models.Model):
+class IrModelFields(models.Model):
 
     _inherit = "ir.model.fields"
-
-    @api.model
-    def _get_default_model(self):
-        context = self._context
-        if context and context.get('force_model'):
-            default_model = self.env['ir.model'].search(
-                [('model', '=', context['force_model'])])
-            if default_model:
-                return default_model
-        return None
 
     field_description = fields.Char(
         string='Field Label',
         required=True,
         size=256,
         translate=True)
-    model_id = fields.Many2one(
-        default=_get_default_model)
 
     _sql_constraints = [
         ('name_model_uniq', 'unique (name, model_id)',

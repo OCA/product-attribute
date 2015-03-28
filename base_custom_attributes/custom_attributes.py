@@ -70,8 +70,6 @@ class AttributeOption(models.Model):
                                     "instead to select appropriate "
                                     "model references'")}
             return {"value": {"name": False}, "warning": warning}
-        else:
-            return
 
 
 class AttributeOptionWizard(models.TransientModel):
@@ -135,7 +133,6 @@ class AttributeOptionWizard(models.TransientModel):
 class AttributeAttribute(models.Model):
     _name = "attribute.attribute"
     _description = "Attribute"
-    _inherits = {'ir.model.fields': 'field_id'}
 
     @api.model
     def _build_attribute_field(self, page, attribute):
@@ -208,10 +205,21 @@ class AttributeAttribute(models.Model):
             'target': 'new',
         }
 
+    @api.model
+    def _get_default_model(self):
+        context = self._context
+        if context and context.get('force_model'):
+            default_model = self.env['ir.model'].search(
+                [('model', '=', context['force_model'])])
+            if default_model:
+                return default_model
+        return None
+
     field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='Ir Model Fields',
         required=True,
+        delegate=True,
         ondelete="cascade")
     attribute_type = fields.Selection(selection=[
         ('char', 'Char'),
@@ -245,6 +253,10 @@ class AttributeAttribute(models.Model):
         string='Required (on views)',
         help="If activated, the attribute will be mandatory on the views, "
         "but not in the database")
+
+    _defaults = {
+        'model_id': _get_default_model
+    }
 
     @api.model
     def create(self, vals):
@@ -355,7 +367,7 @@ class AttributeGroup(models.Model):
                 [['model', '=', context['force_model']]])
             if model_id:
                 return model_id[0]
-        return None
+        return False
 
     name = fields.Char(
         size=128,
@@ -397,7 +409,7 @@ class AttributeSet(models.Model):
                 [['model', '=', context['force_model']]])
             if model_id:
                 return model_id[0]
-        return None
+        return False
 
     name = fields.Char(
         size=128,
@@ -418,12 +430,12 @@ class AttributeLocation(models.Model):
     _name = "attribute.location"
     _description = "Attribute Location"
     _order = "sequence"
-    _inherits = {'attribute.attribute': 'attribute_id'}
 
     attribute_id = fields.Many2one(
         comodel_name='attribute.attribute',
         string='Product Attribute',
         required=True,
+        delegate=True,
         ondelete="cascade")
     attribute_set_id = fields.Many2one(
         comodel_name='attribute.set',
