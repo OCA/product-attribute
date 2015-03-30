@@ -27,7 +27,9 @@ from openerp.tools.translate import _
 
 FIXED_PRICE_TYPE = -3
 
+
 class ProductPrice(orm.Model):
+
     '''Inherit existing model to add functionality for fixed prices'''
     _inherit = 'product.pricelist.item'
 
@@ -35,7 +37,7 @@ class ProductPrice(orm.Model):
         '''Added fixed price to pricetypes'''
         result = super(
             ProductPrice, self)._price_field_get(
-                cr, uid, context=context)
+            cr, uid, context=context)
         result.append((FIXED_PRICE_TYPE, _('Fixed Price')))
         return result
 
