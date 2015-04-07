@@ -22,7 +22,7 @@
     'version': '0.1',
     'category': 'Generic Modules',
     'description': """Generate product sequence reference based on sequence from category""",
-    'author': 'KMEE',
+    'author': 'KMEE,Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'website': '',
     'depends': [
