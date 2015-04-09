@@ -31,13 +31,12 @@ from product form with a grid of specific values
 for each product""")
 
 ACTION = {
-    'res_model': 'product.template',
     'type': 'ir.actions.act_window',
     'target': 'current',
 }
 
-HELP_NAME_ON_ACTION = _("Filter and Select products and click on "
-                        "'More' button and 'Set Price Items'")
+HELP_NAME_ON_ACTION = _("Change all your '%s' prices in one time "
+                        "by click on 'More' button")
 
 
 class ProductPricelist(models.Model):
@@ -72,46 +71,60 @@ class ProductPricelistVersion(models.Model):
         help=PRICE_GRID_HELP)
     product_in_version_count = fields.Integer(
         string="Products with this Version",
-        compute='count_products')
+        compute='count_products',
+        help="Number of Product Template with this Pricelist version")
     product_out_version_count = fields.Integer(
-        string="Products without this Version",
-        compute='count_products')
+        string="Product Template without this Version",
+        compute='count_products',
+        help="Number of Product Template without this Pricelist version")
     item_grid_ids = fields.One2many(
         'product.pricelist.item',
         'price_version_id')
 
     @api.multi
-    def goto_products_in_version(self):
-        context = self.env.context.copy()
-        context['price_version_id'] = self.id
-        action = {
-            'domain': [
-                ('pricelist_item_ids.price_version_id', '=', self.id)],
-            'name': HELP_NAME_ON_ACTION,
-            'view_mode': 'tree',
-            'view_id': self.env.ref(
-                'pricelist_per_product.product_template_tree_price_view').id,
-            'context': context,
-        }
-        action.update(ACTION)
-        print context, '     context'
-        return action
+    def button_product_in_version(self):
+        return self.with_context(
+            price_version_id=self.id).goto_products_from_version('product.product', 'in')
 
     @api.multi
-    def goto_products_outside_version(self):
-        #fix it
+    def button_template_in_version(self):
+        return self.goto_products_from_version('product.template', 'in')
+
+    @api.multi
+    def button_product_out_version(self):
+        return self.goto_products_from_version('product.product', 'out')
+
+    @api.multi
+    def button_template_out_version(self):
+        return self.with_context(
+            price_version_id=self.id).goto_products_from_version('product.template', 'out')
+            # 'context': self.env[model].with_context(price_version_id=self.id)
+
+    @api.model
+    def goto_products_from_version(self, model, direction):
+        print '     ctx', self.env.context
+        if model == 'product.product':
+            view_name = 'product'
+        else:
+            view_name = 'product_template'
+        if direction == 'in':
+            domain = [('pricelist_item_ids.price_version_id', '=', self.id)]
+        else:
+            domain = [('= ', '=', 'done')]
+        action_name = view_name.replace('_', ' ') + 's'
+        view_id_ref = 'pricelist_per_product.%s_tree_price_view' % view_name
+        ctx = self.env.context.copy()
+        ctx['price_version_id'] = self.id
         action = {
-            'domain': [
-                '|',
-                ('pricelist_item_ids', '=', False),
-                ('pricelist_item_ids.price_version_id', '!=', self.id)],
-            'name': HELP_NAME_ON_ACTION,
+            'domain': domain,
+            'name': HELP_NAME_ON_ACTION % action_name,
             'view_mode': 'tree',
-            'view_id': self.env.ref(
-                'pricelist_per_product.product_template_tree_price_view').id,
-            'context': {'price_version_id': self.id},
+            'res_model': model,
+            'view_id': self.env.ref(view_id_ref).id,
+            'context': ctx
         }
         action.update(ACTION)
+        print '     action', action
         return action
 
 
@@ -124,14 +137,30 @@ class ProductPricelistItem(models.Model):
     currency_name = fields.Many2one(
         related='price_version_id.pricelist_id.currency_id',
         readonly=True)
+    related_sequence = fields.Integer(
+        String='Sequence',
+        related="sequence")
 
     @api.multi
-    def goto_product_template(self):
+    def button_product_product(self):
+        return self.goto_product('product.product')
+
+    @api.multi
+    def button_product_template(self):
+        return self.goto_product('product.template')
+
+    @api.model
+    def goto_product(self, model):
+        if model == 'product.product':
+            product = self.product_id.id
+        else:
+            product = self.product_tmpl_id.id
         action = {
             'name': 'Product',
             'view_mode': 'form',
             'view_type': 'form',
-            'res_id': self.id,
+            'res_id': product,
+            'res_model': model,
         }
         action.update(ACTION)
         return action

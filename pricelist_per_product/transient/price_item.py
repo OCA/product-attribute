@@ -73,6 +73,11 @@ class ProductPriceitemTransient(models.TransientModel):
             price_version_id = price_version_id[0][2]
         vals = {}
         for elm in self:
+            if elm.keep_price and elm.keep_sequence:
+                raise exceptions.Warning(
+                    _("'Keep Price' and 'Keep Sequence' checkboxes "
+                      "are checked.\n"
+                      "Remove one of these for that action can be done"))
             if not elm.keep_price:
                 vals['price_surcharge'] = elm.price
             if not elm.keep_sequence:
@@ -93,15 +98,16 @@ class ProductPriceitemTransient(models.TransientModel):
         return action
 
     price = fields.Float()
+    sequence = fields.Integer(default=1)
     keep_price = fields.Boolean(
-        default=False,
+        string="Keep Existing Price",
+        default=True,
         help=KEEP_FIELD_HELP % 'Price')
-    sequence = fields.Integer(
-        default=1)
     keep_sequence = fields.Boolean(
-        default=False,
+        string="Keep Existing Sequence",
+        default=True,
         help=KEEP_FIELD_HELP % 'Sequence')
     products = fields.Text(
+        string="Impacted Products",
         default=_get_products_info,
-        readonly=True,)
-
+        readonly=True)

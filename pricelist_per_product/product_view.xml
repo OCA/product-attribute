@@ -12,12 +12,15 @@
         <xpath expr="//page[@string='Sales']/group[@name='sale']" position="before">
                 <group>
                     <field name="list_price" string="Public price"/>
-                <field name="pricelist_item_ids" colspan="4" nolabel="1">
+                <field name="pricelist_item_ids" colspan="4" nolabel="1"
+                       domain="[('price_version_id.pricelist_id.type', '=', 'sale'),
+                ('price_version_id.price_grid', '=', True)]">
                     <tree editable="top" create="1" delete="1">
                         <field name="price_version_id"/>
-                        <field name="date_end"/>
+                        <field name="product_id"
+                               domain="[('product_tmpl_id', '=', parent.id)]"/>
                         <field name="price_surcharge" string="Price"/>
-                        <field name="currency_name"/>
+                        <field name="date_end"/>
                         <field name="price_discount" invisible="1"/>
                         <field name="sequence" invisible="1"/>
                         <field name="base" invisible="1"/>
@@ -33,20 +36,42 @@
     <field name="model">product.template</field>
     <field name="arch" type="xml">
         <tree editable="top" create="0" delete="0">
-            <field name="id"/>
             <field name="list_price"/>
             <field name="name" readonly="1"/>
+            <field name="id"/>
         </tree>
     </field>
 </record>
-
-
 <record id="product_template_tree_price_action" model="ir.actions.act_window">
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">product.template</field>
-    <field name="name">Product Price Grid</field>
+    <field name="name">Product Template Price Grid</field>
     <field name="view_type">tree</field>
     <field name="view_id" ref="product_template_tree_price_view"/>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Product Template Price Grid from Pricelist version
+      </p>
+    </field>
+</record>
+
+<record id="product_tree_price_view" model="ir.ui.view">
+    <field name="model">product.product</field>
+    <field name="arch" type="xml">
+        <tree editable="top" create="0" delete="0">
+            <field name="product_tmpl_id"/>
+            <field name="list_price"/>
+            <field name="name" readonly="1"/>
+            <field name="id"/>
+        </tree>
+    </field>
+</record>
+<record id="product_tree_price_action" model="ir.actions.act_window">
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">product.product</field>
+    <field name="name">Product Price Grid</field>
+    <field name="view_type">tree</field>
+    <field name="view_id" ref="product_tree_price_view"/>
     <field name="help" type="html">
       <p class="oe_view_nocontent_create">
         Product Price Grid from Pricelist version
@@ -57,4 +82,3 @@
 
     </data>
 </openerp>
-
