@@ -36,11 +36,10 @@ class ProductProduct(orm.Model):
 
             while categ:
                 sufix = prefix
-                prefix = (categ.default_code or '') + sufix
 
                 if categ.parent_id:
                     categ = obj_categ.browse(cr, uid, [categ.parent_id.id])[0]
-
+                    prefix = (categ.default_code or '') + sufix
                 else:
                     categ = False
 
@@ -66,8 +65,6 @@ class ProductCategory(orm.Model):
             obj_parent = self.browse(cr, uid, vals['parent_id'])
             ref = poll_sequence.next_by_id(
                 cr, uid, obj_parent.seq_id.id, context)
-            vals['seq_id'] = poll_sequence.create(
-                cr, uid, {'name': 'Seq. ' + vals['name'], 'padding': 3})
 
         elif not vals['seq_id']:
             ref = vals['default_code']
