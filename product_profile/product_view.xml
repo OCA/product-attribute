@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<record id="product_template_form_view" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//h1" position="after">
+            <group>
+                <field name="profile_id" widget="selection"/>
+            </group>
+        </xpath>
+        <field name="description" position="replace">
+            <group col="4">
+                <group col="1" colspan="1">
+                    <label for="profile_description"
+                           attrs="{'invisible': [('profile_description', '=', False)]}"/>
+                    <field name="profile_description" nolabel="1"/>
+                </group>
+                <group colspan="3">
+                    <label for="description"/>
+                    <newline/>
+                    <field name="description" nolabel="1"
+                           placeholder="describe the product characteristics..."/>
+                </group>
+            </group>
+        </field>
+    </field>
+</record>
+
+
+<record id="product_profile_tree_view" model="ir.ui.view">
+    <field name="model">product.profile</field>
+    <field name="arch" type="xml">
+        <tree string="Product Profiles">
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="type"/>
+            <field name="description"/>
+        </tree>
+    </field>
+</record>
+
+<record id="product_profile_action" model="ir.actions.act_window">
+    <field name="name">Product Profiles</field>
+    <field name="res_model">product.profile</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_product_profile_action"
+          action="product_profile_action"
+          parent="product.prod_config_main" sequence="10" />
+
+    </data>
+</openerp>
