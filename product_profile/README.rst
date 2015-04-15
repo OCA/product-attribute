@@ -14,11 +14,11 @@ and products configuration become harder for end users: too many fields to take 
 
 You are afraid that at any time a product might be not configured correctly: this module is your friend
 
-In this case a lot of complexity become hidden (default behavior) to the end user and usability is optimal
+In this case a lot of complexity become hidden (default behavior) to the end user and usability is optimal.
 
 It also can make easier the data migration by only specifying the profile field instead of all fields depends on it.
 
-Note: This module is intended to skilled people in database fields creation with thE ERP framework
+Note: This module is intended to skilled people in database fields creation with the ERP framework.
 
 
 Configuration

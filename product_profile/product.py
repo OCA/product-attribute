@@ -20,17 +20,32 @@
 ##############################################################################
 
 from openerp import models, fields, api
+from openerp.exceptions import Warning
+from lxml import etree
 
 
-# these fields must not be synchronized between product.profile
+# These fields must not be synchronized between product.profile
 # and product.template
 PROFILE_FIELDS_TO_EXCLUDE = ['name', 'description', 'sequence',
                              'display_name', '__last_update']
 
 
+def format_except_message(error, field, self):
+    value = self.profile_id[field]
+    model = type(self)._name
+    message = ("Issue:\n%s\n'%s' value can't be applied to '%s' field."
+               "\nThere is no matching value between 'Product Profiles' "
+               "\nand '%s' models for this field.\n\nResolution:\n"
+               "Check your settings on Profile model:\n"
+               "Sales > Configuration > Product Categories and Attributes"
+               "> Product Profiles"
+               % (error, value, field, model))
+    return message
+
+
 class ProductProfile(models.Model):
     _name = 'product.profile'
-    _order = 'sequence ASC'
+    _order = 'sequence'
 
     def _get_types(self):
         """ inherit in your custom module.
@@ -70,6 +85,13 @@ class ProductTemplate(models.Model):
         string='Profile explanation',
         readonly=True)
 
+    @api.model
+    def _fields_to_populate(self, profile):
+        fields_to_exclude = PROFILE_FIELDS_TO_EXCLUDE
+        fields_to_exclude.extend(models.MAGIC_COLUMNS)
+        return [field for field in profile._fields.keys()
+                if field not in fields_to_exclude]
+
     @api.onchange('profile_id')
     def _onchange_from_profile(self, vals=None):
         """ Update product fields with product.profile corresponding fields """
@@ -82,18 +104,22 @@ class ProductTemplate(models.Model):
             to_play = True
             profile = self.env['product.profile'].search(
                 [('id', '=', vals['profile_id'])])
-        fields_to_exclude = PROFILE_FIELDS_TO_EXCLUDE
-        fields_to_exclude.extend(models.MAGIC_COLUMNS)
-        profile_fields = [field for field in self.profile_id._fields.keys()
-                          if field not in fields_to_exclude]
-        for elm in profile_fields:
-            print elm
+        for field in self._fields_to_populate(self.profile_id):
             if self.profile_id:
-                self[elm] = self.profile_id[elm]
+                try:
+                    self[field] = self.profile_id[field]
+                    print '     prof', field
+                except ValueError as e:
+                    raise Warning(format_except_message(e, field, self))
+                except Exception as e:
+                    raise Warning("%s" % e)
             elif to_play:
-                defaults.update({elm: profile[elm]})
+                defaults.update({field: profile[field]})
+                print '    defaults', field
             else:
-                self[elm] = False
+                # also on field initialisation
+                self[field] = False
+                print '     false', field
         return defaults
 
     @api.model
@@ -102,3 +128,46 @@ class ProductTemplate(models.Model):
             defaults = self._onchange_from_profile(vals)
             vals = dict(defaults, **vals)
         return super(ProductTemplate, self).create(vals)
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+        """ WIP """
+        res = super(ProductTemplate, self).fields_view_get(
+            view_id=view_id, view_type=view_type, toolbar=toolbar,
+            submenu=submenu)
+        if view_type == 'form':
+            doc = etree.XML(res['arch'])
+            fields = self._fields_to_populate(self.profile_id)
+            for field in fields:
+                xml = doc.xpath("//field[@name='%s']" % field)[0]
+                attrs = xml.attrib
+                if 'attrs' in attrs:
+                    print ''
+                else:
+                    xml.attrib['attrs'] = '{\'invisible\': True}'
+                    # print xml[0].attrib['modifiers']
+            res['arch'] = etree.tostring(doc, pretty_print=True)
+            print res['arch']
+        return res
+
+
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
+
+    @api.onchange('profile_id')
+    def _onchange_from_profile(self, vals=None):
+        """ Update product fields with product.profile corresponding fields
+            WIP
+        """
+        if isinstance(self.id, models.NewId):
+            print 'PROFILE_ID', self.profile_id
+            if self.profile_id:
+                if not isinstance(vals, dict):
+                    vals = {}
+                vals['profile_id'] = self.profile_id.id
+                print '     YES  pppppp'
+                return self.product_tmpl_id._onchange_from_profile(
+                    vals=vals)
+        else:
+            return self.product_tmpl_id._onchange_from_profile(vals=vals)
