@@ -82,9 +82,15 @@ class product_product(models.Model):
     }
 
     @api.one
-    @api.constrains('company_id', 'pack_line_ids')
+    @api.constrains('company_id', 'pack_line_ids', 'used_pack_line_ids')
     def check_pack_line_company(self):
-        for line in self.pack_line_ids + self.used_pack_line_ids:
+        # TODO implementar mejores mensajes
+        for line in self.pack_line_ids:
+            if line.product_id.company_id != self.company_id:
+                raise Warning(_(
+                    'Pack lines products company must be the same as the\
+                    parent product company'))
+        for line in self.used_pack_line_ids:
             if line.parent_product_id.company_id != self.company_id:
                 raise Warning(_(
                     'Pack lines products company must be the same as the\
