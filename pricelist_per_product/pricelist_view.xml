@@ -30,28 +30,37 @@
         <field name="pricelist_id" position="after">
             <field name="price_grid"/>
         </field>
-        <xpath expr="//group[1]" position="after">
+        <xpath expr="//group[1]" position="attributes">
+            <attribute name="col">6</attribute>
+        </xpath>
+        <xpath expr="//group[1]" position="inside">
             <group attrs="{'invisible': [('price_grid', '=', False)]}" col="4">
+                <div>
                 <button name="button_template_in_version"
-                        string="Product templates in this version"
-                        class="oe_link" type="object"
-                        help="Click to mass edit prices below"/>
-                <field name="product_in_version_count" nolabel="1"
-                       attrs="{'invisible': [('price_grid', '=', False)]}"/>
+                        class="oe_inline oe_stat_button" type="object"
+                        icon="fa-cube"
+                        help="Products templates with this version (Click to mass edit prices below)">
+                    <field name="tmpl_in_count" widget="statinfo"
+                           string="Show templates"
+                           attrs="{'invisible': [('price_grid', '=', False)]}"/>
+                </button>
                 <button name="button_template_out_version"
-                        string="Product templates outside of this version"
-                        class="oe_link" type="object"
-                        help="Click to add a version on them"/>
-                <field name="product_out_version_count" nolabel="1"/>
+                        class="oe_inline oe_stat_button" type="object"
+                        string="Add templates" icon="fa-cube"
+                        help="Products templates with this version (Click to add a version on them)"/>
                 <button name="button_product_in_version"
-                        string="Product in this version"
-                        class="oe_link" type="object"
-                        help="Click to mass edit prices below"/>
-                <span/>
+                        icon="fa-cubes"
+                        class=" oe_stat_button" type="object"
+                        help="Products with this version (Click to mass edit prices below)">
+                    <field name="product_in_count" widget="statinfo"
+                           string="Show products"/>
+                </button>
                 <button name="button_product_out_version"
-                        string="Products outside of this version"
-                        class="oe_link" type="object"
-                        help="Click to mass edit prices below"/>
+                        string="Add products" icon="fa-cubes"
+                        class="oe_inline oe_stat_button" type="object"
+                        help="Products without this version (Click to add a version on them)">
+                </button>
+                </div>
             </group>
         </xpath>
         <xpath expr="//notebook/page[@string='Item List']"

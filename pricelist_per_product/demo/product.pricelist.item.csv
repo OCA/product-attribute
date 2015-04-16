@@ -1,0 +1,4 @@
+"id","product_tmpl_id/id","product_id/id","price_version_id/id","price_surcharge","price_discount","sequence","base","min_quantity"
+"price_grid_item1","product.product_product_4_product_template",,"pricelist_grid_version",1,-1,1,1,1
+"price_grid_item2",,"product.product_product_8","pricelist_grid_version",2,-1,1,1,1
+"price_grid_item3",,"product.product_product_7","pricelist_grid_version",3,-1,1,1,1
