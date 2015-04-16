@@ -50,18 +50,20 @@ class ProductPricelist(models.Model):
 class ProductPricelistVersion(models.Model):
     _inherit = 'product.pricelist.version'
 
-    @api.depends('product_in_version_count')
+    @api.depends('product_in_count')
     def count_products(self):
-        # TODO: security rule multicompany
-        query_in = """SELECT product_tmpl_id
-        FROM product_pricelist_item
-        WHERE price_version_id = %s """
+        PPItem_m = self.env['product.pricelist.item']
         for record in self:
-            self.env.cr.execute(query_in, [self.id])
-            products_in_nbr = len(set(self.env.cr.fetchall()))
-            self.product_in_version_count = products_in_nbr
-            self.product_out_version_count = (len(self.env['product.template'].
-                                              search([])) - products_in_nbr)
+            if not isinstance(self.id, models.NewId):
+                predicats = {
+                    'tmpl_in_count': ('product_tmpl_id', '!=', False),
+                    'product_in_count': ('product_id', '!=', False),
+                }
+                version_domain = [('price_version_id', '=', record.id)]
+                for field, predicat in predicats.items():
+                    domain = list(version_domain)
+                    domain.append(predicat)
+                    self[field] = PPItem_m.search_count(domain)
 
     price_grid = fields.Boolean(
         related='pricelist_id.price_grid',
@@ -69,40 +71,37 @@ class ProductPricelistVersion(models.Model):
         #readonly=True,
         store=True,
         help=PRICE_GRID_HELP)
-    product_in_version_count = fields.Integer(
+    product_in_count = fields.Integer(
         string="Products with this Version",
         compute='count_products',
-        help="Number of Product Template with this Pricelist version")
-    product_out_version_count = fields.Integer(
-        string="Product Template without this Version",
+        help="Number of Product with this Pricelist version")
+    tmpl_in_count = fields.Integer(
+        string="Template with this Version",
         compute='count_products',
-        help="Number of Product Template without this Pricelist version")
+        help="Number of Product Template with this Pricelist version")
     item_grid_ids = fields.One2many(
         'product.pricelist.item',
         'price_version_id')
 
     @api.multi
     def button_product_in_version(self):
-        return self.with_context(
-            price_version_id=self.id).goto_products_from_version('product.product', 'in')
-
-    @api.multi
-    def button_template_in_version(self):
-        return self.goto_products_from_version('product.template', 'in')
+        return (self.goto_products_from_version('product.product', 'in'))
 
     @api.multi
     def button_product_out_version(self):
         return self.goto_products_from_version('product.product', 'out')
 
     @api.multi
+    def button_template_in_version(self):
+        return self.goto_products_from_version('product.template', 'in')
+
+    @api.multi
     def button_template_out_version(self):
-        return self.with_context(
-            price_version_id=self.id).goto_products_from_version('product.template', 'out')
+        return self.goto_products_from_version('product.template', 'out')
             # 'context': self.env[model].with_context(price_version_id=self.id)
 
     @api.model
     def goto_products_from_version(self, model, direction):
-        print '     ctx', self.env.context
         if model == 'product.product':
             view_name = 'product'
         else:
@@ -110,7 +109,7 @@ class ProductPricelistVersion(models.Model):
         if direction == 'in':
             domain = [('pricelist_item_ids.price_version_id', '=', self.id)]
         else:
-            domain = [('= ', '=', 'done')]
+            domain = [('pricelist_item_ids.price_version_id', '!=', self.id)]
         action_name = view_name.replace('_', ' ') + 's'
         view_id_ref = 'pricelist_per_product.%s_tree_price_view' % view_name
         ctx = self.env.context.copy()
@@ -124,7 +123,6 @@ class ProductPricelistVersion(models.Model):
             'context': ctx
         }
         action.update(ACTION)
-        print '     action', action
         return action
 
 
