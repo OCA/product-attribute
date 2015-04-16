@@ -11,10 +11,10 @@
                 <p colspan="4">
 Fill these values to update Pricelist Items of producs below:
                 </p>
-                <field name="price" default_focus="1"/>
                 <field name="keep_price"/>
-                <field name="sequence"/>
+                <field name="price" default_focus="1"/>
                 <field name="keep_sequence"/>
+                <field name="sequence"/>
                 <field name="products"/>
             </group>
             <footer>
