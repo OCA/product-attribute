@@ -3,10 +3,6 @@ Pricelist Per Product
 
 This module allows to see and edit all sale prices on product form
 
-Installation
-============
-
-One click installation
 
 
 Configuration
