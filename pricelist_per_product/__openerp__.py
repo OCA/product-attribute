@@ -35,6 +35,10 @@
         'product_view.xml',
         'pricelist_view.xml',
         'transient/view.xml',
+        'data/pricelist.xml',
+    ],
+    'demo': [
+        'demo/product.pricelist.item.csv',
     ],
     'tests': [],
     'installable': True,
