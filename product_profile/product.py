@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 ##############################################################################
 #
 #    Author: David BEAL
@@ -19,7 +19,8 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
+from openerp.osv import orm
 from openerp.exceptions import Warning
 from lxml import etree
 
@@ -29,17 +30,20 @@ from lxml import etree
 PROFILE_FIELDS_TO_EXCLUDE = ['name', 'description', 'sequence',
                              'display_name', '__last_update']
 
+PROFILE_MENU = (_("Sales > Configuration \n> Product Categories and Attributes"
+                  "\n> Product Profiles"))
+
 
 def format_except_message(error, field, self):
     value = self.profile_id[field]
     model = type(self)._name
-    message = ("Issue:\n%s\n'%s' value can't be applied to '%s' field."
-               "\nThere is no matching value between 'Product Profiles' "
-               "\nand '%s' models for this field.\n\nResolution:\n"
-               "Check your settings on Profile model:\n"
-               "Sales > Configuration > Product Categories and Attributes"
-               "> Product Profiles"
-               % (error, value, field, model))
+    message = (_("Issue\n------\n"
+                 "%s\n'%s' value can't be applied to '%s' field."
+                 "\nThere is no matching value between 'Product Profiles' "
+                 "\nand '%s' models for this field.\n\n"
+                 "Resolution\n----------\n"
+                 "Check your settings on Profile model:\n%s"
+               % (error, value, field, model, PROFILE_MENU)))
     return message
 
 
@@ -49,7 +53,7 @@ class ProductProfile(models.Model):
 
     def _get_types(self):
         """ inherit in your custom module.
-            could be this if stock module is installed
+            could be this one if stock module is installed
 
         return [('product', 'Stockable Product'),
                 ('consu', 'Consumable'),
@@ -74,16 +78,8 @@ class ProductProfile(models.Model):
         help="see 'type' field in product.template")
 
 
-class ProductTemplate(models.Model):
-    _inherit = 'product.template'
-
-    profile_id = fields.Many2one(
-        'product.profile',
-        string='Profile')
-    profile_description = fields.Text(
-        related='profile_id.description',
-        string='Profile explanation',
-        readonly=True)
+class ProductMixinProfile(models.AbstractModel):
+    _name = 'product.mixin.profile'
 
     @api.model
     def _fields_to_populate(self, profile):
@@ -108,19 +104,59 @@ class ProductTemplate(models.Model):
             if self.profile_id:
                 try:
                     self[field] = self.profile_id[field]
-                    print '     prof', field
                 except ValueError as e:
                     raise Warning(format_except_message(e, field, self))
                 except Exception as e:
                     raise Warning("%s" % e)
             elif to_play:
                 defaults.update({field: profile[field]})
-                print '    defaults', field
             else:
                 # also on field initialisation
                 self[field] = False
-                print '     false', field
         return defaults
+
+    @api.model
+    def _customize_view(self, res, view_type):
+        profile_group = self.env.ref('product_profile.group_product_profile')
+        users_in_profile_group = [user.id for user in profile_group.users]
+        if view_type == 'form' and self.env.uid not in users_in_profile_group:
+            doc = etree.XML(res['arch'])
+            fields = self._fields_to_populate(self.profile_id)
+            fields_def = self.fields_get(allfields=fields)
+            attrs = "{'invisible': [('profile_id', '!=', False)]}"
+            paths = ["//field[@name='%s']",
+                     "//label[@for='%s']"]
+            for field in fields:
+                for path in paths:
+                    node = doc.xpath(path % field)
+                    if node:
+                        node[0].set('attrs', attrs)
+                        orm.setup_modifiers(node[0], fields_def[field])
+            res['arch'] = etree.tostring(doc, pretty_print=True)
+        return res
+
+
+class ProductTemplate(models.Model):
+    _inherit = ['product.template', 'product.mixin.profile']
+    _name = 'product.template'
+
+    profile_id = fields.Many2one(
+        'product.profile',
+        string='Profile')
+    profile_description = fields.Text(
+        related='profile_id.description',
+        string='Profile explanation',
+        readonly=True)
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+        """ fields_view_get comes from Model (not AbstractModel)
+        """
+        res = super(ProductTemplate, self).fields_view_get(
+            view_id=view_id, view_type=view_type, toolbar=toolbar,
+            submenu=submenu)
+        return self._customize_view(res, view_type)
 
     @api.model
     def create(self, vals):
@@ -129,45 +165,15 @@ class ProductTemplate(models.Model):
             vals = dict(defaults, **vals)
         return super(ProductTemplate, self).create(vals)
 
+
+class ProductProduct(models.Model):
+    _inherit = ['product.product', 'product.mixin.profile']
+    _name = 'product.product'
+
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
                         toolbar=False, submenu=False):
-        """ WIP """
-        res = super(ProductTemplate, self).fields_view_get(
+        res = super(ProductProduct, self).fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar,
             submenu=submenu)
-        if view_type == 'form':
-            doc = etree.XML(res['arch'])
-            fields = self._fields_to_populate(self.profile_id)
-            for field in fields:
-                xml = doc.xpath("//field[@name='%s']" % field)[0]
-                attrs = xml.attrib
-                if 'attrs' in attrs:
-                    print ''
-                else:
-                    xml.attrib['attrs'] = '{\'invisible\': True}'
-                    # print xml[0].attrib['modifiers']
-            res['arch'] = etree.tostring(doc, pretty_print=True)
-            print res['arch']
-        return res
-
-
-class ProductProduct(models.Model):
-    _inherit = 'product.product'
-
-    @api.onchange('profile_id')
-    def _onchange_from_profile(self, vals=None):
-        """ Update product fields with product.profile corresponding fields
-            WIP
-        """
-        if isinstance(self.id, models.NewId):
-            print 'PROFILE_ID', self.profile_id
-            if self.profile_id:
-                if not isinstance(vals, dict):
-                    vals = {}
-                vals['profile_id'] = self.profile_id.id
-                print '     YES  pppppp'
-                return self.product_tmpl_id._onchange_from_profile(
-                    vals=vals)
-        else:
-            return self.product_tmpl_id._onchange_from_profile(vals=vals)
+        return self._customize_view(res, view_type)
