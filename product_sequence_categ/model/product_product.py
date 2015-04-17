@@ -29,9 +29,9 @@ class ProductProduct(orm.Model):
         categ = obj_categ.browse(cr, uid, vals['categ_id'])
 
         if categ.seq_id:
-            sufix = ''
             prefix = ''
-            ref = self.pool.get('ir.sequence').next_by_id(
+            ref = categ.default_code
+            ref += self.pool.get('ir.sequence').next_by_id(
                 cr, uid, categ.seq_id.id, context)
 
             while categ:
@@ -48,9 +48,7 @@ class ProductProduct(orm.Model):
         return super(ProductProduct, self).create(cr, uid, vals, context)
 
     _columns = {
-        'default_code': fields.char('Internal Reference', size=64,
-                                    select=True),
-
+        'default_code': fields.char('Internal Reference', size=64, select=True),
     }
 
 
