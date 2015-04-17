@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-13 12:36+0000\n"
-"PO-Revision-Date: 2015-04-13 12:36+0000\n"
+"POT-Creation-Date: 2015-04-17 09:52+0000\n"
+"PO-Revision-Date: 2015-04-17 09:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,14 @@ msgstr ""
 
 #. module: product_profile
 #: help:product.profile,sequence:0
-msgid "Allows to define the order of the entries of profile_id field"
+msgid "Allows to define the order of the entries of profile_id field\n"
+"(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
 #: help:product.profile,description:0
-msgid "Allows to display an explanation on the selected profile"
+msgid "Allows to display an explanation on the selected profile\n"
+"(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
@@ -41,8 +43,39 @@ msgid "Description"
 msgstr ""
 
 #. module: product_profile
+#: field:base.config.settings,group_product_profile:0
+msgid "Display Profile fields"
+msgstr ""
+
+#. module: product_profile
+#: help:base.config.settings,group_product_profile:0
+msgid "Display fields computed by product profile module.\n"
+"For debugging purpose\n"
+"see menu Sales > Configuration \n"
+"> Product Categories and Attributes\n"
+"> Product Profiles"
+msgstr ""
+
+#. module: product_profile
+#: field:product.mixin.profile,id:0
 #: field:product.profile,id:0
 msgid "ID"
+msgstr ""
+
+#. module: product_profile
+#: code:addons/product_profile/product.py:46
+#, python-format
+msgid "Issue\n"
+"------\n"
+"%s\n"
+"'%s' value can't be applied to '%s' field.\n"
+"There is no matching value between 'Product Profiles' \n"
+"and '%s' models for this field.\n"
+"\n"
+"Resolution\n"
+"----------\n"
+"Check your settings on Profile model:\n"
+"%s"
 msgstr ""
 
 #. module: product_profile
@@ -58,6 +91,16 @@ msgstr ""
 #. module: product_profile
 #: field:product.profile,name:0
 msgid "Name"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_profile
+#: model:res.groups,name:product_profile.group_product_profile
+msgid "Product Profile"
 msgstr ""
 
 #. module: product_profile
@@ -79,7 +122,16 @@ msgstr ""
 
 #. module: product_profile
 #: help:product.profile,name:0
-msgid "Profile name displayed on product template"
+msgid "Profile name displayed on product template\n"
+"(not synchronized with product.template fields)"
+msgstr ""
+
+#. module: product_profile
+#: code:addons/product_profile/product.py:33
+#, python-format
+msgid "Sales > Configuration \n"
+"> Product Categories and Attributes\n"
+"> Product Profiles"
 msgstr ""
 
 #. module: product_profile
