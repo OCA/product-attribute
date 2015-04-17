@@ -19,30 +19,16 @@
 #
 ##############################################################################
 
-{
-    'name': 'Product Profile',
-    'version': '0.2',
-    'author': 'Akretion, Odoo Community Association (OCA)',
-    'summarize': "Set a configuration profile to product templates",
-    'maintainer': 'Akretion',
-    'category': 'product',
-    'depends': [
-        'sale',
-    ],
-    'website': 'http://www.akretion.com/',
-    'data': [
-        'security/group.xml',
-        'product_view.xml',
-        'config_view.xml',
-        'security/ir.model.access.csv',
-    ],
-    'demo': [
-        'demo/product.profile.csv',
-    ],
-    'tests': [],
-    'installable': True,
-    'license': 'AGPL-3',
-    'external_dependencies': {
-        'python': [],
-    },
-}
+from openerp import models, fields
+from .product import PROFILE_MENU
+
+
+class BaseConfigSettings(models.Model):
+    _inherit = 'base.config.settings'
+
+    group_product_profile = fields.Boolean(
+        string="Display Profile fields",
+        implied_group='product_profile.group_product_profile',
+        help="Display fields computed by product profile "
+             "module.\nFor debugging purpose"
+             "\nsee menu %s" % PROFILE_MENU)
