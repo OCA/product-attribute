@@ -78,6 +78,13 @@ Contributors
 
 * David BEAL <david.beal@akretion.com>
 
+
+Iconography
+-----------
+
+https://www.iconfinder.com/icondesigner
+
+
 Maintainer
 ----------
 
