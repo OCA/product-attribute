@@ -27,7 +27,7 @@
     'maintainer': 'Akretion',
     'category': 'product',
     'depends': [
-        'sale',
+        'product',
     ],
     'website': 'http://www.akretion.com/',
     'data': [
