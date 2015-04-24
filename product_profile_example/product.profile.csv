@@ -1,0 +1,20 @@
+"id","name","description","type","sale_ok","purchase_ok","available_in_pos","route_ids/id"
+"own","My Own Type Saleable","- My own type
+- Saleable product
+- Not purchasable","product",1,0,1,"purchase.route_warehouse0_buy"
+"consu_prof","Consumable","- Consumable","consu",1,0,0,"purchase.route_warehouse0_buy"
+"pos_pu_prof","POS & purchase","- Product in POS
+- Product purchasable","product",1,1,1,"purchase.route_warehouse0_buy"
+"manuf_prof","Manufacturing TO","- Manufacturing Product
+- Make to order product
+- Not purchaseable
+- Display on POS","product",1,0,1,"mrp.route_warehouse0_manufacture,stock.route_warehouse0_mto"
+"any_prof","Weird profile","- Purchasable
+- Display on POS
+- Not Saleable","product",0,1,1,
+"complete_prof","Complete profile","- Stockable product
+- Saleable 
+- Purchasable
+- Available in POS
+- MTO
+- Manufacturable","product",1,1,1,"mrp.route_warehouse0_manufacture,stock.route_warehouse0_mto,purchase.route_warehouse0_buy"

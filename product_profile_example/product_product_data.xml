@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="point_of_sale.lays_pickles_250g" model="product.product">
+    <field name="profile_id" ref="pos_pu_prof"/>
+</record>
+
+<record id="point_of_sale.evian_2l" model="product.product">
+    <field name="profile_id" ref="consu_prof"/>
+</record>
+
+<record id="product.product_product_18" model="product.product">
+    <field name="profile_id" ref="manuf_prof"/>
+</record>
+
+<record id="product.product_product_16" model="product.product">
+    <field name="profile_id" ref="any_prof"/>
+</record>
+
+
+    </data>
+</openerp>
