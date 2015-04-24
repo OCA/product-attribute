@@ -25,11 +25,6 @@ from openerp.exceptions import Warning
 from lxml import etree
 
 
-# These fields must not be synchronized between product.profile
-# and product.template
-PROFILE_FIELDS_TO_EXCLUDE = ['name', 'description', 'sequence',
-                             'display_name', '__last_update']
-
 PROFILE_MENU = (_("Sales > Configuration \n> Product Categories and Attributes"
                   "\n> Product Profiles"))
 
@@ -82,8 +77,15 @@ class ProductMixinProfile(models.AbstractModel):
     _name = 'product.mixin.profile'
 
     @api.model
+    def _get_profile_fields_to_exclude(self):
+        # These fields must not be synchronized between product.profile
+        # and product.template
+        return ['name', 'description', 'sequence',
+                'display_name', '__last_update']
+
+    @api.model
     def _fields_to_populate(self, profile):
-        fields_to_exclude = PROFILE_FIELDS_TO_EXCLUDE
+        fields_to_exclude = self._get_profile_fields_to_exclude()
         fields_to_exclude.extend(models.MAGIC_COLUMNS)
         return [field for field in profile._fields.keys()
                 if field not in fields_to_exclude]
@@ -91,7 +93,6 @@ class ProductMixinProfile(models.AbstractModel):
     @api.onchange('profile_id')
     def _onchange_from_profile(self, vals=None):
         """ Update product fields with product.profile corresponding fields """
-        # TODO CLEAN
         defaults = {}
         to_play = False
         profile = None
@@ -114,6 +115,13 @@ class ProductMixinProfile(models.AbstractModel):
                 # also on field initialisation
                 self[field] = False
         return defaults
+
+    @api.model
+    def create(self, vals):
+        if vals.get('profile_id'):
+            defaults = self._onchange_from_profile(vals)
+            vals = dict(defaults, **vals)
+        return super(ProductMixinProfile, self).create(vals)
 
     @api.model
     def _customize_view(self, res, view_type):
@@ -157,13 +165,6 @@ class ProductTemplate(models.Model):
             view_id=view_id, view_type=view_type, toolbar=toolbar,
             submenu=submenu)
         return self._customize_view(res, view_type)
-
-    @api.model
-    def create(self, vals):
-        if vals.get('profile_id'):
-            defaults = self._onchange_from_profile(vals)
-            vals = dict(defaults, **vals)
-        return super(ProductTemplate, self).create(vals)
 
 
 class ProductProduct(models.Model):

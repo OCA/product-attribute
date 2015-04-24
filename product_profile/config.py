@@ -23,7 +23,7 @@ from openerp import models, fields
 from .product import PROFILE_MENU
 
 
-class BaseConfigSettings(models.Model):
+class BaseConfigSettings(models.TransientModel):
     _inherit = 'base.config.settings'
 
     group_product_profile = fields.Boolean(
