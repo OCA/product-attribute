@@ -30,7 +30,7 @@
     "category": "Warehouse",
     "description": """
     This module updates product net and gross weight based on
-    it's components weight
+    its components weights
     """,
     "depends": [
         "base",

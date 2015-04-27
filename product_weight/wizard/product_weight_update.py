@@ -40,10 +40,8 @@ class ProductWeightUpdate(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super(ProductWeightUpdate, self).default_get(fields)
-        print fields
         if not fields:
             return res
-        print self._context
         if self._context.get('active_model') == 'product.template':
             product_tmpl_id = self._context and \
                 self._context.get('active_id', False) or False
