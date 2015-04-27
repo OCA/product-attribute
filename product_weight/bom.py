@@ -3,7 +3,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2015 Akretion (<http://www.akretion.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,24 +20,18 @@
 #
 ##############################################################################
 
-{
-    "name": "Product Weight Calculation",
-    "version": "0.1",
-    "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
-    "website": "http://www.savoirfairelinux.com",
-    "license": "AGPL-3",
-    "category": "Warehouse",
-    "description": """
-    This module updates product net weight based on it's components weight
-    """,
-    "depends": [
-        "base",
-        "mrp",
-    ],
-    "demo": [],
-    "data": [
-        "wizard/product_weight_update_view.xml",
-        "product_view.xml",
-    ],
-    'installable': False,
-}
+from openerp import models, api
+
+
+class MrpBomLine(models.Model):
+    _inherit = 'mrp.bom.line'
+
+    @api.multi
+    def get_final_components(self):
+        bom_lines = []
+        for line in self:
+            if not line.child_line_ids:
+                bom_lines.append(line)
+            else:
+                bom_lines.extend(line.child_line_ids.get_final_components())
+        return bom_lines
