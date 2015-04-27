@@ -40,8 +40,10 @@ class ProductWeightUpdate(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super(ProductWeightUpdate, self).default_get(fields)
+        print fields
         if not fields:
             return res
+        print self._context
         if self._context.get('active_model') == 'product.template':
             product_tmpl_id = self._context and \
                 self._context.get('active_id', False) or False
@@ -64,18 +66,27 @@ class ProductWeightUpdate(models.TransientModel):
     @api.multi
     def calculate_product_bom_weight(self, product_tmpl, bom):
         self.ensure_one()
+        uom_obj = self.env['product.uom']
+        tmpl_qty = uom_obj._compute_qty(
+            bom.product_uom.id,
+            bom.product_qty,
+            product_tmpl.uom_id.id)
         bom_lines = bom.bom_line_ids.get_final_components()
         weight_gross = 0.0
         weight_net = 0.0
         for line in bom_lines:
             component_tmpl = line.product_id.product_tmpl_id
-            weight_net += (component_tmpl.weight_net or 0.0) * line.product_qty
-            weight_gross += (component_tmpl.weight or 0.0) * line.product_qty
+            component_qty = uom_obj._compute_qty(
+                line.product_uom.id,
+                line.product_qty,
+                component_tmpl.uom_id.id)
+            weight_net += (component_tmpl.weight_net or 0.0) * component_qty
+            weight_gross += (component_tmpl.weight or 0.0) * component_qty
             _logger.warning("%s : %0.2f | %0.2f" % (
                 bom.product_tmpl_id.name,
                 weight_net, weight_gross))
-        weight_net = weight_net / bom.product_qty
-        weight_gross = weight_gross / bom.product_qty
+        weight_net = weight_net / tmpl_qty
+        weight_gross = weight_gross / tmpl_qty
         product_tmpl.write({'weight': weight_gross, 'weight_net': weight_net})
 
     @api.multi
