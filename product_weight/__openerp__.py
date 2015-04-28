@@ -21,25 +21,18 @@
 #
 ##############################################################################
 
-{
-    "name": "Product Weight Calculation",
-    "version": "0.2",
-    "author": "Savoir-faire Linux,Akretion,Odoo Community Association (OCA)",
-    "website": "http://www.savoirfairelinux.com",
-    "license": "AGPL-3",
-    "category": "Warehouse",
-    "description": """
-    This module updates product net and gross weight based on
-    its components weights
-    """,
-    "depends": [
-        "base",
-        "mrp",
-    ],
-    "demo": [],
-    "data": [
-        "wizard/product_weight_update_view.xml",
-        "product_view.xml",
-    ],
-    'installable': True,
-}
+{'name': 'Product Weight Calculation',
+ 'version': '0.2',
+ 'author': 'Savoir-faire Linux,Akretion,Odoo Community Association (OCA)',
+ 'website': 'http://www.savoirfairelinux.com',
+ 'license': 'AGPL-3',
+ 'category': 'Warehouse',
+ 'summary': 'Allows to calculate products weight from its components.',
+ 'depends': ['mrp',
+             ],
+ 'demo': [],
+ 'data': ['wizard/product_weight_update_view.xml',
+          'product_view.xml',
+          ],
+ 'installable': True,
+ }
