@@ -26,7 +26,6 @@ For further information, please visit:
 Contributors
 ------------
 
-* Sebastien BEAU <sebastien.beau@akretion.com>
 * Abdessamad HILALI <abdessamad.hilali@akretion.com>
 
 Maintainer
