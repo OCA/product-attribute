@@ -15,7 +15,7 @@ Installation
 
 To install this module, you need to:
 
-*To install Porduct module
+*To install Product module
 
 For further information, please visit:
 
