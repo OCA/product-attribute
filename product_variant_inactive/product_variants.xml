@@ -1,0 +1,24 @@
+<openerp>
+    <data>
+       <record model="ir.ui.view" id="detail_field_custom_in_view">
+       <field name="model">product.product</field>
+       <field name="inherit_id" ref="product.product_product_tree_view"/>
+       <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="fonts">bold:active==False</attribute>
+                <attribute name="colors">red:active==False;blue:active==True</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="active"/>
+                <button type="object" string="Activate" name="button_activate"
+                attrs="{'invisible': [('active','=',True)]}" icon="gtk-apply"/>
+                <button type="object" string="Deactivate" name="button_deactivate"
+                attrs="{'invisible': [('active','=',False)]}"  icon="gtk-stop"/>
+            </xpath>
+        </field>
+        </record>
+        <record id="product.product_normal_action" model="ir.actions.act_window">
+             <field name="context">{'active_test': False}</field>
+        </record>
+    </data>
+</openerp>
