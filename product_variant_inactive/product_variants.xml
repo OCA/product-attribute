@@ -5,15 +5,14 @@
        <field name="inherit_id" ref="product.product_product_tree_view"/>
        <field name="arch" type="xml">
             <xpath expr="//tree" position="attributes">
-                <attribute name="fonts">bold:active==False</attribute>
-                <attribute name="colors">red:active==False;blue:active==True</attribute>
+                <attribute name="colors">grey:active==False</attribute>
             </xpath>
             <xpath expr="//tree" position="inside">
                 <field name="active"/>
-                <button type="object" string="Activate" name="button_activate"
-                attrs="{'invisible': [('active','=',True)]}" icon="gtk-apply"/>
-                <button type="object" string="Deactivate" name="button_deactivate"
-                attrs="{'invisible': [('active','=',False)]}"  icon="gtk-stop"/>
+                <button type="object"  name="button_activate"
+                attrs="{'invisible': [('active','=',True)]}" icon="gtk-stop"/>
+                <button type="object"  name="button_deactivate"
+                attrs="{'invisible': [('active','=',False)]}"  icon="gtk-apply"/>
             </xpath>
         </field>
         </record>
