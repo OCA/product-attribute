@@ -7,7 +7,7 @@ Module name
 This module was written to extend the functionality of Product Variants
 and allow you to make activate or deactivate products using the two buttons
 
-.. image:: http:/img/img.png
+.. image:: https:////raw.github.com/ahilali/product-attribute/8.0-product_variant_inactive/product_variant_inactive/img/img.png
 
 Installation
 ============
