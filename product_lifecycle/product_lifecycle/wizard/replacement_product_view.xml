@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="replacement_product_form_view" model="ir.ui.view">
+            <field name="name">replacement.product.form.view</field>
+            <field name="model">replacement.product</field>
+            <field name="arch" type="xml">
+                <form string="Replacement Product">
+                    <group>
+                        <group>
+                            <field name="lines" nolabel="1" colspan="4"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Replace" name="replacement" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="replacement_product_line_tree_view" model="ir.ui.view">
+            <field name="name">replacement.product.line.tree.view</field>
+            <field name="model">replacement.product.line</field>
+            <field name="arch" type="xml">
+                <tree string="Replacement Product Lines" editable="bottom" version="7.0" create="false" delete="false">
+                    <field name="number" readonly="1"/>
+                    <field name="discontinued_product_id" readonly="1"/>
+                    <field name="replacement_product_ids" invisible="1"/>
+                    <field name="replacement_product_id" domain="[('state2', '!=', 'obsolete'), ('id','in', replacement_product_ids and replacement_product_ids[0] and replacement_product_ids[0][2] or [])]" options="{'no_create': True}" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_replacement_product" model="ir.actions.act_window">
+            <field name="name">Replace a Disconitued Product to Purchase</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">replacement.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

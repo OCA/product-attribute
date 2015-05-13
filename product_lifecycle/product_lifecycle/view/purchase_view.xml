@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="purchase_order_replacement_product_form" model="ir.ui.view">
+            <field name="name">purchase.order.replacement.product.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="after">
+                    <field name="discontinued_product_id"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="attributes">
+                    <attribute name="attrs">{'required': [('discontinued_product_id', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="before">
+                    <button string="Check Discontinued Products" name="%(action_replacement_product)d" type="action"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_order_line_replacement_product_form" model="ir.ui.view">
+            <field name="name">purchase.order.line.replacement.product.form</field>
+            <field name="model">purchase.order.line</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="discontinued_product_id"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

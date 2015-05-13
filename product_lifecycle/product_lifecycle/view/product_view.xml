@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Product Template Form -->
+
+        <record id="product_template_replacement_product_form_view" model="ir.ui.view">
+            <field name="name">product.template.replacement.product.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_manager']" position="after">
+                    <field name="product_variant_ids" nolabel="1" colspan="2" attrs="{'invisible': [('is_product_variant', '=', True)]}">
+                        <tree create="false" edit="false" delete="false">
+                            <field name="display_name" string="Product Variant"/>
+                            <field name="state2"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Product Product Form -->
+
+        <record id="product_replacement_product_form_view" model="ir.ui.view">
+            <field name="name">product.replacement.product.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_manager']" position="before">
+                    <field name="replacement_product_ids" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="replace">
+                </xpath>
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <field name="state2" widget="statusbar" clickable="True"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Product Product Search -->
+
+        <record id="product_replacement_product_search_view" model="ir.ui.view">
+            <field name="name">product.replacement.product.search.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@string='Group by...']" position="before">
+                    <group string="Lifecycle" name="states">
+                        <field name="state2"/>
+                        <filter string="In Development" name="status_draft" domain="[('state2','=','draft')]"/>
+                        <filter string="Normal" name="status_sellable" domain="[('state2','=','sellable')]"/>
+                        <filter string="End of Lifecycle" name="status_end" domain="[('state2','=','end')]"/>
+                        <filter string="Obsolete" name="status_obsolete" domain="[('state2','=','obsolete')]"/>
+                    </group>
+                </xpath>
+                <xpath expr="//group[@string='Group by...']" position="inside">
+                    <filter name="Lifecycle Status" context="{'group_by': 'state2'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

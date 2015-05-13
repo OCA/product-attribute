@@ -1,0 +1,189 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Product Lifecycle</h2>
+        <h3 class="oe_slogan">Replacement a Discontinued Product</h3>
+        <div class="oe_span6">
+            <p>
+                This module apply a part of the product lifecycle management
+                concept by extending the logic of the field
+                <code class="docutils literal">Status</code> defined in
+                the Odoo base modules and by adding a list of repaclement
+                products that will be used as alternatives in purchase
+                operations when a product is discontinued.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <p>
+                Odoo manage a informative status field in the
+                <code class="docutils literal"> Product Template</code>
+                when you can know the product liecycle status. This module
+                hide this not used functionality and used a similar status
+                field in the
+                <code class="docutils literal">Product Variant</code>.
+                This way we can differenciate when a specific variant is
+                discontinued and what other products are possible
+                replacements.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <h2 class="oe_slogan">Lifecycle Status</h2>
+
+    <div class="oe_row">
+    <div class="oe_row">
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                You can check the status of Products Variants form the Product
+                Template form view by checking the
+                <code class="docutils literal">Status</code> section in the
+                <code class="docutils literal">Inventory</code> Tab. You will
+                find a list of the Products Variants and its current status.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="product.template.status.png">
+        </div>
+    </div>
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="product.statusbar.png">
+        </div>
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                The status of the Product Variant is manage in the header of
+                form view as a clickable statusbar widget and with default
+                value <code class="docutils literal">In Development</code>.
+            </p>
+        </div>
+    </div>
+
+    <div class="oe_row">
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                Also some search filters were added to search and group by
+                products lifecycle status. Just go to a Product Variant list
+                view and filter.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="product.lifecycle.filters.png">
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <h2 class="oe_slogan">Replacement Products</h2>
+
+    <div class="oe_row">
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="replacement.product.field.png">
+        </div>
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                A new field named
+                <code class="docutils literal">Replacement Products</code>
+                was added to the Product Variant to  hold a list of products
+                that can be use as a replacement in purchase operations when
+                a product is discontinued.
+            </p>
+        </div>
+    </div>
+    <div class="oe_row">
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                This module restrict the purchase orders to can not have
+                discontinued products. When creating or editing a purchase
+                order you will see a new field named
+                <code class="docutils literal">Discontinued Product</code>
+                at the order lines. This field register when a replacement of
+                a discontinued product have been made. The line show the
+                information of the replaced product (discontinued) and the
+                replacement product.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="purchase.order.line.discontinued.png">
+        </div>
+    </div>
+
+    <div class="oe_row">
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="purchase.order.line.warning.png">
+        </div>
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                If you fill
+                <code class="docutils literal">Discontinued Product</code>
+                field the
+                <code class="docutils literal">Product</code>
+                field will be filter with the good replacements products
+                (active and not obsolete products marked as a replacements of
+                the current discontinued product).
+
+                In other case, if the user try to fill the
+                <code class="docutils literal">Product</code>
+                field with a discontinued product will show a warning
+                indicating that can not use a discontinued product in the
+                purchase order and will move this value to the Discontinued
+                Product field and clean the Product field so you can select a
+                replacement.
+            </p>
+        </div>
+    </div>
+
+    <div class="oe_row">
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                Add a new functionality that can be access from the
+                <code class="docutils literal">Check Discontinued Products</code>
+                button in the purchase order form. This will let to check if a
+                purchase order has discontinued product and will let to update
+                the purchase order lines with a replacement of the
+                discontinued products configured at the product form.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="replacement.product.button.png">
+        </div>
+    </div>
+    <div class="oe_row">
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="replacement.product.wizard.png">
+        </div>
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                Note: This wizard works in the case that a purchase order was
+                created and then one o more products in the order lines have
+                been discontinued.
+            </p>
+            <p class='oe_mt32'>
+                The Purchase order will be updated with the new replacements
+                selected: The replacement product will be put in the
+                <code class="docutils literal">Product</code> field and the
+                discontinued product will be move to the
+                <code class="docutils literal">Discontinued Product</code>
+                field.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <h2 class="oe_slogan">Product Edit Restriction</h2>
+    <div class="oe_row">
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                A new access rules over the
+                <code class="docutils literal">Products</code>
+                and
+                <code class="docutils literal">Product Variants</code>
+                records were added. A product only can be edited by his
+                product manager.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <img class="oe_picture oe_screenshot" src="product.manager.png">
+        </div>
+    </div>
+</section>
