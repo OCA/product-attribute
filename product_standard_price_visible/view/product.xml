@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">product.normal.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="standard_price" position="attributes">
+                    <attribute name="groups">product_cost_security.product_standard_price_visible</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="standard_price" position="attributes">
+                    <attribute name="groups">product_cost_security.product_standard_price_visible</attribute>
+                </field>
+            </field>
+        </record>
+        
+        <record id="product_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tree.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="standard_price" position="attributes">
+                    <attribute name="groups">product_cost_security.product_standard_price_visible</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
