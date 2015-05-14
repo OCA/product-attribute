@@ -21,7 +21,7 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - sudo apt-get install -q python-libxml2
-  - sudo pip install unidecode
+  - pip install unidecode
 
 script:
   - travis_run_tests
