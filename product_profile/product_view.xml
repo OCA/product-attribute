@@ -11,20 +11,10 @@
                 <field name="profile_id" widget="selection"/>
             </group>
         </xpath>
-        <field name="description" position="replace">
-            <group col="4">
-                <group col="1" colspan="1">
-                    <label for="profile_description"
-                           attrs="{'invisible': [('profile_description', '=', False)]}"/>
-                    <field name="profile_description" nolabel="1"/>
-                </group>
-                <group colspan="3">
-                    <label for="description"/>
-                    <newline/>
-                    <field name="description" nolabel="1"
-                           placeholder="describe the product characteristics..."/>
-                </group>
-            </group>
+        <field name="type" position="after">
+            <!--<label for="profile_explanation"/>-->
+            <!--<field name="profile_explanation" nolabel="1"/>-->
+            <field name="profile_explanation"/>
         </field>
     </field>
 </record>
@@ -37,7 +27,7 @@
             <field name="sequence" widget="handle"/>
             <field name="name"/>
             <field name="type"/>
-            <field name="description"/>
+            <field name="explanation"/>
         </tree>
     </field>
 </record>
