@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP
-#   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>
+#   base_attribute.attributes for OpenERP                                     #
+#   Copyright (C) 2015 Odoo Community Association (OCA)                       #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
 #   it under the terms of the GNU Affero General Public License as            #
@@ -19,21 +19,40 @@
 #                                                                             #
 ###############################################################################
 
-from openerp.osv.orm import Model
-from openerp.osv import fields
+from openerp import models, fields
 
 
-class ir_model_fields(Model):
+class AttributeSet(models.Model):
+    _name = "attribute.set"
+    _description = "Attribute Set"
 
-    _inherit = "ir.model.fields"
-    _columns = {
-        'field_description': fields.char(
-            'Field Label',
-            required=True,
-            size=256,
-            translate=True),
-    }
-    _sql_constraints = [
-        ('name_model_uniq', 'unique (name, model_id)',
-            'The name of the field has to be uniq for a given model !'),
-    ]
+    name = fields.Char(
+        'Name',
+        required=True,
+        translate=True,
+    )
+
+    attribute_group_ids = fields.One2many(
+        'attribute.group',
+        'attribute_set_id',
+        'Attribute Groups',
+    )
+
+    def _get_default_model(self):
+        force_model = self.env.context.get('force_model')
+
+        if force_model:
+            models = self.env['ir.model'].search([
+                ('model', '=', force_model)])
+
+            if models:
+                return models[0]
+
+        return False
+
+    model_id = fields.Many2one(
+        'ir.model',
+        'Model',
+        required=True,
+        default=_get_default_model,
+    )
