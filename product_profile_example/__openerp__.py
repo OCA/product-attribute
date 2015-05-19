@@ -36,7 +36,9 @@
     'website': 'http://www.akretion.com/',
     'data': [
         'product.profile.csv',
-        'product_product_data.xml',
+    ],
+    'demo': [
+        'product_product_demo.xml',
     ],
     'installable': True,
     'license': 'AGPL-3',

@@ -1,4 +1,4 @@
-"id","name","description","type","sale_ok","purchase_ok","available_in_pos","route_ids/id"
+"id","name","explanation","type","sale_ok","purchase_ok","available_in_pos","route_ids/id"
 "own","My Own Type Saleable","- My own type
 - Saleable product
 - Not purchasable","product",1,0,1,"purchase.route_warehouse0_buy"
