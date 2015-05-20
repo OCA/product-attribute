@@ -22,12 +22,9 @@
 ###############################################################################
 
 {
-
     'name': "Product",
-
-    'summary': """Manage trainings""",
     'description': """
-            Porduct Invraint
+            Product Invraint
     """,
     'author': "Akretion",
     'website': "http://www.Akretion.com",
