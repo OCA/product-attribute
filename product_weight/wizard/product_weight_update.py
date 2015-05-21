@@ -42,17 +42,22 @@ class ProductWeightUpdate(models.TransientModel):
         res = super(ProductWeightUpdate, self).default_get(fields)
         if not fields:
             return res
-        if self._context.get('active_model') == 'product.template':
-            product_tmpl_id = self._context and \
-                self._context.get('active_id', False) or False
-            domain = [('product_tmpl_id', '=', product_tmpl_id)]
+        context = self.env.context
+        if context.get('active_model') == 'product.template':
+            product_tmpl_id = context.get('active_id', False)
+            domain_template = [('product_tmpl_id', '=', product_tmpl_id)]
+            domain_product = []
         else:
-            product_id = self._context and \
-                self._context.get('active_id', False) or False
+            product_id = context.get('active_id', False)
             product = self.env['product.product'].browse(product_id)
             product_tmpl_id = product.product_tmpl_id.id
-            domain = [('product_id', '=', product_id)]
-        boms = self.env['mrp.bom'].search(domain)
+            domain_template = [('product_tmpl_id', '=', product_tmpl_id)]
+            domain_product = [('product_id', '=', product_id)]
+        boms = []
+        if domain_product:
+            boms = self.env['mrp.bom'].search(domain_product)
+        if not domain_product or not boms:
+            boms = self.env['mrp.bom'].search(domain_template)
         if boms:
             bom = boms[0]
             res.update({'bom_id': bom.id})
@@ -62,9 +67,9 @@ class ProductWeightUpdate(models.TransientModel):
         return res
 
     @api.multi
-    def calculate_product_bom_weight(self, product_tmpl, bom):
-        self.ensure_one()
+    def calculate_product_bom_weight(self, bom):
         uom_obj = self.env['product.uom']
+        product_tmpl = bom.product_tmpl_id
         tmpl_qty = uom_obj._compute_qty(
             bom.product_uom.id,
             bom.product_qty,
@@ -78,8 +83,8 @@ class ProductWeightUpdate(models.TransientModel):
                 line.product_uom.id,
                 line.product_qty,
                 component_tmpl.uom_id.id)
-            weight_net += (component_tmpl.weight_net or 0.0) * component_qty
-            weight_gross += (component_tmpl.weight or 0.0) * component_qty
+            weight_net += component_tmpl.weight_net * component_qty
+            weight_gross += component_tmpl.weight * component_qty
             _logger.warning("%s : %0.2f | %0.2f" % (
                 bom.product_tmpl_id.name,
                 weight_net, weight_gross))
@@ -90,18 +95,22 @@ class ProductWeightUpdate(models.TransientModel):
     @api.multi
     def update_single_weight(self):
         self.ensure_one()
-        self.calculate_product_bom_weight(
-            self.product_tmpl_id, self.bom_id)
+        self.calculate_product_bom_weight(self.bom_id)
         return {}
 
     @api.multi
     def update_multi_product_weight(self):
         self.ensure_one()
-        product_tmpl_obj = self.env['product.template']
-        template_ids = self._context.get('active_ids', [])
+        product_obj = self.env['product.product']
+        context = self.env.context
+        if context.get('active_model') == 'product.template':
+            template_ids = context.get('active_ids', [])
+        else:
+            product_ids = context.get('active_ids', [])
+            products = product_obj.browse(product_ids)
+            template_ids = [p.product_tmpl_id.id for p in products]
         for template_id in template_ids:
             boms = self.env['mrp.bom'].search(
                 [('product_tmpl_id', '=', template_id)])
             if boms:
-                template = product_tmpl_obj.browse(template_id)
-                self.calculate_product_bom_weight(template, boms[0])
+                self.calculate_product_bom_weight(boms[0])

@@ -47,7 +47,7 @@
                 name="Calculate Product Weights"
                 key2="client_action_multi"
                 res_model="product.weight.update"
-                src_model="product.template"
+                src_model="product.product"
                 view_mode="form"
                 target="new"
                 view_type="form"
