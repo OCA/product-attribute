@@ -53,13 +53,12 @@ class ProductWeightUpdate(models.TransientModel):
             product_tmpl_id = product.product_tmpl_id.id
             domain_template = [('product_tmpl_id', '=', product_tmpl_id)]
             domain_product = [('product_id', '=', product_id)]
-        boms = []
+        bom = False
         if domain_product:
-            boms = self.env['mrp.bom'].search(domain_product)
-        if not domain_product or not boms:
-            boms = self.env['mrp.bom'].search(domain_template)
-        if boms:
-            bom = boms[0]
+            bom = self.env['mrp.bom'].search(domain_product, limit=1)
+        if not domain_product or not bom:
+            bom = self.env['mrp.bom'].search(domain_template, limit=1)
+        if bom:
             res.update({'bom_id': bom.id})
 
         if 'product_tmpl_id' in fields:
@@ -85,7 +84,7 @@ class ProductWeightUpdate(models.TransientModel):
                 component_tmpl.uom_id.id)
             weight_net += component_tmpl.weight_net * component_qty
             weight_gross += component_tmpl.weight * component_qty
-            _logger.warning("%s : %0.2f | %0.2f" % (
+            _logger.info("%s : %0.2f | %0.2f" % (
                 bom.product_tmpl_id.name,
                 weight_net, weight_gross))
         weight_net = weight_net / tmpl_qty
@@ -108,9 +107,9 @@ class ProductWeightUpdate(models.TransientModel):
         else:
             product_ids = context.get('active_ids', [])
             products = product_obj.browse(product_ids)
-            template_ids = [p.product_tmpl_id.id for p in products]
+            template_ids = products.mapped('product_tmpl_id').ids
         for template_id in template_ids:
-            boms = self.env['mrp.bom'].search(
-                [('product_tmpl_id', '=', template_id)])
-            if boms:
-                self.calculate_product_bom_weight(boms[0])
+            bom = self.env['mrp.bom'].search(
+                [('product_tmpl_id', '=', template_id)], limit=1)
+            if bom:
+                self.calculate_product_bom_weight(bom)

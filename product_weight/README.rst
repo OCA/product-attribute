@@ -2,7 +2,7 @@
     :alt: License: AGPL-3
 
 Product Weight Calculation
-===========
+==========================
 
 Allows to calculate products weight from its components.
 
@@ -15,8 +15,8 @@ the components.
 Usage
 =====
 
-You can update the weight of on product clicking on the button under 
-the weigts. 
+You can update the weight of one product clicking on the button under 
+the weights. 
 Or you can select the products you want to update from the tree list.
 
 Credits
