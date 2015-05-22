@@ -30,7 +30,6 @@
  'summary': 'Allows to calculate products weight from its components.',
  'depends': ['mrp',
              ],
- 'demo': [],
  'data': ['wizard/product_weight_update_view.xml',
           'product_view.xml',
           ],
