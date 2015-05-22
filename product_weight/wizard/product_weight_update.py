@@ -84,9 +84,9 @@ class ProductWeightUpdate(models.TransientModel):
                 component_tmpl.uom_id.id)
             weight_net += component_tmpl.weight_net * component_qty
             weight_gross += component_tmpl.weight * component_qty
-            _logger.info("%s : %0.2f | %0.2f" % (
-                bom.product_tmpl_id.name,
-                weight_net, weight_gross))
+            _logger.info("%s : %0.2f | %0.2f",
+                         bom.product_tmpl_id.name,
+                         weight_net, weight_gross)
         weight_net = weight_net / tmpl_qty
         weight_gross = weight_gross / tmpl_qty
         product_tmpl.write({'weight': weight_gross, 'weight_net': weight_net})
