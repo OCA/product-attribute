@@ -23,7 +23,6 @@ from openerp import models, api
 
 
 class ProductVariants(models.Model):
-    """Product Variants Class"""
     _inherit = 'product.product'
 
     @api.multi

@@ -16,7 +16,7 @@
             </xpath>
         </field>
         </record>
-        <record id="product.product_normal_action" model="ir.actions.act_window">
+        <record id="product.product_normal_action_sell" model="ir.actions.act_window">
              <field name="context">{'active_test': False}</field>
         </record>
     </data>
