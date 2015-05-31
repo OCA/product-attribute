@@ -29,7 +29,6 @@ class IrModelFields(models.Model):
     field_description = fields.Char(
         string='Field Label',
         required=True,
-        size=256,
         translate=True)
 
     _sql_constraints = [

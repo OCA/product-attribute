@@ -14,10 +14,11 @@
                         <group>
                             <field name="name"/>
                             <field name="model_id" invisible="context.get('force_model')"/>
-                            <field name="attribute_group_ids" colspan="4"
-                                   context="{'default_model_id': model_id, 'from_attribute_set':True}">
-                            </field>
+                            
                         </group>
+                        <separator string="Attribute Groups"/>
+                        <field name="attribute_group_ids" colspan="4"
+                        context="{'default_model_id': model_id, 'from_attribute_set':True}"/>
                     </sheet>
                 </form>
             </field>
@@ -195,7 +196,7 @@
         </record>
         <menuitem
             action="attribute_attribute_form_action" id="menu_attribute_attribute_action"
-            parent="menu_attribute_in_admin" sequence="30"/> -->
+            parent="menu_attribute_in_admin" sequence="30"/>
 
         <!-- ATTRIBUTE OPTION VIEW -->
         <record id="attribute_option_form_popup_view" model="ir.ui.view">

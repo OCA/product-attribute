@@ -19,12 +19,10 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.     #
 #                                                                             #
 ###############################################################################
-
 import ast
-from openerp import models, fields, api
-from openerp.osv import orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, exceptions, _
 from lxml import etree
+from openerp.osv.orm import setup_modifiers
 from unidecode import unidecode  # Debian package python-unidecode
 import re
 
@@ -49,13 +47,12 @@ class AttributeOption(models.Model):
         return [(model.model, model.name) for model in models]
 
     name = fields.Char(
-        size=128,
         translate=True,
         required=True)
     value_ref = fields.Reference(
         string='Reference',
         selection='_get_model_list',
-        size=128)
+    )
     attribute_id = fields.Many2one(
         comodel_name='attribute.attribute',
         string='Product Attribute',
@@ -101,8 +98,7 @@ class AttributeOptionWizard(models.TransientModel):
                 'name': name,
                 'value_ref': "%s,%s" % (attr.relation_model_id.model, op_id)
             })
-        res = super(AttributeOptionWizard, self).create(vals)
-        return res
+        return super(AttributeOptionWizard, self).create(vals)
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
@@ -166,7 +162,7 @@ class AttributeAttribute(models.Model):
         kwargs['required'] = str(attribute.required or
                                  attribute.required_on_views)
         field = etree.SubElement(parent, 'field', **kwargs)
-        orm.setup_modifiers(field, self.fields_get(attribute.name))
+        setup_modifiers(field, self.fields_get(attribute.name))
         return parent
 
     @api.model
@@ -208,7 +204,7 @@ class AttributeAttribute(models.Model):
     @api.model
     def _get_default_model(self):
         context = self._context
-        if context and context.get('force_model'):
+        if context.get('force_model'):
             default_model = self.env['ir.model'].search(
                 [('model', '=', context['force_model'])])
             if default_model:
@@ -261,11 +257,9 @@ class AttributeAttribute(models.Model):
     @api.model
     def create(self, vals):
         """ Create an attribute.attribute
-
         When a `field_id` is given, the attribute will be linked to the
         existing field. The use case is to create an attribute on a field
         created with Python `fields`.
-
         """
         if vals.get('field_id'):
             # when a 'field_id' is given, we create an attribute on an
@@ -278,7 +272,7 @@ class AttributeAttribute(models.Model):
             field_obj = self.env['ir.model.fields']
             field = field_obj.browse(vals['field_id'])
             if vals.get('serialized'):
-                raise orm.except_orm(
+                raise exceptions.except_orm(
                     _('Error'),
                     _("Can't create a serialized attribute on "
                       "an existing ir.model.fields (%s)") % field.name)
@@ -304,22 +298,24 @@ class AttributeAttribute(models.Model):
             vals['ttype'] = vals['attribute_type']
 
         if vals.get('serialized'):
-            field_obj = self.pool.get('ir.model.fields')
-            serialized_ids = field_obj.search([
+            field_obj = self.env['ir.model.fields']
+            serialized_records = field_obj.search([
                 ('ttype', '=', 'serialized'),
                 ('model_id', '=', vals['model_id']),
                 ('name', '=', 'x_custom_json_attrs')])
-            if serialized_ids:
-                vals['serialization_field_id'] = serialized_ids[0]
+            if serialized_records:
+                vals['serialization_field_id'] = serialized_records[0].id
             else:
+                manual_serialized_field = serialized_records.with_context(
+                    manual=True)
                 f_vals = {
                     'name': u'x_custom_json_attrs',
-                    # 'field_description': u'Serialized JSON Attributes',
+                    'field_description': u'Serialized JSON Attributes',
                     'ttype': 'serialized',
                     'model_id': vals['model_id'],
                 }
-                vals['serialization_field_id'] = field_obj.create(
-                    f_vals, {'manual': True})
+                vals['serialization_field_id'] = manual_serialized_field.\
+                    create(f_vals).id
         vals['state'] = 'manual'
         return super(AttributeAttribute, self).create(vals)
 
@@ -362,15 +358,14 @@ class AttributeGroup(models.Model):
     @api.model
     def _get_default_model(self):
         context = self._context
-        if context and context.get('force_model'):
-            model_id = self.env['ir.model'].search(
-                [['model', '=', context['force_model']]])
-            if model_id:
-                return model_id[0]
+        if context.get('force_model', False):
+            model = self.env['ir.model'].search(
+                [('model', '=', context['force_model'])], limit=1)
+            if model:
+                return model.id
         return False
 
     name = fields.Char(
-        size=128,
         required=True,
         translate=True)
     sequence = fields.Integer()
@@ -404,15 +399,14 @@ class AttributeSet(models.Model):
     @api.model
     def _get_default_model(self):
         context = self._context
-        if context and context.get('force_model'):
-            model_id = self.env['ir.model'].search(
-                [['model', '=', context['force_model']]])
-            if model_id:
-                return model_id[0]
+        if context.get('force_model', False):
+            model = self.env['ir.model'].search(
+                [('model', '=', context['force_model'])], limit=1)
+            if model:
+                return model.id
         return False
 
     name = fields.Char(
-        size=128,
         required=True,
         translate=True)
     attribute_group_ids = fields.One2many(

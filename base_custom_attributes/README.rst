@@ -1,7 +1,8 @@
-A module add custom attribute for models 
+Base Custom Attributes 
 ===========================================
-
-
+This module adds the possibility to easily create custom attributes
+in any OpenERP business object.
+See the product_custom_attributes module for instance.
 
 
 Credits
@@ -9,7 +10,8 @@ Credits
 
 Contributors
 ------------
-
+* Benoît GUILLOT <benoit.guillot@akretion.com>
+* Raphaël VALYI <raphael.valyi@akretion.com>
 * Qing Wang <wang.qing@elico-corp.com>
 
 Maintainer
