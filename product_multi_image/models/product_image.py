@@ -70,12 +70,11 @@ class ProductImage(models.Model):
                 self.image_small = vals['image_small']
                 self.image_medium = vals['image_medium']
             except:
-                print "Error procesando imagen de %s" % self.name
+                pass
 
     @api.multi
     def _check_filestore(self):
-        """check if the filestore is created, and do it otherwise.
-        """
+        """check if the filestore is created, and do it otherwise."""
         for product_image in self:
             dir_path = os.path.dirname(product_image.path)
             try:
