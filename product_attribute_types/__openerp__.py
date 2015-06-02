@@ -36,6 +36,7 @@
     "website": "http://www.odoomrp.com",
     'data': [
         "views/product_view.xml",
+        "data/product_attribute_data.xml",
     ],
     'installable': True,
 }

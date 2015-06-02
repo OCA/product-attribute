@@ -17,6 +17,7 @@
 ##############################################################################
 
 from openerp import models, fields, _
+import openerp.addons.decimal_precision as dp
 
 
 class ProductAttribute(models.Model):
@@ -42,9 +43,12 @@ class ProductAttributeValue(models.Model):
 
     attr_type = fields.Selection(string='Type',
                                  related='attribute_id.attr_type')
-    numeric_value = fields.Float('Numeric Value', digits=(12, 6))
-    min_range = fields.Float('Min', digits=(12, 6))
-    max_range = fields.Float('Max', digits=(12, 6))
+    numeric_value = fields.Float('Numeric Value',
+                                 digits=dp.get_precision('Product Attribute'))
+    min_range = fields.Float('Min',
+                             digits=dp.get_precision('Product Attribute'))
+    max_range = fields.Float('Max',
+                             digits=dp.get_precision('Product Attribute'))
 
     _sql_constraints = [
         ('range_check',
