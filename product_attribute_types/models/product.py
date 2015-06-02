@@ -16,7 +16,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from openerp import models, fields, _
 
 
 class ProductAttribute(models.Model):
@@ -45,3 +45,10 @@ class ProductAttributeValue(models.Model):
     numeric_value = fields.Float('Numeric Value', digits=(12, 6))
     min_range = fields.Float('Min', digits=(12, 6))
     max_range = fields.Float('Max', digits=(12, 6))
+
+    _sql_constraints = [
+        ('range_check',
+         'CHECK (min_range < max_range)',
+         _("The min range should be less than the max range.")
+        )
+    ]
