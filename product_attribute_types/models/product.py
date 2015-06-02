@@ -16,7 +16,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, _
+from openerp import models, fields, api, exceptions, _
 import openerp.addons.decimal_precision as dp
 
 
@@ -50,9 +50,13 @@ class ProductAttributeValue(models.Model):
     max_range = fields.Float('Max',
                              digits=dp.get_precision('Product Attribute'))
 
-    _sql_constraints = [
-        ('range_check',
-         'CHECK (min_range < max_range)',
-         _("The min range should be less than the max range.")
-         )
-    ]
+    @api.constrains('min_range', 'max_range')
+    def _check_min_max_range(self):
+        for value in self:
+            # we check only values of range type attributes.
+            if value.attr_type != 'range':
+                continue
+            if value.min_range > value.max_range:
+                raise exceptions.Warning(
+                    _('The min range should be less than the max range.'))
+        return True
