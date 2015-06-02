@@ -54,5 +54,5 @@ class ProductAttributeValue(models.Model):
         ('range_check',
          'CHECK (min_range < max_range)',
          _("The min range should be less than the max range.")
-        )
+         )
     ]
