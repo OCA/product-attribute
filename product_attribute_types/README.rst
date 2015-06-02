@@ -4,8 +4,9 @@
 Product attribute types
 =======================
 
-This module extends product attributes, adds a new type range, and also the
-option of defining if it is required and a default value for the attribute.
+This module extends product attributes, adds 2 new types: range & numeric, and
+also the option of defining if it is required and a default value for the attribute.
+It brings the basic functionnality that can be used then by more fonctional modules.
 
 
 Credits
