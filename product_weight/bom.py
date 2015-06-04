@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2015 Akretion (<http://www.akretion.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,4 +19,18 @@
 #
 ##############################################################################
 
-import product_weight_update
+from openerp import models, api
+
+
+class MrpBomLine(models.Model):
+    _inherit = 'mrp.bom.line'
+
+    @api.multi
+    def get_final_components(self):
+        bom_lines = []
+        for line in self:
+            if not line.child_line_ids:
+                bom_lines.append(line)
+            else:
+                bom_lines.extend(line.child_line_ids.get_final_components())
+        return bom_lines
