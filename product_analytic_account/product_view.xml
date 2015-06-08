@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Copyright (C) 2015 Akretion (http://www.akretion.com/)
+    @author Alexis de Lattre <alexis.delattre@akretion.com>
+    The licence is in the file __openerp__.py
+-->
+
+<openerp>
+<data>
+
+<record id="product_template_form_view" model="ir.ui.view">
+    <field name="name">product_analytic_account.product.template.form</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="account.product_template_form_view" />
+    <field name="arch" type="xml">
+        <field name="property_account_income" position="after">
+            <field name="income_analytic_account_id"/>
+        </field>
+        <field name="property_account_expense" position="after">
+            <field name="expense_analytic_account_id"/>
+        </field>
+    </field>
+</record>
+
+<record id="view_category_property_form" model="ir.ui.view">
+    <field name="name">product_analytic_account.product.categ.form</field>
+    <field name="model">product.category</field>
+    <field name="inherit_id" ref="account.view_category_property_form" />
+    <field name="arch" type="xml">
+        <field name="property_account_income_categ" position="after">
+            <field name="income_analytic_account_id"/>
+        </field>
+        <field name="property_account_expense_categ" position="after">
+            <field name="expense_analytic_account_id"/>
+        </field>
+    </field>
+</record>
+
+</data>
+</openerp>
