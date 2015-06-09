@@ -34,6 +34,9 @@
     'data': [
         'data/product_sequence.xml',
     ],
+    'demo': [
+        'demo/product_product.xml'
+    ],
     'auto_install': False,
     'installable': True,
 }

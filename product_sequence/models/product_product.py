@@ -21,6 +21,7 @@
 
 from openerp import models, fields, api
 from openerp.tools.translate import _
+from openerp.tools import SUPERUSER_ID
 
 
 class ProductProduct(models.Model):
@@ -39,6 +40,22 @@ class ProductProduct(models.Model):
          'The reference must be unique'),
     ]
 
+    def _auto_init(self, cr, context=None):
+        """
+        Calls a write on existing products to ensure duplicate index
+        is not violated
+        :param cr:
+        :return: void
+        """
+        duplicate_ids = self.search(cr, SUPERUSER_ID, [
+            '|', ('default_code', '=', '/'), ('default_code', '=', False)])
+        if duplicate_ids:
+            for product in duplicate_ids:
+                cr.execute("UPDATE product_product "
+                           "SET default_code = '!!mig!!' || id WHERE id=%s",
+                           (product,))
+        return super(ProductProduct, self)._auto_init(cr, context=context)
+
     @api.model
     def create(self, vals):
         if 'default_code' not in vals or vals['default_code'] == '/':
@@ -49,7 +66,8 @@ class ProductProduct(models.Model):
     @api.multi
     def write(self, vals):
         for product in self:
-            if product.default_code in [False, '/']:
+            if (product.default_code in [False, '/'] or
+                    product.default_code[:7] == '!!mig!!'):
                 vals['default_code'] = self.env['ir.sequence'].get(
                     'product.product')
             super(ProductProduct, product).write(vals)
