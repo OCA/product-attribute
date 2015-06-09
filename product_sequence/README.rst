@@ -4,6 +4,13 @@ A module that adds sequence to the product.
 This module allows to associate a sequence to the product reference.
 The reference (default code) is unique (SQL constraint) and required.
 
+Installation
+============
+
+Prior to installing this module, if you have any existing products you should ensure
+they already have a unique reference (or no reference) set.  Otherwise the setting of the unique constraint will
+fail and the module will fail to install.
+
 Credits
 =======
 
@@ -11,6 +18,7 @@ Contributors
 ------------
 
 * Angel Moya <angel.moya@domatix.com>
+* Graeme Gellatly <g@o4sb.com>
 
 Maintainer
 ----------

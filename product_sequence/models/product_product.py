@@ -35,7 +35,7 @@ class ProductProduct(models.Model):
 
     _sql_constraints = [
         ('uniq_default_code',
-         'unique(default_code)',
+         "CHECK (default_code != '/' AND unique(default_code))",
          'The reference must be unique'),
     ]
 
