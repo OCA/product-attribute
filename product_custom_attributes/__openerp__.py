@@ -35,7 +35,6 @@
         'views/attribute_attribute.xml',
         'views/product_template.xml',
         'views/product_category.xml',
-        'views/product_product.xml',
         'wizard/open_product_by_attribute_set.xml',
         'wizard/product_product.xml',
     ],

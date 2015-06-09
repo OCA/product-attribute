@@ -8,7 +8,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="base_custom_attributes.view_attribute_attribute_search"/>
-            <field name="context">{"force_model": 'product.product'}</field>
+            <field name="context">{"force_model": 'product.template'}</field>
             <field name="help"></field>
         </record>
 
