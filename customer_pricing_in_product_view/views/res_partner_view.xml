@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button class="oe_inline oe_stat_button" name="view_partner_pricing" type="object"
+                        string="Product Pricing" groups="base.group_sale_salesman" icon="fa-cubes"
+                        attrs="{'invisible': [('customer', '=', 'False')]}"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

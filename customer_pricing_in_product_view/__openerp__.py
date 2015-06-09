@@ -21,18 +21,18 @@
 
 {
     'name': 'Display Customer Price in Product View',
-    'version': '1.1.1',
+    'version': '1.2.1',
     'category': 'Sales',
     'author': "O4SB - Graeme Gellatly,Odoo Community Association (OCA)",
     'website': 'http://www.o4sb.com',
     'license': 'AGPL-3',
     'depends': ['base', 'product'],
     'description': '''
-    This module provide :
-        An entry in product search view to show Partner Pricing so when
-        viewing a list of products you can see the customers pricing.
+    This module provides:
+        A button on the partner form to show Customer Pricing when
+        viewing a list of products.
     ''',
-    'data': ['partner_pricelist_view.xml'],
-    'installable': False,
-    'active': False,
+    'data': ['views/res_partner_view.xml'],
+    'installable': True,
+    'active': True
 }
