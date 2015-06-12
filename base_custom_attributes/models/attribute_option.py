@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                      #
-#   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
+#   base_attribute.attributes for OpenERP                                     #
+#   Copyright (C) 2015 Odoo Community Association (OCA)                       #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
 #   it under the terms of the GNU Affero General Public License as            #
@@ -19,11 +19,47 @@
 #                                                                             #
 ###############################################################################
 
+from openerp import models, fields, api, _
 
 
-import ir_model
-import custom_attributes
+class AttributeOption(models.Model):
+    _name = "attribute.option"
+    _description = "Attribute Option"
+    _order = "sequence"
 
+    @api.model
+    def _get_model_list(self):
+        models = self.env['ir.model'].search([])
+        return [(m.model, m.name) for m in models]
 
+    name = fields.Char(
+        'Name',
+        translate=True,
+        required=True,
+    )
 
+    value_ref = fields.Reference(
+        _get_model_list,
+        'Reference',
+    )
 
+    attribute_id = fields.Many2one(
+        'attribute.attribute',
+        'Product Attribute',
+        required=True,
+    )
+
+    sequence = fields.Integer('Sequence')
+
+    def name_change(self, cr, uid, ids, name, relation_model_id, context=None):
+        if relation_model_id:
+            warning = {
+                'title': _('Error!'),
+                'message': _(
+                    "Use the 'Load Options' button "
+                    "instead to select appropriate "
+                    "model references'"),
+            }
+            return {"value": {"name": False}, "warning": warning}
+        else:
+            return True
