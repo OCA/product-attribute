@@ -23,6 +23,19 @@ from openerp import models, fields, api
 from openerp.tools.translate import _
 
 
+def update_null_and_slash_codes(cr):  # pragma: no cover
+    """
+    Updates existing codes matching the default '/' or
+    empty. Primarily this ensures installation does not
+    fail for demo data.
+    :param cr: database cursor
+    :return: void
+    """
+    cr.execute("UPDATE product_product "
+               "SET default_code = '!!mig!!' || id "
+               "WHERE default_code IS NULL OR default_code = '/';")
+
+
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
