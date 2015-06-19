@@ -15,14 +15,17 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
+
 {
     "name": "Product Last Price Info",
     "version": "1.0",
+    "category": "Product",
+    "license": "AGPL-3",
     "author": "OdooMRP team, "
               "AvanzOSC, "
-              "Serv. Tecnol. Avanzados - Pedro M. Baeza",
-    "category": "Product",
-    "website": "www.odoomrp.com",
+              "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
+              "Odoo Community Association (OCA)",
+    "website": "http://www.odoomrp.com",
     "contributors": [
         "Alfredo de la Fuente <alfredodelafuente@avanzosc.es>",
         "Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>",
@@ -35,5 +38,5 @@
     "data": [
         'views/product_view.xml',
     ],
-    "installable": True
+    "installable": True,
 }
