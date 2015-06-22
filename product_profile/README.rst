@@ -65,9 +65,15 @@ If you deselect the profile value, all these fields will be reset to empty value
 
 Install **Product Profile Example** module to see a use case in action.
 
+Profiles are also defined as search filter and group
 
-Known issues / Roadmap
-======================
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
+`here <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_profile%0Aversion:%201.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 
 Credits

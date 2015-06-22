@@ -125,6 +125,19 @@ class ProductMixinProfile(models.AbstractModel):
         return super(ProductMixinProfile, self).create(vals)
 
     @api.model
+    def _get_profiles_to_filter(self):
+        """ Inherit if you want that some profiles doesn't have a filter """
+        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
+
+    @api.model
+    def _customize_profile_filters(self, my_filter):
+        """ Inherit if you to customize search filter display"""
+        return {
+            'string': "%s" % my_filter[1],
+            'help': 'Filtering by Product Profile',
+            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
+
+    @api.model
     def _customize_view(self, res, view_type):
         profile_group = self.env.ref('product_profile.group_product_profile')
         users_in_profile_group = [user.id for user in profile_group.users]
@@ -143,6 +156,18 @@ class ProductMixinProfile(models.AbstractModel):
                             current_node.set('attrs', attrs)
                             orm.setup_modifiers(current_node,
                                                 fields_def[field])
+            res['arch'] = etree.tostring(doc, pretty_print=True)
+        if view_type == 'search':
+            # Allow to dynamically create search filters for each profile
+            filters_to_create = self._get_profiles_to_filter()
+            doc = etree.XML(res['arch'])
+            node = doc.xpath("//filter[1]")
+            if not node:
+                return res
+            for my_filter in filters_to_create:
+                elm = etree.Element(
+                    'filter', **self._customize_profile_filters(my_filter))
+                node[0].addprevious(elm)
             res['arch'] = etree.tostring(doc, pretty_print=True)
         return res
 
