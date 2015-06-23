@@ -1,8 +1,8 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-Product attribute types
-=======================
+Product attribute multi type
+============================
 
 This module extends product attributes, adds 2 new types: range & numeric, and
 also the option of defining if it is required and a default value for the attribute.
