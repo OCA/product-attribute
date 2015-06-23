@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_attribute_types
+#	* product_attribute_multi_type
 #
 msgid ""
 msgstr ""
@@ -15,52 +15,52 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: field:product.attribute.line,default:0
 msgid "Default"
 msgstr "Por defecto"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: field:product.attribute.value,max_range:0
 msgid "Max"
 msgstr "Max"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: field:product.attribute.value,min_range:0
 msgid "Min"
 msgstr "Min"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: selection:product.attribute,attr_type:0
 msgid "Numeric"
 msgstr "Numérico"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: field:product.attribute.value,numeric_value:0
 msgid "Numeric Value"
 msgstr "Valor numérico"
 
-#. module: product_attribute_types
-#: model:ir.model,name:product_attribute_types.model_product_attribute
+#. module: product_attribute_multi_type
+#: model:ir.model,name:product_attribute_multi_type.model_product_attribute
 msgid "Product Attribute"
 msgstr "Atributo de producto"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: selection:product.attribute,attr_type:0
 msgid "Range"
 msgstr "Rango"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: field:product.attribute.line,required:0
 msgid "Required"
 msgstr "Requerido"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: selection:product.attribute,attr_type:0
 msgid "Select"
 msgstr "Selección"
 
-#. module: product_attribute_types
+#. module: product_attribute_multi_type
 #: field:product.attribute,attr_type:0
 msgid "Type"
 msgstr "Tipo"
