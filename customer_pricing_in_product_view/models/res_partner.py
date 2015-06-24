@@ -19,6 +19,8 @@
 #
 ##############################################################################
 
+from ast import literal_eval
+
 from openerp.osv import orm
 
 
@@ -45,7 +47,7 @@ class ResPartner(orm.Model):
                                                          context=context)[0]
         partner = self.pool['res.partner'].browse(cr, uid, ids,
                                                   context=context)[0]
-        act_ctx = eval(result['context'])
+        act_ctx = literal_eval(result['context'])
         act_ctx.update({'search_default_pricelist_id':
                         partner.property_product_pricelist.id})
         result['context'] = unicode(act_ctx)
