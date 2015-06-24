@@ -1,0 +1,1 @@
+from . import test_customer_pricing_in_product_view
