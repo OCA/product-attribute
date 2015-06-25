@@ -23,6 +23,7 @@
 from openerp.tests.common import TransactionCase
 from psycopg2 import IntegrityError
 
+
 class ProductSequenceCase(TransactionCase):
 
     def setUp(self):
