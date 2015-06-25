@@ -45,4 +45,3 @@ class CustomerProductPricingCase(TransactionCase):
             self.cr, self.uid, partner_id)
         self.assertIsInstance(result, dict)
         self.assertTrue(result['type'] == 'ir.actions.act_window')
-
