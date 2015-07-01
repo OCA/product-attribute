@@ -8,16 +8,13 @@
                 <attribute name="colors">grey:active==False</attribute>
             </xpath>
             <xpath expr="//tree" position="inside">
-                <field name="active"/>
+                <field name="active" invisible ="1"/>
                 <button type="object"  name="button_activate"
-                attrs="{'invisible': [('active','=',True)]}" icon="gtk-stop"/>
+                attrs="{'invisible': [('active','=',True)]}" icon="gtk-stop"  invisible ="1"/>
                 <button type="object"  name="button_deactivate"
-                attrs="{'invisible': [('active','=',False)]}"  icon="gtk-apply"/>
+                attrs="{'invisible': [('active','=',False)]}"  icon="gtk-apply" invisible ="1"/>
             </xpath>
         </field>
-        </record>
-        <record id="product.product_normal_action_sell" model="ir.actions.act_window">
-             <field name="context">{'active_test': False}</field>
         </record>
     </data>
 </openerp>
