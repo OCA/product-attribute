@@ -29,8 +29,8 @@ class ProductTemplate(models.Model):
         'Base Code',
         help="this field is used like a base to automatically create "
              "Internal Reference (default_code)")
-    use_manual_internal_ref = fields.Boolean('Manual Internal Reference',
-                                             default=False)
+    auto_default_code = fields.Boolean('Manual Internal Reference',
+                                       default=False)
 
 
 class ProductProduct(models.Model):
@@ -64,14 +64,14 @@ class ProductProduct(models.Model):
     def _set_manual_default_code(self):
         self.manual_default_code = self.default_code
 
-    @api.depends('use_manual_internal_ref',
+    @api.depends('auto_default_code',
                  'attribute_value_ids.attribute_id.code',
                  'attribute_value_ids.code',
                  'manual_default_code'
                  )
     @api.one
     def _compute_default_code(self):
-        if not self.use_manual_internal_ref:
+        if not self.auto_default_code:
             self.default_code = self._get_default_code()
         else:
             self.default_code = self.manual_default_code
