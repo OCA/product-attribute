@@ -7,6 +7,7 @@
             <xpath expr="//page[@name='variants']/p" position="after">
                 <group>
                     <field name = "base_code" string="Base Code"  />
+                    <field name = "auto_default_code" />
                 </group>
                  </xpath>
             </field>
@@ -17,10 +18,10 @@
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='default_code']" position="before">
-                    <field name = "use_manual_internal_ref" />
+                    <field name = "auto_default_code" invisible="1"/>
                  </xpath>
                     <xpath expr="//field[@name='default_code']" position="attributes">
-                    <attribute name="attrs">{'readonly': [('use_manual_internal_ref', '=', False)]}</attribute>
+                    <attribute name="attrs">{'readonly': [('auto_default_code', '=', False)]}</attribute>
                    </xpath>
             </field>
         </record>
