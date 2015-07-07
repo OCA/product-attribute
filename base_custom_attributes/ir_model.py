@@ -19,20 +19,18 @@
 #                                                                             #
 ###############################################################################
 
-from openerp.osv.orm import Model
-from openerp.osv import fields
+from openerp import models, fields
 
 
-class ir_model_fields(Model):
+class IrModelFields(models.Model):
 
     _inherit = "ir.model.fields"
-    _columns = {
-        'field_description': fields.char(
-            'Field Label',
-            required=True,
-            size=256,
-            translate=True),
-    }
+
+    field_description = fields.Char(
+        string='Field Label',
+        required=True,
+        translate=True)
+
     _sql_constraints = [
         ('name_model_uniq', 'unique (name, model_id)',
             'The name of the field has to be uniq for a given model !'),

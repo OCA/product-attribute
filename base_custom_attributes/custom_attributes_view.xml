@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  base_custom_attributes for OpenERP
-  Copyright (C) 2011-2013 Akretion (http://www.akretion.com/)
-  @author: Benoît GUILLOT <benoit.guillot@akretion.com>
-  The licence is in the file __openerp__.py
--->
-
 <openerp>
     <data>
-
         <menuitem
             id="menu_attribute_in_admin" name="Attributes"
             parent="base.next_id_9" sequence="1"/>
-
-    <!-- ATTRIBUTE SET VIEW -->
 
         <record id="attribute_set_form_view" model="ir.ui.view">
             <field name="name">attribute.set.form</field>
             <field name="model">attribute.set</field>
             <field name="arch" type="xml">
                 <form string="Attribute Set">
-                    <field name="name"/>
-                    <field name="model_id" invisible="context.get('force_model')"/>
-                    <field name="attribute_group_ids" colspan="4"
-                           context="{'default_model_id': model_id, 'from_attribute_set':True}">
-                    </field>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="model_id" invisible="context.get('force_model')"/>
+                            
+                        </group>
+                        <separator string="Attribute Groups"/>
+                        <field name="attribute_group_ids" colspan="4"
+                        context="{'default_model_id': model_id, 'from_attribute_set':True}"/>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -65,29 +60,30 @@
              action="attribute_set_form_action" id="menu_attribute_set_action"
              parent="menu_attribute_in_admin" sequence="10"/>
  
-
-
-    <!-- ATTRIBUTE GROUP VIEW -->
-
+        <!-- ATTRIBUTE GROUP VIEW -->
         <record id="attribute_group_form_view" model="ir.ui.view">
             <field name="name">attribute.group.form</field>
             <field name="model">attribute.group</field>
             <field name="arch" type="xml">
                 <form string="Attribute Group">
-                    <field name="name" />
-                    <field name="sequence" />
-                    <field name="model_id" invisible="context.get('from_attribute_set') or context.get('force_model')"/>
-                    <field name="attribute_set_id" invisible="context.get('from_attribute_set')"/>
-                    <field name="attribute_ids" colspan="4" nolabel="1">
-                        <form string="Attribute Location">
-                            <field name="attribute_id" context="{'default_model_id': parent.model_id}"/>
+                    <sheet>
+                        <group>
+                            <field name="name" />
                             <field name="sequence" />
-                        </form>
-                        <tree string="Attribute Location" editable="top">
-                            <field name="attribute_id" context="{'default_model_id': parent.model_id}"/>
-                            <field name="sequence" />
-                        </tree>
-                    </field>
+                            <field name="model_id" invisible="context.get('from_attribute_set') or context.get('force_model')"/>
+                            <field name="attribute_set_id" invisible="context.get('from_attribute_set')"/>
+                            <field name="attribute_ids" colspan="4" nolabel="1">
+                                <form string="Attribute Location">
+                                    <field name="attribute_id" context="{'default_model_id': parent.model_id}"/>
+                                    <field name="sequence" />
+                                </form>
+                                <tree string="Attribute Location" editable="top">
+                                    <field name="attribute_id" context="{'default_model_id': parent.model_id}"/>
+                                    <field name="sequence" />
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -131,36 +127,39 @@
              action="attribute_group_form_action" id="menu_attribute_group_action"
              parent="menu_attribute_in_admin" sequence="20"/>
 
-    <!-- ATTRIBUTE VIEW -->
-
+        <!-- ATTRIBUTE VIEW -->
         <record id="attribute_attribute_form_view" model="ir.ui.view">
             <field name="name">attribute.attribute.form</field>
             <field name="model">attribute.attribute</field>
             <field name="arch" type="xml">
                 <form string="Attribute">
-                    <field name="field_description" on_change="onchange_field_description(field_description, name, create_date, context)"/>
-                    <field name="name" attrs="{'readonly':[('create_date', '!=', False)]}" on_change="onchange_name(name, context)"/>
-                    <field name="attribute_type" />
-                    <field name="model_id" />
-                    <field name="serialized" attrs="{'invisible':[('attribute_type', '=', 'multiselect')]}"/>
-                    <field name="size" attrs="{'invisible':[('attribute_type', '!=', 'char')]}"/>
-                    <field name="required_on_views"/>
-                    <field name="translate" attrs="{'invisible':[('attribute_type', 'not in', ('char', 'text'))]}"/>
+                    <sheet>
+                    <group>
+                        <field name="field_description" />
+                        <field name="name" />
+                        <field name="attribute_type" />
+                        <field name="model_id" />
+                        <field name="serialized" attrs="{'invisible':[('attribute_type', '=', 'multiselect')]}"/>
+                        <field name="size" attrs="{'invisible':[('attribute_type', '!=', 'char')]}"/>
+                        <field name="required_on_views"/>
+                        <field name="translate" attrs="{'invisible':[('attribute_type', 'not in', ('char', 'text'))]}"/>
+                    </group>  
                     <newline />
                     <group colspan="4" attrs="{'invisible':[('attribute_type', 'not in', ['select', 'multiselect'])]}">
                         <group groups="base.group_advanced_attribute">
-                            <field name="relation_model_id" on_change="relation_model_id_change(relation_model_id, option_ids, context)"/>
+                            <field name="relation_model_id"/>
                             <field name="domain" attrs="{'invisible':[('relation_model_id', '=', False)]}"/>
                             <button name="button_add_options" attrs="{'invisible':[('relation_model_id', '=', False), ('domain', '!=', False)]}" type="object" string="Load Options"/>
                         </group>
                         <field name="option_ids" colspan="4" nolabel="1">
                             <tree string="Attribute Options" editable="top">
                                 <field name="sequence" invisible="1"/>
-                                <field name="name" on_change="name_change(name, parent.relation_model_id, context)"/>
+                                <field name="name"/>
                             </tree>
                         </field>
                     </group>
                     <field name="create_date" invisible="1"/>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -199,7 +198,7 @@
             action="attribute_attribute_form_action" id="menu_attribute_attribute_action"
             parent="menu_attribute_in_admin" sequence="30"/>
 
-    <!-- ATTRIBUTE OPTION VIEW -->
+        <!-- ATTRIBUTE OPTION VIEW -->
         <record id="attribute_option_form_popup_view" model="ir.ui.view">
             <field name="name">attribute.option.form.popup</field>
             <field name="model">attribute.option</field>
@@ -218,10 +217,14 @@
             <field name="model">attribute.option</field>
             <field name="arch" type="xml">
                 <form string="Attribute Option" col="6">
-                    <field name="name" colspan="2"/>
-                    <field name="value_ref" colspan="2" groups="base.group_advanced_attribute"/>
-                    <field name="sequence" colspan="2"/>
-                    <field name="attribute_id" colspan="2"/>
+                    <sheet>
+                        <group>
+                            <field name="name" colspan="2"/>
+                            <field name="value_ref" colspan="2" groups="base.group_advanced_attribute"/>
+                            <field name="sequence" colspan="2"/>
+                            <field name="attribute_id" colspan="2"/>
+                        </group>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -281,12 +284,12 @@
             action="attribute_option_form_action" id="menu_attribute_option_action"
             parent="menu_attribute_in_admin" sequence="40"/>
 
-    <!-- ATTRIBUTE OPTION WIZARD -->
+        <!-- ATTRIBUTE OPTION WIZARD -->
         <record id="attribute_option_wizard_form_view" model="ir.ui.view">
             <field name="name">attribute.option.wizard</field>
             <field name="model">attribute.option.wizard</field>
             <field name="arch" type="xml">
-                <form string="Options Wizard" version="7.0">
+                <form string="Options Wizard">
                     <field name="attribute_id" invisible="1"/>
                     <separator string="options_placeholder"/>
                     <footer>
@@ -297,6 +300,5 @@
                 </form>
             </field>
         </record>
-
     </data>
 </openerp>
