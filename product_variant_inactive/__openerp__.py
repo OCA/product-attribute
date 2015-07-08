@@ -1,6 +1,3 @@
-
-# -*- coding: utf-8 -*-
-
 ##############################################################################
 #
 #    Copyright (C) All Rights Reserved 2015 Akretion
@@ -30,7 +27,7 @@
     'version': '0.1',
     'depends': ['product'],
     'data': [
-        'product_variants.xml'
+        'product_variants_view.xml'
     ],
     'demo': [
         ],
