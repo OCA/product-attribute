@@ -7,7 +7,7 @@ Module name
 This module was written to extend the functionality of Product Variants
 and allow you to make activate or deactivate products using the two buttons
 
-.. image:: https://raw.githubusercontent.com/akretion/product-attribute/8.0-product_variant_inactive/product_variant_inactive/img/img.png
+.. image:: img/img_01.png
 
 
 Installation
