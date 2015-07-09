@@ -11,5 +11,16 @@
         </field>
       </field>
     </record>
+    <record id="product_normal_form_read_write_code_view" model="ir.ui.view">
+      <field name="name">product.normal.read.only.code.form</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="groups_id" eval="[(6, 0, [ref('group_can_change_default_code')])]" />
+      <field name="arch" type="xml">
+        <field name="default_code" position="attributes">
+          <attribute name="readonly">0</attribute>
+        </field>
+      </field>
+    </record>
   </data>
 </openerp>

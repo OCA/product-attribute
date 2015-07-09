@@ -36,6 +36,7 @@ Note: This module is incompatible with nan_product_sequence.
         'product',
     ],
     "data" : [
+        'security/product_sequence.xml',
         'product_sequence.xml',
         'product_sequence_view.xml'
     ],

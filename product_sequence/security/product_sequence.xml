@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data noupdate="1">
+    <record model="res.groups" id="group_can_change_default_code">
+      <field name="name">Can change product reference</field>
+      <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+  </data>
+</openerp>
