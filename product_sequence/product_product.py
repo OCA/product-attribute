@@ -30,7 +30,7 @@ class product_product(orm.Model):
         'default_code': fields.char('Reference',
                                     size=64,
                                     select=True,
-                                    readonly=True),
+                                    required=True),
         }
 
     _sql_constraints = [
