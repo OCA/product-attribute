@@ -37,6 +37,7 @@ Note: This module is incompatible with nan_product_sequence.
     ],
     "data" : [
         'product_sequence.xml',
+        'product_sequence_view.xml'
     ],
     'installable': True,
     'active': False,

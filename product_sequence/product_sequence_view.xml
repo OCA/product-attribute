@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record id="product_normal_form_read_only_code_view" model="ir.ui.view">
+      <field name="name">product.normal.read.only.code.form</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <field name="default_code" position="attributes">
+          <attribute name="readonly">1</attribute>
+        </field>
+      </field>
+    </record>
+  </data>
+</openerp>
