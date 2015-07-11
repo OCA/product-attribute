@@ -29,8 +29,8 @@ class ProductTemplate(models.Model):
         'Base Code',
         help="this field is used like a base to automatically create "
              "Internal Reference (default_code)")
-    auto_default_code = fields.Boolean('Manual Internal Reference',
-                                       default=False)
+    auto_default_code = fields.Boolean('Auto Generate Reference',
+                                       default=True)
 
 
 class ProductProduct(models.Model):
@@ -71,7 +71,7 @@ class ProductProduct(models.Model):
                  )
     @api.one
     def _compute_default_code(self):
-        if not self.auto_default_code:
+        if self.auto_default_code:
             self.default_code = self._get_default_code()
         else:
             self.default_code = self.manual_default_code
