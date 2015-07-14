@@ -44,22 +44,16 @@ class ProductProduct(models.Model):
                                store=True)
 
     @api.multi
-    def _build_code(self, vals):
-        """"inherit this method to customize your own behavior and used
-        to generate default code value"""
-        self.ensure_one()
-        code = str("".join([self.base_code or ''] + [
-            "".join(val or '') for val in vals]))
-        return code
-
-    @api.multi
     def _get_default_code(self):
         """ this method used to create a list of code elements  """
         self.ensure_one()
-        vals = []
+        res = self.base_code
         for value in self.attribute_value_ids:
-            vals.append((value.attribute_id.code or '', value.code or ''))
-        return self._build_code(vals)
+            res += ''.join([
+                value.attribute_id.code or '',
+                value.code or ''
+                ])
+        return res
 
     def _set_manual_default_code(self):
         self.manual_default_code = self.default_code
@@ -67,7 +61,7 @@ class ProductProduct(models.Model):
     @api.depends('auto_default_code',
                  'attribute_value_ids.attribute_id.code',
                  'attribute_value_ids.code',
-                 'manual_default_code'
+                 'product_tmpl_id.base_code'
                  )
     @api.one
     def _compute_default_code(self):
