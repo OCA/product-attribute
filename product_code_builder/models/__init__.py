@@ -1,3 +1,3 @@
 
-from . import product_code
+from . import product_attribute
 from . import product
