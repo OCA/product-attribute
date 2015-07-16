@@ -111,7 +111,11 @@ class ProductMixinProfile(models.AbstractModel):
                 except Exception as e:
                     raise Warning("%s" % e)
             elif to_play:
-                defaults.update({field: profile[field]})
+                value = profile[field]
+                if self._fields[field].type == 'many2many':
+                    x2many_ids = [x.id for x in profile[field]]
+                    value = [(6, 0, x2many_ids)]
+                defaults.update({field: value})
             else:
                 # also on field initialisation
                 self[field] = False
