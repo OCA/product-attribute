@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
 
-import product
+from . import product
 
