@@ -29,8 +29,8 @@ Product Dimensions
 ==================
 Add dimensions (length, width and height) products. Find the volume automatically when you change one of these dimensions.
     """,
-    'author':  'Ingenieria ADHOC',
-    'website': 'www.ingadhoc.com',
+    'author':  'ADHOC SA',
+    'website': 'www.adhoc.com.ar',
     'images': [
     ],
     'depends': [
