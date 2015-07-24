@@ -12,10 +12,7 @@
                 ref="product.product_pricelist_item_tree_view"
             />
             <field name="arch" type="xml">
-                <field name="base" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </field>
-                <field name="base" position="after">
+                <field name="base" position="replace">
                     <field name="base_ext" />
                 </field>
             </field>
