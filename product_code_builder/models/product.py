@@ -47,7 +47,7 @@ class ProductProduct(models.Model):
     def _get_default_code(self):
         """ this method used to create a list of code elements  """
         self.ensure_one()
-        res = self.base_code
+        res = self.base_code or ''
         for value in self.attribute_value_ids:
             res += ''.join([
                 value.attribute_id.code or '',
