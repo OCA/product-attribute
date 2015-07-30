@@ -27,6 +27,7 @@ Credits
 Contributors
 ------------
 
+  
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 * Ronald Portier rportier@therp.nl
 * Giovanni Francesco Capalbo <giovanni@therp.nl>
@@ -40,7 +41,6 @@ Previous version contributors
 * Alexandre Fayolle alexandre.fayolle@camptocamp.com
 * Jay Vora(OpenERP) jvo@tinyerp.com
 * Rudolf Schnapka rs@techno-flex.de
-
 
 Maintainer
 ----------
