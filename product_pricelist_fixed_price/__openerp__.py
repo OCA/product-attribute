@@ -22,7 +22,7 @@
 
 {
     "name": "Fixed price in pricelists",
-    "version": "2.0",
+    "version": "8.0.1.0",
     "author":  "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
                "Therp B.V.,"
                "Odoo Community Association (OCA),"
