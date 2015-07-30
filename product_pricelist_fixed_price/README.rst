@@ -1,3 +1,5 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License: AGPL-3
 Fixed price on pricelist rule
 =============================
 Adds a new option on pricelist rules to set a fixed price. This is made using
@@ -13,6 +15,10 @@ Contributors
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 * Giovanni Francesco Capalbo <giovanni@therp.nl>
 * Ronald Portier <ronald@therp.nl>
+* Guewen Baconnier guewen.baconnier@camptocamp.com
+* Jay Vora(OpenERP) jvo@tinyerp.com
+* Laetitia Gangloff laetitia.gangloff@acsone.eu
+* Maxime Chambreuil maxime.chambreuil@savoirfairelinux.com
 
 Maintainer
 ----------
