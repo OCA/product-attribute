@@ -12,12 +12,16 @@ Credits
 Contributors
 ------------
 
+  
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Ronald Portier Ronald Portier rportier@therp.nl
 * Giovanni Francesco Capalbo <giovanni@therp.nl>
 * Guewen Baconnier guewen.baconnier@camptocamp.com
-* Jay Vora(OpenERP) jvo@tinyerp.com
 * Laetitia Gangloff laetitia.gangloff@acsone.eu
 * Maxime Chambreuil maxime.chambreuil@savoirfairelinux.com
+* Alexandre Fayolle alexandre.fayolle@camptocamp.com
+* Jay Vora(OpenERP) jvo@tinyerp.com
+* Rudolf Schnapka rs@techno-flex.de
 
 
 Maintainer
