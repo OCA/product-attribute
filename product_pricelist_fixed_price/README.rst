@@ -14,7 +14,7 @@ Contributors
 
   
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-* Ronald Portier Ronald Portier rportier@therp.nl
+* Ronald Portier rportier@therp.nl
 * Giovanni Francesco Capalbo <giovanni@therp.nl>
 * Ronald Portier <ronald@therp.nl>
 * Guewen Baconnier guewen.baconnier@camptocamp.com
