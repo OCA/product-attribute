@@ -16,7 +16,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
     'name': 'Product Dimensions',
-    'version': '1.0',
+    'version': '1.1',
     'category': 'Product',
     'author':  'ADHOC SA,Odoo Community Association (OCA)',
     'license': 'AGPL-3',
