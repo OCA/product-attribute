@@ -34,7 +34,6 @@ class ProductPricelistItem(models.Model):
     base_ext = fields.Selection(selection='_price_field_get_ext',
                                 string='Based on',
                                 required=True,
-                                size=-1,
                                 default=-1,
                                 help="Base price for computation")
 
