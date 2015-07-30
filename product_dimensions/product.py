@@ -13,21 +13,21 @@ class Product(osv.osv):
     _name = 'product.product'
     _inherit = 'product.product'
 
-    def onchange_calculate_volume(self, cr, uid, ids, length, high, width,
+    def onchange_calculate_volume(self, cr, uid, ids, length, heigth, width,
                                   dimensional_uom_id, context=None):
         v = {}
-        if not length or not high or not width or not dimensional_uom_id:
+        if not length or not heigth or not width or not dimensional_uom_id:
             volume = False
         else:
             dimensional_uom = self.pool.get('product.uom').browse(
                 cr, uid, dimensional_uom_id, context=context)
             length_m = self.get_measure_in_meters(length, dimensional_uom)
-            high_m = self.get_measure_in_meters(high, dimensional_uom)
+            heigth_m = self.get_measure_in_meters(heigth, dimensional_uom)
             width_m = self.get_measure_in_meters(width, dimensional_uom)
-            if not length_m or not high_m or not width_m:
+            if not length_m or not heigth_m or not width_m:
                 volume = False
             else:
-                volume = length_m * high_m * width_m
+                volume = length_m * heigth_m * width_m
         v['volume'] = volume
         return {'value': v}
 
@@ -47,7 +47,7 @@ class Product(osv.osv):
 
     _columns = {
         'length': fields.float('Length'),
-        'high': fields.float('Heigth'),
+        'heigth': fields.float('Heigth', oldname='high'),
         'width': fields.float('Width'),
         'dimensional_uom': fields.many2one(
             'product.uom',
