@@ -9,7 +9,7 @@ from openerp.osv import osv
 from openerp.osv import fields
 
 
-class product_product(osv.osv):
+class Product(osv.osv):
     _name = 'product.product'
     _inherit = 'product.product'
 
