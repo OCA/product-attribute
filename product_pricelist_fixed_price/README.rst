@@ -1,3 +1,5 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License: AGPL-3
 Fixed price on pricelist rule
 =============================
 Adds a new option on pricelist rules to set a fixed price. This is made using
