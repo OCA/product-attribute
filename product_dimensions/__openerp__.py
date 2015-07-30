@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
 #    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
 #    All Rights Reserved.
 #
@@ -16,22 +14,13 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
 {
     'name': 'Product Dimensions',
     'version': '1.0',
     'category': 'Product',
-    'sequence': 14,
-    'summary': '',
-    'author':  'ADHOC SA',
+    'author':  'ADHOC SA,Odoo Community Association (OCA)',
+    'license': 'AGPL-3',
     'website': 'www.adhoc.com.ar',
-    'images': [
-    ],
-    'depends': [
-        'product',
-    ],
-    'data': [
-        'product_view.xml',
-    ],
+    'depends': ['product'],
+    'data': ['product_view.xml'],
 }
