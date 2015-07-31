@@ -26,7 +26,7 @@
     "author":  "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
                "Therp B.V.,"
                "Odoo Community Association (OCA),"
-               "Giovanni Francesco Capalbo"
+               "Giovanni Francesco Capalbo",
     "category": "Sales Management",
     "website": "www.serviciosbaeza.com",
     "license": "AGPL-3",
