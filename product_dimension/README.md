@@ -3,7 +3,7 @@
 
 Product Dimension
 =================
-Add dimensions (length, width and height) products. Find the volume
+Add dimensions (length, width and height) to products. Find the volume
 automatically when you change one of these dimensions.
 
 This module was previously hosted on github.com/ingadhoc/odoo-addons and
