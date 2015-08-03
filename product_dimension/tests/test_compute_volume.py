@@ -18,6 +18,14 @@ from openerp.tests.common import TransactionCase
 
 class TestComputeVolume(TransactionCase):
 
+    def test_it_computes_volume_in_cm(self):
+        self.assertAlmostEqual(
+            0.2,
+            self.Product.onchange_calculate_volume(
+                10., 200., 100., self.uom_cm.id
+            )['value']['volume']
+        )
+
     def test_it_computes_volume_in_meters(self):
 
         self.assertAlmostEqual(
@@ -32,3 +40,4 @@ class TestComputeVolume(TransactionCase):
 
         self.Product = self.env['product.product']
         self.uom_m = self.env['product.uom'].search([('name', '=', 'm')])
+        self.uom_cm = self.env['product.uom'].search([('name', '=', 'cm')])
