@@ -15,7 +15,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
-    'name': 'Product Dimensions',
+    'name': 'Product Dimension',
     'version': '1.1',
     'category': 'Product',
     'author':  'ADHOC SA,Odoo Community Association (OCA)',
