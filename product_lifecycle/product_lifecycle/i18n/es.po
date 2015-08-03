@@ -1,28 +1,32 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_lifecycle
+# 	* product_lifecycle
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 18:15+0000\n"
-"PO-Revision-Date: 2015-06-01 18:15+0000\n"
+"PO-Revision-Date: 2015-08-03 16:07+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: product_lifecycle
 #: model:product.template,description_sale:product_lifecycle.product_product_4e_product_template
 #: model:product.template,description_sale:product_lifecycle.product_product_4f_product_template
 #: model:product.template,description_sale:product_lifecycle.product_product_4g_product_template
-msgid "7.9‑inch (diagonal) LED-backlit, 128Gb\n"
+msgid ""
+"7.9‑inch (diagonal) LED-backlit, 128Gb\n"
 "Dual-core A5 with quad-core graphics\n"
 "FaceTime HD Camera, 1.2 MP Photos"
-msgstr "Pantalla con retroiluminación LED de 7.9\", 128Gb\n"
+msgstr ""
+"Pantalla con retroiluminación LED de 7.9\", 128Gb\n"
 "Dual-core A5 con gráficos quad-core\n"
 "Cámara FaceTime HD, Fotos 1.2 MP"
 
@@ -30,7 +34,8 @@ msgstr "Pantalla con retroiluminación LED de 7.9\", 128Gb\n"
 #: model:product.template,website_description:product_lifecycle.product_product_4e_product_template
 #: model:product.template,website_description:product_lifecycle.product_product_4f_product_template
 #: model:product.template,website_description:product_lifecycle.product_product_4g_product_template
-msgid "<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
+msgid ""
+"<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
 "                    <div class=\"container\">\n"
 "                        <div class=\"row\">\n"
 "                            <div class=\"col-md-5 col-md-offset-1 mt64\">\n"
@@ -71,7 +76,8 @@ msgid "<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
 "                    </div>\n"
 "                </section>\n"
 "            "
-msgstr "<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
+msgstr ""
+"<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
 "                    <div class=\"container\">\n"
 "                        <div class=\"row\">\n"
 "                            <div class=\"col-md-5 col-md-offset-1 mt64\">\n"
@@ -153,8 +159,7 @@ msgid "Gray"
 msgstr "Gris"
 
 #. module: product_lifecycle
-#: field:replacement.product,id:0
-#: field:replacement.product.line,id:0
+#: field:replacement.product,id:0 field:replacement.product.line,id:0
 msgid "ID"
 msgstr "ID"
 
@@ -359,4 +364,3 @@ msgstr "con el producto"
 #: view:purchase.order:product_lifecycle.purchase_order_replacement_product_form
 msgid "{'required': [('discontinued_product_id', '!=', False)]}"
 msgstr "{'required': [('discontinued_product_id', '!=', False)]}"
-
