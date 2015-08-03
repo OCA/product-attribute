@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
+#    Copyright 2015 Camptocamp SA
 #    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
-#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -16,11 +16,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
     'name': 'Product Dimension',
-    'version': '1.1',
+    'version': '2.0',
     'category': 'Product',
-    'author':  'ADHOC SA,Odoo Community Association (OCA)',
+    'author':  'ADHOC SA,Camptocamp,Odoo Community Association (OCA)',
     'license': 'AGPL-3',
-    'website': 'www.adhoc.com.ar',
     'depends': ['product'],
     'data': ['product_view.xml'],
 }
