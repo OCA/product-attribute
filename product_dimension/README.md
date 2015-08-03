@@ -1,8 +1,8 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-Product Dimensions
-==================
+Product Dimension
+=================
 Add dimensions (length, width and height) products. Find the volume
 automatically when you change one of these dimensions.
 

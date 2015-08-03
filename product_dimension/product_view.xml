@@ -2,8 +2,8 @@
 <openerp>
   <data>
 
-    <record model="ir.ui.view" id="product_dimensions_normal_form_view">
-      <field name="name">product_dimensions_normal_form_view</field>
+    <record model="ir.ui.view" id="product_normal_form_view">
+      <field name="name">product_normal_form_view</field>
       <field name="model">product.product</field>
       <field name="inherit_id" ref="product.product_normal_form_view"/>
       <field name="arch" type="xml">
