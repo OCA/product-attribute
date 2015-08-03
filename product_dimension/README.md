@@ -28,6 +28,7 @@ Credits
 Contributors
 ------------
 * Juan Jose Scarafia <jjs@ingadhoc.com>
+* Leonardo Pistone <leonardo.pistone@camptocamp.com>
 
 Maintainer
 ----------

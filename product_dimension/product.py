@@ -1,55 +1,60 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in module root
-# directory
-##############################################################################
+#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    Copyright 2015 Camptocamp SA
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from openerp.osv import orm, fields
+from openerp import models, fields
+from openerp.api import multi
 
 
-class Product(orm.Model):
+class Product(models.Model):
     _inherit = 'product.product'
 
-    def onchange_calculate_volume(self, cr, uid, ids, length, heigth, width,
-                                  dimensional_uom_id, context=None):
-        v = {}
+    @multi
+    def compute_volume(self, length, heigth, width, dimensional_uom_id):
         if not length or not heigth or not width or not dimensional_uom_id:
-            volume = False
+            return False
         else:
-            dimensional_uom = self.pool.get('product.uom').browse(
-                cr, uid, dimensional_uom_id, context=context)
-            length_m = self.get_measure_in_meters(length, dimensional_uom)
-            heigth_m = self.get_measure_in_meters(heigth, dimensional_uom)
-            width_m = self.get_measure_in_meters(width, dimensional_uom)
-            if not length_m or not heigth_m or not width_m:
-                volume = False
-            else:
-                volume = length_m * heigth_m * width_m
-        v['volume'] = volume
-        return {'value': v}
+            dimensional_uom = self.env['product.uom'].browse(
+                dimensional_uom_id)
+            length_m = self.convert_to_meters(length, dimensional_uom)
+            heigth_m = self.convert_to_meters(heigth, dimensional_uom)
+            width_m = self.convert_to_meters(width, dimensional_uom)
+            return length_m * heigth_m * width_m
 
-    def get_measure_in_meters(self, measure, dimensional_uom):
-        if not dimensional_uom:
-            return None
+    @multi
+    def onchange_calculate_volume(self, length, heigth, width,
+                                  dimensional_uom_id):
+        return {'value':
+                {'volume': self.compute_volume(length, heigth, width,
+                                               dimensional_uom_id)}
+                }
 
-        measure = float(measure)
-        if dimensional_uom.name == 'm':
-            return measure
-        elif dimensional_uom.name == 'km':
-            return measure * 1000
-        elif dimensional_uom.name == 'cm':
-            return measure / 100
-        else:
-            return None
+    def convert_to_meters(self, measure, dimensional_uom):
+        UOM = self.env['product.uom']
+        uom_meters = UOM.search([('name', '=', 'm')])
+        return UOM._compute_qty_obj(from_unit=dimensional_uom,
+                                    qty=measure,
+                                    to_unit=uom_meters)
 
-    _columns = {
-        'length': fields.float('Length'),
-        'heigth': fields.float('Heigth', oldname='high'),
-        'width': fields.float('Width'),
-        'dimensional_uom': fields.many2one(
-            'product.uom',
-            'UdM dimensional',
-            domain="[('category_id.name', '=', 'Length / Distance')]",
-            help='UoM for length, heigth, width'),
-    }
+    length = fields.Float()
+    heigth = fields.Float(oldname='high')
+    width = fields.Float()
+    dimensional_uom = fields.Many2one(
+        'product.uom',
+        'Dimensional UoM',
+        domain="[('category_id.name', '=', 'Length / Distance')]",
+        help='UoM for length, heigth, width')
