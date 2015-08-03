@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="product_normal_form_view">
+      <field name="name">product_normal_form_view</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <group name="weight" position="before">
+          <group name="dimensions" string="Dimensions">
+            <field name="dimensional_uom_id"/>
+            <field name="length" attrs="{'readonly':[('type','=','service')]}"/>
+            <field name="height" attrs="{'readonly':[('type','=','service')]}"/>
+            <field name="width" attrs="{'readonly':[('type','=','service')]}"/>
+          </group>
+        </group>
+      </field>
+    </record>
+
+  </data>
+</openerp>
