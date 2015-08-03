@@ -5,12 +5,10 @@
 ##############################################################################
 
 
-from openerp.osv import osv
-from openerp.osv import fields
+from openerp.osv import orm, fields
 
 
-class Product(osv.osv):
-    _name = 'product.product'
+class Product(orm.Model):
     _inherit = 'product.product'
 
     def onchange_calculate_volume(self, cr, uid, ids, length, heigth, width,
