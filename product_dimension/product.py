@@ -44,11 +44,12 @@ class Product(models.Model):
                 }
 
     def convert_to_meters(self, measure, dimensional_uom):
-        UOM = self.env['product.uom']
-        uom_meters = UOM.search([('name', '=', 'm')])
-        return UOM._compute_qty_obj(from_unit=dimensional_uom,
-                                    qty=measure,
-                                    to_unit=uom_meters)
+        uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
+
+        return self.env['product.uom']._compute_qty_obj(
+            from_unit=dimensional_uom,
+            qty=measure,
+            to_unit=uom_meters)
 
     length = fields.Float()
     heigth = fields.Float(oldname='high')
