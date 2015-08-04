@@ -7,16 +7,18 @@
       <field name="model">product.product</field>
       <field name="inherit_id" ref="product.product_normal_form_view"/>
       <field name="arch" type="xml">
-        <field name="volume" position="before">
-          <field name="dimensional_uom"
-            on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-          <field name="length" attrs="{'readonly':[('type','=','service')]}"
-            on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-          <field name="heigth" attrs="{'readonly':[('type','=','service')]}"
-            on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-          <field name="width" attrs="{'readonly':[('type','=','service')]}"
-            on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-        </field>
+        <group name="weight" position="before">
+          <group name="dimensions" string="Dimensions">
+            <field name="dimensional_uom"
+              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
+            <field name="length" attrs="{'readonly':[('type','=','service')]}"
+              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
+            <field name="heigth" attrs="{'readonly':[('type','=','service')]}"
+              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
+            <field name="width" attrs="{'readonly':[('type','=','service')]}"
+              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
+          </group>
+        </group>
       </field>
     </record>
 
