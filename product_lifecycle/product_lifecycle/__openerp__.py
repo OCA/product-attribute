@@ -26,7 +26,7 @@
 {
     "name": "Product Lifecycle",
     "summary": "Manage replacement of discontinued products",
-    "version": "1.5",
+    "version": "1.6",
     "author": "Vauxoo",
     "website": "http://www.vauxoo.com/",
     "category": "product",
