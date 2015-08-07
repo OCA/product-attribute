@@ -9,14 +9,10 @@
       <field name="arch" type="xml">
         <group name="weight" position="before">
           <group name="dimensions" string="Dimensions">
-            <field name="dimensional_uom"
-              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-            <field name="length" attrs="{'readonly':[('type','=','service')]}"
-              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-            <field name="heigth" attrs="{'readonly':[('type','=','service')]}"
-              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
-            <field name="width" attrs="{'readonly':[('type','=','service')]}"
-              on_change="onchange_calculate_volume(length, heigth, width, dimensional_uom)"/>
+            <field name="dimensional_uom_id"/>
+            <field name="length" attrs="{'readonly':[('type','=','service')]}"/>
+            <field name="height" attrs="{'readonly':[('type','=','service')]}"/>
+            <field name="width" attrs="{'readonly':[('type','=','service')]}"/>
           </group>
         </group>
       </field>
