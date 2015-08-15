@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_supplierinfo_for_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-05 14:08+0000\n"
+"PO-Revision-Date: 2015-08-15 13:06+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.actions.act_window,help:product_supplierinfo_for_customer.product_supplierinfo_action
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new product.supplierinfo.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Kliknite za nov product.supplierinfo.\n"
+"                </p>\n"
+"            "
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+#: selection:product.supplierinfo,type:0 field:product.template,customer_ids:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
+msgid "Customers"
+msgstr "Kupci"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.actions.act_window,name:product_supplierinfo_for_customer.product_supplierinfo_action
+#: model:ir.ui.menu,name:product_supplierinfo_for_customer.product_supplierinfo_sale_menu
+msgid "Information about a product"
+msgstr "Podatki o proizvodu"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
+msgid "Information about a product supplier"
+msgstr "Podatki o dobavitelju proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_tree_view
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Partner"
+msgstr "Partner"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+msgid "Partner Product Code"
+msgstr "Partnerjeva koda proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+msgid "Partner Product Name"
+msgstr "Partnerjev naziv proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+msgid "Partner Unit of Measure"
+msgstr "Partnerjeva EM"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+#: selection:product.supplierinfo,type:0 field:product.template,supplier_ids:0
+msgid "Supplier"
+msgstr "Dobavitelj"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+msgid "Supplierinfo search"
+msgstr "Iskanje podatkov o dobavitelju"
+
+#. module: product_supplierinfo_for_customer
+#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
+#: field:product.supplierinfo,type:0
+msgid "Type"
+msgstr "Tip"
