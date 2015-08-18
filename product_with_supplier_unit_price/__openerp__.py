@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2010 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
@@ -19,18 +19,18 @@
 #
 ##############################################################################
 {
-    'name' : 'Supplier Unit Price',
+    'name': 'Supplier Unit Price',
     'summary': 'Supplier Unit Price on Product Form',
-    'version' : '8.0.1.0',
-    'author' : 'Savoir-faire Linux,GRAP,Odoo Community Association (OCA)',
-    'website' : 'https://odoo-community.org/',
-    'license' : 'GPL-3',
-    'category' : 'Product',
-    'depends' : [
+    'version': '8.0.1.0',
+    'author': 'Savoir-faire Linux,GRAP,Odoo Community Association (OCA)',
+    'website': 'https://odoo-community.org/',
+    'license': 'GPL-3',
+    'category': 'Product',
+    'depends': [
         'product',
     ],
-    'data' : [
-        'views/view.xml'
+    'data': [
+        'views/view.xml',
     ],
     'demo': [
         'demo/res_groups.yml',
