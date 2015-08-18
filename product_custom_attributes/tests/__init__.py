@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                      #
-#   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
+#   base_attribute.attributes for OpenERP                                     #
+#   Copyright (C) 2015 Odoo Community Association (OCA)                       #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
 #   it under the terms of the GNU Affero General Public License as            #
@@ -19,11 +19,8 @@
 #                                                                             #
 ###############################################################################
 
+from . import test_product_attribute
 
-
-import open_product_by_attribute_set
-
-
-
-
-
+checks = [
+    test_product_attribute,
+]
