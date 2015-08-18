@@ -19,8 +19,8 @@
 #
 ##############################################################################
 
-from osv import fields, osv
-from crm import crm
+from openerp.osv import fields, osv
+
 
 class product_supplierinfo(osv.osv):
     _inherit = "product.supplierinfo"
@@ -38,7 +38,3 @@ class product_supplierinfo(osv.osv):
     _columns = {
         'unit_price': fields.function(_compute_unit_price,string='Unit Price',type='float'),
     }
-
-product_supplierinfo()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
