@@ -19,22 +19,21 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from openerp import fields, api
+from openerp.models import Model
 
 
-class product_supplierinfo(osv.osv):
-    _inherit = "product.supplierinfo"
+class ProductSupplierinfo(Model):
+    _inherit = 'product.supplierinfo'
 
-    def _compute_unit_price(self, cr, uid, ids, fields, arg, context=None):
-        result = {}
-        for supplier in self.browse(cr, uid, ids, context=context):
-            for id in supplier.pricelist_ids:
-                if id.min_quantity == 1:
-                    result[supplier.id] = id.price
-                else:
-                    result[supplier.id] = False
-        return result
+    @api.multi
+    def _get_unit_price(self):
+        for supplierinfo in self:
+            unit_price = 0
+            for item in supplierinfo.pricelist_ids:
+                if item.min_quantity == 1:
+                    unit_price = item.price
+            supplierinfo.unit_price = unit_price
 
-    _columns = {
-        'unit_price': fields.function(_compute_unit_price,string='Unit Price',type='float'),
-    }
+    unit_price = fields.Float(
+        compute=_get_unit_price)
