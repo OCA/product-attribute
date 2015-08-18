@@ -11,6 +11,11 @@ This module displays the unit price directly on the product form by adding a
 function field to store the unit price to the supplierinfo object and adding
 it to its tree view.
 
+Screenshot
+==========
+
+.. image:: ./static/description/screenshot.png
+
 Bug Tracker
 ===========
 

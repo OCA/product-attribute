@@ -31,3 +31,11 @@
     product_code: Code / Mediapole
     product_name: Name / Mediapole
     product_tmpl_id: product_template_with_supplier_price
+
+- !record {model: product.supplierinfo, id: supplierinfo_china_export}:
+    name: base.res_partner_3
+    product_code: Code / China Export
+    product_name: Name / China Export
+    product_tmpl_id: product_template_with_supplier_price
+    
+    

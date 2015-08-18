@@ -34,8 +34,3 @@
     suppinfo_id: supplierinfo_mediapole
     min_quantity: 0
     price: 105
-
-- !record {model: pricelist.partnerinfo, id: pricelist_partnerinfo_mediapole_200}:
-    suppinfo_id: supplierinfo_mediapole
-    min_quantity: 200
-    price: 90
