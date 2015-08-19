@@ -35,28 +35,19 @@ class ProductSupplierinfo(Model):
             if len(supplierinfo.pricelist_ids) == 0:
                 supplierinfo.unit_price = 0
                 supplierinfo.unit_price_note = _('-')
-            elif len(supplierinfo.pricelist_ids) == 1:
-                item = supplierinfo.pricelist_ids[0]
-                supplierinfo.unit_price = item.price
-                if item.min_quantity not in (0, 1):
-                    supplierinfo.unit_price_note = _("%s (Min Qty: %s)" % (
-                        item.price, item.min_quantity))
-                else:
-                    supplierinfo.unit_price_note = item.price
             else:
-                min_qty = max_qty = supplierinfo.pricelist_ids[0].min_quantity
-                min_price = max_price = supplierinfo.pricelist_ids[0].price
-                for item in supplierinfo.pricelist_ids:
-                    if item.min_quantity < min_qty:
-                        min_qty = item.min_quantity
-                        min_price = item.price
-                    if item.min_quantity > max_qty:
-                        max_qty = item.min_quantity
-                        max_price = item.price
-                supplierinfo.unit_price = min_price
-                supplierinfo.unit_price_note = _(
-                    "%s (Min Qty: %s) >> %s (Min Qty: %s)" % (
-                        min_price, min_qty, max_price, max_qty))
+                txt = ''
+                size = len(supplierinfo.pricelist_ids)
+                for i in range(size - 1):
+                    txt += '%s - %s :  %s\n' % (
+                        supplierinfo.pricelist_ids[i].min_quantity,
+                        supplierinfo.pricelist_ids[i + 1].min_quantity,
+                        supplierinfo.pricelist_ids[i].price)
+                txt += '>=%s : %s' % (
+                    supplierinfo.pricelist_ids[size - 1].min_quantity,
+                    supplierinfo.pricelist_ids[size - 1].price)
+                supplierinfo.unit_price = supplierinfo.pricelist_ids[0].price
+                supplierinfo.unit_price_note = txt
 
     unit_price_note = fields.Char(
         compute=_get_unit_price, multi='unit_price', string='Unit Price')
