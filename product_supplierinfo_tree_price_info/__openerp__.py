@@ -24,7 +24,7 @@
     'version': '8.0.1.0',
     'author': 'Savoir-faire Linux,GRAP,Odoo Community Association (OCA)',
     'website': 'https://odoo-community.org/',
-    'license': 'GPL-3',
+    'license': 'AGPL-3',
     'category': 'Product',
     'depends': [
         'product',
