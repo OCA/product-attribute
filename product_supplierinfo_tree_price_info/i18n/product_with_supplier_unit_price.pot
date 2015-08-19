@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_with_supplier_unit_price
+#	* product_supplierinfo_tree_price_info
 #
 msgid ""
 msgstr ""
@@ -15,25 +15,25 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: product_with_supplier_unit_price
-#: code:addons/product_with_supplier_unit_price/models/product_supplierinfo.py:43
+#. module: product_supplierinfo_tree_price_info
+#: code:addons/product_supplierinfo_tree_price_info/models/product_supplierinfo.py:43
 #, python-format
 msgid "%s (Min Qty: %s)"
 msgstr ""
 
-#. module: product_with_supplier_unit_price
-#: code:addons/product_with_supplier_unit_price/models/product_supplierinfo.py:59
+#. module: product_supplierinfo_tree_price_info
+#: code:addons/product_supplierinfo_tree_price_info/models/product_supplierinfo.py:59
 #, python-format
 msgid "%s (Min Qty: %s) >> %s (Min Qty: %s)"
 msgstr ""
 
-#. module: product_with_supplier_unit_price
-#: model:ir.model,name:product_with_supplier_unit_price.model_product_supplierinfo
+#. module: product_supplierinfo_tree_price_info
+#: model:ir.model,name:product_supplierinfo_tree_price_info.model_product_supplierinfo
 msgid "Information about a product supplier"
 msgstr ""
 
-#. module: product_with_supplier_unit_price
-#: model:product.template,name:product_with_supplier_unit_price.product_template_with_supplier_price
+#. module: product_supplierinfo_tree_price_info
+#: model:product.template,name:product_supplierinfo_tree_price_info.product_template_with_supplier_price
 msgid "Product Template With Supplier Price"
 msgstr ""
 
