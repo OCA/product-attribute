@@ -24,4 +24,3 @@ from . import (
     pricelist,
     transient,
 )
-
