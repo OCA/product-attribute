@@ -47,7 +47,7 @@ class ProductPriceitemTransient(models.TransientModel):
                 ('id', 'in', product_ids)]):
             info = prd.name
             if prd.default_code:
-                '%s, %s' % (prd.default_code, prd.name)
+                info = '%s, %s' % (prd.default_code, prd.name)
             elm.append(info)
         return '\n'.join(elm)
 
@@ -59,14 +59,12 @@ class ProductPriceitemTransient(models.TransientModel):
             raise exceptions.Warning(_("No product ids"))
         # TODO FIX: context['price_version_id'] is not propagated until here
         # extracted the value from active_domain below
-        print context
         price_version_id = context.get('active_domain', False)
         if not price_version_id:
             raise exceptions.Warning(_("No version %s" % context))
         mode = 'apply_existing_items'
         if price_version_id[0] == '|':
             mode = 'apply_new_items'
-        print 'price_version_id', price_version_id
         if mode == 'apply_new_items':
             price_version_id = price_version_id[2][2]
         else:
