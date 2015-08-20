@@ -68,7 +68,6 @@ class ProductPricelistVersion(models.Model):
     price_grid = fields.Boolean(
         related='pricelist_id.price_grid',
         domain=[('price_surcharge', '=', 0)],
-        #readonly=True,
         store=True,
         help=PRICE_GRID_HELP)
     product_in_count = fields.Integer(
@@ -98,7 +97,6 @@ class ProductPricelistVersion(models.Model):
     @api.multi
     def button_template_out_version(self):
         return self.goto_products_from_version('product.template', 'out')
-            # 'context': self.env[model].with_context(price_version_id=self.id)
 
     @api.model
     def goto_products_from_version(self, model, direction):
