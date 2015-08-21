@@ -30,7 +30,7 @@ class ProductSupplierinfo(Model):
     _inherit = 'product.supplierinfo'
 
     @api.multi
-    def _get_unit_price(self):
+    def _compute_unit_price(self):
         for supplierinfo in self:
             if len(supplierinfo.pricelist_ids) == 0:
                 supplierinfo.unit_price = 0
@@ -50,10 +50,10 @@ class ProductSupplierinfo(Model):
                 supplierinfo.unit_price_note = txt
 
     unit_price_note = fields.Char(
-        compute='_get_unit_price', multi='unit_price', string='Unit Price')
+        compute='_compute_unit_price', multi='unit_price', string='Unit Price')
 
     unit_price = fields.Float(
-        compute='_get_unit_price', multi='unit_price',
+        compute='_compute_unit_price', multi='unit_price',
         help="""Purchase Price of the product for this supplier. \n If many"""
         """ prices are defined, The price will be the price associated with"""
         """ the smallest quantity.""")
