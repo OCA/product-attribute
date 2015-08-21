@@ -34,7 +34,7 @@ class ProductSupplierinfo(Model):
         for supplierinfo in self:
             if len(supplierinfo.pricelist_ids) == 0:
                 supplierinfo.unit_price = 0
-                supplierinfo.unit_price_note = _('-')
+                supplierinfo.unit_price_note = '-'
             else:
                 txt = ''
                 size = len(supplierinfo.pricelist_ids)
