@@ -23,7 +23,6 @@
 
 from openerp import fields, api
 from openerp.models import Model
-from openerp.tools.translate import _
 
 
 class ProductSupplierinfo(Model):
