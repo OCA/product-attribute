@@ -30,7 +30,7 @@
         'product',
     ],
     'data': [
-        'views/view.xml',
+        'views/product_supplierinfo.xml',
     ],
     'demo': [
         'demo/res_groups.yml',
