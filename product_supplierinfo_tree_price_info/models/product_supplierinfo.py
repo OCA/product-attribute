@@ -37,10 +37,12 @@ class ProductSupplierinfo(Model):
             else:
                 txt = ''
                 size = len(supplierinfo.pricelist_ids)
+                uom_precision = supplierinfo.product_tmpl_id.uom_id.rounding
                 for i in range(size - 1):
                     txt += '%s - %s :  %s\n' % (
                         supplierinfo.pricelist_ids[i].min_quantity,
-                        supplierinfo.pricelist_ids[i + 1].min_quantity,
+                        supplierinfo.pricelist_ids[i + 1].min_quantity
+                            - uom_precision,
                         supplierinfo.pricelist_ids[i].price)
                 txt += '>=%s : %s' % (
                     supplierinfo.pricelist_ids[size - 1].min_quantity,
