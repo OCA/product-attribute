@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Products Manufacturers',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'author': "OpenERP SA,Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'contributors': ['Acysos SL <info@acysos.com>'],
