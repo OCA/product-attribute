@@ -115,6 +115,7 @@
 
         <record id="product_supplierinfo_action" model="ir.actions.act_window">
             <field name="name">Information about a product (customer)</field>
+            <field name="name">Information about a product (customer)</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">product.supplierinfo</field>
             <field name="view_mode">tree,form</field>
