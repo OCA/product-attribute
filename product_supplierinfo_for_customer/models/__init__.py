@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,3 +19,4 @@
 from . import product_supplierinfo
 from . import product_template
 from . import res_partner
+from . import product_pricelist
