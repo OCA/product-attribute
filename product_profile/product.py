@@ -92,16 +92,10 @@ class ProductMixinProfile(models.AbstractModel):
                 if field not in fields_to_exclude]
 
     @api.onchange('profile_id')
-    def _onchange_from_profile(self, vals=None):
+    def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
         defaults = {}
-        to_play = False
         profile = None
-        if vals and vals.get('profile_id'):
-            # in case of creation by script
-            to_play = True
-            profile = self.env['product.profile'].search(
-                [('id', '=', vals['profile_id'])])
         for field in self._fields_to_populate(self.profile_id):
             if self.profile_id:
                 try:
@@ -110,23 +104,32 @@ class ProductMixinProfile(models.AbstractModel):
                     raise Warning(format_except_message(e, field, self))
                 except Exception as e:
                     raise Warning("%s" % e)
-            elif to_play:
-                value = profile[field]
-                if self._fields[field].type == 'many2many':
-                    x2many_ids = [x.id for x in profile[field]]
-                    value = [(6, 0, x2many_ids)]
-                defaults.update({field: value})
             else:
                 # also on field initialisation
                 self[field] = False
-        return defaults
+
+    @api.model
+    def _update_profile_onchange(self, vals):
+        all_vals = dict({f:self[f] for f in self._fields}, **vals)
+        onchange_vals = self.onchange(
+            all_vals, ['profile_id'], {'profile_id': '1'})
+        return dict(onchange_vals['value'], **vals)
 
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            defaults = self._onchange_from_profile(vals)
-            vals = dict(defaults, **vals)
+            vals = self._update_profile_onchange(vals)
         return super(ProductMixinProfile, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('profile_id'):
+            for record in self:
+                vals = record._update_profile_onchange(vals)
+                super(ProductMixinProfile, record).write(vals)
+            return True
+        else:
+            return super(ProductMixinProfile, self).write(vals)
 
     @api.model
     def _get_profiles_to_filter(self):
