@@ -81,52 +81,52 @@ class ProductMixinProfile(models.AbstractModel):
     def _get_profile_fields_to_exclude(self):
         # These fields must not be synchronized between product.profile
         # and product.template
-        return ['name', 'explanation', 'sequence',
-                'display_name', '__last_update']
+        return models.MAGIC_COLUMNS + [
+            'name', 'explanation', 'sequence',
+            'display_name', '__last_update']
 
     @api.model
-    def _fields_to_populate(self, profile):
-        fields_to_exclude = self._get_profile_fields_to_exclude()
-        fields_to_exclude.extend(models.MAGIC_COLUMNS)
-        return [field for field in profile._fields.keys()
+    def _get_profile_fields(self):
+        fields_to_exclude = set(self._get_profile_fields_to_exclude())
+        return [field for field in self.env['product.profile']._fields.keys()
                 if field not in fields_to_exclude]
 
+    @api.model
+    def _get_profile_data(self, profile_id):
+        profile_obj = self.env['product.profile']
+        fields = self._get_profile_fields()
+        if profile_id:
+            profile = profile_obj.browse(profile_id).read(fields)[0]
+            profile.pop('id')
+            for field, value in profile.items():
+                if profile_obj._fields[field].type in ('many2many'):
+                    profile[field] = [(6, 0, value)]
+            return profile
+        else:
+            return { field: None for field in fields }
+
     @api.onchange('profile_id')
-    def _onchange_from_profile(self, vals=None):
+    def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
-        defaults = {}
-        to_play = False
-        profile = None
-        if vals and vals.get('profile_id'):
-            # in case of creation by script
-            to_play = True
-            profile = self.env['product.profile'].search(
-                [('id', '=', vals['profile_id'])])
-        for field in self._fields_to_populate(self.profile_id):
-            if self.profile_id:
-                try:
-                    self[field] = self.profile_id[field]
-                except ValueError as e:
-                    raise Warning(format_except_message(e, field, self))
-                except Exception as e:
-                    raise Warning("%s" % e)
-            elif to_play:
-                value = profile[field]
-                if self._fields[field].type == 'many2many':
-                    x2many_ids = [x.id for x in profile[field]]
-                    value = [(6, 0, x2many_ids)]
-                defaults.update({field: value})
-            else:
-                # also on field initialisation
-                self[field] = False
-        return defaults
+        for field, value in self._get_profile_data(self.profile_id.id).items():
+            try:
+                self[field] = self.profile_id[field]
+            except ValueError as e:
+                raise Warning(format_except_message(e, field, self))
+            except Exception as e:
+                raise Warning("%s" % e)
 
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            defaults = self._onchange_from_profile(vals)
-            vals = dict(defaults, **vals)
+            vals.update(self._get_profile_data(vals['profile_id']))
         return super(ProductMixinProfile, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('profile_id'):
+            vals.update(self._get_profile_data(vals['profile_id']))
+        return super(ProductMixinProfile, self).write(vals)
 
     @api.model
     def _get_profiles_to_filter(self):
@@ -145,11 +145,14 @@ class ProductMixinProfile(models.AbstractModel):
     def _customize_view(self, res, view_type):
         profile_group = self.env.ref('product_profile.group_product_profile')
         users_in_profile_group = [user.id for user in profile_group.users]
-        if view_type == 'form' and self.env.uid not in users_in_profile_group:
+        if view_type == 'form':
             doc = etree.XML(res['arch'])
-            fields = self._fields_to_populate(self.profile_id)
+            fields = self._get_profile_fields()
             fields_def = self.fields_get(allfields=fields)
-            attrs = "{'invisible': [('profile_id', '!=', False)]}"
+            if self.env.uid not in users_in_profile_group:
+                attrs = {'invisible': [('profile_id', '!=', False)]}
+            else:
+                attrs = {'readonly': [('profile_id', '!=', False)]}
             paths = ["//field[@name='%s']",
                      "//label[@for='%s']"]
             for field in fields:
@@ -157,11 +160,11 @@ class ProductMixinProfile(models.AbstractModel):
                     node = doc.xpath(path % field)
                     if node:
                         for current_node in node:
-                            current_node.set('attrs', attrs)
+                            current_node.set('attrs', str(attrs))
                             orm.setup_modifiers(current_node,
                                                 fields_def[field])
             res['arch'] = etree.tostring(doc, pretty_print=True)
-        if view_type == 'search':
+        elif view_type == 'search':
             # Allow to dynamically create search filters for each profile
             filters_to_create = self._get_profiles_to_filter()
             doc = etree.XML(res['arch'])
