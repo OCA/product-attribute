@@ -35,6 +35,8 @@ Known issues / Roadmap
 * The product code / product name specified for the customer will not be
   reflected on the sale orders.
 * The minimum quantity will not also be applied on sale orders.
+* Computed fields in product.supplierinfo object won't properly work for
+  customer type
 
 Credits
 =======
@@ -43,4 +45,3 @@ Contributors
 ------------
 * Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-
