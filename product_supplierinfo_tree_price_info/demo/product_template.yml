@@ -20,6 +20,42 @@
 #
 ##############################################################################
 
+# Model: product.template
 - !record {model: product.template, id: product_template_with_supplier_price}:
     name: Product Template With Supplier Price
     sale_ok: true
+
+# Model: product.supplierinfo
+- !record {model: product.supplierinfo, id: supplierinfo_spark_system}:
+    name: base.res_partner_16
+    product_code: Code / Spark System
+    product_name: Name / Spark System
+    product_tmpl_id: product_template_with_supplier_price
+
+- !record {model: product.supplierinfo, id: supplierinfo_mediapole}:
+    name: base.res_partner_8
+    product_code: Code / Mediapole
+    product_name: Name / Mediapole
+    product_tmpl_id: product_template_with_supplier_price
+
+- !record {model: product.supplierinfo, id: supplierinfo_china_export}:
+    name: base.res_partner_3
+    product_code: Code / China Export
+    product_name: Name / China Export
+    product_tmpl_id: product_template_with_supplier_price
+
+# Model: pricelist.partnerinfo
+- !record {model: pricelist.partnerinfo, id: pricelist_partnerinfo_spark_system_1}:
+    suppinfo_id: supplierinfo_spark_system
+    min_quantity: 1
+    price: 100
+
+- !record {model: pricelist.partnerinfo, id: pricelist_partnerinfo_spark_system_50}:
+    suppinfo_id: supplierinfo_spark_system
+    min_quantity: 50
+    price: 95
+
+- !record {model: pricelist.partnerinfo, id: pricelist_partnerinfo_mediapole_0}:
+    suppinfo_id: supplierinfo_mediapole
+    min_quantity: 0
+    price: 105

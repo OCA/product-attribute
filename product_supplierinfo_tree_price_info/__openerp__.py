@@ -35,7 +35,5 @@
     'demo': [
         'demo/res_groups.yml',
         'demo/product_template.yml',
-        'demo/product_supplierinfo.yml',
-        'demo/pricelist_partnerinfo.yml',
     ],
 }
