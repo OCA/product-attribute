@@ -1,0 +1,66 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* product_standard_price_vat_incl
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-13 15:07+0000\n"
+"PO-Revision-Date: 2015-01-13 15:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_standard_price_vat_incl
+#: model:account.tax,name:product_standard_price_vat_incl.account_tax_vat_incl
+msgid "Account Tax 15% VAT Included"
+msgstr "Taxe à 15% TVA Inclue"
+
+#. module: product_standard_price_vat_incl
+#: model:product.price.type,name:product_standard_price_vat_incl.standard_price_vat_incl
+msgid "Cost Price VAT Included"
+msgstr "Prix de revient TVA Inclue"
+
+#. module: product_standard_price_vat_incl
+#: field:product.template,standard_price_vat_incl:0
+msgid "Cost VAT Included"
+msgstr "Coût TVA Inclue"
+
+#. module: product_standard_price_vat_incl
+#: help:product.template,standard_price_vat_incl:0
+msgid "Cost price of the product based on:\n"
+"* Cost;\n"
+"* Customer Taxes;\n"
+"This cost will be Cost x Taxes and works only if you have set Taxes with VAT include in the price"
+msgstr "Prix de revient du produit basé sur :\n"
+"* Prix de revient ;\n"
+"* Les Taxes Clients ;\n"
+"Le coût sera égal au coût x Taxes et fonctionnent seulement si vous avez paramétrer les taxes avec des TVA inclue dans le prix"
+
+#. module: product_standard_price_vat_incl
+#: model:product.template,name:product_standard_price_vat_incl.product_product_product_template
+#: model:product.template,name:product_standard_price_vat_incl.product_template
+msgid "Product Product"
+msgstr "Produit"
+
+#. module: product_standard_price_vat_incl
+#: code:_description:0
+#: model:ir.model,name:product_standard_price_vat_incl.model_product_template
+#, python-format
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: product_standard_price_vat_incl
+#: model:product.pricelist.version,name:product_standard_price_vat_incl.pricelist_version_standard_price_vat_incl
+msgid "Sale Price List Version based on Cost VAT Included"
+msgstr "Version de liste de prix de vente basé sur le prix de revient TVA Inclue"
+
+#. module: product_standard_price_vat_incl
+#: model:product.pricelist,name:product_standard_price_vat_incl.pricelist_standard_price_vat_incl
+msgid "Sale Price List based on Cost VAT Included"
+msgstr "liste de prix de vente basé sur le prix de revient TVA Inclue"
+
