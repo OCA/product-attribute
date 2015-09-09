@@ -22,28 +22,11 @@
 
 {
     'name': 'Product - Standard Price VAT Included',
-    'version': '0.1',
+    'version': '8.0.1.0.0',
     'category': 'Product',
-    'description': """
-This module brings an standard Price with VAT Included
-======================================================
-
-This module is interesting in the following case:
-    * You use VAT With Price Included;
-    * You want to create price list based on standard Price;
-
-Without this module, the sale price (with a price list based on standard price)
-will be bad, because the VAT will be not correctly computed;
-
-Copyright, Author and Licence :
--------------------------------
-    * Copyright : 2015, Groupement Régional Alimentaire de Proximité;
-    * Author :
-        * Sylvain LE GAL (https://twitter.com/legalsylvain);
-    * Licence : AGPL-3 (http://www.gnu.org/licenses/)
-    """,
-    'author': 'GRAP',
-    'website': 'http://www.grap.coop',
+    'summary': 'Brings a standard Price with VAT Included',
+    'author': 'GRAP,Odoo Community Association (OCA)',
+    'website': 'http://www.odoo-community.org',
     'license': 'AGPL-3',
     'depends': [
         'product',

@@ -20,52 +20,24 @@
 #
 ##############################################################################
 
-
-from openerp.osv import fields
-from openerp.osv.orm import Model
+from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 
 
-class product_template(Model):
+class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    def _get_template_from_product(self, cr, uid, ids, context=None):
-        """Find the products to trigger when a Tax changes"""
-        product_obj = self.pool['product.product']
-        products = product_obj.browse(cr, uid, ids, context=context)
-        res = [x.product_tmpl_id.id for x in products]
-        return res
+    # Column Section
+    standard_price_vat_incl = fields.Float(
+        compute='_compute_standard_price_vat_incl', string='Cost VAT Included',
+        store=True, digits_compute=dp.get_precision('Product Price'),
+        help="Cost price of the product:\n"
+        "This cost will be 'Cost Price' x 'Customers Taxes'")
 
-    def _get_standard_price_vat_incl(
-            self, cr, uid, ids, name, arg, context=None):
-        res = {}
-        at_obj = self.pool['account.tax']
-        for pt in self.browse(cr, uid, ids, context=context):
-            taxes = at_obj.compute_all(
-                cr, uid, pt.taxes_id, pt.standard_price, 1,
-                force_excluded=True)
-            res[pt.id] = taxes['total_included']
-        return res
-
-    _columns = {
-        'standard_price_vat_incl': fields.function(
-            _get_standard_price_vat_incl, string='Cost VAT Included',
-            type='float', digits_compute=dp.get_precision('Product Price'),
-            help="""Cost price of the product based on:\n"""
-            """* Cost;\n"""
-            """* Customer Taxes;\n"""
-            """This cost will be Cost x Taxes and works only if you have"""
-            """ set Taxes with VAT include in the price""",
-            method=True, store={
-                'product.product': (
-                    _get_template_from_product, [
-                        'standard_price',
-                        'taxes_id',
-                    ], 10),
-                'product.template': (
-                    lambda self, cr, uid, ids, context=None: ids, [
-                        'standard_price',
-                        'taxes_id',
-                    ], 10),
-            }),
-    }
+    @api.one
+    @api.depends(
+        'standard_price', 'taxes_id', 'taxes_id.type', 'taxes_id.amount')
+    def _compute_standard_price_vat_incl(self):
+        taxes = self.env['account.tax'].browse(self.taxes_id.ids)
+        info = taxes.compute_all(self.standard_price, 1, force_excluded=True)
+        self.standard_price_vat_incl = info['total_included']

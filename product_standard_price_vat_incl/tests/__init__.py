@@ -22,7 +22,3 @@
 
 
 from . import test_product_standard_price_vat_incl
-
-fast_suite = [
-    test_product_standard_price_vat_incl,
-]
