@@ -21,4 +21,4 @@
 ##############################################################################
 
 
-from . import test_product_standard_price_vat_incl
+from . import tests
