@@ -28,46 +28,44 @@ class TestProductStandardPriceVATIncluded(TransactionCase):
 
     def setUp(self):
         super(TestProductStandardPriceVATIncluded, self).setUp()
-        cr, uid = self.cr, self.uid
 
-        self.imd_obj = self.registry('ir.model.data')
-        self.so_obj = self.registry('sale.order')
-        self.sol_obj = self.registry('sale.order.line')
-        self.partner_id = self.imd_obj.get_object_reference(
-            cr, uid, 'product_standard_price_vat_incl',
-            'partner_with_pricelist')[1]
-        self.pricelist_id = self.imd_obj.get_object_reference(
-            cr, uid, 'product_standard_price_vat_incl',
-            'pricelist_standard_price_vat_incl')[1]
-        self.product_id = self.imd_obj.get_object_reference(
-            cr, uid, 'product_standard_price_vat_incl',
-            'product_product')[1]
+        self.order_obj = self.env['sale.order']
+        self.order_line_obj = self.env['sale.order.line']
+
+        self.partner_id = self.ref(
+            'product_standard_price_vat_incl.partner_with_pricelist')
+        self.product_id = self.ref(
+            'product_standard_price_vat_incl.product_product')
+        self.pricelist_id = self.ref(
+            'product_standard_price_vat_incl.pricelist_price_vat_incl')
 
     # Test Section
     def test_01_correct_vat_compute(self):
         """Test if the total of a sale order is correct with price
         based on Price List VAT Included."""
-        cr, uid = self.cr, self.uid
-        so_id = self.so_obj.create(cr, uid, {
+
+        # Create an Order
+        order = self.order_obj.create({
             'partner_id': self.partner_id,
             'partner_invoice_id': self.partner_id,
             'partner_shipping_id': self.partner_id,
             'pricelist_id': self.pricelist_id,
         })
 
-        res = self.sol_obj.product_id_change(
-            cr, uid, [], self.pricelist_id, self.product_id, qty=1,
+        # Create an Order line with a product with VAT Included
+        res = self.order_line_obj.product_id_change(
+            self.pricelist_id, self.product_id, qty=1,
             partner_id=self.partner_id)
-        self.sol_obj.create(cr, uid, {
+        self.order_line_obj.create({
             'name': 'Sale Order Line Name',
-            'order_id': so_id,
+            'order_id': order.id,
             'product_id': self.product_id,
             'tax_id': res['value']['tax_id'],
             'product_uom_qty': 1,
             'price_unit': res['value']['price_unit'],
         })
 
-        so = self.so_obj.browse(cr, uid, so_id)
+        order = self.order_obj.browse(order.id)
         self.assertEquals(
-            so.amount_total, 11.5,
-            """Computation of Price based on Cost VAT Included incorrect.""")
+            order.amount_total, 11.5,
+            "Computation of Price based on Cost VAT Included incorrect.")

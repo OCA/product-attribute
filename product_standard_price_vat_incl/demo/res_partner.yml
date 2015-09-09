@@ -23,4 +23,4 @@
 - !record {model: res.partner, id: partner_with_pricelist}:
     name: Partner With Pricelist
     customer: True
-    property_product_pricelist: pricelist_standard_price_vat_incl
+    property_product_pricelist: pricelist_price_vat_incl
