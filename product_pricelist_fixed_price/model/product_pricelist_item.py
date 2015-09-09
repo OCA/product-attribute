@@ -34,8 +34,10 @@ class ProductPricelistItem(models.Model):
     base_ext = fields.Selection(selection='_price_field_get_ext',
                                 string='Based on',
                                 required=True,
-                                default=-1,
-                                help="Base price for computation")
+                                default=lambda self:
+                                    self.default_get(
+                                        fields_list=['base'])['base'],
+                                    help="Base price for computation")
 
     @api.onchange('base_ext')
     def change_base_ext(self):

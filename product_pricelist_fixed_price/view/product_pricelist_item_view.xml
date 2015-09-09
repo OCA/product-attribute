@@ -31,7 +31,7 @@
                     <attribute name="invisible">True</attribute>
                 </field>
                 <field name="base_pricelist_id" position="before">
-                    <field name="base_ext" on_change="onchange_base_ext(base_ext)"/>
+                    <field name="base_ext"/>
                 </field>
                 <label string="Base Price" position="attributes">
                     <attribute name="attrs">{'invisible': [('base_ext', '=', -3)]}</attribute>
