@@ -50,3 +50,16 @@ class Product(models.Model):
         'Dimensional UoM',
         domain="[('category_id.name', '=', 'Length / Distance')]",
         help='UoM for length, height, width')
+
+
+class Product_template(models.Model):
+
+    _inherit = 'product.template'
+
+    length = fields.Float(related='product_variant_ids.length')
+    height = fields.Float(related='product_variant_ids.height', oldname='high')
+    width = fields.Float(related='product_variant_ids.width')
+    dimensional_uom_id = fields.Many2one(
+        'product.uom',
+        'Dimensional UoM', related='product_variant_ids.dimensional_uom_id',
+        help='UoM for length, height, width')
