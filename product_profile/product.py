@@ -93,11 +93,14 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _get_profile_data(self, profile_id):
+        profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
         if profile_id:
-            profile = self.env['product.profile']\
-                .browse(profile_id).read(fields)[0]
+            profile = profile_obj.browse(profile_id).read(fields)[0]
             profile.pop('id')
+            for field, value in profile.items():
+                if profile_obj._fields[field].type in ('many2many'):
+                    profile[field] = [(6, 0, value)]
             return profile
         else:
             return { field: None for field in fields }
