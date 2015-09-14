@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 ##############################################################################
 #
 #    Author: Sylvain CALADOR
@@ -25,18 +25,22 @@ from openerp import models, fields
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    def _set_pricelist_grid_info(self, version):
+        return {
+            'price_version_id': version.id,
+            'price_discount': -1,
+            'price_surcharge': 0.0,  # override me
+            'sequence': 1,
+            'base': 1,
+        }
+
     def default_pricelist_item_ids(self):
         """ You may inherit it """
         versions = self.env['product.pricelist.version'].search(
             [('pricelist_id.price_grid', '=', True)])
         res = []
-        for vers in versions:
-            res.append({
-                'price_version_id': vers.id,
-                'price_discount': -1,
-                'sequence': 1,
-                'base': 1,
-            })
+        for version in versions:
+            res.append(self._set_pricelist_grid_info(version))
         return res
 
     def _default_pricelist_item_ids(self):
