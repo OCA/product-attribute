@@ -27,7 +27,7 @@ class ProductPricelistItem(models.Model):
     _inherit = 'product.pricelist.item'
 
     def _price_field_get_ext(self):
-        result = super(ProductPricelistItem, self)._price_field_get()
+        result = self._price_field_get()
         result.append((-3, _('Fixed Price')))
         return result
 
