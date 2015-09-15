@@ -57,7 +57,7 @@ class Product_template(models.Model):
     _inherit = 'product.template'
 
     length = fields.Float(related='product_variant_ids.length')
-    height = fields.Float(related='product_variant_ids.height', oldname='high')
+    height = fields.Float(related='product_variant_ids.height')
     width = fields.Float(related='product_variant_ids.width')
     dimensional_uom_id = fields.Many2one(
         'product.uom',
