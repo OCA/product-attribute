@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Product - Standard Price VAT Included Module for Odoo
+#    Product - Cost Price Tax Included Module for Odoo
 #    Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
@@ -20,18 +20,9 @@
 #
 ##############################################################################
 
-- !record {model: res.groups, id: base.group_no_one}:
-    users:
-        - base.user_root
-
-- !record {model: res.groups, id: base.group_sale_manager}:
-    users:
-        - base.user_root
-
-- !record {model: res.groups, id: product.group_sale_pricelist}:
-    users:
-        - base.user_root
-
-- !record {model: res.groups, id: account.group_account_manager}:
-    users:
-        - base.user_root
+- !record {model: account.tax, id: account_tax_tax_included}:
+    name: Sale Tax 15% (Tax Included)
+    type_tax_use: sale
+    type: percent
+    amount: 0.15
+    price_include: True

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ********************************************************************** -->
-<!--Product - Standard Price VAT Included Module for Odoo                   -->
+<!--Product - Cost Price Tax Included Module for Odoo                       -->
 <!--Copyright (C) 2015-Today GRAP (http://www.grap.coop)                    -->
 <!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
 
@@ -26,7 +26,7 @@
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <field name="standard_price" position="after">
-                    <field name="standard_price_vat_incl" groups="base.group_no_one"/>
+                    <field name="standard_price_tax_included" groups="base.group_no_one"/>
                 </field>
             </field>
         </record>
@@ -37,12 +37,10 @@
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
                 <field name="standard_price" position="after">
-                    <field name="standard_price_vat_incl" groups="base.group_no_one"/>
+                    <field name="standard_price_tax_included" groups="base.group_no_one"/>
                 </field>
             </field>
         </record>
-        
-        
-         
+
     </data>
 </openerp>

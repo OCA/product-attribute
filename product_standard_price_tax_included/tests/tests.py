@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Product - Standard Price VAT Included Module for Odoo
+#    Product - Cost Price Tax Included Module for Odoo
 #    Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
@@ -23,26 +23,26 @@
 from openerp.tests.common import TransactionCase
 
 
-class TestProductStandardPriceVATIncluded(TransactionCase):
-    """Tests for 'Product Standard Price VAT Included' Module"""
+class TestProductStandardPriceTaxIncluded(TransactionCase):
+    """Tests for 'Cost Price Tax Included' Module"""
 
     def setUp(self):
-        super(TestProductStandardPriceVATIncluded, self).setUp()
+        super(TestProductStandardPriceTaxIncluded, self).setUp()
 
         self.order_obj = self.env['sale.order']
         self.order_line_obj = self.env['sale.order.line']
 
         self.partner_id = self.ref(
-            'product_standard_price_vat_incl.partner_with_pricelist')
+            'product_standard_price_tax_included.partner_with_pricelist')
         self.product_id = self.ref(
-            'product_standard_price_vat_incl.product_product')
+            'product_standard_price_tax_included.product_product')
         self.pricelist_id = self.ref(
-            'product_standard_price_vat_incl.pricelist_price_vat_incl')
+            'product_standard_price_tax_included.pricelist_price_tax_included')
 
     # Test Section
-    def test_01_correct_vat_compute(self):
+    def test_01_correct_tax_compute(self):
         """Test if the total of a sale order is correct with price
-        based on Price List VAT Included."""
+        based on Price List Tax Included."""
 
         # Create an Order
         order = self.order_obj.create({
@@ -52,7 +52,7 @@ class TestProductStandardPriceVATIncluded(TransactionCase):
             'pricelist_id': self.pricelist_id,
         })
 
-        # Create an Order line with a product with VAT Included
+        # Create an Order line with a product with Tax Included
         res = self.order_line_obj.product_id_change(
             self.pricelist_id, self.product_id, qty=1,
             partner_id=self.partner_id)
@@ -68,4 +68,4 @@ class TestProductStandardPriceVATIncluded(TransactionCase):
         order = self.order_obj.browse(order.id)
         self.assertEquals(
             order.amount_total, 11.5,
-            "Computation of Price based on Cost VAT Included incorrect.")
+            "Computation of Price based on Cost Price Tax Included incorrect.")

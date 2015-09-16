@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Product - Standard Price VAT Included Module for Odoo
+#    Product - Cost Price Tax Included Module for Odoo
 #    Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
@@ -20,7 +20,6 @@
 #
 ##############################################################################
 
-- !record {model: res.partner, id: partner_with_pricelist}:
-    name: Partner With Pricelist
-    customer: True
-    property_product_pricelist: pricelist_price_vat_incl
+- !record {model: product.price.type, id: standard_price_tax_included}:
+    name: Cost Price Tax Included
+    field: standard_price_tax_included
