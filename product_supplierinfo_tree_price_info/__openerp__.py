@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2010 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as
@@ -15,8 +15,25 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import supplierinfo
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+{
+    'name': 'Supplier Unit Price',
+    'summary': 'Supplier Unit Price on Product Form',
+    'version': '8.0.1.0',
+    'author': 'Savoir-faire Linux,GRAP,Odoo Community Association (OCA)',
+    'website': 'https://odoo-community.org/',
+    'license': 'AGPL-3',
+    'category': 'Product',
+    'depends': [
+        'product',
+    ],
+    'data': [
+        'views/product_supplierinfo.xml',
+    ],
+    'demo': [
+        'demo/res_groups.yml',
+        'demo/product_template.yml',
+    ],
+}
