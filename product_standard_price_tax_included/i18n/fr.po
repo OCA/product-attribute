@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_standard_price_tax_included
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-16 09:11+0000\n"
+"PO-Revision-Date: 2015-09-16 09:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_standard_price_tax_included
+#: model:product.price.type,name:product_standard_price_tax_included.standard_price_tax_included
+#: field:product.template,standard_price_tax_included:0
+msgid "Cost Price Tax Included"
+msgstr "Prix de revient taxe inclue"
+
+#. module: product_standard_price_tax_included
+#: help:product.template,standard_price_tax_included:0
+msgid "Cost Price of the product, All Tax Included:\n"
+"This field will be computed with the 'Cost Price', taking into account Sale Taxes setting."
+msgstr "Prix de revient, toute taxe inclue:\n"
+"Le champ sera calculé avec le 'Prix de revient', en prenant en compte 'la configuration des taxes à la vente."
+
+#. module: product_standard_price_tax_included
+#: model:ir.model,name:product_standard_price_tax_included.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: product_standard_price_tax_included
+#: model:product.template,name:product_standard_price_tax_included.product_product_product_template
+msgid "Product With Sale Tax (Tax Included)"
+msgstr "Produit avec taxe à la vente (taxe inclue)"
+
+#. module: product_standard_price_tax_included
+#: model:product.pricelist.version,name:product_standard_price_tax_included.pricelist_version_price_tax_included
+msgid "Sale Price List Version based on Cost Price Tax Included"
+msgstr "Version de liste de prix de vente basée sur le prix de revient taxe inclue"
+
+#. module: product_standard_price_tax_included
+#: model:product.pricelist,name:product_standard_price_tax_included.pricelist_price_tax_included
+msgid "Sale Price List based on Cost Price Tax Included"
+msgstr "Liste de prix de vente basée sur le prix de revient taxe inclue"
+
+#. module: product_standard_price_tax_included
+#: model:account.tax,name:product_standard_price_tax_included.account_tax_tax_included
+msgid "Sale Tax 15% (Tax Included)"
+msgstr "Taxe à la vente 15% (taxe inclue)"
+
