@@ -31,7 +31,7 @@ class ProductTemplate(models.Model):
     standard_price_tax_included = fields.Float(
         compute='_compute_standard_price_tax_included',
         string='Cost Price Tax Included',
-        store=True, digits_compute=dp.get_precision('Product Price'),
+        store=True, digits=dp.get_precision('Product Price'),
         help="Cost Price of the product, All Tax Included:\n"
         "This field will be computed with the 'Cost Price', taking into"
         " account Sale Taxes setting.")
