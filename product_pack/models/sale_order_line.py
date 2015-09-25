@@ -101,9 +101,6 @@ class sale_order_line(models.Model):
     def _onchange_pack_line_ids(self):
         self.price_unit = self.pack_total
 
-    # onchange para agregar los product en el tipo el pack "sale order pack"
-    # TODO cambiar este onchange por un constraint oa lgo que escriba al hacer
-    # write
     @api.constrains('product_id')
     def expand_none_detailed_pack(self):
         if self.product_id.pack_price_type == 'none_detailed_assited_price':
@@ -122,44 +119,3 @@ class sale_order_line(models.Model):
                     'price_subtotal': price_unit * quantity,
                     }
                 self.pack_line_ids.create(vals)
-
-    # def product_id_change(
-    #         self, cr, uid, ids, pricelist, product, qty=0,
-    #         uom=False, qty_uos=0, uos=False, name='', partner_id=False,
-    #         lang=False, update_tax=True, date_order=False, packaging=False,
-    #         fiscal_position=False, flag=False, context=None):
-    #     # warning = {}
-    #     if not product:
-    #         return {'value': {
-    #             'th_weight': 0,
-    #             'product_packaging': False,
-    #             'product_uos_qty': qty},
-    #             'domain': {'product_uom': [], 'product_uos': []}
-    #         }
-    #     product_obj = self.pool.get('product.product')
-    #     product_info = product_obj.browse(cr, uid, product)
-
-    #     result = super(sale_order_line, self).product_id_change(
-    #         cr, uid, ids, pricelist, product, qty,
-    #         uom, qty_uos, uos, name, partner_id,
-    #         lang, update_tax, date_order, packaging,
-    #         fiscal_position, flag, context)
-
-    #     pack_line_ids = [(5, False, False)]
-    #     if (
-    #             product_info.pack_line_ids and
-    #             product_info.pack_price_type == 'none_detailed_assited_price'
-    #             ):
-    #         for pack_line in product_info.pack_line_ids:
-    #             price_unit = pack_line.product_id.lst_price
-    #             quantity = pack_line.quantity
-    #             pack_line_ids.append((0, False, {
-    #                 'product_id': pack_line.product_id.id,
-    #                 'product_uom_qty': quantity,
-    #                 'price_unit': price_unit,
-    #                 'price_subtotal': price_unit * quantity,
-    #             }))
-    #     result['value']['pack_line_ids'] = pack_line_ids
-    #     print 'result', result
-    #     print 'product_info.pack_price_type', product_info.pack_price_type
-    #     return result
