@@ -15,22 +15,24 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-
 {
     "name": "Use product supplier info for customers too",
-    "version": "1.0",
+    "version": "8.0.1.0.0",
+    "author": "OdooMRP team,"
+              "AvanzOSC,"
+              "Serv. Tecnol. Avanzados - Pedro M. Baeza",
+    "website": "http://www.odoomrp.com",
+    "category": "Sales Management",
+    "license": 'AGPL-3',
     "depends": [
         "base",
         "product",
     ],
-    "author": "OdooMRP team,"
-              "AvanzOSC,"
-              "Serv. Tecnol. Avanzados - Pedro M. Baeza",
-    "category": "Sales Management",
-    "website": "http://www.odoomrp.com",
-    "summary": "",
     "data": [
         "views/product_view.xml",
+    ],
+    "demo": [
+        "demo/product_demo.xml",
     ],
     "installable": True,
 }
