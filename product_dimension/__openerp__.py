@@ -16,7 +16,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
     'name': 'Product Dimension',
-    'version': '2.0',
+    'version': '8.0.2.0.0',
     'category': 'Product',
     'author':  'ADHOC SA,Camptocamp,Odoo Community Association (OCA)',
     'license': 'AGPL-3',
