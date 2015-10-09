@@ -1,21 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_variant_default_code
-#
+# * product_variant_default_code
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: odoomrp-wip (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-21 11:56+0000\n"
-"PO-Revision-Date: 2015-08-15 13:02+0200\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2015-10-07 10:44+0000\n"
+"PO-Revision-Date: 2015-09-20 19:02+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/odoomrp-wip-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: \n"
 "Language: sl\n"
-"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #. module: product_variant_default_code
 #: field:product.attribute.value,attribute_code:0
@@ -23,7 +23,7 @@ msgid "Attribute Code"
 msgstr "Koda atributa"
 
 #. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:152
+#: code:addons/product_variant_default_code/models/product.py:153
 #: sql_constraint:product.attribute:0
 #, python-format
 msgid "Attribute Name must be unique!"
@@ -73,16 +73,7 @@ msgid ""
 "When setting Variant reference mask to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
 "If you like, You can even have the attribute name appear more than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
 "Note: make sure characters \"[,]\" do not appear in your attribute name"
-msgstr ""
-"Masla sklica za gradnjo internih sklicev variante po tej predlogi.\n"
-"Primer:\n"
-"Proizvod z nazivom ABC z 2 atributoma: velikost in barva:\n"
-"Product: ABC\n"
-"Barva: Rdeča(r), Rumena(y), Črna(b)  #Rdeča, rumena, črna so vrednosti atributa, `r`, `y`, `b` so pripadajoče kode\n"
-"Velikost: L (l), XL(x)\n"
-"Ko se nastavlja maska sklica variante na `[Barva]-[Velikost]`, je privzeta koda variant nekaj, kakor `r-l` `b-l` `r-x` ...\n"
-"Če želite, se lahko naziv atributa večkrat pojavlja v maski. Kot npr., `fancyA/[Velikost]~[Barva]~[Velikost]` Ob shranjevanju bo privzeta koda variant, nekaj kakor `fancyA/l~r~l` (za varianto z barvo \"Rdeča\" in velikostjo \"L\") `fancyA/x~y~x` (za varianto z barvo \"Rumena\" in velikostjo \"XL\")\n"
-"Opomba: znaki \"[,]\" se ne smejo pojavljati v nazivu atributa"
+msgstr "Masla sklica za gradnjo internih sklicev variante po tej predlogi.\nPrimer:\nProizvod z nazivom ABC z 2 atributoma: velikost in barva:\nProduct: ABC\nBarva: Rdeča(r), Rumena(y), Črna(b)  #Rdeča, rumena, črna so vrednosti atributa, `r`, `y`, `b` so pripadajoče kode\nVelikost: L (l), XL(x)\nKo se nastavlja maska sklica variante na `[Barva]-[Velikost]`, je privzeta koda variant nekaj, kakor `r-l` `b-l` `r-x` ...\nČe želite, se lahko naziv atributa večkrat pojavlja v maski. Kot npr., `fancyA/[Velikost]~[Barva]~[Velikost]` Ob shranjevanju bo privzeta koda variant, nekaj kakor `fancyA/l~r~l` (za varianto z barvo \"Rdeča\" in velikostjo \"L\") `fancyA/x~y~x` (za varianto z barvo \"Rumena\" in velikostjo \"XL\")\nOpomba: znaki \"[,]\" se ne smejo pojavljati v nazivu atributa"
 
 #. module: product_variant_default_code
 #: field:product.template,reference_mask:0

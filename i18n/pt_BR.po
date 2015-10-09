@@ -8,58 +8,58 @@ msgstr ""
 "Project-Id-Version: odoomrp-wip (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-07 10:44+0000\n"
-"PO-Revision-Date: 2015-10-09 10:50+0000\n"
-"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/odoomrp-wip-8-0/language/es/)\n"
+"PO-Revision-Date: 2015-10-09 03:42+0000\n"
+"Last-Translator: danimaribeiro <danimaribeiro@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/odoomrp-wip-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: product_variant_default_code
 #: field:product.attribute.value,attribute_code:0
 msgid "Attribute Code"
-msgstr "Código atributo"
+msgstr ""
 
 #. module: product_variant_default_code
 #: code:addons/product_variant_default_code/models/product.py:153
 #: sql_constraint:product.attribute:0
 #, python-format
 msgid "Attribute Name must be unique!"
-msgstr "El nombre del atributo debe ser único!."
+msgstr ""
 
 #. module: product_variant_default_code
 #: code:addons/product_variant_default_code/models/product.py:48
 #, python-format
 msgid "Error"
-msgstr "Error"
+msgstr "Erro"
 
 #. module: product_variant_default_code
 #: code:addons/product_variant_default_code/models/product.py:48
 #, python-format
 msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
-msgstr "Encontrado un nombre de atribuco no reconocido en la \"Referencia máscara variante\""
+msgstr ""
 
 #. module: product_variant_default_code
 #: field:product.product,manual_code:0
 msgid "Manual code"
-msgstr "Código manual"
+msgstr ""
 
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_product
 msgid "Product"
-msgstr "Producto"
+msgstr "Produto"
 
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_attribute
 msgid "Product Attribute"
-msgstr "Atributo de producto"
+msgstr ""
 
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr ""
 
 #. module: product_variant_default_code
 #: help:product.template,reference_mask:0
@@ -73,9 +73,9 @@ msgid ""
 "When setting Variant reference mask to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
 "If you like, You can even have the attribute name appear more than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
 "Note: make sure characters \"[,]\" do not appear in your attribute name"
-msgstr "Máscara de referencia para la construcción de referencias internas de una variante generada a partir de esta plantilla.\nEjemplo:\nEl producto llamado A con 2 atributos: tamaño y color:\nProducto: ABC\nColor: Rojo(Ro), Amarillo(Am), Negro(Ne)  #Rojo, Amarillo, Negro de atribulo valor, `Ro`, `Am`, `Ne` son el código correspondiente\nTamaño: L (l), XL(x)\nAl configurar la máscara de referencia Variante de `[Color]-[Tamaño]`, el código predeterminado en las variantes será algo así como `Ro-l` `Ne-l` `Ro-x` ...\nSi lo desea, usted puede incluso tener el nombre del atributo aparece más de una vez en la máscara. Tal como , `fancyA/[Size]~[Color]~[Size]`Cuando se guarda, el código predeterminado en variantes será algo así como `fancyA/l~r~l` (para variante con Color \"Rojo\" y tamaño \"L\") `fancyA/x~y~x` (para variante con Color \"Amarillo\" y tamaño \"XL\")\nNota: Asegúrese de caracteres \"[,]\" no aparecen en el nombre del atributo"
+msgstr ""
 
 #. module: product_variant_default_code
 #: field:product.template,reference_mask:0
 msgid "Variant reference mask"
-msgstr "Referencia máscara variante"
+msgstr ""
