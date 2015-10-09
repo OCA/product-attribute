@@ -1,0 +1,313 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_pricelist_import
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: odoomrp-wip (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-07 10:44+0000\n"
+"PO-Revision-Date: 2015-09-20 19:02+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/odoomrp-wip-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: product_pricelist_import
+#: selection:import.price.file,file_type:0
+msgid "CSV"
+msgstr "CSV"
+
+#. module: product_pricelist_import
+#: view:import.price.file:product_pricelist_import.view_import_file
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/models/product_pricelist_load.py:68
+#, python-format
+msgid "Correctly Processed"
+msgstr "Pravilno procesirano"
+
+#. module: product_pricelist_import
+#: field:import.price.file,create_uid:0
+#: field:product.pricelist.load,create_uid:0
+#: field:product.pricelist.load.line,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: product_pricelist_import
+#: field:import.price.file,create_date:0
+#: field:product.pricelist.load,create_date:0
+#: field:product.pricelist.load.line,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,date:0
+msgid "Date:"
+msgstr "Datum:"
+
+#. module: product_pricelist_import
+#: help:import.price.file,delimeter:0
+msgid "Default delimeter is \",\""
+msgstr "Privzeto ločilo je \",\""
+
+#. module: product_pricelist_import
+#: field:import.price.file,delimeter:0
+msgid "Delimeter"
+msgstr "Ločilo"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,fail:0
+msgid "Fail"
+msgstr "Neuspeh"
+
+#. module: product_pricelist_import
+#: model:ir.actions.act_window,name:product_pricelist_import.act_fail_lines
+msgid "Fail Lines"
+msgstr "Neuspele postavke"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,fails:0
+msgid "Fail Lines:"
+msgstr "Neuspele postavke:"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,fail_reason:0
+msgid "Fail Reason"
+msgstr "Razlog neuspeha"
+
+#. module: product_pricelist_import
+#: field:import.price.file,data:0
+msgid "File"
+msgstr "Datoteka"
+
+#. module: product_pricelist_import
+#: view:product.pricelist.load.line:product_pricelist_import.product_pricelist_load_line_tree_view
+msgid "File Lines"
+msgstr "Postavke datoteke"
+
+#. module: product_pricelist_import
+#: view:product.pricelist.load:product_pricelist_import.product_pricelist_load_form_view
+#: view:product.pricelist.load.line:product_pricelist_import.product_pricelist_load_line_form_view
+msgid "File Load"
+msgstr "Nalaganje datoteke"
+
+#. module: product_pricelist_import
+#: view:product.pricelist.load:product_pricelist_import.product_pricelist_load_tree_view
+msgid "File Loads"
+msgstr "Nalaganja datotek"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,file_name:0
+msgid "File Name"
+msgstr "Naziv datoteke"
+
+#. module: product_pricelist_import
+#: field:import.price.file,file_type:0
+msgid "File Type"
+msgstr "Tip datoteke"
+
+#. module: product_pricelist_import
+#: field:import.price.file,name:0
+msgid "Filename"
+msgstr "Naziv datoteke"
+
+#. module: product_pricelist_import
+#: field:import.price.file,id:0 field:product.pricelist.load,id:0
+#: field:product.pricelist.load.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_import
+#: view:import.price.file:product_pricelist_import.view_import_file
+msgid "Import"
+msgstr "Uvoz"
+
+#. module: product_pricelist_import
+#: view:import.price.file:product_pricelist_import.view_import_file
+#: model:ir.actions.act_window,name:product_pricelist_import.action_import_file
+msgid "Import File"
+msgstr "Uvoz datoteke"
+
+#. module: product_pricelist_import
+#: view:product.pricelist.load:product_pricelist_import.product_pricelist_load_form_view
+msgid "Import Lines"
+msgstr "Uvoz postavk"
+
+#. module: product_pricelist_import
+#: model:ir.model,name:product_pricelist_import.model_import_price_file
+msgid "Import Price List File"
+msgstr "Uvoz datoteke cenika"
+
+#. module: product_pricelist_import
+#: field:import.price.file,write_uid:0
+#: field:product.pricelist.load,write_uid:0
+#: field:product.pricelist.load.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: product_pricelist_import
+#: field:import.price.file,write_date:0
+#: field:product.pricelist.load,write_date:0
+#: field:product.pricelist.load.line,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,process:0
+msgid "Lines to Process:"
+msgstr "Postavke za procesiranje:"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,name:0
+#: field:product.pricelist.load.line,file_load:0
+msgid "Load"
+msgstr "Naloži"
+
+#. module: product_pricelist_import
+#: model:ir.ui.menu,name:product_pricelist_import.menu_file_load
+#: view:product.pricelist.load:product_pricelist_import.product_pricelist_load_form_view
+msgid "Load File"
+msgstr "Naloži datoteko"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:76
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:117
+#, python-format
+msgid "No Processed"
+msgstr "Ne procesirano"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:143
+#, python-format
+msgid "Not a .csv/.xls file found"
+msgstr "Nobena .csv/.xls datoteka ni najdena"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:57
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:63
+#, python-format
+msgid "Not a valid file!"
+msgstr "Ni veljavna datoteka!"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,pdv1:0
+msgid "PDV1"
+msgstr "PDV1"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,pdv2:0
+msgid "PDV2"
+msgstr "PDV2"
+
+#. module: product_pricelist_import
+#: view:product.pricelist.load:product_pricelist_import.product_pricelist_load_form_view
+msgid "Proccess"
+msgstr "Procesiranje"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,code:0
+msgid "Product Code"
+msgstr "Koda proizvoda"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,info:0
+msgid "Product Description"
+msgstr "Opis proizvoda"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,discount_1:0
+msgid "Product Discount 1"
+msgstr "Popust na proizvod 1"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,discount_2:0
+msgid "Product Discount 2"
+msgstr "Popust na proizvod 2"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,price:0
+msgid "Product Price"
+msgstr "Cena proizvoda"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,file_lines:0
+msgid "Product Price List Lines"
+msgstr "Postavke cenika proizvoda"
+
+#. module: product_pricelist_import
+#: model:ir.model,name:product_pricelist_import.model_product_pricelist_load
+msgid "Product Price List Load"
+msgstr "Nalaganje cenika proizvoda"
+
+#. module: product_pricelist_import
+#: model:ir.model,name:product_pricelist_import.model_product_pricelist_load_line
+msgid "Product Price List Load Line"
+msgstr "Nalaganje postavke cenika proizvoda"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/models/product_pricelist_load.py:70
+#, python-format
+msgid "Product not found"
+msgstr "Proizvod ni najden"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load.line,retail:0
+msgid "Retail Price"
+msgstr "Maloprodajna cena"
+
+#. module: product_pricelist_import
+#: view:product.pricelist.load:product_pricelist_import.file_price_load_search_view
+msgid "Search File load"
+msgstr "Iskalnik nalaganja datotek"
+
+#. module: product_pricelist_import
+#: field:product.pricelist.load,supplier:0
+msgid "Supplier"
+msgstr "Dobavitelj"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/models/product_pricelist_load.py:47
+#, python-format
+msgid "There must be one line at least to process"
+msgstr "Vsaj ena postavka mora biti procesirana"
+
+#. module: product_pricelist_import
+#: selection:import.price.file,file_type:0
+msgid "XLS"
+msgstr "XLS"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/models/product_pricelist_load.py:42
+#, python-format
+msgid "You must select a Supplier"
+msgstr "Izberite dobavitelja"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:134
+#, python-format
+msgid "You need to select a file!"
+msgstr "Izberite datoteko!"
+
+#. module: product_pricelist_import
+#: model:ir.actions.act_window,name:product_pricelist_import.action_file_price_load
+msgid "action_file_price_load"
+msgstr "action_file_price_load"
+
+#. module: product_pricelist_import
+#: view:import.price.file:product_pricelist_import.view_import_file
+msgid "or"
+msgstr "ali"
+
+#. module: product_pricelist_import
+#: code:addons/product_pricelist_import/wizard/import_price_files.py:91
+#, python-format
+msgid "xlrd python lib  not installed"
+msgstr "Knjižnica xlrd python lib ni nameščena"
