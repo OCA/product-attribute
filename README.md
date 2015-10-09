@@ -37,7 +37,6 @@ addon | version | summary
 [product_images](__unported__/product_images/) | 0.2 (unported) | Product Image Gallery
 [product_multi_company](__unported__/product_multi_company/) | 1.1 (unported) | Product multi company
 [product_multi_price](__unported__/product_multi_price/) | 0.1 (unported) | product_multi_price
-[product_pricelist_fixed_price](__unported__/product_pricelist_fixed_price/) | 2.0 (unported) | Fixed price in pricelists
 [product_prices_on_variant](__unported__/product_prices_on_variant/) | 0.1 (unported) | product_prices_on_variant
 [product_qt](__unported__/product_qt/) | 1.0 (unported) | Products & Pricelists - Define quality control and testing parameters in product
 [product_quick_stock_rule](__unported__/product_quick_stock_rule/) | 0.1 (unported) | product_quick_stock_rule
