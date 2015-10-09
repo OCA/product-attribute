@@ -12,14 +12,6 @@
                 <xpath expr="//field[@name='state']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-                <xpath expr="//field[@name='product_manager']" position="after">
-                    <field name="product_variant_ids" nolabel="1" colspan="2" attrs="{'invisible': [('is_product_variant', '=', True)]}">
-                        <tree create="false" edit="false" delete="false">
-                            <field name="display_name" string="Product Variant"/>
-                            <field name="state2"/>
-                        </tree>
-                    </field>
-                </xpath>
             </field>
         </record>
 
@@ -30,8 +22,11 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='product_manager']" position="before">
-                    <field name="replacement_product_ids" widget="many2many_tags"/>
+                <xpath expr="//page[@string='Inventory']" position="inside">
+                    <group string="Replacements Info">
+                        <field name="replaced_by_product_id"/>
+                        <field name="replace_to_product_id" widget="many2many_tags" readonly="1"/>
+                    </group>
                 </xpath>
                 <xpath expr="//field[@name='state']" position="replace">
                 </xpath>
@@ -57,12 +52,37 @@
                         <filter string="Normal" name="status_sellable" domain="[('state2','=','sellable')]"/>
                         <filter string="End of Lifecycle" name="status_end" domain="[('state2','=','end')]"/>
                         <filter string="Obsolete" name="status_obsolete" domain="[('state2','=','obsolete')]"/>
+                        <separator/>
+                        <filter string="Active Status" name="filter_active_state2" domain="[('state2','not in',['obsolete'])]"/>
                     </group>
                 </xpath>
                 <xpath expr="//group[@string='Group by...']" position="inside">
                     <filter name="Lifecycle Status" context="{'group_by': 'state2'}"/>
                 </xpath>
             </field>
+        </record>
+
+        <record id="product.product_normal_action_sell" model="ir.actions.act_window">
+            <field name="context">{
+                'search_default_filter_to_sell':1,
+                'search_default_filter_active_state2': 1,
+            }</field>
+        </record>
+
+        <record id="product.product_normal_action_tree" model="ir.actions.act_window">
+            <field name="context">{
+                'categ_id':active_id,
+                'search_default_categ_id': active_id,
+                'search_default_filter_active_state2': 1,
+            }</field>
+        </record>
+
+        <record id="product.product_variant_action" model="ir.actions.act_window">
+            <field name="context">{
+                'search_default_product_tmpl_id': [active_id],
+                'default_product_tmpl_id': active_id,
+                'search_default_filter_active_state2': 1,
+                }</field>
         </record>
 
     </data>

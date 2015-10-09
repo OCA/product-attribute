@@ -23,24 +23,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning as UserError, ValidationError
 
 
 class ReplacementProduct(models.TransientModel):
 
     """
-    Wizard that let to select one of the replacement product of a discontinued
+    Wizard that let to select one of the replacement product of a obsolete
     product.
     """
 
     _name = 'replacement.product'
-    _description = ('Replacement of discontinued products'
+    _description = ('Replacement of obsolete products'
                     ' for purchase operations')
 
     @api.multi
     def _get_lines(self):
         """
-        Get the lines with discontinued products
+        Get the lines with obsolete products
 
         @return a list of dictionaries to create the new wizard lines.
         """
@@ -55,12 +56,15 @@ class ReplacementProduct(models.TransientModel):
             (0, 0, {
                 'line_id': line.id,
                 'number': line.sequence,
-                'discontinued_product_id': line.product_id.id,
-                'replacement_product_ids':
-                    line.product_id.replacement_product_ids,
+                'obsolete_product_id': line.product_id.id,
+                'replace_product_id':
+                    line.product_id.replaced_by_product_id.id,
             })
             for line in order.order_line
             if line.product_id.state2 in ['obsolete']]
+        if not res:
+            raise UserError(_(
+                'There is not obsolete products to replace'))
         return res
 
     lines = fields.One2many(
@@ -76,11 +80,11 @@ class ReplacementProduct(models.TransientModel):
         if model == 'purchase.order':
             pass
         elif model:
-            raise exceptions.Warning(' '.join([
+            raise UserError(' '.join([
                 _('This wizard is not designed to work from the'),
                 str(model)]))
         else:
-            raise exceptions.Warning(
+            raise UserError(
                 _('This wizard need to be called from a model'))
 
     @api.multi
@@ -92,64 +96,47 @@ class ReplacementProduct(models.TransientModel):
         order = self._context.get('active_id', False)
         order = self.env['purchase.order'].browse(order)
         for line in self.lines:
-            line.line_id.write({
-                'product_id': line.replacement_product_id.id,
-                'discontinued_product_id': line.discontinued_product_id.id
-            })
+            line.line_id.write({'product_id': line.replace_product_id.id})
 
 
 class ReplacementProductLines(models.TransientModel):
 
     """
-    Let to select a replacement product for every discontinued product.
+    Let to select a replacement product for every obsolete product.
     """
 
     _name = 'replacement.product.line'
-    _description = 'Select a replacement for every discontinued product'
+    _description = 'Select a replacement for every obsolete product'
 
     replacement_id = fields.Many2one(
         'replacement.product', 'Replacement Wizard')
-    discontinued_product_id = fields.Many2one(
-        'product.product', 'Discontinued Product',
+    obsolete_product_id = fields.Many2one(
+        'product.product', 'Obsolete Product',
         domain=[('state2', '=', 'obsolete')])
-    replacement_product_ids = fields.Many2many(
-        related="discontinued_product_id.replacement_product_ids")
-    replacement_product_id = fields.Many2one(
-        'product.product', 'Replacement Product for Purchase')
+    replace_product_id = fields.Many2one(
+        'product.product', 'Replacement Product',
+        domain=[('state2', '!=', 'obsolete')])
     line_id = fields.Many2one('purchase.order.line', 'Purchase Order Line')
     number = fields.Integer(related='line_id.sequence')
 
-    @api.onchange('discontinued_product_id')
-    def get_replacement_product_ids(self):
+    @api.constrains('replace_product_id')
+    def _check_replace_product(self):
         """
-        Return the list of replacement products
-        @return domain
+        replace_product_id must not be an obsolete product.
         """
-        self.replacement_product_id = False
-        res = {'domain': {'replacement_product_id': [('id', 'in', [])]}}
-        replacement_ids = self.discontinued_product_id.get_good_replacements()
-        if replacement_ids:
-            if len(replacement_ids) == 1:
-                self.replacement_product_id = replacement_ids[0]
-            res = {'domain': {
-                'replacement_product_id': [('id', 'in', replacement_ids)]}}
-        return res
+        if self.replace_product_id and \
+                self.replace_product_id.state2 in ['obsolete']:
+            raise ValidationError(
+                _("The replacement line replace product can not be a"
+                  " obsolete product"))
 
-    @api.one
-    @api.constrains('replacement_product_id', 'discontinued_product_id')
-    def _check_line(self):
+    @api.constrains('obsolete_product_id')
+    def _check_obsolete_product(self):
         """
-        This method will check that when creating the replacement line the
-        replacement_product_id and the discontinued_product_id belongs to the
-        correspond states.
-            - discontinued_product_id must be an obsolete product.
-            - replacement_product_id must not be an obsolete product.
+        obsolete_product_id must be an obsolete product.
         """
-        if self.replacement_product_id and \
-                self.replacement_product_id.state2 in ['obsolete']:
-            raise exceptions.ValidationError(
-                _("The Replacement product can not be a obsolete product"))
-        if self.discontinued_product_id and \
-                self.discontinued_product_id.state2 not in ['obsolete']:
-            raise exceptions.ValidationError(
-                _("The Discontinued producr must be a obsolete product"))
+        if self.obsolete_product_id and \
+                self.obsolete_product_id.state2 not in ['obsolete']:
+            raise ValidationError(
+                _("The replacement line obsolete product must be a"
+                  " obsolete product"))

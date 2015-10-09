@@ -23,53 +23,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 
-from openerp import models, fields, api, exceptions, _
-
-
-class PurchaseOrder(models.Model):
-
-    _inherit = 'purchase.order'
-
-    @api.multi
-    def write(self, values):
-        """
-        First check that the purchase order lines have not discontinued
-        product.
-        """
-        order_lines = values.get('order_line', [])
-        obsolete = []
-        for line in order_lines:
-            if isinstance(line[2], dict):
-                product_id = line[2].get('product_id', False)
-                sequence = line[2].get('sequence', False)
-                if product_id:
-                    product = self.env['product.product'].browse(product_id)
-                    if product.state2 == 'obsolete':
-                        obsolete.append((sequence, product))
-        if obsolete:
-            obsolete.sort()
-            obsolete_msg = str()
-            for item in obsolete:
-                obsolete_msg += ' '.join(['\n', '-', _('Line'), str(item[0]),
-                                          _('with product'), item[1].name])
-            raise exceptions.Warning('\n'.join([
-                _('Purchase order line can not have discontinued products.'),
-                _('The next lines cannot be added to the purchase order:'),
-                obsolete_msg]))
-        return super(PurchaseOrder, self).write(values)
+from openerp import models, fields, api, _
 
 
 class PurchaseOrderLine(models.Model):
 
     _inherit = 'purchase.order.line'
 
-    discontinued_product_id = fields.Many2one(
-        'product.product', string='Discontinued Product',
-        domain=[('state2', 'in', ['obsolete'])],
-        help='When introduce a discontinued product to the product field in'
-             ' the purchase order line then will raise a warning and will auto'
-             ' fill this field with the discontiued product and clean the'
-             ' product field so you can add the replacement product')
+    obsolete = fields.Boolean(
+        compute='_check_product_line',
+        help='Boolean indicate if the purchase line has a obsolete product')
+
+    @api.depends('product_id')
+    def _check_product_line(self):
+        """ If product in line is a obsolete product then set the line as
+        obsolete True, in other case set to False.
+        """
+        for line in self:
+            line.obsolete = \
+                True if line.product_id.state2 == 'obsolete' else False
 
     @api.v7
     def onchange_product_id(
@@ -78,8 +50,7 @@ class PurchaseOrderLine(models.Model):
             date_planned=False, name=False, price_unit=False, state='draft',
             context=None):
         """
-        Raise a exception is you select discontinued product.
-        Auto fill the discontinued_product_id field with the value given in
+        Raise a warning message when the selected product is a obsolete
         product.
         """
         context = context or {}
@@ -89,38 +60,52 @@ class PurchaseOrderLine(models.Model):
             partner_id, date_order=date_order,
             fiscal_position_id=fiscal_position_id, date_planned=date_planned,
             name=name, price_unit=price_unit, state=state, context=context)
-        res.get('domain', dict()).update({'product_id': []})
-
         if product:
             product_brw = product_obj.browse(cr, uid, product, context=context)
             if product_brw.state2 in ['obsolete']:
                 replacements = product_brw.get_good_replacements()
-                msg = (product_brw.display_name + " " +
-                       _('is a discontinued product.') + '\n')
+                msg = ' '.join([
+                    product_brw.display_name, _('is an obsolete product.'),
+                    '\n',
+                    _('You can force to purchase this item or you can'
+                      ' purchase the replacement product')])
                 if replacements:
-                    msg += _('Select one of the replacement products.')
+                    msg += '\n' + replacements.display_name
                 else:
                     msg += ('\n' * 2 + _(
                         'The are not replacement products defined for the'
-                        ' product you selected. Please select another product'
-                        ' or define a replacement product in the product form'
-                        ' view.'))
+                        ' product you selected. You can configure'
+                        ' the replacement product in the product form view.'))
                 res.update({'warning': {'title': 'Error!', 'message': msg}})
-                res.get('value').update({
-                    'discontinued_product_id': product})
         return res
 
-    @api.onchange('discontinued_product_id')
-    def onchange_discontinued_product_id(self):
+
+class PurchaseOrder(models.Model):
+
+    _inherit = 'purchase.order'
+
+    lines_count = fields.Integer(
+        compute='_count_pol', string='Purchase Lines Count')
+
+    @api.depends()
+    def _count_pol(self):
         """
-        - clean the product_id field.
-        - add a domain to the product_id field to show only the replacements
-        for the current discontinued product.
+        return the quantity of purchase order lines in the purchase order.
         """
-        res = {'domain': {'product_id': []}}
-        if self.discontinued_product_id:
-            self.product_id = False
-            replacements = self.discontinued_product_id.get_good_replacements()
-            res.get('domain').update({
-                'product_id': [('id', 'in', replacements)]})
-        return res
+        for purchase in self:
+            purchase.lines_count = len(purchase.order_line)
+
+    @api.multi
+    def lines_open(self):
+        """
+        return the view of the purchase order lines.
+        """
+        return {
+            'type': 'ir.actions.act_window',
+            'src_model': 'purchase.order',
+            'res_model': 'purchase.order.line',
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'domain': [('id', 'in', self.order_line.mapped('id'))],
+            'context': {'search_default_order_id': self.id}
+        }

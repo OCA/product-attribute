@@ -1,133 +1,40 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_lifecycle
+#	* product_lifecycle
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 18:15+0000\n"
-"PO-Revision-Date: 2015-08-03 16:07+0200\n"
+"POT-Creation-Date: 2015-10-26 14:18+0000\n"
+"PO-Revision-Date: 2015-10-26 14:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: es\n"
-"X-Generator: Poedit 1.8.2\n"
 
 #. module: product_lifecycle
 #: model:product.template,description_sale:product_lifecycle.product_product_4e_product_template
 #: model:product.template,description_sale:product_lifecycle.product_product_4f_product_template
 #: model:product.template,description_sale:product_lifecycle.product_product_4g_product_template
-msgid ""
-"7.9‑inch (diagonal) LED-backlit, 128Gb\n"
+msgid "7.9‑inch (diagonal) LED-backlit, 128Gb\n"
 "Dual-core A5 with quad-core graphics\n"
 "FaceTime HD Camera, 1.2 MP Photos"
-msgstr ""
-"Pantalla con retroiluminación LED de 7.9\", 128Gb\n"
+msgstr "Pantalla con retroiluminación LED de 7.9\", 128Gb\n"
 "Dual-core A5 con gráficos quad-core\n"
 "Cámara FaceTime HD, Fotos 1.2 MP"
 
 #. module: product_lifecycle
-#: model:product.template,website_description:product_lifecycle.product_product_4e_product_template
-#: model:product.template,website_description:product_lifecycle.product_product_4f_product_template
-#: model:product.template,website_description:product_lifecycle.product_product_4g_product_template
-msgid ""
-"<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
-"                    <div class=\"container\">\n"
-"                        <div class=\"row\">\n"
-"                            <div class=\"col-md-5 col-md-offset-1 mt64\">\n"
-"                                <h3>Why you'll love an iPad.</h3>\n"
-"                                <p>\n"
-"                                    Right from the start, there’s a lot to love about\n"
-"                                    iPad. It’s simple yet powerful. Thin and light yet\n"
-"                                    full-featured. It can do just about everything and\n"
-"                                    be just about anything.\n"
-"                                </p><p>\n"
-"                                    And because it’s so easy to use, it’s easy to love.\n"
-"                                </p>\n"
-"                            </div>\n"
-"                            <div class=\"col-md-5 mt16 mb16\">\n"
-"                                <img class=\"img img-responsive\" src=\"/website_sale/static/src/img/ipad_why.png\">\n"
-"                            </div>\n"
-"                        </div>\n"
-"                    </div>\n"
-"                </section>\n"
-"                <section data-snippet-id=\"image-text\" class=\"mt16\">\n"
-"                    <div class=\"container\">\n"
-"                        <div class=\"row\">\n"
-"                            <div class=\"col-md-5 col-md-offset-1\">\n"
-"                                <img class=\"img img-responsive\" src=\"/website_sale/static/src/img/ipad_experience.png\">\n"
-"                            </div>\n"
-"                            <div class=\"col-md-6 mt64\">\n"
-"                                <h3>The full iPad experience.</h3>\n"
-"                                <h4 class=\"small\">There is less of it, but no less to it.</h4>\n"
-"                                <p>\n"
-"                                    Everything you love about iPad — the beautiful\n"
-"                                    screen, fast and fluid performance, FaceTime and\n"
-"                                    iSight cameras, thousands of amazing apps, 10-hour\n"
-"                                    battery life* — is everything you’ll love about\n"
-"                                    iPad mini, too. And you can hold it in one hand.\n"
-"                                </p>\n"
-"                            </div>\n"
-"                        </div>\n"
-"                    </div>\n"
-"                </section>\n"
-"            "
-msgstr ""
-"<section data-snippet-id=\"text-image\" class=\"mt16 mb16 oe_dark\">\n"
-"                    <div class=\"container\">\n"
-"                        <div class=\"row\">\n"
-"                            <div class=\"col-md-5 col-md-offset-1 mt64\">\n"
-"                                <h3>Why you'll love an iPad.</h3>\n"
-"                                <p>\n"
-"                                    Right from the start, there’s a lot to love about\n"
-"                                    iPad. It’s simple yet powerful. Thin and light yet\n"
-"                                    full-featured. It can do just about everything and\n"
-"                                    be just about anything.\n"
-"                                </p><p>\n"
-"                                    And because it’s so easy to use, it’s easy to love.\n"
-"                                </p>\n"
-"                            </div>\n"
-"                            <div class=\"col-md-5 mt16 mb16\">\n"
-"                                <img class=\"img img-responsive\" src=\"/website_sale/static/src/img/ipad_why.png\">\n"
-"                            </div>\n"
-"                        </div>\n"
-"                    </div>\n"
-"                </section>\n"
-"                <section data-snippet-id=\"image-text\" class=\"mt16\">\n"
-"                    <div class=\"container\">\n"
-"                        <div class=\"row\">\n"
-"                            <div class=\"col-md-5 col-md-offset-1\">\n"
-"                                <img class=\"img img-responsive\" src=\"/website_sale/static/src/img/ipad_experience.png\">\n"
-"                            </div>\n"
-"                            <div class=\"col-md-6 mt64\">\n"
-"                                <h3>The full iPad experience.</h3>\n"
-"                                <h4 class=\"small\">There is less of it, but no less to it.</h4>\n"
-"                                <p>\n"
-"                                    Everything you love about iPad — the beautiful\n"
-"                                    screen, fast and fluid performance, FaceTime and\n"
-"                                    iSight cameras, thousands of amazing apps, 10-hour\n"
-"                                    battery life* — is everything you’ll love about\n"
-"                                    iPad mini, too. And you can hold it in one hand.\n"
-"                                </p>\n"
-"                            </div>\n"
-"                        </div>\n"
-"                    </div>\n"
-"                </section>\n"
-"            "
+#: view:product.product:product_lifecycle.product_replacement_product_search_view
+msgid "Active Status"
+msgstr "Estado Activo"
 
 #. module: product_lifecycle
 #: view:replacement.product:product_lifecycle.replacement_product_form_view
 msgid "Cancel"
 msgstr "Cancelar"
-
-#. module: product_lifecycle
-#: view:purchase.order:product_lifecycle.purchase_order_replacement_product_form
-msgid "Check Discontinued Products"
-msgstr "Revisar los Productos Descontinuados"
 
 #. module: product_lifecycle
 #: field:replacement.product,create_uid:0
@@ -142,12 +49,6 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: product_lifecycle
-#: field:purchase.order.line,discontinued_product_id:0
-#: field:replacement.product.line,discontinued_product_id:0
-msgid "Discontinued Product"
-msgstr "Producto Descontinuado"
-
-#. module: product_lifecycle
 #: view:product.product:product_lifecycle.product_replacement_product_search_view
 #: selection:product.product,state2:0
 msgid "End of Lifecycle"
@@ -159,15 +60,26 @@ msgid "Gray"
 msgstr "Gris"
 
 #. module: product_lifecycle
-#: field:replacement.product,id:0 field:replacement.product.line,id:0
+#: field:replacement.product,id:0
+#: field:replacement.product.line,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: product_lifecycle
+#: view:sale.order:product_lifecycle.sale_order_obsolete_product_form
+msgid "If you purchase a obsolete product then in an hour tops the product will change from obsolete to end of life state and you will be able to sell it."
+msgstr "Si compras un producto obsolete luego de una hora máximo el producto cambiará automaticamente de estado descontinuado a final del ciclo de vida y pordrás venderlo."
 
 #. module: product_lifecycle
 #: view:product.product:product_lifecycle.product_replacement_product_search_view
 #: selection:product.product,state2:0
 msgid "In Development"
 msgstr "En Desarrollo"
+
+#. module: product_lifecycle
+#: help:product.product,replace_to_product_id:0
+msgid "Informative field. The product that is replaced by the current one. The current product is the new product for the product in this field"
+msgstr "Campo Informativo. El producto que es reemplzado por el actual. El producto actual es el nuevo producto para el indicando en este campo"
 
 #. module: product_lifecycle
 #: field:replacement.product,write_uid:0
@@ -187,15 +99,39 @@ msgid "Lifecycle"
 msgstr "Ciclo de Vida"
 
 #. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:55
-#, python-format
-msgid "Line"
-msgstr "Línea"
-
-#. module: product_lifecycle
 #: field:replacement.product,lines:0
 msgid "Lines"
 msgstr "Lineas"
+
+#. module: product_lifecycle
+#: view:replacement.product:product_lifecycle.replacement_product_form_view
+msgid "Lines to Replace"
+msgstr "Lineas a Reemplazar"
+
+#. module: product_lifecycle
+#: view:replacement.product:product_lifecycle.replacement_product_form_view
+msgid "NOTE: If there is a line with not\n"
+"                                    suggested replacement product means that\n"
+"                                    the product have not replacement product\n"
+"                                    configured. Please configure correctly the\n"
+"                                    replacement product  in the product form\n"
+"                                    view of the obsolete product. If you do\n"
+"                                    not want to replace the line for the\n"
+"                                    moment just remove the line for the Lines\n"
+"                                    to Replace."
+msgstr "NOTA: Si hay una linea sin un \n"
+"                                    producto de reemplazo sugerido significa que\n"
+"                                    el producto no tiene producto de reemplazo\n"
+"                                    configurado. Por favor configure correctamente el\n"
+"                                    producto de reemplazo en la vista formulario\n"
+"                                    del producto descontinuado. Si no deseas\n"
+"                                    remplazar la linea por el momento solo\n"
+"                                    eliminala de Lineas a Reemplazar."
+
+#. module: product_lifecycle
+#: view:sale.order:product_lifecycle.sale_order_obsolete_product_form
+msgid "NOTE: If you do not want to wait you can go to the product form view and change manually the state from obsolete to end of life."
+msgstr "NOTA: Si no quieres esperar puedes ir al formulario del prodcto y cambiar manualmente el estado de descontinuado a final del ciclo de vida."
 
 #. module: product_lifecycle
 #: view:product.product:product_lifecycle.product_replacement_product_search_view
@@ -210,31 +146,25 @@ msgid "Obsolete"
 msgstr "Descontinuado"
 
 #. module: product_lifecycle
+#: field:replacement.product.line,obsolete_product_id:0
+msgid "Obsolete Product"
+msgstr "Producto Descontinuado"
+
+#. module: product_lifecycle
 #: model:ir.model,name:product_lifecycle.model_product_product
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_lifecycle
-#: view:product.template:product_lifecycle.product_template_replacement_product_form_view
-msgid "Product Variant"
-msgstr "Variantes de Producto"
-
-#. module: product_lifecycle
 #: model:ir.model,name:product_lifecycle.model_purchase_order
 msgid "Purchase Order"
-msgstr "Pedido de Compra"
+msgstr "Pedido de compra"
 
 #. module: product_lifecycle
 #: model:ir.model,name:product_lifecycle.model_purchase_order_line
 #: field:replacement.product.line,line_id:0
 msgid "Purchase Order Line"
-msgstr "Línea de Pedido de Compra"
-
-#. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:58
-#, python-format
-msgid "Purchase order line can not have discontinued products."
-msgstr "La linea de orden de compra no puede tener productos descontinuados."
+msgstr "Línea pedido de compra"
 
 #. module: product_lifecycle
 #: model:product.attribute.value,name:product_lifecycle.product_attribute_value_7
@@ -248,11 +178,22 @@ msgstr "Reemplazar"
 
 #. module: product_lifecycle
 #: model:ir.actions.act_window,name:product_lifecycle.action_replacement_product
-msgid "Replace a Disconitued Product to Purchase"
-msgstr "Reemplaza un Producto Descontinueado para compra"
+msgid "Replace Obsolete Products to Purchase"
+msgstr "Remplaza productos descontinuados en compras"
+
+#. module: product_lifecycle
+#: field:product.product,replace_to_product_id:0
+msgid "Replace To"
+msgstr "Remplaza a"
+
+#. module: product_lifecycle
+#: field:product.product,replaced_by_product_id:0
+msgid "Replaced By"
+msgstr "Reemplazado por"
 
 #. module: product_lifecycle
 #: view:replacement.product:product_lifecycle.replacement_product_form_view
+#: field:replacement.product.line,replace_product_id:0
 msgid "Replacement Product"
 msgstr "Producto de Reemplazo"
 
@@ -262,35 +203,24 @@ msgid "Replacement Product Lines"
 msgstr "Lineas de Producto de Reemplazo"
 
 #. module: product_lifecycle
-#: field:replacement.product.line,replacement_product_id:0
-msgid "Replacement Product for Purchase"
-msgstr "Producto de Reemplazo en Operaciones de Compras'"
-
-#. module: product_lifecycle
-#: field:product.product,replacement_product_ids:0
-msgid "Replacement Products for Purchase"
-msgstr "Productos de Reemplazo en Operaciones de Compras'"
-
-#. module: product_lifecycle
 #: field:replacement.product.line,replacement_id:0
 msgid "Replacement Wizard"
 msgstr "Asistente de Reemplazo"
 
 #. module: product_lifecycle
 #: model:ir.model,name:product_lifecycle.model_replacement_product
-msgid "Replacement of discontinued products for purchase operations"
-msgstr "Reemplazo de productos descontinuados para operaciones de compras"
+msgid "Replacement of obsolete products for purchase operations"
+msgstr "Reemplazo del producto descontinuado en las operaciones de compra"
+
+#. module: product_lifecycle
+#: view:product.product:product_lifecycle.product_replacement_product_form_view
+msgid "Replacements Info"
+msgstr "Información de Reemplazos"
 
 #. module: product_lifecycle
 #: model:ir.model,name:product_lifecycle.model_replacement_product_line
-msgid "Select a replacement for every discontinued product"
-msgstr "Selecciona un reemplazo para cada producto descontinuado"
-
-#. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:103
-#, python-format
-msgid "Select one of the replacement products."
-msgstr "Selecciona un producto de reemplazo."
+msgid "Select a replacement for every obsolete product"
+msgstr "Seleccione un reemplazo para cada prododucto descontinuado"
 
 #. module: product_lifecycle
 #: field:product.product,state2:0
@@ -298,25 +228,67 @@ msgid "State"
 msgstr "Estado"
 
 #. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:105
+#: code:addons/product_lifecycle/model/purchase.py:75
 #, python-format
-msgid "The are not replacement products defined for the product you selected. Please select another product or define a replacement product in the product form view."
-msgstr "No hay productos de reemplazo definidos para el producto que ha seleccionado. Por favor, seleccione otro producto o define un producto de rempleazo para dicho producto en la vista formulario del producto."
+msgid "The are not replacement products defined for the product you selected. You can configure the replacement product in the product form view."
+msgstr "No hay producto de reemplazo definido para el producto que has seleccionado. Puedes condigurar el producto de reemplazo en la ficha formualario del producto"
 
 #. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:59
-#, python-format
-msgid "The next lines cannot be added to the purchase order:"
-msgstr "Las siguientes linieas no pueden ser agregadas a la orden de compra:"
+#: view:replacement.product:product_lifecycle.replacement_product_form_view
+msgid "The next are the lines of the current\n"
+"                                    purchase order that have obsolete\n"
+"                                    products. In this wizard you can replace\n"
+"                                    the obsolete lines with the replacement\n"
+"                                    product. If you do not want to replace the\n"
+"                                    product please remove for the list bellow.\n"
+"                                    This will not delete the purchase order\n"
+"                                    line, just going to exclude the line for\n"
+"                                    replacement operation."
+msgstr "Las siguientes son las lineas de la orden de compra\n"
+"                                    que posee productos descontinuados.\n"
+"                                    En este asistente pueds reemplazar\n"
+"                                    la lineas con productos descontinuados con sus productos de reemplazo.\n"
+"                                    Si no deseas reemplazar el producto \n"
+"                                    por favor quitalo de la lista abajo.\n"
+"                                    Esto no borrará la linea de la orden de compra,\n"
+"                                    solo la excluirá en la operación de reemplazo."
 
 #. module: product_lifecycle
-#: code:addons/product_lifecycle/wizard/replacement_product.py:82
+#: view:sale.order:product_lifecycle.sale_order_obsolete_product_form
+msgid "The products that are obsolete can not be sell."
+msgstr "Los productos que estan descontinuados no pueden ser vendidos."
+
+#. module: product_lifecycle
+#: code:addons/product_lifecycle/wizard/replacement_product.py:141
+#, python-format
+msgid "The replacement line obsolete product must be a obsolete product"
+msgstr "El producto que será reemplazado en la linea de reemplazo debe ser un producto descontinuado"
+
+#. module: product_lifecycle
+#: code:addons/product_lifecycle/wizard/replacement_product.py:130
+#, python-format
+msgid "The replacement line replace product can not be a obsolete product"
+msgstr "El producto de reemplazo en la linea de reemplazo no debe ser un producto descontinuado"
+
+#. module: product_lifecycle
+#: help:product.product,replaced_by_product_id:0
+msgid "The replacement product for the current product. The current product is a obsolete product and the product in this field is the new product that make the replacement"
+msgstr "El producto de reemplazo para el producto actual. El producto actual esta descontinuado y el producto en este campo es el nuevo producto que lo reemplazará"
+
+#. module: product_lifecycle
+#: code:addons/product_lifecycle/wizard/replacement_product.py:66
+#, python-format
+msgid "There is not obsolete products to replace"
+msgstr "No hay productos descontinuados por reemplazar"
+
+#. module: product_lifecycle
+#: code:addons/product_lifecycle/wizard/replacement_product.py:84
 #, python-format
 msgid "This wizard is not designed to work from the"
 msgstr "Este asistente no ha sido diseñado para funcionar con"
 
 #. module: product_lifecycle
-#: code:addons/product_lifecycle/wizard/replacement_product.py:85
+#: code:addons/product_lifecycle/wizard/replacement_product.py:88
 #, python-format
 msgid "This wizard need to be called from a model"
 msgstr "Este asistente necesita ser llamado desde un modelo"
@@ -327,14 +299,15 @@ msgid "True"
 msgstr "True"
 
 #. module: product_lifecycle
-#: help:product.product,replacement_product_ids:0
-msgid "When a product is discontinued this list will be the possible alternative products that could replace it"
-msgstr "Cuando un producto está descontinuado representa la lista de posibles productos alternativos que pueden reemplazarlo"
+#: code:addons/product_lifecycle/model/purchase.py:70
+#, python-format
+msgid "You can force to purchase this item or you can purchase the replacement product"
+msgstr "Puedes a la fuerza comprar este producto o puedes comprar su producto de reemplazo"
 
 #. module: product_lifecycle
-#: help:purchase.order.line,discontinued_product_id:0
-msgid "When introduce a discontinued product to the product field in the purchase order line then will raise a warning and will auto fill this field with the discontiued product and clean the product field so you can add the replacement product"
-msgstr "Cuando ingreses un producto descontinuado al campo producto se levantará una advertencia y se auto llenara este campo con dicho producto descontinueado. El campo producto se vaciará para que puedas ingresar el producto de reemplazo"
+#: view:sale.order:product_lifecycle.sale_order_obsolete_product_form
+msgid "[('state2', '!=', 'obsolete')]"
+msgstr "[('state2', '!=', 'obsolete')]"
 
 #. module: product_lifecycle
 #: model:product.template,name:product_lifecycle.product_product_4e_product_template
@@ -344,9 +317,9 @@ msgid "iPad Retina Display"
 msgstr "iPad con pantalla Retina"
 
 #. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:101
+#: code:addons/product_lifecycle/model/purchase.py:68
 #, python-format
-msgid "is a discontinued product."
+msgid "is an obsolete product."
 msgstr "es un producto descontinuado."
 
 #. module: product_lifecycle
@@ -354,13 +327,3 @@ msgstr "es un producto descontinuado."
 msgid "or"
 msgstr "o"
 
-#. module: product_lifecycle
-#: code:addons/product_lifecycle/model/purchase.py:56
-#, python-format
-msgid "with product"
-msgstr "con el producto"
-
-#. module: product_lifecycle
-#: view:purchase.order:product_lifecycle.purchase_order_replacement_product_form
-msgid "{'required': [('discontinued_product_id', '!=', False)]}"
-msgstr "{'required': [('discontinued_product_id', '!=', False)]}"

@@ -23,7 +23,7 @@
 
         <record id="product_product_4e" model="product.product">
             <field name="default_code">A2327</field>
-            <field name="state2">end</field>
+            <field name="state2">draft</field>
             <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
             <field name="attribute_value_ids"
                 eval="[(6,0,[ref('product.product_attribute_value_1'), ref('product_lifecycle.product_attribute_value_6'), ref('product.product_attribute_value_5')])]"/>
@@ -35,6 +35,7 @@
             <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
             <field name="attribute_value_ids"
                 eval="[(6,0,[ref('product.product_attribute_value_2'), ref('product_lifecycle.product_attribute_value_6'), ref('product.product_attribute_value_5')])]"/>
+            <field name="replaced_by_product_id" ref="product.product_product_4"/>
         </record>
 
         <record id="product_product_4g" model="product.product">
@@ -50,22 +51,22 @@
 
         <record id="product.product_product_4" model="product.product">
             <field name="state2">draft</field>
-            <field name="replacement_product_ids" eval="[(6,0,[ref('product_product_4e')])]"/>
+            <field name="replaced_by_product_id" ref="product_product_4e"/>
         </record>
 
         <record id="product.product_product_4b" model="product.product">
             <field name="state2">obsolete</field>
-            <field name="replacement_product_ids" eval="[(6,0,[ref('product_product_4e')])]"/>
+            <field name="replaced_by_product_id" ref="product_product_4e"/>
         </record>
 
         <record id="product.product_product_4c" model="product.product">
             <field name="state2">sellable</field>
-            <field name="replacement_product_ids" eval="[(6,0,[ref('product_product_4f'), ref('product_product_4g')])]"/>
+            <field name="replaced_by_product_id" ref="product_product_4g"/>
         </record>
 
         <record id="product.product_product_4d" model="product.product">
             <field name="state2">sellable</field>
-            <field name="replacement_product_ids" eval="[(6,0,[ref('product_product_4f')])]"/>
+            <field name="replaced_by_product_id" ref="product_product_4f"/>
         </record>
 
     </data>

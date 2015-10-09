@@ -1,0 +1,16 @@
+<openerp>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="ir_cron_update_product_state" model="ir.cron">
+            <field name="name">Update Products State</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="active" eval="True"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="True"/>
+            <field name="model" eval="'product.product'"/>
+            <field name="function" eval="'update_product_state'"/>
+        </record>
+    </data>
+</openerp>

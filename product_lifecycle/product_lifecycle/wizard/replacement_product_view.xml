@@ -8,7 +8,33 @@
             <field name="arch" type="xml">
                 <form string="Replacement Product">
                     <group>
-                        <group>
+                        <group colspan="4">
+                            <div class="no_print">
+                                <p class="oe_grey">
+                                    The next are the lines of the current
+                                    purchase order that have obsolete
+                                    products. In this wizard you can replace
+                                    the obsolete lines with the replacement
+                                    product. If you do not want to replace the
+                                    product please remove for the list bellow.
+                                    This will not delete the purchase order
+                                    line, just going to exclude the line for
+                                    replacement operation.
+                                </p>
+                                <p class="oe_grey">
+                                    NOTE: If there is a line with not
+                                    suggested replacement product means that
+                                    the product have not replacement product
+                                    configured. Please configure correctly the
+                                    replacement product  in the product form
+                                    view of the obsolete product. If you do
+                                    not want to replace the line for the
+                                    moment just remove the line for the Lines
+                                    to Replace.
+                                </p>
+                            </div>
+                        </group>
+                        <group string="Lines to Replace">
                             <field name="lines" nolabel="1" colspan="4"/>
                         </group>
                     </group>
@@ -25,17 +51,18 @@
             <field name="name">replacement.product.line.tree.view</field>
             <field name="model">replacement.product.line</field>
             <field name="arch" type="xml">
-                <tree string="Replacement Product Lines" editable="bottom" version="7.0" create="false" delete="false">
+                <tree string="Replacement Product Lines" editable="bottom" version="7.0" create="false">
                     <field name="number" readonly="1"/>
-                    <field name="discontinued_product_id" readonly="1"/>
-                    <field name="replacement_product_ids" invisible="1"/>
-                    <field name="replacement_product_id" domain="[('state2', '!=', 'obsolete'), ('id','in', replacement_product_ids and replacement_product_ids[0] and replacement_product_ids[0][2] or [])]" options="{'no_create': True}" required="1"/>
+                    <field name="obsolete_product_id" readonly="1"/>
+                    <field name="replace_product_id"
+                        domain="[('replace_to_product_id', '=', obsolete_product_id)]"
+                        options="{'no_create': True}" required="1"/>
                 </tree>
             </field>
         </record>
 
         <record id="action_replacement_product" model="ir.actions.act_window">
-            <field name="name">Replace a Disconitued Product to Purchase</field>
+            <field name="name">Replace Obsolete Products to Purchase</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">replacement.product</field>
             <field name="view_type">form</field>

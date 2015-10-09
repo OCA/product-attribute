@@ -7,25 +7,44 @@
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="after">
-                    <field name="discontinued_product_id"/>
-                </xpath>
-                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="attributes">
-                    <attribute name="attrs">{'required': [('discontinued_product_id', '!=', False)]}</attribute>
-                </xpath>
                 <xpath expr="//field[@name='state']" position="before">
-                    <button string="Check Discontinued Products" name="%(action_replacement_product)d" type="action"/>
+                    <button string="Replace Obsolete Products" name="%(action_replacement_product)d" type="action" states="draft,sent"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree" position="inside">
+                    <field name="obsolete" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                    <attribute name="colors">red: obsolete == True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']" position="before">
+                    <p class="oe_grey">
+                        NOTE: If the purchase line is red it means that
+                        the purchase order line has a obsolete product.
+                        If you want to purchase a not obsolete product you
+                        can use the Replace Obsolete Product button.
+                    </p>
                 </xpath>
             </field>
         </record>
 
-        <record id="purchase_order_line_replacement_product_form" model="ir.ui.view">
-            <field name="name">purchase.order.line.replacement.product.form</field>
-            <field name="model">purchase.order.line</field>
-            <field name="inherit_id" ref="purchase.purchase_order_line_form"/>
+        <record id="purchase_order_replacement_product_form2" model="ir.ui.view">
+            <field name="name">purchase.order.replacement.product.form2</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_2_stock_picking"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='product_id']" position="after">
-                    <field name="discontinued_product_id"/>
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button
+                        type="object"
+                        name="lines_open"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        attrs="{'invisible': [('lines_count', '=', 0)]}"
+                        >
+                        <field name="lines_count"
+                            widget="statinfo"
+                            string="Purchase Lines"
+                            help="Purchase Lines"/>
+                    </button>
                 </xpath>
             </field>
         </record>

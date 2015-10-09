@@ -25,21 +25,23 @@
 
 {
     "name": "Product Lifecycle",
-    "summary": "Manage replacement of discontinued products",
-    "version": "1.6",
+    "summary": "Manage replacement of obsolete products",
+    "version": "8.0.1.7.0",
     "author": "Vauxoo",
     "website": "http://www.vauxoo.com/",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "category": "product",
     "depends": [
-        "product",
-        "purchase",
         "purchase_order_line_sequence",
+        "purchase_incoming_qty",
+        "sale_stock",
     ],
     "data": [
+        "data/ir_cron.xml",
         "wizard/replacement_product_view.xml",
         "view/product_view.xml",
         "view/purchase_view.xml",
+        "view/sale_order_views.xml",
         "security/product_security.xml",
     ],
     "demo": [
@@ -47,7 +49,5 @@
     ],
     "test": [],
     "qweb": [],
-    "js": [],
-    "css": [],
     "installable": True,
 }
