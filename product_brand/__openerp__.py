@@ -30,7 +30,7 @@
 ###############################################################################
 {
     'name': 'Product Brand Manager',
-    'version': '0.1',
+    'version': '8.0.0.1.0',
     'category': 'Product',
     'summary': 'Add brand to products',
     'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA'
