@@ -22,7 +22,7 @@
 ##############################################################################
 
 {'name': 'Product Weight Calculation',
- 'version': '0.2',
+ 'version': '8.0.0.2.0',
  'author': 'Savoir-faire Linux,Akretion,Odoo Community Association (OCA)',
  'website': 'http://www.savoirfairelinux.com',
  'license': 'AGPL-3',

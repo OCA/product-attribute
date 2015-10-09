@@ -23,7 +23,7 @@
 
 {
     'name': 'Product Sequence',
-    'version': '0.1',
+    'version': '8.0.0.1.0',
     'author': "Zikzakmedia SL,Odoo Community Association (OCA)",
     'website': 'http://www.zikzakmedia.com',
     'license': 'AGPL-3',

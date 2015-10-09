@@ -11,16 +11,16 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[product_attribute_multi_type](product_attribute_multi_type/) | 1.0 | Product attribute types
-[product_brand](product_brand/) | 0.1 | Add brand to products
-[product_dimension](product_dimension/) | 2.0 | Product Dimension
-[product_gtin](product_gtin/) | 1.1 | Product GTIN EAN8 EAN13 UPC JPC Support
-[product_m2mcategories](product_m2mcategories/) | 1.0.2 | Product - Many Categories
-[product_manufacturer](product_manufacturer/) | 1.0 | Products Manufacturers
+[product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 | Product attribute types
+[product_brand](product_brand/) | 8.0.0.1.0 | Add brand to products
+[product_dimension](product_dimension/) | 8.0.2.0.0 | Product Dimension
+[product_gtin](product_gtin/) | 8.0.1.1.0 | Product GTIN EAN8 EAN13 UPC JPC Support
+[product_m2mcategories](product_m2mcategories/) | 8.0.1.0.2 | Product - Many Categories
+[product_manufacturer](product_manufacturer/) | 8.0.1.0.0 | Products Manufacturers
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0 | Fixed price in pricelists
-[product_sequence](product_sequence/) | 0.1 | Product Sequence
+[product_sequence](product_sequence/) | 8.0.0.1.0 | Product Sequence
 [product_supplierinfo_tree_price_info](product_supplierinfo_tree_price_info/) | 8.0.1.0 | Supplier Unit Price on Product Form
-[product_weight](product_weight/) | 0.2 | Allows to calculate products weight from its components.
+[product_weight](product_weight/) | 8.0.0.2.0 | Allows to calculate products weight from its components.
 
 Unported addons
 ---------------
