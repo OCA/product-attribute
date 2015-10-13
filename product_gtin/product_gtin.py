@@ -28,7 +28,8 @@ import re
 CONSTRAINT_MESSAGE = 'Error: Invalid EAN/GTIN code'
 HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
                 "http://en.wikipedia.org/wiki/Global_Trade_Item_Number")
-                
+
+VALID_GTIN_LENGTHS = [8, 10, 12, 13, 14]                
 
 # The official names of EANs, UPCs, etc. are now GTIN-x:
 # GTIN-14 (was DUN-14, ITF)
@@ -78,9 +79,6 @@ def check_gtinx(code):
     check = check % 10
 
     return check == int(code[-1])    
-
-
-VALID_GTIN_LENGTHS = [8, 10, 12, 13, 14]
 
 
 def check_gtin(code):
