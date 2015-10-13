@@ -31,9 +31,6 @@ HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
                 "http://en.wikipedia.org/wiki/Global_Trade_Item_Number")
 
 
-def is_pair(x):
-    return not x % 2
-    
 def check_eanx(code):
     """
     The routine for calculating GTIN checksums is the same for all types,
@@ -44,10 +41,10 @@ def check_eanx(code):
     gtin_len = len(code)
     for i in range(gtin_len-1):
         pos = int(gtin_len-2-i)
-        if is_pair(i):
-            total += 3 * int(code[pos])
-        else:
+        if i % 2:
             total += int(code[pos])
+        else:
+            total += 3 * int(code[pos])
     check = 10 - operator.mod(total, 10)
     if check == 10:
         check = 0
