@@ -52,13 +52,13 @@ def check_eanx(code):
     return check == int(code[-1])    
 
 
-DICT_CHECK_EAN = [8, 11, 12, 13, 14]
+VALID_GTIN_LENGTHS = [8, 11, 12, 13, 14]
 
 
 def check_ean(eancode):
     if not eancode:
         return True
-    if not len(eancode) in DICT_CHECK_EAN:
+    if not len(eancode) in VALID_GTIN_LENGTHS:
         return False
     try:
         int(eancode)
