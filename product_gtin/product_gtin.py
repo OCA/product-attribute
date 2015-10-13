@@ -50,7 +50,7 @@ def check_ean8(eancode):
         return False
 
     sum = 0
-    ean_len = int(len(eancode))
+    ean_len = len(eancode)
     for i in range(ean_len-1):
         if is_pair(i):
             sum += 3 * int(eancode[i])
@@ -79,7 +79,7 @@ def check_upc(upccode):
         return False
 
     sum_pair = 0
-    ean_len = int(len(upccode))
+    ean_len = len(upccode)
     for i in range(ean_len-1):
         if is_pair(i):
             sum_pair += int(upccode[i])
@@ -108,7 +108,7 @@ def check_ean13(eancode):
         return False
 
     sum = 0
-    ean_len = int(len(eancode))
+    ean_len = len(eancode)
     for i in range(ean_len-1):
         pos = int(ean_len-2-i)
         if is_pair(i):
