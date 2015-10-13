@@ -52,61 +52,7 @@ def check_eanx(code):
     return check == int(code[-1])    
 
 
-def check_ean8(eancode):
-    """Check if the given ean code answer ean8 requirements
-    For more details: http://en.wikipedia.org/wiki/EAN-8
-
-    :param eancode: string, ean-8 code
-    :return: boolean
-    """
-    if not eancode or not eancode.isdigit():
-        return False
-
-    return check_eanx(eancode)
-
-
-def check_upc(upccode):
-    """Check if the given code answers upc requirements
-    For more details:
-    http://en.wikipedia.org/wiki/Universal_Product_Code
-
-    :param upccode: string, upc code
-    :return: bool
-    """
-    if not upccode or not upccode.isdigit():
-        return False
-
-    return check_eanx(upccode)
-
-
-def check_ean13(eancode):
-    """Check if the given ean code answer ean13 requirements
-    For more details:
-    http://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29
-
-    :param eancode: string, ean-13 code
-    :return: boolean
-    """
-    if not eancode or not eancode.isdigit():
-        return False
-
-    return check_eanx(eancode)
-
-
-def check_ean11(eancode):
-    pass
-
-
-def check_gtin14(eancode):
-    return check_eanx(eancode)
-
-
-DICT_CHECK_EAN = {8: check_ean8,
-                  11: check_ean11,
-                  12: check_upc,
-                  13: check_ean13,
-                  14: check_gtin14,
-                  }
+DICT_CHECK_EAN = [8, 11, 12, 13, 14]
 
 
 def check_ean(eancode):
@@ -118,7 +64,7 @@ def check_ean(eancode):
         int(eancode)
     except:
         return False
-    return DICT_CHECK_EAN[len(eancode)](eancode)
+    return check_eanx(eancode)
 
 
 class product_product(orm.Model):
@@ -181,48 +127,6 @@ if __name__ == '__main__':
     
     class TestEANCheckers(unittest.TestCase):
     
-        def test_ean13(self):
-            # This is a valid EAN13
-            self.assertTrue(check_ean13('5013567421497'))
-               
-            # Tweak the last digit to make it invalid   
-            self.assertFalse(check_ean13('5013567421498'))
-            
-            
-        def test_ean8(self):
-            # This is a valid EAN8 from
-            # https://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29
-            self.assertTrue(check_ean8('73513537'))
-               
-            # Tweak the last digit to make it invalid   
-            self.assertFalse(check_ean8('73513538'))
-            
-            
-        def test_upc(self):
-            # This is a valid UPC from
-            self.assertTrue(check_upc('813922012941'))
-               
-            # Tweak the last digit to make it invalid   
-            self.assertFalse(check_upc('813922012942'))                      
-
-
-        def test_upc_ending_zero(self):
-            # Current check_upc() is broken if the check digit is zero
-            self.assertTrue(check_upc('813922013030'))
-               
-            # Tweak the last digit to make it invalid   
-            self.assertFalse(check_upc('813922013031'))
-            
-            
-        def test_gtin14(self):
-            # Example GTIN-14 from
-            # http://www.morovia.com/kb/Shipping-Container-Code-GS114-SCC14-GTIN14-10600.html
-            # (Test fails currently as check_gtin14() returns None)
-            self.assertTrue(check_gtin14('30012345678906'))
-               
-            # Tweak the last digit to make it invalid   
-            self.assertFalse(check_gtin14('30012345678907'))
-            
         def text_check_ean(self):
             # Check all of the real-world GTINS via check_ean()
 
