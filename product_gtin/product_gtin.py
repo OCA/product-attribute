@@ -33,7 +33,10 @@ def check_eanx(code):
     """
     The routine for calculating GTIN checksums is the same for all types,
     provided one starts at the end of the number (right-hand side) and works
-    backwards
+    backwards.
+
+    :param eancode: string, GTIN code
+    :return: boolean    
     """
     total = 0
     gtin_len = len(code)
