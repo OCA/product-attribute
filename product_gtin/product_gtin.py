@@ -83,21 +83,21 @@ def check_gtinx(code):
 VALID_GTIN_LENGTHS = [8, 10, 12, 13, 14]
 
 
-def check_gtin(eancode):
-    if not eancode:
+def check_gtin(code):
+    if not code:
         return True
-    if len(eancode) not in VALID_GTIN_LENGTHS:
+    if len(code) not in VALID_GTIN_LENGTHS:
         return False
-    if len(eancode) == 10:
+    if len(code) == 10:
         # Should be an ISBN-10
-        return check_isbn(eancode)
+        return check_isbn(code)
     else:
         # SHould be GTIN-x
         try:
-            int(eancode)
+            int(code)
         except:
             return False
-        return check_gtinx(eancode)
+        return check_gtinx(code)
 
 
 class product_product(orm.Model):
