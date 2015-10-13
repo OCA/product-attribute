@@ -23,6 +23,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 from openerp.osv import orm, fields
+import re
 
 CONSTRAINT_MESSAGE = 'Error: Invalid EAN/GTIN code'
 HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
@@ -36,6 +37,25 @@ HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
 # GTIN-8 (was EAN-8)
 # From https://en.wikipedia.org/wiki/Global_Trade_Item_Number                
 
+def check_isbn(isbn):
+    """
+    Check the digits of an ISBN, using the procedure outlined at
+    https://en.wikipedia.org/wiki/International_Standard_Book_Number
+
+    :param isbn: string, ISBN
+    :return: boolean        
+    """
+    if re.match(r'^[\dX]{10}$', isbn):
+        total = 0
+        for i in range(len(isbn)):
+            char = isbn[i]
+            num = 10 if char == 'X' else int(char)
+            total += num * (10 - i)
+            
+        return total % 11 == 0
+    
+    return False
+    
 
 def check_gtinx(code):
     """
@@ -60,19 +80,24 @@ def check_gtinx(code):
     return check == int(code[-1])    
 
 
-VALID_GTIN_LENGTHS = [8, 12, 13, 14]
+VALID_GTIN_LENGTHS = [8, 10, 12, 13, 14]
 
 
 def check_gtin(eancode):
     if not eancode:
         return True
-    if not len(eancode) in VALID_GTIN_LENGTHS:
+    if len(eancode) not in VALID_GTIN_LENGTHS:
         return False
-    try:
-        int(eancode)
-    except:
-        return False
-    return check_gtinx(eancode)
+    if len(eancode) == 10:
+        # Should be an ISBN-10
+        return check_isbn(eancode)
+    else:
+        # SHould be GTIN-x
+        try:
+            int(eancode)
+        except:
+            return False
+        return check_gtinx(eancode)
 
 
 class product_product(orm.Model):
@@ -135,6 +160,15 @@ if __name__ == '__main__':
     
     class TestEANCheckers(unittest.TestCase):
     
+        def test_check_isbn(self):
+            # 10-digit ISBN
+            self.assertTrue(check_isbn('1490537368'))
+            
+            # Corrupt ISBN by changing last digit
+            self.assertFalse(check_isbn('1490537369'))
+            
+            #TODO: Need an example ISBN ending in 'X'
+    
         def test_check_gtin(self):
             # Check all of the real-world GTINS via check_frin()
 
@@ -151,6 +185,12 @@ if __name__ == '__main__':
             # GTIN-14
             self.assertTrue(check_gtin('30012345678906'))
             
+            # 13-digit ISBN
+            self.assertTrue(check_gtin('9781490537368'))            
+            
+            # 10-digit ISBN
+            self.assertTrue(check_gtin('1490537368'))            
+
             # None should pass
             self.assertTrue(check_gtin(None))
             
