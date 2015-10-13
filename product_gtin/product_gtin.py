@@ -23,8 +23,6 @@ import logging
 _logger = logging.getLogger(__name__)
 
 from openerp.osv import orm, fields
-import operator
-
 
 CONSTRAINT_MESSAGE = 'Error: Invalid EAN/GTIN code'
 HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
@@ -45,9 +43,8 @@ def check_eanx(code):
             total += int(code[pos])
         else:
             total += 3 * int(code[pos])
-    check = 10 - operator.mod(total, 10)
-    if check == 10:
-        check = 0
+    check = 10 - (total % 10)
+    check = check % 10
 
     return check == int(code[-1])    
 
