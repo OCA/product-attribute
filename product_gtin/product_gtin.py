@@ -202,3 +202,57 @@ class res_partner(orm.Model):
         }
 
     _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean13'])]
+    
+    
+if __name__ == '__main__':
+    
+    import unittest
+    
+    class TestEANCheckers(unittest.TestCase):
+    
+        def test_ean13(self):
+            # This is a valid EAN13
+            self.assertTrue(check_ean13('5013567421497'))
+               
+            # Tweak the last digit to make it invalid   
+            self.assertFalse(check_ean13('5013567421498'))
+            
+            
+        def test_ean8(self):
+            # This is a valid EAN8 from
+            # https://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29
+            self.assertTrue(check_ean8('73513537'))
+               
+            # Tweak the last digit to make it invalid   
+            self.assertFalse(check_ean8('73513538'))
+            
+            
+        def test_upc(self):
+            # This is a valid UPC from
+            self.assertTrue(check_upc('813922012941'))
+               
+            # Tweak the last digit to make it invalid   
+            self.assertFalse(check_upc('813922012942'))                      
+
+
+        def test_upc_ending_zero(self):
+            # Current check_upc() is broken if the check digit is zero
+            # (Test fails currently)
+            self.assertTrue(check_upc('813922013030'))
+               
+            # Tweak the last digit to make it invalid   
+            self.assertFalse(check_upc('813922013031'))
+            
+            
+        def test_gtin14(self):
+            # Example GTIN-14 from
+            # http://www.morovia.com/kb/Shipping-Container-Code-GS114-SCC14-GTIN14-10600.html
+            # (Test fails currently as check_gtin14() returns None)
+            self.assertTrue(check_gtin14('30012345678906'))
+               
+            # Tweak the last digit to make it invalid   
+            self.assertFalse(check_gtin14('30012345678907'))             
+
+
+    unittest.main()
+               
