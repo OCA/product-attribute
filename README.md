@@ -26,20 +26,20 @@ Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[base_custom_attributes](__unported__/base_custom_attributes/) | 0.1.1 (unported) | base_custom_attributes
-[customer_context_in_product_view](__unported__/customer_context_in_product_view/) | 1.1.1 (unported) | Display Customer Price in Product View
-[partner_custom_attributes](__unported__/partner_custom_attributes/) | 0.1.0 (unported) | Partner Custom Attributes
-[product_categ_attributes](__unported__/product_categ_attributes/) | 0.1 (unported) | product_categ_attributes
-[product_custom_attributes](__unported__/product_custom_attributes/) | 0.2.1 (unported) | product_custom_attributes
-[product_customer_code](__unported__/product_customer_code/) | 1.0 (unported) | Add many Customers' Codes in product
-[product_gift](__unported__/product_gift/) | 0.1 (unported) | product_gift
-[product_icecat](__unported__/product_icecat/) | 1.0 (unported) | Product Information Import from icecat
-[product_images](__unported__/product_images/) | 0.2 (unported) | Product Image Gallery
-[product_multi_company](__unported__/product_multi_company/) | 1.1 (unported) | Product multi company
-[product_multi_price](__unported__/product_multi_price/) | 0.1 (unported) | product_multi_price
-[product_prices_on_variant](__unported__/product_prices_on_variant/) | 0.1 (unported) | product_prices_on_variant
-[product_qt](__unported__/product_qt/) | 1.0 (unported) | Products & Pricelists - Define quality control and testing parameters in product
-[product_quick_stock_rule](__unported__/product_quick_stock_rule/) | 0.1 (unported) | product_quick_stock_rule
-[production_lot_custom_attributes](__unported__/production_lot_custom_attributes/) | 0.1.1 (unported) | production_lot_custom_attributes
+[base_custom_attributes](base_custom_attributes/) | 0.1.1 (unported) | base_custom_attributes
+[customer_context_in_product_view](customer_context_in_product_view/) | 1.1.1 (unported) | Display Customer Price in Product View
+[partner_custom_attributes](partner_custom_attributes/) | 0.1.0 (unported) | Partner Custom Attributes
+[product_categ_attributes](product_categ_attributes/) | 0.1 (unported) | product_categ_attributes
+[product_custom_attributes](product_custom_attributes/) | 0.2.1 (unported) | product_custom_attributes
+[product_customer_code](product_customer_code/) | 1.0 (unported) | Add many Customers' Codes in product
+[product_gift](product_gift/) | 0.1 (unported) | product_gift
+[product_icecat](product_icecat/) | 1.0 (unported) | Product Information Import from icecat
+[product_images](product_images/) | 0.2 (unported) | Product Image Gallery
+[product_multi_company](product_multi_company/) | 1.1 (unported) | Product multi company
+[product_multi_price](product_multi_price/) | 0.1 (unported) | product_multi_price
+[product_prices_on_variant](product_prices_on_variant/) | 0.1 (unported) | product_prices_on_variant
+[product_qt](product_qt/) | 1.0 (unported) | Products & Pricelists - Define quality control and testing parameters in product
+[product_quick_stock_rule](product_quick_stock_rule/) | 0.1 (unported) | product_quick_stock_rule
+[production_lot_custom_attributes](production_lot_custom_attributes/) | 0.1.1 (unported) | production_lot_custom_attributes
 
 [//]: # (end addons)
