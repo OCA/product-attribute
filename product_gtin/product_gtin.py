@@ -208,7 +208,6 @@ if __name__ == '__main__':
 
         def test_upc_ending_zero(self):
             # Current check_upc() is broken if the check digit is zero
-            # (Test fails currently)
             self.assertTrue(check_upc('813922013030'))
                
             # Tweak the last digit to make it invalid   
@@ -222,7 +221,39 @@ if __name__ == '__main__':
             self.assertTrue(check_gtin14('30012345678906'))
                
             # Tweak the last digit to make it invalid   
-            self.assertFalse(check_gtin14('30012345678907'))             
+            self.assertFalse(check_gtin14('30012345678907'))
+            
+        def text_check_ean(self):
+            # Check all of the real-world GTINS via check_ean()
+
+            # EAN13
+            self.assertTrue(check_ean('5013567421497'))
+            
+            # EAN8
+            self.assertTrue(check_ean('73513537'))  
+
+            # UPC
+            self.assertTrue(check_ean('813922012941'))
+            self.assertTrue(check_upc('813922013030'))            
+            
+            # GTIN-14
+            self.assertTrue(check_ean('30012345678906'))
+            
+            # None should pass
+            self.assertTrue(check_ean(None))
+            
+            # Non-numeric string should fail
+            self.assertFalse(check_ean("ABCDEFG"))
+            
+            # Short numeric string should fail
+            self.assertFalse(check_ean("12345"))
+            
+            # GTINs with corrupted checksum should fail
+            self.assertFalse(check_ean('5013567421498'))            
+            self.assertFalse(check_ean('73513538'))            
+            self.assertTrue(check_ean('813922012941'))            
+            self.assertFalse(check_ean('813922013031'))            
+            self.assertFalse(check_ean('30012345678907'))                       
 
 
     unittest.main()
