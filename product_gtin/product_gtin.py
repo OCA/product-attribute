@@ -33,6 +33,26 @@ HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
 
 def is_pair(x):
     return not x % 2
+    
+def check_eanx(code):
+    """
+    The routine for calculating GTIN checksums is the same for all types,
+    provided one starts at the end of the number (right-hand side) and works
+    backwards
+    """
+    total = 0
+    gtin_len = len(code)
+    for i in range(gtin_len-1):
+        pos = int(gtin_len-2-i)
+        if is_pair(i):
+            total += 3 * int(code[pos])
+        else:
+            total += int(code[pos])
+    check = 10 - operator.mod(total, 10)
+    if check == 10:
+        check = 0
+
+    return check == int(code[-1])    
 
 
 def check_ean8(eancode):
@@ -49,18 +69,7 @@ def check_ean8(eancode):
         _logger.warn('Ean8 code has to have a length of 8 characters.')
         return False
 
-    sum = 0
-    ean_len = len(eancode)
-    for i in range(ean_len-1):
-        if is_pair(i):
-            sum += 3 * int(eancode[i])
-        else:
-            sum += int(eancode[i])
-    check = 10 - operator.mod(sum, 10)
-    if check == 10:
-        check = 0
-
-    return check == int(eancode[-1])
+    return check_eanx(eancode)
 
 
 def check_upc(upccode):
@@ -78,19 +87,7 @@ def check_upc(upccode):
         _logger.warn('UPC code has to have a length of 12 characters.')
         return False
 
-    sum_pair = 0
-    ean_len = len(upccode)
-    for i in range(ean_len-1):
-        if is_pair(i):
-            sum_pair += int(upccode[i])
-    sum = sum_pair * 3
-    for i in range(ean_len-1):
-        if not is_pair(i):
-            sum += int(upccode[i])
-    check = ((sum/10 + 1) * 10) - sum
-    check = check % 10
-
-    return check == int(upccode[-1])
+    return check_eanx(upccode)
 
 
 def check_ean13(eancode):
@@ -108,19 +105,7 @@ def check_ean13(eancode):
         _logger.warn('Ean13 code has to have a length of 13 characters.')
         return False
 
-    sum = 0
-    ean_len = len(eancode)
-    for i in range(ean_len-1):
-        pos = int(ean_len-2-i)
-        if is_pair(i):
-            sum += 3 * int(eancode[pos])
-        else:
-            sum += int(eancode[pos])
-    check = 10 - operator.mod(sum, 10)
-    if check == 10:
-        check = 0
-
-    return check == int(eancode[-1])
+    return check_eanx(eancode)
 
 
 def check_ean11(eancode):
@@ -128,7 +113,7 @@ def check_ean11(eancode):
 
 
 def check_gtin14(eancode):
-    pass
+    return check_eanx(eancode)
 
 
 DICT_CHECK_EAN = {8: check_ean8,
