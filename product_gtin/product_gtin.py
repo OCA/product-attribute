@@ -86,7 +86,7 @@ class product_product(orm.Model):
 
     _columns = {
         'ean13': fields.char(
-            'EAN/GTIN', size=14,
+            'EAN/GTIN', size = max(VALID_GTIN_LENGTHS),
             help="Code for %s" % HELP_MESSAGE),
     }
 
@@ -104,7 +104,7 @@ class product_packaging(orm.Model):
 
     _columns = {
         'ean': fields.char(
-            'EAN', size=14,
+            'EAN', size = max(VALID_GTIN_LENGTHS),
             help='Barcode number for %s' % HELP_MESSAGE),
         }
 
@@ -122,7 +122,7 @@ class res_partner(orm.Model):
 
     _columns = {
         'ean13': fields.char(
-            'EAN', size=14,
+            'EAN', size = max(VALID_GTIN_LENGTHS),
             help="Code for %s" % HELP_MESSAGE),
         }
 
