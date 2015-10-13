@@ -88,6 +88,7 @@ def check_upc(upccode):
         if not is_pair(i):
             sum += int(upccode[i])
     check = ((sum/10 + 1) * 10) - sum
+    check = check % 10
 
     return check == int(upccode[-1])
 
