@@ -27,9 +27,17 @@ from openerp.osv import orm, fields
 CONSTRAINT_MESSAGE = 'Error: Invalid EAN/GTIN code'
 HELP_MESSAGE = ("EAN8 EAN13 UPC JPC GTIN \n"
                 "http://en.wikipedia.org/wiki/Global_Trade_Item_Number")
+                
+
+# The official names of EANs, UPCs, etc. are now GTIN-x:
+# GTIN-14 (was DUN-14, ITF)
+# GTIN-13 (was EAN-13, CIP)
+# GTIN-12 (was UCC-12, UPC)
+# GTIN-8 (was EAN-8)
+# From https://en.wikipedia.org/wiki/Global_Trade_Item_Number                
 
 
-def check_eanx(code):
+def check_gtinx(code):
     """
     The routine for calculating GTIN checksums is the same for all types,
     provided one starts at the end of the number (right-hand side) and works
@@ -52,10 +60,10 @@ def check_eanx(code):
     return check == int(code[-1])    
 
 
-VALID_GTIN_LENGTHS = [8, 11, 12, 13, 14]
+VALID_GTIN_LENGTHS = [8, 12, 13, 14]
 
 
-def check_ean(eancode):
+def check_gtin(eancode):
     if not eancode:
         return True
     if not len(eancode) in VALID_GTIN_LENGTHS:
@@ -64,7 +72,7 @@ def check_ean(eancode):
         int(eancode)
     except:
         return False
-    return check_eanx(eancode)
+    return check_gtinx(eancode)
 
 
 class product_product(orm.Model):
@@ -72,7 +80,7 @@ class product_product(orm.Model):
 
     def _check_ean_key(self, cr, uid, ids):
         for rec in self.browse(cr, uid, ids):
-            if not check_ean(rec.ean13):
+            if not check_gtin(rec.ean13):
                 return False
         return True
 
@@ -90,7 +98,7 @@ class product_packaging(orm.Model):
 
     def _check_ean_key(self, cr, uid, ids):
         for rec in self.browse(cr, uid, ids):
-            if not check_ean(rec.ean):
+            if not check_gtin(rec.ean):
                 return False
         return True
 
@@ -108,7 +116,7 @@ class res_partner(orm.Model):
 
     def _check_ean_key(self, cr, uid, ids):
         for rec in self.browse(cr, uid, ids):
-            if not check_ean(rec.ean13):
+            if not check_gtin(rec.ean13):
                 return False
         return True
 
@@ -127,37 +135,37 @@ if __name__ == '__main__':
     
     class TestEANCheckers(unittest.TestCase):
     
-        def text_check_ean(self):
-            # Check all of the real-world GTINS via check_ean()
+        def test_check_gtin(self):
+            # Check all of the real-world GTINS via check_frin()
 
             # EAN13
-            self.assertTrue(check_ean('5013567421497'))
+            self.assertTrue(check_gtin('5013567421497'))
             
             # EAN8
-            self.assertTrue(check_ean('73513537'))  
+            self.assertTrue(check_gtin('73513537'))  
 
             # UPC
-            self.assertTrue(check_ean('813922012941'))
-            self.assertTrue(check_upc('813922013030'))            
+            self.assertTrue(check_gtin('813922012941'))
+            self.assertTrue(check_gtin('813922013030'))            
             
             # GTIN-14
-            self.assertTrue(check_ean('30012345678906'))
+            self.assertTrue(check_gtin('30012345678906'))
             
             # None should pass
-            self.assertTrue(check_ean(None))
+            self.assertTrue(check_gtin(None))
             
             # Non-numeric string should fail
-            self.assertFalse(check_ean("ABCDEFG"))
+            self.assertFalse(check_gtin("ABCDEFG"))
             
             # Short numeric string should fail
-            self.assertFalse(check_ean("12345"))
+            self.assertFalse(check_gtin("12345"))
             
             # GTINs with corrupted checksum should fail
-            self.assertFalse(check_ean('5013567421498'))            
-            self.assertFalse(check_ean('73513538'))            
-            self.assertTrue(check_ean('813922012941'))            
-            self.assertFalse(check_ean('813922013031'))            
-            self.assertFalse(check_ean('30012345678907'))                       
+            self.assertFalse(check_gtin('5013567421498'))            
+            self.assertFalse(check_gtin('73513538'))            
+            self.assertTrue(check_gtin('813922012941'))            
+            self.assertFalse(check_gtin('813922013031'))            
+            self.assertFalse(check_gtin('30012345678907'))                       
 
 
     unittest.main()
