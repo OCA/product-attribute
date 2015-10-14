@@ -38,5 +38,5 @@
         "views/product_view.xml",
         "data/product_attribute_data.xml",
     ],
-    'installable': True,
+    'installable': False,
 }

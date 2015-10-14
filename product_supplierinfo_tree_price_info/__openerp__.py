@@ -36,4 +36,5 @@
         'demo/res_groups.yml',
         'demo/product_template.yml',
     ],
+    'installable': False,
 }

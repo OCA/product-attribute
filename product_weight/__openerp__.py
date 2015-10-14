@@ -33,5 +33,5 @@
  'data': ['wizard/product_weight_update_view.xml',
           'product_view.xml',
           ],
- 'installable': True,
+ 'installable': False,
  }

@@ -38,5 +38,5 @@
         'view/product_pricelist_item_view.xml',
     ],
     "init_hook": "init_hook",
-    'installable': True,
+    'installable': False,
 }
