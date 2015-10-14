@@ -38,5 +38,5 @@ with the same technical name that accepts EAN13, EAN8, JPC, UPC and GTIN.
     """,
     "demo": [],
     "data": ['product_view.xml'],
-    'installable': True,
+    'installable': False,
 }
