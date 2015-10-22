@@ -20,7 +20,8 @@
     "version": "8.0.1.0.0",
     "author": "OdooMRP team,"
               "AvanzOSC,"
-              "Serv. Tecnol. Avanzados - Pedro M. Baeza",
+              "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
+              "Odoo Community Association (OCA)",
     "website": "http://www.odoomrp.com",
     "category": "Sales Management",
     "license": 'AGPL-3',
