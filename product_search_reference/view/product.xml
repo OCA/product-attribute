@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="product_product_tree_view">
+      <field name="name">product_product_tree_view</field>
+      <field name="model">product.product</field>
+      <field name="type">tree</field>
+      <field name="inherit_id" ref="product.product_product_tree_view"/>
+      <field name="arch" type="xml">
+
+        <field name="state" position="before">
+          <field name="supplier_code"/>
+        </field>
+
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_normal_form_view">
+      <field name="name">product_normal_form_view_inherit</field>
+      <field name="model">product.product</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+
+        <field name="seller_ids" position="before">
+          <group>
+            <group>
+              <field name="supplier_code" />
+            </group>
+          </group>
+        </field>
+
+      </field>
+    </record>
+
+  </data>
+</openerp>

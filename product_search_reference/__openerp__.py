@@ -1,7 +1,7 @@
-##############################################################################
-#
+# -*- coding: utf-8 -*-
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2015 Camptocamp SA
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -15,21 +15,14 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
 {
     'name': 'Products Search Reference',
-    'version': '0.1',
-    'author': 'Tiny',
+    'version': '8.0.1.0',
+    'author': 'Tiny,Camptocamp,Odoo Community Association (OCA)',
     'category': 'Generic Modules/Inventory Control',
-    'depends': ['product'],
-    'init_xml': [],
-    'demo_xml': [],
-    'update_xml': ['product_view.xml'],
+    'depends': ['product', 'purchase'],
+    'data': ['view/product.xml'],
     'description': '''
-    Add search by partner reference on product
+    Add search by supplier reference on product
     ''',
-    'installable': False,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-
