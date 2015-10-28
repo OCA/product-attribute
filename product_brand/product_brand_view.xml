@@ -66,6 +66,7 @@
                             </button>
                         </div>
                         <group>
+                            <field name="code"/>
                             <field name="partner_id"/>
                         </group>
                         <group string="Description">
@@ -96,6 +97,7 @@
                     <field name="logo"/>
                     <field name="products_count"/>
                     <field name="description"/>
+                    <field name="code"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_vignette oe_semantic_html_override">
@@ -114,6 +116,9 @@
                                            type="action">
                                             <t t-esc="record.products_count.value"/> Products
                                         </a>
+                                    </div>
+                                    <div>
+                                        <field name="code"/>
                                     </div>
                                     <span>
                                         <t t-esc="record.description.value.substr(0,200)"/>
