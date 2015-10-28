@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_product_brand_auto_type" model="ir.sequence.type">
+            <field name="name">Product Brand</field>
+            <field name="code">product.brand</field>
+        </record>
+
+        <record id="seq_product_brand_auto" model="ir.sequence">
+            <field name="name">Product Brand</field>
+            <field name="code">product.brand</field>
+            <field eval="4" name="padding"/>
+            <field name="prefix">BR/</field>
+        </record>
+    </data>
+</openerp>
