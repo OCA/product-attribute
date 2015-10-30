@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="product_categ_form_view" model="ir.ui.view">
+            <field name="name">product_categ_form_view (abi_product)</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="code" colspan="4"/>
+                </field>
+            </field>
+        </record>
+        <record id="product_category_search_view" model="ir.ui.view">
+            <field name="name">product.category.search (abi_product)</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_search_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+
+       <record id="product_category_list_view" model="ir.ui.view">
+            <field name="name">product.category.list (abi_product)</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_list_view"/>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <field name="complete_name" position="after">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_category_tree_view" model="ir.ui.view">
+            <field name="name">product.category.tree (abi_product)</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
