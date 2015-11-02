@@ -33,6 +33,7 @@ class ProductPricelistItem(models.Model):
 
     base_ext = fields.Selection(selection='_price_field_get_ext',
                                 string='Based on',
+                                size=-1,
                                 required=True,
                                 default=lambda self:
                                     self.default_get(
