@@ -29,7 +29,7 @@ Configuration
 .. image:: static/description/list.png
 
 
-* To have more fields available to attach to this profile you must define these fields in the model 'product.profile' in your own module
+* To have more fields available to attach to this profile you must define these fields with or without prefix ('profile_default_') in the model 'product.profile' in your own module
   If the field name (and its type) is the same than those in 'product.template' then values of these will be populated automatically in 'product.template'
   Example of fields declaration in your own module:
   ```
@@ -43,7 +43,10 @@ class ProductProfile(models.Model):
         return [('product', 'Stockable Product'),
                 ('consu', 'Consumable'),
                 ('service', 'Service')]
-
+     
+    profile_default_categ_id = fields.Many2one(
+        'product.category',
+        string='Default category')
     sale_ok = fields.Boolean(
         string='Can be Sold',
         help="Specify if the product can be selected in a sales order line.")
@@ -83,7 +86,7 @@ Contributors
 ------------
 
 * David BEAL <david.beal@akretion.com>
-
+* Abdessamad HILALI <abdessamad.hilali@akretion.com>
 
 Iconography
 -----------
