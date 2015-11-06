@@ -17,4 +17,4 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.  #
 #########################################################################
 
-from . import image, product_template
+from . import image, owner

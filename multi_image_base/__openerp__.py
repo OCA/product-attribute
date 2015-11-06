@@ -5,7 +5,7 @@
 #    Copyright (c) 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
 #                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 #                  2015 Antiun Ingeniería <www.antiun.com>
-#                       Jairo Llopis <yajo.sk8@gmail.com>
+#                       Jairo Llopis
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -26,18 +26,9 @@
     "name": "Multiple images for products",
     "version": "1.0",
     "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
-              "Antiun Ingeniería, "
               "Odoo Community Association (OCA)",
     "website": "http://www.serviciosbaeza.com",
     "category": "Sales Management",
-    "depends": [
-        "multi_image_base",
-        "product",
-    ],
-    "data": [
-        'security/ir.model.access.csv',
-        'views/product_image_view.xml',
-        'views/product_product_view.xml',
-    ],
+    "depends": ['base'],
     'installable': True,
 }

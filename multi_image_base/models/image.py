@@ -4,6 +4,8 @@
 #    OpenERP, Odoo Source Management Solution
 #    Copyright (c) 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
 #                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+#                  2015 Antiun Ingeniería <www.antiun.com>
+#                       Jairo Llopis <yajo.sk8@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -29,8 +31,8 @@ from openerp import tools
 _logger = logging.getLogger(__name__)
 
 
-class ProductImage(models.Model):
-    _name = "product.image"
+class ImageABC(models.AbstractModel):
+    _name = "multi_image_base.image"
 
     @api.one
     @api.depends('type', 'path', 'file_db_store', 'url')
@@ -75,20 +77,19 @@ class ProductImage(models.Model):
     @api.multi
     def _check_filestore(self):
         """check if the filestore is created, and do it otherwise."""
-        for product_image in self:
-            dir_path = os.path.dirname(product_image.path)
+        for s in self:
+            dir_path = os.path.dirname(s.path)
             try:
                 if not os.path.exists(dir_path):
                     os.makedirs(dir_path)
             except OSError, e:
                 raise exceptions.Warning(
-                    _('The image filestore can not be created, %s') % e)
-        return True
+                    _('The image filestore cannot be created, %s') % e)
 
     type = fields.Selection(
         selection=[('url', 'URL'), ('file', 'OS file'), ('db', 'DB')],
         default='db')
-    name = fields.Char(string='Image title', required=True)
+    name = fields.Char(string='Image title', required=True, translate=True)
     extension = fields.Char(string='File extension')
     # Trick for displaying the extension and not to change it, but allowing
     # to save the real field (extension)
@@ -112,30 +113,33 @@ class ProductImage(models.Model):
         help="Small-sized image. It is automatically resized as a 64 x 64 px "
              "image, with aspect ratio preserved. Use this field anywhere a "
              "small image is required.")
-    comments = fields.Text(string='Comments')
-    product_id = fields.Many2one(
-        comodel_name='product.template', string='Product', required=True,
+    comments = fields.Text(string='Comments', translate=True)
+    owner_id = fields.Many2one(
+        comodel_name='multi_image_base.owner',  # Overwrite this in submodels
+        string='Owner',
+        required=True,
         ondelete='cascade')
 
+    @api.model
     def _make_pretty(self, name):
         return name.replace('_', ' ').capitalize()
 
     @api.onchange('url')
-    def onchange_url(self):
+    def _onchange_url(self):
         if self.url:
             filename = self.url.split('/')[-1]
             self.name, self.extension = os.path.splitext(filename)
             self.name = self._make_pretty(self.name)
 
     @api.onchange('path')
-    def onchange_path(self):
+    def _onchange_path(self):
         if self.path:
             self.name, self.extension = os.path.splitext(os.path.basename(
                 self.path))
             self.name = self._make_pretty(self.name)
 
     @api.onchange('filename')
-    def onchange_filename(self):
+    def _onchange_filename(self):
         if self.filename:
             self.name, self.extension = os.path.splitext(self.filename)
             self.name = self._make_pretty(self.name)
@@ -144,21 +148,21 @@ class ProductImage(models.Model):
     def _check_url(self):
         if self.type == 'url' and not self.url:
             raise exceptions.ValidationError(
-                'You must provide a URL for the product image.')
+                'You must provide an URL for the image.')
 
     @api.constrains('type', 'path')
     def _check_path(self):
         if self.type == 'file' and not self.path:
             raise exceptions.ValidationError(
-                'You must provide a file path for the product image.')
+                'You must provide a file path for the image.')
 
     @api.constrains('type', 'file_db_store')
     def _check_store(self):
         if self.type == 'db' and not self.file_db_store:
             raise exceptions.ValidationError(
-                'You must provide an attached file for the product image.')
+                'You must provide an attached file for the image.')
 
     _sql_constraints = [
-        ('uniq_name_product_id', 'UNIQUE(product_id, name)',
-         _('A product can have only one image with the same name')),
+        ('uniq_name_owner_id', 'UNIQUE(owner_id, name)',
+         _('A document can have only one image with the same name.')),
     ]

@@ -4,6 +4,8 @@
 #    OpenERP, Odoo Source Management Solution
 #    Copyright (c) 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
 #                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+#                  2015 Antiun Ingeniería <www.antiun.com>
+#                       Jairo Llopis <yajo.sk8@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -25,17 +27,17 @@ from openerp import models, fields, api, _
 _logger = logging.getLogger(__name__)
 
 
-class ProductProduct(models.Model):
-    _inherit = "product.template"
+class Owner(models.AbstractModel):
+    _name = "multi_image_base.owner"
 
     @api.one
     @api.depends('image_ids')
     def _get_main_image(self):
-        self.product_image = False
+        self.image_main = False
         self.image_medium = False
         self.image_small = False
         if self.image_ids:
-            self.product_image = self.image_ids[0].image
+            self.image_main = self.image_ids[0].image
             self.image_medium = self.image_ids[0].image_medium
             self.image_small = self.image_ids[0].image_small
 
@@ -53,7 +55,7 @@ class ProductProduct(models.Model):
 
     @api.one
     def _set_main_image(self):
-        self._set_image(self.product_image)
+        self._set_image(self.image_main)
 
     @api.one
     def _set_main_image_medium(self):
@@ -64,9 +66,11 @@ class ProductProduct(models.Model):
         self._set_image(self.image_small)
 
     image_ids = fields.One2many(
-        comodel_name='product.image', inverse_name='product_id',
-        string='Product images', copy=True)
-    product_image = fields.Binary(
+        comodel_name='multi_image_base.image',  # Overwrite this in submodels
+        inverse_name='owner_id',
+        string='Images',
+        copy=True)
+    image_main = fields.Binary(
         string="Main image", compute="_get_main_image", store=False,
         inverse="_set_main_image")
     image_medium = fields.Binary(
@@ -81,4 +85,4 @@ class ProductProduct(models.Model):
         if 'image_medium' in vals and 'image_ids' in vals:
             # Inhibit the write of the image when images tab has been touched
             del vals['image_medium']
-        return super(ProductProduct, self).write(vals)
+        return super(Owner, self).write(vals)

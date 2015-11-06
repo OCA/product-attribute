@@ -22,22 +22,12 @@
 #
 ##############################################################################
 
-{
-    "name": "Multiple images for products",
-    "version": "1.0",
-    "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
-              "Antiun Ingeniería, "
-              "Odoo Community Association (OCA)",
-    "website": "http://www.serviciosbaeza.com",
-    "category": "Sales Management",
-    "depends": [
-        "multi_image_base",
-        "product",
-    ],
-    "data": [
-        'security/ir.model.access.csv',
-        'views/product_image_view.xml',
-        'views/product_product_view.xml',
-    ],
-    'installable': True,
-}
+from openerp import models, fields
+
+
+class ProductTemplate(models.Model):
+    _name = "product.template"
+    _inherit = ["product.template", "multi_image_base.owner"]
+
+    image = fields.Binary(related="image_main")
+    image_ids = fields.One2many("product_multi_image.image")
