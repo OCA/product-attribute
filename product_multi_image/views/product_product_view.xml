@@ -3,15 +3,20 @@
     <data>
 
         <record id="view_product_template_form_img_inh" model="ir.ui.view">
-            <field name="name">product.product.images</field>
+            <field name="name">Add multi images</field>
             <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="/form/sheet/notebook" position="inside">
-                    <page string="Images">
-                        <field name="image_ids"
-                               nolabel="1"
-                               mode="kanban"/>
+                    <page string="Images" name="multi_image">
+                        <field
+                            name="image_ids"
+                            nolabel="1"
+                            context="{
+                                'default_owner_model': 'product.template',
+                                'default_owner_id': id,
+                            }"
+                            mode="kanban"/>
                     </page>
                 </xpath>
             </field>
