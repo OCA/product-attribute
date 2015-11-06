@@ -15,8 +15,7 @@
                                     <field name="type"/>
                                 </group>
                                 <group>
-                                    <field name="extension" invisible="1"/>
-                                    <field name="extension2"/>
+                                    <field name="extension"/>
                                 </group>
                             </group>
                             <group>

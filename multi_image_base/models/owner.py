@@ -21,14 +21,37 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import logging
-from openerp import models, fields, api, _
-
-_logger = logging.getLogger(__name__)
+from openerp import _, api, fields, models
 
 
 class Owner(models.AbstractModel):
     _name = "multi_image_base.owner"
+
+    image_ids = fields.One2many(
+        comodel_name='multi_image_base.image',  # Overwrite this in submodels
+        inverse_name='owner_id',
+        string='Images',
+        copy=True)
+    image_main = fields.Binary(
+        string="Main image",
+        compute="_get_main_image",
+        store=False,
+        inverse="_set_main_image")
+    image_medium = fields.Binary(
+        string="Medium image",
+        compute="_get_main_image",
+        inverse="_set_main_image_medium",
+        store=False)
+    image_small = fields.Binary(
+        string="Small image",
+        compute="_get_main_image",
+        inverse="_set_main_image_small",
+        store=False)
+
+    @api.multi
+    def _inverse_image_main(self):
+        """Save images."""
+
 
     @api.one
     @api.depends('image_ids')
@@ -41,13 +64,14 @@ class Owner(models.AbstractModel):
             self.image_medium = self.image_ids[0].image_medium
             self.image_small = self.image_ids[0].image_small
 
+    @api.multi
     def _set_image(self, image):
         if self.image:
             if self.image_ids:
-                self.image_ids[0].write({'type': 'db',
+                self.image_ids[0].write({'storage': 'db',
                                          'file_db_store': image})
             else:
-                self.image_ids = [(0, 0, {'type': 'db',
+                self.image_ids = [(0, 0, {'storage': 'db',
                                           'file_db_store': image,
                                           'name': _('Main image')})]
         elif self.image_ids:
@@ -64,21 +88,6 @@ class Owner(models.AbstractModel):
     @api.one
     def _set_main_image_small(self):
         self._set_image(self.image_small)
-
-    image_ids = fields.One2many(
-        comodel_name='multi_image_base.image',  # Overwrite this in submodels
-        inverse_name='owner_id',
-        string='Images',
-        copy=True)
-    image_main = fields.Binary(
-        string="Main image", compute="_get_main_image", store=False,
-        inverse="_set_main_image")
-    image_medium = fields.Binary(
-        compute="_get_main_image", inverse="_set_main_image_medium",
-        store=False)
-    image_small = fields.Binary(
-        compute="_get_main_image", inverse="_set_main_image_small",
-        store=False)
 
     @api.multi
     def write(self, vals):

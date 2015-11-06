@@ -33,46 +33,103 @@ _logger = logging.getLogger(__name__)
 
 class ImageABC(models.AbstractModel):
     _name = "multi_image_base.image"
+    _sql_constraints = [
+        ('uniq_name_owner_id', 'UNIQUE(owner_id, name)',
+         _('A document can have only one image with the same name.')),
+    ]
 
-    @api.one
-    @api.depends('type', 'path', 'file_db_store', 'url')
+    storage = fields.Selection(
+        [('url', 'URL'), ('file', 'OS file'), ('db', 'Database')],
+        default='db')
+    name = fields.Char(
+        'Image title',
+        required=True,
+        translate=True)
+    filename = fields.Char()
+    extension = fields.Char(
+        'File extension',
+        readonly=True)
+    file_db_store = fields.Binary(
+        'Image stored in database',
+        filters='*.png,*.jpg,*.gif')
+    path = fields.Char(
+        "Image path",
+        help="Image path")
+    url = fields.Char(
+        'Image remote URL')
+    image_main = fields.Binary(
+        "Full-sized image",
+        compute="_get_image")
+    image_medium = fields.Binary(
+        "Medium-sized image",
+        compute="_get_image_sizes",
+        help="Medium-sized image. It is automatically resized as a 128 x "
+             "128 px image, with aspect ratio preserved, only when the image "
+             "exceeds one of those sizes. Use this field in form views or "
+             "some kanban views.")
+    image_small = fields.Binary(
+        "Small-sized image",
+        compute="_get_image_sizes",
+        help="Small-sized image. It is automatically resized as a 64 x 64 px "
+             "image, with aspect ratio preserved. Use this field anywhere a "
+             "small image is required.")
+    comments = fields.Text(
+        'Comments',
+        translate=True)
+    owner_id = fields.Many2one(
+        comodel_name='multi_image_base.owner',  # Overwrite this in submodels
+        string='Owner',
+        required=True,
+        ondelete='cascade')
+
+    @api.multi
+    @api.depends('storage', 'path', 'file_db_store', 'url')
     def _get_image(self):
-        self.image = False
-        if self.type == 'file':
-            if self.path:
-                if os.path.exists(self.path):
-                    try:
-                        with open(self.path, 'rb') as f:
-                            self.image = base64.b64encode(f.read())
-                    except Exception, e:
-                        _logger.error("Can not open the image %s, error : %s",
-                                      self.path, e, exc_info=True)
-                else:
-                    _logger.error("The image %s doesn't exist ", self.path)
-        elif self.type == 'url':
-            if self.url:
-                try:
-                    (filename, header) = urllib.urlretrieve(self.url)
-                    with open(filename, 'rb') as f:
-                        self.image = base64.b64encode(f.read())
-                except:
-                    _logger.error("URL %s cannot be fetched", self.url)
-        elif self.type == 'db':
-            self.image = self.file_db_store
+        """Get image data from the right storage type."""
+        for s in self:
+            s.image_main = getattr(self, "_get_image_from_%s" % self.storage)()
 
-    @api.one
+    @api.multi
+    def _get_image_from_db(self):
+        return self.file_db_store
+
+    @api.multi
+    def _get_image_from_file(self):
+        if self.path and os.path.exists(self.path):
+            try:
+                with open(self.path, 'rb') as f:
+                    return base64.b64encode(f.read())
+            except Exception as e:
+                _logger.error("Can not open the image %s, error : %s",
+                              self.path, e, exc_info=True)
+        else:
+            _logger.error("The image %s doesn't exist ", self.path)
+
+        return False
+
+    @api.multi
+    def _get_image_from_url(self):
+        if self.url:
+            try:
+                (filename, header) = urllib.urlretrieve(self.url)
+                with open(filename, 'rb') as f:
+                    return base64.b64encode(f.read())
+            except:
+                _logger.error("URL %s cannot be fetched", self.url,
+                              exc_info=True)
+
+        return False
+
+    @api.multi
     @api.depends('image')
     def _get_image_sizes(self):
-        self.image_medium = False
-        self.image_small = False
-        if self.image:
+        for s in self:
             try:
-                vals = tools.image_get_resized_images(
-                    self.image, avoid_resize_medium=True)
-                self.image_small = vals['image_small']
-                self.image_medium = vals['image_medium']
+                vals = tools.image_get_resized_images(s.image)
             except:
-                pass
+                vals = {"image_medium": False,
+                        "image_small": False}
+            s.update(vals)
 
     @api.multi
     def _check_filestore(self):
@@ -82,43 +139,9 @@ class ImageABC(models.AbstractModel):
             try:
                 if not os.path.exists(dir_path):
                     os.makedirs(dir_path)
-            except OSError, e:
+            except OSError as e:
                 raise exceptions.Warning(
                     _('The image filestore cannot be created, %s') % e)
-
-    type = fields.Selection(
-        selection=[('url', 'URL'), ('file', 'OS file'), ('db', 'DB')],
-        default='db')
-    name = fields.Char(string='Image title', required=True, translate=True)
-    extension = fields.Char(string='File extension')
-    # Trick for displaying the extension and not to change it, but allowing
-    # to save the real field (extension)
-    extension2 = fields.Char(string='File extension', related="extension",
-                             readonly=True)
-    filename = fields.Char()
-    file_db_store = fields.Binary(
-        string='Image stored in database', filters='*.png,*.jpg,*.gif')
-    path = fields.Char(string="Image path", help="Image path")
-    url = fields.Char(string='Image remote URL')
-    image = fields.Binary(
-        compute="_get_image", string="File")
-    image_medium = fields.Binary(
-        compute="_get_image_sizes", string="Medium-sized image",
-        help="Medium-sized image. It is automatically resized as a 128 x "
-             "128 px image, with aspect ratio preserved, only when the image "
-             "exceeds one of those sizes. Use this field in form views or "
-             "some kanban views.")
-    image_small = fields.Binary(
-        compute="_get_image_sizes", string="Small-sized image",
-        help="Small-sized image. It is automatically resized as a 64 x 64 px "
-             "image, with aspect ratio preserved. Use this field anywhere a "
-             "small image is required.")
-    comments = fields.Text(string='Comments', translate=True)
-    owner_id = fields.Many2one(
-        comodel_name='multi_image_base.owner',  # Overwrite this in submodels
-        string='Owner',
-        required=True,
-        ondelete='cascade')
 
     @api.model
     def _make_pretty(self, name):
@@ -144,25 +167,20 @@ class ImageABC(models.AbstractModel):
             self.name, self.extension = os.path.splitext(self.filename)
             self.name = self._make_pretty(self.name)
 
-    @api.constrains('type', 'url')
+    @api.constrains('storage', 'url')
     def _check_url(self):
-        if self.type == 'url' and not self.url:
+        if self.storage == 'url' and not self.url:
             raise exceptions.ValidationError(
                 'You must provide an URL for the image.')
 
-    @api.constrains('type', 'path')
+    @api.constrains('storage', 'path')
     def _check_path(self):
-        if self.type == 'file' and not self.path:
+        if self.storage == 'file' and not self.path:
             raise exceptions.ValidationError(
                 'You must provide a file path for the image.')
 
-    @api.constrains('type', 'file_db_store')
+    @api.constrains('storage', 'file_db_store')
     def _check_store(self):
-        if self.type == 'db' and not self.file_db_store:
+        if self.storage == 'db' and not self.file_db_store:
             raise exceptions.ValidationError(
                 'You must provide an attached file for the image.')
-
-    _sql_constraints = [
-        ('uniq_name_owner_id', 'UNIQUE(owner_id, name)',
-         _('A document can have only one image with the same name.')),
-    ]
