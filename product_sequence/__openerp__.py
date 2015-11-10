@@ -23,7 +23,7 @@
 
 {
     'name': 'Product Sequence',
-    'version': '8.0.0.1.0',
+    'version': '9.0.0.1.0',
     'author': "Zikzakmedia SL,Odoo Community Association (OCA)",
     'website': 'http://www.zikzakmedia.com',
     'license': 'AGPL-3',
@@ -39,5 +39,5 @@
     ],
     'pre_init_hook': 'update_null_and_slash_codes',
     'auto_install': False,
-    'installable': False,
+    'installable': True,
 }
