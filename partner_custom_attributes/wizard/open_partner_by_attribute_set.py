@@ -23,7 +23,7 @@
 ###############################################################################
 
 from openerp.osv.orm import TransientModel
-from osv import fields
+from openerp.osv import fields
 
 
 class open_partner_by_attribute_set(TransientModel):
