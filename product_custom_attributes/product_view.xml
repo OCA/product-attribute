@@ -9,7 +9,7 @@
 <openerp>
     <data>
 
-        <record model="ir.ui.view" id="product_product_form_view_set_button">
+<!--        <record model="ir.ui.view" id="product_product_form_view_set_button">
             <field name="name">attributes.product.normal.form</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view" />
@@ -21,7 +21,7 @@
                     </group>
                 </xpath>
             </field>
-        </record>
+        </record> -->
 
         <record model="ir.ui.view" id="product_attributes_form_view">
             <field name="name">product.attributes.normal.wizard</field>
