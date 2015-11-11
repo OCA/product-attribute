@@ -118,7 +118,9 @@
                                     <span>
                                         <t t-esc="record.description.value.substr(0,200)"/>
                                         <t t-if="record.description.value.length > 200">
-                                            <a type="open"><b>...</b></a>
+                                            <a type="open">
+                                                <b>...</b>
+                                            </a>
                                         </t>
                                     </span>
                                 </div>
@@ -129,19 +131,16 @@
             </field>
         </record>
 
-<!--Useless views since in v9 personnal groups are possible-->
+
         <record id="product_search_form_view" model="ir.ui.view">
             <field name="name">product.search.form</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_search_form_view"/>
             <field name="arch" type="xml">
-                <field name="name" position="after">
+                
+                <field name="product_tmpl_id" posititon="after">
                     <field name="product_brand_id"/>
                 </field>
-<!--                <group string='Group by...' position="inside">
-                    <filter string="Brand" name="groupby_brand" domain="[]"
-                            context="{'group_by' : 'product_brand_id'}"/>
-                </group>-->
             </field>
         </record>
 
@@ -153,10 +152,10 @@
                 <field name="name" position="after">
                     <field name="product_brand_id"/>
                 </field>
-<!--                <group string='Group by...' position="inside">
+                <search position="inside">
                     <filter string="Brand" name="groupby_brand" domain="[]"
-                            context="{'group_by' : 'product_brand_id'}"/>
-                </group>-->
+                        context="{'group_by' : 'product_brand_id'}"/>
+                </search>
             </field>
         </record>
 
