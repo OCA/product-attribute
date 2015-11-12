@@ -235,6 +235,7 @@
             name="Product Brands"
             id="menu_product_brand"
             action="action_product_brand"
-            parent="base.menu_product"/>
+            parent="base.menu_sales"
+            sequence="100"/>
     </data>
 </openerp>
