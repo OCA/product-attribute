@@ -22,11 +22,11 @@
 {
     'name': 'Product Profile Example',
     'summary': 'Product Profile Use Case',
-    'version': '0.2',
-    'author': 'Akretion',
+    'version': '0.3',
+    'author': 'Akretion, Odoo Community Association (OCA)',
     'maintainer': 'Akretion',
     'category': 'product',
-    'description': 'see Product Profile module',
+    'description': 'See Product Profile module',
     'depends': [
         'product_profile',
         'purchase',
