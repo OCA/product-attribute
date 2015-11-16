@@ -26,7 +26,10 @@ Usage
 Create or modify a product template or a product variant. Assign a value to the profile field.
 Then, all fields which depend on this profile will be set to the right value at once.
 
+Bug Tracker
+===========
 
+See 'Bug tracker' in the README.rst of Product Profile module
 
 Credits
 =======

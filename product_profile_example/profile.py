@@ -44,3 +44,6 @@ class ProductProfile(models.Model):
         help="Depending on the modules installed, this will allow "
              "you to define the route of the product: "
              "whether it will be bought, manufactured, MTO/MTS,...")
+    profile_default_categ_id = fields.Many2one(
+        'product.category',
+        string='Default category')
