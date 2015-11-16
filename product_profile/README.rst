@@ -20,19 +20,24 @@ It also can make ease the data migration by only specifying the profile field in
 
 Note: This module is meant to be used by skilled people in database fields creation with the ERP framework.
 
+Additional feature: a default value can be attached to a profile (see § Configuration, part 3)
+
 
 Configuration
 =============
 
-* Create your own profile here: Sales > Configuration > Product Categories and Attributes > Product Profiles
+1. Create your own profile here: Sales > Configuration > Product Categories and Attributes > Product Profiles
 
 .. image:: static/description/list.png
 
 
-* To have more fields available to attach to this profile you must define these fields with or without prefix ('profile_default_') in the model 'product.profile' in your own module
-  If the field name (and its type) is the same than those in 'product.template' then values of these will be populated automatically in 'product.template'
-  Example of fields declaration in your own module:
-  ```
+2. To have more fields available to attach to this profile you must define
+   these fields in the model 'product.profile' in your own module
+   If the field name (and its type) is the same than those in 'product.template'
+   then values of these will be populated automatically
+   in 'product.template'
+   Example of fields declaration in your own module:
+   ```python
 class ProductProfile(models.Model):
     """ Require dependency on sale, purchase and point_of_sale modules
     """
@@ -43,19 +48,31 @@ class ProductProfile(models.Model):
         return [('product', 'Stockable Product'),
                 ('consu', 'Consumable'),
                 ('service', 'Service')]
-     
-    profile_default_categ_id = fields.Many2one(
-        'product.category',
-        string='Default category')
+
     sale_ok = fields.Boolean(
         string='Can be Sold',
         help="Specify if the product can be selected in a sales order line.")
     purchase_ok = fields.Boolean(
         string='Can be Purchased')
     available_in_pos = fields.Boolean()
-  ```
+   ```
 
-* Insert data (xml or csv) and define values for each field defined above for each configuration scenario
+3. Second behavior: you might want to add a default behavior to these fields:
+   in this case use prefix 'profile_default\_' for your field name
+   in 'product.profile' model.
+   ```python
+class ProductProfile(models.Model):
+    ...
+    profile_default_categ_id = fields.Many2one(
+        'product.category',
+        string='Default category')
+   ```
+   In this case 'categ_id' field (from product.template) is populated
+   with 'profile_default_categ_id' value but can be updated manually by the user.
+
+
+4. Insert data (xml or csv) and define values for each field defined above
+   for each configuration scenario
 
 
 Usage
@@ -86,6 +103,7 @@ Contributors
 ------------
 
 * David BEAL <david.beal@akretion.com>
+* Sébastien BEAU <sebastien.beau@akretion.com>
 * Abdessamad HILALI <abdessamad.hilali@akretion.com>
 
 Iconography
