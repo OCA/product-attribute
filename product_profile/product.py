@@ -71,7 +71,7 @@ class ProductProfile(models.Model):
     type = fields.Selection(
         selection='_get_types',
         required=True,
-        help="see 'type' field in product.template")
+        help="See 'type' field in product.template")
 
 
 class ProductMixinProfile(models.AbstractModel):
@@ -92,26 +92,18 @@ class ProductMixinProfile(models.AbstractModel):
                 if field not in fields_to_exclude]
 
     @api.model
-    def _get_profile_data(self, profile_id, fields_filled=None):
+    def _get_profile_data(self, profile_id, filled_fields=None):
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
         if profile_id:
             profile = profile_obj.browse(profile_id).read(fields)[0]
             profile.pop('id')
             for field, value in profile.items():
-                if 'profile_default_' == field[:16] and fields_filled:
-                    field = field[16:]
-                    if field in fields_filled:
-                        continue
-                    else:
-                        raise UserError("%s field not found" % field)
                 if profile_obj._fields[field].type in ('many2many'):
                     profile[field] = [(6, 0, value)]
             return profile
         else:
-            return {
-                field: None for field in fields
-                }
+            return {field: None for field in fields}
 
     @api.onchange('profile_id')
     def _onchange_from_profile(self):
@@ -130,13 +122,15 @@ class ProductMixinProfile(models.AbstractModel):
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_profile_data(vals['profile_id'], vals.keys()))
+            vals.update(
+                self._get_profile_data(vals['profile_id'], vals.keys()))
         return super(ProductMixinProfile, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_profile_data(vals['profile_id'], vals.keys()))
+            vals.update(
+                self._get_profile_data(vals['profile_id'], vals.keys()))
         return super(ProductMixinProfile, self).write(vals)
 
     @api.model

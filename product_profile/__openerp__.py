@@ -39,10 +39,6 @@
     'demo': [
         'demo/product.profile.csv',
     ],
-    'tests': [],
     'installable': True,
     'license': 'AGPL-3',
-    'external_dependencies': {
-        'python': [],
-    },
 }
