@@ -83,6 +83,17 @@
            </field>
         </record>
 
+        <record id="product_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="product_brand_id"/>
+                </field>
+            </field>
+        </record>
+
         <record model="ir.ui.view" id="product_template_form_brand_add">
             <field name="name">product.template.product.form</field>
             <field name="model">product.template</field>
