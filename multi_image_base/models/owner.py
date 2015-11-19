@@ -52,7 +52,6 @@ class Owner(models.AbstractModel):
     def _inverse_image_main(self):
         """Save images."""
 
-
     @api.one
     @api.depends('image_ids')
     def _get_main_image(self):
@@ -60,7 +59,7 @@ class Owner(models.AbstractModel):
         self.image_medium = False
         self.image_small = False
         if self.image_ids:
-            self.image_main = self.image_ids[0].image
+            self.image_main = self.image_ids[0].image_main
             self.image_medium = self.image_ids[0].image_medium
             self.image_small = self.image_ids[0].image_small
 

@@ -87,7 +87,7 @@ class ImageABC(models.AbstractModel):
     def _get_image(self):
         """Get image data from the right storage type."""
         for s in self:
-            s.image_main = getattr(self, "_get_image_from_%s" % self.storage)()
+            s.image_main = getattr(s, "_get_image_from_%s" % s.storage)()
 
     @api.multi
     def _get_image_from_db(self):
@@ -121,11 +121,11 @@ class ImageABC(models.AbstractModel):
         return False
 
     @api.multi
-    @api.depends('image')
+    @api.depends('image_main')
     def _get_image_sizes(self):
         for s in self:
             try:
-                vals = tools.image_get_resized_images(s.image)
+                vals = tools.image_get_resized_images(s.image_main)
             except:
                 vals = {"image_medium": False,
                         "image_small": False}
