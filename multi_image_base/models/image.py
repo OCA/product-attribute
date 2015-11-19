@@ -38,6 +38,11 @@ class ImageABC(models.AbstractModel):
          _('A document can have only one image with the same name.')),
     ]
 
+    owner_id = fields.Many2one(
+        comodel_name='multi_image_base.owner',  # Overwrite this in submodels
+        string='Owner',
+        required=True,
+        ondelete='cascade')
     storage = fields.Selection(
         [('url', 'URL'), ('file', 'OS file'), ('db', 'Database')],
         default='db')
@@ -76,11 +81,6 @@ class ImageABC(models.AbstractModel):
     comments = fields.Text(
         'Comments',
         translate=True)
-    owner_id = fields.Many2one(
-        comodel_name='multi_image_base.owner',  # Overwrite this in submodels
-        string='Owner',
-        required=True,
-        ondelete='cascade')
 
     @api.multi
     @api.depends('storage', 'path', 'file_db_store', 'url')
