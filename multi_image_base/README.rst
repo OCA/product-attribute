@@ -1,13 +1,64 @@
-Multiple images in products
-===========================
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
-This module implements the possibility to have multiple images for a product,
-that it's to say, an image gallery.
+====================
+Multiple images base
+====================
 
-Known issues / Roadmap
-======================
+This module was written to extend the functionality of any model to support
+having multiple images (a gallery) attached to it and allow you to manage them.
 
- * Provide proper migration scripts from module product_images from 7.0.
+Installation
+============
+
+This module adds abstract models to work on. Its sole purpose is to serve as
+base for other modules that implement galleries, so if you install this one
+manually you will notice no change. You should install any other module based
+on this one and this will get installed automatically.
+
+Usage
+=====
+
+To use this module, you need to:
+
+* Follow instructions on the module based on this one that you install.
+
+To develop a module based on this one:
+
+* See module ``multi_image_product`` as an example.
+* You have to inherit model ``multi_image_base.owner`` to the model that needs
+  the gallery, and overwrite ``comodel_name`` of field ``image_ids``::
+
+    class MyOwner(models.Model):
+        _name = "mymodule.name"
+        _inherit = "multi_image_base.owner"
+        image_ids = fields.One2many(comodel_name="mymodule.image")
+
+* Also you have to inherit model ``multi_image_base.image`` to the model that
+  implements the image list, and overwrite ``comodel_name`` of field
+  ``owner_id``::
+
+    class MyImage(models.Model):
+        _name = "mymodule.image"
+        _inherit = "multi_image_base.image"
+        owner_id = fields.One2many(comodel_name="mymodule.owner")
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/135/8.0
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smashing it by providing a detailed and welcomed `feedback
+<https://github.com/OCA/
+product-attribute/issues/new?body=module:%20
+multi_image_base%0Aversion:%20
+8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Credits
 =======
@@ -17,10 +68,10 @@ Original implementation
 This module is inspired in previous module *product_images* from OpenLabs
 and Akretion.
 
-
 Contributors
 ------------
 
+* Sharoon Thomas
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 * Rafael Blasco <rafabn@antiun.com>
 * Jairo Llopis <yajo.sk8@gmail.com>
@@ -28,9 +79,9 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://odoo-community.org/logo.png
+.. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
-   :target: http://odoo-community.org
+   :target: https://odoo-community.org
 
 This module is maintained by the OCA.
 
