@@ -4,7 +4,7 @@
 Product Profile
 ===============
 
-This module was written to make products configuration easier (in one click).
+This module provides easier products configuration (in one click).
 It allows to configure a product template with only one field.
 
 .. image:: static/description/field.png
@@ -14,11 +14,11 @@ and products configuration becomes harder for end users: too many fields to take
 
 You are concerned that at any time a product might be not configured correctly: this module is your friend.
 
-In this case a lot of complexity becomes hidden (default behavior) to the end user and usability is optimal.
+Thanks to this module, a lot of complexity becomes hidden (default behavior) to the end user and usability is optimal.
 
-It also can make ease the data migration by only specifying the profile field instead of all fields which depend on it.
+It eases as well the data migration by only specifying the profile field instead of all fields which depend on it.
 
-Note: This module is meant to be used by skilled people in database fields creation with the ERP framework.
+Note: This module is meant to be used by skilled people in database fields creation within the ERP framework.
 
 Additional feature: a default value can be attached to a profile (see § Configuration, part 3)
 
@@ -85,7 +85,7 @@ If you deselect the profile value, all these fields will be reset to empty value
 
 Install **Product Profile Example** module to see a use case in action.
 
-Profiles are also defined as search filter and group
+Profiles are also defined as search filter and group.
 
 Bug Tracker
 ===========
