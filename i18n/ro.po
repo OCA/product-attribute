@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: odoomrp-wip (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-20 18:10+0000\n"
-"PO-Revision-Date: 2015-10-20 14:37+0000\n"
-"Last-Translator: danimaribeiro <danimaribeiro@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/odoomrp-wip-8-0/language/pt_BR/)\n"
+"PO-Revision-Date: 2015-09-10 16:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Romanian (http://www.transifex.com/oca/odoomrp-wip-8-0/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. module: product_variant_default_code
 #: field:product.attribute.value,attribute_code:0
@@ -33,7 +33,7 @@ msgstr ""
 #: code:addons/product_variant_default_code/models/product.py:48
 #, python-format
 msgid "Error"
-msgstr "Erro"
+msgstr ""
 
 #. module: product_variant_default_code
 #: code:addons/product_variant_default_code/models/product.py:48
@@ -49,17 +49,17 @@ msgstr ""
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_product
 msgid "Product"
-msgstr "Produto"
+msgstr "Produs"
 
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Atribute produs"
 
 #. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_template
 msgid "Product Template"
-msgstr "Produto Modelo"
+msgstr "Produs șablon"
 
 #. module: product_variant_default_code
 #: help:product.template,reference_mask:0
