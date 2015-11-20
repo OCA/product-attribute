@@ -3,30 +3,29 @@
 # * product_pricelist_import
 # 
 # Translators:
-# Oihane Crucelaegui <oihanecruce@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: odoomrp-wip (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-20 18:10+0000\n"
-"PO-Revision-Date: 2015-10-27 11:19+0000\n"
-"Last-Translator: Oihane Crucelaegui <oihanecruce@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/odoomrp-wip-8-0/language/es/)\n"
+"PO-Revision-Date: 2015-09-10 16:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Romanian (http://www.transifex.com/oca/odoomrp-wip-8-0/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. module: product_pricelist_import
 #: selection:import.price.file,file_type:0
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 #. module: product_pricelist_import
 #: view:import.price.file:product_pricelist_import.view_import_file
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Anulare"
 
 #. module: product_pricelist_import
 #: code:addons/product_pricelist_import/models/product_pricelist_load.py:68
@@ -39,34 +38,34 @@ msgstr ""
 #: field:product.pricelist.load,create_uid:0
 #: field:product.pricelist.load.line,create_uid:0
 msgid "Created by"
-msgstr "Creado por"
+msgstr "Creat de"
 
 #. module: product_pricelist_import
 #: field:import.price.file,create_date:0
 #: field:product.pricelist.load,create_date:0
 #: field:product.pricelist.load.line,create_date:0
 msgid "Created on"
-msgstr "Creado el"
+msgstr "Creat în"
 
 #. module: product_pricelist_import
 #: field:product.pricelist.load,date:0
 msgid "Date:"
-msgstr "Fecha:"
+msgstr ""
 
 #. module: product_pricelist_import
 #: help:import.price.file,delimeter:0
 msgid "Default delimeter is \",\""
-msgstr "El delimitador por defecto es \",\""
+msgstr ""
 
 #. module: product_pricelist_import
 #: field:import.price.file,delimeter:0
 msgid "Delimeter"
-msgstr "Delimitador"
+msgstr ""
 
 #. module: product_pricelist_import
 #: field:product.pricelist.load.line,fail:0
 msgid "Fail"
-msgstr "Fallo"
+msgstr ""
 
 #. module: product_pricelist_import
 #: model:ir.actions.act_window,name:product_pricelist_import.act_fail_lines
@@ -81,12 +80,12 @@ msgstr ""
 #. module: product_pricelist_import
 #: field:product.pricelist.load.line,fail_reason:0
 msgid "Fail Reason"
-msgstr "Motivo del fallo"
+msgstr ""
 
 #. module: product_pricelist_import
 #: field:import.price.file,data:0
 msgid "File"
-msgstr "Archivo"
+msgstr ""
 
 #. module: product_pricelist_import
 #: view:product.pricelist.load.line:product_pricelist_import.product_pricelist_load_line_tree_view
@@ -117,7 +116,7 @@ msgstr ""
 #. module: product_pricelist_import
 #: field:import.price.file,name:0
 msgid "Filename"
-msgstr "Nombre del archivo"
+msgstr ""
 
 #. module: product_pricelist_import
 #: field:import.price.file,id:0 field:product.pricelist.load,id:0
@@ -128,7 +127,7 @@ msgstr "ID"
 #. module: product_pricelist_import
 #: view:import.price.file:product_pricelist_import.view_import_file
 msgid "Import"
-msgstr "Importar"
+msgstr ""
 
 #. module: product_pricelist_import
 #: view:import.price.file:product_pricelist_import.view_import_file
@@ -151,14 +150,14 @@ msgstr ""
 #: field:product.pricelist.load,write_uid:0
 #: field:product.pricelist.load.line,write_uid:0
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr "Ultima actualizare de"
 
 #. module: product_pricelist_import
 #: field:import.price.file,write_date:0
 #: field:product.pricelist.load,write_date:0
 #: field:product.pricelist.load.line,write_date:0
 msgid "Last Updated on"
-msgstr "Última actualización el"
+msgstr "Ultima actualizare în"
 
 #. module: product_pricelist_import
 #: field:product.pricelist.load,process:0
@@ -169,13 +168,13 @@ msgstr ""
 #: field:product.pricelist.load,name:0
 #: field:product.pricelist.load.line,file_load:0
 msgid "Load"
-msgstr "Cargar"
+msgstr ""
 
 #. module: product_pricelist_import
 #: model:ir.ui.menu,name:product_pricelist_import.menu_file_load
 #: view:product.pricelist.load:product_pricelist_import.product_pricelist_load_form_view
 msgid "Load File"
-msgstr "Cargar archivo"
+msgstr ""
 
 #. module: product_pricelist_import
 #: code:addons/product_pricelist_import/wizard/import_price_files.py:76
@@ -195,7 +194,7 @@ msgstr ""
 #: code:addons/product_pricelist_import/wizard/import_price_files.py:63
 #, python-format
 msgid "Not a valid file!"
-msgstr "¡No es un archivo válido!"
+msgstr ""
 
 #. module: product_pricelist_import
 #: field:product.pricelist.load.line,pdv1:0
@@ -215,7 +214,7 @@ msgstr ""
 #. module: product_pricelist_import
 #: field:product.pricelist.load.line,code:0
 msgid "Product Code"
-msgstr "Código de producto"
+msgstr ""
 
 #. module: product_pricelist_import
 #: field:product.pricelist.load.line,info:0
@@ -271,13 +270,13 @@ msgstr ""
 #. module: product_pricelist_import
 #: field:product.pricelist.load,supplier:0
 msgid "Supplier"
-msgstr "Proveedor"
+msgstr ""
 
 #. module: product_pricelist_import
 #: code:addons/product_pricelist_import/models/product_pricelist_load.py:47
 #, python-format
 msgid "There must be one line at least to process"
-msgstr "Debe haber al menos una línea a procesar"
+msgstr ""
 
 #. module: product_pricelist_import
 #: selection:import.price.file,file_type:0
@@ -294,7 +293,7 @@ msgstr ""
 #: code:addons/product_pricelist_import/wizard/import_price_files.py:134
 #, python-format
 msgid "You need to select a file!"
-msgstr "¡Es necesario seleccionar un archivo!"
+msgstr ""
 
 #. module: product_pricelist_import
 #: model:ir.actions.act_window,name:product_pricelist_import.action_file_price_load
@@ -304,7 +303,7 @@ msgstr ""
 #. module: product_pricelist_import
 #: view:import.price.file:product_pricelist_import.view_import_file
 msgid "or"
-msgstr "o"
+msgstr "sau"
 
 #. module: product_pricelist_import
 #: code:addons/product_pricelist_import/wizard/import_price_files.py:91
