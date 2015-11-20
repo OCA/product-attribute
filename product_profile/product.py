@@ -1,23 +1,6 @@
 # coding: utf-8
-##############################################################################
-#
-#    Author: David BEAL
-#    Copyright 2015 Akretion
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2015 David BEAL @ Akretion
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields, api, _
 from openerp.osv import orm
@@ -61,12 +44,12 @@ class ProductProfile(models.Model):
         help="Profile name displayed on product template\n"
              "(not synchronized with product.template fields)")
     sequence = fields.Integer(
-        help="Allows to define the order of the entries of profile_id field\n"
+        help="Defines the order of the entries of profile_id field\n"
              "(not synchronized with product.template fields)")
     explanation = fields.Text(
         required=True,
         oldname='description',
-        help="Allows to display an explanation on the selected profile\n"
+        help="An explanation on the selected profile\n"
              "(not synchronized with product.template fields)")
     type = fields.Selection(
         selection='_get_types',
