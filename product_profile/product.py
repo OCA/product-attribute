@@ -107,14 +107,16 @@ class ProductMixinProfile(models.AbstractModel):
         if vals.get('profile_id'):
             vals.update(
                 self._get_profile_data(vals['profile_id'], vals.keys()))
-        return super(ProductMixinProfile, self).create(vals)
+        return super(ProductMixinProfile, self).create(
+            {k: v for k, v in vals.items() if 'profile_default_' not in k})
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
             vals.update(
                 self._get_profile_data(vals['profile_id'], vals.keys()))
-        return super(ProductMixinProfile, self).write(vals)
+        return super(ProductMixinProfile, self).write(
+            {k: v for k, v in vals.items() if 'profile_default_' not in k})
 
     @api.model
     def _get_profiles_to_filter(self):
