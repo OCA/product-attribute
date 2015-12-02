@@ -1,0 +1,116 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * product_life_period
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-01 10:52+0000\n"
+"PO-Revision-Date: 2015-12-01 10:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_life_period
+#: field:product.life.period,active:0
+msgid "Active"
+msgstr "Active"
+
+#. module: product_life_period
+#: field:product.life.period,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: product_life_period
+#: field:product.life.period,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: product_life_period
+#: field:product.life.period,end_date:0
+msgid "End date"
+msgstr "Date de fin"
+
+#. module: product_life_period
+#: view:product.product:product_life_period.product_product_view_search_inherit_product_life_period
+#: view:product.template:product_life_period.product_template_view_search_inherit_product_life_period
+msgid "End of Life Period"
+msgstr "Fin de la période de vie"
+
+#. module: product_life_period
+#: view:product.product:product_life_period.product_product_view_search_inherit_product_life_period
+#: view:product.template:product_life_period.product_template_view_search_inherit_product_life_period
+msgid "Group by..."
+msgstr "Grouper par ..."
+
+#. module: product_life_period
+#: field:product.life.period,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: product_life_period
+#: view:product.life.period:product_life_period.product_life_period_view_search
+msgid "Inactive"
+msgstr "Inactive"
+
+#. module: product_life_period
+#: field:product.life.period,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_life_period
+#: field:product.life.period,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_life_period
+#: view:product.product:product_life_period.product_product_view_search_inherit_product_life_period
+#: view:product.template:product_life_period.product_template_view_search_inherit_product_life_period
+#: field:product.template,product_life_period_id:0
+msgid "Life Period"
+msgstr "Période de vie"
+
+#. module: product_life_period
+#: field:product.life.period,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_life_period
+#: model:ir.actions.act_window,name:product_life_period.action_open_life_period_products
+#: model:ir.actions.act_window,name:product_life_period.product_life_period_action
+#: model:ir.ui.menu,name:product_life_period.product_life_period_menu
+#: view:product.life.period:product_life_period.product_life_period_view_form
+#: view:product.life.period:product_life_period.product_life_period_view_search
+#: view:product.life.period:product_life_period.product_life_period_view_tree
+msgid "Product Life Period"
+msgstr "Période de vie de l'article"
+
+#. module: product_life_period
+#: model:ir.model,name:product_life_period.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: product_life_period
+#: view:product.life.period:product_life_period.product_life_period_view_form
+msgid "Products"
+msgstr "Articles"
+
+#. module: product_life_period
+#: field:product.life.period,product_ids:0
+msgid "Seasonal Products"
+msgstr "Articles Saisonniers"
+
+#. module: product_life_period
+#: field:product.life.period,start_date:0
+msgid "Start date"
+msgstr "Date de début"
+
+#. module: product_life_period
+#: constraint:product.life.period:0
+msgid "Start date must be before End date"
+msgstr "La date de début doit être avant la date de fin"
+
