@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+# Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+- !record {model: product.product, id: bundle_cpu}:
+    name: Bundled CPU
+    default_code: CPUBUNDLE
+    bundle_ok: True
+    lst_price: 4200
+    bundle_line_ids:
+        -
+            product_id: product.product_product_15
+            qty: 2
+        -
+            product_id: product.product_product_16
+            qty: 1
+        -
+            product_id: product.product_product_19
+            qty: 1
+        -
+            product_id: product.product_product_20
+            qty: 1
+        -
+            product_id: product.product_product_24
+            qty: 1
+
+- !record {model: product.product, id: bundle_cpu_software}:
+    name: Bundled CPU with software
+    default_code: CPUSWBUNDLE
+    bundle_ok: True
+    lst_price: 5000
+    bundle_line_ids:
+        -
+            product_id: bundle_cpu
+            qty: 1
+        -
+            product_id: product.product_product_40
+            qty: 1
+        -
+            product_id: product.product_product_42
+            qty: 1
+        -
+            product_id: product.product_product_43
+            qty: 2
