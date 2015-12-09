@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- © 2009 Àngel Àlvarez - NaN  (http://www.nan-tic.com)
+     © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <openerp>
     <data noupdate="1">
 
@@ -38,38 +41,38 @@
         <field name="quantity" eval="2.0"/>
     </record>
 
-<record id="product_pack_cpu_detailed_totaliced" model="product.product">
-    <field name="name">Pack CPU (Detailed Totaliced Price)</field>
+<record id="product_pack_cpu_detailed_totalized" model="product.product">
+    <field name="name">Pack CPU (Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">totalice_price</field>
+    <field name="pack_price_type">totalize_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
 </record>
 
-    <record id="pack_cpu_detailed_totaliced_1" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_cpu_detailed_totalized_1" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_20"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_detailed_totaliced_2" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_cpu_detailed_totalized_2" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_19"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_detailed_totaliced_3" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_cpu_detailed_totalized_3" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_16"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_detailed_totaliced_4" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_cpu_detailed_totalized_4" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_24"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_detailed_totaliced_5" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_cpu_detailed_totalized_5" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_15"/>
         <field name="quantity" eval="2.0"/>
     </record>
@@ -146,38 +149,38 @@
         <field name="quantity" eval="2.0"/>
     </record>
 
-<record id="product_pack_cpu_none_detailed_totaliced" model="product.product">
-    <field name="name">Pack CPU (None Detailed Totaliced Price)</field>
+<record id="product_pack_cpu_none_detailed_totalized" model="product.product">
+    <field name="name">Pack CPU (None Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">none_detailed_totaliced_price</field>
+    <field name="pack_price_type">none_detailed_totalized_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
 </record>
 
-    <record id="pack_cpu_none_detailed_totaliced_1" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totaliced"/>
+    <record id="pack_cpu_none_detailed_totalized_1" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_20"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_none_detailed_totaliced_2" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totaliced"/>
+    <record id="pack_cpu_none_detailed_totalized_2" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_19"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_none_detailed_totaliced_3" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totaliced"/>
+    <record id="pack_cpu_none_detailed_totalized_3" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_16"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_none_detailed_totaliced_4" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totaliced"/>
+    <record id="pack_cpu_none_detailed_totalized_4" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_24"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_cpu_none_detailed_totaliced_5" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totaliced"/>
+    <record id="pack_cpu_none_detailed_totalized_5" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_cpu_none_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_15"/>
         <field name="quantity" eval="2.0"/>
     </record>
@@ -208,55 +211,55 @@
         <field name="quantity" eval="1.0"/>
     </record>
 
-<record id="product_pack_pc_detailed_totaliced" model="product.product">
-    <field name="name">Pack PC (Detailed Totaliced Price)</field>
+<record id="product_pack_pc_detailed_totalized" model="product.product">
+    <field name="name">Pack PC (Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">totalice_price</field>
+    <field name="pack_price_type">totalize_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
 </record>
 
-    <record id="pack_pc_detailed_totaliced_1" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_pc_detailed_totaliced"/>
+    <record id="pack_pc_detailed_totalized_1" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_pc_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_12"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_pc_detailed_totaliced_2" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_pc_detailed_totaliced"/>
+    <record id="pack_pc_detailed_totalized_2" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_pc_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_31"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_pc_detailed_totaliced_3" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_pc_detailed_totaliced"/>
-        <field name="product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_pc_detailed_totalized_3" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_pc_detailed_totalized"/>
+        <field name="product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="quantity" eval="1.0"/>
     </record>
 
-<record id="product_pack_pc_detailed_totaliced" model="product.product">
-    <field name="name">Pack PC (Detailed Totaliced Price)</field>
+<record id="product_pack_pc_detailed_totalized" model="product.product">
+    <field name="name">Pack PC (Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">totalice_price</field>
+    <field name="pack_price_type">totalize_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
 </record>
 
-    <record id="pack_pc_detailed_totaliced_1" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_pc_detailed_totaliced"/>
+    <record id="pack_pc_detailed_totalized_1" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_pc_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_12"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_pc_detailed_totaliced_2" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_pc_detailed_totaliced"/>
+    <record id="pack_pc_detailed_totalized_2" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_pc_detailed_totalized"/>
         <field name="product_id" ref="product.product_product_31"/>
         <field name="quantity" eval="1.0"/>
     </record>
-    <record id="pack_pc_detailed_totaliced_3" model="product.pack.line">
-        <field name="parent_product_id" ref="product_pack_pc_detailed_totaliced"/>
-        <field name="product_id" ref="product_pack_cpu_detailed_totaliced"/>
+    <record id="pack_pc_detailed_totalized_3" model="product.pack.line">
+        <field name="parent_product_id" ref="product_pack_pc_detailed_totalized"/>
+        <field name="product_id" ref="product_pack_cpu_detailed_totalized"/>
         <field name="quantity" eval="1.0"/>
     </record>
 

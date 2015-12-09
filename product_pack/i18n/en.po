@@ -21,11 +21,11 @@ msgstr ""
 #: help:product.template,pack_price_type:0
 msgid ""
 "\n"
-"        * Totalice Price: Sum individual prices on the product pack price.\n"
+"        * Totalize Price: Sum individual prices on the product pack price.\n"
 "        * Fixed Price: Price of this product instead of components prrices.\n"
 "        * Components Price: Components prices plast pack price.\n"
 "        "
-msgstr "\n        * Totalice Price: Sum individual prices on the product pack price.\n        * Fixed Price: Price of this product instead of components prrices.\n        * Components Price: Components prices plast pack price.\n        "
+msgstr "\n        * Totalize Price: Sum individual prices on the product pack price.\n        * Fixed Price: Price of this product instead of components prrices.\n        * Components Price: Components prices plast pack price.\n        "
 
 #. module: product_pack
 #: selection:product.template,pack_price_type:0

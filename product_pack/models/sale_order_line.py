@@ -1,7 +1,9 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009  Àngel Àlvarez - NaN  (http://www.nan-tic.com)
+#                     All Rights Reserved.
+# © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 from openerp import fields, models, api, _
 
 
@@ -44,7 +46,7 @@ class sale_order_line(models.Model):
     @api.one
     @api.constrains('product_id', 'price_unit', 'product_uom_qty')
     def expand_pack_line(self):
-        detailed_packs = ['components_price', 'totalice_price', 'fixed_price']
+        detailed_packs = ['components_price', 'totalize_price', 'fixed_price']
         if (
                 self.state == 'draft' and
                 self.product_id.pack and

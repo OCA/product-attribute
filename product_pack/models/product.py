@@ -1,7 +1,9 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009  Àngel Àlvarez - NaN  (http://www.nan-tic.com)
+#                     All Rights Reserved.
+# © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 from openerp import fields, models, api, _
 from openerp.osv import fields as old_fields
 from openerp.exceptions import Warning
@@ -107,15 +109,15 @@ class product_template(models.Model):
     # TODO rename a pack_type
     pack_price_type = fields.Selection([
         ('components_price', 'Detailed - Components Prices'),
-        ('totalice_price', 'Detailed - Totaliced Price'),
+        ('totalize_price', 'Detailed - Totalized Price'),
         ('fixed_price', 'Detailed - Fixed Price'),
         ('none_detailed_assited_price', 'None Detailed - Assisted Price'),
-        ('none_detailed_totaliced_price', 'None Detailed - Totaliced Price'),
+        ('none_detailed_totalized_price', 'None Detailed - Totalized Price'),
     ],
         'Pack Type',
         help="""
         * Detailed - Components Prices: Detail lines with prices on sales order.
-        * Detailed - Totaliced Price: Detail lines on sales order totalicing lines prices on pack (don't show component prices).
+        * Detailed - Totalized Price: Detail lines on sales order totalizing lines prices on pack (don't show component prices).
         * Detailed - Fixed Price: Detail lines on sales order and use product pack price (ignore line prices).
         * None Detailed - Assisted Price: Do not detail lines on sales order. Assist to get pack price using pack lines.
         """
@@ -197,9 +199,9 @@ class product_template(models.Model):
             if (
                     product.pack and
                     product.pack_price_type in [
-                        'totalice_price',
+                        'totalize_price',
                         'none_detailed_assited_price',
-                        'none_detailed_totaliced_price']):
+                        'none_detailed_totalized_price']):
                 pack_price = 0.0
                 for pack_line in product.pack_line_ids:
                     product_line_price = pack_line.product_id.price_get()[

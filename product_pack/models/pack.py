@@ -45,10 +45,9 @@ class product_pack(models.Model):
             uos_id = False
             uos_qty = quantity
 
-        # if pack is fixed price or totlice price we don want amount on
-        # pack lines
+        # If pack's price is fixed or totalized, we don't want amount on lines
         if line.product_id.pack_price_type in [
-                'fixed_price', 'totalice_price']:
+                'fixed_price', 'totalize_price']:
             price = 0.0
             discount = 0.0
         else:
