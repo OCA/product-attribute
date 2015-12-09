@@ -1,9 +1,11 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
-from . import pack
-from . import product
-from . import sale_order_line_pack_line
-from . import sale_order_line
-from . import sale_order
+# -*- coding: utf-8 -*-
+# © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from . import (
+    pack,
+    product,
+    sale_order_line_pack_line,
+    sale_order_line,
+    sale_order,
+)
