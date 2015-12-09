@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_pack
-#: help:product.template,pack_price_type:0
+#: help:product.template,pack_type:0
 msgid ""
 "\n"
 "        * Totalize Price: Sum individual prices on the product pack price.\n"
@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 
 #. module: product_pack
-#: selection:product.template,pack_price_type:0
+#: selection:product.template,pack_type:0
 msgid "Components Prices"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgid "Depth of the product if it is part of a pack."
 msgstr "Profundidad del producto si forma parte de un pack."
 
 #. module: product_pack
-#: selection:product.template,pack_price_type:0
+#: selection:product.template,pack_type:0
 msgid "Fixed Price"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgid "Pack Lines"
 msgstr ""
 
 #. module: product_pack
-#: field:product.template,pack_price_type:0
+#: field:product.template,pack_type:0
 msgid "Pack Price Type"
 msgstr ""
 

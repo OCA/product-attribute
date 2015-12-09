@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- © 2009 Àngel Àlvarez - NaN  (http://www.nan-tic.com)
+     © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
 <openerp>
 <data>
 
@@ -10,7 +14,7 @@
 		<field name="arch" type="xml">
 			<field name="type" position="after">
 				<field name="pack"/>
-				<field name="pack_price_type" attrs="{'invisible':[('pack', '=', False)], 'required':[('pack','=',True)]}"/>
+				<field name="pack_type" attrs="{'invisible':[('pack', '=', False)], 'required':[('pack','=',True)]}"/>
 			</field>
 			<notebook position="inside">
 				<page string="Pack" attrs="{'invisible': ['|', ('product_variant_count', '>', 1), ('pack', '=', False)]}">
@@ -27,7 +31,7 @@
 		<field name="arch" type="xml">
 			<field name="type" position="after">
 				<field name="pack"/>
-				<field name="pack_price_type" attrs="{'invisible':[('pack', '=', False)], 'required':[('pack','=',True)]}"/>
+				<field name="pack_type" attrs="{'invisible':[('pack', '=', False)], 'required':[('pack','=',True)]}"/>
 			</field>
 			<notebook position="inside">
 				<page string="Pack" attrs="{'invisible':[('pack', '=', False)]}">
@@ -65,4 +69,3 @@
 	</record>
 </data>
 </openerp>
-

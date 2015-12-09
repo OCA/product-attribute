@@ -1,11 +1,13 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009  Àngel Àlvarez - NaN  (http://www.nan-tic.com)
+#                     All Rights Reserved.
+# © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 from openerp import fields, models, api
 
 
-class product_pack(models.Model):
+class ProductPackLine(models.Model):
     _name = 'product.pack.line'
     _rec_name = 'product_id'
 
@@ -13,24 +15,20 @@ class product_pack(models.Model):
         'product.product',
         'Parent Product',
         ondelete='cascade',
-        required=True
-        )
+        required=True)
     quantity = fields.Float(
         'Quantity',
         required=True,
-        default=1.0,
-        )
+        default=1.0)
     product_id = fields.Many2one(
         'product.product',
         'Product',
         ondelete='cascade',
-        required=True,
-        )
+        required=True)
 
     @api.multi
     def get_sale_order_line_vals(self, line, order):
         self.ensure_one()
-        # pack_price = 0.0
         subproduct = self.product_id
         quantity = self.quantity * line.product_uom_qty
 
@@ -46,35 +44,29 @@ class product_pack(models.Model):
             uos_qty = quantity
 
         # If pack's price is fixed or totalized, we don't want amount on lines
-        if line.product_id.pack_price_type in [
+        if line.product_id.pack_type in [
                 'fixed_price', 'totalize_price']:
             price = 0.0
             discount = 0.0
         else:
-            pricelist = order.pricelist_id.id
             price = self.env['product.pricelist'].price_get(
                 subproduct.id, quantity,
                 order.partner_id.id, context={
                     'uom': subproduct.uom_id.id,
-                    'date': order.date_order})[pricelist]
+                    'date': order.date_order})[order.pricelist_id.id]
             discount = line.discount
 
         # Obtain product name in partner's language
         if order.partner_id.lang:
             subproduct = subproduct.with_context(
                 lang=order.partner_id.lang)
-        subproduct_name = subproduct.name
 
-        vals = {
+        return {
             'order_id': order.id,
             'name': '%s%s' % (
-                '> ' * (line.pack_depth + 1), subproduct_name
+                '> ' * (line.pack_depth + 1), subproduct.name
             ),
-            # 'delay': subproduct.sale_delay or 0.0,
             'product_id': subproduct.id,
-            # 'procurement_ids': (
-            #     [(4, x.id) for x in line.procurement_ids]
-            # ),
             'price_unit': price,
             'tax_id': tax_id,
             'address_allotment_id': False,
@@ -90,6 +82,3 @@ class product_pack(models.Model):
             'pack_parent_line_id': line.id,
             'pack_depth': line.pack_depth + 1,
         }
-        return vals
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

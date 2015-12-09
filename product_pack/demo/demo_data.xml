@@ -9,7 +9,7 @@
     <field name="name">Pack CPU (Detailed Components Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">components_price</field>
+    <field name="pack_type">components_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -45,7 +45,7 @@
     <field name="name">Pack CPU (Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">totalize_price</field>
+    <field name="pack_type">totalize_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -81,7 +81,7 @@
     <field name="name">Pack CPU (Detailed Fixed Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">fixed_price</field>
+    <field name="pack_type">fixed_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -117,7 +117,7 @@
     <field name="name">Pack CPU (None Detailed Assisted Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">none_detailed_assited_price</field>
+    <field name="pack_type">none_detailed_assited_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -153,7 +153,7 @@
     <field name="name">Pack CPU (None Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">none_detailed_totalized_price</field>
+    <field name="pack_type">none_detailed_totalized_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -189,7 +189,7 @@
     <field name="name">Pack PC (Detailed Components Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">components_price</field>
+    <field name="pack_type">components_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -215,7 +215,7 @@
     <field name="name">Pack PC (Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">totalize_price</field>
+    <field name="pack_type">totalize_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -241,7 +241,7 @@
     <field name="name">Pack PC (Detailed Totalized Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">totalize_price</field>
+    <field name="pack_type">totalize_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
@@ -267,7 +267,7 @@
     <field name="name">Pack PC (Detailed Fixed Price)</field>
     <field name="categ_id" ref="product.product_category_4"/>
     <field name="pack" eval="True"/>
-    <field name="pack_price_type">fixed_price</field>
+    <field name="pack_type">fixed_price</field>
     <field name="standard_price">20.5</field>
     <field name="list_price">30.75</field>
     <field name="type">service</field>
