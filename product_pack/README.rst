@@ -23,14 +23,17 @@ Detailed Component Prices
 
 This will show 1 line per *subproduct* and 1 line for the *pack*.
 
-All of them will use the price set in the product.
+The *pack* line will cost the price set in the pack product.
+
+The *subproducts* lines will cost the price set in each subproduct product.
 
 Detailed Totalized Price
 ------------------------
 
 This will show 1 line per *subproduct* and 1 line for the *pack*.
 
-The *pack* line will cost the sum of the *subproducts*' prices.
+The *pack* line will cost the sum of the *subproducts*' prices. Do not set a
+price for the pack product, it will be ignored.
 
 The *subproducts* lines will cost zero.
 
@@ -39,16 +42,17 @@ Detailed Fixed Price
 
 This will show 1 line per *subproduct* and 1 line for the *pack*.
 
-The *pack* line will cost the price set in the product.
+The *pack* line will cost the price set in the pack product.
 
-The *subproducts* lines will cost zero.
+The *subproducts* lines will cost zero. Their prices will be ignored.
 
 Not Detailed Totalized Price
 ----------------------------
 
 This will show 1 line for the *pack*.
 
-The *pack* line will cost the sum of the *subproducts*' prices.
+The *pack* line will cost the sum of the *subproducts*' prices. Do not set a
+price for the pack product, it will be ignored.
 
 Not Detailed Assisted Price
 ---------------------------
@@ -56,7 +60,8 @@ Not Detailed Assisted Price
 This will show 1 line for the *pack*.
 
 The *pack* line will cost the sum of the *subproducts*' prices, and will have a
-button for editing its details.
+button for editing its details. Do not set a price for the pack product, it
+will be ignored.
 
 Usage
 =====
