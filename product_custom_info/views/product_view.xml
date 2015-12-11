@@ -20,7 +20,7 @@
                         <field name="custom_info_name_id"
                                context="{'default_template_id': parent.custom_info_template_id}"/>
                         <field name="value"/>
-                        <field name="model" invisible="1"/>
+                        <field name="model" invisible="0"/>
                     </tree>
                 </field>
             </page>
