@@ -6,18 +6,50 @@
 Base Custom Info
 ================
 
-This module allow create custom fields in models without alter models
-structures.
+This module allows to create custom fields in models without altering model's
+structure.
+
+Installation
+============
+
+This module serves as a base for other modules that implement this behavior in
+concrete models.
+
+This means that you should **not** install this module by itself. If you found
+it installed, it means probably that another module that needs it installed it.
 
 Usage
 =====
 
-To use this module, you need to:
+This module defines *Custom Info Templates* that define what properties are
+expected for a given record.
 
+To define a template, you need to:
+
+* Go to *Settings > Custom Info > Templates*.
+* Create one.
+* Add some *Properties* to it.
+
+All database records with that template enabled will automatically fill those
+properties.
+
+To manage the properties, you need to:
+
+* Go to *Settings > Custom Info > Properties*.
+
+To manage their values, you need to:
+
+* Go to *Settings > Custom Info > Values*.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/186
+
+Development
+===========
+
+To create a module that supports custom information, just depend on this module
+and inherit from the ``custom.info`` model.
 
 Bug Tracker
 ===========
@@ -36,6 +68,7 @@ Contributors
 * Rafael Blasco <rafabn@antiun.com>
 * Carlos Dauden <carlos@incaser.es>
 * Sergio Teruel <sergio@incaser.es>
+* Jairo Llopis <yajo.sk8@gmail.com>
 
 Maintainer
 ----------
