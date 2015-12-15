@@ -12,7 +12,7 @@
                    context="{'default_model_id':%(product.model_product_template)d}"/>
         </field>
         <xpath expr="//page[@string='Sales']" position="after">
-            <page name="Custom Info" string="Custom Info"
+            <page name="custom-info" string="Custom Info"
                   attrs="{'invisible': [('custom_info_template_id', '=', False)]}">
                 <field name="custom_info_ids"
                        context="{'default_model':'product.template'}">
