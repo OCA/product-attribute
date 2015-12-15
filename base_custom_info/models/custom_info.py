@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Antiun Ingeniería S.L. - Sergio Teruel
 # (c) 2015 Antiun Ingeniería S.L. - Carlos Dauden
+# © 2015 Antiun Ingeniería S.L. - Jairo Llopis
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from openerp import api, fields, models, _
 
 
 class CustomInfoTemplate(models.Model):
+    """Defines custom properties expected for a given database object."""
     _name = "custom.info.template"
-    _description = "Template of properties"
+    _description = "Custom information template"
     _sql_constraints = [
         ("name_model",
          "UNIQUE (name, model_id)",
@@ -16,7 +18,7 @@ class CustomInfoTemplate(models.Model):
     ]
 
     name = fields.Char()
-    model_id = fields.Many2one(comodel_name='ir.model', string='Data Model')
+    model_id = fields.Many2one(comodel_name='ir.model', string='Model')
     info_ids = fields.One2many(
         comodel_name='custom.info.property',
         inverse_name='template_id',
@@ -45,7 +47,7 @@ class CustomInfoProperty(models.Model):
 
 class CustomInfoValue(models.Model):
     _name = "custom.info.value"
-    _description = "Values of properties"
+    _description = "Custom information value"
     _rec_name = 'value'
     _sql_constraints = [
         ("property_model_res",
@@ -54,7 +56,7 @@ class CustomInfoValue(models.Model):
     ]
 
     model = fields.Char(index=True, required=True)
-    res_id = fields.Integer(index=True, required=True)
+    res_id = fields.Integer("Resource ID", index=True, required=True)
     property_id = fields.Many2one(
         comodel_name='custom.info.property',
         required=True,
@@ -65,11 +67,11 @@ class CustomInfoValue(models.Model):
 
 class CustomInfo(models.AbstractModel):
     _name = "custom.info"
-    _description = "Abstract model from inherit to add info in any model"
+    _description = "Inheritable abstract model to add custom info in any model"
 
     custom_info_template_id = fields.Many2one(
         comodel_name='custom.info.template',
-        string='Property Template')
+        string='Custom Information Template')
     custom_info_ids = fields.One2many(
         comodel_name='custom.info.value',
         inverse_name='res_id',
