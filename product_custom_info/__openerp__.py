@@ -13,7 +13,8 @@
         'base_custom_info',
     ],
     'data': [
-        'views/product_view.xml'
+        'security/ir.model.access.csv',
+        'views/product_view.xml',
     ],
     'author': 'Antiun Ingeniería S.L., '
               'Incaser Informatica S.L., ',
