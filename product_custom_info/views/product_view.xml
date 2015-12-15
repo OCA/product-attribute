@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data noupdate="0">
+<data>
 
 <record id="product_template_custom_info_form_view" model="ir.ui.view">
     <field name="name">product.template.custom.info.form</field>
@@ -12,22 +12,21 @@
                    context="{'default_model_id':%(product.model_product_template)d}"/>
         </field>
         <xpath expr="//page[@string='Sales']" position="after">
-            <page name="Custom Info" string="Custom Info"
+            <page name="custom-info" string="Custom Info"
                   attrs="{'invisible': [('custom_info_template_id', '=', False)]}">
                 <field name="custom_info_ids"
                        context="{'default_model':'product.template'}">
-                    <tree string="Sales Order Lines" editable="bottom">
-                        <field name="custom_info_name_id"
+                    <tree editable="bottom">
+                        <field name="property_id"
                                context="{'default_template_id': parent.custom_info_template_id}"/>
                         <field name="value"/>
-                        <field name="model" invisible="0"/>
+                        <field name="model" invisible="True"/>
                     </tree>
                 </field>
             </page>
         </xpath>
     </field>
 </record>
-
 
 </data>
 </openerp>
