@@ -13,7 +13,7 @@
     ],
     'data': [
         'views/custom_info_template_view.xml',
-        'views/custom_info_template_line_view.xml',
+        'views/custom_info_property_view.xml',
         'views/custom_info_value_view.xml',
         'views/menu.xml',
         'security/ir.model.access.csv',
