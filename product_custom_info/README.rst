@@ -6,14 +6,17 @@
 Product Custom Info
 ===================
 
-This module allow create custom fields in product without alter models
-structures.
+This module extends products to allow having custom properties on them.
 
 Usage
 =====
 
 To use this module, you need to:
 
+* Go to *Sales > Products > Products*.
+* Edit or create one.
+* Create or choose a template in *Information > Custom Information Template*.
+* Set values for the properties found in the new *Custom Info* tab.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
