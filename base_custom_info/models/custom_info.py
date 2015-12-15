@@ -9,6 +9,11 @@ from openerp import api, fields, models, _
 class CustomInfoTemplate(models.Model):
     _name = "custom.info.template"
     _description = "Template of properties"
+    _sql_constraints = [
+        ("name_model",
+         "UNIQUE (name, model_id)",
+         "Another template with that name exists for that model."),
+    ]
 
     name = fields.Char()
     model_id = fields.Many2one(comodel_name='ir.model', string='Data Model')
@@ -22,6 +27,11 @@ class CustomInfoProperty(models.Model):
     """Name of the custom information property."""
     _name = "custom.info.property"
     _description = "Custom information property"
+    _sql_constraints = [
+        ("name_template",
+         "UNIQUE (name, template_id)",
+         "Another property with that name exists for that template."),
+    ]
 
     name = fields.Char()
     template_id = fields.Many2one(
@@ -37,6 +47,11 @@ class CustomInfoValue(models.Model):
     _name = "custom.info.value"
     _description = "Values of properties"
     _rec_name = 'value'
+    _sql_constraints = [
+        ("property_model_res",
+         "UNIQUE (property_id, model, res_id)",
+         "Another property with that name exists for that resource."),
+    ]
 
     model = fields.Char(index=True, required=True)
     res_id = fields.Integer(index=True, required=True)
