@@ -27,7 +27,7 @@
     'version': '0.1',
     'depends': ['product'],
     'data': [
-        'product_variants_view.xml'
+        'product_variant_view.xml'
     ],
     'demo': [
         ],

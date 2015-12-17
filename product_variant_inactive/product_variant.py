@@ -24,7 +24,7 @@ from lxml import etree
 from openerp.osv import orm
 
 
-class ProductVariants(models.Model):
+class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     @api.multi
@@ -41,7 +41,7 @@ class ProductVariants(models.Model):
                         view_type='tree',
                         toolbar=False, submenu=False):
         """ Dynamic modification of fields """
-        res = super(ProductVariants, self).fields_view_get(
+        res = super(ProductProduct, self).fields_view_get(
             view_id=view_id,
             view_type=view_type,
             toolbar=toolbar,

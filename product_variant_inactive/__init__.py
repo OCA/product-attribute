@@ -19,4 +19,4 @@
 #
 ###############################################################################
 
-from . import product_variants
+from . import product_variant
