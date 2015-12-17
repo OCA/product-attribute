@@ -20,7 +20,7 @@
 ###############################################################################
 
 {
-    'name': "Product",
+    'name': "Product Code Builder",
     'author': "Akretion,Odoo Community Association (OCA)",
     'website': "http://www.Akretion.com",
     'license': 'AGPL-3',
