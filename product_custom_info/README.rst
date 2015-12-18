@@ -8,6 +8,11 @@ Product Custom Info
 
 This module extends products to allow having custom properties on them.
 
+Installation
+============
+
+* Install `OCA/server-tools <https://github.com/OCA/server-tools>`_.
+
 Usage
 =====
 
