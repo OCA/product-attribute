@@ -9,18 +9,18 @@
     <field name="arch" type="xml">
         <field name="type" position="after">
             <field name="custom_info_template_id"
-                   context="{'default_model_id':%(product.model_product_template)d}"/>
+                   context="{'default_model_id': ref('product.model_product_template')}"/>
         </field>
         <xpath expr="//page[@string='Sales']" position="after">
             <page name="custom-info" string="Custom Info"
                   attrs="{'invisible': [('custom_info_template_id', '=', False)]}">
                 <field name="custom_info_ids"
-                       context="{'default_model':'product.template'}">
+                       context="{'default_model_id': ref('product.model_product_template')}">
                     <tree editable="bottom">
                         <field name="property_id"
                                context="{'default_template_id': parent.custom_info_template_id}"/>
                         <field name="value"/>
-                        <field name="model" invisible="True"/>
+                        <field name="model_id" invisible="True"/>
                     </tree>
                 </field>
             </page>
