@@ -39,7 +39,7 @@ class ProductCustomerCode(models.Model):
                                help="""This customer's product code
                                         will be used when searching into
                                         a request for quotation.""")
-    product_id = fields.Many2one(comodel_name='product.template',
+    product_id = fields.Many2one(comodel_name='product.product',
                                  string='Product', required=True)
     partner_id = fields.Many2one(comodel_name='res.partner', string='Customer',
                                  required=True)

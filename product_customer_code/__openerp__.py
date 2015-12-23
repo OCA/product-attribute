@@ -39,6 +39,5 @@
         'views/product_customer_code_view.xml',
         'views/product_product_view.xml',
     ],
-    'active': False,
     'installable': True,
 }
