@@ -36,6 +36,7 @@ class ProductAttribute(models.Model):
 
 class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
+    _code = "code"
 
     code = fields.Char('Code')
     comment = fields.Text('Comment')
