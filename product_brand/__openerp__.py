@@ -5,6 +5,8 @@
 # Copyright (C) 2009 NetAndCo (<http://www.netandco.net>). #                  #
 # Copyright (C) 2011 Akretion Benoît Guillot <benoit.guillot@akretion.com> #  #
 # Copyright (C) 2014 prisnet.ch Seraphine Lantible <s.lantible@gmail.com> #   #
+# Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
+#                                    (<http://www.serpentcs.com>)
 # Contributors                                                                #
 # Mathieu Lemercier, mathieu@netandco.net, #                                  #
 # Franck Bret, franck@netandco.net #                                          #
@@ -30,16 +32,18 @@
 ###############################################################################
 {
     'name': 'Product Brand Manager',
-    'version': '8.0.0.1.0',
+    'version': '9.0.0.1.0',
     'category': 'Product',
     'summary': 'Add brand to products',
-    'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA'
-              ', MONK Software, Odoo Community Association (OCA)',
+    'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA,'
+              'MONK Software, Odoo Community Association (OCA),'
+               'Serpent Consulting Services Pvt. Ltd.',
     'license': 'AGPL-3',
     'depends': ['product'],
     'data': [
         'product_brand_view.xml',
         'security/ir.model.access.csv'
     ],
-    'installable': False,
+    'images' : [],
+    'installable': True,
 }
