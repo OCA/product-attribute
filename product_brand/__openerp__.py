@@ -5,7 +5,7 @@
 # Copyright (C) 2009 NetAndCo (<http://www.netandco.net>). #                  #
 # Copyright (C) 2011 Akretion Benoît Guillot <benoit.guillot@akretion.com> #  #
 # Copyright (C) 2014 prisnet.ch Seraphine Lantible <s.lantible@gmail.com> #   #
-# Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd. 
+# Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #                                    (<http://www.serpentcs.com>)
 # Contributors                                                                #
 # Mathieu Lemercier, mathieu@netandco.net, #                                  #
@@ -44,5 +44,6 @@
         'product_brand_view.xml',
         'security/ir.model.access.csv'
     ],
+    'images' : [],
     'installable': True,
 }
