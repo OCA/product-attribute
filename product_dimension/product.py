@@ -42,11 +42,17 @@ class Product(models.Model):
             qty=measure,
             to_unit=uom_meters)
 
+    @api.model
+    def _get_dimension_uom_domain(self):
+        return [
+            ('category_id', '=', self.env.ref('product.uom_categ_length').id)
+        ]
+
     length = fields.Float()
     height = fields.Float(oldname='high')
     width = fields.Float()
     dimensional_uom_id = fields.Many2one(
         'product.uom',
         'Dimensional UoM',
-        domain="[('category_id.name', '=', 'Length / Distance')]",
+        domain=_get_dimension_uom_domain,
         help='UoM for length, height, width')
