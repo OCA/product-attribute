@@ -88,6 +88,8 @@
                             <field name="product_id"/>
                             <field name="price_surcharge" string="Price"/>
                             <field name="related_sequence"/>
+                            <field name="price_discount" string="Disc." invisible="1"/>
+                            <field name="base" string="Base" invisible="1"/>
                         </tree>
                     </field>
                 </group>
