@@ -1,38 +1,12 @@
-# -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: David BEAL
-#    Copyright 2015 Akretion
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# coding: utf-8
+# © 2015 David BEAL @ Akretion
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import (
-    models,
-    fields,
-    api,
-    _,
-    exceptions)
+from openerp import _, api, fields, models
+from openerp.exceptions import Warning as UserError
+
 
 KEEP_FIELD_HELP = "Whatever '%s' field, if checked then old value is kept"
-
-ACTION = {
-    'res_model': 'product.pricelist.version',
-    'type': 'ir.actions.act_window',
-    'target': 'current',
-}
 
 
 class ProductPriceitemTransient(models.TransientModel):
@@ -56,12 +30,12 @@ class ProductPriceitemTransient(models.TransientModel):
         context = self.env.context.copy()
         active_ids = context.get('active_ids')
         if not active_ids:
-            raise exceptions.Warning(_("No product ids"))
+            raise UserError(_("No product ids"))
         # TODO FIX: context['price_version_id'] is not propagated until here
         # extracted the value from active_domain below
         price_version_id = context.get('active_domain', False)
         if not price_version_id:
-            raise exceptions.Warning(_("No version %s" % context))
+            raise UserError(_("No version %s" % context))
         mode = 'apply_existing_items'
         if price_version_id[0] == '|':
             mode = 'apply_new_items'
@@ -72,7 +46,7 @@ class ProductPriceitemTransient(models.TransientModel):
         vals = {}
         for elm in self:
             if elm.keep_price and elm.keep_sequence:
-                raise exceptions.Warning(
+                raise UserError(
                     _("'Keep Price' and 'Keep Sequence' checkboxes "
                       "are checked.\n"
                       "Remove one of these for that action can be done"))
@@ -88,12 +62,13 @@ class ProductPriceitemTransient(models.TransientModel):
                 price_items.write(vals)
             else:
                 price_items.create(vals)
-        action = {
+        return {
+            'res_model': 'product.pricelist.version',
+            'type': 'ir.actions.act_window',
+            'target': 'current',
             'view_mode': 'form,tree',
             'res_id': price_version_id,
         }
-        action.update(ACTION)
-        return action
 
     price = fields.Float()
     sequence = fields.Integer(default=1)
