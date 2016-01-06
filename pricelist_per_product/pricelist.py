@@ -1,39 +1,13 @@
 # coding: utf-8
-##############################################################################
-#
-#    Author: David BEAL
-#    Copyright 2015 Akretion
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2015 David BEAL @ Akretion
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import (
-    models,
-    fields,
-    api,
-    _,
-)
+from openerp import _, api, fields, models
+
 
 PRICE_GRID_HELP = _("""Define if the price list items are filled
 from product form with a grid of specific values
 for each product""")
-
-ACTION = {
-    'type': 'ir.actions.act_window',
-    'target': 'current',
-}
 
 HELP_NAME_ON_ACTION = _("Change all your '%s' prices in one time "
                         "by click on 'More' button")
@@ -112,7 +86,9 @@ class ProductPricelistVersion(models.Model):
         view_id_ref = 'pricelist_per_product.%s_tree_price_view' % view_name
         ctx = self.env.context.copy()
         ctx['price_version_id'] = self.id
-        action = {
+        return {
+            'type': 'ir.actions.act_window',
+            'target': 'current',
             'domain': domain,
             'name': HELP_NAME_ON_ACTION % action_name,
             'view_mode': 'tree',
@@ -120,8 +96,6 @@ class ProductPricelistVersion(models.Model):
             'view_id': self.env.ref(view_id_ref).id,
             'context': ctx
         }
-        action.update(ACTION)
-        return action
 
 
 class ProductPricelistItem(models.Model):
@@ -151,12 +125,11 @@ class ProductPricelistItem(models.Model):
             product = self.product_id.id
         else:
             product = self.product_tmpl_id.id
-        action = {
+        return {
+            'type': 'ir.actions.act_window',
+            'target': 'current',
             'name': 'Product',
             'view_mode': 'form',
-            'view_type': 'form',
             'res_id': product,
             'res_model': model,
         }
-        action.update(ACTION)
-        return action
