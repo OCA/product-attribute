@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 FactorLibre - Hugo Santos <hugo.santos@factorlibre.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+  <record model="ir.ui.view" id="product_normal_form_view">
+    <field name="name">product.product.form</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>
+    <field name="arch" type="xml">
+      <field name="weight_net" position="after">
+        <field name="weight_volumetric"/>
+      </field>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="product_uom_form_view">
+    <field name="name">product.uom.form</field>
+    <field name="model">product.uom</field>
+    <field name="inherit_id" ref="product.product_uom_form_view"/>
+    <field name="arch" type="xml">
+      <field name="factor_inv" position="after">
+        <field name="weight_volumetric_ratio"/>
+      </field>
+    </field>
+  </record>
+</data>
+</openerp>
