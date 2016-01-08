@@ -118,3 +118,5 @@ class ProductPricelistItem(models.Model):
             self.price_round = 0.0
             self.price_min_margin = 0.0
             self.price_max_margin = 0.0
+        else:
+            self.base = self.base_ext
