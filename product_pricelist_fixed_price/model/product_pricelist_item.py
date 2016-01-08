@@ -120,3 +120,6 @@ class ProductPricelistItem(models.Model):
             self.price_max_margin = 0.0
         else:
             self.base = self.base_ext
+            if self.price_discount == -1.0:
+                # Reset fixed price discount
+                self.price_discount = 0.0
