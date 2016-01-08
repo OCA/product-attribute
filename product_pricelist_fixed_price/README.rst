@@ -1,7 +1,10 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
+
 Fixed price on pricelist rule
 =============================
+
 Adds a new option on pricelist rules to set a fixed price. This is made using
 a trick that writes on the back 100% in the discount to the base price to get
 a zero base that will add only the price we put in the surcharge price.
@@ -27,9 +30,8 @@ Credits
 Contributors
 ------------
 
-  
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-* Ronald Portier rportier@therp.nl
+* Ronald Portier <rportier@therp.nl>
 * Giovanni Francesco Capalbo <giovanni@therp.nl>
 
 Previous version contributors
@@ -41,6 +43,7 @@ Previous version contributors
 * Alexandre Fayolle alexandre.fayolle@camptocamp.com
 * Jay Vora(OpenERP) jvo@tinyerp.com
 * Rudolf Schnapka rs@techno-flex.de
+
 
 Maintainer
 ----------
