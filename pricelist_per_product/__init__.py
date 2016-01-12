@@ -1,5 +1,2 @@
-from . import (
-    product,
-    pricelist,
-    transient,
-)
+from . import product
+from . import pricelist

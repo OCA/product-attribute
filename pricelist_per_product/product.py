@@ -14,8 +14,6 @@ class ProductTemplate(models.Model):
     pricelist_item_ids = fields.One2many(
         'product.pricelist.item',
         'product_tmpl_id',
-        # domain=[('price_version_id.pricelist_id.type', '=', 'sale'),
-        #         ('price_version_id.price_grid', '=', True)],
         string='Pricelist Items',
         default=_default_pricelist_item_ids,
         help="These prices are defined with absolute values\n"
