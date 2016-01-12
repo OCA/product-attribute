@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+<data>
+
+
+<record id="product_category_form_view" model="ir.ui.view">
+    <field name="name">product.category.image.form</field>
+    <field name="model">product.category</field>
+    <field name="inherit_id" ref="product.product_category_form_view" />
+    <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_title']" position="before">
+            <field name="image" widget="image" class="oe_avatar oe_left"/>
+        </xpath>
+    </field>
+</record>
+
+
+</data>
+</openerp>
