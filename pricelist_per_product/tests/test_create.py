@@ -25,3 +25,4 @@ class CreatePriceItemCase(TransactionCase):
             ('product_tmpl_id', '=', product.id)])
         self.assertEqual(item.price_discount, -1.0)
         self.assertEqual(item.base, 1)
+        self.assertEqual(versions[0].tmpl_in_count, 2)
