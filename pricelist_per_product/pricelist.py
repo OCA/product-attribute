@@ -76,6 +76,7 @@ class ProductPricelistItem(models.Model):
 
     @api.multi
     def button_product(self):
+        self.ensure_one()
         if self.product_tmpl_id:
             product = self.product_tmpl_id
         else:
