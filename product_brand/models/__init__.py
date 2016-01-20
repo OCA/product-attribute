@@ -7,7 +7,7 @@
 # Copyright (C) 2014 prisnet.ch Seraphine Lantible <s.lantible@gmail.com> #   #
 # Copyright (C) 2016-Today Serpent Consulting Services Pvt. Ltd.              #
 #    (<http://www.serpentcs.com>)                                             #
-# Contributors		                                                      #
+# Contributors                                                                #
 # Mathieu Lemercier, mathieu@netandco.net, #                                  #
 # Franck Bret, franck@netandco.net #                                          #
 # Seraphine Lantible, s.lantible@gmail.com, http://www.prisnet.ch             #
@@ -32,4 +32,4 @@
 # for products                                                                #
 ###############################################################################
 
-from . import models
+from . import product_brand
