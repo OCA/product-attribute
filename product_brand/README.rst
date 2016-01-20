@@ -10,7 +10,7 @@ Installation
 
 To install this module, you need to:
 
- * git clone https://github.com/OCA/product_attribute --branch 8.0
+ * git clone https://github.com/OCA/product_attribute --branch 9.0
  * make it available to odoo by adding its location to the addons_path in 
    /etc/odoo-server.conf
 
@@ -59,6 +59,7 @@ Contributors
 * Seraphine Lantible <s.lantible@gmail.com>
 * Gunnar Wagner <vrms@netcologne.de>
 * Leonardo Donelli <donelli@webmonks.it>
+* Serpent Consulting Services Pvt. Ltd. <jay.vora@serpentcs.com>
 
 Maintainer
 ----------
