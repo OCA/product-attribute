@@ -39,7 +39,7 @@
     'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA'
               ', MONK Software, Odoo Community Association (OCA)'
               ', Serpent Consulting Services Pvt. Ltd.',
-    'license': 'LGPL-3',
+    'license': 'AGPL-3',
     'depends': ['product'],
     'data': [
         'views/product_brand_view.xml',
