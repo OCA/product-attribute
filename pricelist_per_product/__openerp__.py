@@ -23,7 +23,11 @@
         'demo/product.pricelist.item.csv',
     ],
     'tests': [],
-    'images': [],
+    'images': [
+        'static/description/mass.png',
+        'static/description/pricelist.png',
+        'static/description/product.png',
+    ],
     'installable': True,
     'license': 'AGPL-3',
     'external_dependencies': {
