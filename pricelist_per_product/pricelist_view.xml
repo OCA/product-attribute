@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="price_grid"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_pricelist_view_tree" model="ir.ui.view">
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="price_grid"/>
+            </field>
+        </field>
+    </record>
+
+
+    <record id="product_pricelist_version_form_view" model="ir.ui.view">
+        <field name="model">product.pricelist.version</field>
+        <field name="inherit_id" ref="product.product_pricelist_version_form_view"/>
+        <field name="arch" type="xml">
+            <field name="pricelist_id" position="after">
+                <field name="price_grid"/>
+            </field>
+            <xpath expr="//group[1]" position="attributes">
+                <attribute name="col">6</attribute>
+            </xpath>
+            <xpath expr="//group[1]" position="inside">
+                <group attrs="{'invisible': [('price_grid', '=', False)]}" col="4">
+                    <div>
+                        <button name="button_template_in_version"
+                                class="oe_inline oe_stat_button" type="object"
+                                icon="fa-cube"
+                                help="Products templates with this version (click to see them)">
+                            <field name="tmpl_in_count" widget="statinfo"
+                                   string="Show Products"
+                                   attrs="{'invisible': [('price_grid', '=', False)]}"/>
+                        </button>
+                    </div>
+                </group>
+            </xpath>
+            <xpath expr="//notebook/page[@string='Item List']"
+                   position="attributes">
+                <attribute name="attrs">{'invisible': [('price_grid', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//notebook[last()]" position="inside">
+                <page name="grid" string="Grid"
+                      attrs="{'invisible': [('price_grid', '=', False)]}">
+                    <group col="4">
+                        <field name="item_grid_ids" nolabel="1">
+                            <tree string="Price Grid" editable="1">
+                                <field name="id" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="price_surcharge" string="Price"/>
+                                <field name="product_tmpl_id"/>
+                                <button name="button_product"
+                                        icon="terp-stock_symbol-selection"
+                                        class="oe_link" type="object"
+                                        attrs="{'invisible': [
+                                            ('product_tmpl_id', '=', False),
+                                            ('product_id', '=', False)]}"
+                                        help="Click to see this product"/>
+                                <field name="product_id"/>
+                                <field name="related_sequence"/>
+                                <field name="price_discount" string="Disc." invisible="1"/>
+                                <field name="base" string="Base" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+  </data>
+</openerp>
