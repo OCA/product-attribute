@@ -4,7 +4,7 @@
 
 {
     'name': 'Pricelist Per Product',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'author': 'Akretion, Odoo Community Association (OCA)',
     'summarize': 'Display pricelist items in products',
     'maintainer': 'Akretion',
