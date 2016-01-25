@@ -203,7 +203,9 @@ class product_template(models.Model):
                 pack_price = 0.0
                 for pack_line in product.pack_line_ids:
                     product_line_price = pack_line.product_id.price_get()[
-                            pack_line.product_id.id]
+                            pack_line.product_id.id] * (
+                                1 - (pack_line.discount or 0.0) / 100.0)
+                    product_line_price
                     pack_price += (product_line_price * pack_line.quantity)
                 res[product.id] = pack_price
         return res
