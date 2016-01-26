@@ -20,13 +20,15 @@ from openerp import models, fields
 from openerp import api
 
 
-class Product(models.Model):
+class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
-        if (not self.length or not self.height or not self.width
-                or not self.dimensional_uom_id):
+        if (
+                not self.length or not self.height or not self.width or
+                not self.dimensional_uom_id
+                ):
             return False
 
         length_m = self.convert_to_meters(self.length, self.dimensional_uom_id)
@@ -52,14 +54,16 @@ class Product(models.Model):
         help='UoM for length, height, width')
 
 
-class Product_template(models.Model):
+class ProductTemplate(models.Model):
 
     _inherit = 'product.template'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
-        if (not self.length or not self.height or not self.width
-                or not self.dimensional_uom_id):
+        if (
+                not self.length or not self.height or not self.width or
+                not self.dimensional_uom_id
+                ):
             return False
 
         length_m = self.convert_to_meters(self.length, self.dimensional_uom_id)
