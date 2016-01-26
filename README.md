@@ -11,6 +11,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[pricelist_per_product](pricelist_per_product/) | 8.0.1.0.0 | Pricelist Per Product
 [product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 | Product attribute types
 [product_brand](product_brand/) | 8.0.0.1.0 | Add brand to products
 [product_dimension](product_dimension/) | 8.0.2.0.0 | Product Dimension
