@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #    Author: Leonardo Pistone
 #    Copyright 2015 Camptocamp SA
 #
