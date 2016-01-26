@@ -19,11 +19,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import logging
-_logger = logging.getLogger(__name__)
 
 from openerp.osv import orm, fields
 import operator
+import logging
+_logger = logging.getLogger(__name__)
 
 
 CONSTRAINT_MESSAGE = 'Error: Invalid EAN/GTIN code'

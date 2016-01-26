@@ -20,11 +20,11 @@
 ##############################################################################
 # it is not useful to use odoo unittest suite here as only
 # methods without odoo tools are tested here.
+
+from openerp.addons.product_gtin import product_gtin
 import unittest2
 import logging
 _logger = logging.getLogger(__name__)
-
-from openerp.addons.product_gtin import product_gtin
 
 
 class TestIsPair(unittest2.TestCase):
