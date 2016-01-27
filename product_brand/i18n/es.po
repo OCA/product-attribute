@@ -41,7 +41,7 @@ msgstr "Descripción"
 #: view:product.brand:0
 #: field:product.brand,name:0
 msgid "Brand Name"
-msgstr "Nombre marca"
+msgstr "Nombre de marca"
 
 #. module: product_brand
 #: view:product.brand:0
@@ -51,7 +51,7 @@ msgstr "Marca de producto"
 #. module: product_brand
 #: field:product.brand,logo:0
 msgid "Logo File"
-msgstr "Archivo de logo"
+msgstr "Logotipo"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
@@ -63,7 +63,7 @@ msgstr "Marca"
 #. module: product_brand
 #: help:product.brand,partner_id:0
 msgid "Select a partner for this brand if it exists."
-msgstr "Seleccione una empresa para esta marca si existe."
+msgstr "Seleccione una empresa para esta marca (si existe)."
 
 #. module: product_brand
 #: view:product.product:0
@@ -78,5 +78,5 @@ msgstr "empresa"
 #. module: product_brand
 #: help:product.template,product_brand_id:0
 msgid "Select a brand for this product."
-msgstr "Seleccione una marcha para este producto."
+msgstr "Seleccione una marca para este producto."
 
