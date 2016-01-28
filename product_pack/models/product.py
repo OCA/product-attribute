@@ -93,7 +93,6 @@ class product_product(models.Model):
         """
         pack_lines = self.pack_line_ids
         while pack_lines:
-            print 'pack_lines', pack_lines
             if self in pack_lines.mapped('product_id'):
                 raise Warning(_(
                     'Error! You cannot create recursive packs.\n'
