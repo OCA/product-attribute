@@ -4,72 +4,81 @@
 # © 2015 Antiun Ingeniería S.L. - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import _, api, fields, models
+from openerp import _, api, fields, models, tools
 
 
 class Owner(models.AbstractModel):
     _name = "multi_image_base.owner"
 
     image_ids = fields.One2many(
-        comodel_name='multi_image_base.image',  # Overwrite this in submodels
+        comodel_name='multi_image_base.image',
         inverse_name='owner_id',
         string='Images',
+        domain=lambda self: [("owner_model", "=", self._name)],
         copy=True)
     image_main = fields.Binary(
         string="Main image",
-        compute="_get_main_image",
         store=False,
-        inverse="_set_main_image")
+        compute="_get_multi_image_main",
+        inverse="_set_multi_image_main")
     image_medium = fields.Binary(
         string="Medium image",
-        compute="_get_main_image",
-        inverse="_set_main_image_medium",
+        compute="_get_multi_image_main",
+        inverse="_set_multi_image_main",
         store=False)
     image_small = fields.Binary(
         string="Small image",
-        compute="_get_main_image",
-        inverse="_set_main_image_small",
+        compute="_get_multi_image_main",
+        inverse="_set_multi_image_main",
         store=False)
 
     @api.multi
-    def _inverse_image_main(self):
-        """Save images."""
-
-    @api.one
     @api.depends('image_ids')
-    def _get_main_image(self):
-        self.image_main = False
-        self.image_medium = False
-        self.image_small = False
-        if self.image_ids:
-            self.image_main = self.image_ids[0].image_main
-            self.image_medium = self.image_ids[0].image_medium
-            self.image_small = self.image_ids[0].image_small
+    def _get_multi_image_main(self):
+        """Get a the main image for this object.
+
+        This is provided as a compatibility layer for submodels that already
+        had one image per record.
+        """
+        for s in self:
+            s.image_main = False
+            s.image_medium = False
+            s.image_small = False
+            if s.image_ids:
+                s.image_main = s.image_ids[0].image_main
+                s.image_medium = s.image_ids[0].image_medium
+                s.image_small = s.image_ids[0].image_small
 
     @api.multi
-    def _set_image(self, image):
-        if self.image:
-            if self.image_ids:
-                self.image_ids[0].write({'storage': 'db',
-                                         'file_db_store': image})
-            else:
-                self.image_ids = [(0, 0, {'storage': 'db',
-                                          'file_db_store': image,
-                                          'name': _('Main image')})]
-        elif self.image_ids:
-            self.image_ids[0].unlink()
+    def _set_multi_image_main(self, image=False, name=None):
+        """Save or delete the main image for this record.
 
-    @api.one
-    def _set_main_image(self):
-        self._set_image(self.image_main)
+        This is provided as a compatibility layer for submodels that already
+        had one image per record.
+        """
+        # Values to save
+        values = {
+            "storage": "db",
+            "file_db_store": tools.image_resize_image_big(image),
+            "owner_model": self._name,
+        }
+        if name:
+            values["name"] = name
 
-    @api.one
-    def _set_main_image_medium(self):
-        self._set_image(self.image_medium)
-
-    @api.one
-    def _set_main_image_small(self):
-        self._set_image(self.image_small)
+        for s in self:
+            if image:
+                import wdb; wdb.set_trace()  # TODO DELETE
+                values["owner_id"] = s.id
+                # Editing
+                if s.image_ids:
+                    values.setdefault("name", name or _("Main image"))
+                    s.image_ids[0].write(values)
+                # Adding
+                else:
+                    s.image_ids = [(0, 0, values)]
+            # Deleting
+            elif s.image_ids:
+                s.image_ids[0].unlink()
 
     @api.multi
     def write(self, vals):
@@ -77,3 +86,12 @@ class Owner(models.AbstractModel):
             # Inhibit the write of the image when images tab has been touched
             del vals['image_medium']
         return super(Owner, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        """Mimic `ondelete="cascade"` for multi images."""
+        images = self.mapped("image_ids")
+        result = super(Owner, self).unlink()
+        if result:
+            images.unlink()
+        return result

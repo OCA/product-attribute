@@ -20,29 +20,25 @@ on this one and this will get installed automatically.
 Usage
 =====
 
-To use this module, you need to:
+To manage all stored images, you need to:
 
-* Follow instructions on the module based on this one that you install.
+* Go to *Settings > Configuration > Multi images*.
+
+... but you probably prefer to manage them from the forms supplied by
+submodules that inherit this behavior.
+
+Development
+===========
 
 To develop a module based on this one:
 
 * See module ``product_multi_image`` as an example.
 * You have to inherit model ``multi_image_base.owner`` to the model that needs
-  the gallery, and overwrite ``comodel_name`` of field ``image_ids``::
+  the gallery::
 
     class MyOwner(models.Model):
         _name = "mymodule.name"
         _inherit = "multi_image_base.owner"
-        image_ids = fields.One2many(comodel_name="mymodule.image")
-
-* Also you have to inherit model ``multi_image_base.image`` to the model that
-  implements the image list, and overwrite ``comodel_name`` of field
-  ``owner_id``::
-
-    class MyImage(models.Model):
-        _name = "mymodule.image"
-        _inherit = "multi_image_base.image"
-        owner_id = fields.One2many(comodel_name="mymodule.owner")
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot

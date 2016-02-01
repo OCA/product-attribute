@@ -17,8 +17,6 @@
         "product",
     ],
     "data": [
-        'security/ir.model.access.csv',
-        'views/product_image_view.xml',
         'views/product_product_view.xml',
     ],
     'installable': True,

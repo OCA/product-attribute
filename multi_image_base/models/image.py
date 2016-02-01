@@ -14,20 +14,21 @@ from openerp import tools
 _logger = logging.getLogger(__name__)
 
 
-class ImageABC(models.AbstractModel):
+class ImageABC(models.Model):
     _name = "multi_image_base.image"
     _sql_constraints = [
-        ('uniq_name_owner_id', 'UNIQUE(owner_id, name)',
+        ('uniq_name_owner', 'UNIQUE(owner_id, owner_model, name)',
          _('A document can have only one image with the same name.')),
     ]
 
-    owner_id = fields.Many2one(
-        comodel_name='multi_image_base.owner',  # Overwrite this in submodels
-        string='Owner',
-        required=True,
-        ondelete='cascade')
+    owner_id = fields.Integer(
+        "Owner",
+        required=True)
+    owner_model = fields.Char(
+        required=True)
     storage = fields.Selection(
         [('url', 'URL'), ('file', 'OS file'), ('db', 'Database')],
+        required=True,
         default='db')
     name = fields.Char(
         'Image title',
@@ -64,6 +65,8 @@ class ImageABC(models.AbstractModel):
     comments = fields.Text(
         'Comments',
         translate=True)
+    show_technical = fields.Boolean(
+        compute="_show_technical")
 
     @api.multi
     @api.depends('storage', 'path', 'file_db_store', 'url')
@@ -71,6 +74,14 @@ class ImageABC(models.AbstractModel):
         """Get image data from the right storage type."""
         for s in self:
             s.image_main = getattr(s, "_get_image_from_%s" % s.storage)()
+
+    @api.multi
+    @api.depends("owner_id", "owner_model")
+    def _show_technical(self):
+        """Know if you need to show the technical fields."""
+        self.show_technical = all(
+            "default_owner_%s" % f not in self.env.context
+            for f in ("id", "model"))
 
     @api.multi
     def _get_image_from_db(self):
@@ -108,7 +119,8 @@ class ImageABC(models.AbstractModel):
     def _get_image_sizes(self):
         for s in self:
             try:
-                vals = tools.image_get_resized_images(s.image_main)
+                vals = tools.image_get_resized_images(
+                    s.with_context(bin_size=False).image_main)
             except:
                 vals = {"image_medium": False,
                         "image_small": False}

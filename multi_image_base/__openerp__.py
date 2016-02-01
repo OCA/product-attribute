@@ -5,7 +5,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "Multiple images for products",
+    "name": "Multiple images base",
+    "summary": "Allow multiple images for database objects",
     "version": "8.0.1.0.0",
     "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Antiun Ingeniería, S.L., "
@@ -14,4 +15,8 @@
     "category": "Tools",
     "depends": ['base'],
     'installable': True,
+    "data": [
+        "security/ir.model.access.csv",
+        "views/image_view.xml",
+    ],
 }
