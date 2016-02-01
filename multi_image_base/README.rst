@@ -6,8 +6,8 @@
 Multiple images base
 ====================
 
-This module was written to extend the functionality of any model to support
-having multiple images (a gallery) attached to it and allow you to manage them.
+This module extends the functionality of any model to support multiple images
+(a gallery) attached to it and allow you to manage them.
 
 Installation
 ============
@@ -26,7 +26,7 @@ To use this module, you need to:
 
 To develop a module based on this one:
 
-* See module ``multi_image_product`` as an example.
+* See module ``product_multi_image`` as an example.
 * You have to inherit model ``multi_image_base.owner`` to the model that needs
   the gallery, and overwrite ``comodel_name`` of field ``image_ids``::
 

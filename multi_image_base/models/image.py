@@ -51,10 +51,10 @@ class ImageABC(models.AbstractModel):
     image_medium = fields.Binary(
         "Medium-sized image",
         compute="_get_image_sizes",
-        help="Medium-sized image. It is automatically resized as a 128 x "
-             "128 px image, with aspect ratio preserved, only when the image "
-             "exceeds one of those sizes. Use this field in form views or "
-             "some kanban views.")
+        help="Medium-sized image. It is automatically resized as a "
+             "128 x 128 px image, with aspect ratio preserved, only when the "
+             "image exceeds one of those sizes. Use this field in form views "
+             "or kanban views.")
     image_small = fields.Binary(
         "Small-sized image",
         compute="_get_image_sizes",
