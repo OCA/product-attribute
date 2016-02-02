@@ -19,22 +19,22 @@ class Owner(models.AbstractModel):
     image_main = fields.Binary(
         string="Main image",
         store=False,
-        compute="_get_multi_image_main",
+        compute="_get_multi_image",
         inverse="_set_multi_image_main")
-    image_medium = fields.Binary(
+    image_main_medium = fields.Binary(
         string="Medium image",
-        compute="_get_multi_image_main",
-        inverse="_set_multi_image_main",
+        compute="_get_multi_image",
+        inverse="_set_multi_image_main_medium",
         store=False)
-    image_small = fields.Binary(
+    image_main_small = fields.Binary(
         string="Small image",
-        compute="_get_multi_image_main",
-        inverse="_set_multi_image_main",
+        compute="_get_multi_image",
+        inverse="_set_multi_image_main_small",
         store=False)
 
     @api.multi
     @api.depends('image_ids')
-    def _get_multi_image_main(self):
+    def _get_multi_image(self):
         """Get a the main image for this object.
 
         This is provided as a compatibility layer for submodels that already
@@ -42,15 +42,15 @@ class Owner(models.AbstractModel):
         """
         for s in self:
             s.image_main = False
-            s.image_medium = False
-            s.image_small = False
+            s.image_main_medium = False
+            s.image_main_small = False
             if s.image_ids:
                 s.image_main = s.image_ids[0].image_main
-                s.image_medium = s.image_ids[0].image_medium
-                s.image_small = s.image_ids[0].image_small
+                s.image_main_medium = s.image_ids[0].image_medium
+                s.image_main_small = s.image_ids[0].image_small
 
     @api.multi
-    def _set_multi_image_main(self, image=False, name=None):
+    def _set_multi_image(self, image=False, name=False):
         """Save or delete the main image for this record.
 
         This is provided as a compatibility layer for submodels that already
@@ -67,25 +67,29 @@ class Owner(models.AbstractModel):
 
         for s in self:
             if image:
-                import wdb; wdb.set_trace()  # TODO DELETE
                 values["owner_id"] = s.id
                 # Editing
                 if s.image_ids:
-                    values.setdefault("name", name or _("Main image"))
                     s.image_ids[0].write(values)
                 # Adding
                 else:
+                    values.setdefault("name", name or _("Main image"))
                     s.image_ids = [(0, 0, values)]
             # Deleting
             elif s.image_ids:
                 s.image_ids[0].unlink()
 
     @api.multi
-    def write(self, vals):
-        if 'image_medium' in vals and 'image_ids' in vals:
-            # Inhibit the write of the image when images tab has been touched
-            del vals['image_medium']
-        return super(Owner, self).write(vals)
+    def _set_multi_image_main(self):
+        self._set_multi_image(self.image_main)
+
+    @api.multi
+    def _set_multi_image_main_medium(self):
+        self._set_multi_image(self.image_main_medium)
+
+    @api.multi
+    def _set_multi_image_main_small(self):
+        self._set_multi_image(self.image_main_small)
 
     @api.multi
     def unlink(self):
