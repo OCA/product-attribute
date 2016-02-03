@@ -40,6 +40,9 @@ To develop a module based on this one:
         _name = "mymodule.name"
         _inherit = "multi_image_base.owner"
 
+        # If you need this, you will need ``post_init_hook_for_submodules``
+        old_image_field = fields.Binary(related="image_main", store=False)
+
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/135/8.0

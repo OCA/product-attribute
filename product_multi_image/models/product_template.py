@@ -14,7 +14,3 @@ class ProductTemplate(models.Model):
     image = fields.Binary(related="image_main", store=False)
     image_medium = fields.Binary(related="image_main_medium", store=False)
     image_small = fields.Binary(related="image_main_small", store=False)
-
-    @api.multi
-    def _set_image(self, name, value, args):
-        return self._set_multi_image_main(value, name)

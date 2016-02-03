@@ -6,12 +6,13 @@
 
 {
     "name": "Multiple images for products",
-    "version": "1.0",
+    "version": "8.0.1.0.0",
     "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Antiun Ingeniería, "
               "Odoo Community Association (OCA)",
     "website": "http://www.serviciosbaeza.com",
     "category": "Sales Management",
+    "post_init_hook": "post_init_hook",
     "depends": [
         "multi_image_base",
         "product",
