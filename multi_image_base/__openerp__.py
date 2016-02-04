@@ -18,7 +18,9 @@
     'installable': True,
     "data": [
         "security/ir.model.access.csv",
+        "views/assets.xml",
         "views/image_view.xml",
+        "views/owner_templates.xml",
     ],
     "images": [
         "images/form.png",
