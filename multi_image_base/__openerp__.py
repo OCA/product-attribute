@@ -11,6 +11,7 @@
     "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Antiun Ingeniería, S.L., "
               "Odoo Community Association (OCA)",
+    "license": "AGPL-3",
     "website": "http://www.antiun.com",
     "category": "Tools",
     "depends": ['base'],
@@ -18,5 +19,9 @@
     "data": [
         "security/ir.model.access.csv",
         "views/image_view.xml",
+    ],
+    "images": [
+        "images/form.png",
+        "images/kanban.png",
     ],
 }
