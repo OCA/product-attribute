@@ -23,7 +23,8 @@ To use this module, you need to:
 Known issues / Roadmap
 ======================
 
- * Provide proper migration scripts from module product_images from 7.0.
+* Provide proper migration scripts from module product_images from 7.0.
+* Migrate to v8 api when https://github.com/odoo/odoo/issues/10799 gets fixed.
 
 Bug Tracker
 ===========
