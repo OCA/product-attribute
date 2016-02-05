@@ -14,7 +14,7 @@
     "license": "AGPL-3",
     "website": "http://www.antiun.com",
     "category": "Tools",
-    "depends": ['base'],
+    "depends": ['website'],
     'installable': True,
     "data": [
         "security/ir.model.access.csv",
