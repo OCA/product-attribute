@@ -18,5 +18,22 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="product_template_only_form_view">
+      <field name="name">product_template_form_view</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <group name="weight" position="before">
+          <group name="dimensions" string="Dimensions" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}">
+            <field name="dimensional_uom_id" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+            <field name="length" attrs="{'readonly':[('type','=','service')],'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+            <field name="height" attrs="{'readonly':[('type','=','service')],'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+            <field name="width" attrs="{'readonly':[('type','=','service')],'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+          </group>
+        </group>
+      </field>
+    </record>
+
+
   </data>
 </openerp>
