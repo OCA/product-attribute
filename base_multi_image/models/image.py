@@ -15,7 +15,7 @@ _logger = logging.getLogger(__name__)
 
 
 class ImageABC(models.Model):
-    _name = "multi_image_base.image"
+    _name = "base_multi_image.image"
     _sql_constraints = [
         ('uniq_name_owner', 'UNIQUE(owner_id, owner_model, name)',
          _('A document can have only one image with the same name.')),

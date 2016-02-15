@@ -8,10 +8,10 @@ from openerp import _, api, fields, models, tools
 
 
 class Owner(models.AbstractModel):
-    _name = "multi_image_base.owner"
+    _name = "base_multi_image.owner"
 
     image_ids = fields.One2many(
-        comodel_name='multi_image_base.image',
+        comodel_name='base_multi_image.image',
         inverse_name='owner_id',
         string='Images',
         domain=lambda self: [("owner_model", "=", self._name)],

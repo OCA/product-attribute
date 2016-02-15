@@ -15,7 +15,7 @@ class ProductTemplate(orm.Model):
     bad things will happen.
     """
     _name = "product.template"
-    _inherit = [_name, "multi_image_base.owner"]
+    _inherit = [_name, "base_multi_image.owner"]
     _columns = {
         "image": fields.related(
             "image_main",

@@ -15,7 +15,7 @@
     "category": "Sales Management",
     "post_init_hook": "post_init_hook",
     "depends": [
-        "multi_image_base",
+        "base_multi_image",
         "product",
     ],
     "data": [

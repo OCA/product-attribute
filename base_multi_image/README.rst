@@ -33,12 +33,12 @@ Development
 To develop a module based on this one:
 
 * See module ``product_multi_image`` as an example.
-* You have to inherit model ``multi_image_base.owner`` to the model that needs
+* You have to inherit model ``base_multi_image.owner`` to the model that needs
   the gallery::
 
     class MyOwner(models.Model):
         _name = "mymodule.name"
-        _inherit = "multi_image_base.owner"
+        _inherit = "base_multi_image.owner"
 
         # If you need this, you will need ``post_init_hook_for_submodules``
         old_image_field = fields.Binary(related="image_main", store=False)
@@ -56,7 +56,7 @@ check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed `feedback
 <https://github.com/OCA/
 product-attribute/issues/new?body=module:%20
-multi_image_base%0Aversion:%20
+base_multi_image%0Aversion:%20
 8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Credits
