@@ -47,3 +47,6 @@ class ProductProfile(models.Model):
     profile_default_categ_id = fields.Many2one(
         'product.category',
         string='Default category')
+    product_manager = fields.Many2one(
+        'res.users',
+        string='Product Manager')
