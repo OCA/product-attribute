@@ -82,7 +82,10 @@ class ProductMixinProfile(models.AbstractModel):
             profile = profile_obj.browse(profile_id).read(fields)[0]
             profile.pop('id')
             for field, value in profile.items():
-                if profile_obj._fields[field].type in ('many2many'):
+                if value and profile_obj._fields[field].type == 'many2one':
+                    # m2o value is a tuple
+                    profile[field] = value[0]
+                if profile_obj._fields[field].type == 'many2many':
                     profile[field] = [(6, 0, value)]
             return profile
         else:

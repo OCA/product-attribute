@@ -37,7 +37,8 @@ Configuration
    then values of these will be populated automatically
    in 'product.template'
    Example of fields declaration in your own module:
-   ```python
+
+```python
 class ProductProfile(models.Model):
     """ Require dependency on sale, purchase and point_of_sale modules
     """
@@ -55,18 +56,20 @@ class ProductProfile(models.Model):
     purchase_ok = fields.Boolean(
         string='Can be Purchased')
     available_in_pos = fields.Boolean()
-   ```
+```
 
 3. Second behavior: you might want to add a default behavior to these fields:
    in this case use prefix 'profile_default\_' for your field name
    in 'product.profile' model.
-   ```python
+
+```python
 class ProductProfile(models.Model):
     ...
     profile_default_categ_id = fields.Many2one(
         'product.category',
         string='Default category')
-   ```
+```
+
    In this case 'categ_id' field (from product.template) is populated
    with 'profile_default_categ_id' value but can be updated manually by the user.
 
