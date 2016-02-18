@@ -10,7 +10,7 @@
     'name': 'Product Brand Manager',
     'version': '9.0.1.0.0',
     'category': 'Product',
-    'summary': 'Add brand to products',
+    'summary': "Product Brand Manager",
     'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA'
               ', MONK Software, Odoo Community Association (OCA)'
               ', Serpent Consulting Services Pvt. Ltd.',
