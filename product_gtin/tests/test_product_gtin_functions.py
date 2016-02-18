@@ -3,6 +3,7 @@
 # © 2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp.tests import common
+from openerp.exceptions import ValidationError
 
 VALID_EAN8_CODES = [
     # http://www.softmatic.com/barcode-ean-8.html
@@ -11,8 +12,7 @@ VALID_EAN8_CODES = [
     "04210009",
 ]
 VALID_EAN13_CODES = [
-    # http://www.barcodeisland.com/ean13.phtml
-    "0075678164125",
+    # http://www.barcodeisland.com/ean13.phtml,
     "2000021262157",
 ]
 VALID_UPC_CODES = [
@@ -42,10 +42,9 @@ class TestProductGtin(common.TransactionCase):
         self.assertFalse(self.aean._is_pair(5), 'Should be False')
         self.assertFalse(self.aean._is_pair(77), 'Should be False')
 
-    """The codes have been tested against
-    http://www.hipaaspace.com/Medical_Data_Validation/Universal_Product_Code/
-    UPC_Validation.aspx  # noqa
-    """
+    # The codes have been tested against
+    # http://www.hipaaspace.com/Medical_Data_Validation/Universal_Product_Code/
+    # UPC_Validation.aspx noqa
     def test_upc_codes(self):
         for code in VALID_UPC_CODES:
             self.assertTrue(self.aean._check_upc(code))
@@ -124,6 +123,17 @@ class TestProductGtin(common.TransactionCase):
         for code in VALID_UPC_CODES:
             self.assertFalse(self.aean._check_ean13(code))
 
-    def test__DICT_CHECK_EAN(self):
+    def test_DICT_CHECK_EAN(self):
         """Check if the dict _DICT_CHECK_EAN exists."""
         self.assertTrue(self.aean._DICT_CHECK_EAN)
+
+    def test_partner_barcode(self):
+        partner = self.env['res.partner'].with_context(
+            mail_create_nosubscribe=True)
+        vals = {
+            'name': 'test',
+            'barcode': 't',
+        }
+        self.assertRaises(ValidationError, partner.create, vals)
+        vals['barcode'] = "0075678164125"
+        self.assertTrue(partner.create(vals))

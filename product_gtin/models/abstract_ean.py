@@ -3,7 +3,7 @@
 # © 2010-2011 Camptocamp Austria (<http://www.camptocamp.at>)
 # © 2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from openerp import api, models
 from openerp.tools.translate import _
 from openerp.exceptions import ValidationError
 import operator
@@ -14,8 +14,6 @@ _logger = logging.getLogger(__name__)
 class AbstractEan(models.AbstractModel):
     _name = 'abstract.ean'
     _description = 'Abstract Ean'
-
-    barcode = fields.Char()
 
     @api.model
     def _is_pair(self, x):
@@ -113,17 +111,15 @@ class AbstractEan(models.AbstractModel):
         14: _check_gtin14,
     }
 
-    @api.constrains('barcode')
-    def _check_barecode(self):
-        if self.barcode:
-            barcode = self.barcode
-            nb_digit = len(barcode)
-            if nb_digit not in self._DICT_CHECK_EAN:
-                raise ValidationError(_('Size of EAN/GTIN code is not valid'))
-            try:
-                int(barcode)
-            except:
-                raise ValidationError(_('EAN/GTIN Should be a digit'))
-            if not self._DICT_CHECK_EAN[nb_digit](self, barcode):
-                raise ValidationError(
-                    _('EAN/GTIN format is not a valid format'))
+    @api.model
+    def _check_code(self, barcode):
+        nb_digit = len(barcode)
+        if nb_digit not in self._DICT_CHECK_EAN:
+            raise ValidationError(_('Size of EAN/GTIN code is not valid'))
+        try:
+            int(barcode)
+        except:
+            raise ValidationError(_('EAN/GTIN Should be a digit'))
+        if not self._DICT_CHECK_EAN[nb_digit](self, barcode):
+            raise ValidationError(
+                _('EAN/GTIN format is not a valid format'))
