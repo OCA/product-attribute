@@ -5,14 +5,14 @@ class product_product(models.Model):
     _inherit = 'product.template'
 
     def action_take_picture(self, cr, uid, ids, context=None):
-        print("ENTRA A ACTION")
+        
         if context is None:
             context = {}
 
         res_model, res_id = self.pool.get(
             'ir.model.data').get_object_reference(cr, uid,
-                                                  'product_webcam',
-                                                  'action_take_photo')
+                'product_webcam',
+                'action_take_photo')
         dict_act_window = self.pool.get(
             'ir.actions.client').read(cr, uid, res_id, [])
         if not dict_act_window.get('params', False):
