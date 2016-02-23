@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="assets_backend" name="product_webcam assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/product_webcam/static/src/css/product_webcam.css"/>
+                <script type="text/javascript" src="/product_webcam/static/src/js/jquery.webcam.js"></script>
+                <script type="text/javascript" src="/product_webcam/static/src/js/product_webcam.js"></script>
+            </xpath>
+        </template>
+        
+        <record id="action_take_photo" model="ir.actions.client">
+            <field name="name">Take Picture</field>
+            <field name="tag">photo.action</field>
+        </record>
+        
+        <record id="view_product_template_form" model="ir.ui.view">
+            <field name="name">product.template.form.webcam</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button name="action_take_picture" type="object" class="oe_stat_button cam" icon="fa-camera"  string="Take Picture"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
+
