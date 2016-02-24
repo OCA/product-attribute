@@ -29,7 +29,8 @@ Product WebCam
 
 Capture product pictures with an attached web cam.
     """,
-    'author': "Marçal Isern <info@qubiq.es>," "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
+    'author': "Marçal Isern <info@qubiq.es>," 
+    "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
     "Odoo Community Association (OCA)",
     'website': 'http://www.qubiq.es',
     'license': 'AGPL-3',
@@ -48,7 +49,7 @@ Capture product pictures with an attached web cam.
         'static/src/xml/product_webcam.xml',
     ],
     'data': [
-        #'product_webcam_data.xml',
+        
         'product_webcam_view.xml',
     ],
     'installable': True,
