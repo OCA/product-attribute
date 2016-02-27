@@ -23,13 +23,8 @@
     'name': 'Capture product picture with webcam',
     'version': '8.0.1.0.0',
     'category': 'Generic Modules/Product Attributes',
-    'description': """
-Product WebCam
-===============
-
-Capture product pictures with an attached web cam.
-    """,
-    'author': "Marçal Isern <info@qubiq.es>," 
+    'description': """Capture product pictures with an attached web cam.""",
+    'author': "Marçal Isern <info@qubiq.es>,"
     "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
     "Odoo Community Association (OCA)",
     'website': 'http://www.qubiq.es',
@@ -49,7 +44,6 @@ Capture product pictures with an attached web cam.
         'static/src/xml/product_webcam.xml',
     ],
     'data': [
-        
         'product_webcam_view.xml',
     ],
     'installable': True,
