@@ -41,7 +41,7 @@ class ProductProduct(models.Model):
         for product in self:
             product_supplier = self.env['product.supplierinfo'].browse(False)
             for supplierinfo in product.product_tmpl_id.seller_ids:
-                if (not supplierinfo.product_id
-                        or supplierinfo.product_id == product):
+                if not supplierinfo.product_id or\
+                        supplierinfo.product_id == product:
                     product_supplier |= supplierinfo
             product.seller_ids = product_supplier

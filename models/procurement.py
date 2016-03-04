@@ -3,13 +3,13 @@
 # Sébastien BEAU <sebastien.beau@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from openerp import api, models
 
 
 class ProcurementOrder(models.Model):
-    _inherit='procurement.order'
+    _inherit = 'procurement.order'
 
-    #Do not call super as we do not want the native behaviour
+    # Do not call super as we do not want the native behaviour
     @api.model
     def _get_product_supplier(self, procurement):
         '''returns the main supplier of the procurement's product
