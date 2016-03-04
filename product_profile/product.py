@@ -10,6 +10,10 @@ from lxml import etree
 
 PROFILE_MENU = (_("Sales > Configuration \n> Product Categories and Attributes"
                   "\n> Product Profiles"))
+# Prefix name of profile fields setting a default value,
+# not an immutable value according to profile
+PROF_DEFAULT_STR = 'profile_default_'
+LEN_DEF_STR = len(PROF_DEFAULT_STR)
 
 
 def format_except_message(error, field, self):
@@ -48,7 +52,6 @@ class ProductProfile(models.Model):
              "(not synchronized with product.template fields)")
     explanation = fields.Text(
         required=True,
-        oldname='description',
         help="An explanation on the selected profile\n"
              "(not synchronized with product.template fields)")
     type = fields.Selection(
@@ -96,8 +99,9 @@ class ProductMixinProfile(models.AbstractModel):
         """ Update product fields with product.profile corresponding fields """
         for field, value in self._get_profile_data(self.profile_id.id).items():
             try:
-                if 'profile_default_' == field[:16]:
-                    self[field[16:]] = self.profile_id[field]
+                if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
+                    self[field[LEN_DEF_STR:]] = (
+                        self.profile_id[field])
                 else:
                     self[field] = self.profile_id[field]
             except ValueError as e:
@@ -111,7 +115,7 @@ class ProductMixinProfile(models.AbstractModel):
             vals.update(
                 self._get_profile_data(vals['profile_id'], vals.keys()))
         return super(ProductMixinProfile, self).create(
-            {k: v for k, v in vals.items() if 'profile_default_' not in k})
+            {k: v for k, v in vals.items() if PROF_DEFAULT_STR not in k})
 
     @api.multi
     def write(self, vals):
@@ -119,12 +123,18 @@ class ProductMixinProfile(models.AbstractModel):
             vals.update(
                 self._get_profile_data(vals['profile_id'], vals.keys()))
         return super(ProductMixinProfile, self).write(
-            {k: v for k, v in vals.items() if 'profile_default_' not in k})
+            {k: v for k, v in vals.items() if PROF_DEFAULT_STR not in k})
 
     @api.model
     def _get_profiles_to_filter(self):
         """ Inherit if you want that some profiles doesn't have a filter """
         return [(x.id, x.name) for x in self.env['product.profile'].search([])]
+
+    @api.model
+    def _get_default_profile_fields(self):
+        " Get profile fields with prefix PROF_DEFAULT_STR "
+        return [x for x in self.env['product.profile']._fields.keys()
+                if x[:LEN_DEF_STR] == PROF_DEFAULT_STR]
 
     @api.model
     def _customize_profile_filters(self, my_filter):
@@ -138,6 +148,7 @@ class ProductMixinProfile(models.AbstractModel):
     def _customize_view(self, res, view_type):
         profile_group = self.env.ref('product_profile.group_product_profile')
         users_in_profile_group = [user.id for user in profile_group.users]
+        default_fields = self._get_default_profile_fields()
         if view_type == 'form':
             doc = etree.XML(res['arch'])
             fields = self._get_profile_fields()
@@ -149,13 +160,15 @@ class ProductMixinProfile(models.AbstractModel):
             paths = ["//field[@name='%s']",
                      "//label[@for='%s']"]
             for field in fields:
-                for path in paths:
-                    node = doc.xpath(path % field)
-                    if node:
-                        for current_node in node:
-                            current_node.set('attrs', str(attrs))
-                            orm.setup_modifiers(current_node,
-                                                fields_def[field])
+                if field not in default_fields:
+                    # default fields shouldn't be modified
+                    for path in paths:
+                        node = doc.xpath(path % field)
+                        if node:
+                            for current_node in node:
+                                current_node.set('attrs', str(attrs))
+                                orm.setup_modifiers(current_node,
+                                                    fields_def[field])
             res['arch'] = etree.tostring(doc, pretty_print=True)
         elif view_type == 'search':
             # Allow to dynamically create search filters for each profile
