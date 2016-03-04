@@ -39,6 +39,7 @@ Configuration
    Example of fields declaration in your own module:
 
 ```python
+
 class ProductProfile(models.Model):
     """ Require dependency on sale, purchase and point_of_sale modules
     """
@@ -56,6 +57,7 @@ class ProductProfile(models.Model):
     purchase_ok = fields.Boolean(
         string='Can be Purchased')
     available_in_pos = fields.Boolean()
+
 ```
 
 3. Second behavior: you might want to add a default behavior to these fields:
@@ -63,15 +65,19 @@ class ProductProfile(models.Model):
    in 'product.profile' model.
 
 ```python
+
 class ProductProfile(models.Model):
     ...
     profile_default_categ_id = fields.Many2one(
         'product.category',
         string='Default category')
+
 ```
 
    In this case 'categ_id' field (from product.template) is populated
    with 'profile_default_categ_id' value but can be updated manually by the user.
+   Carefull: each time you change profile, the default value is also populated
+   whatever the previous value. Custom value is only keep if don't change the profile.
 
 
 4. Insert data (xml or csv) and define values for each field defined above
