@@ -76,7 +76,7 @@ class ProductProfile(models.Model):
 
    In this case 'categ_id' field (from product.template) is populated
    with 'profile_default_categ_id' value but can be updated manually by the user.
-   Carefull: each time you change profile, the default value is also populated
+   Careful: each time you change profile, the default value is also populated
    whatever the previous value. Custom value is only keep if don't change the profile.
 
 
