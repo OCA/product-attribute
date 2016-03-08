@@ -52,6 +52,7 @@ class ProductProfile(models.Model):
              "(not synchronized with product.template fields)")
     explanation = fields.Text(
         required=True,
+        oldname='description',
         help="An explanation on the selected profile\n"
              "(not synchronized with product.template fields)")
     type = fields.Selection(
