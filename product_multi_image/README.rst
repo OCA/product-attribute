@@ -6,15 +6,32 @@
 Multiple Images in Products
 ===========================
 
-This module implements the possibility to have multiple images for a product,
-that it's to say, an image gallery.
+This module implements the possibility to have multiple images for a product
+template, a.k.a. an image gallery.
+
+Installation
+============
+
+To install this module, you need to:
+
+* Install ``base_multi_image`` from
+  `OCA/server-tools <https://github.com/OCA/server-tools>`_.
 
 Usage
 =====
 
 To use this module, you need to:
 
-* Go to ...
+#. Go to *Sales > Products > Products* and choose a product template.
+#. Go to the new *Images* tab.
+#. Add a new image.
+#. Refresh the page.
+#. The first image in the collection is the main image for the product.
+#. Go to *Sales > Products > Product Variants* and choose a product variant.
+#. It shares the main image and collection with its template.
+#. If you change the main image from the variant, it becomes the variant's main
+   image but does not appear in the template.
+#. If you change images from the *Images* tab, it changes in the template too.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -25,6 +42,10 @@ Known issues / Roadmap
 
 * Provide proper migration scripts from module product_images from 7.0.
 * Migrate to v8 api when https://github.com/odoo/odoo/issues/10799 gets fixed.
+* If you try to sort images before saving the product variant or template, you
+  will get an error similar to ``DataError: invalid input syntax for integer:
+  "one2many_v_id_62"``. This bug has not been fixed yet, but a workaround is to
+  save and edit again to sort images.
 
 Bug Tracker
 ===========
