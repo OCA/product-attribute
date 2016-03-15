@@ -4,7 +4,6 @@
 ##############################################################################
 
 from openerp import models, fields, api
-from openerp.tools import config
 
 
 class ProductTemplate(models.Model):
@@ -48,8 +47,8 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def button_draft(self):
-        active_product_draft = self.env['product.config.settings']._get_parameter(
-            'active.product.draft')
+        active_product_draft = self.env[
+            'product.config.settings']._get_parameter('active.product.draft')
         self.write({
             'active': active_product_draft and active_product_draft.value or
             False,
@@ -71,8 +70,8 @@ class ProductTemplate(models.Model):
         }
 
     def _copy_product(self):
-        active_product_draft = self.env['product.config.settings']._get_parameter(
-            'active.product.draft')
+        active_product_draft = self.env[
+            'product.config.settings']._get_parameter('active.product.draft')
         new_product = self.copy({
             'version': self.version + 1,
             'active': active_product_draft and active_product_draft.value or
