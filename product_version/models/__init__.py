@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# (c) 2015 Oihane Crucelaegui - AvanzOSC
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+##############################################################################
+# For copyright and license notices, see __openerp__.py file in root directory
+##############################################################################
 
 from . import product
 from . import res_config
