@@ -10,6 +10,7 @@
     'author': 'Sergio Corato - SimplERP Srl',
     'website': 'http://simplerp.it',
     'depends': [
+        'product',
     ],
     'data': [
         'security/product_version_security.xml',
