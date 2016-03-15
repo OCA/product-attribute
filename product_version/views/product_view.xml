@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!--<record model="ir.actions.act_window" id ="product_normal_action_tree_inh">-->
-            <!--<field name="inherit_id" ref="product.product_normal_action_tree"/>-->
-            <!--<field name="domain">['|',('sellable','=',True),('sellable','=',False)]</field>-->
-        <!--</record>-->
-
-        <!--<record id="product.product_template_parent_tree_view_version" model="ir.ui.view">-->
-            <!--<field name="name">product.template.version.tree</field>-->
-            <!--<field name="model">product.template</field>-->
-            <!--<field name="arch" type="xml">-->
-                <!--<tree>-->
-                    <!--<field name="code"/>-->
-                <!--</tree>-->
-            <!--</field>-->
-        <!--</record>-->
-
         <record model="ir.ui.view" id="product_template_version_tree_view">
             <field name="name">product.template.version.tree</field>
             <field name="model">product.template</field>

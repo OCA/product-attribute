@@ -37,26 +37,6 @@ class ProductTemplate(models.Model):
         states={'obsolete': [('readonly', True)]})
     code = fields.Char(
         states={'obsolete': [('readonly', True)]})
-
-    # type = fields.Selection(
-    #    states={'obsolete': [('readonly', True)]})
-    # company_id = fields.Many2one(
-    #     states={'obsolete': [('readonly', True)]})
-    # product_uom = fields.Many2one(
-    #     states={'obsolete': [('readonly', True)]})
-    # position = fields.Char(
-    #     states={'obsolete': [('readonly', True)]})
-    # date_start = fields.Date(
-    #     states={'obsolete': [('readonly', True)]})
-    # date_stop = fields.Date(
-    #     states={'obsolete': [('readonly', True)]})
-    # property_ids = fields.Many2many(
-    #     states={'obsolete': [('readonly', True)]})
-    # message_follower_ids = fields.Many2many(
-    #     states={'obsolete': [('readonly', True)]})
-    # message_ids = fields.One2many(
-    #     states={'obsolete': [('readonly', True)]})
-
     version = fields.Integer(states={'obsolete': [('readonly', True)]},
                              copy=False, default=1)
     parent_product = fields.Many2one(
@@ -132,12 +112,6 @@ class ProductTemplate(models.Model):
     @api.model
     def _product_find(
             self, product_tmpl_id=None, product_id=None, properties=None):
-        """ Finds BoM for particular product and product uom.
-        @param product_tmpl_id: Selected product.
-        @param product_uom: Unit of measure of a product.
-        @param properties: List of related properties.
-        @return: False or BoM id.
-        """
         product_id = super(
             ProductTemplate, self.with_context(state='sellable')).\
             _product_find(

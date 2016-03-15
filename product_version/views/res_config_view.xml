@@ -1,22 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
+    <data noupdate="1">
+        <!-- After installation of the module, open the related menu -->
+        <record id="action_client_product_menu" model="ir.actions.client">
+            <field name="name">Open Product Menu</field>
+            <field name="tag">reload</field>
+            <field name="params" eval="{'menu_id': ref('base.menu_product_root')}"/>
+        </record>
+        <record id="base.open_menu" model="ir.actions.todo">
+            <field name="action_id" ref="action_client_product_menu"/>
+            <field name="state">open</field>
+        </record>
+    </data>
     <data>
-        <record model="ir.ui.view" id="mrp_product_config_settings_versioning">
-            <field name="name">mrp.product.config.settings.versioning</field>
-            <field name="model">mrp.config.settings</field>
-            <field name="inherit_id" ref="mrp.view_mrp_config" />
+        <record id="view_product_config" model="ir.ui.view">
+            <field name="name">product settings</field>
+            <field name="model">product.config.settings</field>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='module_mrp_repair']/.." position="after">
-                    <div>
-                        <field name="group_product_version" class="oe_inline"/>
-                        <label for="group_product_version"/>
-                    </div>
-                    <div attrs="{'invisible': [('group_product_version', '=', False)]}">
-                        <field name="active_product_draft" class="oe_inline"/>
-                        <label for="active_product_draft"/>
-                    </div>
-                </xpath>
+                <form string="Configure Product" class= "oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <separator string="Product Version"/>
+                    <group>
+                        <div>
+                            <field name="group_product_version" class="oe_inline"/>
+                            <label for="group_product_version"/>
+                        </div>
+                        <div attrs="{'invisible': [('group_product_version', '=', False)]}">
+                            <field name="active_product_draft" class="oe_inline"/>
+                            <label for="active_product_draft"/>
+                        </div>
+                    </group>
+                </form>
             </field>
         </record>
+        <record id="action_product_configuration" model="ir.actions.act_window">
+            <field name="name">Configure Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="base.menu_product_config" name="Product" parent="base.menu_config"
+            sequence="8" action="action_product_configuration"/>
+
     </data>
 </openerp>

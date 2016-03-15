@@ -4,14 +4,12 @@
 
 {
     'name': 'Product version',
-    'version': '8.0.0.0.0',
-    'category': 'Manufacturing',
-    'summary': "",
+    'version': '8.0.1.0.0',
+    'category': 'Product Management',
+    'summary': "Make product versionable",
     'author': 'Sergio Corato - SimplERP Srl',
     'website': 'http://simplerp.it',
     'depends': [
-        'mrp',
-        'product_sequence',
     ],
     'data': [
         'security/product_version_security.xml',

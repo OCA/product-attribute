@@ -5,8 +5,8 @@
 from openerp import api, fields, models
 
 
-class MrpConfigSettings(models.TransientModel):
-    _inherit = 'mrp.config.settings'
+class ProductConfigSettings(models.TransientModel):
+    _name = 'product.config.settings'
 
     group_product_version = fields.Boolean(
         string='Allow to re-edit Products',
