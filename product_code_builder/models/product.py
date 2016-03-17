@@ -1,23 +1,7 @@
-# -*- coding: utf-8 -*-
-###############################################################################
-#
-#   Copyright (C) 2015 Akretion (http://www.akretion.com). All Rights Reserved
-#   @author Abdessamad HILALI <abdessamad.hilali@akretion.com>
-#
-#   This program is free software: you can redistribute it and/or modify
-#   it under the terms of the GNU Affero General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
-#
-#   This program is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU Affero General Public License for more details.
-#
-#   You should have received a copy of the GNU Affero General Public License
-#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-###############################################################################
+# coding: utf-8
+# © 2016 Abdessamad HILALI <abdessamad.hilali@akretion.com>
+# © 2016 David BEAL <david.beal@akretion.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import fields, models, api
 
@@ -26,32 +10,41 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     base_code = fields.Char(
-        'Base Code',
+        string='Base Code',
         help="this field is used like a base to automatically create "
              "Internal Reference (default_code)")
-    auto_default_code = fields.Boolean('Auto Generate Reference',
-                                       default=True)
+    auto_default_code = fields.Boolean(
+        string='Automatic Reference',
+        default=True,
+        help="Generate Reference automatically according to attributes")
 
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
     manual_default_code = fields.Char(
-        help="This is an invisible field used to store default_code value"
-    )
+        help="Invisible field used to store default_code value")
     default_code = fields.Char(compute="_compute_default_code",
                                inverse="_set_manual_default_code",
                                store=True)
 
     @api.multi
     def _get_default_code(self):
-        """ this method used to create a list of code elements  """
+        """ Used to create a list of code elements  """
         self.ensure_one()
         res = self.base_code or ''
+        attributes = {}
+        attrs_order = {x.attribute_id: x.attribute_id.code or ''
+                       for x in self.product_tmpl_id.attribute_line_ids}
         for value in self.attribute_value_ids:
-            res += ''.join([
-                value.attribute_id.code or '',
-                value.code or ''
+            attributes[attrs_order[value.attribute_id]] = value
+        if attributes:
+            order = attributes.keys()
+            order.sort()
+            for elm in order:
+                res += ''.join([
+                    attributes[elm]['attribute_id']['code'] or '',
+                    attributes[elm]['code'] or ''
                 ])
         return res
 
@@ -61,11 +54,11 @@ class ProductProduct(models.Model):
     @api.depends('auto_default_code',
                  'attribute_value_ids.attribute_id.code',
                  'attribute_value_ids.code',
-                 'product_tmpl_id.base_code'
-                 )
-    @api.one
+                 'product_tmpl_id.base_code')
+    @api.multi
     def _compute_default_code(self):
-        if self.auto_default_code:
-            self.default_code = self._get_default_code()
-        else:
-            self.default_code = self.manual_default_code
+        for record in self:
+            if record.auto_default_code:
+                record.default_code = record._get_default_code()
+            else:
+                record.default_code = record.manual_default_code
