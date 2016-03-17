@@ -30,7 +30,7 @@
     """,
     'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com/',
-    'depends': ['product_custom_attributes', 'product_m2mcategories'],
+    'depends': ['product_custom_attributes', 'product_multi_category'],
     'init_xml': [],
     'update_xml': [
         "product_view.xml"
