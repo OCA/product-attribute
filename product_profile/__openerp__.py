@@ -4,7 +4,7 @@
 
 {
     'name': 'Product Profile',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.0.2',
     'author': 'Akretion, Odoo Community Association (OCA)',
     'summary': "Set a configuration profile to product templates",
     'category': 'product',
