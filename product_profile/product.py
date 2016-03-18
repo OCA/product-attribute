@@ -79,52 +79,51 @@ class ProductMixinProfile(models.AbstractModel):
                 if field not in fields_to_exclude]
 
     @api.model
-    def _get_profile_data(self, profile_id, filled_fields=None):
+    def _get_vals_from_profile(self, profile_id):
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
         if profile_id:
-            profile = profile_obj.browse(profile_id).read(fields)[0]
-            profile.pop('id')
-            for field, value in profile.items():
+            vals = profile_obj.browse(profile_id).read(fields)[0]
+            vals.pop('id')
+            for field, value in vals.items():
                 if value and profile_obj._fields[field].type == 'many2one':
                     # m2o value is a tuple
-                    profile[field] = value[0]
+                    vals[field] = value[0]
                 if profile_obj._fields[field].type == 'many2many':
-                    profile[field] = [(6, 0, value)]
-            return profile
+                    vals[field] = [(6, 0, value)]
+                if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
+                    vals[field[LEN_DEF_STR:]] = vals[field]
+                    # prefixed fields must be removed from dict
+                    # because they are in profile not in product
+                    vals.pop(field)
+            return vals
         else:
             return {field: None for field in fields}
 
     @api.onchange('profile_id')
     def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
-        for field, value in self._get_profile_data(self.profile_id.id).items():
+        values = self._get_vals_from_profile(self.profile_id.id)
+        for field, value in values.items():
             try:
-                if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
-                    self[field[LEN_DEF_STR:]] = (
-                        self.profile_id[field])
-                else:
-                    self[field] = self.profile_id[field]
+                self[field] = value
             except ValueError as e:
                 raise UserError(format_except_message(e, field, self))
             except Exception as e:
-                raise UserError("%s" % e)
+                raise UserError(_("Error field '%s', value '%s'"
+                                % (field, value)))
 
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            vals.update(
-                self._get_profile_data(vals['profile_id'], vals.keys()))
-        return super(ProductMixinProfile, self).create(
-            {k: v for k, v in vals.items() if PROF_DEFAULT_STR not in k})
+            vals.update(self._get_vals_from_profile(vals['profile_id']))
+        return super(ProductMixinProfile, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
-            vals.update(
-                self._get_profile_data(vals['profile_id'], vals.keys()))
-        return super(ProductMixinProfile, self).write(
-            {k: v for k, v in vals.items() if PROF_DEFAULT_STR not in k})
+            vals.update(self._get_vals_from_profile(vals['profile_id']))
+        return super(ProductMixinProfile, self).write(vals)
 
     @api.model
     def _get_profiles_to_filter(self):
