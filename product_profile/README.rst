@@ -71,6 +71,13 @@ class ProductProfile(models.Model):
     profile_default_categ_id = fields.Many2one(
         'product.category',
         string='Default category')
+    profile_default_route_ids = fields.Many2many(
+        'stock.location.route',
+        string=u'Default Routes',
+        domain="[('product_selectable', '=', True)]",
+        help="Depending on the modules installed, this will allow "
+             "you to define the route of the product: "
+             "whether it will be bought, manufactured, MTO/MTS,...")
 
 ```
 
