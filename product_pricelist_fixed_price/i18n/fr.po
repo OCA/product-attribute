@@ -18,28 +18,28 @@ msgstr ""
 #. module: product_pricelist_fixed_price
 #: view:product.pricelist.item:product_pricelist_fixed_price.product_pricelist_item_fixedprice_form
 msgid "Base Price"
-msgstr ""
+msgstr "Prix de base"
 
 #. module: product_pricelist_fixed_price
 #: help:product.pricelist.item,base_ext:0
 msgid "Base price for computation"
-msgstr ""
+msgstr "Prix de base pour le calcul"
 
 #. module: product_pricelist_fixed_price
 #: field:product.pricelist.item,base_ext:0
 msgid "Based on"
-msgstr ""
+msgstr "Basée sur"
 
 #. module: product_pricelist_fixed_price
 #: code:addons/product_pricelist_fixed_price/model/product_pricelist_item.py:31
 #, python-format
 msgid "Fixed Price"
-msgstr ""
+msgstr "Prix fixe"
 
 #. module: product_pricelist_fixed_price
 #: model:ir.model,name:product_pricelist_fixed_price.model_product_pricelist_item
 msgid "Pricelist item"
-msgstr ""
+msgstr "Élément de la liste de prix"
 
 #. module: product_pricelist_fixed_price
 #: view:product.pricelist.item:product_pricelist_fixed_price.product_pricelist_item_fixedprice_form
