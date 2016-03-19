@@ -79,7 +79,10 @@ class ProductMixinProfile(models.AbstractModel):
                 if field not in fields_to_exclude]
 
     @api.model
-    def _get_vals_from_profile(self, profile_id):
+    def _get_profile_data(self, profile_id, filled_fields=None):
+        # Note for migration to v9
+        # - rename method to a more convenient name _get_vals_from_profile()
+        # - remove unused filled_fields args
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
         if profile_id:
@@ -103,46 +106,34 @@ class ProductMixinProfile(models.AbstractModel):
     @api.onchange('profile_id')
     def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
-        values = self._get_vals_from_profile(self.profile_id.id)
-        for field, value in values.items():
-            try:
-                self[field] = value
-            except ValueError as e:
-                raise UserError(format_except_message(e, field, self))
-            except Exception as e:
-                raise UserError(_("Error field '%s', value '%s'"
-                                % (field, value)))
+        if self.profile_id:
+            values = self._get_profile_data(self.profile_id.id)
+            for field, value in values.items():
+                try:
+                    self[field] = value
+                except ValueError as e:
+                    raise UserError(format_except_message(e, field, self))
+                except Exception as e:
+                    raise UserError(_("Error field '%s', value '%s'"
+                                    % (field, value)))
 
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_vals_from_profile(vals['profile_id']))
+            vals.update(self._get_profile_data(vals['profile_id']))
         return super(ProductMixinProfile, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_vals_from_profile(vals['profile_id']))
+            vals.update(self._get_profile_data(vals['profile_id']))
         return super(ProductMixinProfile, self).write(vals)
-
-    @api.model
-    def _get_profiles_to_filter(self):
-        """ Inherit if you want that some profiles doesn't have a filter """
-        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
 
     @api.model
     def _get_default_profile_fields(self):
         " Get profile fields with prefix PROF_DEFAULT_STR "
         return [x for x in self.env['product.profile']._fields.keys()
                 if x[:LEN_DEF_STR] == PROF_DEFAULT_STR]
-
-    @api.model
-    def _customize_profile_filters(self, my_filter):
-        """ Inherit if you to customize search filter display"""
-        return {
-            'string': "%s" % my_filter[1],
-            'help': 'Filtering by Product Profile',
-            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
 
     @api.model
     def _customize_view(self, res, view_type):
@@ -184,6 +175,19 @@ class ProductMixinProfile(models.AbstractModel):
             res['arch'] = etree.tostring(doc, pretty_print=True)
         return res
 
+    @api.model
+    def _get_profiles_to_filter(self):
+        """ Inherit if you want that some profiles doesn't have a filter """
+        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
+
+    @api.model
+    def _customize_profile_filters(self, my_filter):
+        """ Inherit if you to customize search filter display"""
+        return {
+            'string': "%s" % my_filter[1],
+            'help': 'Filtering by Product Profile',
+            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
+
 
 class ProductTemplate(models.Model):
     _inherit = ['product.template', 'product.mixin.profile']
@@ -200,8 +204,7 @@ class ProductTemplate(models.Model):
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
                         toolbar=False, submenu=False):
-        """ fields_view_get comes from Model (not AbstractModel)
-        """
+        """ fields_view_get comes from Model (not AbstractModel) """
         res = super(ProductTemplate, self).fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar,
             submenu=submenu)
