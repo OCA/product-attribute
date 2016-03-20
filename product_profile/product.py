@@ -85,23 +85,20 @@ class ProductMixinProfile(models.AbstractModel):
         # - remove unused filled_fields args
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
-        if profile_id:
-            vals = profile_obj.browse(profile_id).read(fields)[0]
-            vals.pop('id')
-            for field, value in vals.items():
-                if value and profile_obj._fields[field].type == 'many2one':
-                    # m2o value is a tuple
-                    vals[field] = value[0]
-                if profile_obj._fields[field].type == 'many2many':
-                    vals[field] = [(6, 0, value)]
-                if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
-                    vals[field[LEN_DEF_STR:]] = vals[field]
-                    # prefixed fields must be removed from dict
-                    # because they are in profile not in product
-                    vals.pop(field)
-            return vals
-        else:
-            return {field: None for field in fields}
+        vals = profile_obj.browse(profile_id).read(fields)[0]
+        vals.pop('id')
+        for field, value in vals.items():
+            if value and profile_obj._fields[field].type == 'many2one':
+                # m2o value is a tuple
+                vals[field] = value[0]
+            if profile_obj._fields[field].type == 'many2many':
+                vals[field] = [(6, 0, value)]
+            if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
+                vals[field[LEN_DEF_STR:]] = vals[field]
+                # prefixed fields must be removed from dict
+                # because they are in profile not in product
+                vals.pop(field)
+        return vals
 
     @api.onchange('profile_id')
     def _onchange_from_profile(self):
@@ -111,11 +108,8 @@ class ProductMixinProfile(models.AbstractModel):
             for field, value in values.items():
                 try:
                     self[field] = value
-                except ValueError as e:
-                    raise UserError(format_except_message(e, field, self))
                 except Exception as e:
-                    raise UserError(_("Error field '%s', value '%s'"
-                                    % (field, value)))
+                    raise UserError(format_except_message(e, field, self))
 
     @api.model
     def create(self, vals):
@@ -166,13 +160,12 @@ class ProductMixinProfile(models.AbstractModel):
             filters_to_create = self._get_profiles_to_filter()
             doc = etree.XML(res['arch'])
             node = doc.xpath("//filter[1]")
-            if not node:
-                return res
-            for my_filter in filters_to_create:
-                elm = etree.Element(
-                    'filter', **self._customize_profile_filters(my_filter))
-                node[0].addprevious(elm)
-            res['arch'] = etree.tostring(doc, pretty_print=True)
+            if node:
+                for my_filter in filters_to_create:
+                    elm = etree.Element(
+                        'filter', **self._customize_profile_filters(my_filter))
+                    node[0].addprevious(elm)
+                res['arch'] = etree.tostring(doc, pretty_print=True)
         return res
 
     @api.model
