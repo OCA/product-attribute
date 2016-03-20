@@ -1,20 +1,20 @@
-id,name,explanation,type,sale_ok,purchase_ok,profile_default_categ_id/id,available_in_pos,profile_default_route_ids/id,product_manager/id
-own,My Own Type Saleable,"- My own type
+id,name,type,sale_ok,purchase_ok,profile_default_categ_id/id,available_in_pos,profile_default_route_ids/id,product_manager/id,explanation
+own,My Own Type Saleable,product,1,0,product.product_category_all,1,purchase.route_warehouse0_buy,base.user_root,"- My own type
 - Saleable product
-- Not purchasable",product,1,0,product.product_category_all,1,purchase.route_warehouse0_buy,base.user_root
-consu_prof,Consumable,- Consumable,consu,1,0,product.product_category_all,0,purchase.route_warehouse0_buy,
-pos_pu_prof,POS & purchase,"- Product in POS
-- Product purchasable",product,1,1,product.product_category_all,1,purchase.route_warehouse0_buy,
-manuf_prof,Manufacturing TO,"- Manufacturing Product
+- Not purchasable"
+consu_prof,Consumable,consu,1,0,product.product_category_all,0,purchase.route_warehouse0_buy,,- Consumable
+pos_pu_prof,POS & purchase,product,1,1,product.product_category_all,1,purchase.route_warehouse0_buy,,"- Product in POS
+- Product purchasable"
+manuf_prof,Manufacturing TO,product,1,0,product.product_category_8,1,"mrp.route_warehouse0_manufacture,stock.route_warehouse0_mto",base.user_root,"- Manufacturing Product
 - Make to order product
 - Not purchaseable
-- Display on POS",product,1,0,product.product_category_all,1,"mrp.route_warehouse0_manufacture,stock.route_warehouse0_mto",base.user_root
-any_prof,Weird profile,"- Purchasable
+- Display on POS"
+any_prof,Weird profile,product,0,1,product.product_category_all,1,,base.user_root,"- Purchasable
 - Display on POS
-- Not Saleable",product,0,1,product.product_category_all,1,,base.user_root
-complete_prof,Complete profile,"- Stockable product
+- Not Saleable"
+complete_prof,Complete profile,product,1,1,product.product_category_all,1,"mrp.route_warehouse0_manufacture,stock.route_warehouse0_mto,purchase.route_warehouse0_buy",,"- Stockable product
 - Saleable 
 - Purchasable
 - Available in POS
 - MTO
-- Manufacturable",product,1,1,product.product_category_all,1,"mrp.route_warehouse0_manufacture,stock.route_warehouse0_mto,purchase.route_warehouse0_buy",
+- Manufacturable"
