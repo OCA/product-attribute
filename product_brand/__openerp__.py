@@ -13,7 +13,7 @@
     'summary': "Product Brand Manager",
     'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA'
               ', MONK Software, Odoo Community Association (OCA)'
-              ', Serpent Consulting Services Pvt. Ltd.',
+              ', SerpentCS Pvt. Ltd.',
     'license': 'AGPL-3',
     'depends': ['product'],
     'data': [
