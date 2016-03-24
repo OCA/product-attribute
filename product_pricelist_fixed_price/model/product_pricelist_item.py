@@ -42,8 +42,9 @@ class ProductPricelistItem(models.Model):
 
     @api.onchange('base_ext')
     def change_base_ext(self):
-        if self.base_ext == -3:
-            base = self.env['product.price.type'].search(
-                [], limit=1, order='id')
-            self.base = base[0]
+        base = self.base_ext
+        if base == -3:
+            base = self._get_default_base(
+                {'type': self.price_version_id.pricelist_id.type})
             self.price_discount = -1
+        self.base = base
