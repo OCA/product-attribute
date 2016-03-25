@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 Product Brand Manager
-======================
+=====================
 
 This module introduce the following features:
 
@@ -26,9 +26,6 @@ Configuration
 Usage
 =====
 
-To use this module, you need to:
-
- * Go to ...
 
 For further information, please visit:
 

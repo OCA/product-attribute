@@ -17,7 +17,7 @@ class ProductBrand(models.Model):
     partner_id = fields.Many2one(
         'res.partner',
         string='Partner',
-        help='Select a partner for this brand if it exists',
+        help='Select a partner for this brand if any.',
         ondelete='restrict'
     )
     logo = fields.Binary('Logo File')
