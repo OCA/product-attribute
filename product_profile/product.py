@@ -33,16 +33,6 @@ class ProductProfile(models.Model):
     _name = 'product.profile'
     _order = 'sequence'
 
-    def _get_types(self):
-        """ inherit in your custom module.
-            could be this one if stock module is installed
-
-        return [('product', 'Stockable Product'),
-                ('consu', 'Consumable'),
-                ('service', 'Service')]
-        """
-        return [('consu', 'Consumable'), ('service', 'Service')]
-
     name = fields.Char(
         required=True,
         help="Profile name displayed on product template\n"
@@ -59,6 +49,24 @@ class ProductProfile(models.Model):
         selection='_get_types',
         required=True,
         help="See 'type' field in product.template")
+
+    def _get_types(self):
+        """ inherit in your custom module.
+            could be this one if stock module is installed
+
+        return [('product', 'Stockable Product'),
+                ('consu', 'Consumable'),
+                ('service', 'Service')]
+        """
+        return [('consu', 'Consumable'), ('service', 'Service')]
+
+    @api.multi
+    def write(self, vals):
+        super(ProductProfile, self).write(vals)
+        products = self.env['product.product'].search(
+            [('profile_id', '=', self.id)])
+        if products:
+            products.write({'profile_id': self.id})
 
 
 class ProductMixinProfile(models.AbstractModel):
