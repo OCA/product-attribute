@@ -48,12 +48,22 @@ class TestProductProfile(TransactionCase):
                         'string="My Own Type Saleable" must be in '
                         'fields_view_get() output')
 
+    def test_impact_write_profile_model(self):
+        """If profile is updated, products must be written too
+           on profile depends fields"""
+        self.manufacturing_prof.write({'type': 'consu'})
+        product = self.env['product.product'].search(
+            [('profile_id', '=', self.manufacturing_prof.id)])[0]
+        self.assertEqual(product.type, 'consu')
+
     def setUp(self):
         super(TestProductProfile, self).setUp()
         self.prd_m = self.env['product.product']
         # product 'HDD SH-2' in demo data
         self.hard_disc_prd = self.env.ref('product.product_product_18')
         self.my_own_profile = self.env.ref('product_profile_example.own')
+        self.manufacturing_prof = self.env.ref(
+            'product_profile_example.manuf_prof')
         self.analysis_tmpl = self.env.ref(
             'point_of_sale.partner_product_11_product_template')
         self.analysis_prd = self.env.ref(
