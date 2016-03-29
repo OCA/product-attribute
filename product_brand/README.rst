@@ -2,6 +2,7 @@
    :target: https://www.gnu.org/licenses/agpl.html
    :alt: License: AGPL-3
 
+=====================
 Product Brand Manager
 =====================
 
