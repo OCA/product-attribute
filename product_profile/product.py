@@ -29,6 +29,14 @@ def format_except_message(error, field, self):
     return message
 
 
+def get_profile_fields_to_exclude():
+    # These fields must not be synchronized between product.profile
+    # and product.template/product
+    return models.MAGIC_COLUMNS + [
+        'name', 'explanation', 'sequence',
+        'display_name', '__last_update']
+
+
 class ProductProfile(models.Model):
     _name = 'product.profile'
     _order = 'sequence'
@@ -62,27 +70,49 @@ class ProductProfile(models.Model):
 
     @api.multi
     def write(self, vals):
-        super(ProductProfile, self).write(vals)
-        products = self.env['product.product'].search(
-            [('profile_id', '=', self.id)])
-        if products:
-            products.write({'profile_id': self.id})
+        """ Profile update can impact products: we take care
+            to propagate ad hoc changes """
+        res = super(ProductProfile, self).write(vals)
+        keys2remove = []
+        for key in vals:
+            if (key[:LEN_DEF_STR] == PROF_DEFAULT_STR or
+                    key in get_profile_fields_to_exclude()):
+                keys2remove.append(key)
+        for key in keys2remove:
+            # we remove keys which have no matching in product template
+            vals.pop(key)
+        if vals:
+            products = self.env['product.product'].search(
+                [('profile_id', '=', self.id)])
+            if products:
+                products.write({'profile_id': self.id})
+        return res
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+        """ Display a warning for end user if edit record """
+        res = super(ProductProfile, self).fields_view_get(
+            view_id=view_id, view_type=view_type, toolbar=toolbar,
+            submenu=submenu)
+        if view_type == 'form':
+            style = 'alert alert-warning oe_text_center oe_edit_only'
+            alert = etree.Element('h2', {'class': style})
+            alert.text = (_("If you update this profile, all products "
+                            "using this profile could also be updated. "
+                            "Changes can take a while."))
+            doc = etree.XML(res['arch'])
+            doc[0].addprevious(alert)
+            res['arch'] = etree.tostring(doc, pretty_print=True)
+        return res
 
 
 class ProductMixinProfile(models.AbstractModel):
     _name = 'product.mixin.profile'
 
     @api.model
-    def _get_profile_fields_to_exclude(self):
-        # These fields must not be synchronized between product.profile
-        # and product.template
-        return models.MAGIC_COLUMNS + [
-            'name', 'explanation', 'sequence',
-            'display_name', '__last_update']
-
-    @api.model
     def _get_profile_fields(self):
-        fields_to_exclude = set(self._get_profile_fields_to_exclude())
+        fields_to_exclude = set(get_profile_fields_to_exclude())
         return [field for field in self.env['product.profile']._fields.keys()
                 if field not in fields_to_exclude]
 
@@ -111,6 +141,7 @@ class ProductMixinProfile(models.AbstractModel):
     @api.onchange('profile_id')
     def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
+        self.ensure_one()
         if self.profile_id:
             values = self._get_profile_data(self.profile_id.id)
             for field, value in values.items():
