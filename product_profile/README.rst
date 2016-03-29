@@ -71,6 +71,13 @@ class ProductProfile(models.Model):
     profile_default_categ_id = fields.Many2one(
         'product.category',
         string='Default category')
+    profile_default_route_ids = fields.Many2many(
+        'stock.location.route',
+        string=u'Default Routes',
+        domain="[('product_selectable', '=', True)]",
+        help="Depending on the modules installed, this will allow "
+             "you to define the route of the product: "
+             "whether it will be bought, manufactured, MTO/MTS,...")
 
 ```
 
@@ -90,7 +97,8 @@ Usage
 Assign a value to the profile field in the product template form.
 Then, all fields which depend on this profile will be set to the right value at once.
 
-If you deselect the profile value, all these fields will be reset to empty values.
+If you deselect the profile value, all these fields keep the same value and you can change them manually 
+(back to standard behavior).
 
 Install **Product Profile Example** module to see a use case in action.
 

@@ -29,19 +29,17 @@ def format_except_message(error, field, self):
     return message
 
 
+def get_profile_fields_to_exclude():
+    # These fields must not be synchronized between product.profile
+    # and product.template/product
+    return models.MAGIC_COLUMNS + [
+        'name', 'explanation', 'sequence',
+        'display_name', '__last_update']
+
+
 class ProductProfile(models.Model):
     _name = 'product.profile'
     _order = 'sequence'
-
-    def _get_types(self):
-        """ inherit in your custom module.
-            could be this one if stock module is installed
-
-        return [('product', 'Stockable Product'),
-                ('consu', 'Consumable'),
-                ('service', 'Service')]
-        """
-        return [('consu', 'Consumable'), ('service', 'Service')]
 
     name = fields.Char(
         required=True,
@@ -60,90 +58,115 @@ class ProductProfile(models.Model):
         required=True,
         help="See 'type' field in product.template")
 
+    def _get_types(self):
+        """ inherit in your custom module.
+            could be this one if stock module is installed
+
+        return [('product', 'Stockable Product'),
+                ('consu', 'Consumable'),
+                ('service', 'Service')]
+        """
+        return [('consu', 'Consumable'), ('service', 'Service')]
+
+    @api.multi
+    def write(self, vals):
+        """ Profile update can impact products: we take care
+            to propagate ad hoc changes """
+        res = super(ProductProfile, self).write(vals)
+        keys2remove = []
+        for key in vals:
+            if (key[:LEN_DEF_STR] == PROF_DEFAULT_STR or
+                    key in get_profile_fields_to_exclude()):
+                keys2remove.append(key)
+        for key in keys2remove:
+            # we remove keys which have no matching in product template
+            vals.pop(key)
+        if vals:
+            products = self.env['product.product'].search(
+                [('profile_id', '=', self.id)])
+            if products:
+                products.write({'profile_id': self.id})
+        return res
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+        """ Display a warning for end user if edit record """
+        res = super(ProductProfile, self).fields_view_get(
+            view_id=view_id, view_type=view_type, toolbar=toolbar,
+            submenu=submenu)
+        if view_type == 'form':
+            style = 'alert alert-warning oe_text_center oe_edit_only'
+            alert = etree.Element('h2', {'class': style})
+            alert.text = (_("If you update this profile, all products "
+                            "using this profile could also be updated. "
+                            "Changes can take a while."))
+            doc = etree.XML(res['arch'])
+            doc[0].addprevious(alert)
+            res['arch'] = etree.tostring(doc, pretty_print=True)
+        return res
+
 
 class ProductMixinProfile(models.AbstractModel):
     _name = 'product.mixin.profile'
 
     @api.model
-    def _get_profile_fields_to_exclude(self):
-        # These fields must not be synchronized between product.profile
-        # and product.template
-        return models.MAGIC_COLUMNS + [
-            'name', 'explanation', 'sequence',
-            'display_name', '__last_update']
-
-    @api.model
     def _get_profile_fields(self):
-        fields_to_exclude = set(self._get_profile_fields_to_exclude())
+        fields_to_exclude = set(get_profile_fields_to_exclude())
         return [field for field in self.env['product.profile']._fields.keys()
                 if field not in fields_to_exclude]
 
     @api.model
     def _get_profile_data(self, profile_id, filled_fields=None):
+        # Note for migration to v9
+        # - rename method to a more convenient name _get_vals_from_profile()
+        # - remove unused filled_fields args
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
-        if profile_id:
-            profile = profile_obj.browse(profile_id).read(fields)[0]
-            profile.pop('id')
-            for field, value in profile.items():
-                if value and profile_obj._fields[field].type == 'many2one':
-                    # m2o value is a tuple
-                    profile[field] = value[0]
-                if profile_obj._fields[field].type == 'many2many':
-                    profile[field] = [(6, 0, value)]
-            return profile
-        else:
-            return {field: None for field in fields}
+        vals = profile_obj.browse(profile_id).read(fields)[0]
+        vals.pop('id')
+        for field, value in vals.items():
+            if value and profile_obj._fields[field].type == 'many2one':
+                # m2o value is a tuple
+                vals[field] = value[0]
+            if profile_obj._fields[field].type == 'many2many':
+                vals[field] = [(6, 0, value)]
+            if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
+                vals[field[LEN_DEF_STR:]] = vals[field]
+                # prefixed fields must be removed from dict
+                # because they are in profile not in product
+                vals.pop(field)
+        return vals
 
     @api.onchange('profile_id')
     def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
-        for field, value in self._get_profile_data(self.profile_id.id).items():
-            try:
-                if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
-                    self[field[LEN_DEF_STR:]] = (
-                        self.profile_id[field])
-                else:
-                    self[field] = self.profile_id[field]
-            except ValueError as e:
-                raise UserError(format_except_message(e, field, self))
-            except Exception as e:
-                raise UserError("%s" % e)
+        self.ensure_one()
+        if self.profile_id:
+            values = self._get_profile_data(self.profile_id.id)
+            for field, value in values.items():
+                try:
+                    self[field] = value
+                except Exception as e:
+                    raise UserError(format_except_message(e, field, self))
 
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            vals.update(
-                self._get_profile_data(vals['profile_id'], vals.keys()))
-        return super(ProductMixinProfile, self).create(
-            {k: v for k, v in vals.items() if PROF_DEFAULT_STR not in k})
+            vals.update(self._get_profile_data(vals['profile_id']))
+        return super(ProductMixinProfile, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
-            vals.update(
-                self._get_profile_data(vals['profile_id'], vals.keys()))
-        return super(ProductMixinProfile, self).write(
-            {k: v for k, v in vals.items() if PROF_DEFAULT_STR not in k})
-
-    @api.model
-    def _get_profiles_to_filter(self):
-        """ Inherit if you want that some profiles doesn't have a filter """
-        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
+            vals.update(self._get_profile_data(vals['profile_id']))
+        return super(ProductMixinProfile, self).write(vals)
 
     @api.model
     def _get_default_profile_fields(self):
         " Get profile fields with prefix PROF_DEFAULT_STR "
         return [x for x in self.env['product.profile']._fields.keys()
                 if x[:LEN_DEF_STR] == PROF_DEFAULT_STR]
-
-    @api.model
-    def _customize_profile_filters(self, my_filter):
-        """ Inherit if you to customize search filter display"""
-        return {
-            'string': "%s" % my_filter[1],
-            'help': 'Filtering by Product Profile',
-            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
 
     @api.model
     def _customize_view(self, res, view_type):
@@ -176,14 +199,26 @@ class ProductMixinProfile(models.AbstractModel):
             filters_to_create = self._get_profiles_to_filter()
             doc = etree.XML(res['arch'])
             node = doc.xpath("//filter[1]")
-            if not node:
-                return res
-            for my_filter in filters_to_create:
-                elm = etree.Element(
-                    'filter', **self._customize_profile_filters(my_filter))
-                node[0].addprevious(elm)
-            res['arch'] = etree.tostring(doc, pretty_print=True)
+            if node:
+                for my_filter in filters_to_create:
+                    elm = etree.Element(
+                        'filter', **self._customize_profile_filters(my_filter))
+                    node[0].addprevious(elm)
+                res['arch'] = etree.tostring(doc, pretty_print=True)
         return res
+
+    @api.model
+    def _get_profiles_to_filter(self):
+        """ Inherit if you want that some profiles doesn't have a filter """
+        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
+
+    @api.model
+    def _customize_profile_filters(self, my_filter):
+        """ Inherit if you to customize search filter display"""
+        return {
+            'string': "%s" % my_filter[1],
+            'help': 'Filtering by Product Profile',
+            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
 
 
 class ProductTemplate(models.Model):
@@ -201,8 +236,7 @@ class ProductTemplate(models.Model):
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
                         toolbar=False, submenu=False):
-        """ fields_view_get comes from Model (not AbstractModel)
-        """
+        """ fields_view_get comes from Model (not AbstractModel) """
         res = super(ProductTemplate, self).fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar,
             submenu=submenu)
