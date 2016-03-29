@@ -7,13 +7,13 @@ Brings a Cost Price Field Tax Included on Product Model
 =======================================================
 
 In Odoo, the Cost Price Field (standard_price) is by definition 'Tax Excluded'.
-So without this module, the sale price will be bad in this below configuration:
+So without this module, the sale price will be bad in this following configuration:
 
 * Price list based on the field 'Cost Price';
-  (If you want a fixed margin, for exemple: Cost Price + 10%);
+  (If you want a fixed margin, for example: Cost Price + 10%);
 * Products set with Sale Taxes "Tax Included" ; (B2C settings)
 
-This module fix the problem, adding a new field 'Cost Price Tax Included'
+This module fixes the problem, adding a new field 'Cost Price Tax Included'
 (standard_price_tax_included) on Product Template model, based on Cost Price
 Field and Sale Taxes Setting.
 
@@ -48,7 +48,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_standard_price_tax_included%0Aversion:%208.0.1.0.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`here <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_standard_price_tax_included%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 
 Credits
