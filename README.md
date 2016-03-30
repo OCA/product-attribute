@@ -19,8 +19,8 @@ addon | version | summary
 [product_m2mcategories](product_m2mcategories/) | 8.0.1.0.2 | Product - Many Categories
 [product_manufacturer](product_manufacturer/) | 8.0.1.0.0 | Products Manufacturers
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0 | Fixed price in pricelists
-[product_profile](product_profile/) | 8.0.1.0.0 | Set a configuration profile to product templates
-[product_profile_example](product_profile_example/) | 8.0.1.0.0 | Product Profile Use Case
+[product_profile](product_profile/) | 8.0.1.0.2 | Allow to configure a product in 1 click
+[product_profile_example](product_profile_example/) | 8.0.1.0.1 | Product Profile Use Case
 [product_sequence](product_sequence/) | 8.0.0.1.0 | Product Sequence
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 8.0.1.0.0 | Use product supplier info for customers too
 [product_supplierinfo_tree_price_info](product_supplierinfo_tree_price_info/) | 8.0.1.0 | Supplier Unit Price on Product Form
