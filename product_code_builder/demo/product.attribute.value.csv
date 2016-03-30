@@ -1,0 +1,6 @@
+id,attribute_id/id,code
+product.product_attribute_value_1,product.product_attribute_1,16
+product.product_attribute_value_2,product.product_attribute_1,32
+product.product_attribute_value_3,product.product_attribute_2,w
+product.product_attribute_value_4,product.product_attribute_2,b
+product.product_attribute_value_5,product.product_attribute_3,2.4
