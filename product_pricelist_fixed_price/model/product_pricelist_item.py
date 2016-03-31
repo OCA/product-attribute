@@ -66,8 +66,8 @@ class ProductPricelistItem(models.Model):
         """Ensure consistent values for fixed pricelist items.
 
         The passed vals parameter is used for both input and output.
-        base should be default if base-ext = -1, in all other cases base and
-        base_ext should be the same.
+        base should be default if base-ext = FIXED_PRICE_TYPE,
+        in all other cases base and base_ext should be the same.
         """
         # Check wether any action is needed
         if not ('base_ext' in vals or 'base' in vals):
