@@ -4,6 +4,7 @@
 # © 2015 Therp BV (http://therp.nl).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models, _
+from openerp.exceptions import ValidationError
 
 
 FIXED_PRICE_TYPE = -3
@@ -24,10 +25,7 @@ class ProductPricelistItem(models.Model):
         string='Based on',
         size=-1,  # Needed when selection is for integer based values.
         required=True,
-        default=lambda self:
-            self.default_get(
-                fields_list=['base']
-            )['base'],
+        default=lambda self: self.default_get(fields_list=['base'])['base'],
         help="Base price for computation",
     )
 
