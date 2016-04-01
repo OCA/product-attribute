@@ -44,16 +44,6 @@ class ProductPricelistItem(models.Model):
                 _("Product required for fixed price item.")
             )
 
-    def _auto_end(self, cr, context=None):
-        """Make sure that after updating database tables for this module,
-        existing values in pricelist item are set correctly."""
-        cr.execute(
-            'update product_pricelist_item'
-            ' set base_ext = base'
-            ' where base_ext != -3 and base != base_ext'
-        )
-        return super(ProductPricelistItem, self)._auto_end(cr, context=context)
-
     @api.model
     def _get_fixed_price_base(self):
         """Return value to set on base when using fixed price item."""

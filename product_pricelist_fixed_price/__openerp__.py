@@ -16,5 +16,6 @@
     "data": [
         'view/product_pricelist_item_view.xml',
     ],
+    "post_init_hook": "post_init_hook",
     'installable': True,
 }
