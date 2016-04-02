@@ -6,6 +6,7 @@
     "name": "Fixed price in pricelists",
     "version": "8.0.1.0.1",
     "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
+              "Therp BV,"
               "Odoo Community Association (OCA)",
     "category": "Sales Management",
     "website": "www.serviciosbaeza.com",
