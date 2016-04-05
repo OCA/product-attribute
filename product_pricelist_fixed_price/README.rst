@@ -32,7 +32,7 @@ Contributors
 ------------
 
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-* Ronald Portier rportier@therp.nl
+* Ronald Portier <rportier@therp.nl>
 * Giovanni Francesco Capalbo <giovanni@therp.nl>
 
 Previous version contributors
@@ -55,6 +55,8 @@ Maintainer
 
 This module is maintained by the OCA.
 
-OCA, or the Odoo Community Association, is a nonprofit organization whose mission is to support the collaborative development of Odoo features and promote its widespread use.
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
 To contribute to this module, please visit http://odoo-community.org.

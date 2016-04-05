@@ -1,24 +1,12 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2015 Therp BV <http://therp.nl>.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-def post_init_hook(cr):
-    cr.execute("""UPDATE product_pricelist_item SET base_ext = base""")
+def post_init_hook(cr, registry):
+    """Make sure that after updating database tables for this module,
+    existing values in pricelist item are set correctly."""
+    cr.execute(
+        "update product_pricelist_item"
+        " set base_ext = base"
+        " where base_ext != -3 and base != base_ext"
+    )
