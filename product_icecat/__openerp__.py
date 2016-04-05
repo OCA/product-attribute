@@ -22,7 +22,7 @@
 {
     "name" : "Product Information Import from icecat",
     "version" : "1.0",
-    "author" : "Zikzakmedia",
+    "author" : "Zikzakmedia,Odoo Community Association (OCA)",
     "website" : "http://www.zikzakmedia.com",
     "category" : "Added functionality",
     "depends" : ["base","product","product_images_olbs"],

@@ -29,7 +29,7 @@
 {
     "name" : "Products & Pricelists - Define quality control and testing parameters in product",
     "version" : "1.0",
-    "author" : "Tiny",
+    "author" : "Tiny,Odoo Community Association (OCA)",
     "category" : "Generic Modules/Inventory Control",
     "depends" : ["base", "process", "product","stock","mrp"],
     "init_xml" : [],
