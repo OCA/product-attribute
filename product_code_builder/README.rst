@@ -6,12 +6,13 @@
 Product Code Builder
 ====================
 
-This module was written to automatically create Internal Reference (default_code) from attributes combinations for each variant.
+This module creates a Internal Reference (default_code) from values in variant's attributes.
+
 
 Usage
 =====
 
-We can create code with attributes, here memory, color, wifi.
+Create code with attributes (like memory, color, wifi).
 
 Attributes order is preserved while code creation.
 
@@ -48,6 +49,12 @@ Configuration
 
 
 |
+
+Warning
+=======
+
+This module may be not compatible with other modules which manage default_code like product_sequence
+
 
 Bug Tracker
 ===========
