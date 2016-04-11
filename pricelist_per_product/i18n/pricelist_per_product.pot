@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:53+0000\n"
-"PO-Revision-Date: 2016-01-12 09:53+0000\n"
+"POT-Creation-Date: 2016-04-11 08:27+0000\n"
+"PO-Revision-Date: 2016-04-11 08:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,15 @@ msgid "Click to see this product"
 msgstr ""
 
 #. module: pricelist_per_product
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid "Define a price for this variant according to attribute price extra if any (tab 'Variants')"
+msgstr ""
+
+#. module: pricelist_per_product
+#: code:addons/pricelist_per_product/pricelist.py:8
 #: help:product.pricelist,price_grid:0
 #: help:product.pricelist.version,price_grid:0
+#, python-format
 msgid "Define if the price list items are filled\n"
 "from product form with a grid of specific values\n"
 "for each product"
@@ -41,6 +48,11 @@ msgstr ""
 #. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
 msgid "Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:product.pricelist.version,name:pricelist_per_product.pricelist_grid_version
+msgid "Grid Version"
 msgstr ""
 
 #. module: pricelist_per_product
@@ -101,6 +113,11 @@ msgid "Product Template"
 msgstr ""
 
 #. module: pricelist_per_product
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid "Product Variant"
+msgstr ""
+
+#. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
 msgid "Products templates with this version (click to see them)"
 msgstr ""
@@ -116,11 +133,6 @@ msgid "Show Products"
 msgstr ""
 
 #. module: pricelist_per_product
-#: model:product.pricelist.version,name:pricelist_per_product.pricelist_grid_version
-msgid "Specific market"
-msgstr ""
-
-#. module: pricelist_per_product
 #: help:product.template,pricelist_item_ids:0
 msgid "These prices are defined with absolute values\n"
 "(no calculation with discount)"
@@ -129,10 +141,5 @@ msgstr ""
 #. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
 msgid "{'invisible': [('price_grid', '=', True)]}"
-msgstr ""
-
-#. module: pricelist_per_product
-#: view:product.template:pricelist_per_product.product_template_only_form_view
-msgid "{'invisible': [('pricelist_item_ids', '!=', False)]}"
 msgstr ""
 
