@@ -4,9 +4,9 @@
 
 {
     'name': "Product Code Builder",
-    'author': "Akretion,Odoo Community Association (OCA)",
+    'author': "Akretion, Odoo Community Association (OCA)",
     'summary': "Create product references according to attributes",
-    'website': "http://www.Akretion.com",
+    'website': "https://www.akretion.com",
     'license': 'AGPL-3',
     'category': 'Product',
     'version': '8.0.0.0.1',
@@ -19,6 +19,7 @@
         'demo/product.attribute.csv',
         'demo/product.attribute.value.csv',
         'demo/product_demo.xml',
-        ],
+    ],
     'installable': True,
+    'conflicts': ['product_sequence']
 }
