@@ -31,12 +31,10 @@ addon | version | summary
 [product_gift](product_gift/) | 0.1 (unported) | product_gift
 [product_gtin](product_gtin/) | 8.0.1.1.0 (unported) | Product GTIN EAN8 EAN13 UPC JPC Support
 [product_icecat](product_icecat/) | 1.0 (unported) | Product Information Import from icecat
-[product_images](product_images/) | 0.2 (unported) | Product Image Gallery
 [product_index](product_index/) | 1.0 (unported) | Manage indexes on products prices
 [product_listprice_upgrade](product_listprice_upgrade/) | 1.0 (unported) | Product listprice upgrade
 [product_lot_foundry](product_lot_foundry/) | 1.0 (unported) | Products Lot Foundry
 [product_manufacturer](product_manufacturer/) | 8.0.1.0.0 (unported) | Products Manufacturers
-[product_multi_company](product_multi_company/) | 1.1 (unported) | Product multi company
 [product_multi_price](product_multi_price/) | 0.1 (unported) | product_multi_price
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0 (unported) | Fixed price in pricelists
 [product_prices_on_variant](product_prices_on_variant/) | 0.1 (unported) | product_prices_on_variant
