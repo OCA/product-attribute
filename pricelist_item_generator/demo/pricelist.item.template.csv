@@ -1,0 +1,4 @@
+id,price_generator_id/id,base,sequence,min_quantity,price_surcharge,price_discount
+item_10,demo_generator,1,50,10,0.05,10
+item_100,demo_generator,1,55,100,,20
+item_1000,demo_generator,1,60,1000,-0.1,30

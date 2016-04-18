@@ -1,0 +1,4 @@
+id,product_id/id,product_tmpl_id/id,categ_id/id,price_generator_id/id
+product_22,product.product_product_22,,,demo_generator
+product_tmpl₈,,product.product_product_8_product_template,,demo_generator
+category6,,,product.product_category_6,demo_generator
