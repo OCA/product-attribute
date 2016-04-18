@@ -42,7 +42,6 @@ addon | version | summary
 [product_electronic](product_electronic/) | 1.0 (unported) | Products Attributes & Manufacturers
 [product_gift](product_gift/) | 0.1 (unported) | product_gift
 [product_icecat](product_icecat/) | 1.0 (unported) | Product Information Import from icecat
-[product_images](product_images/) | 0.2 (unported) | Product Image Gallery
 [product_index](product_index/) | 1.0 (unported) | Manage indexes on products prices
 [product_listprice_upgrade](product_listprice_upgrade/) | 1.0 (unported) | Product listprice upgrade
 [product_lot_foundry](product_lot_foundry/) | 1.0 (unported) | Products Lot Foundry
