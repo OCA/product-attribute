@@ -7,8 +7,9 @@
     'version': '8.0.0.0.1',
     'category': '',
     'summary': "Create/Update Pricelist Items in a massive way",
-    'author': 'Akretion',
+    'author': 'Akretion,Odoo Community Association (OCA)',
     'website': 'http://www.akretion.com',
+    'license': 'AGPL-3',
     'depends': [
         'sale',
         ],

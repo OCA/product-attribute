@@ -285,14 +285,6 @@ class AbstractPriceListItemGenerator(models.AbstractModel):
         string='Generator', readonly=True)
     min_quantity = fields.Integer(default=1)
 
-    @api.one
-    @api.constrains('price_discount', 'price_surcharge')
-    def _check_price_elements(self):
-        # check price validity
-        if self.price_discount == 0 and self.price_surcharge == 0:
-            raise UserError(
-                _("'Discount' or 'Surcharge' must be different of 0."))
-
 
 class PricelistItemTemplateBase(models.Model):
     _name = 'pricelist.item.template'
@@ -344,6 +336,14 @@ class PricelistItemTemplateBase(models.Model):
                 self.price_min_margin > self.price_max_margin):
             raise UserError(_("Error! The minimum margin should be lower "
                               "than the maximum margin."))
+
+    @api.one
+    @api.constrains('price_discount', 'price_surcharge')
+    def _check_price_elements(self):
+        # check price validity
+        if self.price_discount == 0 and self.price_surcharge == 0:
+            raise UserError(
+                _("'Discount' or 'Surcharge' must be different of 0."))
 
     @api.model
     def _price_field_get(self):
