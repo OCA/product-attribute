@@ -49,8 +49,7 @@ class PurchaseOrderLine(models.Model):
             partner_id, date_order=False, fiscal_position_id=False,
             date_planned=False, name=False, price_unit=False, state='draft',
             context=None):
-        """
-        Raise a warning message when the selected product is a obsolete
+        """Raise a warning message when the selected product is a obsolete
         product.
         """
         context = context or {}
@@ -89,16 +88,14 @@ class PurchaseOrder(models.Model):
 
     @api.depends()
     def _count_pol(self):
-        """
-        return the quantity of purchase order lines in the purchase order.
+        """return the quantity of purchase order lines in the purchase order.
         """
         for purchase in self:
             purchase.lines_count = len(purchase.order_line)
 
     @api.multi
     def lines_open(self):
-        """
-        return the view of the purchase order lines.
+        """return the view of the purchase order lines.
         """
         return {
             'type': 'ir.actions.act_window',

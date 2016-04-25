@@ -52,8 +52,7 @@ class ProductProduct(models.Model):
 
     @api.multi
     def get_good_replacements(self):
-        """
-        :return: the replace by product (new product) if the product is not
+        """:return: the replace by product (new product) if the product is not
                  obsolete and is and active product.
         """
         replace = self.replaced_by_product_id.filtered(

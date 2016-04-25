@@ -29,8 +29,7 @@ from openerp.exceptions import Warning as UserError, ValidationError
 
 class ReplacementProduct(models.TransientModel):
 
-    """
-    Wizard that let to select one of the replacement product of a obsolete
+    """Wizard that let to select one of the replacement product of a obsolete
     product.
     """
 
@@ -40,8 +39,7 @@ class ReplacementProduct(models.TransientModel):
 
     @api.multi
     def _get_lines(self):
-        """
-        Get the lines with obsolete products
+        """Get the lines with obsolete products
 
         @return a list of dictionaries to create the new wizard lines.
         """
@@ -72,8 +70,7 @@ class ReplacementProduct(models.TransientModel):
 
     @api.multi
     def check_active_model(self):
-        """
-        check that the active model is purchase order.
+        """check that the active model is purchase order.
         if not raise a warning.
         """
         model = self._context.get('active_model', False)
@@ -89,8 +86,7 @@ class ReplacementProduct(models.TransientModel):
 
     @api.multi
     def replacement(self):
-        """
-        Update the replacement products.
+        """Update the replacement products.
         """
         self.check_active_model()
         order = self._context.get('active_id', False)
@@ -101,8 +97,7 @@ class ReplacementProduct(models.TransientModel):
 
 class ReplacementProductLines(models.TransientModel):
 
-    """
-    Let to select a replacement product for every obsolete product.
+    """Let to select a replacement product for every obsolete product.
     """
 
     _name = 'replacement.product.line'
@@ -121,8 +116,7 @@ class ReplacementProductLines(models.TransientModel):
 
     @api.constrains('replace_product_id')
     def _check_replace_product(self):
-        """
-        replace_product_id must not be an obsolete product.
+        """replace_product_id must not be an obsolete product.
         """
         if self.replace_product_id and \
                 self.replace_product_id.state2 in ['obsolete']:
@@ -132,8 +126,7 @@ class ReplacementProductLines(models.TransientModel):
 
     @api.constrains('obsolete_product_id')
     def _check_obsolete_product(self):
-        """
-        obsolete_product_id must be an obsolete product.
+        """obsolete_product_id must be an obsolete product.
         """
         if self.obsolete_product_id and \
                 self.obsolete_product_id.state2 not in ['obsolete']:
