@@ -20,18 +20,28 @@ To install this module, you need to:
 Usage
 =====
 
-To use this module, you need to:
+You can manage your images at Product template level:
 
 #. Go to *Sales > Products > Products* and choose a product template.
-#. Go to the new *Images* tab.
-#. Add a new image.
+#. Go to the *Images* tab.
+#. Add a new image or edit the existing ones.
+#. You can select for which variants you want to make available the image.
+   Keep it empty for making visible in all.
 #. Refresh the page.
-#. The first image in the collection is the main image for the product.
+#. The first image in the collection is the main image for the product
+   template.
+
+Going to product variants form, you can manage also your images, but take
+into account this behaviour:
+
 #. Go to *Sales > Products > Product Variants* and choose a product variant.
-#. It shares the main image and collection with its template.
-#. If you change the main image from the variant, it becomes the variant's main
-   image but does not appear in the template.
-#. If you change images from the *Images* tab, it changes in the template too.
+#. If you add an image here, the image is actually added to the product
+   template, and restricted to this variant.
+#. When editing an existing image, the image is changed generally for all
+   the variants where is enabled, not only for this variant.
+#. When removing an image from this form, if the image is only in this variant,
+   the image is removed. Otherwise, the image gets restricted to the rest of
+   the variants where is available.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -40,6 +50,15 @@ To use this module, you need to:
 Known issues / Roadmap
 ======================
 
+* When you change the image on the product variant, the preview image of the
+  *Images* tab doesn't get refreshed until you refresh the browser, or if you
+  go to its template, but the image has been actually saved!
+* The field "Available in these variants" appears when opening the image
+  from the product variant.
+* Add logic for handling to add images with the same name that another variant
+  of the same template, renaming the new image to a unique name.
+* Add logic for handling to add the same image in several variants to a
+  already in another variant for not duplicating bytes.
 * Provide proper migration scripts from module product_images from 7.0.
 * Migrate to v8 api when https://github.com/odoo/odoo/issues/10799 gets fixed.
 * If you try to sort images before saving the product variant or template, you
@@ -66,7 +85,6 @@ Original implementation
 -----------------------
 This module is inspired in previous module *product_images* from OpenLabs
 and Akretion.
-
 
 Contributors
 ------------
