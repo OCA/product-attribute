@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+     © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
+<openerp>
+<data>
+
+    <record id="view_product_template_form_img_inh" model="ir.ui.view">
+        <field name="name">Add multi images</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/notebook" position="inside">
+                <page string="Images" name="multi_image">
+                    <field name="image_ids"
+                           nolabel="1"
+                           context="{
+                               'default_owner_model': 'product.template',
+                               'default_owner_id': id,
+                               'form_view_ref': 'product_multi_image.image_form_view',
+                               'kanban_view_ref': 'product_multi_image.image_kanban_view',
+                           }"
+                           mode="kanban"
+                    />
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
