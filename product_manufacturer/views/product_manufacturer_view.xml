@@ -7,12 +7,16 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
-                <group name="procurement" position="inside">
-                    <group string="Manufacturer">
-                        <field name="manufacturer" context="{'default_supplier':True, 'default_customer':False}"/>
-                        <field name="manufacturer_pname"/>
-                        <field name="manufacturer_pref"/>
-                        <field name="manufacturer_purl" widget="url"/>
+                <group name="inventory" position="after">
+                    <group name="manufacturer" string="Manufacturer">
+                        <group>
+                            <field name="manufacturer" context="{'default_supplier':True, 'default_customer':False}"/>
+                            <field name="manufacturer_pname"/>
+                        </group>
+                        <group>
+                            <field name="manufacturer_pref"/>
+                            <field name="manufacturer_purl" widget="url"/>
+                        </group>
                     </group>
                 </group>
             </field>
@@ -20,4 +24,3 @@
 
     </data>
 </openerp>
-
