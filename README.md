@@ -12,6 +12,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [product_brand](product_brand/) | 9.0.1.0.0 | Product Brand Manager
+[product_manufacturer](product_manufacturer/) | 9.0.1.0.0 | Products Manufacturers
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
 
 Unported addons
@@ -34,7 +35,6 @@ addon | version | summary
 [product_index](product_index/) | 1.0 (unported) | Manage indexes on products prices
 [product_listprice_upgrade](product_listprice_upgrade/) | 1.0 (unported) | Product listprice upgrade
 [product_lot_foundry](product_lot_foundry/) | 1.0 (unported) | Products Lot Foundry
-[product_manufacturer](product_manufacturer/) | 8.0.1.0.0 (unported) | Products Manufacturers
 [product_multi_price](product_multi_price/) | 0.1 (unported) | product_multi_price
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0 (unported) | Fixed price in pricelists
 [product_prices_on_variant](product_prices_on_variant/) | 0.1 (unported) | product_prices_on_variant
