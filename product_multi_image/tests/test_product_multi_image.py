@@ -103,3 +103,33 @@ class TestProductMultiImage(common.TransactionCase):
         self.assertEqual(
             self.product_template.image_ids[0].product_variant_ids,
             self.product_2)
+
+    def test_create_variant_afterwards(self):
+        """Create a template, assign an image, and then create the variant.
+        Check that the images are not lost.
+        """
+        template = self.env['product.template'].create({
+            'name': 'Test 2',
+            'image_ids': [(0, 0, {
+                'storage': 'db',
+                'name': 'Image 1',
+                'file_db_store': self.transparent_image,
+                'owner_model': 'product.template',
+            })],
+        })
+        self.assertEqual(len(template.image_ids), 1)
+        template.write({
+            'attribute_line_ids': [
+                (0, 0, {
+                    'attribute_id': self.attribute.id,
+                    'value_ids': [(6, 0, (self.value_1 + self.value_2).ids)],
+                })],
+        })
+        self.assertEqual(len(template.image_ids), 1)
+        self.assertEqual(len(template.product_variant_ids[0].image_ids), 1)
+
+    def test_remove_variant_with_image(self):
+        self.product_template.image_ids[0].product_variant_ids = [
+            (6, 0, self.product_1.ids)]
+        self.product_1.unlink()
+        self.assertEqual(len(self.product_template.image_ids), 1)
