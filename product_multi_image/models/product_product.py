@@ -94,11 +94,23 @@ class ProductProduct(models.Model):
         """Needed for changing dependencies in this class."""
         super(ProductProduct, self)._get_multi_image()
 
+    @api.multi
+    def unlink(self):
+        obj = self.with_context(bypass_image_removal=True)
+        # Remove images that are linked only to the product variant
+        for product in self:
+            images2remove = product.image_ids.filtered(
+                lambda image: (product in image.product_variant_ids and
+                               len(image.product_variant_ids) == 1))
+            images2remove.unlink()
+        return super(ProductProduct, obj).unlink()
+
 
 class ProductProductOld(orm.Model):
     """It is needed to use v7 api here because core model fields use the
     ``multi`` attribute, that has no equivalent in v8, and it needs to be
-    disabled or bad things will happen.
+    disabled or bad things will happen. For more reference, see
+    https://github.com/odoo/odoo/issues/10799
 
     Needed for getting the correct data in the inheritance chain. Probably
     in v10 this won't be needed as the inheritance has been globally

@@ -12,7 +12,7 @@ class Image(models.Model):
         comodel_name="product.product", string="Visible in these variants",
         help="If you leave it empty, all variants will show this image. "
              "Selecting one or several of the available variants, you "
-             "restrict the availability of the image to that variants.")
+             "restrict the availability of the image to those variants.")
     product_variant_count = fields.Integer(
         compute="_compute_product_variant_count")
 
