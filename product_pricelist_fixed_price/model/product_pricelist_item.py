@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-# © 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com).
-#        Pedro M. Baezr <pedro.baeza@serviciosbaeza.com>.
 # © 2015 Therp BV (http://therp.nl).
+# © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models, _
 from openerp.exceptions import ValidationError
@@ -26,8 +25,7 @@ class ProductPricelistItem(models.Model):
         size=-1,  # Needed when selection is for integer based values.
         required=True,
         default=lambda self: self.default_get(fields_list=['base'])['base'],
-        help="Base price for computation",
-    )
+        help="Base price for computation")
 
     @api.constrains('base_ext')
     def _check_fixed_price(self):
@@ -41,13 +39,6 @@ class ProductPricelistItem(models.Model):
             raise ValidationError(
                 _("Product required for fixed price item.")
             )
-
-    @api.model
-    def _get_fixed_price_base(self):
-        """Return value to set on base when using fixed price item."""
-        base = self.env['product.price.type'].search([], limit=1, order='id')
-        assert base, _("No record found in product.price.type")
-        return base[0].id
 
     @api.model
     def _modify_vals(self, vals):
@@ -66,7 +57,8 @@ class ProductPricelistItem(models.Model):
             if base_ext != FIXED_PRICE_TYPE:
                 base = base_ext
             else:
-                base = self._get_fixed_price_base()
+                base = self._get_default_base(
+                    {'type': self.price_version_id.pricelist_id.type})
         else:
             # getting here we are sure base is in vals
             base = vals['base']
@@ -100,7 +92,12 @@ class ProductPricelistItem(models.Model):
     @api.onchange('base_ext')
     def change_base_ext(self):
         if self.base_ext == FIXED_PRICE_TYPE:
-            self.base = self._get_fixed_price_base()
+            # The fallback value is needed because current API doesn't resolve
+            # linked new values on price_version_id and pricelist_id
+            # See https://github.com/odoo/odoo/issues/11930 for more
+            # information on the issue
+            self.base = self._get_default_base(
+                {'type': self.price_version_id.pricelist_id.type or 'sale'})
             self.price_discount = -1
             self.price_round = 0.0
             self.price_min_margin = 0.0

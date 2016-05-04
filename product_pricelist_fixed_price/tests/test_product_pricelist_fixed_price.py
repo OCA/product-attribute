@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import openerp.tests.common as common
+from ..model.product_pricelist_item import FIXED_PRICE_TYPE
 
 
 class TestProductPricelistFixedPrice(common.TransactionCase):
@@ -29,7 +30,7 @@ class TestProductPricelistFixedPrice(common.TransactionCase):
         self.assertEqual(item.base, base_sale)
 
         # force a fixed price
-        vals['base_ext'] = -3
+        vals['base_ext'] = FIXED_PRICE_TYPE
 
         # check again, it must be the same as default 'base' value
         item = item_obj.new(values=vals)
@@ -52,7 +53,7 @@ class TestProductPricelistFixedPrice(common.TransactionCase):
         self.assertEqual(item.base, base_pur)
 
         # force a fixed price
-        vals['base_ext'] = -3
+        vals['base_ext'] = FIXED_PRICE_TYPE
 
         # check again, it must be the same as default 'base' value
         item = item_obj.new(values=vals)
