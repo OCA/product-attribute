@@ -22,5 +22,5 @@
     'license': 'AGPL-3',
     'depends': ['product'],
     'data': ['product_view.xml'],
-    'installable': False,
+    'installable': True,
 }
