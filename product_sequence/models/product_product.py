@@ -1,26 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2004 Tiny SPRL
+# © 2016 Sodexis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
 
 
 def update_null_and_slash_codes(cr):  # pragma: no cover
@@ -42,7 +25,7 @@ class ProductProduct(models.Model):
     default_code = fields.Char(
         string='Reference',
         size=64,
-        select=True,
+        index=True,
         required=True,
         default='/')
 
@@ -76,5 +59,4 @@ class ProductProduct(models.Model):
             default.update({
                 'default_code': self.default_code + _('-copy'),
             })
-
         return super(ProductProduct, self).copy(default)

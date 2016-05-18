@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<openerp>
+<!--
+  product_sequence for Odoo
+  Copyright (C) 2004 Tiny SPRL
+  Copyright (C) 2016 Sodexis
+  The licence is in the file __openerp__.py
+-->
+
+<odoo>
     <data noupdate="1">
-
-        <record id="seq_product_auto_type" model="ir.sequence.type">
-            <field name="name">Product</field>
-            <field name="code">product.product</field>
-        </record>
-
         <record id="seq_product_auto" model="ir.sequence">
             <field name="name">Product</field>
             <field name="code">product.product</field>
@@ -14,4 +15,4 @@
             <field name="prefix">PR/</field>
         </record>
     </data>
-</openerp>
+</odoo>
