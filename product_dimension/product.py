@@ -21,7 +21,7 @@ from openerp import api
 
 
 class Product(models.Model):
-    _inherit = 'product.product'
+    _inherit = 'product.template'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
@@ -43,7 +43,7 @@ class Product(models.Model):
             to_unit=uom_meters)
 
     length = fields.Float()
-    height = fields.Float(oldname='high')
+    height = fields.Float()
     width = fields.Float()
     dimensional_uom_id = fields.Many2one(
         'product.uom',
