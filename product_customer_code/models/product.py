@@ -2,29 +2,29 @@
 # © 2014 Acsone SA/NV (http://www.acsone.eu)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.osv import orm, fields
+from openerp import api, fields, models
 
 
-class product_product(orm.Model):
+class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    _columns = {
-        'product_customer_code_ids': fields.one2many('product.customer.code',
-                                                     'product_id',
-                                                     'Customer Codes'),
-    }
+    product_customer_code_ids = fields.One2many(
+        string='Customer Codes',
+        comodel_name='product.customer.code',
+        inverse_name='product_id'
+    )
 
-    def copy(self, cr, uid, id, default=None, context=None):
+    @api.multi
+    def copy(self, default=None):
         if not default:
             default = {}
         default['product_customer_code_ids'] = False
-        res = super(product_product, self).copy(
-            cr, uid, id, default=default, context=context)
-        return res
+        return super(ProductProduct, self.with_context(copy=True))\
+            .copy(default)
 
     def name_search(self, cr, user, name='', args=None, operator='ilike',
                     context=None, limit=80):
-        res = super(product_product, self).name_search(
+        res = super(ProductProduct, self).name_search(
             cr, user, name, args, operator, context, limit)
         if not context:
             context = {}
