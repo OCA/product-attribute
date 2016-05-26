@@ -1,19 +1,7 @@
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
-#    Copyright 2015 Camptocamp SA
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# © 2015 ADHOC SA  (http://www.adhoc.com.ar)
+# © 2015-2016 Camptocamp SA
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
 from openerp import models, fields
@@ -49,7 +37,7 @@ class Product(models.Model):
         ]
 
     length = fields.Float()
-    height = fields.Float(oldname='high')
+    height = fields.Float()
     width = fields.Float()
     dimensional_uom_id = fields.Many2one(
         'product.uom',
@@ -58,14 +46,14 @@ class Product(models.Model):
         help='UoM for length, height, width')
 
 
-class Product_template(models.Model):
+class ProductTemplate(models.Model):
 
     _inherit = 'product.template'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
-        if (not self.length or not self.height or not self.width
-                or not self.dimensional_uom_id):
+        if (not self.length or not self.height or not self.width or
+                not self.dimensional_uom_id):
             return False
 
         length_m = self.convert_to_meters(self.length, self.dimensional_uom_id)
