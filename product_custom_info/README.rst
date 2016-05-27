@@ -11,7 +11,14 @@ This module extends products to allow having custom properties on them.
 Installation
 ============
 
-* Install `OCA/server-tools <https://github.com/OCA/server-tools>`_.
+* You depend from module ``base_custom_info``, found in `OCA/server-tools
+  <https://github.com/OCA/server-tools>`_.
+
+Configuration
+=============
+
+To create custom info templates, please review documentation from
+``base_custom_info`` module.
 
 Usage
 =====
@@ -33,11 +40,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/
-product-attribute/issues/new?body=module:%20
-product_custom_info%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smashing it by providing a detailed and welcomed feedback.
 
 Credits
 =======
@@ -48,7 +51,7 @@ Contributors
 * Rafael Blasco <rafabn@antiun.com>
 * Carlos Dauden <carlos@incaser.es>
 * Sergio Teruel <sergio@incaser.es>
-* Jairo Llopis <yajo.sk8@gmail.com>
+* Jairo Llopis <jairo.llopis@tecnativa.com>
 
 Maintainer
 ----------
