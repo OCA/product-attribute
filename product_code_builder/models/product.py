@@ -76,7 +76,7 @@ class ProductProduct(models.Model):
                                  x.attribute_id.code or '')
                 for x in self.product_tmpl_id.attribute_line_ids}
 
-    @api.depends('auto_default_code',
+    @api.depends('product_tmpl_id.auto_default_code',
                  'attribute_value_ids.attribute_id.code',
                  'attribute_value_ids.code',
                  'product_tmpl_id.prefix_code')
