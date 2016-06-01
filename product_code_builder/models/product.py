@@ -9,6 +9,13 @@ from openerp import fields, models, api
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
+    def compute_default_auto_default_code(self):
+        if self._context.get('module') == 'product_code_builder':
+            # When we install the module we return False for the existing
+            # record
+            return False
+        return True
+
     prefix_code = fields.Char(
         string='Reference prefix',
         help="If Automatic Reference is checked, "
@@ -16,7 +23,7 @@ class ProductTemplate(models.Model):
              "the product variant reference.")
     auto_default_code = fields.Boolean(
         string='Automatic Reference',
-        default=True,
+        default=compute_default_auto_default_code,
         help="Generate a reference automatically "
              "based on attribute codes")
 
