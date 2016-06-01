@@ -20,6 +20,6 @@
         'demo/product.attribute.value.csv',
         'demo/product_demo.xml',
     ],
+    'pre_init_hook': 'pre_init_hook',
     'installable': True,
-    'conflicts': ['product_sequence']
 }
