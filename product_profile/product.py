@@ -117,13 +117,13 @@ class ProductMixinProfile(models.AbstractModel):
                 if field not in fields_to_exclude]
 
     @api.model
-    def _get_profile_data(self, profile_id, filled_fields=None):
+    def _get_profile_data(self, values, filled_fields=None):
         # Note for migration to v9
         # - rename method to a more convenient name _get_vals_from_profile()
         # - remove unused filled_fields args
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
-        vals = profile_obj.browse(profile_id).read(fields)[0]
+        vals = profile_obj.browse(values['profile_id']).read(fields)[0]
         vals.pop('id')
         for field, value in vals.items():
             if value and profile_obj._fields[field].type == 'many2one':
@@ -132,7 +132,10 @@ class ProductMixinProfile(models.AbstractModel):
             if profile_obj._fields[field].type == 'many2many':
                 vals[field] = [(6, 0, value)]
             if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
-                vals[field[LEN_DEF_STR:]] = vals[field]
+                if field[LEN_DEF_STR:] not in values:
+                    # we only put the default profile value
+                    # if their is no matching in default data
+                    vals[field[LEN_DEF_STR:]] = vals[field]
                 # prefixed fields must be removed from dict
                 # because they are in profile not in product
                 vals.pop(field)
@@ -143,7 +146,7 @@ class ProductMixinProfile(models.AbstractModel):
         """ Update product fields with product.profile corresponding fields """
         self.ensure_one()
         if self.profile_id:
-            values = self._get_profile_data(self.profile_id.id)
+            values = self._get_profile_data({'profile_id': self.profile_id.id})
             for field, value in values.items():
                 try:
                     self[field] = value
@@ -153,13 +156,13 @@ class ProductMixinProfile(models.AbstractModel):
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_profile_data(vals['profile_id']))
+            vals.update(self._get_profile_data(vals))
         return super(ProductMixinProfile, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_profile_data(vals['profile_id']))
+            vals.update(self._get_profile_data(vals))
         return super(ProductMixinProfile, self).write(vals)
 
     @api.model
