@@ -56,6 +56,17 @@ class TestProductProfile(TransactionCase):
             [('profile_id', '=', self.manufacturing_prof.id)])[0]
         self.assertEqual(product.type, 'consu')
 
+    def test_default_behavior(self):
+        """Check if field prefixed with default_profile
+           have a default behavior on field values"""
+        categ = self.env.ref('product.product_category_3')
+        consu_profile = self.env.ref('product_profile_example.consu_prof')
+        vals = {'profile_id': consu_profile.id,
+                'categ_id': categ.id,
+                'name': "Product with modified category"}
+        new_product = self.prd_m.create(vals)
+        self.assertEqual(new_product.categ_id, categ)
+
     def setUp(self):
         super(TestProductProfile, self).setUp()
         self.prd_m = self.env['product.product']
