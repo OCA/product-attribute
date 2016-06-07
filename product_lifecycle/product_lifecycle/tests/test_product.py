@@ -394,6 +394,10 @@ class TestProductLifecycle(common.TransactionCase):
         # When confirm the picking of the purchase will make the products
         # available in quantity on hand. (100)
         purchase_order.picking_ids.do_transfer()
+
+        # TODO: Remove when the issue # odoo/odoo#12254 is fixed
+        product._compute_purchase_incoming_qty()
+
         self.assertEqual(product.qty_available, 10.0)
         self.assertEqual(product.purchase_incoming_qty, 0.0)
 
