@@ -23,8 +23,8 @@
 
 {
     'name': 'Product Sequence',
-    'version': '0.1',
-    'author': 'Zikzakmedia SL',
+    'version': '8.0.0.1.0',
+    'author': "Zikzakmedia SL,Odoo Community Association (OCA)",
     'website': 'http://www.zikzakmedia.com',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Inventory Control',
@@ -34,6 +34,10 @@
     'data': [
         'data/product_sequence.xml',
     ],
+    'demo': [
+        'demo/product_product.xml'
+    ],
+    'pre_init_hook': 'update_null_and_slash_codes',
     'auto_install': False,
     'installable': True,
 }

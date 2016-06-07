@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="decimal_product_attribute" model="decimal.precision">
+            <field name="name">Product Attribute</field>
+            <field name="digits">6</field>
+        </record>
+
+    </data>
+</openerp>

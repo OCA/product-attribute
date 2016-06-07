@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data noupdate="1">
+
+    <record id="pricelist_grid" model="product.pricelist">
+        <field name="name">Pricelist Grid</field>
+        <field name="type">sale</field>
+        <field name="price_grid" eval="1"/>
+    </record>
+
+    <record id="pricelist_grid_version" model="product.pricelist.version">
+        <field name="name">Grid Version</field>
+        <field name="pricelist_id" eval="ref('pricelist_grid')"/>
+    </record>
+
+  </data>
+</openerp>

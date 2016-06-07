@@ -19,8 +19,8 @@
 ##############################################################################
 {
     'name': 'Products Manufacturers',
-    'version': '1.0',
-    'author': 'OpenERP SA',
+    'version': '8.0.1.0.0',
+    'author': "OpenERP SA,Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'contributors': ['Acysos SL <info@acysos.com>'],
     'category': 'Purchase Management',
