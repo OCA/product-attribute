@@ -9,3 +9,9 @@ def pre_init_hook(cr):
         ADD COLUMN manual_default_code VARCHAR""")
     cr.execute("""UPDATE product_product
         SET manual_default_code = default_code""")
+    cr.execute("""ALTER TABLE product_template
+        ADD COLUMN prefix_code VARCHAR""")
+    cr.execute("""UPDATE product_template
+        SET prefix_code = default_code
+        FROM product_product
+        WHERE product_template.id = product_product.product_tmpl_id""")
