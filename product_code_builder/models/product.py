@@ -27,6 +27,12 @@ class ProductTemplate(models.Model):
         help="Generate a reference automatically "
              "based on attribute codes")
 
+    _sql_constraints = [
+        ('uniq_prefix_code',
+         'unique(prefix_code)',
+         'The reference must be unique'),
+    ]
+
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
