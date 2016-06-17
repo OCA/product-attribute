@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp.tests.common import TransactionCase
+from openerp.exceptions import Warning as UserError
 
 
 class TestProductCode(TransactionCase):
@@ -29,6 +30,14 @@ class TestProductCode(TransactionCase):
         theoritical_retinas.sort()
         self.assertEqual(retinas, theoritical_retinas)
 
+    def test_modify_automatic_code(self):
+        with self.assertRaises(UserError):
+            retina_tmpl = self.env.ref(
+                'product.product_product_4_product_template')
+            retina_tmpl.write({'auto_default_code': True})
+            retina_tmpl.product_variant_ids[0].write({
+                'default_code': 'stop me'})
+
     def test_allow_manual_default_code(self):
         """It should allow a user defined default code.
 
@@ -36,22 +45,28 @@ class TestProductCode(TransactionCase):
         Then, when auto_default_code is set to true, a default_code
         should be generated
         """
-        manual_default_code = 'user_entered'
 
         # hard_disc_prd is set in with auto_default_code = false
         hard_disc_prd = self.env.ref('product.product_product_18')
 
         # ensure we can set a default code manually
-        hard_disc_prd.write({'default_code': manual_default_code})
-        self.assertEqual(hard_disc_prd.default_code, manual_default_code)
+        hard_disc_prd.write({'default_code': 'from_product'})
+        self.assertEqual(hard_disc_prd.default_code, 'from_product')
 
-        # trigger _comput_default_code, ensure code is still the same
-        hard_disc_prd.write({'prefix_code': 'another_prefix'})
-        self.assertEqual(hard_disc_prd.default_code, manual_default_code)
+        # ensure we can set the default code from the template
+        hard_disc_prd.write({'default_code': 'from_template'})
+        self.assertEqual(hard_disc_prd.default_code, 'from_template')
 
-        # ensure this default code is lost when auto_default_code
-        # is changed to true
-        hard_disc_prd.write({'auto_default_code': True})
-        self.assertNotEqual(
-            hard_disc_prd.default_code,
-            manual_default_code)
+    def test_creating_product_with_default_code(self):
+        product = self.env['product.product'].create({
+            'name': 'Test',
+            'default_code': 'product_default_code',
+            })
+        self.assertEqual(product.default_code, 'product_default_code')
+
+    def test_creating_product_template_with_default_code(self):
+        product = self.env['product.template'].create({
+            'name': 'Test',
+            'default_code': 'product_template_default_code',
+            })
+        self.assertEqual(product.default_code, 'product_template_default_code')
