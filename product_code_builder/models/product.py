@@ -4,6 +4,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import fields, models, api
+from openerp.exceptions import Warning as UserError
+from openerp.tools.translate import _
 
 
 class ProductTemplate(models.Model):
@@ -21,6 +23,7 @@ class ProductTemplate(models.Model):
         help="If Automatic Reference is checked, "
              "this field is used as a prefix for "
              "the product variant reference.")
+    default_code = fields.Char(related='prefix_code')
     auto_default_code = fields.Boolean(
         string='Automatic Reference',
         default=compute_default_auto_default_code,
@@ -89,16 +92,23 @@ class ProductProduct(models.Model):
     @api.multi
     def _compute_default_code(self):
         for record in self:
-            if record.auto_default_code:
+            if record.with_context(active_test=False)\
+                    .product_variant_count <= 1:
+                record.default_code = record.prefix_code
+            elif record.auto_default_code:
                 record.default_code = record._get_default_code()
             else:
-                # we have to explicitely write record.default_code
-                # because odoo (< 9 at least) set it to False
-                # before entering in this function
-                # previous value is kept with inverse function
                 record.default_code = record.manual_default_code
 
     @api.multi
     def _inverse_default_code(self):
         for record in self:
-            record.manual_default_code = record.default_code
+            if record.with_context(active_test=False)\
+                    .product_variant_count <= 1:
+                record.prefix_code = record.default_code
+            elif not record.auto_default_code:
+                record.manual_default_code = record.default_code
+            else:
+                raise UserError(
+                    _('Default can no be set manually as the product '
+                      'is configured to have a computed code'))
