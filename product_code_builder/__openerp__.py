@@ -10,7 +10,7 @@
     'license': 'AGPL-3',
     'category': 'Product',
     'version': '8.0.0.0.1',
-    'depends': ['sale'],
+    'depends': ['product'],
     'data': [
         'views/product_view.xml',
         'views/product_attribute_view.xml'
