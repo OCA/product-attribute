@@ -10,8 +10,11 @@
                 <field name="sequence" widget="handle"/>
             </xpath>
             <xpath expr="//field[@name='default_code']" position="before">
-                <field name="auto_default_code"/>
                 <field name="prefix_code"/>
+            </xpath>
+            <xpath expr="//field[@name='attribute_line_ids']" position="before">
+                <label for="auto_default_code"/>
+                <field name="auto_default_code"/>
             </xpath>
             <xpath expr="//field[@name='default_code']" position="attributes">
                 <attribute name="attrs">{'invisible': 1}</attribute>
