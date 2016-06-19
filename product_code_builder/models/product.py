@@ -19,10 +19,13 @@ class ProductTemplate(models.Model):
         return True
 
     prefix_code = fields.Char(
-        string='Reference prefix',
-        help="If Automatic Reference is checked, "
+        string='Internal Reference',
+        help="This is the code of the product model"
+             "If Automatic Reference is checked, "
              "this field is used as a prefix for "
-             "the product variant reference.")
+             "the product variant reference.\n"
+             "In case that there is only one variant "
+             "this code is the same as the code of the uniq variant")
     default_code = fields.Char(related='prefix_code')
     auto_default_code = fields.Boolean(
         string='Automatic Reference',
