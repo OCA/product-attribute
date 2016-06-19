@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -21,7 +21,7 @@
 {
     'name': 'Supplier Unit Price',
     'summary': 'Supplier Unit Price on Product Form',
-    'version': '8.0.1.0',
+    'version': '8.0.0.1.0',
     'author': 'Savoir-faire Linux,GRAP,Odoo Community Association (OCA)',
     'website': 'https://odoo-community.org/',
     'license': 'AGPL-3',
