@@ -23,6 +23,7 @@
 # Model: product.template
 - !record {model: product.template, id: product_template_with_supplier_price}:
     name: Product Template With Supplier Price
+    default_code: Sp42
     sale_ok: true
 
 # Model: product.supplierinfo
