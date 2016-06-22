@@ -13,5 +13,6 @@ class Product(models.Model):
     @api.constrains('default_code')
     def _check_unique(self):
         for obj in self:
-            if 1 < self.search_count([('default_code', '=', obj.default_code)]):
+            if 1 < self.search_count(
+                    [('default_code', '=', obj.default_code)]):
                 raise UserError(_("Internal Reference must be unique!"))
