@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp.osv.orm import TransientModel
-from osv import fields
+from openerp.osv import fields
 
 
 class open_product_by_attribute_set(TransientModel):

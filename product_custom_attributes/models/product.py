@@ -7,7 +7,9 @@ from openerp.osv.orm import Model
 from openerp.osv import fields
 from openerp.osv.osv import except_osv
 from openerp.osv.orm import setup_modifiers
-from tools.translate import translate
+from openerp.tools.translate import _
+
+
 from lxml import etree
 
 class product_template(Model):
@@ -68,7 +70,7 @@ class product_product(Model):
 
         def translate_view(source):
             """Return a translation of type view of source."""
-            return translate(
+            return _(
                 cr, None, 'view', context.get('lang'), source
             ) or source
 
