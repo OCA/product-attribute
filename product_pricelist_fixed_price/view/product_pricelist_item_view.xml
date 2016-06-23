@@ -57,6 +57,9 @@
                     <attribute name="attrs"
                         >{'invisible': [('base_ext', '=', -3)]}</attribute>
                 </field>
+                <field name="base_pricelist_id" position="attributes">
+                    <attribute name="attrs">{'invisible': [('base_ext', '=', -3)]}</attribute>
+                </field>
             </field>
         </record>
 
