@@ -20,17 +20,15 @@ class ProductAttribute(models.Model):
 class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
     _code = "code"
+    _order = "attribute_sequence,sequence,name"
 
     code = fields.Char('Code')
     comment = fields.Text('Comment')
+    attribute_sequence = fields.Integer(
+        related="attribute_id.sequence",
+        store=True)
 
     _sql_constraints = [
         ('attr_val_code_uniq', 'unique(code, attribute_id)',
          "For each Attribute we must be found a unique 'code'"),
         ]
-
-
-class ProductAttributeLine(models.Model):
-    _inherit = "product.attribute.line"
-
-    sequence = fields.Integer()

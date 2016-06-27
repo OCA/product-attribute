@@ -22,13 +22,25 @@ class TestProductCode(TransactionCase):
         retina_tmpl = self.env.ref(
             'product.product_product_4_product_template')
         retina_tmpl.write({'auto_default_code': True})
-        retinas = [x.default_code
-                   for x in self.env['product.product'].search(
-                       [('product_tmpl_id', '=', retina_tmpl.id)])]
+        retinas = [x.default_code for x in retina_tmpl.product_variant_ids]
         retinas.sort()
-        theoritical_retinas = ['RETW2.4CbM16', 'RETW2.4CwM16', 'RETW2.4CwM32']
-        theoritical_retinas.sort()
-        self.assertEqual(retinas, theoritical_retinas)
+        self.assertEqual(
+            retinas, ['RETW2.4CbM16', 'RETW2.4CwM16', 'RETW2.4CwM32'])
+
+    def test_change_sequence_attribute(self):
+        """Check codes generated automatically.
+
+        with prefix and attribute order
+        """
+        retina_tmpl = self.env.ref(
+            'product.product_product_4_product_template')
+        retina_tmpl.write({'auto_default_code': True})
+        # Change the sequence of Color
+        self.env.ref('product.product_attribute_2').write({'sequence': 2})
+        retinas = [x.default_code for x in retina_tmpl.product_variant_ids]
+        retinas.sort()
+        self.assertEqual(
+            retinas, ['RETCbW2.4M16', 'RETCwW2.4M16', 'RETCwW2.4M32'])
 
     def test_modify_automatic_code(self):
         with self.assertRaises(UserError):

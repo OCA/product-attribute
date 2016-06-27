@@ -62,34 +62,17 @@ class ProductProduct(models.Model):
         """
         self.ensure_one()
         res = self.prefix_code or ''
-        attributes = {}
-        attrs_order = self._get_attribute_order()
+        # Invalidate cache of the product to be sure to reload the
+        # attribue_value_ids with the right order
+        self.env['product.product'].invalidate_cache(
+            ['attribute_value_ids'], [self.id])
         for value in self.attribute_value_ids:
-            attributes[attrs_order[value.attribute_id]] = value
-        if attributes:
-            order = attributes.keys()
-            order.sort()
-            # order contains values from attrs_order
-            for elm in order:
-                res += ''.join([
-                    attributes[elm]['attribute_id']['code'] or '',
-                    attributes[elm]['code'] or ''
-                ])
+            res += ''.join([value.attribute_id.code or '', value.code or ''])
         return res
-
-    @api.multi
-    def _get_attribute_order(self):
-        """ Return a dict {attribute_id: value} in which value
-            will be used as attribute to define order
-            to create default_code with attribute """
-        self.ensure_one()
-        # you can inherit to switch another value
-        return {x.attribute_id: (str(x.attribute_id.sequence) or '' +
-                                 x.attribute_id.code or '')
-                for x in self.product_tmpl_id.attribute_line_ids}
 
     @api.depends('product_tmpl_id.auto_default_code',
                  'attribute_value_ids.attribute_id.code',
+                 'attribute_value_ids.attribute_sequence',
                  'attribute_value_ids.code',
                  'product_tmpl_id.prefix_code')
     @api.multi
