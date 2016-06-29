@@ -3,7 +3,7 @@
 # License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
 
 from openerp.tests.common import TransactionCase
-from openerp.exceptions import ValidationError
+from openerp.exceptions import Warning as UserError
 
 
 class TestProductUniqueDefaultCode(TransactionCase):
@@ -26,7 +26,7 @@ class TestProductUniqueDefaultCode(TransactionCase):
         )
 
     def test_2(self):
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(UserError):
             self.product = self.model.create(
                 {
                     'name': 'product2',
