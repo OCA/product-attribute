@@ -27,7 +27,7 @@ class TestProductUniqueDefaultCode(TransactionCase):
 
     def test_2(self):
         with self.assertRaises(ValidationError):
-            self.product = self.ProdModel.create(
+            self.product = self.model.create(
                 {
                     'name': 'product2',
                     'default_code': 'product1'
