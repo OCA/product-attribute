@@ -129,7 +129,7 @@ class PricelistItemGenerator(models.Model):
                     values = gen._synchronize_items(tmpl_vals[0], vals)
                     prd_list_item_m.create(values)
             self._unset_todo_create(tmpl_objs, condition_objs)
-            # Update all values
+            # Then we update all values
             price_items = prd_list_item_m.search(
                 [('price_generator_id', '=', gen.id)])
             map_items = {'%s-%s' % (
@@ -153,7 +153,7 @@ class PricelistItemGenerator(models.Model):
     @api.model
     def _get_item_generator_fields(self, objects_name):
         if objects_name == 'pricelist.item.template':
-            return ['sequence', 'base', 'price_surcharge',
+            return ['sequence', 'base', 'base_pricelist_id', 'price_surcharge',
                     'price_discount', 'price_round', 'min_quantity',
                     'price_min_margin', 'price_max_margin']
         else:
@@ -303,6 +303,9 @@ class PricelistItemTemplateBase(models.Model):
         selection='_price_field_get', default=1,
         string='Based on', required=True, size=-1,
         help="Base price for computation.")
+    base_pricelist_id = fields.Many2one(
+        comodel_name='product.pricelist', string='Other PL',
+        help="Other pricelist on which this item is based.")
     price_surcharge = fields.Float(
         string='Price Surcharge',
         digits_compute=dp.get_precision('Product Price'),
@@ -349,7 +352,7 @@ class PricelistItemTemplateBase(models.Model):
     def _price_field_get(self):
         # TODO future version : support other type of pricelists
         result = []
-        result.append((1, _('Public Price')))
+        result.extend([(1, _('Public Price')), (-1, _('Other Pricelist'))])
         return result
 
 

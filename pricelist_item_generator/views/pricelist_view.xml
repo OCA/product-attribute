@@ -21,6 +21,8 @@
                             <field name="price_surcharge" string="Surcharge"/>
                             <field name="price_round" string="Round."/>
                             <field name="base"/>
+                            <field name="base_pricelist_id" 
+                                   attrs="{'invisible': [('base', '!=', -1)]}"/>
                             <field name="item_template_id" groups="base.group_no_one"/>
                             <field name="product_condition_id" groups="base.group_no_one"/>
                         </tree>
@@ -81,6 +83,8 @@
                                     <field name="price_surcharge" string="Surcharge" />
                                     <field name="price_round" string="Round."/>
                                     <field name="base" string="Base price"/>
+                                    <field name="base_pricelist_id"
+                                        attrs="{'readonly': [('base', '!=', -1)], 'invisible': [('base', '!=', -1)], 'required': [('base', '=', -1)]}"/>
                                     <field name="todo"/>
                                     <field name="id" groups="base.group_no_one"/>
                                 </tree>

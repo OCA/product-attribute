@@ -22,7 +22,7 @@ class TestItemGenerator(TransactionCase):
         self.assertEqual(self.item.price_surcharge,
                          product_item.price_surcharge)
         self.assertEqual(self.item.min_quantity, product_item.min_quantity)
-        self.assertEqual(-self.item.price_discount/100,
+        self.assertEqual(-self.item.price_discount / 100,
                          product_item.price_discount)
 
     def test_synchro_after_update(self):
