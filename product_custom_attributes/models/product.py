@@ -23,7 +23,9 @@ from openerp.osv.orm import Model
 from openerp.osv import fields
 from openerp.osv.osv import except_osv
 from openerp.osv.orm import setup_modifiers
-from tools.translate import translate
+
+from openerp.tools.translate import _ as translate
+
 from lxml import etree
 
 class product_template(Model):
