@@ -21,8 +21,8 @@
 
 
 
-from . import models
-
+import ir_model
+import custom_attributes
 
 
 

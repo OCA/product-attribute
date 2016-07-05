@@ -23,7 +23,7 @@
 
 {
     'name': 'base_custom_attributes',
-    'version': '0.1.1',
+    'version': '9.0.1.0',
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
     'description': """This module adds the possibility to easily create custom attributes in any OpenERP business object. See the product_custom_attributes module for instance.
@@ -35,10 +35,10 @@
     'update_xml': [
            'security/ir.model.access.csv',
            'security/attribute_security.xml',
-           'custom_attributes_view.xml',
+           'views/custom_attributes_view.xml',
     ],
     'demo_xml': [],
-    'installable': False,
+    'installable': True,
     'active': False,
     'external_dependencies' : {
         'python' : ['unidecode'],
