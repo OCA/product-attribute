@@ -1,0 +1,51 @@
+<openerp>
+<data>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id"
+               ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="before">
+                <field name="prefix_code"/>
+            </xpath>
+            <xpath expr="//field[@name='attribute_line_ids']" position="before">
+                <label for="auto_default_code"/>
+                <field name="auto_default_code"/>
+            </xpath>
+            <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="before">
+                <field name="auto_default_code" invisible="1"/>
+                <!-- <field name="manual_default_code"/> -->
+             </xpath>
+            <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="attrs">{
+                    'readonly': [('auto_default_code', '=', True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+     <!--After installation of the module, open the related menu -->
+    <record id="action_open_adhoc_menu" model="ir.actions.client">
+        <field name="name">Open Menu</field>
+        <field name="tag">reload</field>
+        <field name="params" eval="{'menu_id': ref('product.menu_products')}"/>
+    </record>
+
+    <record id="base.open_menu" model="ir.actions.todo">
+      <field name="action_id" ref="action_open_adhoc_menu"/>
+      <field name="state">open</field>
+    </record>
+
+
+</data>
+</openerp>

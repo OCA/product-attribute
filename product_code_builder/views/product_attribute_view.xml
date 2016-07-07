@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2015 Akretion (http://www.akretion.com). All Rights Reserved
+  @author Benoît GUILLOT <benoit.guillot@akretion.com>
+  The licence is in the file __openerp__.py
+-->
+
+<openerp>
+  <data>
+    <!-- INHERITED VIEW FOR THE OBJECT : product_attribute -->
+
+    <record id="attribute_tree_view" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.attribute_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="sequence" widget="handle" />
+            </field>
+            <field name="name" position="after">
+                <field name="code"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_product_attribute_search" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+<!-- INHERITED VIEW FOR THE OBJECT : product_attr_value -->
+
+    <record id="variants_tree_view" model="ir.ui.view">
+        <field name="model">product.attribute.value</field>
+        <field name="inherit_id" ref="product.variants_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code"/>
+                <field name="comment"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_product_attribute_value_search" model="ir.ui.view">
+        <field name="model">product.attribute.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="comment"/>
+                <group expand="0" string="Group by...">
+                   <filter string="Attribute" name="attribute" domain="[]"
+                           context="{'group_by': 'attribute_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+  </data>
+</openerp>
