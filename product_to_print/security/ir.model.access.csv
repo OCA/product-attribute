@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_category_print_all,product_category_print all,model_product_category_print,,1,0,0,0
+access_product_category_print_manager,product_category_print manager,model_product_category_print,base.group_sale_manager,1,1,1,1

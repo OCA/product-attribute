@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+<!-- Model: product.category.print -->
+    <record id="action_product_category_print" model="ir.actions.act_window">
+        <field name="name">Print Categories</field>
+        <field name="res_model">product.category.print</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+        <record id="action_product_product" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="res_model">product.product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_category_print_id': [active_id],
+                    'default_category_print_id': active_id,
+            }
+            </field>
+        </record>
+
+
+</odoo>

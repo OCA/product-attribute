@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+        <record model="ir.ui.view" id="view_product_product_form">
+        <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <field name="barcode" position="after">
+                    <field name="to_print" />
+                    <field name="category_print_id" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_product_search">
+        <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view" />
+            <field name="arch" type="xml">
+                <field name="product_tmpl_id" position="after">
+                    <field name="category_print_id"/>
+                    <filter string="To print" name="filter_to_print" domain="[('to_print', '=', True)]"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

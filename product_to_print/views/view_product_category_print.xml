@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_product_category_print_tree">
+        <field name="model">product.category.print</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <field name="name" />
+            <field name="product_to_print_qty" />
+            <field name="product_qty" />
+            <field name="company_id" groups="base.group_multi_company"/>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_category_print_form">
+        <field name="model">product.category.print</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <header />
+            <sheet>
+                <div class="oe_title">
+                    <label class="oe_edit_only" for="name" string="Name"/>
+                    <h1><field name="name" placeholder="Product Name"/></h1>
+                </div>
+                    <div class="oe_right oe_button_box" name="buttons">
+                        <button type="action" class="oe_stat_button" name="%(product.product_normal_action)d"
+                            attrs="{'invisible': [('product_to_print_qty', '=', 0)]}"
+                            context="{'search_category_print_id': active_id, 'to_print': 1}">
+                            <div><strong><field name="product_to_print_qty"/></strong> Products To Print</div>
+                        </button>
+                        <button type="action" class="oe_stat_button" name="%(product.product_normal_action)d"
+                            attrs="{'invisible': [('product_qty', '=', 0)]}"
+                            context="{'search_default_category_print_id': [active_id], 'search_category_print_id': active_id}">
+                            <div><strong><field name="product_qty"/></strong> Products</div>
+                        </button>
+                </div>
+                <notebook>
+                    <page name="general" string="General Information">
+                        <group cols="4">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="field_ids" widget="many2many_tags"/>
+
+                        </group>
+                    </page>
+                    <page name="product" string="All Products">
+                        <group col="4">
+                            <field name="product_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_category_print_kanban">
+        <field name="model">product.category.print</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_stock_kanban">
+                <field name="name"/>
+                <field name="product_to_print_qty"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div>
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><field name="name"/></div>
+                                    <div class="o_secondary"><field class="o_secondary" name="company_id" groups="base.group_multi_company"/></div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a type="edit">Settings</a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content o_visible">
+                                <div class="row">
+                                    <div class="col-xs-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary" type="action"
+                                            name="%(product.product_normal_action)d"
+                                            attrs="{'invisible': [('product_to_print_qty', '=', 0)]}"
+                                            context="{'search_default_category_print_id': record.id, 'search_category_print_id': record.id}">
+                                            <t t-esc="record.product_to_print_qty.value"/> To Print
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-6 o_kanban_primary_right">
+                                        <div class="oe_picking_type_gauge">
+                                            <field name="product_to_print_rate" widget="gauge" options="{'levelcolors': ['#a9d70b', '#f9c802', '#ff0000'], 'action_jump': '%(action_product_category_print)d'}">To Print (%%)</field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+<!--v                                        <button class="" name="get_action_picking_tree_ready" type="object">-->
+</odoo>
