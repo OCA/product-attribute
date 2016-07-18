@@ -22,6 +22,7 @@
 
 from openerp.osv import orm, fields
 import operator
+import math
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -127,7 +128,36 @@ def check_ean11(eancode):
 
 
 def check_gtin14(eancode):
-    pass
+    """Check if the given ean code answer gtin14 requirements
+    For more details:
+    http://en.wikipedia.org/wiki/Global_Trade_Item_Number
+
+    :param eancode: string, gtin-14 code
+    :return: boolean
+    """
+    if not eancode or not eancode.isdigit():
+        return False
+
+    if not len(eancode) == 14:
+        _logger.warn('GTIN14 code has to have a length of 14 characters.')
+        return False
+
+    oddsum = 0
+    evensum = 0
+    total = 0
+    eanvalue = eancode
+    reversevalue = eanvalue[::-1]
+    finalean = reversevalue[1:]
+
+    for i in range(len(finalean)):
+        if i % 2 == 0:
+            oddsum += int(finalean[i])
+        else:
+            evensum += int(finalean[i])
+    total = (oddsum * 3) + evensum
+
+    check = int(10 - math.ceil(total % 10.0)) %10
+    return check == int(eancode[-1])
 
 
 DICT_CHECK_EAN = {8: check_ean8,
