@@ -57,6 +57,12 @@ VALID_EAN13_CODES = [
     "2000021262157",
 ]
 
+VALID_EAN14_CODES = [
+    # https://servicedesk.1worldsync.com/public/gtin-generator.html
+    "77978324139299",
+    "44976776298146",
+]
+
 VALID_UPC_CODES = [
     "012345678905",
     "080047440694",
@@ -154,6 +160,44 @@ class TestCheckEan13(unittest2.TestCase):
         """Ean13 should not accept UPC"""
         for code in VALID_UPC_CODES:
             self.assertFalse(product_gtin.check_ean13(code))
+
+
+class TestCheckEan14(unittest2.TestCase):
+
+    def test_return_ean14_codes(self):
+        """test valid ean 14 number."""
+        for code in VALID_EAN14_CODES:
+            self.assertTrue(product_gtin.check_gtin14(code))
+
+    def test_wrong_ean14_codes(self):
+        self.assertFalse(product_gtin.check_gtin14(""))
+        # test string
+        self.assertFalse(product_gtin.check_gtin14("odoo_oca_sflx"))
+        # less than 14 numbers
+        self.assertFalse(product_gtin.check_gtin14("123456789012"))
+        self.assertFalse(product_gtin.check_gtin14("1234567890123"))
+        self.assertFalse(product_gtin.check_gtin14("1234514728123"))
+        # 14 random numbers
+        self.assertFalse(product_gtin.check_gtin14("12345123454582"))
+        self.assertFalse(product_gtin.check_gtin14("89043348234532"))
+        # more than 14 numbers
+        self.assertFalse(product_gtin.check_gtin14("449767762981460"))
+        self.assertFalse(product_gtin.check_gtin14("3249432908423439"))
+
+    def test_returns_ean8_codes(self):
+        """Ean14 should not accept ean8"""
+        for code in VALID_EAN8_CODES:
+            self.assertFalse(product_gtin.check_gtin14(code))
+
+    def test_returns_upc_codes(self):
+        """Ean14 should not accept UPC"""
+        for code in VALID_UPC_CODES:
+            self.assertFalse(product_gtin.check_gtin14(code))
+
+    def test_returns_ean13_codes(self):
+        """Ean14 should not accept ean13"""
+        for code in VALID_EAN13_CODES:
+            self.assertFalse(product_gtin.check_gtin14(code))
 
 
 class TestCheckEan(unittest2.TestCase):
