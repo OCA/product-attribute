@@ -57,8 +57,9 @@ class ProductPricelistItem(models.Model):
             if base_ext != FIXED_PRICE_TYPE:
                 base = base_ext
             else:
-                base = self._get_default_base(
-                    {'type': self.price_version_id.pricelist_id.type})
+                base = self._get_default_base({
+                    'type': self.price_version_id.pricelist_id.type or 'sale'
+                })
         else:
             # getting here we are sure base is in vals
             base = vals['base']
