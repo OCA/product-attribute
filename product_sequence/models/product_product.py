@@ -48,7 +48,7 @@ class ProductProduct(models.Model):
 
     _sql_constraints = [
         ('uniq_default_code',
-         'unique(default_code)',
+         'unique(default_code,company_id)',
          'The reference must be unique'),
     ]
 
