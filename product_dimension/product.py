@@ -20,8 +20,8 @@ from openerp import models, fields
 from openerp import api
 
 
-class Product(models.Model):
-    _inherit = 'product.product'
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
