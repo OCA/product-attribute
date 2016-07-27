@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_custom_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-15 17:13+0100\n"
+"PO-Revision-Date: 2015-12-15 17:13+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: \n"
+"Language: es\n"
+
+#. module: product_custom_info
+#: view:product.template:product_custom_info.product_template_custom_info_form_view
+msgid "Custom Info"
+msgstr "Información personalizada"
+
+#. module: product_custom_info
+#: field:product.template,custom_info_template_id:0
+msgid "Custom Information Template"
+msgstr "Plantilla de información personalizada"
+
+#. module: product_custom_info
+#: field:product.template,custom_info_ids:0
+msgid "Custom Properties"
+msgstr "Propiedades personalizadas"
+
+#. module: product_custom_info
+#: model:ir.model,name:product_custom_info.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
