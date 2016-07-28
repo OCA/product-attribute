@@ -16,6 +16,7 @@ addon | version | summary
 [product_brand](product_brand/) | 8.0.0.1.0 | Add brand to products
 [product_code_builder](product_code_builder/) | 8.0.0.0.1 | Create product references according to attributes
 [product_code_builder_sequence](product_code_builder_sequence/) | 8.0.0.0.1 | Product Code Builder Sequence
+[product_custom_info](product_custom_info/) | 8.0.1.0.0 | Add custom field in products
 [product_dimension](product_dimension/) | 8.0.2.0.0 | Product Dimension
 [product_gtin](product_gtin/) | 8.0.1.1.0 | Product GTIN EAN8 EAN13 UPC JPC Support
 [product_m2mcategories](product_m2mcategories/) | 8.0.1.0.2 | Product - Many Categories
