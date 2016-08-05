@@ -27,12 +27,18 @@ To use this module, you need to:
 
 * Go to *Sales > Products > Products*.
 * Edit or create one.
-* Create or choose a template in *Information > Custom Information Template*.
-* Set values for the properties found in the new *Custom Info* tab.
+* Got to *Custom Info* page.
+* Choose or create a template for custom information.
+* Set values for the properties of that template.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/8.0
+   :target: https://runbot.odoo-community.org/runbot/135/9.0
+
+Known issues / Roadmap
+======================
+
+* Same as those for ``base_custom_info``.
 
 Bug Tracker
 ===========
@@ -48,10 +54,11 @@ Credits
 Contributors
 ------------
 
-* Rafael Blasco <rafabn@antiun.com>
-* Carlos Dauden <carlos@incaser.es>
-* Sergio Teruel <sergio@incaser.es>
+* Rafael Blasco <rafael.blasco@tecnativa.com>
+* Carlos Dauden <carlos.dauden@tecnativa.com>
+* Sergio Teruel <sergio.teruel@tecnativa.com>
 * Jairo Llopis <jairo.llopis@tecnativa.com>
+* Pedro M. Baeza <pedro.baeza@tecnativa.com>
 
 Maintainer
 ----------
