@@ -11,7 +11,7 @@ from collections import defaultdict
 TODO_SELECTION = [('update', 'Update'), ('create', 'Create')]
 
 
-def update_item_tpl_or_condition(vals, self):
+def update_item_tpl_or_condition(self, vals):
     """ Called by write method of 'pricelist.item.template'
                               and 'pricelist.product.condition' models
     """
@@ -38,7 +38,7 @@ class PricelistItemGenerator(models.Model):
         string='Name', required=True,
         help="Copied towards pricelist price item")
     active = fields.Boolean(
-        string='Active', default=False, copy=False,
+        string='Active', copy=False,
         help="If checked, rules are exported towards "
              "'Product pricelist items'")
     to_update = fields.Boolean(
@@ -133,8 +133,8 @@ class PricelistItemGenerator(models.Model):
             price_items = prd_list_item_m.search(
                 [('price_generator_id', '=', gen.id)])
             map_items = {'%s-%s' % (
-                         str(x.product_condition_id.id),
-                         str(x.item_template_id.id)): x.id
+                         x.product_condition_id.id,
+                         x.item_template_id.id): x.id
                          for x in price_items}
             tmpl_vals = gen._get_vals_from_objs(gen.item_template_ids)
             condition_vals = gen._get_vals_from_objs(gen.product_condition_ids)
@@ -145,10 +145,16 @@ class PricelistItemGenerator(models.Model):
                         values.get('product_condition_id'),
                         values.get('item_template_id'))]
                     prd_list_item_m.browse(p_list_item_id).write(values)
-            # unset todo
-            gen.product_condition_ids.write({'todo': False})
-            gen.item_template_ids.write({'todo': False})
-            gen.write({'to_update': False})
+            gen.write({
+                'to_update': False,
+                # unset todo
+                'product_condition_ids': [
+                    (1, r.id, {'todo': False})
+                    for r in gen.product_condition_ids],
+                'item_template_ids': [
+                    (1, r.id, {'todo': False})
+                    for r in gen.item_template_ids],
+            })
 
     @api.model
     def _get_item_generator_fields(self, objects_name):
@@ -229,9 +235,15 @@ class PricelistItemGenerator(models.Model):
                         ('item_template_id', 'in', [x.id for x in items_tpl])])
                     if items2unlink:
                         items2unlink.unlink()
-                # 'todo' field to initial value
-                generator.item_template_ids.write({'todo': 'create'})
-                generator.product_condition_ids.write({'todo': 'create'})
+            vals.update({
+                'product_condition_ids': [
+                    # 'todo' field to initial value
+                    (1, r.id, {'todo': 'create'})
+                    for r in generator.product_condition_ids],
+                'item_template_ids': [
+                    (1, r.id, {'todo': 'create'})
+                    for r in generator.item_template_ids],
+            })
             generator.write(vals)
             return True
 
@@ -268,7 +280,7 @@ class PricelistProductCondition(models.Model):
     @api.multi
     def write(self, vals):
         # Some records shouldn't be written with the same values
-        todo_update = update_item_tpl_or_condition(vals, self)
+        todo_update = update_item_tpl_or_condition(self, vals)
         super(PricelistProductCondition, self).write(vals)
         if todo_update:
             super(PricelistProductCondition, todo_update).write(
@@ -276,7 +288,7 @@ class PricelistProductCondition(models.Model):
         return True
 
 
-class AbstractPriceListItemGenerator(models.AbstractModel):
+class AbstractPricelistItemGenerator(models.AbstractModel):
     _name = "abstract.pricelist.item.generator"
     _description = "Abstract Pricelist Items Generator"
 
@@ -346,7 +358,7 @@ class PricelistItemTemplateBase(models.Model):
         # check price validity
         if self.price_discount == 0 and self.price_surcharge == 0:
             raise UserError(
-                _("'Discount' or 'Surcharge' must be different of 0."))
+                _("'Discount' or 'Surcharge' must be different from 0."))
 
     @api.model
     def _price_field_get(self):
@@ -369,16 +381,15 @@ class PricelistItemTemplate(models.Model):
 
     @api.model
     def create(self, vals):
-        self.env['pricelist.item.generator'].search(
-            [('id', '=', vals['price_generator_id'])]).write(
-            {'to_update': True})
+        self.env['pricelist.item.generator'].browse(
+            vals['price_generator_id']).write({'to_update': True})
         vals['todo'] = 'create'
         return super(PricelistItemTemplate, self).create(vals)
 
     @api.multi
     def write(self, vals):
         # Some records shouldn't be written with the same values
-        todo_update = update_item_tpl_or_condition(vals, self)
+        todo_update = update_item_tpl_or_condition(self, vals)
         super(PricelistItemTemplate, self).write(vals)
         if todo_update:
             super(PricelistItemTemplate, todo_update).write(
@@ -391,7 +402,7 @@ class ProductPricelistItem(models.Model):
     _name = 'product.pricelist.item'
 
     auto = fields.Boolean(
-        string='Auto', default=False,
+        string='Auto',
         help="If true, the item pricelist was built automatically "
              "with Pricelist")
     item_template_id = fields.Many2one(
