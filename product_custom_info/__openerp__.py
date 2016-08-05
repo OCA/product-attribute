@@ -8,20 +8,18 @@
     'name': "Product Custom Info",
     'summary': "Add custom field in products",
     'category': 'Customize',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'depends': [
         'product',
         'base_custom_info',
     ],
     'data': [
-        'security/ir.model.access.csv',
-        'views/product_view.xml',
+        'views/product_product_view.xml',
+        'views/product_template_view.xml',
     ],
-    'author': 'Antiun Ingeniería S.L., '
-              'Incaser Informatica S.L., '
-              "Tecnativa, "
+    'author': "Tecnativa, "
               "Odoo Community Association (OCA)",
-    'website': 'http://www.antiun.com',
+    'website': 'http://www.tecnativa.com',
     'license': 'LGPL-3',
     'installable': True,
 }

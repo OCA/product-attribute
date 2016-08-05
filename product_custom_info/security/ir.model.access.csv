@@ -1,4 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_custom_info_template_sale_manager","custom.info.template.salemanager","base_custom_info.model_custom_info_template","base.group_sale_manager",1,1,1,1
-"access_custom_info_property_sale_manager","custom.info.template.line.salemanager","base_custom_info.model_custom_info_property","base.group_sale_manager",1,1,1,1
-"access_custom_info_value_sale_manager","custom.info.value.salemanager","base_custom_info.model_custom_info_value","base.group_sale_manager",1,1,1,1
