@@ -1,58 +1,47 @@
-# -*- coding: utf-8 -*-
-##############################################################################
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see http://www.gnu.org/licenses/.
-#
-##############################################################################
+# coding: utf-8
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields
+
+SEQUENCE_HELP = ("Set the display order of the attributes in backoffice "
+                 "and reports"),
+SEQUENCE_ATTR_HELP = SEQUENCE_HELP, ' (defined in Product Attribute)',
 
 
 class ProductAttribute(models.Model):
     _inherit = 'product.attribute'
-    _order = 'priority, name'
+    _order = 'sequence, name'
 
-    priority = fields.Integer(
-        string='Priority',
-        help='Define priority of exhibition in reports',
-        default=10,
-    )
+    sequence = fields.Integer(
+        string='Sequence', oldname='priority', default=10,
+        help=SEQUENCE_HELP)
 
 
 class ProductAttributeValue(models.Model):
-
     _inherit = 'product.attribute.value'
-    _order = 'priority, name'
+    _order = 'attribute_sequence, value_sequence, name'
 
-    priority = fields.Integer(
-        string='Priority',
+    attribute_sequence = fields.Integer(
+        string='Sequence Attribute', oldname='priority',
         readonly=True,
         store=True,
-        related='attribute_id.priority',
-        help='Define priority of exhibition in reports'
+        related='attribute_id.sequence',
+        help=SEQUENCE_ATTR_HELP
     )
+    value_sequence = fields.Integer(
+        string='Sequence Value', default=10,
+        help="Allow to sort attributes values")
 
 
 class ProductAttributeLine(models.Model):
 
     _inherit = 'product.attribute.line'
-    _order = 'priority'
+    _order = 'attribute_sequence'
 
-    priority = fields.Integer(
-        string='Priority',
+    attribute_sequence = fields.Integer(
+        string='Priority', oldname='priority',
         readonly=True,
         store=True,
-        related='value_ids.priority',
-        help='Define priority of exhibition in reports'
+        related='value_ids.sequence',
+        help=SEQUENCE_ATTR_HELP
     )
