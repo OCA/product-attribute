@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="procurement_form_view">
+        <field name="model">procurement.order</field>
+        <field name="inherit_id" ref="procurement.procurement_form_view" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="bundle_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

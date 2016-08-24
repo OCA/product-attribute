@@ -17,6 +17,8 @@
         'security/ir.model.access.csv',
         'views/product_bundle_line_view.xml',
         'views/product_view.xml',
+        'views/procurement_order_view.xml',
+        'views/stock_move_view.xml',
     ],
     'demo': [
         'demo/products.yml',

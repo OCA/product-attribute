@@ -120,7 +120,7 @@ class ProductCase(TransactionCase):
         ]
 
     def test_stock(self):
-        """Bundle stock is cumputed OK."""
+        """Bundle stock is computed OK."""
         for product in (self.bundle, self.bundle.product_tmpl_id):
             # TODO Test also "outgoing_qty" and "incoming_qty"
             for qty in ("qty_available", "virtual_available"):
@@ -128,3 +128,32 @@ class ProductCase(TransactionCase):
                     "%s of %s should be 3...", qty, product)
                 self.assertEqual(product[qty], 3)
                 _logger.debug("... good, it was!")
+
+    def test_sale_flow(self):
+        partner = self.env['res.partner'].create({
+            'name': 'Test partner',
+        })
+        Sale = self.env['sale.order']
+        order = Sale.new({
+            'partner_id': partner.id,
+        })
+        order.onchange_partner_id()
+        order = Sale.create(order._convert_to_write(order._cache))
+        SaleLine = self.env['sale.order.line']
+        line = SaleLine.new({
+            'order_id': order.id,
+            'product_id': self.bundle.id,
+            'product_uom_qty': 3,
+        })
+        line.product_id_change()
+        SaleLine.create(line._convert_to_write(line._cache))
+        order.action_confirm()
+        moves = order.picking_ids.move_lines
+        self.assertEqual(len(moves), 2)
+        self.assertEqual(self.included, moves.mapped('product_id'))
+        move1 = moves.filtered(lambda x: x.product_id == self.included[0])
+        self.assertEqual(move1.product_uom_qty, 3)
+        self.assertEqual(move1.bundle_id, self.bundle)
+        move2 = moves.filtered(lambda x: x.product_id == self.included[1])
+        self.assertEqual(move2.product_uom_qty, 9)
+        self.assertEqual(move2.bundle_id, self.bundle)
