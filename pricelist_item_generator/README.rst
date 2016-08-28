@@ -6,7 +6,10 @@
 Pricelist Item Generator
 ========================
 
-This module allows to create pricelist items in a bulk way, by separate price elements and products informations. It avoids a lot of manual entries.
+This module allows to create pricelist items in a bulk way,
+by separate price elements and products informations. 
+
+It avoids a lot of manual entries.
 
 
 Configuration
@@ -14,14 +17,41 @@ Configuration
 
 To configure this module (for non admin user), you need to:
 
-#. Go to Settings > Configuration > Sales > Quotation and Sales > Customer Features: check 'Use pricelists'
+#. Go to Settings > Configuration > Sales > Quotation and Sales > Customer Features
+#. Check 'Use pricelists'
 
 Usage
 =====
 
 To use this module, you need to:
 
-#. Go to Sales > Configuration > Pricelists > Price Items Generator
+* Go to Sales > Configuration > Pricelists > Price Items Generator.
+* Create a new one filling required fields and activate it.
+* Create a price item rule in 'Price items' part.
+* Add 2 rows in 'Involved products'
+  (i.e. one with a product and one with a category).
+
+.. figure:: pricelist_item_generator/static/description/img1.png
+   :alt: completed generator
+   :width: 600 px
+
+* Save and click on 'Synchonize with Pricelist' button.
+* Click on the version link: you now see a screen like this.
+
+.. figure:: pricelist_item_generator/static/description/img2.png
+   :alt: standard pricelist populated by generator
+   :width: 600 px
+
+* It's the standard Pricelist Version screen improved by cutting rules 
+  in 2 parts: the standard one (Manual rules) and the automatic created 
+  by this module.
+
+* If you want duplicate generators, you may also duplicate one2many parts
+  as here 'Price items'.
+
+.. figure:: pricelist_item_generator/static/description/img3.png
+   :alt: duplicate settings on price item generator
+   :width: 600 px
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -32,7 +62,6 @@ Known issues / Roadmap
 ======================
 
 * Only support sales pricelist: others possible
-* For V9 version we could add dates to item templates to avoid manual entries
 
 Bug Tracker
 ===========
@@ -48,9 +77,7 @@ Credits
 Images
 ------
 
-* Icon images comes from http://icons8.com/
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+* Icon images comes from https://icons8.com/web-app/for/all/price%20dollar
 
 Contributors
 ------------

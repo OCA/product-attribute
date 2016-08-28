@@ -85,7 +85,7 @@ class PricelistItemGenerator(models.Model):
         if self.copy_product_condition:
             default['product_condition_ids'] = self._get_o2m_values(
                 self.product_condition_ids, 'product_condition_id')
-        return super(PricelistItemGenerator, self).copy(default)
+        return super(PricelistItemGenerator, self).copy(default=default)
 
     @api.multi
     def _get_o2m_values(self, objects, field_name):
@@ -116,9 +116,8 @@ class PricelistItemGenerator(models.Model):
                     tmpl_objs[item] = [x for x in gen.product_condition_ids]
             for condition in gen.product_condition_ids:
                 if condition.todo == 'create':
-                    condition_objs[condition] = [
-                        x for x in gen.item_template_ids
-                        if x.todo != 'create']
+                    condition_objs[condition] = gen.item_template_ids.filtered(
+                        lambda x: x.todo != 'create')
             for key, val in condition_objs.items():
                 for elm in val:
                     tmpl_objs[elm].append(key)

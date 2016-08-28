@@ -4,15 +4,15 @@
 
 {
     'name': 'Pricelist Item Generator',
-    'version': '8.0.0.0.1',
-    'category': '',
+    'version': '8.0.1.0.0',
+    'category': 'product',
     'summary': "Create/Update Pricelist Items in a massive way",
     'author': 'Akretion,Odoo Community Association (OCA)',
     'website': 'http://www.akretion.com',
     'license': 'AGPL-3',
     'depends': [
         'sale',
-        ],
+    ],
     'data': [
         'views/pricelist_view.xml',
         'views/setting_view.xml',
@@ -24,6 +24,4 @@
         'demo/pricelist.item.template.csv',
     ],
     'installable': True,
-    'images': [
-    ],
 }
