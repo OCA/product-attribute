@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Pricelist Item Generator',
+    'name': 'Pricelist Items Generator',
     'version': '8.0.1.0.0',
     'category': 'product',
     'summary': "Create/Update Pricelist Items in a massive way",
