@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record model="ir.ui.view" id="product_normal_form_view">
+      <field name="name">product_normal_form_view</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page/group[@name='inventory']" position="inside">
+          <group name="dimensions">
+            <field name="dimensional_uom_id"/>
+            <field name="length" attrs="{'readonly':[('type','=','service')]}"/>
+            <field name="height" attrs="{'readonly':[('type','=','service')]}"/>
+            <field name="width" attrs="{'readonly':[('type','=','service')]}"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_only_form_view">
+      <field name="name">product_template_form_view</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page/group[@name='inventory']" position="inside">
+          <group name="dimensions" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}">
+            <field name="dimensional_uom_id" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+            <field name="length" attrs="{'readonly':[('type','=','service')],'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+            <field name="height" attrs="{'readonly':[('type','=','service')],'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+            <field name="width" attrs="{'readonly':[('type','=','service')],'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+</odoo>
