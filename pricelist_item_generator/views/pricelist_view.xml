@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <!--  product_pricelist_version -->
+    <record id="product_pricelist_version_form_view" model="ir.ui.view">
+        <field name="model">product.pricelist.version</field>
+        <field name="inherit_id" ref="product.product_pricelist_version_form_view"/>
+        <field name="arch" type="xml">
+            <field name="items_id" position="before">
+                <group string="Automatically created rules">
+                    <field name="item_auto_ids" readonly="True" nolabel="1">
+                        <tree name="item_auto">
+                            <field name="sequence"/>
+                            <field name="price_generator_id"/>
+                            <field name="product_id"/>
+                            <field name="product_tmpl_id"/>
+                            <field name="categ_id"/>
+                            <field name="min_quantity" string="Min. qty"/>
+                            <field name="price_discount" string="Discount"/>
+                            <field name="price_surcharge" string="Surcharge"/>
+                            <field name="price_round" string="Round."/>
+                            <field name="base"/>
+                            <field name="base_pricelist_id" 
+                                   attrs="{'invisible': [('base', '!=', -1)]}"/>
+                            <field name="item_template_id" groups="base.group_no_one"/>
+                            <field name="product_condition_id" groups="base.group_no_one"/>
+                        </tree>
+                    </field>
+                </group>
+                <group string="Manual rules">
+                    <field name="item_manual_ids" nolabel="1"/>
+                </group>
+            </field>
+            <field name="items_id" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </field>
+        </field>
+    </record>
+
+
+    <!--Generator-->
+    <record id="pricelist_item_generator_form_view" model="ir.ui.view">
+        <field name="model">pricelist.item.generator</field>
+        <field name="arch" type="xml">
+            <form>
+                <group col="5">
+                    <field name="name" string="Rule name" default_focus="1"/>
+                    <button name="activate_generator"
+                            string="Activate"
+                            attrs="{'invisible': ['|',('active', '=', True), ('price_version_id','=', False)]}"
+                            help="If activated, all pricelist item rules will be synchronised"
+                            type="object"/>
+                    <button name="build_pricelist_item"
+                            string="Synchronize with Pricelist"
+                            attrs="{'invisible': ['|',('active', '=', False), '|',('price_version_id', '=', False), ('to_update', '=', False)]}"
+                            class="oe_highlight"
+                            help="You need to click here to synchronize pricelists"
+                            type="object"/>
+                    <field name="price_version_id" nolabel="1" 
+                           placeholder="Pricelist Version" colspan="1"
+                           attrs="{'readonly': [('active', '=', True)]}"/>
+                </group>
+                <notebook col="4">
+                    <page name="main" string="Rules">
+                        <separator string="Price items" colspan="2"/>
+                        <div align="center"><b>Computation method : New price =
+                            <span style="color:green"
+                                  title="Only public price up to now">Base price</span> - 
+                            <span style="color:green"
+                                  title="Discount are generally negative values">Discount</span>  / 100 + 
+                            <span style="color:green"
+                                  title="Surcharge are generally negative values">Surcharge</span></b><br/>
+                            <span>Discount value are substracted to Base price: 20 implies a discount of 20 %, entry is easier.</span>
+                        </div>
+                        <group name="template" col="2">
+                            <field name="item_template_ids" nolabel="1"
+                                   attrs="{'readonly': ['|',('name', '=', False),('price_version_id', '=', False)]}">
+                                <tree name="item" editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="min_quantity" string="Min qty"/>
+                                    <field name="price_discount"/>
+                                    <field name="price_surcharge" string="Surcharge" />
+                                    <field name="price_round" string="Round."/>
+                                    <field name="base" string="Base price"/>
+                                    <field name="base_pricelist_id"
+                                        attrs="{'readonly': [('base', '!=', -1)], 'invisible': [('base', '!=', -1)], 'required': [('base', '=', -1)]}"/>
+                                    <field name="todo"/>
+                                    <field name="id" groups="base.group_no_one"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group name="product" col="2">
+                            <separator string="Involved products" colspan="2"/>
+                            <field name="product_condition_ids" nolabel="1"
+                                attrs="{'readonly': ['|',('name', '=', False),('price_version_id', '=', False)]}">
+                                <tree name="condition" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="product_tmpl_id"/>
+                                    <field name="categ_id"/>
+                                    <field name="todo"/>
+                                    <field name="id" groups="base.group_no_one"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <div align="center">
+                            <span class="alert-warning">If you delete any element, matching element in Pricelist Version is also deleted on saving.</span>
+                        </div>
+                    </page>
+                    <page name="config" string="Configuration">
+                        <group col="3">
+                            <field name="sequence"/>
+                            <button name="activate_generator"
+                                    string="Deactivate"
+                                    attrs="{'invisible': [('active', '=', False)]}"
+                                    help="If desactivated, all pricelist item rules will be erased"
+                                    type="object"/><newline/>
+                            <group string="Duplication behavior">
+                                <field name="copy_item_template"/>
+                                <field name="copy_product_condition"/>
+                            </group>
+                            <field name="to_update"
+                                   attrs="{'invisible': True}"/>
+                            <field name="active" invisible="True"/>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="pricelist_item_generator_tree_view" model="ir.ui.view">
+        <field name="model">pricelist.item.generator</field>
+        <field name="arch" type="xml">
+            <tree string="Pricelist Generator">
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="price_version_id"/>
+                <field name="to_update"/>
+                <field name="active" readonly="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pricelist_item_generator_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pricelist.item.generator</field>
+        <field name="name">Pricelist Items Generator</field>
+        <field name="view_type">form</field>
+        <field name="context">{'active_test': False}</field>
+        <field name="view_id" ref="pricelist_item_generator_tree_view"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a Pricelist Item Generator.
+          </p>
+          <p>
+                Pricelist Item Generator allow you to build price rules in a massive way:
+                <ol>
+                    <li>Define price items templates</li>
+                    <li>Define criterias which determines which products are implied</li>
+                    <li>Click to update pricelist</li>
+                </ol>
+                <div><u>Settings</u> : define an appropriate 'Next execution date' 'Scheduled action'
+    according to your local time for 'Pricelist Item Generator'</div>
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_pricelist_item_generator"
+              name="Price Items Generator"
+              action="pricelist_item_generator_action"
+              parent="product.menu_product_pricelist_main"
+              groups="product.group_sale_pricelist"
+              sequence="1"/>
+
+</data>
+</openerp>
