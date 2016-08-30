@@ -12,6 +12,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [product_brand](product_brand/) | 9.0.1.0.0 | Product Brand Manager
+[product_dimension](product_dimension/) | 9.0.1.0.0 | Product Dimension
 [product_manufacturer](product_manufacturer/) | 9.0.1.0.0 | Products Manufacturers
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
 
@@ -27,7 +28,6 @@ addon | version | summary
 [product_categ_attributes](product_categ_attributes/) | 0.1 (unported) | product_categ_attributes
 [product_custom_attributes](product_custom_attributes/) | 0.2.1 (unported) | product_custom_attributes
 [product_customer_code](product_customer_code/) | 1.0 (unported) | Add many Customers' Codes in product
-[product_dimension](product_dimension/) | 8.0.2.0.0 (unported) | Product Dimension
 [product_electronic](product_electronic/) | 1.0 (unported) | Products Attributes & Manufacturers
 [product_gift](product_gift/) | 0.1 (unported) | product_gift
 [product_gtin](product_gtin/) | 8.0.1.1.0 (unported) | Product GTIN EAN8 EAN13 UPC JPC Support
