@@ -5,6 +5,7 @@
     Copyright (C) 2016 Sodexis
     The licence is in the file __openerp__.py
 -->
+
 <odoo>
     <record id="product.product_product_0" model="product.product">
         <field name="default_code">SERVICE</field>
