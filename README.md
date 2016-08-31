@@ -11,6 +11,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[pricelist_item_generator](pricelist_item_generator/) | 8.0.1.0.0 | Create/Update Pricelist Items in a massive way
 [pricelist_per_product](pricelist_per_product/) | 8.0.1.0.0 | Pricelist Per Product
 [product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 | Product attribute types
 [product_brand](product_brand/) | 8.0.0.1.0 | Add brand to products
