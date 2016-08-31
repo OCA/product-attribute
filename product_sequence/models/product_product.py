@@ -38,16 +38,16 @@ class ProductProduct(models.Model):
     @api.model
     def create(self, vals):
         if 'default_code' not in vals or vals['default_code'] == '/':
-            vals['default_code'] = self.env['ir.sequence'].get(
-                'product.product')
+            sequence = self.env.ref('product_sequence.seq_product_auto')
+            vals['default_code'] = sequence.next_by_id()
         return super(ProductProduct, self).create(vals)
 
     @api.multi
     def write(self, vals):
         for product in self:
             if product.default_code in [False, '/']:
-                vals['default_code'] = self.env['ir.sequence'].get(
-                    'product.product')
+                sequence = self.env.ref('product_sequence.seq_product_auto')
+                vals['default_code'] = sequence.next_by_id()
             super(ProductProduct, product).write(vals)
         return True
 
