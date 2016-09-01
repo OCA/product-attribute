@@ -6,6 +6,8 @@ from openerp.tests import common
 
 
 class TestProductMultiImage(common.TransactionCase):
+    """Testing product multi image functionality"""
+
     def setUp(self):
         super(TestProductMultiImage, self).setUp()
         self.transparent_image = (  # 1x1 Transparent GIF
