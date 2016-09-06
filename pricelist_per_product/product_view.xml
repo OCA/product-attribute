@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@string='Information']//field[@name='list_price']"
+                   position="replace">
+            </xpath>
+            <xpath expr="//page[@string='Sales']/group[@name='sale']" position="before">
+                <group>
+                    <field name="list_price" string="Public price"/>
+                    <field name="pricelist_item_ids" colspan="4" nolabel="1"
+                       domain="[('price_version_id.pricelist_id.type', '=', 'sale'),
+                ('price_version_id.price_grid', '=', True)]">
+                        <tree editable="top" create="1" delete="1">
+                            <field name="price_version_id"/>
+                            <field name="product_id" string="Product Variant"
+                                   domain="[('product_tmpl_id', '=', parent.id)]"
+                                   help="Define a price for this variant according to attribute price extra if any (tab 'Variants')"/>
+                            <field name="price_surcharge" string="Price"/>
+                            <field name="date_end"/>
+                            <field name="price_discount" invisible="1"/>
+                            <field name="sequence" invisible="1"/>
+                            <field name="base" invisible="1"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+  </data>
+</openerp>
