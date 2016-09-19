@@ -2,7 +2,7 @@
 # Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from openerp import _, api, fields, models
+from openerp import fields, models
 
 
 class StockMove(models.Model):
