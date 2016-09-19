@@ -6,8 +6,8 @@
     'summary': 'Sell groups of products as a product',
     'version': '9.0.1.0.0',
     'category': 'Product',
-    'author':  'Tecnativa,'
-               'Odoo Community Association (OCA)',
+    'author': 'Tecnativa,'
+              'Odoo Community Association (OCA)',
     "license": "LGPL-3",
     "website": "https://www.tecnativa.com",
     'depends': [

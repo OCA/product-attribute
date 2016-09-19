@@ -10,8 +10,12 @@
     <field name="arch" type="xml">
         <form string="Bundle Product Line">
             <group>
-                <field name="bundle_id"/>
-                <field name="product_id"/>
+                <field name="bundle_id"
+                       invisible="context.get('hide_bundle_id')"
+                       required="not context.get('hide_bundle_id')"/>
+                <field name="product_id"
+                       invisible="context.get('hide_product_id')"
+                       required="not context.get('hide_product_id')"/>
                 <field name="qty"/>
                 <field name="total_lst_price"/>
             </group>
@@ -25,8 +29,12 @@
     <field name="type">tree</field>
     <field name="arch" type="xml">
         <tree string="Bundle Product Lines" editable="bottom">
-            <field name="bundle_id"/>
-            <field name="product_id"/>
+            <field name="bundle_id"
+                   invisible="context.get('hide_bundle_id')"
+                   required="not context.get('hide_bundle_id')"/>
+            <field name="product_id"
+                   invisible="context.get('hide_product_id')"
+                   required="not context.get('hide_product_id')"/>
             <field name="qty"/>
             <field name="total_lst_price"/>
         </tree>

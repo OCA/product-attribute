@@ -22,9 +22,11 @@ class ProductTemplate(models.Model):
     )
     bundle_line_ids = fields.One2many(
         related="product_variant_ids.bundle_line_ids",
+        context={"hide_bundle_id": True},
     )
     inverse_bundle_line_ids = fields.One2many(
         related="product_variant_ids.inverse_bundle_line_ids",
+        context={"hide_product_id": True},
     )
 
     @api.one

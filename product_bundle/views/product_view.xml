@@ -28,21 +28,8 @@
             <page name="bundle" string="Bundle">
                 <group>
                     <field name="bundle_line_ids"
-                           attrs="{'invisible': [('bundle_ok', '=', False)]}">
-                        <tree editable="bottom">
-                            <field name="product_id"/>
-                            <field name="qty"/>
-                            <field name="total_lst_price"
-                                   sum="Total Price"/>
-                        </tree>
-                    </field>
-                    <field name="inverse_bundle_line_ids">
-                        <tree editable="bottom">
-                            <field name="bundle_id"/>
-                            <field name="qty"/>
-                            <field name="total_lst_price"/>
-                        </tree>
-                    </field>
+                           attrs="{'invisible': [('bundle_ok', '=', False)]}"/>
+                    <field name="inverse_bundle_line_ids"/>
                 </group>
             </page>
         </xpath>
