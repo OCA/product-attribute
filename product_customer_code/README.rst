@@ -9,7 +9,9 @@ Products Customer Code
 This module does just like the product.supplierinfo but for customers instead. For instance it
 allows to have different references for the same product according to the customer.
 
-.. image:: product_customer_code/static/src/img/screenshot1.png
+.. figure:: static/src/img/screenshot1.png
+   :alt: alternative description
+   :width: 600 px
 
 .. tip::
 
@@ -42,11 +44,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/
-product-attribute/issues/new?body=module:%20
-product_customer_code%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smashing it by providing a detailed and welcomed feedback.
 
 
 Credits
