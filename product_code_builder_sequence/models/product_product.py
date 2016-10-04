@@ -46,3 +46,18 @@ class ProductTemplate(models.Model):
                     'prefix_code': self.prefix_code + _('-copy'),
                 })
         return super(ProductTemplate, self).copy(default)
+
+
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
+
+    @api.multi
+    def copy(self, default=None):
+        for product in self:
+            if default is None:
+                default = {}
+            if product.prefix_code:
+                default.update({
+                    'prefix_code': self.prefix_code + _('-copy'),
+                })
+        return super(ProductProduct, self).copy(default)
