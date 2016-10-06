@@ -16,5 +16,5 @@
         'views/product_view.xml'
     ],
     'images': [],
-    "installable": True,
+    'installable': False,
 }
