@@ -30,5 +30,5 @@
         'views/product_manufacturer_view.xml'
     ],
     'auto_install': False,
-    'installable': True,
+    'installable': False,
 }

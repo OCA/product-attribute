@@ -10,6 +10,6 @@
     'license': 'AGPL-3',
     'depends': ['product'],
     'data': ['views/product_view.xml'],
-    'installable': True,
+    'installable': False,
     'images': [],
 }
