@@ -17,8 +17,10 @@ Installation
 Configuration
 =============
 
-To create custom info templates, please review documentation from
-``base_custom_info`` module.
+To create custom info templates:
+
+* Set a value in 'Custom Information Template' field in Product template form (Information tab)
+* Review documentation from ``base_custom_info`` module.
 
 Usage
 =====
