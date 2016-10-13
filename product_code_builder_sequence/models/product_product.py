@@ -38,13 +38,13 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def copy(self, default=None):
-        for product in self:
-            if default is None:
-                default = {}
-            if product.prefix_code:
-                default.update({
-                    'prefix_code': self.prefix_code + _('-copy'),
-                })
+        self.ensure_one()
+        if default is None:
+            default = {}
+        if 'prefix_code' not in default and self.prefix_code:
+            default.update({
+                'prefix_code': self.prefix_code + _('-copy'),
+            })
         return super(ProductTemplate, self).copy(default)
 
 
@@ -53,11 +53,11 @@ class ProductProduct(models.Model):
 
     @api.multi
     def copy(self, default=None):
-        for product in self:
-            if default is None:
-                default = {}
-            if product.prefix_code:
-                default.update({
-                    'prefix_code': self.prefix_code + _('-copy'),
-                })
+        self.ensure_one()
+        if default is None:
+            default = {}
+        if 'prefix_code' not in default and self.prefix_code:
+            default.update({
+                'prefix_code': self.prefix_code + _('-copy'),
+            })
         return super(ProductProduct, self).copy(default)
