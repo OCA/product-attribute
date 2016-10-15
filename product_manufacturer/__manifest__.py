@@ -25,7 +25,7 @@
     'license': 'AGPL-3',
     'contributors': ['Acysos SL <info@acysos.com>'],
     'category': 'Purchase Management',
-    'depends': ['product','stock'],
+    'depends': ['product',],
     'demo': [],
     'data': [
         'views/product_manufacturer_view.xml'
