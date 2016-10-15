@@ -15,11 +15,11 @@
               ', MONK Software, Odoo Community Association (OCA)'
               ', SerpentCS Pvt. Ltd.',
     'license': 'AGPL-3',
-    'depends': ['product','stock'],
+    'depends': ['product'],
     'data': [
         'views/product_brand_view.xml',
         'security/ir.model.access.csv'
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False
 }
