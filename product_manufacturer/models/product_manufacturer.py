@@ -1,3 +1,4 @@
+# coding: utf-8
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -25,6 +26,6 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     manufacturer = fields.Many2one('res.partner', 'Manufacturer')
-    manufacturer_pname = fields.Char('Manufacturer Product Name')
-    manufacturer_pref = fields.Char('Manufacturer Product Code')
-    manufacturer_purl = fields.Char('Manufacturer Product URL')
+    manufacturer_pname = fields.Char('Manuf. Product Name')
+    manufacturer_pref = fields.Char('Manuf. Product Code')
+    manufacturer_purl = fields.Char('Manuf. Product URL')
