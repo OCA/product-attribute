@@ -18,13 +18,13 @@
 #
 ##############################################################################
 {
-    'name': 'Products Manufacturers',
-    'version': '9.0.1.0.0',
-    'author': "OpenERP SA,Odoo Community Association (OCA)",
+    'name': 'Product Manufacturers',
+    'version': '10.0.1.0.0',
+    'author': "OpenERP SA, Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'contributors': ['Acysos SL <info@acysos.com>'],
     'category': 'Purchase Management',
-    'depends': ['product'],
+    'depends': ['product','stock'],
     'demo': [],
     'data': [
         'views/product_manufacturer_view.xml'
