@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
-<openerp>
+<odoo>
     <data>
 
         <record model="ir.ui.view" id="product_template_manufacturer_form_view">
             <field name="name">product.template.manufacturer.form</field>
             <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
             <field name="arch" type="xml">
                 <group name="inventory" position="after">
                     <group name="manufacturer" string="Manufacturer">
@@ -23,4 +23,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>
