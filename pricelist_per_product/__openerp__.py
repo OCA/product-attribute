@@ -1,36 +1,23 @@
-# coding: utf-8
-# © 2015 Sylvain CALADOR @ Akretion
+# -*- coding: utf-8 -*-
+# Copyright 2015 Akretion
+# Copyright 2016 LasLabs Inc.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Pricelist Per Product',
-    'version': '8.0.1.0.0',
-    'author': 'Akretion, Odoo Community Association (OCA)',
-    'summarize': 'Display pricelist items in products',
-    'maintainer': 'Akretion',
-    'category': 'sale',
-    'depends': [
-        'sale',
+    "name": "Pricelist Per Product",
+    "summary": "Display pricelist items in products",
+    "version": "9.0.1.0.0",
+    "category": "Sales",
+    "website": "https://laslabs.com",
+    "author": "Akretion, Laslabs, Odoo Community Association (OCA)",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": [
+        "sale",
     ],
-    'website': 'http://www.akretion.com/',
-    'data': [
-        'install_view.xml',
-        'product_view.xml',
-        'pricelist_view.xml',
-        'data/pricelist.xml',
+    "data": [
+        "views/product_pricelist_view.xml",
+        "views/product_template_view.xml",
     ],
-    'demo': [
-        'demo/product.pricelist.item.csv',
-    ],
-    'tests': [],
-    'images': [
-        'static/description/mass.png',
-        'static/description/pricelist.png',
-        'static/description/product.png',
-    ],
-    'installable': True,
-    'license': 'AGPL-3',
-    'external_dependencies': {
-        'python': [],
-    },
 }
