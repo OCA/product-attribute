@@ -1,5 +1,6 @@
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/135/7.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-product-attribute-135)
 [![Build Status](https://travis-ci.org/OCA/product-attribute.svg?branch=7.0)](https://travis-ci.org/OCA/product-attribute)
-[![Coverage Status](https://coveralls.io/repos/OCA/product-attribute/badges.png?branch=7.0)](https://coveralls.io/r/OCA/product-attribute?branch=7.0)
+[![codecov](https://codecov.io/gh/OCA/product-attribute/branch/7.0/graph/badge.svg)](https://codecov.io/gh/OCA/product-attribute)
 
 Odoo Product Attribute
 ======================
