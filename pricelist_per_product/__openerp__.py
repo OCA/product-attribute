@@ -18,6 +18,7 @@
     ],
     "data": [
         "views/product_pricelist_view.xml",
+        "views/product_pricelist_item_view.xml",
         "views/product_template_view.xml",
     ],
 }
