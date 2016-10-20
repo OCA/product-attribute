@@ -9,6 +9,9 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     code = fields.Char('Code')
+    # MIGRATION V9 or upper
+    # field below is now in product_attribute_priority
+    # put dependency on it
     sequence = fields.Integer('Sequence')
 
     _sql_constraints = [
@@ -24,6 +27,9 @@ class ProductAttributeValue(models.Model):
 
     code = fields.Char('Code')
     comment = fields.Text('Comment')
+    # MIGRATION V9 or upper
+    # field below is now in product_attribute_priority
+    # put dependency on it
     attribute_sequence = fields.Integer(
         related="attribute_id.sequence",
         store=True)
