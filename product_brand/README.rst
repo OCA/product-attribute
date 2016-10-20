@@ -35,7 +35,7 @@ For further information, please visit:
 Known issues / Roadmap
 ======================
 
-* Add a field with brands assiciated to a Customer or Supplier on 
+* Add a field with brands assiciated to a Customer or Supplier on
   the Customers/Suppliers Form View.
 
 
@@ -66,6 +66,7 @@ Contributors
 * Gunnar Wagner <vrms@netcologne.de>
 * Leonardo Donelli <donelli@webmonks.it>
 * Serpent Consulting Services Pvt. Ltd. <jay.vora@serpentcs.com>
+* Marcelo Pickler <loxamir@gmail.com>
 
 Maintainer
 ----------
