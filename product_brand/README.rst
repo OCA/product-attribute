@@ -35,7 +35,7 @@ For further information, please visit:
 Known issues / Roadmap
 ======================
 
-* Add a field with brands assiciated to a Customer or Supplier on
+* Add a field with brands associated to a Customer or Supplier on
   the Customers/Suppliers Form View.
 
 
