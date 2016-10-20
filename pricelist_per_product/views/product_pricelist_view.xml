@@ -4,15 +4,15 @@
 
 <odoo>
 
-    <record id="product_pricelist_item_form_view" model="ir.ui.view">
-        <field name="name">product.pricelist.item.form</field>
-        <field name="model">product.pricelist.item</field>
-        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">product.pricelist.form</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='product_tmpl_id']" position="after">
-                <field name="pricelist_id" required="1" />
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <attribute name="context">{'default_base':'list_price', 'default_pricelist_id': id}</attribute>
             </xpath>
         </field>
-    </record>
+    </record>  
 
 </odoo>

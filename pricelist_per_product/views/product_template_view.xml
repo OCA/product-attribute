@@ -7,9 +7,12 @@
     <record id="product_template_form_view_group_pricelist_item" model="ir.ui.view">
         <field name="name">product.template.common.form</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
-        <field name="groups_id" eval="[(6, 0, [ref('product.group_pricelist_item')])]"/>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="groups_id" eval="[(6, 0, [ref('product.group_pricelist_item')])]" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <attribute name="context">{'default_base':'list_price', 'default_applied_on':'1_product', 'default_product_tmpl_id': id}</attribute>
+            </xpath>
             <xpath expr="//tree[field[@name='pricelist_id']]" position="attributes">
                 <attribute name="editable" />
             </xpath>
@@ -19,7 +22,7 @@
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="name">product.template.common.form</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//div[@name='pricelist_item']" position="attributes">
                 <attribute name="groups">product.group_sale_pricelist</attribute>
