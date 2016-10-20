@@ -89,8 +89,8 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_vignette oe_semantic_html_override">
                                 <a type="open">
-                                    <img t-att-src="kanban_image('product.product', 'logo', record.id.value)"
-                                         class="oe_kanban_image"/>
+                                    <img t-att-src="kanban_image('product.brand', 'logo', record.id.value)"
+                                         class="oe_kanban_image" style="width: 64px;height:64px"/>
                                 </a>
                                 <div class="oe_kanban_details">
                                     <h4>
