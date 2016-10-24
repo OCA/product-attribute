@@ -1,39 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2004 Tiny SPRL
+# © 2016 Sodexis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
-
-
-def update_null_and_slash_codes(cr):  # pragma: no cover
-    """
-    Updates existing codes matching the default '/' or
-    empty. Primarily this ensures installation does not
-    fail for demo data.
-    :param cr: database cursor
-    :return: void
-    """
-    cr.execute("UPDATE product_product "
-               "SET default_code = '!!mig!!' || id "
-               "WHERE default_code IS NULL OR default_code = '/';")
+from openerp import models, fields, api, _
 
 
 class ProductProduct(models.Model):
@@ -42,7 +12,7 @@ class ProductProduct(models.Model):
     default_code = fields.Char(
         string='Reference',
         size=64,
-        select=True,
+        index=True,
         required=True,
         default='/')
 
@@ -55,20 +25,20 @@ class ProductProduct(models.Model):
     @api.model
     def create(self, vals):
         if 'default_code' not in vals or vals['default_code'] == '/':
-            vals['default_code'] = self.env['ir.sequence'].get(
-                'product.product')
+            sequence = self.env.ref('product_sequence.seq_product_auto')
+            vals['default_code'] = sequence.next_by_id()
         return super(ProductProduct, self).create(vals)
 
     @api.multi
     def write(self, vals):
         for product in self:
             if product.default_code in [False, '/']:
-                vals['default_code'] = self.env['ir.sequence'].get(
-                    'product.product')
+                sequence = self.env.ref('product_sequence.seq_product_auto')
+                vals['default_code'] = sequence.next_by_id()
             super(ProductProduct, product).write(vals)
         return True
 
-    @api.one
+    @api.multi
     def copy(self, default=None):
         if default is None:
             default = {}
@@ -76,5 +46,4 @@ class ProductProduct(models.Model):
             default.update({
                 'default_code': self.default_code + _('-copy'),
             })
-
         return super(ProductProduct, self).copy(default)
