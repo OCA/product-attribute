@@ -16,9 +16,6 @@
     'data': [
         'data/product_sequence.xml',
     ],
-    'demo': [
-        'demo/product_product.xml'
-    ],
     'pre_init_hook': 'pre_init_hook',
     'auto_install': False,
     'installable': True,
