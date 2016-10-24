@@ -2,6 +2,7 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import logging
 from openerp import models, fields, api, _
 from openerp.osv import orm
 from openerp.exceptions import Warning as UserError
@@ -14,6 +15,8 @@ PROFILE_MENU = (_("Sales > Configuration \n> Product Categories and Attributes"
 # not an immutable value according to profile
 PROF_DEFAULT_STR = 'profile_default_'
 LEN_DEF_STR = len(PROF_DEFAULT_STR)
+
+_logger = logging.getLogger(__name__)
 
 
 def format_except_message(error, field, self):
@@ -72,21 +75,45 @@ class ProductProfile(models.Model):
     def write(self, vals):
         """ Profile update can impact products: we take care
             to propagate ad hoc changes """
-        res = super(ProductProfile, self).write(vals)
-        keys2remove = []
+        new_vals = vals.copy()
         for key in vals:
             if (key[:LEN_DEF_STR] == PROF_DEFAULT_STR or
-                    key in get_profile_fields_to_exclude()):
-                keys2remove.append(key)
-        for key in keys2remove:
-            # we remove keys which have no matching in product template
-            vals.pop(key)
-        if vals:
-            products = self.env['product.product'].search(
-                [('profile_id', '=', self.id)])
-            if products:
-                products.write({'profile_id': self.id})
+                    key in get_profile_fields_to_exclude() or
+                    self.check_unuseful_key_in_vals(new_vals, key)):
+                new_vals.pop(key)
+        # super call must be after check_unuseful_key_in_vals() call
+        # because we compare value before and after write
+        res = super(ProductProfile, self).write(vals)
+        if new_vals:
+            for rec in self:
+                products = self.env['product.product'].search(
+                    [('profile_id', '=', rec.id)])
+                if products:
+                    _logger.info(
+                        " >>> %s Products updating after updated '%s' "
+                        "product profile" % (len(products), rec.name))
+                    products.write({'profile_id': rec.id})
         return res
+
+    @api.model
+    def check_unuseful_key_in_vals(self, vals, key):
+        """ If replacing values are the same than in db, we remove them.
+            Use cases:
+            1/ if in edition mode you switch a field
+               from value A to value B and then go back to value A
+               then save form, field is in vals whereas it shouldn't.
+            2/ if profile data are in csv file there are processed
+               each time module containing csv is loaded
+            we remove field from vals to minimize impact on products
+        """
+        comparison_value = self[key]
+        if self._fields[key].type == 'many2one':
+            comparison_value = self[key].id
+        elif self._fields[key].type == 'many2many':
+            comparison_value = [(6, False, self[key].ids), ]
+        if vals[key] == comparison_value:
+            return True
+        return False
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
