@@ -1,5 +1,10 @@
-A module that adds sequence to the product.
-===========================================
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
+   
+================
+Product Sequence
+================
 
 This module allows to associate a sequence to the product reference.
 The reference (default code) is unique (SQL constraint) and required.
@@ -12,6 +17,13 @@ they already have a unique reference (or no reference) set.  Products with a def
 '/' or empty will automatically be assigned a code of "!!mig!!" followed by the system id for that product.
 
 Otherwise the setting of the unique constraint will fail and the module will fail to install.
+
+Usage
+=====
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/135/9.0
 
 Bug Tracker
 ===========
@@ -29,6 +41,7 @@ Contributors
 
 * Angel Moya <angel.moya@domatix.com>
 * Graeme Gellatly <g@o4sb.com>
+* Sodexis <dev@sodexis.com>
 
 Maintainer
 ----------
