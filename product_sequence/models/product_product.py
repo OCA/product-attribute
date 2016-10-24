@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
-# © 2004 Tiny SPRL
-# © 2016 Sodexis
+# Copyright 2004 Tiny SPRL
+# Copyright 2016 Sodexis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from odoo import models, fields, api, _
 
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     default_code = fields.Char(
-        string='Reference',
-        size=64,
-        index=True,
         required=True,
-        default='/')
+        default='/'
+    )
 
     _sql_constraints = [
         ('uniq_default_code',
