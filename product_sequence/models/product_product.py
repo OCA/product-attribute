@@ -10,11 +10,9 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     default_code = fields.Char(
-        string='Reference',
-        size=64,
-        index=True,
         required=True,
-        default='/')
+        default='/'
+    )
 
     _sql_constraints = [
         ('uniq_default_code',
