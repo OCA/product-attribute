@@ -4,8 +4,8 @@
 from openerp import models, fields
 
 SEQUENCE_HELP = ("Set the display order of the attributes in backoffice "
-                 "and reports"),
-SEQUENCE_ATTR_HELP = SEQUENCE_HELP, ' (defined in Product Attribute)',
+                 "and reports")
+SEQUENCE_ATTR_HELP = SEQUENCE_HELP + " (defined in Product Attribute)"
 
 
 class ProductAttribute(models.Model):
