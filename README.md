@@ -16,6 +16,7 @@ addon | version | summary
 [product_dimension](product_dimension/) | 9.0.1.0.0 | Product Dimension
 [product_manufacturer](product_manufacturer/) | 9.0.1.0.0 | Products Manufacturers
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
+[product_sequence](product_sequence/) | 9.0.1.0.0 | Product Sequence
 
 Unported addons
 ---------------
@@ -42,7 +43,6 @@ addon | version | summary
 [product_qt](product_qt/) | 1.0 (unported) | Products & Pricelists - Define quality control and testing parameters in product
 [product_quick_stock_rule](product_quick_stock_rule/) | 0.1 (unported) | product_quick_stock_rule
 [product_search_reference](product_search_reference/) | 0.1 (unported) | Products Search Reference
-[product_sequence](product_sequence/) | 8.0.0.1.0 (unported) | Product Sequence
 [product_series](product_series/) | 0.1 (unported) | Partner Product Series
 [product_size](product_size/) | 1.0 (unported) | Sizes of lots (width, length, thickness)
 [product_supplierinfo_tree_price_info](product_supplierinfo_tree_price_info/) | 8.0.1.0 (unported) | Supplier Unit Price on Product Form
