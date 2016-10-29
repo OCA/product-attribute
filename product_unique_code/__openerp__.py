@@ -2,8 +2,10 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2011 Zikzakmedia S.L. (http://zikzakmedia.com) All Rights Reserved.
-#                  2014 Akretion S.A. (http://www.akretion.com)
+#    Copyright (c) 2011 Zikzakmedia S.L. (http://zikzakmedia.com)
+#                  2013-TODAY Akretion <http://www.akretion.com>.
+#                  @author Chafique DELLI <chafique.delli@akretion.com>
+#    All Rights Reserved.
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,22 +24,20 @@
 ##############################################################################
 
 {
-    'name' : 'Product Sequence',
-    'version' : '0.1',
-    "author": "Zikzakmedia SL,Odoo Community Association (OCA)",
-    "website": "http://www.zikzakmedia.com",
+    'name': 'Product Unique Code',
+    'version': '0.1',
+    "author": "Akretion",
+    "website": "http://www.akretion.com",
     "license": "AGPL-3",
     "category": "Generic Modules/Inventory Control",
     "description": """
-This module allows to associate a sequence to the product reference.
-The reference (default code) is unique (SQL constraint) and required.
-Note: This module is incompatible with nan_product_sequence.
+This module allows to verify that the code (default code) is unique
+(SQL constraint).
     """,
     'depends': [
-        'product_unique_code',
+        'product',
     ],
     "data": [
-        'product_sequence.xml',
     ],
     'installable': True,
     'active': False,
