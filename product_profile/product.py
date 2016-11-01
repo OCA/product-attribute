@@ -76,14 +76,15 @@ class ProductProfile(models.Model):
         """ Profile update can impact products: we take care
             to propagate ad hoc changes """
         new_vals = vals.copy()
+        to_exclude_profile_fields = get_profile_fields_to_exclude()
         for key in vals:
             if (key[:LEN_DEF_STR] == PROF_DEFAULT_STR or
-                    key in get_profile_fields_to_exclude() or
-                    self.check_unuseful_key_in_vals(new_vals, key)):
+                    key in to_exclude_profile_fields or
+                    self.check_useless_key_in_vals(new_vals, key)):
                 new_vals.pop(key)
-        # super call must be after check_unuseful_key_in_vals() call
+        # super call must be after check_useless_key_in_vals() call
         # because we compare value before and after write
-        res = super(ProductProfile, self).write(vals)
+        res = super(ProductProfile, self).write(new_vals)
         if new_vals:
             for rec in self:
                 products = self.env['product.product'].search(
@@ -96,7 +97,7 @@ class ProductProfile(models.Model):
         return res
 
     @api.model
-    def check_unuseful_key_in_vals(self, vals, key):
+    def check_useless_key_in_vals(self, vals, key):
         """ If replacing values are the same than in db, we remove them.
             Use cases:
             1/ if in edition mode you switch a field
@@ -111,9 +112,7 @@ class ProductProfile(models.Model):
             comparison_value = self[key].id
         elif self._fields[key].type == 'many2many':
             comparison_value = [(6, False, self[key].ids), ]
-        if vals[key] == comparison_value:
-            return True
-        return False
+        return vals[key] == comparison_value
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
