@@ -68,6 +68,14 @@ help us smashing it by providing a detailed and welcomed `feedback
 product_code_builder%0Aversion:%20
 8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
+Known issues / Roadmap
+======================
+
+MIGRATION INSTRUCTION: Some fields in this module are the same than those in 
+product_attribute_priority module. For v10 or v9, it's required to add 
+dependency between these modules.
+
+
 Credits
 =======
 
