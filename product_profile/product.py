@@ -76,10 +76,10 @@ class ProductProfile(models.Model):
         """ Profile update can impact products: we take care
             to propagate ad hoc changes """
         new_vals = vals.copy()
-        to_exclude_profile_fields = get_profile_fields_to_exclude()
+        excludable_fields = get_profile_fields_to_exclude()
         for key in vals:
-            if (key[:LEN_DEF_STR] == PROF_DEFAULT_STR or
-                    key in to_exclude_profile_fields or
+            if (key.startswith(PROF_DEFAULT_STR) or
+                    key in excludable_fields or
                     self.check_useless_key_in_vals(new_vals, key)):
                 new_vals.pop(key)
         # super call must be after check_useless_key_in_vals() call
