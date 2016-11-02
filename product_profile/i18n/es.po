@@ -11,12 +11,12 @@ msgstr ""
 "POT-Creation-Date: 2016-11-03 10:07+0000\n"
 "PO-Revision-Date: 2016-11-03 10:07+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_profile
 #: help:product.product,profile_explanation:0
@@ -26,18 +26,16 @@ msgid ""
 "An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
-"Une explication sur le profil selectionné\n"
-"(non synchronisé avec les champs de product.template)"
 
 #. module: product_profile
 #: field:product.profile,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: product_profile
 #: field:product.profile,create_date:0
 msgid "Created on"
-msgstr "Créé sur"
+msgstr ""
 
 #. module: product_profile
 #: help:product.profile,sequence:0
@@ -45,8 +43,6 @@ msgid ""
 "Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
-"Défini l'ordre des entrée du champ profile_id\n"
-"(non synchronisé avec les champs de product.template)"
 
 #. module: product_profile
 #: field:product.mixin.profile,display_name:0
@@ -57,7 +53,7 @@ msgstr ""
 #. module: product_profile
 #: field:base.config.settings,group_product_profile:0
 msgid "Display Product Profile fields"
-msgstr "Affiche les champs de Profil de Produit"
+msgstr ""
 
 #. module: product_profile
 #: help:base.config.settings,group_product_profile:0
@@ -68,21 +64,16 @@ msgid ""
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
-"Affiche les champs calculées par le module profile product.\n"
-"En cas de débogage voir le menu\n"
-"Ventes >  Configuration\n"
-"> Catégories de Produits et Attributs\n"
-"> Profils de Produits"
 
 #. module: product_profile
 #: field:product.profile,explanation:0
 msgid "Explanation"
-msgstr "Explication"
+msgstr ""
 
 #. module: product_profile
 #: field:product.mixin.profile,id:0 field:product.profile,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: product_profile
 #: code:addons/product_profile/product.py:127
@@ -91,9 +82,6 @@ msgid ""
 "If you update this profile, all products using this profile could also be "
 "updated. Changes can take a while."
 msgstr ""
-"Si vous mettez à jour ce profil, tous les produits utilisant ce profil "
-"pourrait aussi être mis à jour. Les changements pourrait prendre un certain "
-"temps."
 
 #. module: product_profile
 #: code:addons/product_profile/product.py:31
@@ -111,17 +99,6 @@ msgid ""
 "Check your settings on Profile model:\n"
 "%s"
 msgstr ""
-"Incident\n"
-"------\n"
-"%s\n"
-"la valeur '%s' ne peut être appliqué au champ '%s'.\n"
-"Il n'y a pas de valeur correspondante entre 'Profiles de Produit' \n"
-"et le modèle '%s' pur ce champ.\n"
-"\n"
-"Résolution\n"
-"----------\n"
-"Vérifiez votre configuration sur le modèle de Profil:\n"
-"%s"
 
 #. module: product_profile
 #: field:product.mixin.profile,__last_update:0
@@ -132,46 +109,46 @@ msgstr ""
 #. module: product_profile
 #: field:product.profile,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: product_profile
 #: field:product.profile,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: product_profile
 #: field:product.profile,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
 msgid "Product"
-msgstr "Article"
+msgstr "Producto"
 
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile
 msgid "Product Profile"
-msgstr "Profil de Produit"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
 #: view:product.profile:product_profile.product_profile_tree_view
 msgid "Product Profiles"
-msgstr "Profils de Produit"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
 msgid "Product Template"
-msgstr "Modèle d'article"
+msgstr "Plantilla de producto"
 
 #. module: product_profile
 #: field:product.product,profile_id:0
 #: view:product.template:product_profile.product_template_search_view
 #: field:product.template,profile_id:0
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #. module: product_profile
 #: field:product.product,profile_explanation:0
@@ -185,8 +162,6 @@ msgid ""
 "Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
-"Nom du profil affiché sur le modèle de produit(pas synchronisé avec les "
-"champs de product.template)"
 
 #. module: product_profile
 #: code:addons/product_profile/product.py:12
@@ -196,21 +171,18 @@ msgid ""
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
-"Ventes > Configuration \n"
-"> Catégories de produits et Caractéristiques\n"
-"> Profils de Produit"
 
 #. module: product_profile
 #: help:product.profile,type:0
 msgid "See 'type' field in product.template"
-msgstr "Voir le champ 'type' dans le modèle product.template"
+msgstr ""
 
 #. module: product_profile
 #: field:product.profile,sequence:0
 msgid "Sequence"
-msgstr "Séquence"
+msgstr ""
 
 #. module: product_profile
 #: field:product.profile,type:0
 msgid "Type"
-msgstr "Type"
+msgstr "Tipo"
