@@ -2,8 +2,7 @@
 <!-- © 2015 Antiun Ingeniería S.L. - Jairo Llopis
      © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
-<openerp>
-<data>
+<odoo>
 
     <record id="view_product_template_form_img_inh" model="ir.ui.view">
         <field name="name">Add multi images</field>
@@ -27,5 +26,4 @@
         </field>
     </record>
 
-</data>
-</openerp>
+</odoo>
