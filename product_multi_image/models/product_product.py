@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3).
 
 from openerp import api, fields, models
-from openerp.osv import orm
 from openerp.osv import fields as old_fields
+from openerp.osv import orm
 
 
 class ProductProduct(models.Model):
@@ -13,8 +13,10 @@ class ProductProduct(models.Model):
 
     # Make this field computed for getting only the available images
     image_ids = fields.One2many(
-        compute="_compute_image_ids", comodel_name="base_multi_image.image",
-        inverse="_inverse_image_ids")
+        comodel_name="base_multi_image.image",
+        compute="_compute_image_ids",
+        inverse="_inverse_image_ids",
+    )
     image_main = fields.Binary(inverse="_inverse_main_image_large")
     image_main_medium = fields.Binary(inverse="_inverse_main_image_medium")
     image_main_small = fields.Binary(inverse="_inverse_main_image_small")
