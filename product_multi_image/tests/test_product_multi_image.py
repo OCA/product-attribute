@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 # © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+# Copyright 2016 LasLabs Inc.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3).
 
-from openerp.tests import common
+from odoo.tests import common
+
+from odoo.addons.product_multi_image import hooks
 
 
 class TestProductMultiImage(common.TransactionCase):
@@ -117,7 +120,13 @@ class TestProductMultiImage(common.TransactionCase):
                 'owner_model': 'product.template',
             })],
         })
-        self.assertEqual(len(template.image_ids), 1)
+        self.assertEqual(
+            len(template.image_ids), 1,
+            'Product template did not start with singleton image_ids. '
+            'Got %s' % (
+                template.image_ids,
+            ),
+        )
         template.write({
             'attribute_line_ids': [
                 (0, 0, {
@@ -125,11 +134,61 @@ class TestProductMultiImage(common.TransactionCase):
                     'value_ids': [(6, 0, (self.value_1 + self.value_2).ids)],
                 })],
         })
-        self.assertEqual(len(template.image_ids), 1)
-        self.assertEqual(len(template.product_variant_ids[0].image_ids), 1)
+        self.assertEqual(
+            len(template.image_ids), 1,
+            'Product template did not retain the singleton image_ids. '
+            'Got %s' % (
+                template.image_ids,
+            ),
+        )
+        for variant in template.product_variant_ids:
+            self.assertEqual(
+                len(variant.image_ids), 1,
+                'Product variant did not receive the image_ids. Got %s' % (
+                    variant.image_ids,
+                )
+            )
 
     def test_remove_variant_with_image(self):
         self.product_template.image_ids[0].product_variant_ids = [
             (6, 0, self.product_1.ids)]
         self.product_1.unlink()
         self.assertEqual(len(self.product_template.image_ids), 1)
+
+    def test_image_product_variant_count(self):
+        """ It should provide a total of variants related to image """
+        image = self.product_1.image_ids[0]
+        image.product_variant_ids = [(6, 0, self.product_1.ids)]
+        self.assertEqual(
+            image.product_variant_count, 1,
+        )
+
+    def test_pre_init_hook_product(self):
+        """ It should populate the ``image_ids`` on existing product """
+        product = self.env.ref('product.product_product_2')
+        self.assertEqual(
+            len(product.image_ids), 1,
+        )
+
+    def test_pre_init_hook_template(self):
+        """ It should populate the ``image_ids`` on existing template """
+        product = self.env.ref('product.product_product_2_product_template')
+        self.assertEqual(
+            len(product.image_ids), 1,
+        )
+
+    def test_uninstall_hook_product(self):
+        """ It should remove ``image_ids`` associated with products """
+        hooks.uninstall_hook(self.env.cr, self.registry)
+        images = self.env['base_multi_image.image'].search(
+            [("owner_model", "=", 'product.product')],
+        )
+        self.assertFalse(len(images))
+
+    def test_uninstall_hook_teplate(self):
+        """ It should remove ``image_ids`` associated with templates """
+        hooks.uninstall_hook(self.env.cr, self.registry)
+        images = self.env['base_multi_image.image'].search(
+            [("owner_model", "=", 'product.template')],
+        )
+        self.assertFalse(len(images))
