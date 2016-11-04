@@ -5,7 +5,7 @@
 
 {
     "name": "Multiple Images in Products",
-    "version": "9.0.1.0.0",
+    "version": "10.0.1.0.0",
     "author": "Antiun Ingeniería, "
               "Tecnativa, "
               "LasLabs, "
@@ -14,6 +14,7 @@
     "website": "https://www.tecnativa.com",
     "category": "Sales Management",
     "pre_init_hook": "pre_init_hook",
+    "uninstall_hook": "uninstall_hook",
     "depends": [
         "base_multi_image",
         "product",
