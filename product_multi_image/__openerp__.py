@@ -5,13 +5,13 @@
 
 {
     "name": "Multiple Images in Products",
-    "version": "8.0.2.0.0",
-    "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
-              "Antiun Ingeniería, "
+    "version": "9.0.1.0.0",
+    "author": "Antiun Ingeniería, "
               "Tecnativa, "
+              "LasLabs, "
               "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "website": "http://www.serviciosbaeza.com",
+    "website": "https://www.tecnativa.com",
     "category": "Sales Management",
     "pre_init_hook": "pre_init_hook",
     "depends": [
