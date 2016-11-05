@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************************************************************** -->
+<!--Sale - Food Module for Odoo                                             -->
+<!--Copyright (C) 2012-Today GRAP (http://www.grap.coop)                    -->
+<!--@author Julien Weste                                                    -->
+<!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
+
+<!--This program is free software: you can redistribute it and/or modify    -->
+<!--it under the terms of the GNU Affero General Public License as          -->
+<!--published by the Free Software Foundation, either version 3 of the      -->
+<!--License, or (at your option) any later version.                         -->
+
+<!--This program is distributed in the hope that it will be useful,         -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!--GNU Affero General Public License for more details.                     -->
+
+<!--You should have received a copy of the GNU Affero General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.   -->
+<!-- ********************************************************************** -->
+<odoo>
+<!-- Model: product.pricetag.wizard -->
+    <record id="view_product_pricetag_wizard_form" model="ir.ui.view">
+          <field name="model">product.pricetag.wizard</field>
+          <field name="arch" type="xml">
+            <form string="Print Price Tags">
+                <group colspan="2">
+                    <group string="Products" col="4" colspan="2">
+                        <field name="category_print_id" invisible="1"/>
+                        <field name="line_ids" options="{'reload_on_button': true}" nolabel="1">
+                            <tree string="Products" editable="top">
+                                <field name="product_id" domain="[('category_print_id', '=', parent.category_print_id)]"/>
+                                <field name="quantity"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="check_report" string="Print" type="object" icon="gtk-print"/>
+                        or
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                    </footer>
+                </group>
+            </form>
+          </field>
+    </record>
+
+    <record id="action_product_pricetag_wizard" model="ir.actions.act_window">
+        <field name="name">Print Price Tag</field>
+        <field name="res_model">product.pricetag.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="print_pricetags_server_action" model="ir.actions.server">
+        <field name="name">Print Pricetags</field>
+        <field name="model_id" ref="product.model_product_product" />
+        <field name="state">code</field>
+        <field name="code">self.print_pricetags(cr, uid, context['active_ids'], context=context)</field>
+    </record>
+
+    <record id="print_pricetags" model="ir.values">
+        <field name="model_id" ref="product_to_print.model_product_pricetag_wizard" />
+        <field name="name">Print Pricetags</field>
+        <field name="key2">client_action_multi</field>
+        <field name="key">action</field>
+        <field name="model">product.product</field>
+        <field name="value" eval="'ir.actions.server,' + str(ref('print_pricetags_server_action'))" />
+    </record>
+</odoo>

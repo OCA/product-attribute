@@ -16,6 +16,10 @@ class ProductCategoryprint(models.Model):
         product_obj = self.env['product.product']
         return len(product_obj.search([('to_print', '=', True)]))
 
+    @api.model
+    def _get_default_model(self):
+        return self.env['pricetag.model'].search([], limit=1)
+
     # Fields Section
     name = fields.Char(string='Name', required=True)
 
@@ -48,6 +52,10 @@ class ProductCategoryprint(models.Model):
         relation='product_category_print_field_rel', column1='category_id',
         column2='field_id', domain="[('model', '=', 'product.template')]")
 
+    pricetag_model_id = fields.Many2one(
+        'pricetag.model', 'Pricetag Model',
+        default=lambda s: s._get_default_model())
+
     # Compute Section
     @api.multi
     @api.depends('product_ids.category_print_id')
@@ -74,7 +82,9 @@ class ProductCategoryprint(models.Model):
     @api.multi
     def products_to_print(self):
         ctx = self._context.copy()
-        ctx.update({'journal_category_print_id': self.id, 'default_category_print_id': self.id})
+        ctx.update({
+            'journal_category_print_id': self.id,
+            'default_category_print_id': self.id})
         return {
             'name': _('Products To Print'),
             'type': 'ir.actions.act_window',

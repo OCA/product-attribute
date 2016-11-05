@@ -7,26 +7,70 @@
 
 <odoo>
 
-        <record model="ir.ui.view" id="view_product_product_form">
+    <record model="ir.ui.view" id="view_product_product_form_print">
         <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_normal_form_view" />
-            <field name="arch" type="xml">
-                <field name="barcode" position="after">
-                    <field name="to_print" />
-                    <field name="category_print_id" />
-                </field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="name">view.product.product.form.print</field>
+        <field name="groups_id" eval="[(4, ref('product_to_print.group_pricetag_user'))]"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="category_print_id"/>
+                <field name="to_print" invisible="1"/>
+                 <p colspan="2" class='alert alert-warning' attrs="{'invisible':[('to_print','=',False)]}">Pricetag to reprint!</p>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record model="ir.ui.view" id="view_product_product_search">
+    <record model="ir.ui.view" id="view_product_product_search_print">
         <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_search_form_view" />
-            <field name="arch" type="xml">
-                <field name="product_tmpl_id" position="after">
-                    <field name="category_print_id"/>
-                    <filter string="To print" name="filter_to_print" domain="[('to_print', '=', True)]"/>
-                </field>
+        <field name="inherit_id" ref="product.product_search_form_view"/>
+        <field name="name">view.product.product.search.form.print</field>
+        <field name="groups_id" eval="[(4, ref('product_to_print.group_pricetag_user'))]"/>
+        <field name="arch" type="xml">
+            <field name="product_tmpl_id" position="after">
+                <field name="category_print_id"/>
+                <filter string="To print" name="filter_to_print" domain="[('to_print', '=', True)]"/>
             </field>
-        </record>
+        </field>
+    </record>
 
+    <record id="product_template_form_view_print" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="name">view.product.template.form.print</field>
+        <field name="groups_id" eval="[(4, ref('product_to_print.group_pricetag_user'))]"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="category_print_id"/>
+                <field name="to_print" invisible="1"/>
+                 <p colspan="2" class='alert alert-warning' attrs="{'invisible':[('to_print','=',False)]}">Pricetag to reprint!</p>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_template_search_print">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="name">view.product.template.search.form.print</field>
+        <field name="groups_id" eval="[(4, ref('product_to_print.group_pricetag_user'))]"/>
+        <field name="arch" type="xml">
+            <field name="pricelist_id" position="after">
+                <field name="category_print_id"/>
+                <filter string="To print" name="filter_to_print" domain="[('to_print', '=', True)]"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_normal_action_print" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_type">form</field>
+        <field name="search_view_id" ref="view_product_product_search_print"/>
+        <field name="view_id" eval="False"/> <!-- Force empty -->
+        <field name="context">{'search_default_category_print_id': [active_id], 'search_category_print_id': active_id}</field>
+    </record>
+
+    <delete model="ir.actions.report.xml" id="product.report_product_label"/>
 </odoo>

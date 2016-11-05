@@ -10,7 +10,7 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     category_print_id = fields.Many2one(
-        string='Print Category', comodel_name='product.category.print')
+        string='Print Category', related='product_tmpl_id.category_print_id')
 
     to_print = fields.Boolean(string='To Print')
 
@@ -28,7 +28,7 @@ class ProductProduct(models.Model):
             if product.category_print_id:
                 if len(list(
                         set(vals.keys()) &
-                        set(product.category_print_id.field_ids.\
+                        set(product.category_print_id.field_ids.
                             mapped('name')))):
                     product_ids.append(product.id)
         products = self.browse(product_ids)

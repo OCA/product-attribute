@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************************************************************** -->
+<!--Sale - Food Module for Odoo                                             -->
+<!--Copyright (C) 2012-Today GRAP (http://www.grap.coop)                    -->
+<!--@author Julien Weste                                                    -->
+<!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
+
+<!--This program is free software: you can redistribute it and/or modify    -->
+<!--it under the terms of the GNU Affero General Public License as          -->
+<!--published by the Free Software Foundation, either version 3 of the      -->
+<!--License, or (at your option) any later version.                         -->
+
+<!--This program is distributed in the hope that it will be useful,         -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!--GNU Affero General Public License for more details.                     -->
+
+<!--You should have received a copy of the GNU Affero General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.   -->
+<!-- ********************************************************************** -->
+<odoo>
+
+<!-- Model: pricetag_model -->
+    <record id="view_pricetag_model_search" model="ir.ui.view">
+        <field name="model">pricetag.model</field>
+        <field name="arch" type="xml">
+            <search string="Paper Format">
+                <field name="name"/>
+                <field name="pricetag_paperformat_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_pricetag_model_form" model="ir.ui.view">
+        <field name="model">pricetag.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <label class="oe_edit_only" for="name" string="Name"/>
+                    <h1><field name="name" placeholder="Model Name"/></h1>
+                </div>
+                <group cols="4">
+                    <field name="pricetag_paperformat_id"/>
+                    <field name="report_model"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
