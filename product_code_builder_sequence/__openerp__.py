@@ -5,7 +5,7 @@
 
 
 {'name': 'Product Code Builder Sequence',
- 'version': '8.0.0.0.1',
+ 'version': '9.0.1.0.0',
  'author': "Akretion,Odoo Community Association (OCA)",
  'website': 'www.akretion.com',
  'license': 'AGPL-3',

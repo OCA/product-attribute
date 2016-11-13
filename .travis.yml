@@ -26,9 +26,9 @@ env:
   matrix:
   - LINT_CHECK="1"
   - TRANSIFEX="1"
-  - TESTS="1" EXCLUDE="product_sequence" ODOO_REPO="odoo/odoo"
+  - TESTS="1" EXCLUDE="product_sequence,product_code_builder_sequence" ODOO_REPO="odoo/odoo"
   - TESTS="1" INCLUDE="product_sequence" ODOO_REPO="odoo/odoo"
-  - TESTS="1" EXCLUDE="product_sequence" ODOO_REPO="OCA/OCB"
+  - TESTS="1" EXCLUDE="product_sequence,product_code_builder_sequence" ODOO_REPO="OCA/OCB"
   - TESTS="1" INCLUDE="product_sequence" ODOO_REPO="OCA/OCB"
 
 virtualenv:
