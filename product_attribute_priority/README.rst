@@ -9,6 +9,12 @@ This module extends product attributes, adds a priority field that is copied to
   priority of display variants, helping to order the attributes in products
   variant descriptions.
 
+Usage
+=====
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/135/9.0
 
 Credits
 =======
