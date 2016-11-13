@@ -1,1 +1,1 @@
-from . import test_code
+from . import test_product_code

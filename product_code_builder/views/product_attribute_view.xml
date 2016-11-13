@@ -5,8 +5,7 @@
   The licence is in the file __openerp__.py
 -->
 
-<openerp>
-  <data>
+<odoo>
     <!-- INHERITED VIEW FOR THE OBJECT : product_attribute -->
 
     <record id="attribute_tree_view" model="ir.ui.view">
@@ -58,5 +57,4 @@
         </field>
     </record>
 
-  </data>
-</openerp>
+  </odoo>

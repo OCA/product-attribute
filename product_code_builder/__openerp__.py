@@ -9,8 +9,11 @@
     'website': "https://www.akretion.com",
     'license': 'AGPL-3',
     'category': 'Product',
-    'version': '8.0.0.0.1',
-    'depends': ['product'],
+    'version': '9.0.1.0.0',
+    'depends': [
+        'product',
+        'product_attribute_priority',
+    ],
     'data': [
         'views/product_view.xml',
         'views/product_attribute_view.xml'

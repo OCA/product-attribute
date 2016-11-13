@@ -9,32 +9,8 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     code = fields.Char('Code')
-    # MIGRATION V9 or upper
-    # field below is now in product_attribute_priority
-    # put dependency on it
-    sequence = fields.Integer('Sequence')
 
     _sql_constraints = [
         ('attr_code_uniq', 'unique(code)',
          "With each Attribute we must be found a unique 'code'"),
     ]
-
-
-class ProductAttributeValue(models.Model):
-    _inherit = "product.attribute.value"
-    _code = "code"
-    _order = "attribute_sequence,sequence,name"
-
-    code = fields.Char('Code')
-    comment = fields.Text('Comment')
-    # MIGRATION V9 or upper
-    # field below is now in product_attribute_priority
-    # put dependency on it
-    attribute_sequence = fields.Integer(
-        related="attribute_id.sequence",
-        store=True)
-
-    _sql_constraints = [
-        ('attr_val_code_uniq', 'unique(code, attribute_id)',
-         "For each Attribute we must be found a unique 'code'"),
-        ]

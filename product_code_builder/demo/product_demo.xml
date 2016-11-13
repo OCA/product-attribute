@@ -1,5 +1,10 @@
-<openerp>
-<data>
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2015 Akretion (http://www.akretion.com). All Rights Reserved
+  @author Benoît GUILLOT <benoit.guillot@akretion.com>
+  The licence is in the file __openerp__.py
+-->
+<odoo>
 
     <record id="product.product_product_4_product_template" model="product.template">
         <field name="prefix_code">RET</field>
@@ -15,5 +20,4 @@
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
     </record>
 
-</data>
-</openerp>
+</odoo>

@@ -1,5 +1,10 @@
-<openerp>
-<data>
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2015 Akretion (http://www.akretion.com). All Rights Reserved
+  @author Benoît GUILLOT <benoit.guillot@akretion.com>
+  The licence is in the file __openerp__.py
+-->
+<odoo>
 
     <record id="product_template_only_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
@@ -46,6 +51,4 @@
       <field name="state">open</field>
     </record>
 
-
-</data>
-</openerp>
+</odoo>
