@@ -13,13 +13,13 @@ This module adds missing unit of measures and their categories:
 Known issues / Roadmap
 ======================
 
-* ...
+* Add other unit of measures and categories based on the demand
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/partner-contact/issues>`_. In case of trouble, please
+<https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 
