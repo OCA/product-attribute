@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="product_uom_calorie" model="product.uom">
+            <field name="category_id" ref="product_category_energy"/>
+            <field name="name">Calorie</field>
+        </record>
+
+    </data>
+</odoo>
