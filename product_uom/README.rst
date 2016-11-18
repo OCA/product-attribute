@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-Product Unit of Measure
-=======================
+================
+Unit of Measures
+================
 
 This module adds missing unit of measures and their categories:
 
