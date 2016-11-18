@@ -6,7 +6,7 @@
     "summary": "Provide missing uom",
     "version": "9.0.1.0.0",
     "category": "Uncategorized",
-    "website": "https://ursainfosystems.com",
+    "website": "http://ursainfosystems.com",
     "author": "Ursa Information Systems, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
