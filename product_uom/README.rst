@@ -8,7 +8,9 @@ Unit of Measures
 
 This module adds missing unit of measures and their categories:
 
-* Energy / Heat: calorie
+* Energy / Heat: calorie, kilocalorie, kilojoule
+* Metric Volume
+* Time
 
 Known issues / Roadmap
 ======================
@@ -35,6 +37,7 @@ Contributors
 ------------
 
 * Maxime Chambreuil <mchambreuil@ursainfosystems.com>
+* Dave Lasley <dave@laslabs.com>
 
 Maintainer
 ----------
