@@ -4,10 +4,12 @@
 {
     "name": "Unit of Measures",
     "summary": "Provide missing uom",
-    "version": "9.0.1.0.0",
+    "version": "9.0.1.0.1",
     "category": "Uncategorized",
     "website": "http://ursainfosystems.com",
-    "author": "Ursa Information Systems, Odoo Community Association (OCA)",
+    "author": "Ursa Information Systems, "
+              "Laslabs, "
+              "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
