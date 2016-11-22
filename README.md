@@ -17,7 +17,7 @@ addon | version | summary
 [product_manufacturer](product_manufacturer/) | 9.0.1.0.0 | Products Manufacturers
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
 [product_sequence](product_sequence/) | 9.0.1.0.0 | Product Sequence
-[product_uom](product_uom/) | 9.0.1.0.0 | Provide missing uom
+[product_uom](product_uom/) | 9.0.1.0.1 | Provide missing uom
 
 Unported addons
 ---------------
