@@ -43,8 +43,7 @@ class ProductTemplate(models.Model):
                 ('ttype', '=', 'many2one')])
             for field in erp_fields:
                 res = self.env[field.model_id.model].search([
-                    (field.name, 'in', [x.id for x in
-                                        product.product_variant_ids])])
+                    (field.name, 'in', product.product_variant_ids.ids)])
                 used_products = used_products or len(res)
                 if used_products:
                     return True
