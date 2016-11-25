@@ -4,7 +4,7 @@
 {
     "name": "Product Kosher",
     "version": "8.0.1.0.0",
-    "summary": "Product's kosher certificate information',
+    "summary": "Product's kosher certificate information",
     "category": "Product",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
