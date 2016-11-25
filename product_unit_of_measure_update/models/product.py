@@ -46,6 +46,7 @@ class ProductTemplate(models.Model):
                     (field.name, 'in', product.product_variant_ids.ids)])
                 used_products = used_products or len(res)
                 if used_products:
+                    # product used once is sufficient to stop checking
                     return True
         return used_products
 

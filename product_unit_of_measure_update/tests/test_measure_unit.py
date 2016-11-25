@@ -16,15 +16,48 @@ class TestMeasureUnit(TransactionCase):
         self.unit_day = self.env.ref('product.product_uom_day')
         self.unit_gal = self.env.ref('product.product_uom_gal')
 
-    def test_write_tmpl_with_data(self):
-        tmpl_with_data = self.env.ref(
-            'product.product_product_7_product_template')
-        try:
-            tmpl_with_data.write({'uom_id': self.unit_gal.id})
-        except Exception:
-            _logger.info('Impossible to modify unit of measure')
-        self.assertNotEqual(
-            tmpl_with_data.uom_id,
-            self.unit_cm,
+    def test_10_prod_tmpl_not_used(self):
+        # Datacard product
+        product = self.env.ref(
+            'product.product_product_9_product_template')
+        # write should NOT fails
+        self.try2write_product(product, self.unit_gal, self.unit_day)
+        self.assertEqual(
+            product.uom_id,
+            self.unit_gal,
             "Unit on product '%s' should be '%s'" % (
-                tmpl_with_data.name, self.unit_gal.name))
+                product.name, self.unit_gal.name))
+        self.assertEqual(
+            product.uom_po_id,
+            self.unit_day,
+            "Unit on product '%s' should be '%s'" % (
+                product.name, self.unit_day.name))
+
+    def test_20_product_used(self):
+        product = self.env.ref(
+            'product.product_product_46')
+        procurement_data = {
+            'name': 'test',
+            'product_id': product.id,
+            'product_qty': 2,
+            'product_uom': product.uom_id.id,
+        }
+        self.env['procurement.order'].create(procurement_data)
+        # write should fails
+        self.try2write_product(product, self.unit_gal, self.unit_day)
+        self.assertNotEqual(
+            product.uom_id,
+            self.unit_gal,
+            "Unit on product '%s' should NOT be '%s'" % (
+                product.name, self.unit_gal.name))
+
+    def try2write_product(self, product, uom, uom_po):
+        try:
+            # even if write fails
+            # we need to go further in the test
+            product.write({
+                'uom_id': uom.id,
+                'uom_po_id': uom_po.id,
+            })
+        except Exception:
+            _logger.info('Impossible to update unit of measure')
