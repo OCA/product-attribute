@@ -13,14 +13,13 @@ class ProductKosher(models.Model):
     _order = "date_start desc"
 
     name = fields.Char(
-        string="#No. Certificate",
+        string="# Certificate",
         required=True,
-        size=64
     )
     product_tmpl_id = fields.Many2one(
         string="Product Template",
         comodel_name="product.template",
-        ondelete='cascade',
+        ondelete="cascade",
         required=True
     )
     date_start = fields.Date(
