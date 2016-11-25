@@ -30,6 +30,13 @@ class ProductKosher(models.Model):
         string="End Date"
     )
 
+    _sql_constraints = [
+        ("date_unique",
+         "unique(product_tmpl_id,date_start)",
+         _("No duplicate date start"),
+         ),
+    ]
+
     @api.constrains(
         "date_start", "date_end")
     def _check_date(self):

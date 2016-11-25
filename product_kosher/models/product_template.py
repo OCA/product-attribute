@@ -24,13 +24,16 @@ class ProductTemplate(models.Model):
     def _compute_kosher_state(self):
         date_now = datetime.now().strftime("%Y-%m-%d")
         for product in self:
+            product.kosher_id = False
             if product.kosher_ids:
                 kosher = product.kosher_ids[0]
                 if not kosher.date_end:
                     product.kosher_state = "certified"
+                    product.kosher_id = kosher
                 else:
                     if kosher.date_end > date_now:
                         product.kosher_state = "certified"
+                        product.kosher_id = kosher
                     else:
                         product.kosher_state = "not_certified"
             else:
@@ -40,6 +43,11 @@ class ProductTemplate(models.Model):
         string="Product Kosher",
         comodel_name="product.kosher",
         inverse_name="product_tmpl_id"
+    )
+    kosher_id = fields.Many2one(
+        string="Active Kosher Certificate",
+        comodel_name="product.kosher",
+        compute="_compute_kosher_state",
     )
     kosher_state = fields.Selection(
         string="Kosher Status",

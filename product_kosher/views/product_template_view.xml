@@ -13,6 +13,7 @@
                     <page string="Kosher Certificate">
                         <group>
                             <field name="kosher_state"/>
+                            <field name="kosher_id"/>
                             <field name="kosher_ids" nolabel="1" colspan="4">
                                 <tree string="Product Kosher" editable="bottom">
                                     <field name="name"/>
