@@ -16,9 +16,10 @@ class ProductTemplate(models.Model):
 
     @api.multi
     @api.depends(
-        'kosher_ids.name',
-        'kosher_ids.date_start',
-        'kosher_ids.date_end'
+        "kosher_ids",
+        "kosher_ids.name",
+        "kosher_ids.date_start",
+        "kosher_ids.date_end",
     )
     def _compute_kosher_state(self):
         date_now = datetime.now().strftime("%Y-%m-%d")
