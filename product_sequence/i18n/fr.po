@@ -3,20 +3,20 @@
 # * product_sequence
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2017-05-05 02:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"POT-Creation-Date: 2017-05-23 02:40+0000\n"
+"PO-Revision-Date: 2017-05-23 02:40+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:45
@@ -27,7 +27,7 @@ msgstr ""
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
-msgstr "Producte"
+msgstr "Article"
 
 #. module: product_sequence
 #: sql_constraint:product.product:0
