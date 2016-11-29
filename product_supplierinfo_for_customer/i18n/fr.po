@@ -4,19 +4,20 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.actions.act_window,help:product_supplierinfo_for_customer.product_supplierinfo_action
@@ -26,25 +27,22 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"Pulse para definir una nueva definición de producto-empresa.\n"
-"</p>\n"
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: selection:product.supplierinfo,type:0 field:product.template,customer_ids:0
 msgid "Customer"
-msgstr "Cliente"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
 msgid "Customers"
-msgstr "Clientes"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Group By"
-msgstr "Agrupar por"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.actions.act_window,name:product_supplierinfo_for_customer.product_supplierinfo_action
@@ -55,7 +53,7 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
 msgid "Information about a product supplier"
-msgstr "Información de un proveedor de producto"
+msgstr "Information à propos du fournisseur du produit"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
@@ -63,50 +61,50 @@ msgstr "Información de un proveedor de producto"
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_tree_view
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Partner"
-msgstr "Empresa"
+msgstr "Partenaire"
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
 msgid "Partner Product Code"
-msgstr "Código de producto para la empresa"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
 msgid "Partner Product Name"
-msgstr "Nombre de producto para la empresa"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
 msgid "Partner Unit of Measure"
-msgstr "Unidad de medida de empresa"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist
 msgid "Pricelist"
-msgstr ""
+msgstr "Liste de prix"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr "Modèle d'article"
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: selection:product.supplierinfo,type:0 field:product.template,supplier_ids:0
 msgid "Supplier"
-msgstr "Proveedor"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Supplierinfo search"
-msgstr "Búsqueda de producto-empresa"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: field:product.supplierinfo,type:0
 msgid "Type"
-msgstr "Tipo"
+msgstr "Type"
 
 #. module: product_supplierinfo_for_customer
 #: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
