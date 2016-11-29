@@ -3,33 +3,33 @@
 # * product_sequence
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
+# Bole <bole@dajmi5.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2017-05-05 02:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"POT-Creation-Date: 2018-01-03 02:14+0000\n"
+"PO-Revision-Date: 2018-01-03 02:14+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2018\n"
+"Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:45
 #, python-format
 msgid "-copy"
-msgstr ""
+msgstr "-kopija"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
-msgstr "Producte"
+msgstr "Proizvod"
 
 #. module: product_sequence
 #: sql_constraint:product.product:0
 msgid "The reference must be unique"
-msgstr ""
+msgstr "Referenca mora biti jedinstvena"
