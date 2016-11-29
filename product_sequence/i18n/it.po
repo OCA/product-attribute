@@ -3,19 +3,19 @@
 # * product_sequence
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
 "PO-Revision-Date: 2017-05-05 02:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_sequence
@@ -27,7 +27,7 @@ msgstr ""
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
-msgstr "Producte"
+msgstr "Prodotto"
 
 #. module: product_sequence
 #: sql_constraint:product.product:0
