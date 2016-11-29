@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_multi_image
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: product_multi_image
+#: view:base_multi_image.image:product_multi_image.image_form_view
+msgid "(keep empty for being visible for all variants)"
+msgstr "(pustite prazno za vidnost vseh variant)"
+
+#. module: product_multi_image
+#: help:base_multi_image.image,product_variant_ids:0
+msgid ""
+"If you leave it empty, all variants will show this image. Selecting one or "
+"several of the available variants, you restrict the availability of the "
+"image to those variants."
+msgstr ""
+"Če pustite prazno, bodo vse variante prikazovale to sliko. Izbira ene ali "
+"več razpoložljivih variant omeji razpoložljivost slike na te variante."
+
+#. module: product_multi_image
+#: field:product.product,image_ids:0
+#: view:product.template:product_multi_image.view_product_template_form_img_inh
+#: field:product.template,image_ids:0
+msgid "Images"
+msgstr "Slike"
+
+#. module: product_multi_image
+#: field:product.product,image_main:0 field:product.template,image_main:0
+msgid "Main image"
+msgstr "Glavna slika"
+
+#. module: product_multi_image
+#: field:product.product,manufacturer:0
+msgid "Manufacturer"
+msgstr "Proizvajalec"
+
+#. module: product_multi_image
+#: field:product.product,manufacturer_pref:0
+msgid "Manufacturer Product Code"
+msgstr "Dobaviteljeva koda izdelka"
+
+#. module: product_multi_image
+#: field:product.product,manufacturer_pname:0
+msgid "Manufacturer Product Name"
+msgstr "Dobaviteljevo ime izdelka"
+
+#. module: product_multi_image
+#: field:product.product,manufacturer_purl:0
+msgid "Manufacturer Product URL"
+msgstr "Proizvajalčeva URL proizvoda"
+
+#. module: product_multi_image
+#: field:product.product,image_main_medium:0
+#: field:product.template,image_main_medium:0
+msgid "Medium image"
+msgstr "Srednje velika slika"
+
+#. module: product_multi_image
+#: model:ir.model,name:product_multi_image.model_product_product
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_multi_image
+#: field:product.product,categ_ids:0
+msgid "Product Categories"
+msgstr "Kategorije proizvodov"
+
+#. module: product_multi_image
+#: model:ir.model,name:product_multi_image.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_multi_image
+#: field:base_multi_image.image,product_variant_count:0
+msgid "Product variant count"
+msgstr "Števec variant proizvoda"
+
+#. module: product_multi_image
+#: field:product.product,image_main_small:0
+#: field:product.template,image_main_small:0
+msgid "Small image"
+msgstr "Majhna slika"
+
+#. module: product_multi_image
+#: view:base_multi_image.image:product_multi_image.image_kanban_view
+msgid "Visible in"
+msgstr "Vidno pri"
+
+#. module: product_multi_image
+#: view:base_multi_image.image:product_multi_image.image_kanban_view
+msgid "Visible in all variants"
+msgstr "Vidno pri vseh variantah"
+
+#. module: product_multi_image
+#: field:base_multi_image.image,product_variant_ids:0
+msgid "Visible in these variants"
+msgstr "Vidno pri teh variantah"
+
+#. module: product_multi_image
+#: view:base_multi_image.image:product_multi_image.image_kanban_view
+msgid "variant(s)"
+msgstr "varianta(e)"

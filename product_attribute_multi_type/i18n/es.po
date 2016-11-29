@@ -1,24 +1,42 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_attribute_multi_type
-#
+# * product_attribute_multi_type
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 08:56+0000\n"
-"PO-Revision-Date: 2014-12-30 08:56+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_attribute_multi_type
+#: view:product.attribute.value:product_attribute_multi_type.product_attribute_value_search_view
+msgid "Attribute"
+msgstr ""
+
+#. module: product_attribute_multi_type
+#: view:product.attribute.value:product_attribute_multi_type.product_attribute_value_search_view
+msgid "Attribute Type"
+msgstr ""
 
 #. module: product_attribute_multi_type
 #: field:product.attribute.line,default:0
 msgid "Default"
 msgstr "Por defecto"
+
+#. module: product_attribute_multi_type
+#: view:product.attribute.value:product_attribute_multi_type.product_attribute_value_search_view
+msgid "Group By"
+msgstr "Agrupar por"
 
 #. module: product_attribute_multi_type
 #: field:product.attribute.value,max_range:0
@@ -61,7 +79,19 @@ msgid "Select"
 msgstr "Selección"
 
 #. module: product_attribute_multi_type
+#: code:addons/product_attribute_multi_type/models/product.py:61
+#, python-format
+msgid "The min range should be less than the max range."
+msgstr ""
+
+#. module: product_attribute_multi_type
 #: field:product.attribute,attr_type:0
+#: field:product.attribute.line,attr_type:0
+#: field:product.attribute.value,attr_type:0
 msgid "Type"
 msgstr "Tipo"
 
+#. module: product_attribute_multi_type
+#: view:product.attribute.value:product_attribute_multi_type.product_attribute_value_search_view
+msgid "Variant Values"
+msgstr ""

@@ -1,0 +1,189 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pricelist_per_product
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Base"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Click to see this product"
+msgstr ""
+
+#. module: pricelist_per_product
+#: field:product.pricelist.item,currency_name:0
+msgid "Currency"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid ""
+"Define a price for this variant according to attribute price extra if any "
+"(tab 'Variants')"
+msgstr ""
+
+#. module: pricelist_per_product
+#: code:addons/pricelist_per_product/pricelist.py:8
+#: help:product.pricelist,price_grid:0
+#: help:product.pricelist.version,price_grid:0
+#, python-format
+msgid ""
+"Define if the price list items are filled\n"
+"from product form with a grid of specific values\n"
+"for each product"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Disc."
+msgstr ""
+
+#. module: pricelist_per_product
+#: field:product.pricelist.item,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: pricelist_per_product
+#: help:product.pricelist.item,related_sequence:0
+msgid ""
+"Gives the order in which the pricelist items will be checked. The evaluation"
+" gives highest priority to lowest sequence and stops as soon as a matching "
+"item is found."
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:product.pricelist.version,name:pricelist_per_product.pricelist_grid_version
+msgid "Grid Version"
+msgstr ""
+
+#. module: pricelist_per_product
+#: field:product.pricelist.version,item_grid_ids:0
+msgid "Item grid ids"
+msgstr ""
+
+#. module: pricelist_per_product
+#: help:product.pricelist.item,date_end:0
+msgid "Last valid date for the version."
+msgstr ""
+
+#. module: pricelist_per_product
+#: help:product.pricelist.version,tmpl_in_count:0
+msgid "Number of Product Template with this Pricelist version"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.actions.client,name:pricelist_per_product.action_pricelist_per_product_module_install
+msgid "Open pricelist per product Menu"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid "Price"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Price Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist
+msgid "Pricelist"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:product.pricelist,name:pricelist_per_product.pricelist_grid
+msgid "Pricelist Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: field:product.template,pricelist_item_ids:0
+msgid "Pricelist Items"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist_version
+msgid "Pricelist Version"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr "Element de la tarifa"
+
+#. module: pricelist_per_product
+#: field:product.pricelist,price_grid:0
+#: field:product.pricelist.version,price_grid:0
+msgid "Product Price Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid "Product Variant"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Products templates with this version (click to see them)"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.template:pricelist_per_product.product_template_form_view
+msgid "Public price"
+msgstr ""
+
+#. module: pricelist_per_product
+#: field:product.pricelist.item,related_sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "Show Products"
+msgstr ""
+
+#. module: pricelist_per_product
+#: field:product.pricelist.version,tmpl_in_count:0
+msgid "Template with this Version"
+msgstr ""
+
+#. module: pricelist_per_product
+#: help:product.template,pricelist_item_ids:0
+msgid ""
+"These prices are defined with absolute values\n"
+"(no calculation with discount)"
+msgstr ""
+
+#. module: pricelist_per_product
+#: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
+msgid "{'invisible': [('price_grid', '=', True)]}"
+msgstr ""

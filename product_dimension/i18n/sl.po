@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_dimension
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: product_dimension
+#: field:product.product,custom_info_template_id:0
+msgid "Custom Information Template"
+msgstr "Predloga podatkov po meri"
+
+#. module: product_dimension
+#: field:product.product,custom_info_ids:0
+msgid "Custom Properties"
+msgstr "Lastnosti po meri"
+
+#. module: product_dimension
+#: field:product.product,dimensional_uom_id:0
+#: field:product.template,dimensional_uom_id:0
+msgid "Dimensional UoM"
+msgstr "EM dimenzij"
+
+#. module: product_dimension
+#: view:product.product:product_dimension.product_normal_form_view
+#: view:product.template:product_dimension.product_template_only_form_view
+msgid "Dimensions"
+msgstr "Dimenzije"
+
+#. module: product_dimension
+#: field:product.product,height:0 field:product.template,height:0
+msgid "Height"
+msgstr "Višina"
+
+#. module: product_dimension
+#: field:product.product,length:0 field:product.template,length:0
+msgid "Length"
+msgstr "Dolžina"
+
+#. module: product_dimension
+#: model:ir.model,name:product_dimension.model_product_product
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_dimension
+#: model:ir.model,name:product_dimension.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_dimension
+#: help:product.product,dimensional_uom_id:0
+#: help:product.template,dimensional_uom_id:0
+msgid "UoM for length, height, width"
+msgstr "EM za dolžino, višino in širino"
+
+#. module: product_dimension
+#: field:product.product,width:0 field:product.template,width:0
+msgid "Width"
+msgstr "Širina"

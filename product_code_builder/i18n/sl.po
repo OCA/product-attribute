@@ -1,0 +1,135 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_code_builder
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: product_code_builder
+#: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
+msgid "Attribute"
+msgstr "Atribut"
+
+#. module: product_code_builder
+#: field:product.product,auto_default_code:0
+#: field:product.template,auto_default_code:0
+msgid "Automatic Reference"
+msgstr "Samodejni sklic"
+
+#. module: product_code_builder
+#: field:product.attribute,code:0 field:product.attribute.value,code:0
+msgid "Code"
+msgstr "Koda"
+
+#. module: product_code_builder
+#: field:product.attribute.value,comment:0
+msgid "Comment"
+msgstr "Komentar"
+
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:99
+#, python-format
+msgid ""
+"Default can no be set manually as the product is configured to have a "
+"computed code"
+msgstr ""
+"Ni možno ročno nastaviti privzetih nastavitev, ker nastavitve proizvoda "
+"predvidevajo izvršeno kodo"
+
+#. module: product_code_builder
+#: sql_constraint:product.attribute.value:0
+msgid "For each Attribute we must be found a unique 'code'"
+msgstr "Za vsak atribut se mora najti unikatna koda"
+
+#. module: product_code_builder
+#: help:product.product,auto_default_code:0
+#: help:product.template,auto_default_code:0
+msgid "Generate a reference automatically based on attribute codes"
+msgstr "Samodejno ustvari sklic glede na kode atributa"
+
+#. module: product_code_builder
+#: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
+msgid "Group by..."
+msgstr "Združi po"
+
+#. module: product_code_builder
+#: field:product.product,prefix_code:0 field:product.template,prefix_code:0
+msgid "Internal Reference"
+msgstr "Interni sklic"
+
+#. module: product_code_builder
+#: field:product.product,manual_default_code:0
+msgid "Manual default code"
+msgstr "Ročna privzeta koda"
+
+#. module: product_code_builder
+#: model:ir.actions.client,name:product_code_builder.action_open_adhoc_menu
+msgid "Open Menu"
+msgstr "Odpri meni"
+
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_product
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atribut proizvoda"
+
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_code_builder
+#: sql_constraint:product.template:0
+msgid "The reference must be unique"
+msgstr "Sklic mora biti unikaten"
+
+#. module: product_code_builder
+#: help:product.product,prefix_code:0 help:product.template,prefix_code:0
+msgid ""
+"This is the code of the product modelIf Automatic Reference is checked, this field is used as a prefix for the product variant reference.\n"
+"In case that there is only one variant this code is the same as the code of the uniq variant"
+msgstr ""
+"To je koda modela proizvoda. Če je označen samodejni sklic, se polje uporablja kot predpona sklica različice proizvoda.\n"
+"V primeru, da obstaja le ena različica, je ta koda enaka kodi edine različice"
+
+#. module: product_code_builder
+#: sql_constraint:product.attribute:0
+msgid "With each Attribute we must be found a unique 'code'"
+msgstr "Za vsak atribut se mora najti unikatna koda"
+
+#. module: product_code_builder
+#: help:product.product,manual_default_code:0
+msgid "hidden field"
+msgstr "skrito polje"
+
+#. module: product_code_builder
+#: view:product.product:product_code_builder.product_normal_form_view
+msgid ""
+"{\n"
+"                    'readonly': [('auto_default_code', '=', True)]}"
+msgstr ""
+"{\n"
+"                    'readonly': [('auto_default_code', '=', True)]}"
+
+#. module: product_code_builder
+#: view:product.template:product_code_builder.product_template_only_form_view
+msgid "{'invisible': 1}"
+msgstr "{'invisible': 1}"

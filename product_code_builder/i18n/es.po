@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_code_builder
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_code_builder
+#: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
+msgid "Attribute"
+msgstr ""
+
+#. module: product_code_builder
+#: field:product.product,auto_default_code:0
+#: field:product.template,auto_default_code:0
+msgid "Automatic Reference"
+msgstr ""
+
+#. module: product_code_builder
+#: field:product.attribute,code:0 field:product.attribute.value,code:0
+msgid "Code"
+msgstr ""
+
+#. module: product_code_builder
+#: field:product.attribute.value,comment:0
+msgid "Comment"
+msgstr ""
+
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:99
+#, python-format
+msgid ""
+"Default can no be set manually as the product is configured to have a "
+"computed code"
+msgstr ""
+
+#. module: product_code_builder
+#: sql_constraint:product.attribute.value:0
+msgid "For each Attribute we must be found a unique 'code'"
+msgstr ""
+
+#. module: product_code_builder
+#: help:product.product,auto_default_code:0
+#: help:product.template,auto_default_code:0
+msgid "Generate a reference automatically based on attribute codes"
+msgstr ""
+
+#. module: product_code_builder
+#: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
+msgid "Group by..."
+msgstr ""
+
+#. module: product_code_builder
+#: field:product.product,prefix_code:0 field:product.template,prefix_code:0
+msgid "Internal Reference"
+msgstr ""
+
+#. module: product_code_builder
+#: field:product.product,manual_default_code:0
+msgid "Manual default code"
+msgstr ""
+
+#. module: product_code_builder
+#: model:ir.actions.client,name:product_code_builder.action_open_adhoc_menu
+msgid "Open Menu"
+msgstr ""
+
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atributo de producto"
+
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_code_builder
+#: sql_constraint:product.template:0
+msgid "The reference must be unique"
+msgstr "La referencia debe ser única"
+
+#. module: product_code_builder
+#: help:product.product,prefix_code:0 help:product.template,prefix_code:0
+msgid ""
+"This is the code of the product modelIf Automatic Reference is checked, this field is used as a prefix for the product variant reference.\n"
+"In case that there is only one variant this code is the same as the code of the uniq variant"
+msgstr ""
+
+#. module: product_code_builder
+#: sql_constraint:product.attribute:0
+msgid "With each Attribute we must be found a unique 'code'"
+msgstr ""
+
+#. module: product_code_builder
+#: help:product.product,manual_default_code:0
+msgid "hidden field"
+msgstr ""
+
+#. module: product_code_builder
+#: view:product.product:product_code_builder.product_normal_form_view
+msgid ""
+"{\n"
+"                    'readonly': [('auto_default_code', '=', True)]}"
+msgstr ""
+
+#. module: product_code_builder
+#: view:product.template:product_code_builder.product_template_only_form_view
+msgid "{'invisible': 1}"
+msgstr ""
