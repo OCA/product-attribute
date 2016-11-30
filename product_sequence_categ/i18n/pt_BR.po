@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-26 21:19+0000\n"
+"PO-Revision-Date: 2015-02-26 21:19+0000\n"
+"Last-Translator: Rodolfo Bertozo (www.kmee.com.br)\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_sequence_categ
+#: field:product.category,default_code:0
+msgid "Internal Reference"
+msgstr "Referência Interna"
+
+#. module: product_sequence_categ
+#: model:ir.model,name:product_sequence_categ.model_product_product
+msgid "Product"
+msgstr "Produto"
+
+#. module: product_sequence_categ
+#: model:ir.model,name:product_sequence_categ.model_product_category
+msgid "Product Category"
+msgstr "Categoria de Produtos"
+
+#. module: product_sequence_categ
+#: field:product.category,seq_id:0
+msgid "Sequence"
+msgstr "Sequência"
+

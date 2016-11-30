@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_product_category">
+            <field name="name">view_product_codes_category</field>
+            <field name="model">product.category</field>
+            <field name="priority">32</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="before">
+                    <field name="default_code"/>
+                    <field name="seq_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
