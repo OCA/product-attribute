@@ -52,6 +52,7 @@ class product_product(orm.Model):
     def write(self, cr, uid, ids, vals, context=None):
         if not hasattr(ids, '__iter__'):
             ids = [ids]
+
         products_without_code = self.search(
                 cr, uid,
                 [('default_code', 'in', [False, '/']),
@@ -73,10 +74,7 @@ class product_product(orm.Model):
     def copy(self, cr, uid, id, default=None, context=None):
         if default is None:
             default = {}
-        product = self.read(cr, uid, id, ['default_code'], context=context)
-        if product['default_code']:
-            default.update({
-                'default_code': product['default_code'] + _('-copy'),
-            })
+
+        default.update({'default_code': '/'})
 
         return super(product_product, self).copy(cr, uid, id, default, context)
