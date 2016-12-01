@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
+<openerp>
+<data>
+
+    <record id="image_form_view" model="ir.ui.view">
+        <field name="name">Multi image form</field>
+        <field name="model">base_multi_image.image</field>
+        <field name="inherit_id" ref="base_multi_image.image_form_view"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="file_db_store" position="after">
+                <field name="product_variant_ids"
+                       widget="many2many_tags"
+                       domain="[('product_tmpl_id', '=', owner_id)]"
+                       placeholder="(keep empty for being visible for all variants)"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="image_kanban_view" model="ir.ui.view">
+        <field name="name">Product multi image kanban</field>
+        <field name="model">base_multi_image.image</field>
+        <field name="inherit_id" ref="base_multi_image.image_kanban_view"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="/kanban/field[@name='storage']" position="after">
+                <field name="product_variant_ids"/>
+                <field name="product_variant_count"/>
+            </xpath>
+            <xpath expr="//field[@name='storage']/../.." position="after">
+                <tr>
+                    <td>
+                        <span t-if="record.product_variant_count.value == 0">
+                            <i>Visible in all variants</i>
+                        </span>
+                        <span t-if="record.product_variant_count.value != 0">
+                            <i>Visible in <field name="product_variant_count"/> variant(s)</i>
+                        </span>
+                    </td>
+                </tr>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
