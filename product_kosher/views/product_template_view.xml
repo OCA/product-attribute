@@ -17,6 +17,7 @@
                             <field name="kosher_ids" nolabel="1" colspan="4">
                                 <tree string="Product Kosher" editable="bottom">
                                     <field name="name"/>
+                                    <field name="issuer_id"/>
                                     <field name="date_start"/>
                                     <field name="date_end"/>
                                 </tree>

@@ -16,6 +16,10 @@ class ProductKosher(models.Model):
         string="# Certificate",
         required=True,
     )
+    issuer_id = fields.Many2one(
+        string="Issuer",
+        comodel_name="res.partner",
+        )
     product_tmpl_id = fields.Many2one(
         string="Product Template",
         comodel_name="product.template",
