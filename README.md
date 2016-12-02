@@ -16,6 +16,7 @@ addon | version | summary
 [product_dimension](product_dimension/) | 9.0.1.0.0 | Product Dimension
 [product_manufacturer](product_manufacturer/) | 9.0.1.0.0 | Products Manufacturers
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
+[product_multi_image](product_multi_image/) | 9.0.1.0.0 | Multiple Images in Products
 [product_sequence](product_sequence/) | 9.0.1.0.0 | Product Sequence
 [product_uom](product_uom/) | 9.0.1.0.1 | Provide missing uom
 
