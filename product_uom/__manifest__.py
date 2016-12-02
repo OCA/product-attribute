@@ -4,7 +4,7 @@
 {
     "name": "Unit of Measures",
     "summary": "Provide missing uom",
-    "version": "9.0.1.0.1",
+    "version": "10.0.1.0.0",
     "category": "Uncategorized",
     "website": "http://ursainfosystems.com",
     "author": "Ursa Information Systems, "
