@@ -7,7 +7,8 @@
     "summary": "Product's kosher certificate information",
     "category": "Product",
     "website": "https://opensynergy-indonesia.com",
-    "author": "OpenSynergy Indonesia",
+    "author": "OpenSynergy Indonesia,"
+              "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
     "depends": ["product"],
