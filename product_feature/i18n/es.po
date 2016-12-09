@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_feature
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-09 12:26+0000\n"
+"PO-Revision-Date: 2016-12-09 13:29+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: product_feature
+#: code:addons/product_feature/models/product_feature.py:36
+#: field:product.feature,alt_text:0
+#, python-format
+msgid "Alt text"
+msgstr "Texto alternativo"
+
+#. module: product_feature
+#: field:product.feature,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_feature
+#: field:product.feature,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: product_feature
+#: view:product.feature:product_feature.view_product_feature_form
+#: field:product.feature,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: product_feature
+#: field:product.feature,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: product_feature
+#: model:ir.actions.act_window,name:product_feature.action_product_feature
+msgid "Feature"
+msgstr "Característica"
+
+#. module: product_feature
+#: view:product.feature:product_feature.view_product_feature_form
+#: field:product.feature,name:0
+msgid "Feature Name"
+msgstr "Nombre de la característica"
+
+#. module: product_feature
+#: view:product.template:product_feature.product_template_form_feature
+#: field:product.template,feature_ids:0
+msgid "Features"
+msgstr "Características"
+
+#. module: product_feature
+#: field:product.feature,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: product_feature
+#: field:product.feature,image:0
+msgid "Image File"
+msgstr "Archivo de imagen"
+
+#. module: product_feature
+#: field:product.feature,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: product_feature
+#: field:product.feature,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_feature
+#: field:product.feature,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: product_feature
+#: model:ir.actions.act_window,name:product_feature.action_open_product_feature
+#: view:product.feature:product_feature.product_feature_search_form_view
+msgid "Product Feature"
+msgstr "Característica de Producto"
+
+#. module: product_feature
+#: model:ir.ui.menu,name:product_feature.menu_product_feature
+msgid "Product Features"
+msgstr "Características de Producto"
+
+#. module: product_feature
+#: model:ir.model,name:product_feature.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_feature
+#: view:product.feature:product_feature.view_product_feature_form
+msgid "Product feature"
+msgstr "Característica de producto"
+
+#. module: product_feature
+#: field:product.feature,product_ids:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: product_feature
+#: help:product.template,feature_ids:0
+msgid "Select features for this product"
+msgstr "Seleccione características para este producto"
+
+#. module: product_feature
+#: code:addons/product_feature/models/product_feature.py:37
+#: help:product.feature,alt_text:0
+#, python-format
+msgid "Text to be displayed on image loading failure"
+msgstr "Texto a mostrar si la carga de la imagen falla"
+
+#. module: product_feature
+#: view:product.feature:product_feature.view_product_feature_tree
+msgid "product.feature"
+msgstr "product.feature"
