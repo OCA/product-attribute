@@ -24,6 +24,7 @@
 # products                                                                    #
 ###############################################################################
 from openerp import models, fields, api, _
+from openerp.exceptions import ValidationError
 
 
 class ProductFeature(models.Model):
@@ -40,6 +41,12 @@ class ProductFeature(models.Model):
         'product.template',
         string='Products',
     )
+
+    _sql_constraints = [
+        ('unique_feature',
+         'unique(name)',
+         'The name of the feature must be unique')
+    ]
 
 
 class ProductTemplate(models.Model):
