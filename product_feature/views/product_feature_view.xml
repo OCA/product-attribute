@@ -77,7 +77,7 @@
 
 
         <record model="ir.actions.act_window" id="action_product_feature">
-            <field name="name">Brand</field>
+            <field name="name">Feature</field>
             <field name="res_model">product.feature</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
