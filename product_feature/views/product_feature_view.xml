@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  product_feature for Odoo
+  Copyright (C) 2016 Rubén Cabrera Martínez <rcabrera@praxya.com>
+  Copyright (C) 2016 Praxya Soluciones <http://www.praxya.com>
+-->
+<openerp>
+    <data>
+        <record id="product_feature_search_form_view" model="ir.ui.view">
+            <field name="name">product.feature.search.form</field>
+            <field name="model">product.feature</field>
+            <field name="arch" type="xml">
+                <search string="Product Feature">
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
+
+        <act_window
+            id="action_open_product_feature"
+            name="Product Feature"
+            res_model="product.feature"
+            view_type="form"
+            view_mode="tree,form"
+            target="current"
+            domain="[('product_ids', 'in', active_id)]"/>
+
+        <record id="product_template_form_feature" model="ir.ui.view">
+            <field name="name">product.template.product.form.feature</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="feature_ids" widget="many2many_tags" placeholder="Features"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_product_feature_form" model="ir.ui.view">
+            <field name="name">product.feature.form</field>
+            <field name="model">product.feature</field>
+            <field name="arch" type="xml">
+                <form string="Product feature" >
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar oe_left"/>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name" string="Feature Name"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="alt_text"/>
+                        </group>
+                        <group string="Description">
+                            <field name="description" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_feature_tree" model="ir.ui.view">
+            <field name="name">product.feature.tree</field>
+            <field name="model">product.feature</field>
+            <field name="arch" type="xml">
+                <tree string="product.feature">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_product_feature">
+            <field name="name">Brand</field>
+            <field name="res_model">product.feature</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            name="Product Features"
+            id="menu_product_feature"
+            action="action_product_feature"
+            parent="base.menu_product"/>
+    </data>
+</openerp>
