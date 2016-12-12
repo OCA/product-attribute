@@ -23,8 +23,7 @@
 # Product Feature is an Odoo module wich enables Feature management for       #
 # products                                                                    #
 ###############################################################################
-from openerp import models, fields, api, _
-from openerp.exceptions import ValidationError
+from openerp import models, fields
 
 
 class ProductFeature(models.Model):
@@ -34,8 +33,8 @@ class ProductFeature(models.Model):
     description = fields.Text('Description', translate=True)
     image = fields.Binary('Image File')
     alt_text = fields.Char(
-        string=_('Alt text'),
-        help=_('Text to be displayed on image loading failure'),
+        string='Alt text',
+        help='Text to be displayed on image loading failure',
     )
     product_ids = fields.Many2many(
         'product.template',
