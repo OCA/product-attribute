@@ -52,7 +52,7 @@ def check_ean8(eancode):
 
     sum = 0
     ean_len = int(len(eancode))
-    for i in range(ean_len-1):
+    for i in range(ean_len - 1):
         if is_pair(i):
             sum += 3 * int(eancode[i])
         else:
@@ -81,14 +81,14 @@ def check_upc(upccode):
 
     sum_pair = 0
     ean_len = int(len(upccode))
-    for i in range(ean_len-1):
+    for i in range(ean_len - 1):
         if is_pair(i):
             sum_pair += int(upccode[i])
     sum = sum_pair * 3
-    for i in range(ean_len-1):
+    for i in range(ean_len - 1):
         if not is_pair(i):
             sum += int(upccode[i])
-    check = ((sum/10 + 1) * 10) - sum
+    check = ((sum / 10 + 1) * 10) - sum
 
     return check == int(upccode[-1])
 
@@ -110,8 +110,8 @@ def check_ean13(eancode):
 
     sum = 0
     ean_len = int(len(eancode))
-    for i in range(ean_len-1):
-        pos = int(ean_len-2-i)
+    for i in range(ean_len - 1):
+        pos = int(ean_len - 2 - i)
         if is_pair(i):
             sum += 3 * int(eancode[pos])
         else:
@@ -156,7 +156,7 @@ def check_gtin14(eancode):
             evensum += int(finalean[i])
     total = (oddsum * 3) + evensum
 
-    check = int(10 - math.ceil(total % 10.0)) %10
+    check = int(10 - math.ceil(total % 10.0)) % 10
     return check == int(eancode[-1])
 
 
@@ -180,7 +180,7 @@ def check_ean(eancode):
     return DICT_CHECK_EAN[len(eancode)](eancode)
 
 
-class product_product(orm.Model):
+class ProductProduct(orm.Model):
     _inherit = "product.product"
 
     def _check_ean_key(self, cr, uid, ids):
@@ -198,7 +198,7 @@ class product_product(orm.Model):
     _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean13'])]
 
 
-class product_packaging(orm.Model):
+class ProductPackaging(orm.Model):
     _inherit = "product.packaging"
 
     def _check_ean_key(self, cr, uid, ids):
@@ -211,12 +211,12 @@ class product_packaging(orm.Model):
         'ean': fields.char(
             'EAN', size=14,
             help='Barcode number for %s' % HELP_MESSAGE),
-        }
+    }
 
     _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean'])]
 
 
-class res_partner(orm.Model):
+class ResPartner(orm.Model):
     _inherit = "res.partner"
 
     def _check_ean_key(self, cr, uid, ids):
@@ -229,6 +229,6 @@ class res_partner(orm.Model):
         'ean13': fields.char(
             'EAN', size=14,
             help="Code for %s" % HELP_MESSAGE),
-        }
+    }
 
     _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean13'])]
