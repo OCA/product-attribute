@@ -23,7 +23,7 @@
 # Product Feature is an Odoo module wich enables Feature management for       #
 # products                                                                    #
 ###############################################################################
-from openerp import models, fields
+from openerp import models, fields, tools, api
 
 
 class ProductFeature(models.Model):
@@ -46,6 +46,18 @@ class ProductFeature(models.Model):
          'unique(name)',
          'The name of the feature must be unique')
     ]
+
+    @api.one
+    def write(self, vals):
+        if 'image' in vals:
+            vals['image'] = tools.image_resize_image_medium(vals['image'])
+        return super(ProductFeature, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        if 'image' in vals:
+            vals['image'] = tools.image_resize_image_medium(vals['image'])
+        return super(ProductFeature, self).create(vals)
 
 
 class ProductTemplate(models.Model):
