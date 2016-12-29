@@ -12,6 +12,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[product_brand](product_brand/) | 10.0.1.0.0 | Product Brand Manager
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_sequence](product_sequence/) | 10.0.1.0.0 | Product Sequence
 
@@ -23,7 +24,6 @@ addon | version | summary
 [customer_context_in_product_view](customer_context_in_product_view/) | 1.1.1 (unported) | Display Customer Price in Product View
 [partner_custom_attributes](partner_custom_attributes/) | 0.1.0 (unported) | Partner Custom Attributes
 [product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 (unported) | Product attribute types
-[product_brand](product_brand/) | 9.0.1.0.0 (unported) | Product Brand Manager
 [product_catalog_report](product_catalog_report/) | 1.0 (unported) | Product Catalog - Print Report of product catalog with product image
 [product_categ_attributes](product_categ_attributes/) | 0.1 (unported) | product_categ_attributes
 [product_custom_attributes](product_custom_attributes/) | 0.2.1 (unported) | product_custom_attributes
