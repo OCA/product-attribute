@@ -72,7 +72,8 @@ class ProductTemplate(models.Model):
     @api.model
     def create(self, vals):
         product_template_id = super(ProductTemplate, self).create(vals)
-        # TODO: this is needed to set given values to first variant after creation
+        # TODO: this is needed to set given values to first variant
+        # after creation
         # these fields should be moved to product as lead to confusion
         if vals.get('dimensional_uom_id'):
             related_vals = {}
