@@ -69,6 +69,17 @@ class ProductTemplate(models.Model):
             qty=measure,
             to_unit=uom_meters)
 
+    @api.model
+    def create(self, vals):
+        product_template_id = super(ProductTemplate, self).create(vals)
+        # TODO: this is needed to set given values to first variant after creation
+        # these fields should be moved to product as lead to confusion
+        if vals.get('dimensional_uom_id'):
+            related_vals = {}
+            related_vals['dimensional_uom_id'] = vals['dimensional_uom_id']
+            product_template_id.write(related_vals)
+        return product_template_id
+
     length = fields.Float(related='product_variant_ids.length')
     height = fields.Float(related='product_variant_ids.height')
     width = fields.Float(related='product_variant_ids.width')
