@@ -8,7 +8,6 @@
         <t t-call="report.internal_layout">
             <div class="page">
                 <h2>Price List</h2>
-
                 <div class="row mt32 mb32">
                     <div class="col-xs-7">
                         <strong>Price List Name</strong>:<br/>
@@ -61,7 +60,7 @@
                                     <t t-if="product.default_code">
                                         [<span t-field="product.default_code"/>]
                                     </t>
-                                    <span t-esc="product.name"/>
+                                    <span t-field="product.display_name"/>
                                 </td>
                                 <td t-if="o.show_standard_price" class="text-right">
                                     <span t-field="product.standard_price"/>

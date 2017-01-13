@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Product Pricelist Print",
+    "name": "Product Pricelist Direct Print",
     "summary": "Print price list from menu option, product templates, "
-               "products or price lists",
+               "products variants or price lists",
     "version": "9.0.1.0.0",
     "category": "Product",
     "website": "http://www.tecnativa.com",
@@ -17,6 +17,6 @@
     ],
     "data": [
         "views/report_product_pricelist.xml",
-        "wizard/product_pricelist_print_view.xml",
+        "wizards/product_pricelist_print_view.xml",
     ],
 }
