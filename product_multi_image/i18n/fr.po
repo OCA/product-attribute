@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Benoît Guillot <benoit.guillot@akretion.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2016-11-29 14:50+0000\n"
+"PO-Revision-Date: 2016-11-29 14:50+0000\n"
+"Last-Translator: Benoît Guillot <benoit.guillot@akretion.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_form_view
 msgid "(keep empty for being visible for all variants)"
-msgstr ""
+msgstr "(laisser vide pour afficher sur toutes les variantes)"
 
 #. module: product_multi_image
 #: help:base_multi_image.image,product_variant_ids:0
@@ -30,18 +31,20 @@ msgid ""
 "several of the available variants, you restrict the availability of the "
 "image to those variants."
 msgstr ""
+"Si le champ est vide, l'image sera sur toutes les variantes. Sélectionner "
+"une ou plusieurs variantes pour restreindre l'image à ces variantes."
 
 #. module: product_multi_image
 #: field:product.product,image_ids:0
 #: view:product.template:product_multi_image.view_product_template_form_img_inh
 #: field:product.template,image_ids:0
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 #. module: product_multi_image
 #: field:product.product,image_main:0 field:product.template,image_main:0
 msgid "Main image"
-msgstr ""
+msgstr "Image principale"
 
 #. module: product_multi_image
 #: field:product.product,manufacturer:0
@@ -67,7 +70,7 @@ msgstr ""
 #: field:product.product,image_main_medium:0
 #: field:product.template,image_main_medium:0
 msgid "Medium image"
-msgstr ""
+msgstr "Image moyenne"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_product_product
@@ -77,7 +80,7 @@ msgstr "Produit"
 #. module: product_multi_image
 #: field:product.product,categ_ids:0
 msgid "Product Categories"
-msgstr ""
+msgstr "Catégories de produit"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_product_template
@@ -93,7 +96,7 @@ msgstr ""
 #: field:product.product,image_main_small:0
 #: field:product.template,image_main_small:0
 msgid "Small image"
-msgstr ""
+msgstr "Petite image"
 
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_kanban_view
@@ -103,12 +106,12 @@ msgstr ""
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_kanban_view
 msgid "Visible in all variants"
-msgstr ""
+msgstr "Visible sur toutes les variantes"
 
 #. module: product_multi_image
 #: field:base_multi_image.image,product_variant_ids:0
 msgid "Visible in these variants"
-msgstr ""
+msgstr "Visible sur ces variantes"
 
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_kanban_view

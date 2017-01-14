@@ -1,21 +1,29 @@
-# French translation for openobject-addons
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
-#
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_manufacturer
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Benoît Guillot <benoit.guillot@akretion.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-06-07 19:37+0000\n"
-"PO-Revision-Date: 2013-01-04 11:29+0000\n"
-"Last-Translator: Ronan Fontenay <Unknown>\n"
-"Language-Team: French <fr@li.org>\n"
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-29 14:50+0000\n"
+"PO-Revision-Date: 2016-11-29 14:50+0000\n"
+"Last-Translator: Benoît Guillot <benoit.guillot@akretion.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-21 06:27+0000\n"
-"X-Generator: Launchpad (build 16831)\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: product_manufacturer
+#: view:product.template:product_manufacturer.product_template_manufacturer_form_view
+#: field:product.template,manufacturer:0
+msgid "Manufacturer"
+msgstr "Fabricant"
 
 #. module: product_manufacturer
 #: field:product.template,manufacturer_pref:0
@@ -28,7 +36,11 @@ msgid "Manufacturer Product Name"
 msgstr "Nom du produit chez le fabricant"
 
 #. module: product_manufacturer
-#: view:product.template:product_manufacturer.product_template_manufacturer_form_view
-#: field:product.template,manufacturer:0
-msgid "Manufacturer"
-msgstr "Fabricant"
+#: field:product.template,manufacturer_purl:0
+msgid "Manufacturer Product URL"
+msgstr ""
+
+#. module: product_manufacturer
+#: model:ir.model,name:product_manufacturer.model_product_template
+msgid "Product Template"
+msgstr "Modèle de produit"
