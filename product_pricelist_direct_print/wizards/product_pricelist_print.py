@@ -2,7 +2,8 @@
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models
+from openerp import _, api, fields, models
+from openerp.exceptions import ValidationError
 
 
 class ProductPricelistPrint(models.TransientModel):
@@ -27,8 +28,8 @@ class ProductPricelistPrint(models.TransientModel):
         string='Products',
         help='Keep empty for all products',
     )
-    show_standard_price = fields.Boolean()
-    show_sale_price = fields.Boolean(default=True)
+    show_standard_price = fields.Boolean(string='Show Cost Price')
+    show_sale_price = fields.Boolean(string='Show Sale Price', default=True)
 
     @api.model
     def default_get(self, fields):
@@ -46,5 +47,9 @@ class ProductPricelistPrint(models.TransientModel):
 
     @api.multi
     def print_report(self):
+        if not(self.pricelist_id or self.show_standard_price or
+               self.show_sale_price):
+            raise ValidationError(_(
+                'You must set price list or any show price option.'))
         return self.env['report'].get_action(
             self, 'product_pricelist_direct_print.report_product_pricelist')

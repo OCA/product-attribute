@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-13 03:19+0100\n"
-"PO-Revision-Date: 2017-01-13 03:40+0100\n"
+"POT-Creation-Date: 2017-01-15 12:30+0100\n"
+"PO-Revision-Date: 2017-01-15 12:34+0100\n"
 "Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -146,19 +146,25 @@ msgid "Products"
 msgstr "Productos"
 
 #. module: product_pricelist_direct_print
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_sale_price
-msgid "Show sale price"
-msgstr "Mostrar precio de venta"
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_standard_price
+msgid "Show Cost Price"
+msgstr "Mostrar precio de coste"
 
 #. module: product_pricelist_direct_print
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_standard_price
-msgid "Show standard price"
-msgstr "Mostrar precio de coste"
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_sale_price
+msgid "Show Sale Price"
+msgstr "Mostrar precio de venta"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_variants
 msgid "Show variants"
 msgstr "Mostrar variantes"
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:52
+#, python-format
+msgid "You must set price list or any show price option."
+msgstr "Debe seleccionar una tarifa o alguna opción mostrar precio."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_product_pricelist_print
