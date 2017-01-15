@@ -49,13 +49,15 @@
                                t-value="o.product_ids or o.product_tmpl_ids.mapped('product_variant_ids')"/>
                         </t>
                         <t t-foreach="(o.categ_ids or products.mapped('categ_id') or o.categ_ids.search([])).sorted(key=lambda x:x.name)" t-as="category">
-                            <tr>
+                            <t t-set="category_products"
+                               t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
+                                        products.search([('sale_ok','=',True), ('categ_id','=',category.id)])"/>
+                            <tr t-if="category_products">
                                 <td colspan="100">
                                     <strong t-field="category.name"/>
                                 </td>
                             </tr>
-                            <tr t-foreach="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or products.search([('categ_id','=',category.id)])"
-                                t-as="product">
+                            <tr t-foreach="category_products" t-as="product">
                                 <td>
                                     <t t-if="product.default_code">
                                         [<span t-field="product.default_code"/>]
