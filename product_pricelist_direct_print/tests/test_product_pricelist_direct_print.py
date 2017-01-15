@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp.tests.common import SavepointCase
+from openerp.exceptions import ValidationError
 
 
 class TestProductPricelistDirectPrint(SavepointCase):
@@ -43,5 +44,9 @@ class TestProductPricelistDirectPrint(SavepointCase):
             res['product_ids'][0][2], self.product.ids)
         self.assertTrue(res['show_variants'])
 
+        with self.assertRaises(ValidationError):
+            wiz.print_report()
+
+        wiz.show_sale_price = True
         res = wiz.print_report()
         self.assertIn('report_name', res)
