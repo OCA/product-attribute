@@ -11,7 +11,21 @@
     <field name="arch" type="xml">
         <xpath expr="//field[@name='item_ids']/.." position="after">
             <group string="Pricelist simulation">
-                <field name="pricelist_simulate" widget="html" nolabel="1"/>
+                <field name="pricelist_simulate_ids" nolabel="1">
+                    <tree string="Simulation">
+                        <field name="pricelist_id"/>
+                        <field name="price" widget="monetary"/>
+                        <field name="currency_id" invisible="1"/>
+                    </tree>
+                    <form string="Simulation">
+                        <group>
+                            <field name="product_tmpl_id" options="{'no_open': True}"/>
+                            <field name="pricelist_id" options="{'no_open': True}"/>
+                            <field name="price" widget="monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </form>
+                </field>
             </group>
         </xpath>
     </field>
