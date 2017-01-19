@@ -14,6 +14,7 @@ Configuration
 
 To configure this module, you need to:
 
+* Go to *Apps* and install *Sales Management*
 * Go to *Sales > Configuration > Settings*
 * Scroll to *Quotations & Sales > Sale Price*
 * Set *Different prices per customer segment* or *Advanced pricing based on
