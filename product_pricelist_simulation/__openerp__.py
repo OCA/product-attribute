@@ -19,5 +19,6 @@
     "data": [
         "views/product_view.xml",
         "views/pricelist_view.xml",
+        "security/ir.model.access.csv",
     ],
 }

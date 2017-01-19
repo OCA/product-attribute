@@ -37,7 +37,6 @@ class ProductPricelistSimulation(models.Model):
         string='Price Simulated',
         digits=dp.get_precision('Product Price')
     )
-    
 
 
 class ProductTemplate(models.Model):
