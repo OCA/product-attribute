@@ -14,27 +14,34 @@ Configuration
 
 To configure this module, you need to:
 
-* Go to *Apps* and install *Sales Management*
-* Go to *Sales > Configuration > Settings*
-* Scroll to *Quotations & Sales > Sale Price*
-* Set *Different prices per customer segment* or *Advanced pricing based on
-  formula*
+* Go to **Apps** and install **Sales Management**
+* Go to **Sales > Configuration > Settings**
+* Scroll to **Quotations & Sales > Sale Price**
+* Set **Different prices per customer segment** or
+  **Advanced pricing based on formula**
 
 Usage
 =====
 
 To use this module, you have several options:
 
-#. Go to *Sales > Sales > Print Price List*
-#. Go to *Sales > Sales > Products*
+#. Go to **Sales > Sales > Print Price List**
+
+#. Go to **Sales > Sales > Products**
     * Select products in list view
-    * Press *Print > Price List*
-#. Go to *Sales > Sales > Product Variants*
+    * Press **Print > Price List**
+
+#. Go to **Sales > Sales > Product Variants**
     * Select products in list view
-    * Press *Print > Price List*
-#. Go to *Sales > Configuration > Pricelists > Pricelists*
+    * Press **Print > Price List**
+
+#. Go to **Sales > Configuration > Pricelists > Pricelists**
     * Select one Pricelist
-    * Press *Print > Price List*
+    * Press **Print > Price List**
+
+#. Go to **Sales > Sales > Customers**
+    * Select one customer
+    * Press **Print > Price List**
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas

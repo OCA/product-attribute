@@ -43,6 +43,10 @@ class ProductPricelistPrint(models.TransientModel):
                 (6, 0, self.env.context.get('active_ids', []))]
         elif self.env.context.get('active_model') == 'product.pricelist':
             res['pricelist_id'] = self.env.context.get('active_id', False)
+        elif self.env.context.get('active_model') == 'res.partner':
+            partner = self.env['res.partner'].browse(
+                self.env.context.get('active_id', False))
+            res['pricelist_id'] = partner.property_product_pricelist.id
         return res
 
     @api.multi

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-15 12:30+0100\n"
-"PO-Revision-Date: 2017-01-15 12:34+0100\n"
+"POT-Creation-Date: 2017-01-20 17:19+0100\n"
+"PO-Revision-Date: 2017-01-20 17:20+0100\n"
 "Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -109,6 +109,7 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
@@ -161,7 +162,7 @@ msgid "Show variants"
 msgstr "Mostrar variantes"
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:52
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:56
 #, python-format
 msgid "You must set price list or any show price option."
 msgstr "Debe seleccionar una tarifa o alguna opción mostrar precio."

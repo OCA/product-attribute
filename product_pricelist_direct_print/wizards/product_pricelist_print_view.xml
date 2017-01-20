@@ -8,7 +8,7 @@
       <field name="model">product.pricelist.print</field>
       <field name="arch" type="xml">
         <form>
-            <group string="Pricelist" invisible="context.get('active_model') == 'product.pricelist'">
+            <group string="Pricelist" invisible="context.get('active_model') in ('product.pricelist', 'res.partner')">
                 <field name="pricelist_id" widget="selection" options="{'no_create': True}"/>
             </group>
             <group string="Filter Options" col="4">
@@ -65,6 +65,14 @@
     name="Price List"
     res_model="product.pricelist.print"
     src_model="product.pricelist"
+    groups="product.group_sale_pricelist"
+    view_mode="form" target="new" view_type="form"/>
+
+<act_window id="action_partner_pricelist_print"
+    key2="client_print_multi"
+    name="Price List"
+    res_model="product.pricelist.print"
+    src_model="res.partner"
     groups="product.group_sale_pricelist"
     view_mode="form" target="new" view_type="form"/>
 

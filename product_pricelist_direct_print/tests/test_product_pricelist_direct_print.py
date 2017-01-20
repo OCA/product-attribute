@@ -21,6 +21,12 @@ class TestProductPricelistDirectPrint(SavepointCase):
             'categ_id': cls.category.id,
             'default_code': 'TESTPROD01',
         })
+
+        cls.partner = cls.env['res.partner'].create({
+            'name': 'Partner for test',
+            'property_product_pricelist': cls.pricelist.id,
+        })
+
         cls.wiz_obj = cls.env['product.pricelist.print']
 
     def test_defaults(self):
@@ -30,6 +36,12 @@ class TestProductPricelistDirectPrint(SavepointCase):
             active_id=self.pricelist.id,
         ).default_get([])
         self.assertEqual(res['pricelist_id'], self.pricelist.id)
+        res = wiz.with_context(
+            active_model='res.partner',
+            active_id=self.partner.id,
+        ).default_get([])
+        self.assertEqual(
+            res['pricelist_id'], self.partner.property_product_pricelist.id)
         res = wiz.with_context(
             active_model='product.template',
             active_ids=self.product.product_tmpl_id.ids,
