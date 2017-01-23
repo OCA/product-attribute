@@ -33,8 +33,7 @@ class ProductProduct(models.Model):
     def write(self, vals):
         for product in self:
             if (product.default_code in [False, '/'] and
-                    ('default_code' not in vals or
-                     vals['default_code'] == '/')):
+                        vals.get('default_code', '/') == '/'):
                 sequence = self.env.ref('product_sequence.seq_product_auto')
                 vals['default_code'] = sequence.next_by_id()
             super(ProductProduct, product).write(vals)
