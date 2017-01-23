@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="product_category_energy" model="product.uom.categ">
+        <field name="name">Energy / Heat</field>
+    </record>
+    
+    <record id="product_uom_category_time" model="product.uom.categ">
+        <field name="name">Time</field>
+    </record>
+
+</odoo>
