@@ -19,7 +19,7 @@ class TestPricelistItem(TransactionCase):
             'product_template_plastic_toy'
         )
 
-    def test_tiered_price_0_if_not_tiered(self):
+    def test_onchange_compute_price(self):
         """ Test tiered price 0 if not applied on product """
         self.pricelist_item.compute_price = 'fixed'
         self.pricelist_item.applied_on = '3_global'
@@ -29,26 +29,22 @@ class TestPricelistItem(TransactionCase):
             0.0,
         )
 
-    def test_base_set_to_list_price_if_tiered(self):
-        """ Test base set to list_price if tiered """
-        self.pricelist_item.base = 'standard_price'
-        self.pricelist_item._onchange_price_discount()
-        self.assertEquals(
-            self.pricelist_item.base,
-            'list_price',
-        )
-
-    def test_tiered_price_not_on_product(self):
-        """ Test raise ValidationError if not on product """
-        with self.assertRaises(ValidationError):
-            self.pricelist_item.applied_on = '3_global'
-
-    def test_constrains_min_quantity_none(self):
+    def test_check_tier_validations_min_quantity(self):
         """ Test raise ValidationError if tiered and none min_quantity """
         with self.assertRaises(ValidationError):
             self.pricelist_item.min_quantity = 0
 
-    def test_tiered_price_calculated(self):
+    def test_check_tier_validations_applied_on(self):
+        """ Test raise ValidationError if not applied on product """
+        with self.assertRaises(ValidationError):
+            self.pricelist_item.applied_on = '3_global'
+
+    def test_check_tier_validations_base(self):
+        """ Test raise ValidationError if not based on list_price """
+        with self.assertRaises(ValidationError):
+            self.pricelist_item.base = 'standard_price'
+
+    def test_onchange_price_discount(self):
         """ Test percent discount correct """
         self.pricelist_item._onchange_price_discount()
         self.assertEquals(
@@ -56,7 +52,7 @@ class TestPricelistItem(TransactionCase):
             20.0,
         )
 
-    def test_tiered_price_no_list_price(self):
+    def test_onchange_price_discount_no_list_price(self):
         """ Test price_discount is 0 if no product list_price """
         self.toy.list_price = 0.0
         self.pricelist_item._onchange_price_discount()

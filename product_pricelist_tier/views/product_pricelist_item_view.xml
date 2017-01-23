@@ -19,11 +19,6 @@
                     {'invisible': [('compute_price', '!=', 'tiered'), ('compute_price', '!=', 'formula')]}
                 </attribute>
             </xpath>
-            <xpath expr="//field[@name='base']" position="attributes">
-                <attribute name="attrs">
-                    {'invisible': [('compute_price', '==', 'tiered')]}
-                </attribute>
-            </xpath>
         </field>
     </record>
 

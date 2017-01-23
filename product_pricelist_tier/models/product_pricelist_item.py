@@ -32,43 +32,75 @@ class PricelistItem(models.Model):
             self.tiered_price = 0.0
         return super(PricelistItem, self)._onchange_compute_price()
 
-    @api.constrains('compute_price', 'min_quantity')
-    def _check_min_quantity(self):
-        if self.compute_price == 'tiered':
-            if not self.min_quantity:
-                raise ValidationError(_(
-                    'Must include minimum quantity of 1 or '
-                    'more if pricing is tiered'
-                ))
+    @api.multi
+    @api.constrains(
+        'compute_price',
+        'min_quantity',
+        'applied_on',
+        'base')
+    def _check_fields(self):
+        for record in self:
+            errors = record._check_tier_validations()
+            if errors:
+                raise ValidationError(_(errors))
 
-    @api.constrains('compute_price', 'applied_on')
-    def _check_applied_on(self):
+    def _check_tier_validations(self):
+        """ Validates conditions for constrains and onchange methods """
+        self.ensure_one()
+        messages = ''
+        onchange_new_vals = {}
+
         if self.compute_price == 'tiered':
+            if self.base != 'list_price':
+                messages += (
+                    'The pricelist item must be based '
+                    'on the product list_price when using '
+                    'tiered pricing.\n\n'
+                )
+                onchange_new_vals['base'] = 'list_price'
+
             if self.applied_on != '1_product':
-                raise ValidationError(_(
+                messages += (
                     'The pricelist item can only be applied on product if '
                     'compute price is tiered. Set `Apply On` to `Product` '
-                    'if you want a tiered price.'
-                ))
+                    'if you want a tiered price.\n\n'
+                )
+                onchange_new_vals['applied_on'] = '1_product'
+
+            if self.min_quantity < 1:
+                messages += (
+                    'Must include minimum quantity of 1 or '
+                    'more if pricing is tiered.\n\n'
+                )
+                onchange_new_vals['min_quantity'] = 1
+
+        if messages:
+            return {
+                'warning': {
+                    'title': 'Error',
+                    'message': messages,
+                },
+                'value': onchange_new_vals,
+            }
 
     @api.onchange(
         'tiered_price',
         'min_quantity',
         'compute_price',
         'product_tmpl_id',
-        'applied_on')
+        'applied_on',
+        'base')
     def _onchange_price_discount(self):
         if self.compute_price == 'tiered':
-            self.base = 'list_price'
-
-            self._check_min_quantity()
-            self._check_applied_on()
-
-            normal_unit_price = self.product_tmpl_id.list_price
-            discount_unit_price = self.tiered_price / self.min_quantity
-
-            if normal_unit_price:
-                self.price_discount = \
-                    (1 - (discount_unit_price / normal_unit_price)) * 100
+            errors = self._check_tier_validations()
+            if errors:
+                return errors
             else:
-                self.price_discount = 0.0
+                normal_unit_price = self.product_tmpl_id.list_price
+                discount_unit_price = self.tiered_price / self.min_quantity
+
+                if normal_unit_price:
+                    self.price_discount = \
+                        (1 - (discount_unit_price / normal_unit_price)) * 100
+                else:
+                    self.price_discount = 0.0
