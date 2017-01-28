@@ -1,0 +1,99 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_uom
+# 
+# Translators:
+# Paolo Valier <paolo.valier@hotmail.it>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-24 03:37+0000\n"
+"PO-Revision-Date: 2017-01-24 03:37+0000\n"
+"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_calorie
+msgid "Calorie(s)"
+msgstr "Caloria(e)"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_day
+msgid "Day(s)"
+msgstr "Giorno(i)"
+
+#. module: product_uom
+#: model:product.uom.categ,name:product_uom.product_category_energy
+msgid "Energy / Heat"
+msgstr "Energia / Calore"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_hour
+msgid "Hour(s)"
+msgstr "Ora(e)"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_indef
+msgid "Indefinitely"
+msgstr ""
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_kilocalorie
+msgid "Kilocalorie(s)"
+msgstr "Chilocaloria(e)"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_kilojoule
+msgid "Kilojoule(s)"
+msgstr "Chilojoule"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_liter
+msgid "Liter(s)"
+msgstr "Litro(i)"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_minute
+msgid "Minute(s)"
+msgstr "Minuto(i)"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_month
+msgid "Month(s)"
+msgstr "Mese(i)"
+
+#. module: product_uom
+#: model:product.uom.categ,name:product_uom.product_uom_category_time
+msgid "Time"
+msgstr "Tempo"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_year
+msgid "Year(s)"
+msgstr "Anno(i)"
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_ml
+msgid "mL"
+msgstr ""
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_mg
+msgid "mg"
+msgstr ""
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_mmol
+msgid "mmol"
+msgstr ""
+
+#. module: product_uom
+#: model:product.uom,name:product_uom.product_uom_ug
+msgid "ug"
+msgstr ""
