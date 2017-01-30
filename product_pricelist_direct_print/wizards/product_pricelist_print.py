@@ -13,6 +13,10 @@ class ProductPricelistPrint(models.TransientModel):
         comodel_name='product.pricelist',
         string='Pricelist',
     )
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Customer',
+    )
     categ_ids = fields.Many2many(
         comodel_name='product.category',
         string='Categories',
@@ -29,7 +33,7 @@ class ProductPricelistPrint(models.TransientModel):
         help='Keep empty for all products',
     )
     show_standard_price = fields.Boolean(string='Show Cost Price')
-    show_sale_price = fields.Boolean(string='Show Sale Price', default=True)
+    show_sale_price = fields.Boolean(string='Show Sale Price')
 
     @api.model
     def default_get(self, fields):
@@ -44,6 +48,7 @@ class ProductPricelistPrint(models.TransientModel):
         elif self.env.context.get('active_model') == 'product.pricelist':
             res['pricelist_id'] = self.env.context.get('active_id', False)
         elif self.env.context.get('active_model') == 'res.partner':
+            res['partner_id'] = self.env.context.get('active_id', False)
             partner = self.env['res.partner'].browse(
                 self.env.context.get('active_id', False))
             res['pricelist_id'] = partner.property_product_pricelist.id

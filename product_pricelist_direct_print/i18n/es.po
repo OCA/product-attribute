@@ -154,7 +154,7 @@ msgstr "Mostrar precio de coste"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_sale_price
 msgid "Show Sale Price"
-msgstr "Mostrar precio de venta"
+msgstr "Mostrar precio ficha"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_variants

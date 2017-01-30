@@ -5,7 +5,7 @@
 
 <template id="report_product_pricelist_document">
     <t t-call="report.html_container">
-        <t t-call="report.internal_layout">
+        <t t-call="report.external_layout">
             <div class="page">
                 <h2>Price List</h2>
                 <div class="row mt32 mb32">
@@ -25,6 +25,11 @@
 
                 <table class="table table-condensed">
                     <thead>
+                        <tr t-if="o.partner_id">
+                            <th colspan="100" class="text-center">
+                                <span t-field="o.partner_id.name"/>
+                            </th>
+                        </tr>
                         <tr>
                             <th>
                                 <strong>Description</strong>
@@ -48,7 +53,8 @@
                             <t t-set="products"
                                t-value="o.product_ids or o.product_tmpl_ids.mapped('product_variant_ids')"/>
                         </t>
-                        <t t-foreach="(o.categ_ids or products.mapped('categ_id') or o.categ_ids.search([])).sorted(key=lambda x:x.name)" t-as="category">
+                        <t t-foreach="(o.categ_ids or products.mapped('categ_id') or o.categ_ids.search([])).sorted(key=lambda x:x.name)"
+                           t-as="category">
                             <t t-set="category_products"
                                t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
                                         products.search([('sale_ok','=',True), ('categ_id','=',category.id)])"/>
