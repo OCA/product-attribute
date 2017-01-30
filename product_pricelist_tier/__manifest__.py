@@ -14,7 +14,7 @@
     "installable": True,
     "post_init_hook": "_trigger_onchange_price_discount",
     "depends": [
-        "sale",
+        "product",
     ],
     "data": [
         "views/product_pricelist_item_view.xml",
