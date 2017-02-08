@@ -35,13 +35,19 @@ class ProductProduct(models.Model):
     @api.multi
     def _inverse_main_image(self, image):
         for product in self:
+            has_images = bool(product.image_ids)
             if image:
-                product.image_ids[0].write({
+                write_vals = {
                     'file_db_store': image,
                     'storage': 'db',
-                })
+                }
+                if has_images:
+                    product.image_ids[0].write(write_vals)
+                else:
+                    product.image_ids = [(0, False, write_vals)]
             else:
-                product.image_ids = [(3, product.image_ids[0].id)]
+                if has_images:
+                    product.image_ids = [(3, product.image_ids[0].id)]
 
     @api.multi
     def _inverse_main_image_large(self):
