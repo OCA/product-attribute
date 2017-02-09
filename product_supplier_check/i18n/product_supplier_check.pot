@@ -1,0 +1,29 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* product_supplier_check
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-11 10:20+0000\n"
+"PO-Revision-Date: 2014-12-11 10:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_supplier_check
+#: code:_description:0
+#: model:ir.model,name:product_supplier_check.model_product_product
+#, python-format
+msgid "Product"
+msgstr ""
+
+#. module: product_supplier_check
+#: constraint:product.product:0
+msgid "You cannot defined your company has a product supplier"
+msgstr ""
+
