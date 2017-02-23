@@ -93,7 +93,7 @@ class ProductPricelistItem(models.Model):
         }
 
     @api.model
-    def update_sequence_price_grid(self, vals):
+    def _get_sequence_price_grid(self, vals):
         """
             In sale order line, we want to use as a priority
             the product pricelist item associated with the product variant.
@@ -105,18 +105,20 @@ class ProductPricelistItem(models.Model):
         """
         product_id = vals.get('product_id', self.product_id)
         product_tmpl_id = vals.get('product_tmpl_id', self.product_tmpl_id)
+        related_sequence = 15
         if product_id:
-            vals['related_sequence'] = 5
+            related_sequence = 5
         elif product_tmpl_id:
-            vals['related_sequence'] = 10
+            related_sequence = 10
+        return related_sequence
 
     @api.model
     def create(self, vals):
         if self.env['product.pricelist.version'].browse(
                 vals['price_version_id']).price_grid:
-            self.update_sequence_price_grid(vals)
             vals.update({
                 'price_discount': -1,
+                'related_sequence': self._get_sequence_price_grid(vals),
                 'base': 1,
             })
         return super(ProductPricelistItem, self).create(vals)
@@ -125,6 +127,7 @@ class ProductPricelistItem(models.Model):
     def write(self, vals):
         for item in self:
             if 'product_id' in vals:
-                item.update_sequence_price_grid(vals)
+                vals['related_sequence'] = item._get_sequence_price_grid(
+                    vals)
             super(ProductPricelistItem, item).write(vals)
         return True
