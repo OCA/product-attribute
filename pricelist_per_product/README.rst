@@ -36,6 +36,7 @@ Contributors
 * David BEAL <david.beal@akretion.com>
 * Sylvain CALADOR <sylvain.calador@akretion.com>
 * Brett Wood <bwood@laslabs.com>
+* Ted Salmon <tsalmon@laslabs.com>
 
 Maintainer
 ----------
