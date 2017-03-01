@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_profile_example
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: product_profile_example
+#: field:product.profile,available_in_pos:0
+msgid "Available in pos"
+msgstr "Na voljo v POS"
+
+#. module: product_profile_example
+#: field:product.profile,purchase_ok:0
+msgid "Can be Purchased"
+msgstr "Lahko se nabavi"
+
+#. module: product_profile_example
+#: field:product.profile,sale_ok:0
+msgid "Can be Sold"
+msgstr "Lahko se proda"
+
+#. module: product_profile_example
+#: field:product.profile,profile_default_categ_id:0
+msgid "Default category"
+msgstr "Privzeta kategorija"
+
+#. module: product_profile_example
+#: help:product.profile,profile_default_route_ids:0
+msgid ""
+"Depending on the modules installed, this will allow you to define the route "
+"of the product: whether it will be bought, manufactured, MTO/MTS,..."
+msgstr ""
+"Glede na nameščene module omogoča določitev proge proizvoda: kupljen, "
+"proizveden, po naročilu..."
+
+#. module: product_profile_example
+#: field:product.profile,product_manager:0
+msgid "Product Manager"
+msgstr "Upravitelj proizvoda"
+
+#. module: product_profile_example
+#: field:product.profile,profile_default_route_ids:0
+msgid "Routes"
+msgstr "Proge"
+
+#. module: product_profile_example
+#: help:product.profile,sale_ok:0
+msgid "Specify if the product can be selected in a sales order line."
+msgstr "Določa, če se proizvod lahko izbere v postavki prodajnega naloga."
