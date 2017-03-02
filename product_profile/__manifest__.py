@@ -9,7 +9,7 @@
     'summary': "Allow to configure a product in 1 click",
     'category': 'product',
     'depends': [
-        'product',
+        'sale',
     ],
     'website': 'http://www.akretion.com/',
     'data': [
