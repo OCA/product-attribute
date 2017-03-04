@@ -1,9 +1,8 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_code_builder_sequence
+# * product_m2mcategories
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
@@ -19,13 +18,22 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: product_code_builder_sequence
-#: code:addons/product_code_builder_sequence/models/product_product.py:46
-#, python-format
-msgid "-copy"
-msgstr "-kopie"
+#. module: product_m2mcategories
+#: view:product.template:product_m2mcategories.product_normal_form_view_add_categids
+msgid "Classification Categories"
+msgstr "Klassifizierungskategorien"
 
-#. module: product_code_builder_sequence
-#: model:ir.model,name:product_code_builder_sequence.model_product_template
+#. module: product_m2mcategories
+#: view:product.template:product_m2mcategories.product_normal_form_view_add_categids
+msgid "Extra Categories"
+msgstr "Zusatzkategorien"
+
+#. module: product_m2mcategories
+#: field:product.template,categ_ids:0
+msgid "Product Categories"
+msgstr "Produktkategorien"
+
+#. module: product_m2mcategories
+#: model:ir.model,name:product_m2mcategories.model_product_template
 msgid "Product Template"
 msgstr "Produktvorlage"

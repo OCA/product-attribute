@@ -1,9 +1,8 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_code_builder_sequence
+# * product_custom_info
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
@@ -19,13 +18,22 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: product_code_builder_sequence
-#: code:addons/product_code_builder_sequence/models/product_product.py:46
-#, python-format
-msgid "-copy"
-msgstr "-kopie"
+#. module: product_custom_info
+#: view:product.template:product_custom_info.product_template_custom_info_form_view
+msgid "Custom Info"
+msgstr "Individuelle Info"
 
-#. module: product_code_builder_sequence
-#: model:ir.model,name:product_code_builder_sequence.model_product_template
+#. module: product_custom_info
+#: field:product.template,custom_info_template_id:0
+msgid "Custom Information Template"
+msgstr "Vorlage für Individuelle Information"
+
+#. module: product_custom_info
+#: field:product.template,custom_info_ids:0
+msgid "Custom Properties"
+msgstr "Individuelle Eigenschaften"
+
+#. module: product_custom_info
+#: model:ir.model,name:product_custom_info.model_product_template
 msgid "Product Template"
 msgstr "Produktvorlage"

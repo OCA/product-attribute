@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-03-01 13:35+0000\n"
+"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +23,12 @@ msgstr ""
 #: code:addons/pricelist_item_generator/models/item_template.py:81
 #, python-format
 msgid "'Discount' or 'Surcharge' must be different from 0."
-msgstr ""
+msgstr "'Nachlass' oder 'Zuschlag' muss ungleich 0 sein."
 
 #. module: pricelist_item_generator
 #: sql_constraint:pricelist.item.generator:0
 msgid "'Name' field must be unique by generator"
-msgstr ""
+msgstr "'Name'-Feld muss vom Generator eindeutig sein"
 
 #. module: pricelist_item_generator
 #: model:ir.actions.act_window,help:pricelist_item_generator.pricelist_item_generator_action
@@ -47,31 +48,45 @@ msgid ""
 "          </p>\n"
 "        "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Klicken, um Generator für Preislistenposition zu erstellen.\n"
+"          </p>\n"
+"          <p>\n"
+"                Der Generator für Preislistenposition ermöglicht Inen den Aufbau von massenhafter Preisfindung:\n"
+"                <ol>\n"
+"                    <li>Preisfindungsregel festlegen</li>\n"
+"                    <li>Kriterien für Produktauswahl bei Prisfindung</li>\n"
+"                    <li>Preisliste aktualisieren</li>\n"
+"                </ol>\n"
+"                <div><u>Einstellungen</u> : Legen Sie mit lokaler Uhrzeit ein \n"
+"'Nächstes Auführungsdatum' für 'Geplante Aktion' zur Preisfindung an.</div>\n"
+"          </p>\n"
+"        "
 
 #. module: pricelist_item_generator
 #: model:ir.model,name:pricelist_item_generator.model_abstract_pricelist_item_generator
 msgid "Abstract Pricelist Items Generator"
-msgstr ""
+msgstr "Abstrakter Preisfindungs-Assistent"
 
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
 msgid "Activate"
-msgstr ""
+msgstr "Aktivieren"
 
 #. module: pricelist_item_generator
 #: field:pricelist.item.generator,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: pricelist_item_generator
 #: field:product.pricelist.item,auto:0
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #. module: pricelist_item_generator
 #: help:product.pricelist.version,item_auto_ids:0
 msgid "Automatic built items"
-msgstr ""
+msgstr "Automatisch erstellte Elemente"
 
 #. module: pricelist_item_generator
 #: view:product.pricelist.version:pricelist_item_generator.product_pricelist_version_form_view
@@ -91,7 +106,7 @@ msgstr ""
 #. module: pricelist_item_generator
 #: field:pricelist.item.template,base:0
 msgid "Based on"
-msgstr ""
+msgstr "Basiert auf"
 
 #. module: pricelist_item_generator
 #: field:pricelist.product.condition,categ_id:0
@@ -144,14 +159,14 @@ msgstr ""
 #: field:pricelist.item.template,create_uid:0
 #: field:pricelist.product.condition,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Angelegt durch"
 
 #. module: pricelist_item_generator
 #: field:pricelist.item.generator,create_date:0
 #: field:pricelist.item.template,create_date:0
 #: field:pricelist.product.condition,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Angelegt am"
 
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
@@ -182,7 +197,7 @@ msgstr ""
 #: field:pricelist.item.template,display_name:0
 #: field:pricelist.product.condition,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigebezeichnung"
 
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
@@ -220,7 +235,7 @@ msgstr ""
 #: field:pricelist.item.generator,id:0 field:pricelist.item.template,id:0
 #: field:pricelist.product.condition,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
@@ -494,7 +509,7 @@ msgstr ""
 #: field:pricelist.item.generator,sequence:0
 #: field:pricelist.item.template,sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Reihenfolge"
 
 #. module: pricelist_item_generator
 #: help:pricelist.item.template,price_round:0

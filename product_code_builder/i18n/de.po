@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-03-01 13:35+0000\n"
+"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,23 +22,23 @@ msgstr ""
 #. module: product_code_builder
 #: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
 msgid "Attribute"
-msgstr ""
+msgstr "Attribute"
 
 #. module: product_code_builder
 #: field:product.product,auto_default_code:0
 #: field:product.template,auto_default_code:0
 msgid "Automatic Reference"
-msgstr ""
+msgstr "Automatische Referenz"
 
 #. module: product_code_builder
 #: field:product.attribute,code:0 field:product.attribute.value,code:0
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #. module: product_code_builder
 #: field:product.attribute.value,comment:0
 msgid "Comment"
-msgstr ""
+msgstr "Bemerkung"
 
 #. module: product_code_builder
 #: code:addons/product_code_builder/models/product.py:99
@@ -46,17 +47,19 @@ msgid ""
 "Default can no be set manually as the product is configured to have a "
 "computed code"
 msgstr ""
+"Vorgabe darf nicht manuell vergeben werde, da das Produkt auf automatisch "
+"Vergabe eingestellt ist"
 
 #. module: product_code_builder
 #: sql_constraint:product.attribute.value:0
 msgid "For each Attribute we must be found a unique 'code'"
-msgstr ""
+msgstr "Für jedes Attribut müssen wir einen eindeutigen 'Code' finden"
 
 #. module: product_code_builder
 #: help:product.product,auto_default_code:0
 #: help:product.template,auto_default_code:0
 msgid "Generate a reference automatically based on attribute codes"
-msgstr ""
+msgstr "Erezuge, basierend auf Attributschlüsseln, automatisch einen Referenz"
 
 #. module: product_code_builder
 #: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
@@ -86,12 +89,12 @@ msgstr "Produkt"
 #. module: product_code_builder
 #: model:ir.model,name:product_code_builder.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Produktattribut"
 
 #. module: product_code_builder
 #: model:ir.model,name:product_code_builder.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produktvorlage"
 
 #. module: product_code_builder
 #: sql_constraint:product.template:0

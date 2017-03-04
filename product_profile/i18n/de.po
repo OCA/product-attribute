@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-03-01 13:35+0000\n"
+"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,16 +27,18 @@ msgid ""
 "An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Eine Erläuterung zum ausgewählten Profil\n"
+"(nicht mit product.template-Feldern synchronisiert)"
 
 #. module: product_profile
 #: field:product.profile,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Angelegt durch"
 
 #. module: product_profile
 #: field:product.profile,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Angelegt am"
 
 #. module: product_profile
 #: help:product.profile,sequence:0
@@ -43,17 +46,19 @@ msgid ""
 "Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Legt die Reihenfolge der Einträge im product_id-Feld fest\n"
+"(Nicht mit Produktvorlage-Felder abgeglichen)"
 
 #. module: product_profile
 #: field:product.mixin.profile,display_name:0
 #: field:product.profile,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigebezeichnung"
 
 #. module: product_profile
 #: field:base.config.settings,group_product_profile:0
 msgid "Display Product Profile fields"
-msgstr ""
+msgstr "Zeige Produktprofil-Felder"
 
 #. module: product_profile
 #: help:base.config.settings,group_product_profile:0
@@ -64,6 +69,11 @@ msgid ""
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
+"Aus Produktprofil-Modul ermittelte Feldanzeige.\n"
+"Zum Debuggen siehe Menü\n"
+"Verkauf > Konfiguration\n"
+"> Produktkategorien und Attribute\n"
+"> Produktprofile"
 
 #. module: product_profile
 #: field:product.profile,explanation:0
@@ -73,7 +83,7 @@ msgstr ""
 #. module: product_profile
 #: field:product.mixin.profile,id:0 field:product.profile,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_profile
 #: code:addons/product_profile/product.py:127
@@ -141,7 +151,7 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produktvorlage"
 
 #. module: product_profile
 #: field:product.product,profile_id:0
@@ -180,7 +190,7 @@ msgstr ""
 #. module: product_profile
 #: field:product.profile,sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Reihenfolge"
 
 #. module: product_profile
 #: field:product.profile,type:0

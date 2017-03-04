@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-03-01 13:35+0000\n"
+"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +20,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pricelist_per_product
+#: help:product.pricelist.item,related_sequence:0
+msgid ""
+"Allows to modify the sequence manually because the sequence field is "
+"difficult to modify because 'handle'."
+msgstr ""
+
+#. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
 msgid "Base"
-msgstr ""
+msgstr "Basis"
 
 #. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
 msgid "Click to see this product"
-msgstr ""
+msgstr "Klicken, um dieses Produkt anzusehen"
 
 #. module: pricelist_per_product
 #: field:product.pricelist.item,currency_name:0
 msgid "Currency"
-msgstr ""
+msgstr "Währung"
 
 #. module: pricelist_per_product
 #: view:product.template:pricelist_per_product.product_template_form_view
@@ -39,6 +47,8 @@ msgid ""
 "Define a price for this variant according to attribute price extra if any "
 "(tab 'Variants')"
 msgstr ""
+"Legen Sie einen Preis für diese Varainte, gemäß dem Attribut-Preiszuschlag "
+"(Reiter \"Varianten\") fest."
 
 #. module: pricelist_per_product
 #: code:addons/pricelist_per_product/pricelist.py:8
@@ -50,24 +60,19 @@ msgid ""
 "from product form with a grid of specific values\n"
 "for each product"
 msgstr ""
+"Legen Sie fest, ob die Preislistenpositionen\n"
+"aus dem Produktformular mittels Gitter spzifischer\n"
+"Werte jeden Produkt ermittelt werden"
 
 #. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
 msgid "Disc."
-msgstr ""
+msgstr "Rab."
 
 #. module: pricelist_per_product
 #: field:product.pricelist.item,date_end:0
 msgid "End Date"
-msgstr ""
-
-#. module: pricelist_per_product
-#: help:product.pricelist.item,related_sequence:0
-msgid ""
-"Gives the order in which the pricelist items will be checked. The evaluation"
-" gives highest priority to lowest sequence and stops as soon as a matching "
-"item is found."
-msgstr ""
+msgstr "Enddatum"
 
 #. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view
@@ -144,7 +149,7 @@ msgstr ""
 #. module: pricelist_per_product
 #: model:ir.model,name:pricelist_per_product.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produktvorlage"
 
 #. module: pricelist_per_product
 #: view:product.template:pricelist_per_product.product_template_form_view
@@ -164,7 +169,7 @@ msgstr ""
 #. module: pricelist_per_product
 #: field:product.pricelist.item,related_sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Reihenfolge"
 
 #. module: pricelist_per_product
 #: view:product.pricelist.version:pricelist_per_product.product_pricelist_version_form_view

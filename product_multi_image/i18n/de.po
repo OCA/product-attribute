@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-03-01 13:35+0000\n"
+"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_form_view
 msgid "(keep empty for being visible for all variants)"
-msgstr ""
+msgstr "(leer lassen, für Sichtbarkeit in allen Varianten)"
 
 #. module: product_multi_image
 #: help:base_multi_image.image,product_variant_ids:0
@@ -30,18 +31,21 @@ msgid ""
 "several of the available variants, you restrict the availability of the "
 "image to those variants."
 msgstr ""
+"Wenn Sie dies leer lassen, enthalten alle Varianten dieses Bild. Bei Auswahl"
+" einer oder mehrerer verfügbarer Varainten beschränken Sie die Zuordnung auf"
+" diese Varianten."
 
 #. module: product_multi_image
 #: field:product.product,image_ids:0
 #: view:product.template:product_multi_image.view_product_template_form_img_inh
 #: field:product.template,image_ids:0
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #. module: product_multi_image
 #: field:product.product,image_main:0 field:product.template,image_main:0
 msgid "Main image"
-msgstr ""
+msgstr "Hauptbild"
 
 #. module: product_multi_image
 #: field:product.product,manufacturer:0
@@ -61,7 +65,7 @@ msgstr "Hersteller-Produktname"
 #. module: product_multi_image
 #: field:product.product,manufacturer_purl:0
 msgid "Manufacturer Product URL"
-msgstr ""
+msgstr "URL zum Produkt beim Hersteller"
 
 #. module: product_multi_image
 #: field:product.product,image_main_medium:0
@@ -77,12 +81,12 @@ msgstr "Produkt"
 #. module: product_multi_image
 #: field:product.product,categ_ids:0
 msgid "Product Categories"
-msgstr ""
+msgstr "Produktkategorien"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produktvorlage"
 
 #. module: product_multi_image
 #: field:base_multi_image.image,product_variant_count:0
