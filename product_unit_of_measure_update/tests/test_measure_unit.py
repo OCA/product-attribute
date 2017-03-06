@@ -16,10 +16,27 @@ class TestMeasureUnit(TransactionCase):
         self.unit_day = self.env.ref('product.product_uom_day')
         self.unit_gal = self.env.ref('product.product_uom_gal')
 
+    def _check_dependencies(self):
+        this_module = self.env['ir.module.module'].search(
+            [('name', '=', 'product_unit_of_measure_update')])
+        # import pdb; pdb.set_trace()
+        this_dependencies = this_module.downstream_dependencies(
+            known_dep_ids=None,
+            exclude_states=['uninstalled', 'uninstallable', 'to remove'])
+        installed_modules = self.env['ir.module.module'].search(
+            [('state', '=', 'installed')])
+        if set(installed_modules) == set(this_dependencies):
+            return True
+        return False
+
     def test_10_prod_tmpl_not_used(self):
-        # Datacard product
-        product = self.env.ref(
-            'product.product_product_9_product_template')
+        vals = {
+            'name': 'bla',
+            'categ_id': self.env.ref('product.product_category_all').id,
+            'uom_id': self.env.ref('product.product_uom_categ_unit').id,
+            'uom_po_id': self.env.ref('product.product_uom_categ_unit').id,
+        }
+        product = self.env['product.product'].create(vals)
         # write should NOT fails
         self.try2write_product(product, self.unit_gal, self.unit_day)
         self.assertEqual(
@@ -34,8 +51,13 @@ class TestMeasureUnit(TransactionCase):
                 product.name, self.unit_day.name))
 
     def test_20_product_used(self):
-        product = self.env.ref(
-            'product.product_product_46')
+        vals = {
+            'categ_id': self.env.ref('product.product_category_all').id,
+            'name': 'blo',
+            'uom_id': self.env.ref('product.product_uom_categ_unit').id,
+            'uom_po_id': self.env.ref('product.product_uom_categ_unit').id,
+        }
+        product = self.env['product.product'].create(vals)
         procurement_data = {
             'name': 'test',
             'product_id': product.id,
