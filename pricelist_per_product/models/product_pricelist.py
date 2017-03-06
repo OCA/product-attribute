@@ -21,16 +21,14 @@ class ProductPricelist(models.Model):
     @api.multi
     def _compute_product_template_count(self):
         """ Count the number of ``product,template`` in the pricelist """
-        total = [pt_id for pt_id in self.item_ids.mapped('product_tmpl_id')]
+        total = self.item_ids.mapped('product_tmpl_id').ids
         self.product_template_count = len(total)
 
     @api.multi
     def button_template_in_pricelist(self):
         """ Return a tree form of ``product.template`` for the pricelist """
         self.ensure_one()
-        pids = []
-        for rec in self.item_ids.mapped('product_tmpl_id'):
-            pids.append(rec.id)
+        pids = self.item_ids.mapped('product_tmpl_id').ids
         return {
             'type': 'ir.actions.act_window',
             'target': 'current',
