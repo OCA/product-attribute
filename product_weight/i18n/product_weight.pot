@@ -4,10 +4,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 13:23+0000\n"
-"PO-Revision-Date: 2015-05-22 13:23+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_weight
-#: field:product.weight.update,bom_id:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_bom_id
 msgid "BoM"
 msgstr ""
 
@@ -26,63 +24,88 @@ msgid "Calculate Product Weights"
 msgstr ""
 
 #. module: product_weight
-#: view:product.weight.update:product_weight.view_product_weight_update
-#: view:product.weight.update:product_weight.view_product_weight_update_multi
+#: model:ir.actions.act_window,name:product_weight.action_multi_template_weight
+msgid "Calculate Template Weights"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "Cancel"
 msgstr ""
 
 #. module: product_weight
-#: field:product.weight.update,create_uid:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: product_weight
-#: field:product.weight.update,create_date:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_create_date
 msgid "Created on"
 msgstr ""
 
 #. module: product_weight
-#: field:product.weight.update,id:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_id
 msgid "ID"
 msgstr ""
 
 #. module: product_weight
-#: field:product.weight.update,write_uid:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: product_weight
-#: field:product.weight.update,write_date:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: product_weight
-#: field:product.weight.update,product_tmpl_id:0
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_product_id
 msgid "Product"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update_product_tmpl_id
+msgid "Template"
 msgstr ""
 
 #. module: product_weight
 #: model:ir.actions.act_window,name:product_weight.action_view_product_weight_update
 #: model:ir.model,name:product_weight.model_product_weight_update
-#: view:product.weight.update:product_weight.view_product_weight_update
-#: view:product.weight.update:product_weight.view_product_weight_update_multi
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "Update Product Weight"
 msgstr ""
 
 #. module: product_weight
-#: view:product.weight.update:product_weight.view_product_weight_update
-#: view:product.weight.update:product_weight.view_product_weight_update_multi
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "_Apply"
 msgstr ""
 
 #. module: product_weight
-#: view:product.weight.update:product_weight.view_product_weight_update
-#: view:product.weight.update:product_weight.view_product_weight_update_multi
+#: model:ir.model,name:product_weight.model_mrp_bom_line
+msgid "mrp.bom.line"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "or"
 msgstr ""
 
 #. module: product_weight
-#: view:product.template:product_weight.product_weight_form_view
+#: model:ir.ui.view,arch_db:product_weight.compute_product_weight_form_view
 msgid "update weights"
 msgstr ""
 
