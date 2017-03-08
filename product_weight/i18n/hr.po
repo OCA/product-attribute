@@ -1,85 +1,88 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_weight
-#
+# * product_weight
+# 
+# Translators:
+# Bole <bole@dajmi5.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 15:02+0000\n"
-"PO-Revision-Date: 2017-03-08 15:02+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2018-01-03 02:14+0000\n"
+"PO-Revision-Date: 2018-01-03 02:14+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2018\n"
+"Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_bom_id
 msgid "BoM"
-msgstr ""
+msgstr "Sastavnica"
 
 #. module: product_weight
 #: model:ir.actions.act_window,name:product_weight.action_multi_product_weight
 msgid "Calculate Product Weights"
-msgstr ""
+msgstr "Izračunaj težine proizvoda"
 
 #. module: product_weight
 #: model:ir.actions.act_window,name:product_weight.action_multi_template_weight
 msgid "Calculate Template Weights"
-msgstr ""
+msgstr "Izračunaj težine predložaka"
 
 #. module: product_weight
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zadnje ažurirano"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji ažurirao"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnje ažurirano"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_product_id
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update_product_tmpl_id
 msgid "Template"
-msgstr ""
+msgstr "Predložak"
 
 #. module: product_weight
 #: model:ir.actions.act_window,name:product_weight.action_view_product_weight_update
@@ -87,27 +90,26 @@ msgstr ""
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "Update Product Weight"
-msgstr ""
+msgstr "Ažuriraj težinu proizvoda"
 
 #. module: product_weight
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "_Apply"
-msgstr ""
+msgstr "_Primjeni"
 
 #. module: product_weight
 #: model:ir.model,name:product_weight.model_mrp_bom_line
 msgid "mrp.bom.line"
-msgstr ""
+msgstr "mrp.bom.line"
 
 #. module: product_weight
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update
 #: model:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
 msgid "or"
-msgstr ""
+msgstr "ili"
 
 #. module: product_weight
 #: model:ir.ui.view,arch_db:product_weight.compute_product_weight_form_view
 msgid "update weights"
-msgstr ""
-
+msgstr "ažuriraj težine"

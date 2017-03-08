@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data>
+<odoo>
+
     <record id="view_product_weight_update" model="ir.ui.view">
       <field name="name">Update Product Weight</field>
       <field name="model">product.weight.update</field>
       <field name="arch" type="xml">
-	<form string="Update Product Weight">
-	  <group>
-	    <field name="product_tmpl_id" invisible="1" />
-	    <field name="bom_id" required="1"/>
-	  </group>
-	  <footer>
-	    <button name="update_single_weight" string="_Apply" type="object" class="oe_highlight"/>
-	    or
-	    <button string="Cancel" class="oe_link" special="cancel" />
-	  </footer>
-	</form>
+	    <form string="Update Product Weight">
+	      <group>
+	        <field name="product_tmpl_id" invisible="1" />
+	        <field name="product_id" invisible="1" />
+	        <field name="bom_id" required="1"/>
+	      </group>
+	      <footer>
+	        <button name="update_single_weight" string="_Apply" type="object" class="oe_highlight"/>
+	        or
+	        <button string="Cancel" class="oe_link" special="cancel" />
+	      </footer>
+	    </form>
       </field>
     </record>
 
@@ -52,7 +53,16 @@
                 target="new"
                 view_type="form"
                 view_id="view_product_weight_update_multi" />
+
+    <act_window id="action_multi_template_weight"
+                name="Calculate Template Weights"
+                key2="client_action_multi"
+                res_model="product.weight.update"
+                src_model="product.template"
+                view_mode="form"
+                target="new"
+                view_type="form"
+                view_id="view_product_weight_update_multi" />
     
-  </data>
-</openerp>
+</odoo>
 
