@@ -1,41 +1,61 @@
-#    Author: Florian da Costa
-#    Copyright 2015 Akretion
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-from openerp.tests.common import TransactionCase
+# -*- coding: utf-8 -*-
+# Copyright (C) 2015 Akretion (<http://www.akretion.com>).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from odoo.tests.common import TransactionCase
 
 
 class TestBomWeightCompute(TransactionCase):
 
-    def test_calculate_bom_weight(self):
-        self.component_1.weight_net = 0.15
-        self.component_1.weight = 0.20
-        self.component_2.weight_net = 0.18
-        self.component_2.weight = 0.22
-        self.component_3.weight_net = 0.64
-        self.component_3.weight = 0.68
-        self.env['product.weight.update'].calculate_product_bom_weight(
-            self.bom)
-        self.assertEqual(self.bom.product_tmpl_id.weight_net, 0.97)
-        self.assertEqual(self.bom.product_tmpl_id.weight, 1.1)
-
     def setUp(self):
         super(TestBomWeightCompute, self).setUp()
-        self.bom = self.env.ref('mrp.mrp_bom_11')
+        self.bom = self.env.ref('mrp.mrp_bom_desk')
         self.component_1 = self.env.ref(
-            'product.product_product_14_product_template')
+            'mrp.product_product_computer_desk_head')
         self.component_2 = self.env.ref(
-            'product.product_product_15_product_template')
+            'mrp.product_product_computer_desk_leg')
         self.component_3 = self.env.ref(
-            'product.product_product_23_product_template')
+            'mrp.product_product_computer_desk_bolt')
+        self.product = self.env.ref('mrp.product_product_computer_desk')
+        self.component_1.weight = 0.20
+        self.component_2.weight = 0.22
+        self.component_3.weight = 0.68
+        self.variant1 = self.env.ref('product.product_product_11')
+        self.variant2 = self.env.ref('product.product_product_11b')
+        self.wiz_obj = self.env['product.weight.update']
+
+    def test_calculate_product_weight_from_template_form(self):
+        wizard = self.wiz_obj.with_context(
+            active_model='product.template',
+            active_id=self.product.product_tmpl_id.id).create({})
+        wizard.update_single_weight()
+        self.assertEqual(self.product.weight, 3.8)
+        self.assertEqual(self.product.product_tmpl_id.weight, 3.8)
+
+    def test_calculate_product_weight_from_product_form(self):
+        wizard = self.wiz_obj.with_context(
+            active_model='product.product',
+            active_id=self.product.id).create({})
+        wizard.update_single_weight()
+        self.assertEqual(self.product.weight, 3.8)
+        self.assertEqual(self.product.product_tmpl_id.weight, 3.8)
+
+    def test_calculate_weight_from_template_tree(self):
+        self.bom.product_tmpl_id = self.variant1.product_tmpl_id.id
+        self.bom.product_id = self.variant1.id
+        wizard = self.wiz_obj.with_context(
+            active_model='product.template',
+            active_ids=[self.variant1.product_tmpl_id.id]).create({})
+        wizard.update_multi_product_weight()
+        # You can't update template weight if it as variants
+        self.assertEqual(self.variant1.product_tmpl_id.weight, 0.0)
+
+    def test_calculate_weight_from_product_tree(self):
+        self.bom.product_tmpl_id = self.variant1.product_tmpl_id.id
+        self.bom.product_id = self.variant1.id
+        wizard = self.wiz_obj.with_context(
+            active_model='product.product',
+            active_ids=[self.variant1.id, self.variant2.id]).create({})
+        wizard.update_multi_product_weight()
+        self.assertEqual(self.variant1.weight, 3.8)
+        self.assertEqual(self.variant2.weight, 0.0)
