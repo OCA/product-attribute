@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: product-attribute (9.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-02 03:39+0000\n"
+"POT-Creation-Date: 2017-03-09 03:40+0000\n"
 "PO-Revision-Date: 2016-10-20 06:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-product-attribute-9-0/language/es/)\n"
@@ -40,12 +40,12 @@ msgstr ""
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_description
@@ -56,27 +56,27 @@ msgstr ""
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización de"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_logo
@@ -114,7 +114,7 @@ msgstr "Plantilla de producto"
 #: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
 #: model:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_template_product_brand_id
