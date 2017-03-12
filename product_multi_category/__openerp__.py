@@ -8,7 +8,7 @@
     "author": "Akretion,Guewen Baconnier,Camptocamp,Avanzosc,"
     "Sharoon Thomas,Sodexis,Odoo Community Association (OCA)",
     "contributors": ["Mikel Arregi <mikelarregi@avanzosc.es>"],
-    "website": "",
+    "website": "https://odoo-community.org/",
     "license": "AGPL-3",
     "category": "Product Management",
     "depends": ['base', 'product'],
