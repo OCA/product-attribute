@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="variants_template_tree_view_inh_variantdefaultcode" model="ir.ui.view">
+            <field name="name">variants.template.tree.view.inh.variantdefaultcode</field>
+            <field name="model">product.attribute.value</field>
+            <field name="inherit_id" ref="product.variants_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="attribute_code" />
+                </field>
+            </field>
+        </record>
+        <record id="variants_tree_view_inh_variantdefaultcode" model="ir.ui.view">
+            <field name="name">variants.tree.view.inh.variantdefaultcode</field>
+            <field name="model">product.attribute.value</field>
+            <field name="inherit_id" ref="product.variants_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="attribute_code" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

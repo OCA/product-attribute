@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_variant_default_code
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: odoomrp-wip (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-20 18:10+0000\n"
+"PO-Revision-Date: 2015-09-10 16:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Romanian (http://www.transifex.com/oca/odoomrp-wip-8-0/language/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#. module: product_variant_default_code
+#: field:product.attribute.value,attribute_code:0
+msgid "Attribute Code"
+msgstr ""
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:153
+#: sql_constraint:product.attribute:0
+#, python-format
+msgid "Attribute Name must be unique!"
+msgstr ""
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:48
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:48
+#, python-format
+msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
+msgstr ""
+
+#. module: product_variant_default_code
+#: field:product.product,manual_code:0
+msgid "Manual code"
+msgstr ""
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_product
+msgid "Product"
+msgstr "Produs"
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atribute produs"
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_template
+msgid "Product Template"
+msgstr "Produs șablon"
+
+#. module: product_variant_default_code
+#: help:product.template,reference_mask:0
+msgid ""
+"Reference mask for building internal references of a variant generated from this template.\n"
+"Example:\n"
+"A product named ABC with 2 attributes: Size and Color:\n"
+"Product: ABC\n"
+"Color: Red(r), Yellow(y), Black(b)  #Red, Yellow, Black are the attribute value, `r`, `y`, `b` are the corresponding code\n"
+"Size: L (l), XL(x)\n"
+"When setting Variant reference mask to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
+"If you like, You can even have the attribute name appear more than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
+"Note: make sure characters \"[,]\" do not appear in your attribute name"
+msgstr ""
+
+#. module: product_variant_default_code
+#: field:product.template,reference_mask:0
+msgid "Variant reference mask"
+msgstr ""

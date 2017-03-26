@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_variant_default_code
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: odoomrp-wip (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-07 10:44+0000\n"
+"PO-Revision-Date: 2015-09-20 19:02+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/odoomrp-wip-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: product_variant_default_code
+#: field:product.attribute.value,attribute_code:0
+msgid "Attribute Code"
+msgstr "Koda atributa"
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:153
+#: sql_constraint:product.attribute:0
+#, python-format
+msgid "Attribute Name must be unique!"
+msgstr "Naziv atributa mora biti unikaten!"
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:48
+#, python-format
+msgid "Error"
+msgstr "Napaka"
+
+#. module: product_variant_default_code
+#: code:addons/product_variant_default_code/models/product.py:48
+#, python-format
+msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
+msgstr "V 'maski sklica variante' najden nerazpoznaven naziv atributa"
+
+#. module: product_variant_default_code
+#: field:product.product,manual_code:0
+msgid "Manual code"
+msgstr "Ročna koda"
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_product
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atribut proizvoda"
+
+#. module: product_variant_default_code
+#: model:ir.model,name:product_variant_default_code.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_variant_default_code
+#: help:product.template,reference_mask:0
+msgid ""
+"Reference mask for building internal references of a variant generated from this template.\n"
+"Example:\n"
+"A product named ABC with 2 attributes: Size and Color:\n"
+"Product: ABC\n"
+"Color: Red(r), Yellow(y), Black(b)  #Red, Yellow, Black are the attribute value, `r`, `y`, `b` are the corresponding code\n"
+"Size: L (l), XL(x)\n"
+"When setting Variant reference mask to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
+"If you like, You can even have the attribute name appear more than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
+"Note: make sure characters \"[,]\" do not appear in your attribute name"
+msgstr "Masla sklica za gradnjo internih sklicev variante po tej predlogi.\nPrimer:\nProizvod z nazivom ABC z 2 atributoma: velikost in barva:\nProduct: ABC\nBarva: Rdeča(r), Rumena(y), Črna(b)  #Rdeča, rumena, črna so vrednosti atributa, `r`, `y`, `b` so pripadajoče kode\nVelikost: L (l), XL(x)\nKo se nastavlja maska sklica variante na `[Barva]-[Velikost]`, je privzeta koda variant nekaj, kakor `r-l` `b-l` `r-x` ...\nČe želite, se lahko naziv atributa večkrat pojavlja v maski. Kot npr., `fancyA/[Velikost]~[Barva]~[Velikost]` Ob shranjevanju bo privzeta koda variant, nekaj kakor `fancyA/l~r~l` (za varianto z barvo \"Rdeča\" in velikostjo \"L\") `fancyA/x~y~x` (za varianto z barvo \"Rumena\" in velikostjo \"XL\")\nOpomba: znaki \"[,]\" se ne smejo pojavljati v nazivu atributa"
+
+#. module: product_variant_default_code
+#: field:product.template,reference_mask:0
+msgid "Variant reference mask"
+msgstr "Maska sklica variante"
