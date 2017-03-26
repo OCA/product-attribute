@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
-<openerp>
-    <data>
-        <record id="variants_template_tree_view_inh_variantdefaultcode" model="ir.ui.view">
-            <field name="name">variants.template.tree.view.inh.variantdefaultcode</field>
+<odoo>
+
+        <record id="product_attribute_value_view_tree" model="ir.ui.view">
+            <field name="name">product.attribute.value.view.tree (inherited in product_variant_default_code)</field>
             <field name="model">product.attribute.value</field>
-            <field name="inherit_id" ref="product.variants_template_tree_view"/>
+            <field name="inherit_id" ref="product.product_attribute_value_view_tree"/>
             <field name="arch" type="xml">
                 <field name="name" position="after">
                     <field name="attribute_code" />
                 </field>
             </field>
         </record>
-        <record id="variants_tree_view_inh_variantdefaultcode" model="ir.ui.view">
-            <field name="name">variants.tree.view.inh.variantdefaultcode</field>
+
+        <record id="variants_tree_view" model="ir.ui.view">
+            <field name="name">variants.tree.view (inherited in product_variant_default_code)</field>
             <field name="model">product.attribute.value</field>
             <field name="inherit_id" ref="product.variants_tree_view"/>
             <field name="arch" type="xml">
@@ -21,5 +22,5 @@
                 </field>
             </field>
         </record>
-    </data>
-</openerp>
+
+</odoo>
