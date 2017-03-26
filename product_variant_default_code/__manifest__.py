@@ -17,16 +17,18 @@
 ##############################################################################
 {
     "name": "Product Variant Default Code",
-    "version": "2.0",
-    "author": "OdooMRP team,"
-              "Avanzosc,"
-              "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
-              "Shine IT(http://www.openerp.cn)",
+    "version": "10.0.3.0.0",
+    "author": "Odoo Community Association (OCA)",
     "contributors": [
+        "OdooMRP team",
+        "Avanzosc",
+        "Serv. Tecnol. Avanzados - Pedro M. Baeza",
+        "Shine IT(http://www.openerp.cn)",
         "Tony Gu <tony@openerp.cn>",
+        "Graeme Gellatly <g@o4sb.com>",
         ],
     "category": "Product",
-    "website": "http://www.odoomrp.com",
+    "website": "http://www.odoo-community.org",
     "depends": ['product',
                 ],
     "data": ['views/product_attribute_value_view.xml',
