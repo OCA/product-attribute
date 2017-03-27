@@ -15,8 +15,8 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-from openerp import models, fields, api, _
-from openerp.exceptions import except_orm
+from odoo import models, fields, api, _
+from odoo.exceptions import MissingError
 import re
 from string import Template
 from collections import defaultdict
@@ -45,8 +45,8 @@ def sanitize_reference_mask(product, mask):
     for line in product.attribute_line_ids:
         attribute_names.add(line.attribute_id.name)
     if not tokens.issubset(attribute_names):
-        raise except_orm(_('Error'), _('Found unrecognized attribute name in '
-                                       '"Variant Reference Mask"'))
+        raise MissingError(_('Found unrecognized attribute name in '
+                             '"Partcode Template"'))
 
 
 def get_rendered_default_code(product, mask):
@@ -64,6 +64,7 @@ def get_rendered_default_code(product, mask):
 
 
 def render_default_code(product, mask):
+    sanitize_reference_mask(product, mask)
     product.default_code = get_rendered_default_code(product, mask)
 
 
@@ -71,8 +72,8 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     reference_mask = fields.Char(
-        string='Variant reference mask',
-        help='Reference mask for building internal references of a '
+        string='Partcode Template',
+        help='A template for building internal references of a '
              'variant generated from this template.\n'
 
              'Example:\n'
@@ -83,12 +84,12 @@ class ProductTemplate(models.Model):
              'the attribute value, `r`, `y`, `b` are the corresponding code\n'
              'Size: L (l), XL(x)\n'
 
-             'When setting Variant reference mask to `[Color]-[Size]`, the '
+             'When setting the partcode template to `[Color]-[Size]`, the '
              'default code on the variants will be something like `r-l` '
              '`b-l` `r-x` ...\n'
 
              'If you like, You can even have the attribute name appear more'
-             ' than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]`'
+             ' than once in the template e.g. `fancyA/[Size]~[Color]~[Size]`'
              ' When saved, the default code on variants will be something like'
              ' `fancyA/l~r~l` (for variant with Color "Red" and Size "L") '
              '`fancyA/x~y~x` (for variant with Color "Yellow" and Size "XL")\n'
@@ -109,33 +110,38 @@ class ProductTemplate(models.Model):
             sanitize_reference_mask(product, vals['reference_mask'])
         return super(ProductTemplate, self).create(vals)
 
-    @api.one
+    @api.multi
     def write(self, vals):
-        product_obj = self.env['product.product']
         if 'reference_mask' in vals and not vals['reference_mask']:
-            if self.attribute_line_ids:
-                attribute_names = []
-                for line in self.attribute_line_ids:
-                    attribute_names.append("[{}]".format(
-                        line.attribute_id.name))
-                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
-                    attribute_names)
-                vals['reference_mask'] = default_mask
+            for template in self:
+                if template.attribute_line_ids:
+                    attribute_names = []
+                    for line in template.attribute_line_ids:
+                        attribute_names.append("[{}]".format(
+                            line.attribute_id.name))
+                    default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
+                        attribute_names)
+                    vals['reference_mask'] = default_mask
+
         result = super(ProductTemplate, self).write(vals)
+
         if vals.get('reference_mask'):
-            cond = [('product_tmpl_id', '=', self.id),
-                    ('manual_code', '=', False)]
-            products = product_obj.search(cond)
-            for product in products:
-                if product.reference_mask:
-                    render_default_code(product, product.reference_mask)
+            product_obj = self.env['product.product']
+            for template in self:
+                cond = [('product_tmpl_id', '=', template.id),
+                        ('manual_code', '=', False)]
+                products = product_obj.search(cond)
+                for product in products:
+                    if product.reference_mask:
+                        render_default_code(product, product.reference_mask)
         return result
 
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    manual_code = fields.Boolean(string='Manual code')
+    manual_code = fields.Boolean(string='Manual code',
+                                 default=False)
 
     @api.model
     def create(self, values):
@@ -144,23 +150,15 @@ class ProductProduct(models.Model):
             render_default_code(product, product.reference_mask)
         return product
 
-    @api.one
     @api.onchange('default_code')
     def onchange_default_code(self):
         self.manual_code = bool(self.default_code)
 
 
-class ProductAttribute(models.Model):
-    _inherit = 'product.attribute'
-
-    _sql_constraints = [
-        ('number_uniq', 'unique(name)', _('Attribute Name must be unique!'))]
-
-
 class ProductAttributeValue(models.Model):
     _inherit = 'product.attribute.value'
+    _order = 'attribute_sequence, sequence'
 
-    @api.one
     @api.onchange('name')
     def onchange_name(self):
         if self.name:
@@ -168,6 +166,8 @@ class ProductAttributeValue(models.Model):
 
     attribute_code = fields.Char(
         string='Attribute Code', default=onchange_name)
+    attribute_sequence = fields.Integer(related='attribute_id.sequence',
+                                        store=True, readonly=True)
 
     @api.model
     def create(self, values):
@@ -176,19 +176,21 @@ class ProductAttributeValue(models.Model):
         value = super(ProductAttributeValue, self).create(values)
         return value
 
-    @api.one
+    @api.multi
     def write(self, vals):
-        attribute_line_obj = self.env['product.attribute.line']
-        product_obj = self.env['product.product']
         result = super(ProductAttributeValue, self).write(vals)
         if 'attribute_code' in vals:
-            cond = [('attribute_id', '=', self.attribute_id.id)]
-            attribute_lines = attribute_line_obj.search(cond)
-            for line in attribute_lines:
-                cond = [('product_tmpl_id', '=', line.product_tmpl_id.id),
-                        ('manual_code', '=', False)]
-                products = product_obj.search(cond)
-                for product in products:
-                    if product.reference_mask:
-                        render_default_code(product, product.reference_mask)
+            attribute_line_obj = self.env['product.attribute.line']
+            product_obj = self.env['product.product']
+            for attr_value in self:
+                cond = [('attribute_id', '=', attr_value.attribute_id.id)]
+                attribute_lines = attribute_line_obj.search(cond)
+                for line in attribute_lines:
+                    cond = [('product_tmpl_id', '=', line.product_tmpl_id.id),
+                            ('manual_code', '=', False)]
+                    products = product_obj.search(cond)
+                    for product in products:
+                        if product.reference_mask:
+                            render_default_code(product,
+                                                product.reference_mask)
         return result
