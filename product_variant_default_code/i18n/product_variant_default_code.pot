@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-21 11:56+0000\n"
-"PO-Revision-Date: 2015-01-21 11:56+0000\n"
+"POT-Creation-Date: 2017-03-27 23:09+0000\n"
+"PO-Revision-Date: 2017-03-27 23:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,32 +16,44 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_variant_default_code
-#: field:product.attribute.value,attribute_code:0
+#: model:ir.model.fields,help:product_variant_default_code.field_product_product_reference_mask
+#: model:ir.model.fields,help:product_variant_default_code.field_product_template_reference_mask
+msgid "A template for building internal references of a variant generated from this template.\n"
+"Example:\n"
+"A product named ABC with 2 attributes: Size and Color:\n"
+"Product: ABC\n"
+"Color: Red(r), Yellow(y), Black(b)  #Red, Yellow, Black are the attribute value, `r`, `y`, `b` are the corresponding code\n"
+"Size: L (l), XL(x)\n"
+"When setting the partcode template to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
+"If you like, You can even have the attribute name appear more than once in the template e.g. `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
+"Note: make sure characters \"[,]\" do not appear in your attribute name"
+msgstr ""
+
+#. module: product_variant_default_code
+#: model:ir.model.fields,field_description:product_variant_default_code.field_product_attribute_value_attribute_code
 msgid "Attribute Code"
 msgstr ""
 
 #. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:152
-#: sql_constraint:product.attribute:0
-#, python-format
-msgid "Attribute Name must be unique!"
+#: model:ir.model.fields,help:product_variant_default_code.field_product_attribute_value_attribute_sequence
+msgid "Determine the display order"
 msgstr ""
 
 #. module: product_variant_default_code
 #: code:addons/product_variant_default_code/models/product.py:48
 #, python-format
-msgid "Error"
+msgid "Found unrecognized attribute name in \"Partcode Template\""
 msgstr ""
 
 #. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:48
-#, python-format
-msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
-msgstr ""
-
-#. module: product_variant_default_code
-#: field:product.product,manual_code:0
+#: model:ir.model.fields,field_description:product_variant_default_code.field_product_product_manual_code
 msgid "Manual code"
+msgstr ""
+
+#. module: product_variant_default_code
+#: model:ir.model.fields,field_description:product_variant_default_code.field_product_product_reference_mask
+#: model:ir.model.fields,field_description:product_variant_default_code.field_product_template_reference_mask
+msgid "Partcode Template"
 msgstr ""
 
 #. module: product_variant_default_code
@@ -50,30 +62,16 @@ msgid "Product"
 msgstr ""
 
 #. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_attribute
-msgid "Product Attribute"
-msgstr ""
-
-#. module: product_variant_default_code
 #: model:ir.model,name:product_variant_default_code.model_product_template
 msgid "Product Template"
 msgstr ""
 
 #. module: product_variant_default_code
-#: help:product.template,reference_mask:0
-msgid "Reference mask for building internal references of a variant generated from this template.\n"
-"Example:\n"
-"A product named ABC with 2 attributes: Size and Color:\n"
-"Product: ABC\n"
-"Color: Red(r), Yellow(y), Black(b)  #Red, Yellow, Black are the attribute value, `r`, `y`, `b` are the corresponding code\n"
-"Size: L (l), XL(x)\n"
-"When setting Variant reference mask to `[Color]-[Size]`, the default code on the variants will be something like `r-l` `b-l` `r-x` ...\n"
-"If you like, You can even have the attribute name appear more than once in the mask. Such as , `fancyA/[Size]~[Color]~[Size]` When saved, the default code on variants will be something like `fancyA/l~r~l` (for variant with Color \"Red\" and Size \"L\") `fancyA/x~y~x` (for variant with Color \"Yellow\" and Size \"XL\")\n"
-"Note: make sure characters \"[,]\" do not appear in your attribute name"
+#: model:ir.model.fields,field_description:product_variant_default_code.field_product_attribute_value_attribute_sequence
+msgid "Sequence"
 msgstr ""
 
 #. module: product_variant_default_code
-#: field:product.template,reference_mask:0
-msgid "Variant reference mask"
+#: model:ir.model,name:product_variant_default_code.model_product_attribute_value
+msgid "product.attribute.value"
 msgstr ""
-
