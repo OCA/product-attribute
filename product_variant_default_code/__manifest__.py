@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -27,6 +27,7 @@
         "Tony Gu <tony@openerp.cn>",
         "Graeme Gellatly <g@o4sb.com>",
         ],
+    "license": "AGPL-3",
     "category": "Product",
     "website": "http://www.odoo-community.org",
     "depends": ['product',
