@@ -26,14 +26,14 @@ class TestCodeOnTemplate(TransactionCase):
 
     def test_manual_code(self):
         """Ensure a manual code set on a product is kept"""
-        prod_codes = self.template.product_variant_ids.mapped('default_code')
+        old_codes = self.template.product_variant_ids.mapped('default_code')
         product = self.template.product_variant_ids[0]
         product.write({'default_code': 'TESTMANUAL',
                        'manual_code': True})
         self.template.reference_mask = 'TEST[Color (VDC)][Size (VDC)]'
-        new_prod_codes = self.template.product_variant_ids.mapped('default_code')
+        new_codes = self.template.product_variant_ids.mapped('default_code')
         # Check we updated other codes
-        self.assertFalse(any([n in prod_codes for n in new_prod_codes]))
+        self.assertFalse(any([n in old_codes for n in new_codes]))
         self.assertTrue(product.default_code == 'TESTMANUAL')
 
     def test_code_generation(self):
@@ -87,14 +87,11 @@ class TestCodeOnTemplate(TransactionCase):
             {'name': 'Variant Test',
              'reference_mask': 'TEST[Size (VDC)][Color (VDC)]',
              'attribute_line_ids': [
-                 (0, 0,{'attribute_id': self.attribute1.id,
-                        'value_ids': [
-                            (6, 0,
-                            [v.id for v in self.attribute1.value_ids])]}),
+                 (0, 0, {'attribute_id': self.attribute1.id,
+                         'value_ids': [
+                             (6, 0, self.attribute1.value_ids.mapped('id'))]}),
                  (0, 0, {'attribute_id': self.attribute2.id,
                          'value_ids': [
-                             (6, 0,
-                             [v.id for v in self.attribute2.value_ids])]}
-                  )]
-             }
+                             (6, 0, self.attribute2.value_ids.mapped('id'))]})
+             ]}
         )
