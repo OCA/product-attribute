@@ -17,6 +17,59 @@ from odoo.tests.common import TransactionCase
 from odoo.exceptions import MissingError
 
 
+class TestTemplateCreateandWrite(TransactionCase):
+
+    def test_create_no_mask(self):
+        template = self.env['product.template'].create(
+            {'name': 'Variant Test',
+             'attribute_line_ids': [
+                 (0, 0, {'attribute_id': self.attribute1.id,
+                         'value_ids': [
+                             (6, 0, self.attribute1.value_ids.mapped('id'))]}),
+                 (0, 0, {'attribute_id': self.attribute2.id,
+                         'value_ids': [
+                             (6, 0, self.attribute2.value_ids.mapped('id'))]})
+             ]})
+        self.assertFalse(template.reference_mask is False)
+
+    def test_write_no_mask_no_variants(self):
+        """
+        Ensure that creating a template without mask does not
+        create a reference mask and that when later adding lines a
+        default reference mask is added
+        """
+        template = self.env['product.template'].create(
+            {'name': 'Variant Test (no attrs)'})
+        self.assertTrue(template.reference_mask is False)
+        template.write({'attribute_line_ids': [
+            (0, 0, {'attribute_id': self.attribute1.id,
+                    'value_ids': [
+                        (6, 0, self.attribute1.value_ids.mapped('id'))]}),
+            (0, 0, {'attribute_id': self.attribute2.id,
+                    'value_ids': [
+                        (6, 0, self.attribute2.value_ids.mapped('id'))]})
+        ]})
+        self.assertFalse(template.reference_mask is False)
+
+    def setUp(self):
+        super(TestTemplateCreateandWrite, self).setUp()
+        attr_obj = self.env['product.attribute']
+        attr_value_obj = self.env['product.attribute.value']
+        self.attribute1 = attr_obj.create({'name': 'Size (VDC)'})
+        attr_value_obj.create({'attribute_id': self.attribute1.id,
+                               'name': 'Medium',
+                               'attribute_code': 'M'})
+        attr_value_obj.create({'attribute_id': self.attribute1.id,
+                               'name': 'Large',
+                               'attribute_code': 'L'})
+
+        self.attribute2 = attr_obj.create({'name': 'Color (VDC)'})
+        attr_value_obj.create({'attribute_id': self.attribute2.id,
+                               'name': 'Red'})
+        attr_value_obj.create({'attribute_id': self.attribute2.id,
+                               'name': 'Green'})
+
+
 class TestCodeOnTemplate(TransactionCase):
 
     def test_invalid_mask(self):

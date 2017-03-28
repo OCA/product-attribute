@@ -112,28 +112,24 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def write(self, vals):
-        if 'reference_mask' in vals and not vals['reference_mask']:
-            for template in self:
-                if template.attribute_line_ids:
-                    attribute_names = []
-                    for line in template.attribute_line_ids:
-                        attribute_names.append("[{}]".format(
-                            line.attribute_id.name))
-                    default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
-                        attribute_names)
-                    vals['reference_mask'] = default_mask
-
         result = super(ProductTemplate, self).write(vals)
-
-        if vals.get('reference_mask'):
-            product_obj = self.env['product.product']
-            for template in self:
-                cond = [('product_tmpl_id', '=', template.id),
+        for tmpl in self:
+            if tmpl.attribute_line_ids and not tmpl.reference_mask:
+                attribute_names = []
+                for line in tmpl.attribute_line_ids:
+                    attribute_names.append("[{}]".format(
+                        line.attribute_id.name))
+                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
+                    attribute_names)
+                tmpl.reference_mask = default_mask
+            if tmpl.reference_mask:
+                product_obj = self.env['product.product']
+                cond = [('product_tmpl_id', '=', tmpl.id),
                         ('manual_code', '=', False)]
                 products = product_obj.search(cond)
                 for product in products:
-                    if product.reference_mask:
-                        render_default_code(product, product.reference_mask)
+                    if tmpl.reference_mask:
+                        render_default_code(product, tmpl.reference_mask)
         return result
 
 
