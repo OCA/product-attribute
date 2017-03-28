@@ -25,9 +25,9 @@ variants and advanced pricelists under the Sales / Settings menu.
 Usage
 =====
 
-Navigate to a customer (form view)
-Click the button labelled pricing.
-In the resulting tree view an extra column called price will show the customer price.
+# Navigate to a customer (form view)
+# Click the button labelled pricing.
+# In the resulting tree view an extra column called price will show the customer price.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -36,18 +36,14 @@ In the resulting tree view an extra column called price will show the customer p
 Known issues / Roadmap
 ======================
 
-Previous versions of this module allowed the customers name to be typed directly in the view.
-While fields.dummy has been deprecated the functionality can still be acheived by an unstored many2one
+* Previous versions of this module allowed the customers name to be typed directly in the view.
+* While fields.dummy has been deprecated the functionality can still be acheived by an unstored many2one
 on product.template in the same way as pricelist_id is currently stored.
 
 However, the way in which the context is set presents two issues.
 
 * The customers name rather than id is stored in context when referencing self.
 * The tree view does not dynamically change context in version 10 from search bar entries.
-
-(In fact it makes the pricelist functionality of the tree view in core Odoo irrelevant)
-
-If these issues are resolved and there is a way to get
 
 Bug Tracker
 ===========
