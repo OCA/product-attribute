@@ -12,13 +12,13 @@
         <field name="category_id" ref="product_category_energy"/>
         <field name="name">Kilocalorie(s)</field>
         <field name="uom_type">bigger</field>
-        <field name="factor" eval="1000"/>
+        <field name="factor_inv" eval="1000"/>
     </record>
     <record id="product_uom_kilojoule" model="product.uom">
         <field name="category_id" ref="product_category_energy"/>
         <field name="name">Kilojoule(s)</field>
         <field name="uom_type">bigger</field>
-        <field name="factor" eval="239.00573614"/>
+        <field name="factor_inv" eval="239.00573614"/>
     </record>
 
     <!-- Volume -->
@@ -74,19 +74,19 @@
     </record>
     <record id="product_uom_month" model="product.uom">
         <field name="name">Month(s)</field>
-        <field name="factor" eval="30.4375"/>
+        <field name="factor_inv" eval="30.4375"/>
         <field name="category_id" ref="product_uom_category_time"/>
         <field name="uom_type">bigger</field>
     </record>
     <record id="product_uom_year" model="product.uom">
         <field name="name">Year(s)</field>
-        <field name="factor" eval="365.25"/>
+        <field name="factor_inv" eval="365.25"/>
         <field name="category_id" ref="product_uom_category_time"/>
         <field name="uom_type">bigger</field>
     </record>
     <record id="product_uom_indef" model="product.uom">
         <field name="name">Indefinitely</field>
-        <field name="factor" eval="40000"/>
+        <field name="factor_inv" eval="40000"/>
         <field name="category_id" ref="product_uom_category_time"/>
         <field name="uom_type">bigger</field>
     </record>
