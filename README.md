@@ -36,6 +36,7 @@ addon | version | summary
 [product_variant_inactive](product_variant_inactive/) | 8.0.0.0.0 | Product Variant Inactive
 [product_weight](product_weight/) | 8.0.0.2.0 | Allows to calculate products weight from its components.
 
+
 Unported addons
 ---------------
 addon | version | summary
