@@ -18,6 +18,7 @@ addon | version | summary
 [product_sequence](product_sequence/) | 10.0.1.0.0 | Product Sequence
 [product_uom](product_uom/) | 10.0.1.0.0 | Provide missing uom
 
+
 Unported addons
 ---------------
 addon | version | summary
