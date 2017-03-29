@@ -22,12 +22,6 @@
     </record>
 
     <!-- Volume -->
-    <record id="product_uom_liter" model="product.uom">
-        <field name="name">Liter(s)</field>
-        <field name="category_id" ref="product.product_uom_categ_vol"/>
-        <field name="uom_type">reference</field>
-        <field name="factor">1.0</field>
-    </record>
     <record id="product_uom_ml" model="product.uom">
         <field name="name">mL</field>
         <field name="category_id" ref="product.product_uom_categ_vol"/>
