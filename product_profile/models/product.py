@@ -214,7 +214,7 @@ class ProductMixinProfile(models.AbstractModel):
             res['arch'] = etree.tostring(doc, pretty_print=True)
         elif view_type == 'search':
             # Allow to dynamically create search filters for each profile
-            filters_to_create = self.env['product.profile'].search([])
+            filters_to_create = self._get_profiles_to_filter()
             doc = etree.XML(res['arch'])
             node = doc.xpath("//filter[1]")
             if node:
@@ -226,12 +226,17 @@ class ProductMixinProfile(models.AbstractModel):
         return res
 
     @api.model
+    def _get_profiles_to_filter(self):
+        """ Inherit if you want that some profiles doesn't have a filter """
+        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
+
+    @api.model
     def _customize_profile_filters(self, my_filter):
         """ Inherit if you to customize search filter display"""
         return {
-            'string': "%s" % my_filter.name,
+            'string': "%s" % my_filter[1],
             'help': 'Filtering by Product Profile',
-            'domain': "[('profile_id','=', %s)]" % my_filter.id}
+            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
 
 
 class ProductTemplate(models.Model):
