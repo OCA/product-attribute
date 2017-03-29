@@ -10,13 +10,11 @@
     'license': 'AGPL-3',
     'author': 'OCA - Odoo Community Association,Odoo Community Association (OCA)',
     'website': 'http://odoo-community.org',
-    'depends': [
+    'depends': ['product', 'sale', 'sales_team'
     ],
     'data': [
         'security/product_attribute_group.xml',
         'views/product_attribute_group.xml',
-    ],
-    'demo': [
-        'demo/product_attribute_group.xml',
+        'views/product_template.xml',
     ],
 }

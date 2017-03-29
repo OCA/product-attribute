@@ -3,7 +3,6 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
 <odoo>
-<data>
 
     <record model="ir.ui.view" id="product_attribute_group_form_view">
         <field name="name">product.attribute.group.form (in product_attribute_group)</field>
@@ -11,15 +10,15 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <!-- TODO -->
+                    <button type="object" name="update_products" string="Update Templates"/>
                 </header>
                 <sheet>
-                    <!-- TODO -->
                     <group>
                         <field name="name"/>
+                        <field name="attribute_id" widget="selection"/>
+                        <field name="value_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>
-                <div class="oe_chatter"></div>
             </form>
         </field>
     </record>
@@ -29,7 +28,9 @@
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <search>
-                <!-- TODO -->
+                <field name="name"/>
+                <field name="attribute_id"/>
+                <field name="value_ids"/>
             </search>
         </field>
     </record>
@@ -38,27 +39,28 @@
         <field name="name">product.attribute.group.tree (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
-            <tree>
-                <!-- TODO -->
+            <tree editable="bottom">
                 <field name="name"/>
+                <field name="attribute_id" widget="selection"/>
+                <field name="value_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="product_attribute_group_act_window">
-        <field name="name">Product Attribute Group</field> <!-- TODO -->
+        <field name="name">Product Attribute Groups</field>
         <field name="res_model">product.attribute.group</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree, form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
 
     <record model="ir.ui.menu" id="product_attribute_group_menu">
-        <field name="name">Product Attribute Group</field>
-        <field name="parent_id" ref="xmlid of parent menu"/> <!-- TODO -->
+        <field name="name">Product Attribute Groups</field>
+        <field name="parent_id" ref="sale.prod_config_main"/>
         <field name="action" ref="product_attribute_group_act_window"/>
-        <field name="sequence" eval="16"/> <!-- TODO -->
+        <field name="sequence" eval="6"/>
     </record>
 
-</data>
+
 </odoo>
