@@ -81,6 +81,8 @@ class ProductProfile(models.Model):
                     [('profile_id', '=', rec.id)])
                 data = products._get_profile_data({'profile_id': rec.id})
                 products.write(data)
+        return res
+
 
     @api.model
     def check_useless_key_in_vals(self, vals, key):
@@ -212,7 +214,7 @@ class ProductMixinProfile(models.AbstractModel):
             res['arch'] = etree.tostring(doc, pretty_print=True)
         elif view_type == 'search':
             # Allow to dynamically create search filters for each profile
-            filters_to_create = self._get_profiles_to_filter()
+            filters_to_create = self.env['product.profile'].search([])
             doc = etree.XML(res['arch'])
             node = doc.xpath("//filter[1]")
             if node:
@@ -224,17 +226,12 @@ class ProductMixinProfile(models.AbstractModel):
         return res
 
     @api.model
-    def _get_profiles_to_filter(self):
-        """ Inherit if you want that some profiles doesn't have a filter """
-        return [(x.id, x.name) for x in self.env['product.profile'].search([])]
-
-    @api.model
     def _customize_profile_filters(self, my_filter):
         """ Inherit if you to customize search filter display"""
         return {
-            'string': "%s" % my_filter[1],
+            'string': "%s" % my_filter.name,
             'help': 'Filtering by Product Profile',
-            'domain': "[('profile_id','=', %s)]" % my_filter[0]}
+            'domain': "[('profile_id','=', %s)]" % my_filter.id}
 
 
 class ProductTemplate(models.Model):
