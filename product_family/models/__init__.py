@@ -4,5 +4,6 @@
 #
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import product
-import product_family
+from . import product
+from . import product_family
+

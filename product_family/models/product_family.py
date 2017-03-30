@@ -16,7 +16,8 @@ class ProductFamily(models.Model):
 
     sequence = fields.Integer(string="Sequence")
     name = fields.Char('Nombre', required=True, translate=True)
-    parent_id = fields.Many2one(comodel_name="product.family", string="Parent Family", ondelete='cascade')
+    parent_id = fields.Many2one(comodel_name="product.family",
+                                string="Parent Family", ondelete='cascade')
     parent_left = fields.Integer('Left Parent', index=True)
     parent_right = fields.Integer('Right Parent', index=True)
     type = fields.Selection(selection=[('view', 'View'), ('normal', 'Normal')],
@@ -25,7 +26,8 @@ class ProductFamily(models.Model):
     @api.constrains('parent_id')
     def _check_category_recursion(self):
         if not self._check_recursion():
-            raise ValidationError(_('Error! You cannot create recursive Families.'))
+            raise ValidationError(_('Error! You cannot create '
+                                    'recursive Families.'))
         return True
 
     @api.multi
@@ -37,7 +39,8 @@ class ProductFamily(models.Model):
                 family = family.parent_id
             return res
 
-        return [(family.id, " / ".join(reversed(get_names(family)))) for family in self]
+        return [(family.id, " / ".join(reversed(get_names(family))))
+                for family in self]
 
     @api.multi
     def write(self, values):
