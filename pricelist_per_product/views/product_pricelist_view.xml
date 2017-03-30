@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">product.pricelist.form</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="button_template_in_pricelist"
+                        class="oe_inline oe_stat_button" type="object"
+                        icon="fa-cube"
+                        help="Click to view product templates in this Pricelist">
+                    <field name="product_template_count" widget="statinfo" string="Show Products" />
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <attribute name="context">{'default_base':'list_price', 'default_pricelist_id': id}</attribute>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page name="grid" string="Product Grid">
+                        <group col="4">
+                            <field name="product_item_ids" nolabel="1">
+                                <tree string="Price Grid" editable="1">
+                                    <field name="id" invisible="1"/>
+                                    <field name="product_id"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="price_surcharge" string="Price"/>
+                                    <field name="product_tmpl_id"/>
+                                    <button name="button_product"
+                                            icon="terp-stock_symbol-selection"
+                                            class="oe_link" type="object"
+                                            attrs="{'invisible': [
+                                                ('product_tmpl_id', '=', False),
+                                                ('product_id', '=', False)]}"
+                                            help="Click to see this product"/>
+                                    <field name="price_discount" string="Disc." invisible="1"/>
+                                    <field name="base" string="Base" invisible="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>  
+
+</odoo>

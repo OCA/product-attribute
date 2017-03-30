@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='pricelist_item']" position="attributes">
+                <attribute name="groups">product.group_sale_pricelist</attribute>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <attribute name="context">{'default_base':'list_price', 'default_applied_on':'1_product', 'default_product_tmpl_id': id}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']" position="inside">
+                <tree string="Pricelist Items" editable="bottom" create="1"
+                      delete="1">
+                    <field name="pricelist_id" string="Pricelist" required="1"/>
+                    <field name="fixed_price" string="Price" required="1"/>
+                    <field name="min_quantity"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="applied_on" invisible="1"/>
+                </tree>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
