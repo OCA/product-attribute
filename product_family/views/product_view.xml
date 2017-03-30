@@ -10,7 +10,9 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='active']" position="after">
-                    <field name="family_id" domain="[('type', '=', 'normal')]"/>
+                    <field name="family_ids"
+                           domain="[('type', '=', 'normal')]"
+                           widget="many2many_tags"/>
                 </xpath>
 
             </field>
@@ -23,10 +25,11 @@
 	        <field name="inherit_id" ref="product.product_template_search_view"/>
 	        <field name="arch" type="xml">
 	            <field name="name" position="after">
-	            	<field name="family_id"/>
+	            	<field name="family_ids"/>
 	            </field>
                 <xpath expr="//group[@string='Group by...']" position="inside">
-                    <filter string='Product Family' domain="[]" context="{'group_by' : 'family_id'}"/>
+                    <filter string='Product Family' domain="[]"
+                            context="{'group_by' : 'family_id'}"/>
                 </xpath>
 	        </field>
 	    </record>

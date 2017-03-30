@@ -9,5 +9,7 @@ from openerp import models, fields
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    family_id = fields.Many2one(comodel_name="product.family",
-                                string="Product Family")
+    family_ids = fields.Many2many(comodel_name="product.family",
+                                  relation="product_tmpl_family_rel",
+                                  column1="product_id", column2="family_id",
+                                  string="Product Family")
