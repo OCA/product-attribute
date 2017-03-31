@@ -10,9 +10,19 @@
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_standard_price']" position="after">
-                <group name="group_service">
+                <group name="group_service"
+                       attrs="{'invisible': [('type', '!=', 'service')]}">
                     <field name="service_user_id" />
-                    <field name="minimum_service_time" />
+                    <label for="min_service_time" />
+                    <div>
+                        <field name="min_service_time"
+                            widget="float_time"
+                            class="oe_inline"
+                            on_change="1" />
+                        <span>
+                                hours
+                        </span>
+                    </div>
                 </group>
             </xpath>
         </field>
@@ -24,7 +34,7 @@
         <field name="inherit_id" ref="product.product_template_tree_view" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='standard_price']" position="after">
-                <field name="minimum_service_time" />
+                <field name="min_service_time" />
             </xpath>
         </field>
     </record>
@@ -36,7 +46,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                 <field name="service_user_id" />
-                <field name="minimum_service_time" />
+                <field name="min_service_time" />
             </xpath>
         </field>
     </record>

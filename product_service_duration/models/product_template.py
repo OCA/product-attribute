@@ -2,7 +2,7 @@
 # Copyright 2017 LasLabs Inc.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import fields, models
 import odoo.addons.decimal_precision as dp
 
 
@@ -14,10 +14,11 @@ class ProductTemplate(models.Model):
         string='Service User',
         comodel_name='res.users',
         help='Optionally set a user on performing this service',
+        domain="[('company_id', 'child_of', company_id)]",
     )
-    minimum_service_time = fields.Float(
-        string='Minimum Service Hours',
-        digits_compute=dp.get_precision('Product UoM'),
+    min_service_time = fields.Float(
+        string='Minimum Time',
+        digits=dp.get_precision('Product UoM'),
         help='Minimum time it takes to complete this service in hours.',
     )
     event_ids = fields.Many2many(

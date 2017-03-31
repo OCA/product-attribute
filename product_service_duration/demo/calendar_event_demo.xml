@@ -10,8 +10,8 @@
         <field name="stop" eval="time.strftime('%Y-%m-10 17:00:00')" />
         <field name="duration" eval="5.00" />
         <field name="template_ids"
-               eval="[(4, ref('product_service_duration.product_template_1')),
-                      (4, ref('product_service_duration.product_template_2'))]" />
+               eval="[(6, 0, [ref('product_service_duration.product_template_1'),
+                              ref('product_service_duration.product_template_2')])]" />
     </record>
 
 </odoo>

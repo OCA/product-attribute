@@ -5,6 +5,8 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
+import odoo.addons.decimal_precision as dp
+
 
 class CalendarEvent(models.Model):
 
@@ -16,30 +18,35 @@ class CalendarEvent(models.Model):
         help='Products or services involved in '
              'this event/meeting.'
     )
+    min_duration = fields.Float(
+        string='Minimum Duration',
+        digits=dp.get_precision('Product UoM'),
+        compute='_compute_min_duration',
+        store=True,
+        help='Minimum duration, in hours, the meeting can be.'
+    )
 
     @api.multi
-    @api.constrains('template_ids', 'duration', 'start', 'stop')
+    @api.depends('template_ids')
+    def _compute_min_duration(self):
+        for record in self:
+            min_duration = sum(
+                [t.min_service_time for t in record.template_ids]
+            )
+            record.min_duration = min_duration
+
+    @api.multi
+    @api.constrains(
+        'template_ids', 'duration', 'start', 'stop', 'min_duration')
     def _check_template_ids(self):
         for record in self:
 
             event_hours = record.duration
+            if not record.duration:
+                event_hours = record._get_duration(record.start, record.stop)
 
-            if not event_hours:
-                start = fields.Datetime.from_string(
-                    record.start
+            if record.min_duration > event_hours:
+                raise ValidationError(
+                    _('The services involved require a %s hour '
+                      'long meeting.') % record.min_duration,
                 )
-                stop = fields.Datetime.from_string(
-                    record.stop
-                )
-
-                diff_secs = (stop - start).total_seconds()
-                event_hours = diff_secs / 3600
-
-            min_event_duration = sum(
-                [t.minimum_service_time for t in record.template_ids]
-            )
-            if min_event_duration > event_hours:
-                raise ValidationError(_(
-                    'The services involved requires a %s hour '
-                    'long meeting.' % min_event_duration,
-                ))

@@ -17,7 +17,7 @@
         <field name="currency_id" ref="base.USD" />
         <field name="default_code">SERV_MEET</field>
         <field name="service_user_id" ref="base.user_demo" />
-        <field name="minimum_service_time" eval="3.00" />
+        <field name="min_service_time" eval="3.00" />
     </record>
 
     <record id="product_template_2" model="product.template">
@@ -33,7 +33,7 @@
         <field name="currency_id" ref="base.USD" />
         <field name="default_code">SERV_CONSULT</field>
         <field name="service_user_id" ref="base.user_demo" />
-        <field name="minimum_service_time" eval="2.00" />
+        <field name="min_service_time" eval="2.00" />
     </record>
 
 </odoo>

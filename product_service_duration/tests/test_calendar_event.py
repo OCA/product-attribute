@@ -2,18 +2,16 @@
 # Copyright 2017 LasLabs Inc.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields
-
 from odoo.tests.common import TransactionCase
 from odoo.exceptions import ValidationError
 
 import time
 
 
-class TesteventEvent(TransactionCase):
+class TestCalendarEvent(TransactionCase):
 
     def setUp(self):
-        super(TesteventEvent, self).setUp()
+        super(TestCalendarEvent, self).setUp()
         self.templ_1 = self.env.ref(
             'product_service_duration.product_template_1'
         )

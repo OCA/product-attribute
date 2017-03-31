@@ -15,6 +15,18 @@
                        can_create="true"
                        can_write="true" />
             </xpath>
+            <xpath expr="//field[@name='allday']" position="before">
+                <label for="min_duration" />
+                <div>
+                    <field name="min_duration"
+                           widget="float_time"
+                           class="oe_inline"
+                           on_change="1" />
+                    <span>
+                            hours
+                    </span>
+                </div>
+            </xpath>
         </field>
     </record>
 
