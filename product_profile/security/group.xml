@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
-    <data>
+<odoo>
 
-<record id="group_product_profile" model="res.groups">
-    <field name="name">Product Profile</field>
-    <field name="category_id" ref="base.module_category_hidden"/>
-</record>
+    <record id="group_product_profile" model="res.groups">
+        <field name="name">Product Profile</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
 
-    </data>
-</openerp>
+</odoo>

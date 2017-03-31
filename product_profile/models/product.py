@@ -1,11 +1,11 @@
-# coding: utf-8
+    # coding: utf-8
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import logging
-from openerp import models, fields, api, _
-from openerp.osv import orm
-from openerp.exceptions import Warning as UserError
+from odoo import models, fields, api, _
+from odoo.osv import orm
+from odoo.exceptions import UserError
 from lxml import etree
 
 
@@ -42,7 +42,7 @@ def get_profile_fields_to_exclude():
 
 class ProductProfile(models.Model):
     _name = 'product.profile'
-    _order = 'sequence'
+    _order = 'sequence, name'
 
     name = fields.Char(
         required=True,
@@ -57,19 +57,9 @@ class ProductProfile(models.Model):
         help="An explanation on the selected profile\n"
              "(not synchronized with product.template fields)")
     type = fields.Selection(
-        selection='_get_types',
+        selection=[('consu', 'Consumable'), ('service', 'Service')],
         required=True,
         help="See 'type' field in product.template")
-
-    def _get_types(self):
-        """ inherit in your custom module.
-            could be this one if stock module is installed
-
-        return [('product', 'Stockable Product'),
-                ('consu', 'Consumable'),
-                ('service', 'Service')]
-        """
-        return [('consu', 'Consumable'), ('service', 'Service')]
 
     @api.multi
     def write(self, vals):
@@ -90,10 +80,11 @@ class ProductProfile(models.Model):
                 products = self.env['product.product'].search(
                     [('profile_id', '=', rec.id)])
                 if products:
-                    _logger.info(
-                        " >>> %s Products updating after updated '%s' "
-                        "product profile" % (len(products), rec.name))
-                    products.write({'profile_id': rec.id})
+                    _logger.info(" >>> %s Products updating after updated '%s' pro"
+                                 "duct profile" % (len(products), rec.name))
+                    data = products._get_vals_from_profile({'profile_id': rec.id})
+                    products.write(data)
+
         return res
 
     @api.model
@@ -143,10 +134,7 @@ class ProductMixinProfile(models.AbstractModel):
                 if field not in fields_to_exclude]
 
     @api.model
-    def _get_profile_data(self, values, filled_fields=None):
-        # Note for migration to v9
-        # - rename method to a more convenient name _get_vals_from_profile()
-        # - remove unused filled_fields args
+    def _get_vals_from_profile(self, values):
         profile_obj = self.env['product.profile']
         fields = self._get_profile_fields()
         vals = profile_obj.browse(values['profile_id']).read(fields)[0]
@@ -172,7 +160,7 @@ class ProductMixinProfile(models.AbstractModel):
         """ Update product fields with product.profile corresponding fields """
         self.ensure_one()
         if self.profile_id:
-            values = self._get_profile_data({'profile_id': self.profile_id.id})
+            values = self._get_vals_from_profile({'profile_id': self.profile_id.id})
             for field, value in values.items():
                 try:
                     self[field] = value
@@ -182,13 +170,13 @@ class ProductMixinProfile(models.AbstractModel):
     @api.model
     def create(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_profile_data(vals))
+            vals.update(self._get_vals_from_profile(vals))
         return super(ProductMixinProfile, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('profile_id'):
-            vals.update(self._get_profile_data(vals))
+            vals.update(self._get_vals_from_profile(vals))
         return super(ProductMixinProfile, self).write(vals)
 
     @api.model

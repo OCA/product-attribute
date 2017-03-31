@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
-    <data>
+<odoo>
 
 <record id="product_template_form_view" model="ir.ui.view">
     <field name="model">product.template</field>
@@ -21,7 +20,7 @@
     <field name="model">product.template</field>
     <field name="inherit_id" ref="product.product_template_search_view"/>
     <field name="arch" type="xml">
-        <xpath expr="//group/filter[@string='Category']" position="before">
+        <xpath expr="//field[@name='name']" position="after">
             <filter string='Profile' domain="[]" context="{'group_by' : 'profile_id'}"/>
         </xpath>
     </field>
@@ -47,7 +46,6 @@
 
 <menuitem id="menu_product_profile_action"
           action="product_profile_action"
-          parent="product.prod_config_main" sequence="10" />
+          parent="sale.prod_config_main" sequence="10" />
 
-    </data>
-</openerp>
+</odoo>
