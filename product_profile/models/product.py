@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import logging
-from openerp import models, fields, api, _
-from openerp.osv import orm
-from openerp.exceptions import Warning as UserError
+from odoo import models, fields, api, _
+from odoo.osv import orm
+from odoo.exceptions import UserError
 from lxml import etree
 
 
@@ -57,19 +57,9 @@ class ProductProfile(models.Model):
         help="An explanation on the selected profile\n"
              "(not synchronized with product.template fields)")
     type = fields.Selection(
-        selection='_get_types',
+        selection=[('consu', 'Consumable'), ('service', 'Service')],
         required=True,
         help="See 'type' field in product.template")
-
-    def _get_types(self):
-        """ inherit in your custom module.
-            could be this one if stock module is installed
-
-        return [('product', 'Stockable Product'),
-                ('consu', 'Consumable'),
-                ('service', 'Service')]
-        """
-        return [('consu', 'Consumable'), ('service', 'Service')]
 
     @api.multi
     def write(self, vals):
@@ -89,11 +79,8 @@ class ProductProfile(models.Model):
             for rec in self:
                 products = self.env['product.product'].search(
                     [('profile_id', '=', rec.id)])
-                if products:
-                    _logger.info(
-                        " >>> %s Products updating after updated '%s' "
-                        "product profile" % (len(products), rec.name))
-                    products.write({'profile_id': rec.id})
+                data = products._get_profile_data({'profile_id': rec.id})
+                products.write(data)
         return res
 
     @api.model
@@ -174,10 +161,11 @@ class ProductMixinProfile(models.AbstractModel):
         if self.profile_id:
             values = self._get_profile_data({'profile_id': self.profile_id.id})
             for field, value in values.items():
-                try:
-                    self[field] = value
-                except Exception as e:
-                    raise UserError(format_except_message(e, field, self))
+                if field in self._fields:
+                    try:
+                        self[field] = value
+                    except Exception as e:
+                        raise UserError(format_except_message(e, field, self))
 
     @api.model
     def create(self, vals):
