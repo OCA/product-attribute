@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="name">calendar.event.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alarm_ids']" position="after">
+                <field name="template_ids"
+                       widget="many2many_tags"
+                       can_create="true"
+                       can_write="true" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_popup" model="ir.ui.view">
+        <field name="name">calendar.event.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_popup" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="template_ids"
+                       widget="many2many_tags"
+                       can_create="true"
+                       can_write="true" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_search" model="ir.ui.view">
+        <field name="name">calendar.event.search</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="template_ids" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
