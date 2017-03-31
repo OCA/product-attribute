@@ -3,24 +3,23 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Product Profile Example',
-    'summary': 'Product Profile Use Case',
-    'version': '8.0.1.0.1',
+    'name': 'Product Profile',
+    'version': '10.0.1.0.0',
     'author': 'Akretion, Odoo Community Association (OCA)',
+    'summary': "Allow to configure a product in 1 click",
     'category': 'product',
-    'description': 'See Product Profile module',
     'depends': [
-        'product_profile',
-        'purchase',
-        'point_of_sale',
-        'mrp',
+        'sale',
     ],
     'website': 'http://www.akretion.com/',
     'data': [
-        'product.profile.csv',
+        'security/group.xml',
+        'views/product_view.xml',
+        'views/config_view.xml',
+        'security/ir.model.access.csv',
     ],
     'demo': [
-        'product_product_demo.xml',
+        'demo/product.profile.csv',
     ],
     'installable': True,
     'license': 'AGPL-3',

@@ -1,6 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
+=======================
 Product Profile Example
 =======================
 
@@ -15,8 +16,8 @@ Configuration
 
 Optionnaly:
 
-* Settings > Configuration > General Settings: check 'Display Profile fields' and apply
-  (only if you want display hidden fields)
+* Settings > Configuration > General Settings: check 'Display fields in Profile' and apply
+  (only if you want display hidden fields set by profile git )
 
 
 

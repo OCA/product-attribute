@@ -1,13 +1,14 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
+===============
 Product Profile
 ===============
 
 This module provides easier products configuration (in one click).
 It allows to configure a product template with only one field.
 
-.. image:: static/description/field.png
+.. image:: static/img/field.png
 
 **Main use case**: a lot of modules are installed (mrp, purchase, sale, pos)
 and products configuration becomes harder for end users: too many fields to take care of.
@@ -26,9 +27,9 @@ Additional feature: a default value can be attached to a profile (see § Configu
 Configuration
 =============
 
-1. Create your own profile here: Sales > Configuration > Product Categories and Attributes > Product Profiles
+1. Create your own profile here: Sales > Configuration > Product > Product Profiles
 
-.. image:: static/description/list.png
+.. image:: static/img/list.png
 
 
 2. To have more fields available to attach to this profile you must define

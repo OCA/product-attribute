@@ -2,10 +2,11 @@
 # © 2016 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase
 
 
 class TestProductProfile(TransactionCase):
+
     def test_check_hard_disc_product(self):
         # check route_ids
         real_routes = [x.id for x in self.hard_disc_prd.route_ids]
@@ -17,7 +18,7 @@ class TestProductProfile(TransactionCase):
         theoritical_routes.sort()
         self.assertEqual(real_routes, theoritical_routes)
         # check categ_id
-        theoritical_categ_id = self.env.ref('product.product_category_8')
+        theoritical_categ_id = self.theoritical_categ_id
         self.assertEqual(self.hard_disc_prd.categ_id.id,
                          theoritical_categ_id.id)
 
@@ -59,7 +60,7 @@ class TestProductProfile(TransactionCase):
     def test_default_behavior(self):
         """Check if field prefixed with default_profile
            have a default behavior on field values"""
-        categ = self.env.ref('product.product_category_3')
+        categ = self.categ
         consu_profile = self.env.ref('product_profile_example.consu_prof')
         vals = {'profile_id': consu_profile.id,
                 'categ_id': categ.id,
@@ -71,11 +72,13 @@ class TestProductProfile(TransactionCase):
         super(TestProductProfile, self).setUp()
         self.prd_m = self.env['product.product']
         # product 'HDD SH-2' in demo data
-        self.hard_disc_prd = self.env.ref('product.product_product_18')
+        self.hard_disc_prd = self.env.ref('product.product_product_17')
         self.my_own_profile = self.env.ref('product_profile_example.own')
         self.manufacturing_prof = self.env.ref(
             'product_profile_example.manuf_prof')
         self.analysis_tmpl = self.env.ref(
-            'point_of_sale.partner_product_11_product_template')
+            'point_of_sale.partner_product_7_product_template')
         self.analysis_prd = self.env.ref(
-            'point_of_sale.partner_product_11')
+            'point_of_sale.partner_product_7')
+        self.theoritical_categ_id = self.env.ref('product.product_category_5')
+        self.categ = self.env.ref('product.product_category_3')
