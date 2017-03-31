@@ -1,8 +1,10 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
+================
 Product Profile
-===============
+================
 
 This module provides easier products configuration (in one click).
 It allows to configure a product template with only one field.
@@ -23,6 +25,7 @@ Note: This module is meant to be used by skilled people in database fields creat
 Additional feature: a default value can be attached to a profile (see § Configuration, part 3)
 
 
+
 Configuration
 =============
 
@@ -38,7 +41,7 @@ Configuration
    in 'product.template'
    Example of fields declaration in your own module:
 
-```python
+'''python
 
 class ProductProfile(models.Model):
     """ Require dependency on sale, purchase and point_of_sale modules
@@ -58,13 +61,13 @@ class ProductProfile(models.Model):
         string='Can be Purchased')
     available_in_pos = fields.Boolean()
 
-```
+'''
 
 3. Second behavior: you might want to add a default behavior to these fields:
    in this case use prefix 'profile_default\_' for your field name
    in 'product.profile' model.
 
-```python
+'''python
 
 class ProductProfile(models.Model):
     ...
@@ -79,7 +82,7 @@ class ProductProfile(models.Model):
              "you to define the route of the product: "
              "whether it will be bought, manufactured, MTO/MTS,...")
 
-```
+'''
 
    In this case 'categ_id' field (from product.template) is populated
    with 'profile_default_categ_id' value but can be updated manually by the user.
@@ -104,14 +107,14 @@ Install **Product Profile Example** module to see a use case in action.
 
 Profiles are also defined as search filter and group.
 
+
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
-In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_profile%0Aversion:%201.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
-
+Bugs are tracked on 'GitHub Issues
+<https://github.com/OCA/{project_repo}/issues>'_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
@@ -143,3 +146,4 @@ mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
 To contribute to this module, please visit http://odoo-community.org.
+
