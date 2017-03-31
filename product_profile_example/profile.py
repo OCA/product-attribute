@@ -2,17 +2,13 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-
-from openerp import models, fields
+from odoo import models, fields
 
 
 class ProductProfile(models.Model):
     _inherit = 'product.profile'
 
-    def _get_types(self):
-        return [('product', 'Stockable Product'),
-                ('consu', 'Consumable'),
-                ('service', 'Service')]
+    type = fields.Selection(selection_add=[('product', 'Stockable Product')])
 
     sale_ok = fields.Boolean(
         string='Can be Sold',
@@ -30,6 +26,3 @@ class ProductProfile(models.Model):
     profile_default_categ_id = fields.Many2one(
         'product.category',
         string='Default category')
-    product_manager = fields.Many2one(
-        'res.users',
-        string='Product Manager')

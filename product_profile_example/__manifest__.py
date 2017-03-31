@@ -5,7 +5,7 @@
 {
     'name': 'Product Profile Example',
     'summary': 'Product Profile Use Case',
-    'version': '8.0.1.0.1',
+    'version': '10.0.1.0.1',
     'author': 'Akretion, Odoo Community Association (OCA)',
     'category': 'product',
     'description': 'See Product Profile module',
