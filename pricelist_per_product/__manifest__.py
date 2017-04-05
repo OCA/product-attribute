@@ -6,7 +6,7 @@
 {
     "name": "Pricelist Per Product",
     "summary": "Display pricelist items in products",
-    "version": "9.0.1.0.0",
+    "version": "10.0.1.0.0",
     "category": "Sales",
     "website": "http://www.akretion.com/",
     "author": "Akretion, Odoo Community Association (OCA)",
@@ -17,8 +17,8 @@
         "sale",
     ],
     "data": [
-        "views/product_pricelist_view.xml",
-        "views/product_pricelist_item_view.xml",
-        "views/product_template_view.xml",
+        # "views/product_pricelist_view.xml",
+        # "views/product_pricelist_item_view.xml",
+        # "views/product_template_view.xml",
     ],
 }
