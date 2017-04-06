@@ -42,7 +42,7 @@ def get_profile_fields_to_exclude():
 
 class ProductProfile(models.Model):
     _name = 'product.profile'
-    _order = 'sequence'
+    _order = 'sequence, name'
 
     name = fields.Char(
         required=True,
