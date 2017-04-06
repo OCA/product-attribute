@@ -48,7 +48,6 @@ addon | version | summary
 [product_search_reference](product_search_reference/) | 0.1 (unported) | Products Search Reference
 [product_series](product_series/) | 0.1 (unported) | Partner Product Series
 [product_size](product_size/) | 1.0 (unported) | Sizes of lots (width, length, thickness)
-[product_supplierinfo_tree_price_info](product_supplierinfo_tree_price_info/) | 8.0.1.0 (unported) | Supplier Unit Price on Product Form
 [product_weight](product_weight/) | 8.0.0.2.0 (unported) | Allows to calculate products weight from its components.
 [production_lot_custom_attributes](production_lot_custom_attributes/) | 0.1.1 (unported) | production_lot_custom_attributes
 
