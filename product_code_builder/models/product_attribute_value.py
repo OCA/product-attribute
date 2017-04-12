@@ -9,7 +9,6 @@ from ..helper_methods import render_default_code
 
 class ProductAttributeValue(models.Model):
     _inherit = 'product.attribute.value'
-    _order = 'attribute_sequence, sequence'
 
     @api.onchange('name')
     def onchange_name(self):
@@ -18,8 +17,7 @@ class ProductAttributeValue(models.Model):
 
     code = fields.Char(
         string='Code', default=onchange_name)
-    attribute_sequence = fields.Integer(related='attribute_id.sequence',
-                                        store=True, readonly=True)
+    comment = fields.Text('Comment')
 
     @api.model
     def create(self, values):

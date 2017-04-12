@@ -7,7 +7,7 @@ import re
 from string import Template
 from collections import defaultdict
 
-DEFAULT_REFERENCE_SEPARATOR = '-'
+DEFAULT_REFERENCE_SEPARATOR = ''
 PLACE_HOLDER_4_MISSING_VALUE = '/'
 
 
@@ -39,6 +39,8 @@ def get_rendered_default_code(product, mask):
     product_attrs = defaultdict(str)
     reference_mask = ReferenceMask(mask)
     for value in product.attribute_value_ids:
+        if value.attribute_id.code:
+            product_attrs[value.attribute_id.name] += value.attribute_id.code
         if value.code:
             product_attrs[value.attribute_id.name] += value.code
     all_attrs = extract_token(mask)

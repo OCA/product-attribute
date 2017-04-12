@@ -1,7 +1,7 @@
 # coding: utf-8
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields
+from odoo import models, fields
 
 SEQUENCE_HELP = ("Set the display order of the attributes in backoffice "
                  "and reports")

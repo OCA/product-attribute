@@ -1,26 +1,43 @@
 <?xml version="1.0"?>
 <odoo>
 
-        <record id="product_attribute_value_view_tree" model="ir.ui.view">
-            <field name="name">product.attribute.value.view.tree (inherited in product_variant_default_code)</field>
-            <field name="model">product.attribute.value</field>
-            <field name="inherit_id" ref="product.product_attribute_value_view_tree"/>
-            <field name="arch" type="xml">
-                <field name="name" position="after">
-                    <field name="attribute_code" />
-                </field>
+    <record id="product_attribute_value_view_tree" model="ir.ui.view">
+        <field name="name">product.attribute.value.view.tree (inherited in product_variant_default_code)</field>
+        <field name="model">product.attribute.value</field>
+        <field name="inherit_id" ref="product.product_attribute_value_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" />
+                <field name="comment"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="variants_tree_view" model="ir.ui.view">
-            <field name="name">variants.tree.view (inherited in product_variant_default_code)</field>
-            <field name="model">product.attribute.value</field>
-            <field name="inherit_id" ref="product.variants_tree_view"/>
-            <field name="arch" type="xml">
-                <field name="name" position="after">
-                    <field name="attribute_code" />
-                </field>
+    <record id="variants_tree_view" model="ir.ui.view">
+        <field name="name">variants.tree.view (inherited in product_variant_default_code)</field>
+        <field name="model">product.attribute.value</field>
+        <field name="inherit_id" ref="product.variants_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" />
+                <field name="comment"/>
             </field>
-        </record>
+        </field>
+    </record>
+
+    <record id="view_product_attribute_value_search" model="ir.ui.view">
+        <field name="model">product.attribute.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="comment"/>
+                <group expand="0" string="Group by...">
+                   <filter string="Attribute" name="attribute" domain="[]"
+                           context="{'group_by': 'attribute_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
 </odoo>
