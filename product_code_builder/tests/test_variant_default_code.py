@@ -58,10 +58,10 @@ class TestTemplateCreateandWrite(TransactionCase):
         self.attribute1 = attr_obj.create({'name': 'Size (VDC)'})
         attr_value_obj.create({'attribute_id': self.attribute1.id,
                                'name': 'Medium',
-                               'attribute_code': 'M'})
+                               'code': 'M'})
         attr_value_obj.create({'attribute_id': self.attribute1.id,
                                'name': 'Large',
-                               'attribute_code': 'L'})
+                               'code': 'L'})
 
         self.attribute2 = attr_obj.create({'name': 'Color (VDC)'})
         attr_value_obj.create({'attribute_id': self.attribute2.id,
@@ -99,20 +99,20 @@ class TestCodeOnTemplate(TransactionCase):
             set(self.template.product_variant_ids.mapped('default_code')),
             product_codes)
 
-    def test_default_attribute_code_creation(self):
+    def test_default_code_creation(self):
         """
         Ensure that the automatic encoding of attributes works
         :return:
         """
         for value in self.attribute2.value_ids:
             self.assertEqual(
-                value.attribute_code, value.name[:2])
+                value.code, value.name[:2])
 
-    def test_writing_new_attribute_code(self):
+    def test_writing_new_code(self):
         """Ensure changing an attribute code changes associated part code"""
         product_codes = {'TESTMX', 'TESTLX', 'TESTMY', 'TESTLY'}
-        self.attribute2.value_ids[0].attribute_code = 'X'
-        self.attribute2.value_ids[1].attribute_code = 'Y'
+        self.attribute2.value_ids[0].code = 'X'
+        self.attribute2.value_ids[1].code = 'Y'
         self.assertEqual(
             set(self.template.product_variant_ids.mapped('default_code')),
             product_codes)
@@ -125,10 +125,10 @@ class TestCodeOnTemplate(TransactionCase):
         self.attribute1 = attr_obj.create({'name': 'Size (VDC)'})
         attr_value_obj.create({'attribute_id': self.attribute1.id,
                                'name': 'Medium',
-                               'attribute_code': 'M'})
+                               'code': 'M'})
         attr_value_obj.create({'attribute_id': self.attribute1.id,
                                'name': 'Large',
-                               'attribute_code': 'L'})
+                               'code': 'L'})
 
         self.attribute2 = attr_obj.create({'name': 'Color (VDC)'})
         attr_value_obj.create({'attribute_id': self.attribute2.id,

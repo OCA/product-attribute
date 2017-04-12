@@ -31,6 +31,7 @@
     "category": "Product",
     "website": "http://www.odoo-community.org",
     "depends": ['product',
+                'product_attribute_priority'
                 ],
     "data": ['views/product_attribute_value_view.xml',
              'views/product_view.xml',
