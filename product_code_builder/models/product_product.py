@@ -4,7 +4,7 @@
 
 from odoo import models, fields, api
 
-from product_code_builder.helper_methods import render_default_code
+from .helper_methods import render_default_code
 
 
 class ProductProduct(models.Model):

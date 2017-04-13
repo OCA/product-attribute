@@ -4,8 +4,8 @@
 
 from odoo import models, fields, api
 
-from ..helper_methods import DEFAULT_REFERENCE_SEPARATOR
-from ..helper_methods import render_default_code, sanitize_reference_mask
+from .helper_methods import DEFAULT_REFERENCE_SEPARATOR
+from .helper_methods import render_default_code, sanitize_reference_mask
 
 
 class ProductTemplate(models.Model):
