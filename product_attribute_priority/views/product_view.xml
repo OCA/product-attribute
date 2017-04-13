@@ -6,8 +6,7 @@
         <field name="inherit_id" ref="product.variants_tree_view"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="value_sequence"/>
-                <field name="attribute_sequence"/>
+                <field name="attribute_sequence" invisible="1"/>
             </field>
         </field>
     </record>

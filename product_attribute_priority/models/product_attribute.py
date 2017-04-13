@@ -13,5 +13,6 @@ class ProductAttribute(models.Model):
     _order = 'sequence, name'
 
     sequence = fields.Integer(
-        string='Sequence', oldname='priority', default=10,
+        oldname='priority',
+        default=10,
         help=SEQUENCE_HELP)
