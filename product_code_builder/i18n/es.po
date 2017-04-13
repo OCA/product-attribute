@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_variant_default_code
+# * product_code_builder
 # 
 # Translators:
 msgid ""
@@ -17,51 +17,51 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: field:product.attribute.value,attribute_code:0
 msgid "Attribute Code"
 msgstr "Código atributo"
 
-#. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:153
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:153
 #: sql_constraint:product.attribute:0
 #, python-format
 msgid "Attribute Name must be unique!"
 msgstr "El nombre del atributo debe ser único!."
 
-#. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:48
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:48
 #, python-format
 msgid "Error"
 msgstr "Error"
 
-#. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:48
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:48
 #, python-format
 msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
 msgstr "Encontrado un nombre de atribuco no reconocido en la \"Referencia máscara variante\""
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: field:product.product,manual_code:0
 msgid "Manual code"
 msgstr "Código manual"
 
-#. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_product
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_product
 msgid "Product"
 msgstr "Producto"
 
-#. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_attribute
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_attribute
 msgid "Product Attribute"
 msgstr "Atributo de producto"
 
-#. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_template
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producto"
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: help:product.template,reference_mask:0
 msgid ""
 "Reference mask for building internal references of a variant generated from this template.\n"
@@ -75,7 +75,7 @@ msgid ""
 "Note: make sure characters \"[,]\" do not appear in your attribute name"
 msgstr "Máscara de referencia para la construcción de referencias internas de una variante generada a partir de esta plantilla.\nEjemplo:\nEl producto llamado A con 2 atributos: tamaño y color:\nProducto: ABC\nColor: Rojo(Ro), Amarillo(Am), Negro(Ne)  #Rojo, Amarillo, Negro de atribulo valor, `Ro`, `Am`, `Ne` son el código correspondiente\nTamaño: L (l), XL(x)\nAl configurar la máscara de referencia Variante de `[Color]-[Tamaño]`, el código predeterminado en las variantes será algo así como `Ro-l` `Ne-l` `Ro-x` ...\nSi lo desea, usted puede incluso tener el nombre del atributo aparece más de una vez en la máscara. Tal como , `fancyA/[Size]~[Color]~[Size]`Cuando se guarda, el código predeterminado en variantes será algo así como `fancyA/l~r~l` (para variante con Color \"Rojo\" y tamaño \"L\") `fancyA/x~y~x` (para variante con Color \"Amarillo\" y tamaño \"XL\")\nNota: Asegúrese de caracteres \"[,]\" no aparecen en el nombre del atributo"
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: field:product.template,reference_mask:0
 msgid "Variant reference mask"
 msgstr "Referencia máscara variante"

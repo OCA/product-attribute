@@ -37,8 +37,7 @@
              'views/product_view.xml',
              'views/product_attribute_view.xml'
              ],
-    "demo": ['demo/product_demo.xml',
-             'demo/product.attribute.csv',
+    "demo": ['demo/product.attribute.csv',
              'demo/product.attribute.value.csv'],
     "installable": True
 }

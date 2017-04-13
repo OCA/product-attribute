@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_variant_default_code
+# * product_code_builder
 # 
 # Translators:
 msgid ""
@@ -17,51 +17,51 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: field:product.attribute.value,attribute_code:0
 msgid "Attribute Code"
 msgstr ""
 
-#. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:153
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:153
 #: sql_constraint:product.attribute:0
 #, python-format
 msgid "Attribute Name must be unique!"
 msgstr ""
 
-#. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:48
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:48
 #, python-format
 msgid "Error"
 msgstr "Erro"
 
-#. module: product_variant_default_code
-#: code:addons/product_variant_default_code/models/product.py:48
+#. module: product_code_builder
+#: code:addons/product_code_builder/models/product.py:48
 #, python-format
 msgid "Found unrecognized attribute name in \"Variant Reference Mask\""
 msgstr ""
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: field:product.product,manual_code:0
 msgid "Manual code"
 msgstr ""
 
-#. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_product
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_product
 msgid "Product"
 msgstr "Produto"
 
-#. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_attribute
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_attribute
 msgid "Product Attribute"
 msgstr ""
 
-#. module: product_variant_default_code
-#: model:ir.model,name:product_variant_default_code.model_product_template
+#. module: product_code_builder
+#: model:ir.model,name:product_code_builder.model_product_template
 msgid "Product Template"
 msgstr "Produto Modelo"
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: help:product.template,reference_mask:0
 msgid ""
 "Reference mask for building internal references of a variant generated from this template.\n"
@@ -75,7 +75,7 @@ msgid ""
 "Note: make sure characters \"[,]\" do not appear in your attribute name"
 msgstr ""
 
-#. module: product_variant_default_code
+#. module: product_code_builder
 #: field:product.template,reference_mask:0
 msgid "Variant reference mask"
 msgstr ""

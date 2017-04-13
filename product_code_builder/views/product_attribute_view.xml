@@ -10,9 +10,6 @@
         <field name="model">product.attribute</field>
         <field name="inherit_id" ref="product.attribute_tree_view"/>
         <field name="arch" type="xml">
-            <field name="name" position="before">
-                <field name="sequence" widget="handle" />
-            </field>
             <field name="name" position="after">
                 <field name="code"/>
             </field>

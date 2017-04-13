@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==========================================================
-Product Variant Default Code(product_variant_default_code)
-==========================================================
+==================================================
+Product Variant Default Code(product_code_builder)
+==================================================
 
 This module extends the functionality of products to support setting
 codes on attributes and generating specific product codes for variants
@@ -85,13 +85,23 @@ Images
 Contributors
 ------------
 
-This module is a direct port of the module with the same name from the odoomrp project <http://odoomrp.com>
+This module was initially a direct port of the module with the same name from the odoomrp project <http://odoomrp.com>
+
 * OdooMRP team
 * Avanzosc
 * Serv. Tecnol. Avanzados - Pedro M. Baeza
 * Shine IT(http://www.openerp.cn)
 * Tony Gu <tony@openerp.cn>
 * Graeme Gellatly <g@o4sb.com>
+
+The module was then renamed to product_code_builder to replace that module and some functionality ported as well as
+fields renmaed to match.
+
+* Ascone
+* Akretion
+* Benoit Guillot
+* Laurent Mignon
+
 
 Maintainer
 ----------
