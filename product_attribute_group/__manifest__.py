@@ -5,16 +5,19 @@
 {
     'name': 'Product Attribute Group',
     'summary': """
-        Allows grouping of product attributes for easy addition to a product template""",
+        Allows grouping of product attributes for easy addition
+        to a product template""",
     'version': '10.0.1.0.0',
     'license': 'AGPL-3',
-    'author': 'OCA - Odoo Community Association,Odoo Community Association (OCA)',
+    'author': 'Odoo Community Association (OCA)',
     'website': 'http://odoo-community.org',
-    'depends': ['product', 'sale', 'sales_team'
+    'depends': [
+        'product', 'sale', 'sales_team'
     ],
     'data': [
         'security/product_attribute_group.xml',
         'views/product_attribute_group.xml',
         'views/product_template.xml',
     ],
+    'demo': ['demo/product_demo.xml']
 }

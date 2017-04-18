@@ -10,7 +10,11 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='variants']//tree//field[@name='attribute_id']" position="after">
-                <field name="attr_group_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+                <field name="attr_group_ids" widget="many2many_tags" options="{'no_create_edit': True}"
+                       domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+            </xpath>
+            <xpath expr="//page[@name='variants']//tree//field[@name='value_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': ['!', ('attr_group_ids', '=', [])]}</attribute>
             </xpath>
         </field>
     </record>

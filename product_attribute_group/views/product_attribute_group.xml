@@ -43,6 +43,7 @@
                 <field name="name"/>
                 <field name="attribute_id" widget="selection"/>
                 <field name="value_ids" widget="many2many_tags"/>
+                <button name="button_copy" type="object" string="Duplicate" icon="fa-copy" />
             </tree>
         </field>
     </record>
