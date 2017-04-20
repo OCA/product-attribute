@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_attribute_exclude_matrix_form_view">
+        <field name="name">product.attribute.exclude.matrix.form (in product_combination_exclude)</field>
+        <field name="model">product.attribute.exclude.matrix</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="button_generate_exclusions"
+                            type="object" string="Create Exclusions"
+                            confirm="This will regenerate the exclusion matrix and remove any manual customization. Continue?"/>
+                    <button name="button_update_products"
+                            type="object" string="Update Products"
+                            attrs="{'invisible': [('product_tmpl_ids', '=', [])]}"
+                            confirm="This will update all associated templates to remove any exclusions. Continue?" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="product_tmpl_ids" widget="many2many_tags"/>
+                        <field name="attribute_value_ids" widget="many2many_tags"/>
+                    </group>
+                    <field name="exclusion_line_ids" mode="tree">
+                        <tree editable="bottom" string="Excluded Combinations">
+                            <field name="product_tmpl_ids" widget="many2many_tags"/>
+                            <field name="attribute_value_ids" widget="many2many_tags"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_attribute_exclude_matrix_search_view">
+        <field name="name">product.attribute.exclude.matrix.search (in product_combination_exclude)</field>
+        <field name="model">product.attribute.exclude.matrix</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="product_tmpl_ids"/>
+                <field name="attribute_value_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_attribute_exclude_matrix_tree_view">
+        <field name="name">product.attribute.exclude.matrix.tree (in product_combination_exclude)</field>
+        <field name="model">product.attribute.exclude.matrix</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_tmpl_ids"/>
+                <field name="attribute_value_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_attribute_exclude_matrix_act_window">
+        <field name="name">Attribute Exclusions</field>
+        <field name="res_model">product.attribute.exclude.matrix</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="product_attribute_exclude_matrix_menu">
+        <field name="name">Attribute Exclusions</field>
+        <field name="parent_id" ref="sale.prod_config_main"/>
+        <field name="action" ref="product_attribute_exclude_matrix_act_window"/>
+        <field name="sequence" eval="17"/>
+    </record>
+
+</odoo>
