@@ -4,10 +4,8 @@
 
 {
     'name': 'Product Combination Exclude',
-    'summary': """
-        Allows the specification of incompatible product combinations
-        when creating products
-        """,
+    'summary': "Allows the specification of incompatible product "
+               "combinations when creating products",
     'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly,Odoo Community Association (OCA)',
@@ -20,5 +18,6 @@
     ],
     'demo': [
         'demo/product_attribute_exclude_matrix.xml',
+        'demo/create_variants.xml'
     ],
 }

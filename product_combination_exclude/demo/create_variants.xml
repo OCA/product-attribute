@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo noupdate="1">
+
+    <!--In order to have variants created we need to write the templates.
+    To workaround odoo-lint requirements we do in separate file-->
+
+    <record model="product.template" id="product_exclude_test_1">
+        <field name="attribute_line_ids" eval="[(6, 0, [ref('product_combination_exclude.product_attribute_line_1'),ref('product_combination_exclude.product_attribute_line_2') ])]"/>
+    </record>
+
+    <record model="product.template" id="product_exclude_test_2">
+        <field name="attribute_line_ids" eval="[(6, 0, [ref('product_combination_exclude.product_attribute_line_3'),ref('product_combination_exclude.product_attribute_line_4') ])]"/>
+    </record>
+
+    <record model="product.template" id="product_exclude_test_3">
+        <field name="attribute_line_ids" eval="[(6, 0, [ref('product_combination_exclude.product_attribute_line_5'),ref('product_combination_exclude.product_attribute_line_6') ])]"/>
+    </record>
+
+</odoo>
