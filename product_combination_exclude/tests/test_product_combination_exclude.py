@@ -74,7 +74,6 @@ class TestProductCombinationExclude(TransactionCase):
             'product_combination_exclude.product_exclude_test_2')
         self.product3 = self.browse_ref(
             'product_combination_exclude.product_exclude_test_3')
-        self.product3.create_variant_ids()
         self.product_obj = self.env['product.product']
 
         self.green = self.browse_ref(
