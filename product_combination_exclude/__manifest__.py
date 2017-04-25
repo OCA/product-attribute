@@ -20,5 +20,6 @@
     ],
     'demo': [
         'demo/product_attribute_exclude_matrix.xml',
+        'demo/create_variants.xml'
     ],
 }
