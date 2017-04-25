@@ -11,7 +11,7 @@ class ProductProduct(models.Model):
 
     @api.multi
     def create(self, vals):
-        vals = dict(vals or {})
+        vals = {} if vals is None else vals
         if 'attribute_value_ids' in vals:
             exclusion_obj = self.env['product.attribute.exclude']
             search_args = []
@@ -25,11 +25,12 @@ class ProductProduct(models.Model):
                     ('attribute_value_ids', 'in',
                      vals['attribute_value_ids'][0][2])
                 ])
-                attr_vals = self.env['product.attribute.value'].browse(
-                    vals['attribute_value_ids'][0][2])
-                exclusion_values = exclusion_obj.search(search_args)
             except IndexError:
                 return super(ProductProduct, self).create(vals)
+            attr_vals = self.env['product.attribute.value'].browse(
+                vals['attribute_value_ids'][0][2])
+            exclusion_values = exclusion_obj.search(search_args)
+
             for excl_val in exclusion_values:
                 if excl_val.attribute_value_ids <= attr_vals:
                     return self.env['product.product']

@@ -10,6 +10,22 @@ class TestProductCombinationExclude(TransactionCase):
     def test_button_generate_exclusions(self):
         base_count = self.product3.product_variant_count
 
+        # We just create this to make sure a fk relation exists
+        # for 1 product to test both branches of create_variant_ids
+        self.env['sale.order'].create({
+            'partner_id': self.partner.id,
+            'partner_invoice_id': self.partner.id,
+            'partner_shipping_id': self.partner.id,
+            'order_line': [
+                (0, 0, {'name': p.name,
+                        'product_id': p.id,
+                        'product_uom_qty': 2,
+                        'product_uom': p.uom_id.id,
+                        'price_unit': p.list_price})
+                for p in self.product1.product_variant_ids],
+            'pricelist_id': self.env.ref('product.list0').id,
+        })
+
         self.matrix1.button_generate_exclusions()
         self.assertEqual(len(self.matrix1.exclusion_line_ids), 2)
 
@@ -53,6 +69,35 @@ class TestProductCombinationExclude(TransactionCase):
             ('attribute_value_ids', 'in', [self.medium.id])
         ]))
 
+    def test_button_behaviour_no_templates(self):
+        """
+        We need to ensure create_variant_ids is not called
+        Rather arbitrary but ultimately the button is invisible anyway
+        and it should be the test if I knew how.
+        """
+        #  ALternatively we could
+        #  wrap in a call logger to ensure create_variant_ids is not called
+        #  but seems overkill.
+
+        #  If this test is failing I'd urge to reconsider your code.  Not
+        #  explicitly declaring the products to apply to could lead to an
+        #  almighty mess to clean up if pressed by accident.
+        count = self.env['product.product'].search([], count=True)
+        self.matrix1.product_tmpl_ids = self.env['product.template']
+        self.matrix1.button_update_products()
+        self.assertEqual(count,
+                         self.env['product.product'].search([], count=True))
+
+    def test_button_behaviour_single_attribute(self):
+        """
+        Matrices consisting of single attributes should not have exclusion
+        lines as there are no valid combinations
+        """
+        self.matrix1.attribute_value_ids = \
+            self.product_attr2.value_ids
+        self.matrix1.button_generate_exclusions()
+        self.assertFalse(len(self.matrix1.exclusion_line_ids))
+
     def setUp(self):
         super(TestProductCombinationExclude, self).setUp()
 
@@ -87,3 +132,9 @@ class TestProductCombinationExclude(TransactionCase):
 
         self.attr_line_2 = self.browse_ref(
             'product_combination_exclude.product_attribute_line_2')
+
+        self.product_attr2 = self.browse_ref(
+            'product_combination_exclude.product_attribute_2'
+        )
+
+        self.partner = self.env.ref('base.res_partner_1')

@@ -17,23 +17,24 @@ class ProductAttributeExcludeMatrix(models.Model):
     description = fields.Text()
     attribute_value_ids = fields.Many2many(
         comodel_name='product.attribute.value',
-        string='Incompatible Attributes'
+        string='Incompatible Attributes',
     )
     product_tmpl_ids = fields.Many2many(
         comodel_name='product.template',
-        string='Product Templates'
+        string='Product Templates',
     )
     exclusion_line_ids = fields.One2many(
         comodel_name='product.attribute.exclude',
         inverse_name='matrix_id',
-        string='Excluded Combinations'
+        string='Excluded Combinations',
     )
 
     @api.multi
     def button_generate_exclusions(self):
         self.ensure_one()
 
-        # Remove all existing lines
+        # Remove all existing lines - need to do it here in the case only
+        # 1 set of grouped attrs
         delete_lines = [(2, line.id) for line in self.exclusion_line_ids]
         self.write({'exclusion_line_ids': delete_lines})
 
@@ -45,6 +46,10 @@ class ProductAttributeExcludeMatrix(models.Model):
             grouped_attrs_dict[k].extend(list(v))
         grouped_attrs = grouped_attrs_dict.values()
 
+        #  If there is only 1 type of attribute there are no
+        #  combinations. If this is what you want, simply remove them
+        #  from the associated product templates or group (if using
+        #  Product Attribute Groups).
         if len(grouped_attrs) <= 1:
             return True
 

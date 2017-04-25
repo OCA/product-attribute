@@ -39,7 +39,7 @@ class ProductTemplate(models.Model):
                 lambda p: any([e.attribute_value_ids <= p.attribute_value_ids
                                for e in exclusion_values]))
 
-            variants_to_deactivate = []
+            variants_to_deactivate = self.env['product.product']
             for variant in variants_to_unlink:
                 try:
                     with self._cr.savepoint(), tools.mute_logger(
@@ -48,8 +48,7 @@ class ProductTemplate(models.Model):
                 # We catch all kind of exception to be sure that the operation
                 # doesn't fail.
                 except (psycopg2.Error, except_orm):
-                    variants_to_deactivate.append(variant.id)
-                    pass
+                    variants_to_deactivate += variant
             if variants_to_deactivate:
-                product_obj.write(variants_to_deactivate, {'active': False})
+                variants_to_deactivate.write({'active': False})
         return res
