@@ -4,7 +4,7 @@
 
 <odoo>
 
-    <record id="product_template_1" model="product.template">
+    <record id="product_product_1" model="product.product">
         <field name="name">Meeting Service</field>
         <field name="uom_id" ref="product.product_uom_hour" />
         <field name="uom_po_id" ref="product.product_uom_hour" />
@@ -16,11 +16,11 @@
         <field name="list_price">80</field>
         <field name="currency_id" ref="base.USD" />
         <field name="default_code">SERV_MEET</field>
-        <field name="service_user_id" ref="base.user_demo" />
+        <field name="resource_id" ref="resource.resource_analyst" />
         <field name="min_service_time" eval="3.00" />
     </record>
 
-    <record id="product_template_2" model="product.template">
+    <record id="product_product_2" model="product.product">
         <field name="name">Business Consultation</field>
         <field name="uom_id" ref="product.product_uom_hour" />
         <field name="uom_po_id" ref="product.product_uom_hour" />
@@ -32,7 +32,7 @@
         <field name="list_price">200</field>
         <field name="currency_id" ref="base.USD" />
         <field name="default_code">SERV_CONSULT</field>
-        <field name="service_user_id" ref="base.user_demo" />
+        <field name="resource_id" ref="resource.resource_analyst" />
         <field name="min_service_time" eval="2.00" />
     </record>
 

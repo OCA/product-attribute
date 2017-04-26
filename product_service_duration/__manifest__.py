@@ -4,7 +4,7 @@
 
 {
     "name": "Product Service Duration",
-    "summary": "Extends events and meetings with products.",
+    "summary": "Extends events and meetings with services.",
     "version": "10.0.1.0.0",
     "category": "Product",
     "website": "https://laslabs.com",
@@ -13,15 +13,16 @@
     "application": False,
     "installable": True,
     "depends": [
-        "product",
+        "sale",
         "calendar",
+        "resource",
     ],
     "data": [
         "views/calendar_event_view.xml",
-        "views/product_template_view.xml",
+        "views/product_product_view.xml",
     ],
     "demo": [
-        "demo/product_template_demo.xml",
+        "demo/product_product_demo.xml",
         "demo/calendar_event_demo.xml",
     ],
 }

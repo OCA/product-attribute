@@ -12,11 +12,12 @@ class CalendarEvent(models.Model):
 
     _inherit = 'calendar.event'
 
-    template_ids = fields.Many2many(
-        string='Products/Services',
-        comodel_name='product.template',
-        help='Products or services involved in '
-             'this event/meeting.'
+    product_ids = fields.Many2many(
+        string='Services',
+        comodel_name='product.product',
+        help='Services involved in '
+             'this event/meeting.',
+        domain="[('type', '=', 'service')]",
     )
     min_duration = fields.Float(
         string='Minimum Duration',
@@ -27,22 +28,34 @@ class CalendarEvent(models.Model):
     )
 
     @api.multi
-    @api.depends('template_ids')
+    @api.depends(
+        'product_ids', 'product_ids.min_service_time', 'stop')
     def _compute_min_duration(self):
         for record in self:
             min_duration = sum(
-                [t.min_service_time for t in record.template_ids]
+                [t.min_service_time for t in record.product_ids]
             )
+            if min_duration < 0:
+                min_duration = 0
+
             record.min_duration = min_duration
 
     @api.multi
     @api.constrains(
-        'template_ids', 'duration', 'start', 'stop', 'min_duration')
-    def _check_template_ids(self):
+        'product_ids', 'duration', 'start', 'stop', 'min_duration')
+    def _check_product_ids(self):
+        today_time = fields.Datetime.now()
         for record in self:
 
+            if record.stop < today_time:
+                continue
+
+            if record.allday:
+                continue
+
             event_hours = record.duration
-            if not record.duration:
+
+            if not event_hours:
                 event_hours = record._get_duration(record.start, record.stop)
 
             if record.min_duration > event_hours:
