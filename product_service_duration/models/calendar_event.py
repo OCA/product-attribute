@@ -29,12 +29,21 @@ class CalendarEvent(models.Model):
 
     @api.multi
     @api.depends(
-        'product_ids', 'product_ids.min_service_time', 'stop')
+        'product_ids', 'product_ids.min_service_time', 'stop', 'allday')
     def _compute_min_duration(self):
+        today_time = fields.Datetime.now()
         for record in self:
+
+            if record.stop < today_time:
+                continue
+
+            if record.allday:
+                continue
+
             min_duration = sum(
                 [t.min_service_time for t in record.product_ids]
             )
+
             if min_duration < 0:
                 min_duration = 0
 

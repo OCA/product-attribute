@@ -48,6 +48,6 @@ class ProductProduct(models.Model):
                 except ValidationError:
                     raise ValidationError(
                         _('The minimum service time for this product is '
-                          'causing conflicts with at least one meeting: %s.') %
+                          'causing issues with at least one meeting: %s.') %
                         event.display_name,
                     )

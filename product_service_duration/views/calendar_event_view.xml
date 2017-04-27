@@ -44,6 +44,19 @@
                        can_write="true"
                        domain="[('type', '=', 'service')]" />
             </xpath>
+            <xpath expr="//field[@name='allday']" position="before">
+                <label for="min_duration"
+                       attrs="{'invisible': [('allday', '=', True)]}" />
+                <div attrs="{'invisible': [('allday', '=', True)]}">
+                    <field name="min_duration"
+                           widget="float_time"
+                           class="oe_inline"
+                           on_change="1" />
+                    <span>
+                            hours
+                    </span>
+                </div>
+            </xpath>
         </field>
     </record>
 
@@ -53,7 +66,10 @@
         <field name="inherit_id" ref="calendar.view_calendar_event_search" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_ids']" position="after">
-                <field name="product_ids" />
+                <field name="product_ids"
+                       domain="[('type', '=', 'service')]" />
+                <field name="min_duration"
+                       domain="[('allday', '=', True), ('stop', '&gt;', time.strftime('%d-%m-%Y %H:%M:%S'))]" />
             </xpath>
         </field>
     </record>

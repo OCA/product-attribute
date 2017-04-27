@@ -46,6 +46,7 @@ class TestCalendarEvent(TransactionCase):
         """ Test no validation error if event is all day """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
         self.event_1.allday = True
+        self.prod_1.min_service_time = 3.00
         try:
             self.event_1.duration = 4.00
             self.assertTrue(True)
@@ -85,6 +86,7 @@ class TestCalendarEvent(TransactionCase):
     def test_event_match_duration(self, mock_datetime):
         """ Test no error if sum prod service times match event duration """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
+        self.prod_1.min_service_time = 3.00
         try:
             self.event_1.duration = 5.00
             self.assertTrue(True)
@@ -99,6 +101,7 @@ class TestCalendarEvent(TransactionCase):
     def test_event_less_duration(self, mock_datetime):
         """ Test no error if sum prod service time less than event duration """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
+        self.prod_1.min_service_time = 3.00
         try:
             self.event_1.duration = 7.00
             self.assertTrue(True)
@@ -113,13 +116,15 @@ class TestCalendarEvent(TransactionCase):
     def test_event_more_duration(self, mock_datetime):
         """ Test error if sum prod service time greater than event duration """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
+        self.prod_1.min_service_time = 3.00
         with self.assertRaises(ValidationError):
-            self.event_1.duration = 4.00
+            self.event_1.duration = 1.00
 
     @patch(DATETIME)
     def test_event_match_duration_no_event_duration(self, mock_datetime):
         """ Test no error if sum tmpl durations match event no duration """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
+        self.prod_1.min_service_time = 3.00
         self.event_1.duration = None
         try:
             self.event_1.stop = time.strftime('%Y-%m-10 17:00:00')
@@ -136,6 +141,7 @@ class TestCalendarEvent(TransactionCase):
         """ Test no error if sum prod serv time less than event no duration """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
         self.event_1.duration = None
+        self.prod_1.min_service_time = 3.00
         try:
             self.event_1.stop = time.strftime('%Y-%m-10 19:00:00')
             self.assertTrue(True)
@@ -150,6 +156,7 @@ class TestCalendarEvent(TransactionCase):
     def test_event_more_duration_no_event_duration(self, mock_datetime):
         """ Test error if sum prod serv time greater than event no duration """
         mock_datetime.return_value = time.strftime('%Y-%m-05 00:00:00')
+        self.prod_1.min_service_time = 3.00
         self.event_1.duration = None
         with self.assertRaises(ValidationError):
             self.event_1.stop = time.strftime('%Y-%m-10 16:00:00')
