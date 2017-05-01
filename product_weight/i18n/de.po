@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -58,17 +58,17 @@ msgstr "ID"
 #. module: product_weight
 #: field:product.weight.update,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: product_weight
 #: field:product.weight.update,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert durch"
 
 #. module: product_weight
 #: field:product.weight.update,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: product_weight
 #: field:product.weight.update,product_tmpl_id:0
@@ -81,21 +81,21 @@ msgstr "Produkt"
 #: view:product.weight.update:product_weight.view_product_weight_update
 #: view:product.weight.update:product_weight.view_product_weight_update_multi
 msgid "Update Product Weight"
-msgstr ""
+msgstr "Produktgewicht aktualisieren"
 
 #. module: product_weight
 #: view:product.weight.update:product_weight.view_product_weight_update
 #: view:product.weight.update:product_weight.view_product_weight_update_multi
 msgid "_Apply"
-msgstr ""
+msgstr "_Anwenden"
 
 #. module: product_weight
 #: view:product.weight.update:product_weight.view_product_weight_update
 #: view:product.weight.update:product_weight.view_product_weight_update_multi
 msgid "or"
-msgstr ""
+msgstr "oder"
 
 #. module: product_weight
 #: view:product.template:product_weight.product_weight_form_view
 msgid "update weights"
-msgstr ""
+msgstr "Gewichte aktualisieren"

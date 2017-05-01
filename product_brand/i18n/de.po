@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Anzeigebezeichnung"
 #: view:product.product:product_brand.product_search_form_view
 #: view:product.template:product_brand.view_product_template_search_brand
 msgid "Group by..."
-msgstr ""
+msgstr "Gruppiere nach"
 
 #. module: product_brand
 #: field:product.brand,id:0
@@ -76,27 +76,27 @@ msgstr "ID"
 #. module: product_brand
 #: field:product.brand,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: product_brand
 #: field:product.brand,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert durch"
 
 #. module: product_brand
 #: field:product.brand,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: product_brand
 #: field:product.brand,logo:0
 msgid "Logo File"
-msgstr ""
+msgstr "Logo-Datei"
 
 #. module: product_brand
 #: field:product.brand,products_count:0
 msgid "Number of products"
-msgstr ""
+msgstr "Anzahl Produkte"
 
 #. module: product_brand
 #: field:product.brand,partner_id:0
@@ -113,12 +113,12 @@ msgstr "Produkt"
 #: view:product.brand:product_brand.product_brand_search_form_view
 #: view:product.brand:product_brand.view_product_brand_form
 msgid "Product Brand"
-msgstr ""
+msgstr "Produkt-Marke"
 
 #. module: product_brand
 #: model:ir.ui.menu,name:product_brand.menu_product_brand
 msgid "Product Brands"
-msgstr ""
+msgstr "Produktmarken"
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_product_template
@@ -129,20 +129,20 @@ msgstr "Produktvorlage"
 #: view:product.brand:product_brand.view_product_brand_form
 #: view:product.brand:product_brand.view_product_brand_kanban
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #. module: product_brand
 #: help:product.product,product_brand_id:0
 #: help:product.template,product_brand_id:0
 msgid "Select a brand for this product"
-msgstr ""
+msgstr "Wähle eine Marke für dieses Produkt"
 
 #. module: product_brand
 #: help:product.brand,partner_id:0
 msgid "Select a partner for this brand if it exists"
-msgstr ""
+msgstr "Wähle einen Partner für diese Marke, falls vorhanden"
 
 #. module: product_brand
 #: view:product.brand:product_brand.view_product_brand_tree
 msgid "product.brand"
-msgstr ""
+msgstr "product.brand"

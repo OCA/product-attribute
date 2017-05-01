@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,7 +202,7 @@ msgstr ""
 #: field:pricelist.item.template,display_name:0
 #: field:pricelist.product.condition,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
@@ -301,7 +302,7 @@ msgstr "Modèle d'item"
 #: field:pricelist.item.template,__last_update:0
 #: field:pricelist.product.condition,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: pricelist_item_generator
 #: field:pricelist.item.generator,write_uid:0

@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +87,7 @@ msgstr "Produit"
 #. module: product_code_builder
 #: model:ir.model,name:product_code_builder.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Attribut du produit"
 
 #. module: product_code_builder
 #: model:ir.model,name:product_code_builder.model_product_template
@@ -96,7 +97,7 @@ msgstr "Article Modèle"
 #. module: product_code_builder
 #: sql_constraint:product.template:0
 msgid "The reference must be unique"
-msgstr ""
+msgstr "La référence doit être unique"
 
 #. module: product_code_builder
 #: help:product.product,prefix_code:0 help:product.template,prefix_code:0

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -65,9 +65,9 @@ msgstr "Produktvorlage"
 #: help:product.product,dimensional_uom_id:0
 #: help:product.template,dimensional_uom_id:0
 msgid "UoM for length, height, width"
-msgstr ""
+msgstr "ME für Länge, Höhe und Breite"
 
 #. module: product_dimension
 #: field:product.product,width:0 field:product.template,width:0
 msgid "Width"
-msgstr ""
+msgstr "Breite"

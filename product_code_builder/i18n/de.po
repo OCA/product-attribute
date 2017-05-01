@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -64,22 +64,22 @@ msgstr "Erezuge, basierend auf Attributschlüsseln, automatisch einen Referenz"
 #. module: product_code_builder
 #: view:product.attribute.value:product_code_builder.view_product_attribute_value_search
 msgid "Group by..."
-msgstr ""
+msgstr "Gruppiere nach"
 
 #. module: product_code_builder
 #: field:product.product,prefix_code:0 field:product.template,prefix_code:0
 msgid "Internal Reference"
-msgstr ""
+msgstr "Interner Bezug"
 
 #. module: product_code_builder
 #: field:product.product,manual_default_code:0
 msgid "Manual default code"
-msgstr ""
+msgstr "Manueller Vorgabe-Schlüssel"
 
 #. module: product_code_builder
 #: model:ir.actions.client,name:product_code_builder.action_open_adhoc_menu
 msgid "Open Menu"
-msgstr ""
+msgstr "Öffne Menü"
 
 #. module: product_code_builder
 #: model:ir.model,name:product_code_builder.model_product_product
@@ -107,16 +107,18 @@ msgid ""
 "This is the code of the product modelIf Automatic Reference is checked, this field is used as a prefix for the product variant reference.\n"
 "In case that there is only one variant this code is the same as the code of the uniq variant"
 msgstr ""
+"Dies ist der Schlüssel des Produktmodells, wenn automatische Schlüsselung aktiviert ist. Dieses Feld wird Präfix zur Produktvarianten-Schlüsselung verwendet.\n"
+"Sollte es nur eine Variante geben, so dieser Schlüssel mit dem der Einzelvariante identisch."
 
 #. module: product_code_builder
 #: sql_constraint:product.attribute:0
 msgid "With each Attribute we must be found a unique 'code'"
-msgstr ""
+msgstr "Für jedes Merkmal müssen wir einen eindeutigen 'Schlüssel' finden"
 
 #. module: product_code_builder
 #: help:product.product,manual_default_code:0
 msgid "hidden field"
-msgstr ""
+msgstr "verborgenes Feld"
 
 #. module: product_code_builder
 #: view:product.product:product_code_builder.product_normal_form_view
@@ -124,8 +126,10 @@ msgid ""
 "{\n"
 "                    'readonly': [('auto_default_code', '=', True)]}"
 msgstr ""
+"{\n"
+"                    'readonly': [('auto_default_code', '=', True)]}"
 
 #. module: product_code_builder
 #: view:product.template:product_code_builder.product_template_only_form_view
 msgid "{'invisible': 1}"
-msgstr ""
+msgstr "{'invisible': 1}"

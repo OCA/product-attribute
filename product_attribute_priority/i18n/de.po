@@ -3,13 +3,14 @@
 # * product_attribute_priority
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -61,3 +62,5 @@ msgid ""
 "Set the display order of the attributes in backoffice and reports (defined "
 "in Product Attribute)"
 msgstr ""
+"Lege die Reihenfolge der Anzeige von Merkmalen in Backoffice und Berichten "
+"fest (In Produktmerkmalen festgelegt)."

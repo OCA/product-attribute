@@ -3,13 +3,14 @@
 # * product_attribute_multi_type
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -66,32 +67,32 @@ msgstr "Produktattribut"
 #. module: product_attribute_multi_type
 #: selection:product.attribute,attr_type:0
 msgid "Range"
-msgstr ""
+msgstr "Bereich"
 
 #. module: product_attribute_multi_type
 #: field:product.attribute.line,required:0
 msgid "Required"
-msgstr ""
+msgstr "Erforderlich"
 
 #. module: product_attribute_multi_type
 #: selection:product.attribute,attr_type:0
 msgid "Select"
-msgstr ""
+msgstr "Auswählen"
 
 #. module: product_attribute_multi_type
 #: code:addons/product_attribute_multi_type/models/product.py:61
 #, python-format
 msgid "The min range should be less than the max range."
-msgstr ""
+msgstr "Die Bereichsuntergrenze muss kleiner als die -obergrenze sein."
 
 #. module: product_attribute_multi_type
 #: field:product.attribute,attr_type:0
 #: field:product.attribute.line,attr_type:0
 #: field:product.attribute.value,attr_type:0
 msgid "Type"
-msgstr ""
+msgstr "Art"
 
 #. module: product_attribute_multi_type
 #: view:product.attribute.value:product_attribute_multi_type.product_attribute_value_search_view
 msgid "Variant Values"
-msgstr ""
+msgstr "Variantenwerte"

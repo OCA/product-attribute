@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgstr ""
 #. module: product_profile
 #: field:product.profile,explanation:0
 msgid "Explanation"
-msgstr ""
+msgstr "Erläuterung"
 
 #. module: product_profile
 #: field:product.mixin.profile,id:0 field:product.profile,id:0
@@ -92,6 +92,8 @@ msgid ""
 "If you update this profile, all products using this profile could also be "
 "updated. Changes can take a while."
 msgstr ""
+"Wenn Sie dieses Profil aktualisieren, werden alle Produkte, die dieses "
+"Profil verwenden, auch aktualisiert. Änderungen können länger dauern."
 
 #. module: product_profile
 #: code:addons/product_profile/product.py:31
@@ -109,27 +111,38 @@ msgid ""
 "Check your settings on Profile model:\n"
 "%s"
 msgstr ""
+"Problem\n"
+"------\n"
+"%s\n"
+"'%s' Wert darf nicht auf Feld '%s' angewendet werden.\n"
+"Es gibt keine Wertübereinstimmung zwischen 'Product Profiles' \n"
+"und '%s' Modellen in diesem Feld.\n"
+"\n"
+"Lösung\n"
+"----------\n"
+"Prüfen Sie Ihre Einstellungen im Profil-Modell:\n"
+"%s"
 
 #. module: product_profile
 #: field:product.mixin.profile,__last_update:0
 #: field:product.profile,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: product_profile
 #: field:product.profile,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert durch"
 
 #. module: product_profile
 #: field:product.profile,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: product_profile
 #: field:product.profile,name:0
 msgid "Name"
-msgstr ""
+msgstr "Bezeichnung"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
@@ -139,14 +152,14 @@ msgstr "Produkt"
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile
 msgid "Product Profile"
-msgstr ""
+msgstr "Produktprofil"
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
 #: view:product.profile:product_profile.product_profile_tree_view
 msgid "Product Profiles"
-msgstr ""
+msgstr "Produktprofile"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
@@ -158,13 +171,13 @@ msgstr "Produktvorlage"
 #: view:product.template:product_profile.product_template_search_view
 #: field:product.template,profile_id:0
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #. module: product_profile
 #: field:product.product,profile_explanation:0
 #: field:product.template,profile_explanation:0
 msgid "Profile Explanation"
-msgstr ""
+msgstr "Profilbeschreibung"
 
 #. module: product_profile
 #: help:product.profile,name:0
@@ -172,6 +185,8 @@ msgid ""
 "Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"In Produktvorlage angezeigter Profilname\n"
+"(Nicht mit Produktvorlage-Feldern synchronisiert)"
 
 #. module: product_profile
 #: code:addons/product_profile/product.py:12
@@ -181,11 +196,14 @@ msgid ""
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
+"Verkauf > Konfiguration \n"
+"> Produktkategorien und -merkmale \n"
+"> Produktprofile"
 
 #. module: product_profile
 #: help:product.profile,type:0
 msgid "See 'type' field in product.template"
-msgstr ""
+msgstr "Siehe Feld 'Art' in Produktvorlage"
 
 #. module: product_profile
 #: field:product.profile,sequence:0
@@ -195,4 +213,4 @@ msgstr "Reihenfolge"
 #. module: product_profile
 #: field:product.profile,type:0
 msgid "Type"
-msgstr ""
+msgstr "Art"

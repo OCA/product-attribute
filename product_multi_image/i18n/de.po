@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:35+0000\n"
-"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"POT-Creation-Date: 2017-04-21 02:49+0000\n"
+"PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr "URL zum Produkt beim Hersteller"
 #: field:product.product,image_main_medium:0
 #: field:product.template,image_main_medium:0
 msgid "Medium image"
-msgstr ""
+msgstr "Mittelgrosses Bild"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_product_product
@@ -91,30 +91,30 @@ msgstr "Produktvorlage"
 #. module: product_multi_image
 #: field:base_multi_image.image,product_variant_count:0
 msgid "Product variant count"
-msgstr ""
+msgstr "Produktvariantenanzahl"
 
 #. module: product_multi_image
 #: field:product.product,image_main_small:0
 #: field:product.template,image_main_small:0
 msgid "Small image"
-msgstr ""
+msgstr "Kleines Bild"
 
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_kanban_view
 msgid "Visible in"
-msgstr ""
+msgstr "Sichtbar in"
 
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_kanban_view
 msgid "Visible in all variants"
-msgstr ""
+msgstr "In allen Varianten sichtbar"
 
 #. module: product_multi_image
 #: field:base_multi_image.image,product_variant_ids:0
 msgid "Visible in these variants"
-msgstr ""
+msgstr "In diesen Varianten sichtbar"
 
 #. module: product_multi_image
 #: view:base_multi_image.image:product_multi_image.image_kanban_view
 msgid "variant(s)"
-msgstr ""
+msgstr "Variante(n)"
