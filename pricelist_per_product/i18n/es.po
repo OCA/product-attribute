@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pricelist_per_product
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 02:52+0000\n"
+"PO-Revision-Date: 2017-03-31 02:52+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pricelist_per_product
+#: model:ir.model.fields,help:pricelist_per_product.field_product_pricelist_item_related_sequence
+msgid ""
+"Allows modification of the sequence manually as the sequence field is "
+"difficult to modify due to 'handle'."
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Base"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Click to see this product"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Click to view product templates in this Pricelist"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Disc."
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model.fields,help:pricelist_per_product.field_product_pricelist_product_template_count
+msgid "Number of Product Template with this Pricelist"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_template_form_view
+msgid "Price"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Price Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_template_form_view
+msgid "Pricelist"
+msgstr "Tarifa"
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_template_form_view
+msgid "Pricelist Items"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model,name:pricelist_per_product.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Product Grid"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model.fields,field_description:pricelist_per_product.field_product_pricelist_product_item_ids
+msgid "Product item ids"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model.fields,field_description:pricelist_per_product.field_product_pricelist_item_related_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.ui.view,arch_db:pricelist_per_product.product_pricelist_view
+msgid "Show Products"
+msgstr ""
+
+#. module: pricelist_per_product
+#: model:ir.model.fields,field_description:pricelist_per_product.field_product_pricelist_product_template_count
+msgid "Template with this Pricelist"
+msgstr ""
