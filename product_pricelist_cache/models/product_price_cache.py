@@ -12,6 +12,7 @@ class ProductPriceCache(models.Model):
     pricelist_id = fields.Many2one(
         comodel_name='product.pricelist',
         string='Pricelist',
+        ondelete='cascade',
         readonly=True,
         index=True,
     )
@@ -56,7 +57,7 @@ class ProductPriceCache(models.Model):
         """Cache prices for all pricelists, for all products."""
         product_model = self.env['product.product']
         pricelist_model = self.env['product.pricelist']
-        all_products = product_model.search([('type', '=', 'sale')])
-        all_pricelists = pricelist_model.search([])
+        all_products = product_model.search([('sale_ok', '=', True)])
+        all_pricelists = pricelist_model.search([('type', '=', 'sale')])
         for pricelist in all_pricelists:
             self.cache_pricelist_prices(pricelist, all_products)
