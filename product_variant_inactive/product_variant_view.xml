@@ -1,7 +1,5 @@
-<openerp>
-  <data>
-
-    <record model="ir.ui.view" id="view_stock_product_tree">
+<odoo>
+   <record model="ir.ui.view" id="view_stock_product_tree">
         <field name="model">product.product</field>
         <field name="inherit_id" ref="stock.view_stock_product_tree"/>
         <field name="arch" type="xml">
@@ -34,5 +32,4 @@
                                'active_test': False}</field>
     </record>
 
-  </data>
-</openerp>
+</odoo>
