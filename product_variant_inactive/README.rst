@@ -20,7 +20,9 @@ On Variant tab, click on the button 'List of variants'
 You can now activate or deactivate variants with button on the right side
 
 
-.. image:: static/description/unactive.png
+.. image:: /product_variant_inactive/static/description/unactive.png
+   :alt: Create a sales template
+   :width: 400 px
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
@@ -40,21 +42,12 @@ help us smashing it by providing a detailed and welcomed `feedback
 Credits
 =======
 
-Images
-------
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
-=======
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
- :alt: License: AGPL-3
-
-Module name
-===========
-
 This module was written to extend the functionality of Product Variants
 and allow you to make activate or deactivate products using the two buttons
 
-.. image:: img/img_01.png
+.. image:: /product_variant_inactive/static/img/img_01.png
+   :alt: screenshot
+   :width: 400 px
 
 
 Installation
