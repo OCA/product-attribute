@@ -1,5 +1,5 @@
 # coding: utf-8
-# © 2015 Abdessamad HILALI <abdessamad.hilali@akretion.com>
+# 2015 Abdessamad HILALI <abdessamad.hilali@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
@@ -8,10 +8,10 @@
     'website': "http://www.akretion.com",
     'license': 'AGPL-3',
     'category': 'Product',
-    'version': '8.0.0.0.0',
+    'version': '10.0.1.0.0',
     'depends': ['stock'],
     'data': [
-        'product_variant_view.xml'
+        'data/product_variant_view.xml'
     ],
-    'demo': ['product.product.csv'],
+    'demo': ['data/product.product.csv'],
 }
