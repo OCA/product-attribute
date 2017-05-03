@@ -1,4 +1,3 @@
-
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
@@ -45,13 +44,35 @@ Images
 ------
 
 * Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+=======
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+ :alt: License: AGPL-3
+
+Module name
+===========
+
+This module was written to extend the functionality of Product Variants
+and allow you to make activate or deactivate products using the two buttons
+
+.. image:: img/img_01.png
+
+
+Installation
+============
+
+To install this module, you need to:
+
+*To install Product module
+
+For further information, please visit:
+
+* https://www.odoo.com/forum/help-1
 
 Contributors
 ------------
 
 * Sebastien BEAU <sebastien.beau@akretion.com>
 * Abdessamad HILALI <abdessamad.hilali@akretion.com>
-
 
 Maintainer
 ----------
@@ -66,5 +87,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit https://odoo-community.org.
-
+To contribute to this module, please visit http://odoo-community.org.
