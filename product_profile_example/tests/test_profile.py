@@ -7,6 +7,21 @@ from odoo.tests.common import TransactionCase
 
 class TestProductProfile(TransactionCase):
 
+    def setUp(self):
+        super(TestProductProfile, self).setUp()
+        self.prd_m = self.env['product.product']
+        # product 'HDD SH-2' in demo data
+        self.hard_disc_prd = self.env.ref('product.product_product_17')
+        self.my_own_profile = self.env.ref('product_profile_example.own')
+        self.manufacturing_prof = self.env.ref(
+            'product_profile_example.manuf_prof')
+        self.analysis_tmpl = self.env.ref(
+            'point_of_sale.partner_product_7_product_template')
+        self.analysis_prd = self.env.ref(
+            'point_of_sale.partner_product_7')
+        self.theoritical_categ_id = self.env.ref('product.product_category_5')
+        self.categ = self.env.ref('product.product_category_3')
+
     def test_check_hard_disc_product(self):
         # check route_ids
         real_routes = [x.id for x in self.hard_disc_prd.route_ids]
@@ -68,17 +83,3 @@ class TestProductProfile(TransactionCase):
         new_product = self.prd_m.create(vals)
         self.assertEqual(new_product.categ_id, categ)
 
-    def setUp(self):
-        super(TestProductProfile, self).setUp()
-        self.prd_m = self.env['product.product']
-        # product 'HDD SH-2' in demo data
-        self.hard_disc_prd = self.env.ref('product.product_product_17')
-        self.my_own_profile = self.env.ref('product_profile_example.own')
-        self.manufacturing_prof = self.env.ref(
-            'product_profile_example.manuf_prof')
-        self.analysis_tmpl = self.env.ref(
-            'point_of_sale.partner_product_7_product_template')
-        self.analysis_prd = self.env.ref(
-            'point_of_sale.partner_product_7')
-        self.theoritical_categ_id = self.env.ref('product.product_category_5')
-        self.categ = self.env.ref('product.product_category_3')
