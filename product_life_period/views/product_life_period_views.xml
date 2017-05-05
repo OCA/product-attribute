@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="product_life_period_view_search" model="ir.ui.view">
+            <field name="name">product.life.period.search</field>
+            <field name="model">product.life.period</field>
+            <field name="arch" type="xml">
+                <search string="Product Life Period">
+                    <field name="name"/>
+                    <filter string="Inactive" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="product_life_period_view_tree" model="ir.ui.view">
+            <field name="name">product.life.period.tree</field>
+            <field name="model">product.life.period</field>
+            <field name="arch" type="xml">
+                <tree string="Product Life Period">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_open_life_period_products" model="ir.actions.act_window">
+            <field name="name">Product Life Period</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('product_life_period_id', '=', active_id)]</field>
+            <field name="context">{"default_product_life_period_id": active_id}</field>
+        </record>
+
+        <record id="product_life_period_action" model="ir.actions.act_window">
+            <field name="name">Product Life Period</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.life.period</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record id="product_life_period_view_form" model="ir.ui.view">
+            <field name="name">product.life.period.form</field>
+            <field name="model">product.life.period</field>
+            <field name="arch" type="xml">
+                <form string="Product Life Period">
+                    <sheet>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <div class="oe_right oe_button_box">
+                            <button
+                                class="oe_inline oe_stat_button"
+                                type="action"
+                                name="%(action_open_life_period_products)d"
+                                icon="fa-cubes">
+                                <field name="products_count" string="Products" widget="statinfo" />
+                            </button>
+                        </div>
+                       <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+           </field>
+        </record>
+
+        <record id="product_life_period_action" model="ir.actions.act_window">
+            <field name="name">Product Life Period</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.life.period</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="product_life_period_action"
+                  id="product_life_period_menu"
+                  parent="sale.prod_config_main"
+                  sequence="20"/>
+
+        <record id="product_template_search_view_inherit_product_life_period" model="ir.ui.view">
+            <field name="name">product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="priority" eval="50"/>
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="product_life_period_id"/>
+                </field>
+                <filter name="filter_to_sell" position="after">
+                    <separator/>
+                    <filter string="End of Life Period" name="end_period"
+                            domain="[('state','=','end'),
+                                     ('product_life_period_id', '!=', False)]"/>
+                </filter>
+                <field name='pricelist_id' position="after">
+                    <filter string="Life Period" name="groupby_period_life"
+                            context="{'group_by' : 'product_life_period_id'}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_template_view_form_inherit_product_life_period" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="product_life_period_id"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+    <data noupdate="1">
+
+        <record id="ir_cron_product_end_life_period" model="ir.cron">
+            <field name="name">Set Product having a passed life date in state end</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False" />
+            <field name="model" eval="'product.life.period'" />
+            <field name="function" eval="'_run_life_period_update'" />
+            <field name="args" eval="'()'"/>
+        </record>
+
+    </data>
+</odoo>
+
