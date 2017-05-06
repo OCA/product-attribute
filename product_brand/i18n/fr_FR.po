@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 03:36+0000\n"
-"PO-Revision-Date: 2016-12-29 03:36+0000\n"
+"POT-Creation-Date: 2017-05-05 02:43+0000\n"
+"PO-Revision-Date: 2017-05-05 02:43+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
 "Language-Team: French (France) (https://www.transifex.com/oca/teams/23907/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,7 @@ msgstr ""
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
+#: model:ir.model.fields,field_description:product_brand.field_product_product_product_brand_id
 #: model:ir.model.fields,field_description:product_brand.field_product_template_product_brand_id
 #: model:ir.ui.view,arch_db:product_brand.product_template_form_brand_add
 #: model:ir.ui.view,arch_db:product_brand.view_product_template_search_brand
@@ -118,6 +119,7 @@ msgid "Products"
 msgstr ""
 
 #. module: product_brand
+#: model:ir.model.fields,help:product_brand.field_product_product_product_brand_id
 #: model:ir.model.fields,help:product_brand.field_product_template_product_brand_id
 msgid "Select a brand for this product"
 msgstr ""
