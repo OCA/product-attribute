@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 03:36+0000\n"
-"PO-Revision-Date: 2016-12-29 03:36+0000\n"
+"POT-Creation-Date: 2017-05-23 02:40+0000\n"
+"PO-Revision-Date: 2017-05-23 02:40+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,7 @@ msgstr ""
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
+#: model:ir.model.fields,field_description:product_brand.field_product_product_product_brand_id
 #: model:ir.model.fields,field_description:product_brand.field_product_template_product_brand_id
 #: model:ir.ui.view,arch_db:product_brand.product_template_form_brand_add
 #: model:ir.ui.view,arch_db:product_brand.view_product_template_search_brand
@@ -41,12 +42,12 @@ msgstr ""
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_description
@@ -57,27 +58,27 @@ msgstr "Description"
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière Modification le"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_logo
@@ -118,6 +119,7 @@ msgid "Products"
 msgstr ""
 
 #. module: product_brand
+#: model:ir.model.fields,help:product_brand.field_product_product_product_brand_id
 #: model:ir.model.fields,help:product_brand.field_product_template_product_brand_id
 msgid "Select a brand for this product"
 msgstr ""
