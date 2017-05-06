@@ -3,20 +3,20 @@
 # * product_multi_category
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
+# Niki Waibel <niki.waibel@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
 "PO-Revision-Date: 2017-05-05 02:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Last-Translator: Niki Waibel <niki.waibel@gmail.com>, 2017\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_multi_category
 #: model:ir.model.fields,field_description:product_multi_category.field_product_product_categ_ids
@@ -27,4 +27,4 @@ msgstr ""
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
 msgid "Product Template"
-msgstr "Modèle de produit"
+msgstr "Produktvorlage"
