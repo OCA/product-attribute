@@ -162,7 +162,6 @@ class ProductMixinProfile(models.AbstractModel):
         if self.profile_id:
             values = self._get_vals_from_profile({'profile_id': self.profile_id.id})
             for field, value in values.items():
-               # if field in self._fields:
                 try:
                     self[field] = value
                 except Exception as e:
