@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 ##############################################################################
-#
-#    OpenERP, Open Source Management Solution - module extension
-#    Copyright (C) 2014- O4SB (<http://o4sb.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -15,19 +12,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-
-{
-    'name': 'Display Customer Price in Product View',
-    'version': '10.0.1.0.0',
-    'category': 'Sales',
-    'author': "Odoo Community Association (OCA)",
-    'website': 'http://odoo-community.org',
-    'license': 'AGPL-3',
-    'depends': ['product', 'sales_team'],
-    'data': ['partner_pricelist_view.xml'],
-    'installable': True,
-    'active': False,
-}
+from . import product

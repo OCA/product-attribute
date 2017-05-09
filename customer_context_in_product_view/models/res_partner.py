@@ -19,15 +19,19 @@
 #
 ##############################################################################
 
-{
-    'name': 'Display Customer Price in Product View',
-    'version': '10.0.1.0.0',
-    'category': 'Sales',
-    'author': "Odoo Community Association (OCA)",
-    'website': 'http://odoo-community.org',
-    'license': 'AGPL-3',
-    'depends': ['product', 'sales_team'],
-    'data': ['partner_pricelist_view.xml'],
-    'installable': True,
-    'active': False,
-}
+from odoo import models, api
+
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    @api.multi
+    def open_product_pricing(self):
+        self.ensure_one()
+        action = self.env.ref('product.product_normal_action')
+        result = action.read()[0]
+        result['context'] = {
+            'pricelist': True,
+            'search_default_pricelist_id': self.property_product_pricelist.id
+        }
+        return result
