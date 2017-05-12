@@ -8,7 +8,6 @@
     'version': '10.0.1.0.1',
     'author': 'Akretion, Odoo Community Association (OCA)',
     'category': 'product',
-    'description': 'See Product Profile module',
     'depends': [
         'product_profile',
         'purchase',
