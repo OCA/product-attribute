@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_price']" position="after">
+                <field name="auto_change_image"
+                       attrs="{'invisible': [('img_type', '=', 'custom')]}" />
+                <field name="img_type" />
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button string="Apply Default Image"
+                        type="object"
+                        name="apply_default_image" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

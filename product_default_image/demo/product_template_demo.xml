@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+    <record id="demo_product_template_1" model="product.template">
+        <field name="name">Product Default Image Template 1</field>
+        <field name="uom_id" ref="product.product_uom_unit" />
+        <field name="uom_po_id" ref="product.product_uom_unit" />
+        <field name="weight">1</field>
+        <field name="categ_id" ref="demo_product_category_1" />
+        <field name="type">product</field>
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="standard_price">20</field>
+        <field name="list_price">80</field>
+        <field name="currency_id" ref="base.USD" />
+        <field name="default_code">TMPL1</field>
+    </record>
+
+    <record id="demo_product_template_2" model="product.template">
+        <field name="name">Product Default Image Template 2</field>
+        <field name="uom_id" ref="product.product_uom_unit" />
+        <field name="uom_po_id" ref="product.product_uom_unit" />
+        <field name="weight">3</field>
+        <field name="categ_id" ref="demo_product_category_2" />
+        <field name="type">product</field>
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="standard_price">50</field>
+        <field name="list_price">300</field>
+        <field name="currency_id" ref="base.USD" />
+        <field name="default_code">TMPL2</field>
+    </record>
+
+</odoo>
