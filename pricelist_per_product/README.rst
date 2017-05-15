@@ -17,7 +17,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/9.0
+   :target: https://runbot.odoo-community.org/runbot/135/10.0
 
 Known issues / Roadmap
 ======================
@@ -37,6 +37,7 @@ Contributors
 * Sylvain CALADOR <sylvain.calador@akretion.com>
 * Brett Wood <bwood@laslabs.com>
 * Ted Salmon <tsalmon@laslabs.com>
+* Cédric Pigeon <cedric.pigeon@acsone.eu>
 
 Maintainer
 ----------
