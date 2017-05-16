@@ -2,8 +2,7 @@
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
-<odoo>
-<data noupdate="1">
+<odoo noupdate="1">
 
     <record id="product_attribute_1" model="product.attribute">
         <field name="name">Size (Test Matrix)</field>
@@ -107,6 +106,4 @@
         <field name="product_tmpl_ids" eval="[(6, 0, [ref('product_combination_exclude.product_exclude_test_1'), ref('product_combination_exclude.product_exclude_test_2')])]" />
     </record>
 
-
-</data>
 </odoo>

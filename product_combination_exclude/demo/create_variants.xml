@@ -2,8 +2,7 @@
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
-<odoo>
-<data noupdate="1">
+<odoo noupdate="1">
 
     <!--In order to have variants created we need to write the templates.
     To workaround odoo-lint requirements we do in separate file-->
@@ -22,5 +21,4 @@
         <field name="attribute_line_ids" eval="[(6, 0, [ref('product_combination_exclude.product_attribute_line_5'),ref('product_combination_exclude.product_attribute_line_6') ])]"/>
     </record>
 
-</data>
 </odoo>

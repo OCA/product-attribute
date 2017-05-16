@@ -13,11 +13,6 @@ of variants to manage products.  With this module you can specify incompatible c
 assign them globally or just to selected templates, generate the list of exclusions and then even
 manually fine tune them if you choose before updating the associated products.
 
-Installation
-============
-
-There are no special installation instructions for this module.
-
 Configuration
 =============
 
@@ -52,9 +47,6 @@ This is regardless of any 3rd attribute, such as logo.
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/135/10.0
 
-.. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
-.. branch is "8.0" for example
-
 Known issues / Roadmap
 ======================
 
@@ -80,6 +72,7 @@ Contributors
 ------------
 
 * Graeme Gellatly <g@o4sb.com>
+* Dave Lasley <dave@laslabs.com>
 
 Maintainer
 ----------

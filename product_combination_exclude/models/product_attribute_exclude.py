@@ -13,15 +13,15 @@ class ProductAttributeExclude(models.Model):
 
     attribute_value_ids = fields.Many2many(
         comodel_name='product.attribute.value',
-        string='Incompatible Attributes'
+        string='Incompatible Attributes',
     )
 
     product_tmpl_ids = fields.Many2many(
         comodel_name='product.template',
-        string='Product Templates'
+        string='Product Templates',
     )
 
     matrix_id = fields.Many2one(
         comodel_name='product.attribute.exclude.matrix',
-        string='Exclusion Matrix'
+        string='Exclusion Matrix',
     )

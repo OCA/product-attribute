@@ -17,25 +17,23 @@ class ProductAttributeExcludeMatrix(models.Model):
     description = fields.Text()
     attribute_value_ids = fields.Many2many(
         comodel_name='product.attribute.value',
-        string='Incompatible Attributes'
+        string='Incompatible Attributes',
     )
     product_tmpl_ids = fields.Many2many(
         comodel_name='product.template',
-        string='Product Templates'
+        string='Product Templates',
     )
     exclusion_line_ids = fields.One2many(
         comodel_name='product.attribute.exclude',
         inverse_name='matrix_id',
-        string='Excluded Combinations'
+        string='Excluded Combinations',
     )
 
     @api.multi
     def button_generate_exclusions(self):
         self.ensure_one()
 
-        # Remove all existing lines
         delete_lines = [(2, line.id) for line in self.exclusion_line_ids]
-        self.write({'exclusion_line_ids': delete_lines})
 
         # Sort the list into a list of lists by its attribute
         grouped_attrs = itertools.groupby(self.attribute_value_ids,
@@ -57,7 +55,7 @@ class ProductAttributeExcludeMatrix(models.Model):
             for am in attribute_matrix
         ]
 
-        self.write({'exclusion_line_ids': exclusion_lines})
+        self.write({'exclusion_line_ids': delete_lines + exclusion_lines})
         return True
 
     @api.multi

@@ -2,12 +2,16 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
 import itertools
 import psycopg2
 
 from odoo import api, models
 from odoo import tools
 from odoo.exceptions import except_orm
+
+
+_logger = logging.getLogger(__name__)
 
 
 class ProductTemplate(models.Model):
@@ -20,26 +24,23 @@ class ProductTemplate(models.Model):
         exclusion_obj = self.env['product.attribute.exclude']
         product_obj = self.env['product.product']
         for template in self:
-            exclusion_values = exclusion_obj.search(
-                ['|',
-                 ('product_tmpl_ids', '=', template.id),
-                 ('product_tmpl_ids', 'in', [])]
-            )
+            exclusion_values = exclusion_obj.search([
+                 ('product_tmpl_ids', 'in', template.ids),
+            ])
 
-            excl_attr_val_ids = exclusion_values.read(['attribute_value_ids'])
-            excl_attr_val_ids = list(set(itertools.chain.from_iterable(
-                [x.get('attribute_value_ids', []) for x in excl_attr_val_ids]
-            )))
+            excl_attr_vals = exclusion_values.mapped('attribute_value_ids')
 
             products = product_obj.search([
                 ('product_tmpl_id', '=', template.id),
-                ('attribute_value_ids', 'in', excl_attr_val_ids)])
+                ('attribute_value_ids', 'in', excl_attr_vals.ids),
+            ])
 
             variants_to_unlink = products.filtered(
-                lambda p: any([e.attribute_value_ids <= p.attribute_value_ids
-                               for e in exclusion_values]))
+                lambda p: any([e.attribute_value_ids <= p.excl_attr_vals
+                               for e in exclusion_values])
+            )
 
-            variants_to_deactivate = []
+            variants_to_deactivate = product_obj.browse()
             for variant in variants_to_unlink:
                 try:
                     with self._cr.savepoint(), tools.mute_logger(
@@ -48,8 +49,7 @@ class ProductTemplate(models.Model):
                 # We catch all kind of exception to be sure that the operation
                 # doesn't fail.
                 except (psycopg2.Error, except_orm):
-                    variants_to_deactivate.append(variant.id)
-                    pass
+                    variants_to_deactivate += variant
             if variants_to_deactivate:
-                product_obj.write(variants_to_deactivate, {'active': False})
+                variants_to_deactivate.write({'active': False})
         return res

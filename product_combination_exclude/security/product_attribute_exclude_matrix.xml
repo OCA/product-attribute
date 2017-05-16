@@ -3,7 +3,6 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
 <odoo>
-<data>
 
     <record model="ir.model.access" id="product_attribute_exclude_matrix_access">
         <field name="name">product.attribute.exclude.matrix access</field>
@@ -24,5 +23,5 @@
         <field name="perm_write" eval="1"/>
         <field name="perm_unlink" eval="1"/>
     </record>
-</data>
+
 </odoo>
