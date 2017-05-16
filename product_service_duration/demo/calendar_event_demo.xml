@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="calendar_event_1" model="calendar.event">
+        <field name="name">Client Consultation</field>
+        <field name="start" eval="time.strftime('%Y-%m-10 12:00:00')" />
+        <field name="stop" eval="time.strftime('%Y-%m-10 17:00:00')" />
+        <field name="duration" eval="5.00" />
+        <field name="product_ids"
+               eval="[(6, 0, [ref('product_service_duration.product_product_1'),
+                              ref('product_service_duration.product_product_2')])]" />
+    </record>
+
+</odoo>
