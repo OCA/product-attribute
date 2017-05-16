@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016-2017 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_pricelist_item_item_tiered" model="product.pricelist.item">
+        <field name="applied_on">1_product</field>
+        <field name="base">list_price</field>
+        <field name="tiered_price">400</field>
+        <field name="compute_price">tiered</field>
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="product_tmpl_id" ref="product_pricelist_tier.product_template_plastic_toy" />
+        <field name="min_quantity">20</field>
+    </record>
+
+</odoo>
