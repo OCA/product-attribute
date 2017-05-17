@@ -21,7 +21,9 @@ addon | version | summary
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
 [product_multi_image](product_multi_image/) | 9.0.1.0.0 | Multiple Images in Products
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 9.0.1.0.0 | Print price list from menu option, product templates, products variants or price lists
+[product_pricelist_tax_included](product_pricelist_tax_included/) | 9.0.1.0.0 | Write product price list with taxes include
 [product_sequence](product_sequence/) | 9.0.1.0.0 | Product Sequence
+[product_supplierinfo_revision](product_supplierinfo_revision/) | 9.0.1.0.0 | Customizations for Licores Reyes
 [product_uom](product_uom/) | 9.0.1.0.1 | Provide missing uom
 
 
