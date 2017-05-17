@@ -13,10 +13,14 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[customer_pricing_in_product_view](customer_pricing_in_product_view/) | 10.0.1.0.0 | Display Customer Price in Product View
 [product_brand](product_brand/) | 10.0.1.0.0 | Product Brand Manager
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
+[product_pricelist_tier](product_pricelist_tier/) | 10.0.1.0.0 | Extends pricelists with tiered pricing.
 [product_sequence](product_sequence/) | 10.0.1.0.0 | Product Sequence
+[product_service_duration](product_service_duration/) | 10.0.1.0.0 | Extends events and meetings with services.
+[product_state](product_state/) | 10.0.1.0.0 | Product State
 [product_uom](product_uom/) | 10.0.1.0.0 | Provide missing uom
 
 
@@ -25,7 +29,6 @@ Unported addons
 addon | version | summary
 --- | --- | ---
 [base_custom_attributes](base_custom_attributes/) | 0.1.1 (unported) | base_custom_attributes
-[customer_context_in_product_view](customer_context_in_product_view/) | 1.1.1 (unported) | Display Customer Price in Product View
 [partner_custom_attributes](partner_custom_attributes/) | 0.1.0 (unported) | Partner Custom Attributes
 [product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 (unported) | Product attribute types
 [product_catalog_report](product_catalog_report/) | 1.0 (unported) | Product Catalog - Print Report of product catalog with product image
