@@ -34,4 +34,4 @@ class ProductProduct(models.Model):
             for excl_val in exclusion_values:
                 if excl_val.attribute_value_ids <= attr_vals:
                     return self.env['product.product']
-            return super(ProductProduct, self).create(vals)
+        return super(ProductProduct, self).create(vals)
