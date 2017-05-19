@@ -21,19 +21,14 @@
 ##############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp import pooler
 
 
 class CustomerProductPricingCase(TransactionCase):
 
-    def setUp(self):
-        super(CustomerProductPricingCase, self).setUp()
-        self.pool = pooler.get_pool(self.cr.dbname)
-
     def test_name_get(self):
         list_id = self.env.ref('product.list0').id
         try:
-            self.pool['product.pricelist'].name_get(
+            self.env['product.pricelist'].name_get(
                 self.cr, self.uid, list_id)
         except Exception:
             self.fail("Pricelist name_get failed")
