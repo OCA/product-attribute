@@ -42,12 +42,12 @@ Known issues / Roadmap
 ======================
 
 * In previous releases this module was called 'customer_context_in_product_view' and allowed typing in a customers name
-directly in the product view.  Unfortunately with changes to the v8 search view handling of functional many2one's
-and the deprecation of fields.Dummy this was not easily portable however it is desired to find a more elegant way
-of doing this in future.  It might be possible by converting pricelist_id to a related field of a partner field and
-removing pricelist from the search view.
+  directly in the product view.  Unfortunately with changes to the v8 search view handling of functional many2one's
+  and the deprecation of fields.Dummy this was not easily portable however it is desired to find a more elegant way
+  of doing this in future. It might be possible by converting pricelist_id to a related field of a partner field and
+  removing pricelist from the search view.
 * It has previously been requested that this support supplier pricelists as well, however there are certain difficulties
-with that approach, not least of which is one supplier rarely supplies all products making displayed prices meaningless.
+  with that approach, not least of which is one supplier rarely supplies all products making displayed prices meaningless.
 
 Bug Tracker
 ===========
@@ -65,6 +65,7 @@ Contributors
 ------------
 
 * Graeme Gellatly <g@o4sb.com>
+* Ronald Portier <rportier@therp.nl>
 
 Maintainer
 ----------
