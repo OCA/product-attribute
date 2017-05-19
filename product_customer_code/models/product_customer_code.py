@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
-###########################################################################
-#    Module Writen to OpenERP, Open Source Management Solution
-#
-#    Copyright (c) 2012 Vauxoo - http://www.vauxoo.com
-#    All Rights Reserved.
-#    info@vauxoo.com
-############################################################################
-#    Coded by: Rodo (rodo@vauxoo.com),Moy (moylop260@vauxoo.com)
-############################################################################
+# Copyright 2012 Vauxoo - http://www.vauxoo.com
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class ProductCustomerCode(models.Model):
@@ -21,14 +14,14 @@ class ProductCustomerCode(models.Model):
     product_code = fields.Char(
         string='Customer Product Code',
         required=True,
-        help="""This customer's product code will be used when searching into
-                a request for quotation.""",
+        help="This customer's product code will be used when searching into"
+             "a request for quotation.",
     )
 
     product_name = fields.Char(
         string='Customer Product Name',
-        help="""This customer's product name will be used when searching into
-                a request for quotation.""",
+        help="This customer's product name will be used when searching into"
+             "a request for quotation.",
     )
 
     product_id = fields.Many2one(
@@ -40,7 +33,8 @@ class ProductCustomerCode(models.Model):
     partner_id = fields.Many2one(
         comodel_name='res.partner',
         string='Customer',
-        required=True
+        required=True,
+        index=True,
     )
 
     company_id = fields.Many2one(
@@ -54,5 +48,3 @@ class ProductCustomerCode(models.Model):
         ('unique_code', 'unique(product_code,company_id,partner_id)',
          'Product customer code must be unique'),
     ]
-
-    # TODO: Add index to product_code, partner

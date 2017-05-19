@@ -1,14 +1,6 @@
-# -*- encoding: utf-8 -*-
-###########################################################################
-#    Module Writen to OpenERP, Open Source Management Solution
-#
-#    Copyright (c) 2012 Vauxoo - http://www.vauxoo.com/
-#    All Rights Reserved.
-#    info Vauxoo (info@vauxoo.com)
-############################################################################
-#    Coded by: el_rodo_1 (rodo@vauxoo.com)
-############################################################################
-
+# -*- coding: utf-8 -*-
+# Copyright 2012 Vauxoo - http://www.vauxoo.com
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Products Customer Code",
     'version': '10.0.1.0.0',
@@ -18,24 +10,8 @@
     "category": "Generic Modules/Product",
     "summary": "Add many Customers' Codes in product",
     "depends": [
-        "base",
         "product",
     ],
-    "description": """
-Customer' codes in product
-==========================
-
-This module does just like the product.supplierinfo but for customers instead.
-For instance it allows to have different references for the same product
-according to the customer.
-
-.. image:: product_customer_code/static/src/img/screenshot1.png
-
-.. tip::
-
-    You will need install some of the Apps which enable the product menu to
-    see this module in action, like Sales, Purchase or Warehouse Management
-     """,
     "data": [
         "security/product_customer_code_security.xml",
         "security/ir.model.access.csv",

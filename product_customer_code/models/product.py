@@ -1,16 +1,8 @@
 # -*- coding: utf-8 -*-
+# Copyright 2012 Vauxoo - http://www.vauxoo.com
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-###########################################################################
-#    Module Writen to OpenERP, Open Source Management Solution
-#
-#    Copyright (c) 2012 Vauxoo - http://www.vauxoo.com
-#    All Rights Reserved.
-#    info@vauxoo.com
-############################################################################
-#    Coded by: Rodo (rodo@vauxoo.com),Moy (moylop260@vauxoo.com)
-############################################################################
-
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
