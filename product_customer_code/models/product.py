@@ -19,13 +19,13 @@ class ProductProduct(models.Model):
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         res = super(ProductProduct, self).name_search(
             name=name, args=args, operator=operator, limit=limit)
-        if not res:
+        if (len(res) < limit):
             partner_id = self._context.get('partner_id')
             if partner_id:
                 product_customer_code_obj = self.env['product.customer.code']
                 product_codes = product_customer_code_obj.search([
-                    ('product_code', '=', name),
+                    ('product_code', operator, name),
                     ('partner_id', '=', partner_id)
                 ], limit=limit)
-                return product_codes.name_get()
+                res.extend(product_codes.mapped('product_id').name_get())
         return res
