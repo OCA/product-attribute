@@ -10,7 +10,9 @@ This module does just like the product.supplierinfo but for customers instead.
 For instance it allows to have different references for the same product
 according to the customer.
 
-.. image:: product_customer_code/static/src/img/screenshot1.png
+.. figure:: product_customer_code/static/src/img/screenshot1.png
+   :alt: alternative description
+   :width: 600 px
 
 Installation
 ============
