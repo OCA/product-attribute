@@ -20,6 +20,7 @@ class ProductTemplate(models.Model):
 
     prefix_code = fields.Char(
         string='Internal Reference',
+        copy=False,
         help="This is the code of the product model"
              "If Automatic Reference is checked, "
              "this field is used as a prefix for "
