@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+<data noupdate="1">
+
+    <record id="product_attribute_1" model="product.attribute">
+        <field name="name">Size (Test Matrix)</field>
+    </record>
+    <record id="product_attribute_value_1" model="product.attribute.value">
+        <field name="name">Small</field>
+        <field name="attribute_id" ref="product_attribute_1"/>
+    </record>
+    <record id="product_attribute_value_2" model="product.attribute.value">
+        <field name="name">Medium</field>
+        <field name="attribute_id" ref="product_attribute_1"/>
+    </record>
+    <record id="product_attribute_value_3" model="product.attribute.value">
+        <field name="name">Large</field>
+        <field name="attribute_id" ref="product_attribute_1"/>
+    </record>
+    <record id="product_attribute_value_4" model="product.attribute.value">
+        <field name="name">Extra Large</field>
+        <field name="attribute_id" ref="product_attribute_1"/>
+    </record>
+
+    <record id="product_attribute_2" model="product.attribute">
+        <field name="name">Color (Test Matrix)</field>
+    </record>
+    <record id="product_attribute_value_5" model="product.attribute.value">
+        <field name="name">White</field>
+        <field name="attribute_id" ref="product_attribute_2"/>
+    </record>
+    <record id="product_attribute_value_6" model="product.attribute.value">
+        <field name="name">Black</field>
+        <field name="attribute_id" ref="product_attribute_2"/>
+    </record>
+
+    <record id="product_attribute_value_7" model="product.attribute.value">
+        <field name="name">Green</field>
+        <field name="attribute_id" ref="product_attribute_2"/>
+    </record>
+
+    <record id="product_attribute_value_8" model="product.attribute.value">
+        <field name="name">Red</field>
+        <field name="attribute_id" ref="product_attribute_2"/>
+    </record>
+
+    <record id="product_attribute_value_9" model="product.attribute.value">
+        <field name="name">Purple</field>
+        <field name="attribute_id" ref="product_attribute_2"/>
+    </record>
+
+    <record model="product.template" id="product_exclude_test_1">
+        <field name="name">T-Shirt #1 (Test)</field>
+    </record>
+    <record model="product.template" id="product_exclude_test_2">
+        <field name="name">T-Shirt #2 (Test)</field>
+    </record>
+        <record model="product.template" id="product_exclude_test_3">
+        <field name="name">T-Shirt #3 (Test)</field>
+    </record>
+
+    <record id="product_attribute_line_1" model="product.attribute.line">
+        <field name="product_tmpl_id" ref="product_exclude_test_1"/>
+        <field name="attribute_id" ref="product_attribute_1"/>
+        <field name="value_ids" eval="[(6,0,[ref('product_combination_exclude.product_attribute_value_%s' % v) for v in '1234'])]"/>
+    </record>
+    <record id="product_attribute_line_2" model="product.attribute.line">
+        <field name="product_tmpl_id" ref="product_exclude_test_1"/>
+        <field name="attribute_id" ref="product_attribute_2"/>
+        <field name="value_ids" eval="[(6,0,[ref('product_combination_exclude.product_attribute_value_%s' % v) for v in '567'])]"/>
+    </record>
+
+    <record id="product_attribute_line_3" model="product.attribute.line">
+        <field name="product_tmpl_id" ref="product_exclude_test_2"/>
+        <field name="attribute_id" ref="product_attribute_1"/>
+        <field name="value_ids" eval="[(6,0,[ref('product_combination_exclude.product_attribute_value_%s' % v) for v in '1234'])]"/>
+    </record>
+    <record id="product_attribute_line_4" model="product.attribute.line">
+        <field name="product_tmpl_id" ref="product_exclude_test_2"/>
+        <field name="attribute_id" ref="product_attribute_2"/>
+        <field name="value_ids" eval="[(6,0,[ref('product_combination_exclude.product_attribute_value_%s' % v) for v in '567'])]"/>
+    </record>
+
+    <record id="product_attribute_line_5" model="product.attribute.line">
+        <field name="product_tmpl_id" ref="product_exclude_test_3"/>
+        <field name="attribute_id" ref="product_attribute_1"/>
+        <field name="value_ids" eval="[(6,0,[ref('product_combination_exclude.product_attribute_value_%s' % v) for v in '1234'])]"/>
+    </record>
+    <record id="product_attribute_line_6" model="product.attribute.line">
+        <field name="product_tmpl_id" ref="product_exclude_test_3"/>
+        <field name="attribute_id" ref="product_attribute_2"/>
+        <field name="value_ids" eval="[(6,0,[ref('product_combination_exclude.product_attribute_value_%s' % v) for v in '567'])]"/>
+    </record>
+
+    <record model="product.attribute.exclude.matrix" id="exclude_matrix_test_1">
+        <field name="name">Exclude Matrix (Test)</field>
+        <field name="attribute_value_ids" eval="[(6, 0, [ref('product_combination_exclude.product_attribute_value_7'), ref('product_combination_exclude.product_attribute_value_6'), ref('product_combination_exclude.product_attribute_value_2')])]" />
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('product_combination_exclude.product_exclude_test_1')])]" />
+    </record>
+
+    <record model="product.attribute.exclude.matrix" id="exclude_matrix_test_2">
+        <field name="name">Exclude Matrix #2 (Test)</field>
+        <field name="attribute_value_ids" eval="[(6, 0, [ref('product_combination_exclude.product_attribute_value_7'), ref('product_combination_exclude.product_attribute_value_3')])]" />
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('product_combination_exclude.product_exclude_test_1'), ref('product_combination_exclude.product_exclude_test_2')])]" />
+    </record>
+
+
+</data>
+</odoo>
