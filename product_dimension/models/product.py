@@ -22,7 +22,7 @@ class ProductProduct(models.Model):
         self.volume = length_m * height_m * width_m
 
     def convert_to_meters(self, measure, dimensional_uom):
-        uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
+        uom_meters = self.env.ref('product.product_uom_meter')
         return dimensional_uom._compute_quantity(measure, uom_meters)
 
     @api.model
@@ -57,7 +57,7 @@ class ProductTemplate(models.Model):
         self.volume = length_m * height_m * width_m
 
     def convert_to_meters(self, measure, dimensional_uom):
-        uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
+        uom_meters = self.env.ref('product.product_uom_meter')
         return dimensional_uom._compute_quantity(measure, uom_meters)
 
     length = fields.Float(related='product_variant_ids.length')
