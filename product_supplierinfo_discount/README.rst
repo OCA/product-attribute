@@ -50,11 +50,9 @@ the desired discount for that quantity.
 When you make a purchase order for that supplier and that product, discount
 will be put automatically.
 
-Known issues / Roadmap
-======================
-
-* The discount is always applied, independently if you have based
-  your pricelist on other value than "Supplier Prices on the product form".
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/142/10.0
 
 Credits
 =======
