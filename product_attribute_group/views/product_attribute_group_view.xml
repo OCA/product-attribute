@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_attribute_group_view_tree" model="ir.ui.view">
+            <field name="name">product.attribute.group.tree</field>
+            <field name="model">product.attribute.group</field>
+            <field name="arch" type="xml">
+                <tree string="Variant Groups">
+                    <field name="name"/>
+                    <field name="attribute_id"/>
+                    <field name="attribute_value_ids" widget="many2many_tags"
+                           options="{'no_create': True}"
+                           context="{'default_attribute_id': attribute_id, 'show_attribute': False}" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_attribute_group_view_form" model="ir.ui.view">
+            <field name="name">product.attribute.group.form</field>
+            <field name="model">product.attribute.group</field>
+            <field name="arch" type="xml">
+                <form string="Variant Groups">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="attribute_id" />
+                        </group>
+                        <group>
+                            <button type="object" class="oe_stat_button" name="action_update_variants"
+                                    string="Update Variants" icon="fa-list"
+                                    confirm="Warning: This will delete and recreate existing variants for all products using this attribute group
+                                    and lead to the loss of their possible customizations." >
+                            </button>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="attribute_value_ids" domain="[('attribute_id', '=', attribute_id)]"
+                               options="{'no_create': True}"
+                               context="{'default_attribute_id': attribute_id, 'show_attribute': False}" />
+                        <field name="attribute_line_ids" invisible="1" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_attribute_group_action" model="ir.actions.act_window">
+            <field name="name">Attribute Groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.attribute.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="product_attribute_group_action"
+                  id="menu_product_attribute_group_action"
+                  parent="product.prod_config_main" sequence="11"/>
+    </data>
+</openerp>

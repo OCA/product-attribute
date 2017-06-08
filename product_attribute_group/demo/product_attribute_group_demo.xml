@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_attribute_value_1" model="product.attribute.value">
+            <field name="name">Orange</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_value_2" model="product.attribute.value">
+            <field name="name">Green</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_value_3" model="product.attribute.value">
+            <field name="name">Blue</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_value_4" model="product.attribute.value">
+            <field name="name">Yellow</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_value_5" model="product.attribute.value">
+            <field name="name">Indigo</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_value_6" model="product.attribute.value">
+            <field name="name">Red</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_value_7" model="product.attribute.value">
+            <field name="name">Violet</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_group_1" model="product.attribute.group">
+            <field name="name">Black and White</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+            <field name="attribute_value_ids" eval="[(6, 0, [ref('product.product_attribute_value_3'),ref('product.product_attribute_value_4')])]" />
+        </record>
+
+        <record id="product_attribute_group_2" model="product.attribute.group">
+            <field name="name">The Rainbow</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+            <field name="attribute_value_ids" eval="[(6, 0, [ref('product_attribute_value_1'),ref('product_attribute_value_2'),ref('product_attribute_value_3'),ref('product_attribute_value_4'),ref('product_attribute_value_5'),ref('product_attribute_value_6'),ref('product_attribute_value_7')])]" />
+        </record>
+
+        <record id="product_attribute_group_3" model="product.attribute.group">
+            <field name="name">Bright Colours</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+            <field name="attribute_value_ids" eval="[(6, 0, [ref('product_attribute_value_1'),ref('product_attribute_value_4'),ref('product_attribute_value_6')])]" />
+        </record>
+
+        <record id="product_attribute_group_4" model="product.attribute.group">
+            <field name="name">Just Black</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+            <field name="attribute_value_ids" eval="[(6, 0, [ref('product.product_attribute_value_3')])]" />
+        </record>
+
+        <record id="product_product_1" model="product.template" >
+            <field name="name">Widget 1</field>
+            <field name="default_code">WDG1</field>
+        </record>
+
+        <record id="product_product_2" model="product.template" >
+            <field name="name">Widget 2</field>
+            <field name="default_code">WDG2</field>
+        </record>
+
+        <record id="product_product_3" model="product.template" >
+            <field name="name">Widget 3</field>
+            <field name="default_code">WDG3</field>
+        </record>
+
+        <record id="product_product_4" model="product.template" >
+            <field name="name">Widget 4</field>
+            <field name="default_code">WDG4</field>
+        </record>
+
+
+    </data>
+</openerp>
