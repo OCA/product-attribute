@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="product.product_last_info_page">
+            <field name="name">product.form.view.inh.lastinfopage</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Last Price Info"/>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</openerp>
