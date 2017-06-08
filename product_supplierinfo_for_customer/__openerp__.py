@@ -28,6 +28,7 @@
     "depends": [
         "base",
         "product",
+        "sale",
     ],
     "data": [
         "views/product_view.xml",
