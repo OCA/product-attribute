@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 OCA - Odoo Community Association
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_attribute_group_form_view">
+        <field name="name">product.attribute.group.form (in product_attribute_group)</field>
+        <field name="model">product.attribute.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="update_products" string="Update Templates"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="attribute_id" widget="selection"/>
+                        <field name="value_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_attribute_group_search_view">
+        <field name="name">product.attribute.group.search (in product_attribute_group)</field>
+        <field name="model">product.attribute.group</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="attribute_id"/>
+                <field name="value_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_attribute_group_tree_view">
+        <field name="name">product.attribute.group.tree (in product_attribute_group)</field>
+        <field name="model">product.attribute.group</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="attribute_id" widget="selection"/>
+                <field name="value_ids" widget="many2many_tags"/>
+                <button name="button_copy" type="object" string="Duplicate" icon="fa-copy" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_attribute_group_act_window">
+        <field name="name">Product Attribute Groups</field>
+        <field name="res_model">product.attribute.group</field>
+        <field name="view_mode">tree, form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="product_attribute_group_menu">
+        <field name="name">Product Attribute Groups</field>
+        <field name="parent_id" ref="sale.prod_config_main"/>
+        <field name="action" ref="product_attribute_group_act_window"/>
+        <field name="sequence" eval="6"/>
+    </record>
+
+
+</odoo>

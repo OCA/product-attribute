@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="product_attribute_1" model="product.attribute">
+            <field name="name">Memory</field>
+        </record>
+
+        <record id="product_attribute_group_1" model="product.attribute.group">
+            <field name="name">Memory</field>
+            <field name="attribute_id" ref="product.product_attribute_1"/>
+            <field name="value_ids"
+                   eval="[(6,0,[ref('product.product_attribute_value_1'), ref('product.product_attribute_value_2')])]"/>
+        </record>
+
+        <record id="product_attribute_value_64gb" model="product.attribute.value">
+            <field name="name">64 GB</field>
+            <field name="attribute_id" ref="product.product_attribute_1"/>
+        </record>
+
+        <record id="product_attribute_value_128gb" model="product.attribute.value">
+            <field name="name">128 GB</field>
+            <field name="attribute_id" ref="product.product_attribute_1"/>
+        </record>
+
+        <record id="product_attribute_group_2" model="product.attribute.group">
+            <field name="name">Big Memory</field>
+            <field name="attribute_id" ref="product.product_attribute_1"/>
+            <field name="value_ids"
+                   eval="[(6,0,[ref('product_attribute_group.product_attribute_value_64gb'), ref('product_attribute_group.product_attribute_value_128gb')])]"/>
+        </record>
+
+        <record id="product_attribute_value_red" model="product.attribute.value">
+            <field name="name">Red</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+        </record>
+
+        <record id="product_attribute_group_3" model="product.attribute.group">
+            <field name="name">Colors</field>
+            <field name="attribute_id" ref="product.product_attribute_2"/>
+            <field name="value_ids"
+                   eval="[(6,0,[ref('product.product_attribute_value_3'), ref('product.product_attribute_value_4'), ref('product_attribute_group.product_attribute_value_red')])]"/>
+        </record>
+
+    </data>
+</odoo>

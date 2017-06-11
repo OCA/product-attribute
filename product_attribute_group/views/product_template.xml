@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 OCA - Odoo Community Association
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.only.form (in product_attribute_group)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='variants']//tree//field[@name='attribute_id']" position="after">
+                <field name="attr_group_ids" widget="many2many_tags" options="{'no_create_edit': True}"
+                       domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+            </xpath>
+            <xpath expr="//page[@name='variants']//tree//field[@name='value_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': ['!', ('attr_group_ids', '=', [])]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
