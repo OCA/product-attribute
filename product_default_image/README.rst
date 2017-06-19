@@ -81,6 +81,9 @@ All image defaults are also loaded when you create a new product.
 Known Issues / Roadmap
 ======================
 
+* Refactor res.company write method
+* Refactor product.template _change_template_image method
+
 Bug Tracker
 ===========
 
@@ -96,6 +99,7 @@ Images
 ------
 
 * Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+* Company Default Product Image: `Image <https://openclipart.org/detail/98491/open-box>`_.
 
 Contributors
 ------------

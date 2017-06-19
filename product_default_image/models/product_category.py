@@ -4,10 +4,14 @@
 
 from odoo import api, fields, models, tools
 
+from ..image_constants import TYPES
+
 
 class ProductCategory(models.Model):
 
-    _inherit = 'product.category'
+    _name = 'product.category'
+    _description = 'Product Category'
+    _inherit = ['abstract.product.image', 'product.category']
 
     image = fields.Binary(
         string='Image',
@@ -33,6 +37,7 @@ class ProductCategory(models.Model):
     )
 
     @api.model
+    @api.returns('self', lambda value: value.id)
     def create(self, vals):
         tools.image_resize_images(vals)
         return super(ProductCategory, self).create(vals)
@@ -43,35 +48,35 @@ class ProductCategory(models.Model):
         tools.image_resize_images(vals)
         target = self.env.user.company_id.product_image_target
 
-        if target not in ['category', 'global_category']:
+        if not self._target_match_any(target, (2, 3)):
             return super(ProductCategory, self).write(vals)
 
-        keys = ['image', 'image_medium', 'image_small']
-        imgs_present = [vals[key] for key in keys if key in vals]
+        changed_images = self._vals_get_images(vals)
 
-        if not imgs_present:
+        if not changed_images:
             return super(ProductCategory, self).write(vals)
 
         img_args = {
-            'from_types': ['default_category', 'no_image'],
-            'to_type': 'default_category',
-            'to_img_bg': imgs_present[0],
+            'from_types': [TYPES[1], TYPES[2]],
+            'to_type': TYPES[1],
+            'to_img_bg': changed_images[0],
             'add_domain': [('categ_id', 'in', self.ids)],
         }
 
-        if target == 'category' and not imgs_present[0]:
+        if self._target_match_any(target, 2) and not changed_images[0]:
             img_args.update({
-                'to_type': 'no_image',
+                'to_type': TYPES[2],
                 'to_img_bg': None,
             })
 
-        if target == 'global_category':
-            img_args['from_types'] += ['default_global']
-            if not imgs_present[0]:
+        if self._target_match_any(target, 3):
+            img_args['from_types'].append(TYPES[0])
+            if not changed_images[0]:
                 img_args.update({
-                    'to_type': 'default_global',
+                    'to_type': TYPES[0],
                     'to_img_bg': None,
                 })
 
-        self.env['product.template'].search_change_images(**img_args)
+        self.env['product.template'].\
+            _search_templates_change_images(**img_args)
         return super(ProductCategory, self).write(vals)

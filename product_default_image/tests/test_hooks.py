@@ -4,21 +4,23 @@
 
 from odoo.tests.common import TransactionCase
 
+from ..image_constants import TYPES
+
 
 class TestHooks(TransactionCase):
 
     def test_find_templates_with_imgs_custom(self):
-        """ Test tmpls with imgs set to custom img_type """
+        """ Test tmpls with imgs set to custom image_type """
         earphones = self.env.ref('product.product_product_7_product_template')
         self.assertEquals(
-            earphones.img_type,
-            'custom',
+            earphones.image_type,
+            TYPES[3],
         )
 
     def test_find_templates_with_imgs_no_image(self):
         """ Test tmpls without imgs left as no_image """
         computer = self.env.ref('product.consu_delivery_03_product_template')
         self.assertEquals(
-            computer.img_type,
-            'no_image',
+            computer.image_type,
+            TYPES[2],
         )

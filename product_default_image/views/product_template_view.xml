@@ -11,13 +11,15 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='list_price']" position="after">
                 <field name="auto_change_image"
-                       attrs="{'invisible': [('img_type', '=', 'custom')]}" />
-                <field name="img_type" />
+                       attrs="{'invisible': [('image_type', '=', 'custom')]}" />
             </xpath>
             <xpath expr="//header" position="inside">
+                <field name="image_type" invisible="1" />
+                <field name="product_image_target" invisible="1" />
                 <button string="Apply Default Image"
                         type="object"
-                        name="apply_default_image" />
+                        name="apply_default_image"
+                        attrs="{'invisible': [('product_image_target', '=', 'none')]}" />
             </xpath>
         </field>
     </record>

@@ -3,6 +3,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from .test_setup import TestSetup
+from ..image_constants import TYPES, TARGETS
 
 
 class TestProductCategory(TestSetup):
@@ -54,7 +55,7 @@ class TestProductCategory(TestSetup):
 
     def test_write_target_not_accepted(self):
         """ Test no change to tmpl image if target not categ """
-        self.company_1.product_image_target = 'none'
+        self.company_1.product_image_target = TARGETS[0]
         self.categ_1.write({
             'image': self.img_red,
         })
@@ -63,20 +64,10 @@ class TestProductCategory(TestSetup):
             'tmpl_1 img should be None',
         )
 
-    def test_write_no_img_in_vals(self):
-        """ Test tmpl not changed if img not in vals """
-        self.categ_1.write({
-            'name': 'Test',
-        })
-        self.assertFalse(
-            self.tmpl_1.image,
-            'tmpl_1 image should be None',
-        )
-
     def test_write_category_default_category(self):
         """ Test both test tmpl imgs changed """
-        self.company_1.product_image_target = 'category'
-        self.tmpl_1.img_type = 'default_category'
+        self.company_1.product_image_target = TARGETS[2]
+        self.tmpl_1.image_type = TYPES[1]
         self.categ_1.write({
             'image': self.img_red,
         })
@@ -91,7 +82,7 @@ class TestProductCategory(TestSetup):
 
     def test_write_global_category_global(self):
         """ Test both test tmpl imgs changed """
-        self.company_1.product_image_target = 'global_category'
+        self.company_1.product_image_target = TARGETS[3]
         self.assertEquals(
             self.tmpl_1.image,
             self.company_1.product_image,
@@ -109,7 +100,7 @@ class TestProductCategory(TestSetup):
     def test_write_no_image_category(self):
         """ Test tmpl img none if categ img deleted """
         self.categ_1.image = self.img_red
-        self.company_1.product_image_target = 'category'
+        self.company_1.product_image_target = TARGETS[2]
         self.assertTrue(
             self.tmpl_1.image,
         )
@@ -122,7 +113,7 @@ class TestProductCategory(TestSetup):
     def test_write_no_image_global_category(self):
         """ Test tmp img change to global img if categ img deleted """
         self.categ_1.image = self.img_red
-        self.company_1.product_image_target = 'global_category'
+        self.company_1.product_image_target = TARGETS[3]
         self.assertTrue(
             self.tmpl_1.image,
         )
@@ -131,4 +122,15 @@ class TestProductCategory(TestSetup):
             self.tmpl_1.image,
             self.company_1.product_image,
             'tmpl_1 img should be same as company_1 product image',
+        )
+
+    def test_write_no_imgs_present(self):
+        """ Test write is successful even if no imgs present """
+        self.company_1.product_image_target = TARGETS[2]
+        self.categ_1.write({
+            'name': 'Test',
+        })
+        self.assertEquals(
+            self.categ_1.name,
+            'Test',
         )

@@ -43,6 +43,7 @@ class TestSetup(TransactionCase):
         self.img_blue = self.create_test_image(color=(0, 0, 256))
 
         self.tmpl_mod = self.env['product.template']
+        self.abs_mod = self.env['abstract.product.image']
 
     def create_test_image(self, color):
         # color arg should be (r, g, b)

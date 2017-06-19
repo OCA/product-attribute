@@ -4,6 +4,8 @@
 
 from odoo import api, SUPERUSER_ID
 
+from .image_constants import TYPES
+
 
 def find_templates_with_imgs(cr, registry):
     with cr.savepoint():
@@ -12,5 +14,5 @@ def find_templates_with_imgs(cr, registry):
             ('image', '!=', False),
         ])
         tmpls.write({
-            'img_type': 'custom',
+            'image_type': TYPES[3],
         })

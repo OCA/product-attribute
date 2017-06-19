@@ -5,10 +5,14 @@
 from odoo import api, fields, models, tools
 from odoo.modules.module import get_module_resource
 
+from ..image_constants import TYPES
+
 
 class ResCompany(models.Model):
 
-    _inherit = 'res.company'
+    _name = 'res.company'
+    _description = 'ResCompany'
+    _inherit = ['res.company', 'abstract.product.image']
 
     product_image_target = fields.Selection(
         string='Default Product Image',
@@ -95,10 +99,10 @@ class ResCompany(models.Model):
                 )
 
         target_map = {
-            'none': 'no_image',
-            'category': 'default_category',
-            'global': 'default_global',
-            'global_category': 'default_category',
+            'none': TYPES[2],
+            'category': TYPES[1],
+            'global': TYPES[0],
+            'global_category': TYPES[1],
         }
 
         if target not in target_map:
@@ -106,7 +110,7 @@ class ResCompany(models.Model):
 
         img_args = {
             'from_types': [
-                'no_image', 'default_global', 'default_category'
+                TYPES[0], TYPES[1], TYPES[2]
             ],
             'to_type': target_map[target],
             'to_img_bg': None,
@@ -114,18 +118,19 @@ class ResCompany(models.Model):
             'add_domain': None,
         }
 
-        if 'product_image' in vals:
+        if 'product_image' in vals and \
+                not self._target_match_any(target, (0, 2)):
             img_args['to_img_bg'] = vals['product_image']
 
         tmpl_mod = self.env['product.template']
 
-        if target == 'global_category':
+        if self._target_match_any(target, (3)):
             img_args['add_domain'] = [('categ_id.image', '!=', False)]
-            tmpl_mod.search_change_images(**img_args)
+            tmpl_mod._search_templates_change_images(**img_args)
             img_args.update({
                 'add_domain': [('categ_id.image', '=', False)],
-                'to_type': 'default_global',
+                'to_type': TYPES[0],
             })
 
-        tmpl_mod.search_change_images(**img_args)
+        tmpl_mod._search_templates_change_images(**img_args)
         return super(ResCompany, self).write(vals)
