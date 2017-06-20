@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='variants']//field[@name='attribute_line_ids']" position="after">
+                <group>
+                    <field name="allowed_value_ids" invisible="1"/>
+                    <field name="variant_exclusion_ids" widget="one2many_list" context="{'show_attribute': False}">
+                        <tree string="Exclusions" editable="bottom">
+                            <field name="attribute_value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('id', 'in', parent.allowed_value_ids and parent.allowed_value_ids[0][2] or [])]"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
