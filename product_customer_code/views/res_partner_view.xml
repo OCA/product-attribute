@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_codes_view_partner_form" model="ir.ui.view">
+        <field name="name">product.customer.code.partner.form.view.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Product Codes" name="product_codes">
+                    <field name="product_code_ids" nolabel="1">
+                        <tree string="Product Customer Code" editable="bottom">
+                            <field name="product_id"/>
+                            <field name="product_code"/>
+                        </tree>
+                        <form string="Product Customer Code">
+                            <group>
+                                <field name="product_id"/>
+                                <field name="product_code"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

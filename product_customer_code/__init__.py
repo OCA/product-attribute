@@ -1,2 +1,2 @@
-import product_customer_code
-import product
+# -*- encoding: utf-8 -*-
+from . import models
