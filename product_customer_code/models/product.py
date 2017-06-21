@@ -39,7 +39,7 @@ class ProductProduct(models.Model):
                     else product.code
                 )
                 if product_code:
-                    name = '[{}] - {}'.format(product_code, name)
+                    name = u'[{}] - {}'.format(product_code, name)
                 new_res.append((product.id, name))
             return new_res
         return super(ProductProduct, self).name_get()
