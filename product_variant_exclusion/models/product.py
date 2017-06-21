@@ -11,7 +11,7 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     variant_exclusion_ids = fields.One2many(
-        'product.variant.exclusion', 'product_tmpl_id', 'Variants exlcusion'
+        'product.variant.exclusion', 'product_tmpl_id', 'Variants exclusion'
     )
 
     allowed_value_ids = fields.Many2many('product.attribute.value',
@@ -61,8 +61,8 @@ class ProductAttributeLine(models.Model):
                     if set(attr_values) <= set(
                             exclusion.attribute_value_ids.ids):
                         raise UserError(_(
-                            'You cannot leave only one value on a line '
-                            'if this value is part of an exclusion'))
+                            'You cannot leave only one attribute value on a '
+                            'line if this value is part of an exclusion'))
         return super(ProductAttributeLine, self).write(vals)
 
     @api.multi
@@ -72,8 +72,9 @@ class ProductAttributeLine(models.Model):
                 if val_id in line.product_tmpl_id.variant_exclusion_ids.mapped(
                         'attribute_value_ids').ids:
                     raise UserError(_(
-                        'You cannot delete an attribute line, when '
+                        'You cannot delete an attribute line when '
                         'one of its values is part of an exclusion'))
+        return super(ProductAttributeLine, self).unlink()
 
 
 class ProductVariantExclusion(models.Model):
@@ -94,11 +95,11 @@ class ProductVariantExclusion(models.Model):
             ('product_tmpl_id', '=', vals.get('product_tmpl_id')),
             ('value_ids', 'in', value_ids)])
         for line in template_lines:
-            if len(line.value_ids) <= 1 and set(line.value_ids.ids) <= set(
+            if len(line.value_ids) <= 1 or set(line.value_ids.ids) <= set(
                     value_ids):
                 raise UserError(_(
-                    'You cannot create an exclusion for '
-                    'a unique attribute line value !'))
+                    'You cannot create an exclusion for an attribute value '
+                    'which is unique in its attribute line !'))
         return super(ProductVariantExclusion, self).create(vals)
 
     @api.multi
@@ -118,11 +119,8 @@ class ProductProduct(models.Model):
     def write(self, vals):
         if self._context.get('create_product_variant'):
             products_to_write = self.env['product.product']
-            # Case 1: Adding new attribute value
-            if vals.get('attribute_value_ids'):
-                return super(ProductProduct, self).write(vals)
             # Case 2: Setting active to True
-            if vals.get('active'):
+            if vals.get('active', False):
                 for product in self:
                     product_value_ids = product.attribute_value_ids.ids
                     if product.product_tmpl_id.variant_exclusion_ids:
@@ -134,13 +132,10 @@ class ProductProduct(models.Model):
                     else:
                         products_to_write += product
                 return super(ProductProduct, products_to_write).write(vals)
-            # Case 3: Setting active to False
-            elif not vals.get('active', True):
-                return super(ProductProduct, self).write(vals)
-            else:
-                raise UserError(_('Something went wrong'))
-        else:
-            return super(ProductProduct, self).write(vals)
+        # Case 1: Adding new attribute value
+        # Case 3: Setting active to False
+        # Any other case
+        return super(ProductProduct, self).write(vals)
 
     @api.model
     def create(self, vals):

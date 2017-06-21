@@ -2,7 +2,6 @@
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {'name': 'Product Variant Exclusion',
- 'description': "Allows to exclude Product variants based on attribute value",
  'version': '9.0.1.0.0',
  'author': 'Camptocamp SA, Odoo Community Association (OCA)',
  'license': 'AGPL-3',

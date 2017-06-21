@@ -28,7 +28,6 @@ class TestProductVariantExclusion(TransactionCase):
             'value_ids': [(0, False, {'name': g}) for g in genders],
         })
 
-
     def test_create_product_template(self):
 
         ProductTemplate = self.env['product.template']
