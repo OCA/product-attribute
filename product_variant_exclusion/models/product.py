@@ -64,6 +64,16 @@ class ProductAttributeLine(models.Model):
                         raise UserError(_(
                             'You cannot leave only one attribute value on a '
                             'line if this value is part of an exclusion'))
+        if self.value_ids.ids != attr_values:
+            new_values = self.env[
+                'product.attribute.value'].browse(attr_values)
+            exclusion_values = self.product_tmpl_id.variant_exclusion_ids\
+                .mapped('attribute_value_ids')
+            for new_val in new_values:
+                if new_val in exclusion_values:
+                    raise UserError(_('You cannot remove an attribute value '
+                                      'from an attribute line, if this value '
+                                      'is part of an exclusion.'))
         return super(ProductAttributeLine, self).write(vals)
 
     @api.multi
@@ -86,6 +96,13 @@ class ProductVariantExclusion(models.Model):
     attribute_value_ids = fields.Many2many('product.attribute.value',
                                            required=True)
 
+    def _check_values_attributes_uniqueness(self, value_ids):
+        values = self.env['product.attribute.value'].browse(value_ids)
+        attributes = values.mapped('attribute_id')
+        if len(values) != len(attributes):
+            raise UserError(_('You cannot have multiple values from the '
+                              'same attribute in an exclusion.'))
+
     @api.model
     def create(self, vals):
         value_ids = vals.get('attribute_value_ids')[0][2]
@@ -101,6 +118,7 @@ class ProductVariantExclusion(models.Model):
                 raise UserError(_(
                     'You cannot create an exclusion for an attribute value '
                     'which is unique in its attribute line !'))
+        self._check_values_attributes_uniqueness(value_ids)
         return super(ProductVariantExclusion, self).create(vals)
 
     @api.multi
@@ -109,6 +127,7 @@ class ProductVariantExclusion(models.Model):
         if len(value_ids) <= 1:
             raise UserError(_(
                 'You cannot modify an exclusion to have only one value !'))
+        self._check_values_attributes_uniqueness(value_ids)
         return super(ProductVariantExclusion, self).write(vals)
 
 
