@@ -54,8 +54,9 @@ class ProductAttributeLine(models.Model):
 
     @api.multi
     def write(self, vals):
-        attr_values = vals.get('value_ids')[0][2]
-        if len(attr_values) <= 1:
+        attr_values = vals.get('value_ids', False) and vals.get(
+            'value_ids')[0][2]
+        if attr_values and len(attr_values) <= 1:
             for line in self:
                 for exclusion in line.product_tmpl_id.variant_exclusion_ids:
                     if set(attr_values) <= set(

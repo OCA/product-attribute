@@ -8,9 +8,9 @@
             <xpath expr="//page[@name='variants']//field[@name='attribute_line_ids']" position="after">
                 <group>
                     <field name="allowed_value_ids" invisible="1"/>
-                    <field name="variant_exclusion_ids" widget="one2many_list" context="{'show_attribute': False}">
+                    <field name="variant_exclusion_ids" widget="one2many_list" context="{'show_attribute': True}" nolabel="1">
                         <tree string="Exclusions" editable="bottom">
-                            <field name="attribute_value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('id', 'in', parent.allowed_value_ids and parent.allowed_value_ids[0][2] or [])]"/>
+                            <field name="attribute_value_ids" string="Variants exclusions" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('id', 'in', parent.allowed_value_ids and parent.allowed_value_ids[0][2] or [])]"/>
                         </tree>
                     </field>
                 </group>
