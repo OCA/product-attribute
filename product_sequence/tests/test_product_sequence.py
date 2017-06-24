@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.tests.common import TransactionCase
+from openerp.tools.misc import mute_logger
 from psycopg2 import IntegrityError
 
 
@@ -28,27 +29,28 @@ class ProductSequenceCase(TransactionCase):
 
     def setUp(self):
         super(ProductSequenceCase, self).setUp()
+        self.product_obj = self.env['product.product'].with_context(
+            recompute=False)
+        self.product = self.env.ref('product.product_product_1').with_context(
+            recompute=False)
 
     def test_copy(self):
-        original = self.env.ref('product.product_product_1')
-        new = original.copy()
-        self.assertFalse(original.default_code == new.default_code)
+        new = self.product.copy()
+        self.assertFalse(self.product.default_code == new.default_code)
 
     def test_create(self):
-        product_obj = self.env['product.product']
-        new = product_obj.create({'name': 'Test'})
+        new = self.product_obj.create({'name': 'Test'})
         self.assertTrue(new.default_code)
 
     def test_write_slash(self):
-        product = self.env.ref('product.product_product_1')
         self.cr.execute("""
             UPDATE product_product
               SET default_code = '/'
-              WHERE id=%s""", (product.id,))
-        product.write({'name': 'Test'})
-        self.assertFalse(product.default_code == '/')
+              WHERE id=%s""", (self.product.id,))
+        self.product.write({'name': 'Test'})
+        self.assertFalse(self.product.default_code == '/')
 
+    @mute_logger('openerp.sql_db')
     def test_write_false(self):
-        product = self.env.ref('product.product_product_1')
         with self.assertRaises(IntegrityError):
-            product.default_code = False
+            self.product.default_code = False
