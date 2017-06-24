@@ -74,7 +74,7 @@ class ProductProduct(models.Model):
             super(ProductProduct, product).write(vals)
         return True
 
-    @api.one
+    @api.multi
     def copy(self, default=None):
         if default is None:
             default = {}
