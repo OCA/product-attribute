@@ -17,20 +17,24 @@
 ##############################################################################
 {
     "name": "Use product supplier info for customers too",
-    "version": "8.0.1.0.0",
-    "author": "OdooMRP team,"
-              "AvanzOSC,"
-              "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
+    "version": "8.0.2.0.0",
+    "author": "OdooMRP team, "
+              "AvanzOSC, "
+              "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
+              "Vauxoo, "
               "Odoo Community Association (OCA)",
     "website": "http://www.odoomrp.com",
     "category": "Sales Management",
     "license": 'AGPL-3',
     "depends": [
-        "base",
+        "sale",
+        "purchase",
         "product",
     ],
     "data": [
         "views/product_view.xml",
+        "views/sale_view.xml",
+        "views/purchase_view.xml",
     ],
     "demo": [
         "demo/product_demo.xml",
