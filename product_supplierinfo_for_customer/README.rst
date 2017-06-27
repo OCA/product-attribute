@@ -33,11 +33,9 @@ Known issues / Roadmap
 
 * Product prices through this method are only guaranteed on the standard sale
   order workflow. Other custom flows maybe don't reflect the price.
-* The product code / product name specified for the customer will not be
-  reflected on the sale orders.
 * The minimum quantity will not also be applied on sale orders.
 * Computed fields in product.supplierinfo object won't properly work for
-  customer type
+  customer type.
 
 Credits
 =======
@@ -46,3 +44,21 @@ Contributors
 ------------
 * Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Julio Serna Hernández <julio@vauxoo.com>
+* Yennifer Santiago <yennifer@vauxoo.com>
+* Moisés López <moylop260@vauxoo.com>
+
+Maintainer
+----------
+
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+      :target: https://odoo-community.org
+
+This module is maintained by the OCA.
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+To contribute to this module, please visit https://odoo-community.org.
