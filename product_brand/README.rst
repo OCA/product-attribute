@@ -68,6 +68,7 @@ Contributors
 * Leonardo Donelli <donelli@webmonks.it>
 * Serpent Consulting Services Pvt. Ltd. <jay.vora@serpentcs.com>
 * Marcelo Pickler <loxamir@gmail.com>
+* Andrius Laukavičius <ala@boolit.eu> (Boolit)
 
 Maintainer
 ----------
