@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="sale_order_form_context_supplierinfo" model="ir.ui.view">
+        <field name="name">sale.order.form.context.supplierinfo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/form//field[@name='product_id']" position="attributes">
+                <attribute name="context">{'partner_id': parent.partner_id, 'quantity': product_uos_qty,
+                'pricelist': parent.pricelist_id, 'uom':product_uom, 'company_id': parent.company_id,
+                'supplierinfo_type': 'customer'}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="attributes">
+                <attribute name="context">{'partner_id': parent.partner_id, 'quantity': product_uos_qty,
+                'pricelist': parent.pricelist_id, 'uom':product_uom, 'company_id': parent.company_id,
+                'supplierinfo_type': 'customer'}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
