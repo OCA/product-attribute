@@ -49,6 +49,8 @@ class ProductProduct(models.Model):
         """
         Shows products with matching customer code
         """
+        print(self._context)
+        print(self.env.context)
         no_customer_code = self.with_context(show_customer_code=False)
         res = super(ProductProduct, no_customer_code).name_search(
             name=name, args=args, operator=operator, limit=limit)
@@ -65,3 +67,21 @@ class ProductProduct(models.Model):
                 res.extend(
                     product_codes.mapped('product_id').name_get())
         return res
+
+
+class AccountInvoice(models.Model):
+    _inherit = "account.invoice.line"
+
+#     @api.onchange('product_id')
+#     def _onchange_product_id(self):
+#         context = self.env.context.copy()
+#         context['partner_id'] = self.invoice_id.partner_id.id
+#         self.env.context = context
+#         # self = self.with_context(partner_id=self.partner_id)
+#         return super(AccountInvoice, self)._onchange_product_id()
+
+# 
+#     @api.onchange('partner_id', 'company_id')
+#     def _onchange_partner_id(self):
+#         self = self.with_context(partner_id=self.partner_id)
+#         return super(AccountInvoice, self)._onchange_partner_id()

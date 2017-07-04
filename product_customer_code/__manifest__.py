@@ -10,6 +10,7 @@
     "category": "Generic Modules/Product",
     "summary": "Add many Customers' Codes in product",
     "depends": [
+        "account",
         "product",
     ],
     "data": [
