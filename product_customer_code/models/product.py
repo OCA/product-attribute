@@ -15,12 +15,36 @@ class ProductProduct(models.Model):
         copy=False
     )
 
-    @api.multi
-    def name_get(self):
+    def _get_customer_code(self):
+        print('get customer code')
+        print(self._context)
         product_customer_code_obj = self.env['product.customer.code']
         partner_id = self._context.get('partner_id')
-        display_default_code = self._context.get('display_default_code', True)
+        product_code = product_customer_code_obj.search([
+            ('product_id', '=', self.id),
+            ('partner_id', '=', partner_id)
+        ], limit=1)
+        return (
+            product_code.product_code if product_code
+            else None
+        )
+
+    @api.one
+    def _compute_product_code(self):
+        code = self._get_customer_code()
+        if not code:
+            return super(ProductProduct, self)._compute_product_code()
+        self.code = code
+
+    @api.multi
+    def name_get(self):
+        print('name_get')
+        print(self._context)
+        partner_id = self._context.get('partner_id')
+        product_customer_code_obj = self.env['product.customer.code']
         show_customer_code = self._context.get('show_customer_code', True)
+        display_default_code = self._context.get('display_default_code', True)
+        # replace 'default code' by customer code
         if show_customer_code and display_default_code and partner_id:
             no_default_code = self.with_context(display_default_code=False)
             # get product names without codes
@@ -30,16 +54,8 @@ class ProductProduct(models.Model):
             new_res = []
             for product in self:
                 name = dict_res[product.id]
-                product_code = product_customer_code_obj.search([
-                    ('product_id', '=', product.id),
-                    ('partner_id', '=', partner_id)
-                ], limit=1)
-                product_code = (
-                    product_code.product_code if product_code
-                    else product.code
-                )
-                if product_code:
-                    name = u'[{}] - {}'.format(product_code, name)
+                if product.code:
+                    name = u'[{}] - {}'.format(product.code, name)
                 new_res.append((product.id, name))
             return new_res
         return super(ProductProduct, self).name_get()
@@ -49,11 +65,11 @@ class ProductProduct(models.Model):
         """
         Shows products with matching customer code
         """
-        print(self._context)
-        print(self.env.context)
         no_customer_code = self.with_context(show_customer_code=False)
         res = super(ProductProduct, no_customer_code).name_search(
             name=name, args=args, operator=operator, limit=limit)
+        # import ipdb
+        # ipdb.set_trace()
         if (len(res) < limit):
             partner_id = self._context.get('partner_id')
             if partner_id:
@@ -65,23 +81,5 @@ class ProductProduct(models.Model):
                 # get product names for all product customer code
                 # matching the query
                 res.extend(
-                    product_codes.mapped('product_id').name_get())
+                    product_codes.with_context(partner_id=partner_id).mapped('product_id').name_get())
         return res
-
-
-class AccountInvoice(models.Model):
-    _inherit = "account.invoice.line"
-
-#     @api.onchange('product_id')
-#     def _onchange_product_id(self):
-#         context = self.env.context.copy()
-#         context['partner_id'] = self.invoice_id.partner_id.id
-#         self.env.context = context
-#         # self = self.with_context(partner_id=self.partner_id)
-#         return super(AccountInvoice, self)._onchange_product_id()
-
-# 
-#     @api.onchange('partner_id', 'company_id')
-#     def _onchange_partner_id(self):
-#         self = self.with_context(partner_id=self.partner_id)
-#         return super(AccountInvoice, self)._onchange_partner_id()
