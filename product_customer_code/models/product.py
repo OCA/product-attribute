@@ -16,8 +16,9 @@ class ProductProduct(models.Model):
     )
 
     def _get_customer_code(self):
-        print('get customer code')
-        print(self._context)
+        """
+        Search customer's product code
+        """
         product_customer_code_obj = self.env['product.customer.code']
         partner_id = self._context.get('partner_id')
         product_code = product_customer_code_obj.search([
@@ -31,6 +32,9 @@ class ProductProduct(models.Model):
 
     @api.one
     def _compute_product_code(self):
+        """
+        Override so partner_ref gets the customer code if available
+        """
         code = self._get_customer_code()
         if not code:
             return super(ProductProduct, self)._compute_product_code()
@@ -38,8 +42,10 @@ class ProductProduct(models.Model):
 
     @api.multi
     def name_get(self):
-        print('name_get')
-        print(self._context)
+        """
+        Core's name_get uses `default_code` if partner is not a seller.
+        Override so customer's code is used if partner is a customer
+        """
         partner_id = self._context.get('partner_id')
         product_customer_code_obj = self.env['product.customer.code']
         show_customer_code = self._context.get('show_customer_code', True)
@@ -63,13 +69,11 @@ class ProductProduct(models.Model):
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         """
-        Shows products with matching customer code
+        Search products by name and by code, also matching customer's code
         """
         no_customer_code = self.with_context(show_customer_code=False)
         res = super(ProductProduct, no_customer_code).name_search(
             name=name, args=args, operator=operator, limit=limit)
-        # import ipdb
-        # ipdb.set_trace()
         if (len(res) < limit):
             partner_id = self._context.get('partner_id')
             if partner_id:
