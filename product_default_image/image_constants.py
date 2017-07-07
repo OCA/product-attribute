@@ -2,19 +2,14 @@
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-# From product.template
-# image_type field
-TYPES = {
-    0: 'default_global',
-    1: 'default_category',
-    2: 'no_image',
-    3: 'custom',
-}
-# From res.company
-# product_image_target field
-TARGETS = {
-    0: 'none',
-    1: 'global',
-    2: 'category',
-    3: 'global_category',
-}
+IMAGE_BG = 'image'
+IMAGE_MD = 'image_medium'
+IMAGE_SM = 'image_small'
+
+IMAGE_FIELDS = (IMAGE_BG, IMAGE_MD, IMAGE_SM)
+
+NONE = 'none'
+GLOBAL = 'global'
+CATEGORY = 'category'
+GLOBAL_CATEGORY = 'global_category'
+CUSTOM = 'custom'

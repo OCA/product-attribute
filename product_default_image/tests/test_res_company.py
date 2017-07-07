@@ -3,7 +3,13 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from .test_setup import TestSetup
-from ..image_constants import TYPES, TARGETS
+
+from ..image_constants import (
+    NONE,
+    GLOBAL,
+    CATEGORY,
+    GLOBAL_CATEGORY,
+)
 
 
 class TestResCompany(TestSetup):
@@ -23,7 +29,7 @@ class TestResCompany(TestSetup):
 
     def test_write_target_global(self):
         """ Test imgs changed when product img target global """
-        self.company_1.product_image_target = TARGETS[1]
+        self.company_1.product_image_target = GLOBAL
         self.assertEquals(
             self.tmpl_1.image,
             self.company_1.product_image,
@@ -32,7 +38,7 @@ class TestResCompany(TestSetup):
 
     def test_write_target_global_not_change_image(self):
         """ Test tmpl img not changed when changing company product img """
-        self.company_1.product_image_target = TARGETS[1]
+        self.company_1.product_image_target = GLOBAL
         self.company_1.product_image = self.img_red
         self.assertNotEqual(
             self.tmpl_1.image,
@@ -43,7 +49,7 @@ class TestResCompany(TestSetup):
     def test_write_target_global_change_image(self):
         """ Test tmpl img not changed when changing company product img """
         self.company_1.product_image = self.img_red
-        self.company_1.product_image_target = TARGETS[1]
+        self.company_1.product_image_target = GLOBAL
         self.assertEquals(
             self.tmpl_1.image,
             self.img_red,
@@ -62,12 +68,12 @@ class TestResCompany(TestSetup):
     def test_write_target_global_change_both(self):
         """ Test tmpl has correct img after writing both vals to company """
         self.company_1.write({
-            'product_image_target': TARGETS[1],
+            'product_image_target': GLOBAL,
             'product_image': self.img_green,
         })
         self.assertEquals(
             self.tmpl_1.image_type,
-            TYPES[0],
+            GLOBAL,
         )
         self.assertEquals(
             self.tmpl_1.image,
@@ -77,14 +83,14 @@ class TestResCompany(TestSetup):
 
     def test_write_target_none(self):
         """ Test tmpl has no image when changing target to none """
-        self.company_1.product_image_target = TARGETS[1]
+        self.company_1.product_image_target = GLOBAL
         self.assertTrue(
             self.tmpl_1.image,
         )
-        self.company_1.product_image_target = TARGETS[0]
+        self.company_1.product_image_target = NONE
         self.assertEquals(
             self.tmpl_1.image_type,
-            TYPES[2],
+            NONE,
         )
         self.assertFalse(
             self.tmpl_1.image,
@@ -102,13 +108,13 @@ class TestResCompany(TestSetup):
         )
         self.assertEquals(
             self.tmpl_1.image_type,
-            TYPES[1],
+            CATEGORY,
         )
 
     def test_target_global_category(self):
         """ Test tmpls correct images if target global_category """
         self.categ_1.image = self.img_red
-        self.company_1.product_image_target = TARGETS[3]
+        self.company_1.product_image_target = GLOBAL_CATEGORY
         self.assertEquals(
             self.tmpl_1.image,
             self.img_red,
@@ -116,7 +122,7 @@ class TestResCompany(TestSetup):
         )
         self.assertEquals(
             self.tmpl_1.image_type,
-            TYPES[1],
+            CATEGORY,
         )
         self.assertEquals(
             self.tmpl_2.image,
@@ -125,5 +131,5 @@ class TestResCompany(TestSetup):
         )
         self.assertEquals(
             self.tmpl_2.image_type,
-            TYPES[0],
+            GLOBAL,
         )

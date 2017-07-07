@@ -5,7 +5,12 @@
 from odoo import api, fields, models, tools
 from odoo.modules.module import get_module_resource
 
-from ..image_constants import TYPES
+from ..image_constants import (
+    NONE,
+    GLOBAL,
+    CATEGORY,
+    GLOBAL_CATEGORY,
+)
 
 
 class ResCompany(models.Model):
@@ -17,10 +22,10 @@ class ResCompany(models.Model):
     product_image_target = fields.Selection(
         string='Default Product Image',
         selection=[
-            ('none', 'No Default Image'),
-            ('global', 'Global Product Image'),
-            ('category', "Category's Image"),
-            ('global_category', 'Global and Category'),
+            (NONE, 'No Default Image'),
+            (GLOBAL, 'Global Product Image'),
+            (CATEGORY, "Category's Image"),
+            (GLOBAL_CATEGORY, 'Global and Category'),
         ],
         required=True,
         default='none',
@@ -48,8 +53,10 @@ class ResCompany(models.Model):
         image_path = get_module_resource(
             'product_default_image', 'static/src/img', 'glob_prod_img.png'
         )
+        with open(image_path, 'rb') as handler:
+            image_data = handler.read()
         return tools.image_resize_image_big(
-            open(image_path, 'rb').read().encode('base64')
+            image_data.encode('base64')
         )
 
     @api.multi
@@ -98,38 +105,30 @@ class ResCompany(models.Model):
                     base64_source=vals['product_image'],
                 )
 
-        target_map = {
-            'none': TYPES[2],
-            'category': TYPES[1],
-            'global': TYPES[0],
-            'global_category': TYPES[1],
-        }
-
-        if target not in target_map:
-            return super(ResCompany, self).write(vals)
-
         img_args = {
             'from_types': [
-                TYPES[0], TYPES[1], TYPES[2]
+                NONE, GLOBAL, CATEGORY,
             ],
-            'to_type': target_map[target],
+            'to_type': target,
             'to_img_bg': None,
             'in_cache': False,
             'add_domain': None,
         }
 
-        if 'product_image' in vals and \
-                not self._target_match_any(target, (0, 2)):
+        if target == GLOBAL_CATEGORY:
+            img_args['to_type'] = CATEGORY
+
+        if 'product_image' in vals and target not in (NONE, CATEGORY):
             img_args['to_img_bg'] = vals['product_image']
 
         tmpl_mod = self.env['product.template']
 
-        if self._target_match_any(target, (3)):
+        if target == GLOBAL_CATEGORY:
             img_args['add_domain'] = [('categ_id.image', '!=', False)]
             tmpl_mod._search_templates_change_images(**img_args)
             img_args.update({
                 'add_domain': [('categ_id.image', '=', False)],
-                'to_type': TYPES[0],
+                'to_type': GLOBAL,
             })
 
         tmpl_mod._search_templates_change_images(**img_args)

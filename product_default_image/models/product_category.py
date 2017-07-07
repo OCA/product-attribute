@@ -4,7 +4,12 @@
 
 from odoo import api, fields, models, tools
 
-from ..image_constants import TYPES
+from ..image_constants import (
+    NONE,
+    GLOBAL,
+    CATEGORY,
+    GLOBAL_CATEGORY,
+)
 
 
 class ProductCategory(models.Model):
@@ -37,7 +42,6 @@ class ProductCategory(models.Model):
     )
 
     @api.model
-    @api.returns('self', lambda value: value.id)
     def create(self, vals):
         tools.image_resize_images(vals)
         return super(ProductCategory, self).create(vals)
@@ -48,7 +52,7 @@ class ProductCategory(models.Model):
         tools.image_resize_images(vals)
         target = self.env.user.company_id.product_image_target
 
-        if not self._target_match_any(target, (2, 3)):
+        if target not in (CATEGORY, GLOBAL_CATEGORY):
             return super(ProductCategory, self).write(vals)
 
         changed_images = self._vals_get_images(vals)
@@ -57,23 +61,23 @@ class ProductCategory(models.Model):
             return super(ProductCategory, self).write(vals)
 
         img_args = {
-            'from_types': [TYPES[1], TYPES[2]],
-            'to_type': TYPES[1],
+            'from_types': [CATEGORY, NONE],
+            'to_type': CATEGORY,
             'to_img_bg': changed_images[0],
             'add_domain': [('categ_id', 'in', self.ids)],
         }
 
-        if self._target_match_any(target, 2) and not changed_images[0]:
+        if target == CATEGORY and not changed_images[0]:
             img_args.update({
-                'to_type': TYPES[2],
+                'to_type': NONE,
                 'to_img_bg': None,
             })
 
-        if self._target_match_any(target, 3):
-            img_args['from_types'].append(TYPES[0])
+        if target == GLOBAL_CATEGORY:
+            img_args['from_types'].append(GLOBAL)
             if not changed_images[0]:
                 img_args.update({
-                    'to_type': TYPES[0],
+                    'to_type': GLOBAL,
                     'to_img_bg': None,
                 })
 

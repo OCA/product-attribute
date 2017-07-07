@@ -4,7 +4,7 @@
 
 from odoo import api, models
 
-from ..image_constants import TYPES, TARGETS
+from ..image_constants import IMAGE_FIELDS
 
 
 class AbstractProductImage(models.AbstractModel):
@@ -14,42 +14,36 @@ class AbstractProductImage(models.AbstractModel):
 
     @api.model
     def _vals_get_images(self, vals,
-                         img_keys=('image', 'image_medium', 'image_small')):
+                         false_filter=False, img_keys=IMAGE_FIELDS):
+        """ Returns images from given vals argument.
 
-        img_keys = self._ensure_iterable_arg(img_keys)
-        return [vals[key] for key in img_keys if key in vals]
+        Args:
+            vals (dict): Dictionary containing the image fields.
+
+            false_filter (bool): Set True if wanting to filter out
+                any False image values.
+
+            img_keys (list, tuple, str): Contains string values of image
+                fields. If specifying multiple, use a list or tuple.
+
+        Returns:
+            list: Returns image values of the img_keys in the vals arg
+                if the keys are in the vals dict.
+
+        """
+        if not isinstance(img_keys, (list, tuple)):
+            img_keys = [img_keys]
+
+        img_vals = [
+            vals[key] for key in img_keys if key in vals
+        ]
+
+        if false_filter:
+            img_vals = filter(None, img_vals)
+
+        return img_vals
 
     @api.multi
-    def _get_images(self,
-                    img_keys=('image', 'image_medium', 'image_small')):
-
+    def _get_images(self, false_filter=False, img_keys=IMAGE_FIELDS):
         self.ensure_one()
-        img_keys = self._ensure_iterable_arg(img_keys)
-        return [getattr(self, key) for key in img_keys]
-
-    @api.model
-    def _target_match_any(self, target_val, targets_keys):
-        return self._val_match_any(
-            target_val, TARGETS, targets_keys
-        )
-
-    @api.model
-    def _type_match_any(self, type_val, types_keys):
-        return self._val_match_any(
-            type_val, TYPES, types_keys
-        )
-
-    @api.model
-    def _val_match_any(self, val, source_dict, source_dict_keys):
-        source_dict_keys = self._ensure_iterable_arg(
-            source_dict_keys
-        )
-        for key in source_dict_keys:
-            if val == source_dict.get(key, False):
-                return True
-
-    @api.model
-    def _ensure_iterable_arg(self, arg):
-        if not isinstance(arg, (list, tuple)):
-            arg = [arg]
-        return arg
+        return self._vals_get_images(self.read()[0], false_filter, img_keys)

@@ -6,7 +6,13 @@ from collections import defaultdict
 
 from odoo import api, fields, models, tools
 
-from ..image_constants import TYPES, TARGETS
+from ..image_constants import (
+    NONE,
+    GLOBAL,
+    CATEGORY,
+    GLOBAL_CATEGORY,
+    CUSTOM,
+)
 
 
 class ProductTemplate(models.Model):
@@ -24,14 +30,14 @@ class ProductTemplate(models.Model):
     image_type = fields.Selection(
         string='Image Type',
         selection=[
-            ('default_global', 'Global'),
-            ('default_category', 'Category'),
-            ('no_image', 'No Image'),
-            ('custom', 'Custom'),
+            (NONE, 'No Image'),
+            (GLOBAL, 'Global'),
+            (CATEGORY, 'Category'),
+            (CUSTOM, 'Custom'),
         ],
         required=True,
         readonly=True,
-        default='no_image',
+        default=NONE,
     )
     product_image_target = fields.Selection(
         string='Default Product Image',
@@ -47,21 +53,19 @@ class ProductTemplate(models.Model):
         company = self.env.user.company_id
         target = company.product_image_target
 
-        if self._target_match_any(target, (2, 3)) \
-                and vals.get('categ_id'):
-
+        if target in (CATEGORY, GLOBAL_CATEGORY) and vals.get('categ_id'):
             categ = self.env['product.category'].browse(vals['categ_id'])
             vals.update({
                 'image': categ.image,
-                'image_type': TYPES[1],
+                'image_type': CATEGORY,
             })
 
-        if self._target_match_any(target, (1, 3)) \
-                and not any(self._vals_get_images(vals)):
+        if target in (GLOBAL, GLOBAL_CATEGORY) \
+                and not self._vals_get_images(vals, false_filter=True):
 
             vals.update({
                 'image': company.product_image,
-                'image_type': TYPES[0],
+                'image_type': GLOBAL,
             })
 
         tools.image_resize_images(vals)
@@ -109,7 +113,7 @@ class ProductTemplate(models.Model):
 
                 Product = self.env['product.template']
                 templates = Product._search_by_image_types(
-                    from_types=[TYPES[1], TYPES[2]],
+                    from_types=[CATEGORY, NONE],
                     add_domain=[('categ_id', '=', record.id)],
                 )
 
@@ -120,7 +124,7 @@ class ProductTemplate(models.Model):
                     [
                         ('company_id', '=', some_id_int),
                         ('auto_change_image', '=', True),
-                        ('image_type', 'in', [TYPES[1], TYPES[2]]),
+                        ('image_type', 'in', [CATEGORY, NONE]),
                         ('categ_id', '=', some_id_int),
                     ]
 
@@ -140,9 +144,6 @@ class ProductTemplate(models.Model):
                     domain.
 
         """
-        if not add_domain:
-            add_domain = []
-
         if not isinstance(from_types, list):
             raise TypeError('from_types argument must be a list')
 
@@ -154,7 +155,10 @@ class ProductTemplate(models.Model):
             ('auto_change_image', '=', True),
             ('image_type', 'in', from_types),
         ]
-        domain += add_domain
+
+        if add_domain:
+            domain += add_domain
+
         return self.search(domain)
 
     @api.multi
@@ -164,7 +168,7 @@ class ProductTemplate(models.Model):
         company = self.env.user.company_id
         target = company.product_image_target
 
-        if self._target_match_any(target, (0, 1)):
+        if target in (NONE, GLOBAL):
             return
 
         for record in self:
@@ -172,17 +176,17 @@ class ProductTemplate(models.Model):
             if not record.auto_change_image:
                 continue
 
-            if self._type_match_any(record.image_type, 3):
+            if record.image_type == CUSTOM:
                 continue
 
             categ = record.categ_id
 
             img_args = {
-                'to_type': TYPES[1],
+                'to_type': CATEGORY,
                 'in_cache': True,
             }
-            if not categ.image and self._target_match_any(target, 3):
-                img_args['to_type'] = TYPES[0]
+            if not categ.image and target == GLOBAL_CATEGORY:
+                img_args['to_type'] = GLOBAL
 
             record._change_template_image(**img_args)
 
@@ -195,16 +199,16 @@ class ProductTemplate(models.Model):
                 to_type (str): Value specified allowed from image_type field
                     which the image should be targeted to. Accepted values are:
 
-                    global
+                    GLOBAL
                         * product_image field defined in res.company
 
-                    category
+                    CATEGORY
                         * product's categ_id field's image
 
-                    none
+                    NONE
                         * Deletes the image
 
-                    global_category
+                    CUSTOM
                         * Set to the image you specify using to_img_bg.
                         Note that targeting to custom will prevent the
                         image from automatically being changed in the
@@ -229,9 +233,10 @@ class ProductTemplate(models.Model):
 
         """
         if any([
-                to_type not in TYPES.values(),
-                to_type == TYPES[3] and not to_img_bg,
-                to_type == TYPES[2] and to_img_bg,
+                to_type not in (NONE, GLOBAL, CATEGORY, CUSTOM),
+                to_type == GLOBAL_CATEGORY,
+                to_type == CUSTOM and not to_img_bg,
+                to_type == NONE and to_img_bg,
                 not isinstance(in_cache, bool)]):
             return
 
@@ -241,14 +246,14 @@ class ProductTemplate(models.Model):
             to_img_bg = tools.image_resize_image_big(to_img_bg)
             write_map[to_img_bg] += self
 
-        elif to_type == TYPES[2]:
+        elif to_type == NONE:
             write_map[None] += self
 
-        elif to_type == TYPES[0]:
+        elif to_type == GLOBAL:
             company = self.env.user.company_id
             write_map[company.product_image] += self
 
-        elif to_type == TYPES[1]:
+        elif to_type == CATEGORY:
             for record in self:
                 write_map[record.categ_id.image] += record
 
@@ -285,23 +290,16 @@ class ProductTemplate(models.Model):
         self.ensure_one()
         target = self.env.user.company_id.product_image_target
         self.auto_change_image = True
+        to_type = target
 
-        to_keys = {
-            TARGETS[0]: TYPES[2],
-            TARGETS[1]: TYPES[0],
-            TARGETS[2]: TYPES[1],
-            TARGETS[3]: TYPES[1],
-        }
-
-        if target not in to_keys:
-            return
-
-        if self._target_match_any(target, 3):
-            if not any(self.categ_id._get_images()):
-                to_keys[TARGETS[3]] = TYPES[0]
+        if target == GLOBAL_CATEGORY:
+            if self.categ_id._get_images(false_filter=True):
+                to_type = CATEGORY
+            else:
+                to_type = GLOBAL
 
         self._change_template_image(
-            to_type=to_keys[target],
+            to_type=to_type,
         )
 
     @api.multi
@@ -311,9 +309,9 @@ class ProductTemplate(models.Model):
 
         if changed_images:
             if not changed_images[0]:
-                vals['image_type'] = TYPES[2]
+                vals['image_type'] = NONE
 
             if changed_images[0] and not vals.get('image_type'):
-                vals['image_type'] = TYPES[3]
+                vals['image_type'] = CUSTOM
 
         return super(ProductTemplate, self).write(vals)

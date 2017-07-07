@@ -3,7 +3,6 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from .test_setup import TestSetup
-from ..image_constants import TYPES, TARGETS
 
 
 class TestAbstractProductImage(TestSetup):
@@ -21,7 +20,7 @@ class TestAbstractProductImage(TestSetup):
             3,
         )
         self.assertTrue(
-            all(res),
+            res,
         )
 
     def test_vals_get_images_correct_first_key(self):
@@ -34,6 +33,7 @@ class TestAbstractProductImage(TestSetup):
         self.assertEquals(
             self.abs_mod._vals_get_images(vals)[0],
             self.img_green,
+            'First img should be same as self.img_green'
         )
 
     def test_vals_get_images_image(self):
@@ -47,7 +47,7 @@ class TestAbstractProductImage(TestSetup):
             1,
         )
         self.assertTrue(
-            all(res),
+            res,
         )
 
     def test_vals_get_images_image_none_key(self):
@@ -59,6 +59,28 @@ class TestAbstractProductImage(TestSetup):
         self.assertEquals(
             len(self.abs_mod._vals_get_images(vals)),
             2,
+        )
+
+    def test_vals_get_images_image_false_filter_false(self):
+        """ Test returns no images """
+        vals = {
+            'image': self.img_red,
+            'image_medium': None,
+        }
+        self.assertEquals(
+            len(self.abs_mod._vals_get_images(vals)),
+            2,
+        )
+
+    def test_vals_get_images_image_false_filter_true(self):
+        """ Test returns no images """
+        vals = {
+            'image': self.img_red,
+            'image_medium': None,
+        }
+        self.assertEquals(
+            len(self.abs_mod._vals_get_images(vals, false_filter=True)),
+            1,
         )
 
     def test_vals_get_images_image_none(self):
@@ -89,13 +111,14 @@ class TestAbstractProductImage(TestSetup):
         self.assertEquals(
             res[0],
             self.img_green,
+            'First image should be same as img_green'
         )
 
     def test_get_images_all(self):
         """ Test returns all images """
         self.tmpl_1.image = self.img_red
         self.assertTrue(
-            all(self.tmpl_1._get_images()),
+            self.tmpl_1._get_images(),
         )
 
     def test_get_images_correct_first_key(self):
@@ -104,12 +127,21 @@ class TestAbstractProductImage(TestSetup):
         self.assertEquals(
             self.tmpl_1._get_images()[0],
             self.img_red,
+            'First image should be same as img_red'
         )
 
     def test_get_images_image_none(self):
-        """ Test returns no images """
+        """ Test returns empty list """
         self.assertFalse(
-            any(self.tmpl_1._get_images()),
+            self.tmpl_1._get_images(false_filter=True),
+        )
+
+    def test_get_images_none(self):
+        """ Test returns no images """
+        self.assertEquals(
+            self.tmpl_1._get_images(),
+            [False] * 3,
+            'Image values should all be False'
         )
 
     def test_get_images_all_update_keys(self):
@@ -125,52 +157,5 @@ class TestAbstractProductImage(TestSetup):
         self.assertEquals(
             res[0],
             self.img_red,
-        )
-
-    def test_target_match_any_single(self):
-        """ Test returns True if supplied by single valid int """
-        self.assertTrue(
-            self.abs_mod._target_match_any(TARGETS[1], 1)
-        )
-
-    def test_target_match_any_multiple(self):
-        """ Test returns True if supplied with tuple """
-        self.assertTrue(
-            self.abs_mod._target_match_any(TARGETS[3], (1, 3))
-        )
-
-    def test_target_match_any_invalid_keys(self):
-        """ Test returns True if given tuple of valid + invalid vals """
-        self.assertTrue(
-            self.abs_mod._target_match_any(TARGETS[3], (200, 3))
-        )
-
-    def test_target_match_any_not_present_single(self):
-        """ Test returns False if not matched to single int """
-        self.assertFalse(
-            self.abs_mod._target_match_any(TARGETS[3], 2)
-        )
-
-    def test_target_match_any_not_present_multiple(self):
-        """ Test returns False if not matched to any in tuple """
-        self.assertFalse(
-            self.abs_mod._target_match_any(TARGETS[3], (1, 2))
-        )
-
-    def test_target_match_any_not_invalid_keys(self):
-        """ Test returns False if not matched to any in tuple """
-        self.assertFalse(
-            self.abs_mod._target_match_any(TARGETS[3], (200, 300))
-        )
-
-    def test_type_match_any_single(self):
-        """ Test returns True if supplied by single valid int """
-        self.assertTrue(
-            self.abs_mod._type_match_any(TYPES[0], 0)
-        )
-
-    def test_type_match_any_multiple(self):
-        """ Test returns True if supplied with tuple """
-        self.assertTrue(
-            self.abs_mod._type_match_any(TYPES[0], (0, 3))
+            'First image should be img_red.'
         )
