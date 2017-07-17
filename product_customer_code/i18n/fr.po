@@ -1,108 +1,109 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_customer_code
+# 	* product_customer_code
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-17 01:04+0000\n"
-"PO-Revision-Date: 2017-07-17 01:04+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2017-07-16 21:15-0500\n"
+"Last-Translator: Marc Cassuto <marc@k-ssuto.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: fr\n"
 
 #. module: product_customer_code
 #: model:ir.model,name:product_customer_code.model_product_customer_code
 msgid "Add multiple product customer codes"
-msgstr ""
+msgstr "Ajoute des codes produits spécifiques aux clients"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_company_id
 #: model:ir.ui.view,arch_db:product_customer_code.view_product_customer_code_search
 msgid "Company"
-msgstr ""
+msgstr "Compagnie"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_partner_id
 msgid "Customer"
-msgstr ""
+msgstr "Client"
 
 #. module: product_customer_code
 #: model:ir.ui.view,arch_db:product_customer_code.product_normal_form_inh_product_customer_code_01
 msgid "Customer Code"
-msgstr ""
+msgstr "Code Client"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_product_product_customer_code_ids
 msgid "Customer Codes"
-msgstr ""
+msgstr "Codes Client"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_product_code
 msgid "Customer Product Code"
-msgstr ""
+msgstr "Code Client du Produit"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_product_name
 msgid "Customer Product Name"
-msgstr ""
+msgstr "Nom Client du Produit"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: product_customer_code
 #: model:ir.ui.view,arch_db:product_customer_code.view_product_customer_code_search
 msgid "Group By..."
-msgstr ""
+msgstr "Grouper par..."
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
 #. module: product_customer_code
 #: model:ir.model,name:product_customer_code.model_res_partner
 #: model:ir.ui.view,arch_db:product_customer_code.view_product_customer_code_search
 msgid "Partner"
-msgstr ""
+msgstr "Partenaire"
 
 #. module: product_customer_code
 #: model:ir.model,name:product_customer_code.model_product_product
 #: model:ir.model.fields,field_description:product_customer_code.field_product_customer_code_product_id
 #: model:ir.ui.view,arch_db:product_customer_code.view_product_customer_code_search
 msgid "Product"
-msgstr ""
+msgstr "Produit"
 
 #. module: product_customer_code
 #: model:ir.ui.view,arch_db:product_customer_code.product_codes_view_partner_form
 msgid "Product Codes"
-msgstr ""
+msgstr "Codes Produits"
 
 #. module: product_customer_code
 #: model:ir.actions.act_window,name:product_customer_code.action_product_customer_code_tree
@@ -112,36 +113,40 @@ msgstr ""
 #: model:ir.ui.view,arch_db:product_customer_code.view_product_customer_code_search
 #: model:ir.ui.view,arch_db:product_customer_code.view_product_customer_code_tree
 msgid "Product Customer Code"
-msgstr ""
+msgstr "Code Client du Produit"
 
 #. module: product_customer_code
 #: sql_constraint:product.customer.code:0
 msgid "Product customer code must be unique"
-msgstr ""
+msgstr "Le code client doit être unique"
 
 #. module: product_customer_code
 #: model:res.groups,name:product_customer_code.group_product_customer_code_manager
 msgid "Product_Customer / Manager"
-msgstr ""
+msgstr "Codes Produits Client / Manager"
 
 #. module: product_customer_code
 #: model:res.groups,name:product_customer_code.group_product_customer_code_user
 msgid "Product_Customer / User"
-msgstr ""
+msgstr "Codes Produits Client / Utilisateur"
 
 #. module: product_customer_code
 #: model:ir.model.fields,field_description:product_customer_code.field_res_partner_product_code_ids
 #: model:ir.model.fields,field_description:product_customer_code.field_res_users_product_code_ids
 msgid "Products"
-msgstr ""
+msgstr "Produits"
 
 #. module: product_customer_code
 #: model:ir.model.fields,help:product_customer_code.field_product_customer_code_product_code
-msgid "This customer's product code will be used when searching intoa request for quotation."
+msgid ""
+"This customer's product code will be used when searching intoa request for "
+"quotation."
 msgstr ""
+"Ce code de produit client sera utilisé lors des recherches de produits."
 
 #. module: product_customer_code
 #: model:ir.model.fields,help:product_customer_code.field_product_customer_code_product_name
-msgid "This customer's product name will be used when searching intoa request for quotation."
-msgstr ""
-
+msgid ""
+"This customer's product name will be used when searching intoa request for "
+"quotation."
+msgstr "Ce nom de produit client sera utilisé lors des recherches de produits."
