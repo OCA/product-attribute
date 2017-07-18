@@ -4,8 +4,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from openerp import models, fields
-from openerp import api
+from odoo import models, fields
+from odoo import api
 
 
 class Product(models.Model):
@@ -24,11 +24,7 @@ class Product(models.Model):
 
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
-
-        return self.env['product.uom']._compute_qty_obj(
-            from_unit=dimensional_uom,
-            qty=measure,
-            to_unit=uom_meters)
+        return dimensional_uom._compute_quantity(to_unit=uom_meters, qty=measure)
 
     @api.model
     def _get_dimension_uom_domain(self):
@@ -64,10 +60,7 @@ class ProductTemplate(models.Model):
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
 
-        return self.env['product.uom']._compute_qty_obj(
-            from_unit=dimensional_uom,
-            qty=measure,
-            to_unit=uom_meters)
+        return dimensional_uom._compute_quantity(to_unit=uom_meters, qty=measure)
 
     length = fields.Float(related='product_variant_ids.length')
     height = fields.Float(related='product_variant_ids.height')
