@@ -24,7 +24,8 @@ class Product(models.Model):
 
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
-        return dimensional_uom._compute_quantity(to_unit=uom_meters, qty=measure)
+        return dimensional_uom._compute_quantity(to_unit=uom_meters,
+                                                 qty=measure)
 
     @api.model
     def _get_dimension_uom_domain(self):
@@ -60,7 +61,8 @@ class ProductTemplate(models.Model):
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
 
-        return dimensional_uom._compute_quantity(to_unit=uom_meters, qty=measure)
+        return dimensional_uom._compute_quantity(to_unit=uom_meters,
+                                                 qty=measure)
 
     length = fields.Float(related='product_variant_ids.length')
     height = fields.Float(related='product_variant_ids.height')
