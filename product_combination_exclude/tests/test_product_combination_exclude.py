@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.tests.common import TransactionCase
+from odoo.exceptions import ValidationError
 
 
 class TestProductCombinationExclude(TransactionCase):
@@ -97,6 +98,13 @@ class TestProductCombinationExclude(TransactionCase):
             self.product_attr2.value_ids
         self.matrix1.button_generate_exclusions()
         self.assertFalse(len(self.matrix1.exclusion_line_ids))
+
+    def test_exclusion_attribute_uniqueness(self):
+        with self.assertRaises(ValidationError):
+            self.env['product.attribute.exclude'].create({
+                'attribute_value_ids': [
+                    (6, 0, [self.green.id, self.purple.id])]
+            })
 
     def setUp(self):
         super(TestProductCombinationExclude, self).setUp()

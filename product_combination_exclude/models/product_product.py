@@ -14,24 +14,21 @@ class ProductProduct(models.Model):
         vals = {} if vals is None else vals
         if 'attribute_value_ids' in vals:
             exclusion_obj = self.env['product.attribute.exclude']
-            search_args = []
-            if 'product_tmpl_id' in vals:
-                search_args.extend([
-                    '|',
-                    ('product_tmpl_ids', 'in', [vals['product_tmpl_id']]),
-                    ('product_tmpl_ids', 'in', [])])
+
+            template_id = vals.get('product_tmpl_id')
             try:
-                search_args.extend([
-                    ('attribute_value_ids', 'in',
-                     vals['attribute_value_ids'][0][2])
-                ])
+                value_ids = vals.get('attribute_value_ids')[0][2]
             except IndexError:
                 return super(ProductProduct, self).create(vals)
-            attr_vals = self.env['product.attribute.value'].browse(
-                vals['attribute_value_ids'][0][2])
-            exclusion_values = exclusion_obj.search(search_args)
 
-            for excl_val in exclusion_values:
-                if excl_val.attribute_value_ids <= attr_vals:
-                    return self.env['product.product']
+            exclusion_values = exclusion_obj.search(
+                ['|',
+                 ('product_tmpl_ids', 'in', [template_id]),
+                 ('product_tmpl_ids', 'in', []),
+                 ('attribute_value_ids', 'in', value_ids),
+                 ])
+
+            for excl in exclusion_values:
+                if set(excl.attribute_value_ids.ids) <= set(value_ids):
+                    return self
         return super(ProductProduct, self).create(vals)
