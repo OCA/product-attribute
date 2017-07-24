@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp><data>
+
+    <record id="product_price_cache_tree" model="ir.ui.view">
+        <field name="model">product.price.cache</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pricelist_id"/>
+                <field name="product_id"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_price_cache_search" model="ir.ui.view">
+        <field name="model">product.price.cache</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="pricelist_id"/>
+                <field name="product_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_price_cache_form" model="ir.ui.view">
+        <field name="model">product.price.cache</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="pricelist_id"/>
+                    <field name="product_id"/>
+                    <field name="price"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_price_cache_action" model="ir.actions.act_window">   
+        <field name="name">Product price cache</field>                      
+        <field name="type">ir.actions.act_window</field>                   
+        <field name="res_model">product.price.cache</field>          
+        <field name="view_type">form</field>                               
+    </record>                                                              
+
+    <menuitem                                                              
+        action="product_price_cache_action"
+        id="menu_product_price_cache"
+        parent="product.menu_product_pricelist_main"
+        sequence="90"
+        />
+
+</data></openerp>
