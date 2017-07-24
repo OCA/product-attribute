@@ -32,28 +32,25 @@
         <field name="name">product.brand.form</field>
         <field name="model">product.brand</field>
         <field name="arch" type="xml">
-            <form string="Product Brand" version="7.0">
+            <form>
                 <sheet>
-                    <field name="logo" widget="image" class="oe_avatar oe_left"/>
-                    <div class="oe_title">
-                        <div class="oe_edit_only">
-                            <label for="name" string="Brand Name"/>
-                        </div>
-                        <h1>
-                            <field name="name"/>
-                        </h1>
-                    </div>
-                    <div class="oe_right oe_button_box">
-                        <button
-                            class="oe_inline oe_stat_button"
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_open_brand_products)d"
                             type="action"
-                            name="%(action_open_brand_products)d"
+                            class="oe_stat_button"
                             icon="fa-cubes">
-                            <field name="products_count" string="Products" widget="statinfo" />
+                            <field name="products_count" widget="statinfo" string="Products"/>
                         </button>
                     </div>
+                    <field name="logo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                            <label for="name" string="Brand Name" class="oe_edit_only"/>
+                            <h1><field name="name"/></h1>
+                    </div>
                     <group>
-                        <field name="partner_id"/>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
                     </group>
                     <group string="Description">
                         <field name="description" nolabel="1"/>
