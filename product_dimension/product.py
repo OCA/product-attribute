@@ -85,7 +85,8 @@ class ProductTemplate(models.Model):
             from_unit=dimensional_uom,
             qty=measure,
             to_unit=uom_meters,
-            round=False)
+            round=False,
+            )
 
     length = fields.Float(related='product_variant_ids.length')
     height = fields.Float(related='product_variant_ids.height')
