@@ -22,11 +22,12 @@ addon | version | summary
 [product_code_builder](product_code_builder/) | 8.0.0.0.1 | Create product references according to attributes
 [product_code_builder_sequence](product_code_builder_sequence/) | 8.0.0.0.1 | Product Code Builder Sequence
 [product_custom_info](product_custom_info/) | 8.0.1.0.0 | Add custom field in products
-[product_dimension](product_dimension/) | 8.0.2.0.0 | Product Dimension
+[product_dimension](product_dimension/) | 8.0.2.0.1 | Product Dimension
 [product_gtin](product_gtin/) | 8.0.1.1.0 | Product GTIN EAN8 EAN13 UPC JPC Support
 [product_m2mcategories](product_m2mcategories/) | 8.0.1.0.2 | Product - Many Categories
 [product_manufacturer](product_manufacturer/) | 8.0.1.0.0 | Products Manufacturers
 [product_multi_image](product_multi_image/) | 8.0.2.0.0 | Multiple Images in Products
+[product_pricelist_cache](product_pricelist_cache/) | 8.0.1.0.0 | Cache product prices
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0.1 | Fixed price in pricelists
 [product_profile](product_profile/) | 8.0.1.0.2 | Allow to configure a product in 1 click
 [product_profile_example](product_profile_example/) | 8.0.1.0.1 | Product Profile Use Case
