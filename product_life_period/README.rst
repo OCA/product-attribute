@@ -29,11 +29,14 @@ Usage
 
 To use this module, you need to:
 
-* Go to ...
+* Go to Sale/Configuration/Product Life Period and define a life period
+* Then go to a product and assign this life period on the product
+
+Its state will evoluate thanks to a cron depending on the dates affected and the stock level.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/8.0
+   :target: https://runbot.odoo-community.org/runbot/135/10.0
 
 Bug Tracker
 ===========
