@@ -2,10 +2,10 @@
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from .test_setup import TestSetup
+from .setup import Setup
 
 
-class TestAbstractProductImage(TestSetup):
+class TestAbstractProductImage(Setup):
 
     def test_vals_get_images_all(self):
         """ Test returns all images """

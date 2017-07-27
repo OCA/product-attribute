@@ -81,13 +81,14 @@ All image defaults are also loaded when you create a new product.
 Known Issues / Roadmap
 ======================
 
-* Refactor res.company write method
 * Refactor product.template _change_template_image method
 * Centralize logic that converts the company product_image_target to the
   correct product image_type value (usually in the form of a to_type arg),
   accounting for GLOBAL_CATEGORY. Repetitive logic occurs in: product.template
   apply_default_image, product.template _onchange_categ_id,
   product.template default_get, res.company write, and product.category write methods.
+* After logic is centralized, add a res.company create method overload that auto-populates
+  product images.
 
 Bug Tracker
 ===========

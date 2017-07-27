@@ -32,7 +32,7 @@ class AbstractProductImage(models.AbstractModel):
 
         """
         if not isinstance(img_keys, (list, tuple)):
-            img_keys = [img_keys]
+            img_keys = (img_keys,)
 
         img_vals = [
             vals[key] for key in img_keys if key in vals

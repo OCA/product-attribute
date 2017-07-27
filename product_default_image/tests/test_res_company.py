@@ -2,7 +2,7 @@
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from .test_setup import TestSetup
+from .setup import Setup
 
 from ..image_constants import (
     NONE,
@@ -12,7 +12,7 @@ from ..image_constants import (
 )
 
 
-class TestResCompany(TestSetup):
+class TestResCompany(Setup):
 
     def test_default_product_image(self):
         """ Test product default image correct """
@@ -29,6 +29,10 @@ class TestResCompany(TestSetup):
 
     def test_write_target_global(self):
         """ Test imgs changed when product img target global """
+        self.assertFalse(
+            self.tmpl_1.image,
+            'Tmpl 1 image should be False',
+        )
         self.company_1.product_image_target = GLOBAL
         self.assertEquals(
             self.tmpl_1.image,
@@ -36,28 +40,64 @@ class TestResCompany(TestSetup):
             'Tmpl 1 image not the same as company img',
         )
 
-    def test_write_target_global_not_change_image(self):
-        """ Test tmpl img not changed when changing company product img """
+    def test_write_target_none_change_image(self):
+        """ Test tmpl img changed when changing company product img """
         self.company_1.product_image_target = GLOBAL
+        self.assertNotEqual(
+            self.tmpl_1.image,
+            self.img_red,
+            'tmpl_1 img should not be same as self.img_red'
+        )
+        self.company_1.product_image = self.img_red
+        self.assertEquals(
+            self.tmpl_1.image,
+            self.img_red,
+            'tmpl_1 img should be the same as self.img_red'
+        )
+
+    def test_write_target_none_not_change_image(self):
+        """ Test tmpl img changed when changing company product img """
+        self.company_1.product_image_target = NONE
         self.company_1.product_image = self.img_red
         self.assertNotEqual(
             self.tmpl_1.image,
-            self.company_1.product_image,
-            'tmpl_1 img should not be the same as company product image'
+            self.img_red,
+            'tmpl_1 img should not be the same as img_red'
+        )
+
+    def test_write_target_category_not_change_image(self):
+        """ Test tmpl img changed when changing company product img """
+        self.company_1.product_image_target = CATEGORY
+        self.company_1.product_image = self.img_red
+        self.assertNotEqual(
+            self.tmpl_1.image,
+            self.img_red,
+            'tmpl_1 img should not be the same as img_red'
         )
 
     def test_write_target_global_change_image(self):
-        """ Test tmpl img not changed when changing company product img """
-        self.company_1.product_image = self.img_red
+        """ Test tmpl img changed when changing company product img """
         self.company_1.product_image_target = GLOBAL
-        self.assertEquals(
+        self.company_1.product_image = self.img_red
+        self.assertEqual(
+            self.tmpl_1.image,
+            self.img_red,
+            'tmpl_1 img should be the same as img_red'
+        )
+
+    def test_write_target_global_category_change_image(self):
+        """ Test tmpl img changed when changing company product img """
+        self.company_1.product_image_target = GLOBAL_CATEGORY
+        self.company_1.product_image = self.img_red
+        self.assertEqual(
             self.tmpl_1.image,
             self.img_red,
             'tmpl_1 img should be the same as img_red'
         )
 
     def test_write_target_global_write_not_change_image(self):
-        """ Test tmpl img not changed when changing company product img """
+        """ Test tmpl img changed when changing company product img """
+        self.company_1.product_image_target = NONE
         self.company_1.write({'product_image': self.img_red})
         self.assertNotEqual(
             self.tmpl_1.image,
@@ -100,7 +140,7 @@ class TestResCompany(TestSetup):
     def test_target_category(self):
         """ Test tmpl img changed to category """
         self.categ_1.image = self.img_red
-        self.company_1.product_image_target = 'category'
+        self.company_1.product_image_target = CATEGORY
         self.assertEquals(
             self.tmpl_1.image,
             self.categ_1.image,
@@ -132,4 +172,18 @@ class TestResCompany(TestSetup):
         self.assertEquals(
             self.tmpl_2.image_type,
             GLOBAL,
+        )
+
+    def test_change_image_only_global(self):
+        """ Test only global imgs change when change company product_image """
+        self.company_1.product_image_target = GLOBAL
+        self.tmpl_1.write({
+            'image': self.img_red,
+            'image_type': GLOBAL,
+        })
+        self.company_1.product_image = self.img_blue
+        self.assertEquals(
+            self.img_blue,
+            self.tmpl_1.image,
+            'Tmpl_1 image should be the same as self.img_blue'
         )

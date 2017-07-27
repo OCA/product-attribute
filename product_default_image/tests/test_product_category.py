@@ -2,7 +2,7 @@
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from .test_setup import TestSetup
+from .setup import Setup
 
 from ..image_constants import (
     NONE,
@@ -11,7 +11,7 @@ from ..image_constants import (
 )
 
 
-class TestProductCategory(TestSetup):
+class TestProductCategory(Setup):
 
     def test_categ_write_imgs_same(self):
         """ Ensure test imgs and img in categ same after write """

@@ -73,14 +73,13 @@ class ProductTemplate(models.Model):
 
     @api.model
     def _search_templates_change_images(
-            self, from_types, to_type, to_img_bg=None,
+            self, from_types, to_type, company=None, to_img_bg=None,
             add_domain=None, in_cache=False):
-        """ Wraps _search_by_image_types and _change_template_image
-            into one method.
+        """ Wraps _search_by_image_types and _change_template_image """
 
-        """
         templates = self._search_by_image_types(
             from_types=from_types,
+            company=company,
             add_domain=add_domain,
         )
 
@@ -97,12 +96,18 @@ class ProductTemplate(models.Model):
         return templates._change_template_image(**img_args)
 
     @api.model
-    def _search_by_image_types(self, from_types, add_domain=None):
+    def _search_by_image_types(self, from_types,
+                               company=None, add_domain=None):
         """ Constructs domain and searches using from_types, add_domain
 
             Args:
                 from_types (list): List of selections from image_type
                     field to search products by.
+
+                company (Res.Company object): Use this field to search
+                    products whose company_id field matches the provided
+                    arg. If left as None, the arg will default to
+                    self.env.user.company_id
 
                 add_domain (list): If you wish to add domain items to
                     the method's default ones, use this parameter to
@@ -150,8 +155,11 @@ class ProductTemplate(models.Model):
         if add_domain and not isinstance(add_domain, list):
             raise TypeError('add_domain argument must be a list')
 
+        if not company:
+            company = self.env.user.company_id
+
         domain = [
-            ('company_id', '=', self.env.user.company_id.id),
+            ('company_id', '=', company.id),
             ('auto_change_image', '=', True),
             ('image_type', 'in', from_types),
         ]
@@ -165,13 +173,12 @@ class ProductTemplate(models.Model):
     @api.onchange('categ_id')
     def _onchange_categ_id(self):
 
-        company = self.env.user.company_id
-        target = company.product_image_target
-
-        if target in (NONE, GLOBAL):
-            return
-
         for record in self:
+
+            target = record.company_id.product_image_target
+
+            if target in (NONE, GLOBAL):
+                continue
 
             if not record.auto_change_image:
                 continue
@@ -192,8 +199,7 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def _change_template_image(self, to_type, to_img_bg=None, in_cache=False):
-        """ Change product template image to specified to_type's image
-            or to_img_bg.
+        """ Change template image to specified to_type's image or to_img_bg.
 
             Args:
                 to_type (str): Value specified allowed from image_type field
@@ -215,7 +221,7 @@ class ProductTemplate(models.Model):
                         future until deleted or manually re-mapped to a
                         default image.
 
-                to_img (base64): Can be used as an override if the template
+                to_img_bg (base64): Can be used as an override if the template
                     images should be changed to a specific image.
                     Image is resized to image big value and scaled
                     down to medium and small values.
@@ -232,13 +238,21 @@ class ProductTemplate(models.Model):
                 None: if any of the conditions below are True.
 
         """
-        if any([
-                to_type not in (NONE, GLOBAL, CATEGORY, CUSTOM),
-                to_type == GLOBAL_CATEGORY,
-                to_type == CUSTOM and not to_img_bg,
-                to_type == NONE and to_img_bg,
-                not isinstance(in_cache, bool)]):
-            return
+        if to_type not in (NONE, GLOBAL, CATEGORY, CUSTOM):
+            raise ValueError(
+                'to_type value must be either NONE, GLOBAL, CATEGORY, '
+                'or CUSTOM. It is currently %s' % to_type
+            )
+
+        if to_type == CUSTOM and not to_img_bg:
+            raise ValueError(
+                'to_img_bg arg must be provided if to_type is CUSTOM'
+            )
+
+        if to_type == NONE and to_img_bg:
+            raise ValueError(
+                'to_img_bg should be None if to_type is NONE'
+            )
 
         write_map = defaultdict(lambda: self.env['product.template'].browse())
 
@@ -250,8 +264,8 @@ class ProductTemplate(models.Model):
             write_map[None] += self
 
         elif to_type == GLOBAL:
-            company = self.env.user.company_id
-            write_map[company.product_image] += self
+            for record in self:
+                write_map[record.company_id.product_image] += record
 
         elif to_type == CATEGORY:
             for record in self:

@@ -8,10 +8,10 @@ from PIL import Image
 from odoo.tests.common import TransactionCase
 
 
-class TestSetup(TransactionCase):
+class Setup(TransactionCase):
 
     def setUp(self):
-        super(TestSetup, self).setUp()
+        super(Setup, self).setUp()
 
         # Categ of tmpl_1
         self.categ_1 = self.env.ref(

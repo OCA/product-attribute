@@ -4,7 +4,7 @@
 
 from mock import patch
 
-from .test_setup import TestSetup
+from .setup import Setup
 
 from ..image_constants import (
     NONE,
@@ -18,7 +18,7 @@ MOCK_DEFAULT_GET = 'odoo.addons.product.models.product_template.'\
                    'ProductTemplate.default_get'
 
 
-class TestProductTemplate(TestSetup):
+class TestProductTemplate(Setup):
 
     @patch(MOCK_DEFAULT_GET)
     def test_default_get_category(self, default_categ):
@@ -126,34 +126,6 @@ class TestProductTemplate(TestSetup):
                 to_type='test',
                 add_domain='test',
             )
-
-    def test_search_templates_change_images_invalid_to_type(self):
-        """ Test returns no templates if invalid to_type """
-        self.assertFalse(
-            self.tmpl_mod._search_templates_change_images(
-                from_types=[NONE],
-                to_type='test',
-            )
-        )
-
-    def test_search_templates_change_images_invalid_custom_config(self):
-        """ Test returns no templates if custom image vals improper """
-        self.assertFalse(
-            self.tmpl_mod._search_templates_change_images(
-                from_types=[NONE],
-                to_type=CUSTOM,
-            )
-        )
-
-    def test_search_templates_change_images_invalid_none_config(self):
-        """ Test returns no templates if none vals improper """
-        self.assertFalse(
-            self.tmpl_mod._search_templates_change_images(
-                from_types=[NONE],
-                to_type=NONE,
-                to_img_bg=self.img_red,
-            )
-        )
 
     def test_write_custom_image(self):
         """ Test write sets image_type to custom properly """
@@ -360,16 +332,6 @@ class TestProductTemplate(TestSetup):
             GLOBAL,
         )
 
-    def test_search_templates_change_images_invalid_in_cache_arg(self):
-        """ Test returns no templates if invalid in_cache arg """
-        self.assertFalse(
-            self.tmpl_mod._search_templates_change_images(
-                from_types=[NONE],
-                to_type=CATEGORY,
-                in_cache='True'
-            )
-        )
-
     def test_search_templates_change_images_wrong_company(self):
         """ Test image not changed if tmpl belongs to wrong company """
         self.tmpl_1.company_id = self.env.ref('base.main_company')
@@ -518,3 +480,25 @@ class TestProductTemplate(TestSetup):
             self.tmpl_2.image_type,
             GLOBAL,
         )
+
+    def test_change_template_image_wrong_to_type(self):
+        """ Test to_type arg not in accepted vals """
+        with self.assertRaises(ValueError):
+            self.tmpl_1._change_template_image(
+                to_type=GLOBAL_CATEGORY,
+            )
+
+    def test_change_template_image_to_type_custom_no_to_img_bg(self):
+        """ Test raise error if to_type custom and no to_img_bg """
+        with self.assertRaises(ValueError):
+            self.tmpl_1._change_template_image(
+                to_type=CUSTOM,
+            )
+
+    def test_change_template_image_to_type_none_to_img_bg(self):
+        """ Test raise error if to_type none and to_img_bg """
+        with self.assertRaises(ValueError):
+            self.tmpl_1._change_template_image(
+                to_type=NONE,
+                to_img_bg=self.img_red,
+            )

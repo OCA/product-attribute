@@ -61,39 +61,8 @@ class ResCompany(models.Model):
 
     @api.multi
     def write(self, vals):
-        """ Changes product images if target has changed
+        """ Changes product images if target or product_image have changed """
 
-        Examples:
-
-            * In examples 1 and 2, product.template images
-              will not be updated with the new some_image
-              value.
-
-            * Examples 3 and 4 will ensure product.template images
-              are updated to the new some_image value.
-
-            .. code-block:: python
-
-            # 1
-            company.write({
-                'product_image': some_image,
-            })
-
-            # 2
-            company.product_image_target = 'global'
-            company.product_image = some_image
-
-            # 3
-            company.write({
-                'product_image': some_image,
-                'product_image_target': 'global',
-            })
-
-            # 4
-            company.product_image = some_image
-            company.product_image_target = 'global'
-
-        """
         target = vals.get('product_image_target')
 
         if 'product_image' not in vals and not target:
@@ -113,23 +82,39 @@ class ResCompany(models.Model):
             'to_img_bg': None,
             'in_cache': False,
             'add_domain': None,
+            'company': None,
         }
 
-        if target == GLOBAL_CATEGORY:
-            img_args['to_type'] = CATEGORY
-
         if 'product_image' in vals and target not in (NONE, CATEGORY):
+
             img_args['to_img_bg'] = vals['product_image']
+
+            if not target:
+                img_args.update({
+                    'from_types': [GLOBAL],
+                    'to_type': GLOBAL,
+                })
 
         tmpl_mod = self.env['product.template']
 
         if target == GLOBAL_CATEGORY:
-            img_args['add_domain'] = [('categ_id.image', '!=', False)]
-            tmpl_mod._search_templates_change_images(**img_args)
+
+            img_args.update({
+                'add_domain': [('categ_id.image', '!=', False)],
+                'to_type': CATEGORY,
+            })
+
+            for record in self:
+                img_args['company'] = record
+                tmpl_mod._search_templates_change_images(**img_args)
+
             img_args.update({
                 'add_domain': [('categ_id.image', '=', False)],
                 'to_type': GLOBAL,
             })
 
-        tmpl_mod._search_templates_change_images(**img_args)
+        for record in self:
+            img_args['company'] = record
+            tmpl_mod._search_templates_change_images(**img_args)
+
         return super(ResCompany, self).write(vals)
