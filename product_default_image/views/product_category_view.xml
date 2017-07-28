@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(@class, 'oe_title')]" position="before">
+                <field name="image_medium"
+                       widget="image"
+                       class="oe_avatar"
+                       modifiers="{}" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
