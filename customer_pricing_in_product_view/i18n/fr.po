@@ -1,9 +1,8 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_multi_category
+# * customer_pricing_in_product_view
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 # guillaume bauer <guillaume.bauer@syentys.com>, 2017
 msgid ""
 msgstr ""
@@ -19,13 +18,12 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#. module: product_multi_category
-#: model:ir.model.fields,field_description:product_multi_category.field_product_product_categ_ids
-#: model:ir.model.fields,field_description:product_multi_category.field_product_template_categ_ids
-msgid "Extra categories"
-msgstr "Catégorie secondaire"
+#. module: customer_pricing_in_product_view
+#: model:ir.model,name:customer_pricing_in_product_view.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
 
-#. module: product_multi_category
-#: model:ir.model,name:product_multi_category.model_product_template
-msgid "Product Template"
-msgstr "Modèle de produit"
+#. module: customer_pricing_in_product_view
+#: model:ir.ui.view,arch_db:customer_pricing_in_product_view.res_partner_view_buttons
+msgid "Pricing"
+msgstr "Prix"
