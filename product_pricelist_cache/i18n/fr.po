@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_pricelist_cache
+# 
+# Translators:
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-25 00:46+0000\n"
+"PO-Revision-Date: 2017-07-25 00:46+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,display_name:0
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,price:0
+msgid "Price"
+msgstr "Prix"
+
+#. module: product_pricelist_cache
+#: model:ir.model,name:product_pricelist_cache.model_product_pricelist
+#: field:product.price.cache,pricelist_id:0
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: product_pricelist_cache
+#: field:product.price.cache,product_id:0
+msgid "Product"
+msgstr "Produit"
+
+#. module: product_pricelist_cache
+#: model:ir.actions.act_window,name:product_pricelist_cache.product_price_cache_action
+#: model:ir.ui.menu,name:product_pricelist_cache.menu_product_price_cache
+msgid "Product price cache"
+msgstr ""
