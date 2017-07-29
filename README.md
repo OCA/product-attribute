@@ -15,6 +15,7 @@ addon | version | summary
 --- | --- | ---
 [customer_pricing_in_product_view](customer_pricing_in_product_view/) | 10.0.1.0.0 | Display Customer Price in Product View
 [product_brand](product_brand/) | 10.0.1.0.0 | Product Brand Manager
+[product_default_image](product_default_image/) | 10.0.1.0.0 | Apply default images to new and existing products.
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
 [product_pricelist_tier](product_pricelist_tier/) | 10.0.1.0.0 | Extends pricelists with tiered pricing.
