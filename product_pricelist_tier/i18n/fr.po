@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_pricelist_tier
+# 
+# Translators:
+# guillaume bauer <guillaume.bauer@syentys.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-29 02:55+0000\n"
+"PO-Revision-Date: 2017-07-29 02:55+0000\n"
+"Last-Translator: guillaume bauer <guillaume.bauer@syentys.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: product_pricelist_tier
+#: model:product.template,description_sale:product_pricelist_tier.product_template_plastic_toy
+#: model:product.template,name:product_pricelist_tier.product_template_plastic_toy
+msgid "Demo Plastic Toy"
+msgstr "Jouet en plastique de démonstration"
+
+#. module: product_pricelist_tier
+#: model:ir.model,name:product_pricelist_tier.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr "Objet de la liste de prix"
+
+#. module: product_pricelist_tier
+#: model:ir.model.fields,help:product_pricelist_tier.field_product_pricelist_item_tiered_price
+msgid ""
+"The desired price at minimum quantity you specify. e.g. You want 10 bowls to"
+" cost a total of $20. Set this field to 20, and set minimum quantity to 10. "
+"The price discount will automatically be calculated for you."
+msgstr ""
+"Le prix souhaité pour une quantité minimale spécifiée. Par exemple: Vous "
+"voulez 10 bols pour un coût total de 20 $. Définissez ce champ sur 20 et "
+"indiquez une quantité minimale de 10. La réduction de prix sera "
+"automatiquement calculée pour vous."
+
+#. module: product_pricelist_tier
+#: model:ir.model.fields,field_description:product_pricelist_tier.field_product_pricelist_item_tiered_price
+msgid "Tiered Price"
+msgstr "Prix échelonné"
