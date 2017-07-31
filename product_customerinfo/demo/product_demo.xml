@@ -7,9 +7,6 @@
             <field name="delay">1</field>
             <field name="min_qty">1</field>
             <field name="type">customer</field>
-            <field name="pricelist_ids"
-                   eval="[(0,0,{'name':'Customer pricelist1', 'min_quantity': 1, 'price':25}),
-                          (0,0,{'name':'Customer pricelist2', 'min_quantity': 5, 'price':20})]"/>
         </record>
     </data>
 </openerp>
