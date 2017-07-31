@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
+    <!-- Copyright 2015 OdooMRP team
+         Copyright 2015 AvanzOSC
+         Copyright 2015 Tecnativa
+         License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
     <data noupdate="1">
         <record id="product_supplierinfo_customer" model="product.supplierinfo">
             <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
@@ -7,9 +11,6 @@
             <field name="delay">1</field>
             <field name="min_qty">1</field>
             <field name="type">customer</field>
-            <field name="pricelist_ids"
-                   eval="[(0,0,{'name':'Customer pricelist1', 'min_quantity': 1, 'price':25}),
-                          (0,0,{'name':'Customer pricelist2', 'min_quantity': 5, 'price':20})]"/>
         </record>
     </data>
 </openerp>

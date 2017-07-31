@@ -7,15 +7,8 @@ Use product supplier info also for customers
 ============================================
 
 This modules allows to use supplier info structure, available in
-*Procurements* tab of the product form, also for defining customer information,
+*Inventory* tab of the product form, also for defining customer information,
 allowing to define prices per customer and product.
-
-Configuration
-=============
-
-For these prices to be used in sale prices calculations, you will have
-to create a pricelist with a rule with option "Based on" with the value
-"Supplier prices on the product form" (although the text is not clear enough).
 
 Usage
 =====
@@ -26,21 +19,23 @@ suppliers.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/188/8.0
+   :target: https://runbot.odoo-community.org/runbot/188/9.0
 
 
 The product code / product name specified for the customer can be reflected
 on the sale orders using module `product_supplierinfo_for_customer_sale
-<https://github.com/OCA/product-attribute/tree/8.0/product_supplierinfo_for_customer_sale>`_
+<https://github.com/OCA/product-attribute/tree/9.0/product_supplierinfo_for_customer_sale>`_
 
 Known issues / Roadmap
 ======================
 
+* In Odoo v9.0, it was removed the option to create pricelist based on supplierinfo prices.
+  This feature will be added in the v10 of this module.
 * Product prices through this method are only guaranteed on the standard sale
   order workflow. Other custom flows maybe don't reflect the price.
 * The minimum quantity will not also be applied on sale orders.
 * Computed fields in product.supplierinfo object won't properly work for
-  customer type
+  customer type.
 
 Credits
 =======
@@ -48,4 +43,5 @@ Credits
 Contributors
 ------------
 * Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Tecnativa - Pedro M. Baeza <pedro.baeza@tecnativa.com>
+* Aaron Henriquez <ahenriquez@eficent.com>
