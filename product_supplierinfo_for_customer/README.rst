@@ -7,7 +7,7 @@ Use product supplier info also for customers
 ============================================
 
 This modules allows to use supplier info structure, available in
-*Procurements* tab of the product form, also for defining customer information,
+*Inventory* tab of the product form, also for defining customer information,
 allowing to define prices per customer and product.
 
 Configuration
@@ -26,7 +26,7 @@ suppliers.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/188/8.0
+   :target: https://runbot.odoo-community.org/runbot/188/9.0
 
 
 The product code / product name specified for the customer can be reflected
@@ -49,3 +49,4 @@ Contributors
 ------------
 * Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Aaron Henriquez <ahenriquez@eficent.com>
