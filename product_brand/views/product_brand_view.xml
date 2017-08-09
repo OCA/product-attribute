@@ -201,13 +201,18 @@
             <field name="res_model">product.brand</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,form,tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a Product Brand.
+                </p>
+            </field>
         </record>
 
         <menuitem
             name="Product Brands"
             id="menu_product_brand"
             action="action_product_brand"
-            parent="base.menu_product"/>
+            parent="product.prod_config_main"/>
 
     </data>
 </openerp>
