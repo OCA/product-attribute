@@ -14,30 +14,27 @@ This module introduce the following features:
 
 * It also allows to attach a partner to a brand.
 
-Installation
-=============
-
- No external library is used.
-
 Configuration
 =============
 
- No configuration is required.
+- From Sales, Purchases or Inventory go to *Configuration > Products > Product
+  Brands* and start adding brands.
 
 Usage
 =====
 
+- Edit any product form and set its brand.
 
-For further information, please visit:
 
- * https://www.odoo.com/forum/help-1
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/135/9.0
 
 Known issues / Roadmap
 ======================
 
-* Add a field with brands assiciated to a Customer or Supplier on 
+* Add a field with brands assiciated to a Customer or Supplier on
   the Customers/Suppliers Form View.
-
 
 Bug Tracker
 ===========
@@ -45,9 +42,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_brand%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
-
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
@@ -66,16 +61,19 @@ Contributors
 * Gunnar Wagner <vrms@netcologne.de>
 * Leonardo Donelli <donelli@webmonks.it>
 * Serpent Consulting Services Pvt. Ltd. <jay.vora@serpentcs.com>
+* David Vidal <david.vidal@tecnativa.com>
 
 Maintainer
 ----------
 
-.. image:: http://odoo-community.org/logo.png
+.. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
-   :target: http://odoo-community.org
+   :target: https://odoo-community.org
 
 This module is maintained by the OCA.
 
-OCA, or the Odoo Community Association, is a nonprofit organization whose mission is to support the collaborative development of Odoo features and promote its widespread use.
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
