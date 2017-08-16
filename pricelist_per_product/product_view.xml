@@ -5,6 +5,8 @@
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
+        <!-- There is a position="replace" then we add a priority -->
+        <field name="priority" eval="100"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@string='Information']//field[@name='list_price']"
                    position="replace">
