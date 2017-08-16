@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_webcam
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-23 16:42+0000\n"
+"PO-Revision-Date: 2016-02-23 17:43+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.6\n"
+
+#. module: product_webcam
+#. openerp-web
+#: code:addons/product_webcam/static/src/xml/product_webcam.xml:10
+#, python-format
+msgid "Close Window"
+msgstr "Close Window"
+
+#. module: product_webcam
+#: model:ir.model,name:product_webcam.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: product_webcam
+#. openerp-web
+#: code:addons/product_webcam/static/src/xml/product_webcam.xml:4
+#, python-format
+msgid "Photo Booth"
+msgstr "Photo Booth"
+
+#. module: product_webcam
+#: model:ir.model,name:product_webcam.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_webcam
+#: model:ir.actions.client,name:product_webcam.action_take_photo
+#: view:product.template:product_webcam.view_product_template_form
+msgid "Take Picture"
+msgstr "Tomar fotografía"
+
+#. module: product_webcam
+#. openerp-web
+#: code:addons/product_webcam/static/src/xml/product_webcam.xml:10
+#, python-format
+msgid "Take a Picture"
+msgstr "Tomar fotografía"
+
+#. module: product_webcam
+#. openerp-web
+#: code:addons/product_webcam/static/src/xml/product_webcam.xml:6
+#, python-format
+msgid "Webcam"
+msgstr "Webcam"
