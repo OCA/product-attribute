@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-17 02:38+0000\n"
-"PO-Revision-Date: 2017-05-17 02:38+0000\n"
+"POT-Creation-Date: 2017-07-29 05:48+0000\n"
+"PO-Revision-Date: 2017-07-29 05:48+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,9 @@ msgid ""
 "                                hours\n"
 "                        </span>"
 msgstr ""
+"<span>\n"
+"                                sati\n"
+"                        </span>"
 
 #. module: product_service_duration
 #: model:ir.ui.view,arch_db:product_service_duration.view_calendar_event_form
@@ -34,6 +37,9 @@ msgid ""
 "                            hours\n"
 "                    </span>"
 msgstr ""
+"<span>\n"
+"                                sati\n"
+"                        </span>"
 
 #. module: product_service_duration
 #: model:product.product,description_sale:product_service_duration.product_product_2
@@ -41,12 +47,12 @@ msgstr ""
 #: model:product.template,description_sale:product_service_duration.product_product_2_product_template
 #: model:product.template,name:product_service_duration.product_product_2_product_template
 msgid "Business Consultation"
-msgstr ""
+msgstr "Poslovno savjetovanje"
 
 #. module: product_service_duration
 #: model:ir.model,name:product_service_duration.model_calendar_event
 msgid "Event"
-msgstr ""
+msgstr "Događaj"
 
 #. module: product_service_duration
 #: model:ir.model.fields,help:product_service_duration.field_product_product_event_ids
@@ -104,7 +110,7 @@ msgstr ""
 #. module: product_service_duration
 #: model:ir.model,name:product_service_duration.model_product_product
 msgid "Product"
-msgstr "proizvod"
+msgstr "Proizvod"
 
 #. module: product_service_duration
 #: model:ir.model.fields,field_description:product_service_duration.field_product_product_resource_id
