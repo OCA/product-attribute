@@ -15,6 +15,7 @@
                 <field name="show_sale_price"/>
                 <field name="show_standard_price"/>
                 <field name="show_variants" groups="product.group_product_variant"/>
+                <field name="order_field"/>
             </group>
             <group attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}">
                 <field name="categ_ids" widget="many2many_tags"/>
