@@ -20,14 +20,22 @@ On Variant tab, click on the button 'List of variants'
 You can now activate or deactivate variants with button on the right side
 
 
-.. image:: /product_variant_inactive/static/description/unactive.png
+.. image:: /product_variant_inactive/static/description/pvi-2.png
    :alt: Create a sales template
-   :width: 400 px
+   :width: 600 px
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/135/8.0
+
+
+Known issues / Roadmap
+======================
+
+Additional features:
+* Desactivation of many product with 'more menu' action
+* Add a group to inactive / active variants
 
 
 Bug Tracker
@@ -45,9 +53,9 @@ Credits
 This module was written to extend the functionality of Product Variants
 and allow you to make activate or deactivate products using the two buttons
 
-.. image:: /product_variant_inactive/static/img/img_01.png
+.. image:: /product_variant_inactive/static/img/pvi_1.png
    :alt: screenshot
-   :width: 400 px
+   :width: 600 px
 
 
 Installation
