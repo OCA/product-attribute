@@ -7,7 +7,7 @@
                  Variants are mainly used with stock, 
                  Then we also embedds color attributes of module stock -->
             <xpath expr="//tree" position="attributes">
-                <attribute name="colors" translation="off">grey:active==False;red:virtual_available&lt;0;blue:virtual_available&gt;=0 and state in ('draft', 'end', 'obsolete');black:virtual_available&gt;=0 and state not in ('draft', 'end', 'obsolete')</attribute>
+                <attribute name="colors" translation="off">grey:active==False;red:virtual_available&lt;0;blue:virtual_available&gt;=0;black:virtual_available&gt;=0 </attribute>
             </xpath>
         </field>
     </record>
@@ -20,9 +20,9 @@
             <xpath expr="//tree" position="inside">
                 <field name="active" invisible ="1"/>
                 <button type="object" name="button_activate" invisible="1"
-                        attrs="{'invisible': [('active','=',True)]}" icon="gtk-stop"/>
+                        attrs="{'invisible': [('active','=',True)]}" icon="fa-ban"/>
                 <button type="object" name="button_deactivate" invisible="1"
-                        attrs="{'invisible': [('active','=',False)]}" icon="gtk-apply"/>
+                        attrs="{'invisible': [('active','=',False)]}" icon="fa-check-circle"/>
             </xpath>
         </field>
     </record>
