@@ -11,7 +11,7 @@
     'version': '10.0.1.0.0',
     'depends': ['stock'],
     'data': [
-        'data/product_variant_view.xml'
+        'views/product_variant_view.xml'
     ],
     'demo': ['data/product.product.csv'],
 }
