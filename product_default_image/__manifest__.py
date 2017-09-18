@@ -5,7 +5,7 @@
 {
     "name": "Default Product Images",
     "summary": "Apply default images to new and existing products.",
-    "version": "10.0.1.0.0",
+    "version": "10.0.1.1.0",
     "category": "Product",
     "website": "https://laslabs.com",
     "author": "LasLabs, Odoo Community Association (OCA)",

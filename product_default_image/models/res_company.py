@@ -65,56 +65,84 @@ class ResCompany(models.Model):
 
         target = vals.get('product_image_target')
 
-        if 'product_image' not in vals and not target:
+        # Returns 0: field not present in vals.
+        # Returns False: field present but image is False.
+        product_image = vals.get('product_image', 0)
+
+        if product_image is None and not target:
             return super(ResCompany, self).write(vals)
 
-        if 'product_image' in vals:
+        tmpl_mod = self.env['product.template']
+
+        if product_image:
             vals['product_image'] = \
                 tools.image_resize_image_big(
                     base64_source=vals['product_image'],
                 )
-
-        img_args = {
-            'from_types': [
-                NONE, GLOBAL, CATEGORY,
-            ],
-            'to_type': target,
-            'to_img_bg': None,
-            'in_cache': False,
-            'add_domain': None,
-            'company': None,
-        }
-
-        if 'product_image' in vals and target not in (NONE, CATEGORY):
-
-            img_args['to_img_bg'] = vals['product_image']
-
-            if not target:
-                img_args.update({
-                    'from_types': [GLOBAL],
-                    'to_type': GLOBAL,
-                })
-
-        tmpl_mod = self.env['product.template']
-
-        if target == GLOBAL_CATEGORY:
-
-            img_args.update({
-                'add_domain': [('categ_id.image', '!=', False)],
-                'to_type': CATEGORY,
-            })
-
-            for record in self:
-                img_args['company'] = record
-                tmpl_mod._search_templates_change_images(**img_args)
-
-            img_args.update({
-                'add_domain': [('categ_id.image', '=', False)],
-                'to_type': GLOBAL,
-            })
+            product_image = vals['product_image']
 
         for record in self:
-            img_args['company'] = record
-            tmpl_mod._search_templates_change_images(**img_args)
+
+            old_target = record.product_image_target
+            old_image = record.product_image
+
+            # Default values for
+            # NONE, GLOBAL, CATEGORY targets
+            img_args = {
+                'from_types': [
+                    NONE, GLOBAL, CATEGORY,
+                ],
+                'company': record,
+                'to_type': target,
+                'to_img_bg': None,
+                'in_cache': False,
+                'add_domain': None,
+            }
+
+            available = (
+                target and target != old_target,
+                product_image != 0 and product_image != old_image,
+            )
+
+            if not any(available):
+                continue
+
+            # All or only target available
+            elif all(available) or available[0]:
+
+                if target == GLOBAL_CATEGORY:
+
+                    img_args.update({
+                        'to_type': CATEGORY,
+                        'add_domain': [('categ_id.image', '!=', False)],
+                    })
+
+                    tmpl_mod._search_templates_change_images(**img_args)
+
+                    img_args.update({
+                        'to_type': GLOBAL,
+                        'add_domain': [('categ_id.image', '=', False)],
+                    })
+
+                if all(available) and target in (GLOBAL, GLOBAL_CATEGORY):
+                    img_args['to_img_bg'] = product_image
+
+                tmpl_mod._search_templates_change_images(**img_args)
+
+            # Image only available
+            elif available[1]:
+
+                target = old_target
+
+                if target == GLOBAL_CATEGORY:
+                    img_args['add_domain'] = [('categ_id.image', '=', False)]
+
+                if target in (GLOBAL, GLOBAL_CATEGORY):
+                    img_args.update({
+                        'to_img_bg': product_image,
+                        'to_type': GLOBAL,
+                        'from_types': [GLOBAL, NONE],
+                    })
+                    tmpl_mod._search_templates_change_images(**img_args)
 
         return super(ResCompany, self).write(vals)

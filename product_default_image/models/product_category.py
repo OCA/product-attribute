@@ -70,10 +70,10 @@ class ProductCategory(models.Model):
         if target == CATEGORY and not changed_images[0]:
             img_args.update({
                 'to_type': NONE,
-                'to_img_bg': None,
+                'to_img_bg': False,
             })
 
-        if target == GLOBAL_CATEGORY:
+        elif target == GLOBAL_CATEGORY:
             img_args['from_types'].append(GLOBAL)
             if not changed_images[0]:
                 img_args.update({

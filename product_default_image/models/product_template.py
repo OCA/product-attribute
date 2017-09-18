@@ -90,7 +90,7 @@ class ProductTemplate(models.Model):
             'to_type': to_type,
             'in_cache': in_cache,
         }
-        if to_img_bg:
+        if to_img_bg is not None:
             img_args['to_img_bg'] = to_img_bg
 
         return templates._change_template_image(**img_args)
@@ -244,7 +244,7 @@ class ProductTemplate(models.Model):
                 'or CUSTOM. It is currently %s' % to_type
             )
 
-        if to_type == CUSTOM and not to_img_bg:
+        if to_type == CUSTOM and to_img_bg is None:
             raise ValueError(
                 'to_img_bg arg must be provided if to_type is CUSTOM'
             )
@@ -256,12 +256,16 @@ class ProductTemplate(models.Model):
 
         write_map = defaultdict(lambda: self.env['product.template'].browse())
 
-        if to_img_bg:
+        if to_img_bg is not None:
+
+            if to_img_bg is False and to_type != NONE:
+                to_type = NONE
+
             to_img_bg = tools.image_resize_image_big(to_img_bg)
             write_map[to_img_bg] += self
 
         elif to_type == NONE:
-            write_map[None] += self
+            write_map[False] += self
 
         elif to_type == GLOBAL:
             for record in self:

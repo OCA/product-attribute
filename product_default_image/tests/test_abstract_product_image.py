@@ -134,6 +134,7 @@ class TestAbstractProductImage(Setup):
         """ Test returns empty list """
         self.assertFalse(
             self.tmpl_1._get_images(false_filter=True),
+            'Should return empty list.'
         )
 
     def test_get_images_none(self):

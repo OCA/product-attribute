@@ -89,6 +89,8 @@ Known Issues / Roadmap
   product.template default_get, res.company write, and product.category write methods.
 * After logic is centralized, add a res.company create method overload that auto-populates
   product images.
+* Change product_template _change_template_image .write() calls (not in_cache) to a manual
+  SQL query (around line 285).
 
 Bug Tracker
 ===========
