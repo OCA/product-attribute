@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
-from openerp import models, fields
+# Copyright 2015 OdooMRP team
+# Copyright 2015 AvanzOSC
+# Copyright 2015 Tecnativa
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
