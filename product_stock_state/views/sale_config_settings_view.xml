@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sale_config_settings_form" model="ir.ui.view">
+        <field name="model">sale.config.settings</field>
+        <field name="inherit_id" ref="sale.view_sales_config"/>
+        <field name="arch" type="xml">
+            <field name="group_product_variant" position="before">
+                <field name="stock_state_threshold"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
+
