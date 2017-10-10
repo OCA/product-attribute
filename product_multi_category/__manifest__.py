@@ -4,7 +4,7 @@
 
 {
     "name": "Product - Many Categories",
-    "version": "10.0.1.0.0",
+    "version": "11.0.1.0.0",
     "author": "Akretion,Guewen Baconnier,Camptocamp,Avanzosc,"
     "Sharoon Thomas,Sodexis,Odoo Community Association (OCA)",
     "website": "",

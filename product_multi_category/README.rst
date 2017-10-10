@@ -9,9 +9,9 @@ Product - Many Categories
 This module Extends the existing functionality of Odoo Products
 (One product - One Catgory) to One product -> Many Categories
 
-*Note: This module was built generically but in focus of the Magento
+*Note:* This module was built generically but in focus of the Magento
 Odoo connector
-**Note: The additional categories are only for classification and does
+*Note 2:* The additional categories are only for classification and does
 not affect other operations
 
 Usage
@@ -19,7 +19,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/10.0
+   :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 Bug Tracker
 ===========
