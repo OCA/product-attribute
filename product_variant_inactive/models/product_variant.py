@@ -12,11 +12,13 @@ class ProductProduct(models.Model):
 
     @api.multi
     def button_activate(self):
-        self.active = True
+        for product in self:
+            product.active = True
 
     @api.multi
     def button_deactivate(self):
-        self.active = False
+        for product in self:
+            product.active = False
 
     @api.model
     def fields_view_get(self,
