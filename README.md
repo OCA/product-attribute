@@ -23,6 +23,7 @@ addon | version | summary
 [product_service_duration](product_service_duration/) | 10.0.1.0.0 | Extends events and meetings with services.
 [product_state](product_state/) | 10.0.1.0.0 | Product State
 [product_uom](product_uom/) | 10.0.1.0.0 | Provide missing uom
+[product_variant_inactive](product_variant_inactive/) | 10.0.1.0.0 | Product Variant Inactive
 [product_weight](product_weight/) | 10.0.1.0.0 | Allows to calculate products weight from its components.
 
 
