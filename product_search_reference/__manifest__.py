@@ -18,7 +18,7 @@
 #
 ##############################################################################
 {
-    'name': 'Products Search Reference',
+    'name': 'Products Search Supplier Reference',
     'version': '0.1',
     'author': 'Tiny',
     'category': 'Generic Modules/Inventory Control',
@@ -27,7 +27,7 @@
     'demo_xml': [],
     'update_xml': ['product_view.xml'],
     'description': '''
-    Add search by partner reference on product
+    Add search by supplier reference on product
     ''',
     'installable': True,
 }

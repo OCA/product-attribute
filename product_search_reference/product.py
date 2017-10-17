@@ -42,7 +42,7 @@ class Product(models.Model):
     partner_ref2 = fields.Char(
         compute="_compute_partner_ref2",
         search="_search_partner_ref2",
-        string="Customer ref",
+        string="Supplier ref",
     )
 
     @api.multi
