@@ -502,3 +502,28 @@ class TestProductTemplate(Setup):
                 to_type=NONE,
                 to_img_bg=self.img_red,
             )
+
+    def test_change_template_image_false_none(self):
+        """ Test change to_type to None if img False and to_type not None. """
+        self.tmpl_1.write({
+            'image': self.img_red,
+            'image_type': CATEGORY,
+        })
+        self.assertTrue(
+            self.tmpl_1.image,
+        )
+        self.assertEquals(
+            self.tmpl_1.image_type,
+            CATEGORY,
+        )
+        self.tmpl_1._change_template_image(
+            to_type=CATEGORY,
+            to_img_bg=False,
+        )
+        self.assertEquals(
+            self.tmpl_1.image_type,
+            NONE,
+        )
+        self.assertFalse(
+            self.tmpl_1.image,
+        )
