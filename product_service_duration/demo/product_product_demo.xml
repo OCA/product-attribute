@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_product_1" model="product.product">
+        <field name="name">Meeting Service</field>
+        <field name="uom_id" ref="product.product_uom_hour" />
+        <field name="uom_po_id" ref="product.product_uom_hour" />
+        <field name="categ_id" ref="product.product_category_5" />
+        <field name="type">service</field>
+        <field name="description_sale">Meeting Services</field>
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="standard_price">30</field>
+        <field name="list_price">80</field>
+        <field name="currency_id" ref="base.USD" />
+        <field name="default_code">SERV_MEET</field>
+        <field name="resource_id" ref="resource.resource_analyst" />
+        <field name="min_service_time" eval="3.00" />
+    </record>
+
+    <record id="product_product_2" model="product.product">
+        <field name="name">Business Consultation</field>
+        <field name="uom_id" ref="product.product_uom_hour" />
+        <field name="uom_po_id" ref="product.product_uom_hour" />
+        <field name="categ_id" ref="product.product_category_5" />
+        <field name="type">service</field>
+        <field name="description_sale">Business Consultation</field>
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="standard_price">50</field>
+        <field name="list_price">200</field>
+        <field name="currency_id" ref="base.USD" />
+        <field name="default_code">SERV_CONSULT</field>
+        <field name="resource_id" ref="resource.resource_analyst" />
+        <field name="min_service_time" eval="2.00" />
+    </record>
+
+</odoo>

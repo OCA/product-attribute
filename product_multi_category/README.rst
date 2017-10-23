@@ -6,27 +6,20 @@
 Product - Many Categories
 =========================
 
-This module Extends the existing functionality of Open ERP Products
+This module Extends the existing functionality of Odoo Products
 (One product - One Catgory) to One product -> Many Categories
 
 *Note: This module was built generically but in focus of the Magento
-Open ERP connector
+Odoo connector
 **Note: The additional categories are only for classification and does
 not affect other operations
 
 Usage
 =====
 
-To use this module, you need to:
-
-* Go to ...
-
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/9.0
-
-.. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
-.. branch is "8.0" for example
+   :target: https://runbot.odoo-community.org/runbot/135/10.0
 
 Bug Tracker
 ===========
@@ -34,11 +27,10 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/
-product-attribute/issues/new?body=module:%20
-product_multi_category%0Aversion:%20
-9.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smash it by providing detailed and welcomed feedback.
+
+Credits
+=======
 
 Images
 ------
@@ -55,7 +47,9 @@ Contributors
 * Yannick Vaucher <yannick.vaucher@camptocamp.com>
 * Sharoon Thomas
 * Avanzosc
+* Mikel Arregi <mikelarregi@avanzosc.es>
 * SodexisTeam <dev@sodexis.com>
+* Angel Moya <angel.moya@pesol.es>
 
 Maintainer
 ----------

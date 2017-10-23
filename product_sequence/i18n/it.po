@@ -3,15 +3,14 @@
 # * product_sequence
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
-# Paolo Valier <paolo.valier@hotmail.it>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-24 03:37+0000\n"
-"PO-Revision-Date: 2017-01-24 03:37+0000\n"
-"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
+"POT-Creation-Date: 2017-05-05 02:44+0000\n"
+"PO-Revision-Date: 2017-05-05 02:44+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,41 +25,6 @@ msgid "-copy"
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_taxes_id
-msgid "Customer Taxes"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_property_account_expense_id
-msgid "Expense Account"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_property_account_income_id
-msgid "Income Account"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_manufacturer_pref
-msgid "Manuf. Product Code"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_manufacturer_pname
-msgid "Manuf. Product Name"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_manufacturer_purl
-msgid "Manuf. Product URL"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_manufacturer
-msgid "Manufacturer"
-msgstr "Produttore"
-
-#. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
 msgstr "Prodotto"
@@ -68,23 +32,4 @@ msgstr "Prodotto"
 #. module: product_sequence
 #: sql_constraint:product.product:0
 msgid "The reference must be unique"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,help:product_sequence.field_product_product_property_account_expense_id
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"expenses for the current product."
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,help:product_sequence.field_product_product_property_account_income_id
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"sales for the current product."
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_product_supplier_taxes_id
-msgid "Vendor Taxes"
 msgstr ""

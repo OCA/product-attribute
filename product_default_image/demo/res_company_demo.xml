@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+    <record id="demo_res_company_1" model="res.company">
+        <field name="name">Product Default Image Company 1</field>
+        <field name="currency_id" ref="base.USD" />
+        <field name="user_ids" eval="[(6, 0, [ref('base.user_root')])]" />
+    </record>
+
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 LasLabs Inc.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="name">calendar.event.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alarm_ids']" position="after">
+                <field name="product_ids"
+                       widget="many2many_tags"
+                       can_create="true"
+                       can_write="true"
+                       domain="[('type', '=', 'service')]" />
+            </xpath>
+            <xpath expr="//field[@name='allday']" position="before">
+                <label for="min_duration"
+                       attrs="{'invisible': [('allday', '=', True)]}" />
+                <div attrs="{'invisible': [('allday', '=', True)]}">
+                    <field name="min_duration"
+                           widget="float_time"
+                           class="oe_inline"
+                           on_change="1" />
+                    <span>
+                            hours
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_popup" model="ir.ui.view">
+        <field name="name">calendar.event.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_popup" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="product_ids"
+                       widget="many2many_tags"
+                       can_create="true"
+                       can_write="true"
+                       domain="[('type', '=', 'service')]" />
+            </xpath>
+            <xpath expr="//field[@name='allday']" position="before">
+                <label for="min_duration"
+                       attrs="{'invisible': [('allday', '=', True)]}" />
+                <div attrs="{'invisible': [('allday', '=', True)]}">
+                    <field name="min_duration"
+                           widget="float_time"
+                           class="oe_inline"
+                           on_change="1" />
+                    <span>
+                            hours
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_search" model="ir.ui.view">
+        <field name="name">calendar.event.search</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="product_ids"
+                       domain="[('type', '=', 'service')]" />
+                <field name="min_duration"
+                       domain="[('allday', '=', True), ('stop', '&gt;', time.strftime('%d-%m-%Y %H:%M:%S'))]" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -3,13 +3,14 @@
 # * product_uom
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # Bole <bole@dajmi5.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 04:30+0000\n"
-"PO-Revision-Date: 2017-02-11 04:30+0000\n"
+"POT-Creation-Date: 2017-07-29 05:48+0000\n"
+"PO-Revision-Date: 2017-07-29 05:48+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -41,59 +42,54 @@ msgstr "Sat(i)"
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_indef
 msgid "Indefinitely"
-msgstr ""
+msgstr "Neodređeno"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_kilocalorie
 msgid "Kilocalorie(s)"
-msgstr ""
+msgstr "Kilokalorije(a)"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_kilojoule
 msgid "Kilojoule(s)"
-msgstr ""
-
-#. module: product_uom
-#: model:product.uom,name:product_uom.product_uom_liter
-msgid "Liter(s)"
-msgstr ""
+msgstr "Kilođul(i)"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_minute
 msgid "Minute(s)"
-msgstr ""
+msgstr "Minuta(e)"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_month
 msgid "Month(s)"
-msgstr ""
+msgstr "Mjesec(i)"
 
 #. module: product_uom
 #: model:product.uom.categ,name:product_uom.product_uom_category_time
 msgid "Time"
-msgstr ""
+msgstr "Vrijeme"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_year
 msgid "Year(s)"
-msgstr ""
+msgstr "Godina(e)"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_ml
 msgid "mL"
-msgstr ""
+msgstr "mL"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_mg
 msgid "mg"
-msgstr ""
+msgstr "mg"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_mmol
 msgid "mmol"
-msgstr ""
+msgstr "mmol"
 
 #. module: product_uom
 #: model:product.uom,name:product_uom.product_uom_ug
 msgid "ug"
-msgstr ""
+msgstr "ug"
