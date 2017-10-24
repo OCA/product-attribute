@@ -10,11 +10,11 @@ class ProductPricelistItem(models.Model):
 
     @api.model
     def _check_applied_on_coherence(self, vals):
-        """ This method chack if applied_on field has the correct value.
+        """ This method checks if applied_on field has the correct value.
         This allows us to use the ``product.pricelist.item``
         for a variant over the one for the template in
         ``sale.order.line`` or ``purchase.order.line``.
-        This module is usfull when we import pricelist.item or
+        This module is useful when we import pricelist.item or
         create it by web service.
         """
         if vals.get('product_tmpl_id') and\

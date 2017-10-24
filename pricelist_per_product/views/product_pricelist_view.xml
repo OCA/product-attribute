@@ -20,32 +20,6 @@
             <xpath expr="//field[@name='item_ids']" position="attributes">
                 <attribute name="context">{'default_base':'list_price', 'default_pricelist_id': id}</attribute>
             </xpath>
-            <xpath expr="//sheet" position="inside">
-                <notebook>
-                    <page name="grid" string="Product Grid">
-                        <group col="4">
-                            <field name="product_item_ids" nolabel="1">
-                                <tree string="Price Grid" editable="1">
-                                    <field name="id" invisible="1"/>
-                                    <field name="product_id"/>
-                                    <field name="sequence" widget="handle"/>
-                                    <field name="price_surcharge" string="Price"/>
-                                    <field name="product_tmpl_id"/>
-                                    <button name="button_product"
-                                            icon="terp-stock_symbol-selection"
-                                            class="oe_link" type="object"
-                                            attrs="{'invisible': [
-                                                ('product_tmpl_id', '=', False),
-                                                ('product_id', '=', False)]}"
-                                            help="Click to see this product"/>
-                                    <field name="price_discount" string="Disc." invisible="1"/>
-                                    <field name="base" string="Base" invisible="1"/>
-                                </tree>
-                            </field>
-                        </group>
-                    </page>
-                </notebook>
-            </xpath>
         </field>
     </record>  
 

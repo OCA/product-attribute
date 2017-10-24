@@ -31,6 +31,7 @@ class ProductPricelist(models.Model):
         pids = self.item_ids.mapped('product_tmpl_id').ids
         return {
             'type': 'ir.actions.act_window',
+            'name': 'Products',
             'target': 'current',
             'domain': [('id', 'in', pids)],
             'view_mode': 'tree,form',

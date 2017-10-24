@@ -13,17 +13,22 @@
                 <attribute name="groups">product.group_sale_pricelist</attribute>
             </xpath>
             <xpath expr="//field[@name='item_ids']" position="attributes">
-                <attribute name="context">{'default_base':'list_price', 'default_applied_on':'1_product', 'default_product_tmpl_id': id}</attribute>
+                <attribute name="context">
+                    {'default_base':'list_price', 'default_applied_on':'1_product', 'default_product_tmpl_id': id}
+                </attribute>
             </xpath>
             <xpath expr="//field[@name='item_ids']" position="inside">
                 <tree string="Pricelist Items" editable="bottom" create="1"
                       delete="1">
                     <field name="pricelist_id" string="Pricelist" required="1"/>
+                    <field name="product_id" string="Product variant"
+                    domain="[('product_tmpl_id', '=', product_tmpl_id)]"/>
                     <field name="fixed_price" string="Price" required="1"/>
                     <field name="min_quantity"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
                     <field name="applied_on" invisible="1"/>
+                    <field name="product_tmpl_id" invisible="1"/>
                 </tree>
             </xpath>
         </field>

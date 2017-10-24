@@ -33,6 +33,7 @@ class TestProductPricelist(TransactionCase):
         pids = self.env.ref('product.product_product_4').ids
         exp = {
             'type': 'ir.actions.act_window',
+            'name': 'Products',
             'target': 'current',
             'domain': [('id', 'in', pids)],
             'view_mode': 'tree,form',
