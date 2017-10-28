@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"POT-Creation-Date: 2017-09-18 11:09+0000\n"
+"PO-Revision-Date: 2017-09-18 11:09+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -46,17 +46,17 @@ msgstr "Imagen principal"
 #. module: product_multi_image
 #: field:product.product,manufacturer:0
 msgid "Manufacturer"
-msgstr ""
+msgstr "Fabricante"
 
 #. module: product_multi_image
 #: field:product.product,manufacturer_pref:0
 msgid "Manufacturer Product Code"
-msgstr ""
+msgstr "Código producto fabricante"
 
 #. module: product_multi_image
 #: field:product.product,manufacturer_pname:0
 msgid "Manufacturer Product Name"
-msgstr ""
+msgstr "Nombre producto fabricante"
 
 #. module: product_multi_image
 #: field:product.product,manufacturer_purl:0
@@ -77,7 +77,7 @@ msgstr "Producto"
 #. module: product_multi_image
 #: field:product.product,categ_ids:0
 msgid "Product Categories"
-msgstr ""
+msgstr "Categorías de producto"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_product_template
