@@ -69,6 +69,7 @@ Contributors
 * Serpent Consulting Services Pvt. Ltd. <jay.vora@serpentcs.com>
 * Marcelo Pickler <loxamir@gmail.com>
 * Andrius Laukavičius <ala@boolit.eu> (Boolit)
+* Apertoso N.V. <www.apertoso.be>
 
 Maintainer
 ----------
