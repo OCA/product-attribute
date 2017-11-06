@@ -1,179 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
-    <data>
-
-        <record model="ir.ui.view" id="product_supplierinfo_extended_form_view">
-        <!-- Copying and modifying the standard as the absence of names makes it impossible to inherit-->
-            <field name="name">product.supplierinfo.extended.form</field>
-            <field name="model">product.supplierinfo</field>
-            <field name="arch" type="xml">
-               <form string="Partner Information">
-                    <group>
-                        <group name="partner" string="Partner">
-                            <field name="type" colspan="4" invisible="1"/>
-                            <field name="name" string="Partner" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'select_type': type}"/>
-                            <field name="product_name" string="Partner Product Name"/>
-                            <field name="product_code" string="Partner Product Code"/>
-                            <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
-                            <label for="delay"/>
-                            <div>
-                                <field name="delay" class="oe_inline"/> days
-                            </div>
-                        </group>
-                        <group string="Price List">
-                            <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
-                            <label for="min_qty"/>
-                            <div>
-                                <field name="min_qty" class="oe_inline"/>
-                                <field name="product_uom" string="Partner Unit of Measure" class="oe_inline" groups="product.group_uom"/>
-                            </div>
-                            <label for="price"/>
-                            <div>
-                                <field name="price" class="oe_inline"/><field name="currency_id" class="oe_inline" groups="base.group_multi_currency"/>
-                            </div>
-                            <label for="date_start" string="Validity"/>
-                            <div><field name="date_start" class="oe_inline"/> to <field name="date_end" class="oe_inline"/></div>
-                        </group>
-                        <group string="Other Information" groups="base.group_multi_company">
-                            <field name="company_id" options="{'no_create': True}"/>
-                        </group>
+<odoo>
+    <record model="ir.ui.view" id="product_supplierinfo_extended_form_view">
+    <!-- Copying and modifying the standard as the absence of names makes it impossible to inherit-->
+        <field name="name">product.supplierinfo.extended.form</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="arch" type="xml">
+           <form string="Partner Information">
+                <group>
+                    <group name="partner" string="Partner">
+                        <field name="type" colspan="4" invisible="1"/>
+                        <field name="name" string="Partner" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'select_type': type}"/>
+                        <field name="product_name" string="Partner Product Name"/>
+                        <field name="product_code" string="Partner Product Code"/>
+                        <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
+                        <label for="delay"/>
+                        <div>
+                            <field name="delay" class="oe_inline"/> days
+                        </div>
                     </group>
-                </form>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="product_supplierinfo_template_form_view">
-            <field name="name">product.supplierinfo.template.form</field>
-            <field name="model">product.supplierinfo</field>
-            <field name="inherit_id" ref="product_supplierinfo_extended_form_view" />
-            <field name="mode">primary</field>
-            <field name="priority" eval="20" />
-            <field name="arch" type="xml">
-                <field name="name" position="before">
-                    <field name="product_tmpl_id" />
-                </field>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="product_supplierinfo_extended_tree_view">
-            <field name="name">product.supplierinfo.partner.tree</field>
-            <field name="model">product.supplierinfo</field>
-            <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
-            <field name="arch" type="xml">
-                <field name="name" position="attributes">
-                    <attribute name="string">Partner</attribute>
-                </field>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="product_supplierinfo_template_tree_view">
-            <field name="name">product.supplierinfo.template.tree</field>
-            <field name="model">product.supplierinfo</field>
-            <field name="inherit_id" ref="product_supplierinfo_extended_tree_view" />
-            <field name="mode">primary</field>
-            <field name="priority" eval="20" />
-            <field name="arch" type="xml">
-                <field name="name" position="after">
-                    <field name="product_tmpl_id" />
-                </field>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="view_product_supplier_inherit">
-            <field name="name">product.template.extended.form</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
-            <field name="arch" type="xml">
-                <field name="seller_ids" position="attributes">
-                    <attribute name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}</attribute>
-                    <attribute name="domain">[('type','=','supplier')]</attribute>
-                    <attribute name="invisible">1</attribute>
-                </field>
-                <field name="seller_ids" position="after">
-                    <field name="supplier_ids"
-                           context="{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}"
-                           domain="[('type','=','supplier')]" />
-                </field>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="product_template_extended_form_view">
-            <field name="name">product.template.extended.form</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_form_view"/>
-            <field name="arch" type="xml">
-                <div name="pricelist_item" position="after">
-                    <separator string="Customers" />
-                    <field name="customer_ids"
-                           context="{'default_search_type':'customer','default_type':'customer','default_product_tmpl_id':id}">
-                    </field>
-                </div>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="product_supplierinfo_search_view">
-            <field name="name">product.supplierinfo.search</field>
-            <field name="model">product.supplierinfo</field>
-            <field name="arch" type="xml">
-                <search string="Supplierinfo search">
-                    <field name="name"/>
-                    <field name="product_tmpl_id"/>
-                    <filter string="Customer" domain="[('type','=','customer')]"
-                            name="is_customer_filter"/>
-                    <filter string="Supplier" domain="[('type','=','supplier')]"
-                            name="is_supplier_filter"/>
-                    <group expand="0" string="Group By" name="group_by">
-                        <filter string="Partner" icon="terp-partner"
-                                domain="[]" context="{'group_by':'name'}"/>
-                        <filter string="Product Template" domain="[]"
-                                name="gb_product_template"
-                                context="{'group_by':'product_tmpl_id'}"/>
-                        <separator />
-                        <filter string="Type" domain="[]" name="gb_type"
-                                context="{'group_by':'type'}"/>
+                    <group string="Price List">
+                        <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+                        <label for="min_qty"/>
+                        <div>
+                            <field name="min_qty" class="oe_inline"/>
+                            <field name="product_uom" string="Partner Unit of Measure" class="oe_inline" groups="product.group_uom"/>
+                        </div>
+                        <label for="price"/>
+                        <div>
+                            <field name="price" class="oe_inline"/><field name="currency_id" class="oe_inline" groups="base.group_multi_currency"/>
+                        </div>
+                        <label for="date_start" string="Validity"/>
+                        <div><field name="date_start" class="oe_inline"/> to <field name="date_end" class="oe_inline"/></div>
                     </group>
-                </search>
+                    <group string="Other Information" groups="base.group_multi_company">
+                        <field name="company_id" options="{'no_create': True}"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_supplierinfo_template_form_view">
+        <field name="name">product.supplierinfo.template.form</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product_supplierinfo_extended_form_view" />
+        <field name="mode">primary</field>
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="product_tmpl_id" />
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="product_supplierinfo_action" model="ir.actions.act_window">
-            <field name="name">Information about a product (customer)</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">product.supplierinfo</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
-            <field name="search_view_id" ref="product_supplierinfo_search_view" />
-            <field name="context">{
-                    'search_default_is_customer_filter': 1,
-                    'default_type': 'customer',
-                    'supplierinfo_type': 'customer',
-                }
+    <record model="ir.ui.view" id="product_supplierinfo_extended_tree_view">
+        <field name="name">product.supplierinfo.partner.tree</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="string">Partner</attribute>
             </field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    Click to define a new product.supplierinfo.
-                </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_supplierinfo_template_tree_view">
+        <field name="name">product.supplierinfo.template.tree</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product_supplierinfo_extended_tree_view" />
+        <field name="mode">primary</field>
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="product_tmpl_id" />
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="product_supplierinfo_customer_act_view"
-                model="ir.actions.act_window.view">
-            <field name="act_window_id" ref="product_supplierinfo_action" />
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="product_supplierinfo_template_form_view" />
-            <field name="sequence" eval="15" />
-        </record>
+    <record model="ir.ui.view" id="view_product_supplier_inherit">
+        <field name="name">product.template.extended.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
+        <field name="arch" type="xml">
+            <field name="seller_ids" position="attributes">
+                <attribute name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}</attribute>
+                <attribute name="domain">[('type','=','supplier')]</attribute>
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="seller_ids" position="after">
+                <field name="supplier_ids"
+                       context="{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}"
+                       domain="[('type','=','supplier')]" />
+            </field>
+        </field>
+    </record>
 
-        <record id="product_supplierinfo_customer_tree_act_view"
-                model="ir.actions.act_window.view">
-            <field name="act_window_id" ref="product_supplierinfo_action" />
-            <field name="view_mode">tree</field>
-            <field name="view_id" ref="product_supplierinfo_template_tree_view" />
-            <field name="sequence" eval="5" />
-        </record>
+    <record model="ir.ui.view" id="product_template_extended_form_view">
+        <field name="name">product.template.extended.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="pricelist_item" position="after">
+                <separator string="Customers" />
+                <field name="customer_ids"
+                       context="{'default_search_type':'customer','default_type':'customer','default_product_tmpl_id':id}">
+                </field>
+            </div>
+        </field>
+    </record>
 
-        <menuitem id="product_supplierinfo_sale_menu" parent="sale.menu_product"
-                  action="product_supplierinfo_action" />
+    <record model="ir.ui.view" id="product_supplierinfo_search_view">
+        <field name="name">product.supplierinfo.search</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="arch" type="xml">
+            <search string="Supplierinfo search">
+                <field name="name"/>
+                <field name="product_tmpl_id"/>
+                <filter string="Customer" domain="[('type','=','customer')]"
+                        name="is_customer_filter"/>
+                <filter string="Supplier" domain="[('type','=','supplier')]"
+                        name="is_supplier_filter"/>
+                <group expand="0" string="Group By" name="group_by">
+                    <filter string="Partner" icon="terp-partner"
+                            domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Product Template" domain="[]"
+                            name="gb_product_template"
+                            context="{'group_by':'product_tmpl_id'}"/>
+                    <separator />
+                    <filter string="Type" domain="[]" name="gb_type"
+                            context="{'group_by':'type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
-    </data>
-</openerp>
+    <record id="product_supplierinfo_action" model="ir.actions.act_window">
+        <field name="name">Information about a product (customer)</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.supplierinfo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="search_view_id" ref="product_supplierinfo_search_view" />
+        <field name="context">{
+                'search_default_is_customer_filter': 1,
+                'default_type': 'customer',
+                'supplierinfo_type': 'customer',
+            }
+        </field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new product.supplierinfo.
+            </p>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_customer_act_view"
+            model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="product_supplierinfo_action" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="product_supplierinfo_template_form_view" />
+        <field name="sequence" eval="15" />
+    </record>
+
+    <record id="product_supplierinfo_customer_tree_act_view"
+            model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="product_supplierinfo_action" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="product_supplierinfo_template_tree_view" />
+        <field name="sequence" eval="5" />
+    </record>
+
+    <menuitem id="product_supplierinfo_sale_menu" parent="sale.menu_product"
+              action="product_supplierinfo_action" />
+
+</odoo>

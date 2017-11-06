@@ -15,7 +15,7 @@ Configuration
 
 For these prices to be used in sale prices calculations, you will have
 to create a pricelist with a rule with option "Based on" with the value
-"Supplier prices on the product form".
+"Partner Prices: Take the price from the customer info on the 'product form')".
 
 Usage
 =====
@@ -23,6 +23,9 @@ Usage
 There's a new section on *Sales* tab of the product form called "Customers",
 where you can define records for customers with the same structure of the
 suppliers.
+
+There's a new option on pricelist items that allows to get the prices from the
+ supplierinfo at the product form.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
