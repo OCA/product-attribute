@@ -14,6 +14,7 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
         self.pricelist_item_model = self.env['product.pricelist.item']
         self.pricelist_model = self.env['product.pricelist']
         self.customer = self._create_customer('customer1')
+        self.unknown = self._create_customer('customer2')
         self.product = self.env.ref('product.product_product_4')
         self.supplierinfo = self._create_supplierinfo(
             'customer', self.customer, self.product)
@@ -21,6 +22,7 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
             'name': 'Test Pricelist',
             'currency_id': self.env.ref('base.USD').id,
         })
+        self.company = self.env.ref('base.main_company')
         self.pricelist_item = self.env['product.pricelist.item'].create({
             'applied_on': '1_product',
             'base': 'list_price',
@@ -88,3 +90,23 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
         price = price_unit.get(self.pricelist.id, False)[0]
         self.assertEqual(price, 100.0,
                          "Error: Price not found for product and customer")
+
+    def test_product_supplierinfo_price(self):
+        price = self.product._get_price_from_supplierinfo(
+            partner_id=self.customer.id)
+        self.assertEqual(price, 100.0,
+                         "Error: Price not found for product and customer")
+        res = self.product.with_context(
+            partner_id=self.customer.id).price_compute(
+            'partner', self.product.uom_id, self.company.currency_id,
+            self.company)
+        self.assertEqual(
+            res[self.product.id], 100.0,
+            "Error: Wrong price for product and customer")
+        res = self.product.with_context(
+            partner_id=self.unknown.id).price_compute(
+            'partner', self.product.uom_id, self.company.currency_id,
+            self.company)
+        self.assertEqual(
+            res[self.product.id], 750.0,
+            "Error: price does not match list price")
