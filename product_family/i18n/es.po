@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_family
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-30 17:14+0000\n"
+"PO-Revision-Date: 2017-03-30 17:14+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_family
+#: field:product.family,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_family
+#: field:product.family,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_family
+#: view:product.family:product_family.product_family_tree
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: product_family
+#: code:addons/product_family/models/product_family.py:29
+#, python-format
+msgid "Error! You cannot create recursive Families."
+msgstr "¡Error! No puede crear familias recursivas."
+
+#. module: product_family
+#: field:product.family,type:0
+msgid "Family Type"
+msgstr "Tipo de familia"
+
+#. module: product_family
+#: field:product.family,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: product_family
+#: field:product.family,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_family
+#: field:product.family,write_date:0
+msgid "Last Updated on"
+msgstr "Última modificación en"
+
+#. module: product_family
+#: field:product.family,parent_left:0
+msgid "Left Parent"
+msgstr "Padre izquierdo"
+
+#. module: product_family
+#: field:product.family,name:0
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: product_family
+#: selection:product.family,type:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: product_family
+#: field:product.family,parent_id:0
+msgid "Parent Family"
+msgstr "Familia padre"
+
+#. module: product_family
+#: model:ir.actions.act_window,name:product_family.product_family_action
+#: model:ir.ui.menu,name:product_family.product_family_menu
+#: view:product.family:product_family.product_family_search
+msgid "Product Families"
+msgstr "Familias de producto"
+
+#. module: product_family
+#: view:product.family:product_family.product_family_form
+#: view:product.template:product_family.product_template_search
+#: field:product.template,family_ids:0
+msgid "Product Family"
+msgstr "Familia de producto"
+
+#. module: product_family
+#: model:ir.model,name:product_family.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_family
+#: field:product.family,parent_right:0
+msgid "Right Parent"
+msgstr "Padre derecho"
+
+#. module: product_family
+#: field:product.family,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_family
+#: selection:product.family,type:0
+msgid "View"
+msgstr "Vista"
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="product_family_form" model="ir.ui.view">
+            <field name="name">product.family.form</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <form string="Product Family">
+                    <sheet>
+                        <div class="oe_left" style="width: 500px;">
+                            <div class="oe_title" style="width: 390px;">
+                                <label class="oe_edit_only" for="name"/>
+                                <h1><field name="name" class="oe_inline"/></h1>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="parent_id"/>
+                                <field name="type"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_family_tree" model="ir.ui.view">
+            <field name="name">product.family.tree</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="sequence" widget="handle"/>
+                    <field name="display_name" string="Display Name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_family_search" model="ir.ui.view">
+		    <field name="name">product.family.search</field>
+		    <field name="model">product.family</field>
+		    <field name="arch" type="xml">
+		        <search string="Product Families">
+		            <field name="name"/>
+		            <field name="parent_id"/>
+		        </search>
+		    </field>
+		</record>
+
+        <record id="product_family_action" model="ir.actions.act_window">
+		    <field name="name">Product Families</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">product.family</field>
+			<field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="product_family_menu"
+				  parent="base.menu_base_config"
+				  action="product_family_action"
+				  sequence="31"/>
+
+    </data>
+</openerp>
