@@ -1,0 +1,100 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_pricelist_item_list_view
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-03 15:37+0000\n"
+"PO-Revision-Date: 2017-11-03 15:37+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid ""
+"<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Public Price  -  </span>\n"
+"                        <span attrs=\"{'invisible':[('base', '!=', 'standard_price')]}\">Cost  -  </span>\n"
+"                        <span attrs=\"{'invisible':[('base', '!=', 'pricelist')]}\">Other Pricelist  -  </span>"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.actions.act_window,help:product_pricelist_item_list_view.product_pricelist_items_action
+msgid "Click to create a pricelist rule."
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Compute Price"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.actions.act_window,help:product_pricelist_item_list_view.product_pricelist_items_action
+msgid ""
+"Each rule include a set of applicability criteria (date range,\n"
+"            product category...) and a computation that easily helps to achieve\n"
+"            any kind of pricing."
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Max. Margin"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Min. Margin"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "New Price ="
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Price Computation"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Pricelist Items"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.actions.act_window,name:product_pricelist_item_list_view.product_pricelist_items_action
+#: model:ir.ui.menu,name:product_pricelist_item_list_view.product_pricelist_items_action_menu
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_search_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_tree_view
+msgid "Pricelist Rules"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Product Variant"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid "Rounding Method"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_form_view
+msgid ""
+"The computed price is expressed in the default Unit of Measure of the "
+"product."
+msgstr ""
