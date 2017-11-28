@@ -88,4 +88,9 @@ class ProductPack(models.Model):
             'pack_parent_line_id': line.id,
             'pack_depth': line.pack_depth + 1,
         }
+
+        tmp_line = self.env['sale.order.line'].new(vals)
+        tmp_line.product_id_change()
+        vals['name'] = '%s%s' % (
+            '> ' * (line.pack_depth + 1), tmp_line.name)
         return vals
