@@ -3,21 +3,19 @@
 # * product_profile
 # 
 # Translators:
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2018
-# OCA Transbot <transbot@odoo-community.org>, 2018
-# enjolras <yo@miguelrevilla.com>, 2018
+# Peter Hageman <hageman.p@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2018-01-29 08:49+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"POT-Creation-Date: 2018-01-27 03:49+0000\n"
+"PO-Revision-Date: 2018-01-27 03:49+0000\n"
+"Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2018\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
+"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_profile
@@ -37,12 +35,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr "Aangemaakt door"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr "Aangemaakt op"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_sequence
@@ -55,7 +53,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_display_name
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Weergavenaam"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_base_config_settings_group_product_profile
@@ -114,54 +112,54 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile___last_update
 #: model:ir.model.fields,field_description:product_profile.field_product_profile___last_update
 msgid "Last Modified on"
-msgstr "Última modificación el"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr "Laatst aangepast door"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_date
 msgid "Last Updated on"
-msgstr "Última modificación el"
+msgstr "Laatst aangepast op"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_name
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
 msgid "Product"
-msgstr "Producto"
+msgstr ""
 
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile
 msgid "Product Profile"
-msgstr "Perfil del producto"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
 msgid "Product Profiles"
-msgstr "Perfiles del producto"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr "Productsjabloon"
 
 #. module: product_profile
 #: model:ir.ui.view,arch_db:product_profile.product_template_search_view
 msgid "Profile"
-msgstr "Perfil"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product_profile_id
 #: model:ir.model.fields,field_description:product_profile.field_product_template_profile_id
 msgid "Profile id"
-msgstr "ID del perfil"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_name
@@ -187,12 +185,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_sequence
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr ""
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Service"
-msgstr "Servicio"
+msgstr ""
 
 #. module: product_profile
 #: selection:product.profile,type:0
@@ -202,19 +200,19 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_type
 msgid "Type"
-msgstr "Tipo"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_base_config_settings
 msgid "base.config.settings"
-msgstr "base.config.settings"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
 msgid "product.mixin.profile"
-msgstr "product.mixin.profile"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_profile
 msgid "product.profile"
-msgstr "product.profile"
+msgstr ""
