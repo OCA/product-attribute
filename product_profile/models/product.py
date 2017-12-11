@@ -1,4 +1,4 @@
-    # coding: utf-8
+# coding: utf-8
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -80,11 +80,12 @@ class ProductProfile(models.Model):
                 products = self.env['product.product'].search(
                     [('profile_id', '=', rec.id)])
                 if products:
-                    _logger.info(" >>> %s Products updating after updated '%s' pro"
-                                 "duct profile" % (len(products), rec.name))
-                    data = products._get_vals_from_profile({'profile_id': rec.id})
+                    _logger.info(
+                        " >>> %s Products updating after updated '%s' pro"
+                        "duct profile" % (len(products), rec.name))
+                    data = products._get_vals_from_profile(
+                        {'profile_id': rec.id})
                     products.write(data)
-
         return res
 
     @api.model
@@ -160,7 +161,8 @@ class ProductMixinProfile(models.AbstractModel):
         """ Update product fields with product.profile corresponding fields """
         self.ensure_one()
         if self.profile_id:
-            values = self._get_vals_from_profile({'profile_id': self.profile_id.id})
+            values = self._get_vals_from_profile(
+                {'profile_id': self.profile_id.id})
             for field, value in values.items():
                 try:
                     self[field] = value
@@ -243,11 +245,9 @@ class ProductTemplate(models.Model):
     _name = 'product.template'
 
     profile_id = fields.Many2one(
-        'product.profile',
-        string='Profile')
+        'product.profile')
     profile_explanation = fields.Text(
         related='profile_id.explanation',
-        string='Profile Explanation',
         readonly=True)
 
     @api.model
