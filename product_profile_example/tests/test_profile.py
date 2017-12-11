@@ -82,4 +82,3 @@ class TestProductProfile(TransactionCase):
                 'name': "Product with modified category"}
         new_product = self.prd_m.create(vals)
         self.assertEqual(new_product.categ_id, categ)
-
