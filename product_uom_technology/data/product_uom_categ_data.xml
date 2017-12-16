@@ -11,4 +11,8 @@
         <field name="name">Information</field>
     </record>
 
+    <record id="product_uom_categ_frequency" model="product.uom.categ">
+        <field name="name">Frequency</field>
+    </record>
+
 </odoo>
