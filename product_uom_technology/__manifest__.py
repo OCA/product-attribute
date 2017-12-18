@@ -14,10 +14,6 @@
     'application': False,
     'installable': True,
     'depends': [
-        'base_external_system',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
-        'wizards/wizard_address_validate_view.xml',
+        'product',
     ],
 }
