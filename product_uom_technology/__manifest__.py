@@ -16,4 +16,8 @@
     'depends': [
         'product',
     ],
+    'data': [
+        'data/product_uom_categ_data.xml',
+        'data/product_uom_data.xml',
+    ],
 }
