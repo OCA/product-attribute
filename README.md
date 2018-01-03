@@ -32,7 +32,6 @@ Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[base_custom_attributes](base_custom_attributes/) | 0.1.1 (unported) | base_custom_attributes
 [partner_custom_attributes](partner_custom_attributes/) | 0.1.0 (unported) | Partner Custom Attributes
 [product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 (unported) | Product attribute types
 [product_catalog_report](product_catalog_report/) | 1.0 (unported) | Product Catalog - Print Report of product catalog with product image
