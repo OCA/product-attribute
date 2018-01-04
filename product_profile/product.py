@@ -32,12 +32,15 @@ def format_except_message(error, field, self):
     return message
 
 
-def get_profile_fields_to_exclude():
-    # These fields must not be synchronized between product.profile
-    # and product.template/product
-    return models.MAGIC_COLUMNS + [
-        'name', 'explanation', 'sequence',
-        'display_name', '__last_update']
+class ProductProfileFieldToExclude(models.AbstractModel):
+    _name = 'product.profile.field_to_exclude'
+
+    def get_profile_fields_to_exclude(self):
+        # These fields must not be synchronized between product.profile
+        # and product.template/product
+        return models.MAGIC_COLUMNS + [
+            'name', 'explanation', 'sequence',
+            'display_name', '__last_update']
 
 
 class ProductProfile(models.Model):
@@ -76,7 +79,10 @@ class ProductProfile(models.Model):
         """ Profile update can impact products: we take care
             to propagate ad hoc changes """
         new_vals = vals.copy()
-        excludable_fields = get_profile_fields_to_exclude()
+        excludable_fields = (
+            self.env['product.profile.field_to_exclude'].
+            get_profile_fields_to_exclude()
+        )
         for key in vals:
             if (key.startswith(PROF_DEFAULT_STR) or
                     key in excludable_fields or
@@ -138,7 +144,10 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _get_profile_fields(self):
-        fields_to_exclude = set(get_profile_fields_to_exclude())
+        fields_to_exclude = set(
+            self.env['product.profile.field_to_exclude'].
+            get_profile_fields_to_exclude()
+        )
         return [field for field in self.env['product.profile']._fields.keys()
                 if field not in fields_to_exclude]
 
