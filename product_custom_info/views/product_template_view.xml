@@ -11,9 +11,11 @@
             <notebook>
                 <page name="custom_info" string="Custom Information">
                     <group name="group_custom_info_template">
+                        <group>
                         <field name="custom_info_template_id"
                                options='{"no_quick_create": True}'
                         />
+                        </group>
                         <field name="custom_info_ids"
                                colspan="4"
                                nolabel="1"
