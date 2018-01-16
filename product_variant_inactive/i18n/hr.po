@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_sequence
+# * product_variant_inactive
 # 
 # Translators:
 # Bole <bole@dajmi5.com>, 2018
@@ -18,18 +18,7 @@ msgstr ""
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#. module: product_sequence
-#: code:addons/product_sequence/models/product_product.py:45
-#, python-format
-msgid "-copy"
-msgstr "-kopija"
-
-#. module: product_sequence
-#: model:ir.model,name:product_sequence.model_product_product
+#. module: product_variant_inactive
+#: model:ir.model,name:product_variant_inactive.model_product_product
 msgid "Product"
 msgstr "Proizvod"
-
-#. module: product_sequence
-#: sql_constraint:product.product:0
-msgid "The reference must be unique"
-msgstr "Referenca mora biti jedinstvena"
