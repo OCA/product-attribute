@@ -35,8 +35,8 @@ In Customer taxes, there's a boolean called "Tax included in Price".
    :alt: A product with sale price and sale price with taxes
    :width: 75%
 
-- **Or** if you choose two customer taxes, one with taxes included in price, and the other ine without taxes included in price,
-this module displayed only the sale price AND a warning message.
+- **Or** if you choose two customer taxes, one included in price, and the other one not included in price,
+this module displays the sale price and the two calculated prices.
 
 .. image:: /product_sale_tax_price_included/static/description/product_tax_included_and_not.png
    :alt: A product with sale price and a warning message

@@ -17,8 +17,8 @@ msgstr ""
 
 #. module: product_sale_tax_price_included
 #: field:product.template,warning_various_taxes:0
-msgid "/!\\ Taxes are not ALL included in Sale Price /!\\"
-msgstr "/!\\ Toutes les Taxes ne sont pas comprises dans le Prix de vente /!\\"
+msgid "/!\\ Taxes are not ALL included in Sale Price"
+msgstr "/!\\ Toutes les Taxes ne sont pas comprises dans le Prix de vente\"
 
 #. module: product_sale_tax_price_included
 #: selection:product.template,sale_tax_price_include:0

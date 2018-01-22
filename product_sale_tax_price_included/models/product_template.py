@@ -26,11 +26,6 @@ class ProductTemplate(models.Model):
         compute='_compute_price_vat_incl',
         string='Sale Price Taxes Included',
         )
-    warning_various_taxes = fields.Char(
-        string='/!\\ Taxes are not ALL included in Sale Price /!\\',
-        help='See the customer taxes for this product',
-        readonly=True,
-        )
 
     @api.depends('list_price', 'taxes_id', 'taxes_id.type', 'taxes_id.amount')
     def _compute_price_vat_excl(self):
@@ -43,6 +38,13 @@ class ProductTemplate(models.Model):
         taxes = self.env['account.tax'].browse(self.taxes_id.ids)
         info = taxes.compute_all(self.list_price, 1)
         self.price_vat_incl = info['total_included']
+
+    @api.depends('list_price', 'taxes_id', 'taxes_id.type', 'taxes_id.amount')
+    def _compute_price_various_taxes(self):
+        taxes = self.env['account.tax'].browse(self.taxes_id.ids)
+        info = taxes.compute_all(self.list_price, 1)
+        self.price_vat_incl = info['total_included']
+        self.price_vat_excl = info['total']
 
     @api.depends('taxes_id')
     def _compute_sale_tax_price_include(self):

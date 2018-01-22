@@ -6,7 +6,7 @@
 
         <!-- PRODUCT TEMPLATE-->
         <!-- Form view -->
-        <record id="product_template_form_view_inherit_product_sale_tax_price_included" model="ir.ui.view">
+        <record id="product_template_view_form" model="ir.ui.view">
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
@@ -14,13 +14,12 @@
                     <field name="sale_tax_price_include" attrs="{'invisible': 1}"/>
                 </field>
                 <field name="list_price" position="before">
-                    <field name="warning_various_taxes" attrs="{'invisible': [('sale_tax_price_include', '!=', 'various_taxes')]}"/>
-                </field>
-                <field name="list_price" position="before">
-                    <field name="price_vat_excl" attrs="{'invisible': [('sale_tax_price_include', '!=', 'all_tax_incl')]}"/>
+                    <field name="price_vat_excl" attrs="{'invisible': [('sale_tax_price_include', '!=', 'all_tax_incl'),
+                        ('sale_tax_price_include', '!=', 'various_taxes')]}"/>
                 </field>
                 <field name="list_price" position="after">
-                    <field name="price_vat_incl" attrs="{'invisible': [('sale_tax_price_include', '!=', 'all_tax_excl')]}"/>
+                    <field name="price_vat_incl" attrs="{'invisible': [('sale_tax_price_include', '!=', 'all_tax_excl'),
+                        ('sale_tax_price_include', '!=', 'various_taxes')]}"/>
                 </field>
             </field>
         </record>
