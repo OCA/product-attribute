@@ -120,7 +120,7 @@ class ProductPricelistItem(models.Model):
             vals.update({
                 'price_discount': -1,
                 'related_sequence': self._get_sequence_price_grid(vals),
-                'base': 1,
+                'base': vals.get('base', 1),
             })
         return super(ProductPricelistItem, self).create(vals)
 
