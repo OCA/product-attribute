@@ -19,6 +19,8 @@ addon | version | summary
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
 [product_pricelist_tier](product_pricelist_tier/) | 10.0.1.0.0 | Extends pricelists with tiered pricing.
+[product_profile](product_profile/) | 10.0.1.0.0 | Allow to configure a product in 1 click
+[product_profile_example](product_profile_example/) | 10.0.1.0.1 | Product Profile Use Case
 [product_sequence](product_sequence/) | 10.0.1.0.0 | Product Sequence
 [product_service_duration](product_service_duration/) | 10.0.1.0.0 | Extends events and meetings with services.
 [product_state](product_state/) | 10.0.1.0.0 | Product State
