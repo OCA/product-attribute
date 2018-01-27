@@ -3,20 +3,19 @@
 # * product_profile
 # 
 # Translators:
-# Niki Waibel, 2018
-# OCA Transbot <transbot@odoo-community.org>, 2018
+# Peter Hageman <hageman.p@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-27 03:49+0000\n"
 "PO-Revision-Date: 2018-01-27 03:49+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
-"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2018\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
+"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_profile
@@ -36,12 +35,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_sequence
@@ -54,7 +53,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_display_name
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_base_config_settings_group_product_profile
@@ -82,7 +81,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_id
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_profile
 #: code:addons/product_profile/models/product.py:119
@@ -118,12 +117,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst aangepast door"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst aangepast op"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_name
@@ -133,7 +132,7 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
 msgid "Product"
-msgstr "Produkt"
+msgstr ""
 
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile
@@ -149,7 +148,7 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
 msgid "Product Template"
-msgstr "Produktvorlage"
+msgstr "Productsjabloon"
 
 #. module: product_profile
 #: model:ir.ui.view,arch_db:product_profile.product_template_search_view
