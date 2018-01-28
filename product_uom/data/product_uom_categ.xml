@@ -9,4 +9,8 @@
         <field name="name">Time</field>
     </record>
 
+    <record id="product_uom_category_temp" model="product.uom.categ">
+        <field name="name">Temperature</field>
+    </record>
+
 </odoo>

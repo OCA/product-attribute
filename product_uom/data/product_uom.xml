@@ -84,5 +84,16 @@
         <field name="category_id" ref="product_uom_category_time"/>
         <field name="uom_type">bigger</field>
     </record>
-
+    <!-- Temperature -->
+    <record id="product_uom_celsius" model="product.uom">
+        <field name="name">Celsius</field>
+        <field name="category_id" ref="product_uom_category_temp"/>
+        <field name="uom_type">reference</field>
+    </record>
+    <record id="product_uom_fahrenheit" model="product.uom">
+        <field name="name">Fahrenheit</field>
+        <field name="factor_inv" eval="33.8"/>
+        <field name="category_id" ref="product_uom_category_temp"/>
+        <field name="uom_type">bigger</field>
+    </record>
 </odoo>
