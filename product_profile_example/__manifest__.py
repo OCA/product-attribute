@@ -15,10 +15,8 @@
         'mrp',
     ],
     'website': 'http://www.akretion.com/',
-    'data': [
-        'product.profile.csv',
-    ],
     'demo': [
+        'product.profile.csv',
         'product_product_demo.xml',
     ],
     'installable': True,
