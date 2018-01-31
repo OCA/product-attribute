@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Product base form view -->
+    <record id="product_template_only_form_fm_version_view" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="barcode" position="after">
+                    <field name="firmware_version"/>
+                </field>
+            </data>
+        </field>
+    </record>
+</odoo>
