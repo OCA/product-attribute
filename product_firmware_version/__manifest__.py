@@ -3,7 +3,7 @@
 
 {
     "name": "Product firmware version",
-    "summary": "Allow to store the revision of a firmware on a part (latest) and his related serial numbers",
+    "summary": "Store the firmware version of a part",
     "version": "11.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
