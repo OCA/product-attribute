@@ -3,7 +3,7 @@
 
 {
     "name": "Stock product lot firmware version",
-    "summary": "Allows to store the current firmware version on an serialized electronic item.",
+    "summary": "Store the firmware version of a serialized electronic item",
     "version": "11.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
