@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+        <record id="channel_product_eol" model="mail.channel">
+            <field name="name">Product End-Of-Life Channel</field>
+            <field name="description">Product End-Of-Life Group Notification.</field>
+            <field name="email_send">True</field>
+            <field name="public">private</field>
+            <field name="channel_last_seen_partner_ids" eval="[(4, ref('base.user_root'))]"/>
+        </record>        
+</odoo>
