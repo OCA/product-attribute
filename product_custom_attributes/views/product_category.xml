@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="product_category_form_view" model="ir.ui.view">
+      <field name="name">product.category.form</field>
+      <field name="model">product.category</field>
+      <field name="inherit_id" ref="product.product_category_form_view"/>
+      <field name="arch" type="xml">
+        <field name="type" position="after">
+          <field name="attribute_set_id"/>
+          <newline/>
+        </field>
+      </field>
+    </record>
+
+  </data>
+</odoo>

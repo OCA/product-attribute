@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                      #
-#   Copyright (C) 2011 Akretion Benoît GUILLOT <benoit.guillot@akretion.com>  #
+#   base_attribute.attributes for OpenERP                                     #
+#   Copyright (C) 2015 Odoo Community Association (OCA)                       #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
 #   it under the terms of the GNU Affero General Public License as            #
@@ -19,29 +19,29 @@
 #                                                                             #
 ###############################################################################
 
-
-
 {
-    'name': 'product_custom_attributes',
-    'version': '0.2.1',
+    'name': 'Product Custom Attributes',
+    'version': '1.0',
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
-    'description': """This module adds the possibility to easily create custom fields on products.
-Each product can be linked to an attribute set (like camera, fridge...).
-Each attribute has custom fields (for example, you don't need the same field for a frigde and a camera).
-In particular it's used by the Magento Magentoerpconnect module to match the EAV flexibility of Magento.
-    """,
-    'author': "Akretion,Odoo Community Association (OCA)",
-    'website': 'http://www.akretion.com/',
-    'depends': ['product', 'base_custom_attributes'],
-    'init_xml': [],
-    'update_xml': [
-           'product_view.xml',
-           'custom_attributes_view.xml',
-           'wizard/open_product_by_attribute_set.xml',
+    'author': "Akretion,"
+    "Odoo Community Association (OCA),"
+    "Savoir-faire Linux",
+    'website': 'https://github.com/OCA/product-attribute/',
+    'depends': [
+        'product',
+        'base_custom_attributes',
+        'sale',
+    ],
+    'data': [
+        'views/attribute_set.xml',
+        'views/attribute_group.xml',
+        'views/attribute_attribute.xml',
+        'views/product.xml',
+        'views/product_category.xml',
+        'wizard/open_product_by_attribute_set.xml',
+        'wizard/product_product.xml',
     ],
     'demo_xml': [],
-    'installable': False,
-    'active': False,
+    'installable': True,
 }
-

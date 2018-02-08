@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <menuitem
+        id="menu_attribute_in_config_product"
+        name="Attributes"
+        parent="sale.prod_config_main"
+        sequence="20"/>
+
+    <record id="attribute_set_form_action" model="ir.actions.act_window">
+      <field name="name">Product Attribute Sets</field>
+      <field name="res_model">attribute.set</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="base_custom_attributes.view_attribute_set_search"/>
+      <field name="context">{"force_model": 'product.product'}</field>
+      <field name="help"></field>
+    </record>
+
+    <menuitem
+         action="attribute_set_form_action"
+         id="menu_attribute_set_action"
+         parent="product_custom_attributes.menu_attribute_in_config_product"
+         sequence="1"/>
+
+  </data>
+</odoo>

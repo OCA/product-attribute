@@ -88,7 +88,7 @@ msgstr "Groupes"
 #: code:addons/product_custom_attributes/product.py:108
 #, python-format
 msgid "Custom Attributes"
-msgstr "Attributs personnalisés"
+msgstr "Caractéristiques générales"
 
 #. module: product_custom_attributes
 #: view:open.product.by.attribute.set:0

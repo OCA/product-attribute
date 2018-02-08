@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
 ###############################################################################
 #                                                                             #
-#   product_custom_attributes for OpenERP                                     #
-#   Copyright (C) 2011-2013 Akretion (http://www.akretion.com/)               #
-#   @author: Benoît GUILLOT <benoit.guillot@akretion.com>                     #
+#   base_attribute.attributes for OpenERP                                     #
+#   Copyright (C) 2015 Odoo Community Association (OCA)                       #
 #                                                                             #
 #   This program is free software: you can redistribute it and/or modify      #
 #   it under the terms of the GNU Affero General Public License as            #
@@ -20,19 +19,17 @@
 #                                                                             #
 ###############################################################################
 
-from openerp.osv.orm import TransientModel
-from osv import fields
+from odoo import models, fields, api
 
 
-class open_product_by_attribute_set(TransientModel):
+class open_product_by_attribute_set(models.TransientModel):
     _name = 'open.product.by.attribute.set'
     _description = 'Wizard to open product by attributes set'
 
-    _columns = {
-        'attribute_set_id': fields.many2one('attribute.set', 'Attribute Set'),
-        }
+    attribute_set_id = fields.Many2one('attribute.set', 'Attribute Set')
 
-    def open_product_by_attribute(self, cr, uid, ids, context=None):
+    @api.multi
+    def open_product_by_attribute(self):
         """
         Opens Product by attributes
         @param cr: the current row, from the database cursor,
@@ -40,20 +37,21 @@ class open_product_by_attribute_set(TransientModel):
         @param ids: List of account chart’s IDs
         @return: dictionary of Product list window for a given attributes set
         """
-        mod_obj = self.pool.get('ir.model.data')
-        act_obj = self.pool.get('ir.actions.act_window')
-        if context is None:
-            context = {}
-        attribute_set = self.browse(cr, uid, ids[0], context=context).attribute_set_id
-        result = mod_obj.get_object_reference(cr, uid, 'product', 'product_normal_action')
-        id = result[1] if result else False
-        result = act_obj.read(cr, uid, [id], context=context)[0]
-        grp_ids = self.pool.get('attribute.group').search(cr, uid, [('attribute_set_id', '=', attribute_set.id)])
-        ctx = "{'open_product_by_attribute_set': %s, \
-              'attribute_group_ids': %s}" % (True, grp_ids)
-        result['context'] = ctx
-        result['domain'] = "[('attribute_set_id', '=', %s)]" % attribute_set.id
-        result['name'] = attribute_set.name
+        self.ensure_one()
+
+        result = self.env.ref('product.product_normal_action')
+        result = result.read()[0]
+
+        attribute_set = self.attribute_set_id
+
+        grp_ids = self.env['attribute.group'].search([
+            ('attribute_set_id', '=', attribute_set.id)]).ids
+
+        result.update({
+            'context': "{'open_product_by_attribute_set': %s, \
+                'attribute_group_ids': %s}" % (True, grp_ids),
+            'domain': "[('attribute_set_id', '=', %s)]" % attribute_set.id,
+            'name': attribute_set.name,
+        })
+
         return result
-
-

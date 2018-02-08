@@ -19,4 +19,5 @@
 #                                                                             #
 ###############################################################################
 
-from . import open_product_by_attribute_set
+from . import product_category
+from . import product
