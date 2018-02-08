@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="purchase_order_form_product_eol" model="ir.ui.view">
+        <field name="name">purchase.order.form.product.eol</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//field[@name='product_id']"
+                   position="attributes">
+                <attribute name="context">{'partner_id':parent.partner_id, 'quantity':product_qty,'uom':product_uom, 'company_id': parent.company_id, 'source_from':'purchase_order'}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
