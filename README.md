@@ -19,7 +19,6 @@ addon | version | summary
 [product_attribute_multi_type](product_attribute_multi_type/) | 8.0.1.0.0 | Product attribute types
 [product_attribute_priority](product_attribute_priority/) | 8.0.1.0.0 | Product attribute priority
 [product_brand](product_brand/) | 8.0.0.1.0 | Add brand to products
-<<<<<<< 8cae7bfbc69d5c351e6dc7b67108b7a547e8383f
 [product_code_builder](product_code_builder/) | 8.0.0.0.1 | Create product references according to attributes
 [product_code_builder_sequence](product_code_builder_sequence/) | 8.0.0.0.1 | Product Code Builder Sequence
 [product_custom_info](product_custom_info/) | 8.0.1.0.0 | Add custom field in products
