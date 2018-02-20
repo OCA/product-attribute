@@ -3,7 +3,7 @@
     <!-- Cron job for sending email to Product Eol Group -->
     <record id="ir_cron_notify_product_eol" model="ir.cron">
         <field name="name">Product: End-Of-Life Notification</field>
-        <field name="model_id" ref="model_product_template"/>
+        <field name="model_id" ref="model_product_product"/>
         <field name="type">ir.actions.server</field>
         <field name="state">code</field>
         <field name="code">model.send_notify_product_eol()</field>

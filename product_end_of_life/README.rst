@@ -19,16 +19,21 @@ Configuration
 Discuss Channel
 ---------------
 
-* Look for the the Private Channel -> Product End-Of-Life Channel.
+* Look for the the Private Channel > Product End-Of-Life Channel.
 * Click settings and add members on this channel.
 
 Scheduled Action
 ----------------
 
-* Go to Settings > Technical > Automation > Scheduled Actions
-* Look for Product: End-Of-Life Notification
-* Set desired values. Run manually to test.
-* Check email is sent out to the members of the Product End-Of-Life Channel.
+* The scheduled action is already configured to check
+  if a product is about to reach its end-of-life
+* The interval is automatically configured using the notification delay setting
+
+Notification Delay
+------------------
+
+* The delay before a notification is sent for a product about to reach its end-of-life
+  can be configured in Inventory > Configuration > Settings
 
 Usage
 =====
@@ -39,11 +44,6 @@ Products
 * Go to Inventory > Master Data > Products
 * Create or edit a product
 * Enter the End of Life Date and save
-
-Known issues / Roadmap
-======================
-
-* Improve management of approaching_* fields on the scheduled action: https://github.com/OCA/product-attribute/issues/319
 
 Bug Tracker
 ===========
