@@ -9,11 +9,12 @@
       <field name="arch" type="xml">
         <form>
             <group string="Pricelist" invisible="context.get('active_model') in ('product.pricelist', 'res.partner')">
-                <field name="pricelist_id" widget="selection" options="{'no_create': True}"/>
+                <field name="pricelist_id" options="{'no_create': True, 'no_create_edit': True}"/>
             </group>
             <group string="Filter Options" col="4">
                 <field name="show_sale_price"/>
                 <field name="show_standard_price"/>
+                <field name="order_field"/>
                 <field name="show_variants" groups="product.group_product_variant"/>
             </group>
             <group attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}">
