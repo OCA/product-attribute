@@ -6,7 +6,7 @@
     "name": "Product Pricelist Direct Print",
     "summary": "Print price list from menu option, product templates, "
                "products variants or price lists",
-    "version": "9.0.1.0.0",
+    "version": "9.0.1.1.0",
     "category": "Product",
     "website": "http://www.tecnativa.com",
     "author": "Tecnativa, "
