@@ -34,6 +34,10 @@ class ProductPricelistPrint(models.TransientModel):
     )
     show_standard_price = fields.Boolean(string='Show Cost Price')
     show_sale_price = fields.Boolean(string='Show Sale Price')
+    order_field = fields.Selection([
+        ('name', 'Name'),
+        ('default_code', 'Internal Reference'),
+    ], string='Order')
 
     @api.model
     def default_get(self, fields):

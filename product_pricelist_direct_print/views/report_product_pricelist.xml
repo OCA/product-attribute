@@ -58,6 +58,14 @@
                             <t t-set="category_products"
                                t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
                                         products.search([('sale_ok','=',True), ('categ_id','=',category.id)])"/>
+                            <t t-if="o.order_field == 'name'">
+                                <t t-set="category_products"
+                                   t-value="category_products.sorted(lambda x: x.name)"/>
+                            </t>
+                            <t t-if="o.order_field == 'default_code'">
+                                <t t-set="category_products"
+                                   t-value="category_products.sorted(lambda x: x.default_code)"/>
+                            </t>
                             <tr t-if="category_products">
                                 <td colspan="100">
                                     <strong t-field="category.name"/>
