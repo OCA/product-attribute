@@ -5,13 +5,14 @@
 # Translators:
 # Pedro M. Baeza <pedro.baeza@gmail.com>, 2018
 # OCA Transbot <transbot@odoo-community.org>, 2018
+# enjolras <yo@miguelrevilla.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-27 03:49+0000\n"
-"PO-Revision-Date: 2018-01-27 03:49+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"POT-Creation-Date: 2018-01-29 08:49+0000\n"
+"PO-Revision-Date: 2018-01-29 08:49+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,7 +129,7 @@ msgstr "Última modificación el"
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
@@ -138,13 +139,13 @@ msgstr "Producto"
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile
 msgid "Product Profile"
-msgstr ""
+msgstr "Perfil del producto"
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
 msgid "Product Profiles"
-msgstr ""
+msgstr "Perfiles del producto"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
@@ -154,13 +155,13 @@ msgstr "Plantilla de producto"
 #. module: product_profile
 #: model:ir.ui.view,arch_db:product_profile.product_template_search_view
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product_profile_id
 #: model:ir.model.fields,field_description:product_profile.field_product_template_profile_id
 msgid "Profile id"
-msgstr ""
+msgstr "ID del perfil"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_name
@@ -186,12 +187,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Secuencia"
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Service"
-msgstr ""
+msgstr "Servicio"
 
 #. module: product_profile
 #: selection:product.profile,type:0
@@ -206,14 +207,14 @@ msgstr "Tipo"
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_base_config_settings
 msgid "base.config.settings"
-msgstr ""
+msgstr "base.config.settings"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
 msgid "product.mixin.profile"
-msgstr ""
+msgstr "product.mixin.profile"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_profile
 msgid "product.profile"
-msgstr ""
+msgstr "product.profile"
