@@ -3,14 +3,15 @@
 # * product_default_image
 # 
 # Translators:
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2017
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2018
+# enjolras <yo@miguelrevilla.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 02:55+0000\n"
-"PO-Revision-Date: 2017-07-29 02:55+0000\n"
-"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>, 2017\n"
+"POT-Creation-Date: 2018-01-29 08:48+0000\n"
+"PO-Revision-Date: 2018-01-29 08:48+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #. module: product_default_image
 #: model:ir.model,name:product_default_image.model_abstract_product_image
 msgid "Abstract Product Image"
-msgstr ""
+msgstr "Imagen de producto genérica"
 
 #. module: product_default_image
 #: model:ir.model.fields,help:product_default_image.field_product_product_auto_change_image
@@ -34,28 +35,28 @@ msgstr ""
 #. module: product_default_image
 #: model:ir.ui.view,arch_db:product_default_image.product_template_form_view
 msgid "Apply Default Image"
-msgstr ""
+msgstr "Aplicar imagen predeterminada"
 
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_product_auto_change_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_template_auto_change_image
 msgid "Auto Change Image"
-msgstr ""
+msgstr "Cambiar imagen automáticamente"
 
 #. module: product_default_image
 #: selection:product.template,image_type:0
 msgid "Category"
-msgstr ""
+msgstr "Categoría"
 
 #. module: product_default_image
 #: selection:res.company,product_image_target:0
 msgid "Category's Image"
-msgstr ""
+msgstr "Imagen de la categoría"
 
 #. module: product_default_image
 #: selection:product.template,image_type:0
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 #. module: product_default_image
 #: model:res.company,overdue_msg:product_default_image.demo_res_company_1
@@ -76,7 +77,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_default_image.field_res_company_product_image_target
 #: model:ir.model.fields,field_description:product_default_image.field_stock_config_settings_product_image_target
 msgid "Default Product Image"
-msgstr ""
+msgstr "Imagen de producto predeterminada"
 
 #. module: product_default_image
 #: model:ir.model.fields,help:product_default_image.field_product_product_product_image_target
@@ -103,19 +104,19 @@ msgstr "Nombre mostrado"
 #. module: product_default_image
 #: selection:product.template,image_type:0
 msgid "Global"
-msgstr ""
+msgstr "Global"
 
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_res_company_product_image
 #: model:ir.model.fields,field_description:product_default_image.field_stock_config_settings_product_image
 #: selection:res.company,product_image_target:0
 msgid "Global Product Image"
-msgstr ""
+msgstr "Imagen de producto global"
 
 #. module: product_default_image
 #: selection:res.company,product_image_target:0
 msgid "Global and Category"
-msgstr ""
+msgstr "Global y categoría"
 
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_abstract_product_image_id
@@ -125,13 +126,13 @@ msgstr "ID"
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_category_image
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_product_image_type
 #: model:ir.model.fields,field_description:product_default_image.field_product_template_image_type
 msgid "Image Type"
-msgstr ""
+msgstr "Tipo de imagen"
 
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_abstract_product_image___last_update
@@ -141,7 +142,7 @@ msgstr "Última modificación el"
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_category_image_medium
 msgid "Medium-Sized Image"
-msgstr ""
+msgstr "Imagen de tamaño mediano"
 
 #. module: product_default_image
 #: model:ir.model.fields,help:product_default_image.field_product_category_image_medium
@@ -154,17 +155,17 @@ msgstr ""
 #. module: product_default_image
 #: selection:res.company,product_image_target:0
 msgid "No Default Image"
-msgstr ""
+msgstr "Sin imagen predeterminada"
 
 #. module: product_default_image
 #: selection:product.template,image_type:0
 msgid "No Image"
-msgstr ""
+msgstr "Sin imagen"
 
 #. module: product_default_image
 #: model:ir.model,name:product_default_image.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoría de producto"
 
 #. module: product_default_image
 #: model:product.category,name:product_default_image.demo_product_category_1
