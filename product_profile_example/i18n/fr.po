@@ -3,41 +3,40 @@
 # * product_profile_example
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2018
-# Rudolf Schnapka <rs@techno-flex.de>, 2018
+# Quentin THEURET <odoo@kerpeo.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:49+0000\n"
 "PO-Revision-Date: 2018-01-29 08:49+0000\n"
-"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2018\n"
-"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2018\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: product_profile_example
 #: model:ir.model.fields,field_description:product_profile_example.field_product_profile_available_in_pos
 msgid "Available in pos"
-msgstr "Verfügbar in POS/Kasse"
+msgstr "Disponible dans le PdV"
 
 #. module: product_profile_example
 #: model:ir.model.fields,field_description:product_profile_example.field_product_profile_purchase_ok
 msgid "Can be Purchased"
-msgstr "Kann eingekauft werden"
+msgstr "Peut être acheté"
 
 #. module: product_profile_example
 #: model:ir.model.fields,field_description:product_profile_example.field_product_profile_sale_ok
 msgid "Can be Sold"
-msgstr "Kann verkauft werden"
+msgstr "Peut être vendu"
 
 #. module: product_profile_example
 #: model:ir.model.fields,field_description:product_profile_example.field_product_profile_profile_default_categ_id
 msgid "Default category"
-msgstr "Vorgabe-Kategorie"
+msgstr "Catégorie par défaut"
 
 #. module: product_profile_example
 #: model:ir.model.fields,help:product_profile_example.field_product_profile_profile_default_route_ids
@@ -45,21 +44,21 @@ msgid ""
 "Depending on the modules installed, this will allow you to define the route "
 "of the product: whether it will be bought, manufactured, MTO/MTS,..."
 msgstr ""
-"Abhängig von installierten Modulen, wird Ihnen hiermit die Festlegung des "
-"Routings für das Produkt ermöglicht: Ob es erworben oder hergestellt wird, "
-"Auftrags-/Lagerbeschaffung, ..."
+"En fonction des modules installés, ceci va vous autoriser à définir la route"
+" du produit : si il peut être acheté, fabriqué, approvisionné à la commande,"
+" approvisionné sur stock,..."
 
 #. module: product_profile_example
 #: model:ir.model.fields,field_description:product_profile_example.field_product_profile_profile_default_route_ids
 msgid "Routes"
-msgstr "Routen"
+msgstr "Routes"
 
 #. module: product_profile_example
 #: model:ir.model.fields,help:product_profile_example.field_product_profile_sale_ok
 msgid "Specify if the product can be selected in a sales order line."
 msgstr ""
-"Geben Sie an, ob das Produkt in einer Verkaufsauftragsposition ausgewählt "
-"werden darf."
+"Détermine si le produit peut être sélectionné dans les lignes de commandes "
+"de vente."
 
 #. module: product_profile_example
 #: model:ir.model,name:product_profile_example.model_product_profile
