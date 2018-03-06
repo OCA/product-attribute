@@ -1,52 +1,44 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_profile
+#	* product_profile
 #
-# Translators:
-# Bole <bole@dajmi5.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2018-01-29 08:49+0000\n"
-"Last-Translator: Bole <bole@dajmi5.com>, 2018\n"
-"Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
-"Language: hr\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: \n"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_product_profile_explanation
 #: model:ir.model.fields,help:product_profile.field_product_profile_explanation
 #: model:ir.model.fields,help:product_profile.field_product_template_profile_explanation
-msgid ""
-"An explanation on the selected profile\n"
+msgid "An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Consumable"
-msgstr "Potrošni"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_uid
 msgid "Created by"
-msgstr "Kreirao"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_date
 msgid "Created on"
-msgstr "Kreirano"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_sequence
-msgid ""
-"Defines the order of the entries of profile_id field\n"
+msgid "Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 
@@ -54,7 +46,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_display_name
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_display_name
 msgid "Display Name"
-msgstr "Naziv"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_base_config_settings_group_product_profile
@@ -63,8 +55,7 @@ msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_base_config_settings_group_product_profile
-msgid ""
-"Display fields computed by product profile module.\n"
+msgid "Display fields computed by product profile module.\n"
 "For debugging purpose see menu\n"
 "Sales > Configuration \n"
 "> Product Categories and Attributes\n"
@@ -76,27 +67,24 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_explanation
 #: model:ir.model.fields,field_description:product_profile.field_product_template_profile_explanation
 msgid "Explanation"
-msgstr "Objašnjenje"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_id
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: product_profile
 #: code:addons/product_profile/models/product.py:119
 #, python-format
-msgid ""
-"If you update this profile, all products using this profile could also be "
-"updated. Changes can take a while."
+msgid "If you update this profile, all products using this profile could also be updated. Changes can take a while."
 msgstr ""
 
 #. module: product_profile
 #: code:addons/product_profile/models/product.py:31
 #, python-format
-msgid ""
-"Issue\n"
+msgid "Issue\n"
 "------\n"
 "%s\n"
 "'%s' value can't be applied to '%s' field.\n"
@@ -113,63 +101,61 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile___last_update
 #: model:ir.model.fields,field_description:product_profile.field_product_profile___last_update
 msgid "Last Modified on"
-msgstr "Zadnje ažurirano"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_name
 msgid "Name"
-msgstr "naziv"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
 msgid "Product"
-msgstr "Proizvod"
+msgstr ""
 
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile
 msgid "Product Profile"
-msgstr "Profil proizvoda"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
 msgid "Product Profiles"
-msgstr "Profili proizvoda"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
 msgid "Product Template"
-msgstr "Predložak proizvoda"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product_profile_id
 #: model:ir.model.fields,field_description:product_profile.field_product_template_profile_id
 #: model:ir.ui.view,arch_db:product_profile.product_template_search_view
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_name
-msgid ""
-"Profile name displayed on product template\n"
+msgid "Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
 #: code:addons/product_profile/models/product.py:12
 #, python-format
-msgid ""
-"Sales > Configuration \n"
+msgid "Sales > Configuration \n"
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
@@ -182,37 +168,35 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_sequence
 msgid "Sequence"
-msgstr "Sekvenca"
+msgstr ""
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Service"
-msgstr "Usluga"
+msgstr ""
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Stockable Product"
-msgstr "Uskladištivi proizvod"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_type
 msgid "Type"
-msgstr "Tip"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_base_config_settings
 msgid "base.config.settings"
-msgstr "base.config.settings"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
 msgid "product.mixin.profile"
-msgstr "product.mixin.profile"
+msgstr ""
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_profile
 msgid "product.profile"
-msgstr "product.profile"
+msgstr ""
 
-#~ msgid "Profile id"
-#~ msgstr "ID profila"

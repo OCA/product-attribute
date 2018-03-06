@@ -245,7 +245,7 @@ class ProductTemplate(models.Model):
     _name = 'product.template'
 
     profile_id = fields.Many2one(
-        'product.profile')
+        comodel_name='product.profile', string='Profile')
     profile_explanation = fields.Text(
         related='profile_id.explanation',
         readonly=True)
