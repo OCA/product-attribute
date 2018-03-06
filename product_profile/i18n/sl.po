@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * product_profile
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
@@ -12,11 +12,12 @@ msgstr ""
 "PO-Revision-Date: 2018-01-27 03:49+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_product_profile_explanation
@@ -173,15 +174,11 @@ msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_product_profile_id
+#: model:ir.model.fields,field_description:product_profile.field_product_template_profile_id
 #: model:ir.ui.view,arch_db:product_profile.product_template_search_view
 msgid "Profile"
 msgstr "Profil"
-
-#. module: product_profile
-#: model:ir.model.fields,field_description:product_profile.field_product_product_profile_id
-#: model:ir.model.fields,field_description:product_profile.field_product_template_profile_id
-msgid "Profile id"
-msgstr ""
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_name
