@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 02:43+0000\n"
-"PO-Revision-Date: 2017-05-05 02:43+0000\n"
+"POT-Creation-Date: 2017-07-29 02:55+0000\n"
+"PO-Revision-Date: 2017-07-29 02:55+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -99,7 +99,6 @@ msgstr "Partner"
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_open_single_product_brand
 #: model:ir.ui.view,arch_db:product_brand.product_brand_search_form_view
-#: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
 msgid "Product Brand"
 msgstr "Brand proizvoda"
 
