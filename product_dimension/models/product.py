@@ -25,8 +25,7 @@ class Product(models.Model):
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
 
-        return self.env['product.uom']._compute_qty_obj(
-            from_unit=dimensional_uom,
+        return dimensional_uom._compute_quantity(
             qty=measure,
             to_unit=uom_meters)
 
@@ -47,7 +46,6 @@ class Product(models.Model):
 
 
 class ProductTemplate(models.Model):
-
     _inherit = 'product.template'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
@@ -64,8 +62,7 @@ class ProductTemplate(models.Model):
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
 
-        return self.env['product.uom']._compute_qty_obj(
-            from_unit=dimensional_uom,
+        return dimensional_uom._compute_quantity(
             qty=measure,
             to_unit=uom_meters)
 
