@@ -28,7 +28,9 @@ class Product(models.Model):
         return self.env['product.uom']._compute_qty_obj(
             from_unit=dimensional_uom,
             qty=measure,
-            to_unit=uom_meters)
+            to_unit=uom_meters,
+            round=False,
+            )
 
     @api.model
     def _get_dimension_uom_domain(self):
@@ -67,7 +69,9 @@ class ProductTemplate(models.Model):
         return self.env['product.uom']._compute_qty_obj(
             from_unit=dimensional_uom,
             qty=measure,
-            to_unit=uom_meters)
+            to_unit=uom_meters,
+            round=False,
+            )
 
     length = fields.Float(related='product_variant_ids.length')
     height = fields.Float(related='product_variant_ids.height')
