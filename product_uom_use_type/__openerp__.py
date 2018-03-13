@@ -19,7 +19,7 @@
         "product",
     ],
     "data": [
-        'views/product_uom.xml',
+        'views/view_product_uom.xml',
     ],
     'demo': [
         'demo/product_uom_demo.xml'
