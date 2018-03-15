@@ -6,7 +6,7 @@ Product Dimension
 Add dimensions (length, width and height) to products. Find the volume
 automatically when you change one of these dimensions.
 
-This module was previously hosted on github.com/ingadhoc/odoo-addons and
+This module was previously hosted on https://github.com/ingadhoc/odoo-addons and
 before that on https://launchpad.net/~ingenieria-adhoc.
 
 For further information, please visit:
@@ -30,6 +30,7 @@ Contributors
 * Juan Jose Scarafia <jjs@ingadhoc.com>
 * Leonardo Pistone <leonardo.pistone@camptocamp.com>
 * Denis Leemann <denis.leemann@camptocamp.com>
+* Kumar Aberer <kumar.aberer@braintec-group.com>
 
 Maintainer
 ----------
@@ -44,4 +45,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
