@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2004 Tiny SPRL
 # Copyright 2016 Sodexis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -12,6 +11,8 @@ def pre_init_hook(cr):
     :param cr: database cursor
     :return: void
     """
-    cr.execute("UPDATE product_product "
-               "SET default_code = '!!mig!!' || id "
-               "WHERE default_code IS NULL OR default_code = '/';")
+    cr.execute(
+        "UPDATE product_product "
+        "SET default_code = '!!mig!!' || id "
+        "WHERE default_code IS NULL OR default_code = '/';"
+    )
