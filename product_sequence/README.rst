@@ -9,21 +9,34 @@ Product Sequence
 This module allows to associate a sequence to the product reference.
 The reference (default code) is unique (SQL constraint) and required.
 
+You can optionally specify different sequences for different product
+categories.
+
 Installation
 ============
 
-Prior to installing this module, if you have any existing products you should ensure
-they already have a unique reference (or no reference) set.  Products with a default_code of
-'/' or empty will automatically be assigned a code of "!!mig!!" followed by the system id for that product.
+Prior to installing this module, if you have any existing products you should
+ensure they already have a unique reference (or no reference) set.  Products
+with a default_code of '/' or empty will automatically be assigned a code of
+"!!mig!!" followed by the system id for that product.
 
-Otherwise the setting of the unique constraint will fail and the module will fail to install.
+Otherwise the setting of the unique constraint will fail and the module will
+fail to install.
 
 Usage
 =====
 
+To specify a different sequence for a product category proceed as follows:
+
+#. Go to the a Product Category form view.
+   (**note:** you will need to install Inventory app to be able to access to
+   the form view, *Inventory > Configuration > Products > Products Categories*;
+   or create a menuitem manually).
+#. Fill the *Prefix for Product Internal Reference* as desired.
+
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/10.0
+   :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 Bug Tracker
 ===========
@@ -47,6 +60,7 @@ Contributors
 * Angel Moya <angel.moya@domatix.com>
 * Graeme Gellatly <g@o4sb.com>
 * Sodexis <dev@sodexis.com>
+* Lois Rilo <lois.rilo@eficent.com>
 
 Maintainer
 ----------
