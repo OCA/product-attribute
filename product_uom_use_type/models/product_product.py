@@ -11,7 +11,7 @@ class ProductProduct(models.Model):
 
     @api.multi
     def onchange_uom(self, uom_id, uom_po_id):
-        res = super(ProductTemplate, self).onchange_uom(uom_id, uom_po_id)
+        res = super(ProductProduct, self).onchange_uom(uom_id, uom_po_id)
         if (uom_id and
                 self.env['product.uom'].browse(uom_id).use_type == 'both'):
             res and res or {}
