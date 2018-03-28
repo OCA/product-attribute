@@ -6,18 +6,18 @@
 Product Category Image
 ======================
 
-This module adds an *image* field on the Product Categories.
+This module adds an *image* field on Product Categories.
 
 Many e-commerce software have the ability to set an image on a product category, so we need to have this field in Odoo in order to sync with these e-commerce software.
 
 Usage
 =====
 
-Go to the menu *Sales > Configuration > Product Categories & Attributes > Product Categories* and select a product category. You will see the image field next to the name of the category.
+Go to the menu *Sales > Configuration > Products > Product Categories* and select a product category. You will see the image field next to the name of the category.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/8.0
+   :target: https://runbot.odoo-community.org/runbot/135/10.0
 
 Bug Tracker
 ===========
