@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--
+    <record model="ir.ui.view" id="product_normal_form_view">
+        <field name="name">product_normal_form_view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+        <xpath expr="//label[@for='volume']" position="before">
+            <field name="dimensional_uom_id" attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu'])]}"/>
+            <field name="length" attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu'])]}"/>
+            <field name="width" attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu'])]}"/>
+            <field name="height" attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu'])]}"/>
+        </xpath>
+        </field>
+    </record>
+-->
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.dimensions</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='weight']" position="after">
+                <label string="Dimensions"
+                    help="Choose unit of measure, set dimensions. The volume will be calculated automaticaly."
+                    attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '&gt;', 1)]}"/>
+                <div class="o_row" attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '&gt;', 1)]}">
+                    <strong style="padding: 0 1px 0 0;">L</strong>
+                    <field name="length"/>
+                    <strong style="padding: 0 1px 0 5px;">W</strong>
+                    <field name="width"/>
+                    <strong style="padding: 0 1px 0 5px;">H</strong>
+                    <field name="height"/>
+                    <field name="dimensional_uom_id" placeholder="UoM"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='volume']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
