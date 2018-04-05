@@ -4,7 +4,6 @@
 
 {
     "name": "Product Supplierinfo Revision",
-    "summary": "Customizations for Licores Reyes",
     "version": "9.0.1.0.0",
     "category": "Product",
     "website": "http://www.tecnativa.com",
