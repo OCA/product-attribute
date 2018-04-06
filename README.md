@@ -25,7 +25,7 @@ addon | version | summary
 [product_pricelist_item_list_view](product_pricelist_item_list_view/) | 9.0.1.0.0 | View and search the list of pricelist items
 [product_pricelist_tax_included](product_pricelist_tax_included/) | 9.0.1.0.0 | Write product price list with taxes include
 [product_sequence](product_sequence/) | 9.0.1.0.0 | Product Sequence
-[product_supplierinfo_revision](product_supplierinfo_revision/) | 9.0.1.0.0 | Customizations for Licores Reyes
+[product_supplierinfo_revision](product_supplierinfo_revision/) | 9.0.1.0.0 | Product Supplierinfo Revision
 [product_uom](product_uom/) | 9.0.1.0.1 | Provide missing uom
 
 
