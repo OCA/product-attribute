@@ -19,9 +19,9 @@
         <field name="inherit_id" ref="product.product_template_tree_view"/>
         <field name="priority">50</field>
         <field name="arch" type="xml">
-    	    <field name="type" position="after">
+            <field name="type" position="after">
                 <field name="state"/>
-	    </field>
+            </field>
         </field>
     </record>
 </odoo>
