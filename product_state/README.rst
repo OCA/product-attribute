@@ -6,19 +6,7 @@
 Product State
 =============
 
-In version 10.0 Odoo removes the state field from product. This module re-introduces it and allows simple product life cycle.
-
-Installation
-============
-
-To install this module, you need to:
-
-* Click on install button
-
-Configuration
-=============
-
-Nothing to configure.
+This module introduces the state field on product template and allows simple product life cycle.
 
 Usage
 =====
@@ -29,7 +17,7 @@ To use this module, you need to:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/10.0
+   :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 Bug Tracker
 ===========
@@ -37,8 +25,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/product-attribute/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/product-attribute/issues/new?body=module:%20product_life_period%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
@@ -52,6 +39,7 @@ Contributors
 ------------
 
 * Cedric Pigeon <cedric.pigeon@acsone.eu>
+* Alexandre Saunier <alexandre.saunier@camptocamp.com>
 
 Maintainer
 ----------
