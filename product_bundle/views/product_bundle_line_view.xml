@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+
+<record model="ir.ui.view" id="product_bundle_line_form">
+    <field name="name">product.bundle.line.form</field>
+    <field name="model">product.bundle.line</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form string="Bundle Product Line">
+            <group>
+                <field name="bundle_id"
+                       invisible="context.get('hide_bundle_id')"
+                       required="not context.get('hide_bundle_id')"/>
+                <field name="product_id"
+                       invisible="context.get('hide_product_id')"
+                       required="not context.get('hide_product_id')"/>
+                <field name="qty"/>
+                <field name="total_lst_price"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="product_bundle_line_tree">
+    <field name="name">product.bundle.line.tree</field>
+    <field name="model">product.bundle.line</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+        <tree string="Bundle Product Lines" editable="bottom">
+            <field name="bundle_id"
+                   invisible="context.get('hide_bundle_id')"
+                   required="not context.get('hide_bundle_id')"/>
+            <field name="product_id"
+                   invisible="context.get('hide_product_id')"
+                   required="not context.get('hide_product_id')"/>
+            <field name="qty"/>
+            <field name="total_lst_price"/>
+        </tree>
+    </field>
+</record>
+
+</odoo>

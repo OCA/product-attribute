@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+
+<record model="ir.ui.view" id="product_template_form_view">
+    <field name="name">Product and product template bundles</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view" />
+    <field name="arch" type="xml">
+        <xpath expr="//div[@name='options']" position="inside">
+            <div>
+                <field name="bundle_ok"/>
+                <label for="bundle_ok"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//field[@name='type']" position="attributes">
+            <attribute name="attrs">{'invisible': [('bundle_ok', '=', True)]}</attribute>
+        </xpath>
+
+        <xpath expr="//field[@name='list_price']" position="before">
+            <field name="bundle_lines_lst_price"
+                   attrs="{'invisible': [('bundle_ok', '=', False)]}"/>
+        </xpath>
+
+        <xpath expr="//notebook" position="inside">
+            <page name="bundle" string="Bundle">
+                <group>
+                    <field name="bundle_line_ids"
+                           attrs="{'invisible': [('bundle_ok', '=', False)]}"/>
+                    <field name="inverse_bundle_line_ids"/>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+<record id="product_template_only_form_view" model="ir.ui.view">
+    <field name="name">Product template only bundles</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@name='variants']" position="attributes">
+            <attribute name="attrs">{'invisible': [('bundle_ok', '=', True)]}</attribute>
+        </xpath>
+
+        <!-- Bundles should display stock buttons -->
+        <xpath expr="//button[field/@name='qty_available']"
+               position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '!=', 'product'), ('bundle_ok', '=', False)], 'readonly': [('bundle_ok', '=', True)]}</attribute>
+        </xpath>
+        <xpath expr="//button[.//field/@name='virtual_available']"
+               position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '!=', 'product'), ('bundle_ok', '=', False)], 'readonly': [('bundle_ok', '=', True)]}</attribute>
+        </xpath>
+    </field>
+</record>
+
+<record id="product_normal_form_view" model="ir.ui.view">
+    <field name="name">Product variant only bundles</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="stock.product_form_view_procurement_button"/>
+    <field name="arch" type="xml">
+        <!-- Bundles should display stock buttons -->
+        <xpath expr="//button[field/@name='qty_available']"
+               position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '!=', 'product'), ('bundle_ok', '=', False)], 'readonly': [('bundle_ok', '=', True)]}</attribute>
+        </xpath>
+        <xpath expr="//button[.//field/@name='virtual_available']"
+               position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '!=', 'product'), ('bundle_ok', '=', False)], 'readonly': [('bundle_ok', '=', True)]}</attribute>
+        </xpath>
+    </field>
+</record>
+
+<record id="product_template_kanban_view" model="ir.ui.view">
+    <field name="name">Product bundle kanban</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="stock.product_template_kanban_stock_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='lst_price']" position="after">
+            <field name="bundle_ok"/>
+        </xpath>
+        <xpath expr="//li[@t-if and .//field/@name='qty_available']"
+               position="attributes">
+            <attribute name="t-if">record.type.raw_value == 'product' || record.bundle_ok.raw_value === true</attribute>
+        </xpath>
+        <xpath expr="//li[@t-if and .//field/@name='virtual_available']"
+               position="attributes">
+            <attribute name="t-if">record.type.raw_value == 'product' || record.bundle_ok.raw_value === true</attribute>
+        </xpath>
+    </field>
+</record>
+
+<record id="product_template_search_view" model="ir.ui.view">
+    <field name="name">Filter bundles</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_search_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//filter[@name='consumable']" position="after">
+            <filter name="bundle"
+                    string="Bundles"
+                    domain="[('bundle_ok', '=', True)]"/>
+        </xpath>
+    </field>
+</record>
+
+</odoo>
