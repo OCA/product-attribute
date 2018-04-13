@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_supplierinfo_revision
+#	* product_supplierinfo_revision
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-03 15:37+0000\n"
-"PO-Revision-Date: 2017-11-03 15:37+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
-"Language: es\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: product_supplierinfo_revision
 #: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
@@ -26,17 +21,17 @@ msgstr ""
 #. module: product_supplierinfo_revision
 #: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_date_end
@@ -51,7 +46,7 @@ msgstr ""
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.actions.act_window,name:product_supplierinfo_revision.supplierinfo_duplicate_wizard_action
@@ -61,7 +56,7 @@ msgstr ""
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_id
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model,name:product_supplierinfo_revision.model_product_supplierinfo
@@ -71,17 +66,17 @@ msgstr ""
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard___last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_write_uid
 msgid "Last Updated by"
-msgstr "Última actualización de"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_previous_info_id
@@ -100,8 +95,7 @@ msgstr ""
 
 #. module: product_supplierinfo_revision
 #: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
-msgid ""
-"Set new start date and variation percent to duplicate.\n"
+msgid "Set new start date and variation percent to duplicate.\n"
 "                    This process set start date previous day as end date of\n"
 "                    origin record.\n"
 "                    <br/>\n"
@@ -128,3 +122,4 @@ msgstr ""
 #: model:ir.model,name:product_supplierinfo_revision.model_product_supplierinfo_duplicate_wizard
 msgid "product.supplierinfo.duplicate.wizard"
 msgstr ""
+
