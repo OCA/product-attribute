@@ -1,5 +1,5 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
 =============================
@@ -14,20 +14,21 @@ Usage
 
 To use this module:
 
-#. If you are a purchase manager, go to *Purchases > Purchase >
+#. If you are a purchase manager, and you have checked "Manage Vendor Price"
+   in the technical settings of your user, go to *Purchases > Purchase >
    Supplier Pricelist* and select one or more supplier pricelist.
 #. Click on Action button and execute the wizard **Duplicate Supplier Info**.
-#. Enter date start from which new price will be vigent. You can enter date
+#. Enter date start from which new price will be valid. You can enter date
    end and percent to increase old supplier pricelist.
 #. By clicking on Apply button, a new supplier pricelist will be created with
    a price increased accordingly to the percent entered. Old supplier
    pricelist will have a date end from which pricelist will be out of date.
 #. You can check supplier pricelists as well as variation percent in the
-   product form, by clicking on *Inventory* tab.
+   product form, by clicking on *Purchase* tab.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/9.0
+   :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 
 Bug Tracker
@@ -50,6 +51,7 @@ Contributors
 ------------
 
 * Carlos Dauden <carlos.dauden@tecnativa.com>
+* Vicent Cubells <vicent.cubells@tecnativa.com>
 
 
 Maintainer
