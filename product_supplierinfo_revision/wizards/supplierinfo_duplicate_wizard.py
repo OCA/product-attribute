@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
-# © 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
+# Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from dateutil.relativedelta import relativedelta
 
-from openerp import api, fields, models
-import openerp.addons.decimal_precision as dp
+from odoo import api, fields, models
+import odoo.addons.decimal_precision as dp
 
 
 class ProductSupplierInfoDuplicateWizard(models.TransientModel):
@@ -36,6 +35,6 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
             'product.product_supplierinfo_type_action').read()[0]
         if len(supplierinfo_news) > 0:
             action['domain'] = [('id', 'in', supplierinfo_news.ids)]
-        else:
+        else:  # pragma: no cover
             action = {'type': 'ir.actions.act_window_close'}
         return action
