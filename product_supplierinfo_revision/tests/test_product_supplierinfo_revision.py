@@ -1,14 +1,16 @@
-# -*- coding: utf-8 -*-
-# © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2018 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp.tests import common
+from odoo.tests import common
 
 
 class TestProductSupplierinfoRevision(common.SavepointCase):
+    post_install = True
+    at_install = False
 
     @classmethod
     def setUpClass(cls):
@@ -31,7 +33,7 @@ class TestProductSupplierinfoRevision(common.SavepointCase):
         })
         result = wizard.with_context(
             active_ids=self.supplierinfo.ids).action_apply()
-        self.assertEqual(result['name'], 'Supplier Pricelist')
+        self.assertEqual(result['name'], 'Vendor Pricelists')
         new_supplierinfo = self.env['product.supplierinfo'].browse(
             result['domain'][0][2][0]
         )
