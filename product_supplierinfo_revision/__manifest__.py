@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
+# Copyright 2018 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     "name": "Product Supplierinfo Revision",
-    "summary": "Customizations for Licores Reyes",
-    "version": "9.0.1.0.0",
+    "version": "11.0.1.0.0",
     "category": "Product",
     "website": "http://www.tecnativa.com",
     "author": "Tecnativa, "
