@@ -13,4 +13,19 @@
             </data>
         </field>
     </record>
+
+    <!-- Product tree view -->
+    <record id="product_template_tree_priority_view" model="ir.ui.view">
+        <field name="name">product.template.product.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_stock_product_template_tree"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="virtual_available" position="after">
+                    <field name="priority"/>
+                </field>
+            </data>
+        </field>
+    </record>
+
 </odoo>
