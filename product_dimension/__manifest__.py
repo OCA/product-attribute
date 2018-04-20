@@ -6,11 +6,13 @@
     'name': 'Product Dimension',
     'version': '11.0.1.0.0',
     'category': 'Product',
-    'author': 'brain-tec AG, ADHOC SA, Camptocamp, '
+    'author': 'brain-tec AG, ADHOC SA, Camptocamp SA, '
               'Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'depends': ['product'],
     'data': ['views/product_view.xml'],
     'installable': True,
-    'images': [],
+    'images': [
+        'static/description/icon.png',
+    ],
 }
