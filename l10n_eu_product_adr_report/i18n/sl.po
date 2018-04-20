@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * l10n_eu_product_adr_report
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: odoomrp-utils (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-08 08:46+0000\n"
+"PO-Revision-Date: 2015-09-28 13:34+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/odoomrp-utils-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.adr.class:l10n_eu_product_adr_report.product_adr_class_form_view
+msgid "ADR Class"
+msgstr "ADR razred"
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.actions.act_window,name:l10n_eu_product_adr_report.product_adr_action
+#: model:ir.ui.menu,name:l10n_eu_product_adr_report.product_ADR_menu
+msgid "ADR Product"
+msgstr "ADR proizvod"
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.actions.report.xml,name:l10n_eu_product_adr_report.product_adr_report
+msgid "ADR product"
+msgstr "ADR proizvod"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "By CARRIER:"
+msgstr "Preko prevoznika:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"CERTIFY that these goods are admitted to be transported by road in accordance with the provisions of\n"
+"                        ADR, and has been properly classified, packaged, marked and labeled in accordance with the provisions\n"
+"                        needed to be transported by road."
+msgstr "POTRJUJEMO, da je dovoljen cestni prevoz teh dobrin v skladu s predpisi\n                        ADR in da so bili ustrezno klasificirani, pakirani in označeni skladno z zahtevami\n                        za cestni prevoz."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Class:"
+msgstr "Razred:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Code:"
+msgstr "Koda:"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Date:"
+msgstr "Datum:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Departure time:"
+msgstr "Čas odhoda:"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,picking_text:0
+msgid "Description text in stock picking"
+msgstr "Opis v zbirniku"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.product:l10n_eu_product_adr_report.product_product_adr_search_view
+msgid "Group by..."
+msgstr "Združi po..."
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Material:"
+msgstr "Material:"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Picking number:"
+msgstr "Zbirnik številka:"
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.model,name:l10n_eu_product_adr_report.model_product_product
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.product,adr_class_id:0
+msgid "Product ADR Class"
+msgstr "ADR razred proizvoda"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.product:l10n_eu_product_adr_report.product_product_adr_search_view
+msgid "Product Type"
+msgstr "Tip proizvoda"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Quanty:"
+msgstr "Količina:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Received from"
+msgstr "Prejeto od"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Shipper:"
+msgstr "Odpremnik:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "THE DRIVER OF THE VEHICLE:"
+msgstr "VOZNIK VOZILA:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The driver DECLARES :"
+msgstr "Voznik IZJAVLJA :"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"The instructions to follow in case of accident, leak or fire\n"
+"                            that may occur during transport."
+msgstr "Navodila za primer nesreče, puščanja ali požara,\n                            ki bi se lahko pripetili med prevozom."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The nature of the goods and the danger posed transport."
+msgstr "Narava blaga in nevarnosti pri prevozu."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"The vehicle and the containment vessel of the goods meet the conditions of the current\n"
+"                            regulations on Road Transport and especially that relating to hazardous waste."
+msgstr "Vozilo in zadrževalni hram blaga ustrezajo tekočim predpisom\n                            o cestnem prevozu in predpisom o nevarnih odpadkih."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Vehicle registration:"
+msgstr "Registracija vozila:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"Which is duly legitimized by driving the vehicle transported corresponds this document\n"
+"                            and knows the rules on movement of your vehicle and transport load fully responsible for\n"
+"                            their transportation task once started."
+msgstr "Ki je ustrezno seznanjen o vožnji in vozilu, ki ustreza temu dokumentu\n                            in je seznanjen glede pravil o premikih vozila in tovora ter polno odgovoren\n                            za izvedbo prevoza, ko se ta prične."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"an MSDS of the product specified above in which\n"
+"                        follows:"
+msgstr "MSDS zgoraj navedenega proizvoda, v katerem\n                        sledi:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "tel:"
+msgstr "tel:"

@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * l10n_eu_product_adr_report
+# 
+# Translators:
+# Oihane Crucelaegui <oihanecruce@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: odoomrp-utils (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-08 08:46+0000\n"
+"PO-Revision-Date: 2015-09-11 12:46+0000\n"
+"Last-Translator: Oihane Crucelaegui <oihanecruce@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/odoomrp-utils-8-0/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.adr.class:l10n_eu_product_adr_report.product_adr_class_form_view
+msgid "ADR Class"
+msgstr "Clase ADR"
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.actions.act_window,name:l10n_eu_product_adr_report.product_adr_action
+#: model:ir.ui.menu,name:l10n_eu_product_adr_report.product_ADR_menu
+msgid "ADR Product"
+msgstr "Producto ADR"
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.actions.report.xml,name:l10n_eu_product_adr_report.product_adr_report
+msgid "ADR product"
+msgstr "Producto ADR"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "By CARRIER:"
+msgstr "Por el transportista:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"CERTIFY that these goods are admitted to be transported by road in accordance with the provisions of\n"
+"                        ADR, and has been properly classified, packaged, marked and labeled in accordance with the provisions\n"
+"                        needed to be transported by road."
+msgstr "CERTIFICAMOS que esta materia se admite al transporte por carretera de acuerdo con las\ndisposiciones del ADR, y ha sido debidamente clasificada, envasada, marcada y etiquetada de acuerdo\ncon las disposiciones necesarias para ser transportada por carretera."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Class:"
+msgstr "Clase:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Code:"
+msgstr "Código:"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Departure time:"
+msgstr "Hora de salida:"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,picking_text:0
+msgid "Description text in stock picking"
+msgstr "Texto de descripción en albarán"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.product:l10n_eu_product_adr_report.product_product_adr_search_view
+msgid "Group by..."
+msgstr "Agrupar por..."
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultima actualizacin por"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima actualizacion en"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Material:"
+msgstr "Material:"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Picking number:"
+msgstr "Nº Albarán:"
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.model,name:l10n_eu_product_adr_report.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_eu_product_adr_report
+#: field:product.product,adr_class_id:0
+msgid "Product ADR Class"
+msgstr "Producto clase ADR"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.product:l10n_eu_product_adr_report.product_product_adr_search_view
+msgid "Product Type"
+msgstr "Tipo producto"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Quanty:"
+msgstr "Cantidad:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Received from"
+msgstr "Que ha recibido de"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Shipper:"
+msgstr "Expedidor:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "THE DRIVER OF THE VEHICLE:"
+msgstr "El conductor del vehículo:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The driver DECLARES :"
+msgstr "El conductor DECLARA :"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"The instructions to follow in case of accident, leak or fire\n"
+"                            that may occur during transport."
+msgstr "Las instrucciones a seguir en caso de accidente, fuga o incendio \nque pudiesen producirse durante el transporte."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The nature of the goods and the danger posed transport."
+msgstr "La naturaleza de la mercancía y el peligro que encierra su transporte."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"The vehicle and the containment vessel of the goods meet the conditions of the current\n"
+"                            regulations on Road Transport and especially that relating to hazardous waste."
+msgstr "Que el vehículo y el recipiente contenedor de la mercancía cumplen con las condiciones exigidas por la\nnormativa vigente sobre el Transporte por Carreteras y, en especial, la relativa a mercancía peligrosa."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Vehicle registration:"
+msgstr "Matrícula:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"Which is duly legitimized by driving the vehicle transported corresponds this document\n"
+"                            and knows the rules on movement of your vehicle and transport load fully responsible for\n"
+"                            their transportation task once started."
+msgstr "Que está debidamente legitimado por la conducción del vehículo a cuyo transporte corresponde este\ndocumento y conoce perfectamente las normas sobre circulación de su vehículo y transporte de la\ncarga, responsabilizándose plenamente de su cometido una vez iniciado el transporte."
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid ""
+"an MSDS of the product specified above in which\n"
+"                        follows:"
+msgstr "una MSDS del producto especificado anteriormente en la que  \nde la siguiente manera:"
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "tel:"
+msgstr "tel:"

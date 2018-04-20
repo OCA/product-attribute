@@ -1,0 +1,189 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_eu_product_adr_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-22 08:57+0000\n"
+"PO-Revision-Date: 2015-04-22 08:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_eu_product_adr_report
+#: view:product.adr.class:l10n_eu_product_adr_report.product_adr_class_form_view
+msgid "ADR Class"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.actions.report.xml,name:l10n_eu_product_adr_report.product_adr_report
+msgid "ADR product"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "By CARRIER:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "CERTIFY that these goods are admitted to be transported by road in accordance with the provisions of\n"
+"                        ADR, and has been properly classified, packaged, marked and labeled in accordance with the provisions\n"
+"                        needed to be transported by road."
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Class:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Code:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Date:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Departure time:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,picking_text:0
+msgid "Description text in stock picking"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:product.product:l10n_eu_product_adr_report.product_product_adr_search_view
+msgid "Group by..."
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,id:0
+msgid "ID"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Material:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.adr.class,name:0
+msgid "Name"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Picking number:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: model:ir.model,name:l10n_eu_product_adr_report.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: field:product.product,adr_class_id:0
+msgid "Product ADR Class"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:product.product:l10n_eu_product_adr_report.product_product_adr_search_view
+msgid "Product Type"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Quanty:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Received from"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Shipper:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "THE DRIVER OF THE VEHICLE:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The driver DECLARES :"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The instructions to follow in case of accident, leak or fire\n"
+"                            that may occur during transport."
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The nature of the goods and the danger posed transport."
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "The vehicle and the containment vessel of the goods meet the conditions of the current\n"
+"                            regulations on Road Transport and especially that relating to hazardous waste."
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Vehicle registration:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "Which is duly legitimized by driving the vehicle transported corresponds this document\n"
+"                            and knows the rules on movement of your vehicle and transport load fully responsible for\n"
+"                            their transportation task once started."
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "an MSDS of the product specified above in which\n"
+"                        follows:"
+msgstr ""
+
+#. module: l10n_eu_product_adr_report
+#: view:website:l10n_eu_product_adr_report.product_adr_report_document
+msgid "tel:"
+msgstr ""
+
