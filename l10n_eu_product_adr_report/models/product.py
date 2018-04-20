@@ -5,6 +5,7 @@
 from openerp import models, api, fields, _
 from odoo.exceptions import ValidationError
 
+
 class ProductAdrClass(models.Model):
     _name = 'product.adr.class'
 
@@ -36,6 +37,7 @@ class ProductAdrClass(models.Model):
                        ('un_number', 'ilike', name)]
         recs = self.search(domain_name + args, limit=limit)
         return recs.name_get()
+
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'

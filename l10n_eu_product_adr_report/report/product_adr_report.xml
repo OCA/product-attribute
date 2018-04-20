@@ -1,17 +1,17 @@
 <odoo>
-	<data>
+    <data>
 
         <report
-		    id="product_adr_report"
-		    model="stock.picking"
-		    string="ADR product"
-		    report_type="qweb-pdf"
-		    name="l10n_eu_product_adr_report.product_adr_report_document"
-		    file="l10n_eu_product_adr_report.product_adr_report"
-		    attachment_use="False"
-		/>
+            id="product_adr_report"
+            model="stock.picking"
+            string="ADR product"
+            report_type="qweb-pdf"
+            name="l10n_eu_product_adr_report.product_adr_report_document"
+            file="l10n_eu_product_adr_report.product_adr_report"
+            attachment_use="False"
+        />
 
-		<template id="product_adr_report_document">
+        <template id="product_adr_report_document">
 
             <div class="page">
 
@@ -85,7 +85,7 @@
                     </t>
                 </t>
             </div>
-		</template>
+        </template>
 
-	</data>
+    </data>
 </odoo>
