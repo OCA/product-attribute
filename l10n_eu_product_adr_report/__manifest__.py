@@ -26,7 +26,8 @@
     "author": "OdooMRP team, "
               "AvanzOSC, "
               "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
-              "brain-tec AG",
+              "brain-tec AG,"
+              "Odoo Community Association (OCA)",
     "category": "Product Management",
     "website": "http://www.odoomrp.com",
     'license': 'AGPL-3',
