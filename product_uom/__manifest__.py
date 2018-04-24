@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Ursa Information Systems <http://ursainfosystems.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Unit of Measures",
     "summary": "Provide missing uom",
-    "version": "10.0.1.0.0",
+    "version": "11.0.1.0.0",
     "category": "Uncategorized",
     "website": "http://ursainfosystems.com",
     "author": "Ursa Information Systems, "
