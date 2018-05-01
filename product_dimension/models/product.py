@@ -43,7 +43,7 @@ class Product(models.Model):
     dimensional_uom_id = fields.Many2one(
         'product.uom',
         'Dimensional UoM',
-        domain=_get_dimension_uom_domain,
+        domain=lambda self: self._get_dimension_uom_domain(),
         help='UoM for length, height, width')
 
 
