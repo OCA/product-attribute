@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo11-addon-product_brand',
         'odoo11-addon-product_code_unique',
+        'odoo11-addon-product_end_of_life',
         'odoo11-addon-product_firmware_version',
         'odoo11-addon-product_manufacturer',
         'odoo11-addon-product_priority',
