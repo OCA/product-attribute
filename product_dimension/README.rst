@@ -2,9 +2,9 @@
    :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
-==============
+=================
 Product Dimension
-==============
+=================
 
 This module extends the functionality of product to support
 dimensions (length, width and height). Find the volume
