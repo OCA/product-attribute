@@ -11,25 +11,12 @@ class Product(models.Model):
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
-        if self.length and self.height and self.width and \
-                self.dimensional_uom_id:
-            length_m = self.convert_to_meters(
-                self.length, self.dimensional_uom_id)
-            height_m = self.convert_to_meters(
-                self.height, self.dimensional_uom_id)
-            width_m = self.convert_to_meters(
-                self.width, self.dimensional_uom_id)
-            self.volume = length_m * height_m * width_m
-        return False
-
-    def convert_to_meters(self, measure, dimensional_uom):
-        uom_meters = self.env.ref('product.product_uom_meter')
-
-        return dimensional_uom._compute_quantity(
-            qty=measure,
-            to_unit=uom_meters,
-            round=False,
-        )
+        volume = self.env['product.template']._calc_volume(
+            self.length, self.height, self.width, self.dimensional_uom_id)
+        if isinstance(volume, bool):
+            return False
+        else:
+            self.volume = volume
 
     @api.model
     def _get_dimension_uom_domain(self):
@@ -50,18 +37,25 @@ class Product(models.Model):
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    @api.model
+    def _calc_volume(self, length, height, width, uom_id):
+        volume = False
+        if length and height and width and uom_id:
+            length_m = self.convert_to_meters(length, uom_id)
+            height_m = self.convert_to_meters(height, uom_id)
+            width_m = self.convert_to_meters(width, uom_id)
+            volume = length_m * height_m * width_m
+
+        return volume
+
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
     def onchange_calculate_volume(self):
-        if self.length and self.height and self.width and \
-                self.dimensional_uom_id:
-            length_m = self.convert_to_meters(
-                self.length, self.dimensional_uom_id)
-            height_m = self.convert_to_meters(
-                self.height, self.dimensional_uom_id)
-            width_m = self.convert_to_meters(
-                self.width, self.dimensional_uom_id)
-            self.volume = length_m * height_m * width_m
-        return False
+        volume = self._calc_volume(
+            self.length, self.height, self.width, self.dimensional_uom_id)
+        if isinstance(volume, bool):
+            return False
+        else:
+            self.volume = volume
 
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env.ref('product.product_uom_meter')
