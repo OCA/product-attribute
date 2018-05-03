@@ -13,15 +13,6 @@ automatically when you change one of these dimensions.
 This module was previously hosted on https://github.com/ingadhoc/odoo-addons
 and before that on https://launchpad.net/~ingenieria-adhoc.
 
-Installation
-============
-
-#. No external library is used.
-
-Configuration
-=============
-
-#. No configuration is required.
 
 Usage
 =====
