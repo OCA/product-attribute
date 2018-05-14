@@ -12,6 +12,7 @@ class TestProductSequence(TransactionCase):
     def setUp(self):
         super(TestProductSequence, self).setUp()
         self.product_product = self.env['product.product']
+        self.product_category = self.env['product.category']
 
     def test_product_create_with_default_code(self):
         product = self.product_product.create(dict(
@@ -47,3 +48,43 @@ class TestProductSequence(TransactionCase):
         pre_init_hook(self.cr)
         product_3.invalidate_cache()
         self.assertEqual(product_3.default_code, '!!mig!!%s' % (product_3.id,))
+
+    def test_product_category_sequence(self):
+        categ_grocery = self.product_category.create(dict(
+            name="Grocery",
+            code_prefix="GRO",
+        ))
+        self.assertTrue(categ_grocery.sequence_id)
+        self.assertEqual(categ_grocery.sequence_id.prefix, "GRO")
+        self.assertFalse(categ_grocery.sequence_id.company_id)
+        product_3 = self.product_product.create(dict(
+            name="Apple",
+            categ_id=categ_grocery.id,
+        ))
+        self.assertEqual(product_3.default_code[:3], "GRO")
+        self.assertEqual(product_3.product_tmpl_id.default_code[:3], "GRO")
+        categ_electronics = self.product_category.create(dict(
+            name="Electronics",
+            code_prefix="ELE",
+        ))
+        product_3.write({'default_code': '/',
+                         'categ_id': categ_electronics.id})
+        self.assertEqual(product_3.default_code[:3], "ELE")
+        self.assertEqual(product_3.product_tmpl_id.default_code[:3], "ELE")
+        categ_car = self.product_category.create(dict(
+            name="Car",
+            code_prefix="CAR",
+        ))
+        product_3.product_tmpl_id.categ_id = categ_car
+        product_3.product_tmpl_id.default_code = '/'
+        product_3.refresh()
+        self.assertEqual(product_3.default_code[:3], "CAR")
+        self.assertEqual(product_3.product_tmpl_id.default_code[:3], "CAR")
+        categ_car.write(dict(
+            name="Bike",
+            code_prefix="BIK",
+        ))
+        self.assertEqual(categ_car.sequence_id.prefix, "BIK")
+        categ_car.sequence_id = False
+        categ_car.write({'code_prefix': 'KIA'})
+        self.assertEqual(categ_car.sequence_id.prefix, "KIA")

@@ -12,7 +12,10 @@ class ProductProduct(models.Model):
 
     default_code = fields.Char(
         required=True,
-        default='/'
+        default='/',
+        track_visibility='onchange',
+        help="Set to '/' and save if you want a new internal reference "
+             "to be proposed."
     )
 
     _sql_constraints = [
@@ -47,20 +50,20 @@ class ProductProduct(models.Model):
         Note this is up to the user, if the product category is changed,
         she/he will need to write '/' on the internal reference to force the
         re-assignment."""
-        if vals.get('default_code', '') in [False, '/']:
-            for product in self:
-                sequence = product.categ_id.sequence_id
+        for product in self:
+            if vals.get('default_code', '') == '/':
+                category_id = vals.get('categ_id', product.categ_id.id)
+                category = self.env['product.category'].browse(category_id)
+                sequence = category.sequence_id
                 if not sequence:
                     sequence = self.env.ref(
                         'product_sequence.seq_product_auto')
                 ref = sequence.next_by_id()
                 vals['default_code'] = ref
-                super(ProductProduct, product).write(vals)
                 if len(product.product_tmpl_id.product_variant_ids) == 1:
-                    # default code must match for variant and template.
-                    product.product_tmpl_id.default_code = ref
-            return True
-        return super().write(vals)
+                    product.product_tmpl_id.write({'default_code': ref})
+            super(ProductProduct, product).write(vals)
+        return True
 
     @api.multi
     def copy(self, default=None):
