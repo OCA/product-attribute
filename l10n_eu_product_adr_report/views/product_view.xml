@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="product_adr_class_form_view">
+            <field name="name">product.adr.class.form</field>
+            <field name="model">product.adr.class</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="adr_class" string="ADR Class">
+                        <field name="un_number"/>
+                        <field name="name"/>
+                        <field name="picking_text"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_adr_class_tree_view">
+            <field name="name">product.adr.class.tree</field>
+            <field name="model">product.adr.class</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="un_number"/>
+                    <field name="name"/>
+                    <field name="picking_text"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_template_adr_class_form_view">
+            <field name="name">product.template.adr_class.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="adr_class_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_template_adr_search_view">
+            <field name="name">product.template.adr_class.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="adr_class_id" />
+                </field>
+                 <filter name="activities_upcoming_all" position="after">
+                    <group string="Group by...">
+                        <filter string="Product Type" name="adr_class"
+                            domain="[]" context="{'group_by' : 'adr_class_id'}" />
+                    </group>
+                 </filter>
+            </field>
+        </record>
+
+        <record id="product_adr_action" model="ir.actions.act_window">
+            <field name="name">ADR Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.adr.class</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}
+            </field>
+        </record>
+
+        <menuitem id="product_ADR_menu" parent="sale.prod_config_main"
+            action="product_adr_action" sequence="16" />
+
+    </data>
+</odoo>
