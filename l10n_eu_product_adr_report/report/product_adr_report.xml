@@ -1,91 +1,91 @@
 <odoo>
     <data>
-
         <report
             id="product_adr_report"
             model="stock.picking"
             string="ADR product"
             report_type="qweb-pdf"
             name="l10n_eu_product_adr_report.product_adr_report_document"
-            file="l10n_eu_product_adr_report.product_adr_report"
+            file="l10n_eu_product_adr_report.product_adr_report_document"
             attachment_use="False"
         />
 
         <template id="product_adr_report_document">
-
-            <div class="page">
-
+            <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
-                    <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height:80px;"/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <t t-foreach="o.move_lines" t-as="p">
-                        <table>
-                            <tr>
-                                <td><b>Shipper: </b></td>
-                                <td style="padding: 30px;"><span t-field="o.company_id" /><span t-field="o.company_id.street" /><br/>
-                                    <span t-field="o.company_id.zip" /><span t-field="o.company_id.city" /><br/>
-                                    tel:<span t-field="o.company_id.phone" /></td>
-                            </tr>
-                            <tr>
-                                <td><b>Picking number: </b></td>
-                                <td style="padding-left: 15px;"><span t-field="o.name" /></td>
-                            </tr>
-                            <tr>
-                                <td><b>Code: </b></td>
-                                <td style="padding-left: 15px;"><span t-field="p.product_id" /></td>
-                            </tr>
-                            <tr>
-                                <td><b>Quanty: </b></td>
-                                <td style="padding-left: 15px;"><span t-field="p.product_qty" /></td>
-                            </tr>
-                            <tr>
-                                <td><b>Class: </b></td>
-                                <td style="padding-left: 15px;"><span t-field="p.product_id.adr_class_id.name" /></td>
-                            </tr>
-                            <tr t-if="p.product_id.adr_class_id.picking_text">
-                                <td><b>Material: </b></td>
-                                <td style="padding-left: 15px;"><span t-field="p.product_id.adr_class_id.picking_text" /></td>
-                            </tr>
-                            <tr>
-                                <td><b>Date: </b></td>
-                                <td style="padding-left: 15px;"><span t-field="p.date" t-field-options='{"format": "dd/MM/yyyy"}'/></td>
-                            </tr>
-                            <tr>
-                                <td><b>Vehicle registration:</b></td>
-                                <td style="padding-left: 15px;"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Departure time:</b></td>
-                                <td style="padding-left: 15px;"></td>
-                            </tr>
-                        </table>
-                        <br/>
-                        <p>CERTIFY that these goods are admitted to be transported by road in accordance with the provisions of
-                        ADR, and has been properly classified, packaged, marked and labeled in accordance with the provisions
-                        needed to be transported by road.</p>
-                        <p style="text-align:center"><b><span t-field="o.company_id" /></b></p>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <p>The driver DECLARES :</p>
-                        <p>Received from <span t-field="o.company_id" /> an MSDS of the product specified above in which
-                        follows:</p>
-                        <p style='text-indent: 1em'>The nature of the goods and the danger posed transport.</p>
-                        <p style='text-indent: 1em'>The instructions to follow in case of accident, leak or fire
-                            that may occur during transport.</p>
-                        <p>The vehicle and the containment vessel of the goods meet the conditions of the current
-                            regulations on Road Transport and especially that relating to hazardous waste.</p>
-                        <p>Which is duly legitimized by driving the vehicle transported corresponds this document
-                            and knows the rules on movement of your vehicle and transport load fully responsible for
-                            their transportation task once started.</p>
-                        <p style="text-align:center">By CARRIER:<br/>
-                       THE DRIVER OF THE VEHICLE:</p>
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <t t-foreach="o.move_lines" t-as="p">
+                                <table>
+                                    <tr>
+                                        <td><b>Shipper: </b></td>
+                                        <td style="padding: 30px;"><span t-field="o.company_id" /><span t-field="o.company_id.street" /><br/>
+                                            <span t-field="o.company_id.zip" /><span t-field="o.company_id.city" /><br/>
+                                            tel:<span t-field="o.company_id.phone" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Picking number: </b></td>
+                                        <td style="padding-left: 15px;"><span t-field="o.name" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Code: </b></td>
+                                        <td style="padding-left: 15px;"><span t-field="p.product_id" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Quanty: </b></td>
+                                        <td style="padding-left: 15px;"><span t-field="p.product_qty" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Class: </b></td>
+                                        <td style="padding-left: 15px;"><span t-field="p.product_id.adr_class_id.name" /></td>
+                                    </tr>
+                                    <tr t-if="p.product_id.adr_class_id.picking_text">
+                                        <td><b>Material: </b></td>
+                                        <td style="padding-left: 15px;"><span t-field="p.product_id.adr_class_id.picking_text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Date: </b></td>
+                                        <td style="padding-left: 15px;"><span t-field="p.date" t-field-options='{"format": "dd/MM/yyyy"}'/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Vehicle registration:</b></td>
+                                        <td style="padding-left: 15px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Departure time:</b></td>
+                                        <td style="padding-left: 15px;"></td>
+                                    </tr>
+                                </table>
+                                <br/>
+                                <p>CERTIFY that these goods are admitted to be transported by road in accordance with the provisions of
+                                ADR, and has been properly classified, packaged, marked and labeled in accordance with the provisions
+                                needed to be transported by road.</p>
+                                <p style="text-align:center"><b><span t-field="o.company_id" /></b></p>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <p>The driver DECLARES :</p>
+                                <p>Received from <span t-field="o.company_id" /> an MSDS of the product specified above in which
+                                follows:</p>
+                                <p style='text-indent: 1em'>The nature of the goods and the danger posed transport.</p>
+                                <p style='text-indent: 1em'>The instructions to follow in case of accident, leak or fire
+                                    that may occur during transport.</p>
+                                <p>The vehicle and the containment vessel of the goods meet the conditions of the current
+                                    regulations on Road Transport and especially that relating to hazardous waste.</p>
+                                <p>Which is duly legitimized by driving the vehicle transported corresponds this document
+                                    and knows the rules on movement of your vehicle and transport load fully responsible for
+                                    their transportation task once started.</p>
+                                <p style="text-align:center">By CARRIER:<br/>
+                               THE DRIVER OF THE VEHICLE:</p>
+                                <p style="page-break-after:always;"> </p>
+                            </t>
+                        </div>
                     </t>
                 </t>
-            </div>
+            </t>
         </template>
-
     </data>
 </odoo>
