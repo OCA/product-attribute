@@ -36,8 +36,8 @@ msgstr "ADR Produkt"
 
 #. module: l10n_eu_product_adr_report
 #: view:website:l10n_eu_product_adr_report.product_adr_report_document
-msgid "Durch den Transporteur:"
-msgstr "Por el transportista:"
+msgid "By CARRIER:"
+msgstr "Durch den Transporteur:"
 
 #. module: l10n_eu_product_adr_report
 #: view:website:l10n_eu_product_adr_report.product_adr_report_document
@@ -135,7 +135,7 @@ msgstr "Produkttyp"
 #. module: l10n_eu_product_adr_report
 #: view:website:l10n_eu_product_adr_report.product_adr_report_document
 msgid "Quanty:"
-msgstr "Cantidad:"
+msgstr "Menge:"
 
 #. module: l10n_eu_product_adr_report
 #: view:website:l10n_eu_product_adr_report.product_adr_report_document
