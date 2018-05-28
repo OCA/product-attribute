@@ -18,4 +18,5 @@ Contributors
 * Iñaki Zabala <practicas@avanzosc.es>
 * Unai Alkorta <practicas@avanzosc.es>
 * Raúl Martín <raul.martin@braintec-group.com>
+* Miguel Ángel Gómez <miguel.gomez@braintec-group.com>
 
