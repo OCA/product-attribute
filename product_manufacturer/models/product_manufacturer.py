@@ -8,7 +8,9 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     manufacturer = fields.Many2one(
-        comodel_name='res.partner', string='Manufacturer',
+        comodel_name='res.partner',
+        string='Manufacturer',
+        domain=[('manufacturer', '=', True)],
     )
     manufacturer_pname = fields.Char(string='Manuf. Product Name')
     manufacturer_pref = fields.Char(string='Manuf. Product Code')
