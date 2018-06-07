@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Sodexis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -41,8 +40,8 @@ class TestProductSequence(TransactionCase):
             default_code='PROD03'
         ))
         self.cr.execute(
-            "update product_product set default_code='/' where id=%s"
-            % (product_3.id,))
+            "update product_product set default_code='/' where id=%s",
+            (product_3.id,))
         product_3.invalidate_cache()
         self.assertEqual(product_3.default_code, '/')
         pre_init_hook(self.cr)
