@@ -19,54 +19,45 @@ class ProductTemplate(models.Model):
         )
 
     price_vat_excl = fields.Float(
-        compute='_compute_price_vat_excl',
+        compute='_compute_price_vat_incl_excl', multi='price_vat_incl_excl',
         string='Sale Price Taxes Excluded',
         )
     price_vat_incl = fields.Float(
-        compute='_compute_price_vat_incl',
+        compute='_compute_price_vat_incl_excl', multi='price_vat_incl_excl',
         string='Sale Price Taxes Included',
         )
 
+    @api.multi
     @api.depends('list_price', 'taxes_id', 'taxes_id.type', 'taxes_id.amount')
-    def _compute_price_vat_excl(self):
-        taxes = self.env['account.tax'].browse(self.taxes_id.ids)
-        info = taxes.compute_all(self.list_price, 1)
-        self.price_vat_excl = info['total']
+    def _compute_price_vat_incl_excl(self):
+        for template in self:
+            info = template.taxes_id.compute_all(template.list_price, 1)
+            template.price_vat_incl = info['total_included']
+            template.price_vat_excl = info['total']
 
-    @api.depends('list_price', 'taxes_id', 'taxes_id.type', 'taxes_id.amount')
-    def _compute_price_vat_incl(self):
-        taxes = self.env['account.tax'].browse(self.taxes_id.ids)
-        info = taxes.compute_all(self.list_price, 1)
-        self.price_vat_incl = info['total_included']
-
-    @api.depends('list_price', 'taxes_id', 'taxes_id.type', 'taxes_id.amount')
-    def _compute_price_various_taxes(self):
-        taxes = self.env['account.tax'].browse(self.taxes_id.ids)
-        info = taxes.compute_all(self.list_price, 1)
-        self.price_vat_incl = info['total_included']
-        self.price_vat_excl = info['total']
-
+    @api.multi
     @api.depends('taxes_id')
     def _compute_sale_tax_price_include(self):
-        tmp_sale_tax_price_include = ''
+        for template in self:
+            sale_tax_price_include = ''
 
-        if not self.taxes_id:
-            self.sale_tax_price_include = 'no_tax'
-        else:
-            for taxes in self.taxes_id:
-                if tmp_sale_tax_price_include == '':
-                    if taxes.price_include:
-                        tmp_sale_tax_price_include = 'all_tax_incl'
+            if not template.taxes_id:
+                template.sale_tax_price_include = 'no_tax'
+            else:
+                for taxes in template.taxes_id:
+                    if sale_tax_price_include == '':
+                        if taxes.price_include:
+                            sale_tax_price_include = 'all_tax_incl'
+                        else:
+                            sale_tax_price_include = 'all_tax_excl'
+                    elif taxes.price_include:
+                        if sale_tax_price_include == 'all_tax_incl':
+                            sale_tax_price_include = 'all_tax_incl'
+                        else:
+                            sale_tax_price_include = 'various_taxes'
                     else:
-                        tmp_sale_tax_price_include = 'all_tax_excl'
-                elif taxes.price_include:
-                    if tmp_sale_tax_price_include == 'all_tax_incl':
-                        tmp_sale_tax_price_include = 'all_tax_incl'
-                    else:
-                        tmp_sale_tax_price_include = 'various_taxes'
-                else:
-                    if tmp_sale_tax_price_include == 'all_tax_excl':
-                        tmp_sale_tax_price_include = 'all_tax_excl'
-                    else:
-                        tmp_sale_tax_price_include = 'various_taxes'
-                self.sale_tax_price_include = tmp_sale_tax_price_include
+                        if sale_tax_price_include == 'all_tax_excl':
+                            sale_tax_price_include = 'all_tax_excl'
+                        else:
+                            sale_tax_price_include = 'various_taxes'
+                    template.sale_tax_price_include = sale_tax_price_include
