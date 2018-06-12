@@ -20,12 +20,12 @@
                                'form_view_ref': 'product_multi_image.image_form_view',
                                'kanban_view_ref': 'product_multi_image.image_kanban_view',
                            }"
-                           mode="kanban"
-                    />
+			   mode="kanban" />
+                    </field>
                 </page>
             </xpath>
         </field>
-    </record>
+</record>
 
 </data>
 </openerp>

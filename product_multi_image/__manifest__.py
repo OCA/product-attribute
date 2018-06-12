@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
 # © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+# c 2018 Amaris - Quentin Theuret <quentin.theuret@amaris.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     "name": "Multiple Images in Products",
-    "version": "9.0.1.0.0",
+    "version": "11.0.1.0.0",
     "author": "Antiun Ingeniería, "
               "Tecnativa, "
               "LasLabs, "

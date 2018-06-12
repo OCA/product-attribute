@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 # © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+# © 2018 Amaris - Quentin Theuret <quentin.theuret@amaris.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3).
 
-from openerp import api, fields, models
-from openerp.osv import fields as old_fields
-from openerp.osv import orm
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -112,25 +110,3 @@ class ProductProduct(models.Model):
                                len(image.product_variant_ids) == 1))
             images2remove.unlink()
         return super(ProductProduct, obj).unlink()
-
-
-class ProductProductOld(orm.Model):
-    """It is needed to use v7 api here because core model fields use the
-    ``multi`` attribute, that has no equivalent in v8, and it needs to be
-    disabled or bad things will happen. For more reference, see
-    https://github.com/odoo/odoo/issues/10799
-
-    Needed for getting the correct data in the inheritance chain. Probably
-    in v10 this won't be needed as the inheritance has been globally
-    redesigned.
-    """
-    _name = "product.product"
-    _inherit = [_name, "base_multi_image.owner"]
-    _columns = {
-        "image": old_fields.related(
-            "image_main", type="binary", store=False, multi=False),
-        "image_medium": old_fields.related(
-            "image_main_medium", type="binary", store=False, multi=False),
-        "image_small": old_fields.related(
-            "image_main_small", type="binary", store=False, multi=False)
-    }

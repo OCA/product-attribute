@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
 # © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+# © 2018 Amaris - Quentin Theuret <quentin.theuret@amaris.com>
 # Copyright 2016 LasLabs Inc.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
 try:
-    from openerp.addons.base_multi_image.hooks import (
+    from odoo.addons.base_multi_image.hooks import (
         pre_init_hook_for_submodules,
         uninstall_hook_for_submodules,
     )
