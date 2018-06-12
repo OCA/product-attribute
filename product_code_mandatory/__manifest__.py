@@ -14,8 +14,6 @@
         "views/product_view.xml",
         "views/product_code_seq.xml",
     ],
-    'demo': [
-    ],
     "pre_init_hook": 'pre_init_product_code',
     "installable": True,
 }
