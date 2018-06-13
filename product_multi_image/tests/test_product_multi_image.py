@@ -5,7 +5,7 @@
 
 from odoo.tests import common
 
-from odoo.addons.product_multi_image import hooks
+from .. import hooks
 
 
 class TestProductMultiImage(common.TransactionCase):
