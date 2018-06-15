@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo11-addon-product_end_of_life',
         'odoo11-addon-product_firmware_version',
         'odoo11-addon-product_manufacturer',
+        'odoo11-addon-product_multi_category',
         'odoo11-addon-product_priority',
         'odoo11-addon-product_sequence',
         'odoo11-addon-product_state',
