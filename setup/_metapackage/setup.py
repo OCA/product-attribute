@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo11-addon-product_priority',
         'odoo11-addon-product_sequence',
         'odoo11-addon-product_state',
+        'odoo11-addon-product_supplierinfo_revision',
         'odoo11-addon-stock_production_lot_firmware_version',
     ],
     classifiers=[
