@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * product_supplierinfo_for_customer_sale
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2017-06-29 01:23+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_supplierinfo_for_customer_sale
@@ -28,10 +28,12 @@ msgstr "Einstandspreis ist brutto"
 #: help:product.product,standard_price_tax_included:0
 msgid ""
 "Cost Price of the product, All Tax Included:\n"
-"This field will be computed with the 'Cost Price', taking into account Sale Taxes setting."
+"This field will be computed with the 'Cost Price', taking into account Sale "
+"Taxes setting."
 msgstr ""
 "Einstandspreis des Produkts, inkl. aller Steuern:\n"
-"Dieses berechnete Feld enthält den Brutto-Einstandspreis unter Verwendung der eingestellten Verkaufssteuern."
+"Dieses berechnete Feld enthält den Brutto-Einstandspreis unter Verwendung "
+"der eingestellten Verkaufssteuern."
 
 #. module: product_supplierinfo_for_customer_sale
 #: field:product.product,pricelist_item_ids:0
@@ -56,6 +58,7 @@ msgstr ""
 #: view:sale.order:product_supplierinfo_for_customer_sale.sale_order_form_context_supplierinfo
 msgid ""
 "{'partner_id': parent.partner_id, 'quantity': product_uos_qty,\n"
-"                'pricelist': parent.pricelist_id, 'uom':product_uom, 'company_id': parent.company_id,\n"
+"                'pricelist': parent.pricelist_id, 'uom':product_uom, "
+"'company_id': parent.company_id,\n"
 "                'supplierinfo_type': 'customer'}"
 msgstr ""
