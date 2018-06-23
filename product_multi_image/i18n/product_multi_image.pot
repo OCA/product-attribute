@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_multi_image
+#	* product_multi_image
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-02 03:39+0000\n"
-"PO-Revision-Date: 2016-12-02 03:39+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Macedonian (https://www.transifex.com/oca/teams/23907/mk/)\n"
-"Language: mk\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
+"Plural-Forms: \n"
 
 #. module: product_multi_image
 #: model:ir.ui.view,arch_db:product_multi_image.image_form_view
@@ -35,10 +30,7 @@ msgstr ""
 
 #. module: product_multi_image
 #: model:ir.model.fields,help:product_multi_image.field_base_multi_image_image_product_variant_ids
-msgid ""
-"If you leave it empty, all variants will show this image. Selecting one or "
-"several of the available variants, you restrict the availability of the "
-"image to those variants."
+msgid "If you leave it empty, all variants will show this image. Selecting one or several of the available variants, you restrict the availability of the image to those variants."
 msgstr ""
 
 #. module: product_multi_image
@@ -57,17 +49,17 @@ msgstr ""
 #. module: product_multi_image
 #: model:ir.model.fields,field_description:product_multi_image.field_product_product_manufacturer
 msgid "Manufacturer"
-msgstr "Производител"
+msgstr ""
 
 #. module: product_multi_image
 #: model:ir.model.fields,field_description:product_multi_image.field_product_product_manufacturer_pref
 msgid "Manufacturer Product Code"
-msgstr "Код на производителот на производот"
+msgstr ""
 
 #. module: product_multi_image
 #: model:ir.model.fields,field_description:product_multi_image.field_product_product_manufacturer_pname
 msgid "Manufacturer Product Name"
-msgstr "Име на производител на производ"
+msgstr ""
 
 #. module: product_multi_image
 #: model:ir.model.fields,field_description:product_multi_image.field_product_product_manufacturer_purl
@@ -120,3 +112,4 @@ msgstr ""
 #: model:ir.ui.view,arch_db:product_multi_image.image_kanban_view
 msgid "variant(s)"
 msgstr ""
+
