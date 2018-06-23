@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_code_builder_sequence
+#	* product_code_builder_sequence
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 19:36+0000\n"
-"PO-Revision-Date: 2017-03-09 19:36+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
-"Language: ca\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: product_code_builder_sequence
 #: code:addons/product_code_builder_sequence/models/product_product.py:46
@@ -48,7 +43,7 @@ msgstr ""
 #. module: product_code_builder_sequence
 #: model:ir.model,name:product_code_builder_sequence.model_product_product
 msgid "Product"
-msgstr "Producte"
+msgstr ""
 
 #. module: product_code_builder_sequence
 #: model:ir.model,name:product_code_builder_sequence.model_product_template
@@ -67,14 +62,11 @@ msgstr ""
 
 #. module: product_code_builder_sequence
 #: help:product.product,property_account_expense:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"expenses for the current product."
+msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
 msgstr ""
 
 #. module: product_code_builder_sequence
 #: help:product.product,property_account_income:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"sales for the current product."
+msgid "This account will be used for invoices instead of the default one to value sales for the current product."
 msgstr ""
+
