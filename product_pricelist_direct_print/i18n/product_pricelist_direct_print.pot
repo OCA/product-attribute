@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_pricelist_direct_print
+#	* product_pricelist_direct_print
 #
-# Translators:
-# leemannd <denis.leemann@camptocamp.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 03:40+0000\n"
-"PO-Revision-Date: 2017-03-09 03:40+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
-"Language: fr\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -66,7 +61,7 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_create_date
@@ -81,7 +76,7 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_display_name
 msgid "Display Name"
-msgstr "Nom d'affichage"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -107,12 +102,12 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print___last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_write_uid
 msgid "Last Updated by"
-msgstr "Dernière modification par"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_write_date
@@ -165,7 +160,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_product_tmpl_ids
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Products"
-msgstr "Produits"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_standard_price
@@ -192,3 +187,4 @@ msgstr ""
 #: model:ir.model,name:product_pricelist_direct_print.model_product_pricelist_print
 msgid "product.pricelist.print"
 msgstr ""
+
