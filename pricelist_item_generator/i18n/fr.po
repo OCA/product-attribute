@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pricelist_item_generator
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
 # Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: pricelist_item_generator
@@ -37,13 +37,16 @@ msgid ""
 "            Click to add a Pricelist Item Generator.\n"
 "          </p>\n"
 "          <p>\n"
-"                Pricelist Item Generator allow you to build price rules in a massive way:\n"
+"                Pricelist Item Generator allow you to build price rules in a "
+"massive way:\n"
 "                <ol>\n"
 "                    <li>Define price items templates</li>\n"
-"                    <li>Define criterias which determines which products are implied</li>\n"
+"                    <li>Define criterias which determines which products are "
+"implied</li>\n"
 "                    <li>Click to update pricelist</li>\n"
 "                </ol>\n"
-"                <div><u>Settings</u> : define an appropriate 'Next execution date' 'Scheduled action'\n"
+"                <div><u>Settings</u> : define an appropriate 'Next execution "
+"date' 'Scheduled action'\n"
 "    according to your local time for 'Pricelist Item Generator'</div>\n"
 "          </p>\n"
 "        "
@@ -52,13 +55,17 @@ msgstr ""
 "            Cliquez pour ajouter un Générateur d'élements de liste de prix.\n"
 "          </p>\n"
 "          <p>\n"
-"                Le générateur d'élements de liste de prix vous permet de définir des listes de contruire des règles de prix massivement:\n"
+"                Le générateur d'élements de liste de prix vous permet de "
+"définir des listes de contruire des règles de prix massivement:\n"
 "                <ol>\n"
 "                    <li>Définissez des modèles d'élements de prix</li>\n"
-"                    <li>Definissez les critères qui déterminent quels produits sont impliqués</li>\n"
-"                    <li>Cliquez sur mettre à jour sur synchroniser les listes de prix</li>\n"
+"                    <li>Definissez les critères qui déterminent quels "
+"produits sont impliqués</li>\n"
+"                    <li>Cliquez sur mettre à jour sur synchroniser les "
+"listes de prix</li>\n"
 "                </ol>\n"
-"                <div><u>Configuration</u> : définissez  une 'date de prochaine execution' appropriée dans les actions programmées.</div>\n"
+"                <div><u>Configuration</u> : définissez  une 'date de "
+"prochaine execution' appropriée dans les actions programmées.</div>\n"
 "          </p>\n"
 "        "
 
@@ -123,8 +130,7 @@ msgstr ""
 #: help:pricelist.item.generator,copy_item_template:0
 msgid "Check to copy 'price items' in case of duplication of generator"
 msgstr ""
-"Cochez pour copier les 'éléments de prix' en cas de duplication du "
-"générateur"
+"Cochez pour copier les 'éléments de prix' en cas de duplication du générateur"
 
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
@@ -190,8 +196,8 @@ msgstr "Remise (%)"
 #. module: pricelist_item_generator
 #: view:pricelist.item.generator:pricelist_item_generator.pricelist_item_generator_form_view
 msgid ""
-"Discount value are substracted to Base price: 20 implies a discount of 20 %,"
-" entry is easier."
+"Discount value are substracted to Base price: 20 implies a discount of 20 %, "
+"entry is easier."
 msgstr ""
 "Les valeurs de remises sont soustraite du prix de base: 20 implique une "
 "remise de 20 %, la saisie est plus facile."
@@ -232,7 +238,8 @@ msgstr "Générateur"
 #: help:pricelist.item.template,sequence:0
 msgid ""
 "Gives the order in which the pricelist items will be checkedby the ERP.\n"
-"The evaluation gives highest priority to lowest sequence and stops as soon as a matching price item is found."
+"The evaluation gives highest priority to lowest sequence and stops as soon "
+"as a matching price item is found."
 msgstr ""
 
 #. module: pricelist_item_generator
@@ -536,8 +543,8 @@ msgid ""
 "Specify the fixed amount to add or substract(if negative) to the amount "
 "calculated with the discount."
 msgstr ""
-"Défini le montant fixé pour ajouter ou soustraire (si négatif)"
-"                  au montant calculé avec la remise."
+"Défini le montant fixé pour ajouter ou soustraire (si "
+"négatif)                  au montant calculé avec la remise."
 
 #. module: pricelist_item_generator
 #: help:pricelist.item.template,price_max_margin:0
