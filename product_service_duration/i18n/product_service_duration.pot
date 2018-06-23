@@ -1,27 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_service_duration
+#	* product_service_duration
 #
-# Translators:
-# Paolo Valier <paolo.valier@hotmail.it>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-17 02:38+0000\n"
-"PO-Revision-Date: 2017-05-17 02:38+0000\n"
-"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
-"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
-"Language: it\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: product_service_duration
 #: model:ir.ui.view,arch_db:product_service_duration.product_normal_form_view
-msgid ""
-"<span>\n"
+msgid "<span>\n"
 "                                hours\n"
 "                        </span>"
 msgstr ""
@@ -29,8 +23,7 @@ msgstr ""
 #. module: product_service_duration
 #: model:ir.ui.view,arch_db:product_service_duration.view_calendar_event_form
 #: model:ir.ui.view,arch_db:product_service_duration.view_calendar_event_form_popup
-msgid ""
-"<span>\n"
+msgid "<span>\n"
 "                            hours\n"
 "                    </span>"
 msgstr ""
@@ -104,7 +97,7 @@ msgstr ""
 #. module: product_service_duration
 #: model:ir.model,name:product_service_duration.model_product_product
 msgid "Product"
-msgstr "Prodotto"
+msgstr ""
 
 #. module: product_service_duration
 #: model:ir.model.fields,field_description:product_service_duration.field_product_product_resource_id
@@ -124,9 +117,7 @@ msgstr ""
 #. module: product_service_duration
 #: code:addons/product_service_duration/models/product_product.py:50
 #, python-format
-msgid ""
-"The minimum service time for this product is causing issues with at least "
-"one meeting: %s."
+msgid "The minimum service time for this product is causing issues with at least one meeting: %s."
 msgstr ""
 
 #. module: product_service_duration
@@ -134,3 +125,4 @@ msgstr ""
 #, python-format
 msgid "The services involved require a %s hour long meeting."
 msgstr ""
+
