@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * product_supplierinfo_tree_price_info
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
 # Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: product_supplierinfo_tree_price_info
@@ -33,10 +33,12 @@ msgstr "Template de Produit avec Prix Fournisseur"
 #: help:product.supplierinfo,unit_price:0
 msgid ""
 "Purchase Price of the product for this supplier. \n"
-" If many prices are defined, The price will be the price associated with the smallest quantity."
+" If many prices are defined, The price will be the price associated with the "
+"smallest quantity."
 msgstr ""
 "Prix d'achat du produit pour ce fournisseur. \n"
-" Si plusieurs prix sont définis, Le prix sera le prix associé avec la plus petite quantité."
+" Si plusieurs prix sont définis, Le prix sera le prix associé avec la plus "
+"petite quantité."
 
 #. module: product_supplierinfo_tree_price_info
 #: field:product.supplierinfo,unit_price_note:0
