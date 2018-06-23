@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * product_profile
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
 msgid ""
@@ -12,51 +12,56 @@ msgstr ""
 "PO-Revision-Date: 2016-11-03 10:07+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_profile
-#: help:product.product,profile_explanation:0
-#: help:product.profile,explanation:0
-#: help:product.template,profile_explanation:0
+#: model:ir.model.fields,help:product_profile.field_product_product_profile_explanation
+#: model:ir.model.fields,help:product_profile.field_product_profile_explanation
+#: model:ir.model.fields,help:product_profile.field_product_template_profile_explanation
 msgid ""
 "An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,create_uid:0
+#: selection:product.profile,type:0
+msgid "Consumable"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,create_date:0
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_create_date
 msgid "Created on"
 msgstr ""
 
 #. module: product_profile
-#: help:product.profile,sequence:0
+#: model:ir.model.fields,help:product_profile.field_product_profile_sequence
 msgid ""
 "Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
-#: field:product.mixin.profile,display_name:0
-#: field:product.profile,display_name:0
+#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_display_name
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: product_profile
-#: field:base.config.settings,group_product_profile:0
+#: model:ir.model.fields,field_description:product_profile.field_base_config_settings_group_product_profile
 msgid "Display Product Profile fields"
 msgstr ""
 
 #. module: product_profile
-#: help:base.config.settings,group_product_profile:0
+#: model:ir.model.fields,help:product_profile.field_base_config_settings_group_product_profile
 msgid ""
 "Display fields computed by product profile module.\n"
 "For debugging purpose see menu\n"
@@ -66,17 +71,20 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,explanation:0
+#: model:ir.model.fields,field_description:product_profile.field_product_product_profile_explanation
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_explanation
+#: model:ir.model.fields,field_description:product_profile.field_product_template_profile_explanation
 msgid "Explanation"
 msgstr ""
 
 #. module: product_profile
-#: field:product.mixin.profile,id:0 field:product.profile,id:0
+#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_id
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_id
 msgid "ID"
 msgstr ""
 
 #. module: product_profile
-#: code:addons/product_profile/product.py:127
+#: code:addons/product_profile/models/product.py:119
 #, python-format
 msgid ""
 "If you update this profile, all products using this profile could also be "
@@ -84,7 +92,7 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: code:addons/product_profile/product.py:31
+#: code:addons/product_profile/models/product.py:31
 #, python-format
 msgid ""
 "Issue\n"
@@ -101,23 +109,23 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: field:product.mixin.profile,__last_update:0
-#: field:product.profile,__last_update:0
+#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile___last_update
+#: model:ir.model.fields,field_description:product_profile.field_product_profile___last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,write_uid:0
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,write_date:0
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,name:0
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_name
 msgid "Name"
 msgstr ""
 
@@ -134,7 +142,6 @@ msgstr ""
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
-#: view:product.profile:product_profile.product_profile_tree_view
 msgid "Product Profiles"
 msgstr ""
 
@@ -144,27 +151,21 @@ msgid "Product Template"
 msgstr ""
 
 #. module: product_profile
-#: field:product.product,profile_id:0
-#: view:product.template:product_profile.product_template_search_view
-#: field:product.template,profile_id:0
+#: model:ir.model.fields,field_description:product_profile.field_product_product_profile_id
+#: model:ir.model.fields,field_description:product_profile.field_product_template_profile_id
+#: model:ir.ui.view,arch_db:product_profile.product_template_search_view
 msgid "Profile"
 msgstr ""
 
 #. module: product_profile
-#: field:product.product,profile_explanation:0
-#: field:product.template,profile_explanation:0
-msgid "Profile Explanation"
-msgstr ""
-
-#. module: product_profile
-#: help:product.profile,name:0
+#: model:ir.model.fields,help:product_profile.field_product_profile_name
 msgid ""
 "Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 
 #. module: product_profile
-#: code:addons/product_profile/product.py:12
+#: code:addons/product_profile/models/product.py:12
 #, python-format
 msgid ""
 "Sales > Configuration \n"
@@ -173,16 +174,41 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: help:product.profile,type:0
+#: model:ir.model.fields,help:product_profile.field_product_profile_type
 msgid "See 'type' field in product.template"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,sequence:0
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_sequence
 msgid "Sequence"
 msgstr ""
 
 #. module: product_profile
-#: field:product.profile,type:0
+#: selection:product.profile,type:0
+msgid "Service"
+msgstr ""
+
+#. module: product_profile
+#: selection:product.profile,type:0
+msgid "Stockable Product"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile_type
 msgid "Type"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_base_config_settings
+msgid "base.config.settings"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_mixin_profile
+msgid "product.mixin.profile"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_profile
+msgid "product.profile"
 msgstr ""
