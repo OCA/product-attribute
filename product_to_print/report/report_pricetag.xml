@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_pricetag">
+        <t t-call="report.html_container">
+        <div class="page">
+            <t t-foreach="Products" t-as="product">
+            <t t-foreach="product['line'].quantity" t-as="q">
+                <div>
+                    <div>
+                        <t t-esc="product['product'].name"/>
+                    </div>
+                    <div>
+                        <t t-if="product['product'].code">Code: <t t-esc="product['product'].code"/><br/></t>
+                    </div>
+                    <div class="product_price">
+                        <t t-esc="'%0.2f' % (product['product'].list_price)"/>€
+                    </div>
+                </div>
+            </t>
+            </t>
+        </div>
+        </t>
+    </template>
+</odoo>

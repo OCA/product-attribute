@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pricetag_model_default" model="pricetag.model">
+        <field name="name">Default pricetag model</field>
+        <field name="pricetag_paperformat_id" ref="report.paperformat_euro"/>
+        <field name="report_model">product_to_print.report_pricetag</field>
+    </record>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <menuitem id="menu_product_category_print"
+        parent="base.menu_sales" sequence="110"
+        action="action_product_category_print"
+        groups="product_to_print.group_pricetag_user"/>
+
+<!-- Model: pricetag.model -->
+    <menuitem id="menu_pricetag_model" 
+        name="Pricetag Model"
+        parent="base.menu_sale_config"
+        action="action_pricetag_model"
+        groups="product_to_print.group_pricetag_manager"/>
+
+</odoo>
