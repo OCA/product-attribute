@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
+<odoo>
+
+<record id="product_template_form_view_pricelist_simulation"
+        model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id"
+           ref="product.product_template_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='item_ids']/.." position="after">
+            <group string="Pricelist simulation">
+                <field name="pricelist_simulate_ids" nolabel="1">
+                    <tree string="Simulation">
+                        <field name="pricelist_id"/>
+                        <field name="price" widget="monetary"/>
+                        <field name="currency_id" invisible="1"/>
+                    </tree>
+                    <form string="Simulation">
+                        <group>
+                            <field name="product_tmpl_id" options="{'no_open': True}"/>
+                            <field name="pricelist_id" options="{'no_open': True}"/>
+                            <field name="price" widget="monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </form>
+                </field>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</odoo>
