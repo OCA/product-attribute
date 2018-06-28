@@ -38,7 +38,7 @@ Known issues / Roadmap
 
 * Previous versions of this module allowed the customers name to be typed directly in the view.
 * While fields.dummy has been deprecated the functionality can still be acheived by an unstored many2one
-on product.template in the same way as pricelist_id is currently stored.
+  on product.template in the same way as pricelist_id is currently stored.
 
 However, the way in which the context is set presents two issues.
 
