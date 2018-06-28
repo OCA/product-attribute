@@ -63,7 +63,7 @@ Installation
 
 To install this module, you need to:
 
-*To install Product module
+* To install Product module
 
 For further information, please visit:
 
