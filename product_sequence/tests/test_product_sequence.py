@@ -39,6 +39,7 @@ class TestProductSequence(TransactionCase):
             name="Apple",
             default_code='PROD03'
         ))
+        # pylint: disable=sql-injection
         self.cr.execute(
             "update product_product set default_code='/' where id=%s"
             % (product_3.id,))
