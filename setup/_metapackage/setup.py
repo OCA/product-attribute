@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo10-addon-product_sequence',
         'odoo10-addon-product_service_duration',
         'odoo10-addon-product_state',
+        'odoo10-addon-product_supplierinfo_for_customer',
         'odoo10-addon-product_template_tags',
         'odoo10-addon-product_uom',
         'odoo10-addon-product_variant_inactive',
