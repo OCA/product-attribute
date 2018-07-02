@@ -11,6 +11,7 @@ from odoo import api, fields, models
 
 class ProductBrand(models.Model):
     _name = 'product.brand'
+    _order = 'name'
 
     name = fields.Char('Brand Name', required=True)
     description = fields.Text('Description', translate=True)
