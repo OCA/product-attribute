@@ -14,14 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.actions.act_window,help:product_supplierinfo_for_customer.product_supplierinfo_action
-msgid "Click to define a new product.supplierinfo."
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_customer_ids
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: selection:product.supplierinfo,type:0
 msgid "Customer"
 msgstr ""
@@ -29,17 +23,6 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_extended_form_view
 msgid "Customers"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
-msgid "Group By"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.actions.act_window,name:product_supplierinfo_for_customer.product_supplierinfo_action
-#: model:ir.ui.menu,name:product_supplierinfo_for_customer.product_supplierinfo_sale_menu
-msgid "Information about a product (customer)"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -56,7 +39,6 @@ msgstr ""
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_tree_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Partner"
 msgstr ""
 
@@ -98,26 +80,18 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Product Template"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_supplier_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_supplier_ids
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
 #: selection:product.supplierinfo,type:0
 msgid "Supplier"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
-msgid "Supplierinfo search"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo_type
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Type"
 msgstr ""
 
