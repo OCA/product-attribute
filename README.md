@@ -24,7 +24,7 @@ addon | version | summary
 [product_sequence](product_sequence/) | 10.0.1.0.0 | Product Sequence
 [product_service_duration](product_service_duration/) | 10.0.1.0.0 | Extends events and meetings with services.
 [product_state](product_state/) | 10.0.1.0.0 | Product State
-[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 10.0.1.0.0 | Use product supplier info for customers too
+[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 10.0.2.0.0 | Use product supplier info for customers too
 [product_template_tags](product_template_tags/) | 10.0.1.0.0 | This addon allow to add tags on products
 [product_uom](product_uom/) | 10.0.1.0.0 | Provide missing uom
 [product_variant_inactive](product_variant_inactive/) | 10.0.1.0.0 | Product Variant Inactive
