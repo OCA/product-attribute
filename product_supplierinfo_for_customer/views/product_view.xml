@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 AvanzOSC
+     Copyright 2015-18 Tecnativa
+     Copyright 2017-18 Eficent
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="product_supplierinfo_form_view" model="ir.ui.view">
         <field name="name">product.supplierinfo.form.view</field>
@@ -15,12 +19,16 @@
     <record id="product_supplierinfo_customer_form_view" model="ir.ui.view">
         <field name="name">product.supplierinfo.customer.form.view</field>
         <field name="model">product.supplierinfo</field>
-        <field name="priority" eval="100"/>
+        <field name="priority" eval="9999"/>
         <field name="arch" type="xml">
             <form string="Customer Information">
                 <group>
                     <group string="Customer">
-                        <field name="name" string="Customer" context="{'default_supplier': 0, 'search_default_customer': 1, 'default_customer': 1}"/>
+                        <field name="name" string="Customer" context="{
+                            'default_supplier': 0,
+                            'search_default_customer': 1,
+                            'default_customer': 1,
+                        }"/>
                         <field name="product_name" string="Customer Product Name"/>
                         <field name="product_code" string="Customer Product Code"/>
                         <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
@@ -73,15 +81,27 @@
         <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
         <field name="arch" type="xml">
             <field name="seller_ids" position="attributes">
-                <attribute name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}</attribute>
+                <attribute name="context">{
+                        'default_search_type':'supplier',
+                        'default_type':'supplier',
+                        'default_product_tmpl_id':id,
+                    }</attribute>
                 <attribute name="domain">[('type','=','supplier')]</attribute>
                 <attribute name="invisible">1</attribute>
             </field>
-            <field name="seller_ids" position="after">
-                <field name="supplier_ids"
-                       context="{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}"
-                       domain="[('type','=','supplier')]" />
-            </field>
+            <xpath expr="//field[@name='seller_ids']/.." position="after">
+                <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
+                    <field name="supplier_ids"
+                           context="{
+                               'default_search_type':'supplier',
+                               'default_type':'supplier',
+                               'default_product_tmpl_id':id,
+                           }"
+                           domain="[('type','=','supplier')]"
+                           nolabel="1"
+                    />
+                </group>
+            </xpath>
         </field>
     </record>
 
@@ -94,7 +114,13 @@
                 <div name="pricelist_customer">
                     <separator string="Customers" />
                     <field name="customer_ids"
-                           context="{'default_search_type':'customer','default_type':'customer','default_product_tmpl_id':id,'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view','tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view'}">
+                           context="{
+                               'default_search_type':'customer',
+                               'default_type':'customer',
+                               'default_product_tmpl_id':id,
+                               'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view',
+                               'tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view',
+                           }">
                     </field>
                 </div>
             </div>
@@ -104,7 +130,12 @@
     <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
         <field name="name">Partner Pricelists</field>
         <field name="res_model">product.supplierinfo</field>
-        <field name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id,visible_product_tmpl_id':False}</field>
+        <field name="context">{
+                'default_search_type':'supplier',
+                'default_type':'supplier',
+                'default_product_tmpl_id':id,
+                'visible_product_tmpl_id':False,
+            }</field>
         <field name="domain">[('type','=','supplier')]</field>
     </record>
 

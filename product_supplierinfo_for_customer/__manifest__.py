@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
-# Copyright 2015 Tecnativa
+# Copyright 2015-18 Tecnativa
+# Copyright 2017-18 Eficent
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Supplierinfo for Customers",
     "summary": "Allows to define prices for customers in the products",
-    "version": "10.0.3.0.1",
+    "version": "11.0.1.0.0",
     "author": "AvanzOSC, "
               "Tecnativa, "
               "Odoo Community Association (OCA)",
@@ -14,8 +14,6 @@
     "category": "Sales Management",
     "license": 'AGPL-3',
     "depends": [
-        "base",
-        "product",
         "purchase",
     ],
     "data": [
