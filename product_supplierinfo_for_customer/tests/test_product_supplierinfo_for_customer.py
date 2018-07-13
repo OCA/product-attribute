@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
@@ -31,7 +30,6 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
             'compute_price': 'fixed',
             'fixed_price': 100.0,
             'product_tmpl_id': self.product.id,
-            'sequence': 5,
         })
 
     def _create_customer(self, name):

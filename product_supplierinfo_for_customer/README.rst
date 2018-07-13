@@ -1,6 +1,6 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
-    :alt: License: AGPL-3
-    :target: http://www.gnu.org/licenses/agpl-3.0.en.html
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
+   :alt: License: AGPL-3
 
 ==================================
 Product Supplierinfo for Customers
@@ -25,11 +25,11 @@ where you can define records for customers with the same structure of the
 suppliers.
 
 There's a new option on pricelist items that allows to get the prices from the
- supplierinfo at the product form.
+supplierinfo at the product form.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/188/10.0
+   :target: https://runbot.odoo-community.org/runbot/188/11.0
 
 Known issues / Roadmap
 ======================
@@ -41,8 +41,30 @@ Known issues / Roadmap
 Credits
 =======
 
+Images
+------
+
+* Odoo Community Association: `Icon <https://odoo-community.org/logo.png>`_.
+
 Contributors
 ------------
 * Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
 * Tecnativa - Pedro M. Baeza <pedro.baeza@tecnativa.com>
 * Aaron Henriquez <ahenriquez@eficent.com>
+* Miquel Raïch <miquel.raich@eficent.com>
+* Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+
+Maintainer
+----------
+
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
+
+This module is maintained by the OCA.
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+To contribute to this module, please visit https://odoo-community.org.
