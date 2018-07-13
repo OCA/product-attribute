@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
@@ -10,8 +9,10 @@ class ProductSupplierinfo(models.Model):
     _inherit = 'product.supplierinfo'
 
     type = fields.Selection(
-        selection=[('customer', 'Customer'),
-                   ('supplier', 'Supplier')], string='Type',
+        selection=[
+            ('customer', 'Customer'),
+            ('supplier', 'Supplier'),
+        ], string='Type',
         default='supplier')
 
     @api.multi
