@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record model="ir.ui.view" id="product_supplierinfo_extended_form_view">
-    <!-- Copying and modifying the standard as the absence of names makes it impossible to inherit-->
-        <field name="name">product.supplierinfo.extended.form</field>
+    <record id="product_supplierinfo_form_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view</field>
         <field name="model">product.supplierinfo</field>
+        <field name="priority" eval="100"/>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
         <field name="arch" type="xml">
-           <form string="Partner Information">
+            <xpath expr="//field[@name='name']" position="before">
+               <field name="type" invisible="1"/>
+           </xpath>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_customer_form_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.customer.form.view</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <form string="Customer Information">
                 <group>
-                    <group name="partner" string="Partner">
-                        <field name="type" colspan="4" invisible="1"/>
-                        <field name="name" string="Partner" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'select_type': type}"/>
-                        <field name="product_name" string="Partner Product Name"/>
-                        <field name="product_code" string="Partner Product Code"/>
+                    <group string="Customer">
+                        <field name="name" context="{'default_supplier': 0, 'search_default_customer': 1, 'default_customer': 1}"/>
+                        <field name="product_name"/>
+                        <field name="product_code"/>
                         <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
-                        <label for="delay"/>
-                        <div>
-                            <field name="delay" class="oe_inline"/> days
-                        </div>
                     </group>
-                    <group string="Price List">
+                    <group string="Price List" groups="product.group_pricelist_item">
                         <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
                         <label for="min_qty"/>
                         <div>
                             <field name="min_qty" class="oe_inline"/>
-                            <field name="product_uom" string="Partner Unit of Measure" class="oe_inline" groups="product.group_uom"/>
+                            <field name="product_uom" class="oe_inline" groups="product.group_uom"/>
                         </div>
                         <label for="price"/>
                         <div>
@@ -34,51 +41,34 @@
                     </group>
                     <group string="Other Information" groups="base.group_multi_company">
                         <field name="company_id" options="{'no_create': True}"/>
+                         <field name="type" invisible="1"/>
                     </group>
                 </group>
             </form>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="product_supplierinfo_template_form_view">
-        <field name="name">product.supplierinfo.template.form</field>
+    <record id="product_supplierinfo_customer_tree_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.customer.tree.view</field>
         <field name="model">product.supplierinfo</field>
-        <field name="inherit_id" ref="product_supplierinfo_extended_form_view" />
-        <field name="mode">primary</field>
-        <field name="priority" eval="20" />
+        <field name="priority" eval="100"/>
         <field name="arch" type="xml">
-            <field name="name" position="before">
-                <field name="product_tmpl_id" />
-            </field>
+            <tree string="Customer Information">
+                <field name="sequence" widget="handle"/>
+                <field name="name" string="Customer"/>
+                <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+                <field name="product_name" string="Customer Product Name"/>
+                <field name="product_code" string="Customer Product Code"/>
+                <field name="min_qty"/>
+                <field name="price" string="Price" groups="product.group_pricelist_item"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+            </tree>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="product_supplierinfo_extended_tree_view">
-        <field name="name">product.supplierinfo.partner.tree</field>
-        <field name="model">product.supplierinfo</field>
-        <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
-        <field name="arch" type="xml">
-            <field name="name" position="attributes">
-                <attribute name="string">Partner</attribute>
-            </field>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="product_supplierinfo_template_tree_view">
-        <field name="name">product.supplierinfo.template.tree</field>
-        <field name="model">product.supplierinfo</field>
-        <field name="inherit_id" ref="product_supplierinfo_extended_tree_view" />
-        <field name="mode">primary</field>
-        <field name="priority" eval="20" />
-        <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="product_tmpl_id" />
-            </field>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_product_supplier_inherit">
-        <field name="name">product.template.extended.form</field>
+    <record id="view_product_supplier_inherit" model="ir.ui.view">
+        <field name="name">product.template.supplier.form.inherit</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
         <field name="arch" type="xml">
@@ -95,18 +85,27 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="product_template_extended_form_view">
-        <field name="name">product.template.extended.form</field>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <div name="pricelist_item" position="after">
-                <separator string="Customers" />
-                <field name="customer_ids"
-                       context="{'default_search_type':'customer','default_type':'customer','default_product_tmpl_id':id}">
-                </field>
+                <div name="pricelist_customer">
+                    <separator string="Customers" />
+                    <field name="customer_ids"
+                           context="{'default_search_type':'customer','default_type':'customer','default_product_tmpl_id':id,'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view','tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view'}">
+                    </field>
+                </div>
             </div>
         </field>
+    </record>
+
+    <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
+        <field name="name">Partner Pricelists</field>
+        <field name="res_model">product.supplierinfo</field>
+        <field name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id,visible_product_tmpl_id':False}</field>
+        <field name="domain">[('type','=','supplier')]</field>
     </record>
 
 </odoo>
