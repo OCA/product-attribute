@@ -8,37 +8,41 @@
       <field name="model">product.pricelist.print</field>
       <field name="arch" type="xml">
         <form>
+            <group>
             <group string="Pricelist" invisible="context.get('active_model') in ('product.pricelist', 'res.partner')">
                 <field name="pricelist_id" options="{'no_create': True, 'no_create_edit': True}"/>
             </group>
-            <group string="Filter Options" col="4">
+            <group string="Filter Options">
                 <field name="show_sale_price"/>
                 <field name="show_standard_price"/>
                 <field name="order_field"/>
                 <field name="show_variants" groups="product.group_product_variant"/>
             </group>
             <group attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}">
-                <field name="categ_ids" widget="many2many_tags"/>
+                <field name="categ_ids" widget="many2many_tags" attrs=""/>
             </group>
-            <group attrs="{'invisible':[('categ_ids','!=',[])]}">
-                <group string="Products"
+            </group>
+            <notebook attrs="{'invisible':[('categ_ids','!=',[])]}">
+                <page string="Products"
                        invisible="context.get('active_model') in ['product.template','product.product']">
-                    <field name="product_tmpl_ids" colspan="2" nolabel="1"
+                    <field name="product_tmpl_ids" nolabel="1"
                            attrs="{'invisible':[('show_variants','=',True)]}">
                         <tree>
                             <field name="name"/>
                         </tree>
                     </field>
-                    <field name="product_ids" colspan="2" nolabel="1"
+                    <field name="product_ids"
                            attrs="{'invisible':[('show_variants','=',False)]}">
                         <tree>
                             <field name="name"/>
                         </tree>
                     </field>
-                </group>
-            </group>
+                </page>
+            </notebook>
             <footer>
-                <button name="print_report" string="Print"  type="object" class="btn-primary"/>
+                <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                <button name="action_pricelist_send" string="Send by email"
+                        type="object" class="btn-primary" attrs="{'invisible':[('pricelist_id','=',False)]}"/>
                 <button string="Cancel" class="btn-default" special="cancel" />
             </footer>
         </form>
@@ -84,6 +88,6 @@
     view_mode="form" target="new" view_type="form"/>
 
 <menuitem action="action_pricelist_print" id="menu_product_pricelist_print"
-    parent="base.menu_sales" sequence="200" groups="product.group_sale_pricelist"/>
+    parent="sale.product_menu_catalog" sequence="200" groups="product.group_sale_pricelist"/>
 
 </odoo>
