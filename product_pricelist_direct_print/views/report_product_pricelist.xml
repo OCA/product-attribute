@@ -4,8 +4,8 @@
 <odoo>
 
 <template id="report_product_pricelist_document">
-    <t t-call="report.html_container">
-        <t t-call="report.external_layout">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
             <div class="page">
                 <h2>Price List</h2>
                 <div class="row mt32 mb32">
@@ -64,7 +64,7 @@
                             </t>
                             <t t-if="o.order_field == 'default_code'">
                                 <t t-set="category_products"
-                                   t-value="category_products.sorted(lambda x: x.default_code)"/>
+                                   t-value="category_products.sorted(lambda x: x.default_code or '')"/>
                             </t>
                             <tr t-if="category_products">
                                 <td colspan="100">
