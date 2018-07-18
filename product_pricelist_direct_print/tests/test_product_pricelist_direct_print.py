@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp.tests.common import SavepointCase
-from openerp.exceptions import ValidationError
+from odoo.tests.common import SavepointCase
+from odoo.exceptions import ValidationError
 
 
 class TestProductPricelistDirectPrint(SavepointCase):
@@ -21,12 +20,11 @@ class TestProductPricelistDirectPrint(SavepointCase):
             'categ_id': cls.category.id,
             'default_code': 'TESTPROD01',
         })
-
         cls.partner = cls.env['res.partner'].create({
             'name': 'Partner for test',
             'property_product_pricelist': cls.pricelist.id,
+            'email': 'test@test.com',
         })
-
         cls.wiz_obj = cls.env['product.pricelist.print']
 
     def test_defaults(self):
@@ -55,10 +53,13 @@ class TestProductPricelistDirectPrint(SavepointCase):
         self.assertEqual(
             res['product_ids'][0][2], self.product.ids)
         self.assertTrue(res['show_variants'])
-
         with self.assertRaises(ValidationError):
             wiz.print_report()
-
         wiz.show_sale_price = True
         res = wiz.print_report()
         self.assertIn('report_name', res)
+
+    def test_partner_pricelist_batch_mailing(self):
+        partner = self.partner.copy({'email': 'other@test.com'})
+        partner |= self.partner
+        partner.action_customer_pricelist_email_send()
