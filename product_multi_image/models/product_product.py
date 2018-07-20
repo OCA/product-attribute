@@ -104,7 +104,7 @@ class ProductProduct(models.Model):
                     image.unlink()
                 else:
                     # Leave the images for the rest of the variants
-                    image.product_variant_ids = variants.ids
+                    image.product_variant_ids = [(6, 0, variants.ids)]
 
     @api.multi
     @api.depends('image_ids', 'product_tmpl_id.image_ids',
