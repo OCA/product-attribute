@@ -4,6 +4,7 @@
 
 
 def pre_init_product_code(cr):
+    cr.execute("""CREATE SEQUENCE ir_default_id_seq START 1""")
     cr.execute("""UPDATE product_product
         SET default_code = 'DEFAULT_CODE' || nextval('ir_default_id_seq')
         WHERE id in (SELECT distinct(pp.id)
