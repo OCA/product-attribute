@@ -11,8 +11,8 @@ class ProductProduct(models.Model):
 
     @api.multi
     def _get_price_from_supplierinfo(self, partner_id):
-        for product in self:
-            if partner_id:
+        if partner_id:
+            for product in self:
                 supplierinfo = self.env['product.supplierinfo'].search(
                     ['|', ('product_tmpl_id', '=', product.product_tmpl_id.id),
                      ('product_id', '=', product.id),
@@ -25,9 +25,9 @@ class ProductProduct(models.Model):
     @api.multi
     def price_compute(
             self, price_type, uom=False, currency=False, company=False):
-        for product in self:
-            if price_type == 'partner':
-                partner = self.env.context.get('partner_id', False)
+        if price_type == 'partner':
+            partner = self.env.context.get('partner_id', False)
+            for product in self:
                 price = product._get_price_from_supplierinfo(partner)
                 if not price:
                     return super(ProductProduct, self).price_compute(
