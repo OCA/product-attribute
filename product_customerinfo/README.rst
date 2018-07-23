@@ -2,9 +2,9 @@
     :alt: License: AGPL-3
     :target: http://www.gnu.org/licenses/agpl-3.0.en.html
 
-============================================
-Use product supplier info also for customers
-============================================
+==================================
+Product Supplierinfo for Customers
+==================================
 
 This modules allows to use supplier info structure, available in
 *Inventory* tab of the product form, also for defining customer information,

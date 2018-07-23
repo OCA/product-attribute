@@ -4,8 +4,9 @@
 # Copyright 2015 Tecnativa
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
-    "name": "Use product supplier info for customers too",
-    "version": "10.0.3.0.0",
+    "name": "Product Supplierinfo for Customers",
+    "summary": "Allows to define prices for customers in the products",
+    "version": "10.0.3.0.1",
     "author": "AvanzOSC, "
               "Tecnativa, "
               "Odoo Community Association (OCA)",
