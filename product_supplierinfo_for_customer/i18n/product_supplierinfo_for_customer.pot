@@ -16,12 +16,30 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_customer_ids
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
 #: selection:product.supplierinfo,type:0
 msgid "Customer"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+msgid "Customer Information"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+msgid "Customer Product Code"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+msgid "Customer Product Name"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
 msgid "Customers"
 msgstr ""
 
@@ -31,39 +49,22 @@ msgid "Information about a product vendor"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "Other Information"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_tree_view
 msgid "Partner"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Information"
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+msgid "Price"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Product Code"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Product Name"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Unit of Measure"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "Price List"
 msgstr ""
 
@@ -74,7 +75,8 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
 msgid "Product"
 msgstr ""
 
@@ -96,17 +98,12 @@ msgid "Type"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "Validity"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "days"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "to"
 msgstr ""
 
