@@ -20,9 +20,9 @@
             <form string="Customer Information">
                 <group>
                     <group string="Customer">
-                        <field name="name" context="{'default_supplier': 0, 'search_default_customer': 1, 'default_customer': 1}"/>
-                        <field name="product_name"/>
-                        <field name="product_code"/>
+                        <field name="name" string="Customer" context="{'default_supplier': 0, 'search_default_customer': 1, 'default_customer': 1}"/>
+                        <field name="product_name" string="Customer Product Name"/>
+                        <field name="product_code" string="Customer Product Code"/>
                         <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
                     </group>
                     <group string="Price List" groups="product.group_pricelist_item">
