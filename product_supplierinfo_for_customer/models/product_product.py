@@ -26,7 +26,8 @@ class ProductProduct(models.Model):
     def price_compute(
             self, price_type, uom=False, currency=False, company=False):
         if price_type == 'partner':
-            partner = self.env.context.get('partner_id', False)
+            partner = self.env.context.get('partner_id', False) or \
+                self.env.context.get('partner', False)
             for product in self:
                 price = product._get_price_from_supplierinfo(partner)
                 if not price:
