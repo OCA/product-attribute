@@ -39,7 +39,7 @@ class open_product_by_attribute_set(models.TransientModel):
         """
         self.ensure_one()
 
-        result = self.env.ref('product.product_normal_action')
+        result = self.env.ref('product.product_template_action_all')
         result = result.read()[0]
 
         attribute_set = self.attribute_set_id

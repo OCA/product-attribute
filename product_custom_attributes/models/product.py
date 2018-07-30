@@ -109,10 +109,12 @@ class ProductTemplate(models.Model):
                     placeholder, attributes_notebook)
 
             elif context.get('open_product_by_attribute_set'):
-                main_page = eview.xpath(
-                    "//page[@name='custom_attributes']")[0]
-
-                main_page.append(attributes_notebook)
+                notebook = eview.xpath(
+                    "//notebook")[0]
+                page = etree.SubElement(
+                    notebook, 'page', name="attributes_page",
+                    colspan="2", col="4", string="Custom attributes")
+                page.append(attributes_notebook)
 
             result['arch'] = etree.tostring(eview, pretty_print=True)
         return result

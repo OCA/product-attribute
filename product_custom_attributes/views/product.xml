@@ -10,16 +10,12 @@
                 <field name="type" position="after">
                     <field name="attribute_set_id"/>
                 </field>
-                <notebook position="inside">
-                    <page string="Custom Attributes" name="custom_attributes">
-                        <group name="attribute_fields">
-                            <button name="open_attributes"
-                                    string="Open Attributes" type="object"
-                                    icon="gtk-ok"
-                                    attrs="{'invisible':[('attribute_set_id', '=', False)]}"/>
-                        </group>
-                    </page>
-                </notebook>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" name="open_attributes"
+                        type="object" string="Open Attributes" icon="fa-th-list"
+                        attrs="{'invisible':[('attribute_set_id', '=', False)]}">
+                    </button>
+                </div>
             </field>
         </record>
 
