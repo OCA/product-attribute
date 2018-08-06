@@ -18,7 +18,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/133/10.0
+   :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 Bug Tracker
 ===========
@@ -40,7 +40,6 @@ Contributors
 ------------
 
 * Antonio Yamuta <ayamuta@opensourceintegrators.com>
-* Chafique Delli <chafique.delli@akretion.com>
 
 Funders
 -------
@@ -48,7 +47,6 @@ Funders
 The development of this module has been financially supported by:
 
 * Open Source Integrators <http://www.opensourceintegrators.com>
-* Akretion <https://www.akretion.com>
 
 Maintainer
 ----------
