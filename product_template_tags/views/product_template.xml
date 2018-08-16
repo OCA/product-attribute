@@ -25,7 +25,7 @@
         <field name="inherit_id" ref="product.product_template_kanban_view"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//t[@t-name='kanban-box']//div[@class='o_kanban_image']"
+            <xpath expr="//t[@t-name='kanban-box']//div[hasclass('o_kanban_image')]"
                    position="before">
                 <div class="o_kanban_tags_section">
                     <span class="oe_kanban_list_many2many">
