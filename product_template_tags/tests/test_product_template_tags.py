@@ -1,5 +1,4 @@
 from odoo.tests.common import TransactionCase
-from odoo.api import Environment
 
 
 class TestProductTemplateTag(TransactionCase):
@@ -14,4 +13,6 @@ class TestProductTemplateTag(TransactionCase):
         product.write({
             'tag_ids': [(6, 0, [tag.id])],
         })
-        self.assertEqual(product.tag_ids[0].products_count, 1, 'Error product count does not match')
+        self.assertEqual(product.tag_ids[0].products_count,
+                         1,
+                         'Error product count does not match')
