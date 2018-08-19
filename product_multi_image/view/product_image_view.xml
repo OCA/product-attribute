@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+        <record id="view_product_multi_image_kanban" model="ir.ui.view">
+            <field name="name">ViewProductImageKanban</field>
+            <field name="model">product.multi.image</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="image"/>
+                    <field name="product_id"/>
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette oe_semantic_html_override">
+                                <a type="open"><img t-att-src="kanban_image('product.multi.image', 'image', record.id.value)" class="o_kanban_image"/></a>
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open">
+                                            <t t-if="record.name.value">
+                                                <field name="name"/>
+                                            </t>
+                                            <p/>
+                                            <t t-if="record.sequence.value">
+                                                [<field name="sequence"/>]
+                                            </t>
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_product_multi_image_form" model="ir.ui.view">
+            <field name="name">ViewProductImageForm</field>
+            <field name="model">product.multi.image</field>
+            <field name="arch" type="xml">
+                <form string="Product Image">
+                    <group>
+                        <group>
+                            <field name="image" colspan="2"/>
+                            <field name="product_id" colspan="2"/>
+                            <field name="sequence" colspan="2"/>
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_multi_image_tree" model="ir.ui.view">
+            <field name="name">ViewProductImageTree</field>
+            <field name="model">product.multi.image</field>
+            <field name="arch" type="xml">
+                <tree string="Product Images">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="image"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_form_inherit_product_multi_image" model="ir.ui.view">
+            <field name="name">ViewProductFormInheritProductImage</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Images">
+                        <field name="image_ids" mode="kanban" nolabel="1">
+                            <kanban>
+                                <field name="image"/>
+                                <field name="sequence"/>
+                                <field name="name"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_vignette oe_semantic_html_override">
+                                            <a type="open"><img t-att-src="kanban_image('product.multi.image', 'image', record.id.value)" class="o_kanban_image"/></a>
+                                            <div class="oe_kanban_details">
+                                                <h4>
+                                                    <a type="open">
+                                                        <t t-if="record.name.value">
+                                                            <field name="name"/>
+                                                        </t>
+                                                        <p/>
+                                                        <t t-if="record.sequence.value">
+                                                            <field name="sequence"/>
+                                                        </t>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                            <tree string="Product Images">
+                                <field name="sequence"/>
+                                <field name="name"/>
+                                <field name="image"/>
+                            </tree>
+                            <form string="Product Image">
+                                <group>
+                                <field name="sequence"/>
+                                <field name="name"/>
+                                <field name="image"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="product_template_only_form_view_inh" model="ir.ui.view">
+            <field name="name">product.template.product.form.inh</field>
+            <field name="model">product.template</field>
+            <field name="priority" eval="900" />
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='variants']" position="after">
+                    <page name="images" string="Images">
+                        <field name="image_ids" mode="kanban" nolabel="1">
+                            <kanban>
+                                <field name="image"/>
+                                <field name="sequence"/>
+                                <field name="name"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_vignette oe_semantic_html_override">
+                                            <a type="open"><img t-att-src="kanban_image('product.multi.image', 'image', record.id.value)" class="o_kanban_image"/></a>
+                                            <div class="oe_kanban_details">
+                                                <h4>
+                                                    <a type="open">
+                                                        <t t-if="record.name.value">
+                                                            <field name="name"/>
+                                                        </t>
+                                                        <p/>
+                                                        <t t-if="record.sequence.value">
+                                                            <field name="sequence"/>
+                                                        </t>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                            <tree string="Product Images">
+                                <field name="sequence"/>
+                                <field name="name"/>
+                                <field name="image"/>
+                            </tree>
+                            <form string="Product Image">
+                                <group>
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="image"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+       <act_window name="Images"
+                   domain="[('product_id', '=', active_id)]"
+                   context="{'default_product_id': active_id}"
+                   res_model="product.multi.image"
+                   src_model="product.product"
+                   id="act_product_2_images"
+               />
+    </data>
+</openerp>
