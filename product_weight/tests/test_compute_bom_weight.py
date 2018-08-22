@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2015 Akretion (<http://www.akretion.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -29,16 +28,16 @@ class TestBomWeightCompute(TransactionCase):
             active_model='product.template',
             active_id=self.product.product_tmpl_id.id).create({})
         wizard.update_single_weight()
-        self.assertEqual(self.product.weight, 3.8)
-        self.assertEqual(self.product.product_tmpl_id.weight, 3.8)
+        self.assertAlmostEqual(self.product.weight, 3.8)
+        self.assertAlmostEqual(self.product.product_tmpl_id.weight, 3.8)
 
     def test_calculate_product_weight_from_product_form(self):
         wizard = self.wiz_obj.with_context(
             active_model='product.product',
             active_id=self.product.id).create({})
         wizard.update_single_weight()
-        self.assertEqual(self.product.weight, 3.8)
-        self.assertEqual(self.product.product_tmpl_id.weight, 3.8)
+        self.assertAlmostEqual(self.product.weight, 3.8)
+        self.assertAlmostEqual(self.product.product_tmpl_id.weight, 3.8)
 
     def test_calculate_weight_from_template_tree(self):
         self.bom.product_tmpl_id = self.variant1.product_tmpl_id.id
@@ -48,7 +47,7 @@ class TestBomWeightCompute(TransactionCase):
             active_ids=[self.variant1.product_tmpl_id.id]).create({})
         wizard.update_multi_product_weight()
         # You can't update template weight if it as variants
-        self.assertEqual(self.variant1.product_tmpl_id.weight, 0.0)
+        self.assertAlmostEqual(self.variant1.product_tmpl_id.weight, 0.0)
 
     def test_calculate_weight_from_product_tree(self):
         self.bom.product_tmpl_id = self.variant1.product_tmpl_id.id
@@ -57,5 +56,5 @@ class TestBomWeightCompute(TransactionCase):
             active_model='product.product',
             active_ids=[self.variant1.id, self.variant2.id]).create({})
         wizard.update_multi_product_weight()
-        self.assertEqual(self.variant1.weight, 3.8)
-        self.assertEqual(self.variant2.weight, 0.0)
+        self.assertAlmostEqual(self.variant1.weight, 3.8)
+        self.assertAlmostEqual(self.variant2.weight, 0.0)

@@ -20,7 +20,6 @@
       </field>
     </record>
 
-
     <record id="view_product_weight_update_multi" model="ir.ui.view">
       <field name="name">Update Product Weights</field>
       <field name="model">product.weight.update</field>
@@ -43,7 +42,6 @@
       <field name="target">new</field>
     </record>
 
-
     <act_window id="action_multi_product_weight"
                 name="Calculate Product Weights"
                 key2="client_action_multi"
@@ -65,4 +63,3 @@
                 view_id="view_product_weight_update_multi" />
     
 </odoo>
-
