@@ -19,4 +19,11 @@
 #                                                                             #
 ###############################################################################
 
-from . import open_product_by_attribute_set
+from odoo import models, fields
+
+
+class ProductCategory(models.Model):
+    _inherit = "product.category"
+
+    attribute_set_id = fields.Many2one(
+        'attribute.set', 'Default Attribute Set')
