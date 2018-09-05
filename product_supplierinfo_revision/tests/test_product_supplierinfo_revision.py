@@ -33,7 +33,7 @@ class TestProductSupplierinfoRevision(common.SavepointCase):
         })
         result = wizard.with_context(
             active_ids=self.supplierinfo.ids).action_apply()
-        self.assertEqual(result['name'], 'Vendor Pricelists')
+        self.assertEqual(result['res_model'], 'product.supplierinfo')
         new_supplierinfo = self.env['product.supplierinfo'].browse(
             result['domain'][0][2][0]
         )
