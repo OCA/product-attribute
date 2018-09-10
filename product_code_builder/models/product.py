@@ -49,6 +49,7 @@ class ProductProduct(models.Model):
         compute="_compute_default_code",
         inverse="_inverse_default_code",
         store=True,
+        compute_sudo=True,
     )
 
     manual_default_code = fields.Char(
