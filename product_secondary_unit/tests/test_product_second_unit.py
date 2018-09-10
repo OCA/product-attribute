@@ -18,16 +18,35 @@ class TestProductSecondaryUnit(SavepointCase):
             'uom_po_id': cls.product_uom_kg.id,
             'secondary_uom_ids': [
                 (0, 0, {
+                    'code': 'A',
                     'name': 'unit-700',
                     'uom_id': cls.product_uom_unit.id,
                     'factor': 0.7,
-                })],
+                }),
+                (0, 0, {
+                    'code': 'B',
+                    'name': 'unit-900',
+                    'uom_id': cls.product_uom_unit.id,
+                    'factor': 0.9,
+                }),
+            ],
         })
         secondary_unit = cls.env['product.secondary.unit'].search([
             ('product_tmpl_id', '=', cls.product.id),
-        ])
+        ], limit=1)
         cls.product.sale_secondary_uom_id = secondary_unit.id
 
     def test_product_secondary_unit_name(self):
         self.assertEqual(
-            self.product.sale_secondary_uom_id.name_get()[0][1], 'Unit(s)-0.7')
+            self.product.sale_secondary_uom_id.name_get()[0][1],
+            'unit-700-0.7')
+
+    def test_product_secondary_unit_search(self):
+        args = [('product_tmpl_id.product_variant_ids', 'in',
+                 self.product.product_variant_ids.ids)]
+        name_get = self.env['product.secondary.unit'].name_search(
+            name='A', args=args)
+        self.assertEqual(len(name_get), 1)
+        name_get = self.env['product.secondary.unit'].name_search(
+            name='X', args=args)
+        self.assertEqual(len(name_get), 0)

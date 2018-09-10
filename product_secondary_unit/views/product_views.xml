@@ -18,6 +18,7 @@
                 <group string="secondary unit of measure">
                     <field name="secondary_uom_ids" nolabel="1">
                         <tree string="secondary Unit" editable="top">
+                            <field name="code"/>
                             <field name="name"/>
                             <field name="uom_id"/>
                             <field name="factor"/>
