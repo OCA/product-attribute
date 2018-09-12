@@ -14,7 +14,8 @@ Usage
 
 To use this module:
 
-#. Check *Purchase > Settings > Vendor Price* "Allow using and importing 
+#. For manual prices updates, you may want to install Purchase module and 
+   check *Purchase > Settings > Vendor Price* "Allow using and importing 
    vendor pricelists"
 #. If you are a purchase manager, and you have checked "Manage Vendor Price"
    in the technical settings of your user, go to *Purchases > Purchase >
@@ -25,8 +26,9 @@ To use this module:
 #. By clicking on Apply button, a new supplier pricelist will be created with
    a price increased accordingly to the percent entered. Old supplier
    pricelist will have a date end from which pricelist will be out of date.
-#. You can check supplier pricelists as well as variation percent in the
-   product form, by clicking on *Inventory* tab.
+#. Once Inventory Management (*stock*) module is installed, you can check 
+   supplier pricelists as well as variation percent in the product form, by 
+   clicking on *Inventory* tab.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
