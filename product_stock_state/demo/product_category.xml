@@ -3,7 +3,7 @@
 
 <!--saleable -->
     <record id="product.product_category_1" model="product.category">
-        <field name="stock_state_threshold">20</field>
+        <field name="manual_stock_state_threshold">20</field>
     </record>
 
 </odoo>
