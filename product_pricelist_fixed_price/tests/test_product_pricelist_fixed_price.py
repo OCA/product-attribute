@@ -15,6 +15,7 @@ class TestProductPricelistFixedPrice(common.TransactionCase):
             * for purchase price list
         """
         item_obj = self.env['product.pricelist.item']
+        module_obj = self.env['ir.module.module']
         plv = self.env.ref('product.ver0')
         base_sale = item_obj._get_default_base({'type': 'sale'})
         vals = {
@@ -40,6 +41,10 @@ class TestProductPricelistFixedPrice(common.TransactionCase):
         self.assertEqual(item.price_discount, -1.0)
 
         # change the type of the pricelist => purchase
+        if not module_obj.search_count([
+                ('name', '=', 'purchase'),
+                ('state', '=', 'installed')]):
+            return
         plv.pricelist_id.type = 'purchase'
         base_pur = item_obj._get_default_base({'type': 'purchase'})
         self.assertNotEqual(base_sale, base_pur)
