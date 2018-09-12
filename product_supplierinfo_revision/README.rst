@@ -6,8 +6,15 @@
 Product Supplierinfo Revision
 =============================
 
-This module allows create revisions of supplier info prices.
+This module allows to create revisions of supplier info prices.
 
+Configuration
+=============
+
+#. Install Purchase module.
+#. Check *Purchase > Settings > Vendor Price* : "Allow using and importing 
+   vendor pricelists", this will create the *Purchases > Purchase >
+   Supplier Pricelist* menu.
 
 Usage
 =====
