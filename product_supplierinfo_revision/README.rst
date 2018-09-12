@@ -14,6 +14,8 @@ Usage
 
 To use this module:
 
+#. Check *Purchase > Settings > Vendor Price* "Allow using and importing 
+   vendor pricelists"
 #. If you are a purchase manager, and you have checked "Manage Vendor Price"
    in the technical settings of your user, go to *Purchases > Purchase >
    Supplier Pricelist* and select one or more supplier pricelist.
