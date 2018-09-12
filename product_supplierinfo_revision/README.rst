@@ -23,8 +23,9 @@ To use this module:
 #. By clicking on Apply button, a new supplier pricelist will be created with
    a price increased accordingly to the percent entered. Old supplier
    pricelist will have a date end from which pricelist will be out of date.
-#. You can check supplier pricelists as well as variation percent in the
-   product form, by clicking on *Inventory* tab.
+#. Once the Inventory Management module (stock) is installed, you can check 
+   supplier pricelists as well as variation percent in the product form, by 
+   clicking on *Inventory* tab.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
