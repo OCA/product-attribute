@@ -13,6 +13,7 @@
     "installable": True,
     "depends": [
         "product",
+        "purchase",
     ],
     "data": [
         "views/product_supplierinfo_view.xml",
