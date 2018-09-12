@@ -9,7 +9,7 @@
     <record id="product_setting_by_product" model="product.product">
         <field name="name">Product with threshold set on the product</field>
         <field name="categ_id" ref="product.product_category_all"/>
-        <field name="stock_state_threshold">30</field>
+        <field name="manual_stock_state_threshold">30</field>
     </record>
 
 </odoo>
