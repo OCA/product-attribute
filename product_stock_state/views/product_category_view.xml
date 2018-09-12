@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <field name="type" position="after">
                 <field name="stock_state_threshold"/>
+                <field name="manual_stock_state_threshold" class="oe_edit_only"/>
             </field>
         </field>
     </record>
