@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
 # Copyright 2018 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -16,7 +17,7 @@ class TestProductSupplierinfoRevision(common.SavepointCase):
     def setUpClass(cls):
         super(TestProductSupplierinfoRevision, cls).setUpClass()
         cls.vendor = cls.env['res.partner'].create({
-            'name': 'Suplier test',
+            'name': 'Supplier test',
             'supplier': True,
         })
         cls.today = datetime.today()
