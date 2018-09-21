@@ -1,3 +1,7 @@
+# Copyright 2018 Kolushov Alexandr
+# Copyright 2018 <https://it-projects.info/team/KolushovAlexandr>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from odoo.tests.common import TransactionCase
 
 
