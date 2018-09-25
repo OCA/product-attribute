@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-# © 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
+# Copyright 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
 #        Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-# © 2016 ACSONE SA/NV (<http://acsone.eu>)
+# Copyright 2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from odoo.tests.common import TransactionCase
 from odoo import fields
@@ -88,14 +87,13 @@ class TestProductSupplierinfoDiscount(TransactionCase):
             'state': 'confirmed',
             'warehouse_id': self.env.ref('stock.warehouse0').id,
             'move_dest_id': self.env.ref('stock.stock_location_customers').id,
-            'message_unread_counter': 0,
             'name': 'WH: Stock -> Customers MTO',
             'product_id': self.product.id,
-            'date_planned': fields.Datetime.now(),
             'rule_id': procurement_rule.id,
         }
-        procurement_order = self.env['procurement.order'].create(vals)
-        res = procurement_order._prepare_purchase_order_line(
+        # procurement_rule = self.env['procurement.rule'].create(vals)
+        res = procurement_rule._prepare_purchase_order_line(
+            self.product, 50, self.env.ref('product.product_uom_unit'), vals,
             self.purchase_order, self.supplierinfo)
         self.assertTrue(res.get('discount'), 'Should have a discount key')
 
