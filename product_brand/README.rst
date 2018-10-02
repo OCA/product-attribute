@@ -51,6 +51,11 @@ To see the sales report based on brand dimension:
 #. Go to *Sales > Reporting > Sales*.
 #. There you can *Group by* brand or add it as a dimension in the pivot view.
 
+To see the invoice report based on brand dimension:
+
+#. Go to *Invoicing > Reporting > Management > Invoices*.
+#. There you can *Group by* brand or add it as a dimension in the pivot view.
+
 Known issues / Roadmap
 ======================
 
