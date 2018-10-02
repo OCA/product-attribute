@@ -8,18 +8,27 @@ class SaleReport(models.Model):
     _inherit = "sale.report"
 
     product_brand_id = fields.Many2one(
-        'product.brand',
+        comodel_name='product.brand',
         string='Brand',
     )
 
-    def _select(self):
-        select_str = super(SaleReport, self)._select()
-        select_str += """
-            , t.product_brand_id
-            """
-        return select_str
-
-    def _group_by(self):
-        group_by_str = super(SaleReport, self)._group_by()
-        group_by_str += ", t.product_brand_id"
-        return group_by_str
+    # pylint:disable=dangerous-default-value
+    def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
+        query_str = super()._query(
+            with_clause=with_clause, fields=fields, groupby=groupby,
+            from_clause=from_clause)
+        # Split query
+        with_clause, following = query_str.split('SELECT')
+        select_clause, following = following.split('FROM')
+        from_clause, following = following.split('WHERE')
+        where_clause, following = following.split('GROUP BY')
+        groupby_clause = following.split(')')[0]
+        # Add in query
+        select_clause += """, t.product_brand_id"""
+        groupby_clause += ", t.product_brand_id"
+        # Recompose query
+        res = ("SELECT {select_clause} "
+               "FROM {from_clause} "
+               "WHERE {where_clause} "
+               "GROUP BY {groupby_clause}".format(**locals()))
+        return res
