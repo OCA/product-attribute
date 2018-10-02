@@ -1,12 +1,13 @@
 # Copyright (c) 2018 Daniel Campos <danielcampos@avanzosc.es> - Avanzosc S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from odoo.tests import common
 
 
 class TestProductBrand(common.TransactionCase):
 
     def setUp(self):
-        super(TestProductBrand, self).setUp()
+        super().setUp()
         self.product = self.env.ref('product.product_product_4')
         self.supplier = self.ref('base.res_partner_2')
         self.product_brand_obj = self.env['product.brand']
