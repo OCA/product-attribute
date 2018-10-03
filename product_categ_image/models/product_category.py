@@ -9,4 +9,4 @@ from odoo import fields, models
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    image = fields.Binary(string='Image')
+    image = fields.Binary(string='Image', attachment=True)
