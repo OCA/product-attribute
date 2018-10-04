@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_dimension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-15 10:11+0000\n"
+"PO-Revision-Date: 2018-03-15 10:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product_dimensional_uom_id
+#: model:ir.model.fields,field_description:product_dimension.field_product_template_dimensional_uom_id
+msgid "Dimensional UoM"
+msgstr "Einheit d. Abmessungen"
+
+#. module: product_dimension
+#: model:ir.ui.view,arch_db:product_dimension.product_normal_form_view
+#: model:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
+msgid "Dimensions"
+msgstr "Abmessungen"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product_height
+#: model:ir.model.fields,field_description:product_dimension.field_product_template_height
+msgid "Height"
+msgstr "Höhe"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product_length
+#: model:ir.model.fields,field_description:product_dimension.field_product_template_length
+msgid "Length"
+msgstr "Länge"
+
+#. module: product_dimension
+#: model:ir.model,name:product_dimension.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_dimension
+#: model:ir.model,name:product_dimension.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: product_dimension
+#: model:ir.model.fields,help:product_dimension.field_product_product_dimensional_uom_id
+#: model:ir.model.fields,help:product_dimension.field_product_template_dimensional_uom_id
+msgid "UoM for length, height, width"
+msgstr "Einheit für Länge, Höhe, Breite"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product_width
+#: model:ir.model.fields,field_description:product_dimension.field_product_template_width
+msgid "Width"
+msgstr "Breite"
+
