@@ -15,6 +15,7 @@ addon | version | summary
 --- | --- | ---
 [customer_pricing_in_product_view](customer_pricing_in_product_view/) | 10.0.1.0.0 | Display Customer Price in Product View
 [product_brand](product_brand/) | 10.0.1.0.0 | Product Brand Manager
+[product_code_unique](product_code_unique/) | 10.0.1.0.0 | Set Product Internal Reference as Unique
 [product_default_image](product_default_image/) | 10.0.1.0.0 | Apply default images to new and existing products.
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
