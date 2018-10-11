@@ -11,6 +11,8 @@
     'author': 'GRAP,Odoo Community Association (OCA)',
     'website': 'http://www.odoo-community.org',
     'license': 'AGPL-3',
+    'development_status': 'Beta',
+    'maintainers': ['legalsylvain'],
     'depends': [
         'product',
         'sale',
