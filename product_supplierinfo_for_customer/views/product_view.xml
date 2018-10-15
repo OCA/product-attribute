@@ -85,6 +85,16 @@
                         'default_search_type':'supplier',
                         'default_type':'supplier',
                         'default_product_tmpl_id':id,
+                        'product_template_invisible_variant': True,
+                    }</attribute>
+                <attribute name="domain">[('type','=','supplier')]</attribute>
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="variant_seller_ids" position="attributes">
+                <attribute name="context">{
+                        'default_search_type':'supplier',
+                        'default_type':'supplier',
+                        'default_product_tmpl_id':id,
                     }</attribute>
                 <attribute name="domain">[('type','=','supplier')]</attribute>
                 <attribute name="invisible">1</attribute>
@@ -92,6 +102,20 @@
             <xpath expr="//field[@name='seller_ids']/.." position="after">
                 <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
                     <field name="supplier_ids"
+                           context="{
+                               'default_search_type':'supplier',
+                               'default_type':'supplier',
+                               'default_product_tmpl_id':id,
+                               'product_template_invisible_variant': True,
+                           }"
+                           domain="[('type','=','supplier')]"
+                           nolabel="1"
+                    />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='variant_seller_ids']/.." position="after">
+                <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
+                    <field name="variant_supplier_ids"
                            context="{
                                'default_search_type':'supplier',
                                'default_type':'supplier',
