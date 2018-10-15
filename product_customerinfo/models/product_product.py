@@ -10,15 +10,16 @@ class ProductProduct(models.Model):
 
     @api.multi
     def _get_price_from_supplierinfo(self, partner_id):
-        if partner_id:
-            for product in self:
-                supplierinfo = self.env['product.supplierinfo'].search(
-                    ['|', ('product_tmpl_id', '=', product.product_tmpl_id.id),
-                     ('product_id', '=', product.id),
-                     ('type', '=', 'customer'),
-                     ('name', '=', partner_id)])
-                if supplierinfo:
-                    return supplierinfo.price
+        self.ensure_one()
+        if not partner_id:
+            return 0.0
+        supplierinfo = self.env['product.supplierinfo'].search(
+            ['|', ('product_tmpl_id', '=', self.product_tmpl_id.id),
+             ('product_id', '=', self.id),
+             ('type', '=', 'customer'),
+             ('name', '=', partner_id)], limit=1)
+        if supplierinfo:
+            return supplierinfo.price
         return 0.0
 
     @api.multi
@@ -27,12 +28,12 @@ class ProductProduct(models.Model):
         if price_type == 'partner':
             partner = self.env.context.get('partner_id', False) or \
                 self.env.context.get('partner', False)
+            prices = super(ProductProduct, self).price_compute(
+                'list_price', uom, currency, company)
             for product in self:
                 price = product._get_price_from_supplierinfo(partner)
                 if not price:
-                    return super(ProductProduct, self).price_compute(
-                        'list_price', uom, currency, company)
-                prices = dict.fromkeys(self.ids, 0.0)
+                    continue
                 prices[product.id] = price
                 if not uom and self._context.get('uom'):
                     uom = self.env['product.uom'].browse(self._context['uom'])
@@ -45,6 +46,6 @@ class ProductProduct(models.Model):
                 if currency:
                     prices[product.id] = product.currency_id.compute(
                         prices[product.id], currency)
-                return prices
+            return prices
         return super(ProductProduct, self).price_compute(
             price_type, uom, currency, company)
