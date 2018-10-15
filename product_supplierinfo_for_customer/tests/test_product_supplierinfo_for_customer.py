@@ -1,48 +1,52 @@
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
+# Copyright 2018 Eficent
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-import odoo.tests.common as common
+from odoo.tests.common import SavepointCase
 
 
-class TestProductSupplierinfoForCustomer(common.TransactionCase):
+class TestProductSupplierinfoForCustomer(SavepointCase):
 
-    def setUp(self):
-        super(TestProductSupplierinfoForCustomer, self).setUp()
-        self.supplierinfo_model = self.env['product.supplierinfo']
-        self.pricelist_item_model = self.env['product.pricelist.item']
-        self.pricelist_model = self.env['product.pricelist']
-        self.customer = self._create_customer('customer1')
-        self.unknown = self._create_customer('customer2')
-        self.product = self.env.ref('product.product_product_4')
-        self.supplierinfo = self._create_supplierinfo(
-            'customer', self.customer, self.product)
-        self.pricelist = self.env['product.pricelist'].create({
+    @classmethod
+    def setUpClass(cls):
+        super(TestProductSupplierinfoForCustomer, cls).setUpClass()
+        cls.supplierinfo_model = cls.env['product.supplierinfo']
+        cls.pricelist_item_model = cls.env['product.pricelist.item']
+        cls.pricelist_model = cls.env['product.pricelist']
+        cls.customer = cls._create_customer('customer1')
+        cls.unknown = cls._create_customer('customer2')
+        cls.product = cls.env.ref('product.product_product_4')
+        cls.supplierinfo = cls._create_supplierinfo(
+            'customer', cls.customer, cls.product)
+        cls.pricelist = cls.env['product.pricelist'].create({
             'name': 'Test Pricelist',
-            'currency_id': self.env.ref('base.USD').id,
+            'currency_id': cls.env.ref('base.USD').id,
         })
-        self.company = self.env.ref('base.main_company')
-        self.pricelist_item = self.env['product.pricelist.item'].create({
+        cls.company = cls.env.ref('base.main_company')
+        cls.pricelist_item = cls.env['product.pricelist.item'].create({
             'applied_on': '1_product',
             'base': 'list_price',
             'name': 'Test Pricelist Item',
-            'pricelist_id': self.pricelist.id,
+            'pricelist_id': cls.pricelist.id,
             'compute_price': 'fixed',
             'fixed_price': 100.0,
-            'product_tmpl_id': self.product.id,
+            'product_tmpl_id': cls.product.id,
         })
 
-    def _create_customer(self, name):
+    @classmethod
+    def _create_customer(cls, name):
         """Create a Partner."""
-        return self.env['res.partner'].create({
+        return cls.env['res.partner'].create({
             'name': name,
             'email': 'example@yourcompany.com',
             'customer': True,
             'phone': 123456,
         })
 
-    def _create_supplierinfo(self, supplierinfo_type, partner, product):
-        return self.env['product.supplierinfo'].create({
+    @classmethod
+    def _create_supplierinfo(cls, supplierinfo_type, partner, product):
+        return cls.env['product.supplierinfo'].create({
             'name': partner.id,
             'product_id': product.id,
             'product_code': '00001',
