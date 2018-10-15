@@ -41,12 +41,12 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
             'phone': 123456,
         })
 
-    def _create_supplierinfo(self, type, partner, product):
+    def _create_supplierinfo(self, supplierinfo_type, partner, product):
         return self.env['product.supplierinfo'].create({
             'name': partner.id,
             'product_id': product.id,
             'product_code': '00001',
-            'type': type,
+            'supplierinfo_type': supplierinfo_type,
             'price': 100.0,
         })
 
@@ -64,7 +64,7 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
         domain = res.get('domain', False)
         name_dom = domain.get('name', False)
         self.assertEqual(name_dom, [('supplier', '=', True)])
-        sup_info.write({'type': 'customer'})
+        sup_info.write({'supplierinfo_type': 'customer'})
         res = sup_info.onchange_type()
         domain = res.get('domain', False)
         name_dom = domain.get('name', False)
