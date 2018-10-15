@@ -11,7 +11,7 @@
         <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
-               <field name="type" invisible="1"/>
+               <field name="supplierinfo_type" invisible="1"/>
            </xpath>
         </field>
     </record>
@@ -49,7 +49,7 @@
                     </group>
                     <group string="Other Information" groups="base.group_multi_company">
                         <field name="company_id" options="{'no_create': True}"/>
-                         <field name="type" invisible="1"/>
+                         <field name="supplierinfo_type" invisible="1"/>
                     </group>
                 </group>
             </form>
@@ -82,33 +82,33 @@
         <field name="arch" type="xml">
             <field name="seller_ids" position="attributes">
                 <attribute name="context">{
-                        'default_search_type':'supplier',
-                        'default_type':'supplier',
+                        'default_search_supplierinfo_type':'supplier',
+                        'default_supplierinfo_type':'supplier',
                         'default_product_tmpl_id':id,
                         'product_template_invisible_variant': True,
                     }</attribute>
-                <attribute name="domain">[('type','=','supplier')]</attribute>
+                <attribute name="domain">[('supplierinfo_type','=','supplier')]</attribute>
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="variant_seller_ids" position="attributes">
                 <attribute name="context">{
-                        'default_search_type':'supplier',
-                        'default_type':'supplier',
+                        'default_search_supplierinfo_type':'supplier',
+                        'default_supplierinfo_type':'supplier',
                         'default_product_tmpl_id':id,
                     }</attribute>
-                <attribute name="domain">[('type','=','supplier')]</attribute>
+                <attribute name="domain">[('supplierinfo_type','=','supplier')]</attribute>
                 <attribute name="invisible">1</attribute>
             </field>
             <xpath expr="//field[@name='seller_ids']/.." position="after">
                 <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
                     <field name="supplier_ids"
                            context="{
-                               'default_search_type':'supplier',
-                               'default_type':'supplier',
+                               'default_search_supplierinfo_type':'supplier',
+                               'default_supplierinfo_type':'supplier',
                                'default_product_tmpl_id':id,
                                'product_template_invisible_variant': True,
                            }"
-                           domain="[('type','=','supplier')]"
+                           domain="[('supplierinfo_type','=','supplier')]"
                            nolabel="1"
                     />
                 </group>
@@ -117,11 +117,11 @@
                 <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
                     <field name="variant_supplier_ids"
                            context="{
-                               'default_search_type':'supplier',
-                               'default_type':'supplier',
+                               'default_search_supplierinfo_type':'supplier',
+                               'default_supplierinfo_type':'supplier',
                                'default_product_tmpl_id':id,
                            }"
-                           domain="[('type','=','supplier')]"
+                           domain="[('supplierinfo_type','=','supplier')]"
                            nolabel="1"
                     />
                 </group>
@@ -139,13 +139,13 @@
                     <separator string="Customers" />
                     <field name="customer_ids"
                            context="{
-                               'default_search_type':'customer',
-                               'default_type':'customer',
+                               'default_search_supplierinfo_type':'customer',
+                               'default_supplierinfo_type':'customer',
                                'default_product_tmpl_id':id,
                                'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view',
                                'tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view',
                            }"
-                           domain="[('type','=','customer')]"
+                           domain="[('supplierinfo_type','=','customer')]"
                     />
                 </div>
             </div>
@@ -156,12 +156,12 @@
         <field name="name">Partner Pricelists</field>
         <field name="res_model">product.supplierinfo</field>
         <field name="context">{
-                'default_search_type':'supplier',
-                'default_type':'supplier',
+                'default_search_supplierinfo_type':'supplier',
+                'default_supplierinfo_type':'supplier',
                 'default_product_tmpl_id':id,
                 'visible_product_tmpl_id':False,
             }</field>
-        <field name="domain">[('type','=','supplier')]</field>
+        <field name="domain">[('supplierinfo_type','=','supplier')]</field>
     </record>
 
 </odoo>

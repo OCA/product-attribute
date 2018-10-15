@@ -16,7 +16,7 @@ class ProductProduct(models.Model):
         supplierinfo = self.env['product.supplierinfo'].search(
             ['|', ('product_tmpl_id', '=', self.product_tmpl_id.id),
              ('product_id', '=', self.id),
-             ('type', '=', 'customer'),
+             ('supplierinfo_type', '=', 'customer'),
              ('name', '=', partner_id)], limit=1)
         if supplierinfo:
             return supplierinfo.price
