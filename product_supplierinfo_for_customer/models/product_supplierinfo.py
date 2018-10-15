@@ -8,18 +8,18 @@ from odoo import api, fields, models
 class ProductSupplierinfo(models.Model):
     _inherit = 'product.supplierinfo'
 
-    type = fields.Selection(
+    supplierinfo_type = fields.Selection(
         selection=[
             ('customer', 'Customer'),
             ('supplier', 'Supplier'),
-        ], string='Type',
+        ], string='Type', oldname='type',
         default='supplier')
 
-    @api.onchange('type')
+    @api.onchange('supplierinfo_type')
     def onchange_type(self):
-        if self.type == 'supplier':
+        if self.supplierinfo_type == 'supplier':
             return {'domain': {'name': [('supplier', '=', True)]}}
-        elif self.type == 'customer':
+        elif self.supplierinfo_type == 'customer':
             return {'domain': {'name': [('customer', '=', True)]}}
         return {'domain': {'name': []}}
 
@@ -28,8 +28,8 @@ class ProductSupplierinfo(models.Model):
         """Add search argument for field type if the context says so. This
         should be in old API because context argument is not the last one.
         """
-        if not any(arg[0] == 'type' for arg in args):
-            args += [('type', '=',
+        if not any(arg[0] == 'supplierinfo_type' for arg in args):
+            args += [('supplierinfo_type', '=',
                       self.env.context.get('supplierinfo_type', 'supplier'))]
         return super(ProductSupplierinfo, self).search(
             args, offset=offset, limit=limit, order=order, count=count)
