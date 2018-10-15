@@ -14,7 +14,6 @@ class ProductSupplierinfo(models.Model):
                    ('supplier', 'Supplier')], string='Type',
         default='supplier')
 
-    @api.multi
     @api.onchange('type')
     def onchange_type(self):
         if self.type == 'supplier':
