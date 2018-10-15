@@ -8,7 +8,7 @@
         <field name="name" ref="base.res_partner_2"/>
         <field name="delay">1</field>
         <field name="min_qty">1</field>
-        <field name="type">customer</field>
+        <field name="supplierinfo_type">customer</field>
 
     </record>
 </odoo>
