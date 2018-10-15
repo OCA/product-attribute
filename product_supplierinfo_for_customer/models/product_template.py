@@ -14,3 +14,6 @@ class ProductTemplate(models.Model):
     supplier_ids = fields.One2many(
         comodel_name='product.supplierinfo', inverse_name='product_tmpl_id',
         string='Supplier', domain=[('type', '=', 'supplier')])
+    variant_supplier_ids = fields.One2many(
+        comodel_name='product.supplierinfo', inverse_name='product_tmpl_id',
+        string='Supplier', domain=[('type', '=', 'supplier')])
