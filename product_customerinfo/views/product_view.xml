@@ -120,8 +120,9 @@
                                'default_product_tmpl_id':id,
                                'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view',
                                'tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view',
-                           }">
-                    </field>
+                           }"
+                           domain="[('type','=','customer')]"
+                    />
                 </div>
             </div>
         </field>
