@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo11-addon-product_secondary_unit',
         'odoo11-addon-product_sequence',
         'odoo11-addon-product_state',
+        'odoo11-addon-product_supplierinfo_for_customer',
         'odoo11-addon-product_supplierinfo_revision',
         'odoo11-addon-product_weight',
         'odoo11-addon-stock_production_lot_firmware_version',
