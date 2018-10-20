@@ -37,6 +37,7 @@ class TestProductPricelistDirectPrint(SavepointCase):
         res = wiz.with_context(
             active_model='res.partner',
             active_id=self.partner.id,
+            active_ids=[self.partner.id],
         ).default_get([])
         self.assertEqual(
             res['pricelist_id'], self.partner.property_product_pricelist.id)
@@ -59,7 +60,14 @@ class TestProductPricelistDirectPrint(SavepointCase):
         res = wiz.print_report()
         self.assertIn('report_name', res)
 
-    def test_partner_pricelist_batch_mailing(self):
-        partner = self.partner.copy({'email': 'other@test.com'})
-        partner |= self.partner
-        partner.action_customer_pricelist_email_send()
+    def test_action_pricelist_send_multiple_partner(self):
+        partner_2 = self.env['res.partner'].create({
+            'name': 'Partner for test 2',
+            'property_product_pricelist': self.pricelist.id,
+            'email': 'test2@test.com',
+        })
+        wiz = self.wiz_obj.with_context(
+            active_model='res.partner',
+            active_ids=[self.partner.id, partner_2.id],
+        ).create({})
+        wiz.action_pricelist_send()
