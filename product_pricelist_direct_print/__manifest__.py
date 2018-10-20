@@ -14,7 +14,6 @@
         "sale",
     ],
     "data": [
-        "data/pricelist_send_action.xml",
         "views/report_product_pricelist.xml",
         "wizards/product_pricelist_print_view.xml",
         "data/mail_template_data.xml",
