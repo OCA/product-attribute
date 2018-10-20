@@ -11,5 +11,5 @@ To use this module, you have several options:
     * Press *Print > Price List*
 
 #. Go to *Sales > Orders > Customers**
-    * Select a customer
-    * Press *Print > Price List*
+    * Select customers in list view
+    * Press *Action > Send customer pricelist by EMail*
