@@ -31,15 +31,12 @@ class TestProductSecondaryUnit(SavepointCase):
                 }),
             ],
         })
-        secondary_unit = cls.env['product.secondary.unit'].search([
+        cls.secondary_unit = cls.env['product.secondary.unit'].search([
             ('product_tmpl_id', '=', cls.product.id),
         ], limit=1)
-        cls.product.sale_secondary_uom_id = secondary_unit.id
 
     def test_product_secondary_unit_name(self):
-        self.assertEqual(
-            self.product.sale_secondary_uom_id.name_get()[0][1],
-            'unit-700-0.7')
+        self.assertEqual(self.secondary_unit.name_get()[0][1], 'unit-700-0.7')
 
     def test_product_secondary_unit_search(self):
         args = [('product_tmpl_id.product_variant_ids', 'in',
