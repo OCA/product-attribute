@@ -6,8 +6,6 @@ from odoo.tests import common
 
 
 class TestProductSupplierinfo(common.SavepointCase):
-    at_install = False
-    post_install = True
 
     @classmethod
     def setUpClass(cls):
