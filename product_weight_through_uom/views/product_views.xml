@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_template_property_form" model="ir.ui.view">
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="stock.view_template_property_form"/>
+      <field name="arch" type="xml">
+	    <xpath expr="//div[@name='weight']" position="after">
+            <field name="is_weight_uom" invisible="1"/>
+            <label for="extra_weight"/>
+            <div class="o_row" name="extra_weight">
+                <field name="extra_weight"/>
+                <span>kg</span>
+            </div>
+	    </xpath>
+        <field name="weight" position="attributes">
+            <attribute name="attrs">
+                {'readonly':[('is_weight_uom', '=', True)]}
+            </attribute>
+        </field>
+      </field>
+    </record>
+
+</odoo>
