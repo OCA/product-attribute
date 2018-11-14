@@ -1,11 +1,18 @@
 # Copyright 2018 Tecnativa S.L. - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models
+from odoo import api, fields, models
+from odoo.addons import decimal_precision as dp
 
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
+
+    extra_weight = fields.Float(
+        'Extra Weight',
+        digits=dp.get_precision('Stock Weight'),
+        help="Extra weight (in Kg.) given by packaging, etc.",
+    )
 
     @api.onchange('extra_weight')
     def _onchange_extra_weight(self):

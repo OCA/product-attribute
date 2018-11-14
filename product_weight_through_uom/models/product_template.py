@@ -10,6 +10,8 @@ class ProductTemplate(models.Model):
 
     extra_weight = fields.Float(
         'Extra Weight',
+        compute='_compute_extra_weight',
+        inverse='_inverse_extra_weight',
         digits=dp.get_precision('Stock Weight'),
         help="Extra weight (in Kg.) given by packaging, etc.",
     )
@@ -18,6 +20,21 @@ class ProductTemplate(models.Model):
         readonly=True,
         default=False,
     )
+
+    @api.depends('product_variant_ids', 'product_variant_ids.weight')
+    def _compute_extra_weight(self):
+        unique_variants = self.filtered(
+            lambda x: len(x.product_variant_ids) == 1)
+        for template in unique_variants:
+            template.extra_weight = template.product_variant_ids.extra_weight
+        for template in (self - unique_variants):
+            template.extra_weight = 0.0
+
+    @api.multi
+    def _inverse_extra_weight(self):
+        for template in self.filtered(
+                lambda x: len(x.product_variant_ids) == 1):
+            template.product_variant_ids.extra_weight = template.extra_weight
 
     @api.depends('uom_id.category_id')
     def _compute_is_weight_uom(self):
