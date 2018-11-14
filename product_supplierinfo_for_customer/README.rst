@@ -27,7 +27,7 @@ Product Supplierinfo for Customers
 
 This modules allows to use supplier info structure, available in
 *Inventory* tab of the product form, also for defining customer information,
-allowing to define prices per customer and product.
+allowing to define "Customer Product Name" and "Customer Product Code".
 
 **Table of contents**
 
@@ -45,18 +45,12 @@ Usage
 =====
 
 There's a new section on *Sales* tab of the product form called "Customers",
-where you can define records for customers with the same structure of the
-suppliers.
-
-There's a new option on pricelist items that allows to get the prices from the
-supplierinfo at the product form.
+where you can define records for customers.
 
 Known issues / Roadmap
 ======================
 
-* Product prices through this method are only guaranteed on the standard sale
-  order workflow. Other custom flows maybe don't reflect the price.
-* The minimum quantity will neither apply on sale orders.
+* 
 
 Bug Tracker
 ===========
