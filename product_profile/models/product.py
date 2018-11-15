@@ -267,7 +267,11 @@ class ProductProduct(models.Model):
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
                         toolbar=False, submenu=False):
+        view = self.env['ir.ui.view'].browse(view_id)
         res = super(ProductProduct, self).fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar,
             submenu=submenu)
+        # This is a simplified view for which the customization do not apply
+        if view.name == 'product.product.view.form.easy':
+            return res
         return self._customize_view(res, view_type)
