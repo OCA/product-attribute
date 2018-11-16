@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--
+        Only users with this group can view the fields with this security group
+    -->
+    <record model="res.groups" id="group_product_cost">
+        <field name="name">Access to product costs</field>
+    </record>
+
+</odoo>
