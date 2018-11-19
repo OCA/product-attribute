@@ -19,7 +19,7 @@ class ProductProduct(models.Model):
         if self.is_weight_uom:
             self.weight = self.uom_id.factor_inv + self.extra_weight
         else:
-            self.weight = self.weight + self.extra_weight
+            self.extra_weight = 0
 
     @api.multi
     def write(self, vals):

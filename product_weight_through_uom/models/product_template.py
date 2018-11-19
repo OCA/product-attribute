@@ -27,8 +27,7 @@ class ProductTemplate(models.Model):
             lambda x: len(x.product_variant_ids) == 1)
         for template in unique_variants:
             template.extra_weight = template.product_variant_ids.extra_weight
-        for template in (self - unique_variants):
-            template.extra_weight = 0.0
+        (self - unique_variants).update({'extra_weight': 0.0})
 
     @api.multi
     def _inverse_extra_weight(self):
@@ -36,12 +35,12 @@ class ProductTemplate(models.Model):
                 lambda x: len(x.product_variant_ids) == 1):
             template.product_variant_ids.extra_weight = template.extra_weight
 
-    @api.depends('uom_id.category_id')
+    @api.depends('uom_id', 'uom_id.category_id')
     def _compute_is_weight_uom(self):
         product_uom_categ_kgm = self.env.ref('product.product_uom_categ_kgm')
         for product in self:
-            if product.uom_id.category_id == product_uom_categ_kgm:
-                product.is_weight_uom = True
+            product.is_weight_uom = (
+                product.uom_id.category_id == product_uom_categ_kgm)
 
     @api.onchange('uom_id')
     def _onchange_uom_id(self):
@@ -56,7 +55,7 @@ class ProductTemplate(models.Model):
         if self.is_weight_uom:
             self.weight = self.uom_id.factor_inv + self.extra_weight
         else:
-            self.weight = self.weight + self.extra_weight
+            self.extra_weight = 0
 
     @api.multi
     def write(self, vals):

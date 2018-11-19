@@ -8,7 +8,7 @@
 	    <xpath expr="//div[@name='weight']" position="after">
             <field name="is_weight_uom" invisible="1"/>
             <label for="extra_weight"/>
-            <div class="o_row" name="extra_weight">
+            <div class="o_row" name="extra_weight" attrs="{'invisible':[('is_weight_uom', '=', True)]}">
                 <field name="extra_weight"/>
                 <span>kg</span>
             </div>
