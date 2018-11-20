@@ -5,6 +5,7 @@
     -->
     <record model="res.groups" id="group_product_cost">
         <field name="name">Access to product costs</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
     </record>
 
 </odoo>
