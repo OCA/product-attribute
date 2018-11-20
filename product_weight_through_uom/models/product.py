@@ -21,9 +21,8 @@ class ProductProduct(models.Model):
         else:
             self.extra_weight = 0
 
-    @api.onchange('uom_id', 'uom_po_id')
-    def _onchange_uom(self):
-        super()._onchange_uom()
+    @api.onchange('uom_id')
+    def _onchange_uom_product_weight_through_uom(self):
         # When a UoM is in Weight category, we set the product weight to its
         # corresponding conversion to Kg.
         if self.is_weight_uom:

@@ -12,4 +12,4 @@ def post_init_hook(cr, registry, vals=None):
         ('weight', '=', 0),
     ]).filtered('is_weight_uom')
     for product in products_init:
-        product._onchange_uom()
+        product._onchange_uom_product_weight_through_uom()
