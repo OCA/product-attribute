@@ -73,9 +73,6 @@
                             </tr>
                             <tr t-foreach="category_products" t-as="product">
                                 <td>
-                                    <t t-if="product.default_code">
-                                        [<span t-field="product.default_code"/>]
-                                    </t>
                                     <span t-field="product.display_name"/>
                                 </td>
                                 <td t-if="o.show_standard_price" class="text-right">
