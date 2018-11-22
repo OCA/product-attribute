@@ -114,7 +114,7 @@
                 </group>
             </xpath>
             <xpath expr="//field[@name='variant_seller_ids']/.." position="after">
-                <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
+                <group attrs="{'invisible': [('product_variant_count','&lt;=',1)]}">
                     <field name="variant_supplier_ids"
                            context="{
                                'default_search_supplierinfo_type':'supplier',
