@@ -20,6 +20,37 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: product_pricelist_direct_print
+#: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"\n"
+"<p>Dear ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
+"<p>\n"
+"The attached file is a PDF document containg the\n"
+"<strong>${object.pricelist_id.name}</strong> pricelist.\n"
+"</p>\n"
+"<p>You can reply to this email if you have any questions.</p>\n"
+"<p>Thank you,</p>\n"
+"\n"
+"<p style=\"color:#888888;\">\n"
+"% if object.write_uid and object.write_uid.signature:\n"
+"    ${object.write_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
+"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "${object.pricelist_id.name}"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Cost Price</strong>"
 msgstr "<strong>Precio coste</strong>"
@@ -63,6 +94,11 @@ msgstr "Cancelar"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_categ_ids
 msgid "Categories"
 msgstr "Categorías"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model,name:product_pricelist_direct_print.model_res_partner
+msgid "Contact"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_create_uid
@@ -157,7 +193,7 @@ msgid "Print Price List"
 msgstr "Imprimir tarifa"
 
 #. module: product_pricelist_direct_print
-#: model:ir.actions.report.xml,name:product_pricelist_direct_print.action_report_product_pricelist
+#: model:ir.actions.report,name:product_pricelist_direct_print.action_report_product_pricelist
 msgid "Product Price List"
 msgstr "Tarifa de productos"
 
@@ -167,6 +203,16 @@ msgstr "Tarifa de productos"
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Products"
 msgstr "Productos"
+
+#. module: product_pricelist_direct_print
+#: model:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Send by email"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.server,name:product_pricelist_direct_print.ir_actions_server_customer_pricelist_email
+msgid "Send customer pricelist by EMail"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_standard_price
@@ -180,7 +226,8 @@ msgstr "Mostrar precio ficha"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_variants
-msgid "Show variants"
+#, fuzzy
+msgid "Show Variants"
 msgstr "Mostrar variantes"
 
 #. module: product_pricelist_direct_print
