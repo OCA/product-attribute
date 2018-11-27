@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * product_supplierinfo_for_customer
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
@@ -13,116 +13,153 @@ msgstr ""
 "PO-Revision-Date: 2017-04-21 02:49+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.actions.act_window,help:product_supplierinfo_for_customer.product_supplierinfo_action
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                    Click to define a new product.supplierinfo.\n"
-"                </p>\n"
-"            "
+#: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
+msgid "Contact"
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                    Klicken für neue product.supplierinfo Lieferanteninfo.\n"
-"                </p>\n"
-"            "
 
 #. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
-#: selection:product.supplierinfo,type:0 field:product.template,customer_ids:0
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_customer_ids
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: selection:product.supplierinfo,supplierinfo_type:0
 msgid "Customer"
 msgstr "Kunde"
 
 #. module: product_supplierinfo_for_customer
-#: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+msgid "Customer Information"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Customer Product Code"
+msgstr "Artikelnummer des Partners"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Customer Product Name"
+msgstr "Produktbezeichnung des Partners"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
 msgid "Customers"
 msgstr "Kunden"
 
 #. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
-msgid "Group By"
-msgstr "Gruppiere nach"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.actions.act_window,name:product_supplierinfo_for_customer.product_supplierinfo_action
-#: model:ir.ui.menu,name:product_supplierinfo_for_customer.product_supplierinfo_sale_menu
-msgid "Information about a product (customer)"
-msgstr "Information zu einem (Kunden-) Produkt"
-
-#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
-msgid "Information about a product supplier"
+#, fuzzy
+msgid "Information about a product vendor"
 msgstr "Information zu Produktlieferant"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_tree_view
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
-msgid "Partner"
-msgstr "Partner"
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+msgid "Other Information"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Product Code"
-msgstr "Artikelnummer des Partners"
-
-#. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Product Name"
-msgstr "Produktbezeichnung des Partners"
-
-#. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "Partner Unit of Measure"
-msgstr "Mengeneinheit des Partners"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist
-msgid "Pricelist"
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Price"
 msgstr "Preisliste"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#, fuzzy
+msgid "Price List"
+msgstr "Preisliste"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist_item
+#, fuzzy
+msgid "Pricelist item"
+msgstr "Preisliste"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Product"
+msgstr "Produktvorlage"
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
 msgid "Product Template"
 msgstr "Produktvorlage"
 
 #. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
-#: selection:product.supplierinfo,type:0 field:product.template,supplier_ids:0
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_supplier_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_variant_supplier_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_supplier_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_variant_supplier_ids
+#: selection:product.supplierinfo,supplierinfo_type:0
 msgid "Supplier"
 msgstr "Lieferant"
 
 #. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
-msgid "Supplierinfo search"
-msgstr "Lieferantenauskunft-Suche"
-
-#. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_search_view
-#: field:product.supplierinfo,type:0
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo_supplierinfo_type
 msgid "Type"
 msgstr "Art"
 
 #. module: product_supplierinfo_for_customer
-#: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
-msgid "[('type','=','supplier')]"
-msgstr "[('type','=','supplier')]"
-
-#. module: product_supplierinfo_for_customer
-#: view:product.template:product_supplierinfo_for_customer.product_template_extended_form_view
-msgid ""
-"{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}"
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+msgid "Validity"
 msgstr ""
-"{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}"
 
 #. module: product_supplierinfo_for_customer
-#: view:product.supplierinfo:product_supplierinfo_for_customer.product_supplierinfo_extended_form_view
-msgid "{'select_type': type}"
-msgstr "{'select_type': type}"
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+msgid "to"
+msgstr ""
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                    Click to define a new product.supplierinfo.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                    Klicken für neue product.supplierinfo "
+#~ "Lieferanteninfo.\n"
+#~ "                </p>\n"
+#~ "            "
+
+#~ msgid "Group By"
+#~ msgstr "Gruppiere nach"
+
+#~ msgid "Information about a product (customer)"
+#~ msgstr "Information zu einem (Kunden-) Produkt"
+
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgid "Partner Unit of Measure"
+#~ msgstr "Mengeneinheit des Partners"
+
+#~ msgid "Supplierinfo search"
+#~ msgstr "Lieferantenauskunft-Suche"
+
+#~ msgid "[('type','=','supplier')]"
+#~ msgstr "[('type','=','supplier')]"
+
+#~ msgid ""
+#~ "{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':"
+#~ "id}"
+#~ msgstr ""
+#~ "{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':"
+#~ "id}"
+
+#~ msgid "{'select_type': type}"
+#~ msgstr "{'select_type': type}"
