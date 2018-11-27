@@ -21,9 +21,13 @@ msgstr ""
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
+#: model:ir.model.fields,field_description:product_brand.field_account_invoice_report_product_brand_id
 #: model:ir.model.fields,field_description:product_brand.field_product_product_product_brand_id
 #: model:ir.model.fields,field_description:product_brand.field_product_template_product_brand_id
+#: model:ir.model.fields,field_description:product_brand.field_sale_report_product_brand_id
 #: model:ir.ui.view,arch_db:product_brand.product_template_form_brand_add
+#: model:ir.ui.view,arch_db:product_brand.view_account_invoice_report_search
+#: model:ir.ui.view,arch_db:product_brand.view_order_product_search
 #: model:ir.ui.view,arch_db:product_brand.view_product_template_search_brand
 msgid "Brand"
 msgstr "Marke"
@@ -65,6 +69,11 @@ msgstr "Anzeigename"
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_id
 msgid "ID"
 msgstr "ID"
+
+#. module: product_brand
+#: model:ir.model,name:product_brand.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr ""
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand___last_update
@@ -117,6 +126,11 @@ msgstr "Produktvorlage"
 #: model:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Products"
 msgstr "Produkte"
+
+#. module: product_brand
+#: model:ir.model,name:product_brand.model_sale_report
+msgid "Sales Orders Statistics"
+msgstr ""
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_product_product_brand_id
