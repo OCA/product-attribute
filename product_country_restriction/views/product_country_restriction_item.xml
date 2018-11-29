@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_country_restriction_item_form_view">
+        <field name="name">product.country.restriction.item.form (in product_country_restriction)</field>
+        <field name="model">product.country.restriction.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="rule_id"/>
+                            <field name="rule_code" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <field name="product_id" attrs="{'invisible': [('rule_code', '!=', 'variant')]}"/>
+                        <field name="product_template_id" attrs="{'invisible': [('rule_code', '!=', 'product')]}"/>
+                        <field name="product_category_id" attrs="{'invisible': [('rule_code', '!=', 'category')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_country_restriction_item_search_view">
+        <field name="name">product.country.restriction.item.search (in product_country_restriction)</field>
+        <field name="model">product.country.restriction.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="product_template_id"/>
+                <field name="product_category_id"/>
+                <separator/>
+                <filter string="Global" domain="[('rule_id.code', '=', 'global')]"/>
+                <separator/>
+                <filter string="Rule" domain="[]" name="groupby_rule_id" context="{'group_by': 'rule_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_country_restriction_item_tree_view">
+        <field name="name">product.country.restriction.item.tree (in product_country_restriction)</field>
+        <field name="model">product.country.restriction.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="display_name"/>
+                <field name="rule_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="product_id"/>
+                <field name="product_template_id"/>
+                <field name="product_category_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_country_restriction_item_act_window">
+        <field name="name">Product Country Restriction Items</field>
+        <field name="res_model">product.country.restriction.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+</odoo>
