@@ -1,6 +1,6 @@
 # Copyright 2017 Tecnativa - Carlos Dauden
 # Copyright 2018 Tecnativa - David Vidal
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -8,6 +8,7 @@ from odoo.exceptions import ValidationError
 
 class ProductPricelistPrint(models.TransientModel):
     _name = 'product.pricelist.print'
+    _description = 'Product Pricelist Print'
 
     pricelist_id = fields.Many2one(
         comodel_name='product.pricelist',
@@ -28,7 +29,7 @@ class ProductPricelistPrint(models.TransientModel):
     show_variants = fields.Boolean()
     product_tmpl_ids = fields.Many2many(
         comodel_name='product.template',
-        string='Products',
+        string='Product Templates',
         help='Keep empty for all products',
     )
     product_ids = fields.Many2many(
