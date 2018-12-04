@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
 <odoo noupdate="1">
     <!--Email template -->
     <record id="email_template_edi_pricelist" model="mail.template">
