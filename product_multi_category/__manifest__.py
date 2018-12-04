@@ -4,16 +4,17 @@
 
 {
     "name": "Product - Many Categories",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "author": "Akretion,Guewen Baconnier,Camptocamp,Avanzosc,"
     "Sharoon Thomas,Sodexis,Odoo Community Association (OCA)",
-    "website": "",
+    "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product Management",
-    "depends": ['base', 'product'],
-    "data": [
-        'views/product_view.xml'
+    "depends": [
+        'base', 'product',
     ],
-    'images': [],
+    "data": [
+        'views/product_view.xml',
+    ],
     'installable': True,
 }
