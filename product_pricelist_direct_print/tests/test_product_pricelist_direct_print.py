@@ -1,5 +1,5 @@
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests.common import SavepointCase
 from odoo.exceptions import ValidationError
@@ -32,6 +32,11 @@ class TestProductPricelistDirectPrint(SavepointCase):
         res = wiz.with_context(
             active_model='product.pricelist',
             active_id=self.pricelist.id,
+        ).default_get([])
+        self.assertEqual(res['pricelist_id'], self.pricelist.id)
+        res = wiz.with_context(
+            active_model='product.pricelist.item',
+            active_ids=self.pricelist.item_ids.ids,
         ).default_get([])
         self.assertEqual(res['pricelist_id'], self.pricelist.id)
         res = wiz.with_context(
