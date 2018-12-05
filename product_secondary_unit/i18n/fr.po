@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_secondary_unit
+# 	* product_secondary_unit
 #
 msgid ""
 msgstr ""
@@ -37,12 +37,6 @@ msgstr "Créé le"
 #: model:ir.model.fields,help:product_secondary_unit.field_product_template_secondary_uom_ids
 msgid "Default Secondary Unit of Measure."
 msgstr "Unité de mesure secondaire par défaut."
-
-#. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_product_sale_secondary_uom_id
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template_sale_secondary_uom_id
-msgid "Default unit sale"
-msgstr "Unité de vente par défaut"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_display_name
@@ -106,3 +100,6 @@ msgstr "Unité secondaire"
 #: model:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary unit of measure"
 msgstr "Unité de mesure secondaire"
+
+#~ msgid "Default unit sale"
+#~ msgstr "Unité de vente par défaut"
