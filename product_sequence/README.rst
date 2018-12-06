@@ -36,7 +36,7 @@ To specify a different sequence for a product category proceed as follows:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/11.0
+   :target: https://runbot.odoo-community.org/runbot/135/12.0
 
 Bug Tracker
 ===========
@@ -61,6 +61,7 @@ Contributors
 * Graeme Gellatly <g@o4sb.com>
 * Sodexis <dev@sodexis.com>
 * Lois Rilo <lois.rilo@eficent.com>
+* Sudhir Arya <sudhir@erpharbor.com>
 
 Maintainer
 ----------
