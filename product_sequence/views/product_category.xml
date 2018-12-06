@@ -12,8 +12,7 @@
                 <label for="code_prefix"/>
                 <div>
                     <field name="code_prefix" style="padding-right: 1.0em" class="oe_inline"/>
-                    <field name="sequence_id"
-                           groups="base.group_no_one"/>
+                    <field name="sequence_id" groups="base.group_no_one"/>
                 </div>
             </field>
         </field>
