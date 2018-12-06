@@ -13,6 +13,9 @@ class TestProductSequence(TransactionCase):
         super(TestProductSequence, self).setUp()
         self.product_product = self.env['product.product']
         self.product_category = self.env['product.category']
+        self.product_template = self.env['product.template'].create({
+            'name': 'Demo Product',
+        })
 
     def test_product_create_with_default_code(self):
         product = self.product_product.create(dict(
@@ -20,6 +23,11 @@ class TestProductSequence(TransactionCase):
             default_code='PROD01'
         ))
         self.assertEqual(product.default_code, 'PROD01')
+        product_new = self.product_product.create(dict(
+            name="Demo Apple",
+            product_tmpl_id=self.product_template.id
+        ))
+        self.assertTrue(product_new.default_code)
 
     def test_product_create_without_default_code(self):
         product_1 = self.product_product.create(dict(
@@ -71,6 +79,14 @@ class TestProductSequence(TransactionCase):
                          'categ_id': categ_electronics.id})
         self.assertEqual(product_3.default_code[:3], "ELE")
         self.assertEqual(product_3.product_tmpl_id.default_code[:3], "ELE")
+
+        product_4 = self.product_product.create(dict(
+            name="Truck",
+            default_code='PROD04'
+        ))
+        product_4.write({'default_code': '/'})
+        self.assertTrue(product_4.categ_id, 'Category is not set.')
+
         categ_car = self.product_category.create(dict(
             name="Car",
             code_prefix="CAR",
