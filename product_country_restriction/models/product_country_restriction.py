@@ -94,8 +94,8 @@ class ProductCountryRestriction(models.Model):
     @api.multi
     def _get_country_restriction_items_by_date(self, date):
         items = self.item_ids.filtered(
-            lambda i: (not i.start_date or i.start_date < date) and
-            (not i.end_date or i.end_date > date))
+            lambda i: (not i.start_date or i.start_date <= date) and
+            (not i.end_date or i.end_date >= date))
         return items
 
     def _update_result(self, applied_items, country, result):
