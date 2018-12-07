@@ -25,6 +25,19 @@ class TestCountryRestriction(CountryRestrictionCommon):
         self.assertTrue(
             self.product_2._has_country_restriction(self.kp, '2018-03-20')
         )
+        # Test date limits
+        self.assertTrue(
+            self.product_2._has_country_restriction(self.kp, '2018-03-01')
+        )
+        self.assertTrue(
+            self.product_2._has_country_restriction(self.kp, '2018-04-30')
+        )
+        self.assertFalse(
+            self.product_2._has_country_restriction(self.kp, '2018-05-01')
+        )
+        self.assertFalse(
+            self.product_2._has_country_restriction(self.kp, '2018-02-28')
+        )
         self.assertTrue(
             self.product_2._has_country_restriction(self.au, '2018-03-20')
         )
