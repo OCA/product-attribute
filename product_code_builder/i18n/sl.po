@@ -41,7 +41,7 @@ msgid "Comment"
 msgstr "Komentar"
 
 #. module: product_code_builder
-#: code:addons/product_code_builder/models/product.py:100
+#: code:addons/product_code_builder/models/product.py:101
 #, python-format
 msgid ""
 "Default can no be set manually as the product is configured to have a "
