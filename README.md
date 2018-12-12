@@ -17,6 +17,7 @@ addon | version | summary
 [product_assortment](product_assortment/) | 10.0.1.0.0 | Adds the ability to manage products assortment
 [product_brand](product_brand/) | 10.0.1.0.0 | Product Brand Manager
 [product_code_unique](product_code_unique/) | 10.0.1.0.0 | Set Product Internal Reference as Unique
+[product_custom_info](product_custom_info/) | 10.0.1.0.0 | Add custom field in products
 [product_default_image](product_default_image/) | 10.0.1.0.0 | Apply default images to new and existing products.
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
