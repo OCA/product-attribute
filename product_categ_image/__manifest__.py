@@ -11,7 +11,7 @@
     'license': 'AGPL-3',
     'summary': 'Add image on product category',
     'author': 'Akretion,Odoo Community Association (OCA)',
-    'website': 'http://www.akretion.com',
+    'website': 'https://github.com/OCA/product-attribute',
     'depends': ['product'],
     'data': ['views/product_view.xml'],
     'installable': True,
