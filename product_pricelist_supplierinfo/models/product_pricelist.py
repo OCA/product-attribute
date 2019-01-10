@@ -22,9 +22,12 @@ class ProductPricelist(models.Model):
         for product, qty, _partner in products_qty_partner:
             rule = rule_obj.browse(result[product.id][1])
             if rule.base == 'supplierinfo':
+                context = self.env.context
                 result[product.id] = (
                     product._get_supplierinfo_pricelist_price(
-                        rule, date=date, quantity=qty,
+                        rule,
+                        date=date or context.get('date', fields.Date.today()),
+                        quantity=qty,
                     ), rule.id,
                 )
         return result
