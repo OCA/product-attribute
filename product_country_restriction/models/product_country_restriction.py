@@ -163,15 +163,21 @@ class ProductCountryRestriction(models.Model):
         :param: {product_id: [(country, item)]}
         :return:
         """
-        res = ''
         messages = []
+        strategy = self.env.user.company_id.country_restriction_strategy
         for product, restrictions in restrictions_by_product.iteritems():
-            for restriction in restrictions:
+            if strategy == 'authorize':
+                for restriction in restrictions:
+                    messages.append(
+                        _('The product %s has country restriction for %s.'
+                          '(Rule : %s)') %
+                        (product.name,
+                         restriction[0].name,
+                         restriction[1].name))
+            elif strategy == 'restrict':
                 messages.append(
-                    _('The product %s has country restriction for %s.'
-                      '(Rule : %s)') %
-                    (product.name,
-                     restriction[0].name,
-                     restriction[1].name))
+                    _('The product %s has no rule that authorize it.') %
+                    product.name
+                )
         res = '\n'.join(messages)
         return res

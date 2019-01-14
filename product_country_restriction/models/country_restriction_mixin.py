@@ -43,4 +43,28 @@ class CountryRestrictionMixin(models.AbstractModel):
             date=date,
             restriction_id=restriction_id,
         )
+        res = self._update_country_strategy(res)
         return res
+
+    @api.multi
+    def _update_country_strategy(self, result):
+        """
+        This is used to apply another strategy to the rules result
+        depending on company strategy
+        :return:
+        """
+        strategy = self.env.user.company_id.country_restriction_strategy
+        if strategy == 'authorize':
+            # The default strategy that authorizes all products
+            return result
+        elif strategy == 'restrict':
+            # The strategy that restricts all products but those with
+            # applied rules
+            applied_products = result.keys()
+            result = {}
+            for product in self.filtered(
+                    lambda p, ap=applied_products: p not in ap):
+                result.update({
+                    product: False,
+                })
+        return result

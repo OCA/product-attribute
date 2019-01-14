@@ -16,6 +16,8 @@ class CountryRestrictionCommon(common.TransactionCase):
         self.product_3 = self.env.ref(
             'product.product_product_3').product_tmpl_id
         self.product_4 = self.env.ref('product.product_product_4')
+        # Product with no rule
+        self.product_5 = self.env.ref('product.product_product_5')
         self.partner = self.env.ref('base.res_partner_2')
         self.au = self.env.ref('base.au')
         self.kp = self.env.ref('base.kp')
@@ -52,7 +54,8 @@ class CountryRestrictionCommon(common.TransactionCase):
             'restriction_id': self.restriction_1.id,
             'rule_id': self.rule_obj._get_by_code('global').id,
         }
-        self.env['product.country.restriction.item'].create(vals)
+        self.global_item = self.env[
+            'product.country.restriction.item'].create(vals)
 
         vals = {
             'name': 'North Korea',
@@ -69,7 +72,8 @@ class CountryRestrictionCommon(common.TransactionCase):
             'start_date': '2018-03-01',
             'end_date': '2018-04-30',
         }
-        self.env['product.country.restriction.item'].create(vals)
+        self.variant_item = self.env[
+            'product.country.restriction.item'].create(vals)
 
         vals = {
             'restriction_id': self.restriction_2.id,
@@ -78,7 +82,8 @@ class CountryRestrictionCommon(common.TransactionCase):
             'start_date': '2018-06-01',
             'end_date': '2018-12-31',
         }
-        self.env['product.country.restriction.item'].create(vals)
+        self.product_item = self.env[
+            'product.country.restriction.item'].create(vals)
 
         vals = {
             'restriction_id': self.restriction_2.id,
@@ -86,4 +91,5 @@ class CountryRestrictionCommon(common.TransactionCase):
             'product_category_id': self.categ.id,
             'start_date': '2018-06-01',
         }
-        self.env['product.country.restriction.item'].create(vals)
+        self.category_item = self.env[
+            'product.country.restriction.item'].create(vals)
