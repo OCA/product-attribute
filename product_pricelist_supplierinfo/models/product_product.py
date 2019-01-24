@@ -35,7 +35,7 @@ class ProductProduct(models.Model):
         # We use a different default order because we are interested in getting
         # the price for lowest minimum quantity if no_supplierinfo_min_quantity
         supplierinfos = self.env['product.supplierinfo'].search(
-            domain, order='sequence, min_qty, price',
+            domain, order='min_qty,sequence,price',
         )
         if rule.no_supplierinfo_min_quantity:
             price = supplierinfos[:1].price
