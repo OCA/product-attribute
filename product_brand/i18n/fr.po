@@ -21,84 +21,99 @@ msgstr ""
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_product_product_brand_id
-#: model:ir.model.fields,field_description:product_brand.field_product_template_product_brand_id
-#: model:ir.ui.view,arch_db:product_brand.product_template_form_brand_add
-#: model:ir.ui.view,arch_db:product_brand.view_product_template_search_brand
+#: model:ir.model.fields,field_description:product_brand.field_account_invoice_report__product_brand_id
+#: model:ir.model.fields,field_description:product_brand.field_product_template__product_brand_id
+#: model:ir.model.fields,field_description:product_brand.field_sale_report__product_brand_id
+#: model_terms:ir.ui.view,arch_db:product_brand.product_template_form_brand_add
+#: model_terms:ir.ui.view,arch_db:product_brand.view_account_invoice_report_search
+#: model_terms:ir.ui.view,arch_db:product_brand.view_order_product_search
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_template_search_brand
 msgid "Brand"
 msgstr "Marque"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_name
-#: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__name
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_form
 msgid "Brand Name"
 msgstr "Marque"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_open_brand_products
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_product_ids
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__product_ids
 msgid "Brand Products"
 msgstr "Produits de marque"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_create_uid
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_create_date
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__create_date
 msgid "Created on"
 msgstr "Créé le"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_description
-#: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__description
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_form
 msgid "Description"
 msgstr "Description"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_display_name
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_id
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand___last_update
+#: model:ir.model,name:product_brand.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr ""
+
+#. module: product_brand
+#: model:ir.model.fields,field_description:product_brand.field_product_brand____last_update
 msgid "Last Modified on"
 msgstr "Dernière Modification le"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_write_uid
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_write_date
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_logo
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
+#, fuzzy
+msgid "Logo"
+msgstr "Logo"
+
+#. module: product_brand
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__logo
 msgid "Logo File"
 msgstr "Logo"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_products_count
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__products_count
 msgid "Number of products"
 msgstr "Nombre de produits"
 
 #. module: product_brand
-#: model:ir.model.fields,field_description:product_brand.field_product_brand_partner_id
+#: model:ir.model.fields,field_description:product_brand.field_product_brand__partner_id
 msgid "Partner"
 msgstr "Partenaire"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_open_single_product_brand
-#: model:ir.ui.view,arch_db:product_brand.product_brand_search_form_view
+#: model:ir.model,name:product_brand.model_product_brand
+#: model_terms:ir.ui.view,arch_db:product_brand.product_brand_search_form_view
 msgid "Product Brand"
 msgstr "Marque d'article"
 
@@ -113,24 +128,27 @@ msgid "Product Template"
 msgstr "Modèle de produit"
 
 #. module: product_brand
-#: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
-#: model:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_form
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Products"
 msgstr "Produits"
 
 #. module: product_brand
-#: model:ir.model.fields,help:product_brand.field_product_product_product_brand_id
-#: model:ir.model.fields,help:product_brand.field_product_template_product_brand_id
+#: model:ir.model,name:product_brand.model_sale_report
+msgid "Sales Analysis Report"
+msgstr ""
+
+#. module: product_brand
+#: model:ir.model.fields,help:product_brand.field_product_template__product_brand_id
 msgid "Select a brand for this product"
 msgstr "Selectionnez une marque pour ce produit"
 
 #. module: product_brand
-#: model:ir.model.fields,help:product_brand.field_product_brand_partner_id
+#: model:ir.model.fields,help:product_brand.field_product_brand__partner_id
 msgid "Select a partner for this brand if any."
 msgstr "Selectionnez un partenaire pour cette marque si besoin."
 
 #. module: product_brand
-#: model:ir.model,name:product_brand.model_product_brand
-#: model:ir.ui.view,arch_db:product_brand.view_product_brand_tree
+#: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_tree
 msgid "product.brand"
 msgstr "product.brand"
