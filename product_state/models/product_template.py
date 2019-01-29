@@ -7,10 +7,12 @@ from odoo import models, fields
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    state = fields.Selection(selection=[('draft', 'In Development'),
-                                        ('sellable', 'Normal'),
-                                        ('end', 'End of Lifecycle'),
-                                        ('obsolete', 'Obsolete')],
-                             string='Status',
-                             default='sellable',
-                             index=True)
+    state = fields.Selection(selection=[
+        ('draft', 'In Development'),
+        ('sellable', 'Normal'),
+        ('end', 'End of Lifecycle'),
+        ('obsolete', 'Obsolete')],
+        string='Status',
+        default='sellable',
+        index=True
+    )
