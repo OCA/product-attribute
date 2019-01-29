@@ -4,12 +4,14 @@
 {
     "name": "Product firmware version",
     "summary": "Store the firmware version of a part",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "category": "Product",
-    "website": "http://www.opensourceintegrators.com",
-    "depends": ["product"],
+    "website": "https://github.com/OCA/product-attribute",
+    "depends": [
+        "product"
+    ],
     "data": [
         "views/product_view.xml",
     ],
