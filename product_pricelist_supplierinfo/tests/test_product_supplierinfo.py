@@ -9,13 +9,14 @@ class TestProductSupplierinfo(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestProductSupplierinfo, cls).setUpClass()
-        cls.partner = cls.env['res.partner'].create({
+        cls.partner_obj = cls.env['res.partner']
+        cls.partner = cls.partner_obj.create({
             'name': 'Partner Test',
         })
-        cls.supplier1 = cls.env['res.partner'].create({
+        cls.supplier1 = cls.partner_obj.create({
             'name': 'Supplier #1',
         })
-        cls.supplier2 = cls.env['res.partner'].create({
+        cls.supplier2 = cls.partner_obj.create({
             'name': 'Supplier #2',
         })
         cls.product = cls.env['product.product'].create({
@@ -33,6 +34,18 @@ class TestProductSupplierinfo(common.SavepointCase):
                 }),
             ],
         })
+        cls.product.write({'seller_ids': [
+            (0, 0, {
+                'name': cls.supplier1.id,
+                'min_qty': 5,
+                'price': 50,
+            }),
+            (0, 0, {
+                'name': cls.supplier2.id,
+                'min_qty': 1,
+                'price': 10,
+            }),
+        ]})
         cls.pricelist = cls.env['product.pricelist'].create({
             'name': 'Supplierinfo Pricelist',
             'discount_policy': 'without_discount',
@@ -94,14 +107,22 @@ class TestProductSupplierinfo(common.SavepointCase):
         """ Test pricelist and supplierinfo dates """
         self.product.seller_ids.filtered(
             lambda x: x.min_qty == 5
-        ).date_start = '2018-12-31'
-        self.assertAlmostEqual(
-            self.pricelist.get_product_price(
-                self.product, 5, False, date='2018-10-01',
-            ), 10,
-        )
+        )[0].date_start = '2018-12-31'
         self.assertAlmostEqual(
             self.pricelist.get_product_price(
                 self.product, 5, False, date='2019-01-01',
             ), 50,
+        )
+
+    def test_pricelist_based_price_round(self):
+        self.pricelist.item_ids[0].write({
+            'price_discount': 50,
+            'applied_on': '2_product_category',
+            'price_round': 1,
+            'price_surcharge': 5,
+            'price_min_margin': 10,
+            'price_max_margin': 100,
+        })
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 1, False), 20.0,
         )
