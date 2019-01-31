@@ -78,7 +78,7 @@ class ProductCountryRestrictionRule(models.Model):
 
     def _apply_rule_product(self, products, item):
         """
-        Get all matching product templates
+        Apply rule on templates and on all its variants
         :param products:
         :param item:
         :return:
@@ -87,6 +87,10 @@ class ProductCountryRestrictionRule(models.Model):
         if products and products[0]._name == 'product.template':
             for product in products.filtered(
                     lambda p: p.id == item.product_template_id.id):
+                res.add(product)
+        elif products and products[0]._name == 'product.product':
+            for product in products.filtered(
+                    lambda p: p.product_tmpl_id == item.product_template_id):
                 res.add(product)
         return res
 

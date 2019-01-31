@@ -52,6 +52,11 @@ class TestCountryRestriction(CountryRestrictionCommon):
         self.assertTrue(
             self.product_3._has_country_restriction(self.kp, '2018-09-20')
         )
+        # Test product 3 variant
+        self.assertTrue(
+            self.product_3.product_variant_ids._has_country_restriction(
+                self.kp, '2018-09-20')
+        )
 
         self.assertFalse(
             self.product_4._has_country_restriction(self.kp, '2018-02-27')
