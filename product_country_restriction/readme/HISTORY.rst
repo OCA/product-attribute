@@ -10,3 +10,8 @@
 * * Authorize (default): Authorize all products except those with a
     rule
 * * Restrict: Restrict all products except those with a rule
+
+10.0.1.1.1 (2019-01-30)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* The rule on product template must apply to its variants

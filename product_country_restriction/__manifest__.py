@@ -6,7 +6,7 @@
     'name': 'Product Country Restriction',
     'summary': """
         Allows to define product restrictions country based""",
-    'version': '10.0.1.1.0',
+    'version': '10.0.1.1.1',
     'development_status': 'Alpha',
     'maintainers': ['rousseldenis'],
     'license': 'AGPL-3',
