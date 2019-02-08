@@ -11,14 +11,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2018-01-29 08:49+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"PO-Revision-Date: 2019-02-08 13:50+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_product_profile_explanation
@@ -28,11 +29,13 @@ msgid ""
 "An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Una explicación sobre el perfil seleccionado \n"
+"(no sincronizados con los campos product.template)"
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Consumable"
-msgstr ""
+msgstr "Consumible"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_create_uid
@@ -50,6 +53,8 @@ msgid ""
 "Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Define el orden de las entradas de campo profile_id \n"
+"(no sincronizados con los campos product.template)"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_display_name
@@ -60,7 +65,7 @@ msgstr "Nombre mostrado"
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_base_config_settings_group_product_profile
 msgid "Display Product Profile fields"
-msgstr ""
+msgstr "Mostrar campos de perfil del producto"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_base_config_settings_group_product_profile
@@ -71,13 +76,18 @@ msgid ""
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
+"Mostrar campos calculados por módulo de producto.\n"
+"Para debuggear ver el menú\n"
+"Venas > Configuración \n"
+"> Categorías de Producto y Atributos\n"
+"> Perfiles de producto"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product_profile_explanation
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_explanation
 #: model:ir.model.fields,field_description:product_profile.field_product_template_profile_explanation
 msgid "Explanation"
-msgstr ""
+msgstr "Explicación"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile_id
@@ -92,6 +102,8 @@ msgid ""
 "If you update this profile, all products using this profile could also be "
 "updated. Changes can take a while."
 msgstr ""
+"Si actualizas este perfil, todos los productos que lo estén usando podrían "
+"también actualizarse. Los cambios pueden tomar un tiempo."
 
 #. module: product_profile
 #: code:addons/product_profile/models/product.py:31
@@ -109,6 +121,17 @@ msgid ""
 "Check your settings on Profile model:\n"
 "%s"
 msgstr ""
+"Incidencia\n"
+"------\n"
+"%s\n"
+"El valor '%s' no puede aplicarse al campo '%s'.\n"
+"No hay ningún valor coincidente entre los 'Perfiles de producto' y '%s' "
+"modelos para este campo.\n"
+"\n"
+"Resolución\n"
+"----------\n"
+"Compruebe su configuración en el perfil del modelo:\n"
+"%s"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile___last_update
@@ -165,6 +188,8 @@ msgid ""
 "Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Nombre del perfil aparece en la plantilla de productos \n"
+"(no sincronizados con los campos product.template)"
 
 #. module: product_profile
 #: code:addons/product_profile/models/product.py:12
@@ -174,11 +199,14 @@ msgid ""
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
+"Ventas > Configuración\n"
+"> Categorías de producto y Atributos\n"
+"> Perfiles de Producto"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile_type
 msgid "See 'type' field in product.template"
-msgstr ""
+msgstr "Ver campo 'tipo' en 'product.template'"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_sequence
@@ -193,7 +221,7 @@ msgstr "Servicio"
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Stockable Product"
-msgstr ""
+msgstr "Producto almacenable"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_type
