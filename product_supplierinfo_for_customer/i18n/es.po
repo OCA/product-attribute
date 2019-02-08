@@ -9,19 +9,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2016-11-03 10:07+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2019-02-08 13:50+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
@@ -36,21 +37,19 @@ msgstr "Cliente"
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
 msgid "Customer Information"
-msgstr ""
+msgstr "Información de Cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
-#, fuzzy
 msgid "Customer Product Code"
 msgstr "Código de producto para la empresa"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
-#, fuzzy
 msgid "Customer Product Name"
-msgstr "Nombre de producto para la empresa"
+msgstr "Nombre Producto Cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
@@ -59,37 +58,35 @@ msgstr "Clientes"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
-#, fuzzy
 msgid "Information about a product vendor"
-msgstr "Información de un proveedor de producto"
+msgstr "Información sobre proveedor"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "Other Information"
-msgstr ""
+msgstr "Otra información"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "Price List"
-msgstr ""
+msgstr "Lista de Precios"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist_item
 msgid "Pricelist item"
-msgstr ""
+msgstr "Item Tarifa"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
-#, fuzzy
 msgid "Product"
-msgstr "Plantilla de producto"
+msgstr "Producto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
@@ -113,12 +110,12 @@ msgstr "Tipo"
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "Validity"
-msgstr ""
+msgstr "Validez"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 msgid "to"
-msgstr ""
+msgstr "para"
 
 #~ msgid ""
 #~ "<p class=\"oe_view_nocontent_create\">\n"
