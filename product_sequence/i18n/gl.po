@@ -9,25 +9,26 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 20:03+0000\n"
-"PO-Revision-Date: 2016-11-01 20:03+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2019-02-08 13:50+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Galician (https://www.transifex.com/oca/teams/23907/gl/)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:74
 #, python-format
 msgid "-copy"
-msgstr ""
+msgstr "-copia"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category_code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr ""
+msgstr "Prefixo para a referencia interna de producto"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category_code_prefix
@@ -35,26 +36,28 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
+"Prefixo utilizado para xerar a referencia interna para os productos creados "
+"con esta categoría. Se está en blanco utilizarase a secuencia predeterminada."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoría de producto"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category_sequence_id
 msgid "Product Sequence"
-msgstr ""
+msgstr "Secuencia de producto"
 
 #. module: product_sequence
 #: sql_constraint:product.product:0
 msgid "The reference must be unique"
-msgstr ""
+msgstr "A referencia debe ser única"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category_sequence_id
@@ -62,6 +65,8 @@ msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+"Este campo contén a información relativa á numeración das entradas deste "
+"diario."
 
 #~ msgid "Manufacturer"
 #~ msgstr "Fabricante"
