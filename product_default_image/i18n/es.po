@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:48+0000\n"
-"PO-Revision-Date: 2018-01-29 08:48+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"PO-Revision-Date: 2019-02-08 13:50+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: product_default_image
 #: model:ir.model,name:product_default_image.model_abstract_product_image
@@ -31,6 +32,8 @@ msgid ""
 "Allow/disallow automatic changes to product image. Uncheck to stop being "
 "changed to a default image."
 msgstr ""
+"Permitir/no permitir cambios automáticos a la imagen del producto. "
+"Desactivar para dejar una imagen predeterminada."
 
 #. module: product_default_image
 #: model:ir.ui.view,arch_db:product_default_image.product_template_form_view
@@ -72,6 +75,18 @@ msgid ""
 "Thank you in advance for your cooperation.\n"
 "Best Regards,"
 msgstr ""
+"Estimado Señor/a,\n"
+"\n"
+"Nuestros registros indican que algunos de los pagos en su cuenta ya han "
+"vencido. Por favor, revise los detalles a continuación.\n"
+"Si la cantidad ya ha sido pagada, por favor ignore este aviso. De lo "
+"contrario, por favor haga efectivo el pago por el importe total que aparece "
+"abajo.\n"
+"Si tiene cualquier consulta sobre su cuenta, póngase en contacto con "
+"nosotros.\n"
+"\n"
+"Gracias de antemano por su colaboración,\n"
+"Saludos"
 
 #. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_product_product_image_target
