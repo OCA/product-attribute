@@ -16,4 +16,6 @@ class SaleReport(models.Model):
     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
         fields['product_brand_id'] = ", t.product_brand_id as product_brand_id"
         groupby += ', t.product_brand_id'
-        return super(SaleReport, self)._query(with_clause, fields, groupby, from_clause)
+        return super(SaleReport, self)._query(
+            with_clause, fields, groupby, from_clause
+        )
