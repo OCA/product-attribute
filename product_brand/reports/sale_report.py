@@ -14,21 +14,8 @@ class SaleReport(models.Model):
 
     # pylint:disable=dangerous-default-value
     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
-        query_str = super()._query(
-            with_clause=with_clause, fields=fields, groupby=groupby,
-            from_clause=from_clause)
-        # Split query
-        with_clause, following = query_str.split('SELECT')
-        select_clause, following = following.split('FROM')
-        from_clause, following = following.split('WHERE')
-        where_clause, following = following.split('GROUP BY')
-        groupby_clause = following.split(')')[0]
-        # Add in query
-        select_clause += """, t.product_brand_id"""
-        groupby_clause += ", t.product_brand_id"
-        # Recompose query
-        res = ("SELECT {select_clause} "
-               "FROM {from_clause} "
-               "WHERE {where_clause} "
-               "GROUP BY {groupby_clause}".format(**locals()))
-        return res
+        fields['product_brand_id'] = ", t.product_brand_id as product_brand_id"
+        groupby += ', t.product_brand_id'
+        return super(SaleReport, self)._query(
+            with_clause, fields, groupby, from_clause
+        )
