@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-02-11 11:59+0000\n"
+"PO-Revision-Date: 2019-02-12 02:50+0000\n"
 "Last-Translator: Marius Stedjan <marius@stedjan.com>\n"
 "Language-Team: none\n"
 "Language: nb_NO\n"
@@ -75,78 +75,78 @@ msgstr "Fakturastatistikk"
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Sist modifisert"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Sist oppdatert av"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Sist oppdatert"
 
 #. module: product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__logo
 msgid "Logo File"
-msgstr ""
+msgstr "Logo-fil"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__products_count
 msgid "Number of products"
-msgstr ""
+msgstr "Antall produkter"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__partner_id
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_open_single_product_brand
 #: model:ir.model,name:product_brand.model_product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.product_brand_search_form_view
 msgid "Product Brand"
-msgstr ""
+msgstr "Produktmerke"
 
 #. module: product_brand
 #: model:ir.ui.menu,name:product_brand.menu_product_brand
 msgid "Product Brands"
-msgstr ""
+msgstr "Produktmerker"
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produktmal"
 
 #. module: product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_form
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Products"
-msgstr ""
+msgstr "Produkter"
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Salgsanalyse-rapport"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_product__product_brand_id
 #: model:ir.model.fields,help:product_brand.field_product_template__product_brand_id
 msgid "Select a brand for this product"
-msgstr ""
+msgstr "Velg et merke for produktet"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_brand__partner_id
 msgid "Select a partner for this brand if any."
-msgstr ""
+msgstr "Velg en partner for produktet, om noen."
 
 #. module: product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_tree
 msgid "product.brand"
-msgstr ""
+msgstr "produkt.merke"
