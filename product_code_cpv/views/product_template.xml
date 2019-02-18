@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">CPV Field</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_general']" position="inside">
+                <field name="product_template_cpv_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

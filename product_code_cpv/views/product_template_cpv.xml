@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="product_template_cpv_tree" model="ir.ui.view">
+        <field name="name">CPV Field</field>
+        <field name="model">product.template.cpv</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
