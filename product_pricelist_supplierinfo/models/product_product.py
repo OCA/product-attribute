@@ -5,8 +5,12 @@ from odoo import models
 
 
 class ProductProduct(models.Model):
-    _inherit = ['product.product', 'product.pricelist.supplierinfo.mixin']
-    _name = 'product.product'
+    _inherit = 'product.product'
+
+    def _get_supplierinfo_pricelist_price(
+            self, rule, date=None, quantity=None):
+        return self.product_tmpl_id._get_supplierinfo_pricelist_price(
+            rule, date=date, quantity=quantity, product_id=self.id)
 
     def price_compute(self, price_type, uom=False, currency=False,
                       company=False):
