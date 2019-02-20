@@ -29,7 +29,7 @@ class ProductProduct(models.Model):
         res = super(ProductProduct, self)._compute_quantities_dict(
             lot_id, owner_id, package_id, from_date=from_date, to_date=to_date)
         packs = self.filtered('pack')
-        for product in packs:
+        for product in packs.with_context(prefetch_fields=False):
             pack_qty_available = []
             pack_virtual_available = []
             for subproduct in product.pack_line_ids:
