@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo11-addon-product_state',
         'odoo11-addon-product_supplierinfo_for_customer',
         'odoo11-addon-product_supplierinfo_revision',
+        'odoo11-addon-product_template_tags',
         'odoo11-addon-product_weight',
         'odoo11-addon-product_weight_through_uom',
         'odoo11-addon-stock_production_lot_firmware_version',
