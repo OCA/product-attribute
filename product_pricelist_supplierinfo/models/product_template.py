@@ -4,9 +4,9 @@
 from odoo import models
 
 
-class ProductProduct(models.Model):
-    _inherit = ['product.product', 'product.pricelist.supplierinfo.mixin']
-    _name = 'product.product'
+class ProductTemplate(models.Model):
+    _inherit = ['product.template', 'product.pricelist.supplierinfo.mixin']
+    _name = 'product.template'
 
     def price_compute(self, price_type, uom=False, currency=False,
                       company=False):
