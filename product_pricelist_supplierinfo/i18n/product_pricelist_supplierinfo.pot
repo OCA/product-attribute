@@ -72,6 +72,11 @@ msgid "Product"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
 msgstr ""
