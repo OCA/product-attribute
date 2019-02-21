@@ -77,6 +77,10 @@ class TestProductSupplierinfo(common.SavepointCase):
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 1, False), 10.0,
         )
+        self.assertAlmostEqual(
+            self.product.product_tmpl_id.with_context(
+                pricelist=self.pricelist.id).price, 10.0,
+        )
 
     def test_pricelist_based_on_product_variant(self):
         self.pricelist.item_ids[0].write({
@@ -86,6 +90,9 @@ class TestProductSupplierinfo(common.SavepointCase):
         })
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 1, False), 12.5,
+        )
+        self.assertAlmostEqual(
+            self.product.with_context(pricelist=self.pricelist.id).price, 12.5,
         )
 
     def test_pricelist_min_quantity(self):
