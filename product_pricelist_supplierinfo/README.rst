@@ -113,7 +113,6 @@ Contributors
 
   * Vicent Cubells <vicent.cubells@tecnativa.com>
   * Pedro M. Baeza
-  * Carlos Dauden
 
 Maintainers
 ~~~~~~~~~~~
