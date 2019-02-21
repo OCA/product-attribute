@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_pricelist_supplierinfo
-#: model:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_pricelist_supplier_item_form_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_pricelist_supplier_item_form_view
 msgid ""
 "<span attrs=\"{'invisible':[('base', '!=', 'supplierinfo')]}\">Supplier "
 "price  -  </span>"
@@ -26,9 +26,40 @@ msgstr ""
 "proveedor  -  </span>"
 
 #. module: product_pricelist_supplierinfo
-#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item_no_supplierinfo_min_quantity
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
+msgid ""
+"Base price for computation.\n"
+"Public Price: The base price will be the Sale/public Price.\n"
+"Cost Price : The base price will be the cost price.\n"
+"Other Pricelist : Computation of the base price based on another Pricelist."
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__base
+msgid "Based on"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Cost"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignorar cantidad mínima de la info de proveedor"
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+#, fuzzy
+#| msgid "Pricelist"
+msgid "Other Pricelist"
+msgstr "Lista de precios"
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Partner Prices on the product form"
+msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist
@@ -37,10 +68,29 @@ msgstr "Lista de precios"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
-msgid "Pricelist item"
+#, fuzzy
+#| msgid "Pricelist item"
+msgid "Pricelist Item"
 msgstr "Item de Lista de precios"
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Prices based on supplier info"
+msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_product
 msgid "Product"
 msgstr "Producto"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
+#, fuzzy
+#| msgid "Product"
+msgid "Product Template"
+msgstr "Producto"
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Public Price"
+msgstr ""
