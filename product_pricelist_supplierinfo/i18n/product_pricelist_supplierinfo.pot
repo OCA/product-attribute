@@ -38,3 +38,8 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
+msgid "Product Template"
+msgstr ""
+
