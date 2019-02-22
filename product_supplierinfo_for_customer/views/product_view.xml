@@ -153,7 +153,7 @@
     </record>
 
     <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
-        <field name="context">{'default_supplierinfo_type':'supplier'}</field>
+        <field name="context">{'default_supplierinfo_type':'supplier', 'visible_product_tmpl_id': False}</field>
         <field name="domain">[('supplierinfo_type','=','supplier')]</field>
     </record>
 
