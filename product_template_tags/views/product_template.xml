@@ -12,7 +12,7 @@
 
             <xpath expr="//page[@name='general_information']" position="inside">
                 <group>
-                    <field name="tag_ids" widget="many2many_tags"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'no_create_edit': True}"/>
                 </group>
             </xpath>
 
@@ -51,4 +51,3 @@
     </record>
 
 </odoo>
-
