@@ -17,6 +17,7 @@
             <group string="Filter Options">
                 <field name="show_sale_price"/>
                 <field name="show_standard_price"/>
+                <field name="hide_pricelist_name"/>
                 <field name="order_field"/>
                 <field name="date"/>
                 <field name="show_variants" groups="product.group_product_variant" attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"/>
