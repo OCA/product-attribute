@@ -21,7 +21,7 @@ class ProductPricelist(models.Model):
         rule_obj.browse(x[1] for x in result.values()).mapped('price_discount')
         for product, qty, _partner in products_qty_partner:
             rule = rule_obj.browse(result[product.id][1])
-            if rule.base == 'supplierinfo':
+            if rule.compute_price == 'formula' and rule.base == 'supplierinfo':
                 context = self.env.context
                 result[product.id] = (
                     product._get_supplierinfo_pricelist_price(
