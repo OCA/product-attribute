@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-19 18:53+0100\n"
-"PO-Revision-Date: 2018-02-19 19:00+0100\n"
+"POT-Creation-Date: 2019-02-26 10:27+0100\n"
+"PO-Revision-Date: 2019-02-26 10:29+0100\n"
 "Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -40,15 +40,18 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid ""
-"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
-"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
+msgid "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
 msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "${object.pricelist_id.name}"
 msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<span>Special Pricelist</span>"
+msgstr "<span>Tarifa especial</span>"
 
 #. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -62,9 +65,8 @@ msgstr "<strong>Moneda</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
-#, fuzzy
 msgid "<strong>Date</strong>:<br/>"
-msgstr "<strong>Fecha impresión</strong>:<br/>"
+msgstr "<strong>Fecha</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -114,14 +116,13 @@ msgstr "Cliente"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_partner_ids
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
-#, fuzzy
 msgid "Customers"
-msgstr "Cliente"
+msgstr "Clientes"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_date
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_display_name
@@ -134,15 +135,18 @@ msgid "Filter Options"
 msgstr "Opciones de filtrado"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_hide_pricelist_name
+msgid "Hide Pricelist Name"
+msgstr "Ocultar nombre tarifa"
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_id
 msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print_last_ordered_products
-msgid ""
-"If you enter an X number here, then, for each selected customer, the last X "
-"ordered products will be obtained for the report."
+msgid "If you enter an X number here, then, for each selected customer, the last X ordered products will be obtained for the report."
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -232,12 +236,12 @@ msgstr "Productos"
 #. module: product_pricelist_direct_print
 #: model:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Send by email"
-msgstr ""
+msgstr "Enviar por correo"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
 msgid "Send customer pricelist by EMail"
-msgstr ""
+msgstr "Enviar tarifa de cliente por correo"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_standard_price
@@ -251,13 +255,12 @@ msgstr "Mostrar precio ficha"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print_show_variants
-#, fuzzy
 msgid "Show Variants"
 msgstr "Mostrar variantes"
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:125
-#, fuzzy, python-format
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:126
+#, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr "Debe seleccionar una tarifa o alguna opción mostrar precio."
 
