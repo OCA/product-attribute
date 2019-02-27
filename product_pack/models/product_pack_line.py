@@ -44,7 +44,7 @@ class ProductPack(models.Model):
             'pack_parent_line_id': line.id,
             'pack_depth': line.pack_depth + 1,
             # 'sequence': sequence,
-            # 'company_id': self.company_id.id,
+            'company_id': order.company_id.id,
         }
         sol = line.new(line_vals)
         sol.product_id_change()
