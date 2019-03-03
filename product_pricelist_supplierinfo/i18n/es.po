@@ -44,3 +44,9 @@ msgstr "Item de Lista de precios"
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_product
 msgid "Product"
 msgstr "Producto"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
+#, fuzzy
+msgid "Product Template"
+msgstr "Producto"
