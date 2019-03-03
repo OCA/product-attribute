@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: stock_production_lot_firmware_version
-#: model:ir.model.fields,field_description:stock_production_lot_firmware_version.field_stock_production_lot_firmware_version
+#: model:ir.model.fields,field_description:stock_production_lot_firmware_version.field_stock_production_lot__firmware_version
 msgid "Firmware Version"
 msgstr "Version du firmware"
 
