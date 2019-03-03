@@ -40,7 +40,9 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
+msgid ""
+"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
+"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -146,7 +148,9 @@ msgstr "ID (identificación)"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print_last_ordered_products
-msgid "If you enter an X number here, then, for each selected customer, the last X ordered products will be obtained for the report."
+msgid ""
+"If you enter an X number here, then, for each selected customer, the last X "
+"ordered products will be obtained for the report."
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -200,7 +204,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
-#: model:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "Price List"
 msgstr "Tarifa"
 
