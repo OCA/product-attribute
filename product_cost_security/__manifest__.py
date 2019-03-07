@@ -16,5 +16,6 @@
     ],
     'data': [
         'security/product_cost_security.xml',
+        'views/product_views.xml',
     ],
 }
