@@ -18,12 +18,6 @@ class ProductProduct(models.Model):
              "to be proposed."
     )
 
-    _sql_constraints = [
-        ('uniq_default_code',
-         'unique(default_code)',
-         'The reference must be unique'),
-    ]
-
     @api.model
     def create(self, vals):
         if 'default_code' not in vals or vals['default_code'] == '/':
