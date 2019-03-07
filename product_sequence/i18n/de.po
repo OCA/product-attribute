@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_sequence
-#: code:addons/product_sequence/models/product_product.py:74
+#: code:addons/product_sequence/models/product_product.py:68
 #, python-format
 msgid "-copy"
 msgstr "-kopie"
@@ -54,13 +54,11 @@ msgid "Product Sequence"
 msgstr "Produkt"
 
 #. module: product_sequence
-#: sql_constraint:product.product:0
-msgid "The reference must be unique"
-msgstr "Die Referenz muss eindeutig sein"
-
-#. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category_sequence_id
 msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+
+#~ msgid "The reference must be unique"
+#~ msgstr "Die Referenz muss eindeutig sein"

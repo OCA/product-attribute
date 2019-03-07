@@ -20,7 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: product_sequence
-#: code:addons/product_sequence/models/product_product.py:74
+#: code:addons/product_sequence/models/product_product.py:68
 #, python-format
 msgid "-copy"
 msgstr "-kopija"
@@ -55,13 +55,11 @@ msgid "Product Sequence"
 msgstr "Proizvod"
 
 #. module: product_sequence
-#: sql_constraint:product.product:0
-msgid "The reference must be unique"
-msgstr "Referenca mora biti jedinstvena"
-
-#. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category_sequence_id
 msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+
+#~ msgid "The reference must be unique"
+#~ msgstr "Referenca mora biti jedinstvena"

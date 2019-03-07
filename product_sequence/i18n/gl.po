@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: product_sequence
-#: code:addons/product_sequence/models/product_product.py:74
+#: code:addons/product_sequence/models/product_product.py:68
 #, python-format
 msgid "-copy"
 msgstr "-copia"
@@ -55,11 +55,6 @@ msgid "Product Sequence"
 msgstr "Secuencia de producto"
 
 #. module: product_sequence
-#: sql_constraint:product.product:0
-msgid "The reference must be unique"
-msgstr "A referencia debe ser única"
-
-#. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category_sequence_id
 msgid ""
 "This field contains the information related to the numbering of the journal "
@@ -67,6 +62,9 @@ msgid ""
 msgstr ""
 "Este campo contén a información relativa á numeración das entradas deste "
 "diario."
+
+#~ msgid "The reference must be unique"
+#~ msgstr "A referencia debe ser única"
 
 #~ msgid "Manufacturer"
 #~ msgstr "Fabricante"
