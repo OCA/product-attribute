@@ -6,7 +6,10 @@ from odoo import api, fields, models
 class ProductSecondaryUnit(models.Model):
     _name = 'product.secondary.unit'
 
-    name = fields.Char(required=True)
+    name = fields.Char(
+        required=True,
+        translate=True,
+    )
     code = fields.Char()
     product_tmpl_id = fields.Many2one(
         comodel_name='product.template',
