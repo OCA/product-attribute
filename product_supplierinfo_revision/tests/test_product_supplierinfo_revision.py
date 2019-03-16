@@ -38,11 +38,11 @@ class TestProductSupplierinfoRevision(common.SavepointCase):
             result['domain'][0][2][0]
         )
         self.assertEqual(
-            self.supplierinfo.date_end,
+            self.supplierinfo.date_end.strftime('%Y-%m-%d'),
             self.today.strftime('%Y-%m-%d'),
         )
         self.assertEqual(
-            new_supplierinfo.date_start,
+            new_supplierinfo.date_start.strftime('%Y-%m-%d'),
             (self.today + relativedelta(days=1)).strftime('%Y-%m-%d')
         )
         self.assertAlmostEqual(new_supplierinfo.price, 125.0)

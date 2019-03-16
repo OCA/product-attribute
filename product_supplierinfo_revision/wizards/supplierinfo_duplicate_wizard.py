@@ -9,6 +9,7 @@ import odoo.addons.decimal_precision as dp
 
 class ProductSupplierInfoDuplicateWizard(models.TransientModel):
     _name = 'product.supplierinfo.duplicate.wizard'
+    _description = 'Product Supplier Duplicate Wizard'
 
     date_start = fields.Date(required=True)
     date_end = fields.Date()
