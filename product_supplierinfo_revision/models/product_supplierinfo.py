@@ -13,7 +13,8 @@ class ProductSupplierinfo(models.Model):
         string='Previous info',
         help='Relation with previous info when duplicate line',
     )
-    previous_price = fields.Float(related='previous_info_id.price')
+    previous_price = fields.Float(related='previous_info_id.price',
+                                  string='Previous Price')
     variation_percent = fields.Float(
         compute='_compute_variation_percent',
         store=True,
