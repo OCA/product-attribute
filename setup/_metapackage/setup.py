@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo12-addon-product_brand',
         'odoo12-addon-product_code_unique',
         'odoo12-addon-product_manufacturer',
+        'odoo12-addon-product_multi_category',
         'odoo12-addon-stock_production_lot_firmware_version',
     ],
     classifiers=[
