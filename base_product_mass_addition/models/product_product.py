@@ -35,16 +35,13 @@ class ProductProduct(models.Model):
             return
 
     @api.multi
-    def button_return_parent(self):
+    def button_quick_open_product(self):
         self.ensure_one()
-        parent_id = self.env.context.get('parent_id')
-        parent_model = self.env.context.get('parent_model')
-        if parent_id:
-            parent = self.env[parent_model].browse(parent_id)
-            return {
-                'name': parent.display_name,
-                'type': 'ir.actions.act_window',
-                'res_model': parent_model,
-                'view_mode': 'form',
-                'res_id': parent_id,
-            }
+        return {
+            'name': self.display_name,
+            'type': 'ir.actions.act_window',
+            'res_model': self._name,
+            'view_mode': 'form',
+            'res_id': self.id,
+            'target': 'current',
+        }
