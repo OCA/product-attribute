@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-from odoo import models
+from odoo import models, api
 from odoo.tests.common import Form
 
 
@@ -11,6 +11,18 @@ class ProductMassAddition(models.AbstractModel):
     _name = 'product.mass.addition'
     _description = 'inherit this to add a mass product addition function\
                     to your model'
+
+    @api.model
+    def _common_action_keys(self):
+        """ Call it in your own child module
+        """
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'product.product',
+            'target': 'current',
+            'context': {'parent_id': self.id, 'parent_model': self._name},
+            'view_mode': 'tree',
+        }
 
     def _prepare_quick_line(self, product):
         res = self._get_quick_line_qty_vals(product)
