@@ -19,12 +19,9 @@
     <record id="product_search_form_view" model="ir.ui.view">
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_search_form_view"/>
+        <field name="mode">primary</field>
         <field name="arch" type="xml">
             <xpath expr="//filter[last()]" position="after">
-                <filter name="filter_for_current_supplier"
-                    string="For current supplier" domain="[]"
-                    context="{'use_only_supplied_product': True}"
-                    help="Filter products supplied by the supplier of the current parent object"/>
                 <separator/>
                 <filter name="filter_in_current_parent_object"
                     string="In current parent" domain="[]"
