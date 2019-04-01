@@ -20,7 +20,6 @@
                                'kanban_view_ref': 'product_multi_image.image_kanban_view',
                            }"
 			   mode="kanban" />
-                    </field>
                 </page>
             </xpath>
         </field>
