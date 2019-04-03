@@ -26,7 +26,9 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_variant_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_variant_customer_ids
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
 #: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
 #: selection:product.supplierinfo,supplierinfo_type:0
