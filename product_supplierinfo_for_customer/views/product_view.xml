@@ -2,6 +2,7 @@
 <!-- Copyright 2015 AvanzOSC
      Copyright 2015-18 Tecnativa
      Copyright 2017-18 Eficent
+     Copyright 2019 Tecnativa - Pedro M. Baeza
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="product_supplierinfo_form_view" model="ir.ui.view">
@@ -24,11 +25,12 @@
             <form string="Customer Information">
                 <group>
                     <group string="Customer">
+                        <field name="product_id" groups="product.group_product_variant" domain="[('product_tmpl_id', '=', product_tmpl_id)]" options="{'no_create_edit': True}"/>
                         <field name="name" string="Customer" context="{
                             'default_supplier': 0,
                             'search_default_customer': 1,
                             'default_customer': 1,
-                        }"/>
+                        }" domain="[('customer', '=', True)]"/>
                         <field name="product_name" string="Customer Product Name"/>
                         <field name="product_code" string="Customer Product Code"/>
                         <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
@@ -64,13 +66,14 @@
             <tree string="Customer Information">
                 <field name="sequence" widget="handle"/>
                 <field name="name" string="Customer"/>
+                <field name="product_id" invisible="context.get('product_template_invisible_variant', False)" groups="product.group_product_variant"/>
                 <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
                 <field name="product_name" string="Customer Product Name"/>
                 <field name="product_code" string="Customer Product Code"/>
-                <field name="min_qty"/>
+                <field name="min_qty" groups="product.group_pricelist_item"/>
                 <field name="price" string="Price" groups="product.group_pricelist_item"/>
-                <field name="date_start"/>
-                <field name="date_end"/>
+                <field name="date_start" groups="product.group_pricelist_item"/>
+                <field name="date_end" groups="product.group_pricelist_item"/>
             </tree>
         </field>
     </record>
@@ -135,19 +138,27 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <div name="pricelist_item" position="after">
-                <div name="pricelist_customer">
-                    <separator string="Customers" />
+                <group string="Customers" name="customers" attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
                     <field name="customer_ids"
+                           nolabel="1"
                            context="{
                                'default_search_supplierinfo_type':'customer',
                                'default_supplierinfo_type':'customer',
-                               'default_product_tmpl_id':id,
+                               'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                               'product_template_invisible_variant': True,
                                'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view',
                                'tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view',
                            }"
                            domain="[('supplierinfo_type','=','customer')]"
                     />
-                </div>
+                </group>
+                <group string="Customers" name="variant_customers" attrs="{'invisible': [('product_variant_count','&lt;=',1)]}">
+                    <field name="variant_customer_ids"
+                        nolabel="1"
+                        context="{'default_search_supplierinfo_type': 'customer', 'default_supplierinfo_type': 'customer', 'default_product_tmpl_id': context.get('product_tmpl_id', active_id), 'form_view_ref': 'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view', 'tree_view_ref': 'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view'}"
+                        domain="[('supplierinfo_type','=','customer')]"
+                    />
+                </group>
             </div>
         </field>
     </record>
