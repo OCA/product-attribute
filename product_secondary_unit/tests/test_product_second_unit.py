@@ -10,8 +10,8 @@ class TestProductSecondaryUnit(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.product_uom_kg = cls.env.ref('product.product_uom_kgm')
-        cls.product_uom_unit = cls.env.ref('product.product_uom_unit')
+        cls.product_uom_kg = cls.env.ref('uom.product_uom_kgm')
+        cls.product_uom_unit = cls.env.ref('uom.product_uom_unit')
         cls.product = cls.env['product.template'].create({
             'name': 'test',
             'uom_id': cls.product_uom_kg.id,
