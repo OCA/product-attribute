@@ -5,6 +5,7 @@ from odoo import api, fields, models
 
 class ProductSecondaryUnit(models.Model):
     _name = 'product.secondary.unit'
+    _description = 'Product Secondary Unit'
 
     name = fields.Char(
         required=True,
@@ -17,7 +18,7 @@ class ProductSecondaryUnit(models.Model):
         required=True,
     )
     uom_id = fields.Many2one(
-        comodel_name='product.uom',
+        comodel_name='uom.uom',
         string='Secondary Unit of Measure',
         required=True,
         help="Default Secondary Unit of Measure.",
