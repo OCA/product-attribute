@@ -2,6 +2,8 @@
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+import datetime
+
 from odoo import api, models
 
 
@@ -44,8 +46,10 @@ class ProductProduct(models.Model):
                     prices[product.id] = product.uom_id._compute_price(
                         prices[product.id], uom)
                 if currency:
-                    prices[product.id] = product.currency_id.compute(
-                        prices[product.id], currency)
+                    date = self.env.context.get('date',
+                                                datetime.datetime.now())
+                    prices[product.id] = product.currency_id._convert(
+                        prices[product.id], currency, company, date)
             return prices
         return super(ProductProduct, self).price_compute(
             price_type, uom, currency, company)
