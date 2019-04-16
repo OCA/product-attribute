@@ -6,7 +6,7 @@
 {
     "name": "Product Supplierinfo for Customers",
     "summary": "Allows to define prices for customers in the products",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "author": "AvanzOSC, "
               "Tecnativa, "
               "Odoo Community Association (OCA)",
@@ -22,4 +22,6 @@
     "demo": [
         "demo/product_demo.xml",
     ],
+    'installable': True,
+    'auto_install': False
 }
