@@ -11,12 +11,13 @@ class ProductSupplierinfo(models.Model):
     supplierinfo_type = fields.Selection(
         selection=[
             ('customer', 'Customer'),
-            ('supplier', 'Supplier'),
-        ], string='Type', oldname='type',
+            ('supplier', 'Supplier')],
+        string='Type',
+        oldname='type',
         default='supplier')
 
     @api.onchange('supplierinfo_type')
-    def onchange_type(self):
+    def _onchange_type(self):
         if self.supplierinfo_type == 'supplier':
             return {'domain': {'name': [('supplier', '=', True)]}}
         elif self.supplierinfo_type == 'customer':
@@ -24,12 +25,14 @@ class ProductSupplierinfo(models.Model):
         return {'domain': {'name': []}}
 
     @api.model
-    def search(self, args, offset=0, limit=None, order=None, count=False):
+    def _search(self, args, offset=0, limit=None, order=None, count=False,
+                access_rights_uid=None):
         """Add search argument for field type if the context says so. This
         should be in old API because context argument is not the last one.
         """
         if not any(arg[0] == 'supplierinfo_type' for arg in args):
             args += [('supplierinfo_type', '=',
                       self.env.context.get('supplierinfo_type', 'supplier'))]
-        return super(ProductSupplierinfo, self).search(
-            args, offset=offset, limit=limit, order=order, count=count)
+        return super(ProductSupplierinfo, self)._search(
+            args, offset=offset, limit=limit, order=order, count=count,
+            access_rights_uid=access_rights_uid)
