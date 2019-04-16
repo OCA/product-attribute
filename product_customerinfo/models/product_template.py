@@ -10,14 +10,25 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     customer_ids = fields.One2many(
-        comodel_name='product.supplierinfo', inverse_name='product_tmpl_id',
-        string='Customer', domain=[('supplierinfo_type', '=', 'customer')])
+        comodel_name='product.supplierinfo',
+        inverse_name='product_tmpl_id',
+        string='Customer',
+        domain=[('supplierinfo_type', '=', 'customer')])
+
     variant_customer_ids = fields.One2many(
-        comodel_name='product.supplierinfo', inverse_name='product_tmpl_id',
-        string='Customer', domain=[('supplierinfo_type', '=', 'customer')])
+        comodel_name='product.supplierinfo',
+        inverse_name='product_tmpl_id',
+        string='Vairant Customer',
+        domain=[('supplierinfo_type', '=', 'customer')])
+
     supplier_ids = fields.One2many(
-        comodel_name='product.supplierinfo', inverse_name='product_tmpl_id',
-        string='Supplier', domain=[('supplierinfo_type', '=', 'supplier')])
+        comodel_name='product.supplierinfo',
+        inverse_name='product_tmpl_id',
+        string='Supplier',
+        domain=[('supplierinfo_type', '=', 'supplier')])
+
     variant_supplier_ids = fields.One2many(
-        comodel_name='product.supplierinfo', inverse_name='product_tmpl_id',
-        string='Supplier', domain=[('supplierinfo_type', '=', 'supplier')])
+        comodel_name='product.supplierinfo',
+        inverse_name='product_tmpl_id',
+        string='Variant Supplier',
+        domain=[('supplierinfo_type', '=', 'supplier')])

@@ -9,7 +9,7 @@
         <field name="name">product.supplierinfo.form.view</field>
         <field name="model">product.supplierinfo</field>
         <field name="priority" eval="100"/>
-        <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
                <field name="supplierinfo_type" invisible="1"/>
@@ -40,7 +40,7 @@
                         <label for="min_qty"/>
                         <div>
                             <field name="min_qty" class="oe_inline"/>
-                            <field name="product_uom" class="oe_inline" groups="product.group_uom"/>
+                            <field name="product_uom" class="oe_inline" groups="uom.group_uom"/>
                         </div>
                         <label for="price"/>
                         <div>
@@ -137,7 +137,7 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-            <div name="pricelist_item" position="after">
+            <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
                 <group string="Customers" name="customers" attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
                     <field name="customer_ids"
                            nolabel="1"
@@ -159,12 +159,12 @@
                         domain="[('supplierinfo_type','=','customer')]"
                     />
                 </group>
-            </div>
+            </xpath>
         </field>
     </record>
 
     <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
-        <field name="context">{'default_supplierinfo_type':'supplier', 'visible_product_tmpl_id': False}</field>
+        <field name="context">{'default_supplierinfo_type': 'supplier', 'visible_product_tmpl_id': False}</field>
         <field name="domain">[('supplierinfo_type','=','supplier')]</field>
     </record>
 
