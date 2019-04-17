@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page/group" position="after">
+                <group>
+                    <field name="exception_ids" readonly='1'/>
+                    <field name="ignore_exception" />
+                </group>
+            </xpath>
+            <header position="inside">
+                <button string="Check Exception"
+                    type="object"
+                    name="check_exception"
+                    />
+            </header>
+        </field>
+    </record>
+    
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='consumable']" position="after">
+                <separator/>
+                <filter string="With exception" name="with_exception" domain="[('exception_ids','!=',False)]"/>
+            </xpath>     
+        </field>
+    </record>
+</odoo>
