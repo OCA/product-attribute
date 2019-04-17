@@ -31,7 +31,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
             'pricelist_id': cls.pricelist.id,
             'compute_price': 'fixed',
             'fixed_price': 100.0,
-            'product_tmpl_id': cls.product.id,
+            'product_id': cls.product.id,
         })
 
     @classmethod
@@ -64,12 +64,12 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
     def test_onchange_type(self):
         sup_info = self._create_supplierinfo(
             'supplier', self.customer, self.product)
-        res = sup_info.onchange_type()
+        res = sup_info._onchange_type()
         domain = res.get('domain', False)
         name_dom = domain.get('name', False)
         self.assertEqual(name_dom, [('supplier', '=', True)])
         sup_info.write({'supplierinfo_type': 'customer'})
-        res = sup_info.onchange_type()
+        res = sup_info._onchange_type()
         domain = res.get('domain', False)
         name_dom = domain.get('name', False)
         self.assertEqual(name_dom, [('customer', '=', True)])
@@ -84,12 +84,11 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
             supplierinfo_type='customer').search(cond)
         self.assertNotEqual(len(customerinfos), 0,
                             "Error: Customer not found in Supplierinfo")
-        price_unit = self.pricelist_model.price_rule_get(
-            self.product.id, 1, partner=self.customer.id)
-        self.assertTrue(
-            price_unit.get(self.pricelist.id, False),
+        price, rule_id = self.pricelist.get_product_price_rule(
+            self.product, 1, partner=self.customer)
+        self.assertEqual(
+            rule_id, self.pricelist_item.id,
             "Error: Price unit not found for customer")
-        price = price_unit.get(self.pricelist.id, False)[0]
         self.assertEqual(price, 100.0,
                          "Error: Price not found for product and customer")
 
