@@ -6,6 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-15 07:56+0000\n"
 "PO-Revision-Date: 2018-11-06 11:25+0000\n"
 "Last-Translator: William Olhasque <william.olhasque@scopea.fr>\n"
 "Language-Team: none\n"
@@ -42,6 +43,13 @@ msgstr "Unité de mesure secondaire par défaut."
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_display_name
 msgid "Display Name"
 msgstr "Nom affiché"
+
+#. module: product_secondary_unit
+#: model:res.groups,name:product_secondary_unit.group_secondary_unit
+#, fuzzy
+#| msgid "secondary Unit"
+msgid "Display secondary units"
+msgstr "Unité secondaire"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_id
