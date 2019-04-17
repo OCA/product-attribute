@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="excep_no_dump" model="exception.rule">
+        <field name="name">No dumping</field>
+        <field name="description">Public price should be greather than purchase price</field>
+        <field name="sequence">50</field>
+        <field name="model">product.template</field>
+        <field name="code">failed = obj.lst_price &lt; obj.standard_price</field>
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>
