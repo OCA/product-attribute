@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 10:00+0000\n"
-"PO-Revision-Date: 2019-02-08 13:50+0000\n"
+"POT-Creation-Date: 2019-04-15 07:56+0000\n"
+"PO-Revision-Date: 2019-04-15 09:57+0200\n"
 "Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_code
@@ -43,6 +43,11 @@ msgstr "Segunda unidad de medida por defecto."
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
+
+#. module: product_secondary_unit
+#: model:res.groups,name:product_secondary_unit.group_secondary_unit
+msgid "Display secondary units"
+msgstr "Mostrar unidades secundarias"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_id

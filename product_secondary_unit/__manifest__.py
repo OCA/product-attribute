@@ -3,7 +3,7 @@
 {
     'name': 'Product Secondary Unit',
     'summary': 'Set a secondary unit per product',
-    'version': '11.0.1.0.1',
+    'version': '11.0.1.0.2',
     'development_status': 'Beta',
     'category': 'Product',
     'website': 'https://github.com/OCA/product-attribute',
@@ -16,6 +16,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/product_views.xml',
     ],
 }
