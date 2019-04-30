@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo12-addon-product_pricelist_direct_print',
         'odoo12-addon-product_secondary_unit',
         'odoo12-addon-product_supplierinfo_revision',
+        'odoo12-addon-product_template_tags',
         'odoo12-addon-stock_production_lot_firmware_version',
     ],
     classifiers=[
