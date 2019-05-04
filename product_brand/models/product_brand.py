@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2009 NetAndCo (<http://www.netandco.net>).
 # © 2011 Akretion Benoît Guillot <benoit.guillot@akretion.com>
 # © 2014 prisnet.ch Seraphine Lantible <s.lantible@gmail.com>
@@ -29,12 +28,12 @@ class ProductBrand(models.Model):
     )
     products_count = fields.Integer(
         string='Number of products',
-        compute='_get_products_count',
+        compute='_compute_products_count',
     )
 
     @api.multi
     @api.depends('product_ids')
-    def _get_products_count(self):
+    def _compute_products_count(self):
         for brand in self:
             brand.products_count = len(brand.product_ids)
 
