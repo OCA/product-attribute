@@ -47,9 +47,9 @@ class Setup(TransactionCase):
 
     def create_test_image(self, color):
         # color arg should be (r, g, b)
-        file = BytesIO()
+        file_data = BytesIO()
         image = Image.new('RGBA', size=(4, 4), color=(color))
-        image.save(file, 'png')
-        file.name = 'test.png'
-        file.seek(0)
-        return file.read().encode('base64')
+        image.save(file_data, 'png')
+        file_data.name = 'test.png'
+        file_data.seek(0)
+        return file_data.read().encode('base64')
