@@ -28,13 +28,14 @@ class ProductBrand(models.Model):
     )
     products_count = fields.Integer(
         string='Number of products',
-        compute='_get_products_count',
+        compute='_compute_products_count',
     )
 
-    @api.one
+    @api.multi
     @api.depends('product_ids')
-    def _get_products_count(self):
-        self.products_count = len(self.product_ids)
+    def _compute_products_count(self):
+        for this in self:
+            this.products_count = len(this.product_ids)
 
 
 class ProductTemplate(models.Model):
