@@ -43,12 +43,12 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
             'phone': 123456,
         })
 
-    def _create_supplierinfo(self, type, partner, product):
+    def _create_supplierinfo(self, partner_type, partner, product):
         return self.env['product.supplierinfo'].create({
             'name': partner.id,
             'product_id': product.id,
             'product_code': '00001',
-            'type': type,
+            'type': partner_type,
             'price': 100.0,
         })
 
