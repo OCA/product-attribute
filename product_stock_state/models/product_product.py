@@ -11,28 +11,29 @@ from odoo import fields, models
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
     _STOCK_STATE_SELECTION = [
-        ('in_stock', 'In Stock'),
-        ('in_limited_stock', 'In Limited Stock'),
-        ('resupplying', 'Resupplying'),
-        ('out_of_stock', 'Out Of Stock'),
+        ("in_stock", "In Stock"),
+        ("in_limited_stock", "In Limited Stock"),
+        ("resupplying", "Resupplying"),
+        ("out_of_stock", "Out Of Stock"),
     ]
 
     stock_state = fields.Selection(
-        selection=_STOCK_STATE_SELECTION, compute='_compute_stock_state')
+        selection=_STOCK_STATE_SELECTION, compute="_compute_stock_state"
+    )
 
     def _compute_stock_state(self):
         for product in self:
             if product.qty_available >= product._get_stock_state_threshold():
-                product.stock_state = 'in_stock'
+                product.stock_state = "in_stock"
             elif product.qty_available > 0:
-                product.stock_state = 'in_limited_stock'
+                product.stock_state = "in_limited_stock"
             elif product.virtual_available > 0:
-                product.stock_state = 'resupplying'
+                product.stock_state = "resupplying"
             else:
-                product.stock_state = 'out_of_stock'
+                product.stock_state = "out_of_stock"
 
     def _get_stock_state_threshold(self):
         self.ensure_one()

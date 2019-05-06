@@ -8,36 +8,29 @@
 
 {
     "name": "Product Stock State",
-    "summary":
-        "Compute the state stock based on"
-        "the stock level and sale_ok field",
+    "summary": "Compute the state stock based on"
+    "the stock level and sale_ok field",
     "version": "10.0.1.0.0",
     "category": "Uncategorized",
     "website": "www.akretion.com",
     "author": " Akretion,GRAP",
     "license": "AGPL-3",
     "application": False,
-    'installable': True,
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "depends": [
-        "sale_stock",
-    ],
+    "installable": True,
+    "external_dependencies": {"python": [], "bin": []},
+    "depends": ["sale_stock"],
     "data": [
-        'security/res_groups.xml',
-        'views/product_template_view.xml',
-        'views/product_product_view.xml',
-        'views/product_category_view.xml',
-        'views/sale_config_settings_view.xml',
+        "security/res_groups.xml",
+        "views/product_template_view.xml",
+        "views/product_product_view.xml",
+        "views/product_category_view.xml",
+        "views/sale_config_settings_view.xml",
     ],
     "demo": [
-        'demo/res_groups.xml',
-        'demo/product_category.xml',
-        'demo/product_product.xml',
-        'demo/product_category.xml',
+        "demo/res_groups.xml",
+        "demo/product_category.xml",
+        "demo/product_product.xml",
+        "demo/product_category.xml",
     ],
-    "qweb": [
-    ]
+    "qweb": [],
 }
