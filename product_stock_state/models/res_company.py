@@ -7,6 +7,6 @@ from odoo import fields, models
 
 
 class ResCompany(models.Model):
-    _inherit = 'res.company'
+    _inherit = "res.company"
 
     stock_state_threshold = fields.Float(default=10)
