@@ -16,7 +16,7 @@
     "author": " Akretion,GRAP",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "external_dependencies": {"python": [], "bin": []},
     "depends": ["sale_stock"],
     "data": [
