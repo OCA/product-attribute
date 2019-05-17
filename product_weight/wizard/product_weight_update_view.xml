@@ -5,18 +5,18 @@
       <field name="name">Update Product Weight</field>
       <field name="model">product.weight.update</field>
       <field name="arch" type="xml">
-	    <form string="Update Product Weight">
-	      <group>
-	        <field name="product_tmpl_id" invisible="1" />
-	        <field name="product_id" invisible="1" />
-	        <field name="bom_id" required="1"/>
-	      </group>
-	      <footer>
-	        <button name="update_single_weight" string="_Apply" type="object" class="oe_highlight"/>
-	        or
-	        <button string="Cancel" class="oe_link" special="cancel" />
-	      </footer>
-	    </form>
+        <form string="Update Product Weight">
+          <group>
+            <field name="product_tmpl_id" invisible="1" />
+            <field name="product_id" invisible="1" />
+            <field name="bom_id" required="1"/>
+          </group>
+          <footer>
+            <button name="update_single_weight" string="_Apply" type="object" class="oe_highlight"/>
+            or
+            <button string="Cancel" class="oe_link" special="cancel" />
+          </footer>
+        </form>
       </field>
     </record>
 
@@ -24,11 +24,11 @@
       <field name="name">Update Product Weights</field>
       <field name="model">product.weight.update</field>
       <field name="arch" type="xml">
-	<form string="Update Product Weight">
-	    <button name="update_multi_product_weight" string="_Apply" type="object" class="oe_highlight"/>
-	    or
-	    <button string="Cancel" class="oe_link" special="cancel" />
-	</form>
+    <form string="Update Product Weight">
+        <button name="update_multi_product_weight" string="_Apply" type="object" class="oe_highlight"/>
+        or
+        <button string="Cancel" class="oe_link" special="cancel" />
+    </form>
       </field>
     </record>
 
