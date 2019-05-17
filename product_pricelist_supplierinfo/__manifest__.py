@@ -6,7 +6,7 @@
     "summary": "Allows to create priceslists based on supplier info",
     "version": "12.0.1.0.0",
     "category": "Sales",
-    "website": "https://github.com/OCA/sale-workflow",
+    "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa,"
               " Odoo Community Association (OCA)",
     "license": "AGPL-3",
