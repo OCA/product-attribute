@@ -8,53 +8,116 @@ class TestBomWeightCompute(TransactionCase):
 
     def setUp(self):
         super(TestBomWeightCompute, self).setUp()
-        self.bom = self.env.ref('mrp.mrp_bom_desk')
-        self.component_1 = self.env.ref(
-            'mrp.product_product_computer_desk_head')
-        self.component_2 = self.env.ref(
-            'mrp.product_product_computer_desk_leg')
-        self.component_3 = self.env.ref(
-            'mrp.product_product_computer_desk_bolt')
-        self.product = self.env.ref('mrp.product_product_computer_desk')
-        self.component_1.weight = 0.20
-        self.component_2.weight = 0.22
-        self.component_3.weight = 0.68
-        self.variant1 = self.env.ref('product.product_product_11')
-        self.variant2 = self.env.ref('product.product_product_11b')
-        self.wiz_obj = self.env['product.weight.update']
+        self.ProductModel = self.env['product.product']
+        self.p0 = self.ProductModel.create({
+            'name': '000',
+            'type': 'product',
+        })
+        self.p1 = self.ProductModel.create({
+            'name': '101',
+            'type': 'product',
+            'weight': 0.20,
+        })
+        self.p2 = self.ProductModel.create({
+            'name': '202',
+            'type': 'product',
+            'weight': 0.22,
+        })
+        self.p3 = self.ProductModel.create({
+            'name': '303',
+            'type': 'product',
+            'weight': 0.68,
+        })
+        self.p4 = self.ProductModel.create({
+            'name': '404',
+            'type': 'product',
+            'weight': 0.10,
+        })
+        self.v1 = self.ProductModel.create({
+            'name': 'v101',
+            'type': 'product',
+            'weight': 0.00,
+        })
+        self.v2 = self.ProductModel.create({
+            'name': 'v202',
+            'type': 'product',
+            'weight': 0.00,
+        })
+        self.BomModel = self.env['mrp.bom']
+        self.bom = self.BomModel.create({
+            'product_tmpl_id': self.p0.product_tmpl_id.id,
+            'product_id': self.p0.id,
+            'product_qty': 1,
+            'type': 'normal',
+        })
+        self.bom1 = self.BomModel.create({
+            'product_tmpl_id': self.p1.product_tmpl_id.id,
+            'product_id': self.p1.id,
+            'product_qty': 1,
+            'type': 'normal',
+        })
+        # Create bom lines
+        self.BomLine = self.env['mrp.bom.line']
+        self.BomLine.create({
+            'bom_id': self.bom.id,
+            'product_id': self.p1.id,
+            'product_qty': 1,
+        })
+        self.BomLine.create({
+            'bom_id': self.bom.id,
+            'product_id': self.p2.id,
+            'product_qty': 4,
+        })
+        self.BomLine.create({
+            'bom_id': self.bom.id,
+            'product_id': self.p3.id,
+            'product_qty': 4,
+        })
+        self.BomLine.create({
+            'bom_id': self.bom1.id,
+            'product_id': self.p4.id,
+            'product_qty': 2,
+        })
+        self.WizObj = self.env['product.weight.update']
 
     def test_calculate_product_weight_from_template_form(self):
-        wizard = self.wiz_obj.with_context(
+        wizard = self.WizObj.with_context(
             active_model='product.template',
-            active_id=self.product.product_tmpl_id.id).create({})
+            active_id=self.p0.product_tmpl_id.id).create({})
         wizard.update_single_weight()
-        self.assertAlmostEqual(self.product.weight, 3.8)
-        self.assertAlmostEqual(self.product.product_tmpl_id.weight, 3.8)
+        self.assertAlmostEqual(self.p0.weight, 3.8)
+        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 3.8)
 
     def test_calculate_product_weight_from_product_form(self):
-        wizard = self.wiz_obj.with_context(
+        wizard = self.WizObj.with_context(
             active_model='product.product',
-            active_id=self.product.id).create({})
+            active_id=self.p0.id).create({})
         wizard.update_single_weight()
-        self.assertAlmostEqual(self.product.weight, 3.8)
-        self.assertAlmostEqual(self.product.product_tmpl_id.weight, 3.8)
+        self.assertAlmostEqual(self.p0.weight, 3.8)
+        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 3.8)
 
     def test_calculate_weight_from_template_tree(self):
-        self.bom.product_tmpl_id = self.variant1.product_tmpl_id.id
-        self.bom.product_id = self.variant1.id
-        wizard = self.wiz_obj.with_context(
+        self.bom.product_tmpl_id = self.v1.product_tmpl_id.id
+        self.bom.product_id = self.v1.id
+        wizard = self.WizObj.with_context(
             active_model='product.template',
-            active_ids=[self.variant1.product_tmpl_id.id]).create({})
+            active_ids=[self.v1.product_tmpl_id.id,
+                        self.v2.product_tmpl_id.id]).create({})
         wizard.update_multi_product_weight()
         # You can't update template weight if it as variants
-        self.assertAlmostEqual(self.variant1.product_tmpl_id.weight, 0.0)
+        self.assertAlmostEqual(self.v1.product_tmpl_id.weight, 3.8)
+        self.assertAlmostEqual(self.v2.product_tmpl_id.weight, 0.0)
 
     def test_calculate_weight_from_product_tree(self):
-        self.bom.product_tmpl_id = self.variant1.product_tmpl_id.id
-        self.bom.product_id = self.variant1.id
-        wizard = self.wiz_obj.with_context(
+        self.bom.product_tmpl_id = self.v1.product_tmpl_id.id
+        self.bom.product_id = self.v1.id
+        wizard = self.WizObj.with_context(
             active_model='product.product',
-            active_ids=[self.variant1.id, self.variant2.id]).create({})
+            active_ids=[self.v1.id, self.v2.id]).create({})
         wizard.update_multi_product_weight()
-        self.assertAlmostEqual(self.variant1.weight, 3.8)
-        self.assertAlmostEqual(self.variant2.weight, 0.0)
+        self.assertAlmostEqual(self.v1.weight, 3.8)
+        self.assertAlmostEqual(self.v2.weight, 0.0)
+
+    def test_empty_fields(self):
+        res = self.WizObj.default_get([])
+        self.assertEqual(res, {})
