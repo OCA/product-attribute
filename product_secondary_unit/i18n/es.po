@@ -18,87 +18,89 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_code
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__code
 msgid "Code"
 msgstr "Código"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_create_uid
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_create_date
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,help:product_secondary_unit.field_product_product_secondary_uom_ids
-#: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit_uom_id
-#: model:ir.model.fields,help:product_secondary_unit.field_product_template_secondary_uom_ids
+#: model:ir.model.fields,help:product_secondary_unit.field_product_product__secondary_uom_ids
+#: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__uom_id
+#: model:ir.model.fields,help:product_secondary_unit.field_product_template__secondary_uom_ids
 msgid "Default Secondary Unit of Measure."
 msgstr "Segunda unidad de medida por defecto."
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
 msgid "ID"
 msgstr "ID (Identificador)"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit___last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_write_uid
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_write_date
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__name
 msgid "Name"
 msgstr "Nombre"
 
 #. module: product_secondary_unit
+#: model:ir.model,name:product_secondary_unit.model_product_secondary_unit
+#, fuzzy
+#| msgid "product.secondary.unit"
+msgid "Product Secondary Unit"
+msgstr "'product.secondary.unit'"
+
+#. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_product_tmpl_id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_factor
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
 msgid "Secondary Unit Factor"
 msgstr "Factor segunda unidad"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_product_secondary_uom_ids
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_uom_id
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template_secondary_uom_ids
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__uom_id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
 msgid "Secondary Unit of Measure"
 msgstr "Segunda unidad de medida"
 
 #. module: product_secondary_unit
-#: model:ir.model,name:product_secondary_unit.model_product_secondary_unit
-msgid "product.secondary.unit"
-msgstr "'product.secondary.unit'"
-
-#. module: product_secondary_unit
-#: model:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary Unit"
 msgstr "Unidad Secundaria"
 
 #. module: product_secondary_unit
-#: model:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary unit of measure"
 msgstr "Segunda unidad de medida"
 
