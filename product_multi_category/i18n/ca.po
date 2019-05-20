@@ -20,17 +20,29 @@ msgstr ""
 "X-Poedit-Language: Catalan\n"
 
 #. module: product_multi_category
-#: model:ir.model.fields,field_description:product_multi_category.field_product_product_categ_ids
-#: model:ir.model.fields,field_description:product_multi_category.field_product_template_categ_ids
+#: model:ir.model.fields,field_description:product_multi_category.field_product_product__categ_ids
+#: model:ir.model.fields,field_description:product_multi_category.field_product_template__categ_ids
 #, fuzzy
 msgid "Extra categories"
 msgstr "Categories extra"
+
+#. module: product_multi_category
+#: model:ir.model.fields,field_description:product_multi_category.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_multi_category.field_product_template__categ_id
+msgid "Pricing/Primary Category"
+msgstr ""
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
 #, fuzzy
 msgid "Product Template"
 msgstr "Categories de producte"
+
+#. module: product_multi_category
+#: model:ir.model.fields,help:product_multi_category.field_product_product__categ_id
+#: model:ir.model.fields,help:product_multi_category.field_product_template__categ_id
+msgid "Select category for the current product"
+msgstr ""
 
 #~ msgid "Invalid XML for View Architecture!"
 #~ msgstr "﻿XML invàlid per a la definició de la vista!"
