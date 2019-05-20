@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
@@ -64,5 +63,5 @@ class TestProductEol(TestProductCommon):
         self.assertEqual(
             cron.nextcall,
             datetime.combine(date.today() + relativedelta(months=1),
-                             datetime.min.time()).isoformat(' ')
+                             datetime.min.time())
         )

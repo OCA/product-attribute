@@ -4,7 +4,7 @@
 {
     "name": "Product End-Of-Life Date",
     "summary": "Alert users when products approach EoL Date",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "category": "Product",

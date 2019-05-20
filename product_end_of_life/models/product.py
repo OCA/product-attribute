@@ -4,6 +4,7 @@
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from odoo import api, fields as fields_cls, models, _
+from odoo.osv import expression
 
 
 class ProductTemplate(models.Model):
@@ -80,9 +81,22 @@ class ProductProduct(models.Model):
         return True
 
     @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        args = args or []
+        domain = []
+        if name:
+            domain = [
+                ('name', operator, name)
+            ]
+            if operator in expression.NEGATIVE_TERM_OPERATORS:
+                domain = ['&', '!'] + domain[1:]
+        products = self.search(domain + args, limit=limit)
+        return products.name_get()
+
+    @api.model
     def search(self, args, offset=0, limit=None, order=None, count=False):
         if self.env.context.get('source_from') == 'purchase_order':
-            today = fields_cls.Date.today()
+            today = date.today()
             args = (args or []) + ['|', ['eol_date', '>', today],
                                    ['eol_date', '=', False]]
         return super(ProductProduct, self).search(args, offset=offset,
