@@ -19,58 +19,58 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_products_count
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
 msgstr ""
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_color
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
 msgstr ""
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_company_id
-#: model:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__company_id
+#: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
 msgid "Company"
 msgstr ""
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_create_uid
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_create_date
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_date
 msgid "Created on"
 msgstr "Créé le"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_display_name
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_id
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag___last_update
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
 msgstr "Dernière Modification le"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_write_uid
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_write_date
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_name
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__name
 msgid "Name"
 msgstr "Nom"
 
@@ -80,8 +80,8 @@ msgid "Product Tag"
 msgstr ""
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_product_tag_ids
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_ids
+#: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 #: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
 msgid "Product Tags"
 msgstr ""
@@ -97,6 +97,6 @@ msgid "Product Template Tag"
 msgstr ""
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag_product_tmpl_ids
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
 msgid "Products"
 msgstr ""
