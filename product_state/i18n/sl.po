@@ -45,7 +45,7 @@ msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: product_state
-#: model:ir.model.fields,field_description:product_state.field_product_product_state
-#: model:ir.model.fields,field_description:product_state.field_product_template_state
+#: model:ir.model.fields,field_description:product_state.field_product_product__state
+#: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Status"
 msgstr ""
