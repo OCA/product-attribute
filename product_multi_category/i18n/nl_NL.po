@@ -20,12 +20,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_multi_category
-#: model:ir.model.fields,field_description:product_multi_category.field_product_product_categ_ids
-#: model:ir.model.fields,field_description:product_multi_category.field_product_template_categ_ids
+#: model:ir.model.fields,field_description:product_multi_category.field_product_product__categ_ids
+#: model:ir.model.fields,field_description:product_multi_category.field_product_template__categ_ids
 msgid "Extra categories"
+msgstr ""
+
+#. module: product_multi_category
+#: model:ir.model.fields,field_description:product_multi_category.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_multi_category.field_product_template__categ_id
+msgid "Pricing/Primary Category"
 msgstr ""
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
 msgid "Product Template"
 msgstr "Productsjabloon"
+
+#. module: product_multi_category
+#: model:ir.model.fields,help:product_multi_category.field_product_product__categ_id
+#: model:ir.model.fields,help:product_multi_category.field_product_template__categ_id
+msgid "Select category for the current product"
+msgstr ""
