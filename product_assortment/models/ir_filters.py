@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models, _
-from odoo.osv import expression
+import ast
+
+from openerp import api, fields, models, _
+from openerp.osv import expression
 
 
 class ProductAssortment(models.Model):
@@ -39,7 +41,7 @@ class ProductAssortment(models.Model):
 
     @api.multi
     def _get_eval_domain(self):
-        res = super(ProductAssortment, self)._get_eval_domain()
+        res = ast.literal_eval(self.domain)
 
         if self.whitelist_product_ids and res:
             result_domain = [('id', 'in', self.whitelist_product_ids.ids)]
