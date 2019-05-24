@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo11-addon-product_code_mandatory',
         'odoo11-addon-product_code_unique',
         'odoo11-addon-product_cost_security',
+        'odoo11-addon-product_dimension',
         'odoo11-addon-product_end_of_life',
         'odoo11-addon-product_firmware_version',
         'odoo11-addon-product_manufacturer',
