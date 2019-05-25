@@ -43,6 +43,7 @@ Contributors
 * Ray Carnes <ray.carnes@bistasolutions.com>
 * Miquel Raïch <miquel.raich@eficent.com>
 * Lois Rilo <lois.rilo@eficent.com>
+* Cristian Salamea <cs@prisehub.com>
 
 Do not contact contributors directly about support or help with technical issues.
 

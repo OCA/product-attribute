@@ -10,6 +10,7 @@
                 <group name="manufacturer" string="Manufacturer">
                     <group>
                         <field name="manufacturer" context="{'default_supplier':True, 'default_customer':False}"/>
+                        <field name="country_id"/>
                         <field name="manufacturer_pname" />
                     </group>
                     <group>
