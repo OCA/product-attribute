@@ -31,8 +31,8 @@ class TestComputeVolumeOnProduct(TransactionCase):
         super(TestComputeVolumeOnProduct, self).setUp()
 
         self.product = self.env['product.product'].new()
-        self.uom_m = self.env['product.uom'].search([('name', '=', 'm')])
-        self.uom_cm = self.env['product.uom'].search([('name', '=', 'cm')])
+        self.uom_m = self.env['uom.uom'].search([('name', '=', 'm')])
+        self.uom_cm = self.env['uom.uom'].search([('name', '=', 'cm')])
 
 
 class TestComputeVolumeOnTemplate(TransactionCase):
@@ -63,5 +63,5 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         super(TestComputeVolumeOnTemplate, self).setUp()
 
         self.template = self.env['product.template'].new()
-        self.uom_m = self.env['product.uom'].search([('name', '=', 'm')])
-        self.uom_cm = self.env['product.uom'].search([('name', '=', 'cm')])
+        self.uom_m = self.env['uom.uom'].search([('name', '=', 'm')])
+        self.uom_cm = self.env['uom.uom'].search([('name', '=', 'cm')])
