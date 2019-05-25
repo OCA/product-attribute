@@ -19,17 +19,15 @@
 #
 ##############################################################################
 {
-    'name': 'Product Manufacturers',
-    'version': '10.0.1.0.0',
-    'author': "OpenERP SA, Odoo Community Association (OCA)",
-    'license': 'AGPL-3',
-    'contributors': ['Acysos SL <info@acysos.com>'],
-    'category': 'Purchase Management',
-    'depends': ['product'],
-    'demo': [],
-    'data': [
-        'views/product_manufacturer_view.xml'
-    ],
-    'auto_install': False,
-    'installable': True,
+    "name": "Product Manufacturer",
+    "version": "10.0.1.1.0",
+    "summary": "Adds manufacturers and attributes on the product view.",
+    "author": "OpenERP SA, Odoo Community Association (OCA)",
+    "license": "AGPL-3",
+    "website": "https://github.com/OCA/product-attribute",
+    "category": "Product",
+    "depends": ["product"],
+    "data": ["views/product_manufacturer_view.xml"],
+    "auto_install": False,
+    "installable": True,
 }
