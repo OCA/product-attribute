@@ -17,14 +17,14 @@ class Product(models.Model):
     @api.model
     def _get_dimension_uom_domain(self):
         return [
-            ('category_id', '=', self.env.ref('product.uom_categ_length').id)
+            ('category_id', '=', self.env.ref('uom.uom_categ_length').id)
         ]
 
     length = fields.Float()
     height = fields.Float()
     width = fields.Float()
     dimensional_uom_id = fields.Many2one(
-        'product.uom',
+        'uom.uom',
         'Dimensional UoM',
         domain=lambda self: self._get_dimension_uom_domain(),
         help='UoM for length, height, width')
@@ -50,7 +50,7 @@ class ProductTemplate(models.Model):
             self.length, self.height, self.width, self.dimensional_uom_id)
 
     def convert_to_meters(self, measure, dimensional_uom):
-        uom_meters = self.env.ref('product.product_uom_meter')
+        uom_meters = self.env.ref('uom.product_uom_meter')
 
         return dimensional_uom._compute_quantity(
             qty=measure,
@@ -58,10 +58,10 @@ class ProductTemplate(models.Model):
             round=False,
         )
 
-    length = fields.Float(related='product_variant_ids.length')
-    height = fields.Float(related='product_variant_ids.height')
-    width = fields.Float(related='product_variant_ids.width')
+    length = fields.Float(related='product_variant_ids.length', readonly=False)
+    height = fields.Float(related='product_variant_ids.height', readonly=False)
+    width = fields.Float(related='product_variant_ids.width', readonly=False)
     dimensional_uom_id = fields.Many2one(
-        'product.uom',
+        'uom.uom',
         'Dimensional UoM', related='product_variant_ids.dimensional_uom_id',
         help='UoM for length, height, width')
