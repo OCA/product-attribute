@@ -7,7 +7,7 @@
     "name": "Product Sequence",
     "version": "10.0.2.0.0",
     "author": "Zikzakmedia SL,Sodexis,Odoo Community Association (OCA)",
-    "website": "http://www.zikzakmedia.com",
+    "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Generic Modules/Inventory Control",
     "depends": ["product_code_unique"],
