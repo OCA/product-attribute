@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright 2018 ACSONE SA/NV
+# Copyright 2018-2019 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.tests.common import TransactionCase
@@ -42,7 +41,7 @@ class TestProductAssortment(TransactionCase):
         self.assertIn(included_product.id, products_filtered.ids)
 
         # exclude one product not in initial filter
-        excluded_product = self.env.ref('product.service_delivery')
+        excluded_product = self.env.ref('product.product_product_2')
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
         self.assertIn(excluded_product.id, products_filtered.ids)
