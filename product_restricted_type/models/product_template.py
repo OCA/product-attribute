@@ -25,6 +25,6 @@ class ProductTemplate(models.Model):
         for product in self:
             if product.categ_id.restricted_product_type and product.type != \
                     product.categ_id.restricted_product_type:
-                    raise ValidationError(_(
-                        'The product type must be equal to the restricted '
-                        'product type defined in the product category'))
+                raise ValidationError(_(
+                    'The product type must be equal to the restricted '
+                    'product type defined in the product category'))
