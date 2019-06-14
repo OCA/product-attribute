@@ -8,8 +8,7 @@
     'category': 'Product',
     'author': 'ADHOC SA, Camptocamp, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
-    'depends': ['product', 'stock'],
+    'depends': ['product'],
     'data': ['views/product_view.xml'],
     'installable': True,
-    'images': [],
 }
