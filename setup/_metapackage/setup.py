@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-base_product_mass_addition',
+        'odoo12-addon-packaging_uom',
         'odoo12-addon-product_brand',
         'odoo12-addon-product_code_unique',
         'odoo12-addon-product_manufacturer',
