@@ -19,33 +19,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: packaging_uom
-#: model:ir.ui.view,arch_db:packaging_uom.product_template_view_form_inherit_packaging_uom
-msgid "Configurations"
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__qty
+msgid "Contained Quantity"
 msgstr ""
 
 #. module: packaging_uom
-#: model:ir.model.fields,help:packaging_uom.field_product_packaging_uom_id
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__uom_id
 msgid "It must be in the same category than the default unit of measure."
 msgstr ""
 
 #. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_id
+#, fuzzy
+#| msgid "Unit of Measure"
+msgid "Packaging Unit of Measure"
+msgstr "Maateenheid"
+
+#. module: packaging_uom
 #: model:ir.model,name:packaging_uom.model_product_packaging
-#: model:ir.ui.view,arch_db:packaging_uom.product_template_view_form_inherit_packaging_uom
-msgid "Packaging"
+msgid "Product Packaging"
 msgstr ""
 
 #. module: packaging_uom
-#: code:addons/packaging_uom/models/product_packaging.py:86
+#: code:addons/packaging_uom/models/product_packaging.py:94
 #, python-format
 msgid "The field Unit of Measure is required"
 msgstr ""
 
 #. module: packaging_uom
-#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging_uom_id
-msgid "Unit of Measure"
-msgstr "Maateenheid"
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
+msgid "The total number of products you can have per pallet or box."
+msgstr ""
 
 #. module: packaging_uom
-#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging_uom_categ_domain_id
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_categ_domain_id
 msgid "Uom Categ Domain"
 msgstr ""
