@@ -20,34 +20,45 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: packaging_uom
-#: model:ir.ui.view,arch_db:packaging_uom.product_template_view_form_inherit_packaging_uom
-msgid "Configurations"
-msgstr "Postavke"
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__qty
+msgid "Contained Quantity"
+msgstr ""
 
 #. module: packaging_uom
-#: model:ir.model.fields,help:packaging_uom.field_product_packaging_uom_id
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__uom_id
 msgid "It must be in the same category than the default unit of measure."
 msgstr "Mora biti u istoj kategoriji u kojoj je i glavna jedinica mjere"
 
 #. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_id
+#, fuzzy
+#| msgid "Unit of Measure"
+msgid "Packaging Unit of Measure"
+msgstr "Jedinica mjere"
+
+#. module: packaging_uom
 #: model:ir.model,name:packaging_uom.model_product_packaging
-#: model:ir.ui.view,arch_db:packaging_uom.product_template_view_form_inherit_packaging_uom
-msgid "Packaging"
+#, fuzzy
+#| msgid "Packaging"
+msgid "Product Packaging"
 msgstr "Pakiranje"
 
 #. module: packaging_uom
-#: code:addons/packaging_uom/models/product_packaging.py:86
+#: code:addons/packaging_uom/models/product_packaging.py:94
 #, python-format
 msgid "The field Unit of Measure is required"
 msgstr "Polje jedinica mjere je obavezno"
 
 #. module: packaging_uom
-#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging_uom_id
-msgid "Unit of Measure"
-msgstr "Jedinica mjere"
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
+msgid "The total number of products you can have per pallet or box."
+msgstr ""
 
 #. module: packaging_uom
-#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging_uom_categ_domain_id
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_categ_domain_id
 #, fuzzy
 msgid "Uom Categ Domain"
 msgstr "Domena kategorije jedinice mjere"
+
+#~ msgid "Configurations"
+#~ msgstr "Postavke"
