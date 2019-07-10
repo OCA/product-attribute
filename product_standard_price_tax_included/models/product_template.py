@@ -25,5 +25,5 @@ class ProductTemplate(models.Model):
     def _compute_standard_price_tax_included(self):
         for template in self:
             info = template.taxes_id.compute_all(
-                    template.standard_price, 1, force_excluded=True)
+                template.standard_price, 1, force_excluded=True)
             template.standard_price_tax_included = info['total_included']
