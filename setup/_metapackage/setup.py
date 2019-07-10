@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo10-addon-customer_pricing_in_product_view',
         'odoo10-addon-product_assortment',
         'odoo10-addon-product_brand',
+        'odoo10-addon-product_categ_image',
         'odoo10-addon-product_code_unique',
         'odoo10-addon-product_custom_info',
         'odoo10-addon-product_default_image',
