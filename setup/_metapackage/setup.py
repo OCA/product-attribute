@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo10-addon-product_default_image',
         'odoo10-addon-product_manufacturer',
         'odoo10-addon-product_multi_category',
+        'odoo10-addon-product_multi_image',
         'odoo10-addon-product_pricelist_tier',
         'odoo10-addon-product_profile',
         'odoo10-addon-product_profile_example',
