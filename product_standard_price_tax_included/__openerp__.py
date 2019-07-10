@@ -5,7 +5,7 @@
 
 {
     'name': 'Product - Cost Price Tax Included',
-    'version': '8.0.2.0.0',
+    'version': '8.0.2.1.0',
     'category': 'Product',
     'summary': 'Brings a Cost Price Field Tax Included on Product Model',
     'author': 'GRAP,Odoo Community Association (OCA)',
