@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_categ_image
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category_image
+msgid "Image"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model,name:product_categ_image.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,help:product_categ_image.field_product_category_image
+msgid "This field holds the image used for the category, limited to 1024x1024px. Also used as the default image for products of this category."
+msgstr ""
+
