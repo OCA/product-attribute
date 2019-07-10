@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<openerp><data>
+
+    <record id="partner_with_pricelist" model="res.partner">
+        <field name="name">Partner With Pricelist based on Cost Price Tax Included</field>
+        <field name="customer" eval="True" />
+        <field name="property_product_pricelist" ref="pricelist_price_tax_included"/>
+    </record>
+
+</data></openerp>
