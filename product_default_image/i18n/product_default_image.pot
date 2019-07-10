@@ -114,11 +114,6 @@ msgid "ID"
 msgstr ""
 
 #. module: product_default_image
-#: model:ir.model.fields,field_description:product_default_image.field_product_category_image
-msgid "Image"
-msgstr ""
-
-#. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_product_image_type
 #: model:ir.model.fields,field_description:product_default_image.field_product_template_image_type
 msgid "Image Type"
@@ -192,11 +187,6 @@ msgstr ""
 #. module: product_default_image
 #: model:ir.model.fields,help:product_default_image.field_product_category_image_small
 msgid "Small-sized image of the category. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
-msgstr ""
-
-#. module: product_default_image
-#: model:ir.model.fields,help:product_default_image.field_product_category_image
-msgid "This field holds the image used for the category, limited to 1024x1024px. Also used as the default image for products of this category."
 msgstr ""
 
 #. module: product_default_image
