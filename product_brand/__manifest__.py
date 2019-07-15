@@ -4,11 +4,12 @@
 # Copyright 2016 Serpent Consulting Services Pvt. Ltd.
 # Copyright 2018 Daniel Campos <danielcampos@avanzosc.es>
 # Copyright 2018 Tecnativa - David Vidal
+# Copyright 2019 Giovanni - GSLabIt
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Product Brand Manager',
-    'version': '12.0.1.0.0',
+    'version': '12.0.2.0.0',
     'development_status': "Mature",
     'category': 'Product',
     'summary': "Product Brand Manager",
