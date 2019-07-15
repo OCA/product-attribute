@@ -20,6 +20,7 @@ addon | version | summary
 [product_code_unique](product_code_unique/) | 10.0.1.0.0 | Set Product Internal Reference as Unique
 [product_custom_info](product_custom_info/) | 10.0.1.0.0 | Add custom field in products
 [product_default_image](product_default_image/) | 10.0.1.0.0 | Apply default images to new and existing products.
+[product_dimension](product_dimension/) | 10.0.1.0.0 | Product Dimension
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
 [product_multi_image](product_multi_image/) | 10.0.1.0.0 | Multiple Images in Products
@@ -46,7 +47,6 @@ addon | version | summary
 [product_categ_attributes](product_categ_attributes/) | 0.1 (unported) | product_categ_attributes
 [product_custom_attributes](product_custom_attributes/) | 0.2.1 (unported) | product_custom_attributes
 [product_customer_code](product_customer_code/) | 1.0 (unported) | Add many Customers' Codes in product
-[product_dimension](product_dimension/) | 9.0.1.1.0 (unported) | Product Dimension
 [product_electronic](product_electronic/) | 1.0 (unported) | Products Attributes & Manufacturers
 [product_gift](product_gift/) | 0.1 (unported) | product_gift
 [product_gtin](product_gtin/) | 8.0.1.1.0 (unported) | Product GTIN EAN8 EAN13 UPC JPC Support

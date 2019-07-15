@@ -4,11 +4,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from openerp import models, fields
-from openerp import api
+from odoo import models, fields, api
 
 
-class Product(models.Model):
+class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     @api.onchange('length', 'height', 'width', 'dimensional_uom_id')
@@ -23,14 +22,8 @@ class Product(models.Model):
         self.volume = length_m * height_m * width_m
 
     def convert_to_meters(self, measure, dimensional_uom):
-        uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
-
-        return self.env['product.uom']._compute_qty_obj(
-            from_unit=dimensional_uom,
-            qty=measure,
-            to_unit=uom_meters,
-            round=False,
-            )
+        uom_meters = self.env.ref('product.product_uom_meter')
+        return dimensional_uom._compute_quantity(measure, uom_meters)
 
     @api.model
     def _get_dimension_uom_domain(self):
@@ -64,14 +57,8 @@ class ProductTemplate(models.Model):
         self.volume = length_m * height_m * width_m
 
     def convert_to_meters(self, measure, dimensional_uom):
-        uom_meters = self.env['product.uom'].search([('name', '=', 'm')])
-
-        return self.env['product.uom']._compute_qty_obj(
-            from_unit=dimensional_uom,
-            qty=measure,
-            to_unit=uom_meters,
-            round=False,
-            )
+        uom_meters = self.env.ref('product.product_uom_meter')
+        return dimensional_uom._compute_quantity(measure, uom_meters)
 
     length = fields.Float(related='product_variant_ids.length')
     height = fields.Float(related='product_variant_ids.height')
