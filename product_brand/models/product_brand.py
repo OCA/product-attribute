@@ -21,7 +21,7 @@ class ProductBrand(models.Model):
         help='Select a partner for this brand if any.',
         ondelete='restrict'
     )
-    logo = fields.Binary('Logo File')
+    logo = fields.Binary('Logo File', attachment=True)
     product_ids = fields.One2many(
         'product.template',
         'product_brand_id',
