@@ -153,11 +153,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: product_default_image
-#: model:ir.model.fields,field_description:product_default_image.field_product_category_image
-msgid "Image"
-msgstr "Bild"
-
-#. module: product_default_image
 #: model:ir.model.fields,field_description:product_default_image.field_product_product_image_type
 #: model:ir.model.fields,field_description:product_default_image.field_product_template_image_type
 msgid "Image Type"
@@ -246,16 +241,6 @@ msgstr ""
 "überall, wo kleine Bilder Sinn machen."
 
 #. module: product_default_image
-#: model:ir.model.fields,help:product_default_image.field_product_category_image
-msgid ""
-"This field holds the image used for the category, limited to 1024x1024px. "
-"Also used as the default image for products of this category."
-msgstr ""
-"Dieses Feld nimmt das auf 1024x1024px beschränkte Bild für die Kategorie "
-"auf. Dieses wird auch als Vorgabebild für Produkte dieser Kategorie "
-"verwendet."
-
-#. module: product_default_image
 #: model:ir.model.fields,help:product_default_image.field_res_company_product_image
 #: model:ir.model.fields,help:product_default_image.field_stock_config_settings_product_image
 msgid ""
@@ -268,3 +253,14 @@ msgstr ""
 #: model:ir.model,name:product_default_image.model_stock_config_settings
 msgid "stock.config.settings"
 msgstr "stock.config.settings"
+
+#~ msgid "Image"
+#~ msgstr "Bild"
+
+#~ msgid ""
+#~ "This field holds the image used for the category, limited to 1024x1024px. "
+#~ "Also used as the default image for products of this category."
+#~ msgstr ""
+#~ "Dieses Feld nimmt das auf 1024x1024px beschränkte Bild für die Kategorie "
+#~ "auf. Dieses wird auch als Vorgabebild für Produkte dieser Kategorie "
+#~ "verwendet."
