@@ -1,14 +1,35 @@
-In Odoo, the Cost Price Field (standard_price) is by definition 'Tax Excluded'.
-So without this module, the sale price will be bad in this following configuration:
+this module extend Odoo Sale module to handle correctly the possibility to
+create and use pricelist **based on the cost Price**, if you are in a B2C
+configuration (VAT set with 'Price Tax inlude').
 
-* Price list based on the field 'Cost Price';
-  (If you want a fixed margin, for example: Cost Price + 10%);
-* Products set with Sale Taxes "Tax Included" ; (B2C settings)
+If you have don't use VAT price tax Included, this module is useless.
 
-This module fixes the problem, adding a new field 'Cost Price Tax Included'
-(standard_price_tax_included) on Product Template model, based on Cost Price
-Field and Sale Taxes Setting.
+**Typical Use Case**
 
-This module create a new ``product.price.type`` item, named
-'Cost Price Tax Included'.
+You have a product :
+- Cost : 10€ (Vat Excl)
+- Sale Price (Vat incl) : 20€
+- VAT : 20% (Price with Tax included)
 
+You have a marginless pricelist based on the cost
+
+Without this module, if you create a sale order, the price will be bad, and
+you will sale under your cost price.
+
+.. image:: ../static/description/sale_order_form_without_module.png
+
+With this module installed, the price will be good and you will not loose
+the vat amount, when you realize this sale:
+
+.. image:: ../static/description/sale_order_form.png
+
+**Technical information**
+
+This module fixes the problem,
+
+* adding a new computed field
+  'Cost Price Tax Included' (``standard_price_tax_included``) on
+  Product Product model, based on Cost Price Field and Sale Taxes Setting.
+
+* adding a new key ``standard_price_tax_included`` on the field ``base`` of
+  the model ``product.pricelist.item``.
