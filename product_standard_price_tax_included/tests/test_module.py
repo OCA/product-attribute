@@ -1,9 +1,8 @@
-# coding: utf-8
 # Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
 # @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase
 
 
 class TestProductStandardPriceTaxIncluded(TransactionCase):
@@ -12,14 +11,16 @@ class TestProductStandardPriceTaxIncluded(TransactionCase):
     def setUp(self):
         super(TestProductStandardPriceTaxIncluded, self).setUp()
 
-        self.order_obj = self.env['sale.order']
-        self.order_line_obj = self.env['sale.order.line']
+        self.SaleOrder = self.env['sale.order']
+        self.SaleOrderLine = self.env['sale.order.line']
 
-        self.partner_id = self.ref(
-            'product_standard_price_tax_included.partner_with_pricelist')
-        self.product_id = self.ref(
+        self.tax = self.env.ref(
+            'product_standard_price_tax_included.account_tax_tax_included')
+        self.partner = self.env.ref('base.res_partner_3')
+        self.uom = self.env.ref('uom.product_uom_unit')
+        self.product = self.env.ref(
             'product_standard_price_tax_included.product_product')
-        self.pricelist_id = self.ref(
+        self.pricelist = self.env.ref(
             'product_standard_price_tax_included.pricelist_price_tax_included')
 
     # Test Section
@@ -28,27 +29,18 @@ class TestProductStandardPriceTaxIncluded(TransactionCase):
         based on Price List Tax Included."""
 
         # Create an Order
-        order = self.order_obj.create({
-            'partner_id': self.partner_id,
-            'partner_invoice_id': self.partner_id,
-            'partner_shipping_id': self.partner_id,
-            'pricelist_id': self.pricelist_id,
+        order = self.SaleOrder.create({
+            'partner_id': self.partner.id,
+            'pricelist_id': self.pricelist.id,
         })
 
         # Create an Order line with a product with Tax Included
-        res = self.order_line_obj.product_id_change(
-            self.pricelist_id, self.product_id, qty=1,
-            partner_id=self.partner_id)
-        self.order_line_obj.create({
-            'name': 'Sale Order Line Name',
+        self.SaleOrderLine.create({
             'order_id': order.id,
-            'product_id': self.product_id,
-            'tax_id': res['value']['tax_id'],
+            'product_id': self.product.id,
             'product_uom_qty': 1,
-            'price_unit': res['value']['price_unit'],
+            'product_uom': self.uom.id,
         })
-
-        order = self.order_obj.browse(order.id)
         self.assertEquals(
-            order.amount_total, 11.5,
+            order.amount_total, 12.0,
             "Computation of Price based on Cost Price Tax Included incorrect.")
