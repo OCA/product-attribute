@@ -5,11 +5,12 @@
 # Copyright 2018 Daniel Campos <danielcampos@avanzosc.es>
 # Copyright 2018 Tecnativa - David Vidal
 # Copyright 2019 Giovanni - GSLabIt
+# Copyright 2019 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Product Brand Manager',
-    'version': '12.0.2.0.0',
+    'version': '12.0.2.0.1',
     'development_status': "Mature",
     'category': 'Product',
     'summary': "Product Brand Manager",
@@ -23,7 +24,9 @@
         ],
     'data': [
         'security/ir.model.access.csv',
+        'security/product_brand.xml',
         'views/product_brand_view.xml',
+        'views/res_company.xml',
         'reports/sale_report_view.xml',
         'reports/account_invoice_report_view.xml',
     ],

@@ -3,9 +3,11 @@
 # Copyright 2014 prisnet.ch Seraphine Lantible <s.lantible@gmail.com>
 # Copyright 2016 Serpent Consulting Services Pvt. Ltd.
 # Copyright 2018 Daniel Campos <danielcampos@avanzosc.es>
+# Copyright 2019 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+from odoo import api, fields, models, _
 
 
 class ProductBrand(models.Model):
@@ -31,6 +33,14 @@ class ProductBrand(models.Model):
         string='Number of products',
         compute='_compute_products_count',
     )
+    company_id = fields.Many2one(
+        'res.company',
+        'Company',
+        default=lambda self: self.env['res.company']._company_default_get(
+            'product.brand'
+        ),
+        ondelete='restrict',
+    )
 
     @api.multi
     @api.depends('product_ids')
@@ -47,3 +57,15 @@ class ProductTemplate(models.Model):
         string='Brand',
         help='Select a brand for this product'
     )
+
+    @api.constrains('company_id', 'product_brand_id')
+    def _check_product_brand_company(self):
+        for product in self:
+            if (
+                product.company_id
+                and product.product_brand_id.company_id
+                and product.company_id != product.product_brand_id.company_id
+            ):
+                raise ValidationError(
+                    _('Product and brand must be related to the same company')
+                )

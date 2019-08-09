@@ -1,6 +1,7 @@
 # Copyright (c) 2018 Daniel Campos <danielcampos@avanzosc.es> - Avanzosc S.L.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from odoo.exceptions import ValidationError
 from odoo.tests import common
 
 
@@ -23,3 +24,12 @@ class TestProductBrand(common.TransactionCase):
         self.product.product_brand_id = self.product_brand.id
         self.assertEqual(self.product_brand.products_count, 1,
                          'Error product count does not match')
+
+    def test_check_product_brand_company(self):
+        new_company = self.env['res.company'].create({'name': 'New company'})
+        self.product.company_id = new_company
+        self.product_brand.company_id = self.env.user.company_id
+        with self.assertRaises(ValidationError):
+            self.product.product_brand_id = self.product_brand.id
+        self.product.company_id = self.env.user.company_id
+        self.product.product_brand_id = self.product_brand.id
