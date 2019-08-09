@@ -7,7 +7,7 @@
 # @author Laurent Mignon <laurent.mignon@acsone.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -24,13 +24,26 @@ class ProductProduct(models.Model):
         selection=_STOCK_STATE_SELECTION, compute="_compute_stock_state"
     )
 
+    @api.multi
+    def _get_qty_available(self):
+        """
+        This method can be overridden to provide the available qty.
+        In some cases you could prefer to use the qty_available - outgoing_qty
+        to take into account products reserved
+        """
+        self.ensure_one()
+        return self.qty_available
+
+    @api.multi
+    @api.depends("qty_available", "incoming_qty")
     def _compute_stock_state(self):
         for product in self:
-            if product.qty_available >= product._get_stock_state_threshold():
+            qty_available = product._get_qty_available()
+            if qty_available >= product._get_stock_state_threshold():
                 product.stock_state = "in_stock"
-            elif product.qty_available > 0:
+            elif qty_available > 0:
                 product.stock_state = "in_limited_stock"
-            elif product.virtual_available > 0:
+            elif product.incoming_qty > 0:
                 product.stock_state = "resupplying"
             else:
                 product.stock_state = "out_of_stock"
