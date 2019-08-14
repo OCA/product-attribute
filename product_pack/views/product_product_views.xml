@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Tecnativa - Ernesto Tejeda
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
 <odoo>
     <record model="ir.ui.view" id="nan_product_pack_form">
         <field name="name">product.product.pack.form</field>
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
-            <field name="type" position="after">
-                <field name="pack"/>
-                <field name="pack_price_type" attrs="{'invisible':[('pack', '=', False)], 'required':[('pack','=',True)]}" context="{'pack_price_type': pack_price_type}"/>
-                <field name="allow_modify_pack" attrs="{'invisible':[('pack', '!=', False), ('pack_price_type', '!=', 'components_price')]}"/>
-            </field>
-            <notebook position="inside">
-                <page string="Pack" attrs="{'invisible':[('pack', '=', False)]}">
-                    <field name="pack_line_ids"/>
-                </page>
-            </notebook>
+            <group name="group_pack">
+                <group string="Pack Products" colspan="4">
+                    <field name="pack_line_ids" nolabel="1"/>
+                </group>
+            </group>
         </field>
     </record>
 </odoo>

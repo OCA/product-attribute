@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Tecnativa - Ernesto Tejeda
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
 <odoo>
-    <record model="ir.ui.view" id="product_pack_line_form">
+    <record id="product_pack_line_form" model="ir.ui.view">
         <field name="name">product.pack.line.form</field>
         <field name="model">product.pack.line</field>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Pack Product Line">
                 <group>
                     <field name="product_id"/>
                     <field name="quantity"/>
-                    <field name="discount" groups="sale.group_discount_per_so_line" invisible="context.get('pack_price_type') == 'fixed_price'"/>
                 </group>
             </form>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="product_pack_line_tree">
+    <record id="product_pack_line_tree" model="ir.ui.view">
         <field name="name">product.pack.line.tree</field>
         <field name="model">product.pack.line</field>
-        <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Pack Product Lines" editable="bottom">
                 <field name="product_id"/>
                 <field name="quantity"/>
-                <field name="discount" groups="sale.group_discount_per_so_line" invisible="context.get('pack_price_type') == 'fixed_price'"/>
             </tree>
         </field>
     </record>

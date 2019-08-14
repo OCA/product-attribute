@@ -1,23 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Tecnativa - Ernesto Tejeda
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
 <odoo>
-    <!-- Product view modification -->
+    <!-- Generic Product Template view modification -->
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.pack.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <div>
+                    <field name="pack_ok"/>
+                    <label for="pack_ok"/>
+                </div>
+            </div>
+            <notebook position="inside">
+                <page name="page_pack" string="Pack" attrs="{'invisible': [('pack_ok', '=', False)]}">
+                    <group name="group_pack">
+                        <group>
+                            <field name="pack_type" attrs="{'required':[('pack_ok','=',True)]}"/>
+                            <field name="pack_modifiable" attrs="{'invisible':[('pack_type', '!=', 'components_price')]}"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+    <!-- Product Template view modification -->
     <record model="ir.ui.view" id="product_template_only_form_view">
         <field name="name">product.template.pack.form</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
-            <field name="type" position="after">
-                <field name="pack"/>
-                <field name="pack_price_type" attrs="{'invisible':[('pack', '=', False)], 'required':[('pack','=',True)]}" context="{'pack_price_type': pack_price_type}"/>
-                <field name="allow_modify_pack" attrs="{'invisible':[('pack', '!=', False), ('pack_price_type', '!=', 'components_price')]}"/>
-            </field>
-            <notebook position="inside">
-                <page string="Pack" attrs="{'invisible': ['|', ('product_variant_count', '>', 1), ('pack', '=', False)]}">
+            <page name="page_pack" position="attributes">
+                <attribute name="attrs">{'invisible': ['|', ('product_variant_count', '>', 1), ('pack_ok', '=', False)]}</attribute>
+            </page>
+            <group name="group_pack">
+                <group string="Pack Products" colspan="4">
                     <field name="id" invisible="1"/>
                     <p attrs="{'invisible': [('id', '!=', False)]}">You must save first to add pack lines</p>
-                    <field name="pack_line_ids" attrs="{'readonly': [('id', '=', False)]}"/>
-                </page>
-            </notebook>
+                    <group colspan="4">
+                        <field name="pack_line_ids" nolabel="1" attrs="{'readonly': [('id', '=', False)]}"/>
+                    </group>
+                </group>
+            </group>
         </field>
     </record>
 </odoo>
