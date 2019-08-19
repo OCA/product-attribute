@@ -53,18 +53,19 @@ class ProductWeightUpdate(models.TransientModel):
     @api.multi
     def calculate_product_bom_weight(self, bom, product=False):
         product_tmpl = bom.product_tmpl_id
-        tmpl_qty = bom.product_uom_id._compute_quantity(
-            bom.product_qty,
-            product_tmpl.uom_id)
-        bom_lines = bom.bom_line_ids.get_final_components()
+        if not product:
+            product = product_tmpl.product_variant_ids[0]
+        factor = product_tmpl.uom_id._compute_quantity(
+            1,
+            bom.product_uom_id, round=False)
+        dummy, lines_info = bom.explode(product, factor)
         weight = 0.0
-        for line in bom_lines:
-            component = line.product_id
-            component_qty = line.product_uom_id._compute_quantity(
-                line.product_qty,
+        for bom_line, info in lines_info:
+            component = bom_line.product_id
+            component_qty = bom_line.product_uom_id._compute_quantity(
+                info.get('qty'),
                 component.uom_id)
             weight += component.weight * component_qty
-        weight = weight / tmpl_qty
         if product:
             _logger.info("%s : %0.2f",
                          product.name,
