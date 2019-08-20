@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo12-addon-product_state',
         'odoo12-addon-product_supplierinfo_revision',
         'odoo12-addon-product_template_tags',
+        'odoo12-addon-product_weight',
         'odoo12-addon-stock_production_lot_firmware_version',
     ],
     classifiers=[
