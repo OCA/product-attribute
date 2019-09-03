@@ -80,7 +80,7 @@
                            t-as="category">
                             <t t-set="category_products"
                                t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
-                                        products.search([('sale_ok','=',True), ('categ_id','=',category.id)])"/>
+                                        ((not o.last_ordered_products) and products.search([('sale_ok','=',True), ('categ_id','=',category.id)]) or [])"/>
                             <t t-if="o.order_field == 'name'">
                                 <t t-set="category_products"
                                    t-value="category_products.sorted(lambda x: x.name)"/>
