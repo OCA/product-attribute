@@ -21,6 +21,13 @@ class ProductProduct(models.Model):
     )
 
     @api.multi
+    def get_pack_lines(self):
+        """Returns the content (lines) of the packs.
+        By default, return all the pack_line_ids, but that function
+        can be overloaded to introduce filtering function by date, etc..."""
+        return self.mapped('pack_line_ids')
+
+    @api.multi
     def split_pack_products(self):
         """Split products and the pack in 2 separate recordsets.
 
@@ -37,7 +44,7 @@ class ProductProduct(models.Model):
             packs |= self.filtered(
                 lambda p: p.pack_ok and p.pack_type == 'components_price')
 
-        no_packs = (self | self.mapped('pack_line_ids.product_id')) - packs
+        no_packs = (self | self.get_pack_lines().mapped('product_id')) - packs
         return packs, no_packs
 
     @api.multi
@@ -48,7 +55,7 @@ class ProductProduct(models.Model):
             price_type, uom, currency, company)
         for product in packs.with_context(prefetch_fields=False):
             pack_price = 0.0
-            for pack_line in product.pack_line_ids:
+            for pack_line in product.get_pack_lines():
                 product_line_price = pack_line.product_id.price
                 pack_price += (product_line_price * pack_line.quantity)
             prices[product.id] = pack_price
