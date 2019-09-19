@@ -111,7 +111,7 @@
     <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
         <field name="name">Partner Pricelists</field>
         <field name="res_model">product.supplierinfo</field>
-        <field name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id,visible_product_tmpl_id':False}</field>
+        <field name="context">{'default_search_type':'supplier','default_type':'supplier','visible_product_tmpl_id':False}</field>
         <field name="domain">[('type','=','supplier')]</field>
     </record>
 
