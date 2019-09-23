@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_country_restriction_rule_form_view">
+        <field name="name">product.country.restriction.rule.form (in product_country_restriction)</field>
+        <field name="model">product.country.restriction.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_country_restriction_rule_search_view">
+        <field name="name">product.country.restriction.rule.search (in product_country_restriction)</field>
+        <field name="model">product.country.restriction.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_country_restriction_rule_tree_view">
+        <field name="name">product.country.restriction.rule.tree (in product_country_restriction)</field>
+        <field name="model">product.country.restriction.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_country_restriction_rule_act_window">
+        <field name="name">Product Country Restriction Rules</field>
+        <field name="res_model">product.country.restriction.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+</odoo>
