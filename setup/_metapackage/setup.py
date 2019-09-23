@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo10-addon-product_brand',
         'odoo10-addon-product_categ_image',
         'odoo10-addon-product_code_unique',
+        'odoo10-addon-product_country_restriction',
         'odoo10-addon-product_custom_info',
         'odoo10-addon-product_default_image',
         'odoo10-addon-product_dimension',
