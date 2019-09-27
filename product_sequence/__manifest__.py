@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2004 Tiny SPRL
 # Copyright 2016 Sodexis
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
@@ -14,6 +13,7 @@
     'category': 'Product',
     'depends': [
         'product',
+        'product_code_unique',
     ],
     'data': [
         'data/product_sequence.xml',
