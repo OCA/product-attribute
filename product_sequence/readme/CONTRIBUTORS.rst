@@ -3,3 +3,4 @@
 * Sodexis <dev@sodexis.com>
 * Lois Rilo <lois.rilo@eficent.com>
 * Sudhir Arya <sudhir@erpharbor.com>
+* Alexandre Díaz <alexandre.diaz@tecnativa.com>
