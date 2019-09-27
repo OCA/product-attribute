@@ -4,7 +4,7 @@
 #   (http://www.eficent.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -17,12 +17,6 @@ class ProductProduct(models.Model):
         help="Set to '/' and save if you want a new internal reference "
              "to be proposed."
     )
-
-    _sql_constraints = [
-        ('uniq_default_code',
-         'unique(default_code)',
-         'The reference must be unique'),
-    ]
 
     @api.model
     def create(self, vals):
@@ -42,7 +36,7 @@ class ProductProduct(models.Model):
             if not sequence:
                 sequence = self.env.ref('product_sequence.seq_product_auto')
             vals['default_code'] = sequence.next_by_id()
-        return super(ProductProduct, self).create(vals)
+        return super().create(vals)
 
     @api.multi
     def write(self, vals):
@@ -50,11 +44,12 @@ class ProductProduct(models.Model):
         Note this is up to the user, if the product category is changed,
         she/he will need to write '/' on the internal reference to force the
         re-assignment."""
-        for product in self:
-            if vals.get('default_code', '') == '/':
+        if vals.get('default_code', '') == '/':
+            product_category_obj = self.env['product.category']
+            for product in self:
                 category_id = vals.get('categ_id', product.categ_id.id)
-                category = self.env['product.category'].browse(category_id)
-                sequence = category.sequence_id
+                category = product_category_obj.browse(category_id)
+                sequence = category.exists() and category.sequence_id
                 if not sequence:
                     sequence = self.env.ref(
                         'product_sequence.seq_product_auto')
@@ -62,8 +57,9 @@ class ProductProduct(models.Model):
                 vals['default_code'] = ref
                 if len(product.product_tmpl_id.product_variant_ids) == 1:
                     product.product_tmpl_id.write({'default_code': ref})
-            super(ProductProduct, product).write(vals)
-        return True
+                super(ProductProduct, product).write(vals)
+            return True
+        return super().write(vals)
 
     @api.multi
     def copy(self, default=None):
@@ -73,4 +69,4 @@ class ProductProduct(models.Model):
             default.update({
                 'default_code': self.default_code + _('-copy'),
             })
-        return super(ProductProduct, self).copy(default)
+        return super().copy(default)
