@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_artist_tree" model="ir.ui.view">
+        <field name="name">product artist tree</field>
+        <field name="model">product.artist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="act_product_artist"
+        name="Artists"
+        res_model="product.artist"
+        view_mode="tree"
+        view_type="tree"/>
+
+
+</odoo>

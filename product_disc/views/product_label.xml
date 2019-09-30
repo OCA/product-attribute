@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_label_tree" model="ir.ui.view">
+        <field name="name">product label tree</field>
+        <field name="model">product.label</field>
+        <field name="arch" type="xml">
+            <tree string="Record labels">
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="country_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
