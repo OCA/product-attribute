@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_attribute_value_format_vinyl_12" model="product.attribute.value">
+        <field name="name">Vinyl 12"</field>
+        <field name="attribute_id" ref="product_attribute_format"/>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_value_format_vinyl_10" model="product.attribute.value">
+        <field name="name">Vinyl 10"</field>
+        <field name="attribute_id" ref="product_attribute_format"/>
+        <field name="sequence">2</field>
+    </record>
+    <record id="product_attribute_value_format_vinyl_7" model="product.attribute.value">
+        <field name="name">Vinyl 7"</field>
+        <field name="attribute_id" ref="product_attribute_format"/>
+        <field name="sequence">3</field>
+    </record>
+    <record id="product_attribute_value_format_cd" model="product.attribute.value">
+        <field name="name">CD</field>
+        <field name="attribute_id" ref="product_attribute_format"/>
+        <field name="sequence">4</field>
+    </record>
+</odoo>

@@ -7,5 +7,5 @@ class ProductTemplate(models.Model):
 
     _inherit = 'product.template'
 
-    name = fields.Char(string='Release')
-    artist_ids = fields.Many2many('product.artist', string='Artist(s)')
+    name = fields.Char(string='Release')  # TODO Rename on the view
+    artist_ids = fields.Many2many('res.partner', string='Artist(s)')

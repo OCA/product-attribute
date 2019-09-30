@@ -7,9 +7,5 @@ class ProductProduct(models.Model):
 
     _inherit = 'product.product'
 
-    record_format = fields.Selection(
-        [('vinyl', 'Vinyl'), ('cd', 'CD')],  # TODO add more formats
-        string='Format',
-    )
+    label_ids = fields.Many2many('res.partner')
     country_id = fields.Many2one('res.country')
-    release_year = fields.Char()  # Can't use Int because we need 'Unknown'

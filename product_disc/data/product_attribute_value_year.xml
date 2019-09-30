@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_attribute_value_year_2010" model="product.attribute.value">
+        <field name="name">2010</field>
+        <field name="attribute_id" ref="product_attribute_year"/>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_value_year_2011" model="product.attribute.value">
+        <field name="name">2011</field>
+        <field name="attribute_id" ref="product_attribute_year"/>
+        <field name="sequence">2</field>
+    </record>
+</odoo>

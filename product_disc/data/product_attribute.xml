@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_attribute_format" model="product.attribute">
+        <field name="name">Format</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_year" model="product.attribute">
+        <field name="name">Year</field>
+        <field name="sequence">1</field>
+    </record>
+</odoo>

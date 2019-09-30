@@ -15,9 +15,10 @@
         "product",
     ],
     "data": [
-        "security/ir.model.access.csv",
-        "views/product_artist.xml",
-        "views/product_label.xml",
+        "data/product_attribute.xml",
+        "data/product_attribute_value_format.xml",
+        "data/product_attribute_value_year.xml",
         "views/product_template.xml",
+        "views/product_product.xml",
     ],
 }
