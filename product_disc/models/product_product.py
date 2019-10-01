@@ -7,5 +7,5 @@ class ProductProduct(models.Model):
 
     _inherit = 'product.product'
 
-    label_ids = fields.Many2many('res.partner')
+    label_ids = fields.Many2many('res.partner', domain=[('is_label', '=', True)])
     country_id = fields.Many2one('res.country')

@@ -8,4 +8,6 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     name = fields.Char(string='Release')  # TODO Rename on the view
-    artist_ids = fields.Many2many('res.partner', string='Artist(s)')
+    artist_ids = fields.Many2many(
+        'res.partner', string='Artist(s)', domain=[('is_artist', '=', True)]
+    )
