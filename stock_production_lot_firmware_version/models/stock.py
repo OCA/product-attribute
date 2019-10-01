@@ -5,8 +5,6 @@ from odoo import fields, models
 
 
 class StockProductionLot(models.Model):
-    _inherit = 'stock.production.lot'
+    _inherit = "stock.production.lot"
 
-    firmware_version = fields.Char(
-        string='Firmware Version'
-    )
+    firmware_version = fields.Char(string="Firmware Version")

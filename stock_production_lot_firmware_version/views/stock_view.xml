@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    
+
     <!-- Lots/Serial Numbers form view -->
     <record id="view_production_lot_form_fm_version_view" model="ir.ui.view">
         <field name="name">stock.production.lot.form</field>
@@ -12,5 +12,5 @@
             </field>
         </field>
     </record>
-    
+
 </odoo>
