@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_sequence
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-23 02:40+0000\n"
+"PO-Revision-Date: 2017-05-23 02:40+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: product_sequence
+#: code:addons/product_sequence/models/product_product.py:74
+#, python-format
+msgid "-copy"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category_code_prefix
+msgid "Prefix for Product Internal Reference"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_category_code_prefix
+msgid ""
+"Prefix used to generate the internal reference for products created with "
+"this category. If blank the default sequence will be used."
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_category
+#, fuzzy
+msgid "Product Category"
+msgstr "Article"
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category_sequence_id
+#, fuzzy
+msgid "Product Sequence"
+msgstr "Article"
+
+#. module: product_sequence
+#: sql_constraint:product.product:0
+msgid "The reference must be unique"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_category_sequence_id
+msgid ""
+"This field contains the information related to the numbering of the journal "
+"entries of this journal."
+msgstr ""
