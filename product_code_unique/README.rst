@@ -65,13 +65,6 @@ Contributors
 * Antonio Yamuta <ayamuta@opensourceintegrators.com>
 * Raf Ven <raf.ven@dynapps.be>
 
-Funders
-~~~~~~~
-
-The development of this module has been financially supported by:
-
-* Open Source Integrators <http://www.opensourceintegrators.com>
-
 Maintainers
 ~~~~~~~~~~~
 
