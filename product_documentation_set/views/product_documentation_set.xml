@@ -1,0 +1,75 @@
+<!-- Copyright 2019 Open Source Integrators
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_doc_set_form_view">
+        <field name="name">product.doc.set.form (in product_documentation_set)</field>
+        <field name="model">product.doc.set</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="usage"/>
+                            <field name="product_ids" widget="many2many_tags"/>
+                            <field name="category_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="lang"/>
+                            <field name="country_ids" widget="many2many_tags"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="attachments" string="Documents">
+                            <field name="attachment_ids" mode="kanban"/>
+                        </page>
+                        <page name="notes" string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_doc_set_search_view">
+        <field name="name">product.doc.set.search (in product_documentation_set)</field>
+        <field name="model">product.doc.set</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="usage" />
+                <field name="product_ids" />
+                <field name="category_ids" />
+                <field name="country_ids" />
+                <field name="lang" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_doc_set_tree_view">
+        <field name="name">product.doc.set.tree (in product_documentation_set)</field>
+        <field name="model">product.doc.set</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="usage"/>
+                <field name="category_ids" widget="many2many_tags"/>
+                <field name="product_ids" widget="many2many_tags"/>
+                <field name="country_ids" widget="many2many_tags"/>
+                <field name="lang"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_doc_set_act_window">
+        <field name="name">Product Documentation Set</field>
+        <field name="res_model">product.doc.set</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
