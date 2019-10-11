@@ -2,7 +2,6 @@
 # Copyright 2015-2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-
 from odoo import models, fields, api
 
 
@@ -27,7 +26,9 @@ class Product(models.Model):
         'uom.uom',
         'Dimensional UoM',
         domain=lambda self: self._get_dimension_uom_domain(),
-        help='UoM for length, height, width')
+        help='UoM for length, height, width',
+        default=lambda self: self.env.ref('uom.product_uom_meter'),
+        )
 
 
 class ProductTemplate(models.Model):
@@ -58,10 +59,16 @@ class ProductTemplate(models.Model):
             round=False,
         )
 
+    # Define all the related fields in product.template with 'readonly=False'
+    # to be able to modify the values from product.template.
+    dimensional_uom_id = fields.Many2one(
+        'uom.uom',
+        'Dimensional UoM',
+        related='product_variant_ids.dimensional_uom_id',
+        help='UoM for length, height, width',
+        readonly=False,
+    )
+
     length = fields.Float(related='product_variant_ids.length', readonly=False)
     height = fields.Float(related='product_variant_ids.height', readonly=False)
     width = fields.Float(related='product_variant_ids.width', readonly=False)
-    dimensional_uom_id = fields.Many2one(
-        'uom.uom',
-        'Dimensional UoM', related='product_variant_ids.dimensional_uom_id',
-        help='UoM for length, height, width')
