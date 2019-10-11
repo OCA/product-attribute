@@ -9,6 +9,7 @@
     'author': 'brain-tec AG, ADHOC SA, Camptocamp SA, '
               'Odoo Community Association (OCA)',
     'license': 'AGPL-3',
+    'website': 'https://github.com/OCA/product-attribute',
     'depends': ['product'],
     'data': ['views/product_view.xml'],
     'installable': True,
