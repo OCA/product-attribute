@@ -10,6 +10,6 @@
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product"],
-    "pre_init_hook": 'pre_init_product_code',
+    "pre_init_hook": "pre_init_product_code",
     "installable": True,
 }
