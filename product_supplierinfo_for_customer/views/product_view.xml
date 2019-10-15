@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 AvanzOSC
      Copyright 2015-18 Tecnativa
-     Copyright 2017-18 Eficent
+     Copyright 2017-19 Eficent
      Copyright 2019 Tecnativa - Pedro M. Baeza
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record id="product_supplierinfo_form_view" model="ir.ui.view">
-        <field name="name">product.supplierinfo.form.view</field>
-        <field name="model">product.supplierinfo</field>
-        <field name="priority" eval="100"/>
-        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="before">
-               <field name="supplierinfo_type" invisible="1"/>
-           </xpath>
-        </field>
-    </record>
 
-    <record id="product_supplierinfo_customer_form_view" model="ir.ui.view">
-        <field name="name">product.supplierinfo.customer.form.view</field>
-        <field name="model">product.supplierinfo</field>
-        <field name="priority" eval="9999"/>
+    <record id="product_customerinfo_form_view" model="ir.ui.view">
+        <field name="name">product.customerinfo.form.view</field>
+        <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
             <form string="Customer Information">
                 <group>
@@ -30,7 +18,7 @@
                             'default_supplier': 0,
                             'search_default_customer': 1,
                             'default_customer': 1,
-                        }" domain="[('customer', '=', True)]"/>
+                        }"/>
                         <field name="product_name" string="Customer Product Name"/>
                         <field name="product_code" string="Customer Product Code"/>
                         <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
@@ -51,17 +39,15 @@
                     </group>
                     <group string="Other Information" groups="base.group_multi_company">
                         <field name="company_id" options="{'no_create': True}"/>
-                         <field name="supplierinfo_type" invisible="1"/>
                     </group>
                 </group>
             </form>
         </field>
     </record>
 
-    <record id="product_supplierinfo_customer_tree_view" model="ir.ui.view">
-        <field name="name">product.supplierinfo.customer.tree.view</field>
-        <field name="model">product.supplierinfo</field>
-        <field name="priority" eval="100"/>
+    <record id="product_customerinfo_tree_view" model="ir.ui.view">
+        <field name="name">product.customerinfo.tree.view</field>
+        <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
             <tree string="Customer Information">
                 <field name="sequence" widget="handle"/>
@@ -78,60 +64,6 @@
         </field>
     </record>
 
-    <record id="view_product_supplier_inherit" model="ir.ui.view">
-        <field name="name">product.template.supplier.form.inherit</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
-        <field name="arch" type="xml">
-            <field name="seller_ids" position="attributes">
-                <attribute name="context">{
-                        'default_search_supplierinfo_type':'supplier',
-                        'default_supplierinfo_type':'supplier',
-                        'default_product_tmpl_id':id,
-                        'product_template_invisible_variant': True,
-                    }</attribute>
-                <attribute name="domain">[('supplierinfo_type','=','supplier')]</attribute>
-                <attribute name="invisible">1</attribute>
-            </field>
-            <field name="variant_seller_ids" position="attributes">
-                <attribute name="context">{
-                        'default_search_supplierinfo_type':'supplier',
-                        'default_supplierinfo_type':'supplier',
-                        'default_product_tmpl_id':id,
-                    }</attribute>
-                <attribute name="domain">[('supplierinfo_type','=','supplier')]</attribute>
-                <attribute name="invisible">1</attribute>
-            </field>
-            <xpath expr="//field[@name='seller_ids']/.." position="after">
-                <group attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
-                    <field name="supplier_ids"
-                           context="{
-                               'default_search_supplierinfo_type':'supplier',
-                               'default_supplierinfo_type':'supplier',
-                               'default_product_tmpl_id':id,
-                               'product_template_invisible_variant': True,
-                           }"
-                           domain="[('supplierinfo_type','=','supplier')]"
-                           nolabel="1"
-                    />
-                </group>
-            </xpath>
-            <xpath expr="//field[@name='variant_seller_ids']/.." position="after">
-                <group attrs="{'invisible': [('product_variant_count','&lt;=',1)]}">
-                    <field name="variant_supplier_ids"
-                           context="{
-                               'default_search_supplierinfo_type':'supplier',
-                               'default_supplierinfo_type':'supplier',
-                               'default_product_tmpl_id':id,
-                           }"
-                           domain="[('supplierinfo_type','=','supplier')]"
-                           nolabel="1"
-                    />
-                </group>
-            </xpath>
-        </field>
-    </record>
-
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="name">product.template.common.form</field>
         <field name="model">product.template</field>
@@ -142,30 +74,21 @@
                     <field name="customer_ids"
                            nolabel="1"
                            context="{
-                               'default_search_supplierinfo_type':'customer',
-                               'default_supplierinfo_type':'customer',
                                'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
                                'product_template_invisible_variant': True,
-                               'form_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view',
-                               'tree_view_ref':'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view',
                            }"
-                           domain="[('supplierinfo_type','=','customer')]"
                     />
                 </group>
                 <group string="Customers" name="variant_customers" attrs="{'invisible': [('product_variant_count','&lt;=',1)]}">
                     <field name="variant_customer_ids"
                         nolabel="1"
-                        context="{'default_search_supplierinfo_type': 'customer', 'default_supplierinfo_type': 'customer', 'default_product_tmpl_id': context.get('product_tmpl_id', active_id), 'form_view_ref': 'product_supplierinfo_for_customer.product_supplierinfo_customer_form_view', 'tree_view_ref': 'product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view'}"
-                        domain="[('supplierinfo_type','=','customer')]"
+                        context="{
+                            'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                        }"
                     />
                 </group>
             </xpath>
         </field>
-    </record>
-
-    <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
-        <field name="context">{'default_supplierinfo_type': 'supplier', 'visible_product_tmpl_id': False}</field>
-        <field name="domain">[('supplierinfo_type','=','supplier')]</field>
     </record>
 
 </odoo>
