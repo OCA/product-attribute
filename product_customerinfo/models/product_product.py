@@ -11,17 +11,16 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     @api.multi
-    def _get_price_from_supplierinfo(self, partner_id):
+    def _get_price_from_customerinfo(self, partner_id):
         self.ensure_one()
         if not partner_id:
             return 0.0
-        supplierinfo = self.env['product.supplierinfo'].search(
+        customerinfo = self.env['product.customerinfo'].search(
             ['|', ('product_tmpl_id', '=', self.product_tmpl_id.id),
              ('product_id', '=', self.id),
-             ('supplierinfo_type', '=', 'customer'),
              ('name', '=', partner_id)], limit=1)
-        if supplierinfo:
-            return supplierinfo.price
+        if customerinfo:
+            return customerinfo.price
         return 0.0
 
     @api.multi
@@ -33,12 +32,12 @@ class ProductProduct(models.Model):
             prices = super(ProductProduct, self).price_compute(
                 'list_price', uom, currency, company)
             for product in self:
-                price = product._get_price_from_supplierinfo(partner)
+                price = product._get_price_from_customerinfo(partner)
                 if not price:
                     continue
                 prices[product.id] = price
                 if not uom and self._context.get('uom'):
-                    uom = self.env['product.uom'].browse(self._context['uom'])
+                    uom = self.env['uom.uom'].browse(self._context['uom'])
                 if not currency and self._context.get('currency'):
                     currency = self.env['res.currency'].browse(
                         self._context['currency'])

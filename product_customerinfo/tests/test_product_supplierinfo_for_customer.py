@@ -12,12 +12,13 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
     def setUpClass(cls):
         super(TestProductSupplierinfoForCustomer, cls).setUpClass()
         cls.supplierinfo_model = cls.env['product.supplierinfo']
+        cls.customerinfo_model = cls.env['product.customerinfo']
         cls.pricelist_item_model = cls.env['product.pricelist.item']
         cls.pricelist_model = cls.env['product.pricelist']
         cls.customer = cls._create_customer('customer1')
         cls.unknown = cls._create_customer('customer2')
         cls.product = cls.env.ref('product.product_product_4')
-        cls.supplierinfo = cls._create_supplierinfo(
+        cls.customerinfo = cls._create_partnerinfo(
             'customer', cls.customer, cls.product)
         cls.pricelist = cls.env['product.pricelist'].create({
             'name': 'Test Pricelist',
@@ -45,12 +46,11 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         })
 
     @classmethod
-    def _create_supplierinfo(cls, supplierinfo_type, partner, product):
-        return cls.env['product.supplierinfo'].create({
+    def _create_partnerinfo(cls, supplierinfo_type, partner, product):
+        return cls.env['product.' + supplierinfo_type + 'info'].create({
             'name': partner.id,
             'product_id': product.id,
             'product_code': '00001',
-            'supplierinfo_type': supplierinfo_type,
             'price': 100.0,
         })
 
@@ -61,27 +61,13 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
             select_type=True).default_get(fields)
         self.assertEqual(values['customer'], False, "Incorrect default")
 
-    def test_onchange_type(self):
-        sup_info = self._create_supplierinfo(
-            'supplier', self.customer, self.product)
-        res = sup_info._onchange_type()
-        domain = res.get('domain', False)
-        name_dom = domain.get('name', False)
-        self.assertEqual(name_dom, [('supplier', '=', True)])
-        sup_info.write({'supplierinfo_type': 'customer'})
-        res = sup_info._onchange_type()
-        domain = res.get('domain', False)
-        name_dom = domain.get('name', False)
-        self.assertEqual(name_dom, [('customer', '=', True)])
-
     def test_product_supplierinfo_for_customer(self):
         cond = [('name', '=', self.customer.id)]
         supplierinfos = self.supplierinfo_model.search(cond)
         self.assertEqual(len(supplierinfos), 0,
                          "Error: Supplier found in Supplierinfo")
         cond = [('name', '=', self.customer.id)]
-        customerinfos = self.supplierinfo_model.with_context(
-            supplierinfo_type='customer').search(cond)
+        customerinfos = self.customerinfo_model.search(cond)
         self.assertNotEqual(len(customerinfos), 0,
                             "Error: Customer not found in Supplierinfo")
         price, rule_id = self.pricelist.get_product_price_rule(
@@ -93,7 +79,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
                          "Error: Price not found for product and customer")
 
     def test_product_supplierinfo_price(self):
-        price = self.product._get_price_from_supplierinfo(
+        price = self.product._get_price_from_customerinfo(
             partner_id=self.customer.id)
         self.assertEqual(price, 100.0,
                          "Error: Price not found for product and customer")
