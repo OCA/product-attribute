@@ -15,7 +15,6 @@
         id="action_open_brand_products"
         name="Brand Products"
         res_model="product.template"
-        view_type="form"
         view_mode="kanban,form,tree"
         domain="[('product_brand_id', '=', active_id)]"/>
 
@@ -23,7 +22,6 @@
         id="action_open_single_product_brand"
         name="Product Brand"
         res_model="product.brand"
-        view_type="form"
         view_mode="kanban,form,tree"
         target="current"
         domain="[('product_ids', 'in', active_id)]"/>
@@ -185,7 +183,6 @@
     <record model="ir.actions.act_window" id="action_product_brand">
         <field name="name">Brand</field>
         <field name="res_model">product.brand</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,form,tree</field>
     </record>
 
