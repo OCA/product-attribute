@@ -20,18 +20,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_sequence
-#: code:addons/product_sequence/models/product_product.py:74
+#: code:addons/product_sequence/models/product_product.py:70
 #, python-format
 msgid "-copy"
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_category_code_prefix
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
+msgid "Internal Reference"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model.fields,help:product_sequence.field_product_category_code_prefix
+#: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
 msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
@@ -48,17 +53,18 @@ msgid "Product Category"
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_product_category_sequence_id
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
 msgid "Product Sequence"
 msgstr ""
 
 #. module: product_sequence
-#: sql_constraint:product.product:0
-msgid "The reference must be unique"
+#: model:ir.model.fields,help:product_sequence.field_product_product__default_code
+msgid ""
+"Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model.fields,help:product_sequence.field_product_category_sequence_id
+#: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
 msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
