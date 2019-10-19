@@ -25,7 +25,12 @@ Product State
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module introduces the state field on product template and allows simple product life cycle.
+This module introduces the state field on product template and allows simple product life cycle:
+
+- draft: In Development
+- sellable: Normal
+- end: End of Lifecycle
+- obsolete: Obsolete
 
 **Table of contents**
 
