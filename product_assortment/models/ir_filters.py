@@ -4,7 +4,7 @@ from odoo import _, api, fields, models
 from odoo.osv import expression
 
 
-class ProductAssortment(models.Model):
+class IrFilters(models.Model):
     _inherit = "ir.filters"
 
     @api.model
@@ -12,7 +12,7 @@ class ProductAssortment(models.Model):
         if self.env.context.get("product_assortment", False):
             model = self.env.ref("product.model_product_product")
             return model.model
-        return ""
+        return False
 
     @api.model
     def _get_default_is_assortment(self):
@@ -34,9 +34,8 @@ class ProductAssortment(models.Model):
 
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
 
-    @api.multi
     def _get_eval_domain(self):
-        res = super(ProductAssortment, self)._get_eval_domain()
+        res = super()._get_eval_domain()
 
         if self.whitelist_product_ids and res:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
@@ -48,7 +47,6 @@ class ProductAssortment(models.Model):
 
         return res
 
-    @api.multi
     def _compute_record_count(self):
         for record in self:
             domain = record._get_eval_domain()
@@ -58,12 +56,11 @@ class ProductAssortment(models.Model):
     def _get_action_domain(self, action_id=None):
         # tricky way to act on get_filter method to prevent returning
         # assortment in search view filters
-        domain = super(ProductAssortment, self)._get_action_domain(action_id=action_id)
+        domain = super()._get_action_domain(action_id=action_id)
         domain = expression.AND([[("is_assortment", "=", False)], domain])
 
         return domain
 
-    @api.multi
     def show_products(self):
         self.ensure_one()
         return {
