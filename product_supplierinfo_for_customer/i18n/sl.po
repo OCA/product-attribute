@@ -1,0 +1,167 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_supplierinfo_for_customer
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2016-11-03 10:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_variant_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_variant_customer_ids
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: selection:product.supplierinfo,supplierinfo_type:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+msgid "Customer Information"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Customer Product Code"
+msgstr "Partnerjeva koda proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Customer Product Name"
+msgstr "Partnerjev naziv proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
+msgid "Customers"
+msgstr "Kupci"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
+#, fuzzy
+msgid "Information about a product vendor"
+msgstr "Podatki o dobavitelju proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+msgid "Other Information"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Price"
+msgstr "Cenik"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#, fuzzy
+msgid "Price List"
+msgstr "Cenik"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist_item
+#, fuzzy
+msgid "Pricelist item"
+msgstr "Cenik"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#, fuzzy
+msgid "Product"
+msgstr "Predloga proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_supplier_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_variant_supplier_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_supplier_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_variant_supplier_ids
+#: selection:product.supplierinfo,supplierinfo_type:0
+msgid "Supplier"
+msgstr "Dobavitelj"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo_supplierinfo_type
+msgid "Type"
+msgstr "Tip"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+msgid "Validity"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+msgid "to"
+msgstr ""
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                    Click to define a new product.supplierinfo.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                    Kliknite za nov product.supplierinfo.\n"
+#~ "                </p>\n"
+#~ "            "
+
+#~ msgid "Group By"
+#~ msgstr "Združi po"
+
+#~ msgid "Information about a product (customer)"
+#~ msgstr "Podatki o proizvodu (kupec)"
+
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgid "Partner Unit of Measure"
+#~ msgstr "Partnerjeva EM"
+
+#~ msgid "Supplierinfo search"
+#~ msgstr "Iskanje podatkov o dobavitelju"
+
+#~ msgid "[('type','=','supplier')]"
+#~ msgstr "[('type','=','supplier')]"
+
+#~ msgid ""
+#~ "{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':"
+#~ "id}"
+#~ msgstr ""
+#~ "{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':"
+#~ "id}"
+
+#~ msgid "{'select_type': type}"
+#~ msgstr "{'select_type': type}"
