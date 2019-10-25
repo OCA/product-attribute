@@ -27,12 +27,14 @@ class ProductProduct(models.Model):
     def price_compute(
             self, price_type, uom=False, currency=False, company=False):
         if price_type == 'partner':
-            partner = self.env.context.get('partner_id', False) or \
+            partner_id = self.env.context.get('partner_id', False) or \
                 self.env.context.get('partner', False)
+            if partner_id and isinstance(partner_id, models.BaseModel):
+                partner_id = partner_id.id
             prices = super(ProductProduct, self).price_compute(
                 'list_price', uom, currency, company)
             for product in self:
-                price = product._get_price_from_customerinfo(partner)
+                price = product._get_price_from_customerinfo(partner_id)
                 if not price:
                     continue
                 prices[product.id] = price
