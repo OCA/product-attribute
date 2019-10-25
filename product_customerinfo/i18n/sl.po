@@ -21,65 +21,190 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
+msgid "Assigns the priority to the list of product vendor."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_pricelist_item__base
+msgid ""
+"Base price for computation.\n"
+"Public Price: The base price will be the Sale/public Price.\n"
+"Cost Price : The base price will be the cost price.\n"
+"Other Pricelist : Computation of the base price based on another Pricelist."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item__base
+msgid "Based on"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__company_id
+msgid "Company"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
 msgid "Contact"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_customer_ids
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_variant_customer_ids
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_customer_ids
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_variant_customer_ids
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
-#: selection:product.supplierinfo,supplierinfo_type:0
+#: selection:product.pricelist.item,base:0
+msgid "Cost"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__customer_ids
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer"
 msgstr "Kupec"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Information"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_customerinfo
+#, fuzzy
+msgid "Customer Pricelist"
+msgstr "Partnerjeva koda proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
 msgid "Customer Product Code"
 msgstr "Partnerjeva koda proizvoda"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
 msgid "Customer Product Name"
 msgstr "Partnerjev naziv proizvoda"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__name
+#, fuzzy
+msgid "Customer of this product"
+msgstr "Partnerjeva koda proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
 msgid "Customers"
 msgstr "Kupci"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
-#, fuzzy
-msgid "Information about a product vendor"
-msgstr "Podatki o dobavitelju proizvoda"
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__delay
+msgid "Delivery Lead Time"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_end
+msgid "End Date"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_end
+msgid "End date for this vendor price"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
+msgid "ID"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_id
+msgid ""
+"If not set, the vendor price will apply to all variants of this product."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:21
+#, python-format
+msgid "Import Template for Customer Pricelists"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__delay
+msgid ""
+"Lead time in days between the confirmation of the purchase order and the "
+"receipt of the products in your warehouse. Used by the scheduler for "
+"automatic computation of the purchase order planning."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
+msgid "Minimal Quantity"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: selection:product.pricelist.item,base:0
+#, fuzzy
+msgid "Other Pricelist"
+msgstr "Cenik"
+
+#. module: product_supplierinfo_for_customer
+#: selection:product.pricelist.item,base:0
+msgid "Partner Prices on the product form"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__price
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
 msgid "Price"
 msgstr "Cenik"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #, fuzzy
 msgid "Price List"
 msgstr "Cenik"
@@ -87,45 +212,133 @@ msgstr "Cenik"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist_item
 #, fuzzy
-msgid "Pricelist item"
+msgid "Pricelist Item"
 msgstr "Cenik"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_tree_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
 msgid "Product"
 msgstr "Predloga proizvoda"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_tmpl_id
 msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_supplier_ids
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product_variant_supplier_ids
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_supplier_ids
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template_variant_supplier_ids
-#: selection:product.supplierinfo,supplierinfo_type:0
-msgid "Supplier"
-msgstr "Dobavitelj"
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_id
+#, fuzzy
+#| msgid "Product Template"
+msgid "Product Variant"
+msgstr "Predloga proizvoda"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo_supplierinfo_type
-msgid "Type"
-msgstr "Tip"
+#: selection:product.pricelist.item,base:0
+msgid "Public Price"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_start
+msgid "Start Date"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_start
+msgid "Start date for this vendor price"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
+msgid ""
+"The minimal quantity to purchase from this vendor, expressed in the vendor "
+"Product Unit of Measure if not any, in the default unit of measure of the "
+"product otherwise."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__price
+msgid "The price to purchase a product"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
+msgid "This comes from the product form."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_code
+msgid ""
+"This vendor's product code will be used when printing a request for "
+"quotation. Keep empty to use the internal one."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_name
+msgid ""
+"This vendor's product name will be used when printing a request for "
+"quotation. Keep empty to use the internal one."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
+#, fuzzy
+#| msgid "Partner Unit of Measure"
+msgid "Unit of Measure"
+msgstr "Partnerjeva EM"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Validity"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_supplierinfo_customer_form_view
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_variant_count
+msgid "Variant Count"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__variant_customer_ids
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__variant_customer_ids
+#, fuzzy
+#| msgid "Customer"
+msgid "Variant Customer"
+msgstr "Kupec"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
+#, fuzzy
+msgid "Vendor Product Code"
+msgstr "Partnerjeva koda proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
+#, fuzzy
+msgid "Vendor Product Name"
+msgstr "Partnerjev naziv proizvoda"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Information about a product vendor"
+#~ msgstr "Podatki o dobavitelju proizvoda"
+
+#~ msgid "Supplier"
+#~ msgstr "Dobavitelj"
+
+#~ msgid "Type"
+#~ msgstr "Tip"
 
 #~ msgid ""
 #~ "<p class=\"oe_view_nocontent_create\">\n"
@@ -146,9 +359,6 @@ msgstr ""
 
 #~ msgid "Partner"
 #~ msgstr "Partner"
-
-#~ msgid "Partner Unit of Measure"
-#~ msgstr "Partnerjeva EM"
 
 #~ msgid "Supplierinfo search"
 #~ msgstr "Iskanje podatkov o dobavitelju"
