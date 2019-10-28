@@ -11,6 +11,129 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     @api.multi
+    def name_get(self):
+
+        def _name_get(d):
+            name = d.get('name', '')
+            code = self._context.get('display_default_code', True) and d.get(
+                'default_code', False) or False
+            if code:
+                name = '[%s] %s' % (code, name)
+            return d['id'], name
+
+        partner_id = self._context.get('partner_id')
+        if partner_id:
+            partner_ids = [partner_id, self.env['res.partner'].browse(
+                partner_id).commercial_partner_id.id]
+        else:
+            partner_ids = []
+
+        self.check_access_rights("read")
+        self.check_access_rule("read")
+
+        res = []
+
+        # Prefetch the fields used by the `name_get`
+        self.sudo().read(
+            ['name', 'default_code', 'product_tmpl_id',
+             'attribute_value_ids', 'attribute_line_ids'], load=False)
+
+        product_template_ids = self.sudo().mapped('product_tmpl_id').ids
+
+        if partner_ids:
+            supplier_info = self.env['product.supplierinfo'].sudo().search([
+                ('product_tmpl_id', 'in', product_template_ids),
+                ('name', 'in', partner_ids),
+            ])
+            customer_info = self.env['product.customerinfo'].sudo().search([
+                ('product_tmpl_id', 'in', product_template_ids),
+                ('name', 'in', partner_ids),
+            ])
+            # Prefetch the fields used by the `name_get`
+            supplier_info.sudo().read(
+                ['product_tmpl_id', 'product_id',
+                 'product_name', 'product_code'], load=False)
+            customer_info.sudo().read(
+                ['product_tmpl_id', 'product_id',
+                 'product_name', 'product_code'], load=False)
+            partner_info_by_template = {}
+            for r in supplier_info:
+                partner_info_by_template.setdefault(
+                    r.product_tmpl_id, []).append(r)
+            for r in customer_info:
+                partner_info_by_template.setdefault(
+                    r.product_tmpl_id, []).append(r)
+        for product in self.sudo():
+            variable_attributes = product.attribute_line_ids.filtered(
+                lambda l: len(l.value_ids) > 1).mapped('attribute_id')
+            variant = product.attribute_value_ids._variant_name(
+                variable_attributes)
+
+            product_name = variant and "%s (%s)" % (product.name, variant
+                                                    ) or product.name
+            partners = []
+            if partner_ids:
+                product_partner_info = partner_info_by_template.get(
+                    product.product_tmpl_id, [])
+                partners = [x for x in product_partner_info
+                            if x.product_id and x.product_id == product]
+                if not partners:
+                    partners = [
+                        x for x in product_partner_info if not x.product_id]
+            if partners:
+                for c in partners:
+                    partner_variant = c.product_name and (
+                        variant and "%s (%s)" % (c.product_name, variant
+                                                 ) or c.product_name
+                        ) or False
+                    mydict = {
+                        'id': product.id,
+                        'name': partner_variant or product_name,
+                        'default_code': c.product_code or product.default_code,
+                    }
+                    temp = _name_get(mydict)
+                    if temp not in res:
+                        res.append(temp)
+            else:
+                mydict = {
+                    'id': product.id,
+                    'name': product_name,
+                    'default_code': product.default_code,
+                }
+                res.append(_name_get(mydict))
+        return res
+
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100,
+                     name_get_uid=None):
+        res = super(ProductProduct, self)._name_search(
+            name, args=args, operator=operator, limit=limit,
+            name_get_uid=name_get_uid)
+        if not limit or len(res) >= limit:
+            limit = (limit - len(res)) if limit else False
+        if (not name and limit or not self._context.get('partner_id') or
+                len(res) >= limit):
+            return res
+        limit -= len(res)
+        customerinfo_ids = self.env['product.customerinfo']._search(
+            [('name', '=', self._context.get('partner_id')), '|',
+             ('product_code', operator, name),
+             ('product_name', operator, name)], limit=limit,
+            name_get_uid=name_get_uid)
+        if not customerinfo_ids:
+            return res
+        res_templates = self.browse(
+            [product_id for product_id, _name in res]
+        ).mapped('product_tmpl_id')
+        product_tmpls = self.env['product.customerinfo'].browse(
+            customerinfo_ids).mapped('product_tmpl_id') - res_templates
+        product_ids = self._search(
+            [('product_tmpl_id', 'in', product_tmpls.ids)], limit=limit,
+            name_get_uid=name_get_uid)
+        res.extend(self.browse(product_ids).name_get())
+        return res
+
+    @api.multi
     def _get_price_from_customerinfo(self, partner_id):
         self.ensure_one()
         if not partner_id:
