@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dangerous_class_1" model="product.dangerous.class">
+        <field name="name">Explosives </field>
+        <field name="code">ADR_1</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_1.svg"/>
+        <field name="class_type" ref="dangerous_type_class_1"/>
+    </record>
+    <record id="dangerous_class_2" model="product.dangerous.class">
+        <field name="name">Flammable gases </field>
+        <field name="code">ADR_2.1</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_2.1.svg"/>
+        <field name="class_type" ref="dangerous_type_class_2_1"/>
+    </record>
+    <record id="dangerous_class_3" model="product.dangerous.class">
+        <field name="name">Non-toxic and non-flammable gases</field>
+        <field name="code">ADR_2.2</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_2.2.svg"/>
+        <field name="class_type" ref="dangerous_type_class_2_1"/>
+    </record>
+    <record id="dangerous_class_4" model="product.dangerous.class">
+        <field name="name">Poison gases </field>
+        <field name="code">ADR_2.3</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_2.3.svg"/>
+        <field name="class_type" ref="dangerous_type_class_2_3"/>
+    </record>
+    <record id="dangerous_class_5" model="product.dangerous.class">
+        <field name="name">Flammable liquids</field>
+        <field name="code">ADR_3</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_3.svg"/>
+        <field name="class_type" ref="dangerous_type_class_3"/>
+    </record>
+    <record id="dangerous_class_6" model="product.dangerous.class">
+        <field name="name">Flammable solids </field>
+        <field name="code">ADR_4.1</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_4.1.svg"/>
+        <field name="class_type" ref="dangerous_type_class_4_1"/>
+    </record>
+    <record id="dangerous_class_7" model="product.dangerous.class">
+        <field name="name">Spontaneously combustibles</field>
+        <field name="code">ADR_4.2</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_4.2.svg"/>
+        <field name="class_type" ref="dangerous_type_class_4_2"/>
+    </record>
+    <record id="dangerous_class_8" model="product.dangerous.class">
+        <field name="name"> Dangerous when wet</field>
+        <field name="code">ADR_4</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_4.3.svg"/>
+        <field name="class_type" ref="dangerous_type_class_4_3"/>
+    </record>
+    <record id="dangerous_class_9" model="product.dangerous.class">
+        <field name="name">Oxidizers</field>
+        <field name="code">ADR_5_1</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_5.1.svg"/>
+        <field name="class_type" ref="dangerous_type_class_5_1"/>
+    </record>
+    <record id="dangerous_class_10" model="product.dangerous.class">
+        <field name="name">Organic peroxides</field>
+        <field name="code">ADR_5_2</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_5.2.svg"/>
+        <field name="class_type" ref="dangerous_type_class_5_2"/>
+    </record>
+    <record id="dangerous_class_11" model="product.dangerous.class">
+        <field name="name">Poison</field>
+        <field name="code">ADR_6</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/Dangclass6_1.svg"/>
+        <field name="class_type" ref="dangerous_type_class_6_1"/>
+    </record>
+    <record id="dangerous_class_12" model="product.dangerous.class">
+        <field name="name">Infectious substances </field>
+        <field name="code">ADR_6.2</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_6.2.svg"/>
+        <field name="class_type" ref="dangerous_type_class_6_2"/>
+    </record>
+    <record id="dangerous_class_13" model="product.dangerous.class">
+        <field name="name">Radioactive</field>
+        <field name="code">ADR_7B</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_7B.svg"/>
+        <field name="class_type" ref="dangerous_type_class_7"/>
+    </record>
+    <record id="dangerous_class_14" model="product.dangerous.class">
+        <field name="name">Corrosive</field>
+        <field name="code">ADR_8</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/UN_transport_pictogram_-_8.svg"/>
+        <field name="class_type" ref="dangerous_type_class_8"/>
+    </record>
+    <record id="dangerous_class_15" model="product.dangerous.class">
+        <field name="name">9 Miscellaneous dangerous substances</field>
+        <field name="code">ADR_9</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_9.svg"/>
+        <field name="class_type" ref="dangerous_type_class_9"/>
+    </record>
+    <record id="dangerous_class_16" model="product.dangerous.class">
+        <field name="name">9A Lithium Ion Batteries </field>
+        <field name="code">ADR_9A</field>
+        <field name="image" type="base64" file="product_dangerous_good/static/img/ADR_9A.svg"/>
+        <field name="class_type" ref="dangerous_type_class_9"/>
+    </record>
+
+</odoo>

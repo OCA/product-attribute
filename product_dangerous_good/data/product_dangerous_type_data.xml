@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dangerous_type_class_1" model="product.dangerous.class.type">
+        <field name="name">Explosives</field>
+        <field name="division">1</field>
+    </record>
+    <record id="dangerous_type_class_2" model="product.dangerous.class.type">
+        <field name="name">Gases, including compressed, liquified, and dissolved under pressure gases and vapors </field>
+        <field name="division">2</field>
+    </record>
+    <record id="dangerous_type_class_2_1" model="product.dangerous.class.type">
+        <field name="name">Flammable gases</field>
+        <field name="division">2.1</field>
+    </record>
+    <record id="dangerous_type_class_2_2" model="product.dangerous.class.type">
+        <field name="name">Non-toxic and non-flammable gases</field>
+        <field name="division">2.2</field>
+    </record>
+    <record id="dangerous_type_class_2_3" model="product.dangerous.class.type">
+        <field name="name">Toxic</field>
+        <field name="division">2.3</field>
+    </record>
+    <record id="dangerous_type_class_3" model="product.dangerous.class.type">
+        <field name="name">Flammable liquids</field>
+        <field name="division">3</field>
+    </record>
+    <record id="dangerous_type_class_4_1" model="product.dangerous.class.type">
+        <field name="name">Flammable solids, self-reactive substances, and solid desensitized explosives</field>
+        <field name="division">4.1</field>
+    </record>
+    <record id="dangerous_type_class_4_2" model="product.dangerous.class.type">
+        <field name="name">Substances liable to spontaneous combustion</field>
+        <field name="division">4.2</field>
+    </record>
+    <record id="dangerous_type_class_4_3" model="product.dangerous.class.type">
+        <field name="name">Substances which, in contact with water, emit flammable gases</field>
+        <field name="division">4.3</field>
+    </record>
+    <record id="dangerous_type_class_5_1" model="product.dangerous.class.type">
+        <field name="name">Oxidizing substances</field>
+        <field name="division">5.1</field>
+    </record>
+    <record id="dangerous_type_class_5_2" model="product.dangerous.class.type">
+        <field name="name">Organic peroxides</field>
+        <field name="division">5.2</field>
+    </record>
+    <record id="dangerous_type_class_6_1" model="product.dangerous.class.type">
+        <field name="name">Toxic substances</field>
+        <field name="division">6.1</field>
+    </record>
+    <record id="dangerous_type_class_6_2" model="product.dangerous.class.type">
+        <field name="name">Infectious substances</field>
+        <field name="division">6.2</field>
+    </record>
+    <record id="dangerous_type_class_7" model="product.dangerous.class.type">
+        <field name="name">Radioactive material</field>
+        <field name="division">7</field>
+    </record>
+    <record id="dangerous_type_class_8" model="product.dangerous.class.type">
+        <field name="name">Corrosive substances</field>
+        <field name="division">8</field>
+    </record>
+    <record id="dangerous_type_class_9" model="product.dangerous.class.type">
+        <field name="name">Miscellaneous dangerous substances and articles</field>
+        <field name="division">9</field>
+    </record>
+
+</odoo>

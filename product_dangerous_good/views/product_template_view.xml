@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.dangerous.class</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page name="dangerous" string="Dangerous attributes" attrs="{'invisible':[('type', '!=', 'product')]}">
+                    <group>
+                        <group>
+                            <field name="is_dangerous_good" />
+                            <field name="is_dangerous_waste"/>
+                            <field name="dangerous_class" attrs="{'invisible': [('is_dangerous_good', '=', False), ('is_dangerous_waste', '=', False)],
+                            'required': ['|',('is_dangerous_good', '=', True), ('is_dangerous_waste', '=', True)]}"/>
+                        </group>
+                        <field name="dangerous_component_ids">
+                            <tree editable="bottom">
+                                <field name="component_product_id" domain="['|', ('is_dangerous_good', '=', 'True'), ('is_dangerous_waste', '=', 'True')]"/>
+                                <field name="dangerous_class"/>
+                                <field name="weight"/>
+                                <field name="weight_uom_id" domain="[('measure_type', '=', 'weight')]"/>
+                                <field name="volume"/>
+                                <field name="volume_uom_id" domain="[('measure_type', '=', 'volume')]"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- domain="[('type', 'in', ['product', 'consu'])]" -->
+
+</odoo>

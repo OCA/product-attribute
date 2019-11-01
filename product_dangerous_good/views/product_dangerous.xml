@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_dangerous_class_view_form" model="ir.ui.view">
+        <field name="name">product.dangerous.class.form</field>
+        <field name="model">product.dangerous.class</field>
+        <field name="arch" type="xml">
+            <form string="Dangerous Class">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="class_type"/>
+                        </group>
+                        <group>
+                            <field name="image" widget="image" no_label="1" options='{"size": [126, 126]}'/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_dangerous_class_view_tree" model="ir.ui.view">
+        <field name="name">product.dangerous.class.tree</field>
+        <field name="model">product.dangerous.class</field>
+        <field name="arch" type="xml">
+            <tree string="Dangerous types">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="class_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_dangerous_class_action" model="ir.actions.act_window">
+        <field name="name">Dangerous Goods</field>
+        <field name="res_model">product.dangerous.class</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="product_dangerous_class_type_view_tree" model="ir.ui.view">
+        <field name="name">product.dangerous.class.type.tree</field>
+        <field name="model">product.dangerous.class.type</field>
+        <field name="arch" type="xml">
+            <tree string="Dangerous Class Types" editable="bottom">
+                <field name="division"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_dangerous_class_type_action" model="ir.actions.act_window">
+        <field name="name">Dangerous Goods Type</field>
+        <field name="res_model">product.dangerous.class.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        name="Dangerous Good Classes"
+        id="menu_product_dangerous_good"
+        action="product_dangerous_class_action"
+        parent="sale.prod_config_main"/>
+
+    <menuitem
+        name="Dangerous Good Type"
+        id="menu_product_dangerous_good_type"
+        action="product_dangerous_class_type_action"
+        parent="sale.prod_config_main"/>
+</odoo>
