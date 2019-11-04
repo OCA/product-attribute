@@ -61,13 +61,13 @@
 
     <menuitem
         name="Dangerous Good Classes"
-        id="menu_product_dangerous_good"
+        id="menu_l10n_eu_product_adr"
         action="product_dangerous_class_action"
         parent="sale.prod_config_main"/>
 
     <menuitem
         name="Dangerous Good Type"
-        id="menu_product_dangerous_good_type"
+        id="menu_l10n_eu_product_adr_type"
         action="product_dangerous_class_type_action"
         parent="sale.prod_config_main"/>
 </odoo>

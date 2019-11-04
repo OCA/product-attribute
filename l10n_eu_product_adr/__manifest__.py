@@ -13,6 +13,7 @@
     "installable": True,
     "depends": [
         "product",
+        "sale",
     ],
     "data": [
         "data/product_dangerous_type_data.xml",

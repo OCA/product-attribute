@@ -20,14 +20,8 @@ class ProductDangerousComponent(models.Model):
         string="Dangerous Class",
     )
     weight = fields.Float(
-        help="The weight of dangerous product in main product."
+        help="The weight of dangerous product in main product in kg. "
     )
     volume = fields.Float(
-        help="The volume of dangerous product in main product."
-    )
-    weight_uom_id = fields.Many2one(
-        comodel_name="uom.uom", string="Weight UoM"
-    )
-    volume_uom_id = fields.Many2one(
-        comodel_name="uom.uom", string="Volume UoM"
+        help="The volume of dangerous product in main product in m3."
     )
