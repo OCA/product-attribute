@@ -9,24 +9,18 @@ Product - Many Categories
 This module Extends the existing functionality of Open ERP Products
 (One product - One Catgory) to One product -> Many Categories
 
-*Note: This module was built generically but in focus of the Magento
+**Note**: This module was built generically but in focus of the Magento
 Open ERP connector
-**Note: The additional categories are only for classification and does
+
+**Note 2**: The additional categories are only for classification and does
 not affect other operations
 
 Usage
 =====
 
-To use this module, you need to:
-
-* Go to ...
-
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/135/9.0
-
-.. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
-.. branch is "8.0" for example
 
 Bug Tracker
 ===========
