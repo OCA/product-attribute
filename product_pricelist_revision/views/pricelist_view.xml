@@ -49,8 +49,8 @@
                 <filter string="Applied on products" name="apply_product" domain="[('applied_on','=', '1_product')]"/>
                 <filter string="Applied on variants" name="apply_variant" domain="[('applied_on','=', '0_product_variant')]"/>
                 <group expand="0" name="Items" string="Group By">
-                    <filter string="Pricelist" domain="[]" help="Pricelist" context="{'group_by':'pricelist_id'}"/>
-                    <filter string="Product" domain="[]" help="Products" context="{'group_by':'product_tmpl_id'}"/>
+                    <filter string="Pricelist" name="group_by_pricelist_id" domain="[]" help="Pricelist" context="{'group_by':'pricelist_id'}"/>
+                    <filter string="Product" name="group_by_product_tmpl_id" domain="[]" help="Products" context="{'group_by':'product_tmpl_id'}"/>
                 </group>
             </search>
         </field>

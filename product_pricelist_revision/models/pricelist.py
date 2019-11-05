@@ -17,6 +17,7 @@ class ProductPricelistItem(models.Model):
     )
     previous_price = fields.Float(
         related='previous_item_id.fixed_price',
+        string='Previous Fixed Price',
         readonly=True,
     )
     variation_percent = fields.Float(
@@ -28,8 +29,12 @@ class ProductPricelistItem(models.Model):
 
     @api.model
     def _search_name(self, operator, value):
-        domain = []
-        return [('applied_on', '=', '3_global'),]
+        return [
+            '|', '|',
+            ('categ_id', operator, value),
+            ('product_tmpl_id', operator, value),
+            ('product_id', operator, value),
+        ]
 
     @api.multi
     @api.depends('fixed_price', 'previous_item_id.fixed_price')
