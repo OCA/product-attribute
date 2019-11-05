@@ -9,6 +9,7 @@ from odoo.addons import decimal_precision as dp
 
 class ProductPricelistItemDuplicateWizard(models.TransientModel):
     _name = 'product.pricelist.item.duplicate.wizard'
+    _description = 'Wizard Product Pricelist Item Duplicate'
 
     date_start = fields.Date(required=True)
     date_end = fields.Date()
@@ -29,8 +30,7 @@ class ProductPricelistItemDuplicateWizard(models.TransientModel):
                 'fixed_price': item.fixed_price * (
                     1.0 + self.variation_percent / 100.0),
             })
-            item.date_end = (fields.Date.from_string(self.date_start) -
-                             relativedelta(days=1))
+            item.date_end = self.date_start - relativedelta(days=1)
 
         action = self.env.ref(
             'product_pricelist_revision.product_pricelist_item_action'
