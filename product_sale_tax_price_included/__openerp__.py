@@ -3,20 +3,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Product sale tax price included",
-    "summary": "Module summary",
+    "summary": "See product sale price With and without Tax",
     "version": "8.0.1.0.0",
-    "category": "Uncategorized",
+    "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "GRAP, Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "application": False,
     "installable": True,
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
     "depends": [
-        "product",
         "account",
     ],
     "data": [
