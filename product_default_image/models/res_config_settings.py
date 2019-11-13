@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from odoo import fields, models
 
 
-class StockConfigSettings(models.TransientModel):
+class ResConfigSettings(models.TransientModel):
 
-    _inherit = 'stock.config.settings'
+    _inherit = 'res.config.settings'
 
     product_image_target = fields.Selection(
         string='Default Product Image',

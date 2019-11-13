@@ -1,16 +1,12 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+import base64
 
 from odoo import api, fields, models, tools
 from odoo.modules.module import get_module_resource
 
-from ..image_constants import (
-    NONE,
-    GLOBAL,
-    CATEGORY,
-    GLOBAL_CATEGORY,
-)
+from ..image_constants import CATEGORY, GLOBAL, GLOBAL_CATEGORY, NONE
 
 
 class ResCompany(models.Model):
@@ -56,7 +52,7 @@ class ResCompany(models.Model):
         with open(image_path, 'rb') as handler:
             image_data = handler.read()
         return tools.image_resize_image_big(
-            image_data.encode('base64')
+            base64.b64encode(image_data)
         )
 
     @api.multi
@@ -69,10 +65,14 @@ class ResCompany(models.Model):
             return super(ResCompany, self).write(vals)
 
         if 'product_image' in vals:
+            if isinstance(vals['product_image'], str):
+                product_image = vals['product_image'].encode('ASCII')
+            else:
+                product_image = vals['product_image']
             vals['product_image'] = \
                 tools.image_resize_image_big(
-                    base64_source=vals['product_image'],
-                )
+                    base64_source=product_image,
+            )
 
         img_args = {
             'from_types': [

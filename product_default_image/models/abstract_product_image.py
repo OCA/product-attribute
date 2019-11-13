@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
@@ -37,9 +36,8 @@ class AbstractProductImage(models.AbstractModel):
         img_vals = [
             vals[key] for key in img_keys if key in vals
         ]
-
         if false_filter:
-            img_vals = filter(None, img_vals)
+            img_vals = list(filter(None, img_vals))
 
         return img_vals
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
@@ -132,9 +131,7 @@ class TestAbstractProductImage(Setup):
 
     def test_get_images_image_none(self):
         """ Test returns empty list """
-        self.assertFalse(
-            self.tmpl_1._get_images(false_filter=True),
-        )
+        self.assertFalse(self.tmpl_1._get_images(false_filter=True))
 
     def test_get_images_none(self):
         """ Test returns no images """

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
@@ -6,13 +5,7 @@ from collections import defaultdict
 
 from odoo import api, fields, models, tools
 
-from ..image_constants import (
-    NONE,
-    GLOBAL,
-    CATEGORY,
-    GLOBAL_CATEGORY,
-    CUSTOM,
-)
+from ..image_constants import CATEGORY, CUSTOM, GLOBAL, GLOBAL_CATEGORY, NONE
 
 
 class ProductTemplate(models.Model):
@@ -273,7 +266,7 @@ class ProductTemplate(models.Model):
 
         if in_cache:
 
-            for img_bg, records in write_map.iteritems():
+            for img_bg, records in write_map.items():
 
                 img_md = tools.image_resize_image_medium(img_bg)
                 img_sm = tools.image_resize_image_small(img_bg)
@@ -286,7 +279,7 @@ class ProductTemplate(models.Model):
 
         else:
 
-            for img_bg, records in write_map.iteritems():
+            for img_bg, records in write_map.items():
 
                 # image only written to last or last few records
                 # if writing directly on recordset

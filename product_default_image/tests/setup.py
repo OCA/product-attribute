@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
+import base64
 from io import BytesIO
 from PIL import Image
 
@@ -52,4 +52,4 @@ class Setup(TransactionCase):
         image.save(file_data, 'png')
         file_data.name = 'test.png'
         file_data.seek(0)
-        return file_data.read().encode('base64')
+        return base64.b64encode(file_data.read())

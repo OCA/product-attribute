@@ -1,15 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from odoo import api, fields, models, tools
 
-from ..image_constants import (
-    NONE,
-    GLOBAL,
-    CATEGORY,
-    GLOBAL_CATEGORY,
-)
+from ..image_constants import CATEGORY, GLOBAL, GLOBAL_CATEGORY, NONE
 
 
 class ProductCategory(models.Model):

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
@@ -124,8 +123,7 @@ class TestProductCategory(Setup):
         )
         self.categ_1.image = None
         self.assertEquals(
-            self.tmpl_1.image,
-            self.company_1.product_image,
+            self.tmpl_1.image, self.company_1.product_image,
             'tmpl_1 img should be same as company_1 product image',
         )
 

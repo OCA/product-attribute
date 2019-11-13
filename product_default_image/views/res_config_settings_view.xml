@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 initOS GmbH.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="company_id" invisible="1" />
+            </xpath>
+            <xpath expr="//div[hasclass('app_settings_block')]/div[hasclass('o_settings_container')][3]" position="inside">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="product_image_target"/>
+                        <div class="content-group">
+                            <field name="product_image_target" widget="radio" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                    </div>
+                    <div class="o_setting_right_pane" attrs="{'invisible': [
+                                            '|',
+                                            ('product_image_target', '=', 'category'),
+                                            ('product_image_target', '=', 'none'),
+                                          ]}">
+                        <label for="product_image"/>
+                        <div class="content-group">
+                            <field name="product_image"
+                                   widget="image"
+                                   class="oe_avatar"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
