@@ -13,6 +13,7 @@
     'license': 'AGPL-3',
     'depends': [
         'product',
+        'stock',
         ],
     'data': [
         'security/ir.model.access.csv',
