@@ -1,9 +1,5 @@
 This module permits to quickly see the different prices of a product : price with taxes and price without taxes.
 
-.. image:: ../static/description/product_different_prices.png
-   :alt: Product with his price and the price without taxes
-   :width: 40%
-
 The four use cases
 ------------------
 
@@ -32,7 +28,11 @@ In Customer taxes, there's a boolean called "Tax included in Price".
   calculated prices.
 
 .. image:: ../static/description/product_tax_included_and_not.png
-   :alt: A product with sale price and a warning message
+   :alt: A product with sale price without taxes, sale price, sale price with taxes
    :width: 75%
 
 - **And lastly** if there's no taxe choosen, only the normal price is displayed.
+
+.. image:: ../static/description/product_no_tax.png
+   :alt: A product with a unique sale price
+   :width: 75%

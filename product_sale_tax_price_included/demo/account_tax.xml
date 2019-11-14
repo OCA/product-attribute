@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017, Grap
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+        <record model="account.tax" id="account_tax_included_in_price">
+            <field name="name">20% (Tax Included)</field>
+            <field name="price_include" eval="True"/>
+            <field name="amount_type">percent</field>
+            <field name="amount">20</field>
+        </record>
+
+        <record model="account.tax" id="account_tax_excluded_in_price">
+            <field name="name">10% (Tax Excluded)</field>
+            <field name="price_include" eval="False"/>
+            <field name="amount_type">percent</field>
+            <field name="amount">10</field>
+        </record>
+
+</odoo>
