@@ -31,6 +31,7 @@ addon | version | summary
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0.1 | Fixed price in pricelists
 [product_profile](product_profile/) | 8.0.1.0.2 | Allow to configure a product in 1 click
 [product_profile_example](product_profile_example/) | 8.0.1.0.1 | Product Profile Use Case
+[product_sale_tax_price_included](product_sale_tax_price_included/) | 8.0.1.0.0 | See product sale price With and without Tax
 [product_sequence](product_sequence/) | 8.0.0.1.0 | Product Sequence
 [product_standard_price_tax_included](product_standard_price_tax_included/) | 8.0.2.1.0 | Brings a Cost Price Field Tax Included on Product Model
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 8.0.1.0.0 | Use product supplier info for customers too
