@@ -10,14 +10,7 @@
     "author": "GRAP, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "account",
-    ],
-    "data": [
-        'views/product_template.xml',
-    ],
-    "demo": [
-        'demo/account_tax_demo.xml',
-        'demo/product_template_demo.xml'
-    ],
+    "depends": ["account"],
+    "data": ["views/product_template.xml"],
+    "demo": ["demo/account_tax_demo.xml", "demo/product_template_demo.xml"],
 }
