@@ -32,7 +32,7 @@ class ProductProduct(models.Model):
             [('name', '=', self._context.get('partner_id')), '|',
              ('product_code', operator, name),
              ('product_name', operator, name)], limit=limit,
-            name_get_uid=name_get_uid)
+            access_rights_uid=name_get_uid)
         if not customerinfo_ids:
             return res
         res_templates = self.browse(
@@ -42,7 +42,7 @@ class ProductProduct(models.Model):
             customerinfo_ids).mapped('product_tmpl_id') - res_templates
         product_ids = self._search(
             [('product_tmpl_id', 'in', product_tmpls.ids)], limit=limit,
-            name_get_uid=name_get_uid)
+            access_rights_uid=name_get_uid)
         res.extend(self.browse(product_ids).name_get())
         return res
 
