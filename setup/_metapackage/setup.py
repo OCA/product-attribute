@@ -26,6 +26,7 @@ setuptools.setup(
         'odoo8-addon-product_pricelist_fixed_price',
         'odoo8-addon-product_profile',
         'odoo8-addon-product_profile_example',
+        'odoo8-addon-product_sale_tax_price_included',
         'odoo8-addon-product_sequence',
         'odoo8-addon-product_standard_price_tax_included',
         'odoo8-addon-product_supplierinfo_for_customer',
