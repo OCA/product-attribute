@@ -19,57 +19,57 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Applied on categories"
 msgstr "Aplicado a categorías"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Applied on global"
 msgstr "Aplicado a todo"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Applied on products"
 msgstr "Aplicado a plantilla de prouctos"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Applied on variants"
 msgstr "Aplicado a variantes"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid "Apply"
 msgstr "Aplicar"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_create_uid
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_create_date
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_date_end
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
 msgid "Date End"
 msgstr "Fecha final"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_date_start
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_start
 msgid "Date Start"
 msgstr "Fecha inicio"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_display_name
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
@@ -79,49 +79,68 @@ msgid "Duplicate Item"
 msgstr "Duplicar elemento"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_previous_price
-msgid "Fixed Price"
-msgstr "Precio fijo"
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Explicit rule name for this pricelist line."
+msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Group By"
 msgstr "Agrupado por"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_id
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__id
 msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Item"
 msgstr "Elemento"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard___last_update
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_write_uid
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_write_date
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_previous_item_id
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Name"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
+#, fuzzy
+#| msgid "Fixed Price"
+msgid "Previous Fixed Price"
+msgstr "Precio fijo"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Previous Item"
 msgstr "Elemento previo"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Pricelist"
 msgstr "Tarifa"
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
+#, fuzzy
+#| msgid "Pricelist Items"
+msgid "Pricelist Item"
+msgstr "Elementos de tarifa"
 
 #. module: product_pricelist_revision
 #: model:ir.actions.act_window,name:product_pricelist_revision.product_pricelist_item_action
@@ -130,51 +149,45 @@ msgid "Pricelist Items"
 msgstr "Elementos de tarifa"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Pricelist Items Search"
 msgstr "Buscar elementos de tarifa"
 
 #. module: product_pricelist_revision
-#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
-msgid "Pricelist item"
-msgstr "Elemento de la tarifa"
-
-#. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Category"
 msgstr "Categoría"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Variant"
 msgstr "Variantes de producto"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Products"
 msgstr "Productos"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item_previous_item_id
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Relation with previous item when duplicate line"
 msgstr "Relacion con elemento previo cuando se duplica la linea"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid ""
 "Set new start date and variation percent to duplicate.\n"
-"                    This process set start date previous day as end date "
-"of\n"
+"                    This process set start date previous day as end date of\n"
 "                    origin record.\n"
 "                    <br/>\n"
 "                    <br/>"
@@ -187,17 +200,20 @@ msgstr ""
 "                    <br/>"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard_variation_percent
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_variation_percent
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
 msgid "Variation %"
 msgstr "Variación %"
 
 #. module: product_pricelist_revision
-#: model:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
+msgid "Wizard Product Pricelist Item Duplicate"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid "or"
 msgstr "o"
 
-#. module: product_pricelist_revision
-#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
-msgid "product.pricelist.item.duplicate.wizard"
-msgstr ""
+#~ msgid "Pricelist item"
+#~ msgstr "Elemento de la tarifa"
