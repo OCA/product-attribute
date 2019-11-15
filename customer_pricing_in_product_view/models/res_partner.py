@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014 Odoo Community Association (OCA), O4SB - Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, api
+from odoo import api, models
 
 
 class ResPartner(models.Model):
