@@ -20,6 +20,7 @@ class ProductPackagingType(models.Model):
 
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
+    _order = 'product_id, sequence'
 
     @api.model
     def default_packaging_type(self):
@@ -48,4 +49,8 @@ class ProductPackaging(models.Model):
     )
     type_has_gtin = fields.Boolean(related="packaging_type_id.has_gtin",
                                    readonly=True)
-    sequence = fields.Integer(related="packaging_type_id.sequence")
+    sequence = fields.Integer(
+        related="packaging_type_id.sequence",
+        readonly=True,
+        store=True,
+    )
