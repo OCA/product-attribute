@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2015 Antiun Ingeniería S.L. - Sergio Teruel
 # © 2015 Antiun Ingeniería S.L. - Carlos Dauden
 # © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
@@ -8,7 +7,7 @@
     'name': "Product Custom Info",
     'summary': "Add custom field in products",
     'category': 'Customize',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'depends': [
         'product',
         'base_custom_info',
@@ -19,7 +18,7 @@
     ],
     'author': "Tecnativa, "
               "Odoo Community Association (OCA)",
-    'website': 'http://www.tecnativa.com',
+    'website': 'https://github.com/OCA/product-attribute/tree/11.0/product_custom_info',
     'license': 'LGPL-3',
     'installable': True,
 }
