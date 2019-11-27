@@ -25,7 +25,6 @@ Product Template Tags
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-[ This file must be max 2-3 paragraphs, and is required. ]
 
 This addon allows to add tags on products.
 
@@ -37,8 +36,6 @@ This addon allows to add tags on products.
 Configuration
 =============
 
-[ This file is optional, it should explain how to configure
-  the module before using it; it is aimed at advanced users. ]
 
 To configure this module, you need to:
 
@@ -52,13 +49,6 @@ To configure this module, you need to:
 Usage
 =====
 
-[ This file must be present and contains the usage instructions
-  for end-users. As all other rst files included in the README,
-  it MUST NOT contain reStructuredText sections
-  only body text (paragraphs, lists, tables, etc). Should you need
-  a more elaborate structure to explain the addon, please create a
-  Sphinx documentation (which may include this file as a "quick start"
-  section). ]
 
 To use this module, you need to:
 
