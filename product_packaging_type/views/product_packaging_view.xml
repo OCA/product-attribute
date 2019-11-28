@@ -8,12 +8,24 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='barcode']" position="before">
+                <field name="qty_per_type" />
                 <field name="packaging_type_id"/>
                 <field name="type_has_gtin"/>
             </xpath>
             <xpath expr="//field[@name='barcode']" position="attributes">
                 <attribute name="attrs">{'required': [('type_has_gtin', '=', True)]}</attribute>
             </xpath>
+        </field>
+    </record>
+    <record id="product_packaging_tree_view_inherit" model="ir.ui.view">
+        <field name="name">product.packaging.tree.view.inherit</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="product_uom_id" position="after">
+                <field name="qty_per_type" />
+                <field name="packaging_type_id"/>
+            </field>
         </field>
     </record>
 </odoo>
