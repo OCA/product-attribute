@@ -23,7 +23,7 @@ class ProductPackaging(models.Model):
     _order = 'product_id, sequence'
 
     @api.model
-    def default_packaging_type(self):
+    def default_packaging_type_id(self):
         PackType = self.env['product.packaging.type']
         types = PackType.search([('is_default', '=', True)], limit=1)
         if types:
@@ -31,7 +31,7 @@ class ProductPackaging(models.Model):
         types = PackType.search([], limit=1)
         if types:
             return types
-        type = PackType.create(
+        return PackType.create(
             {
                 "name": "Default Type",
                 "code": "DEFAULT",
@@ -39,13 +39,12 @@ class ProductPackaging(models.Model):
                 "is_default": True,
             }
         )
-        return type
 
     packaging_type_id = fields.Many2one(
         "product.packaging.type",
         required=True,
         ondelete="restrict",
-        default=default_packaging_type,
+        default=lambda p: p.default_packaging_type_id(),
     )
     type_has_gtin = fields.Boolean(related="packaging_type_id.has_gtin",
                                    readonly=True)
