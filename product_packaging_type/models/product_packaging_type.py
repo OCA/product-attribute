@@ -1,6 +1,6 @@
 # Copyright 2019 Camptocamp (<http://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
-
+from collections import OrderedDict
 from odoo import api, fields, models
 
 
@@ -54,3 +54,40 @@ class ProductPackaging(models.Model):
         readonly=True,
         store=True,
     )
+    qty_per_type = fields.Html(
+        compute='_compute_qty_per_type', string='Qty per package type',
+    )
+
+    @api.depends(
+        'product_id', 'product_id.packaging_ids', 'packaging_type_id',
+        'packaging_type_id.code'
+    )
+    def _compute_qty_per_type(self):
+        for packaging in self:
+            product = packaging.product_id
+            if not product:
+                continue
+
+            smaller_product_packagings = product.packaging_ids.filtered(
+                lambda p: p.id != packaging.id and p.qty < packaging.qty
+            )
+            res = OrderedDict()
+            for p_pack in smaller_product_packagings.sorted(
+                lambda p: p.qty
+            ):
+                res[p_pack.packaging_type_id.code] = p_pack.qty
+            packaging.qty_per_type = packaging._format_qty_per_type(res)
+
+    def _format_qty_per_type(self, qty_per_type_dict):
+        self.ensure_one()
+        res = []
+        for code, qty in qty_per_type_dict.items():
+            new_qty = self.qty / qty
+            if not new_qty.is_integer():
+                new_qty_int = int(new_qty)
+                new_qty_decimals = new_qty - new_qty_int
+                new_qty = '%s<span style="color: red;">%s</span>' % (
+                    new_qty_int, str(new_qty_decimals).lstrip('0')
+                )
+            res.append('%s %s' % (new_qty, code))
+        return '; '.join(res)
