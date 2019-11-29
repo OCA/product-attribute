@@ -35,11 +35,11 @@ class ProductPackagingType(models.Model):
                     i += 1
         return True
 
-    def prepare_packaging_vals(self, product, packaging_type):
+    def prepare_packaging_vals(self, product):
         self.ensure_one()
         res = {
-            'packaging_type_id': packaging_type.id,
-            'name': packaging_type.name,
+            'packaging_type_id': self.id,
+            'name': self.name,
             'product_id': product.id,
         }
         return res
