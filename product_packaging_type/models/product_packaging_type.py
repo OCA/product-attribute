@@ -1,7 +1,8 @@
 # Copyright 2019 Camptocamp (<http://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 from collections import OrderedDict
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class ProductPackagingType(models.Model):
@@ -13,31 +14,33 @@ class ProductPackagingType(models.Model):
     code = fields.Char(required=True)
     sequence = fields.Integer(required=True)
     has_gtin = fields.Boolean()
-    # required = fields.Boolean()
     active = fields.Boolean(default=True)
     is_default = fields.Boolean()
+
+    @api.constrains('is_default')
+    def _check_is_default(self):
+        msg = False
+        default_count = self.search_count([('is_default', '=', True)])
+        if default_count == 0:
+            msg = _(
+                'There must be one product packaging type set as "Is Default".'
+            )
+        elif default_count > 1:
+            msg = _(
+                'Only one product packaging type can be set as "Is Default".'
+            )
+        if msg:
+            raise ValidationError(msg)
 
 
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
-    _order = 'product_id, sequence'
+    _order = 'product_id, type_sequence'
 
     @api.model
     def default_packaging_type_id(self):
-        PackType = self.env['product.packaging.type']
-        types = PackType.search([('is_default', '=', True)], limit=1)
-        if types:
-            return types
-        types = PackType.search([], limit=1)
-        if types:
-            return types
-        return PackType.create(
-            {
-                "name": "Default Type",
-                "code": "DEFAULT",
-                "sequence": 1,
-                "is_default": True,
-            }
+        return self.env['product.packaging.type'].search(
+            [('is_default', '=', True)], limit=1
         )
 
     packaging_type_id = fields.Many2one(
@@ -48,7 +51,7 @@ class ProductPackaging(models.Model):
     )
     type_has_gtin = fields.Boolean(related="packaging_type_id.has_gtin",
                                    readonly=True)
-    sequence = fields.Integer(
+    type_sequence = fields.Integer(
         related="packaging_type_id.sequence",
         readonly=True,
         store=True,
