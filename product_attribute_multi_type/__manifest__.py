@@ -1,24 +1,9 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see http://www.gnu.org/licenses/.
-#
-##############################################################################
+# © initOS GmbH 2019
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 {
     "name": "Product attribute types",
-    "version": "8.0.1.0.0",
+    "version": "11.0.1.0.0",
     "depends": [
         "product",
     ],
@@ -30,13 +15,15 @@
         "Mikel Arregi <mikelarregi@avanzosc.es>",
         "Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>",
         "Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>",
-        "Ana Juaristi <ajuaristio@gmail.com>"
+        "Ana Juaristi <ajuaristio@gmail.com>",
+        "Dhara Solanki <dhara.solanki@initos.com>"
     ],
     "category": "Product Management",
-    "website": "http://www.odoomrp.com",
+    "license": "AGPL-3",
+    "website": "https://github.com/OCA/product-attribute",
     'data': [
         "views/product_view.xml",
         "data/product_attribute_data.xml",
     ],
-    'installable': False,
+    'installable': True,
 }

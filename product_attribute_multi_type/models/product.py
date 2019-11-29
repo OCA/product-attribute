@@ -1,32 +1,18 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see http://www.gnu.org/licenses/.
-#
-##############################################################################
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from openerp import models, fields, api, exceptions, _
-import openerp.addons.decimal_precision as dp
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
+import odoo.addons.decimal_precision as dp
 
 
 class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
-    attr_type = fields.Selection(required=True, selection=[
-        ('select', 'Select'),
-        ('range', 'Range'),
-        ('numeric', 'Numeric')], string="Type", default='select')
+    attr_type = fields.Selection([('select', 'Select'),
+                                  ('range', 'Range'),
+                                  ('numeric', 'Numeric')],
+                                 required=True,
+                                 string="Type", default='select')
 
 
 class ProductAttributeLine(models.Model):
@@ -42,7 +28,7 @@ class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
 
     attr_type = fields.Selection(string='Type',
-                                 related='attribute_id.attr_type')
+                                 related='attribute_id.attr_type', store=True)
     numeric_value = fields.Float('Numeric Value',
                                  digits=dp.get_precision('Product Attribute'))
     min_range = fields.Float('Min',
@@ -57,6 +43,6 @@ class ProductAttributeValue(models.Model):
             if value.attr_type != 'range':
                 continue
             if value.min_range > value.max_range:
-                raise exceptions.Warning(
+                raise ValidationError(
                     _('The min range should be less than the max range.'))
         return True
