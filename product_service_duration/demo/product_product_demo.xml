@@ -16,7 +16,7 @@
         <field name="list_price">80</field>
         <field name="currency_id" ref="base.USD" />
         <field name="default_code">SERV_MEET</field>
-        <field name="resource_id" ref="resource.resource_analyst" />
+        <field name="resource_id" ref="resource_analyst" />
         <field name="min_service_time" eval="3.00" />
     </record>
 
@@ -32,7 +32,7 @@
         <field name="list_price">200</field>
         <field name="currency_id" ref="base.USD" />
         <field name="default_code">SERV_CONSULT</field>
-        <field name="resource_id" ref="resource.resource_analyst" />
+        <field name="resource_id" ref="resource_analyst" />
         <field name="min_service_time" eval="2.00" />
     </record>
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="resource_analyst" model="resource.resource">
+        <field eval="1.0" name="time_efficiency"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="name">Analyst</field>
+        <field eval="1" name="active"/>
+        <field name="calendar_id" ref="resource.resource_calendar_std"/>
+        <field name="resource_type">user</field>
+    </record>
+</odoo>

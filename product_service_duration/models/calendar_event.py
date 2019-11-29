@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © initOS GmbH 2019
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -33,12 +33,12 @@ class CalendarEvent(models.Model):
     def _compute_min_duration(self):
         today_time = fields.Datetime.now()
         for record in self:
+            if record.stop:
+                if record.stop < today_time:
+                    continue
 
-            if record.stop < today_time:
-                continue
-
-            if record.allday:
-                continue
+                if record.allday:
+                    continue
 
             min_duration = sum(
                 [t.min_service_time for t in record.product_ids]
