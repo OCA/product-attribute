@@ -3,8 +3,9 @@
 {
     'name': 'Product Cost Security',
     'summary': 'Product cost security restriction view',
-    'version': '11.0.1.0.0',
-    'development_status': 'Beta',
+    'version': '12.0.1.0.0',
+    'development_status': 'Production/Stable',
+    'maintainers': ['sergio-teruel'],
     'category': 'Product',
     'website': 'https://github.com/OCA/product-attribute',
     'author': 'Tecnativa, Odoo Community Association (OCA)',
@@ -16,6 +17,5 @@
     ],
     'data': [
         'security/product_cost_security.xml',
-        'views/product_views.xml',
     ],
 }
