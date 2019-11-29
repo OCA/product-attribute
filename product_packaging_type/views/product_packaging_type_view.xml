@@ -63,6 +63,6 @@
 
     <menuitem id="menu_product_packaging_type"
         parent="stock.menu_product_in_config_stock"
-        sequence="20"
+        sequence="20" groups="product.group_stock_packaging"
         action="act_open_product_packaging_type_view"/>
 </odoo>
