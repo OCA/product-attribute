@@ -52,6 +52,7 @@ class ProductPackaging(models.Model):
     type_has_gtin = fields.Boolean(related="packaging_type_id.has_gtin",
                                    readonly=True)
     type_sequence = fields.Integer(
+        string="Type sequence",
         related="packaging_type_id.sequence",
         readonly=True,
         store=True,
