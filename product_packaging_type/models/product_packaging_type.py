@@ -72,7 +72,7 @@ class ProductPackaging(models.Model):
                 continue
 
             smaller_product_packagings = product.packaging_ids.filtered(
-                lambda p: p.id != packaging.id and p.qty < packaging.qty
+                lambda p: p.id != packaging.id and packaging.qty > p.qty > 0.0
             )
             res = OrderedDict()
             for p_pack in smaller_product_packagings.sorted(
