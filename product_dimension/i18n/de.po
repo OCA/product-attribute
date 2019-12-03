@@ -17,26 +17,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_dimension
-#: model:ir.model.fields,field_description:product_dimension.field_product_product_dimensional_uom_id
-#: model:ir.model.fields,field_description:product_dimension.field_product_template_dimensional_uom_id
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__dimensional_uom_id
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__dimensional_uom_id
 msgid "Dimensional UoM"
 msgstr "Einheit d. Abmessungen"
 
 #. module: product_dimension
-#: model:ir.ui.view,arch_db:product_dimension.product_normal_form_view
-#: model:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
 msgid "Dimensions"
 msgstr "Abmessungen"
 
 #. module: product_dimension
-#: model:ir.model.fields,field_description:product_dimension.field_product_product_height
-#: model:ir.model.fields,field_description:product_dimension.field_product_template_height
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__height
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__height
 msgid "Height"
 msgstr "Höhe"
 
 #. module: product_dimension
-#: model:ir.model.fields,field_description:product_dimension.field_product_product_length
-#: model:ir.model.fields,field_description:product_dimension.field_product_template_length
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__length
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__length
 msgid "Length"
 msgstr "Länge"
 
@@ -51,13 +51,13 @@ msgid "Product Template"
 msgstr "Produktvorlage"
 
 #. module: product_dimension
-#: model:ir.model.fields,help:product_dimension.field_product_product_dimensional_uom_id
-#: model:ir.model.fields,help:product_dimension.field_product_template_dimensional_uom_id
+#: model:ir.model.fields,help:product_dimension.field_product_product__dimensional_uom_id
+#: model:ir.model.fields,help:product_dimension.field_product_template__dimensional_uom_id
 msgid "UoM for length, height, width"
 msgstr "Einheit für Länge, Höhe, Breite"
 
 #. module: product_dimension
-#: model:ir.model.fields,field_description:product_dimension.field_product_product_width
-#: model:ir.model.fields,field_description:product_dimension.field_product_template_width
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__width
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__width
 msgid "Width"
 msgstr "Breite"
