@@ -112,3 +112,11 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         self.assertEqual(
             res[self.product.id], 750.0,
             "Error: price does not match list price")
+
+    def test_product_supplierinfo_partner(self):
+        self.pricelist_item.base = 'partner'
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(
+                self.product.product_tmpl_id, 5, False, False,
+            ), 100,
+        )
