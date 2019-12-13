@@ -3,7 +3,6 @@
     <record id="view_product_packaging_type_tree" model="ir.ui.view">
         <field name="name">product.packaging.type.tree</field>
         <field name="model">product.packaging.type</field>
-        <field name="type">tree</field>
         <field name="priority" eval="8"/>
         <field name="inherit_id" ref="product_packaging_type.view_product_packaging_type_tree"/>
         <field name="arch" type="xml">
@@ -16,7 +15,6 @@
     <record id="view_product_packaging_type_form" model="ir.ui.view">
         <field name="name">product.packaging.type.form</field>
         <field name="model">product.packaging.type</field>
-        <field name="type">form</field>
         <field name="priority" eval="8"/>
         <field name="inherit_id" ref="product_packaging_type.view_product_packaging_type_form"/>
         <field name="arch" type="xml">
