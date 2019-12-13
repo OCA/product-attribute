@@ -18,21 +18,22 @@ class ProductPackagingType(models.Model):
             [('type', 'in', ('product', 'consu'))]
         )
         i = 0
-        for p_type in self.search([('required', '=', True)]):
+        required_packaging_types = self.search([('required', '=', True)])
+        for product in existing_products:
             if limit and i == limit:
                 break
-            for product in existing_products:
-                packaging = self.env['product.packaging'].search(
-                    [('product_id', '=', product.id),
-                     ('packaging_type_id', '=', p_type.id)]
-                )
-                if packaging:
-                    continue
-                else:
-                    packaging.create(
-                        p_type.prepare_packaging_vals(product)
-                    )
-                    i += 1
+            packagings = product.packaging_ids
+            existing_packaging_types = packagings.mapped("packaging_type_id")
+            missing_packaging_types = (
+                required_packaging_types - existing_packaging_types
+            )
+            if not missing_packaging_types:
+                continue
+            values = [
+                ptype.prepare_packaging_vals(product)
+                for ptype in missing_packaging_types
+            ]
+            self.env["product.packaging"].create(values)
         return True
 
     def prepare_packaging_vals(self, product):
