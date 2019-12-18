@@ -22,7 +22,6 @@ class ProductSecondaryUnit(models.Model):
         string="Secondary Unit Factor", default=1.0, digits=0, required=True
     )
 
-    @api.multi
     def name_get(self):
         result = []
         for unit in self:
