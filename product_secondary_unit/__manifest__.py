@@ -4,7 +4,7 @@
     "name": "Product Secondary Unit",
     "summary": "Set a secondary unit per product",
     "version": "13.0.1.0.0",
-    "development_status": "Beta",
+    "development_status": "Production/Stable",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -13,4 +13,5 @@
     "installable": True,
     "depends": ["product"],
     "data": ["security/ir.model.access.csv", "views/product_views.xml"],
+    "maintainers": ["sergio-teruel"],
 }
