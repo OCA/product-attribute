@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2015 Antiun Ingeniería S.L. - Sergio Teruel
 # © 2015 Antiun Ingeniería S.L. - Carlos Dauden
 # © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
@@ -8,7 +7,7 @@
     'name': "Product Custom Info",
     'summary': "Add custom field in products",
     'category': 'Customize',
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
     'depends': [
         'product',
         'base_custom_info',
