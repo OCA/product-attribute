@@ -9,7 +9,7 @@
             <page name="general_information" position="inside">
                 <group name="manufacturer" string="Manufacturer">
                     <group>
-                        <field name="manufacturer" context="{'default_supplier':True, 'default_customer':False}"/>
+                        <field name="manufacturer" context="{'res_partner_search_mode': 'supplier'}"/>
                         <field name="manufacturer_pname" />
                     </group>
                     <group>
