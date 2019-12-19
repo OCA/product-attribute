@@ -65,7 +65,7 @@ class ProductProduct(models.Model):
     def copy(self, default=None):
         if default is None:
             default = {}
-        if self.default_code:
+        if self.default_code and 'default_code' not in default:
             default.update({
                 'default_code': self.default_code + _('-copy'),
             })
