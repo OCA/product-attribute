@@ -103,3 +103,13 @@ class TestProductSequence(TransactionCase):
         categ_car.sequence_id = False
         categ_car.write({'code_prefix': 'KIA'})
         self.assertEqual(categ_car.sequence_id.prefix, "KIA")
+
+    def test_product_copy_with_default_values(self):
+        product_2 = self.product_product.create(dict(
+            name="Apple",
+            default_code='PROD02'
+        ))
+        copy_product_2 = product_2.copy({
+            'default_code': 'product test sequence',
+        })
+        self.assertEqual(copy_product_2.default_code, 'product test sequence')
