@@ -24,14 +24,9 @@ class ProductTemplateTag(models.Model):
     company_id = fields.Many2one(
         comodel_name="res.company",
         string="Company",
-        default=lambda self: self._default_company(),
+        default=lambda self: self.env.company,
     )
 
-    @api.model
-    def _default_company(self):
-        return self.env["res.users"]._get_company()
-
-    @api.multi
     @api.depends("product_tmpl_ids")
     def _compute_products_count(self):
         for rec in self:
