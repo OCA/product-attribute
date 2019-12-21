@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h1" position="after">
+                <group name="pricelist_group">
+                    <field name="pricelist_id" required="1"
+                           invisible="context.get('pricelist_id_invisible', True)"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <group name="pricelist_group">
+                <attribute name="context">{'default_base':'list_price', 'default_pricelist_id': id}</attribute>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

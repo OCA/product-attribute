@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="priority" eval="110"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <attribute name="context">{
+                    'default_base':'list_price',
+                    'default_applied_on': (not is_product_variant and '1_product') or '0_product_variant',
+                    'default_product_tmpl_id': not is_product_variant and id,
+                    'default_product_id': is_product_variant and id,
+                    'pricelist_id_invisible': False}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']/tree" position="attributes">
+                <attribute name="editable"></attribute>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']/tree/field[@name='fixed_price']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']/tree/field[@name='date_end']" position="after">
+                <field name="price" />
+            </xpath>
+            <xpath expr="//field[@name='item_ids']/form " position="replace">
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
