@@ -23,6 +23,27 @@ msgid "Access to product costs"
 msgstr "Acceso a ver el coste de productos"
 
 #. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
+msgid "Cost"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
+msgid ""
+"Cost used for stock valuation in standard price and as a first price to set "
+"in average/FIFO."
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
+msgid ""
+"Cost used for stock valuation in standard price and as a first price to set "
+"in average/fifo. Also used as a base price for pricelists. Expressed in the "
+"default unit of measure of the product."
+msgstr ""
+
+#. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product"
 msgstr "Producto"
