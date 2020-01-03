@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_uom_use_type
+#	* product_uom_use_type
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 12:06+0000\n"
-"PO-Revision-Date: 2017-10-16 12:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,7 +16,7 @@ msgstr ""
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_barrel
 msgid "Barrel - 159L (Unit only for purchases)"
-msgstr "Fût - 159L (Unité valable seulement à l'achat)"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:product.template,name:product_uom_use_type.product_bier_faucheuse
@@ -35,9 +32,7 @@ msgstr ""
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_po_id
-msgid ""
-"Default unit of measure used for purchase orders. It must be in the same "
-"category as the default unit of measure."
+msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
 msgstr ""
 
 #. module: product_uom_use_type
@@ -48,60 +43,57 @@ msgstr ""
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_pint
 msgid "Pint US - 0,55L (Unit only for sales)"
-msgstr "Pinte US - 0,55L (Unité valable seulement à la vente)"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_product
-#, fuzzy
 msgid "Product"
-msgstr "Modèle d'article"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_template
 msgid "Product Template"
-msgstr "Modèle d'article"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr "Unité de mesure d'article"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
-#, fuzzy
 msgid "Purchase Unit of Measure"
-msgstr "Unité de mesure d'article"
+msgstr ""
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for purchases"
-msgstr "Achat uniquement"
+msgstr ""
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for sales"
-msgstr "Vente uniquement"
+msgstr ""
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for sales and purchases"
-msgstr "Achat et vente"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_id
-#, fuzzy
 msgid "Unit of Measure"
-msgstr "Unité de mesure d'article"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_uom_uom__use_type
-#, fuzzy
 msgid "Use Type"
-msgstr "Type d'usage"
+msgstr ""
 
 #. module: product_uom_use_type
 #: model:product.template,weight_uom_name:product_uom_use_type.product_bier_faucheuse
 msgid "kg"
 msgstr ""
+
