@@ -74,6 +74,7 @@ Contributors
 
 * Sebastien BEAU <sebastien.beau@akretion.com>
 * Abdessamad HILALI <abdessamad.hilali@akretion.com>
+* Kevin Khao <kevin.khao@akretion.com>
 
 Maintainer
 ----------
