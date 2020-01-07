@@ -3,11 +3,9 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="stock.view_stock_product_tree"/>
         <field name="arch" type="xml">
-            <!-- Add grey color for inactive record.
-                 Variants are mainly used with stock, 
-                 Then we also embedds color attributes of module stock -->
+            <!-- Add grey color for inactive record -->
             <xpath expr="//tree" position="attributes">
-                <attribute name="colors" translation="off">grey:active==False;red:virtual_available&lt;0;blue:virtual_available&gt;=0;black:virtual_available&gt;=0 </attribute>
+                <attribute name="decoration-muted">active==False</attribute>
             </xpath>
         </field>
     </record>

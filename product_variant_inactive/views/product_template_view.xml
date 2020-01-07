@@ -1,0 +1,16 @@
+<odoo>
+
+   <record model="ir.ui.view" id="view_product_form_variants">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name=%(product.product_variant_action)d]" position="before">
+                <field name="product_variant_count_all" attrs="{'invisible': 1}"/>
+            </xpath>
+            <xpath expr="//button[@name=%(product.product_variant_action)d]" position="attributes">
+                <attribute name="attrs">{'invisible': [('product_variant_count_all', '&lt;=', 1)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
