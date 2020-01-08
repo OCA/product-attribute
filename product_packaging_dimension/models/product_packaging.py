@@ -1,4 +1,4 @@
-# Copyright 2019 Camptocamp SA
+# Copyright 2019-2020 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 from odoo import api, fields, models
 
@@ -7,8 +7,10 @@ class ProductPackaging(models.Model):
     _inherit = "product.packaging"
 
     max_weight = fields.Float("Weight (kg)")
-    # FIXME https://github.com/odoo/odoo/issues/41353
-    length = fields.Integer("Length (mm)", help="length in millimeters")
+    # lngth IS NOT A TYPO https://github.com/odoo/odoo/issues/41353
+    lngth = fields.Integer("Length (mm)", help="length in millimeters")
+    # Although it feels weird to use Integer in millimeters, we use Int to
+    # override the fields from delivery module instead of defining new ones
     width = fields.Integer("Width (mm)", help="width in millimeters")
     height = fields.Integer("Height (mm)", help="height in millimeters")
     volume = fields.Float(
@@ -20,7 +22,7 @@ class ProductPackaging(models.Model):
         help="volume in cubic meters",
     )
 
-    @api.depends("length", "width", "height")
+    @api.depends("lngth", "width", "height")
     def _compute_volume(self):
         for pack in self:
-            pack.volume = (pack.length * pack.width * pack.height) / 1000.0 ** 3
+            pack.volume = (pack.lngth * pack.width * pack.height) / 1000.0 ** 3
