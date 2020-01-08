@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo13-addon-product_assortment',
         'odoo13-addon-product_code_unique',
         'odoo13-addon-product_manufacturer',
+        'odoo13-addon-product_restricted_type',
         'odoo13-addon-product_secondary_unit',
         'odoo13-addon-stock_production_lot_firmware_version',
     ],
