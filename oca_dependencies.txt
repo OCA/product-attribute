@@ -1,0 +1,2 @@
+product-attribute https://github.com/grindtildeath/product-attribute 12.0-add-product_packaging_dimension
+product-attribute https://github.com/damdam-s/product-attribute 12.0-product_packaging_type
