@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <group name="qty" position="after">
                 <group name="dimensions">
-                    <field name="length" />
+                    <field name="lngth" />
                     <field name="width" />
                     <field name="height" />
                     <field name="max_weight" />
