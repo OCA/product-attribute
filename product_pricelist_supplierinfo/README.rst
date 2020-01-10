@@ -113,7 +113,6 @@ Contributors
 
   * Vicent Cubells <vicent.cubells@tecnativa.com>
   * Pedro M. Baeza
-  * Carlos Dauden
 
 * Nikul Chaudhary <nikulchaudhary2112@gmail.com>
 
