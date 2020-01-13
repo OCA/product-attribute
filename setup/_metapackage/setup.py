@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo12-addon-product_pricelist_direct_print',
         'odoo12-addon-product_pricelist_revision',
         'odoo12-addon-product_pricelist_supplierinfo',
+        'odoo12-addon-product_priority',
         'odoo12-addon-product_product_template_navigation',
         'odoo12-addon-product_restricted_type',
         'odoo12-addon-product_secondary_unit',
