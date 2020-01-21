@@ -1,11 +1,12 @@
 # Copyright 2016 Sodexis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, tagged
 
 from ..hooks import pre_init_hook
 
 
+@tagged("post_install", "-at_install")
 class TestProductSequence(TransactionCase):
     """Tests for creating product with and without Product Sequence"""
 
@@ -30,10 +31,11 @@ class TestProductSequence(TransactionCase):
         self.assertRegexpMatches(str(product_1.default_code), r"PR/*")
 
     def test_product_copy(self):
-        product_2 = self.product_product.create(
+        product_2 = self.product_template.create(
             dict(name="Apple", default_code="PROD02")
         )
-        copy_product_2 = product_2.copy()
+        product_2.flush()
+        copy_product_2 = product_2.product_variant_id.copy()
         self.assertEqual(copy_product_2.default_code, "PROD02-copy")
 
     def test_pre_init_hook(self):
@@ -41,7 +43,8 @@ class TestProductSequence(TransactionCase):
             dict(name="Apple", default_code="PROD03")
         )
         self.cr.execute(
-            "update product_product set default_code='/' where id={}".format(product_3.id)
+            "update product_product set default_code='/' where id=%s",
+            (tuple(product_3.ids),),
         )
         product_3.invalidate_cache()
         self.assertEqual(product_3.default_code, "/")
@@ -87,8 +90,11 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(categ_car.sequence_id.prefix, "KIA")
 
     def test_product_copy_with_default_values(self):
-        product_2 = self.product_product.create(
+        product_2 = self.product_template.create(
             dict(name="Apple", default_code="PROD02")
         )
-        copy_product_2 = product_2.copy({"default_code": "product test sequence"})
+        product_2.flush()
+        copy_product_2 = product_2.product_variant_id.copy(
+            {"default_code": "product test sequence"}
+        )
         self.assertEqual(copy_product_2.default_code, "product test sequence")

@@ -38,7 +38,6 @@ class ProductProduct(models.Model):
             vals["default_code"] = sequence.next_by_id()
         return super().create(vals)
 
-    @api.multi
     def write(self, vals):
         """To assign a new internal reference, just write '/' on the field.
         Note this is up to the user, if the product category is changed,
@@ -60,7 +59,7 @@ class ProductProduct(models.Model):
             return True
         return super().write(vals)
 
-    @api.multi
+    @api.returns("self", lambda value: value.id)
     def copy(self, default=None):
         if default is None:
             default = {}
