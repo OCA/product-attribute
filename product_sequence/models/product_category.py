@@ -6,19 +6,21 @@ from odoo import api, fields, models
 
 
 class ProductCategory(models.Model):
-    _inherit = 'product.category'
+    _inherit = "product.category"
 
     code_prefix = fields.Char(
         string="Prefix for Product Internal Reference",
         help="Prefix used to generate the internal reference for products "
-             "created with this category. If blank the "
-             "default sequence will be used.",
+        "created with this category. If blank the "
+        "default sequence will be used.",
     )
     sequence_id = fields.Many2one(
-        comodel_name="ir.sequence", string="Product Sequence",
+        comodel_name="ir.sequence",
+        string="Product Sequence",
         help="This field contains the information related to the numbering "
-             "of the journal entries of this journal.",
-        copy=False, readonly=True,
+        "of the journal entries of this journal.",
+        copy=False,
+        readonly=True,
     )
 
     @api.model
