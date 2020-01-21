@@ -38,7 +38,6 @@ class ProductCategory(models.Model):
         }
         return vals
 
-    @api.multi
     def write(self, vals):
         prefix = vals.get("code_prefix")
         if prefix:
