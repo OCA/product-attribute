@@ -1,7 +1,8 @@
 # Copyright 2019 Eficent <http://www.eficent.com>
-# Copyright 2019 Tecnativa - Pedro M. Baeza
+# Copyright 2019-2020 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openupgradelib import openupgrade
+from psycopg2 import sql
 
 
 def _move_model_in_data(env, ids, old_model, new_model):
@@ -12,16 +13,18 @@ def _move_model_in_data(env, ids, old_model, new_model):
         ('mail_activity', 'res_model', 'res_id'),
         ('ir_model_data', 'model', 'res_id'),
     ]
-    for rename in renames:
+    for model, model_field, id_field in renames:
         openupgrade.logged_query(
-            env.cr, """
-            UPDATE {A}
-            SET {B} = '{C}'
-            WHERE {D} IN {E} AND {F} = '{G}'""".format(
-                A=rename[0],
-                B=rename[1], C=new_model,
-                D=rename[2], E=tuple(ids), F=rename[1], G=old_model,
-            ),
+            env.cr, sql.SQL(
+                """UPDATE {model}
+                SET {model_field} = %s
+                WHERE {id_field} IN %s
+                    AND {model_field} = %s"""
+            ).format(
+                model=sql.Identifier(model),
+                model_field=sql.Identifier(model_field),
+                id_field=sql.Identifier(id_field),
+            ), (new_model, tuple(ids), old_model)
         )
 
 
