@@ -21,7 +21,7 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. module: product_sequence
-#: code:addons/product_sequence/models/product_product.py:70
+#: code:addons/product_sequence/models/product_product.py:0
 #, python-format
 msgid "-copy"
 msgstr ""
