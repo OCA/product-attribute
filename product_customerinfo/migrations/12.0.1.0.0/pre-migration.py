@@ -60,6 +60,18 @@ def fill_product_customerinfo(env):
         )
 
 
+def clean_action_domain(env):
+    """
+    For V11.0 product_supplierinfo_for_customer module add a
+    domain ([('supplierinfo_type','=','supplier')]) in purchase action menu.
+    In V12.0  supplierinfo_type has been removed, so we must clean the old
+    stored action domain.
+    """
+    action = env.ref('product.product_supplierinfo_type_action')
+    action.domain = False
+
+
 @openupgrade.migrate()
 def migrate(env, version):
     fill_product_customerinfo(env)
+    clean_action_domain(env)
