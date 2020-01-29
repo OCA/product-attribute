@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_variant_easy_edit_view_inherit" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field
+            name="inherit_id"
+            ref="stock_account.product_variant_easy_edit_view_inherit"
+        />
+        <field name="arch" type="xml">
+            <!-- To hide button that opens wizard to update standard price , new in v13.0 -->
+            <xpath expr="//div[@name='update_cost_price']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
