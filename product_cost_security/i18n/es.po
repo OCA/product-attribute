@@ -29,18 +29,16 @@ msgid "Cost"
 msgstr ""
 
 #. module: product_cost_security
+#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
 msgid ""
-"Cost used for stock valuation in standard price and as a first price to set "
-"in average/FIFO."
-msgstr ""
-
-#. module: product_cost_security
-#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
-msgid ""
-"Cost used for stock valuation in standard price and as a first price to set "
-"in average/fifo. Also used as a base price for pricelists. Expressed in the "
-"default unit of measure of the product."
+"In Standard Price & AVCO: value of the product (automatically computed in "
+"AVCO).\n"
+"        In FIFO: value of the last unit that left the stock (automatically "
+"computed).\n"
+"        Used to value the product when the purchase cost is not known (e.g. "
+"inventory adjustment).\n"
+"        Used to compute margins on sale orders."
 msgstr ""
 
 #. module: product_cost_security
