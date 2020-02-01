@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_pricelist_direct_print
+# 	* product_pricelist_direct_print
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,8 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "\n"
+msgid ""
+"\n"
 "<p>Dear ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
 "<p>\n"
 "The attached file is a PDF document containg the\n"
@@ -29,17 +30,23 @@ msgid "\n"
 "    ${object.write_uid.signature | safe}\n"
 "% endif\n"
 "</p>\n"
-""
 msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
+msgid ""
+"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
+"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
 msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "${object.pricelist_id.name}"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<span>Special Pricelist</span>"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -124,17 +131,24 @@ msgid "Filter Options"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
+msgid "Hide Pricelist Name"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
 msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
-msgid "If you enter an X number here, then, for each selected customer, the last X ordered products will be obtained for the report."
+msgid ""
+"If you enter an X number here, then, for each selected customer, the last X "
+"ordered products will be obtained for the report."
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: selection:product.pricelist.print,order_field:0
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
 msgid "Internal Reference"
 msgstr ""
 
@@ -165,7 +179,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: selection:product.pricelist.print,order_field:0
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
 msgid "Name"
 msgstr ""
 
@@ -252,8 +266,7 @@ msgid "Show Variants"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:126
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""
-
