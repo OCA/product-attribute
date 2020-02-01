@@ -27,6 +27,7 @@ class ProductPricelistPrint(models.TransientModel):
     )
     show_standard_price = fields.Boolean(string="Show Cost Price")
     show_sale_price = fields.Boolean(string="Show Sale Price")
+    hide_pricelist_name = fields.Boolean(string="Hide Pricelist Name")
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
     )
@@ -37,7 +38,6 @@ class ProductPricelistPrint(models.TransientModel):
         " the last X ordered products will be obtained for the report."
     )
 
-    @api.multi
     @api.depends("partner_ids")
     def _compute_partner_count(self):
         for record in self:
@@ -50,7 +50,7 @@ class ProductPricelistPrint(models.TransientModel):
 
     @api.model
     def default_get(self, fields):
-        res = super(ProductPricelistPrint, self).default_get(fields)
+        res = super().default_get(fields)
         if self.env.context.get("active_model") == "product.template":
             res["product_tmpl_ids"] = [(6, 0, self.env.context.get("active_ids", []))]
         elif self.env.context.get("active_model") == "product.product":
@@ -77,7 +77,7 @@ class ProductPricelistPrint(models.TransientModel):
             category_items = items.filtered(
                 lambda x: x.applied_on == "2_product_category"
             )
-            # Convert al pricelist items to their affected variants
+            # Convert all pricelist items to their affected variants
             if product_items:
                 res["show_variants"] = True
                 product_ids = product_items.mapped("product_id")
@@ -91,7 +91,7 @@ class ProductPricelistPrint(models.TransientModel):
                     ]
                 )
                 res["product_ids"] = [(6, 0, product_ids.ids)]
-            # Convert al pricelist items to their affected templates
+            # Convert all pricelist items to their affected templates
             if template_items and not product_items:
                 product_tmpl_ids = template_items.mapped("product_tmpl_id")
                 product_tmpl_ids |= product_tmpl_ids.search(
@@ -106,7 +106,6 @@ class ProductPricelistPrint(models.TransientModel):
                 res["categ_ids"] = [(6, 0, category_items.mapped("categ_id").ids)]
         return res
 
-    @api.multi
     def print_report(self):
         if not (
             self.pricelist_id
@@ -124,23 +123,21 @@ class ProductPricelistPrint(models.TransientModel):
             "product_pricelist_direct_print." "action_report_product_pricelist"
         ).report_action(self)
 
-    @api.multi
     def action_pricelist_send(self):
         self.ensure_one()
         if self.partner_count > 1:
             self.send_batch()
-        else:
-            if self.partner_count == 1:
-                partner = self.partner_ids[0]
-                self.write(
-                    {
-                        "partner_id": partner.id,
-                        "pricelist_id": partner.property_product_pricelist.id,
-                    }
-                )
-            return self.message_composer_action()
+            return
+        if self.partner_count == 1:
+            partner = self.partner_ids[0]
+            self.write(
+                {
+                    "partner_id": partner.id,
+                    "pricelist_id": partner.property_product_pricelist.id,
+                }
+            )
+        return self.message_composer_action()
 
-    @api.multi
     def message_composer_action(self):
         self.ensure_one()
 
@@ -157,7 +154,6 @@ class ProductPricelistPrint(models.TransientModel):
         }
         return {
             "type": "ir.actions.act_window",
-            "view_type": "form",
             "view_mode": "form",
             "res_model": "mail.compose.message",
             "view_id": compose_form_id,
@@ -165,7 +161,6 @@ class ProductPricelistPrint(models.TransientModel):
             "context": ctx,
         }
 
-    @api.multi
     def send_batch(self):
         self.ensure_one()
         for partner in self.partner_ids.filtered(lambda x: not x.parent_id):
@@ -177,7 +172,6 @@ class ProductPricelistPrint(models.TransientModel):
             )
             self.force_pricelist_send()
 
-    @api.multi
     def force_pricelist_send(self):
         template_id = self.env.ref(
             "product_pricelist_direct_print.email_template_edi_pricelist"
@@ -202,7 +196,6 @@ class ProductPricelistPrint(models.TransientModel):
         composer.write(values)
         composer.send_mail()
 
-    @api.multi
     def get_last_ordered_products_to_print(self):
         self.ensure_one()
         partner = self.partner_id
@@ -211,11 +204,10 @@ class ProductPricelistPrint(models.TransientModel):
         orders = partner.sale_order_ids.filtered(
             lambda r: r.state not in ["draft", "sent", "cancel"]
         )
-        orders = orders.sorted(key=lambda r: r.confirmation_date, reverse=True)
+        orders = orders.sorted(key=lambda r: r.date_order, reverse=True)
         products = orders.mapped("order_line").mapped("product_id")
         return products[: self.last_ordered_products]
 
-    @api.multi
     def get_pricelist_to_print(self):
         self.ensure_one()
         pricelist = self.pricelist_id
