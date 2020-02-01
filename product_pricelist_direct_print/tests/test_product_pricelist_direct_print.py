@@ -2,17 +2,37 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import SavepointCase, tagged
 
 
+@tagged("post_install", "-at_install")
 class TestProductPricelistDirectPrint(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestProductPricelistDirectPrint, cls).setUpClass()
-        cls.pricelist = cls.env.ref("product.list0")
-        cls.category = cls.env["product.category"].create(
-            {"name": "Test category", "type": "normal"}
+
+        # Set report layout to void to wizard selection layout crashes the test
+        report_layout = cls.env.ref("web.report_layout_standard")
+        main_company = cls.env.ref("base.main_company")
+        main_company.external_report_layout_id = report_layout.view_id.id
+
+        cls.pricelist = cls.env["product.pricelist"].create(
+            {
+                "name": "Pricelist for test",
+                "item_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "applied_on": "3_global",
+                            "percent_price": 5.00,
+                            "compute_price": "percentage",
+                        },
+                    )
+                ],
+            }
         )
+        cls.category = cls.env["product.category"].create({"name": "Test category"})
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Product for test",
@@ -77,3 +97,57 @@ class TestProductPricelistDirectPrint(SavepointCase):
             active_model="res.partner", active_ids=[self.partner.id, partner_2.id]
         ).create({})
         wiz.action_pricelist_send()
+
+    def test_last_ordered_products(self):
+        SaleOrder = self.env["sale.order"]
+        product2 = self.env["product.product"].create(
+            {
+                "name": "Product2 for test",
+                "categ_id": self.category.id,
+                "default_code": "TESTPROD02",
+            }
+        )
+        so = self.env["sale.order"].new(
+            {
+                "partner_id": self.partner.id,
+                "order_line": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": self.product.name,
+                            "product_id": self.product.id,
+                            "product_uom_qty": 10.0,
+                            "product_uom": self.product.uom_id.id,
+                            "price_unit": 1000.00,
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "name": product2.name,
+                            "product_id": product2.id,
+                            "product_uom_qty": 10.0,
+                            "product_uom": product2.uom_id.id,
+                            "price_unit": 300.00,
+                        },
+                    ),
+                ],
+            }
+        )
+        so.onchange_partner_id()
+        sale_order = SaleOrder.create(so._convert_to_write(so._cache))
+        sale_order.action_confirm()
+
+        wiz = self.wiz_obj.with_context(
+            active_model="res.partner", active_ids=self.partner.ids
+        ).create({"last_ordered_products": 2})
+        products = wiz.get_last_ordered_products_to_print()
+        self.assertEqual(len(products), 2)
+
+        wiz = self.wiz_obj.with_context(
+            active_model="res.partner", active_ids=self.partner.ids
+        ).create({"last_ordered_products": 1})
+        products = wiz.get_last_ordered_products_to_print()
+        self.assertEqual(len(products), 1)
