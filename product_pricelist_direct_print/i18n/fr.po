@@ -51,6 +51,11 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<span>Special Pricelist</span>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Cost Price</strong>"
 msgstr ""
 
@@ -131,6 +136,11 @@ msgid "Filter Options"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
+msgid "Hide Pricelist Name"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
 msgstr ""
@@ -143,7 +153,7 @@ msgid ""
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: selection:product.pricelist.print,order_field:0
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
 msgid "Internal Reference"
 msgstr ""
 
@@ -174,7 +184,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: selection:product.pricelist.print,order_field:0
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
 msgid "Name"
 msgstr ""
 
@@ -227,7 +237,6 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 #, fuzzy
-#| msgid "Products"
 msgid "Product Templates"
 msgstr "Produits"
 
@@ -263,7 +272,7 @@ msgid "Show Variants"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:126
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""
