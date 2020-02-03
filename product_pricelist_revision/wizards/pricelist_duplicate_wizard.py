@@ -3,7 +3,7 @@
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 from odoo.addons import decimal_precision as dp
 
@@ -18,7 +18,6 @@ class ProductPricelistItemDuplicateWizard(models.TransientModel):
         digits=dp.get_precision("Product Price"), string="Variation %"
     )
 
-    @api.multi
     def action_apply(self):
         PricelistItem = self.env["product.pricelist.item"]
         new_items = PricelistItem

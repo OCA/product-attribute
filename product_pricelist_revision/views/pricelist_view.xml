@@ -1,11 +1,10 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <!-- Copyright 2017 Carlos Dauden - Tecnativa <carlos.dauden@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record id="product_pricelist_item_revision_tree_view" model="ir.ui.view">
         <field name="model">product.pricelist.item</field>
-        <field name="inherit_id" ref="product.product_pricelist_item_tree_view"/>
+        <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <tree position="attributes">
@@ -13,61 +12,78 @@
                 <attribute name="create">false</attribute>
             </tree>
             <field name="name" position="before">
-                <field name="pricelist_id" readonly="1"/>
-                <field name="applied_on" readonly="1"/>
-            </field>
-            <field name="product_tmpl_id" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
-            <field name="product_id" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
-            <field name="categ_id" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <field name="pricelist_id" readonly="1" />
+                <field name="applied_on" readonly="1" />
             </field>
             <field name="min_quantity" position="after">
-                <field name="compute_price" readonly="1"/>
-                <field name="fixed_price"/>
-                <field name="variation_percent"/>
+                <field name="compute_price" readonly="1" />
+                <field name="fixed_price" />
+                <field name="variation_percent" />
             </field>
         </field>
     </record>
-
     <record id="product_pricelist_item_view_search" model="ir.ui.view">
         <field name="name">product.pricelist.item.search</field>
         <field name="model">product.pricelist.item</field>
         <field name="arch" type="xml">
             <search string="Pricelist Items Search">
-                <field name="name" string="Item"/>
-                <field name="pricelist_id" string="Pricelist"/>
-                <field name="product_tmpl_id" string="Product Template"/>
-                <field name="product_id" string="Product Variant"/>
-                <field name="categ_id" string="Product Category"/>
-                <separator/>
-                <filter string="Applied on global" name="apply_global" domain="[('applied_on','=', '3_global')]"/>
-                <filter string="Applied on categories" name="apply_categ" domain="[('applied_on','=', '2_product_category')]"/>
-                <filter string="Applied on products" name="apply_product" domain="[('applied_on','=', '1_product')]"/>
-                <filter string="Applied on variants" name="apply_variant" domain="[('applied_on','=', '0_product_variant')]"/>
+                <field name="name" string="Item" />
+                <field name="pricelist_id" string="Pricelist" />
+                <field name="product_tmpl_id" string="Product Template" />
+                <field name="product_id" string="Product Variant" />
+                <field name="categ_id" string="Product Category" />
+                <separator />
+                <filter
+                    string="Applied on global"
+                    name="apply_global"
+                    domain="[('applied_on','=', '3_global')]"
+                />
+                <filter
+                    string="Applied on categories"
+                    name="apply_categ"
+                    domain="[('applied_on','=', '2_product_category')]"
+                />
+                <filter
+                    string="Applied on products"
+                    name="apply_product"
+                    domain="[('applied_on','=', '1_product')]"
+                />
+                <filter
+                    string="Applied on variants"
+                    name="apply_variant"
+                    domain="[('applied_on','=', '0_product_variant')]"
+                />
                 <group expand="0" name="Items" string="Group By">
-                    <filter string="Pricelist" name="group_by_pricelist_id" domain="[]" help="Pricelist" context="{'group_by':'pricelist_id'}"/>
-                    <filter string="Product" name="group_by_product_tmpl_id" domain="[]" help="Products" context="{'group_by':'product_tmpl_id'}"/>
+                    <filter
+                        string="Pricelist"
+                        name="group_by_pricelist_id"
+                        domain="[]"
+                        help="Pricelist"
+                        context="{'group_by':'pricelist_id'}"
+                    />
+                    <filter
+                        string="Product"
+                        name="group_by_product_tmpl_id"
+                        domain="[]"
+                        help="Products"
+                        context="{'group_by':'product_tmpl_id'}"
+                    />
                 </group>
             </search>
         </field>
     </record>
-
-
     <record id="product_pricelist_item_action" model="ir.actions.act_window">
         <field name="name">Pricelist Items</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.pricelist.item</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="product_pricelist_item_revision_tree_view"/>
+        <field name="view_id" ref="product_pricelist_item_revision_tree_view" />
     </record>
-
     <menuitem
-        action="product_pricelist_item_action" id="menu_product_pricelist_item_action"
-        parent="sale.product_menu_catalog" sequence="4" groups="product.group_sale_pricelist"/>
-
+        action="product_pricelist_item_action"
+        id="menu_product_pricelist_item_action"
+        parent="sale.product_menu_catalog"
+        sequence="4"
+        groups="product.group_sale_pricelist"
+    />
 </odoo>
