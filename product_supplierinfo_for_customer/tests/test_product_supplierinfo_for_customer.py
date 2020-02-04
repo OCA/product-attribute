@@ -32,7 +32,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
                 "pricelist_id": cls.pricelist.id,
                 "compute_price": "fixed",
                 "fixed_price": 100.0,
-                "product_id": cls.product.id,
+                "product_tmpl_id": cls.product.product_tmpl_id.id,
             }
         )
 
@@ -40,12 +40,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
     def _create_customer(cls, name):
         """Create a Partner."""
         return cls.env["res.partner"].create(
-            {
-                "name": name,
-                "email": "example@yourcompany.com",
-                "customer": True,
-                "phone": 123456,
-            }
+            {"name": name, "email": "example@yourcompany.com", "phone": 123456}
         )
 
     @classmethod
@@ -89,6 +84,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         self.assertEqual(
             price, 100.0, "Error: Price not found for product and customer"
         )
+        self.product.company_id = self.company
         res = self.product.with_context(partner_id=self.customer.id).price_compute(
             "partner", self.product.uom_id, self.company.currency_id, self.company
         )
