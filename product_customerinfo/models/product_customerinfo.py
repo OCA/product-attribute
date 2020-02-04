@@ -9,11 +9,7 @@ class ProductCustomerInfo(models.Model):
     _name = "product.customerinfo"
     _description = "Customer Pricelist"
 
-    name = fields.Many2one(
-        string="Customer",
-        domain=[("customer", "=", True)],
-        help="Customer of this product",
-    )
+    name = fields.Many2one(string="Customer", help="Customer of this product")
 
     @api.model
     def get_import_templates(self):
