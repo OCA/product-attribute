@@ -24,7 +24,6 @@ class ProductSupplierInfo(models.Model):
                 res += self.env["product.supplierinfo"].new(result)
         return res
 
-    @api.multi
     def read(self, fields=None, load="_classic_read"):
         if (
             self.env.context.get("customerinfo")

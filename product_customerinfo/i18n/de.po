@@ -28,7 +28,7 @@ msgstr ""
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_pricelist_item__base
 msgid ""
 "Base price for computation.\n"
-"Public Price: The base price will be the Sale/public Price.\n"
+"Sales Price: The base price will be the Sales Price.\n"
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
@@ -46,11 +46,6 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
 msgid "Contact"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: selection:product.pricelist.item,base:0
-msgid "Cost"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -146,7 +141,7 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:21
+#: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:0
 #, python-format
 msgid "Import Template for Customer Pricelists"
 msgstr ""
@@ -175,23 +170,12 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
-msgid "Minimal Quantity"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: selection:product.pricelist.item,base:0
-#, fuzzy
-msgid "Other Pricelist"
-msgstr "Preisliste"
-
-#. module: product_supplierinfo_for_customer
-#: selection:product.pricelist.item,base:0
+#: model:ir.model.fields.selection,name:product_supplierinfo_for_customer.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
 msgstr ""
 
@@ -211,13 +195,8 @@ msgstr "Preisliste"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist_item
 #, fuzzy
-msgid "Pricelist Item"
+msgid "Pricelist Rule"
 msgstr "Preisliste"
-
-#. module: product_supplierinfo_for_customer
-#: selection:product.pricelist.item,base:0
-msgid "Prices based on supplier info"
-msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
@@ -241,8 +220,8 @@ msgid "Product Variant"
 msgstr "Produktvorlage"
 
 #. module: product_supplierinfo_for_customer
-#: selection:product.pricelist.item,base:0
-msgid "Public Price"
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
+msgid "Quantity"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -267,16 +246,16 @@ msgid "Supplier Pricelist"
 msgstr "Preisliste"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
-msgid ""
-"The minimal quantity to purchase from this vendor, expressed in the vendor "
-"Product Unit of Measure if not any, in the default unit of measure of the "
-"product otherwise."
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__price
+msgid "The price to purchase a product"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__price
-msgid "The price to purchase a product"
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
+msgid ""
+"The quantity to purchase from this vendor to benefit from the price, "
+"expressed in the vendor Product Unit of Measure if not any, in the default "
+"unit of measure of the product otherwise."
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -339,6 +318,10 @@ msgstr "Produktbezeichnung des Partners"
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Other Pricelist"
+#~ msgstr "Preisliste"
 
 #, fuzzy
 #~ msgid "Information about a product vendor"
