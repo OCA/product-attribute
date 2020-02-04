@@ -14,16 +14,12 @@
                 <group>
                     <group string="Customer">
                         <field name="product_id" groups="product.group_product_variant" domain="[('product_tmpl_id', '=', product_tmpl_id)]" options="{'no_create_edit': True}"/>
-                        <field name="name" string="Customer" context="{
-                            'default_supplier': 0,
-                            'search_default_customer': 1,
-                            'default_customer': 1,
-                        }"/>
+                        <field name="name" string="Customer" context="{'res_partner_search_mode': 'customer'}"/>
                         <field name="product_name" string="Customer Product Name"/>
                         <field name="product_code" string="Customer Product Code"/>
                         <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
                     </group>
-                    <group string="Price List" groups="product.group_pricelist_item">
+                    <group string="Price List">
                         <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
                         <label for="min_qty"/>
                         <div>
@@ -56,10 +52,11 @@
                 <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
                 <field name="product_name" string="Customer Product Name"/>
                 <field name="product_code" string="Customer Product Code"/>
-                <field name="min_qty" groups="product.group_pricelist_item"/>
-                <field name="price" string="Price" groups="product.group_pricelist_item"/>
-                <field name="date_start" groups="product.group_pricelist_item"/>
-                <field name="date_end" groups="product.group_pricelist_item"/>
+                <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                <field name="min_qty"/>
+                <field name="price" string="Price"/>
+                <field name="date_start" optional="hide"/>
+                <field name="date_end" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -70,23 +67,22 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
-                <group string="Customers" name="customers" attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
-                    <field name="customer_ids"
-                           nolabel="1"
-                           context="{
-                               'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
-                               'product_template_invisible_variant': True,
-                           }"
-                    />
-                </group>
-                <group string="Customers" name="variant_customers" attrs="{'invisible': [('product_variant_count','&lt;=',1)]}">
-                    <field name="variant_customer_ids"
+                <separator string="Customers"/>
+                <field name="customer_ids"
+                       nolabel="1"
+                       context="{
+                           'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                           'product_template_invisible_variant': True,
+                       }"
+                       attrs="{'invisible': [('product_variant_count','&gt;',1)]}"
+                />
+                <field name="variant_customer_ids"
                         nolabel="1"
                         context="{
                             'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
                         }"
-                    />
-                </group>
+                       attrs="{'invisible': [('product_variant_count','&lt;=',1)]}"
+                />
             </xpath>
         </field>
     </record>
