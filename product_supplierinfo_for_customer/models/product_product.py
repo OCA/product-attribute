@@ -10,7 +10,6 @@ from odoo import api, models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    @api.multi
     def name_get(self):
         res = super(ProductProduct, self.with_context(customerinfo=True)).name_get()
         return res
@@ -61,25 +60,26 @@ class ProductProduct(models.Model):
         res.extend(self.browse(product_ids).name_get())
         return res
 
-    @api.multi
     def _get_price_from_customerinfo(self, partner_id):
         self.ensure_one()
         if not partner_id:
             return 0.0
         customerinfo = self.env["product.customerinfo"].search(
             [
-                "|",
-                ("product_tmpl_id", "=", self.product_tmpl_id.id),
-                ("product_id", "=", self.id),
                 ("name", "=", partner_id),
+                "|",
+                ("product_id", "=", self.id),
+                "&",
+                ("product_tmpl_id", "=", self.product_tmpl_id.id),
+                ("product_id", "=", False),
             ],
             limit=1,
+            order="product_id, sequence",
         )
         if customerinfo:
             return customerinfo.price
         return 0.0
 
-    @api.multi
     def price_compute(self, price_type, uom=False, currency=False, company=False):
         if price_type == "partner":
             partner_id = self.env.context.get(
