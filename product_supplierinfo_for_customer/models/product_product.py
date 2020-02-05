@@ -51,10 +51,18 @@ class ProductProduct(models.Model):
         self.ensure_one()
         if not partner_id:
             return 0.0
-        customerinfo = self.env['product.customerinfo'].search(
-            ['|', ('product_tmpl_id', '=', self.product_tmpl_id.id),
-             ('product_id', '=', self.id),
-             ('name', '=', partner_id)], limit=1)
+        customerinfo = self.env["product.customerinfo"].search(
+            [
+                ("name", "=", partner_id),
+                "|",
+                ("product_id", "=", self.id),
+                "&",
+                ("product_tmpl_id", "=", self.product_tmpl_id.id),
+                ("product_id", "=", False),
+            ],
+            limit=1,
+            order="product_id, sequence",
+        )
         if customerinfo:
             return customerinfo.price
         return 0.0
