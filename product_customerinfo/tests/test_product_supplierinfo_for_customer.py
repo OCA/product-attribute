@@ -97,3 +97,79 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         self.assertEqual(
             res[self.product.id], 750.0, "Error: price does not match list price"
         )
+
+    def test_variant_supplierinfo_price(self):
+        """
+        This test check the price for a customer with a product with variants.
+        Create a pricelist based on partner price.
+        Assign specific price for a variant (100.0) and for template (all
+        other variants --> 30.0).
+        """
+        self.piece_template = self.env["product.template"].create(
+            {"name": "Piece for test", "price": 10.0, "company_id": self.company.id}
+        )
+        self.large_attribute = self.env["product.attribute"].create(
+            {"name": "Large test", "sequence": 1}
+        )
+        self.large_125 = self.env["product.attribute.value"].create(
+            {
+                "name": "Large 125",
+                "attribute_id": self.large_attribute.id,
+                "sequence": 1,
+            }
+        )
+        self.large_250 = self.env["product.attribute.value"].create(
+            {
+                "name": "Large 250",
+                "attribute_id": self.large_attribute.id,
+                "sequence": 2,
+            }
+        )
+        self.piece_large_attribute_lines = self.env[
+            "product.template.attribute.line"
+        ].create(
+            {
+                "product_tmpl_id": self.piece_template.id,
+                "attribute_id": self.large_attribute.id,
+                "value_ids": [(6, 0, [self.large_125.id, self.large_250.id])],
+            }
+        )
+
+        template = self.piece_template
+        product = template.product_variant_ids[0]
+        product_1 = template.product_variant_ids[1]
+
+        pricelist = self.env["product.pricelist"].create(
+            {
+                "name": "Test Pricelist Customer",
+                "currency_id": self.env.ref("base.USD").id,
+            }
+        )
+        self.env["product.pricelist.item"].create(
+            {
+                "applied_on": "3_global",
+                "base": "partner",
+                "name": "Test Pricelist Item",
+                "pricelist_id": pricelist.id,
+                "compute_price": "formula",
+            }
+        )
+        self._create_partnerinfo("customer", self.customer, product)
+        price_by_template = self.env["product.customerinfo"].create(
+            {"name": self.customer.id, "product_tmpl_id": template.id, "price": 30.0}
+        )
+        res = product.with_context(partner_id=self.customer.id).price_compute(
+            "partner", product.uom_id, self.company.currency_id, self.company
+        )
+        self.assertEqual(res[product.id], 100.0)
+        res = product_1.with_context(partner_id=self.customer.id).price_compute(
+            "partner", product_1.uom_id, self.company.currency_id, self.company
+        )
+        self.assertEqual(res[product_1.id], 30.0)
+        # Remove template specific price, the price must be the template
+        # list_price
+        price_by_template.unlink()
+        res = product_1.with_context(partner_id=self.customer.id).price_compute(
+            "partner", product_1.uom_id, self.company.currency_id, self.company
+        )
+        self.assertEqual(res[product_1.id], 10.0)
