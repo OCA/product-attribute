@@ -24,5 +24,5 @@ class ProductProfile(models.Model):
         "whether it will be bought, manufactured, MTO/MTS,...",
     )
     profile_default_categ_id = fields.Many2one(
-        "product.category", string="Default category"
+        "product.category", string="Default category", required=True
     )

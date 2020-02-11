@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="profile_own" model="product.profile">
+        <field name="name">My Own Type Saleable</field>
+        <field name="type">product</field>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="profile_default_categ_id" ref="product.product_category_all"/>
+        <field name="available_in_pos">True</field>
+        <field name="profile_default_route_ids" eval="[(6, 0, [ref('purchase_stock.route_warehouse0_buy')])]"/>
+        <field name="explanation">- My own type
+- Saleable product
+- Not purchasable</field>
+    </record>
+
+    <record id="profile_complete" model="product.profile">
+        <field name="name">Complete Profile</field>
+        <field name="type">product</field>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">True</field>
+        <field name="profile_default_categ_id" ref="product.product_category_all"/>
+        <field name="available_in_pos">True</field>
+        <field name="profile_default_route_ids" eval="[(6, 0, [ref('mrp.route_warehouse0_manufacture'),ref('stock.route_warehouse0_mto'),ref('purchase_stock.route_warehouse0_buy')])]"/>
+        <field name="explanation">- Stockable product
+- Saleable
+- Purchasable
+- Available in POS
+- MTO
+- Manufacturable</field>
+    </record>
+
+    <record id="profile_manuf" model="product.profile">
+        <field name="name">Manufacturing TO</field>
+        <field name="type">product</field>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="profile_default_categ_id" ref="product.product_category_5"/>
+        <field name="available_in_pos">True</field>
+        <field name="profile_default_route_ids" eval="[(6, 0, [ref('mrp.route_warehouse0_manufacture'),ref('stock.route_warehouse0_mto')])]"/>
+        <field name="explanation">- Manufacturing Product
+- Make to order product
+- Display on POS</field>
+    </record>
+
+    <record id="profile_consu" model="product.profile">
+        <field name="name">Consumable</field>
+        <field name="type">consu</field>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="profile_default_categ_id" ref="product.product_category_all"/>
+        <field name="available_in_pos">False</field>
+        <field name="explanation">Consumable</field>
+    </record>
+
+
+</odoo>

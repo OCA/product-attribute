@@ -14,7 +14,7 @@ See its description.
 Configuration
 =============
 
-Optionnaly:
+Optionally:
 
 * Settings > Configuration > General Settings: check 'Display fields in Profile' and apply
   (only if you want display hidden fields set by profile git )
@@ -39,6 +39,7 @@ Contributors
 ------------
 
 * David BEAL <david.beal@akretion.com>
+* Kevin KHAO <kevin.khao@akretion.com>
 
 Maintainer
 ----------
