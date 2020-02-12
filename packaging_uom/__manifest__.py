@@ -3,20 +3,14 @@
 {
     "name": "Packaging UOM",
     "version": "12.0.1.0.1",
-    "author": 'ACSONE SA/NV, '
-              'Odoo Community Association (OCA)',
+    "author": "ACSONE SA/NV, Odoo Community Association (OCA)",
     "category": "Warehouse",
     "development_status": "Production/Stable",
     "maintainers": ["rousseldenis"],
     "website": "https://github.com/OCA/product-attribute",
-    'summary': "Use uom in package",
-    "depends": [
-        "uom",
-        "product",
-    ],
-    "data": [
-        "views/product_packaging_views.xml",
-    ],
+    "summary": "Use uom in package",
+    "depends": ["uom", "product"],
+    "data": ["views/product_packaging_views.xml"],
     "license": "AGPL-3",
     "installable": True,
 }
