@@ -17,3 +17,8 @@
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * [MIG] packaging_uom: Migration to 12.0
+
+13.0.1.0.0 (2020-02-13)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* [MIG] packaging_uom: Migration to 13.0
