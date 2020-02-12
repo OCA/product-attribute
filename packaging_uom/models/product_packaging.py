@@ -26,7 +26,7 @@ class ProductPackaging(models.Model):
     uom_id = fields.Many2one(
         "uom.uom",
         "Packaging Unit of Measure",
-        help="It must be in the same category than " "the default unit of measure.",
+        help="It must be in the same category than the default unit of measure.",
         required=False,
     )
     uom_categ_domain_id = fields.Many2one(
@@ -37,7 +37,6 @@ class ProductPackaging(models.Model):
         compute="_compute_qty", inverse="_inverse_qty", store=True, readonly=True
     )
 
-    @api.multi
     @api.depends("uom_id", "product_id.uom_id")
     def _compute_qty(self):
         """
@@ -55,7 +54,6 @@ class ProductPackaging(models.Model):
     def onchange_product_id(self):
         self.uom_categ_domain_id = self.product_id.uom_id.category_id.id
 
-    @api.multi
     def _inverse_qty(self):
         """
         The inverse method is defined to make the code compatible with
@@ -83,7 +81,6 @@ class ProductPackaging(models.Model):
                 )
             packaging.uom_id = uom_id
 
-    @api.multi
     @api.constrains("uom_id")
     def _check_uom_id(self):
         """ Check uom_id is not null
@@ -93,4 +90,4 @@ class ProductPackaging(models.Model):
         """
         for rec in self:
             if not rec.uom_id:
-                raise ValidationError(_("The field Unit of Measure is " "required"))
+                raise ValidationError(_("The field Unit of Measure is required"))
