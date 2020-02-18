@@ -20,6 +20,19 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: product_variant_inactive
+#: model:ir.model.fields,field_description:product_variant_inactive.field_product_product__product_variant_count_all
+#: model:ir.model.fields,field_description:product_variant_inactive.field_product_template__product_variant_count_all
+msgid "Inactive variants"
+msgstr ""
+
+#. module: product_variant_inactive
 #: model:ir.model,name:product_variant_inactive.model_product_product
 msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_variant_inactive
+#: model:ir.model,name:product_variant_inactive.model_product_template
+#, fuzzy
+#| msgid "Product"
+msgid "Product Template"
 msgstr "Proizvod"
