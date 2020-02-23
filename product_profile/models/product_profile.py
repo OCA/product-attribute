@@ -1,7 +1,7 @@
-# coding: utf-8
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from copy import deepcopy
 import logging
 from odoo import models, fields, api, _
 from odoo.osv import orm
@@ -43,6 +43,7 @@ def get_profile_fields_to_exclude():
         "name",
         "explanation",
         "sequence",
+        "id",
         "display_name",
         "__last_update",
     ]
@@ -51,6 +52,7 @@ def get_profile_fields_to_exclude():
 class ProductProfile(models.Model):
     _name = "product.profile"
     _order = "sequence, name"
+    _description = "Product Profile"
 
     name = fields.Char(
         required=True,
@@ -63,7 +65,6 @@ class ProductProfile(models.Model):
     )
     explanation = fields.Text(
         required=True,
-        oldname="description",
         help="An explanation on the selected profile\n"
         "(not synchronized with product.template fields)",
     )
@@ -73,37 +74,40 @@ class ProductProfile(models.Model):
         help="See 'type' field in product.template",
     )
 
-    @api.multi
     def write(self, vals):
-        """ Profile update can impact products: we take care
-            to propagate ad hoc changes """
-        new_vals = vals.copy()
+        """ Profile update can impact products: we take care to propagate
+        ad hoc changes. If on the profile at least one field has changed,
+        re-apply its values on relevant products"""
         excludable_fields = get_profile_fields_to_exclude()
+        values_to_keep = deepcopy(vals)
         for key in vals:
-            if (
+            discard_value = (
                 key.startswith(PROF_DEFAULT_STR)
                 or key in excludable_fields
-                or self.check_useless_key_in_vals(new_vals, key)
-            ):
-                new_vals.pop(key)
-        # super call must be after check_useless_key_in_vals() call
-        # because we compare value before and after write
-        res = super(ProductProfile, self).write(new_vals)
-        if new_vals:
-            for rec in self:
-                products = self.env["product.product"].search(
-                    [("profile_id", "=", rec.id)]
-                )
-                if products:
-                    _logger.info(
-                        " >>> %s Products updating after updated '%s' pro"
-                        "duct profile" % (len(products), rec.name)
-                    )
-                    data = products._get_vals_from_profile(
-                        {"profile_id": rec.id}
-                    )
-                    products.write(data)
+                or self.check_useless_key_in_vals(vals, key)
+            )
+            if discard_value:
+                values_to_keep.pop(key)
+        if values_to_keep:
+            self._refresh_products_vals()
+        res = super().write(vals)
         return res
+
+    def _refresh_products_vals(self):
+        """Reapply profile values on products"""
+        for rec in self:
+            products = self.env["product.product"].search(
+                [("profile_id", "=", rec.id)]
+            )
+            if products:
+                _logger.info(
+                    " >>> %s Products updating after updated '%s' pro"
+                    "duct profile" % (len(products), rec.name)
+                )
+                data = products._get_vals_from_profile(
+                    {"profile_id": rec.id}, ignore_defaults=True
+                )
+                products.write(data)
 
     @api.model
     def check_useless_key_in_vals(self, vals, key):
@@ -130,7 +134,7 @@ class ProductProfile(models.Model):
         self, view_id=None, view_type="form", toolbar=False, submenu=False
     ):
         """ Display a warning for end user if edit record """
-        res = super(ProductProfile, self).fields_view_get(
+        res = super().fields_view_get(
             view_id=view_id,
             view_type=view_type,
             toolbar=toolbar,
@@ -152,6 +156,7 @@ class ProductProfile(models.Model):
 
 class ProductMixinProfile(models.AbstractModel):
     _name = "product.mixin.profile"
+    _description = "Product Profile Mixin"
 
     @api.model
     def _get_profile_fields(self):
@@ -163,34 +168,44 @@ class ProductMixinProfile(models.AbstractModel):
         ]
 
     @api.model
-    def _get_vals_from_profile(self, values):
+    def _get_vals_from_profile(self, product_values, ignore_defaults=False):
+        res = {}
         profile_obj = self.env["product.profile"]
         fields = self._get_profile_fields()
-        vals = profile_obj.browse(values["profile_id"]).read(fields)[0]
-        vals.pop("id")
-        for field, value in vals.items():
-            if value and profile_obj._fields[field].type == "many2one":
+        profile_vals = profile_obj.browse(product_values["profile_id"]).read(
+            fields
+        )[0]
+        profile_vals.pop("id")
+        profile_vals = self._reformat_relationals(profile_vals)
+        for key, val in profile_vals.items():
+            if key[:LEN_DEF_STR] == PROF_DEFAULT_STR:
+                if not ignore_defaults:
+                    destination_field = key[LEN_DEF_STR:]
+                    res[destination_field] = val
+            else:
+                res[key] = val
+        return res
+
+    def _reformat_relationals(self, profile_vals):
+        res = deepcopy(profile_vals)
+        profile_obj = self.env["product.profile"]
+        for key, value in profile_vals.items():
+            if value and profile_obj._fields[key].type == "many2one":
                 # m2o value is a tuple
-                vals[field] = value[0]
-            if profile_obj._fields[field].type == "many2many":
-                vals[field] = [(6, 0, value)]
-            if PROF_DEFAULT_STR == field[:LEN_DEF_STR]:
-                if field[LEN_DEF_STR:] not in values:
-                    # we only put the default profile value
-                    # if their is no matching in default data
-                    vals[field[LEN_DEF_STR:]] = vals[field]
-                # prefixed fields must be removed from dict
-                # because they are in profile not in product
-                vals.pop(field)
-        return vals
+                res[key] = value[0]
+            if profile_obj._fields[key].type == "many2many":
+                res[key] = [(6, 0, value)]
+        return res
 
     @api.onchange("profile_id")
     def _onchange_from_profile(self):
         """ Update product fields with product.profile corresponding fields """
         self.ensure_one()
         if self.profile_id:
+            ignore_defaults = True if self._origin.profile_id else False
             values = self._get_vals_from_profile(
-                {"profile_id": self.profile_id.id}
+                {"profile_id": self.profile_id.id},
+                ignore_defaults=ignore_defaults,
             )
             for field, value in values.items():
                 try:
@@ -201,14 +216,23 @@ class ProductMixinProfile(models.AbstractModel):
     @api.model
     def create(self, vals):
         if vals.get("profile_id"):
-            vals.update(self._get_vals_from_profile(vals))
-        return super(ProductMixinProfile, self).create(vals)
+            vals.update(
+                self._get_vals_from_profile(vals, ignore_defaults=False)
+            )
+        return super().create(vals)
 
-    @api.multi
     def write(self, vals):
-        if vals.get("profile_id"):
-            vals.update(self._get_vals_from_profile(vals))
-        return super(ProductMixinProfile, self).write(vals)
+        profile_changed = vals.get("profile_id")
+        if profile_changed:
+            recs_has_profile = self.filtered(lambda r: r.profile_id)
+            recs_no_profile = self - recs_has_profile
+            recs_has_profile.write(
+                self._get_vals_from_profile(vals, ignore_defaults=True)
+            )
+            recs_no_profile.write(
+                self._get_vals_from_profile(vals, ignore_defaults=False)
+            )
+        return super().write(vals)
 
     @api.model
     def _get_default_profile_fields(self):
@@ -221,7 +245,9 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _customize_view(self, res, view_type):
-        profile_group = self.env.ref("product_profile.group_product_profile")
+        profile_group = self.env.ref(
+            "product_profile.group_product_profile_user"
+        )
         users_in_profile_group = [user.id for user in profile_group.users]
         default_fields = self._get_default_profile_fields()
         if view_type == "form":
