@@ -1,0 +1,3 @@
+- Streamlined behaviour of default/nondefault fields in every situation
+- More robust/less error-prone functionality for required fields or fields implicated in workflows
+- More flexible/configurable behaviour for profile fields (instead of only default/nondefault fields)
