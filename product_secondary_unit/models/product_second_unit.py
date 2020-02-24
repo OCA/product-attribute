@@ -18,7 +18,7 @@ class ProductSecondaryUnit(models.Model):
         required=True,
     )
     uom_id = fields.Many2one(
-        comodel_name='uom.uom',
+        comodel_name='product.uom',
         string='Secondary Unit of Measure',
         required=True,
         help="Default Secondary Unit of Measure.",
