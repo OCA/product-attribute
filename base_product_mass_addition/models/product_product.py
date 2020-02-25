@@ -34,7 +34,6 @@ class ProductProduct(models.Model):
         if not self.env.context.get('parent_id'):
             return
 
-    @api.multi
     def button_quick_open_product(self):
         self.ensure_one()
         return {
