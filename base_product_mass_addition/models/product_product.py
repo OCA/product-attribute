@@ -5,7 +5,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductProduct(models.Model):
@@ -34,7 +34,6 @@ class ProductProduct(models.Model):
         if not self.env.context.get("parent_id"):
             return
 
-    @api.multi
     def button_quick_open_product(self):
         self.ensure_one()
         return {
