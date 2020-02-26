@@ -26,26 +26,16 @@ class TestProductSupplierinfo(common.SavepointCase):
                     'name': cls.supplier1.id,
                     'min_qty': 5,
                     'price': 50,
+                    'sequence': 1,
                 }),
                 (0, 0, {
                     'name': cls.supplier2.id,
                     'min_qty': 1,
                     'price': 10,
+                    'sequence': 2,
                 }),
             ],
         })
-        cls.product.write({'seller_ids': [
-            (0, 0, {
-                'name': cls.supplier1.id,
-                'min_qty': 5,
-                'price': 50,
-            }),
-            (0, 0, {
-                'name': cls.supplier2.id,
-                'min_qty': 1,
-                'price': 10,
-            }),
-        ]})
         cls.pricelist = cls.env['product.pricelist'].create({
             'name': 'Supplierinfo Pricelist',
             'discount_policy': 'without_discount',
@@ -107,7 +97,7 @@ class TestProductSupplierinfo(common.SavepointCase):
         )
         self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False), 10,
+            self.pricelist.get_product_price(self.product, 1, False), 50,
         )
 
     def test_pricelist_dates(self):

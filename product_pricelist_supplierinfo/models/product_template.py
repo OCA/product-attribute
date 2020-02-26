@@ -38,15 +38,8 @@ class ProductTemplate(models.Model):
                 ('date_end', '=', False),
                 ('date_end', '>=', date),
             ]
-        # We use a different default order because we are interested in getting
-        # the price for lowest minimum quantity if no_supplierinfo_min_quantity
-        supplierinfos = self.env['product.supplierinfo'].search(
-            domain, order='min_qty,sequence,price',
-        )
-        if rule.no_supplierinfo_min_quantity:
-            price = supplierinfos[:1].price
-        else:
-            price = supplierinfos[-1:].price
+        supplierinfos = self.env['product.supplierinfo'].search(domain)
+        price = supplierinfos[:1].price
         if price:
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
