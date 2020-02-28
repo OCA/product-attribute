@@ -14,13 +14,13 @@ Packaging UOM
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/12.0/packaging_uom
+    :target: https://github.com/OCA/product-attribute/tree/13.0/packaging_uom
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-12-0/product-attribute-12-0-packaging_uom
+    :target: https://translation.odoo-community.org/projects/product-attribute-13-0/product-attribute-13-0-packaging_uom
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/135/12.0
+    :target: https://runbot.odoo-community.org/runbot/135/13.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -33,13 +33,6 @@ The goal is to ease the use of packaging in sale and purchase.
 
 .. contents::
    :local:
-
-Installation
-============
-
-To install this module, you need to:
-
-* Click on install button
 
 Configuration
 =============
@@ -71,13 +64,18 @@ Changelog
 
 * [MIG] packaging_uom: Migration to 12.0
 
+13.0.1.0.0 (2020-02-13)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* [MIG] packaging_uom: Migration to 13.0
+
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20packaging_uom%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20packaging_uom%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -118,6 +116,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-rousseldenis| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/12.0/packaging_uom>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/13.0/packaging_uom>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
