@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo12-addon-base_product_mass_addition',
         'odoo12-addon-packaging_uom',
         'odoo12-addon-product_assortment',
+        'odoo12-addon-product_bom_revision',
         'odoo12-addon-product_brand',
         'odoo12-addon-product_code_mandatory',
         'odoo12-addon-product_code_unique',
