@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-product-attribute Odoo addons",
     version=version,
     install_requires=[
+        'odoo13-addon-packaging_uom',
         'odoo13-addon-product_assortment',
         'odoo13-addon-product_code_unique',
         'odoo13-addon-product_cost_security',
