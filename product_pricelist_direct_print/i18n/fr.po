@@ -51,6 +51,11 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<span>Special Pricelist</span>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Cost Price</strong>"
 msgstr ""
 
@@ -131,6 +136,11 @@ msgid "Filter Options"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
+msgid "Hide Pricelist Name"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
 msgstr ""
@@ -193,7 +203,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
-#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "Price List"
 msgstr ""
 
@@ -263,7 +272,7 @@ msgid "Show Variants"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:126
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:127
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""
