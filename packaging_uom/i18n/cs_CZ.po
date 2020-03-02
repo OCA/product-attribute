@@ -44,15 +44,15 @@ msgid "Product Packaging"
 msgstr "Obal"
 
 #. module: packaging_uom
-#: code:addons/packaging_uom/models/product_packaging.py:94
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
+msgid "Quantity of products contained in the packaging."
+msgstr ""
+
+#. module: packaging_uom
+#: code:addons/packaging_uom/models/product_packaging.py:0
 #, python-format
 msgid "The field Unit of Measure is required"
 msgstr "Je vyžadována polní jednotka měření"
-
-#. module: packaging_uom
-#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
-msgid "The total number of products you can have per pallet or box."
-msgstr ""
 
 #. module: packaging_uom
 #: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_categ_domain_id
