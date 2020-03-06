@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017-Today GRAP (http://www.grap.coop).
 # Copyright 2018 ACSONE SA/NV
 # Copyright 2018 Akretion (http://www.akretion.com).
@@ -8,6 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.addons import decimal_precision as dp
 
 
 class ProductTemplate(models.Model):
@@ -16,16 +16,18 @@ class ProductTemplate(models.Model):
     stock_state_threshold = fields.Float(
         compute="_compute_stock_state_threshold",
         store=True,
-        help="Define custom value under wich the stock state will pass from"
+        help="Define custom value under which the stock state will pass from"
         " 'In Stock' to 'In Limited Stock' State. If not set, Odoo will"
         " use the value defined in the product category. If"
         " no value is defined in product category, it will use the value"
         " defined for the company",
+        digits=dp.get_precision("Stock Threshold"),
     )
 
-    manual_stock_state_threshold = fields.Float()
+    manual_stock_state_threshold = fields.Float(
+        digits=dp.get_precision("Stock Threshold")
+    )
 
-    @api.multi
     @api.depends(
         "categ_id.stock_state_threshold", "manual_stock_state_threshold"
     )
