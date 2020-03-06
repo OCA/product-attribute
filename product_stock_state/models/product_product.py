@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017-Today GRAP (http://www.grap.coop).
 # Copyright 2018 ACSONE SA/NV
 # Copyright 2018 Akretion (http://www.akretion.com).
@@ -8,6 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.tools.float_utils import float_compare
 
 
 class ProductProduct(models.Model):
@@ -24,8 +24,7 @@ class ProductProduct(models.Model):
         selection=_STOCK_STATE_SELECTION, compute="_compute_stock_state"
     )
 
-    @api.multi
-    def _get_qty_available(self):
+    def _get_qty_available_for_stock_state(self):
         """
         This method can be overridden to provide the available qty.
         In some cases you could prefer to use the qty_available - outgoing_qty
@@ -34,16 +33,33 @@ class ProductProduct(models.Model):
         self.ensure_one()
         return self.qty_available
 
-    @api.multi
     @api.depends("qty_available", "incoming_qty")
     def _compute_stock_state(self):
         for product in self:
-            qty_available = product._get_qty_available()
-            if qty_available >= product._get_stock_state_threshold():
+            qty_available = product._get_qty_available_for_stock_state()
+            precision = self.env["decimal.precision"].precision_get(
+                "Stock Threshold"
+            )
+            if (
+                float_compare(
+                    qty_available,
+                    product._get_stock_state_threshold(),
+                    precision_digits=precision,
+                )
+                == 1
+            ):
                 product.stock_state = "in_stock"
-            elif qty_available > 0:
+            elif (
+                float_compare(qty_available, 0, precision_digits=precision,)
+                == 1
+            ):
                 product.stock_state = "in_limited_stock"
-            elif product.incoming_qty > 0:
+            elif (
+                float_compare(
+                    product.incoming_qty, 0, precision_digits=precision,
+                )
+                == 1
+            ):
                 product.stock_state = "resupplying"
             else:
                 product.stock_state = "out_of_stock"
