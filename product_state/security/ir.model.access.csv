@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_state_product_manager","product.state","model_product_state","base.group_partner_manager",1,1,1,1
+"access_product_state_public","product.state.public","model_product_state",,1,0,0,0
