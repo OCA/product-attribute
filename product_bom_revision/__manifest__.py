@@ -4,7 +4,7 @@
 {
     "name": "Product BOM revision",
     "summary": "Store the revision of a product and a BOM",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "license": "AGPL-3",
     "author": "C2i Change 2 improve,"
               "Odoo Community Association (OCA)",
