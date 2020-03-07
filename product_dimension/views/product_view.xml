@@ -9,9 +9,9 @@
         <xpath expr="//group[@name='inventory']" position="inside">
           <group name="dimensions" string="Dimensions" colspan="2">
             <field name="dimensional_uom_id"/>
-            <field name="length"/>
-            <field name="height"/>
-            <field name="width"/>
+            <field name="product_length" string="Length"/>
+            <field name="product_height" string="Height"/>
+            <field name="product_width" string="Width"/>
           </group>
         </xpath>
       </field>
@@ -26,9 +26,9 @@
           <group string="Dimensions" name="dimensions" colspan="2"
                 attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}">
             <field name="dimensional_uom_id"/>
-            <field name="length"/>
-            <field name="height"/>
-            <field name="width"/>
+            <field name="product_length" string="Length"/>
+            <field name="product_height" string="Height"/>
+            <field name="product_width" string="Width"/>
           </group>
         </xpath>
       </field>
