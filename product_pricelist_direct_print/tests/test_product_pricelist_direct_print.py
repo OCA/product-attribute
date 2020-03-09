@@ -13,7 +13,6 @@ class TestProductPricelistDirectPrint(SavepointCase):
         cls.pricelist = cls.env.ref('product.list0')
         cls.category = cls.env['product.category'].create({
             'name': 'Test category',
-            'type': 'normal',
         })
         cls.product = cls.env['product.product'].create({
             'name': 'Product for test',
