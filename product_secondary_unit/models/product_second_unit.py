@@ -10,7 +10,10 @@ class ProductSecondaryUnit(models.Model):
     name = fields.Char(required=True, translate=True)
     code = fields.Char()
     product_tmpl_id = fields.Many2one(
-        comodel_name="product.template", string="Product Template", required=True
+        comodel_name="product.template",
+        string="Product Template",
+        required=True,
+        ondelete="cascade",
     )
     uom_id = fields.Many2one(
         comodel_name="uom.uom",
