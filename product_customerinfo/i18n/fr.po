@@ -211,7 +211,6 @@ msgstr "Modèle d'article"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_id
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product Variant"
 msgstr "Modèle d'article"
 
