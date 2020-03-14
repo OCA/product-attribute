@@ -23,7 +23,11 @@ Unique Product Internal Reference
     :target: https://runbot.odoo-community.org/runbot/135/14.0
     :alt: Try me on Runbot
 
+<<<<<<< HEAD
 |badge1| |badge2| |badge3| |badge4| |badge5| 
+=======
+|badge1| |badge2| |badge3| |badge4| |badge5|
+>>>>>>> [UPD] README.rst
 
 This module adds a constraint on the internal reference of the product
 to make it unique across the database.
