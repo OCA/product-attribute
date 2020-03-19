@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_packaging_type_tree" model="ir.ui.view">
+        <field name="name">product.packaging.type.tree</field>
+        <field name="model">product.packaging.type</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <tree string="Product Packaging Type">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="code" />
+                <field name="has_gtin" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_product_packaging_type_form" model="ir.ui.view">
+        <field name="name">product.packaging.type.form</field>
+        <field name="model">product.packaging.type</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <form string="Product Packaging Type">
+                <sheet>
+                    <label for="name" string="Packaging Type" />
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group name="main">
+                        <group name="codes">
+                            <field name="code" />
+                            <field name="has_gtin" />
+                        </group>
+                        <group name="misc">
+                            <field name="sequence" />
+                            <field name="active" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_packaging_type_search" model="ir.ui.view">
+        <field name="name">product.packaging.type.search</field>
+        <field name="model">product.packaging.type</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <search string="Product Packaging Type">
+                <field name="name" />
+                <field name="code" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="act_open_product_packaging_type_view">
+        <field name="name">Product Packaging Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.packaging.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_product_packaging_type_search" />
+    </record>
+    <menuitem
+        id="menu_product_packaging_type"
+        parent="stock.menu_product_in_config_stock"
+        sequence="20"
+        groups="product.group_stock_packaging"
+        action="act_open_product_packaging_type_view"
+    />
+</odoo>
