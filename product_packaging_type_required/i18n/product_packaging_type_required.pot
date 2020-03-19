@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_packaging_type_required
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_packaging_type_required
+#: model:ir.actions.server,name:product_packaging_type_required.ir_cron_packaging_required_ir_actions_server
+#: model:ir.cron,cron_name:product_packaging_type_required.ir_cron_packaging_required
+#: model:ir.cron,name:product_packaging_type_required.ir_cron_packaging_required
+msgid "Packaging Required"
+msgstr ""
+
+#. module: product_packaging_type_required
+#: model:ir.model.fields,field_description:product_packaging_type_required.field_product_packaging_type__required
+msgid "Required"
+msgstr ""
+
+#. module: product_packaging_type_required
+#: model:ir.model,name:product_packaging_type_required.model_product_packaging_type
+msgid "Type management for product.packaging"
+msgstr ""
