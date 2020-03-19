@@ -15,6 +15,8 @@ setuptools.setup(
         'odoo13-addon-product_manufacturer',
         'odoo13-addon-product_multi_category',
         'odoo13-addon-product_packaging_dimension',
+        'odoo13-addon-product_packaging_type',
+        'odoo13-addon-product_packaging_type_required',
         'odoo13-addon-product_restricted_type',
         'odoo13-addon-product_secondary_unit',
         'odoo13-addon-product_sequence',
