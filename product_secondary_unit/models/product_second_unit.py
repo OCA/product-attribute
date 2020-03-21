@@ -22,7 +22,10 @@ class ProductSecondaryUnit(models.Model):
         help="Default Secondary Unit of Measure.",
     )
     factor = fields.Float(
-        string="Secondary Unit Factor", default=1.0, digits=0, required=True
+        string="Secondary Unit Factor",
+        default=1.0,
+        digits="Secondary Unit Factor",
+        required=True,
     )
 
     def name_get(self):
