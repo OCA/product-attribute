@@ -6,44 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-03-23 14:13+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
-msgstr ""
+msgstr "# de Produtos"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
-msgstr ""
+msgstr "Índice de Cores"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__company_id
 #: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome a Exibir"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
@@ -68,31 +70,31 @@ msgstr ""
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
-msgstr ""
+msgstr "Etiqueta de Produto"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 #: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
 msgid "Product Tags"
-msgstr ""
+msgstr "Etiquetas de Produto"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de Produto"
 
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
 msgid "Product Template Tag"
-msgstr ""
+msgstr "Etiqueta de Modelo de Produto"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
 msgid "Products"
-msgstr ""
+msgstr "Produtos"
