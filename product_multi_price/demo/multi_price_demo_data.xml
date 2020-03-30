@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo noupdate="1">
+
+    <record id="price_1" model="product.multi.price.name">
+        <field name="name">price_1</field>
+        <field name="company_id" ref="base.main_company" />
+    </record>
+
+</odoo>
