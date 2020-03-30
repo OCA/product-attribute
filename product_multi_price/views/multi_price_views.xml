@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="product_multi_price_tree_view" model="ir.ui.view">
+            <field name="model">product.multi.price</field>
+            <field name="arch" type="xml">
+                <tree string="Product Multi Price">
+                    <field name="product_id"/>
+                    <field name="name" widget="selection"/>
+                    <field name="price"/>
+                    <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_multi_price_form_view" model="ir.ui.view">
+            <field name="model">product.multi.price</field>
+            <field name="arch" type="xml">
+                <form string="Product Multi_price">
+                    <sheet>
+                        <group>
+                            <field name="name" widget="selection"/>
+                            <field name="product_id"/>
+                            <field name="price"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_multi_price_tree_view2" model="ir.ui.view">
+            <field name="model">product.multi.price</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="product_multi_price.product_multi_price_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="replace"/>
+                <tree position="attributes">
+                    <attribute name="editable">bottom</attribute>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_multi_price_name_tree_view" model="ir.ui.view">
+            <field name="model">product.multi.price.name</field>
+            <field name="arch" type="xml">
+                <tree string="Product Multi Price Field Name" editable="bottom">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_multi_price_name_config" model="ir.actions.act_window">
+            <field name="name">Price Field Names</field>
+            <field name="res_model">product.multi.price.name</field>
+            <field name="view_type">form</field>
+            <field name="context">{}</field>
+            <field name="view_id" ref="product_multi_price_name_tree_view"/>
+        </record>
+        <menuitem action="action_multi_price_name_config" id="multi_price_name_menu" parent="base.next_id_9"/>
+
+</odoo>
