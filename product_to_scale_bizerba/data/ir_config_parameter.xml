@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <data noupdate="1">
+        <record id="bizerba_folder_path" model="ir.config_parameter">
+            <field name="key">bizerba.local_folder_path</field>
+            <field name="value">/tmp/</field>
+        </record>
+    </data>
+</odoo>

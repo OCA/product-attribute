@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="view_product_scale_system_form" model="ir.ui.view">
+        <field name="model">product.scale.system</field>
+        <field name="arch" type="xml">
+            <form string="Scale System" version="7.0">
+                <header />
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active"/>
+                            <field name="encoding"/>
+                            <field name="field_ids" widget="many2many_tags"/>
+                            <field name="product_text_file_pattern"/>
+                            <field name="external_text_file_pattern"/>
+                        </group>
+                        <group name="FTP Connexion">
+                            <field name="ftp_host"/>
+                            <field name="ftp_port"/>
+                            <field name="ftp_login"/>
+                            <field name="ftp_password"/>
+                            <field name="csv_relative_path"/>
+                            <field name="product_image_relative_path"/>
+                            <field name="send_images"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Line Settings">
+                            <group>
+                                <field name="product_line_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="code"/>
+                                        <field name="name"/>
+                                        <field name="type"/>
+                                        <field name="field_id"
+                                            attrs="{'invisible': [('type', 'not in', ['external_text', 'numeric', 'text', 'many2one', 'many2many', 'product_image'])]}"/>
+                                        <field name="related_field_id"
+                                            attrs="{'invisible': [('type', 'not in', ['many2many', 'many2one'])]}"/>
+                                        <field name="x2many_range"
+                                            attrs="{'invisible': [('type', 'not in', ['many2many'])]}"/>
+                                        <field name="constant_value"
+                                            attrs="{'invisible': [('type', 'not in', ['external_constant', 'constant'])]}"/>
+                                        <field name="multiline_length"
+                                            attrs="{'invisible': [('type', 'not in', ['external_constant', 'text'])]}"/>
+                                        <field name="multiline_separator"
+                                            attrs="{'invisible': [('type', 'not in', ['text'])]}"/>
+                                        <field name="suffix"
+                                            attrs="{'invisible': [('type', 'not in', ['product_image'])]}"/>
+                                        <field name="numeric_coefficient"
+                                            attrs="{'invisible': [('type', 'not in', ['numeric'])]}"/>
+                                        <field name="numeric_round"
+                                            attrs="{'invisible': [('type', 'not in', ['numeric'])]}"/>
+                                        <field name="delimiter"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_scale_system" model="ir.actions.act_window">
+        <field name="name">Scale Systems</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.scale.system</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_scale_root"
+        name="Scales"
+        parent="sale.menu_sale_config" sequence="25"/>
+
+    <menuitem id="menu_product_scale_system"
+        parent="menu_scale_root" sequence="1"
+        action="action_product_scale_system"/>
+</odoo>

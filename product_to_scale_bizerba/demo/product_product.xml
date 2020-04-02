@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <record id="apple" model="product.product">
+        <field name="name">Apple (Gala, small)</field>
+        <field name="list_price">2.05</field>
+        <field name="barcode">2341321000002</field>
+        <field name="uom_id" ref="uom.product_uom_kgm" />
+        <field name="uom_po_id" ref="uom.product_uom_kgm" />
+        <field name="scale_group_id" ref="demo_scale_group_fruits" />
+        <field name="scale_tare_weight">0.015</field>
+        <field name="scale_sequence">1</field>
+    </record>
+
+    <record id="salad" model="product.product">
+        <field name="name">Salade (Lettuce, Mache)</field>
+        <field name="list_price">1.20</field>
+        <field name="barcode">2304639000003</field>
+        <field name="weight">0.250</field>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
+        <field name="scale_group_id" ref="demo_scale_group_vegetables" />
+        <field name="scale_tare_weight">0.005</field>
+        <field name="scale_sequence">1</field>
+    </record>
+
+    <record id="cucumber" model="product.product">
+        <field name="name">Cucumber (Green)</field>
+        <field name="list_price">2.40</field>
+        <field name="barcode">2304062000007</field>
+        <field name="uom_id" ref="uom.product_uom_kgm" />
+        <field name="scale_group_id" ref="demo_scale_group_vegetables" />
+        <field name="uom_po_id" ref="uom.product_uom_kgm" />
+        <field name="scale_tare_weight">0.015</field>
+        <field name="scale_sequence">2</field>
+    </record>
+</odoo>

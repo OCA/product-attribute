@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="view_product_scale_group_tree" model="ir.ui.view">
+        <field name="model">product.scale.group</field>
+        <field name="arch" type="xml">
+            <tree string="Scale Groups">
+                <field name="name"/>
+                <field name="product_qty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_scale_group_form" model="ir.ui.view">
+        <field name="model">product.scale.group</field>
+        <field name="arch" type="xml">
+            <form string="Scale Group" version="7.0">
+                <header/>
+                <sheet>
+                    <group>
+                        <group>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1><field name="name"/></h1>
+                                <label for="external_identity"/>
+                                 <h2><field name="external_identity"/></h2>
+                            </div>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="scale_system_id" />
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="active"/>
+                                <field name="product_qty" />
+                            </group>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products">
+                            <group colspan="4">
+								<button name="send_all_to_scale_create" type="object" string="Resend Creation All To the Scale System"/>
+								<button name="send_all_to_scale_write" type="object" string="Resend Update All To the Scale System"/>
+							</group>
+                            <group>
+                                <separator string="Products" colspan="4"/>
+                                <field name="product_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="scale_sequence"/>
+                                        <field name="name"/>
+                                        <field name="list_price"/>
+                                        <field name="uom_id"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="action_product_scale_group" model="ir.actions.act_window">
+        <field name="name">Scale Groups</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.scale.group</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+     <menuitem id="menu_product_scale_group"
+        parent="menu_scale_root" sequence="2"
+        action="action_product_scale_group"/>
+</odoo>
