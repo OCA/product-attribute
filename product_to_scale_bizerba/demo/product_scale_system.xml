@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+	<record id="demo_scale_system" model="product.scale.system">
+		<field name="name">Bizerba Demo System</field>
+		<field name="csv_relative_path">/bizerba_test/IMPORT/</field>
+		<field name="product_image_relative_path">/bizerba_test/IMAGE_IMPORT/</field>
+		<field name="external_text_file_pattern">TEXT_MAG_0000_%Y%m%d_%H%M%S.CSV</field>
+		<field name="product_text_file_pattern">ARTI_MAG_0000_%Y%m%d_%H%M%S.CSV</field>
+	</record>
+</odoo>

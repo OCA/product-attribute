@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <record id="demo_scale_group_fruits" model="product.scale.group">
+        <field name="name">Fruits</field>
+        <field name="scale_system_id" ref="demo_scale_system" />
+        <field name="external_identity">1</field>
+    </record>
+
+    <record id="demo_scale_group_vegetables" model="product.scale.group">
+        <field name="name">Végetables</field>
+        <field name="scale_system_id" ref="demo_scale_system" />
+        <field name="external_identity">2</field>
+    </record>
+</odoo>

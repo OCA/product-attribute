@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+	<record id="base.user_root" model="res.users">
+		<field name="groups_id" eval="[
+			(4, ref('base.group_no_one')),
+			(4, ref('sales_team.group_sale_manager')),
+			(4, ref('uom.group_uom')),
+			(4, ref('product.group_product_variant')),
+			]" />
+	</record>
+</odoo>

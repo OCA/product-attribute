@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_send_to_scale" model="ir.cron">
+            <field name="name">Send to Scale</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_product_scale_log"/>
+            <field name="active" eval="False"/>
+            <field name="code">model.cron_send_to_scale()</field>
+            <field name="state">code</field>
+        </record>
+    </data>
+</odoo>

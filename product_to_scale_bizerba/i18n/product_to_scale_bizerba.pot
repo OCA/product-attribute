@@ -1,0 +1,686 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_to_scale_bizerba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__action
+msgid "Action"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__active
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__active
+msgid "Active"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:product.product,name:product_to_scale_bizerba.apple
+#: model:product.template,name:product_to_scale_bizerba.apple_product_template
+msgid "Apple (Gala, small)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__code
+msgid "Bizerba Code"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.module.category,name:product_to_scale_bizerba.category_bizerba_scale
+msgid "Bizerba Scale"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:res.groups,name:product_to_scale_bizerba.group_manager
+msgid "Bizerba Scale Manager"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:res.groups,name:product_to_scale_bizerba.group_user
+msgid "Bizerba Scale User"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_confirm_update_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "Char / Text Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__company_id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__company_id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__company_id
+msgid "Company"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_confirm_update_wizard_form
+msgid "Confirm"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_confirm_update_wizard
+msgid "Confirm Update Wizard"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_confirm_update_wizard_form
+msgid "Confirmation"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__constant_value
+#: selection:product.scale.system.product.line,type:0
+msgid "Constant Value"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard__create_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__create_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__create_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__create_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard__create_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__create_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__create_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__create_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.log,action:0
+msgid "Creation"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:product.product,name:product_to_scale_bizerba.cucumber
+#: model:product.template,name:product_to_scale_bizerba.cucumber_product_template
+msgid "Cucumber (Green)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.log,action:0
+msgid "Deletion"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__delimiter
+msgid "Delimiter Char"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard__display_name
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__display_name
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__display_name
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__display_name
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__encoding
+msgid "Encoding"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "External Constant Text Value"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__external_identity
+msgid "External ID"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__external_text
+msgid "External Text"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__external_text_display
+msgid "External Text (Display)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "External Text Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__external_text_file_pattern
+msgid "External Text File Pattern"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__ftp_login
+msgid "FTP Login"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__ftp_password
+msgid "FTP Password"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__ftp_host
+msgid "FTP Server Host"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__ftp_port
+msgid "FTP Server Port"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__field_ids
+msgid "Fields"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.actions.act_window,name:product_to_scale_bizerba.action_product_scale_force_update
+#: model:ir.ui.menu,name:product_to_scale_bizerba.menu_product_scale_update
+msgid "Force Update"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard__id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__id
+msgid "ID"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__sent
+msgid "Is Sent"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard____last_update
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group____last_update
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log____last_update
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system____last_update
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__last_send_date
+msgid "Last Send Date"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard__write_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__write_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__write_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__write_uid
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_confirm_update_wizard__write_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__write_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__write_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__write_date
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system,encoding:0
+msgid "Latin 1 (cp1252)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system,encoding:0
+msgid "Latin 1 (iso-8859-1)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__multiline_length
+msgid "Length for Multiline"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_system_form
+msgid "Line Settings"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__log_date
+msgid "Log Date"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.actions.act_window,name:product_to_scale_bizerba.action_product_scale_log
+#: model:ir.ui.menu,name:product_to_scale_bizerba.menu_product_scale_log
+msgid "Logs"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__related_field_id
+msgid "M2M / M2O Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_product_form
+msgid "Manual Deletion in the Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "Many2Many Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "ManyOne Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__name
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__name
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__name
+msgid "Name"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__numeric_coefficient
+msgid "Numeric Coefficient"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "Numeric Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.log,activity_state:0
+msgid "Overdue"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system__external_text_file_pattern
+msgid "Pattern of the External Text file. Use % to include dated information.\n"
+" Ref: https://docs.python.org/2/library/time.html#time.strftime"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system__product_text_file_pattern
+msgid "Pattern of the Product file. Use % to include dated information.\n"
+" Ref: https://docs.python.org/2/library/time.html#time.strftime"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.log,activity_state:0
+msgid "Planned"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_product_product
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__product_id
+msgid "Product"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__field_id
+msgid "Product Field"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "Product ID"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system.product.line,type:0
+msgid "Product Image"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__product_line_ids
+msgid "Product Lines"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_product_scale_group
+msgid "Product Scale Group"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_product_scale_system
+msgid "Product Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_product_scale_system_product_line
+msgid "Product Scale System Product"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__product_text
+msgid "Product Text"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__product_text_file_pattern
+msgid "Product Text File Pattern"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__product_ids
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_group_form
+msgid "Products"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__product_qty
+msgid "Products Quantity"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__csv_relative_path
+msgid "Relative Path for CSV"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__product_image_relative_path
+msgid "Relative Path for Product Images"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_group_form
+msgid "Resend Creation All To the Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_product_form
+msgid "Resend Creation To the Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_group_form
+msgid "Resend Update All To the Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_product_form
+msgid "Resend Update To the Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__numeric_round
+msgid "Rounding Method"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:product.product,name:product_to_scale_bizerba.salad
+#: model:product.template,name:product_to_scale_bizerba.salad_product_template
+msgid "Salade (Lettuce, Mache)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_product_form
+msgid "Scale"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_product__scale_group_id
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_group_form
+msgid "Scale Group"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.actions.act_window,name:product_to_scale_bizerba.action_product_scale_group
+#: model:ir.ui.menu,name:product_to_scale_bizerba.menu_product_scale_group
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_group_tree
+msgid "Scale Groups"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_log_form
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_log_tree
+msgid "Scale Log"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_product__scale_sequence
+msgid "Scale Sequence"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_group__scale_system_id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_log__scale_system_id
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__scale_system_id
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_system_form
+msgid "Scale System"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.actions.act_window,name:product_to_scale_bizerba.action_product_scale_system
+#: model:ir.ui.menu,name:product_to_scale_bizerba.menu_product_scale_system
+msgid "Scale Systems"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_product__scale_tare_weight
+msgid "Scale Tare Weight"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_uom_uom__scale_type
+msgid "Scale Type"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.ui.menu,name:product_to_scale_bizerba.menu_scale_root
+msgid "Scales"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system__send_images
+msgid "Send Image To Scale"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model_terms:ir.ui.view,arch_db:product_to_scale_bizerba.view_product_scale_log_form
+msgid "Send to FTP Server"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.actions.server,name:product_to_scale_bizerba.ir_cron_send_to_scale_ir_actions_server
+#: model:ir.cron,cron_name:product_to_scale_bizerba.ir_cron_send_to_scale
+#: model:ir.cron,name:product_to_scale_bizerba.ir_cron_send_to_scale
+msgid "Send to Scale"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__multiline_separator
+msgid "Separator for Multiline"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_product__scale_tare_weight
+msgid "Set here Constant tare weight for the given product. This tare will be substracted when the product is weighted. Usefull only for weightable product.\n"
+"The tare is defined with kg uom."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_log__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__suffix
+msgid "Suffix"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.log,activity_state:0
+msgid "Today"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__type
+msgid "Type"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.system,encoding:0
+msgid "UTF-8"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:product.product,uom_name:product_to_scale_bizerba.salad
+#: model:product.template,uom_name:product_to_scale_bizerba.salad_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: selection:product.scale.log,action:0
+msgid "Update"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__suffix
+msgid "Used if type is 'External Text Field', to indicate how to suffix the field.\n"
+" Make sure to have a uniq value by Scale System, and all with the same size.\n"
+"\n"
+" Used if type is Product Image to mention the end of the file. Exemple : '_01.jpg'."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__x2many_range
+msgid "Used if type is 'Many2Many Field', to mention the range of the field  to send. Begin by 0. (used for exemple for product logos)"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__numeric_round
+msgid "Used if type is 'Numeric Field', to mention how the value should be rounded.\n"
+" Do not Use 0, because it will truncate the value."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__numeric_coefficient
+msgid "Used if type is 'Numeric Field', to mention with coefficient numeric field should be multiplyed."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__multiline_length
+msgid "Used if type is 'Text Field' or 'External Text Constant', to indicate the max length of a line. Set 0 to avoid to split the value."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__multiline_separator
+msgid "Used if type is 'Text Field' or 'External Text Constant', to indicate wich text will be used to mention break lines."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__constant_value
+msgid "Used if type is 'constant', to send allways the same value."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__related_field_id
+msgid "Used only for the x2x fields. Set here the field of the related model that you want to send to the scale. Let empty to send the ID."
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,help:product_to_scale_bizerba.field_product_scale_system_product_line__delimiter
+msgid "Used to finish the column"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:product.product,uom_name:product_to_scale_bizerba.apple
+#: model:product.product,uom_name:product_to_scale_bizerba.cucumber
+#: model:product.product,weight_uom_name:product_to_scale_bizerba.apple
+#: model:product.product,weight_uom_name:product_to_scale_bizerba.cucumber
+#: model:product.product,weight_uom_name:product_to_scale_bizerba.salad
+#: model:product.template,uom_name:product_to_scale_bizerba.apple_product_template
+#: model:product.template,uom_name:product_to_scale_bizerba.cucumber_product_template
+#: model:product.template,weight_uom_name:product_to_scale_bizerba.apple_product_template
+#: model:product.template,weight_uom_name:product_to_scale_bizerba.cucumber_product_template
+#: model:product.template,weight_uom_name:product_to_scale_bizerba.salad_product_template
+msgid "kg"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model,name:product_to_scale_bizerba.model_product_scale_log
+msgid "product.scale.log"
+msgstr ""
+
+#. module: product_to_scale_bizerba
+#: model:ir.model.fields,field_description:product_to_scale_bizerba.field_product_scale_system_product_line__x2many_range
+msgid "range of the x2Many Fields"
+msgstr ""
+
