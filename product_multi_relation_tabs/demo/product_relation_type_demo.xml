@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Machine is installed using Installation service -->
+    <record
+        id="relation_type_machine_is_installed_using_service"
+        model="product.relation.type">
+
+        <field name="product_type_left">consu</field>
+        <field name="product_category_left" ref="category_machine"/>
+        <field name="tab_id_left" ref="tab_services" />
+
+        <field name="name">is installed using</field>
+        <field name="name_inverse">can install</field>
+
+        <field name="product_type_right">service</field>
+        <field name="product_category_right" ref="category_associated_service"/>
+    </record>
+
+    <!-- Machine is supported by Support Service -->
+    <record
+        id="relation_type_machine_supported_by_service"
+        model="product.relation.type">
+        <field name="name">is supported by</field>
+        <field name="name_inverse">supports</field>
+
+        <field name="product_type_left">consu</field>
+        <field name="product_category_left" ref="category_machine"/>
+        <field name="tab_id_left" ref="tab_services" />
+
+        <field name="product_type_right">service</field>
+        <field name="product_category_right" ref="category_associated_service"/>
+        <field name="tab_righ_id" ref="tab_supported_machines" />
+    </record>
+
+    <!-- Machine has Spares -->
+    <!-- TODO: add type & category left? -->
+    <record
+        id="relation_type_machine_has_spare"
+        model="product.relation.type">
+        <field name="name">has spare part</field>
+        <field name="name_inverse">is spare part of</field>
+
+        <field name="product_type_left">consu</field>
+        <field name="product_category_left" ref="category_machine"/>
+        <field name="tab_id_left" ref="tab_spares" />
+
+        <field name="product_type_right">consu</field>
+        <field name="product_category_right" ref="category_spare"/>
+    </record>
+
+</odoo>

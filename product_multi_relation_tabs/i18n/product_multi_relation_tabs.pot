@@ -1,0 +1,264 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_multi_relation_tabs
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_multi_relation_tabs
+#: model:ir.model,name:product_multi_relation_tabs.model_product_relation_all
+msgid "All (non-inverse + inverse) relations between products"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model,name:product_multi_relation_tabs.model_product_relation_type_selection
+msgid "All relation types"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__code
+msgid "Code"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.tab,name:product_multi_relation_tabs.tab_installation_services
+msgid "Company executive board"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model,name:product_multi_relation_tabs.model_product
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: code:addons/product_multi_relation_tabs/models/product_relation_type.py:33
+#, python-format
+msgid "Product type left not compatible with left tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: code:addons/product_multi_relation_tabs/models/product_relation_type.py:53
+#, python-format
+msgid "Product type right not compatible with right tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.category,name:product_multi_relation_tabs.category_service
+msgid "Department"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.category,name:product_multi_relation_tabs.category_spare
+msgid "Functionary"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model_terms:ir.ui.view,arch_db:product_multi_relation_tabs.form_product_tab
+msgid "General"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.category,name:product_multi_relation_tabs.category_machine
+msgid "Government"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.tab,name:product_multi_relation_tabs.tab_supporting_services
+msgid "Government committee"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__id
+msgid "ID"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_tab__code
+msgid "Language independent code for tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__name
+msgid "Name"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.tab,name:product_multi_relation_tabs.tab_spares
+msgid "Our departments"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: code:addons/product_multi_relation_tabs/tablib/tab.py:56
+#, python-format
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model,name:product_multi_relation_tabs.model_product_relation_type
+msgid "Product Relation Type"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: code:addons/product_multi_relation_tabs/models/product_relation_type.py:38
+#, python-format
+msgid "Product category left not compatible with left tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: code:addons/product_multi_relation_tabs/models/product_relation_type.py:58
+#, python-format
+msgid "Product category right not compatible with right tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__product_ids
+msgid "Products with this tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.tab,name:product_multi_relation_tabs.tab_supported_machines
+msgid "Positions held"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.actions.act_window,name:product_multi_relation_tabs.action_product_tab
+#: model:ir.ui.menu,name:product_multi_relation_tabs.menu_product_tab
+msgid "Relation Tabs"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model_terms:ir.ui.view,arch_db:product_multi_relation_tabs.form_product_tab
+msgid "Select product type and category for tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model_terms:ir.ui.view,arch_db:product_multi_relation_tabs.form_product_tab
+msgid "Select specific products to have this tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_all__tab_id
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type_selection__tab_id
+msgid "Show relation on tab"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type__tab_id_right
+msgid "Tab for inverse relation"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type__tab_id_left
+msgid "Tab for this relation"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_relation_type__tab_id_right
+msgid "Tab in which inverse relations will be visible on product."
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_relation_type__tab_id_left
+msgid "Tab in which these relations will be visible on product."
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model,name:product_multi_relation_tabs.model_product_tab
+msgid "Tabs to add to product"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_tab__product_ids
+msgid "This tab will only show for certain products.\n"
+"Do not combine this with selection for product type or category."
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__product_category_id
+msgid "Valid for product category"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_tab__product_type
+msgid "Valid for product type"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_tab__name
+msgid "Will provide title for tab in user language"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: code:addons/product_multi_relation_tabs/models/product_tab.py:49
+#, python-format
+msgid "You can not both specify product_ids and other criteria."
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.relation.type,name:product_multi_relation_tabs.relation_type_machine_is_installed_using_service
+msgid "has ceo"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.relation.type,name:product_multi_relation_tabs.relation_type_machine_supported_by_service
+msgid "has chairperson"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.relation.type,name:product_multi_relation_tabs.relation_type_machine_has_spare
+msgid "has department"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.relation.type,name_inverse:product_multi_relation_tabs.relation_type_machine_is_installed_using_service
+msgid "is ceo of"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.relation.type,name_inverse:product_multi_relation_tabs.relation_type_machine_supported_by_service
+msgid "is chairperson of"
+msgstr ""
+
+#. module: product_multi_relation_tabs
+#: model:product.relation.type,name_inverse:product_multi_relation_tabs.relation_type_machine_has_spare
+msgid "is department of"
+msgstr ""
+

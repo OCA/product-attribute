@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="tree_product_tab" model="ir.ui.view">
+            <field name="model">product.tab</field>
+            <field type="xml" name="arch">
+                <tree>
+                    <field name="code" />
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="form_product_tab" model="ir.ui.view">
+            <field name="model">product.tab</field>
+            <field type="xml" name="arch">
+                <form>
+                    <group colspan="6" col="4">
+                        <group
+                            id="tab_group_general" string="General"
+                            colspan="2" col="2"
+                            >
+                            <field name="code" />
+                            <field name="name" />
+                        </group>
+                        <group
+                            id="tab_group_target"
+                            string="Select product type and category for tab"
+                            colspan="2" col="2"
+                            >
+                            <field name="product_type" />
+                            <field name="product_category_id" />
+                        </group>
+                        <separator
+                            colspan="2"
+                            string="Select specific products to have this tab"
+                            />
+                        <field name="product_ids" colspan="2" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+</odoo>

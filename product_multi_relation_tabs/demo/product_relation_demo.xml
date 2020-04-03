@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Machine is installed using Installation Service -->
+    <record id="relation_m1_bis" model="product.relation">
+        <field name="left_product_id" ref="product_machine" />
+        <field name="right_product_id" ref="product_basic_is" />
+        <field name="type_id" ref="relation_type_machine_is_installed_using_service" />
+    </record>
+
+    <!-- Machine is supported using Support Service -->
+    <record id="relation_m1_pss" model="product.relation">
+        <field name="left_product_id" ref="product_machine" />
+        <field name="right_product_id" ref="product_premius_ss" />
+        <field name="type_id" ref="relation_type_machine_supported_by_service" />
+    </record>
+
+    <!-- Spare parts of machine. -->
+    <record id="relation_m1_sp1" model="product.relation">
+        <!-- <field name="left_product_id" ref="base.main_product" /> -->
+        <field name="left_product_id" ref="product_machine" />
+        <field name="right_product_id" ref="product_sp1" />
+        <field
+            name="type_id"
+            ref="relation_type_machine_has_spare"
+            />
+    </record>
+
+    <record id="relation_m1_sp2" model="product.relation">
+        <!-- <field name="left_product_id" ref="base.main_product" /> -->
+        <field name="left_product_id" ref="product_machine" />
+        <field name="right_product_id" ref="product_sp2" />
+        <field
+            name="type_id"
+            ref="relation_type_machine_has_spare"
+            />
+    </record>
+
+</odoo>

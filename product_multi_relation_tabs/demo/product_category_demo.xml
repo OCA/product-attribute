@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Categories -->
+    <record id="category_machine" model="product.category">
+        <field name="name">Machine</field>
+    </record>
+
+    <record id="category_spare" model="product.category">
+        <field name="name">Spare</field>
+    </record>
+
+    <record id="category_associated_service" model="product.category">
+        <field name="name">Associated Service</field>
+    </record>
+
+</odoo>

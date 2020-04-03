@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+read_product_tab,read_product_tab,model_product_tab,,1,0,0,0
+crud_product_tab,crud_product_tab,model_product_tab,base.group_system,1,1,1,1

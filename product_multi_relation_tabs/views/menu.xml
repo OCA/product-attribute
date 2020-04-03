@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <act_window
+            id="action_product_tab"
+            res_model="product.tab"
+            view_mode="tree,form"
+            name="Relation Tabs"
+        />
+
+        <menuitem
+            id="menu_product_tab"
+            parent="product_multi_relation.menu_product_relation_configuration"
+            action="action_product_tab"
+            sequence="80"
+        />
+
+</odoo>

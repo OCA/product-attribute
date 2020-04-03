@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Products -->
+    <record id="product_machine" model="product.template">
+        <field name="name">Machine 1</field>
+        <field name="type">consu</field>
+        <field name="ref">M1</field>
+        <field name="categ_id" ref="category_machine" />
+    </record>
+
+    <record id="product_basic_is" model="product.template">
+        <field name="name">Basic Installation Service</field>
+        <field name="categ_id" ref="category_associated_service" />
+        <field name="type">service</field>
+        <field name="ref">BIS</field>
+    </record>
+
+    <record id="product_premius_ss" model="product.template">
+        <field name="name">Premium Support Service</field>
+        <field name="categ_id" ref="category_associated_service" />
+        <field name="type">service</field>
+        <field name="ref">PSS</field>
+    </record>
+
+    <record id="product_sp1" model="product.template">
+        <field name="categ_id" ref="category_spare" />
+        <field name="name">Spare Part 1</field>
+        <field name="type">consu</field>
+        <field name="ref">SP1</field>
+    </record>
+
+    <record id="product_sp2" model="product.template">
+        <field name="categ_id" ref="category_spare" />
+        <field name="name">Spare Part 2</field>
+        <field name="type">consu</field>
+        <field name="ref">SP2</field>
+    </record>
+
+</odoo>

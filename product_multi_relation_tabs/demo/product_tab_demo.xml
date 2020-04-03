@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="tab_services" model="product.tab">
+        <field name="code">associated_services</field>
+        <field name="name">Associated Services</field>
+        <field name="product_type">consu</field>
+        <field name="product_category_id" ref="category_machine" />
+    </record>
+
+    <record id="tab_supported_machines" model="product.tab">
+        <field name="code">supported_machines</field>
+        <field name="name">Supported Machines</field>
+        <field name="product_type">service</field>
+        <field name="product_category_id" ref="category_associated_service" />
+    </record>
+
+    <!-- Tab that will only be shown on our own main product. -->
+    <record id="tab_spares" model="product.tab">
+        <field name="code">spares</field>
+        <field name="name">Spare Parts</field>
+        <field
+            name="product_ids"
+            eval="[(6,0,[ref('product_machine')])]"
+            />
+    </record>
+
+</odoo>
