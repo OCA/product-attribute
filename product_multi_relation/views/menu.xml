@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <act_window
+            id="action_product_relation_type"
+            res_model="product.relation.type"
+            view_mode="tree,form"
+            name="Product Relations Types"
+        />
+
+        <menuitem
+            id="menu_product_relation_configuration"
+            name="Relations"
+            sequence="4"
+            parent="sale.sale_menu_root"
+        />
+
+        <menuitem
+            id="menu_product_relation_all"
+            parent="menu_product_relation_configuration"
+            action="action_product_relation_all"
+        />
+
+        <menuitem
+            id="menu_product_relation_type"
+            name="Relation Types"
+            parent="menu_product_relation_configuration"
+            action="action_product_relation_type"
+        />
+
+</odoo>

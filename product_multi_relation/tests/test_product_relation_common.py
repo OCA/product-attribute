@@ -1,0 +1,94 @@
+# Copyright 2016 Therp BV
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from odoo.tests import common
+
+
+class TestProductRelationCommon(common.TransactionCase):
+
+    def setUp(self):
+        super(TestProductRelationCommon, self).setUp()
+
+        self.product_model = self.env['product.template']
+        self.category_model = self.env['product.category']
+        self.type_model = self.env['product.relation.type']
+        self.selection_model = self.env['product.relation.type.selection']
+        self.relation_model = self.env['product.relation']
+        self.relation_all_model = self.env['product.relation.all']
+        self.product_01_service = self.product_model.create({
+            'name': 'Test Service 1',
+            'is_consumable': False,
+            'ref': 'PR01'})
+        self.product_02_consumable = self.product_model.create({
+            'name': 'Test Consumable',
+            'is_consumable': True,
+            'ref': 'PR02'})
+        # Create products with specific categories:
+        self.category_01_ngo = self.category_model.create({'name': 'NGO'})
+        self.product_03_ngo = self.product_model.create({
+            'name': 'Test Consumable with Category',
+            'is_consumable': True,
+            'ref': 'PR03',
+            'category_id': [(4, self.category_01_ngo.id)]})
+        self.category_02_volunteer = self.category_model.create({
+            'name': 'Volunteer'})
+        self.product_04_volunteer = self.product_model.create({
+            'name': 'Test Volunteer with Category',
+            'is_consumable': False,
+            'ref': 'PR04',
+            'category_id': [(4, self.category_02_volunteer.id)]})
+        # Create a new relation type withouth categories:
+        (self.type_consumable2service,
+         self.selection_consumable2service,
+         self.selection_service2consumable) = \
+            self._create_relation_type_selection({
+                'name': 'mixed',
+                'name_inverse': 'mixed_inverse',
+                'product_type_left': 'c',
+                'product_type_right': 's'})
+        # Create a new relation type with categories:
+        (self.type_ngo2volunteer,
+         self.selection_ngo2volunteer,
+         self.selection_volunteer2ngo) = \
+            self._create_relation_type_selection({
+                'name': 'NGO has volunteer',
+                'name_inverse': 'volunteer works for NGO',
+                'product_type_left': 'c',
+                'product_type_right': 's',
+                'product_category_left': self.category_01_ngo.id,
+                'product_category_right': self.category_02_volunteer.id})
+
+    def _create_relation_type_selection(self, vals):
+        """Create relation type and return this with selection types."""
+        assert 'name' in vals, (
+            "Name missing in vals to create relation type. Vals: %s."
+            % vals)
+        assert 'name' in vals, (
+            "Name_inverse missing in vals to create relation type. Vals: %s."
+            % vals)
+        new_type = self.type_model.create(vals)
+        self.assertTrue(
+            new_type,
+            msg="No relation type created with vals %s." % vals)
+        selection_types = self.selection_model.search([
+            ('type_id', '=', new_type.id)])
+        for st in selection_types:
+            if st.is_inverse:
+                inverse_type_selection = st
+            else:
+                type_selection = st
+        self.assertTrue(
+            inverse_type_selection,
+            msg="Failed to find inverse type selection based on"
+                " relation type created with vals %s." % vals)
+        self.assertTrue(
+            type_selection,
+            msg="Failed to find type selection based on"
+                " relation type created with vals %s." % vals)
+        return (new_type, type_selection, inverse_type_selection)
+
+    def _create_consumable2service_relation(self):
+        """Utility function to get a relation from consumable 2 product."""
+        return self.relation_all_model.create({
+            'type_selection_id': self.selection_consumable2service.id,
+            'this_product_id': self.product_02_consumable.id,
+            'other_product_id': self.product_01_service.id})

@@ -1,0 +1,563 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_multi_relation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:240
+#, python-format
+msgid "%s product incompatible with relation type."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__active
+msgid "Active"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model,name:product_multi_relation.model_product_relation_all
+msgid "All (non-inverse + inverse) relations between products"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model,name:product_multi_relation.model_product_relation_type_selection
+msgid "All relation types"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product__relation_all_ids
+#: model:ir.model.fields,field_description:product_multi_relation.field_res_users__relation_all_ids
+msgid "All relations with current product"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:13
+#: selection:product.relation.type,handle_invalid_onchange:0
+#, python-format
+msgid "Allow existing relations that do not fit changed conditions"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model,name:product_multi_relation.model_product
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__create_uid
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__create_date
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__product_category_this
+msgid "Current record's category"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__product_type_this
+msgid "Current record's product type"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:17
+#: selection:product.relation.type,handle_invalid_onchange:0
+#, python-format
+msgid "Delete relations that do not fit changed conditions"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__right_product_id
+msgid "Destination Product"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__display_name
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__display_name
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__display_name
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:11
+#: selection:product.relation.type,handle_invalid_onchange:0
+#, python-format
+msgid "Do not allow change that will result in invalid relations"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:15
+#: selection:product.relation.type,handle_invalid_onchange:0
+#, python-format
+msgid "End relations per today, if they do not fit changed conditions"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__date_end
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__date_end
+msgid "Ending date"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:237
+#: code:addons/product_multi_relation/models/product_relation_all.py:315
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Group By"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.relation.type,name_inverse:product_multi_relation.rel_type_assistant
+msgid "Has assistant"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.relation.type,name_inverse:product_multi_relation.rel_type_supports
+msgid "Has former employee"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product__search_relation_type_id
+#: model:ir.model.fields,field_description:product_multi_relation.field_res_users__search_relation_type_id
+msgid "Has relation of type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product__search_relation_product_id
+#: model:ir.model.fields,field_description:product_multi_relation.field_res_users__search_relation_product_id
+msgid "Has relation with"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product__search_relation_product_category_id
+#: model:ir.model.fields,field_description:product_multi_relation.field_res_users__search_relation_product_category_id
+msgid "Has relation with a product in category"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.relation.type,name:product_multi_relation.rel_type_supports
+msgid "Has worked for"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__id
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__id
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__id
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__id
+msgid "ID"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Include past records"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__handle_invalid_onchange
+msgid "Invalid relation handling"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__name_inverse
+msgid "Inverse name"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_all__is_inverse
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_type_selection__is_inverse
+msgid "Inverse relations are from right to left product."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.relation.type,name:product_multi_relation.rel_type_assistant
+msgid "Is assistant of"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.relation.type,name:product_multi_relation.rel_type_alternative
+#: model:product.relation.type,name_inverse:product_multi_relation.rel_type_alternative
+msgid "Is competitor of"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__is_inverse
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__is_inverse
+msgid "Is reverse type?"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation____last_update
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all____last_update
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type____last_update
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__write_uid
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__write_date
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__product_category_left
+msgid "Left product category"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__product_type_left
+msgid "Left product type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.form_product_relation_type
+msgid "Left side of relation"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Left to right"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__name
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__name
+msgid "Name"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:244
+#, python-format
+msgid "No %s product available for relation type."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:448
+#, python-format
+msgid "No relation type specified in vals: %s."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__this_product_id
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "One Product"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:82
+#, python-format
+msgid "Organisation"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__other_product_id
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Other Product"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__product_category_other
+msgid "Other record's category"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__product_type_other
+msgid "Other record's product type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__any_product_id
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model,name:product_multi_relation.model_product_relation_type
+msgid "Product Relation Type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.tree_product_relation_all
+msgid "Product Relations"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.actions.act_window,name:product_multi_relation.action_product_relation_type
+msgid "Product Relations Types"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model,name:product_multi_relation.model_product_relation
+msgid "Product relation"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation.py:115
+#, python-format
+msgid "Products cannot have a relation with themselves."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:83
+#, python-format
+msgid "Person"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.form_product_relation_type
+msgid "Properties"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.actions.act_window,help:product_multi_relation.action_product_relation_all
+msgid "Record and track your products' relations. Relations may\n"
+"                    be linked to other products with a type either directly\n"
+"                    or inversely."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_all__active
+msgid "Records with date_end in the past are inactive"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__allow_self
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__allow_self
+msgid "Reflexive"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:196
+#, python-format
+msgid "Reflexivity could not be disabled for the relation type {relation_type}. There are existing reflexive relations defined for the following products: {products}"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product__relation_count
+#: model:ir.model.fields,field_description:product_multi_relation.field_res_users__relation_count
+msgid "Relation Count"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__type_selection_id
+msgid "Relation Type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.ui.menu,name:product_multi_relation.menu_product_relation_type
+msgid "Relation Types"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:316
+#, python-format
+msgid "Relation type incompatible with selected product(s)."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product__search_relation_date
+#: model:ir.model.fields,field_description:product_multi_relation.field_res_users__search_relation_date
+msgid "Relation valid"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.actions.act_window,name:product_multi_relation.action_product_relation_all
+#: model:ir.ui.menu,name:product_multi_relation.menu_product_relation
+#: model:ir.ui.menu,name:product_multi_relation.menu_product_relation_all
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.view_product_form
+msgid "Relations"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Relationship Type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__res_id
+msgid "Resource ID"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__res_model
+msgid "Resource Model"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__product_category_right
+msgid "Right product category"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__product_type_right
+msgid "Right product type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.form_product_relation_type
+msgid "Right side of relation"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Right to left"
+msgstr ""
+
+#. module: product_multi_relation
+#: model_terms:ir.ui.view,arch_db:product_multi_relation.search_product_relation_all
+msgid "Search Relations"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.actions.act_window,name:product_multi_relation.action_show_product_multi_relation
+msgid "Show product's relations"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__left_product_id
+msgid "Source Product"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__date_start
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__date_start
+msgid "Starting date"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type__is_symmetric
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__is_symmetric
+msgid "Symmetric"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation.py:101
+#, python-format
+msgid "The %s product does not have category %s."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation.py:95
+#, python-format
+msgid "The %s product is not applicable for this relation type."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_all__res_model
+msgid "The database object this relation is based on."
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_all__res_id
+msgid "The id of the object in the model this relation is based on."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation.py:62
+#, python-format
+msgid "The starting date cannot be after the ending date."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_type.py:165
+#, python-format
+msgid "There are already relations not satisfying the conditions for product type or category."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation.py:154
+#, python-format
+msgid "There is already a similar relation with overlapping dates"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_type__allow_self
+msgid "This relation can be set up with the same product left and right"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_type__is_symmetric
+msgid "This relation is the same from right to left as from left to right"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation__type_id
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_type_selection__type_id
+msgid "Type"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,field_description:product_multi_relation.field_product_relation_all__type_id
+msgid "Underlying Relation Type"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product.py:79
+#, python-format
+msgid "Unsupported search operator \"%s\""
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.category,name:product_multi_relation.product_category_machines
+msgid "Washing Companies"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.category,name:product_multi_relation.product_category_pmr_4
+msgid "Washing Gold"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.category,name:product_multi_relation.product_category_services
+msgid "Washing Services"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:product.category,name:product_multi_relation.product_category_pmr_5
+msgid "Washing Silver"
+msgstr ""
+
+#. module: product_multi_relation
+#: model:ir.model.fields,help:product_multi_relation.field_product_relation_type__handle_invalid_onchange
+msgid "When adding relations criteria like product type and category are checked.\n"
+"However when you change the criteria, there might be relations that do not fit the new criteria.\n"
+"Specify how this situation should be handled."
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:289
+#, python-format
+msgid "other"
+msgstr ""
+
+#. module: product_multi_relation
+#: code:addons/product_multi_relation/models/product_relation_all.py:286
+#, python-format
+msgid "this"
+msgstr ""
+

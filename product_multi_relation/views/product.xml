@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_product_filter" model="ir.ui.view">
+            <field name="name">product_multi_relation.view_product_filter</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="model">product.template</field>
+            <field type="xml" name="arch">
+                <field name="name" position="after">
+                    <field name="search_relation_product_id" />
+                    <field name="search_relation_type_id" />
+                    <field name="search_relation_date" />
+                    <field name="search_relation_product_categ_id" />
+                </field>
+            </field>
+        </record>
+
+        <record id="view_product_template_form" model="ir.ui.view">
+            <field name="name">product_multi_relation.view_product_template_form</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="model">product.template</field>
+            <field type="xml" name="arch">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button
+                        class="oe_inline oe_stat_button"
+                        type="action"
+                        context="{
+                            'search_default_this_product_id': active_id,
+                            'default_this_product_id': active_id,
+                            'active_model': 'product.template',
+                            'active_id': id,
+                            'active_ids': [id],
+                            'active_test': False,
+                        }"
+                        name="%(action_product_relation_all)d"
+                        icon="fa-users"
+                        >
+                        <field
+                            string="Relations"
+                            name="relation_count"
+                            widget="statinfo"
+                            />
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <act_window id="action_show_product_multi_relation"
+            name="Show Products's relations"
+            src_model="product.template"
+            res_model="product.relation.all"
+            domain="[('this_product_id', 'in', active_ids)]"
+            key2="client_action_multi" />
+
+</odoo>
