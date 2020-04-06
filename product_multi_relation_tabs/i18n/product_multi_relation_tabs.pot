@@ -181,22 +181,22 @@ msgid "Show relation on tab"
 msgstr ""
 
 #. module: product_multi_relation_tabs
-#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type__tab_id_right
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type__tab_right_id
 msgid "Tab for inverse relation"
 msgstr ""
 
 #. module: product_multi_relation_tabs
-#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type__tab_id_left
+#: model:ir.model.fields,field_description:product_multi_relation_tabs.field_product_relation_type__tab_left_id
 msgid "Tab for this relation"
 msgstr ""
 
 #. module: product_multi_relation_tabs
-#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_relation_type__tab_id_right
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_relation_type__tab_right_id
 msgid "Tab in which inverse relations will be visible on product."
 msgstr ""
 
 #. module: product_multi_relation_tabs
-#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_relation_type__tab_id_left
+#: model:ir.model.fields,help:product_multi_relation_tabs.field_product_relation_type__tab_left_id
 msgid "Tab in which these relations will be visible on product."
 msgstr ""
 

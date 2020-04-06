@@ -8,7 +8,7 @@
 
         <field name="product_type_left">consu</field>
         <field name="product_category_left" ref="category_machine"/>
-        <field name="tab_id_left" ref="tab_services" />
+        <field name="tab_left_id" ref="tab_services" />
 
         <field name="name">is installed using</field>
         <field name="name_inverse">can install</field>
@@ -26,7 +26,7 @@
 
         <field name="product_type_left">consu</field>
         <field name="product_category_left" ref="category_machine"/>
-        <field name="tab_id_left" ref="tab_services" />
+        <field name="tab_left_id" ref="tab_services" />
 
         <field name="product_type_right">service</field>
         <field name="product_category_right" ref="category_associated_service"/>
@@ -43,7 +43,7 @@
 
         <field name="product_type_left">consu</field>
         <field name="product_category_left" ref="category_machine"/>
-        <field name="tab_id_left" ref="tab_spares" />
+        <field name="tab_left_id" ref="tab_spares" />
 
         <field name="product_type_right">consu</field>
         <field name="product_category_right" ref="category_spare"/>

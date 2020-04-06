@@ -30,6 +30,6 @@ class ResProductRelationTypeSelection(models.Model):
             super(ResProductRelationTypeSelection, self)
             ._get_additional_tables(),
             "LEFT OUTER JOIN product_tab lefttab"
-            " ON typ.tab_id_left = lefttab.id",
+            " ON typ.tab_left_id = lefttab.id",
             "LEFT OUTER JOIN product_tab righttab"
-            " ON typ.tab_id_right = righttab.id"])
+            " ON typ.tab_right_id = righttab.id"])

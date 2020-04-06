@@ -58,26 +58,26 @@ class TestProductTabs(common.TestCommon):
             'name_inverse': 'used by',
             'product_type_left': 'service',  # This emulates a user mistake.
             'product_type_right': 'service',
-            'tab_id_left': tab_services.id})
+            'tab_left_id': tab_services.id})
         self.assertTrue(bool(type_service))
         # If we change tab now to be only valid on products
-        # the tab_id_left field should be cleared from the type:
+        # the tab_left_id field should be cleared from the type:
         tab_services.write({'product_type': 'consu'})
-        self.assertFalse(type_service.tab_id_left.id)
+        self.assertFalse(type_service.tab_left_id.id)
         # Trying to set the tab back on type should be impossible:
         with self.assertRaises(ValidationError):
-            type_service.write({'tab_id_left': tab_services.id})
+            type_service.write({'tab_left_id': tab_services.id})
         # We should be able to change tab, if also changing product type.
         type_service.write({
             'product_type_left': 'consu',
-            'tab_id_left': tab_services.id})
+            'tab_left_id': tab_services.id})
         self.assertEqual(
-            type_service.tab_id_left.id,
+            type_service.tab_left_id.id,
             tab_services.id)
-        # Unlinking the tab should reset the tab_id_left on relation type.
+        # Unlinking the tab should reset the tab_left_id on relation type.
         tab_services.unlink()
         self.assertEqual(
-            type_service.tab_id_left.id,
+            type_service.tab_left_id.id,
             False)
         # It should not be possible to add category or product type to as
         # selection criteria to a tab meant for specific products.
