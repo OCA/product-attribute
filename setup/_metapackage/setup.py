@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo11-addon-product_firmware_version',
         'odoo11-addon-product_manufacturer',
         'odoo11-addon-product_multi_category',
+        'odoo11-addon-product_multi_price',
         'odoo11-addon-product_pricelist_direct_print',
         'odoo11-addon-product_pricelist_supplierinfo',
         'odoo11-addon-product_priority',
