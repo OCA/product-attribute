@@ -78,36 +78,8 @@ class TestProductMultiPrice(SavepointCase):
                 ],
         })
 
-    def test_product_multi_price(self):
-        """Multi Price for a product is computed based on the record name
-           passed by context"""
-        self.assertAlmostEqual(0, self.prod_1.multi_price)
-        price = self.prod_1.with_context(
-            multi_price_field='test_field_1').multi_price
-        self.assertAlmostEqual(price, 5.5)
-        price = self.prod_1.with_context(
-            multi_price_field='test_field_2').multi_price
-        self.assertAlmostEqual(price, 20.0)
-        # If the field doesn't exists or the product has no record for it
-        # a value of 0 will be returned.
-        price = self.prod_1.with_context(
-            multi_price_field='test_field_XXX').multi_price
-        self.assertAlmostEqual(price, 0)
-        # When a template has variants, no multiprice can be computed from it
-        price = self.prod_2.with_context(
-            multi_price_field='test_field_1').multi_price
-        self.assertAlmostEqual(price, 0.0)
-        # We should get it from the variants themselves
-        price = self.prod_prod_2_1.with_context(
-            multi_price_field='test_field_1').multi_price
-        self.assertAlmostEqual(price, 6.6)
-        price = self.prod_prod_2_2.with_context(
-            multi_price_field='test_field_1').multi_price
-        self.assertAlmostEqual(price, 8.8)
-
     def test_product_multi_price_pricelist(self):
         """Pricelists based on multi prices for templates or variants"""
-        # import wdb; wdb.set_trace()
         price = self.prod_1.with_context(
             pricelist=self.pricelist.id).price
         self.assertAlmostEqual(price, 4.95)
