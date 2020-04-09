@@ -29,9 +29,9 @@ class ProductPricelistItem(models.Model):
     _inherit = 'product.pricelist.item'
 
     base = fields.Selection(
-        selection_add=[('multi_price', 'Multiple Price Field')],
+        selection_add=[('multi_price', 'Other Price')],
     )
     multi_price_name = fields.Many2one(
         comodel_name='product.multi.price.name',
-        string="Multiple Price Field Name",
+        string="Other Price Name",
     )

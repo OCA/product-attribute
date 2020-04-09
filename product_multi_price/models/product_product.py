@@ -1,7 +1,6 @@
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import models, fields, tools
-from odoo.addons import decimal_precision as dp
 
 
 class ProductProduct(models.Model):
@@ -10,11 +9,7 @@ class ProductProduct(models.Model):
     price_ids = fields.One2many(
         comodel_name='product.multi.price',
         inverse_name='product_id',
-    )
-    multi_price = fields.Float(
-        digits=dp.get_precision('Product Price'),
-        compute='_compute_multi_price',
-        groups="base.group_user",
+        string="Other Prices",
     )
 
     def _get_multiprice_pricelist_price(self, rule):
@@ -51,18 +46,13 @@ class ProductProduct(models.Model):
                 price = min(price, price_limit + price_max_margin)
         return price
 
-    def _compute_multi_price(self):
-        """Use multi_price field as the proxy for any of the registered
-           multi price fields on the product passing it by context"""
-        multi_price_field = self.env.context.get('multi_price_field', False)
-        if not multi_price_field:
-            self.update({'multi_price': 0})
-            return
-        prices_list = self.env['product.multi.price'].search_read([
-            ('name.name', '=', multi_price_field),
-            ('product_id', 'in', self.ids),
-            ('company_id', '=', self.env.user.company_id.id)
-        ], ['product_id', 'price'], limit=1)
-        prices_dict = {x['product_id'][0]: x['price'] for x in prices_list}
-        for product in self:
-            product.multi_price = prices_dict.get(product.id, 0.0)
+    def price_compute(self, price_type, uom=False, currency=False,
+                      company=False):
+        """Return temporary prices when computation is done for multi price for
+        avoiding error on super method. We will later fill these with the
+        correct values.
+        """
+        if price_type == 'multi_price':
+            return dict.fromkeys(self.ids, 1.0)
+        return super().price_compute(
+            price_type, uom=uom, currency=currency, company=company)
