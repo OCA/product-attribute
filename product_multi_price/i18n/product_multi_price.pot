@@ -43,12 +43,6 @@ msgid "Display Name"
 msgstr ""
 
 #. module: product_multi_price
-#: code:addons/product_multi_price/models/product_multi_price.py:92
-#, python-format
-msgid "Field names can only contain characters, digits and underscores (up to 63)."
-msgstr ""
-
-#. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_id
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_id
 msgid "ID"
@@ -73,31 +67,23 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_template_multi_price
-msgid "Multi Price"
-msgstr ""
-
-#. module: product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_pricelist_item_multi_price_name
-msgid "Multiple Price Field Name"
-msgstr ""
-
-#. module: product_multi_price
-#: model:ir.ui.view,arch_db:product_multi_price.product_template_form_view
-#: model:ir.ui.view,arch_db:product_multi_price.product_variant_easy_edit_view
-msgid "Multiple Prices"
-msgstr ""
-
-#. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name
 msgid "Name"
 msgstr ""
 
 #. module: product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_pricelist_item_multi_price_name
+msgid "Other Price Name"
+msgstr ""
+
+#. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_product_price_ids
 #: model:ir.model.fields,field_description:product_multi_price.field_product_template_price_ids
+msgid "Other Prices"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_price
 msgid "Price"
 msgstr ""
 
@@ -134,6 +120,7 @@ msgid "Product"
 msgstr ""
 
 #. module: product_multi_price
+#: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
 #: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_tree_view
 msgid "Product Multi Price"
 msgstr ""
@@ -144,19 +131,8 @@ msgid "Product Multi Price Field Name"
 msgstr ""
 
 #. module: product_multi_price
-#: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
-msgid "Product Multi_price"
-msgstr ""
-
-#. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_template
 msgid "Product Template"
-msgstr ""
-
-#. module: product_multi_price
-#: code:addons/product_multi_price/models/product_multi_price.py:97
-#, python-format
-msgid "The field name is used in the model, try another"
 msgstr ""
 
 #. module: product_multi_price

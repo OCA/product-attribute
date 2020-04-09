@@ -15,7 +15,7 @@
         <record id="product_multi_price_form_view" model="ir.ui.view">
             <field name="model">product.multi.price</field>
             <field name="arch" type="xml">
-                <form string="Product Multi_price">
+                <form string="Product Multi Price">
                     <sheet>
                         <group>
                             <field name="name" widget="selection"/>
@@ -31,6 +31,7 @@
         <record id="product_multi_price_tree_view2" model="ir.ui.view">
             <field name="model">product.multi.price</field>
             <field name="mode">primary</field>
+            <field name="priority" eval="999"/>
             <field name="inherit_id" ref="product_multi_price.product_multi_price_tree_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='product_id']" position="replace"/>
