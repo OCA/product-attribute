@@ -71,12 +71,6 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_template_multi_price
-msgid "Multi Price"
-msgstr "Multi Precio"
-
-#. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name
 msgid "Name"
 msgstr "Nombre"
@@ -130,6 +124,7 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: product_multi_price
+#: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
 #: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_tree_view
 msgid "Product Multi Price"
 msgstr "Multi Precio de Producto"
@@ -153,3 +148,6 @@ msgstr "product.multi.price"
 #: model:ir.model,name:product_multi_price.model_product_multi_price_name
 msgid "product.multi.price.name"
 msgstr "product.multi.price.name"
+
+#~ msgid "Multi Price"
+#~ msgstr "Multi Precio"
