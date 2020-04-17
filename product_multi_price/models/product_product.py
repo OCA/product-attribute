@@ -16,7 +16,7 @@ class ProductProduct(models.Model):
         """Method for getting the price from multi price."""
         self.ensure_one()
         company = rule.company_id or self.env.user.company_id
-        price = self.env['product.multi.price'].search([
+        price = self.env['product.multi.price'].sudo().search([
             ('company_id', '=', company.id),
             ('name', '=', rule.multi_price_name.id),
             ('product_id', '=', self.id),
