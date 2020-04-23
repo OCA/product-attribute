@@ -5,6 +5,7 @@
 {
     "name": "Product List Categories",
     "version": "10.0.1.0.0",
+    "description": "Permits filter Sales Report by product categories",
     "author": "PlanetaTIC, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
