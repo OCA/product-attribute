@@ -15,18 +15,12 @@ class AccountInvoiceReport(models.Model):
     def _select(self):
         select_str = super()._select()
         select_str += """
-            , sub.product_brand_id as product_brand_id
+            , product_brand_id as product_brand_id
             """
         return select_str
 
-    def _sub_select(self):
-        select_str = super()._sub_select()
-        select_str += """
-            , pt.product_brand_id
-            """
-        return select_str
 
     def _group_by(self):
         group_by_str = super()._group_by()
-        group_by_str += ", pt.product_brand_id"
+        group_by_str += ", template.product_brand_id"
         return group_by_str

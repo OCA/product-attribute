@@ -32,7 +32,6 @@ class ProductBrand(models.Model):
         compute='_compute_products_count',
     )
 
-    @api.multi
     @api.depends('product_ids')
     def _compute_products_count(self):
         for brand in self:
