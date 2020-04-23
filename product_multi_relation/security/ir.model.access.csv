@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+read_product_relation,access_product_relation,model_product_relation,,1,0,0,0
+read_product_relation_all,access_product_relation,model_product_relation_all,,1,0,0,0
+read_product_relation_type,access_product_relation_type,model_product_relation_type,,1,0,0,0
+read_product_relation_type_selection,access_product_relation_type,model_product_relation_type_selection,,1,0,0,0
+crud_product_relation,access_product_relation,model_product_relation,base.group_system,1,1,1,1
+crud_product_relation_all,access_product_relation,model_product_relation_all,base.group_system,1,1,1,1
+crud_product_relation_type,access_product_relation_type,model_product_relation_type,base.group_system,1,1,1,1

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <!-- Added product categories and products to this file, because it
+             turned out to be a bad idea to rely on demo data in base module,
+             that can change from release to release. 
+        -->
+
+        <!-- Product relation types -->
+        <record id="rel_type_alternative" model="product.relation.type">
+            <field name="name">Is alternative to</field>
+            <field name="name_inverse">Is alternative to</field>
+            <field name="product_type_left">consu</field>
+            <field name="product_type_right">consu</field>
+            <field name="is_symmetric" eval="True" />
+        </record>
+        <record id="rel_type_supports" model="product.relation.type">
+            <field name="name">Supports</field>
+            <field name="name_inverse">Is supported by</field>
+            <field name="product_type_left">service</field>
+            <field name="product_type_right">consu</field>
+        </record>
+
+        <!-- Categories -->
+        <record id="product_category_test" model="product.category">
+            <field name="name">Test</field>
+        </record>
+        <record id="product_category_machines" model="product.category">
+            <field name="name">Machines</field>
+            <field name="parent_id" ref="product_category_test"/>
+        </record>
+        <record id="product_category_services" model="product.category">
+            <field name="name">Services</field>
+            <field name="parent_id" ref="product_category_test"/>
+        </record>
+
+        <!-- Products -->
+        <record id="product_machine1" model="product.template">
+            <field name="name">Machine 1</field>
+            <field name="list_price">14.0</field>
+            <field name="standard_price">8.0</field>
+            <field name="type">consu</field>
+            <field name="default_code">PMR-M1</field>
+            <field name="categ_id" ref="product_category_machines"/>
+        </record>
+
+        <record id="product_machine2" model="product.template">
+            <field name="name">Machine 2</field>
+            <field name="list_price">24.0</field>
+            <field name="standard_price">18.0</field>
+            <field name="type">consu</field>
+            <field name="default_code">PMR-M2</field>
+            <field name="categ_id" ref="product_category_machines"/>
+        </record>
+        
+        <record id="product_service" model="product.template">
+            <field name="name">Sample Service</field>
+            <field name="list_price">100.0</field>
+            <field name="standard_price">90.0</field>
+            <field name="type">service</field>
+            <field name="default_code">PMR-SS</field>
+            <field name="categ_id" ref="product_category_services"/>
+        </record>
+
+
+        <!-- Relations -->
+        <record id="rel_1" model="product.relation">
+            <field name="left_product_id" ref="product_machine1" />
+            <field name="right_product_id" ref="product_machine2" />
+            <field name="type_id" ref="rel_type_alternative" />
+        </record>
+        <record id="rel_2" model="product.relation">
+            <field name="left_product_id" ref="product_service" />
+            <field name="right_product_id" ref="product_machine1" />
+            <field name="type_id" ref="rel_type_supports" />
+        </record>
+        <record id="rel_3" model="product.relation">
+            <field name="left_product_id" ref="product_service" />
+            <field name="right_product_id" ref="product_machine2" />
+            <field name="type_id" ref="rel_type_supports" />
+        </record>
+</odoo>
