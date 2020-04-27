@@ -5,7 +5,7 @@
             <field name="arch" type="xml">
                 <tree string="Product Multi Price">
                     <field name="product_id"/>
-                    <field name="name" widget="selection"/>
+                    <field name="name" options="{'no_open': True, 'no_create': True}"/>
                     <field name="price"/>
                     <field name="company_id" groups="base.group_multi_company" readonly="1"/>
                 </tree>
