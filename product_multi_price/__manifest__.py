@@ -1,8 +1,9 @@
 # Copyright 2020 Tecnativa - David Vidal
+# Copyright 2020 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Product Multi Price",
-    "version": "11.0.1.1.1",
+    "version": "11.0.1.2.0",
     'author': 'Tecnativa,'
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/product-attribute',
