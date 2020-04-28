@@ -4,8 +4,8 @@
 {
     "name": "Product Relations",
     "version": "12.0.1.0.0",
-    "author": "Therp BV,Camptocamp,Odoo Community Association (OCA), Radovan Skolnik, KEMA SK",
-    "website": "https://github.com/OCA/partner-contact",
+    "author": "Therp BV,Camptocamp,Odoo Community Association (OCA), Radovan Skolnik",
+    "website": "https://github.com/OCA/product-attribute",
     "complexity": "normal",
     "category": "Product",
     "license": "AGPL-3",
