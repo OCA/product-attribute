@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="volume" position="after">
+                <field name="volume_uom_id" />
+            </field>
+            <field name="weight" position="after">
+                <field name="weight_uom_id" />
+            </field>
+            <field name="weight_uom_name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//span[contains(., 'm³')]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field name="name">product.product.view.form.easy</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <field name="volume" position="after">
+                <field name="volume_uom_id" />
+            </field>
+            <field name="weight" position="after">
+                <field name="weight_uom_id" />
+            </field>
+            <field name="weight_uom_name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//span[contains(., 'm³')]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
