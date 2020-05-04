@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_archive
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-04 20:58+0000\n"
+"PO-Revision-Date: 2020-05-04 17:02-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: product_category_archive
+#: model:ir.model.fields,field_description:product_category_archive.field_product_category__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_category_archive
+#: code:addons/product_category_archive/models/product.py:25
+#, python-format
+msgid ""
+"At least one category that you are trying to archive or one of its children "
+"has one or more product linked to it."
+msgstr ""
+"Al menos una de las categorías que se están intentando archivar o al menos "
+"una de sus hijas tiene uno o más productos asociados."
+
+#. module: product_category_archive
+#: model:ir.model.fields,help:product_category_archive.field_product_category__active
+msgid ""
+"If unchecked, it will allow you to hide the product category without "
+"removing it."
+msgstr ""
+"Si no está marcado, permitirá ocultar la categoría de producto sin eliminarla."
+
+#. module: product_category_archive
+#: model:ir.model,name:product_category_archive.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
