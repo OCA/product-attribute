@@ -4,7 +4,8 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -53,7 +54,14 @@ class ProductWeightUpdate(models.TransientModel):
     def calculate_product_bom_weight(self, bom, product=False):
         product_tmpl = bom.product_tmpl_id
         if not product:
-            product = product_tmpl.product_variant_ids[0]
+            product = product_tmpl.product_variant_ids[:1]
+            if not product:
+                raise UserError(
+                    _(
+                        "Missing active variant for product %s"
+                        % (product_tmpl.display_name)
+                    )
+                )
         factor = product_tmpl.uom_id._compute_quantity(
             1, bom.product_uom_id, round=False
         )
@@ -74,7 +82,7 @@ class ProductWeightUpdate(models.TransientModel):
 
     def update_single_weight(self):
         self.ensure_one()
-        product = self.product_id or False
+        product = self.product_id or self.bom_id.product_id
         self.calculate_product_bom_weight(self.bom_id, product=product)
         return {}
 
@@ -115,4 +123,4 @@ class ProductWeightUpdate(models.TransientModel):
                 [("product_tmpl_id", "=", template_id)], limit=1
             )
             if bom:
-                self.calculate_product_bom_weight(bom)
+                self.calculate_product_bom_weight(bom, bom.product_id)
