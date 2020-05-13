@@ -1,0 +1,1 @@
+This module introduces the nutritional information field necessary for the sale of food products.
