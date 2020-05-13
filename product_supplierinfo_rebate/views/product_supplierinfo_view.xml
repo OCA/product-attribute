@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_supplierinfo_tree_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.tree.view.variation</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="priority" eval="8"/>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="date_start" position="before">
+                <field name="rebate_price"/>
+                <field name="rebate_mult"/>
+                <field name="rebate_discount"/>
+            </field>
+        </field>
+    </record>
+    <record id="product_supplierinfo_rebate_form_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="priority" eval="8"/>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <group name="rebate" string="Rebates">
+                    <group name="rebate_in">
+                        <field name="rebate_price"/>
+                        <field name="is_agent"/>
+                        <field name="rebate_mult"/>
+                        <field name="rebate_discount"/>
+                    </group>
+                </group>
+           </xpath>
+        </field>
+    </record>
+</odoo>

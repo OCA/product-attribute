@@ -1,0 +1,136 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_supplierinfo_revision
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-03 15:37+0000\n"
+"PO-Revision-Date: 2019-02-08 13:50+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
+
+#. module: product_supplierinfo_revision
+#: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: product_supplierinfo_revision
+#: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_date_end
+msgid "Date End"
+msgstr "Fecha fin"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_date_start
+msgid "Date Start"
+msgstr "Fecha inicio"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_supplierinfo_revision
+#: model:ir.actions.act_window,name:product_supplierinfo_revision.supplierinfo_duplicate_wizard_action
+msgid "Duplicate Supplier Info"
+msgstr "Duplicar Información Proveedor"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model,name:product_supplierinfo_revision.model_product_supplierinfo
+msgid "Information about a product vendor"
+msgstr "Información sobre proveedor"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_previous_info_id
+msgid "Previous info"
+msgstr "Información previa"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_previous_price
+msgid "Price"
+msgstr "Precio"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo_previous_info_id
+msgid "Relation with previous info when duplicate line"
+msgstr "Relación con la información previa cuando se duplica la línea"
+
+#. module: product_supplierinfo_revision
+#: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
+"                    This process set start date previous day as end date of\n"
+"                    origin record.\n"
+"                    <br/>\n"
+"                    <br/>"
+msgstr ""
+"Estable nueva fecha y porcentaje de variación para duplicar.\n"
+"                      Este proceso establece la fecha de inicio anterior "
+"como fecha de finalización de registro de origen.\n"
+"<br/>\n"
+"<br/>"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo_previous_price
+msgid "The price to purchase a product"
+msgstr "Precio para comprar el producto"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard_variation_percent
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_variation_percent
+msgid "Variation %"
+msgstr "Variación %"
+
+#. module: product_supplierinfo_revision
+#: model:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
+msgid "or"
+msgstr "o"
+
+#. module: product_supplierinfo_revision
+#: model:ir.model,name:product_supplierinfo_revision.model_product_supplierinfo_duplicate_wizard
+msgid "product.supplierinfo.duplicate.wizard"
+msgstr "'product.supplierinfo.duplicate.wizard'"
