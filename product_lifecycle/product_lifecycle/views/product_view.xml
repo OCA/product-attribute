@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Product Product Form -->
+    <record id="product_replacement_product_form_view" model="ir.ui.view">
+        <field name="name">product.replacement.product.form.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']" position="inside">
+                <group name="replacements_info" string="Replacements Info">
+                    <field name="replaced_by_product_id"/>
+                    <field name="replace_to_product_ids" widget="many2many_tags" readonly="1"/>
+                </group>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <field name="lifecycle_state" widget="statusbar" clickable="True"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Product Product Search -->
+    <record id="product_replacement_product_search_view" model="ir.ui.view">
+        <field name="name">product.replacement.product.search.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_search_form_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="lifecycle_state"/>
+                <filter string="Normal" name="status_normal" domain="[('lifecycle_state','=','normal')]"/>
+                <filter string="End of Lifecycle" name="status_end" domain="[('lifecycle_state','=','end')]"/>
+                <filter string="Obsolete" name="status_obsolete" domain="[('lifecycle_state','=','obsolete')]"/>
+                <separator/>
+                <filter string="Active Status" name="filter_active_lifecycle" domain="[('lifecycle_state','not in',['obsolete'])]"/>
+                <filter string="State" name="groupby_lifecycle" domain="[]" context="{'group_by' : 'lifecycle_state'}"/>
+                <separator/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product.product_normal_action_sell" model="ir.actions.act_window">
+        <field name="context">{
+            'search_default_filter_to_sell':1,
+            'search_default_filter_active_lifecycle': 1,
+            }</field>
+    </record>
+
+    <record id="product.product_variant_action" model="ir.actions.act_window">
+        <field name="context">{
+            'search_default_product_tmpl_id': [active_id],
+            'default_product_tmpl_id': active_id,
+            'search_default_filter_active_lifecycle': 1,
+            }</field>
+    </record>
+</odoo>

@@ -1,73 +1,79 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<openerp>
-    <data noupdate="1">
+<odoo>
+    <!-- add new value to the color gray as attribute to the Ipad Retina
+    Display product -->
 
-        <!-- add new value to the color gray as attribute to the Ipad Retina
-             Display product -->
+    <record id="product_attribute_value_6" model="product.attribute.value">
+        <field name="name">Gray</field>
+        <field name="attribute_id" ref="product.product_attribute_2"/>
+    </record>
 
-        <record id="product_attribute_value_6" model="product.attribute.value">
-            <field name="name">Gray</field>
-            <field name="attribute_id" ref="product.product_attribute_2"/>
-        </record>
+    <record id="product_attribute_value_7" model="product.attribute.value">
+        <field name="name">Red</field>
+        <field name="attribute_id" ref="product.product_attribute_2"/>
+    </record>
 
-        <record id="product_attribute_value_7" model="product.attribute.value">
-            <field name="name">Red</field>
-            <field name="attribute_id" ref="product.product_attribute_2"/>
-        </record>
+    <record id="product.product_template_attribute_line_2" model="product.template.attribute.line">
+        <field name="value_ids" eval="[
+            (4, ref('product_lifecycle.product_attribute_value_6')),
+            (4, ref('product_lifecycle.product_attribute_value_7'))
+        ]"/>
+    </record>
 
-        <record id="product.product_attribute_line_2" model="product.attribute.line">
-            <field name="value_ids" eval="[(4,ref('product_lifecycle.product_attribute_value_6')), (4,ref('product_lifecycle.product_attribute_value_7'))]"/>
-        </record>
+    <!-- Create new products variants for the new attribute -->
 
-        <!-- Create new products variants for the new attribute -->
+    <record id="product_product_4e" model="product.product">
+        <field name="default_code">A2327</field>
+        <field name="lifecycle_state">normal</field>
+        <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
+        <field name="attribute_value_ids" eval="[(6,0,[
+            ref('product.product_attribute_value_1'),
+            ref('product_lifecycle.product_attribute_value_6'),
+            ref('product.product_attribute_value_5')
+        ])]"/>
+    </record>
 
-        <record id="product_product_4e" model="product.product">
-            <field name="default_code">A2327</field>
-            <field name="state2">draft</field>
-            <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
-            <field name="attribute_value_ids"
-                eval="[(6,0,[ref('product.product_attribute_value_1'), ref('product_lifecycle.product_attribute_value_6'), ref('product.product_attribute_value_5')])]"/>
-        </record>
+    <record id="product_product_4g" model="product.product">
+        <field name="default_code">A2329</field>
+        <field name="lifecycle_state">normal</field>
+        <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
+        <field name="attribute_value_ids" eval="[(6,0,[
+            ref('product.product_attribute_value_2'),
+            ref('product_lifecycle.product_attribute_value_7'),
+            ref('product.product_attribute_value_5')
+        ])]"/>
+    </record>
+    <record id="product_product_4f" model="product.product">
+        <field name="default_code">A2328</field>
+        <field name="lifecycle_state">obsolete</field>
+        <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
+        <field name="attribute_value_ids" eval="[(6,0,[
+            ref('product.product_attribute_value_2'),
+            ref('product_lifecycle.product_attribute_value_6'),
+            ref('product.product_attribute_value_5')
+        ])]"/>
+        <field name="replaced_by_product_id" ref="product_product_4g"/>
+    </record>
 
-        <record id="product_product_4f" model="product.product">
-            <field name="default_code">A2328</field>
-            <field name="state2">obsolete</field>
-            <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
-            <field name="attribute_value_ids"
-                eval="[(6,0,[ref('product.product_attribute_value_2'), ref('product_lifecycle.product_attribute_value_6'), ref('product.product_attribute_value_5')])]"/>
-            <field name="replaced_by_product_id" ref="product.product_product_4"/>
-        </record>
+    <!-- update the product variants to add state and replacement
+    products. states (draft, sellable, end, obsolete) -->
 
-        <record id="product_product_4g" model="product.product">
-            <field name="default_code">A2329</field>
-            <field name="state2">sellable</field>
-            <field name="product_tmpl_id" ref="product.product_product_4_product_template"/>
-            <field name="attribute_value_ids"
-                eval="[(6,0,[ref('product.product_attribute_value_2'), ref('product_lifecycle.product_attribute_value_7'), ref('product.product_attribute_value_5')])]"/>
-        </record>
+    <record id="product.product_product_6" model="product.product">
+        <field name="lifecycle_state">end</field>
+    </record>
 
-        <!-- update the product variants to add state and replacement
-             products. states (draft, sellable, end, obsolete) -->
+    <record id="product.product_product_4b" model="product.product">
+        <field name="lifecycle_state">obsolete</field>
+        <field name="replaced_by_product_id" ref="product_product_4e"/>
+    </record>
 
-        <record id="product.product_product_4" model="product.product">
-            <field name="state2">draft</field>
-            <field name="replaced_by_product_id" ref="product_product_4e"/>
-        </record>
+    <record id="product.product_product_4c" model="product.product">
+        <field name="lifecycle_state">normal</field>
+        <field name="replaced_by_product_id" ref="product_product_4g"/>
+    </record>
 
-        <record id="product.product_product_4b" model="product.product">
-            <field name="state2">obsolete</field>
-            <field name="replaced_by_product_id" ref="product_product_4e"/>
-        </record>
-
-        <record id="product.product_product_4c" model="product.product">
-            <field name="state2">sellable</field>
-            <field name="replaced_by_product_id" ref="product_product_4g"/>
-        </record>
-
-        <record id="product.product_product_4d" model="product.product">
-            <field name="state2">sellable</field>
-            <field name="replaced_by_product_id" ref="product_product_4f"/>
-        </record>
-
-    </data>
-</openerp>
+    <record id="product.product_product_4d" model="product.product">
+        <field name="lifecycle_state">obsolete</field>
+        <field name="replaced_by_product_id" ref="product_product_4f"/>
+    </record>
+</odoo>

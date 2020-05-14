@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ProductReplacement">
+        <p class="availability_product my-0 mr-2">
+            <span class="js_available_info fa fa-warning"></span>
+                This product is <t t-raw="state"/> with qty <t t-raw="product_qty"/> and it's replaced by: <t t-raw="replaced_by"/>.
+        </p>
+    </t>
+</templates>
