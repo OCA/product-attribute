@@ -46,3 +46,14 @@ class TestProductCategoryArchive(SavepointCase):
         self.parent_categ.active = False
         self.assertFalse(self.child_1.active)
         self.assertFalse(self.parent_categ.active)
+
+    def test_archive_categories_with_inactive_products(self):
+        self.assertTrue(self.child_1.active)
+        self.assertTrue(self.child_1.active)
+        self.assertTrue(self.parent_categ.active)
+        self.product_1.categ_id = self.child_1.id
+        self.product_1.active = False
+        with self.assertRaises(ValidationError):
+            self.parent_categ.active = False
+        with self.assertRaises(ValidationError):
+            self.child_1.active = False
