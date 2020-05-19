@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-product_assortment',
         'odoo13-addon-product_code_unique',
         'odoo13-addon-product_cost_security',
+        'odoo13-addon-product_dimension',
         'odoo13-addon-product_manufacturer',
         'odoo13-addon-product_multi_category',
         'odoo13-addon-product_packaging_dimension',
