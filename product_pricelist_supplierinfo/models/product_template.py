@@ -23,6 +23,10 @@ class ProductTemplate(models.Model):
             domain = [
                 ('product_tmpl_id', '=', self.id),
             ]
+        if rule.filter_supplier_id:
+            domain += [
+                ('name', '=', rule.filter_supplier_id.id)
+            ]
         if not rule.no_supplierinfo_min_quantity and quantity:
             domain += [
                 '|',
