@@ -21,7 +21,7 @@ class ProductWeightUpdate(models.TransientModel):
 
     @api.model
     def default_get(self, fields):
-        res = super(ProductWeightUpdate, self).default_get(fields)
+        res = super().default_get(fields)
         if not fields:
             return res
         context = self.env.context
@@ -50,7 +50,6 @@ class ProductWeightUpdate(models.TransientModel):
             res.update({"product_id": product_id})
         return res
 
-    @api.multi
     def calculate_product_bom_weight(self, bom, product=False):
         product_tmpl = bom.product_tmpl_id
         if not product:
@@ -73,14 +72,12 @@ class ProductWeightUpdate(models.TransientModel):
             _logger.info("%s : %0.2f", product_tmpl.name, weight)
             product_tmpl.write({"weight": weight})
 
-    @api.multi
     def update_single_weight(self):
         self.ensure_one()
         product = self.product_id or False
         self.calculate_product_bom_weight(self.bom_id, product=product)
         return {}
 
-    @api.multi
     def update_multi_product_weight(self):
         self.ensure_one()
         product_obj = self.env["product.product"]
