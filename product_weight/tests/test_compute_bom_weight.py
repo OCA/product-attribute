@@ -6,7 +6,7 @@ from odoo.tests.common import TransactionCase
 
 class TestBomWeightCompute(TransactionCase):
     def setUp(self):
-        super(TestBomWeightCompute, self).setUp()
+        super().setUp()
         self.ProductModel = self.env["product.product"]
         unit_uom_id = self.env.ref("uom.product_uom_unit").id
         self.p0 = self.ProductModel.create({"name": "000", "type": "product"})
