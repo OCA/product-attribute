@@ -4,19 +4,12 @@
 {
     "name": "Product BOM revision",
     "summary": "Store the revision of a product and a BOM",
-    "version": "12.0.1.0.1",
+    "version": "13.0.1.0.0",
     "license": "AGPL-3",
-    "author": "C2i Change 2 improve,"
-              "Odoo Community Association (OCA)",
+    "author": "C2i Change 2 improve," "Odoo Community Association (OCA)",
     "category": "Warehouse",
     "website": "https://github.com/OCA/product-attribute",
-    "depends": [
-        "product",
-        "mrp",
-        ],
-    "data": [
-        "views/mrp_view.xml",
-        "views/product_view.xml",
-        ],
+    "depends": ["product", "mrp"],
+    "data": ["views/mrp_view.xml", "views/product_view.xml"],
     "installable": True,
 }

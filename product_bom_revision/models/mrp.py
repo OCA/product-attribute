@@ -5,6 +5,6 @@ from odoo import fields, models
 
 
 class MrpBom(models.Model):
-    _inherit = 'mrp.bom'
+    _inherit = "mrp.bom"
 
     bom_revision = fields.Char(string="Revision")

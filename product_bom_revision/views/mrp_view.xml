@@ -1,16 +1,14 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <odoo>
-
     <!-- BOM revision form view -->
     <record id="mrp_bom_form_view_revision" model="ir.ui.view">
         <field name="name">mrp.bom.form.revision</field>
         <field name="model">mrp.bom</field>
-        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
         <field name="arch" type="xml">
             <field name="routing_id" position="after">
-                <field name="bom_revision" string="Revision"/>
+                <field name="bom_revision" string="Revision" />
             </field>
         </field>
     </record>
-
 </odoo>
