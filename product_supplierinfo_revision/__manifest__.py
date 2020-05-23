@@ -4,16 +4,13 @@
 
 {
     "name": "Product Supplierinfo Revision",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute/",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "product",
-    ],
+    "depends": ["product"],
     "data": [
         "views/product_supplierinfo_view.xml",
         "wizards/supplierinfo_duplicate_wizard_view.xml",
