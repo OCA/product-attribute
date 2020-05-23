@@ -15,10 +15,8 @@ class TestProductSupplierinfoRevision(common.SavepointCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestProductSupplierinfoRevision, cls).setUpClass()
-        cls.vendor = cls.env["res.partner"].create(
-            {"name": "Suplier test", "supplier": True}
-        )
+        super().setUpClass()
+        cls.vendor = cls.env["res.partner"].create({"name": "Suplier test"})
         cls.today = datetime.today()
         cls.supplierinfo = cls.env["product.supplierinfo"].create(
             {"name": cls.vendor.id, "price": 100.0}
