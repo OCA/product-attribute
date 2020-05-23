@@ -35,11 +35,9 @@
     <act_window
         id="supplierinfo_duplicate_wizard_action"
         name="Duplicate Supplier Info"
-        src_model="product.supplierinfo"
+        binding_model="product.supplierinfo"
         res_model="product.supplierinfo.duplicate.wizard"
-        view_type="form"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 </odoo>
