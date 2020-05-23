@@ -1,8 +1,8 @@
 To use this module:
 
-#. If you are a purchase manager, and you have checked "Manage Vendor Price"
-   in the technical settings of your user, go to *Purchases > Purchase >
-   Supplier Pricelist* and select one or more supplier pricelist.
+#. If you are a purchase manager, and you have checked "Advanced Pricelists"
+   in the technical settings of your user, go to *Purchases > Configuration >
+   Vendor Pricelists* and select one or more supplier pricelist.
 #. Click on Action button and execute the wizard **Duplicate Supplier Info**.
 #. Enter date start from which new price will be valid. You can enter date
    end and percent to increase old supplier pricelist.
@@ -14,4 +14,4 @@ To use this module:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/12.0
+   :target: https://runbot.odoo-community.org/runbot/135/13.0
