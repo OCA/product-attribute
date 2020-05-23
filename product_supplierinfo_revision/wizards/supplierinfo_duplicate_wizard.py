@@ -3,9 +3,7 @@
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models
-
-import odoo.addons.decimal_precision as dp
+from odoo import fields, models
 
 
 class ProductSupplierInfoDuplicateWizard(models.TransientModel):
@@ -14,11 +12,8 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
 
     date_start = fields.Date(required=True)
     date_end = fields.Date()
-    variation_percent = fields.Float(
-        digits=dp.get_precision("Product Price"), string="Variation %",
-    )
+    variation_percent = fields.Float(digits="Product Price", string="Variation %",)
 
-    @api.multi
     def action_apply(self):
         Supplierinfo = self.env["product.supplierinfo"]
         supplierinfo_news = Supplierinfo
@@ -34,7 +29,6 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
             item.date_end = fields.Date.from_string(self.date_start) - relativedelta(
                 days=1
             )
-
         action = self.env.ref("product.product_supplierinfo_type_action").read()[0]
         if len(supplierinfo_news) > 0:
             action["domain"] = [("id", "in", supplierinfo_news.ids)]
