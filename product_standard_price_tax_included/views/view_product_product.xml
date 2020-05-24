@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_product_product_form" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='standard_price_uom']" position="after">
+                <label for="standard_price_tax_included" groups="base.group_no_one"/>
+                <div name="standard_price_tax_included_uom" groups="base.group_no_one">
+                    <field name="standard_price_tax_included" widget='monetary' options="{'currency_field': 'cost_currency_id'}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

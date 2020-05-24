@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_standard_price_tax_included
+#
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-01 13:35+0000\n"
+"PO-Revision-Date: 2017-03-01 13:35+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_standard_price_tax_included
+#: model:product.price.type,name:product_standard_price_tax_included.standard_price_tax_included
+#: field:product.template,standard_price_tax_included:0
+msgid "Cost Price Tax Included"
+msgstr "Einstandspreis ist brutto"
+
+#. module: product_standard_price_tax_included
+#: help:product.template,standard_price_tax_included:0
+msgid ""
+"Cost Price of the product, All Tax Included:\n"
+"This field will be computed with the 'Cost Price', taking into account Sale "
+"Taxes setting."
+msgstr ""
+"Einstandspreis des Produkts, inkl. aller Steuern:\n"
+"Dieses berechnete Feld enthält den Brutto-Einstandspreis unter Verwendung "
+"der eingestellten Verkaufssteuern."
+
+#. module: product_standard_price_tax_included
+#: model:ir.model,name:product_standard_price_tax_included.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: product_standard_price_tax_included
+#: model:product.template,name:product_standard_price_tax_included.product_product_product_template
+msgid "Product With Sale Tax (Tax Included)"
+msgstr "Produkt inkl. Verkaufssteuer (Brutto)"
+
+#. module: product_standard_price_tax_included
+#: model:product.pricelist.version,name:product_standard_price_tax_included.pricelist_version_price_tax_included
+msgid "Sale Price List Version based on Cost Price Tax Included"
+msgstr "Verkaufspreislistenversion basierend auf Bruttoeinstandspreisen"
+
+#. module: product_standard_price_tax_included
+#: model:product.pricelist,name:product_standard_price_tax_included.pricelist_price_tax_included
+msgid "Sale Price List based on Cost Price Tax Included"
+msgstr "Verkaufspreisliste basiert auf Brutto-Einstandspreisen"
+
+#. module: product_standard_price_tax_included
+#: model:account.tax,name:product_standard_price_tax_included.account_tax_tax_included
+msgid "Sale Tax 15% (Tax Included)"
+msgstr "Verkaufssteuer 15% (Brutto)"
