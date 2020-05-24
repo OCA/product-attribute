@@ -14,63 +14,75 @@ Product - Cost Price Tax Included
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/8.0/product_standard_price_tax_included
+    :target: https://github.com/OCA/product-attribute/tree/12.0/product_standard_price_tax_included
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-8-0/product-attribute-8-0-product_standard_price_tax_included
+    :target: https://translation.odoo-community.org/projects/product-attribute-12-0/product-attribute-12-0-product_standard_price_tax_included
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/135/8.0
+    :target: https://runbot.odoo-community.org/runbot/135/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-In Odoo, the Cost Price Field (standard_price) is by definition 'Tax Excluded'.
-So without this module, the sale price will be bad in this following configuration:
+this module extend Odoo Sale module to handle correctly the possibility to
+create and use pricelist **based on the cost Price**, if you are in a B2C
+configuration (VAT set with 'Price Tax inlude').
 
-* Price list based on the field 'Cost Price';
-  (If you want a fixed margin, for example: Cost Price + 10%);
-* Products set with Sale Taxes "Tax Included" ; (B2C settings)
+If you have don't use VAT price tax Included, this module is useless.
 
-This module fixes the problem, adding a new field 'Cost Price Tax Included'
-(standard_price_tax_included) on Product Template model, based on Cost Price
-Field and Sale Taxes Setting.
+**Typical Use Case**
 
-This module create a new ``product.price.type`` item, named
-'Cost Price Tax Included'.
+You have a product :
+- Cost : 10€ (Vat Excl)
+- Sale Price (Vat incl) : 20€
+- VAT : 20% (Price with Tax included)
 
+You have a marginless pricelist based on the cost
+
+Without this module, if you create a sale order, the price will be bad, and
+you will sale under your cost price.
+
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_standard_price_tax_included/static/description/sale_order_form_without_module.png
+
+With this module installed, the price will be good and you will not loose
+the vat amount, when you realize this sale:
+
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_standard_price_tax_included/static/description/sale_order_form.png
+
+**Technical information**
+
+This module fixes the problem,
+
+* adding a new computed field
+  'Cost Price Tax Included' (``standard_price_tax_included``) on
+  Product Product model, based on Cost Price Field and Sale Taxes Setting.
+
+* adding a new key ``standard_price_tax_included`` on the field ``base`` of
+  the model ``product.pricelist.item``.
 
 **Table of contents**
 
 .. contents::
    :local:
 
-Configuration
-=============
-
-[ This file is optional, it should explain how to configure
-  the module before using it; it is aimed at advanced users. ]
-
-To configure this module, you need to:
-
-#. Go to ...
-
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/8.0/product_standard_price_tax_included/path/to/local/image.png
-   :alt: alternative description
-   :width: 600 px
-
 Usage
 =====
 
 User can now set Price List based on this field:
 
-.. image:: https://raw.githubusercontent.com/product_standard_price_tax_included/static/description/pricelist.png
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_standard_price_tax_included/static/description/product_pricelist_item_form.png
    :width: 100%
 
-The new field is displayed on the product template form:
+The new field is displayed on the product variant form:
 
-.. image:: https://raw.githubusercontent.com/product_standard_price_tax_included/static/description/product_template.png
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_standard_price_tax_included/static/description/product_product_form.png
    :width: 100%
+
+
+In this exemple, if cost is 10€ (Vat Excl), when we'll use in a sale order
+this product, with the pricelist based on cost (vat incl), the computation
+of the price will be good.
 
 Bug Tracker
 ===========
@@ -78,7 +90,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_standard_price_tax_included%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_standard_price_tax_included%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -94,13 +106,6 @@ Contributors
 ~~~~~~~~~~~~
 
 * Sylvain LE GAL (https://twitter.com/legalsylvain)
-
-Other credits
-~~~~~~~~~~~~~
-
-The development of this module has been financially supported by:
-
-* GRAP, Groupement Régional Alimentaire de Proximité (http://grap.coop)
 
 Maintainers
 ~~~~~~~~~~~
@@ -123,6 +128,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/8.0/product_standard_price_tax_included>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/12.0/product_standard_price_tax_included>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
