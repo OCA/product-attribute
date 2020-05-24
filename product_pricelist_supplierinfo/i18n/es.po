@@ -45,6 +45,11 @@ msgid "Cost"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Cost Price Tax Included"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignorar cantidad mínima de la info de proveedor"
