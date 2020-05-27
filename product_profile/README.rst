@@ -9,7 +9,7 @@ Product Profile
 This module provides easier products configuration (in one click).
 It allows to configure a product template with only one field.
 
- .. figure:: static/img/field.png
+ .. figure:: static/description/field.png
    :alt: profile field on product
    :width: 600 px
 
@@ -33,7 +33,7 @@ Configuration
 1. Create your own profile here: 
    Sales > Configuration > Product > Product Profiles
 
-   .. figure:: static/img/list.png
+   .. figure:: static/description/list.png
      :alt: profile list
      :width: 600 px
 
@@ -120,7 +120,7 @@ Credits
 Images
 ------
 
-* Odoo Community Association: `Icon <https://odoo-community.org/logo.png>`_.
+* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
