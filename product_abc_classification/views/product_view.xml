@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2020 ForgeFlow
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- product.product -->
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search (ABC Classification)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <filter
+                    string="ABC Classification Profile"
+                    name="abc_classification_profile"
+                    context="{'group_by':'abc_classification_profile_id'}"
+                />
+                <filter
+                    string="ABC Classification Level"
+                    name="abc_classification_level"
+                    context="{'group_by':'abc_classification_level_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="name">product.template.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field
+                    name="abc_classification_profile_id"
+                    optional="hide"
+                    attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
+                />
+                <field
+                    name="abc_classification_level_id"
+                    optional="hide"
+                    attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="product_product_tree_view" model="ir.ui.view">
+        <field name="name">product.product.tree</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field
+                    name="abc_classification_profile_id"
+                    optional="hide"
+                    attrs="{'invisible':[('type','!=','product')]}"
+                />
+                <field
+                    name="abc_classification_level_id"
+                    optional="hide"
+                    attrs="{'invisible':[('type','!=','product')]}"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form (ABC Classification)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='inventory']/group[@name='inventory']"
+                position="inside"
+            >
+                <page string="ABC Classification" name="abc_classification">
+                    <group
+                        attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
+                    >
+                        <field name="abc_classification_profile_id" />
+                        <field name="abc_classification_level_id" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!-- product.category -->
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form (ABC Classification)</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <group name="first" position="inside">
+                <field name="abc_classification_profile_id" />
+            </group>
+        </field>
+    </record>
+</odoo>
