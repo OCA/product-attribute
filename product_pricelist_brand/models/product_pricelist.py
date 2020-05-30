@@ -127,10 +127,10 @@ class ProductPricelistItem(models.Model):
                  'compute_price', 'fixed_price', 'pricelist_id',
                  'percent_price', 'price_discount', 'price_surcharge')
     def _get_pricelist_item_name_price(self):
-        self.ensure_one()
         super(ProductPricelistItem, self)._get_pricelist_item_name_price()
-        if self.brand_id:
-            self.name = _("Brand: %s") % (self.brand_id.name)
+        for item in self:
+            if item.brand_id:
+                item.name = _("Brand: %s") % (item.brand_id.name)
 
     @api.onchange('applied_on')
     def _onchange_applied_on(self):
