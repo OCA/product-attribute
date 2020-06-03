@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ForgeFlow S.L. (www.forgeflow.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="variability_profile_tree_view" model="ir.ui.view">
+        <field name="name">variability.profile.tree</field>
+        <field name="model">variability.profile</field>
+        <field name="arch" type="xml">
+            <tree string="Variability Profile Classes">
+                <field name="name" />
+                <field name="profile_source" />
+                <field name="profile_horizon_past" />
+                <field name="demand_class_ids" />
+            </tree>
+        </field>
+    </record>
+    <record id="variability_profile_form_view" model="ir.ui.view">
+        <field name="name">variability.profile.form</field>
+        <field name="model">variability.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="profile_source" />
+                        <field name="profile_horizon_past" />
+                        <field name="demand_class_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="variability_profile_class_tree_view" model="ir.ui.view">
+        <field name="name">variability.profile.class.tree</field>
+        <field name="model">variability.profile.class</field>
+        <field name="arch" type="xml">
+            <tree string="Variability Profile Classes">
+                <field name="name" />
+                <field name="lower_range" />
+                <field name="upper_range" />
+            </tree>
+        </field>
+    </record>
+    <record id="variability_profile_class_form_view" model="ir.ui.view">
+        <field name="name">variability.profile.class.form</field>
+        <field name="model">variability.profile.class</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="lower_range" />
+                        <field name="upper_range" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="variability_profile_action_form" model="ir.actions.act_window">
+        <field name="name">Variability Profiles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">variability.profile</field>
+        <field name="view_id" ref="variability_profile_tree_view" />
+    </record>
+    <menuitem
+        id="menu_variability_in_config_stock"
+        name="Demand Variability"
+        parent="stock.menu_stock_config_settings"
+        sequence="4"
+    />
+    <menuitem
+        action="variability_profile_action_form"
+        id="menu_variability_profile_config_stock"
+        parent="menu_variability_in_config_stock"
+        sequence="2"
+    />
+    <record id="variability_profile_class_action_form" model="ir.actions.act_window">
+        <field name="name">Variability Profile Classes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">variability.profile.class</field>
+        <field name="view_id" ref="variability_profile_class_tree_view" />
+    </record>
+    <menuitem
+        action="variability_profile_class_action_form"
+        id="menu_variability_profile_class_config_stock"
+        parent="menu_variability_in_config_stock"
+        sequence="3"
+    />
+</odoo>

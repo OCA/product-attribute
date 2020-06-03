@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ForgeFlow S.L. (www.forgeflow.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']" position="inside">
+                <group string="Variability Profile">
+                    <field name="variability_profile_id" />
+                    <field name="demand_class_id" />
+                    <field name="variability_factor" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_category_property_form" model="ir.ui.view">
+        <field name="name">product.category.stock.property.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="account.view_category_property_form" />
+        <field name="arch" type="xml">
+            <group name="account_property" position="before">
+                <group>
+                    <group string="Variability Profile">
+                        <field name="variability_profile_categ_id" />
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
