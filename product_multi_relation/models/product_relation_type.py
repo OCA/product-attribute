@@ -77,7 +77,6 @@ class ProductRelationType(models.Model):
     @api.model
     def get_product_types(self):
         """A product can be consumable or an service."""
-        # pylint: disable=no-self-use
         return [
             ('consu', _('Consumable')),
             ('service', _('Service')),
@@ -272,12 +271,7 @@ class ProductRelationType(models.Model):
         Relations can be deleted if relation type allows it.
         """
         relation_model = self.env['product.relation']
-        for rec in self:
-            if rec.handle_invalid_onchange == 'delete':
-                # Automatically delete relations, so existing relations
-                # do not prevent unlink of relation type:
-                relations = relation_model.search([
-                    ('type_id', '=', rec.id),
-                ])
-                relations.unlink()
+        types = self.filtered(lambda rec: rec.handle_invalid_onchange == 'delete')
+        relations = relation_model.search([('type_id', 'in', types.ids)])
+        relations.unlink()
         return super(ProductRelationType, self).unlink()

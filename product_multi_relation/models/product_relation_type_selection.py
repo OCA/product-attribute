@@ -30,7 +30,6 @@ class ProductRelationTypeSelection(models.Model):
     @api.model
     def get_product_types(self):
         """Product types are defined by model product.relation.type."""
-        # pylint: disable=no-self-use
         rprt_model = self.env['product.relation.type']
         return rprt_model.get_product_types()
 
@@ -142,7 +141,6 @@ CREATE OR REPLACE VIEW %(table)s AS
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         """Search for name or inverse name in underlying model."""
-        # pylint: disable=no-value-for-parameter
         return self.search(
             ['|',
              ('type_id.name', operator, name),

@@ -1,6 +1,5 @@
 # Copyright 2013-2017 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-# pylint: disable=api-one-deprecated
 """Store relations (connections) between products."""
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -86,7 +85,8 @@ class ProductRelation(models.Model):
         :raises ValidationError: When constraint is violated
         """
         for record in self:
-            assert side in ['left', 'right']
+            if side not in ['left', 'right']:
+                raise ValidationError(_('"%s" not in ["left", "right"]') % side)
             ptype = getattr(record.type_id, "product_type_%s" % side)
             product = getattr(record, '%s_product_id' % side)
             if ptype and ptype != product.type:
@@ -127,8 +127,6 @@ class ProductRelation(models.Model):
 
         :raises ValidationError: When constraint is violated
         """
-        # pylint: disable=no-member
-        # pylint: disable=no-value-for-parameter
         for record in self:
             domain = [
                 ('type_id', '=', record.type_id.id),

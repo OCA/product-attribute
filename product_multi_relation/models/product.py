@@ -7,12 +7,10 @@ from odoo import _, api, exceptions, fields, models
 from odoo.osv.expression import is_leaf, OR, FALSE_LEAF
 
 
-class Product(models.Model):
+class ProductTemplate(models.Model):
     """Extend product with relations and allow to search for relations
     in various ways.
     """
-    # pylint: disable=invalid-name
-    # pylint: disable=no-member
     _inherit = 'product.template'
 
     relation_count = fields.Integer(
@@ -106,7 +104,6 @@ class Product(models.Model):
     @api.model
     def _search_related_product_id(self, operator, value):
         """Find product based on relation with other product."""
-        # pylint: disable=no-self-use
         return [
             ('relation_all_ids.other_product_id', operator, value),
         ]
@@ -114,7 +111,6 @@ class Product(models.Model):
     @api.model
     def _search_relation_date(self, operator, value):
         """Look only for relations valid at date of search."""
-        # pylint: disable=no-self-use
         return [
             '&',
             '|',
@@ -128,7 +124,6 @@ class Product(models.Model):
     @api.model
     def _search_related_product_category_id(self, operator, value):
         """Search for product related to a product with search category."""
-        # pylint: disable=no-self-use
         return [
             ('relation_all_ids.other_product_id.categ_id', operator, value),
         ]
@@ -138,8 +133,6 @@ class Product(models.Model):
         """Inject searching for current relation date if we search for
         relation properties and no explicit date was given.
         """
-        # pylint: disable=arguments-differ
-        # pylint: disable=no-value-for-parameter
         date_args = []
         for arg in args:
             if (is_leaf(arg) and isinstance(arg[0], str) and
@@ -159,6 +152,6 @@ class Product(models.Model):
                         arg[0].startswith('search_relation')):
                     active_args = [('relation_all_ids.active', '=', True)]
                     break
-        return super(Product, self).search(
+        return super(ProductTemplate, self).search(
             args + date_args + active_args, offset=offset, limit=limit,
             order=order, count=count)

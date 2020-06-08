@@ -1,6 +1,5 @@
 # Copyright 2014-2018 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-# pylint: disable=method-required-super
 import collections
 import logging
 
@@ -101,10 +100,14 @@ class ProductRelationAll(models.AbstractModel):
             self, register, base_name, is_inverse, select_sql):
         _last_key_offset = register['_lastkey']
         key_name = base_name + (is_inverse and '_inverse' or '')
-        assert key_name not in register
-        assert '%%(padding)s' in select_sql
-        assert '%(key_offset)s' in select_sql
-        assert '%(is_inverse)s' in select_sql
+        if key_name in register:
+            raise ValidationError(_('"%s" in "%s"') % (key_name, register))
+        if '%%(padding)s' not in select_sql:
+            raise ValidationError(_('"%s" not in "%s"') % ('%%(padding)s', select_sql))
+        if '%(key_offset)s' not in select_sql:
+            raise ValidationError(_('"%s" in "%s"') % ('%(key_offset)s', select_sql))
+        if '%(is_inverse)s' not in select_sql:
+            raise ValidationError(_('"%s" in "%s"') % ('%(is_inverse)s', select_sql))
         _last_key_offset += 1
         register['_lastkey'] = _last_key_offset
         register[key_name] = dict(
@@ -203,7 +206,6 @@ CREATE OR REPLACE VIEW %%(table)s AS
     @api.model
     def _search_any_product_id(self, operator, value):
         """Search relation with product, no matter on which side."""
-        # pylint: disable=no-self-use
         return [
             '|',
             ('this_product_id', operator, value),
@@ -218,32 +220,32 @@ CREATE OR REPLACE VIEW %%(table)s AS
                 this.other_product_id.name,
             ) for this in self}
 
+    def _check_product_domain(self, product, product_domain, side):
+        """Check wether product_domain results in empty selection
+        for product, or wrong selection of product already selected.
+        """
+        warning = {}
+        if product:
+            test_domain = [('id', '=', product.id)] + product_domain
+        else:
+            test_domain = product_domain
+        product_model = self.env['product.template']
+        products_found = product_model.search(test_domain, limit=1)
+        if not products_found:
+            warning['title'] = _('Error!')
+            if product:
+                warning['message'] = (
+                    _('%s product incompatible with relation type.') %
+                    side.title())
+            else:
+                warning['message'] = (
+                    _('No %s product available for relation type.') %
+                    side)
+        return warning
+
     @api.onchange('type_selection_id')
     def onchange_type_selection_id(self):
         """Add domain on products according to category and product_type."""
-
-        def check_product_domain(product, product_domain, side):
-            """Check wether product_domain results in empty selection
-            for product, or wrong selection of product already selected.
-            """
-            warning = {}
-            if product:
-                test_domain = [('id', '=', product.id)] + product_domain
-            else:
-                test_domain = product_domain
-            product_model = self.env['product.template']
-            products_found = product_model.search(test_domain, limit=1)
-            if not products_found:
-                warning['title'] = _('Error!')
-                if product:
-                    warning['message'] = (
-                        _('%s product incompatible with relation type.') %
-                        side.title())
-                else:
-                    warning['message'] = (
-                        _('No %s product available for relation type.') %
-                        side)
-            return warning
 
         this_product_domain = []
         other_product_domain = []
@@ -271,7 +273,7 @@ CREATE OR REPLACE VIEW %%(table)s AS
         product_model = self.env['product.template']
         if this_product_domain:
             this_product = False
-            if bool(self.this_product_id.id):
+            if self.this_product_id.id:
                 this_product = self.this_product_id
             else:
                 this_product_id = \
@@ -282,40 +284,40 @@ CREATE OR REPLACE VIEW %%(table)s AS
                     False
                 if this_product_id:
                     this_product = product_model.browse(this_product_id)
-            warning = check_product_domain(
+            warning = self._check_product_domain(
                 this_product, this_product_domain, _('this'))
         if not warning and other_product_domain:
-            warning = check_product_domain(
+            warning = self._check_product_domain(
                 self.other_product_id, other_product_domain, _('other'))
         if warning:
             result['warning'] = warning
         return result
+
+    def _check_type_selection_domain(self, type_selection_domain):
+        """If type_selection_id already selected, check wether it
+        is compatible with the computed type_selection_domain. An empty
+        selection can practically only occur in a practically empty
+        database, and will not lead to problems. Therefore not tested.
+        """
+        warning = {}
+        if not (type_selection_domain and self.type_selection_id):
+            return warning
+        test_domain = (
+            [('id', '=', self.type_selection_id.id)] +
+            type_selection_domain)
+        type_model = self.env['product.relation.type.selection']
+        types_found = type_model.search(test_domain, limit=1)
+        if not types_found:
+            warning['title'] = _('Error!')
+            warning['message'] = _(
+                'Relation type incompatible with selected product(s).')
+        return warning
 
     @api.onchange(
         'this_product_id',
         'other_product_id')
     def onchange_product_id(self):
         """Set domain on type_selection_id based on product(s) selected."""
-
-        def check_type_selection_domain(type_selection_domain):
-            """If type_selection_id already selected, check wether it
-            is compatible with the computed type_selection_domain. An empty
-            selection can practically only occur in a practically empty
-            database, and will not lead to problems. Therefore not tested.
-            """
-            warning = {}
-            if not (type_selection_domain and self.type_selection_id):
-                return warning
-            test_domain = (
-                [('id', '=', self.type_selection_id.id)] +
-                type_selection_domain)
-            type_model = self.env['product.relation.type.selection']
-            types_found = type_model.search(test_domain, limit=1)
-            if not types_found:
-                warning['title'] = _('Error!')
-                warning['message'] = _(
-                    'Relation type incompatible with selected product(s).')
-            return warning
 
         type_selection_domain = []
         if self.this_product_id:
@@ -342,7 +344,7 @@ CREATE OR REPLACE VIEW %%(table)s AS
             'type_selection_id': type_selection_domain}}
         # Check wether domain results in no choice or wrong choice for
         # type_selection_id:
-        warning = check_type_selection_domain(type_selection_domain)
+        warning = self._check_type_selection_domain(type_selection_domain)
         if warning:
             result['warning'] = warning
         return result
@@ -387,7 +389,8 @@ CREATE OR REPLACE VIEW %%(table)s AS
         # write for models other then product.relation SHOULD
         # be handled in inherited models:
         relation_model = self.env['product.relation']
-        assert self.res_model == relation_model._name
+        if self.res_model != relation_model._name:
+            raise ValidationError(_('"%s" != "%s"') % (self.res_model, relation_model._name))
         base_resource.write(vals)
 
     @api.model
@@ -458,7 +461,8 @@ CREATE OR REPLACE VIEW %%(table)s AS
         # unlink for models other then product.relation SHOULD
         # be handled in inherited models:
         relation_model = self.env['product.relation']
-        assert self.res_model == relation_model._name
+        if self.res_model != relation_model._name:
+            raise ValidationError(_('"%s" != "%s"') % (self.res_model, relation_model._name))
         base_resource.unlink()
 
     @api.multi

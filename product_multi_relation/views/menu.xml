@@ -11,7 +11,7 @@
             id="menu_product_relation_configuration"
             name="Relations"
             sequence="4"
-            parent="sale.sale_menu_root"
+            parent="base.menu_administration"
         />
 
         <menuitem
