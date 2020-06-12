@@ -12,11 +12,11 @@ class TestProductMultiImage(common.TransactionCase):
     def setUp(self):
         super(TestProductMultiImage, self).setUp()
         self.transparent_image = (  # 1x1 Transparent GIF
-            "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
+            b'R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
         self.grey_image = (  # 1x1 Grey GIF
-            'R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw ==')
+            b'R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw ==')
         self.black_image = (  # 1x1 Black GIF
-            "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=")
+            b'R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=')
         self.attribute = self.env['product.attribute'].create({
             'name': 'Test attribute',
         })
@@ -165,14 +165,14 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_pre_init_hook_product(self):
         """ It should populate the ``image_ids`` on existing product """
-        product = self.env.ref('product.product_product_2')
+        product = self.env.ref('product.product_product_3')
         self.assertEqual(
             len(product.image_ids), 1,
         )
 
     def test_pre_init_hook_template(self):
         """ It should populate the ``image_ids`` on existing template """
-        product = self.env.ref('product.product_product_2_product_template')
+        product = self.env.ref('product.product_product_3_product_template')
         self.assertEqual(
             len(product.image_ids), 1,
         )
