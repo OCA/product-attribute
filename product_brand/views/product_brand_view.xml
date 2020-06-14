@@ -50,7 +50,6 @@
                     <group string="Partner">
                         <field name="partner_id" nolabel="1"/>
                     </group>
-                    </group>
                     <group string="Description">
                         <field name="description" nolabel="1"/>
                     </group>
