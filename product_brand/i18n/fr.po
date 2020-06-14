@@ -38,7 +38,7 @@ msgstr "Marque"
 #: model:ir.actions.act_window,name:product_brand.action_open_brand_products
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_product_ids
 msgid "Brand Products"
-msgstr ""
+msgstr "Articles de cette marque"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_create_uid
@@ -89,7 +89,7 @@ msgstr "Logo"
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_products_count
 msgid "Number of products"
-msgstr ""
+msgstr "Nombre d'articles"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_partner_id
@@ -100,34 +100,34 @@ msgstr "Partenaire"
 #: model:ir.actions.act_window,name:product_brand.action_open_single_product_brand
 #: model:ir.ui.view,arch_db:product_brand.product_brand_search_form_view
 msgid "Product Brand"
-msgstr "Marque d'article"
+msgstr "Marque"
 
 #. module: product_brand
 #: model:ir.ui.menu,name:product_brand.menu_product_brand
 msgid "Product Brands"
-msgstr ""
+msgstr "Marques"
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_product_template
 msgid "Product Template"
-msgstr "Modèle de produit"
+msgstr "Modèle d'article"
 
 #. module: product_brand
 #: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
 #: model:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Products"
-msgstr ""
+msgstr "Articles"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_product_product_brand_id
 #: model:ir.model.fields,help:product_brand.field_product_template_product_brand_id
 msgid "Select a brand for this product"
-msgstr ""
+msgstr "Choisissez une marque pour cet article"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_brand_partner_id
 msgid "Select a partner for this brand if any."
-msgstr ""
+msgstr "Choisissez un partenaire pour cette marque, s'il existe."
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_product_brand
