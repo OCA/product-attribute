@@ -47,10 +47,9 @@
                             <label for="name" string="Brand Name" class="oe_edit_only"/>
                             <h1><field name="name"/></h1>
                     </div>
-                    <group>
-                        <group>
-                            <field name="partner_id"/>
-                        </group>
+                    <group string="Partner">
+                        <field name="partner_id" nolabel="1"/>
+                    </group>
                     </group>
                     <group string="Description">
                         <field name="description" nolabel="1"/>
