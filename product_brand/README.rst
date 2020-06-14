@@ -9,9 +9,7 @@ Product Brand Manager
 This module introduce the following features:
 
 * This module allows odoo users to easily manage product brands.
-
 * You can define brands, attach a logo and a description to them.
-
 * It also allows to attach a partner to a brand.
 
 Installation
@@ -37,7 +35,6 @@ Known issues / Roadmap
 
 * Add a field with brands associated to a Customer or Supplier on
   the Customers/Suppliers Form View.
-* Fix smart button alignment in brand form view
 
 
 Bug Tracker
