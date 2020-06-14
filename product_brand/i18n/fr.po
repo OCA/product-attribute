@@ -5,6 +5,7 @@
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
 # guillaume bauer <guillaume.bauer@syentys.com>, 2017
+# Xavier Brochard <xavier@alternatif.org>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
@@ -36,13 +37,13 @@ msgstr "Marque"
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__name
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_form
 msgid "Brand Name"
-msgstr "Marque"
+msgstr "Nom de marque"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_open_brand_products
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__product_ids
 msgid "Brand Products"
-msgstr "Produits de marque"
+msgstr "Articles de cette marque"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__create_uid
@@ -73,7 +74,7 @@ msgstr "ID"
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_account_invoice_report
 msgid "Invoices Statistics"
-msgstr ""
+msgstr "Statistiques de facturation"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand____last_update
@@ -104,7 +105,7 @@ msgstr "Logo"
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__products_count
 msgid "Number of products"
-msgstr "Nombre de produits"
+msgstr "Nombre d'articles"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__partner_id
@@ -116,34 +117,34 @@ msgstr "Partenaire"
 #: model:ir.model,name:product_brand.model_product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.product_brand_search_form_view
 msgid "Product Brand"
-msgstr "Marque d'article"
+msgstr "Marque"
 
 #. module: product_brand
 #: model:ir.ui.menu,name:product_brand.menu_product_brand
 msgid "Product Brands"
-msgstr "Marques de Produits"
+msgstr "Marques"
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_product_template
 msgid "Product Template"
-msgstr "Modèle de produit"
+msgstr "Modèle d'articles"
 
 #. module: product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_form
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Products"
-msgstr "Produits"
+msgstr "Articles"
 
 #. module: product_brand
 #: model:ir.model,name:product_brand.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Rapport d'analyse des ventes"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_product__product_brand_id
 #: model:ir.model.fields,help:product_brand.field_product_template__product_brand_id
 msgid "Select a brand for this product"
-msgstr "Selectionnez une marque pour ce produit"
+msgstr "Selectionnez une marque pour cet article"
 
 #. module: product_brand
 #: model:ir.model.fields,help:product_brand.field_product_brand__partner_id
