@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo10-addon-product_pricelist_tier',
         'odoo10-addon-product_profile',
         'odoo10-addon-product_profile_example',
+        'odoo10-addon-product_secondary_unit',
         'odoo10-addon-product_sequence',
         'odoo10-addon-product_service_duration',
         'odoo10-addon-product_special_type',
