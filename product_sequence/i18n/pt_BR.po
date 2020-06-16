@@ -9,31 +9,32 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 20:03+0000\n"
-"PO-Revision-Date: 2016-11-01 20:03+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/"
-"teams/23907/pt_BR/)\n"
+"PO-Revision-Date: 2020-06-16 13:19+0000\n"
+"Last-Translator: Maurício Liell <mauricio@liell.com.br>\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/"
+"23907/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:70
 #, python-format
 msgid "-copy"
-msgstr ""
+msgstr "-cópia"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "Referência Interna"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr ""
+msgstr "Prefixo para a Referência Interna do Produto"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
@@ -41,27 +42,31 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
+"Prefixo usado para gerar a referência interna para produtos criados com esta "
+"categoria. Se estiver em branco, a sequência padrão será usada."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produto"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria de Produto"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
 msgid "Product Sequence"
-msgstr ""
+msgstr "Sequência do Produto"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
+"Defina como '/' e salve se desejar que uma nova referência interna seja "
+"proposta."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
@@ -69,6 +74,8 @@ msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+"Este campo contém as informações relacionadas à numeração dos lançamentos "
+"contábeis manuais desse diário."
 
 #~ msgid "Manufacturer"
 #~ msgstr "Fabricante"
