@@ -3,14 +3,18 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
 
-    <record id="product_normal_form_view" model="ir.ui.view">
+    <record id="product_template_form_view" model="ir.ui.view">
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
             <notebook>
                 <page name="applications" string="Applications">
                     <group name="custom_info_application" colspan="4">
-                        <field name="applications_ids" nolabel="1" colspan="4"/>
+                        <field name="applications_ids" nolabel="1" colspan="4" context="{'default_product_id': id}">
+                            <tree>
+                                <field name="name" />
+                            </tree>
+                        </field>
                     </group>
                 </page>
             </notebook>
