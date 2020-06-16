@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="product_application_search_form_view" model="ir.ui.view">
+        <field name="name">product.application.search.form</field>
+        <field name="model">product.application</field>
+        <field name="arch" type="xml">
+            <search string="Product Application">
+                <field name="name"/>
+                <field name="product_tmpl_id"/>
+            </search>
+        </field>
+    </record>
+    
+    <record id="view_product_application_form" model="ir.ui.view">
+        <field name="name">product.application.form</field>
+        <field name="model">product.application</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="base">
+                        <field name="name" />
+                        <field name="product_tmpl_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_application_tree" model="ir.ui.view">
+        <field name="name">product.application.tree</field>
+        <field name="model">product.application</field>
+        <field name="arch" type="xml">
+            <tree string="Product Applications">
+                <field name="name"/>
+                <field name="product_tmpl_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_product_application">
+        <field name="name">Product Application</field>
+        <field name="res_model">product.application</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,form,tree</field>
+    </record>
+
+    <menuitem
+        name="Product Applications"
+        id="menu_product_application"
+        action="action_product_application"
+        parent="sale.prod_config_main"/>
+</odoo>
