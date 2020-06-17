@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record
+        model="ir.cron"
+        forcecreate="True"
+        id="ir_cron_product_pricelist_assortment"
+    >
+        <field name="name">Pricelist Assortment - Launch update</field>
+        <field name="active" eval="0" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="model_id" ref="product.model_product_pricelist" />
+        <field name="state">code</field>
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="0" />
+        <field name="code">model.cron_assortment_update()</field>
+        <field name="nextcall" eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')" />
+    </record>
+</odoo>
