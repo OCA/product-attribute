@@ -19,26 +19,33 @@ class ProductApplication(models.Model):
         required=False
     )
 
+    def _get_custom_info_name_value_pairs(self):
+        self.ensure_one()
+
+        pairs = []
+        for info in self.custom_info_ids:
+            cur_value = False
+            if info.field_name == 'value_int':
+                cur_value = info.value_int
+            elif info.field_name == 'value_bool':
+                cur_value = info.value_bool
+            elif info.field_name == 'value_float':
+                cur_value = info.value_float
+            elif info.field_name == 'value_str':
+                cur_value = info.value_str
+            elif info.value:
+                cur_value = str(info.value)
+            else:
+                cur_value = False
+            pairs.append((info.name, str(cur_value)))
+        return pairs
+
     @api.model
     def _get_application_name(self):
         for app in self:
-            items = []
-            for tmpl in app.custom_info_template_id:
-                for prop in tmpl.property_ids:
-                    # items.append(str(prop.default_value))
-                    for info_val in prop.info_value_ids:
-                        cur_value = False
-                        if info_val.field_name == 'value_int':
-                            cur_value = info_val.value_int
-                        elif info_val.field_name == 'value_bool':
-                            cur_value = info_val.value_bool
-                        elif info_val.field_name == 'value_float':
-                            cur_value = info_val.value_float
-                        elif info_val.field_name == 'value_str':
-                            cur_value = info_val.value_str
-                        elif info_val.value:
-                            cur_value = str(info_val.value)
-                        else:
-                            cur_value = False
-                        items.append(str(cur_value))
-            app.name = ' | '.join(items)
+            pairs = app._get_custom_info_name_value_pairs()
+            if pairs:
+                values = []
+                for pair in pairs:
+                    values.append(pair[1])
+                app.name = ' | '.join(values)
