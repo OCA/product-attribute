@@ -6,8 +6,15 @@
 Product Supplierinfo Revision
 =============================
 
-This module allows create revisions of supplier info prices.
+This module allows to create revisions of supplier info prices.
 
+Configuration
+=============
+
+#. Install Purchase module.
+#. Check *Purchase > Settings > Vendor Price* : "Allow using and importing 
+   vendor pricelists", this will create the *Purchases > Purchase >
+   Supplier Pricelist* menu.
 
 Usage
 =====
@@ -23,8 +30,9 @@ To use this module:
 #. By clicking on Apply button, a new supplier pricelist will be created with
    a price increased accordingly to the percent entered. Old supplier
    pricelist will have a date end from which pricelist will be out of date.
-#. You can check supplier pricelists as well as variation percent in the
-   product form, by clicking on *Purchase* tab.
+#. Once the Inventory Management (*stock*) module is installed, you can check 
+   supplier pricelists as well as variation percent in the product form, by 
+   clicking on *Inventory* tab.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
