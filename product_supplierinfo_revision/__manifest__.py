@@ -4,7 +4,7 @@
 
 {
     "name": "Product Supplierinfo Revision",
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.0.1",
     "category": "Product",
     "website": "http://www.tecnativa.com",
     "author": "Tecnativa, "
