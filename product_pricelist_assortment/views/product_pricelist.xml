@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_pricelist_form_view">
+        <field
+            name="name"
+        >product.pricelist.form (in product_pricelist_assortment)</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="priority" eval="90" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']"
+                position="attributes"
+            >
+                <attribute
+                    name="domain"
+                >[('assortment_item_id', '=', False)]</attribute>
+            </xpath>
+            <xpath
+                expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']/tree"
+                position="inside"
+            >
+                <field name="assortment_item_id" invisible="1" />
+            </xpath>
+            <xpath expr="//notebook/page[@name='pricelist_rules']" position="after">
+                <page name="assortment_page" string="Assortment Items">
+                    <button
+                        name="action_launch_assortment_update"
+                        type="object"
+                        class="btn-primary oe_right"
+                        icon="fa-play"
+                        string="Launch assortment update"
+                    />
+                    <field name="item_assortment_ids" nolabel="1" colspan="2">
+                        <tree>
+                            <field name="assortment_filter_id" />
+                            <field name="min_quantity" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="price" string="Price" />
+                            <field name="base" invisible="1" />
+                            <field name="price_discount" invisible="1" />
+                            <field name="compute_price" invisible="1" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
