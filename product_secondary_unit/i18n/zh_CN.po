@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_secondary_unit
+# 	* product_secondary_unit
 #
 msgid ""
 msgstr ""
@@ -17,54 +17,54 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__code
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_code
 msgid "Code"
 msgstr "编码"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_uid
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_create_uid
 msgid "Created by"
 msgstr "创建者"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_date
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_create_date
 msgid "Created on"
 msgstr "创建于"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,help:product_secondary_unit.field_product_product__secondary_uom_ids
-#: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__uom_id
-#: model:ir.model.fields,help:product_secondary_unit.field_product_template__secondary_uom_ids
+#: model:ir.model.fields,help:product_secondary_unit.field_product_product_secondary_uom_ids
+#: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit_uom_id
+#: model:ir.model.fields,help:product_secondary_unit.field_product_template_secondary_uom_ids
 msgid "Default Secondary Unit of Measure."
 msgstr "默认辅助计量单位。"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_display_name
 msgid "Display Name"
 msgstr "显示名称"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit___last_update
 msgid "Last Modified on"
 msgstr "最后修改于"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_write_uid
 msgid "Last Updated by"
 msgstr "最后更新者"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_date
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_write_date
 msgid "Last Updated on"
 msgstr "最后更新于"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_name
 msgid "Name"
 msgstr "名称"
 
@@ -75,28 +75,28 @@ msgstr "产品辅助计量单位"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_product_tmpl_id
 msgid "Product Template"
 msgstr "产品模版"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_factor
 msgid "Secondary Unit Factor"
 msgstr "转换率"
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__uom_id
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_product_secondary_uom_ids
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_uom_id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template_secondary_uom_ids
 msgid "Secondary Unit of Measure"
 msgstr "辅助计量单位"
 
 #. module: product_secondary_unit
-#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
+#: model:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary Unit"
 msgstr "辅助计量单位"
 
 #. module: product_secondary_unit
-#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
+#: model:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary unit of measure"
 msgstr "辅助计量单位"
