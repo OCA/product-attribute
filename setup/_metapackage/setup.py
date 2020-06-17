@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-packaging_uom',
         'odoo13-addon-product_assortment',
+        'odoo13-addon-product_bom_revision',
         'odoo13-addon-product_code_unique',
         'odoo13-addon-product_cost_security',
         'odoo13-addon-product_dimension',
