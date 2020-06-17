@@ -21,8 +21,8 @@ msgid "Application Name"
 msgstr "Nombre Aplicación"
 
 #. module: product_application
-#: model:ir.model.fields,field_description:product_application.field_product_product__applications_ids
-#: model:ir.model.fields,field_description:product_application.field_product_template__applications_ids
+#: model:ir.model.fields,field_description:product_application.field_product_product__application_ids
+#: model:ir.model.fields,field_description:product_application.field_product_template__application_ids
 #: model_terms:ir.ui.view,arch_db:product_application.product_template_application_form_view
 msgid "Applications"
 msgstr "Aplicaciones"

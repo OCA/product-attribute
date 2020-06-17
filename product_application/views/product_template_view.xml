@@ -10,7 +10,7 @@
             <notebook>
                 <page name="applications" string="Applications">
                     <group name="custom_info_application" colspan="4">
-                        <field name="applications_ids" nolabel="1" colspan="4" context="{'default_template_id': id}">
+                        <field name="application_ids" nolabel="1" colspan="4" context="{'default_template_id': id}">
                             <tree>
                                 <field name="name" />
                             </tree>
