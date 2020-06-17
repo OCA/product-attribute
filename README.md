@@ -17,6 +17,7 @@ addon | version | summary
 [product_assortment](product_assortment/) | 10.0.1.0.0 | Adds the ability to manage products assortment
 [product_brand](product_brand/) | 10.0.1.0.0 | Product Brand Manager
 [product_categ_image](product_categ_image/) | 10.0.1.0.0 | Add image on product category
+[product_code_remove](product_code_remove/) | 10.0.0.0.0 | Remove Product Code from sale order line name
 [product_code_unique](product_code_unique/) | 10.0.1.0.0 | Set Product Internal Reference as Unique
 [product_country_restriction](product_country_restriction/) | 10.0.1.1.1 | Allows to define product restrictions country based
 [product_custom_info](product_custom_info/) | 10.0.1.0.0 | Add custom field in products
