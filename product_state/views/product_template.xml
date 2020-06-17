@@ -6,11 +6,9 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-            <sheet position="before">
-                <header>
-                    <field name="state" widget="statusbar" clickable="True"/>
-                </header>
-            </sheet>
+            <header position="inside">
+                <field name="state" widget="statusbar" clickable="True"/>
+            </header>
         </field>
     </record>
 
