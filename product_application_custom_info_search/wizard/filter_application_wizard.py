@@ -131,7 +131,7 @@ WHERE
 '''
             self.env.cr.execute(
                 query,
-                (filtered_product_tmpl_ids)
+                tuple([filtered_product_tmpl_ids])
             )
             available_properties = [row[0] for row in self.env.cr.fetchall()]
             final_available_properties = []
