@@ -54,12 +54,16 @@ class ProductRelation(models.Model):
 
         :raises ValidationError: When constraint is violated
         """
+        last_error = None
         for record in self:
             if (record.date_start and record.date_end and
                     record.date_start > record.date_end):
-                raise ValidationError(
+                last_error = ValidationError(
                     _('The starting date cannot be after the ending date.')
                 )
+                break
+        if last_error:
+            raise last_error
 
     @api.constrains('left_product_id', 'type_id')
     def _check_product_left(self):
@@ -84,22 +88,28 @@ class ProductRelation(models.Model):
         :param str side: left or right
         :raises ValidationError: When constraint is violated
         """
+        last_error = None
         for record in self:
             if side not in ['left', 'right']:
-                raise ValidationError(_('"%s" not in ["left", "right"]') % side)
+                last_error = ValidationError(_('"%s" not in ["left", "right"]') % side)
+                break
             ptype = getattr(record.type_id, "product_type_%s" % side)
             product = getattr(record, '%s_product_id' % side)
             if ptype and ptype != product.type:
-                raise ValidationError(
+                last_error = ValidationError(
                     _('The %s product is not applicable for this '
                       'relation type.') % side
                 )
+                break
             category = getattr(record.type_id, "product_category_%s" % side)
             if category and category.id not in product.categ_id.ids:
-                raise ValidationError(
+                last_error = ValidationError(
                     _('The %s product does not have category %s.') %
                     (side, category.name)
                 )
+                break
+        if last_error:
+            raise last_error
 
     @api.constrains('left_product_id', 'right_product_id')
     def _check_not_with_self(self):
@@ -107,12 +117,16 @@ class ProductRelation(models.Model):
 
         :raises ValidationError: When constraint is violated
         """
+        last_error = None
         for record in self:
             if record.left_product_id == record.right_product_id:
                 if not (record.type_id and record.type_id.allow_self):
-                    raise ValidationError(
+                    last_error = ValidationError(
                         _('Products cannot have a relation with themselves.')
                     )
+                    break
+        if last_error:
+            raise last_error
 
     @api.constrains(
         'left_product_id',
@@ -127,6 +141,7 @@ class ProductRelation(models.Model):
 
         :raises ValidationError: When constraint is violated
         """
+        last_error = None
         for record in self:
             domain = [
                 ('type_id', '=', record.type_id.id),
@@ -147,7 +162,10 @@ class ProductRelation(models.Model):
                     ('date_start', '<=', record.date_end),
                 ]
             if record.search(domain):
-                raise ValidationError(
+                last_error = ValidationError(
                     _('There is already a similar relation with '
                       'overlapping dates')
                 )
+                break
+        if last_error:
+            raise last_error

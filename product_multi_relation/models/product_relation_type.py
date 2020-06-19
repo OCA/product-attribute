@@ -128,6 +128,7 @@ class ProductRelationType(models.Model):
                 return [(fieldname2, 'not in', [category_id])]
             return []
 
+        last_error = None
         for this in self:
             handling = (
                 'handle_invalid_onchange' in vals and
@@ -157,14 +158,17 @@ class ProductRelationType(models.Model):
             ).search(invalid_domain)
             if invalid_relations:
                 if handling == 'restrict':
-                    raise ValidationError(
+                    last_error = ValidationError(
                         _('There are already relations not satisfying the'
                           ' conditions for product type or category.')
                     )
+                    break
                 elif handling == 'delete':
                     invalid_relations.unlink()
                 else:
                     self._end_active_relations(invalid_relations)
+        if last_error:
+            raise last_error
 
     def _get_reflexive_relations(self):
         """Get all reflexive relations for this relation type.
@@ -185,10 +189,11 @@ class ProductRelationType(models.Model):
 
     def _check_no_existing_reflexive_relations(self):
         """Check that no reflexive relation exists for these relation types."""
+        last_error = None
         for relation_type in self:
             relations = relation_type._get_reflexive_relations()
             if relations:
-                raise ValidationError(
+                last_error = ValidationError(
                     _("Reflexivity could not be disabled for the relation "
                       "type {relation_type}. There are existing reflexive "
                       "relations defined for the following products: "
@@ -196,6 +201,9 @@ class ProductRelationType(models.Model):
                         relation_type=relation_type.display_name,
                         products=relations.mapped(
                             'left_product_id.display_name')))
+                break
+        if last_error:
+            raise last_error
 
     def _delete_existing_reflexive_relations(self):
         """Delete existing reflexive relations for these relation types."""
