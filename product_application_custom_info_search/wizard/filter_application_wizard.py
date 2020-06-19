@@ -22,10 +22,7 @@ class FilterApplicationWizard(models.TransientModel):
     def apply_filters(self):
         self.ensure_one()
 
-        product_tmpl_ids = []
-
-        for filter in self.filter_line_ids:
-            pass
+        product_tmpl_ids = self.filter_line_ids.apply_filters()
 
         action = {
             'name': _('Products'),
@@ -62,37 +59,32 @@ class FilterApplicationLineWizard(models.TransientModel):
         string='Custom Value',
     )
 
-    @api.onchange('property_id')
-    def onchange_property_id(self):
-        domain = {}
-        filtered_product_tmpl_ids = []
-        already_filtered_properties = []
-        for previous_line in self.filter_wizard_id.filter_line_ids:
-            if previous_line.property_id and previous_line.value_id:
-                already_filtered_properties.append(previous_line.property_id.id)
-            if previous_line.id == self.id:
-                continue
-            # Get all product applications according previous selection:
-            product_app_model = self.env.ref(
-                'product_application.model_product_application')
-            field_type = previous_line.property_id.field_type
-            if field_type == 'bool':
-                value_bool = 'f'
-                if previous_line.value_id.value_bool:
-                    value_bool = 't'
-                where_value = 'AND prop.field_type = \'bool\' AND val.value_bool = \'%s\'' % value_bool
-            elif field_type == 'float':
-                where_value = 'AND prop.field_type = \'float\' AND val.value_float = %s' % previous_line.value_id.value_float
-            elif field_type == 'str':
-                where_value = 'AND prop.field_type = \'str\' AND val.value_str = \'%s\'' % previous_line.value_id.value_str
-            elif field_type == 'int':
-                where_value = 'AND prop.field_type = \'int\' AND val.value_int = %s' % previous_line.value_id.value_int
-            elif field_type == 'id':
-                where_value = 'AND prop.field_type = \'id\' AND val.value_id = %s' % previous_line.value_id.value_id.id
-            else:
-                raise
+    def get_resulting_product_tmpl_ids(self):
+        self.ensure_one()
+        
+        res = []
+        
+        # Get all product applications according previous selection:
+        product_app_model = self.env.ref(
+            'product_application.model_product_application')
+        field_type = self.property_id.field_type
+        if field_type == 'bool':
+            value_bool = 'f'
+            if self.value_id.value_bool:
+                value_bool = 't'
+            where_value = 'AND prop.field_type = \'bool\' AND val.value_bool = \'%s\'' % value_bool
+        elif field_type == 'float':
+            where_value = 'AND prop.field_type = \'float\' AND val.value_float = %s' % self.value_id.value_float
+        elif field_type == 'str':
+            where_value = 'AND prop.field_type = \'str\' AND val.value_str = \'%s\'' % self.value_id.value_str
+        elif field_type == 'int':
+            where_value = 'AND prop.field_type = \'int\' AND val.value_int = %s' % self.value_id.value_int
+        elif field_type == 'id':
+            where_value = 'AND prop.field_type = \'id\' AND val.value_id = %s' % self.value_id.value_id.id
+        else:
+            raise
 
-            query = '''SELECT
+        query = '''SELECT
     prod_app.product_tmpl_id
 FROM
     custom_info_property prop,
@@ -108,30 +100,50 @@ WHERE
     AND prop.id = %s
     
 '''
-            query += where_value
-            self.env.cr.execute(
-                query, tuple([product_app_model.id, previous_line.property_id.id])
-            )
-            cur_product_tmpl_ids = [row[0] for row in self.env.cr.fetchall()]
-            if filtered_product_tmpl_ids:
-                filtered_product_tmpl_ids = list(set(filtered_product_tmpl_ids)&set(cur_product_tmpl_ids))
-            else:
-                filtered_product_tmpl_ids = cur_product_tmpl_ids
+        query += where_value
+        self.env.cr.execute(
+            query, tuple([product_app_model.id, self.property_id.id])
+        )
+        product_tmpl_ids = [row[0] for row in self.env.cr.fetchall()]
+        return product_tmpl_ids
+
+    @api.multi
+    def apply_filters(self, skip_line_id = False):
+        filtered_product_tmpl_ids = []
+        for line in self:
+            if skip_line_id == line.id:
+                continue
+            if line.property_id and line.value_id:
+                cur_product_tmpl_ids = line.get_resulting_product_tmpl_ids()
+                if filtered_product_tmpl_ids:
+                    filtered_product_tmpl_ids = list(set(filtered_product_tmpl_ids)&set(cur_product_tmpl_ids))
+                else:
+                    filtered_product_tmpl_ids = cur_product_tmpl_ids
+        return filtered_product_tmpl_ids
+
+    @api.onchange('property_id')
+    def onchange_property_id(self):
+        domain = {}
+        filtered_product_tmpl_ids = []
+        already_filtered_properties = []
+        for previous_line in self.filter_wizard_id.filter_line_ids:
+            already_filtered_properties.append(previous_line.property_id.id)
+        filtered_product_tmpl_ids = self.filter_wizard_id.filter_line_ids.apply_filters(skip_line_id=self.id)
 
         if filtered_product_tmpl_ids:
             # get availablel properties:
             query = '''SELECT
-    prop.id
+    DISTINCT prop.id
 FROM
     product_application prod_app,
     custom_info_property prop
 WHERE
-    prod_app.product_tmpl_id IN (%s)
+    prod_app.product_tmpl_id IN %s
     AND prod_app.custom_info_template_id = prop.template_id;
 '''
             self.env.cr.execute(
                 query,
-                tuple([filtered_product_tmpl_ids])
+                [tuple(filtered_product_tmpl_ids)]
             )
             available_properties = [row[0] for row in self.env.cr.fetchall()]
             final_available_properties = []
