@@ -41,8 +41,8 @@ the components.
 Usage
 =====
 
-You can update the weight of one product clicking on the button under 
-the weights. 
+You can update the weight of one product clicking on the button under
+the weights.
 Or you can select the products you want to update from the tree list.
 
 Bug Tracker
@@ -51,7 +51,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_weight%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_weight%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -71,6 +71,7 @@ Contributors
 * Florian da Costa <florian.dacosta@akretion.com>
 * Juan Humanes <juan.humanes@guadaltech.es>
 * Thore Baden <thorebaden@gmail.com>
+* Tony Galmiche <tony.galmiche@infosaone.com>
 
 Maintainers
 ~~~~~~~~~~~
