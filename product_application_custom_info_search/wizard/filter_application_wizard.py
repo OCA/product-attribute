@@ -61,9 +61,7 @@ class FilterApplicationLineWizard(models.TransientModel):
 
     def get_resulting_product_tmpl_ids(self):
         self.ensure_one()
-        
-        res = []
-        
+
         # Get all product applications according previous selection:
         product_app_model = self.env.ref(
             'product_application.model_product_application')
@@ -98,7 +96,6 @@ WHERE
     AND prod_app.custom_info_template_id = tmpl.id
     AND prod_app.id = val.res_id
     AND prop.id = %s
-    
 '''
         query += where_value
         self.env.cr.execute(
@@ -108,7 +105,7 @@ WHERE
         return product_tmpl_ids
 
     @api.multi
-    def apply_filters(self, skip_line_id = False):
+    def apply_filters(self, skip_line_id=False):
         filtered_product_tmpl_ids = []
         for line in self:
             if skip_line_id == line.id:
@@ -116,7 +113,9 @@ WHERE
             if line.property_id and line.value_id:
                 cur_product_tmpl_ids = line.get_resulting_product_tmpl_ids()
                 if filtered_product_tmpl_ids:
-                    filtered_product_tmpl_ids = list(set(filtered_product_tmpl_ids)&set(cur_product_tmpl_ids))
+                    filtered_product_tmpl_ids = list(
+                        set(filtered_product_tmpl_ids) &
+                        set(cur_product_tmpl_ids))
                 else:
                     filtered_product_tmpl_ids = cur_product_tmpl_ids
         return filtered_product_tmpl_ids
@@ -124,7 +123,6 @@ WHERE
     @api.onchange('property_id')
     def onchange_property_id(self):
         domain = {}
-        filtered_product_tmpl_ids = []
         already_filtered_properties = []
         for previous_line in self.filter_wizard_id.filter_line_ids:
             already_filtered_properties.append(previous_line.property_id.id)
@@ -153,7 +151,43 @@ WHERE
             domain.update({'property_id': [('id', 'in', final_available_properties)]})
 
         if self.property_id:
-            domain.update({'value_id': [('property_id', '=', self.property_id.id)]})
+            if filtered_product_tmpl_ids:
+                query = '''SELECT
+    MAX(val.id)
+FROM
+    custom_info_value val,
+    custom_info_property prop,
+    custom_info_template tmpl,
+    product_application prod_app
+WHERE
+    prop.id = %s
+    AND prop.id = val.property_id
+    AND prop.template_id = tmpl.id
+    AND tmpl.id = prod_app.custom_info_template_id
+    AND product_tmpl_id IN %s
+GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool, val.value_id)
+'''
+                self.env.cr.execute(
+                    query,
+                    tuple([self.property_id.id, tuple(filtered_product_tmpl_ids)])
+                )
+            else:
+                query = '''SELECT
+    MAX(val.id)
+FROM
+    custom_info_value val,
+    custom_info_property prop
+WHERE
+    prop.id = %s
+    AND prop.id = val.property_id
+GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool, val.value_id)
+'''
+                self.env.cr.execute(
+                    query,
+                    tuple([self.property_id.id])
+                )
+            available_value_ids = [row[0] for row in self.env.cr.fetchall()]
+            domain.update({'value_id': [('id', 'in', available_value_ids)]})
         result = {'domain': domain}
 
         return result
