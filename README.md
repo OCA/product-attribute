@@ -27,7 +27,7 @@ addon | version | summary
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
 [product_multi_image](product_multi_image/) | 10.0.1.0.0 | Multiple Images in Products
 [product_pricelist_tier](product_pricelist_tier/) | 10.0.1.0.0 | Extends pricelists with tiered pricing.
-[product_profile](product_profile/) | 10.0.1.0.0 | Allow to configure a product in 1 click
+[product_profile](product_profile/) | 10.0.1.0.1 | Allow to configure a product in 1 click
 [product_profile_example](product_profile_example/) | 10.0.1.0.1 | Product Profile Use Case
 [product_secondary_unit](product_secondary_unit/) | 10.0.1.0.1 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 10.0.1.0.0 | Product Sequence
