@@ -13,11 +13,11 @@ class ProductSupplierinfo(models.Model):
         string="Rebate Price",
         digits=dp.get_precision('Product Price'),
     )
-    rebate_mult = fields.Float(
+    rebate_multiplied = fields.Float(
         compute='_compute_rebate_percent',
         store=True,
         digits=dp.get_precision('Product Price'),
-        string='Rebate Mult.',
+        string='Rebate Multiplied',
     )
 
     # instead of computing make something similar to sale_markup module
@@ -40,7 +40,7 @@ class ProductSupplierinfo(models.Model):
             try:
                 line.rebate_discount = (1 - (
                     line.rebate_price / line.price)) * 100
-                line.rebate_mult = (line.rebate_price / line.price)
+                line.rebate_multiplied = (line.rebate_price / line.price)
             except ZeroDivisionError:
                 line.rebate_discount = 0.0
-                line.rebate_mult = 0.0
+                line.rebate_multiplied = 0.0

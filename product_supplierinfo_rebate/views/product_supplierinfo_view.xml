@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <field name="date_start" position="before">
                 <field name="rebate_price"/>
-                <field name="rebate_mult"/>
+                <field name="rebate_multiplied"/>
                 <field name="rebate_discount"/>
             </field>
         </field>
@@ -26,7 +26,7 @@
                     <group name="rebate_in">
                         <field name="rebate_price"/>
                         <field name="is_agent"/>
-                        <field name="rebate_mult"/>
+                        <field name="rebate_multiplied"/>
                         <field name="rebate_discount"/>
                     </group>
                 </group>

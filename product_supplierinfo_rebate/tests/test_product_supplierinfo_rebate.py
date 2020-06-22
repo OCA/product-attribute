@@ -24,5 +24,5 @@ class TestProductSupplierinfoRebate(common.TransactionCase):
     def test_product_supplierinfo_rebate(self):
         self.assertEqual(self.supplierinfo.rebate_discount, 50.0,
                          "Bad rebate discount")
-        self.assertEqual(self.supplierinfo.rebate_mult, 0.5,
+        self.assertEqual(self.supplierinfo.rebate_multiplied, 0.5,
                          "Bad rebate mult")
