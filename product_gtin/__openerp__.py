@@ -6,7 +6,7 @@
 
 {
     "name": "Product GTIN EAN8 EAN13 UPC JPC Support",
-    "version": "9.0.1.0.0",
+    "version": "9.0.1.0.1",
     "author": "ChriCar Beteiligungs- und Beratungs- GmbH, "
               "Odoo Community Association (OCA), "
               "ACSONE SA/NV",
