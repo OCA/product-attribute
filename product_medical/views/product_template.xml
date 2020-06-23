@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//form/sheet/notebook/page[@name='general_information']/group[1]/group[@name='group_general']/field[@name='type']"
+                position="after"
+            >
+                <field name="is_medical" />
+            </xpath>
+            <xpath
+                expr="//form/sheet/notebook"
+                position="inside"
+                attrs="{'readonly':[('is_medical','=',0)]}"
+            >
+                <page name="mdr" string="MDR">
+                    <group name="mdr">
+                        <group name="mdr_left" string="Declaration of Conformity">
+                            <field name="conformity_declaration" />
+                            <field name="doc_lot_related" />
+                            <field name="doc_validity_date" />
+                        </group>
+                        <group name="mdr_right" string="CE Certificate">
+                            <field
+                                name="ce_certificate_medical_class"
+                                string="Medical class"
+                            />
+                            <field name="ce_certificate_validity_date" />
+                            <field name="notified_body_id" />
+                            <field name="medical_class_id" />
+                            <field name="medical_certificate_url" widget="url" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
