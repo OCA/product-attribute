@@ -18,6 +18,7 @@ addon | version | summary
 [product_brand](product_brand/) | 9.0.1.1.0 | Product Brand Manager
 [product_custom_info](product_custom_info/) | 9.0.1.0.0 | Add custom field in products
 [product_dimension](product_dimension/) | 9.0.1.1.0 | Product Dimension
+[product_gtin](product_gtin/) | 9.0.1.0.0 | This module provides checks and management to EAN codes
 [product_manufacturer](product_manufacturer/) | 9.0.1.0.0 | Products Manufacturers
 [product_multi_category](product_multi_category/) | 9.0.1.0.0 | Product - Many Categories
 [product_multi_image](product_multi_image/) | 9.0.1.0.0 | Multiple Images in Products
@@ -43,7 +44,6 @@ addon | version | summary
 [product_customer_code](product_customer_code/) | 1.0 (unported) | Add many Customers' Codes in product
 [product_electronic](product_electronic/) | 1.0 (unported) | Products Attributes & Manufacturers
 [product_gift](product_gift/) | 0.1 (unported) | product_gift
-[product_gtin](product_gtin/) | 8.0.1.1.0 (unported) | Product GTIN EAN8 EAN13 UPC JPC Support
 [product_icecat](product_icecat/) | 1.0 (unported) | Product Information Import from icecat
 [product_index](product_index/) | 1.0 (unported) | Manage indexes on products prices
 [product_listprice_upgrade](product_listprice_upgrade/) | 1.0 (unported) | Product listprice upgrade
