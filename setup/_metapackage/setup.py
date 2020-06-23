@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo9-addon-product_brand',
         'odoo9-addon-product_custom_info',
         'odoo9-addon-product_dimension',
+        'odoo9-addon-product_gtin',
         'odoo9-addon-product_manufacturer',
         'odoo9-addon-product_multi_category',
         'odoo9-addon-product_multi_image',
