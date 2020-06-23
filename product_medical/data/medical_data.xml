@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="medical_class_1" model="medical.class">
+        <field name="name">CE Class I</field>
+    </record>
+    <record id="medical_class_2" model="medical.class">
+        <field name="name">CE Class Im</field>
+    </record>
+    <record id="medical_class_3" model="medical.class">
+        <field name="name">CE Class Is</field>
+    </record>
+    <record id="medical_class_4" model="medical.class">
+        <field name="name">CE Class Ir</field>
+    </record>
+    <record id="medical_class_5" model="medical.class">
+        <field name="name">CE Class IIa</field>
+    </record>
+    <record id="medical_class_6" model="medical.class">
+        <field name="name">CE Class IIb</field>
+    </record>
+    <record id="medical_class_7" model="medical.class">
+        <field name="name">CE Class III</field>
+    </record>
+    <record id="in_vitro_1" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-A</field>
+    </record>
+    <record id="in_vitro_2" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-B</field>
+    </record>
+    <record id="in_vitro_3" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-C</field>
+    </record>
+    <record id="in_vitro_4" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-D</field>
+    </record>
+    <record id="category_d" model="medicine.category">
+        <field name="name">Drug-D</field>
+    </record>
+    <record id="category_e" model="medicine.category">
+        <field name="name">Drug-E</field>
+    </record>
+    <record id="ppe_category_1" model="ppe.category">
+        <field name="name">|</field>
+    </record>
+    <record id="ppe_category_2" model="ppe.category">
+        <field name="name">||</field>
+    </record>
+    <record id="ppe_category_3" model="ppe.category">
+        <field name="name">|||</field>
+    </record>
+</odoo>
