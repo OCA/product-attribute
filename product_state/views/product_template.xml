@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="product_state_search_form_view">
+        <field name="name">product.state.search.form</field>
+        <field name="model">product.state</field>
+        <field name="arch" type="xml">
+            <search string="Product State">
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_open_state_products">
+        <field name="name">State Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="context">{}</field>
+        <field name="domain">[('product_state_id', '=', active_id)]</field>
+    </record>
+    <record model="ir.actions.act_window" id="action_open_single_product_state">
+        <field name="name">Product State</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.state</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="context">{}</field>
+        <field name="domain">[('product_state_id', '=', active_id)]</field>
+        <field name="target">current</field>
+    </record>
+    <record id="view_product_state_form" model="ir.ui.view">
+        <field name="name">product.state.form</field>
+        <field name="model">product.state</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="%(action_open_state_products)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="products_count"
+                                widget="statinfo"
+                                string="Products"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="State Name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group string="Code">
+                        <field name="code" nolabel="1" />
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_state_tree" model="ir.ui.view">
+        <field name="name">product.state.tree</field>
+        <field name="model">product.state</field>
+        <field name="arch" type="xml">
+            <tree string="product.state">
+                <field name="name" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_product_state_kanban" model="ir.ui.view">
+        <field name="name">product.state.kanban</field>
+        <field name="model">product.state</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id" />
+                <field name="products_count" />
+                <field name="description" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <h4>
+                                    <field name="name" />
+                                </h4>
+                                <div>
+                                    <a
+                                        name="%(product_state.action_open_state_products)d"
+                                        type="action"
+                                    >
+                                        <t
+                                            t-esc="record.products_count.value"
+                                        /> Products
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_product_template_search_state" model="ir.ui.view">
+        <field name="name">product.template.search.state</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="product_state_id" />
+                <filter
+                    string="State"
+                    name="groupby_state"
+                    domain="[]"
+                    context="{'group_by' : 'product_state_id'}"
+                />
+                <separator />
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <field
+                    name="product_state_id"
+                    widget="statusbar"
+                    options="{'clickable': '1'}"
+                />
+                <field name="state" invisible="1" />
+            </header>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="product_template_view_tree_inherit_product_state_id">
+        <field name="name">product.template.tree (product_state_id)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="state" />
+            </field>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_product_state">
+        <field name="name">State</field>
+        <field name="res_model">product.state</field>
+        <field name="view_mode">kanban,form,tree</field>
+    </record>
+    <record model="ir.ui.menu" id="menu_product_state">
+        <field name="name">Product States</field>
+        <field name="action" ref="action_product_state" />
+        <field name="parent_id" ref="sale.prod_config_main" />
+    </record>
+</odoo>
