@@ -33,12 +33,15 @@ class ProductTemplate(models.Model):
 
     @api.model
     def create(self, vals):
-        product = super().create(vals)
+        """Overwrite creation for rewriting the prices (if set and having only
+        one variant), after the variant creation, that is performed in super.
+        """
+        template = super().create(vals)
         if vals.get('price_ids'):
-            product.write({
+            template.write({
                 'price_ids': vals.get('price_ids'),
             })
-        return product
+        return template
 
     def price_compute(self, price_type, uom=False, currency=False,
                       company=False):
