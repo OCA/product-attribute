@@ -12,7 +12,6 @@ class TestProductMultiPrice(SavepointCase):
         cls.price_field_1 = cls.price_name_obj.create({'name': 'test_field_1'})
         cls.price_field_2 = cls.price_name_obj.create({'name': 'test_field_2'})
         prod_tmpl_obj = cls.env['product.template']
-        product_obj = cls.env['product.product']
         cls.prod_1 = prod_tmpl_obj.create({
             'name': 'Test Product Template',
             'price_ids': [
@@ -35,11 +34,14 @@ class TestProductMultiPrice(SavepointCase):
             'name': 'Test Product 2 With Variants',
             'attribute_line_ids': [(0, 0, {
                 'attribute_id': cls.prod_att_1.id,
+                'value_ids': [(6, 0, [
+                    cls.prod_attr1_v1.id, cls.prod_attr1_v2.id
+                ])],
             })]
         })
-        cls.prod_prod_2_1 = product_obj.create({
-            'product_tmpl_id': cls.prod_2.id,
-            'attribute_value_ids': [(6, 0, [cls.prod_attr1_v1.id])],
+        cls.prod_prod_2_1 = cls.prod_2.product_variant_ids[0]
+        cls.prod_prod_2_2 = cls.prod_2.product_variant_ids[1]
+        cls.prod_prod_2_1.write({
             'price_ids': [
                 (0, 0, {
                     'name': cls.price_field_1.id,
@@ -51,9 +53,7 @@ class TestProductMultiPrice(SavepointCase):
                 }),
             ],
         })
-        cls.prod_prod_2_2 = product_obj.create({
-            'product_tmpl_id': cls.prod_2.id,
-            'attribute_value_ids': [(6, 0, [cls.prod_attr1_v2.id])],
+        cls.prod_prod_2_2.write({
             'price_ids': [
                 (0, 0, {
                     'name': cls.price_field_1.id,
@@ -74,8 +74,7 @@ class TestProductMultiPrice(SavepointCase):
                     'multi_price_name': cls.price_field_1.id,
                     'price_discount': 10,
                     'applied_on': '3_global',
-                    }),
-                ],
+                })],
         })
 
     def test_product_multi_price_pricelist(self):
