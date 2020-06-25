@@ -1,0 +1,50 @@
+from odoo.tests.common import Form, SavepointCase
+
+
+class TestProductPricePackagingQty(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product = cls.env.ref("product.product_product_1")
+        cls.wizard = cls.env["product.package.price.wizard"]
+        cls.pkg_box = cls.env["product.packaging"].create(
+            {"name": "Box", "product_id": cls.product.id}
+        )
+        # Qty is not added on create because it breaks on Travis with
+        # packaging_uom installed
+        cls.pkg_box.qty = 50
+        cls.pkg_big_box = cls.env["product.packaging"].create(
+            {"name": "Big Box", "product_id": cls.product.id}
+        )
+        cls.pkg_big_box.qty = 200
+        cls.pkg_pallet = cls.env["product.packaging"].create(
+            {"name": "Pallet", "product_id": cls.product.id}
+        )
+        cls.pkg_pallet.qty = 2000
+        cls.wizard_1 = cls.wizard.create({"product_id": cls.product.product_tmpl_id.id})
+        cls.supplier = cls.env["res.partner"].create({"name": "Good Supplier"})
+        cls.supplier_info = cls.env["product.supplierinfo"].create(
+            {
+                "product_tmpl_id": cls.product.product_tmpl_id.id,
+                "name": cls.supplier.id,
+            }
+        )
+
+    def test_set_sale_package_price(self):
+        form = Form(self.wizard_1)
+        form.packaging_price = 200
+        form.selected_packaging_id = self.pkg_box
+        self.assertEqual(form.unit_price, 4)
+        form.save()
+        self.wizard_1.save()
+        self.assertEqual(self.product.list_price, 4)
+
+    def test_set_purchase_pacakge_price(self):
+        self.wizard_1.product_supplierinfo_id = self.supplier_info
+        form = Form(self.wizard_1)
+        form.packaging_price = 200
+        form.selected_packaging_id = self.pkg_big_box
+        self.assertEqual(form.unit_price, 1)
+        form.save()
+        self.wizard_1.save()
+        self.assertEqual(self.supplier_info.price, 1)
