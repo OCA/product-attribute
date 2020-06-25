@@ -12,7 +12,6 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.stock_state_threshold",
         string="Stock State Threshold",
         readonly=False,
-        help="Define custom value"
-        " under which the stock state will pass from 'In Stock' to 'In Limited"
-        " Stock' State.",
+        help="Define custom value under which the stock state will pass from"
+        " 'In Stock' to 'In Limited Stock' State.",
     )
