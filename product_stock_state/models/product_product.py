@@ -37,9 +37,7 @@ class ProductProduct(models.Model):
     def _compute_stock_state(self):
         for product in self:
             qty_available = product._get_qty_available_for_stock_state()
-            precision = self.env["decimal.precision"].precision_get(
-                "Stock Threshold"
-            )
+            precision = self.env["decimal.precision"].precision_get("Stock Threshold")
             if (
                 float_compare(
                     qty_available,
@@ -49,16 +47,10 @@ class ProductProduct(models.Model):
                 == 1
             ):
                 product.stock_state = "in_stock"
-            elif (
-                float_compare(qty_available, 0, precision_digits=precision,)
-                == 1
-            ):
+            elif float_compare(qty_available, 0, precision_digits=precision,) == 1:
                 product.stock_state = "in_limited_stock"
             elif (
-                float_compare(
-                    product.incoming_qty, 0, precision_digits=precision,
-                )
-                == 1
+                float_compare(product.incoming_qty, 0, precision_digits=precision,) == 1
             ):
                 product.stock_state = "resupplying"
             else:
