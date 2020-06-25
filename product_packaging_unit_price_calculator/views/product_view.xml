@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <button name="open_pricelist_rules" position="after">
+                <button
+                    name="open_packaging_price"
+                    icon="fa-calculator"
+                    type="object"
+                    class="oe_inline"
+                >Packaging Prices</button>
+            </button>
+        </field>
+    </record>
+</odoo>
