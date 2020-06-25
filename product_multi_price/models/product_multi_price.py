@@ -6,6 +6,7 @@ from odoo.addons import decimal_precision as dp
 
 class ProductMultiPrice(models.Model):
     _name = 'product.multi.price'
+    _description = "Product Multiple Prices"
 
     name = fields.Many2one(
         comodel_name='product.multi.price.name',
@@ -36,6 +37,7 @@ class ProductMultiPrice(models.Model):
 
 class ProductMultiPriceName(models.Model):
     _name = 'product.multi.price.name'
+    _description = "Multi Price Record Options"
 
     @api.model
     def _get_company(self):

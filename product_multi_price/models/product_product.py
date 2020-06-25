@@ -26,7 +26,7 @@ class ProductProduct(models.Model):
             # method are atomic and we can't hack inside.
             # Verbatim copy of part of product.pricelist._compute_price_rule.
             qty_uom_id = self._context.get('uom') or self.uom_id.id
-            price_uom = self.env['product.uom'].browse([qty_uom_id])
+            price_uom = self.env['uom.uom'].browse([qty_uom_id])
             convert_to_price_uom = (
                 lambda price: self.uom_id._compute_price(
                     price, price_uom))
