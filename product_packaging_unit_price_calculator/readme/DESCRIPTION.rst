@@ -1,9 +1,9 @@
 This module adds a wizard that allow the user to compute a unit price by
 selecting a specific `product.packaging` related to the product and the
-price of that package. The compuation is done based on the quantity `qty`
+price of that package. The computation is done based on the quantity `qty`
 of product set on the packaging.
 
-The wizard is accesible by buttons located in a few different places in the UI
+The wizard is accessible by buttons located in a few different places in the UI
 
 * Next to the sale price of the product on the product form
 * Next to the price of a product supplier info  form

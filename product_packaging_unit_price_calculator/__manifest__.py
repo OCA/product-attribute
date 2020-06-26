@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Packaging Unit Price Calculator",
-    "summary": "",
+    "summary": "Wizard to calculate a unit price from a packaging price",
     "version": "13.0.1.0.0",
     "category": "Product",
     "author": "Camptocamp, Odoo Community Association (OCA)",

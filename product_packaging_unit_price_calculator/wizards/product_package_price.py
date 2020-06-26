@@ -54,7 +54,7 @@ class ProductPackagePrice(models.TransientModel):
             self.unit_price = 0.0
             self.warning_message = _(
                 "Unit price can not be computed because the selected"
-                "packaging as no quantity set."
+                "packaging has no quantity set."
             )
         else:
             self.unit_price = self.packaging_price / self.selected_packaging_id.qty
@@ -69,7 +69,7 @@ class ProductPackagePrice(models.TransientModel):
             raise UserError(
                 _(
                     "Unit price can not be computed because the selected"
-                    "packaging as no quantity set."
+                    "packaging has no quantity set."
                 )
             )
         for pack in self.packaging_ids:
@@ -89,7 +89,7 @@ class ProductPackagePrice(models.TransientModel):
             raise UserError(
                 _(
                     "Unit price can not be computed because the selected"
-                    "packaging as no quantity set."
+                    "packaging has no quantity set."
                 )
             )
         if self.product_pricelist_item_id:

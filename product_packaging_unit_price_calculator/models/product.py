@@ -4,7 +4,7 @@
 from odoo import models
 
 
-class ProductTempalte(models.Model):
+class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     def open_packaging_price(self):
