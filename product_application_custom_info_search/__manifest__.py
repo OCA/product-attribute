@@ -7,7 +7,7 @@
     'version': '12.0.1.0.0',
     'development_status': "Mature",
     'category': 'Product',
-    'summary': "Search products by applications",
+    'summary': "Search products by product applications",
     'author': 'PlanetaTIC'
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/product-attribute',
@@ -16,8 +16,7 @@
         'product_application_custom_info',
     ],
     'data': [
-#         'views/product_view.xml',
-#         'views/sale_view.xml',
+        'views/sale_view.xml',
         'wizard/filter_application_wizard_view.xml',
     ],
     'installable': True,

@@ -1,0 +1,187 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_application_custom_info_search
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-29 10:22+0000\n"
+"PO-Revision-Date: 2020-06-29 10:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application_order
+msgid "Add Products"
+msgstr "Añadir productos"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_order_form_search_application
+msgid "Add Products by application"
+msgstr "Añadir productos por aplicación"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application_order
+msgid "Apply Filters"
+msgstr "Aplicar Filtros"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application_order
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: product_application_custom_info_search
+#: selection:filter.application.wizard,state:0
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application
+msgid "Create filter"
+msgstr "Crar filtro"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__create_uid
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__create_date
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__property_id
+msgid "Custom Property"
+msgstr "Propiedad"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__value_id
+msgid "Custom Value"
+msgstr "Valor"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__display_name
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__filter_wizard_id
+msgid "Filter Application Wizard"
+msgstr "Asistente Filtro APlicación"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__filter_line_ids
+msgid "Filter Lines"
+msgstr "Línies de filtro"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__id
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard____last_update
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__write_uid
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_line_wizard__write_date
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application_order
+msgid "Product Search by Application"
+msgstr "Buscar producto por aplicación"
+
+#. module: product_application_custom_info_search
+#: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application_line
+msgid "Product Search by Application Line"
+msgstr "Líneas de buscar producto por aplicación"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__product_tmpl_id
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_application_custom_info_search
+#: code:addons/product_application_custom_info_search/wizard/filter_application_wizard.py:80
+#, python-format
+msgid "Products"
+msgstr "Productos"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__product_tmpl_ids
+msgid "Products Template"
+msgstr "Plantilla Productos"
+
+#. module: product_application_custom_info_search
+#: model:ir.model,name:product_application_custom_info_search.model_sale_order
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__order_id
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: product_application_custom_info_search
+#: model:ir.actions.act_window,name:product_application_custom_info_search.action_view_search_by_application
+#: model:ir.ui.menu,name:product_application_custom_info_search.search_product_by_application_menu
+msgid "Search by Application"
+msgstr "Buscar productos por Aplicación"
+
+#. module: product_application_custom_info_search
+#: model:ir.model,name:product_application_custom_info_search.model_filter_application_wizard
+msgid "Search products by Application attributes"
+msgstr "Buscar productos por atributos de aplicación"
+
+#. module: product_application_custom_info_search
+#: code:addons/product_application_custom_info_search/models/sale.py:14
+#: code:addons/product_application_custom_info_search/wizard/filter_application_wizard.py:65
+#, python-format
+msgid "Select Products by Applications"
+msgstr "Selección de productos por aplicaciones"
+
+#. module: product_application_custom_info_search
+#: selection:filter.application.wizard,state:0
+msgid "Product Selection"
+msgstr "Selección de producto"
+
+#. module: product_application_custom_info_search
+#: model:ir.model.fields,field_description:product_application_custom_info_search.field_filter_application_wizard__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: product_application_custom_info_search
+#: selection:filter.application.wizard,state:0
+msgid "Wizard completed"
+msgstr "Asistente completado"
+
+#. module: product_application_custom_info_search
+#: model:ir.model,name:product_application_custom_info_search.model_filter_application_line_wizard
+msgid "filter.application.line.wizard"
+msgstr "filter.application.line.wizard"
+

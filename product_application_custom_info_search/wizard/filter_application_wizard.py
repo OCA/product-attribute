@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import time
-
 from odoo import api, fields, models, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError
 
 
 class FilterApplicationWizard(models.TransientModel):
@@ -18,26 +14,93 @@ class FilterApplicationWizard(models.TransientModel):
         string='Filter Lines'
     )
 
+    product_tmpl_ids = fields.Many2many(
+        comodel_name='product.template', string='Products Template',)
+
+    product_tmpl_id = fields.Many2one(
+        comodel_name='product.template', string='Product Template')
+
+    product_id = fields.Many2one(
+        comodel_name='product.product', string='Product')
+
+    state = fields.Selection(
+        selection=[('init', 'Configuration'),
+                   ('filtered', 'Product Selection'),
+                   ('done', 'Wizard completed')],
+        string='Status', readonly=True, default='init')
+
+    order_id = fields.Many2one(
+        comodel_name='sale.order', string='Sale Order')
+
+    @api.onchange('product_tmpl_id')
+    def onchange_product_tmpl_id(self):
+        product_obj = self.env['product.product']
+
+        self.product_id = False
+        if self.product_tmpl_id:
+            products = product_obj.search([
+                ('product_tmpl_id', '=', self.product_tmpl_id.id)
+            ])
+            if products:
+                self.product_id = products[0]
+
     @api.multi
     def apply_filters(self):
         self.ensure_one()
 
         product_tmpl_ids = self.filter_line_ids.apply_filters()
 
-        action = {
-            'name': _('Products'),
-            'type': 'ir.actions.act_window',
-            'res_model': 'product.template',
-            'target': 'current',
-        }
+        if self._context.get('from_sale_order', False):
+            # Called from sale order form:
+            if self.env.context['active_id']\
+                    and self.env.context['active_model'] == 'sale.order':
+                self.order_id = self.env.context['active_id']
+            self.state = 'filtered'
+            self.product_tmpl_ids = product_tmpl_ids
+            if product_tmpl_ids:
+                self.product_tmpl_id = product_tmpl_ids[0]
+                self.onchange_product_tmpl_id()
 
-        if len(product_tmpl_ids) == 1:
-            action['res_id'] = product_tmpl_ids[0]
-            action['view_mode'] = 'form'
+            action = {
+                'name': _('Select Products by Applications'),
+                'type': 'ir.actions.act_window',
+                'res_model': 'filter.application.wizard',
+                'target': 'new',
+                'view_mode': 'form',
+                'view_type': 'form',
+                'res_id': self.id,
+                'context': {
+                    'from_sale_order': True,
+                    'default_model': self._name,
+                }
+            }
         else:
-            action['view_mode'] = 'tree,form'
-            action['domain'] = [('id', 'in', product_tmpl_ids)]
+            # Called from products:
+            action = {
+                'name': _('Products'),
+                'type': 'ir.actions.act_window',
+                'res_model': 'product.template',
+                'target': 'current',
+            }
+
+            if len(product_tmpl_ids) == 1:
+                action['res_id'] = product_tmpl_ids[0]
+                action['view_mode'] = 'form'
+            else:
+                action['view_mode'] = 'tree,form'
+                action['domain'] = [('id', 'in', product_tmpl_ids)]
+
         return action
+
+    @api.multi
+    def add_products(self):
+        self.ensure_one()
+
+        self.order_id.write({
+            'order_line': [(0, False, {'product_id': self.product_id.id})]}
+        )
+
+        return True
 
 
 class FilterApplicationLineWizard(models.TransientModel):
@@ -70,15 +133,20 @@ class FilterApplicationLineWizard(models.TransientModel):
             value_bool = 'f'
             if self.value_id.value_bool:
                 value_bool = 't'
-            where_value = 'AND prop.field_type = \'bool\' AND val.value_bool = \'%s\'' % value_bool
+            where_value = 'AND prop.field_type = \'bool\''\
+                ' AND val.value_bool = \'%s\'' % value_bool
         elif field_type == 'float':
-            where_value = 'AND prop.field_type = \'float\' AND val.value_float = %s' % self.value_id.value_float
+            where_value = 'AND prop.field_type = \'float\''\
+                ' AND val.value_float = %s' % self.value_id.value_float
         elif field_type == 'str':
-            where_value = 'AND prop.field_type = \'str\' AND val.value_str = \'%s\'' % self.value_id.value_str
+            where_value = 'AND prop.field_type = \'str\''\
+                ' AND val.value_str = \'%s\'' % self.value_id.value_str
         elif field_type == 'int':
-            where_value = 'AND prop.field_type = \'int\' AND val.value_int = %s' % self.value_id.value_int
+            where_value = 'AND prop.field_type = \'int\''\
+                ' AND val.value_int = %s' % self.value_id.value_int
         elif field_type == 'id':
-            where_value = 'AND prop.field_type = \'id\' AND val.value_id = %s' % self.value_id.value_id.id
+            where_value = 'AND prop.field_type = \'id\''\
+                ' AND val.value_id = %s' % self.value_id.value_id.id
         else:
             raise
 
@@ -126,10 +194,12 @@ WHERE
         already_filtered_properties = []
         for previous_line in self.filter_wizard_id.filter_line_ids:
             already_filtered_properties.append(previous_line.property_id.id)
-        filtered_product_tmpl_ids = self.filter_wizard_id.filter_line_ids.apply_filters(skip_line_id=self.id)
+        filtered_product_tmpl_ids =\
+            self.filter_wizard_id.filter_line_ids.apply_filters(
+                skip_line_id=self.id)
 
         if filtered_product_tmpl_ids:
-            # get availablel properties:
+            # get available properties:
             query = '''SELECT
     DISTINCT prop.id
 FROM
@@ -148,7 +218,8 @@ WHERE
             for cur_prop in available_properties:
                 if cur_prop not in already_filtered_properties:
                     final_available_properties.append(cur_prop)
-            domain.update({'property_id': [('id', 'in', final_available_properties)]})
+            domain.update(
+                {'property_id': [('id', 'in', final_available_properties)]})
 
         if self.property_id:
             if filtered_product_tmpl_ids:
@@ -165,11 +236,15 @@ WHERE
     AND prop.template_id = tmpl.id
     AND tmpl.id = prod_app.custom_info_template_id
     AND product_tmpl_id IN %s
-GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool, val.value_id)
+GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool,
+    val.value_id)
 '''
                 self.env.cr.execute(
                     query,
-                    tuple([self.property_id.id, tuple(filtered_product_tmpl_ids)])
+                    tuple([
+                        self.property_id.id,
+                        tuple(filtered_product_tmpl_ids)
+                    ])
                 )
             else:
                 query = '''SELECT
@@ -180,7 +255,8 @@ FROM
 WHERE
     prop.id = %s
     AND prop.id = val.property_id
-GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool, val.value_id)
+GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool,
+    val.value_id)
 '''
                 self.env.cr.execute(
                     query,

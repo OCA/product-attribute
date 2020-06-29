@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+        <record id="view_product_search_by_application_order" model="ir.ui.view">
+        <field name="name">Product Search by Application</field>
+        <field name="model">filter.application.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Search by Application">
+                <group attrs="{'invisible':[('state','!=','init'),]}">
+                    <field name="state" invisible="1"/>
+                    <field name="filter_line_ids">
+                        <tree>
+                            <field name="property_id" />
+                            <field name="value_id" />
+                        </tree>
+                    </field>
+                </group>
+                <group attrs="{'invisible':[('state','!=','filtered'),]}">
+                    <field name="product_tmpl_ids" invisible="1" />
+                    <field name="product_tmpl_id" domain="[('id', 'in', product_tmpl_ids)]"/>
+                    <field name="product_id" attrs="{'required': [('product_tmpl_id', '!=', False)]}" domain="[('product_tmpl_id', '=', product_tmpl_id)]"/>
+                </group>
+                <footer>
+                    <button name="apply_filters" string="Apply Filters" type="object" class="btn-primary" attrs="{'invisible':[('state','!=','init'),]}"/>
+                    <button name="add_products" string="Add Products" type="object" class="btn-primary" attrs="{'invisible':[('state','!=','filtered'),]}"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
     <record id="view_product_search_by_application" model="ir.ui.view">
         <field name="name">Product Search by Application</field>
         <field name="model">filter.application.wizard</field>
