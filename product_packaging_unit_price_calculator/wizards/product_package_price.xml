@@ -7,15 +7,15 @@
             <form string="Product Packaging Price">
                 <field name="product_id" invisible="1" />
                 <field name="product_variant_ids" invisible="1" />
-                <group>
-                    <group>
+                <group name="main">
+                    <group name="package_price_group">
                         <field name="packaging_price" />
                         <field
                             name="selected_packaging_id"
                             options="{'no_open': True, 'no_create': True, 'no_edit': True}"
                         />
                     </group>
-                    <group>
+                    <group name="unit_price_group">
                         <field name="unit_price" />
                     </group>
                 </group>
@@ -39,7 +39,7 @@
                 </field>
                 <footer>
                     <button
-                        name="save"
+                        name="action_set_price"
                         string="Save"
                         type="object"
                         class="btn-primary"
