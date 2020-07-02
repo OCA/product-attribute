@@ -28,12 +28,9 @@ class ProductTemplate(models.Model):
         digits=dp.get_precision("Stock Threshold")
     )
 
-    @api.depends(
-        "categ_id.stock_state_threshold", "manual_stock_state_threshold"
-    )
+    @api.depends("categ_id.stock_state_threshold", "manual_stock_state_threshold")
     def _compute_stock_state_threshold(self):
         for rec in self:
             rec.stock_state_threshold = (
-                rec.manual_stock_state_threshold
-                or rec.categ_id.stock_state_threshold
+                rec.manual_stock_state_threshold or rec.categ_id.stock_state_threshold
             )
