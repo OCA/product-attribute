@@ -29,6 +29,12 @@ class ProductPackagingType(models.Model):
         if msg:
             raise ValidationError(msg)
 
+    def name_get(self):
+        result = []
+        for record in self:
+            result.append((record.id, "{} ({})".format(record.name, record.code)))
+        return result
+
 
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
@@ -90,3 +96,17 @@ class ProductPackaging(models.Model):
                 )
             res.append("{} {}".format(new_qty, code))
         return "; ".join(res)
+
+    @api.onchange("packaging_type_id")
+    def _onchange_name(self):
+        if self.packaging_type_id:
+            self.name = self.packaging_type_id.name
+
+    def name_get(self):
+        result = []
+        for record in self:
+            if record.product_id and record.packaging_type_id:
+                result.append((record.id, record.packaging_type_id.display_name))
+            else:
+                result.append((record.id, record.name))
+        return result
