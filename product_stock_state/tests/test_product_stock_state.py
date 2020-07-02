@@ -1,21 +1,24 @@
 # Copyright 2017-Today GRAP (http://www.grap.coop).
+# Copyright 2020 Camptocamp SA (http://www.camptocamp.com)
 # @author Sylvain LE GAL <https://twitter.com/legalsylvain>
+# @author Simone Orsi <simahawk@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 
 
-class TestProductStockState(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.company = self.env.ref("base.main_company")
-        self.category_furniture = self.env.ref("product.product_category_5")
-        self.category_saleable = self.env.ref("product.product_category_1")
-        self.product_chair = self.env.ref("product.product_product_12")
-        self.product_threshold_on_company = self.env.ref(
+class TestProductStockState(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.company = cls.env.ref("base.main_company")
+        cls.category_furniture = cls.env.ref("product.product_category_5")
+        cls.category_saleable = cls.env.ref("product.product_category_1")
+        cls.product_chair = cls.env.ref("product.product_product_12")
+        cls.product_threshold_on_company = cls.env.ref(
             "product_stock_state.product_setting_by_company"
         )
-        self.product_threshold_on_product = self.env.ref(
+        cls.product_threshold_on_product = cls.env.ref(
             "product_stock_state.product_setting_by_product"
         )
 
