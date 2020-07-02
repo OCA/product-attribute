@@ -50,13 +50,13 @@ class ProductProduct(models.Model):
             ):
                 product.stock_state = "in_stock"
             elif (
-                float_compare(qty_available, 0, precision_digits=precision,)
+                float_compare(qty_available, 0, precision_digits=precision)
                 == 1
             ):
                 product.stock_state = "in_limited_stock"
             elif (
                 float_compare(
-                    product.incoming_qty, 0, precision_digits=precision,
+                    product.incoming_qty, 0, precision_digits=precision
                 )
                 == 1
             ):
