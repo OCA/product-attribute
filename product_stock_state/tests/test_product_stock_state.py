@@ -49,6 +49,4 @@ class TestProductStockState(TransactionCase):
 
     def test_05_state_out_of_stock(self):
         """Test Stock State computation"""
-        self.assertEqual(
-            self.product_threshold_on_product.stock_state, "out_of_stock"
-        )
+        self.assertEqual(self.product_threshold_on_product.stock_state, "out_of_stock")

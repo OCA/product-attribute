@@ -7,6 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+
 from odoo.addons import decimal_precision as dp
 
 
@@ -26,12 +27,9 @@ class ProductCategory(models.Model):
         digits=dp.get_precision("Stock Threshold")
     )
 
-    @api.depends(
-        "parent_id.stock_state_threshold", "manual_stock_state_threshold"
-    )
+    @api.depends("parent_id.stock_state_threshold", "manual_stock_state_threshold")
     def _compute_stock_state_threshold(self):
         for rec in self:
             rec.stock_state_threshold = (
-                rec.manual_stock_state_threshold
-                or rec.parent_id.stock_state_threshold
+                rec.manual_stock_state_threshold or rec.parent_id.stock_state_threshold
             )
