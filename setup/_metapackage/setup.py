@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo12-addon-product_cost_security',
         'odoo12-addon-product_dimension',
         'odoo12-addon-product_firmware_version',
+        'odoo12-addon-product_logistics_uom',
         'odoo12-addon-product_manufacturer',
         'odoo12-addon-product_multi_category',
         'odoo12-addon-product_pricelist_direct_print',
