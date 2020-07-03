@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_multi_price
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_multi_price
+#: sql_constraint:product.multi.price:0
+msgid "A field name cannot be assigned to a product twice for the same company"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_company_id
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_company_id
+msgid "Company"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_create_uid
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_create_date
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_display_name
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_id
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_id
+msgid "ID"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price___last_update
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_write_uid
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_write_date
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name
+msgid "Name"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_pricelist_item_multi_price_name
+msgid "Other Price Name"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_product_price_ids
+#: model:ir.model.fields,field_description:product_multi_price.field_product_template_price_ids
+msgid "Other Prices"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_price
+msgid "Price"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name_name
+msgid "Price Field Name"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.actions.act_window,name:product_multi_price.action_multi_price_name_config
+#: model:ir.ui.menu,name:product_multi_price.multi_price_name_menu
+msgid "Price Field Names"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model,name:product_multi_price.model_product_pricelist
+msgid "Pricelist"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model,name:product_multi_price.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr ""
+
+#. module: product_multi_price
+#: sql_constraint:product.multi.price.name:0
+msgid "Prices Names must be unique per company"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model,name:product_multi_price.model_product_product
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_product_id
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
+#: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_tree_view
+msgid "Product Multi Price"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.ui.view,arch_db:product_multi_price.product_multi_price_name_tree_view
+msgid "Product Multi Price Field Name"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model,name:product_multi_price.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model,name:product_multi_price.model_product_multi_price
+msgid "product.multi.price"
+msgstr ""
+
+#. module: product_multi_price
+#: model:ir.model,name:product_multi_price.model_product_multi_price_name
+msgid "product.multi.price.name"
+msgstr ""
+
