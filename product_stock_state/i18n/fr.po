@@ -67,6 +67,14 @@ msgid "In Stock"
 msgstr "En stock"
 
 #. module: product_stock_state
+#: model:product.product,volume_uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,volume_uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,volume_uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,volume_uom_name:product_stock_state.product_setting_by_product_product_template
+msgid "Liter(s)"
+msgstr ""
+
+#. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
