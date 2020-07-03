@@ -3,7 +3,7 @@
 {
     "name": "Product logistics UoM",
     "summary": "Configure product weights and volume UoM",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "development_status": "Beta",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
