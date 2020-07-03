@@ -58,6 +58,13 @@ msgstr "Ignorar cantidad mínima de la info de proveedor"
 #: selection:product.pricelist.item,base:0
 #, fuzzy
 #| msgid "Pricelist"
+msgid "Other Price"
+msgstr "Lista de precios"
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+#, fuzzy
+#| msgid "Pricelist"
 msgid "Other Pricelist"
 msgstr "Lista de precios"
 
