@@ -176,6 +176,11 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: selection:product.pricelist.item,base:0
+msgid "Other Price"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: selection:product.pricelist.item,base:0
 msgid "Other Pricelist"
 msgstr ""
 
