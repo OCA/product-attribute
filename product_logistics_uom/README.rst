@@ -25,7 +25,7 @@ Product logistics UoM
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module allow to choose an Unit Of Measure (UoM) for products weight and volume.
+This module allows to choose an Unit Of Measure (UoM) for products weight and volume.
 It can be set product per product.
 
 Without this module, you only have the choice between Kg or Lb(s) and m³ for all the products.
@@ -50,7 +50,7 @@ Configuration
 
 To change the default UoM
 
-#. Go "Genral Settings", then in "Products"
+#. Go "General Settings", then in "Products"
 #. you have to select a default unit of measure for weights and volumes.
 
 To change on a specific product
