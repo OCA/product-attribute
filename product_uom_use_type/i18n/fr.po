@@ -42,6 +42,7 @@ msgstr ""
 
 #. module: product_uom_use_type
 #: model:product.template,uom_name:product_uom_use_type.product_bier_faucheuse
+#: model:product.template,volume_uom_name:product_uom_use_type.product_bier_faucheuse
 msgid "Liter(s)"
 msgstr ""
 
