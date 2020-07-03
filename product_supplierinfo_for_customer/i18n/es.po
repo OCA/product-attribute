@@ -193,6 +193,13 @@ msgstr "Otra información"
 #: selection:product.pricelist.item,base:0
 #, fuzzy
 #| msgid "Price List"
+msgid "Other Price"
+msgstr "Lista de Precios"
+
+#. module: product_supplierinfo_for_customer
+#: selection:product.pricelist.item,base:0
+#, fuzzy
+#| msgid "Price List"
 msgid "Other Pricelist"
 msgstr "Lista de Precios"
 

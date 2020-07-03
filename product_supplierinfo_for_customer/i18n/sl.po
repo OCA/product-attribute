@@ -193,6 +193,12 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: selection:product.pricelist.item,base:0
 #, fuzzy
+msgid "Other Price"
+msgstr "Cenik"
+
+#. module: product_supplierinfo_for_customer
+#: selection:product.pricelist.item,base:0
+#, fuzzy
 msgid "Other Pricelist"
 msgstr "Cenik"
 
