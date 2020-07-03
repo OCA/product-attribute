@@ -65,6 +65,13 @@ msgstr ""
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
+#, fuzzy
+#| msgid "Other Pricelist"
+msgid "Other Price"
+msgstr "Autre liste de prix"
+
+#. module: product_standard_price_tax_included
+#: selection:product.pricelist.item,base:0
 msgid "Other Pricelist"
 msgstr "Autre liste de prix"
 
