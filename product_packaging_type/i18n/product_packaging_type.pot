@@ -86,6 +86,11 @@ msgid "Only one product packaging type can be set as \"Is Default\"."
 msgstr ""
 
 #. module: product_packaging_type
+#: model_terms:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
+msgid "Packaging"
+msgstr ""
+
+#. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__packaging_type_id
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_form
 msgid "Packaging Type"
