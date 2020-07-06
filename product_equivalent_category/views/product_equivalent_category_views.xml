@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_equivalent_category_search_view" model="ir.ui.view">
+        <field name="name">product.equivalent.category.search</field>
+        <field name="model">product.equivalent.category</field>
+        <field name="arch" type="xml">
+            <search string="Product Equivalent Categories">
+                <field name="name" string="Product Equivalent Categories"/>
+            </search>
+        </field>
+    </record>
+    <record id="product_equivalent_category_form_view" model="ir.ui.view">
+        <field name="name">product.equivalent.category.form</field>
+        <field name="model">product.equivalent.category</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                            name="action_view_product_template_ids"
+                            icon="fa-th-list"
+                            type="object">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Category name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Lamps"/></h1>
+                    </div>
+                    <group name="description" string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_equivalent_category_list_view" model="ir.ui.view">
+        <field name="name">product.equivalent.category.list</field>
+        <field name="model">product.equivalent.category</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Product Equivalent Categories">
+                <field name="display_name" string="Product Equivalent Category"/>
+            </tree>
+        </field>
+    </record>
+    <record id="product_equivalent_category_action_form" model="ir.actions.act_window">
+        <field name="name">Product Equivalent Categories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.equivalent.category</field>
+        <field name="view_type">form</field>
+        <field name="search_view_id" ref="product_equivalent_category_search_view"/>
+        <field name="view_id" ref="product_equivalent_category_list_view"/>
+    </record>
+    <menuitem
+        action="product_equivalent_category_action_form" id="menu_product_equivalent_category_config_stock"
+        parent="stock.menu_product_in_config_stock" sequence="3"/>
+
+</odoo>
