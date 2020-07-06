@@ -55,6 +55,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.packaging.type</field>
         <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
         <field name="search_view_id" ref="view_product_packaging_type_search" />
     </record>
     <menuitem

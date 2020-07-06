@@ -29,6 +29,7 @@ class ProductPackagingType(models.Model):
         if msg:
             raise ValidationError(msg)
 
+    @api.multi
     def name_get(self):
         result = []
         for record in self:
@@ -62,6 +63,7 @@ class ProductPackaging(models.Model):
         compute="_compute_qty_per_type", string="Qty per package type"
     )
 
+    @api.multi
     @api.depends(
         "product_id",
         "product_id.packaging_ids",
@@ -102,6 +104,7 @@ class ProductPackaging(models.Model):
         if self.packaging_type_id:
             self.name = self.packaging_type_id.name
 
+    @api.multi
     def name_get(self):
         result = []
         for record in self:
