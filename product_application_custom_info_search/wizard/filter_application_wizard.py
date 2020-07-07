@@ -235,7 +235,9 @@ WHERE
     AND prop.id = val.property_id
     AND prop.template_id = tmpl.id
     AND tmpl.id = prod_app.custom_info_template_id
-    AND product_tmpl_id IN %s
+    AND prod_app.product_tmpl_id IN %s
+    AND val.res_id = prod_app.id
+    AND val.model = 'product.application'
 GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool,
     val.value_id)
 '''
