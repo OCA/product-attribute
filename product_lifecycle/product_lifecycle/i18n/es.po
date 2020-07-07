@@ -32,6 +32,13 @@ msgid "Informative field. The product that is replaced by the current one. The c
 msgstr "Campo Informativo. El producto que es reemplazado por el actual. El producto actual es el nuevo producto para el indicando en este campo"
 
 #. module: product_lifecycle
+#. openerp-web
+#: code:addons/product_lifecycle/static/src/js/replacement_product.js:24
+#, python-format
+msgid "No product found"
+msgstr "Producto no encontrado"
+
+#. module: product_lifecycle
 #: model_terms:ir.ui.view,arch_db:product_lifecycle.product_replacement_product_search_view
 #: selection:product.product,lifecycle_state:0
 msgid "Normal"
@@ -89,12 +96,12 @@ msgstr "Mostrar Reemplazo"
 #: model:ir.model.fields,field_description:product_lifecycle.field_product_product__lifecycle_state
 #: model_terms:ir.ui.view,arch_db:product_lifecycle.product_replacement_product_search_view
 msgid "State"
-msgstr "Provincia"
+msgstr "Estado"
 
 #. module: product_lifecycle
 #: model_terms:ir.ui.view,arch_db:product_lifecycle.sale_order_obsolete_product_form
 msgid "The products that are obsolete can not be sell."
-msgstr "Los productos que estan obsoletos no pueden ser vendidos."
+msgstr "Los productos que están obsoletos no pueden ser vendidos."
 
 #. module: product_lifecycle
 #: model:ir.model.fields,help:product_lifecycle.field_product_product__replaced_by_product_id
@@ -103,10 +110,10 @@ msgstr "El producto de reemplazo para el producto actual. El producto actual es 
 
 #. module: product_lifecycle
 #. openerp-web
-#: code:addons/product_lifecycle/static/src/xml/replacement_template.xml:5
+#: code:addons/product_lifecycle/static/src/xml/replacement_template.xml:6
 #, python-format
 msgid "This product is"
-msgstr "Este producto es"
+msgstr "Este producto está"
 
 #. module: product_lifecycle
 #: model:product.product,uom_name:product_lifecycle.product_product_4e
@@ -122,6 +129,21 @@ msgstr "Unidad(es)"
 #, python-format
 msgid "and it's replaced by:"
 msgstr "y es reemplazado por:"
+
+#. module: product_lifecycle
+#. openerp-web
+#: code:addons/product_lifecycle/static/src/js/replacement_product.js:20
+#, python-format
+msgid "in the end of lifecycle"
+msgstr "en el fin del ciclo de vida"
+
+#. module: product_lifecycle
+#. openerp-web
+#: code:addons/product_lifecycle/static/src/js/replacement_product.js:14
+#: code:addons/product_lifecycle/static/src/js/replacement_product.js:17
+#, python-format
+msgid "obsolete"
+msgstr "obsoleto"
 
 #. module: product_lifecycle
 #. openerp-web

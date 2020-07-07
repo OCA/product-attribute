@@ -44,7 +44,7 @@ class ProductProduct(models.Model):
         """
         for product in self:
             lc_state = values.get('lifecycle_state', product.lifecycle_state)
-            available = values.get('qty_available', product.qty_available)
+            available = values.get('virtual_available', product.virtual_available)
 
             if lc_state == 'obsolete' and available:
                 values.update({'lifecycle_state': 'end'})
