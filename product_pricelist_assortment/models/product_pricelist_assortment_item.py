@@ -14,7 +14,6 @@ class ProductPricelistAssortmentItem(models.Model):
     _description = "Product Pricelist Assortment Item"
     _inherit = "product.pricelist.item"
 
-    name = fields.Char(related="assortment_filter_id.name", readonly=True,)
     assortment_filter_id = fields.Many2one(
         comodel_name="ir.filters",
         domain=[("is_assortment", "=", True)],
@@ -27,6 +26,12 @@ class ProductPricelistAssortmentItem(models.Model):
         inverse_name="assortment_item_id",
         help="Pricelist items created automatically",
     )
+
+    def _get_pricelist_item_name_price(self):
+        super()._get_pricelist_item_name_price()
+        for rec in self:
+            if rec.assortment_filter_id:
+                rec.name = rec.assortment_filter_id.name
 
     def _get_pricelist_item_values(self):
         """
