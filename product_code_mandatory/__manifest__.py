@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Product Internal Reference as Required",
+    "name": "Product Code Mandatory",
     "summary": "Set Product Internal Reference as a required field",
     "version": "13.0.1.0.0",
     "license": "AGPL-3",
