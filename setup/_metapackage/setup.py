@@ -24,6 +24,8 @@ setuptools.setup(
         'odoo12-addon-product_manufacturer',
         'odoo12-addon-product_multi_category',
         'odoo12-addon-product_multi_price',
+        'odoo12-addon-product_packaging_type',
+        'odoo12-addon-product_packaging_type_required',
         'odoo12-addon-product_pricelist_direct_print',
         'odoo12-addon-product_pricelist_revision',
         'odoo12-addon-product_pricelist_supplierinfo',
