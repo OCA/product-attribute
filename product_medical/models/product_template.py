@@ -11,17 +11,29 @@ class ProductTemplate(models.Model):
 
     medical_certificate_url = fields.Char(string="CE Certificate medical devices")
     medical_class_id = fields.Many2one("medical.class", string="Medical Class")
+    medicine_category_id = fields.Many2one(
+        "medicine.category", string="Medical Category"
+    )
+    ppe_category_id = fields.Many2one("ppe.category", string="PPE Category")
 
     in_vitro_diagnostic = fields.Many2one(
         "in.vitro.diagnostic", string="In vitro diagnostics"
     )
-    conformity_declaration = fields.Binary(
-        string="Declaration of Conformity", attachment=True
+    conformity_declaration_ids = fields.Many2many(
+        "ir.attachment",
+        relation="product_conformity_declaration_rel",
+        column1="product_template_id",
+        column2="attachment_id",
+        string="Declaration of Conformity",
     )
     doc_lot_related = fields.Boolean(string="Lot Related", default=False)
     doc_validity_date = fields.Date(string="Validity Date")
-    ce_certificate_medical_class = fields.Binary(
-        string="CE Certificate Medical class", attachment=True
+    ce_certificate_medical_class_ids = fields.Many2many(
+        "ir.attachment",
+        relation="product_ce_certificate_medical_class_rel",
+        column1="product_template_id",
+        column2="attachment_id",
+        string="CE Certificate",
     )
     ce_certificate_validity_date = fields.Date(string="Certificate Validity Date")
     notified_body_id = fields.Many2one(
