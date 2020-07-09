@@ -24,6 +24,7 @@
                             <field name="conformity_declaration" />
                             <field name="doc_lot_related" />
                             <field name="doc_validity_date" />
+                            <field name="in_vitro_diagnostic" />
                         </group>
                         <group name="mdr_right" string="CE Certificate">
                             <field
@@ -33,6 +34,8 @@
                             <field name="ce_certificate_validity_date" />
                             <field name="notified_body_id" />
                             <field name="medical_class_id" />
+                            <field name="medicine_category_id" />
+                            <field name="ppe_category_id" />
                             <field name="medical_certificate_url" widget="url" />
                         </group>
                     </group>
