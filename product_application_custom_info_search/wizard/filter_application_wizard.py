@@ -23,12 +23,6 @@ class FilterApplicationWizard(models.TransientModel):
     product_id = fields.Many2one(
         comodel_name='product.product', string='Product')
 
-    state = fields.Selection(
-        selection=[('init', 'Configuration'),
-                   ('filtered', 'Product Selection'),
-                   ('done', 'Wizard completed')],
-        string='Status', readonly=True, default='init')
-
     order_id = fields.Many2one(
         comodel_name='sale.order', string='Sale Order')
 
@@ -55,25 +49,16 @@ class FilterApplicationWizard(models.TransientModel):
             if self.env.context['active_id']\
                     and self.env.context['active_model'] == 'sale.order':
                 self.order_id = self.env.context['active_id']
-            self.state = 'filtered'
+            self.order_id.write({
+                'application_filter_value_ids':
+                    [(6, False, self.filter_line_ids.get_values().ids)],
+            })
             self.product_tmpl_ids = product_tmpl_ids
             if product_tmpl_ids:
                 self.product_tmpl_id = product_tmpl_ids[0]
                 self.onchange_product_tmpl_id()
 
-            action = {
-                'name': _('Select Products by Applications'),
-                'type': 'ir.actions.act_window',
-                'res_model': 'filter.application.wizard',
-                'target': 'new',
-                'view_mode': 'form',
-                'view_type': 'form',
-                'res_id': self.id,
-                'context': {
-                    'from_sale_order': True,
-                    'default_model': self._name,
-                }
-            }
+            action = True
         else:
             # Called from products:
             action = {
@@ -102,6 +87,11 @@ class FilterApplicationWizard(models.TransientModel):
 
         return True
 
+    @api.model
+    def create(self, vals):
+        res = super(FilterApplicationWizard, self).create(vals)
+        return res
+
 
 class FilterApplicationLineWizard(models.TransientModel):
     _name = 'filter.application.line.wizard'
@@ -122,65 +112,20 @@ class FilterApplicationLineWizard(models.TransientModel):
         string='Custom Value',
     )
 
-    def get_resulting_product_tmpl_ids(self):
-        self.ensure_one()
-
-        # Get all product applications according previous selection:
-        product_app_model = self.env.ref(
-            'product_application.model_product_application')
-        field_type = self.property_id.field_type
-        if field_type == 'bool':
-            value_bool = 'f'
-            if self.value_id.value_bool:
-                value_bool = 't'
-            where_value = 'AND prop.field_type = \'bool\''\
-                ' AND val.value_bool = \'%s\'' % value_bool
-        elif field_type == 'float':
-            where_value = 'AND prop.field_type = \'float\''\
-                ' AND val.value_float = %s' % self.value_id.value_float
-        elif field_type == 'str':
-            where_value = 'AND prop.field_type = \'str\''\
-                ' AND val.value_str = \'%s\'' % self.value_id.value_str
-        elif field_type == 'int':
-            where_value = 'AND prop.field_type = \'int\''\
-                ' AND val.value_int = %s' % self.value_id.value_int
-        elif field_type == 'id':
-            where_value = 'AND prop.field_type = \'id\''\
-                ' AND val.value_id = %s' % self.value_id.value_id.id
-        else:
-            raise
-
-        query = '''SELECT
-    prod_app.product_tmpl_id
-FROM
-    custom_info_property prop,
-    custom_info_template tmpl,
-    custom_info_value val,
-    product_application prod_app
-WHERE
-    tmpl.model_id = %s
-    AND prop.template_id = tmpl.id
-    AND val.property_id = prop.id
-    AND prod_app.custom_info_template_id = tmpl.id
-    AND prod_app.id = val.res_id
-    AND prop.id = %s
-'''
-        query += where_value
-        self.env.cr.execute(
-            query, tuple([product_app_model.id, self.property_id.id])
-        )
-        product_tmpl_ids = [row[0] for row in self.env.cr.fetchall()]
-        return product_tmpl_ids
-
     @api.multi
     def apply_filters(self, skip_line_id=False):
+        product_app_obj = self.env['product.application']
+
         filtered_product_tmpl_ids = []
         for line in self:
             if skip_line_id == line.id:
                 continue
             if line.property_id and line.value_id:
-                cur_product_tmpl_ids = line.get_resulting_product_tmpl_ids()
+                cur_product_tmpl_ids =\
+                    product_app_obj.get_filtered_product_tmpl_ids(
+                        line.property_id, line.value_id)
                 if filtered_product_tmpl_ids:
+                    # intersection:
                     filtered_product_tmpl_ids = list(
                         set(filtered_product_tmpl_ids) &
                         set(cur_product_tmpl_ids))
@@ -269,3 +214,11 @@ GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool,
         result = {'domain': domain}
 
         return result
+
+    @api.multi
+    def get_values(self):
+        values = self.env['custom.info.value']
+        for line in self:
+            values |= line.value_id
+
+        return values

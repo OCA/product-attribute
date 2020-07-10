@@ -22,8 +22,8 @@ msgstr "Añadir productos"
 
 #. module: product_application_custom_info_search
 #: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_order_form_search_application
-msgid "Add Products by application"
-msgstr "Añadir productos por aplicación"
+msgid "Set Application"
+msgstr "Establecer Aplicación"
 
 #. module: product_application_custom_info_search
 #: model_terms:ir.ui.view,arch_db:product_application_custom_info_search.view_product_search_by_application
