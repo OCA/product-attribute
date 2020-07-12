@@ -78,6 +78,12 @@ msgid "Last Updated on"
 msgstr "Última modificación el"
 
 #. module: product_weight
+#: code:addons/product_weight/wizard/product_weight_update.py:61
+#, python-format
+msgid "Missing active variant for product %s"
+msgstr ""
+
+#. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__product_id
 msgid "Product"
 msgstr "Producto"
