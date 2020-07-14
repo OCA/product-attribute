@@ -23,7 +23,8 @@ class ProductApplication(models.Model):
         self.ensure_one()
 
         pairs = []
-        for info in self.custom_info_ids:
+        custom_infos = sorted(self.custom_info_ids, key=lambda x: x.property_id.sequence)
+        for info in custom_infos:
             cur_value = False
             if info.field_name == 'value_int':
                 cur_value = info.value_int
