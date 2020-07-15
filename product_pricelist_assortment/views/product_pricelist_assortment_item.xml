@@ -15,6 +15,10 @@
                 <group>
                     <group>
                         <field name="company_id" groups="base.group_multi_company" />
+                        <field
+                            name="pricelist_id"
+                            invisible="not context.get('display_pricelist')"
+                        />
                         <field name="assortment_filter_id" />
                     </group>
                     <group>
@@ -92,5 +96,54 @@
                 </group>
             </form>
         </field>
+    </record>
+    <record model="ir.ui.view" id="product_pricelist_assortment_item_tree">
+        <field
+            name="name"
+        >product.pricelist.assortment.item.tree (in product_pricelist_assortment)</field>
+        <field name="model">product.pricelist.assortment.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pricelist_id" />
+                <field name="assortment_filter_id" />
+                <field name="min_quantity" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="price" string="Price" />
+                <field name="base" invisible="1" />
+                <field name="price_discount" invisible="1" />
+                <field name="compute_price" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="product_pricelist_assortment_item_search">
+        <field
+            name="name"
+        >product.pricelist.assortment.item.search (in product_pricelist_assortment)</field>
+        <field name="model">product.pricelist.assortment.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="pricelist_id" />
+                <field name="assortment_filter_id" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Pricelist"
+                        name="groupby_pricelist"
+                        context="{'group_by':'pricelist_id'}"
+                    />
+                    <filter
+                        string="Assortment Filter"
+                        name="groupby_assortment_filter"
+                        context="{'group_by':'assortment_filter_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="product_pricelist_assortment_item_action">
+        <field name="name">Pricelist Assortment Items</field>
+        <field name="res_model">product.pricelist.assortment.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'display_pricelist': True}</field>
     </record>
 </odoo>
