@@ -45,7 +45,7 @@ msgid "Product Packaging"
 msgstr "Empaquetado"
 
 #. module: packaging_uom
-#: code:addons/packaging_uom/models/product_packaging.py:94
+#: code:addons/packaging_uom/models/product_packaging.py:95
 #, python-format
 msgid "The field Unit of Measure is required"
 msgstr "El campo Unidad de medida es obligatorio"
