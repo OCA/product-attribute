@@ -67,8 +67,9 @@ class ProductPackaging(models.Model):
         """
         for packaging in self:
             category_id = packaging.product_id.uom_id.category_id
+            factor = 1.0 / packaging.qty if packaging.qty else 1.0
             uom_id = packaging.uom_id.search([
-                ("factor", "=", 1.0 / packaging.qty),
+                ("factor", "=", factor),
                 ('category_id', '=', category_id.id)])
             if not uom_id:
                 uom_id = packaging.uom_id.create({
