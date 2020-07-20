@@ -37,6 +37,19 @@ This module introduces the state field on product template and allows simple pro
 .. contents::
    :local:
 
+Usage
+=====
+
+To create a new state:
+
+#. Go to *Sales > Configuration > Products > Product States*.
+#. You can set its name and a description.
+
+To add a product to a state:
+
+#. Go to the product itself and edit.
+#. You can select the desired status in the list of buttons above the form.
+
 Bug Tracker
 ===========
 
@@ -61,6 +74,8 @@ Contributors
 * Cedric Pigeon <cedric.pigeon@acsone.eu>
 * Alexandre Saunier <alexandre.saunier@camptocamp.com>
 * Nikul Chaudhary <nikulchaudhary2112@gmail.com>
+* Eduardo Magdalena <emagdalena@c2i.es> (C2i Change 2 improve http://www.c2i.es)
+* Andrii Skrypka <andrijskrypa@ukr.net>
 
 Maintainers
 ~~~~~~~~~~~
@@ -74,6 +89,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-emagdalenaC2i| image:: https://github.com/emagdalenaC2i.png?size=40px
+    :target: https://github.com/emagdalenaC2i
+    :alt: emagdalenaC2i
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-emagdalenaC2i| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/12.0/product_state>`_ project on GitHub.
 
