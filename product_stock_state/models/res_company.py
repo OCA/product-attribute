@@ -4,12 +4,8 @@
 
 from odoo import fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    stock_state_threshold = fields.Float(
-        default=10, digits=dp.get_precision("Stock Threshold")
-    )
+    stock_state_threshold = fields.Float(default=10, digits="Stock Threshold")
