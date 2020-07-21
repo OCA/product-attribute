@@ -57,7 +57,8 @@ class ProductPackaging(models.Model):
         related="packaging_type_id.is_default",
         store=True,
     )
-    type_has_gtin = fields.Boolean(related="packaging_type_id.has_gtin", readonly=True)
+    type_has_gtin = fields.Boolean(readonly=True, compute="_compute_type_has_gtin")
+
     type_sequence = fields.Integer(
         string="Type sequence",
         related="packaging_type_id.sequence",
@@ -82,6 +83,13 @@ class ProductPackaging(models.Model):
             "with the same type for a given product.",
         )
     ]
+
+    @api.depends("packaging_type_id", "packaging_type_id.has_gtin", "qty")
+    def _compute_type_has_gtin(self):
+        for packaging in self:
+            packaging.type_has_gtin = packaging.packaging_type_id.has_gtin
+            if not packaging.qty:
+                packaging.type_has_gtin = False
 
     @api.depends(
         "product_id",
