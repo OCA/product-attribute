@@ -58,6 +58,9 @@ class ProductPackaging(models.Model):
         store=True,
     )
     type_has_gtin = fields.Boolean(readonly=True, compute="_compute_type_has_gtin")
+    barcode_required_for_gtin = fields.Boolean(
+        readonly=True, compute="_compute_barcode_required_for_gtin"
+    )
 
     type_sequence = fields.Integer(
         string="Type sequence",
@@ -85,11 +88,11 @@ class ProductPackaging(models.Model):
     ]
 
     @api.depends("packaging_type_id", "packaging_type_id.has_gtin", "qty")
-    def _compute_type_has_gtin(self):
+    def _compute_barcode_required_for_gtin(self):
         for packaging in self:
-            packaging.type_has_gtin = packaging.packaging_type_id.has_gtin
+            packaging.barcode_required_for_gtin = packaging.packaging_type_id.has_gtin
             if not packaging.qty:
-                packaging.type_has_gtin = False
+                packaging.barcode_required_for_gtin = False
 
     @api.depends(
         "product_id",
