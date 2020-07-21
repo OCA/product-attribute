@@ -8,8 +8,6 @@
 
 from odoo import api, fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ProductCategory(models.Model):
     _inherit = "product.category"
@@ -21,11 +19,9 @@ class ProductCategory(models.Model):
         " of this category will pass from 'In Stock' to 'In Limited Stock'"
         " State. If not set, Odoo will use the threshold defined at the"
         " company level.",
-        digits=dp.get_precision("Stock Threshold"),
+        digits="Stock Threshold",
     )
-    manual_stock_state_threshold = fields.Float(
-        digits=dp.get_precision("Stock Threshold")
-    )
+    manual_stock_state_threshold = fields.Float(digits="Stock Threshold")
 
     @api.depends("parent_id.stock_state_threshold", "manual_stock_state_threshold")
     def _compute_stock_state_threshold(self):
