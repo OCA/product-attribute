@@ -51,6 +51,12 @@ class ProductPackaging(models.Model):
         ondelete="restrict",
         default=lambda p: p.default_packaging_type_id(),
     )
+    # Used for the unique constraint
+    packaging_type_is_default = fields.Boolean(
+        string="Default Packaging Type",
+        related="packaging_type_id.is_default",
+        store=True,
+    )
     type_has_gtin = fields.Boolean(related="packaging_type_id.has_gtin", readonly=True)
     type_sequence = fields.Integer(
         string="Type sequence",
@@ -61,6 +67,21 @@ class ProductPackaging(models.Model):
     qty_per_type = fields.Html(
         compute="_compute_qty_per_type", string="Qty per package type"
     )
+
+    _sql_constraints = [
+        (
+            # We *have* to allow several packaging using the default type,
+            # because when we install the module on an existing database,
+            # the default value will be set to default. Not ideal, but
+            # can't do better.
+            "product_packaging_type_unique",
+            "EXCLUDE (product_id WITH =, packaging_type_id WITH =) "
+            "WHERE (packaging_type_is_default is null "
+            "OR packaging_type_is_default = false)",
+            "It is forbidden to have different packagings "
+            "with the same type for a given product.",
+        )
+    ]
 
     @api.depends(
         "product_id",
