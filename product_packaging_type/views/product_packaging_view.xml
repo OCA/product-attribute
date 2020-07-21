@@ -9,7 +9,7 @@
             <xpath expr="//field[@name='barcode']" position="before">
                 <field name="qty_per_type" />
                 <field name="packaging_type_id" />
-                <field name="type_has_gtin" />
+                <field name="type_has_gtin" invisible="1" />
             </xpath>
             <xpath expr="//field[@name='barcode']" position="attributes">
                 <attribute
