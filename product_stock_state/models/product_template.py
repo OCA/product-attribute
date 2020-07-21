@@ -8,8 +8,6 @@
 
 from odoo import api, fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
@@ -22,12 +20,10 @@ class ProductTemplate(models.Model):
         " use the value defined in the product category. If"
         " no value is defined in product category, it will use the value"
         " defined for the company",
-        digits=dp.get_precision("Stock Threshold"),
+        digits="Stock Threshold",
     )
 
-    manual_stock_state_threshold = fields.Float(
-        digits=dp.get_precision("Stock Threshold")
-    )
+    manual_stock_state_threshold = fields.Float(digits="Stock Threshold")
 
     @api.depends("categ_id.stock_state_threshold", "manual_stock_state_threshold")
     def _compute_stock_state_threshold(self):
