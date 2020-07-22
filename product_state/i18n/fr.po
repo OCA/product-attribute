@@ -10,40 +10,41 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-29 02:55+0000\n"
-"PO-Revision-Date: 2017-07-29 02:55+0000\n"
-"Last-Translator: guillaume bauer <guillaume.bauer@syentys.com>, 2017\n"
+"PO-Revision-Date: 2020-07-22 11:19+0000\n"
+"Last-Translator: c2cdidier <didier.donze@camptocamp.com>\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_end
@@ -53,7 +54,7 @@ msgstr "Fin de vie"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_draft
@@ -63,22 +64,22 @@ msgstr "Phase de recherche et de développement"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière modification par"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__name
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_sellable
@@ -88,7 +89,7 @@ msgstr "Normal"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__products_count
 msgid "Number of products"
-msgstr ""
+msgstr "Nombre d'articles"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_obsolete
