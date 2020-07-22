@@ -22,8 +22,16 @@ class ProductPackagePrice(models.TransientModel):
             return False
         return self.env["product.supplierinfo"].browse(self._context.get("active_id"))
 
-    product_id = fields.Many2one(
+    def _default_product_id(self):
+        if self._context.get("active_model") != "product.product":
+            return False
+        return self.env["product.product"].browse(self._context.get("active_id"))
+
+    product_tmpl_id = fields.Many2one(
         "product.template", default=lambda self: self._default_product_tmpl_id()
+    )
+    product_id = fields.Many2one(
+        "product.product", default=lambda self: self._default_product_id()
     )
     product_pricelist_item_id = fields.Many2one(
         "product.pricelist.item",
@@ -34,7 +42,9 @@ class ProductPackagePrice(models.TransientModel):
         default=lambda self: self._default_product_supplierinfo_id(),
     )
     product_variant_ids = fields.One2many(
-        "product.product", "product_tmpl_id", related="product_id.product_variant_ids",
+        "product.product",
+        "product_tmpl_id",
+        related="product_tmpl_id.product_variant_ids",
     )
     selected_packaging_id = fields.Many2one(
         "product.packaging", domain="[('product_id', 'in', product_variant_ids)]",
@@ -71,24 +81,30 @@ class ProductPackagePrice(models.TransientModel):
             self.warning_message = " "
         self._compute_package_prices()
 
-    @api.depends("product_pricelist_item_id", "product_supplierinfo_id", "product_id")
+    @api.depends(
+        "product_pricelist_item_id", "product_supplierinfo_id", "product_tmpl_id"
+    )
     def _compute_current_unit_price(self):
         """Compute the original unit price, the one  that the calculator will change."""
         if self.product_pricelist_item_id:
             self.current_unit_price = self.product_pricelist_item_id.fixed_price
         elif self.product_supplierinfo_id:
             self.current_unit_price = self.product_supplierinfo_id.price
+        elif self.product_id:
+            self.current_unit_price = self.product_id.lst_price
         else:
-            self.current_unit_price = self.product_id.list_price
+            self.current_unit_price = self.product_tmpl_id.list_price
 
     @api.depends("unit_price")
     def _compute_package_prices(self):
         for pack in self.packaging_ids:
             pack.packaging_wizard_price = self.unit_price * pack.qty
 
-    @api.depends("product_id")
+    @api.depends("product_tmpl_id")
     def _compute_packaging_ids(self):
-        self.packaging_ids = self.product_id.mapped("product_variant_ids.packaging_ids")
+        self.packaging_ids = self.product_tmpl_id.mapped(
+            "product_variant_ids.packaging_ids"
+        )
 
     def action_set_price(self):
         if not self.packaging_price:
@@ -104,8 +120,10 @@ class ProductPackagePrice(models.TransientModel):
             self.product_pricelist_item_id.fixed_price = self.unit_price
         elif self.product_supplierinfo_id:
             self.product_supplierinfo_id.price = self.unit_price
+        elif self.product_id:
+            self.product_id.lst_price = self.unit_price
         else:
-            self.product_id.list_price = self.unit_price
+            self.product_tmpl_id.list_price = self.unit_price
 
     def reset_unit_price(self):
         action = self.env.ref(
