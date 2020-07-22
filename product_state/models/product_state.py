@@ -21,7 +21,8 @@ class ProductState(models.Model):
         string="State Products",
     )
     products_count = fields.Integer(
-        string="Number of products", compute="_compute_products_count",
+        string="Number of products",
+        compute="_compute_products_count",
     )
 
     _sql_constraints = [

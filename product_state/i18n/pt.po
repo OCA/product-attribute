@@ -97,7 +97,6 @@ msgstr "Obsoleto"
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product State"
 msgstr "Modelo de Produto"
 
@@ -109,7 +108,6 @@ msgstr ""
 #. module: product_state
 #: model:ir.ui.menu,name:product_state.menu_product_state
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product States"
 msgstr "Modelo de Produto"
 
@@ -117,7 +115,6 @@ msgstr "Modelo de Produto"
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product Status"
 msgstr "Modelo de Produto"
 
@@ -149,7 +146,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_state.field_product_template__product_state_id
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_template_search_state
 #, fuzzy
-#| msgid "Status"
 msgid "State"
 msgstr "Estado"
 
@@ -167,7 +163,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:product_state.action_open_state_products
 #: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
 #, fuzzy
-#| msgid "Status"
 msgid "State Products"
 msgstr "Estado"
 
@@ -179,6 +174,5 @@ msgstr ""
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
 #, fuzzy
-#| msgid "Product Template"
 msgid "product.state"
 msgstr "Modelo de Produto"
