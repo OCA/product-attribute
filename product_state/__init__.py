@@ -7,7 +7,7 @@ from odoo import api, SUPERUSER_ID
 
 
 def post_init_hook(cr, registry):
-    """ This hook is used to add a state on existing products
+    """This hook is used to add a state on existing products
     when module product_state is installed.
     """
     env = api.Environment(cr, SUPERUSER_ID, {})
