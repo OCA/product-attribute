@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
+<odoo noupdate="1">
     <record id="product_packaging_type_default" model="product.packaging.type">
         <field name="name">Default Type</field>
         <field name="code">DEFAULT</field>
