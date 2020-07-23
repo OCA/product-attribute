@@ -57,7 +57,6 @@ class ProductPackaging(models.Model):
         related="packaging_type_id.is_default",
         store=True,
     )
-    type_has_gtin = fields.Boolean(readonly=True, compute="_compute_type_has_gtin")
     barcode_required_for_gtin = fields.Boolean(
         readonly=True, compute="_compute_barcode_required_for_gtin"
     )
