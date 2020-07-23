@@ -34,6 +34,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__packaging_type_is_default
+msgid "Default Packaging Type"
+msgstr ""
+
+#. module: product_packaging_type
 #: model:product.packaging.type,name:product_packaging_type.product_packaging_type_default
 msgid "Default Type"
 msgstr ""
@@ -57,6 +62,13 @@ msgstr ""
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__is_default
 msgid "Is Default"
+msgstr ""
+
+#. module: product_packaging_type
+#: model:ir.model.constraint,message:product_packaging_type.constraint_product_packaging_product_packaging_type_unique
+msgid ""
+"It is forbidden to have different packagings with the same type for a given "
+"product."
 msgstr ""
 
 #. module: product_packaging_type
