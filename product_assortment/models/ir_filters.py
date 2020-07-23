@@ -63,13 +63,13 @@ class IrFilters(models.Model):
 
     def show_products(self):
         self.ensure_one()
-        return {
-            "type": "ir.actions.act_window",
-            "name": _("Products"),
-            "res_model": "product.product",
-            "domain": self._get_eval_domain(),
-            "view_type": "form",
-            "view_mode": "tree, form",
-            "context": self.env.context,
-            "target": "current",
-        }
+        action = self.env.ref("product.product_normal_action_sell").read([])[0]
+        action.update(
+            {
+                "domain": self._get_eval_domain(),
+                "name": _("Products"),
+                "context": self.env.context,
+                "target": "current",
+            }
+        )
+        return action
