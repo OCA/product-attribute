@@ -29,6 +29,7 @@
                         <button
                             class="oe_stat_button"
                             name="show_products"
+                            icon="fa-list"
                             type="object"
                         >
                             <div class="o_stat_info">
