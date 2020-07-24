@@ -51,16 +51,9 @@ class ProductPackaging(models.Model):
         ondelete="restrict",
         default=lambda p: p.default_packaging_type_id(),
     )
-    # Used for the unique constraint
-    packaging_type_is_default = fields.Boolean(
-        string="Default Packaging Type",
-        related="packaging_type_id.is_default",
-        store=True,
-    )
     barcode_required_for_gtin = fields.Boolean(
         readonly=True, compute="_compute_barcode_required_for_gtin"
     )
-
     type_sequence = fields.Integer(
         string="Type sequence",
         related="packaging_type_id.sequence",
@@ -71,20 +64,28 @@ class ProductPackaging(models.Model):
         compute="_compute_qty_per_type", string="Qty per package type"
     )
 
-    _sql_constraints = [
-        (
-            # We *have* to allow several packaging using the default type,
-            # because when we install the module on an existing database,
-            # the default value will be set to default. Not ideal, but
-            # can't do better.
-            "product_packaging_type_unique",
-            "EXCLUDE (product_id WITH =, packaging_type_id WITH =) "
-            "WHERE (packaging_type_is_default is null "
-            "OR packaging_type_is_default = false)",
-            "It is forbidden to have different packagings "
-            "with the same type for a given product.",
-        )
-    ]
+    @api.constrains("packaging_type_id", "product_id")
+    def _check_one_packaging_type_per_product(self):
+        for packaging in self:
+            product = packaging.product_id
+            # do not use a mapped/filtered because it would union the duplicates
+            packaging_type_ids = [
+                packaging.packaging_type_id.id
+                for packaging in product.packaging_ids
+                # We have to allow several packaging using the default type,
+                # because when we install the module on an existing database,
+                # the default value will be set to default and we'll have
+                # duplicates. Anyway "default" is not meant to be used as a
+                # real type.
+                if not packaging.packaging_type_id.is_default
+            ]
+            if len(set(packaging_type_ids)) != len(packaging_type_ids):
+                raise ValidationError(
+                    _(
+                        "It is forbidden to have different packagings "
+                        "with the same type for a given product ({})."
+                    ).format(product.display_name)
+                )
 
     @api.depends("packaging_type_id", "packaging_type_id.has_gtin", "qty")
     def _compute_barcode_required_for_gtin(self):
