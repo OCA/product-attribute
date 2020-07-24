@@ -57,26 +57,11 @@ msgstr ""
 "valeur définie au niveau de l'entreprise"
 
 #. module: product_stock_state
-#: selection:product.product,stock_state:0
-msgid "In Limited Stock"
-msgstr "En stock limité"
-
-#. module: product_stock_state
-#: selection:product.product,stock_state:0
-msgid "In Stock"
-msgstr "En stock"
-
-#. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
 msgid "Manual Stock State Threshold"
 msgstr "Seuil pour l'état du stock manuel"
-
-#. module: product_stock_state
-#: selection:product.product,stock_state:0
-msgid "Out Of Stock"
-msgstr "En rupture de stock"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_product_product
@@ -104,11 +89,6 @@ msgstr "Article avec seuil fixé au niveau de l'entreprise"
 #: model:product.template,name:product_stock_state.product_setting_by_product_product_template
 msgid "Product with threshold set on the product"
 msgstr "Article avec seuil fixé au niveau de l'article"
-
-#. module: product_stock_state
-#: selection:product.product,stock_state:0
-msgid "Resupplying"
-msgstr "En réapprovisionnement"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
@@ -171,13 +151,22 @@ msgstr ""
 #: model:product.product,uom_name:product_stock_state.product_setting_by_product
 #: model:product.template,uom_name:product_stock_state.product_setting_by_company_product_template
 #: model:product.template,uom_name:product_stock_state.product_setting_by_product_product_template
-msgid "Unit(s)"
+#, fuzzy
+#| msgid "Unit(s)"
+msgid "Units"
 msgstr "Unité(s)"
 
-#. module: product_stock_state
-#: model:product.product,weight_uom_name:product_stock_state.product_setting_by_company
-#: model:product.product,weight_uom_name:product_stock_state.product_setting_by_product
-#: model:product.template,weight_uom_name:product_stock_state.product_setting_by_company_product_template
-#: model:product.template,weight_uom_name:product_stock_state.product_setting_by_product_product_template
-msgid "kg"
-msgstr "kg"
+#~ msgid "In Limited Stock"
+#~ msgstr "En stock limité"
+
+#~ msgid "In Stock"
+#~ msgstr "En stock"
+
+#~ msgid "Out Of Stock"
+#~ msgstr "En rupture de stock"
+
+#~ msgid "Resupplying"
+#~ msgstr "En réapprovisionnement"
+
+#~ msgid "kg"
+#~ msgstr "kg"
