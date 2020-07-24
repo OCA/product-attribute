@@ -1,4 +1,5 @@
 # Copyright 2017 ACSONE SA/NV (<http://acsone.eu>)
+# Copyright 2020 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, models, fields
@@ -60,10 +61,19 @@ class ProductTemplate(models.Model):
 
     def _inverse_product_state(self):
         ProductState = self.env["product.state"]
-        for product_tmpl in self:
-            product_state = ProductState.search(
-                [("code", "=", product_tmpl.state)], limit=1
-            )
-            if product_tmpl.state and not product_state:
-                product_state = ProductState.create({"name": product_tmpl.state})
-            product_tmpl.product_state_id = product_state.id
+        state_mapping = {}
+        for product_tmpl in self.filtered("state"):
+            product_state = state_mapping.get(product_tmpl.state)
+            if not product_state:
+                product_state = ProductState.search(
+                    [("code", "=", product_tmpl.state)], limit=1
+                )
+                if not product_state:
+                    product_state = ProductState.create({
+                        "name": product_tmpl.state,
+                        "code": product_tmpl.state,
+                    })
+                state_mapping[product_tmpl.state] = product_state
+            if product_tmpl.product_state_id != product_state.id:
+                product_tmpl.product_state_id = product_state.id
+        self.filtered(lambda x: not x.state).write({'product_state_id': False})
