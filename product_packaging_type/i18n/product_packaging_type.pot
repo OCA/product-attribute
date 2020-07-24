@@ -19,6 +19,11 @@ msgid "Active"
 msgstr ""
 
 #. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__barcode_required_for_gtin
+msgid "Barcode Required For Gtin"
+msgstr ""
+
+#. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__code
 msgid "Code"
 msgstr ""
@@ -49,7 +54,6 @@ msgid "Display Name"
 msgstr ""
 
 #. module: product_packaging_type
-#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__barcode_required_for_gtin
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__has_gtin
 msgid "Has Gtin"
 msgstr ""
