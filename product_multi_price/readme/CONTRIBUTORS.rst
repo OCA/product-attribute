@@ -2,3 +2,4 @@
 
   * David Vidal
   * Pedro M. Baeza
+  * Ernesto Tejeda
