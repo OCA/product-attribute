@@ -193,3 +193,8 @@ msgstr ""
 msgid "Public Price"
 msgstr ""
 
+#. module: product_multi_price
+#: model:res.groups,name:product_multi_price.group_show_multi_prices
+msgid "Show multi prices"
+msgstr ""
+
