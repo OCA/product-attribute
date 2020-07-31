@@ -4,6 +4,7 @@
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="groups_id" eval="[(4, ref('product_multi_price.group_show_multi_prices'))]"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@name='standard_price_uom']" position="after">
                 <field name="price_ids"
@@ -18,6 +19,7 @@
     <record id="product_variant_easy_edit_view" model="ir.ui.view">
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="groups_id" eval="[(4, ref('product_multi_price.group_show_multi_prices'))]"/>
         <field name="arch" type="xml">
             <field name="standard_price" position="after">
                 <field name="price_ids"
