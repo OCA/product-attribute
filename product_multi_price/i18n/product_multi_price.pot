@@ -136,6 +136,11 @@ msgid "Product Template"
 msgstr ""
 
 #. module: product_multi_price
+#: model:res.groups,name:product_multi_price.group_show_multi_prices
+msgid "Show multi prices"
+msgstr ""
+
+#. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_multi_price
 msgid "product.multi.price"
 msgstr ""
