@@ -140,6 +140,13 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_multi_price
+#: model:res.groups,name:product_multi_price.group_show_multi_prices
+#, fuzzy
+#| msgid "Multi Price"
+msgid "Show multi prices"
+msgstr "Multi Precio"
+
+#. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_multi_price
 msgid "product.multi.price"
 msgstr "product.multi.price"
@@ -148,6 +155,3 @@ msgstr "product.multi.price"
 #: model:ir.model,name:product_multi_price.model_product_multi_price_name
 msgid "product.multi.price.name"
 msgstr "product.multi.price.name"
-
-#~ msgid "Multi Price"
-#~ msgstr "Multi Precio"
