@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Attributes -->
+        <record id="demo_product_attribute_cut" model="product.attribute">
+            <field name="name">Cut</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="demo_product_attribute_cut_short" model="product.attribute.value">
+            <field name="name">Short sleeves</field>
+            <field name="attribute_id" ref="demo_product_attribute_cut"/>
+            <field name="sequence">1</field>
+        </record>
+        <record id="demo_product_attribute_cut_long" model="product.attribute.value">
+            <field name="name">Long sleeves</field>
+            <field name="attribute_id" ref="demo_product_attribute_cut"/>
+            <field name="sequence">2</field>
+        </record>
+        <!--This one not linked to the template; used in test-->
+        <record id="demo_product_attribute_cut_tanktop" model="product.attribute.value">
+            <field name="name">Tanktop</field>
+            <field name="attribute_id" ref="demo_product_attribute_cut"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <!--The following are not linked to the template; used in test and example-->
+        <record id="demo_product_attribute_embroidery" model="product.attribute">
+            <field name="name">Embroidery</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="demo_product_attribute_embroidery_cheap" model="product.attribute.value">
+            <field name="name">Cheap</field>
+            <field name="attribute_id" ref="demo_product_attribute_embroidery"/>
+            <field name="sequence">1</field>
+        </record>
+        <record id="demo_product_attribute_embroidery_hq" model="product.attribute.value">
+            <field name="name">High quality</field>
+            <field name="attribute_id" ref="demo_product_attribute_embroidery"/>
+            <field name="sequence">2</field>
+        </record>
+        <record id="demo_product_attribute_embroidery_average" model="product.attribute.value">
+            <field name="name">Average</field>
+            <field name="attribute_id" ref="demo_product_attribute_embroidery"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <!--Products-->
+        <record id="demo_product_tmpl_tshirt" model="product.template">
+            <field name="name">T-shirt</field>
+            <field name="standard_price">10</field>
+            <field name="list_price">15</field>
+            <field name="type">consu</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="description_sale">A nice tshirt</field>
+        </record>
+
+        <!--Attribute lines-->
+        <record id="demo_product_template_attribute_line_cut" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="demo_product_tmpl_tshirt"/>
+            <field name="attribute_id" ref="demo_product_attribute_cut"/>
+            <field name="value_ids" eval="[(6,0,[ref('product_import_autocomplete_attribute.demo_product_attribute_cut_short'), ref('product_import_autocomplete_attribute.demo_product_attribute_cut_long')])]"/>
+        </record>
+
+    </data>
+</odoo>
