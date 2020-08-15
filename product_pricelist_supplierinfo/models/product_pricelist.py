@@ -28,6 +28,7 @@ class ProductPricelist(models.Model):
                         rule,
                         date=date or context.get('date', fields.Date.today()),
                         quantity=qty,
+                        partner_id=products_qty_partner[0][2],
                     ), rule.id,
                 )
         return result

@@ -10,8 +10,8 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     def _get_supplierinfo_pricelist_price(
-            self, rule, date=None, quantity=None, product_id=None):
-        """Method for getting the price from supplier info."""
+            self, rule, date=None, quantity=None, product_id=None, partner_id=False):
+
         self.ensure_one()
         price = 0.0
         product = self.product_variant_id
@@ -19,7 +19,8 @@ class ProductTemplate(models.Model):
             product = product.browse(product_id)
         if rule.no_supplierinfo_min_quantity:
             quantity = 1.0
-        seller = product._select_seller(quantity=quantity, date=date)
+        seller = product._select_seller(
+            quantity=quantity, date=date, partner_id=partner_id)
         if seller:
             price = seller._get_supplierinfo_pricelist_price()
         if price:
