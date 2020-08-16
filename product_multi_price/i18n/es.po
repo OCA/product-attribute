@@ -142,7 +142,6 @@ msgstr "Plantilla de producto"
 #. module: product_multi_price
 #: model:res.groups,name:product_multi_price.group_show_multi_prices
 #, fuzzy
-#| msgid "Multi Price"
 msgid "Show multi prices"
 msgstr "Multi Precio"
 
