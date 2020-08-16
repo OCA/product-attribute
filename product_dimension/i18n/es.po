@@ -69,7 +69,6 @@ msgstr "Ancho"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_height
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_height
 #, fuzzy
-#| msgid "Height"
 msgid "height"
 msgstr "Alto"
 
@@ -77,7 +76,6 @@ msgstr "Alto"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_length
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_length
 #, fuzzy
-#| msgid "Length"
 msgid "length"
 msgstr "Largo"
 
@@ -85,6 +83,5 @@ msgstr "Largo"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_width
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_width
 #, fuzzy
-#| msgid "Width"
 msgid "width"
 msgstr "Ancho"
