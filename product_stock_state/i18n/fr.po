@@ -152,7 +152,6 @@ msgstr ""
 #: model:product.template,uom_name:product_stock_state.product_setting_by_company_product_template
 #: model:product.template,uom_name:product_stock_state.product_setting_by_product_product_template
 #, fuzzy
-#| msgid "Unit(s)"
 msgid "Units"
 msgstr "Unité(s)"
 
