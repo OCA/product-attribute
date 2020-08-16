@@ -32,14 +32,12 @@ msgstr "Musí být ve stejné kategorii, než je výchozí měrná jednotka."
 #. module: packaging_uom
 #: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_id
 #, fuzzy
-#| msgid "Unit of Measure"
 msgid "Packaging Unit of Measure"
 msgstr "Měrná jednotka"
 
 #. module: packaging_uom
 #: model:ir.model,name:packaging_uom.model_product_packaging
 #, fuzzy
-#| msgid "Packaging"
 msgid "Product Packaging"
 msgstr "Obal"
 
