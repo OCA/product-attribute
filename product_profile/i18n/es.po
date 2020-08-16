@@ -35,7 +35,6 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_res_config_settings
 #, fuzzy
-#| msgid "base.config.settings"
 msgid "Config Settings"
 msgstr "base.config.settings"
 
@@ -160,7 +159,6 @@ msgstr "Última modificación el"
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile_manager
 #, fuzzy
-#| msgid "Product Profiles"
 msgid "Manage Product Profiles"
 msgstr "Perfiles del producto"
 
@@ -182,7 +180,6 @@ msgstr "Perfil del producto"
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
 #, fuzzy
-#| msgid "Product Profile"
 msgid "Product Profile Mixin"
 msgstr "Perfil del producto"
 

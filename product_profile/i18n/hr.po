@@ -31,7 +31,6 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_res_config_settings
 #, fuzzy
-#| msgid "base.config.settings"
 msgid "Config Settings"
 msgstr "base.config.settings"
 
@@ -136,7 +135,6 @@ msgstr "Zadnje ažurirano"
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile_manager
 #, fuzzy
-#| msgid "Product Profiles"
 msgid "Manage Product Profiles"
 msgstr "Profili proizvoda"
 
@@ -158,7 +156,6 @@ msgstr "Profil proizvoda"
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
 #, fuzzy
-#| msgid "Product Profile"
 msgid "Product Profile Mixin"
 msgstr "Profil proizvoda"
 
