@@ -57,14 +57,12 @@ msgstr "Ignorar cantidad mínima de la info de proveedor"
 #. module: product_pricelist_supplierinfo
 #: selection:product.pricelist.item,base:0
 #, fuzzy
-#| msgid "Pricelist"
 msgid "Other Price"
 msgstr "Lista de precios"
 
 #. module: product_pricelist_supplierinfo
 #: selection:product.pricelist.item,base:0
 #, fuzzy
-#| msgid "Pricelist"
 msgid "Other Pricelist"
 msgstr "Lista de precios"
 
@@ -81,7 +79,6 @@ msgstr "Lista de precios"
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
 #, fuzzy
-#| msgid "Pricelist item"
 msgid "Pricelist Item"
 msgstr "Item de Lista de precios"
 
@@ -98,7 +95,6 @@ msgstr "Producto"
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
 #, fuzzy
-#| msgid "Product"
 msgid "Product Template"
 msgstr "Producto"
 
