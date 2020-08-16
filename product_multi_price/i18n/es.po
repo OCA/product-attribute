@@ -34,7 +34,6 @@ msgstr ""
 #. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_pricelist_item__base
 #, fuzzy
-#| msgid "Created on"
 msgid "Based on"
 msgstr "Creado en"
 
@@ -109,7 +108,6 @@ msgstr "Nombre"
 #. module: product_multi_price
 #: selection:product.pricelist.item,base:0
 #, fuzzy
-#| msgid "Other Prices"
 msgid "Other Price"
 msgstr "Otros precios"
 
@@ -121,7 +119,6 @@ msgstr "Nombre del otro precio"
 #. module: product_multi_price
 #: selection:product.pricelist.item,base:0
 #, fuzzy
-#| msgid "Other Prices"
 msgid "Other Pricelist"
 msgstr "Otros precios"
 
@@ -160,7 +157,6 @@ msgstr "Tarifa"
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
 #, fuzzy
-#| msgid "Pricelist item"
 msgid "Pricelist Item"
 msgstr "Elemento de Tarifa"
 
@@ -194,7 +190,6 @@ msgstr "Nombre de Campo de Multi Precio de Producto"
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_multi_price
 #, fuzzy
-#| msgid "Product Multi Price"
 msgid "Product Multiple Prices"
 msgstr "Multi Precio de Producto"
 
@@ -206,14 +201,12 @@ msgstr "Plantilla de producto"
 #. module: product_multi_price
 #: selection:product.pricelist.item,base:0
 #, fuzzy
-#| msgid "Multi Price"
 msgid "Public Price"
 msgstr "Multi Precio"
 
 #. module: product_multi_price
 #: model:res.groups,name:product_multi_price.group_show_multi_prices
 #, fuzzy
-#| msgid "product.multi.price"
 msgid "Show multi prices"
 msgstr "product.multi.price"
 
