@@ -32,6 +32,5 @@ msgstr "Producto"
 #. module: product_variant_inactive
 #: model:ir.model,name:product_variant_inactive.model_product_template
 #, fuzzy
-#| msgid "Product"
 msgid "Product Template"
 msgstr "Producto"
