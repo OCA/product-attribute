@@ -236,7 +236,6 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 #, fuzzy
-#| msgid "Products"
 msgid "Product Templates"
 msgstr "Produits"
 
