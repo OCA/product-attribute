@@ -90,7 +90,6 @@ msgstr ""
 #. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_product
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product"
 msgstr "Plantilla de producto"
 
