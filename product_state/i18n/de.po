@@ -94,7 +94,6 @@ msgstr ""
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product State"
 msgstr "Produktvorlage"
 
@@ -106,7 +105,6 @@ msgstr ""
 #. module: product_state
 #: model:ir.ui.menu,name:product_state.menu_product_state
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product States"
 msgstr "Produktvorlage"
 
@@ -114,7 +112,6 @@ msgstr "Produktvorlage"
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product Status"
 msgstr "Produktvorlage"
 
@@ -173,6 +170,5 @@ msgstr ""
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
 #, fuzzy
-#| msgid "Product Template"
 msgid "product.state"
 msgstr "Produktvorlage"
