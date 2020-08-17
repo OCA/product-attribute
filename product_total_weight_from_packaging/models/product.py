@@ -12,7 +12,7 @@ class ProductProduct(models.Model):
         qty_by_packaging_with_weight = self.with_context(
             **{
                 "_packaging_filter": lambda p: p.max_weight,
-                "_with_packaging_weight": True,
+                "_packaging_values_handler": self._prepare_qty_by_packaging_values_with_weight,  # noqa
             }
         ).product_qty_by_packaging(qty)
         total_weight = sum(
@@ -23,12 +23,15 @@ class ProductProduct(models.Model):
         )
         return total_weight
 
-    def _prepare_qty_by_packaging_values(self, packaging_tuple, qty_per_pkg):
-        res = super()._prepare_qty_by_packaging_values(packaging_tuple, qty_per_pkg)
-        if self.env.context.get("_with_packaging_weight"):
-            if packaging_tuple.is_unit:
-                res["weight"] = self.weight
-            else:
-                packaging = self.env["product.packaging"].browse(packaging_tuple.id)
-                res["weight"] = packaging.max_weight
+    def _prepare_qty_by_packaging_values_with_weight(
+        self, packaging_tuple, qty_per_pkg
+    ):
+        res = {
+            "qty": qty_per_pkg,
+        }
+        if packaging_tuple.is_unit:
+            res["weight"] = self.weight
+        else:
+            packaging = self.env["product.packaging"].browse(packaging_tuple.id)
+            res["weight"] = packaging.max_weight
         return res
