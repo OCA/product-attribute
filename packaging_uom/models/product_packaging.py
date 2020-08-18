@@ -34,7 +34,7 @@ class ProductPackaging(models.Model):
         comodel_name="uom.category",
     )
     qty = fields.Float(
-        compute="_compute_qty", inverse="_inverse_qty", store=True, readonly=True
+        compute="_compute_qty", inverse="_inverse_qty", store=True, readonly=False
     )
 
     @api.depends("uom_id", "product_id.uom_id")
