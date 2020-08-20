@@ -59,6 +59,11 @@ msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignorare la quantità min del listino fornitore"
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
 #: selection:product.pricelist.item,base:0
 #, fuzzy
 msgid "Other Price"
@@ -103,3 +108,23 @@ msgstr "Template prodotto"
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
 msgstr "Prezzo pubblico"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
+msgid "Sale Margin"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
+msgid "Sale margin"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:res.groups,name:product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin
+msgid "Show sale margin on Product Supplierinfo"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr ""

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_supplierinfo_tree_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.tree.view.pricelist</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="groups_id" eval="[(4,ref('product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin'))]"/>
+        <field name="arch" type="xml">
+            <field name="price" position="after">
+                <field name="sale_margin" string="Sale margin"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_form_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view.pricelist</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="groups_id" eval="[(4,ref('product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='date_start']" position="before">
+                <label for="sale_margin"/>
+                <div>
+                    <field name="sale_margin" class="oe_inline"/>
+                </div>
+           </xpath>
+        </field>
+    </record>
+
+</odoo>
