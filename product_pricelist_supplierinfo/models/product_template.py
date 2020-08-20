@@ -44,9 +44,10 @@ class ProductTemplate(models.Model):
             domain, order='min_qty,sequence,price',
         )
         if rule.no_supplierinfo_min_quantity:
-            price = supplierinfos[:1].price
+            selected_supplierinfo = supplierinfos[:1]
         else:
-            price = supplierinfos[-1:].price
+            selected_supplierinfo = supplierinfos[-1:]
+        price = selected_supplierinfo._get_supplierinfo_pricelist_price()
         if price:
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.

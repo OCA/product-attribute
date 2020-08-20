@@ -4,7 +4,7 @@
 {
     "name": "Supplier info prices in sales pricelists",
     "summary": "Allows to create priceslists based on supplier info",
-    "version": "12.0.1.0.0",
+    "version": "12.0.2.0.0",
     "category": "Sales",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa,"
@@ -14,7 +14,9 @@
         "product",
     ],
     "data": [
+        "security/res_groups.xml",
         "views/product_pricelist_item_views.xml",
+        "views/product_supplierinfo_view.xml",
     ],
     "installable": True,
 }
