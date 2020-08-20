@@ -14,7 +14,9 @@
         "product",
     ],
     "data": [
+        "security/res_groups.xml",
         "views/product_pricelist_item_views.xml",
+        "views/product_supplierinfo_view.xml",
     ],
     "installable": True,
 }

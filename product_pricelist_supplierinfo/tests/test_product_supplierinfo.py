@@ -133,3 +133,21 @@ class TestProductSupplierinfo(common.SavepointCase):
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 1, False), 20.0,
         )
+
+    def test_pricelist_based_on_sale_margin(self):
+        self.pricelist.item_ids[0].write({
+            'applied_on': '1_product',
+            'product_tmpl_id': self.product.product_tmpl_id.id,
+        })
+        self.product.seller_ids[1].sale_margin = 50
+        self.assertAlmostEqual(
+            self.product.seller_ids[1]._get_supplierinfo_pricelist_price(), 75.0,
+        )
+
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 6, False), 75.0,
+        )
+        self.assertAlmostEqual(
+            self.product.product_tmpl_id.with_context(
+                pricelist=self.pricelist.id, quantity=6).price, 75.0,
+        )
