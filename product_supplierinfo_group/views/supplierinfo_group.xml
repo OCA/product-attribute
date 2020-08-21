@@ -7,13 +7,17 @@
             <form string="supplierinfo_group_form">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="product_id"/>
-                        <field name="product_name"/>
-                        <field name="product_code"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                        </group>
+                        <group>
+                            <field name="product_name"/>
+                            <field name="product_code"/>
+                        </group>
                     </group>
                     <group>
-                        <field name="supplierinfo_ids">
+                        <field name="supplierinfo_ids" nolabel="1">
                             <tree editable="bottom">
                                 <field name="min_qty"/>
                                 <field name="price"/>
