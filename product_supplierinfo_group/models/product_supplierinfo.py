@@ -1,11 +1,11 @@
 # Copyright 2020 Akretion France (http://www.akretion.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
 from odoo import api, fields, models
 from copy import deepcopy
 
 # format: field_from_supplierinfo:field_from_group
-
 MAPPING_RELATED = {
     "product_tmpl_id": "product_tmpl_id",
     "name": "partner_id",
@@ -22,6 +22,7 @@ MAPPING_MATCH_GROUP = {
     "product_name": "product_name",
     "product_code": "product_code",
 }
+_logger = logging.getLogger(__name__)
 
 
 class ProductSupplierinfo(models.Model):
