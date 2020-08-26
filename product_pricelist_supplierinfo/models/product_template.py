@@ -13,41 +13,15 @@ class ProductTemplate(models.Model):
             self, rule, date=None, quantity=None, product_id=None):
         """Method for getting the price from supplier info."""
         self.ensure_one()
+        price = 0.0
+        product = self.product_variant_id
         if product_id:
-            domain = [
-                '|',
-                ('product_id', '=', product_id),
-                ('product_tmpl_id', '=', self.id),
-            ]
-        else:
-            domain = [
-                ('product_tmpl_id', '=', self.id),
-            ]
-        if not rule.no_supplierinfo_min_quantity and quantity:
-            domain += [
-                '|',
-                ('min_qty', '=', False),
-                ('min_qty', '<=', quantity),
-            ]
-        if date:
-            domain += [
-                '|',
-                ('date_start', '=', False),
-                ('date_start', '<=', date),
-                '|',
-                ('date_end', '=', False),
-                ('date_end', '>=', date),
-            ]
-        # We use a different default order because we are interested in getting
-        # the price for lowest minimum quantity if no_supplierinfo_min_quantity
-        supplierinfos = self.env['product.supplierinfo'].search(
-            domain, order='min_qty,sequence,price',
-        )
+            product = product.browse(product_id)
         if rule.no_supplierinfo_min_quantity:
-            selected_supplierinfo = supplierinfos[:1]
-        else:
-            selected_supplierinfo = supplierinfos[-1:]
-        price = selected_supplierinfo._get_supplierinfo_pricelist_price()
+            quantity = 1.0
+        seller = product._select_seller(quantity=quantity, date=date)
+        if seller:
+            price = seller._get_supplierinfo_pricelist_price()
         if price:
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
