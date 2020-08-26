@@ -15,5 +15,5 @@
         "views/supplierinfo_group.xml",
         "security/ir.model.access.csv",
     ],
-    "post_init_hook": "fill_required_group_id_column",
+    "pre_init_hook": "fill_required_group_id_column",
 }
