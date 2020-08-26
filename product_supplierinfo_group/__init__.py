@@ -1,6 +1,6 @@
 from . import models
 from odoo import api, SUPERUSER_ID
-from .models.product_supplierinfo import FIELDS_MATCH_GROUP
+from .models.product_supplierinfo import MAPPING_MATCH_GROUP
 
 
 def fill_required_group_id_column(cr, registry):
@@ -8,7 +8,7 @@ def fill_required_group_id_column(cr, registry):
         """
         Correct empty required supplierinfo_group_id field
         """
-        fields_fmt = ",".join(FIELDS_MATCH_GROUP)
+        fields_fmt = ",".join(MAPPING_MATCH_GROUP.keys())
         query = "SELECT {} FROM product_supplierinfo".format(fields_fmt)
         env.cr.execute(query)
         all_vals = env.cr.dictfetchall()
@@ -20,7 +20,7 @@ def fill_required_group_id_column(cr, registry):
                 field: vals_from_db[field]
                 if type(getattr(rec, field)) == type(set)
                 else vals_from_db[field]
-                for field in FIELDS_MATCH_GROUP
+                for field in MAPPING_MATCH_GROUP.keys()
             }
             group = rec._find_or_create_supplierinfo_group(vals)
             rec.supplierinfo_group_id = group
