@@ -19,7 +19,7 @@ class ProductSupplierinfoGroup(models.Model):
         help="If not set, the vendor price will apply to all "
         "variants of this product.",
     )
-    name = fields.Many2one(
+    partner_id = fields.Many2one(
         "res.partner",
         "Vendor",
         domain=[("supplier", "=", True)],
