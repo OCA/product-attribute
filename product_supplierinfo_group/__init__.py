@@ -2,9 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
 
-_schema = logging.getLogger("odoo.schema")
-from odoo.tools.sql import create_column, create_model_table
+from odoo.tools.sql import (
+    create_column,
+    create_model_table,
+)
 from .models.product_supplierinfo import MAPPING_MATCH_GROUP
+
+_schema = logging.getLogger("odoo.schema")
 
 MAPPING_FIELDS_DB = {
     "product_tmpl_id": "int4",

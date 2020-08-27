@@ -13,6 +13,8 @@
     "data": [
         "views/product.xml",
         "views/supplierinfo_group.xml",
+        "views/templates.xml",
+        "views/assets.xml",
         "security/ir.model.access.csv",
     ],
     "pre_init_hook": "fill_required_group_id_column",
