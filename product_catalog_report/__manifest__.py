@@ -18,18 +18,17 @@
 #
 ##############################################################################
 {
-    "name":"Product Catalog - Print Report of product catalog with product image",
-    "version":"1.0",
-    "author":"Tiny",
-    "category":"Generic Modules/Inventory Control",
+    "name": "Product Catalog - Print Report of product catalog with product image",
+    "version": "1.0",
+    "author": "Tiny",
+    "category": "Generic Modules/Inventory Control",
     "description": """
     This module use to print report of product catalog with product image, list price
     """,
-    "depends":["base","product"],
-    "demo_xml":[],
-    "update_xml":['product_report.xml','product_wizard.xml'],
-    "active":False,
-    "installable":False,
+    "depends": ["base", "product"],
+    "demo_xml": [],
+    "update_xml": ["product_report.xml", "product_wizard.xml"],
+    "active": False,
+    "installable": False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-
