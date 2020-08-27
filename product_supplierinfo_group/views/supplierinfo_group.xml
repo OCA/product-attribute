@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+
     <record id="supplierinfo_group_view_form" model="ir.ui.view">
         <field name="name">supplierinfo_group_view_form</field>
         <field name="model">product.supplierinfo.group</field>
         <field name="arch" type="xml">
-            <form string="supplierinfo_group_form">
+            <form>
                 <sheet>
                     <group>
                         <group>
                             <field name="partner_id"/>
-                            <field name="product_id"/>
+                            <field name="product_id" invisible="context.get('product_template_invisible_variant')"/>
                         </group>
                         <group>
                             <field name="product_name"/>
@@ -29,6 +31,21 @@
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+    <record id="supplierinfo_group_view_tree" model="ir.ui.view">
+        <field name="name">supplierinfo_group_view_tree</field>
+        <field name="model">product.supplierinfo.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="partner_id"/>
+                <field name="product_id"
+                       invisible="context.get('product_template_invisible_variant')"/>
+                <field name="product_name"/>
+                <field name="product_code"/>
+                <field name="unit_price_note"/>
+            </tree>
         </field>
     </record>
 

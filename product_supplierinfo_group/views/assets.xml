@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="product supplierinfo group assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/product_supplierinfo_group/static/src/css/table_price_note_row.css"
+                  type="text/css"/>
+        </xpath>
+    </template>
+</odoo>
