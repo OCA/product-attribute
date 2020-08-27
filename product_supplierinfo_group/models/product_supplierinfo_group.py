@@ -42,7 +42,9 @@ class ProductSupplierinfoGroup(models.Model):
         default=1,
         help="Assigns the priority to the list of product vendor.",
     )
-    unit_price_note = fields.Char(compute="_compute_unit_price_note", store=True)
+    unit_price_note = fields.Html(
+        compute="_compute_unit_price_note", string="Unit Prices (Min. Qty / Price)"
+    )
 
     @api.depends("supplierinfo_ids")
     def _compute_unit_price_note(self):
@@ -50,17 +52,8 @@ class ProductSupplierinfoGroup(models.Model):
             if len(rec.supplierinfo_ids) == 0:
                 rec.unit_price_note = "-"
             else:
-                txt = ""
-                uom_precision = rec.product_tmpl_id.uom_id.rounding
-                sorted_prices = rec.supplierinfo_ids.sorted(key=lambda r: r.min_qty)
-                nbr_prices = len(sorted_prices.ids)
-                for idx in range(nbr_prices):
-                    curr = sorted_prices[idx]
-                    if idx + 1 != nbr_prices:
-                        next = sorted_prices[idx + 1]
-                        txt += "{} - {} : {}\n".format(
-                            curr.min_qty, next.min_qty - uom_precision, curr.price
-                        )
-                    else:
-                        txt += ">= {} : {}".format(curr.min_qty, curr.price)
-                rec.unit_price_note = txt
+                sorted_supinfos = rec.supplierinfo_ids.sorted(key=lambda r: r.min_qty)
+                vals = {"supinfos": [rec for rec in sorted_supinfos]}
+                rec.unit_price_note = self.env["ir.qweb"].render(
+                    "product_supplierinfo_group.table_price_note", vals
+                )
