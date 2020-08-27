@@ -57,16 +57,26 @@ class TestProductSupplierinfoGroup(common.SavepointCase):
         group = self.env["product.supplierinfo.group"].search(
             [("id", "not in", group_before.ids)]
         )
-        self.assertEqual(
-            ">= 5.0 : 10.0", group.unit_price_note,
+        self.assertIn(
+            '<td class="table_price_note_cell">5.0</td>', group.unit_price_note,
+        )
+        self.assertIn(
+            '<td class="table_price_note_cell">10.0</td>', group.unit_price_note,
         )
         min_50 = deepcopy(self.supplierinfo_vals)
         min_50.update({"min_qty": 50.0, "price": 8.0})
         min_500 = deepcopy(self.supplierinfo_vals)
         min_500.update({"min_qty": 500.0, "price": 6.0})
-        # randomize order of supplierinfo prices/qties
         self.env["product.supplierinfo"].create([min_500, min_50])
-        self.assertEqual(
-            "5.0 - 49.999 : 10.0\n50.0 - 499.999 : 8.0\n>= 500.0 : 6.0",
-            group.unit_price_note,
+        self.assertIn(
+            '<td class="table_price_note_cell">50.0</td>', group.unit_price_note,
+        )
+        self.assertIn(
+            '<td class="table_price_note_cell">8.0</td>', group.unit_price_note,
+        )
+        self.assertIn(
+            '<td class="table_price_note_cell">500.0</td>', group.unit_price_note,
+        )
+        self.assertIn(
+            '<td class="table_price_note_cell">6.0</td>', group.unit_price_note,
         )
