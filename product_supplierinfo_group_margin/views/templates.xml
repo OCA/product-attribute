@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="table_price_note" model="ir.ui.view">
+        <field name="inherit_id" ref="product_supplierinfo_group.table_price_note"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tr[hasclass('table_price_note_row')]" position="inside">
+                <td class="table_price_note_cell"><t t-esc="rec.sale_margin"/></td>
+            </xpath>
+        </field>
+    </record>
+</odoo>
