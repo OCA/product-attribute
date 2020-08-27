@@ -1,82 +1,37 @@
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>)
+# Copyright (C) 2020 ForgeFlow S.L. (<http://www.forgeflow.com>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import time
-
-import pooler
-import wizard
-
-_lang_form = """<?xml version="1.0"?>
-<form string="Choose catalog preferencies">
-    <separator string="Select a printing language " colspan="4"/>
-    <field name="report_lang"/>
-   <separator string="Select a Product Categories " colspan="4"/>
-    <field name="categories" colspan="4" nolabel="1" />
-
-</form>"""
+from odoo import fields, models
 
 
-class wiz_productCatalog(wizard.interface):
-    def _get_language(self, cr, uid, context):
-        lang_obj = pooler.get_pool(cr.dbname).get("res.lang")
-        ids = lang_obj.search(cr, uid, [("active", "=", True)])
-        langs = lang_obj.browse(cr, uid, ids)
-        return [(lang.code, lang.name) for lang in langs]
+class WizardProductCatalog(models.TransientModel):
+    _name = "res.partner.product_catalog"
+    _description = "Wizard Product Catalog"
 
-    _lang_fields = {
-        "report_lang": {
-            "string": "Language",
-            "type": "selection",
-            "selection": _get_language,
-        },
-        "categories": {
-            "string": "Select Category",
-            "type": "many2many",
-            "relation": "product.category",
-            "required": True,
-        },
-    }
+    def _get_language(self):
+        lang_obj = self.env["res.lang"]
+        languages = lang_obj.search([("active", "=", True)])
+        return [(lang.code, lang.name) for lang in languages]
 
-    def _load(self, cr, uid, data, context):
-        partner_obj = pooler.get_pool(cr.dbname).get("res.partner")
-        partners = partner_obj.browse(cr, uid, [data["id"]])
-        if len(partners) > 0:
-            data["form"]["report_lang"] = partners[0].lang
-        return data["form"]
+    def _get_default_report_lang(self):
+        partner_obj = self.env["res.partner"]
+        partners = partner_obj.browse(self.env.context.get("active_ids", []))
+        return partners[0].lang
 
-    states = {
-        "init": {
-            "actions": [_load],
-            "result": {
-                "type": "form",
-                "arch": _lang_form,
-                "fields": _lang_fields,
-                "state": [("end", "Cancel"), ("print", "Print Product Catalog")],
-            },
-        },
-        "print": {
-            "actions": [],
-            "result": {"type": "print", "report": "product_catalog", "state": "end"},
-        },
-    }
+    report_lang = fields.Selection(
+        selection=_get_language, string="Language", default=_get_default_report_lang
+    )
+    categories = fields.Many2many(
+        comodel_name="product.category", string="Select Category", required=True
+    )
 
-
-wiz_productCatalog("res.partner.product_catalog")
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def create_product_catalog(self):
+        self.ensure_one()
+        data = {}
+        data["ids"] = self.env.context.get("active_ids", [])
+        data["model"] = "res.partner"
+        data["form"] = self.read(["report_lang", "categories"])[0]
+        return self.env.ref(
+            "product_catalog_report.action_report_product_catalog"
+        ).report_action(self, data=data)

@@ -1,129 +1,73 @@
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>)
+# Copyright (C) 2020 ForgeFlow S.L. (<http://www.forgeflow.com>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import base64
+import logging
 import time
-import urllib
 
-import reportlab
-import reportlab.lib.units
-from report import report_sxw
+import requests
+
+from odoo import api, models
+
+_logger = logging.getLogger(__name__)
 
 
-class product_catalog(report_sxw.rml_parse):
-    def __init__(self, cr, uid, name, context):
-        super(product_catalog, self).__init__(cr, uid, name, context)
+class ProductCatalogReport(models.AbstractModel):
+    _name = "report.product_catalog_report.report_product_catalog"
+    _description = "Product Catalog Report"
 
-        self.localcontext.update(
-            {
-                "time": time,
-                "image_url": self._get_imagepath,
-                "currency_code": self._get_currency,
-                #            'Carton': self._get_carton,
-                #            'SCondt': self._get_SCondt,
-                #            'UV': self._get_UV,
-                "categories": self._getCategories,
-                "products": self._getProducts,
-                "description": self._get_desc,
-                "packaging_title": self._get_packaging_title,
-                "packaging_value": self._get_packaging_value,
-                "Price": self._get_price,
-            }
+    def _get_imagepath(self, product_id):
+        datas = self.env["ir.attachment"].search_read(
+            [("res_model", "=", "product.product"), ("res_id", "=", product_id)],
+            limit=1,
         )
-
-    def _get_imagepath(self, product):
-        attach_ids = self.pool.get("ir.attachment").search(
-            self.cr,
-            self.uid,
-            [("res_model", "=", "product.product"), ("res_id", "=", product)],
-        )
-        datas = self.pool.get("ir.attachment").read(self.cr, self.uid, attach_ids)
         if len(datas):
             # if there are several, pick first
             try:
                 if datas[0]["link"]:
                     try:
                         img_data = base64.encodestring(
-                            urllib.urlopen(datas[0]["link"]).read()
+                            requests.get(datas[0]["link"]).content
                         )
                         return img_data
-                    except Exception, innerEx:
-                        print innerEx
+                    except Exception as innerEx:
+                        _logger.exception(innerEx)
                 elif datas[0]["datas"]:
                     return datas[0]["datas"]
-            except Exception, e:
-                print e
+            except Exception as e:
+                _logger.exception(e)
         return None
 
-    def setCat(self, cats):
-        lst = []
-        for cat in cats:
-            if cat not in lst:
-                lst.append(cat)
-                category = self.pool.get("product.category").read(
-                    self.cr, self.uid, [cat]
-                )
-                if category[0]["child_id"]:
-                    lst.extend(self.setCat(category[0]["child_id"]))
-        return lst
+    def setCat(self, cat_ids):
+        categories = self.env["product.category"].browse(cat_ids)
+        return (categories + categories.child_id).ids
 
-    def _getCategories(self, cat):
-        lst = self.setCat(cat[0][2])
-        cat_ids = self.pool.get("product.category").search(
-            self.cr, self.uid, [("id", "in", lst)]
-        )
+    def _getCategories(self, cat_ids):
+        cat_ids = self.setCat(cat_ids)
         tmpCat_ids = []
-        for cat in cat_ids:
-            prod_ids = self.pool.get("product.template").search(
-                self.cr, self.uid, [("categ_id", "=", cat)]
-            )
+        for cat_id in cat_ids:
+            prod_ids = self.env["product.template"].search([("categ_id", "=", cat_id)])
             if len(prod_ids):
-                tmpCat_ids.append(cat)
-        cats = self.pool.get("product.category").read(self.cr, self.uid, tmpCat_ids)
-        return cats
+                tmpCat_ids.append(cat_id)
+        return self.env["product.category"].browse(tmpCat_ids).read()
 
     def _getProducts(self, category, lang):
-        prod_tmpIDs = self.pool.get("product.template").search(
-            self.cr, self.uid, [("categ_id", "=", category)]
+        prod_tmpIDs = (
+            self.env["product.template"].search([("categ_id", "=", category)]).ids
         )
-        prod_ids = self.pool.get("product.product").search(
-            self.cr, self.uid, [("product_tmpl_id", "in", prod_tmpIDs)]
+        return (
+            self.env["product.product"]
+            .with_context(lang=lang)
+            .search_read([("product_tmpl_id", "in", prod_tmpIDs)])
         )
-        prods = self.pool.get("product.product").read(
-            self.cr, self.uid, prod_ids, context={"lang": lang}
-        )
-        return prods
 
     def _get_currency(self):
-        return (
-            self.pool.get("res.users")
-            .browse(self.cr, self.uid, [self.uid])[0]
-            .company_id.currency_id.name
-        )
+        return self.env.company.currency_id.name
 
-    def _get_packaging_title(self, product, index):
-        packaging_ids = self.pool.get("product.packaging").search(
-            self.cr, self.uid, [("product_id", "=", product)], limit=4
-        )
-        packs = self.pool.get("product.packaging").read(
-            self.cr, self.uid, packaging_ids, ["name"]
+    def _get_packaging_title(self, product_id, index):
+        packs = self.env["product.packaging"].search_read(
+            [("product_id", "=", product_id)], ["name"], limit=4
         )
         if len(packs) > index:
             s = str(packs[index]["name"])
@@ -134,30 +78,26 @@ class product_catalog(report_sxw.rml_parse):
                 return s
         return " "
 
-    def _get_packaging_value(self, product, index):
-        packaging_ids = self.pool.get("product.packaging").search(
-            self.cr, self.uid, [("product_id", "=", product)], limit=4
-        )
-        packs = self.pool.get("product.packaging").read(
-            self.cr, self.uid, packaging_ids, ["qty"]
+    def _get_packaging_value(self, product_id, index):
+        packs = self.env["product.packaging"].search_read(
+            [("product_id", "=", product_id)], ["qty"], limit=4
         )
         if len(packs) > index:
             return str(packs[index]["qty"])
         return False
 
-    def _get_price(self, product, pricelist):
-        price = self.pool.get("product.pricelist").price_get(
-            self.cr, self.uid, [pricelist], product, 1.0, None, {"uom": False}
-        )[pricelist]
+    def _get_price(self, product_id, pricelist_id):
+        pricelist = self.env["product.pricelist"].browse([pricelist_id])
+        price = pricelist.with_context(uom=False).price_get(product_id, 1.0, None)[
+            pricelist_id
+        ]
         if not price:
             price = 0.0
         return price
 
-    def _get_desc(self, tempate_id):
-        if tempate_id:
-            prodtmpl = self.pool.get("product.template").read(
-                self.cr, self.uid, [tempate_id]
-            )[0]
+    def _get_desc(self, template_id):
+        if template_id:
+            prodtmpl = self.env["product.template"].browse(template_id).read()[0]
 
             if prodtmpl["description_sale"]:
                 return prodtmpl["description_sale"]
@@ -166,14 +106,21 @@ class product_catalog(report_sxw.rml_parse):
         else:
             return "This is Test Description"
 
-
-report_sxw.report_sxw(
-    "report.product_catalog",
-    "res.partner",
-    "addons/product_catalog_report/report/product_catalog.rml",
-    parser=product_catalog,
-    header=False,
-)
-
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        docids = docids or self._context.get("active_ids", [])
+        return {
+            "doc_ids": docids,
+            "doc_model": "res.partner",
+            "docs": self.env["res.partner"].browse(docids),
+            "time": time,
+            "image_url": self._get_imagepath,
+            "currency_code": self._get_currency,
+            "categories": self._getCategories,
+            "products": self._getProducts,
+            "description": self._get_desc,
+            "packaging_title": self._get_packaging_title,
+            "packaging_value": self._get_packaging_value,
+            "Price": self._get_price,
+            "data": data,
+        }

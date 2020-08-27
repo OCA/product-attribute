@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+        id="action_report_product_catalog"
+        string="Product Catalog"
+        model="res.partner"
+        name="product_catalog_report.report_product_catalog"
+        file="product_catalog_report.report_product_catalog"
+        report_type="qweb-pdf"
+        menu="False"
+    />
+</odoo>

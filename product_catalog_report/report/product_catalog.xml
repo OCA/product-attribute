@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_product_catalog">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <t t-set="lang" t-value="data['form']['report_lang']" />
+                    <h2>Product Catalog</h2>
+                    <table
+                        class="table table-condensed"
+                        style="width: 100%; max-width: 500px;"
+                    >
+                        <thead>
+                            <tr>
+                                <th colspan="2">Printing Date</th>
+                                <th colspan="2">Pricelist</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <span t-esc="time.strftime('%d-%m-%y')" />
+                                </td>
+                                <td colspan="2">
+                                    <span
+                                        t-esc="docs.property_product_pricelist[0].name"
+                                    />
+                                </td>
+                            </tr>
+                            <t
+                                t-foreach="categories(data['form']['categories'])"
+                                t-as="c"
+                            >
+                                <tr>
+                                    <td style="font-weight: bold;">Code Family: </td>
+                                    <td colspan="3">
+                                        <span t-esc="c['id']" />
+                                        <span t-esc="c['complete_name']" />
+                                    </td>
+                                </tr>
+                                <t
+                                    t-foreach="products(c['id'],data['form']['report_lang'])"
+                                    t-as="p"
+                                >
+                                    <tr>
+                                        <td colspan="2">
+                                            <span t-esc="image_url(p['id'])" />
+                                        </td>
+                                        <td colspan="2" />
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span t-esc="p['code']" /> - <span
+                                                t-esc="p['name']"
+                                            />
+                                        </td>
+                                        <td colspan="2" />
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span t-esc="packaging_title(p['id'],0)" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="packaging_title(p['id'],1)" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="packaging_title(p['id'],2)" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="packaging_title(p['id'],3)" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span t-esc="packaging_value(p['id'],0)" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="packaging_value(p['id'],1)" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="packaging_value(p['id'],2)" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="packaging_value(p['id'],3)" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td colspan="3">
+                                            <span
+                                                t-esc="'%.4f' % Price(p['id'],docs.property_product_pricelist[0].id)"
+                                            />
+                                            <span t-esc="currency_code()" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description</td>
+                                        <td colspan="3">
+                                            <span t-esc="p['description_sale']" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
