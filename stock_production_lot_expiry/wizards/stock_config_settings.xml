@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="stock_config_settings_form_view">
+        <field name="name">stock.config.settings.form (in stock_production_lot_expiry)</field>
+        <field name="model">stock.config.settings</field>
+        <field name="inherit_id" ref="stock.view_stock_config_settings"/>
+        <field name="arch" type="xml">
+           <field name="module_product_expiry" position="after">
+                <field name="production_lot_expiry_date_field" attrs="{'invisible': [('module_product_expiry', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+
+
+</odoo>

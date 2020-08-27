@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="stock_production_lot_form_view">
+        <field name="name">stock.production.lot.form (in stock_production_lot_expiry)</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="product_expiry.view_move_form_expiry"/>
+        <field name="arch" type="xml">
+            <field name="removal_date" position="after">
+                <field name="expiry_date"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="stock_production_lot_search_view">
+        <field name="name">stock.production.lot.search (in stock_production_lot_expiry)</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="stock.search_product_lot_filter"/>
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <filter name="expired" string="Expired" domain="[('is_expired', '=', True)]" help="Expired lots"/>
+                <filter name="not_expired" string="Not Expired" domain="[('is_expired', '=', False)]" help="Not expired lots and lots no subject to expiration"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="stock_production_lot_tree_view">
+        <field name="name">stock.production.lot.tree (in stock_production_lot_expiry)</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">is_expired == True</attribute>
+            </xpath>
+            <field name="create_date" position="after">
+                <field name="expiry_date"/>
+                <field name="is_expired" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
