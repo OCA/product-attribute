@@ -33,7 +33,7 @@ class ProductSupplierinfo(models.Model):
         related="supplierinfo_group_id.product_tmpl_id", store=True
     )
     name = fields.Many2one(
-        related="supplierinfo_group_id.partner_id", required=True, store=True
+        related="supplierinfo_group_id.partner_id", required=False, store=True
     )
     product_id = fields.Many2one(related="supplierinfo_group_id.product_id", store=True)
     product_name = fields.Char(related="supplierinfo_group_id.product_name", store=True)
