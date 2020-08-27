@@ -29,12 +29,16 @@ class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
     supplierinfo_group_id = fields.Many2one("product.supplierinfo.group", required=True)
-    product_tmpl_id = fields.Many2one(related="supplierinfo_group_id.product_tmpl_id")
-    name = fields.Many2one(related="supplierinfo_group_id.partner_id")
-    product_id = fields.Many2one(related="supplierinfo_group_id.product_id")
-    product_name = fields.Char(related="supplierinfo_group_id.product_name")
-    product_code = fields.Char(related="supplierinfo_group_id.product_code")
-    sequence = fields.Integer(related="supplierinfo_group_id.sequence")
+    product_tmpl_id = fields.Many2one(
+        related="supplierinfo_group_id.product_tmpl_id", store=True
+    )
+    name = fields.Many2one(
+        related="supplierinfo_group_id.partner_id", required=True, store=True
+    )
+    product_id = fields.Many2one(related="supplierinfo_group_id.product_id", store=True)
+    product_name = fields.Char(related="supplierinfo_group_id.product_name", store=True)
+    product_code = fields.Char(related="supplierinfo_group_id.product_code", store=True)
+    sequence = fields.Integer(related="supplierinfo_group_id.sequence", store=True)
 
     def _find_or_create_supplierinfo_group(self, vals):
         domain = [

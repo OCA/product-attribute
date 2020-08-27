@@ -33,3 +33,6 @@ Much better for the user.
 
 .. figure:: static/description/after_2.png
    :width: 600 px
+
+Note: do verify, when uninstalling this module: data consistency might be altered
+due to some manual creation of tables/fields.
