@@ -19,16 +19,17 @@ class ProductStateHistoryWizard(models.TransientModel):
             ('end', 'End of Lifecycle'),
             ('obsolete', 'Obsolete')
         ],
-        string='Status',
+        string='Product Status',
         required=True,
     )
 
     @api.multi
     def _get_product_domain(self):
+        # Get product history for the actual product state
         self.ensure_one()
         return [
             ('state_date', '<=', self.pivot_date),
-            ('product_state', '=', self.product_state),
+            ('product_template_id.state', '=', self.product_state),
             ('product_template_id.active', '=', True),
         ]
 
