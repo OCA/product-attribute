@@ -57,3 +57,55 @@ class TestProductStateHistory(CommonProductStateHistory):
             "end",
             history.product_state,
         )
+
+    def test_history_wizard(self):
+        # Set Product to End of Life
+        # Launch report with pivot date > and state == End of Life
+        # Should find product
+        # Then launch report with pivot date <
+        # Should return nothing
+        # Then, set back to Normal (e.g.: if user did it wrong way)
+        # Should return nothing
+        with mock.patch.object(fields.Datetime, 'now') as mock_now:
+            mock_now.return_value = "2020-07-29 13:00:00"
+            self.product_1.state = "end"
+        history = self.history_obj.search([
+            ('product_template_id', '=', self.product_1.id)],
+            limit=1,
+        )
+        vals = {
+            "product_template_id": self.product_1.id,
+            "product_state": "end",
+            "pivot_date": "2020-07-29 14:00"
+        }
+        report = self.history_wizard_obj.create(vals).print_report()
+
+        self.assertEquals(
+            report['data']['ids'],
+            history.ids,
+        )
+        vals = {
+            "product_template_id": self.product_1.id,
+            "product_state": "end",
+            "pivot_date": "2020-07-29 12:00"
+        }
+        report = self.history_wizard_obj.create(vals).print_report()
+        self.assertEquals(
+            report['data']['ids'],
+            [],
+        )
+
+        with mock.patch.object(fields.Datetime, 'now') as mock_now:
+            mock_now.return_value = "2020-07-29 14:00:00"
+            self.product_1.state = "sellable"
+
+        vals = {
+            "product_template_id": self.product_1.id,
+            "product_state": "end",
+            "pivot_date": "2020-07-29 15:00:00"
+        }
+        report = self.history_wizard_obj.create(vals).print_report()
+        self.assertEquals(
+            report['data']['ids'],
+            [],
+        )
