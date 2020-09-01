@@ -12,3 +12,4 @@ class CommonProductStateHistory(SavepointCase):
         cls.product_1 = cls.env.ref('product.product_delivery_01')
         cls.product_2 = cls.env.ref('product.product_delivery_02')
         cls.history_obj = cls.env['product.state.history']
+        cls.history_wizard_obj = cls.env['product.state.history.wizard']
