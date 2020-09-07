@@ -28,7 +28,8 @@ class ProductStateHistoryWizard(models.TransientModel):
         # Get product history for the actual product state
         self.ensure_one()
         return [
-            ('state_date', '<=', self.pivot_date),
+            ('state_date', '>=', self.pivot_date),
+            ('product_state', '=', self.product_state),
             ('product_template_id.state', '=', self.product_state),
             ('product_template_id.active', '=', True),
         ]
