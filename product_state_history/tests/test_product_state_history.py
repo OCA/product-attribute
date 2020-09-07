@@ -58,6 +58,12 @@ class TestProductStateHistory(CommonProductStateHistory):
             history.product_state,
         )
 
+        result = self.product_2.product_tmpl_id.action_product_state_history()
+        self.assertIn(
+            ('product_template_id', 'in', [self.product_2.product_tmpl_id.id]),
+            result['domain'],
+        )
+
     def test_history_wizard(self):
         # Set Product to End of Life
         # Launch report with pivot date > and state == End of Life
@@ -74,7 +80,6 @@ class TestProductStateHistory(CommonProductStateHistory):
             limit=1,
         )
         vals = {
-            "product_template_id": self.product_1.id,
             "product_state": "end",
             "pivot_date": "2020-07-29 14:00"
         }
@@ -82,17 +87,16 @@ class TestProductStateHistory(CommonProductStateHistory):
 
         self.assertEquals(
             report['data']['ids'],
-            history.ids,
+            [],
         )
         vals = {
-            "product_template_id": self.product_1.id,
             "product_state": "end",
             "pivot_date": "2020-07-29 12:00"
         }
         report = self.history_wizard_obj.create(vals).print_report()
         self.assertEquals(
             report['data']['ids'],
-            [],
+            history.ids,
         )
 
         with mock.patch.object(fields.Datetime, 'now') as mock_now:
@@ -100,7 +104,6 @@ class TestProductStateHistory(CommonProductStateHistory):
             self.product_1.state = "sellable"
 
         vals = {
-            "product_template_id": self.product_1.id,
             "product_state": "end",
             "pivot_date": "2020-07-29 15:00:00"
         }
