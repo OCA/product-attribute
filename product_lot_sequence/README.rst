@@ -61,12 +61,12 @@ Credits
 Authors
 ~~~~~~~
 
-* Eficent Business and IT Consulting Services S.L.
+* ForgeFlow S.L.
 
 Contributors
 ~~~~~~~~~~~~
 
-* Adria Gil Sorribes <adria.gil@eficent.com>
+* Adria Gil Sorribes <adria.gil@forgeflow.com>
 
 Maintainers
 ~~~~~~~~~~~
