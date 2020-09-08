@@ -23,7 +23,7 @@
         </field>
     </record>
         <record id="action_product_state_history_wizard" model="ir.actions.act_window">
-        <field name="name">Product State History</field>
+        <field name="name">Product State Report</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.state.history.wizard</field>
         <field name="view_type">form</field>
