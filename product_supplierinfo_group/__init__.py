@@ -41,11 +41,15 @@ def fill_required_group_id_column(cr):
         - Populate the table with the right values
         - Fill the newly required supplierinfo_group_id on product_supplierinfo
     """
+    cr.execute("SELECT count(id) FROM product_supplierinfo")
+    res = cr.fetchall()
+    if not res[0][0]:
+        # No need to run the hook as they is not data to migrate
+        return
     # Create table
     create_model_table(cr, "product_supplierinfo_group")
     for col_name, col_type in MAPPING_FIELDS_DB.items():
         create_column(cr, "product_supplierinfo_group", col_name, col_type)
-    cr.commit()
 
     # Get grouped values to create supplierinfo groups
     fields_supplierinfo = ",".join(MAPPING_MATCH_GROUP.keys())
@@ -69,7 +73,6 @@ def fill_required_group_id_column(cr):
         "INSERT INTO product_supplierinfo_group({}) "
         "VALUES {};".format(fields_supplierinfo_group, vals_str)
     )
-    cr.commit()
 
     # Update supplierinfo table
     create_column(cr, "product_supplierinfo", "supplierinfo_group_id", "int4")
@@ -89,4 +92,3 @@ def fill_required_group_id_column(cr):
         "FROM product_supplierinfo_group g "
         "WHERE {}".format(conditions)
     )
-    cr.commit()
