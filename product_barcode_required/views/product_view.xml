@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field
+            name="name"
+        >product.product.view.form.easy (from product_barcode_required)</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <field name="barcode" position="before">
+                <field name="is_barcode_required" invisible="1" />
+            </field>
+            <field name="barcode" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('is_barcode_required', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+    <record id="product_normal_form_code_mandatory_view" model="ir.ui.view">
+        <field name="name">product.product.form (from product_barcode_required)</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <field name="barcode" position="before">
+                <field name="is_barcode_required" invisible="1" />
+            </field>
+            <field name="barcode" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('is_barcode_required', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
