@@ -123,9 +123,11 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <field name="sale_ok" position="before">
-                <field name="product_brand_id" placeholder="Brand"/><div/>
-            </field>
+            <xpath expr="//div[@name='options']/div" position="before">
+                <div>
+                    <field name="product_brand_id" placeholder="Brand"/>
+                </div>
+            </xpath>
         </field>
     </record>
 
