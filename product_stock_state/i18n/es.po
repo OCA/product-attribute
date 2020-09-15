@@ -6,49 +6,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-09-15 12:00+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
 msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Umbrales de stock de producto</span>"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Compañías"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Ajustes de configuración"
 
 #. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_res_config_settings__stock_state_threshold
 msgid "Define custom value under which the stock state will pass from 'In Stock' to 'In Limited Stock' State."
 msgstr ""
+"Defina el valor personalizado por debajo del cual el estado de stock pasará "
+"del estado 'En stock' al estado 'En stock limitado'."
 
 #. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_product_product__stock_state_threshold
 #: model:ir.model.fields,help:product_stock_state.field_product_template__stock_state_threshold
 msgid "Define custom value under which the stock state will pass from 'In Stock' to 'In Limited Stock' State. If not set, Odoo will use the value defined in the product category. If no value is defined in product category, it will use the value defined for the company"
 msgstr ""
+"Defina el valor personalizado por debajo del cual el estado de stock pasará "
+"del estado 'En stock' al estado 'En stock limitado'. Si no se establece, "
+"Odoo utilizará el valor definido en la categoría de producto. Si no se "
+"define ningún valor en la categoría de producto, se utilizará el valor "
+"definido para la empresa"
 
 #. module: product_stock_state
 #: selection:product.product,stock_state:0
 msgid "In Limited Stock"
-msgstr ""
+msgstr "En stock limitado"
 
 #. module: product_stock_state
 #: selection:product.product,stock_state:0
 msgid "In Stock"
-msgstr ""
+msgstr "En stock"
 
 #. module: product_stock_state
 #: model:product.product,volume_uom_name:product_stock_state.product_setting_by_company
@@ -56,61 +65,61 @@ msgstr ""
 #: model:product.template,volume_uom_name:product_stock_state.product_setting_by_company_product_template
 #: model:product.template,volume_uom_name:product_stock_state.product_setting_by_product_product_template
 msgid "Liter(s)"
-msgstr ""
+msgstr "Litro(s)"
 
 #. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
 msgid "Manual Stock State Threshold"
-msgstr ""
+msgstr "Umbral de estado de stock manual"
 
 #. module: product_stock_state
 #: selection:product.product,stock_state:0
 msgid "Out Of Stock"
-msgstr ""
+msgstr "Fuera de stock"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoría de producto"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de producto"
 
 #. module: product_stock_state
 #: model:product.product,name:product_stock_state.product_setting_by_company
 #: model:product.template,name:product_stock_state.product_setting_by_company_product_template
 msgid "Product with threshold set on the company"
-msgstr ""
+msgstr "Producto con umbral establecido en la empresa"
 
 #. module: product_stock_state
 #: model:product.product,name:product_stock_state.product_setting_by_product
 #: model:product.template,name:product_stock_state.product_setting_by_product_product_template
 msgid "Product with threshold set on the product"
-msgstr ""
+msgstr "Producto con umbral establecido en el producto"
 
 #. module: product_stock_state
 #: selection:product.product,stock_state:0
 msgid "Resupplying"
-msgstr ""
+msgstr "Reabastecimiento"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
 msgid "Set stock state threshold"
-msgstr ""
+msgstr "Establecer umbral de estado de existencias"
 
 #. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state
 msgid "Stock State"
-msgstr ""
+msgstr "Estado del stock"
 
 #. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_category__stock_state_threshold
@@ -119,37 +128,41 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_stock_state.field_res_company__stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__stock_state_threshold
 msgid "Stock State Threshold"
-msgstr ""
+msgstr "Umbral del estado de stock"
 
 #. module: product_stock_state
 #: model:res.groups,name:product_stock_state.group_stock_state_by_category
 msgid "Stock State Threshold by Category"
-msgstr ""
+msgstr "Umbral del estado del stock por categoría"
 
 #. module: product_stock_state
 #: model:res.groups,name:product_stock_state.group_stock_state_by_product
 msgid "Stock State Threshold by Product"
-msgstr ""
+msgstr "Estado del umbral del stock por producto"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_category_form
 msgid "Stock Threshold"
-msgstr ""
+msgstr "Umbral de stock"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_company_view_form_threshold
 msgid "Stock parameters"
-msgstr ""
+msgstr "Parámetros de stock"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
 msgid "Stock threshold"
-msgstr ""
+msgstr "Umbral de stock"
 
 #. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
 msgid "The custom value under which the stock state of the products of this category will pass from 'In Stock' to 'In Limited Stock' State. If not set, Odoo will use the threshold defined at the company level."
 msgstr ""
+"El valor personalizado por debajo del cual el estado de existencias de los "
+"productos de esta categoría pasará del estado de 'En stock' a 'En stock "
+"limitado'. Si no se establece, Odoo utilizará el umbral definido a nivel de "
+"empresa."
 
 #. module: product_stock_state
 #: model:product.product,uom_name:product_stock_state.product_setting_by_company
@@ -157,7 +170,7 @@ msgstr ""
 #: model:product.template,uom_name:product_stock_state.product_setting_by_company_product_template
 #: model:product.template,uom_name:product_stock_state.product_setting_by_product_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "Unidad(es)"
 
 #. module: product_stock_state
 #: model:product.product,weight_uom_name:product_stock_state.product_setting_by_company
@@ -165,4 +178,4 @@ msgstr ""
 #: model:product.template,weight_uom_name:product_stock_state.product_setting_by_company_product_template
 #: model:product.template,weight_uom_name:product_stock_state.product_setting_by_product_product_template
 msgid "kg"
-msgstr ""
+msgstr "Kg"
