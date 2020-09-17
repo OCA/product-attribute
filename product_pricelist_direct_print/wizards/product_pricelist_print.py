@@ -207,7 +207,8 @@ class ProductPricelistPrint(models.TransientModel):
         orders = partner.sale_order_ids.filtered(
             lambda r: r.state not in ['draft', 'sent', 'cancel'])
         orders = orders.sorted(key=lambda r: r.confirmation_date, reverse=True)
-        products = orders.mapped('order_line').mapped('product_id')
+        products = orders.mapped(
+            'order_line').mapped('product_id').filtered('active')
         return products[:self.last_ordered_products]
 
     @api.multi
