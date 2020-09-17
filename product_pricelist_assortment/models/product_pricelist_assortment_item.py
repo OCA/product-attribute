@@ -43,10 +43,9 @@ class ProductPricelistAssortmentItem(models.Model):
         list_values = []
         # fields to ignore to create pricelist item
         blacklist = models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD]
-        blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
         default_values = {
             k: self._fields.get(k).convert_to_write(self[k], self)
-            for k in self._fields.keys()
+            for k in self.env["product.pricelist.item"]._fields.keys()
             if k not in blacklist
         }
         for product in products:
