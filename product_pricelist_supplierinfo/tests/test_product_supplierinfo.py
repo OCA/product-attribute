@@ -181,3 +181,39 @@ class TestProductSupplierinfo(common.SavepointCase):
         self.assertAlmostEqual(
             self.pricelist.get_product_price(variant2, 1, False), 25.0,
         )
+
+    def test_pricelist_and_supplierinfo_currencies(self):
+        """Test when we have 2 records of supplierinfo in two currencies, on a same
+        pricelist as pricelist items, the currency on the supplier that have a
+        different currency will be converted to the pricelist's currency.
+        """
+        # Setting the currencies and rates for the test, so we can have a supplierinfo
+        # and pricelist with different currencies
+        currency_usd = self.env.ref('base.USD')
+        currency_mxn = self.env.ref('base.MXN')
+        self.env['res.currency.rate'].create({
+            'currency_id': currency_usd.id,
+            'rate': 1,
+            'name': date.today()
+        })
+        self.env['res.currency.rate'].create({
+            'currency_id': currency_mxn.id,
+            'rate': 20,
+            'name': date.today()
+        })
+
+        # Setting the item with the product
+        self.pricelist.item_ids[0].write({
+            'applied_on': '0_product_variant',
+            'product_id': self.product.id,
+        })
+        self.product.seller_ids[0].currency_id = currency_mxn
+        self.pricelist.currency_id = currency_usd
+
+        product_seller_price = self.product.seller_ids[0].price
+        product_pricelist_price = self.pricelist.get_product_price(
+            self.product, 5, False)
+        # The price with MXN Currency will be 50 as is set in the setup
+        self.assertEqual(product_seller_price, 50)
+        # And the price with the pricelist  (USD Currency) will be 2.5
+        self.assertEqual(product_pricelist_price, 2.5)
