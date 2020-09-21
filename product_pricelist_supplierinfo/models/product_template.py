@@ -3,7 +3,7 @@
 # Copyright 2019 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models, tools
+from odoo import fields, models, tools
 
 
 class ProductTemplate(models.Model):
@@ -23,6 +23,14 @@ class ProductTemplate(models.Model):
         if seller:
             price = seller._get_supplierinfo_pricelist_price()
         if price:
+            # We need to convert the price if the pricelist and seller have
+            # different currencies so the price have the pricelist currency
+            if rule.currency_id != seller.currency_id:
+                convert_date = date or self.env.context.get(
+                    'date', fields.Date.today())
+                price = seller.currency_id._convert(
+                    price, rule.currency_id, seller.company_id, convert_date)
+
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
             # Verbatim copy of part of product.pricelist._compute_price_rule.
