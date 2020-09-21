@@ -30,9 +30,9 @@
         id="product_product_view_form_easy_inherit_product_manufacturer"
         model="ir.ui.view"
     >
-        <field
-            name="name"
-        >product.product.view.form.easy.inherit.product.manufacturer</field>
+        <field name="name">
+            product.product.view.form.easy.inherit.product.manufacturer
+        </field>
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
         <field name="arch" type="xml">
