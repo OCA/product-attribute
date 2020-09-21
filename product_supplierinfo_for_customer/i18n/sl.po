@@ -181,6 +181,11 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Minimal Quantity"
 msgstr ""
@@ -255,6 +260,11 @@ msgstr "Predloga proizvoda"
 #. module: product_supplierinfo_for_customer
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer

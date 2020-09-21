@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_supplierinfo_for_customer
+# 	* product_supplierinfo_for_customer
 #
 msgid ""
 msgstr ""
@@ -23,7 +23,8 @@ msgstr "Atribui a prioridade à lista de fornecedores de produtos."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_pricelist_item__base
-msgid "Base price for computation.\n"
+msgid ""
+"Base price for computation.\n"
 "Public Price: The base price will be the Sale/public Price.\n"
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
@@ -143,7 +144,8 @@ msgstr "Id"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_id
-msgid "If not set, the vendor price will apply to all variants of this product."
+msgid ""
+"If not set, the vendor price will apply to all variants of this product."
 msgstr ""
 "Se não for definido, o preço do fornecedor será aplicado a todas as "
 "variantes deste produto."
@@ -171,11 +173,19 @@ msgstr "Última Atualização em"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__delay
-msgid "Lead time in days between the confirmation of the purchase order and the receipt of the products in your warehouse. Used by the scheduler for automatic computation of the purchase order planning."
+msgid ""
+"Lead time in days between the confirmation of the purchase order and the "
+"receipt of the products in your warehouse. Used by the scheduler for "
+"automatic computation of the purchase order planning."
 msgstr ""
 "Tempo de espera em dias entre a confirmação do pedido de compra e o "
 "recebimento dos produtos no seu armazém. Utilizado pelo agendador para o "
 "cálculo automático do planeamento da encomenda de compra."
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
@@ -247,6 +257,11 @@ msgid "Public Price"
 msgstr "Preço Público"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Sequence"
 msgstr "Sequência"
@@ -268,7 +283,10 @@ msgstr "Lista de Preços de Fornecedores"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
-msgid "The minimal quantity to purchase from this vendor, expressed in the vendor Product Unit of Measure if not any, in the default unit of measure of the product otherwise."
+msgid ""
+"The minimal quantity to purchase from this vendor, expressed in the vendor "
+"Product Unit of Measure if not any, in the default unit of measure of the "
+"product otherwise."
 msgstr ""
 "A quantidade mínima a comprar neste fornecedor, expressa na unidade de "
 "medida do produto no fornecedor, se houver, ou, caso contrário, na unidade "
@@ -286,14 +304,18 @@ msgstr "Isto vem do formulário do produto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_code
-msgid "This vendor's product code will be used when printing a request for quotation. Keep empty to use the internal one."
+msgid ""
+"This vendor's product code will be used when printing a request for "
+"quotation. Keep empty to use the internal one."
 msgstr ""
 "O código do produto neste fornecedor será usado na impressão de um pedido de "
 "cotação. Mantenha-o vazio para usar o interno."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_name
-msgid "This vendor's product name will be used when printing a request for quotation. Keep empty to use the internal one."
+msgid ""
+"This vendor's product name will be used when printing a request for "
+"quotation. Keep empty to use the internal one."
 msgstr ""
 "O nome do produto neste fornecedor será usado na impressão de um pedido de "
 "cotação. Mantenha-o vazio para usar o interno."

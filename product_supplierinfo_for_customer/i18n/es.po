@@ -186,6 +186,11 @@ msgstr ""
 "el cálculo automático de la planificación de la orden de compra."
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Minimal Quantity"
 msgstr "Cantidad Mínima"
@@ -253,6 +258,11 @@ msgstr "Variante de producto"
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
 msgstr "Precio público"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
