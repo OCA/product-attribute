@@ -14,7 +14,8 @@
                 <field name="has_multiple_variants" invisible="1"/>
                 <group name="supplierinfo_groups">
                     <field name="supplierinfo_group_ids" nolabel="1"
-                           context="{'product_template_invisible_variant': not has_multiple_variants}"/>
+                           context="{'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                           'product_template_invisible_variant': not has_multiple_variants}"/>
                 </group>
             </group>
         </field>
