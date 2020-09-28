@@ -22,7 +22,7 @@ class ProductProduct(models.Model):
     lifecycle_state = fields.Selection([
         ('normal', 'Normal'),
         ('end', 'End of Lifecycle'),
-        ('obsolete', 'Obsolete')], default='normal', string='State', copy=False)
+        ('obsolete', 'Obsolete')], default='normal', copy=False)
 
     @api.multi
     def get_good_replacements(self):
@@ -40,15 +40,19 @@ class ProductProduct(models.Model):
         """ Try to set the lifecycle_state to obsolete when quantity on hand will change
         the product to end instead.
         """
+        copy_vals = values.copy()
         for product in self:
             lc_state = values.get('lifecycle_state', product.lifecycle_state)
             available = values.get('virtual_available', product.virtual_available)
 
             if lc_state == 'obsolete' and available:
-                values.update({'lifecycle_state': 'end'})
+                copy_vals.update({'lifecycle_state': 'end'})
+                super(ProductProduct, product).write(copy_vals)
             elif lc_state == 'end' and not available:
-                values.update({'lifecycle_state': 'obsolete'})
-            super(ProductProduct, product).write(values)
+                copy_vals.update({'lifecycle_state': 'obsolete'})
+                super(ProductProduct, product).write(copy_vals)
+            else:
+                super(ProductProduct, product).write(values)
         return True
 
     def update_product_state(self):

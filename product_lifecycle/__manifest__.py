@@ -2,8 +2,7 @@
     "name": "Product Lifecycle",
     "summary": "Manage replacement of obsolete products",
     "version": "12.0.1.0.0",
-    "author": "Vauxoo",
-    "website": "http://www.vauxoo.com/",
+    "author": "Vauxoo, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "category": "product",
     "depends": [
@@ -20,6 +19,9 @@
     ],
     "qweb": [
         "static/src/xml/replacement_template.xml",
+    ],
+    'maintainers': [
+        'luisg123v',
     ],
     "installable": True,
 }

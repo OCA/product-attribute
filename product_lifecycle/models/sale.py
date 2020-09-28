@@ -19,7 +19,8 @@ class SaleOrderLine(models.Model):
                 info = {
                     'state': so.product_id.lifecycle_state,
                     'product_qty': so.product_id.qty_available,
-                    'replaced_by': '%s%s' % ('[%s] ' % replacement.default_code or '', replacement.name
+                    'replaced_by': '%s%s' % ('[%s] ' % replacement.default_code or '',
+                                             replacement.name
                                              ) if replacement else False,
                     'product_id': replacement.id,
                 }
