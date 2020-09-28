@@ -16,7 +16,7 @@ class ProductTemplateTag(models.Model):
         relation='product_template_product_tag_rel',
         column1='tag_id', column2='product_tmpl_id')
     products_count = fields.Integer(
-        string="# of Products", compute='_compute_products_count', store=True)
+        string="# of Products", compute='_compute_products_count')
     company_id = fields.Many2one(
         comodel_name='res.company', string="Company",
         default=lambda self: self._default_company())
@@ -28,5 +28,12 @@ class ProductTemplateTag(models.Model):
     @api.multi
     @api.depends('product_tmpl_ids')
     def _compute_products_count(self):
+        if not self.ids:
+            return
+        self.env.cr.execute("""SELECT tag_id, COUNT(*)
+            FROM product_template_product_tag_rel
+            WHERE tag_id IN %s
+            GROUP BY tag_id""", (tuple(self.ids),))
+        tag_id_product_count = dict(self.env.cr.fetchall())
         for rec in self:
-            rec.products_count = len(rec.product_tmpl_ids)
+            rec.products_count = tag_id_product_count.get(rec.id, 0)
