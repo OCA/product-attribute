@@ -1,6 +1,7 @@
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import models, fields, tools
+from odoo import models, fields, tools, api, _
+from odoo.exceptions import ValidationError
 
 
 class ProductProduct(models.Model):
@@ -12,12 +13,23 @@ class ProductProduct(models.Model):
         string="Other Prices",
     )
 
+    @api.multi
+    @api.constrains('price_ids')
+    def _check_price_ids(self):
+        for p in self:
+            for price in p.price_ids:
+                prices = price.search([
+                    ('name', '=', price.name.id),
+                    ('product_id', '=', price.product_id.id),
+                ])
+                if len(prices) > 1:
+                    raise ValidationError(_(
+                        "You can't have prices with the same name"))
+
     def _get_multiprice_pricelist_price(self, rule):
         """Method for getting the price from multi price."""
         self.ensure_one()
-        company = rule.company_id or self.env.user.company_id
-        price = self.env['product.multi.price'].sudo().search([
-            ('company_id', '=', company.id),
+        price = self.env['product.multi.price'].search([
             ('name', '=', rule.multi_price_name.id),
             ('product_id', '=', self.id),
         ]).price or 0
