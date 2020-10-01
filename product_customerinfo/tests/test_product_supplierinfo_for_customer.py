@@ -1,7 +1,7 @@
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
-# Copyright 2018 Eficent
+# Copyright 2018 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo.tests.common import SavepointCase
 
