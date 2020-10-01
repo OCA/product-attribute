@@ -1,7 +1,7 @@
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
 # Copyright 2015-18 Tecnativa
-# Copyright 2017-18 Eficent
+# Copyright 2017-18 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Supplierinfo for Customers",
