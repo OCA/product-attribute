@@ -44,3 +44,6 @@ class ProductPricelistItem(models.Model):
     no_supplierinfo_min_quantity = fields.Boolean(
         string='Ignore Supplier Info Min. Quantity',
     )
+    filter_supplier_id = fields.Many2one(
+        "res.partner", "Supplier filter", domain=[('supplier', '=', True)],
+        help="Only match prices from the selected supplier")

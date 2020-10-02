@@ -11,6 +11,7 @@
             </xpath>
             <field name="price_max_margin" position="after">
                 <field name="no_supplierinfo_min_quantity" attrs="{'invisible':[('base', '!=', 'supplierinfo')]}"/>
+                <field name="filter_supplier_id" attrs="{'invisible':[('base', '!=', 'supplierinfo')]}"/>
             </field>
         </field>
     </record>
