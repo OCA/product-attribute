@@ -38,7 +38,6 @@ class TestProductSupplierinfo(common.SavepointCase):
         })
         cls.pricelist = cls.env['product.pricelist'].create({
             'name': 'Supplierinfo Pricelist',
-            'discount_policy': 'without_discount',
             'item_ids': [
                 (0, 0, {
                     'compute_price': 'formula',
@@ -96,6 +95,15 @@ class TestProductSupplierinfo(common.SavepointCase):
             self.pricelist.get_product_price(self.product, 10, False), 50,
         )
         self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 5, False), 10,
+        )
+
+    def test_pricelist_supplier_filter(self):
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 5, False), 50,
+        )
+        self.pricelist.item_ids[0].filter_supplier_id = self.supplier2.id
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 5, False), 10,
         )
