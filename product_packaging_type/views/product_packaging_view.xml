@@ -3,12 +3,11 @@
     <record id="view_product_packaging_add_type_form" model="ir.ui.view">
         <field name="name">product.packaging.form</field>
         <field name="model">product.packaging</field>
-        <field name="inherit_id" ref="product.product_packaging_form_view" />
+        <field name="inherit_id" ref="product_packaging_barcode.product_packaging_form_view" />
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='barcode']" position="before">
                 <field name="qty_per_type" />
-                <field name="packaging_type_id" />
                 <field name="barcode_required_for_gtin" invisible="1" />
             </xpath>
             <xpath expr="//field[@name='barcode']" position="attributes">
@@ -20,17 +19,21 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="name" position="after">
-                <field name="packaging_type_id" position="move" />
+                <field name="packaging_type_id" />
+                <field name="display_name"  invisible="1"/>
+                <field name="product_uom_id" invisible="1"/>
             </field>
         </field>
     </record>
+
     <record id="product_packaging_tree_view_inherit" model="ir.ui.view">
         <field name="name">product.packaging.tree.view.inherit</field>
         <field name="model">product.packaging</field>
         <field name="inherit_id" ref="product.product_packaging_tree_view" />
         <field name="arch" type="xml">
-            <field name="product_uom_id" position="after">
-                <field name="qty_per_type" />
+            <field name="qty" position="after">
+                <field name="product_uom_id" options="{'no_open': True, 'no_create': True}" groups="product.group_uom"/>
+                <field name="qty_per_type"/>
             </field>
             <field name="name" position="attributes">
                 <attribute name="invisible">1</attribute>
