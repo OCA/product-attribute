@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2019-2020 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 from odoo import api, fields, models
@@ -14,7 +15,7 @@ class ProductPackaging(models.Model):
     width = fields.Integer("Width (mm)", help="width in millimeters")
     height = fields.Integer("Height (mm)", help="height in millimeters")
     volume = fields.Float(
-        "Volume (m³)",
+        u"Volume (m³)",
         digits=(8, 4),
         compute="_compute_volume",
         readonly=True,
