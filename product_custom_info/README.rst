@@ -59,6 +59,7 @@ Contributors
 * Sergio Teruel <sergio.teruel@tecnativa.com>
 * Jairo Llopis <jairo.llopis@tecnativa.com>
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
+* Roberto Lizana <roberto@trey.es>
 
 Maintainer
 ----------
