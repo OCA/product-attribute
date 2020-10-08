@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-10-08 12:28+0000\n"
+"PO-Revision-Date: 2020-10-08 15:16+0000\n"
 "Last-Translator: Yann Papouin <y.papouin@dec-industrie.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -59,7 +59,7 @@ msgstr "Ignorer le champ Quantité minimale"
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
 msgid "Margin to apply on price to obtain sale price"
-msgstr "Marge à appliquer"
+msgstr "Marge à appliquer pour obtenir le prix de vente"
 
 #. module: product_pricelist_supplierinfo
 #: selection:product.pricelist.item,base:0
@@ -109,12 +109,12 @@ msgstr "Prix public"
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
 msgid "Sale Margin"
-msgstr "Marge commerciale"
+msgstr "Marge à la revente"
 
 #. module: product_pricelist_supplierinfo
 #: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
 msgid "Sale margin"
-msgstr "Marge commerciale"
+msgstr "Marge à la revente"
 
 #. module: product_pricelist_supplierinfo
 #: model:res.groups,name:product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin
