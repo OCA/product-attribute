@@ -64,6 +64,11 @@ msgid "Margin to apply on price to obtain sale price"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
+msgid "Only match prices from the selected supplier"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
 #: selection:product.pricelist.item,base:0
 #, fuzzy
 msgid "Other Price"
@@ -127,4 +132,9 @@ msgstr ""
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_supplierinfo
 msgid "Supplier Pricelist"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
+msgid "Supplier filter"
 msgstr ""
