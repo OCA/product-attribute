@@ -64,7 +64,9 @@ class ProductTemplate(models.Model):
         uom_meters = self.env.ref("uom.product_uom_meter")
 
         return dimensional_uom._compute_quantity(
-            qty=measure, to_unit=uom_meters, round=False,
+            qty=measure,
+            to_unit=uom_meters,
+            round=False,
         )
 
     # Define all the related fields in product.template with 'readonly=False'
