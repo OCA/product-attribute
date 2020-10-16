@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,20 +14,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
-#: model:ir.ui.view,arch_db:product_custom_info.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_template_only_form_view
 msgid "Custom Information"
 msgstr ""
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product_custom_info_template_id
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template_custom_info_template_id
+#: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_template_id
+#: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_template_id
 msgid "Custom Information Template"
 msgstr ""
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product_custom_info_ids
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template_custom_info_ids
+#: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_ids
+#: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_ids
 msgid "Custom Properties"
 msgstr ""
 
@@ -42,23 +42,23 @@ msgid "Product Template"
 msgstr ""
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product_product_tmpl_custom_info_ids
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model:ir.model.fields,field_description:product_custom_info.field_product_product__product_tmpl_custom_info_ids
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Product template info"
 msgstr ""
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "This info is managed on"
 msgstr ""
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Variant info"
 msgstr ""
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "the product template"
 msgstr ""
 
