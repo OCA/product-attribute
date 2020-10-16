@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo12-addon-product_code_mandatory',
         'odoo12-addon-product_code_unique',
         'odoo12-addon-product_cost_security',
+        'odoo12-addon-product_custom_info',
         'odoo12-addon-product_dimension',
         'odoo12-addon-product_equivalent_category',
         'odoo12-addon-product_firmware_version',
