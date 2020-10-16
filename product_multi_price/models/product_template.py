@@ -18,6 +18,8 @@ class ProductTemplate(models.Model):
         for p in self:
             if len(p.product_variant_ids) == 1:
                 p.price_ids = p.product_variant_ids.price_ids
+            else:
+                p.price_ids = False
 
     def _inverse_price_ids(self):
         for p in self:
