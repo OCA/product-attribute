@@ -2,8 +2,6 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ProductMultiPrice(models.Model):
     _name = "product.multi.price"
@@ -15,7 +13,7 @@ class ProductMultiPrice(models.Model):
     product_id = fields.Many2one(
         comodel_name="product.product", required=True, ondelete="cascade",
     )
-    price = fields.Float(digits=dp.get_precision("Product Price"),)
+    price = fields.Float(digits="Product Price",)
     company_id = fields.Many2one(
         comodel_name="res.company",
         related="name.company_id",
@@ -39,7 +37,7 @@ class ProductMultiPriceName(models.Model):
 
     @api.model
     def _get_company(self):
-        return self._context.get("company_id", self.env.user.company_id.id)
+        return self._context.get("company_id", self.env.company)
 
     name = fields.Char(required=True, string="Price Field Name", ondelete="restrict")
     company_id = fields.Many2one(
