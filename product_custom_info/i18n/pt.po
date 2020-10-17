@@ -6,59 +6,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-10-17 18:08+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_template_only_form_view
 msgid "Custom Information"
-msgstr ""
+msgstr "Informação Personalizada"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_template_id
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_template_id
 msgid "Custom Information Template"
-msgstr ""
+msgstr "Modelo de Informação Personalizada"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_ids
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_ids
 msgid "Custom Properties"
-msgstr ""
+msgstr "Propriedades Personalizadas"
 
 #. module: product_custom_info
 #: model:ir.model,name:product_custom_info.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produto"
 
 #. module: product_custom_info
 #: model:ir.model,name:product_custom_info.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de Produto"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__product_tmpl_custom_info_ids
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Product template info"
-msgstr ""
+msgstr "Info de modelo de produto"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "This info is managed on"
-msgstr ""
+msgstr "Esta info é gerida em"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Variant info"
-msgstr ""
+msgstr "Info da variante"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "the product template"
-msgstr ""
+msgstr "o modelo de produto"
