@@ -202,6 +202,11 @@ msgid "New Price ="
 msgstr ""
 
 #. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__multi_price_name
+msgid "Other Price Name"
+msgstr ""
+
+#. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base_pricelist_id
 msgid "Other Pricelist"
 msgstr ""
