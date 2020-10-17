@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo13-addon-product_manufacturer',
         'odoo13-addon-product_medical',
         'odoo13-addon-product_multi_category',
+        'odoo13-addon-product_multi_price',
         'odoo13-addon-product_packaging_dimension',
         'odoo13-addon-product_packaging_type',
         'odoo13-addon-product_packaging_type_pallet',
