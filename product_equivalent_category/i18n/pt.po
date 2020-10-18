@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_equivalent_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__product_count
+msgid "# Products"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
+msgid "<span class=\"o_stat_text\"> Products</span>"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
+msgid "Category name"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__description
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
+msgid "Description"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__id
+msgid "ID"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__name
+msgid "Name"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.actions.act_window,name:product_equivalent_category.product_equivalent_category_action_form
+#: model:ir.ui.menu,name:product_equivalent_category.menu_product_equivalent_category_config_stock
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_list_view
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_search_view
+msgid "Product Equivalent Categories"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model,name:product_equivalent_category.model_product_equivalent_category
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_product__equivalent_categ_id
+#: model:ir.model.fields,field_description:product_equivalent_category.field_product_template__equivalent_categ_id
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_list_view
+msgid "Product Equivalent Category"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model,name:product_equivalent_category.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,help:product_equivalent_category.field_product_product__equivalent_categ_id
+#: model:ir.model.fields,help:product_equivalent_category.field_product_template__equivalent_categ_id
+msgid "Select equivalent category for the current product"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model:ir.model.fields,help:product_equivalent_category.field_product_equivalent_category__product_count
+msgid "The number of products under this category"
+msgstr ""
+
+#. module: product_equivalent_category
+#: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
+msgid "e.g. Lamps"
+msgstr ""
