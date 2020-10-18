@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-23 14:13+0000\n"
+"PO-Revision-Date: 2020-10-18 21:08+0000\n"
 "Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
@@ -19,28 +19,28 @@ msgstr ""
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome a Exibir"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_end
@@ -50,7 +50,7 @@ msgstr "Fim de Ciclo de Vida"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_draft
@@ -60,17 +60,17 @@ msgstr "Em Desenvolvimento"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificação em"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Atualização por"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Atualização em"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_sellable
@@ -80,7 +80,7 @@ msgstr "Normal"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__products_count
 msgid "Number of products"
-msgstr ""
+msgstr "Número de Produtos"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_obsolete
@@ -91,27 +91,24 @@ msgstr "Obsoleto"
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
-#, fuzzy
 msgid "Product State"
-msgstr "Modelo de Produto"
+msgstr "Estado do Produto"
 
 #. module: product_state
 #: sql_constraint:product.state:0
 msgid "Product State Code must be unique."
-msgstr ""
+msgstr "O Código de Estado do Produto tem que ser único."
 
 #. module: product_state
 #: model:ir.ui.menu,name:product_state.menu_product_state
-#, fuzzy
 msgid "Product States"
-msgstr "Modelo de Produto"
+msgstr "Estados de Produtos"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
-#, fuzzy
 msgid "Product Status"
-msgstr "Modelo de Produto"
+msgstr "Estado de Produto"
 
 #. module: product_state
 #: model:ir.model,name:product_state.model_product_template
@@ -122,53 +119,50 @@ msgstr "Modelo de Produto"
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_kanban
 msgid "Products"
-msgstr ""
+msgstr "Produtos"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_product__product_state_id
 #: model:ir.model.fields,help:product_state.field_product_template__product_state_id
 msgid "Select a state for this product"
-msgstr ""
+msgstr "Selecione um estado para este produto"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequência"
 
 #. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__product_state_id
 #: model:ir.model.fields,field_description:product_state.field_product_template__product_state_id
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_template_search_state
-#, fuzzy
 msgid "State"
 msgstr "Estado"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__code
 msgid "State Code"
-msgstr ""
+msgstr "Código do Estado"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__name
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "State Name"
-msgstr ""
+msgstr "Nome do Estado"
 
 #. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_state_products
 #: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
-#, fuzzy
 msgid "State Products"
-msgstr "Estado"
+msgstr "Produtos do Estado"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
-msgstr ""
+msgstr "Usado para ordenar os Estados"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
-#, fuzzy
 msgid "product.state"
-msgstr "Modelo de Produto"
+msgstr ""
