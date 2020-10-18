@@ -18,15 +18,22 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: product_multi_price
-#: sql_constraint:product.multi.price:0
+#: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_multi_price_uniq
 msgid "A field name cannot be assigned to a product twice for the same company"
 msgstr "No puede haber un nombre de campo repetido en la misma compañía"
 
 #. module: product_multi_price
 #: model:ir.model.fields,help:product_multi_price.field_product_pricelist_item__base
+#, fuzzy
+#| msgid ""
+#| "Base price for computation.\n"
+#| "Public Price: The base price will be the Sale/public Price.\n"
+#| "Cost Price : The base price will be the cost price.\n"
+#| "Other Pricelist : Computation of the base price based on another "
+#| "Pricelist."
 msgid ""
 "Base price for computation.\n"
-"Public Price: The base price will be the Sale/public Price.\n"
+"Sales Price: The base price will be the Sales Price.\n"
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
@@ -46,16 +53,6 @@ msgstr "Basado en"
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name__company_id
 msgid "Company"
 msgstr "Compañía"
-
-#. module: product_multi_price
-#: selection:product.pricelist.item,base:0
-msgid "Cost"
-msgstr "Coste"
-
-#. module: product_multi_price
-#: selection:product.pricelist.item,base:0
-msgid "Cost Price Tax Included"
-msgstr "Precio de coste con impuesto incluido"
 
 #. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__create_uid
@@ -110,7 +107,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: product_multi_price
-#: selection:product.pricelist.item,base:0
+#: model:ir.model.fields.selection,name:product_multi_price.selection__product_pricelist_item__base__multi_price
 msgid "Other Price"
 msgstr "Otro precio"
 
@@ -120,20 +117,10 @@ msgid "Other Price Name"
 msgstr "Nombre del otro precio"
 
 #. module: product_multi_price
-#: selection:product.pricelist.item,base:0
-msgid "Other Pricelist"
-msgstr "Otra tarifa"
-
-#. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_product__price_ids
 #: model:ir.model.fields,field_description:product_multi_price.field_product_template__price_ids
 msgid "Other Prices"
 msgstr "Otros precios"
-
-#. module: product_multi_price
-#: selection:product.pricelist.item,base:0
-msgid "Partner Prices on the product form"
-msgstr "Precios de socios en el formulario de producto"
 
 #. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__price
@@ -158,18 +145,15 @@ msgstr "Tarifa"
 
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
-msgid "Pricelist Item"
+#, fuzzy
+#| msgid "Pricelist Item"
+msgid "Pricelist Rule"
 msgstr "Elemento de Tarifa"
 
 #. module: product_multi_price
-#: sql_constraint:product.multi.price.name:0
+#: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_name_multi_price_name_uniq
 msgid "Prices Names must be unique per company"
 msgstr "Los Nombres de Precio deben ser únicos para cada compañía"
-
-#. module: product_multi_price
-#: selection:product.pricelist.item,base:0
-msgid "Prices based on supplier info"
-msgstr "Precios basados en la información del proveedor"
 
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_product
@@ -199,14 +183,27 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_multi_price
-#: selection:product.pricelist.item,base:0
-msgid "Public Price"
-msgstr "Precio público"
-
-#. module: product_multi_price
 #: model:res.groups,name:product_multi_price.group_show_multi_prices
 msgid "Show multi prices"
 msgstr "Muestra precios múltiples"
+
+#~ msgid "Cost"
+#~ msgstr "Coste"
+
+#~ msgid "Cost Price Tax Included"
+#~ msgstr "Precio de coste con impuesto incluido"
+
+#~ msgid "Other Pricelist"
+#~ msgstr "Otra tarifa"
+
+#~ msgid "Partner Prices on the product form"
+#~ msgstr "Precios de socios en el formulario de producto"
+
+#~ msgid "Prices based on supplier info"
+#~ msgstr "Precios basados en la información del proveedor"
+
+#~ msgid "Public Price"
+#~ msgstr "Precio público"
 
 #~ msgid "product.multi.price.name"
 #~ msgstr "product.multi.price.name"
