@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-06-05 21:19+0000\n"
-"Last-Translator: Fernando Colus <fcolus1@gmail.com>\n"
+"PO-Revision-Date: 2020-10-18 21:08+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -75,22 +75,22 @@ msgstr "Estatísticas de Faturas"
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand____last_update
 msgid "Last Modified on"
-msgstr "Última modificação feita em"
+msgstr "Última Modificação em"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__write_uid
 msgid "Last Updated by"
-msgstr "Última atualização feita por"
+msgstr "Última Atualização por"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__write_date
 msgid "Last Updated on"
-msgstr "Última atualização feita em"
+msgstr "Última Atualização em"
 
 #. module: product_brand
 #: model_terms:ir.ui.view,arch_db:product_brand.view_product_brand_kanban
 msgid "Logo"
-msgstr "Logomarca"
+msgstr ""
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand__logo
