@@ -3,7 +3,7 @@
 {
     "name": "Show Product Ref on Product Pricelist",
     "summary": "Show Product Ref on Product Pricelist",
-    "version": "12.0.2.0.0",
+    "version": "12.0.2.0.1",
     "development_status": "Beta",
     "category": "Product",
     "website": "https://www.github.com/OCA/product-attribute",
