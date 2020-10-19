@@ -11,4 +11,6 @@ class ProductPricelistItem(models.Model):
         res = super(). _get_pricelist_item_name_price()
         for record in self.filtered("product_id"):
             record.name = record.product_id.display_name
+        for record in self.filtered("product_tmpl_id"):
+            record.name = record.product_tmpl_id.display_name
         return res
