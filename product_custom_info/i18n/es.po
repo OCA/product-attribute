@@ -17,20 +17,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
-#: model:ir.ui.view,arch_db:product_custom_info.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_template_only_form_view
 msgid "Custom Information"
 msgstr "Inf. personalizada"
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product_custom_info_template_id
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template_custom_info_template_id
+#: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_template_id
+#: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_template_id
 msgid "Custom Information Template"
 msgstr "Plantilla de inf. personalizada"
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product_custom_info_ids
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template_custom_info_ids
+#: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_ids
+#: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_ids
 msgid "Custom Properties"
 msgstr "Propiedades personalizadas"
 
@@ -45,22 +45,22 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product_product_tmpl_custom_info_ids
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model:ir.model.fields,field_description:product_custom_info.field_product_product__product_tmpl_custom_info_ids
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Product template info"
 msgstr "Información de la plantilla de producto"
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "This info is managed on"
 msgstr "Está información se gestiona en"
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Variant info"
 msgstr "Información de la variante"
 
 #. module: product_custom_info
-#: model:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "the product template"
 msgstr "la plantilla de producto"
