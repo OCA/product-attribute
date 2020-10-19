@@ -44,40 +44,60 @@ class TestProductPricelistShowProductRef(SavepointCase):
             'fixed_price': 100,
         })
 
-    def test_code_in_display_name_in_product(self):
+    def test_code_in_display_name_in_product_variant(self):
         """Test product item has code in display_name
         """
         self.assertTrue(
             "[{}]".format(
                 self.pricelist_item_product_product.product_id.default_code
-            ) in self.pricelist_item_product_product.display_name
+            ) in self.pricelist_item_product_product.name
         )
 
-    def test_code_not_in_display_name_in_product_template(self):
+    def test_code_in_display_name_in_product_template(self):
         """Test product template item has no code in display_name
         """
-        self.assertFalse(
+        self.assertTrue(
             "[{}]".format(
-                self.pricelist_item_product_template.product_id.default_code
-            ) in self.pricelist_item_product_template.display_name
+                self.pricelist_item_product_template.product_tmpl_id.default_code
+            ) in self.pricelist_item_product_template.name
         )
 
-    def test_display_name_rewritten(self):
-        """Test the display_name is rewritten
+    def test_display_name_rewritten_in_product_variant(self):
+        """Test the display_name is rewritten in variant
         """
         product_name = self.product.display_name.replace(
             "[{}]".format(self.product.default_code),
             ""
         )
-        self.pricelist_item_product_product.display_name = product_name
+        self.pricelist_item_product_product.name = product_name
         self.assertFalse(
             "[{}]".format(
                 self.pricelist_item_product_product.product_id.default_code
-            ) in self.pricelist_item_product_product.display_name
+            ) in self.pricelist_item_product_product.name
         )
         self.pricelist_item_product_product._get_pricelist_item_name_price()
         self.assertTrue(
             "[{}]".format(
                 self.pricelist_item_product_product.product_id.default_code
-            ) in self.pricelist_item_product_product.display_name
+            ) in self.pricelist_item_product_product.name
+        )
+
+    def test_display_name_rewritten_in_product_template(self):
+        """Test the display_name is rewritten in template
+        """
+        product_template_name = self.product_template.display_name.replace(
+            "[{}]".format(self.product_template.default_code),
+            ""
+        )
+        self.pricelist_item_product_template.name = product_template_name
+        self.assertFalse(
+            "[{}]".format(
+                self.pricelist_item_product_template.product_tmpl_id.default_code
+            ) in self.pricelist_item_product_template.name
+        )
+        self.pricelist_item_product_template._get_pricelist_item_name_price()
+        self.assertTrue(
+            "[{}]".format(
+                self.pricelist_item_product_template.product_tmpl_id.default_code
+            ) in self.pricelist_item_product_template.name
         )
