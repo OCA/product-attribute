@@ -59,6 +59,21 @@ class TestBarcodeTemplateRequired(TestBarcodeBase):
         record = form.save()
         self.assertEqual(record.barcode, "PROD-A")
 
+    def test_required_template(self):
+        """Requirement enabled, template needs it only if 1 variant is there."""
+        tmpl = self.env["product.template"].create({"name": "Foo"})
+        self.assertTrue(tmpl.is_barcode_required)
+        # Add a variantc
+        self.env["product.product"].create(
+            {
+                "name": "another test variant",
+                "barcode": "baz",
+                "default_code": "yeah",
+                "product_tmpl_id": tmpl.id,
+            }
+        )
+        self.assertFalse(tmpl.is_barcode_required)
+
     def test_onchange_required_variant(self):
         """Requirement enabled, default barcode to default_code."""
         form = Form(self.env["product.product"])
