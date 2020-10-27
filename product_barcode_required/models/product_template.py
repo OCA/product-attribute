@@ -13,3 +13,8 @@ class ProductTemplate(models.Model):
         return super(
             ProductTemplate, self.with_context(_bypass_barcode_required_check=True)
         )._create_variant_ids()
+
+    def _is_barcode_required(self):
+        if self.product_variant_count > 1:
+            return False
+        return super()._is_barcode_required()
