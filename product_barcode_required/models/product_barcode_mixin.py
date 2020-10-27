@@ -20,9 +20,10 @@ class BarcodeRequiredMixin(models.AbstractModel):
     @api.depends("type", "barcode")
     def _compute_is_barcode_required(self):
         for rec in self:
-            rec.is_barcode_required = (
-                rec._is_barcode_required_enabled() and rec._is_barcode_missing()
-            )
+            rec.is_barcode_required = rec._is_barcode_required()
+
+    def _is_barcode_required(self):
+        return self._is_barcode_required_enabled() and self._is_barcode_missing()
 
     def _is_barcode_missing(self):
         self.ensure_one()
@@ -32,7 +33,7 @@ class BarcodeRequiredMixin(models.AbstractModel):
         return self.env.company.product_variant_barcode_required
 
     def _check_barcode_required(self):
-        """Check if barcode required, to be used in your own contraint."""
+        """Check if barcode required, to be used in your own constraint."""
         if self.env.context.get("_bypass_barcode_required_check"):
             return
         # Make error nicer up to 30 records.
