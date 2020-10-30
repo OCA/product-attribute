@@ -23,7 +23,8 @@ class ProductApplication(models.Model):
         self.ensure_one()
 
         pairs = []
-        custom_infos = sorted(self.custom_info_ids, key=lambda x: x.property_id.sequence)
+        custom_infos = sorted(
+            self.custom_info_ids, key=lambda x: x.property_id.sequence)
         for info in custom_infos:
             cur_value = False
             if info.field_name == 'value_int':
@@ -37,7 +38,7 @@ class ProductApplication(models.Model):
             elif info.value:
                 cur_value = str(info.value)
             else:
-                cur_value = False
+                cur_value = ''
             pairs.append((info.name, str(cur_value)))
         return pairs
 
