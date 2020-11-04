@@ -23,7 +23,7 @@ Product Pricelist Direct Print
     :target: https://runbot.odoo-community.org/runbot/135/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 Print price list from menu option, product templates, products variants or
 price lists
@@ -89,9 +89,9 @@ Contributors
   * Carlos Dauden <carlos.dauden@tecnativa.com>
   * David Vidal <david.vidal@tecnativa.com>
 
-* `Brainbean Apps <https://brainbeanapps.com>`_:
+* `CorporateHub <https://corporatehub.eu/>`__
 
-  * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+  * Alexey Pelykh <alexey.pelykh@corphub.eu>
 
 Maintainers
 ~~~~~~~~~~~
