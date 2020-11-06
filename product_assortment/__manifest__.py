@@ -7,7 +7,7 @@
         Adds the ability to manage products assortment""",
     'version': '12.0.1.0.0',
     'license': 'AGPL-3',
-    'development_status': 'Stable/Production',
+    'development_status': 'Production/Stable',
     'author': 'ACSONE SA/NV,Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/product-attribute',
     'depends': [
