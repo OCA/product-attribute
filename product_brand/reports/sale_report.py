@@ -12,8 +12,8 @@ class SaleReport(models.Model):
         string='Brand',
     )
 
-    # pylint:disable=dangerous-default-value
-    def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
+    def _query(self, with_clause='', fields=None, groupby='', from_clause=''):
+        fields = fields or {}
         fields['product_brand_id'] = ", t.product_brand_id as product_brand_id"
         groupby += ', t.product_brand_id'
         return super(SaleReport, self)._query(
