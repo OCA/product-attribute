@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<record id="product_category_form_view" model="ir.ui.view">
+    <field name="model">product.category</field>
+    <field name="inherit_id" ref="product.product_category_form_view" />
+    <field name="arch" type="xml">
+
+        <sheet position="inside">
+            <group name="allowed_attributes" string="Allowed Attributes">
+                <field name="attribute_line_ids" nolabel="1">
+                    <tree editable="bottom">
+                        <field name="attribute_id" />
+                        <field
+                                name="value_ids"
+                                widget="many2many_tags"
+                                context="{'default_attribute_id': attribute_id}"
+                            />
+                    </tree>
+                </field>
+            </group>
+        </sheet>
+
+    </field>
+</record>
+
+</odoo>

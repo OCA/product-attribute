@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<record id="product_template_only_form_view" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view" />
+    <field name="arch" type="xml">
+
+        <xpath
+                expr="//field[@name='attribute_line_ids']/tree/field[@name='attribute_id']"
+                position="before"
+            >
+            <field name="allowed_attribute_ids" invisible="1" />
+            <field name="allowed_attribute_value_ids" invisible="1" />
+        </xpath>
+
+    </field>
+</record>
+
+<record id="product_template_attribute_line_form" model="ir.ui.view">
+    <field name="model">product.template.attribute.line</field>
+    <field name="inherit_id" ref="product.product_template_attribute_line_form" />
+    <field name="arch" type="xml">
+
+        <field name="attribute_id" position="after">
+            <field name="allowed_attribute_ids" invisible="1" />
+            <field name="allowed_attribute_value_ids" invisible="1" />
+        </field>
+
+    </field>
+</record>
+
+</odoo>
