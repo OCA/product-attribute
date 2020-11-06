@@ -45,5 +45,6 @@ class ProductTemplate(models.Model):
     product_brand_id = fields.Many2one(
         'product.brand',
         string='Brand',
+        index=True,
         help='Select a brand for this product'
     )
