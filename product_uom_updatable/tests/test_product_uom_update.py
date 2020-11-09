@@ -2,6 +2,7 @@
 # Copyright 2020 Camptocamp
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.exceptions import UserError
 from odoo.tests.common import SavepointCase
 
 
@@ -10,8 +11,11 @@ class TestProductUomUpdate(SavepointCase):
         super(TestProductUomUpdate, self).setUp()
         self.env = self.env(context=dict(self.env.context, tracking_disable=True))
         self.uom_unit = self.env.ref("uom.product_uom_unit")
+        self.uom_day = self.env.ref("uom.product_uom_day")
         self.product = self.env.ref("product.product_delivery_01")
-        self.product_tmpl_id = self.ref("product.product_delivery_01_product_template")
+        self.product_tmpl_id = self.env.ref(
+            "product.product_delivery_01_product_template"
+        )
         self.partner_id = self.ref("base.res_partner_4")
         self.picking_type_id = self.ref("stock.picking_type_in")
         self.location_id = self.ref("stock.stock_location_suppliers")
@@ -45,15 +49,35 @@ class TestProductUomUpdate(SavepointCase):
                 "uom_type": "smaller",
             }
         )
+
+        self.new_uom_other_category = self.env["uom.uom"].create(
+            {
+                "name": "new unit 2",
+                "category_id": self.uom_day.category_id.id,
+                "uom_type": "smaller",
+            }
+        )
         # verify that the product has stock_moves
         self.assertTrue(self.product.stock_move_ids)
         self.assertEqual(self.product.uom_id, self.uom_unit)
         self.assertEqual(self.uom_unit.category_id, self.new_uom.category_id)
+        self.assertEqual(
+            self.uom_day.category_id, self.new_uom_other_category.category_id
+        )
         self.assertEqual(self.uom_unit.factor_inv, self.new_uom.factor_inv)
+        self.assertEqual(
+            self.uom_day.factor_inv, self.new_uom_other_category.factor_inv
+        )
         # uom is changed with another uom with the same category
-        self.product.update({"uom_id": self.new_uom.id})
-        self.assertEqual(self.product.uom_id, self.new_uom)
+        self.product_tmpl_id.update({"uom_id": self.new_uom.id})
+        self.assertEqual(self.product_tmpl_id.uom_id, self.new_uom)
         # uom_po can also be changed with another uom with the same category
-        self.assertEqual(self.product.uom_po_id, self.uom_unit)
-        self.product.update({"uom_po_id": self.new_uom.id})
-        self.assertEqual(self.product.uom_po_id, self.new_uom)
+        self.assertEqual(self.product_tmpl_id.uom_po_id, self.uom_unit)
+        self.product_tmpl_id.update({"uom_po_id": self.new_uom.id})
+        self.assertEqual(self.product_tmpl_id.uom_po_id, self.new_uom)
+        # uom is changed with another uom from different category
+        with self.assertRaises(UserError):
+            self.product_tmpl_id.update({"uom_id": self.new_uom_other_category.id})
+        # uom_po is changed with another uom from different category
+        with self.assertRaises(UserError):
+            self.product_tmpl_id.update({"uom_po_id": self.new_uom_other_category.id})

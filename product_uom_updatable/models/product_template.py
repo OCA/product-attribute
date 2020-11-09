@@ -26,22 +26,20 @@ class ProductTemplate(models.Model):
         uom_obj = self.env["uom.uom"]
         sorted_items = sorted(self, key=lambda r: r[field_name])
         for key, products_group in groupby(sorted_items, key=lambda r: r[field_name]):
-            product_list = list(products_group)
-            product_ids = [product.id for product in product_list]
+            product_ids = [product.id for product in products_group]
             new_uom = uom_obj.browse(uom_id)
             if (
                 key.category_id == new_uom.category_id
                 and key.factor_inv == new_uom.factor_inv
             ):
-                self.env.cr.execute(
-                    "UPDATE product_template SET %(field_name)s = %(uom)s WHERE id in \
-                     %(product_id)s",
-                    {
-                        "field_name": field_name,
-                        "uom": new_uom.id,
-                        "product_id": tuple(product_ids),
-                    },
+                # pylint: disable=sql-injection
+                query = (
+                    "UPDATE product_template SET "
+                    + field_name.strip("'")
+                    + " = %s WHERE id in \
+                     %s"
                 )
+                self.env.cr.execute(query, (new_uom.id, tuple(product_ids)))
                 self.invalidate_cache(fnames=[field_name], ids=product_ids)
             else:
                 raise UserError(
