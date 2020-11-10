@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
     lot_sequence_id = fields.Many2one(
         "ir.sequence",
         string="Entry Sequence",
-        help="This field contains the information related to the " "numbering of lots.",
+        help="This field contains the information related to the numbering of lots.",
         copy=False,
     )
     lot_sequence_prefix = fields.Char(
@@ -50,13 +50,13 @@ class ProductTemplate(models.Model):
         )
         return seq
 
-    @api.multi
     # do not depend on 'lot_sequence_id.date_range_ids', because
     # lot_sequence_id._get_current_sequence() may invalidate it!
     @api.depends("lot_sequence_id.use_date_range", "lot_sequence_id.number_next_actual")
     def _compute_lot_seq_number_next(self):
-        """ Compute 'lot_sequence_number_next' according to the current
-            sequence in use, an ir.sequence or an ir.sequence.date_range.
+        """
+        Compute 'lot_sequence_number_next' according to the current sequence in use, an
+        ir.sequence or an ir.sequence.date_range.
         """
         for template in self:
             if template.lot_sequence_id:
@@ -65,18 +65,15 @@ class ProductTemplate(models.Model):
             else:
                 template.lot_sequence_number_next = 1
 
-    @api.multi
     def _inverse_lot_seq_number_next(self):
         """
-        Inverse 'lot_sequence_number_next' to edit the current sequence next
-        number
+        Inverse 'lot_sequence_number_next' to edit the current sequence next number
         """
         for template in self:
             if template.lot_sequence_id and template.lot_sequence_number_next:
                 sequence = template.lot_sequence_id._get_current_sequence()
                 sequence.sudo().number_next = template.lot_sequence_number_next
 
-    @api.multi
     def write(self, vals):
         for template in self:
             tracking = vals.get("tracking", False) or template.tracking

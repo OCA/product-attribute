@@ -17,7 +17,6 @@
                 />
                 <field
                     name="lot_sequence_number_next"
-                    style="padding-right: 1.0em"
                     attrs="{'readonly': [('lot_sequence_id', '!=', False)], 'invisible': [('tracking', 'not in', ['lot', 'serial'])]}"
                 />
                 <field
