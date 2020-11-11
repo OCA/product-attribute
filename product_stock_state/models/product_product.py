@@ -67,9 +67,9 @@ class ProductProduct(models.Model):
         "company_id.stock_state_threshold",
     )
     def _compute_stock_state(self):
+        precision = self.env["decimal.precision"].precision_get("Stock Threshold")
         for product in self:
             qty_available = product._get_qty_available_for_stock_state()
-            precision = self.env["decimal.precision"].precision_get("Stock Threshold")
             stock_state = False
             for state in self._available_states():
                 checker = getattr(product, "_stock_state_check_" + state)
