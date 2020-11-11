@@ -41,7 +41,9 @@ class ProductProduct(models.Model):
     def _stock_state_check_in_stock(self, qty, precision):
         return (
             float_compare(
-                qty, self._get_stock_state_threshold(), precision_digits=precision,
+                qty,
+                self._get_stock_state_threshold(),
+                precision_digits=precision,
             )
             == 1
         )
