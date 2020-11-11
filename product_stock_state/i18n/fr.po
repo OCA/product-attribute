@@ -57,6 +57,33 @@ msgstr ""
 "valeur définie au niveau de l'entreprise"
 
 #. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__id
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__id
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__id
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__id
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
 #: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
@@ -155,6 +182,22 @@ msgstr ""
 msgid "Units"
 msgstr "Unité(s)"
 
+#. module: product_stock_state
+#: model:product.product,weight_uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,weight_uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,weight_uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,weight_uom_name:product_stock_state.product_setting_by_product_product_template
+msgid "kg"
+msgstr "kg"
+
+#. module: product_stock_state
+#: model:product.product,volume_uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,volume_uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,volume_uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,volume_uom_name:product_stock_state.product_setting_by_product_product_template
+msgid "m³"
+msgstr ""
+
 #~ msgid "In Limited Stock"
 #~ msgstr "En stock limité"
 
@@ -166,6 +209,3 @@ msgstr "Unité(s)"
 
 #~ msgid "Resupplying"
 #~ msgstr "En réapprovisionnement"
-
-#~ msgid "kg"
-#~ msgstr "kg"
