@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 PlanetaTIC - Marc Poch <mpoch@planetatic.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data>
+
+<record id="product_supplier_sale_price_form_view" model="ir.ui.view">
+    <field name="name">product.product.form</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>
+    <field name="arch" type="xml">
+        <field name="lst_price" position="after">
+            <field name="use_supplier_sale_price"/>
+            <field name="supplier_sale_price"/>
+        </field>
+        
+    </field>
+</record>
+
+<record id="product_normal_form_view_default_check" model="ir.ui.view">
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product_variant_sale_price.product_normal_form_view_default_check" />
+    <field name="arch" type="xml">
+        <field name="fix_price" position="attributes">
+            <attribute name="attrs">{'readonly': [('use_supplier_sale_price', '=', True)]}</attribute>
+        </field>
+    </field>
+</record>
+
+<record id="product_variant_easy_edit_price_view" model="ir.ui.view">
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product_variant_sale_price.product_variant_easy_edit_price_view" />
+    <field name="arch" type="xml">
+        <field name="lst_price" position="before">
+            <field name="use_supplier_sale_price" />
+        </field>
+        <field name="fix_price" position="attributes">
+            <attribute name="attrs">{'readonly': [('use_supplier_sale_price', '=', True)]}</attribute>
+        </field>
+    </field>
+</record>
+
+<record id="product_supplierinfo_form_view" model="ir.ui.view">
+    <field name="model">product.supplierinfo</field>
+    <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='date_start']/ancestor::*[1]" position="before">
+            <field name="sale_price" />
+        </xpath>
+    </field>
+</record>
+
+<record id="product_supplierinfo_tree_view" model="ir.ui.view">
+    <field name="model">product.supplierinfo</field>
+    <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+    <field name="arch" type="xml">
+        <field name="date_start" position="before">
+            <field name="sale_price" />
+        </field>
+    </field>
+</record>
+
+</data>
+</odoo>

@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_supplier_sale_price
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-10 15:55+0000\n"
+"PO-Revision-Date: 2020-11-10 15:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_supplier_sale_price
+#: selection:res.config.settings,product_supplier_sale_price_computation:0
+msgid "Cheapest Sale price"
+msgstr "El precio más bajo"
+
+#. module: product_supplier_sale_price
+#: model:ir.model.fields,help:product_supplier_sale_price.field_res_config_settings__product_supplier_sale_price_computation
+msgid "Choose how to compute supplier sale price"
+msgstr "Escoje como establecer el precio de venta recomendado por el proveedor"
+
+#. module: product_supplier_sale_price
+#: model:ir.model,name:product_supplier_sale_price.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: product_supplier_sale_price
+#: selection:res.config.settings,product_supplier_sale_price_computation:0
+msgid "Mean Sale Price"
+msgstr "Media de los precio de venta"
+
+#. module: product_supplier_sale_price
+#: selection:res.config.settings,product_supplier_sale_price_computation:0
+msgid "More Expensive Sale price"
+msgstr "El precio más caro"
+
+#. module: product_supplier_sale_price
+#: selection:res.config.settings,product_supplier_sale_price_computation:0
+msgid "Not Supplier Sale Price"
+msgstr "No aplicar el precio recomendado por el proveedor"
+
+#. module: product_supplier_sale_price
+#: model:ir.model,name:product_supplier_sale_price.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_supplier_sale_price
+#: model:ir.model.fields,field_description:product_supplier_sale_price.field_product_supplierinfo__sale_price
+msgid "Sale Price"
+msgstr "Precio de venta"
+
+#. module: product_supplier_sale_price
+#: model:ir.model.fields,help:product_supplier_sale_price.field_product_supplierinfo__sale_price
+msgid "Sale Price suggested by supplier"
+msgstr "Precio de venta recomendado por el proveedor"
+
+#. module: product_supplier_sale_price
+#: model_terms:ir.ui.view,arch_db:product_supplier_sale_price.res_config_settings_supplier_sale_price_view_form
+msgid "Set sale price of supplier suggested price"
+msgstr "Establecer el precio de venta recomendado por el proveedor"
+
+#. module: product_supplier_sale_price
+#: model:ir.model,name:product_supplier_sale_price.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Tarifa de proveedor"
+
+#. module: product_supplier_sale_price
+#: model:ir.model.fields,field_description:product_supplier_sale_price.field_res_config_settings__product_supplier_sale_price_computation
+msgid "Supplier Sale Price Computation"
+msgstr "Cálculo del precio recomendado del proveedor"
+
+#. module: product_supplier_sale_price
+#: code:addons/product_supplier_sale_price/models/product.py:173
+#, python-format
+msgid "Supplier Sale Price Computation is set to: No to use supplier price. Please choose a computation mode in Sale Settings"
+msgstr "El cálculo del precio Recomendado está establecido como: 'No aplicar el precio recomendado por el proveedor'. Por favor escoja el método de cálculo adecuado"
+
+#. module: product_supplier_sale_price
+#: model:ir.model.fields,field_description:product_supplier_sale_price.field_product_product__supplier_sale_price
+msgid "Supplier_sale_price"
+msgstr "Supplier_sale_price"
+
+#. module: product_supplier_sale_price
+#: code:addons/product_supplier_sale_price/models/product.py:176
+#, python-format
+msgid "This product has no sale prices suggested by its suppliers"
+msgstr "Este producto no tiene precios sugeridos por ninguno de sus proveedores"
+
+#. module: product_supplier_sale_price
+#: model_terms:ir.ui.view,arch_db:product_supplier_sale_price.res_config_settings_supplier_sale_price_view_form
+msgid "To send invitations in B2B mode, open a contact or select several ones in list view and click on 'Portal Access Management' option in the dropdown menu *Action*."
+msgstr "Para enviar invitaciones en modo B2B, abre un contacto o seleccciona varios en la vista modo lista y haz clic en la opción 'Gestión de acceso al Portal'  del menú desplegable *Acción*."
+
+#. module: product_supplier_sale_price
+#: model:ir.model.fields,field_description:product_supplier_sale_price.field_product_product__use_supplier_sale_price
+msgid "Use Supplier Sale Price"
+msgstr "Aplicar el Precio Recomendado del Proveedor"
+
