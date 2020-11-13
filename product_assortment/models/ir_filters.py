@@ -12,13 +12,13 @@ class IrFilters(models.Model):
         if self.env.context.get("product_assortment", False):
             model = self.env.ref("product.model_product_product")
             return model.model
-        return False
+        # return False
 
     @api.model
     def _get_default_is_assortment(self):
         if self.env.context.get("product_assortment", False):
             return True
-        return False
+        # return False
 
     model_id = fields.Selection(default=lambda x: x._get_default_model())
 
