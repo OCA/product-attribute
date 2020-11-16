@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,16 +37,19 @@ msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__id
 msgid "ID"
 msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -85,15 +88,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
+#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
 msgstr ""
 
 #. module: product_secondary_unit
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary Unit"
-msgstr ""
-
-#. module: product_secondary_unit
-#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
-msgid "secondary unit of measure"
 msgstr ""
