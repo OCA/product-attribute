@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
+[product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
 
 [//]: # (end addons)
 
