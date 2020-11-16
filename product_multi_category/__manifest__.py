@@ -3,7 +3,7 @@
 
 {
     "name": "Product - Many Categories",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "author": "Akretion,Guewen Baconnier,Camptocamp,Avanzosc,"
     "Sharoon Thomas,Sodexis,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
