@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
+[product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
 
 [//]: # (end addons)
