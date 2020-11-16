@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-product_dimension',
+        'odoo14-addon-product_template_tags',
     ],
     classifiers=[
         'Programming Language :: Python',
