@@ -33,6 +33,7 @@ setuptools.setup(
         'odoo13-addon-product_state',
         'odoo13-addon-product_stock_state',
         'odoo13-addon-product_supplierinfo_for_customer',
+        'odoo13-addon-product_supplierinfo_revision',
         'odoo13-addon-product_template_tags',
         'odoo13-addon-product_template_tags_code',
         'odoo13-addon-product_total_weight_from_packaging',
