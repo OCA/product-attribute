@@ -34,7 +34,6 @@ class ProductAssortment(models.Model):
 
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
 
-    @api.multi
     def _get_eval_domain(self):
         res = super(ProductAssortment, self)._get_eval_domain()
 
@@ -48,13 +47,11 @@ class ProductAssortment(models.Model):
 
         return res
 
-    @api.multi
     def _compute_record_count(self):
         for record in self:
             domain = record._get_eval_domain()
             record.record_count = self.env[record.model_id].search_count(domain)
 
-    @api.model
     def _get_action_domain(self, action_id=None):
         # tricky way to act on get_filter method to prevent returning
         # assortment in search view filters
@@ -68,7 +65,6 @@ class ProductAssortment(models.Model):
 
         return domain
 
-    @api.multi
     def show_products(self):
         self.ensure_one()
         return {
