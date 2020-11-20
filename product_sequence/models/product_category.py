@@ -39,7 +39,7 @@ class ProductCategory(models.Model):
         return vals
 
     def write(self, vals):
-        prefix = vals.get("code_prefix")
+        prefix = vals.get("code_prefix", False)
         if prefix:
             for rec in self:
                 if rec.sequence_id:
@@ -51,7 +51,7 @@ class ProductCategory(models.Model):
 
     @api.model
     def create(self, vals):
-        prefix = vals.get("code_prefix")
+        prefix = vals.get("code_prefix", False)
         if prefix:
             seq_vals = self._prepare_ir_sequence(prefix)
             sequence = self.env["ir.sequence"].create(seq_vals)

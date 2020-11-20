@@ -13,7 +13,7 @@ class ProductProduct(models.Model):
     default_code = fields.Char(
         required=True,
         default="/",
-        track_visibility="onchange",
+        tracking=True,
         help="Set to '/' and save if you want a new internal reference "
         "to be proposed.",
     )
@@ -21,8 +21,8 @@ class ProductProduct(models.Model):
     @api.model
     def create(self, vals):
         if "default_code" not in vals or vals["default_code"] == "/":
-            categ_id = vals.get("categ_id")
-            template_id = vals.get("product_tmpl_id")
+            categ_id = vals.get("categ_id", False)
+            template_id = vals.get("product_tmpl_id", False)
             categ = sequence = False
             if categ_id:
                 # Created as a product.product
