@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,8 +20,26 @@ msgid "-copy"
 msgstr ""
 
 #. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__id
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__id
+msgid "ID"
+msgstr ""
+
+#. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_sequence.field_product_product____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: product_sequence

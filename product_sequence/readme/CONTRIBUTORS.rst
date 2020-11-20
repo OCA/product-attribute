@@ -5,3 +5,4 @@
 * Sudhir Arya <sudhir@erpharbor.com>
 * Alexandre Díaz <alexandre.diaz@tecnativa.com>
 * Sergio Teruel <sergio.teruel@tecnativa.com>
+* Watthanun Khorchai <watthanun_t@hotmail.com>
