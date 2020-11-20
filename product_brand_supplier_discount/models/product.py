@@ -33,7 +33,7 @@ class SupplierInfo(models.Model):
                 for supplier_discount in brand.supplier_discount_ids:
                     if supplier_discount.partner_id == supplierinfo.name:
                         supplierinfo.discount = supplier_discount.discount
-                        supplierinfo.fixed_discount = supplierinfo.discount
+                        supplierinfo.fixed_discount = 0.0
                         apply_branch_discount = True
             if not apply_branch_discount:
                 supplierinfo.discount = supplierinfo.fixed_discount
