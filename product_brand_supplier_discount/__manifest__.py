@@ -3,7 +3,7 @@
 
 
 {
-    'name': 'Product Brand Supplier Info',
+    'name': 'Product Brand Supplier Discount',
     'version': '12.0.1.0.0',
     'category': 'Product',
     'summary': "Assign a discount to the products of a brand when"
