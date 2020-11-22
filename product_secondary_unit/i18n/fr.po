@@ -47,7 +47,6 @@ msgstr "Nom affiché"
 #. module: product_secondary_unit
 #: model:res.groups,name:product_secondary_unit.group_secondary_unit
 #, fuzzy
-#| msgid "secondary Unit"
 msgid "Display secondary units"
 msgstr "Unité secondaire"
 
