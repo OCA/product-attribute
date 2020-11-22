@@ -121,7 +121,6 @@ msgstr "Nombre"
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
 #, fuzzy
-#| msgid "Fixed Price"
 msgid "Previous Fixed Price"
 msgstr "Precio fijo"
 
@@ -138,7 +137,6 @@ msgstr "Lista de precios"
 #. module: product_pricelist_revision
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
 #, fuzzy
-#| msgid "Pricelist Items"
 msgid "Pricelist Item"
 msgstr "Elementos de tarifa"
 
