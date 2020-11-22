@@ -26,12 +26,6 @@ msgstr ""
 #. module: product_multi_price
 #: model:ir.model.fields,help:product_multi_price.field_product_pricelist_item__base
 #, fuzzy
-#| msgid ""
-#| "Base price for computation.\n"
-#| "Public Price: The base price will be the Sale/public Price.\n"
-#| "Cost Price : The base price will be the cost price.\n"
-#| "Other Pricelist : Computation of the base price based on another "
-#| "Pricelist."
 msgid ""
 "Base price for computation.\n"
 "Sales Price: The base price will be the Sales Price.\n"
@@ -148,7 +142,6 @@ msgstr "Listino"
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
 #, fuzzy
-#| msgid "Pricelist Item"
 msgid "Pricelist Rule"
 msgstr "Articolo di listino"
 
