@@ -71,7 +71,6 @@ msgstr "Largeur"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_height
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_height
 #, fuzzy
-#| msgid "Height"
 msgid "height"
 msgstr "Hauteur"
 
@@ -79,7 +78,6 @@ msgstr "Hauteur"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_length
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_length
 #, fuzzy
-#| msgid "Length"
 msgid "length"
 msgstr "Longueur"
 
@@ -87,6 +85,5 @@ msgstr "Longueur"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_width
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_width
 #, fuzzy
-#| msgid "Width"
 msgid "width"
 msgstr "Largeur"
