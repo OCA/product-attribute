@@ -252,7 +252,6 @@ msgstr "Produktvorlage"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_id
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product Variant"
 msgstr "Produktvorlage"
 
@@ -322,7 +321,6 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
 #, fuzzy
-#| msgid "Partner Unit of Measure"
 msgid "Unit of Measure"
 msgstr "Mengeneinheit des Partners"
 
@@ -340,7 +338,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__variant_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__variant_customer_ids
 #, fuzzy
-#| msgid "Customer"
 msgid "Variant Customer"
 msgstr "Kunde"
 
