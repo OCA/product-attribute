@@ -1,6 +1,6 @@
 # Copyright 2018-2019 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 from odoo.osv import expression
 
 
@@ -46,7 +46,7 @@ class ProductAssortment(models.Model):
     def _get_eval_domain(self):
         res = super(ProductAssortment, self)._get_eval_domain()
 
-        if self.whitelist_product_ids and res:
+        if self.whitelist_product_ids:
             result_domain = [('id', 'in', self.whitelist_product_ids.ids)]
             res = expression.OR([result_domain, res])
 
@@ -79,13 +79,9 @@ class ProductAssortment(models.Model):
     @api.multi
     def show_products(self):
         self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': _("Products"),
-            'res_model': 'product.product',
-            'domain': self._get_eval_domain(),
-            'view_type': 'form',
-            'view_mode': 'tree, form',
-            'context': self.env.context,
-            'target': 'current',
-        }
+        action = self.env.ref(
+            "product.product_normal_action")
+        action_dict = action.read()[0]
+        action_dict['domain'] = self._get_eval_domain()
+        action_dict['context'] = self.env.context
+        return action_dict
