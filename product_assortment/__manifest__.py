@@ -15,6 +15,7 @@
         'product',
     ],
     'data': [
+        'views/res_partner_view.xml',
         'views/product_assortment.xml',
     ],
     'installable': True,

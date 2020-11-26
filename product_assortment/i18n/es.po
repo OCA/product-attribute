@@ -1,25 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_assortment
+# 	* product_assortment
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-08-11 16:59+0000\n"
-"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"POT-Creation-Date: 2020-11-27 15:45+0000\n"
+"PO-Revision-Date: 2020-11-27 16:48+0100\n"
+"Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
+msgid "<span class=\"o_stat_text\">Product Assortments</span>"
+msgstr "<span class=\"o_stat_text\">Surtido de productos</span>"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "<span class=\"o_stat_text\">Products</span>"
-msgstr "<span class=\"o_stat_text\">Products</span>"
+msgstr "<span class=\"o_stat_text\">Productos</span>"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -38,6 +44,11 @@ msgid "Blacklist Product"
 msgstr "Producto de la lista negra"
 
 #. module: product_assortment
+#: model:ir.model,name:product_assortment.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: product_assortment
 #: model:ir.model,name:product_assortment.model_ir_filters
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Filters"
@@ -52,6 +63,16 @@ msgstr "Es surtido"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__model_id
 msgid "Model"
 msgstr "Modelo"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partners to apply"
+msgstr "Contactos a los que aplica"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -69,12 +90,6 @@ msgid "Product assortment"
 msgstr "Surtido de producto"
 
 #. module: product_assortment
-#: code:addons/product_assortment/models/ir_filters.py:78
-#, python-format
-msgid "Products"
-msgstr "Productos"
-
-#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
 msgstr "Productos a excluir"
@@ -88,6 +103,11 @@ msgstr "Productos a incluir"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
 msgid "Record Count"
 msgstr "Número de registros"
+
+#. module: product_assortment
+#: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
+msgid "This field allow to relate a partner to a domain of products"
+msgstr "Este campo permite relacionar un contacto con un dominio de productos"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
