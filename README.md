@@ -19,6 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[product_bom_revision](product_bom_revision/) | 14.0.1.0.0 | Store the revision of a product and a BOM
 [product_code_unique](product_code_unique/) | 14.0.1.0.0 | Set Product Internal Reference as Unique
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
