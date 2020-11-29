@@ -1,8 +1,11 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import logging
 from odoo import models, api
 from lxml import etree
 from odoo.osv import orm
+
+_logger = logging.getLogger(__name__)
 
 
 class ProductProduct(models.Model):
@@ -37,3 +40,11 @@ class ProductProduct(models.Model):
                     orm.setup_modifiers(button, root)
             res["arch"] = etree.tostring(root, pretty_print=True)
         return res
+
+    @api.multi
+    def write(self, vals):
+        if self._context.get("no_reactivate") and vals == {"active": True}:
+            _logger.info("Skip reactivating product %s" % self.ids)
+            return True
+        else:
+            return super().write(vals)
