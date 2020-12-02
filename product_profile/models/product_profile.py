@@ -1,6 +1,7 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import json
 import logging
 from copy import deepcopy
 
@@ -8,7 +9,6 @@ from lxml import etree
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from odoo.osv import orm
 
 PROFILE_MENU = _(
     "Sales > Configuration \n> Product Categories and Attributes" "\n> Product Profiles"
@@ -245,7 +245,6 @@ class ProductMixinProfile(models.AbstractModel):
         if view_type == "form":
             doc = etree.XML(res["arch"])
             fields = self._get_profile_fields()
-            fields_def = self.fields_get(allfields=fields)
             if self.env.uid not in users_in_profile_group:
                 attrs = {"invisible": [("profile_id", "!=", False)]}
             else:
@@ -259,7 +258,9 @@ class ProductMixinProfile(models.AbstractModel):
                         if node:
                             for current_node in node:
                                 current_node.set("attrs", str(attrs))
-                                orm.setup_modifiers(current_node, fields_def[field])
+                                modifiers = json.loads(current_node.get("modifiers"))
+                                modifiers["attrs"] = str(attrs)
+                                current_node.set("modifiers", json.dumps(modifiers))
             res["arch"] = etree.tostring(doc, pretty_print=True)
         elif view_type == "search":
             # Allow to dynamically create search filters for each profile
