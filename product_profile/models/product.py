@@ -1,19 +1,15 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
     _inherit = ["product.template", "product.mixin.profile"]
     _name = "product.template"
 
-    profile_id = fields.Many2one(
-        comodel_name="product.profile", string="Profile"
-    )
-    profile_explanation = fields.Text(
-        related="profile_id.explanation", readonly=True
-    )
+    profile_id = fields.Many2one(comodel_name="product.profile", string="Profile")
+    profile_explanation = fields.Text(related="profile_id.explanation", readonly=True)
 
     @api.model
     def fields_view_get(
