@@ -1,17 +1,17 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from copy import deepcopy
 import logging
-from odoo import models, fields, api, _
-from odoo.osv import orm
-from odoo.exceptions import UserError
+from copy import deepcopy
+
 from lxml import etree
 
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
+from odoo.osv import orm
 
 PROFILE_MENU = _(
-    "Sales > Configuration \n> Product Categories and Attributes"
-    "\n> Product Profiles"
+    "Sales > Configuration \n> Product Categories and Attributes" "\n> Product Profiles"
 )
 # Prefix name of profile fields setting a default value,
 # not an immutable value according to profile
@@ -75,7 +75,7 @@ class ProductProfile(models.Model):
     )
 
     def write(self, vals):
-        """ Profile update can impact products: we take care to propagate
+        """Profile update can impact products: we take care to propagate
         ad hoc changes. If on the profile at least one field has changed,
         re-apply its values on relevant products"""
         excludable_fields = get_profile_fields_to_exclude()
@@ -96,9 +96,7 @@ class ProductProfile(models.Model):
     def _refresh_products_vals(self):
         """Reapply profile values on products"""
         for rec in self:
-            products = self.env["product.product"].search(
-                [("profile_id", "=", rec.id)]
-            )
+            products = self.env["product.product"].search([("profile_id", "=", rec.id)])
             if products:
                 _logger.info(
                     " >>> %s Products updating after updated '%s' pro"
@@ -111,14 +109,14 @@ class ProductProfile(models.Model):
 
     @api.model
     def check_useless_key_in_vals(self, vals, key):
-        """ If replacing values are the same than in db, we remove them.
-            Use cases:
-            1/ if in edition mode you switch a field
-               from value A to value B and then go back to value A
-               then save form, field is in vals whereas it shouldn't.
-            2/ if profile data are in csv file there are processed
-               each time module containing csv is loaded
-            we remove field from vals to minimize impact on products
+        """If replacing values are the same than in db, we remove them.
+        Use cases:
+        1/ if in edition mode you switch a field
+           from value A to value B and then go back to value A
+           then save form, field is in vals whereas it shouldn't.
+        2/ if profile data are in csv file there are processed
+           each time module containing csv is loaded
+        we remove field from vals to minimize impact on products
         """
         comparison_value = self[key]
         if self._fields[key].type == "many2one":
@@ -172,9 +170,7 @@ class ProductMixinProfile(models.AbstractModel):
         res = {}
         profile_obj = self.env["product.profile"]
         fields = self._get_profile_fields()
-        profile_vals = profile_obj.browse(product_values["profile_id"]).read(
-            fields
-        )[0]
+        profile_vals = profile_obj.browse(product_values["profile_id"]).read(fields)[0]
         profile_vals.pop("id")
         profile_vals = self._reformat_relationals(profile_vals)
         for key, val in profile_vals.items():
@@ -216,9 +212,7 @@ class ProductMixinProfile(models.AbstractModel):
     @api.model
     def create(self, vals):
         if vals.get("profile_id"):
-            vals.update(
-                self._get_vals_from_profile(vals, ignore_defaults=False)
-            )
+            vals.update(self._get_vals_from_profile(vals, ignore_defaults=False))
         return super().create(vals)
 
     def write(self, vals):
@@ -245,9 +239,7 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _customize_view(self, res, view_type):
-        profile_group = self.env.ref(
-            "product_profile.group_product_profile_user"
-        )
+        profile_group = self.env.ref("product_profile.group_product_profile_user")
         users_in_profile_group = [user.id for user in profile_group.users]
         default_fields = self._get_default_profile_fields()
         if view_type == "form":
@@ -267,9 +259,7 @@ class ProductMixinProfile(models.AbstractModel):
                         if node:
                             for current_node in node:
                                 current_node.set("attrs", str(attrs))
-                                orm.setup_modifiers(
-                                    current_node, fields_def[field]
-                                )
+                                orm.setup_modifiers(current_node, fields_def[field])
             res["arch"] = etree.tostring(doc, pretty_print=True)
         elif view_type == "search":
             # Allow to dynamically create search filters for each profile
