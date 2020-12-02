@@ -8,7 +8,7 @@
     "summary": "Allow to configure a product in 1 click",
     "category": "product",
     "depends": ["sale_management"],
-    "website": "https://github.com/oca/product-attribute",
+    "website": "https://github.com/OCA/product-attribute",
     "data": [
         "security/group.xml",
         "views/product_view.xml",
