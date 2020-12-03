@@ -58,3 +58,11 @@ class TestProductProduct(TransactionCase):
             {"active": active, "name": "test_product"}
         )
         return product
+
+    def test_create_variant_do_not_reactivate(self):
+        """Ensure that re-generating variants does not
+        change the "active" state of the existing variant"""
+        product = self.env.ref("product.product_product_4")
+        product.active = False
+        product.product_tmpl_id.create_variant_ids()
+        self.assertEquals(product.active, False)

@@ -17,3 +17,8 @@ class ProductTemplate(models.Model):
     product_variant_count_all = fields.Integer(
         "Inactive variants", compute=_compute_product_variant_count_all
     )
+
+    def create_variant_ids(self):
+        return super(
+            ProductTemplate, self.with_context(no_reactivate=True)
+            ).create_variant_ids()
