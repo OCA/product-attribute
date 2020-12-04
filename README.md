@@ -23,6 +23,7 @@ addon | version | summary
 [product_code_unique](product_code_unique/) | 14.0.1.0.0 | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | Product cost security restriction view
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
+[product_multi_category](product_multi_category/) | 14.0.1.0.0 | Product - Many Categories
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.1.0.0 | Product Sequence
 [product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
