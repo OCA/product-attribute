@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-product_code_unique',
         'odoo14-addon-product_cost_security',
         'odoo14-addon-product_dimension',
+        'odoo14-addon-product_multi_category',
         'odoo14-addon-product_secondary_unit',
         'odoo14-addon-product_sequence',
         'odoo14-addon-product_template_tags',
