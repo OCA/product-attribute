@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_assortment
+# 	* product_assortment
 #
 msgid ""
 msgstr ""
@@ -15,6 +15,11 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.10\n"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
+msgid "<span class=\"o_stat_text\">Product Assortments</span>"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -38,6 +43,11 @@ msgid "Blacklist Product"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.model,name:product_assortment.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: product_assortment
 #: model:ir.model,name:product_assortment.model_ir_filters
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Filters"
@@ -51,6 +61,16 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__model_id
 msgid "Model"
+msgstr ""
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
+msgid "Partner"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partners to apply"
 msgstr ""
 
 #. module: product_assortment
@@ -87,6 +107,11 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
 msgid "Record Count"
+msgstr ""
+
+#. module: product_assortment
+#: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
+msgid "This field allow to relate a partner to a domain of products"
 msgstr ""
 
 #. module: product_assortment
