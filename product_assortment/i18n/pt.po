@@ -89,12 +89,6 @@ msgid "Product assortment"
 msgstr ""
 
 #. module: product_assortment
-#: code:addons/product_assortment/models/ir_filters.py:78
-#, python-format
-msgid "Products"
-msgstr "Produtos"
-
-#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
 msgstr ""
@@ -118,3 +112,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
 msgid "Whitelist Product"
 msgstr ""
+
+#~ msgid "Products"
+#~ msgstr "Produtos"

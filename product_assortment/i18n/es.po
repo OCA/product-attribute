@@ -90,12 +90,6 @@ msgid "Product assortment"
 msgstr "Surtido de producto"
 
 #. module: product_assortment
-#: code:addons/product_assortment/models/ir_filters.py:78
-#, python-format
-msgid "Products"
-msgstr ""
-
-#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
 msgstr "Productos a excluir"
