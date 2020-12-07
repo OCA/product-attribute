@@ -1,6 +1,6 @@
 # Copyright 2018-2019 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 from odoo.osv import expression
 
 
@@ -23,6 +23,12 @@ class ProductAssortment(models.Model):
     model_id = fields.Selection(
         default=lambda x: x._get_default_model())
 
+    partner_ids = fields.Many2many(
+        comodel_name='res.partner',
+        help='This field allow to relate a partner to a domain of products',
+        default=lambda p: p.env.context.get('default_partner_ids'),
+    )
+
     blacklist_product_ids = fields.Many2many(
         comodel_name='product.product',
         relation='assortment_product_blacklisted')
@@ -40,7 +46,7 @@ class ProductAssortment(models.Model):
     def _get_eval_domain(self):
         res = super(ProductAssortment, self)._get_eval_domain()
 
-        if self.whitelist_product_ids and res:
+        if self.whitelist_product_ids:
             result_domain = [('id', 'in', self.whitelist_product_ids.ids)]
             res = expression.OR([result_domain, res])
 
@@ -73,13 +79,9 @@ class ProductAssortment(models.Model):
     @api.multi
     def show_products(self):
         self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': _("Products"),
-            'res_model': 'product.product',
-            'domain': self._get_eval_domain(),
-            'view_type': 'form',
-            'view_mode': 'tree, form',
-            'context': self.env.context,
-            'target': 'current',
-        }
+        action = self.env.ref(
+            "product.product_normal_action")
+        action_dict = action.read()[0]
+        action_dict['domain'] = self._get_eval_domain()
+        action_dict['context'] = self.env.context
+        return action_dict

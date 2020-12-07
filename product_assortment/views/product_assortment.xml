@@ -37,11 +37,13 @@
                             </div>
                         </button>
                     </div>
-                    <group col="4">
-                        <field name="name" string="Assortment Name"/>
-                        <field name="model_id" invisible="1"/>
-                        <field name="active"/>
-                        <field name="is_assortment" invisible="1"/>
+                    <group name="main">
+                        <group name="left">
+                            <field name="name" string="Assortment Name"/>
+                            <field name="model_id" invisible="1"/>
+                            <field name="active"/>
+                            <field name="is_assortment" invisible="1"/>
+                        </group>
                     </group>
                     <group>
                         <field name="domain" widget="char_domain" options="{'model_field': 'model_id'}"/>
@@ -49,7 +51,7 @@
                     <group name="filters">
                         <div name="to_include">
                             <separator string="Products to include"/>
-                            <field name="whitelist_product_ids" context="{'default_type': 'whitelist'}" nolabel="1">
+                            <field name="whitelist_product_ids" nolabel="1">
                                 <tree editable="bottom">
                                     <field name="display_name" string="Product"/>
                                 </tree>
@@ -57,11 +59,17 @@
                         </div>
                         <div name="to_exclude">
                             <separator string="Products to exclude"/>
-                            <field name="blacklist_product_ids" context="{'default_type': 'blacklist'}" nolabel="1">
+                            <field name="blacklist_product_ids" nolabel="1">
                                 <tree>
                                     <field name="display_name" string="Product"/>
                                 </tree>
                             </field>
+                        </div>
+                    </group>
+                    <group invisible="context.get('default_partner_ids', False)">
+                        <div>
+                            <separator string="Partners to apply"/>
+                            <field name="partner_ids" nolabel="1"/>
                         </div>
                     </group>
                </sheet>

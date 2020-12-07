@@ -6,12 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-27 15:45+0000\n"
+"PO-Revision-Date: 2020-11-27 15:45+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
+msgid "<span class=\"o_stat_text\">Product Assortments</span>"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -35,6 +42,11 @@ msgid "Blacklist Product"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.model,name:product_assortment.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: product_assortment
 #: model:ir.model,name:product_assortment.model_ir_filters
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Filters"
@@ -48,6 +60,16 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__model_id
 msgid "Model"
+msgstr ""
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
+msgid "Partner"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partners to apply"
 msgstr ""
 
 #. module: product_assortment
@@ -66,12 +88,6 @@ msgid "Product assortment"
 msgstr ""
 
 #. module: product_assortment
-#: code:addons/product_assortment/models/ir_filters.py:78
-#, python-format
-msgid "Products"
-msgstr ""
-
-#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
 msgstr ""
@@ -84,6 +100,11 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
 msgid "Record Count"
+msgstr ""
+
+#. module: product_assortment
+#: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
+msgid "This field allow to relate a partner to a domain of products"
 msgstr ""
 
 #. module: product_assortment
