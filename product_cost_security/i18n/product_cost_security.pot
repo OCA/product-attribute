@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_cost_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_cost_security
+#: model:res.groups,name:product_cost_security.group_product_cost
+msgid "Access to product costs"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
+msgid "Cost"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__id
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
+#: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
+msgid ""
+"In Standard Price & AVCO: value of the product (automatically computed in AVCO).\n"
+"        In FIFO: value of the last unit that left the stock (automatically computed).\n"
+"        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model,name:product_cost_security.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model,name:product_cost_security.model_product_template
+msgid "Product Template"
+msgstr ""
