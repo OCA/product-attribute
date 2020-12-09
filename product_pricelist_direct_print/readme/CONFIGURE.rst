@@ -1,6 +1,6 @@
 To configure this module, you need to:
 
-#. Go to *Apps* and install *Sales Management*
+#. Go to *Apps* and install *Sales*
 #. Go to *Sales > Configuration > Settings*
 #. Scroll to *Pricing*
 #. Enable 'Pricelists'.
