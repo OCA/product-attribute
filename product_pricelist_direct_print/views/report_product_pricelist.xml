@@ -139,12 +139,15 @@
             />
         </t>
     </template>
-    <report
-        id="action_report_product_pricelist"
-        model="product.pricelist.print"
-        string="Product Price List"
-        report_type="qweb-pdf"
-        name="product_pricelist_direct_print.report_product_pricelist"
-        file="product_pricelist_direct_print.report_product_pricelist"
-    />
+    <record id="action_report_product_pricelist" model="ir.actions.report">
+        <field name="model">product.pricelist.print</field>
+        <field name="name">Product Price List</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >product_pricelist_direct_print.report_product_pricelist</field>
+        <field
+            name="report_file"
+        >product_pricelist_direct_print.report_product_pricelist</field>
+    </record>
 </odoo>
