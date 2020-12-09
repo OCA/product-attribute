@@ -10,6 +10,9 @@ class ProductPricelistPrint(models.TransientModel):
     _name = "product.pricelist.print"
     _description = "Product Pricelist Print"
 
+    context_active_model = fields.Char(
+        store=False, compute="_compute_context_active_model"
+    )
     pricelist_id = fields.Many2one(comodel_name="product.pricelist", string="Pricelist")
     partner_id = fields.Many2one(comodel_name="res.partner", string="Customer")
     partner_ids = fields.Many2many(comodel_name="res.partner", string="Customers")
@@ -214,3 +217,6 @@ class ProductPricelistPrint(models.TransientModel):
         if not pricelist and self.partner_count == 1:
             pricelist = self.partner_ids[0].property_product_pricelist
         return pricelist
+
+    def _compute_context_active_model(self):
+        self.context_active_model = self.env.context.get("active_model")
