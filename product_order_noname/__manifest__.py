@@ -3,7 +3,7 @@
 {
     "name": "Product Order No Name",
     "summary": "Speedup product retrieve",
-    "version": "13.0.1.0.0",
+    "version": "13.0.2.0.0",
     "development_status": "Production/Stable",
     "category": "Technical Settings",
     "website": "https://github.com/OCA/product-attribute",
