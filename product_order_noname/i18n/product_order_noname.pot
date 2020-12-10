@@ -14,6 +14,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_order_noname
+#: model:ir.model.fields,field_description:product_order_noname.field_product_template__default_code
+msgid "Internal Reference"
+msgstr ""
+
+#. module: product_order_noname
 #: model:ir.model,name:product_order_noname.model_product_product
 msgid "Product"
+msgstr ""
+
+#. module: product_order_noname
+#: model:ir.model,name:product_order_noname.model_product_template
+msgid "Product Template"
 msgstr ""
