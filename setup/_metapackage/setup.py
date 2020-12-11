@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-product_bom_revision',
+        'odoo14-addon-product_code_mandatory',
         'odoo14-addon-product_code_unique',
         'odoo14-addon-product_cost_security',
         'odoo14-addon-product_dimension',
