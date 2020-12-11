@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- view common to both template and product -->
+    <record id="view_template_property_form" model="ir.ui.view">
+        <field name="name">product.template.stock.property.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form" />
+        <field name="arch" type="xml">
+            <field name="tracking" position="after">
+                <field
+                    name="lot_sequence_prefix"
+                    attrs="{'readonly': [('lot_sequence_id', '!=', False)], 'invisible': [('tracking', 'not in', ['lot', 'serial'])]}"
+                />
+                <field
+                    name="lot_sequence_padding"
+                    attrs="{'readonly': [('lot_sequence_id', '!=', False)], 'invisible': [('tracking', 'not in', ['lot', 'serial'])]}"
+                />
+                <field
+                    name="lot_sequence_number_next"
+                    attrs="{'readonly': [('lot_sequence_id', '!=', False)], 'invisible': [('tracking', 'not in', ['lot', 'serial'])]}"
+                />
+                <field
+                    name="lot_sequence_id"
+                    attrs="{'invisible': [('tracking', 'not in', ['lot', 'serial'])]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
