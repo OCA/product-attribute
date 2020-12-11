@@ -5,7 +5,7 @@
         <field name="model">product.package.price.wizard</field>
         <field name="arch" type="xml">
             <form string="Product Packaging Price">
-                <field name="product_id" invisible="1" />
+                <field name="product_tmpl_id" invisible="1" />
                 <field name="product_variant_ids" invisible="1" />
                 <group name="main">
                     <group name="package_price_group">
@@ -17,6 +17,10 @@
                     </group>
                     <group name="unit_price_group">
                         <field name="unit_price" />
+                        <button
+                            name="reset_unit_price"
+                            type="object"
+                        >Reset unit price</button>
                     </group>
                 </group>
                 <div class="text-warning">
@@ -24,7 +28,7 @@
                 </div>
                 <field name="packaging_ids">
                     <tree>
-                        <field name="name" />
+                        <field name="display_name" />
                         <field name="qty" />
                         <field
                             name="packaging_wizard_price"
