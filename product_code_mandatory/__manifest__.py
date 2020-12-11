@@ -4,7 +4,7 @@
 {
     "name": "Product Code Mandatory",
     "summary": "Set Product Internal Reference as a required field",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "license": "AGPL-3",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "category": "Product",
