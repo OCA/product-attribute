@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 | Store the revision of a product and a BOM
+[product_code_mandatory](product_code_mandatory/) | 14.0.1.0.0 | Set Product Internal Reference as a required field
 [product_code_unique](product_code_unique/) | 14.0.1.0.0 | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | Product cost security restriction view
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
