@@ -1,0 +1,6 @@
+diff a/.pre-commit-config.yaml b/.pre-commit-config.yaml	(rejected hunks)
+@@ -29,3 +28,3 @@ repos:
+   - repo: https://github.com/oca/maintainer-tools
+-    rev: 1b5c7ad
++    rev: b9c963d5
+     hooks:
