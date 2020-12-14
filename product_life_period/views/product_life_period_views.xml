@@ -89,41 +89,6 @@
                   parent="sale.prod_config_main"
                   sequence="20"/>
 
-        <record id="product_template_search_view_inherit_product_life_period" model="ir.ui.view">
-            <field name="name">product.template.search</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_search_view"/>
-            <field name="priority" eval="50"/>
-            <field name="arch" type="xml">
-                <field name="categ_id" position="after">
-                    <field name="product_life_period_id"/>
-                </field>
-                <filter name="filter_to_sell" position="after">
-                    <separator/>
-                    <filter string="End of Life Period" name="end_period"
-                            domain="[('state','=','end'),
-                                     ('product_life_period_id', '!=', False)]"/>
-                </filter>
-                <field name='pricelist_id' position="after">
-                    <filter string="Life Period" name="groupby_period_life"
-                            context="{'group_by' : 'product_life_period_id'}"/>
-                </field>
-            </field>
-        </record>
-
-        <record id="product_template_view_form_inherit_product_life_period" model="ir.ui.view">
-            <field name="name">product.template.form</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_form_view" />
-            <field name="arch" type="xml">
-                <field name="sale_ok" position="before">
-                    <group>
-                        <field name="product_life_period_id"/>
-                    </group>
-                </field>
-            </field>
-        </record>
-
     </data>
     <data noupdate="1">
 

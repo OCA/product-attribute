@@ -10,7 +10,7 @@ class ProductLifePeriod(models.Model):
 
     name = fields.Char(translate=True)
     start_date = fields.Date()
-    end_date = fields.Date()
+    end_date = fields.Date(index=True)
     active = fields.Boolean(default=True)
     product_ids = fields.One2many('product.template', 'product_life_period_id',
                                   string='Seasonal Products', index=True)
@@ -26,10 +26,14 @@ class ProductLifePeriod(models.Model):
         """ At the end of life period, set product in state end
             And set the period inactive
         """
+        product_template = self.env["product.template"]
         end_life_periods = self.search(
             [('end_date', '<=', fields.Date.today())])
+        end_life_product_ids = set()
         for end_life_period in end_life_periods:
-            end_life_period.product_ids.write({'state': 'end'})
+            end_life_product_ids = end_life_product_ids.union(
+                end_life_period.product_ids.ids)
+        product_template.browse(end_life_product_ids).write({'state': 'end'})
         end_life_periods.write({'active': False})
         return True
 
@@ -45,10 +49,3 @@ class ProductLifePeriod(models.Model):
     _constraints = [
         (_check_date,
          'Start date must be before End date', ['start_date', 'end_date'])]
-
-
-class ProductTemplate(models.Model):
-    _inherit = 'product.template'
-
-    product_life_period_id = fields.Many2one('product.life.period',
-                                             string='Life Period')
