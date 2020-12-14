@@ -30,13 +30,16 @@ class TestProductLifePeriod(common.TransactionCase):
         product1 = self.env.ref('product.product_product_7')
         product2 = self.env.ref('product.product_product_8')
         product3 = self.env.ref('product.product_product_9')
+        product4 = self.env.ref('product.product_product_3')
         product1.product_life_period_id = product_life_passed.id
         product2.product_life_period_id = product_life_future.id
+        product4.product_life_period_id = product_life_passed.id
 
         # run scheduler
         product_life_period_obj._run_life_period_update()
 
         self.assertEqual(product1.state, 'end')
+        self.assertEqual(product4.state, 'end')
         self.assertEqual(product2.state, 'sellable')
         self.assertEqual(product3.state, 'sellable')
         self.assertFalse(product_life_passed.active)
