@@ -26,6 +26,7 @@ addon | version | summary
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 | Product - Many Categories
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | Speedup product retrieve
+[product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 | Print price list from menu option, product templates, products variants or price lists
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.1.0.0 | Product Sequence
 [product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
