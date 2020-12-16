@@ -67,6 +67,7 @@ msgstr ""
 
 #. module: product_assortment
 #: code:addons/product_assortment/models/ir_filters.py:0
+#: code:addons/product_assortment/models/ir_filters.py:0
 #, python-format
 msgid "Products"
 msgstr ""
