@@ -39,6 +39,7 @@ setuptools.setup(
         'odoo13-addon-product_template_tags',
         'odoo13-addon-product_template_tags_code',
         'odoo13-addon-product_total_weight_from_packaging',
+        'odoo13-addon-product_uom_updatable',
         'odoo13-addon-product_weight',
         'odoo13-addon-stock_account_product_cost_security',
         'odoo13-addon-stock_production_lot_firmware_version',
