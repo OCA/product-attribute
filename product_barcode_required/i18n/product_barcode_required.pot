@@ -79,6 +79,7 @@ msgstr ""
 
 #. module: product_barcode_required
 #: code:addons/product_barcode_required/models/product_barcode_mixin.py:0
+#: code:addons/product_barcode_required/models/product_barcode_mixin.py:0
 #, python-format
 msgid ""
 "These products have no barcode:\n"
