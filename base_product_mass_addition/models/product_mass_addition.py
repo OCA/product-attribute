@@ -14,8 +14,7 @@ class ProductMassAddition(models.AbstractModel):
 
     @api.model
     def _common_action_keys(self):
-        """ Call it in your own child module
-        """
+        """Call it in your own child module"""
         return {
             "type": "ir.actions.act_window",
             "res_model": "product.product",
