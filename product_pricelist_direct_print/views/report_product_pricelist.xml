@@ -63,37 +63,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <t t-if="o.last_ordered_products">
-                            <t t-set="products"
-                               t-value="o.get_last_ordered_products_to_print()"/>
-                        </t>
-                        <t t-if="not o.last_ordered_products">
-                            <t t-if="not o.show_variants">
-                                <t t-set="products" t-value="o.product_tmpl_ids"/>
-                            </t>
-                            <t t-if="o.show_variants">
-                                <t t-set="products"
-                                   t-value="o.product_ids or o.product_tmpl_ids.mapped('product_variant_ids')"/>
-                            </t>
-                        </t>
-                        <t t-foreach="(o.categ_ids or products.mapped('categ_id') or o.categ_ids.search([])).sorted(key=lambda x:x.name)"
-                           t-as="category">
-                            <t t-set="category_products"
-                               t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
-                                        products.search([('sale_ok','=',True), ('categ_id','=',category.id)])"/>
-                            <t t-if="o.order_field == 'name'">
-                                <t t-set="category_products"
-                                   t-value="category_products.sorted(lambda x: x.name)"/>
-                            </t>
-                            <t t-if="o.order_field == 'default_code'">
-                                <t t-set="category_products"
-                                   t-value="category_products.sorted(lambda x: x.default_code or '')"/>
-                            </t>
-                            <tr t-if="category_products">
-                                <td colspan="100">
-                                    <strong t-field="category.name"/>
-                                </td>
-                            </tr>
+                        <t t-foreach="o.get_groups_to_print()" t-as="category_group">
+                            <t t-set="category_products" t-value="category_group['products']"/>
+                            <td colspan="100">
+                                <strong t-esc="category_group['group_name']"/>
+                            </td>
                             <tr t-foreach="category_products" t-as="product">
                                 <td>
                                     <span t-field="product.display_name"/>
