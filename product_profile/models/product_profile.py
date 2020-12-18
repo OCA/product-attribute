@@ -71,6 +71,7 @@ class ProductProfile(models.Model):
     type = fields.Selection(
         selection=[("consu", "Consumable"), ("service", "Service")],
         required=True,
+        default="consu",
         help="See 'type' field in product.template",
     )
 
