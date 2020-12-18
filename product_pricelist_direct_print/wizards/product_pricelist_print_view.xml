@@ -21,6 +21,7 @@
                 <field name="order_field"/>
                 <field name="date"/>
                 <field name="show_variants" groups="product.group_product_variant" attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"/>
+                <field name="summary"/>
                 <field name="last_ordered_products" attrs="{'invisible':[('partner_count','=',0)]}"/>
             </group>
             <group attrs="{'invisible':['|', '|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[]), ('last_ordered_products', '!=', 0)]}">

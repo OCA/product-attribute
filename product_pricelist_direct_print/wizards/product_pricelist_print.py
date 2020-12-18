@@ -54,6 +54,7 @@ class ProductPricelistPrint(models.TransientModel):
         help="If you enter an X number here, then, for each selected customer,"
              " the last X ordered products will be obtained for the report."
     )
+    summary = fields.Text(string="Summary")
 
     @api.multi
     @api.depends('partner_ids')
