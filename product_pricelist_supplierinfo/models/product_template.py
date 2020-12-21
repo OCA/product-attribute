@@ -19,10 +19,15 @@ class ProductTemplate(models.Model):
             product = product.browse(product_id)
         if rule.no_supplierinfo_min_quantity:
             quantity = 1.0
-        seller = product._select_seller(
-            partner_id=rule.filter_supplier_id, quantity=quantity, date=date)
-        if seller:
-            price = seller._get_supplierinfo_pricelist_price()
+        # The product_variant_id returns empty recordset if template is not
+        # active, so we must ensure variant exists or _select_seller fails.
+        if product:
+            seller = product._select_seller(
+                partner_id=rule.filter_supplier_id,
+                quantity=quantity,
+                date=date)
+            if seller:
+                price = seller._get_supplierinfo_pricelist_price()
         if price:
             # We need to convert the price if the pricelist and seller have
             # different currencies so the price have the pricelist currency
