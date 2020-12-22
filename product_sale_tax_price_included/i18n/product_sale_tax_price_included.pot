@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_sale_tax_price_included
+#	* product_sale_tax_price_included
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 09:49+0000\n"
-"PO-Revision-Date: 2018-01-22 09:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,80 +16,75 @@ msgstr ""
 #. module: product_sale_tax_price_included
 #: selection:product.template,sale_tax_price_include:0
 msgid "All taxes are included in sale price"
-msgstr "Prix de vente TTC"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:account.tax,name:product_sale_tax_price_included.account_tax_included_in_price
 msgid "Demo - New Tax Included In Price (20%)"
-msgstr "Demo - Nouvelle Taxe Comprise Dans le Prix de Vente (20%)"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:account.tax,name:product_sale_tax_price_included.account_tax_excluded_in_price
 msgid "Demo - New Tax Not Included In Price (10%)"
-msgstr "Demo - Nouvelle Taxe Non Comprise dans le Prix de Vente (10%)"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:product.template,name:product_sale_tax_price_included.product_template_demo_1
 msgid "Demo Product 01 - Taxes included in price"
-msgstr "Demo Produit 01 - Taxes comprises dans le prix"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:product.template,name:product_sale_tax_price_included.product_template_demo_2
 msgid "Demo Product 02 - Taxes not included in price"
-msgstr "Demo Produit 02 - Taxes non comprises dans le prix"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:product.template,name:product_sale_tax_price_included.product_template_demo_3
 msgid "Demo Product 03 - Taxes included and not included in price"
-msgstr "Demo Produit 03 - Taxes comprises et non comprises dans le prix"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:product.template,name:product_sale_tax_price_included.product_template_demo_4
 msgid "Demo Product 04 - No Taxes"
-msgstr "Demo Produit 04 - Aucune Taxe"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: help:product.template,sale_tax_price_include:0
 msgid "Indicate if the Sale Price include Taxes or not"
-msgstr "Indique si les Taxes sont comprises ou non dans le Prix de Vente"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: selection:product.template,sale_tax_price_include:0
 msgid "No sale tax"
-msgstr "Pas de taxe à la vente"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: model:ir.model,name:product_sale_tax_price_included.model_product_template
 msgid "Product Template"
-msgstr "Modèle d'article"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: field:product.template,price_vat_excl:0
 msgid "Sale Price Taxes Excluded"
-msgstr "Prix de vente HT"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: field:product.template,price_vat_incl:0
 msgid "Sale Price Taxes Included"
-msgstr "Prix de vente TTC"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: selection:product.template,sale_tax_price_include:0
 msgid "Sale price may include taxes"
-msgstr "Prix de vente HT & TTC"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: selection:product.template,sale_tax_price_include:0
 msgid "Taxes are not included in sale price"
-msgstr "Prix de vente HT"
+msgstr ""
 
 #. module: product_sale_tax_price_included
 #: field:product.template,sale_tax_price_include:0
 msgid "Taxes in Sale Price"
-msgstr "Taxes dans le prix de vente"
+msgstr ""
 
-#~ msgid "/!\\ Taxes are not ALL included in Sale Price"
-#~ msgstr "/!\\ Toutes les Taxes ne sont pas comprises dans le Prix de vente"
-
-#~ msgid "See the customer taxes for this product"
-#~ msgstr "Voir les taxes à la vente choisies pour ce produit"
