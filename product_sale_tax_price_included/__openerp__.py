@@ -4,7 +4,7 @@
 {
     "name": "Product sale tax price included",
     "summary": "See product sale price With and without Tax",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.0.1",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "GRAP, Odoo Community Association (OCA)",
