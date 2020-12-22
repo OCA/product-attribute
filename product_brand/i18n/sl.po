@@ -21,6 +21,11 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: product_brand
+#: field:product.product,available_in_pos:0
+msgid "Available in the Point of Sale"
+msgstr ""
+
+#. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
 #: view:product.product:product_brand.product_search_form_view
 #: field:product.product,product_brand_id:0
@@ -41,6 +46,31 @@ msgstr "Naziv znamke"
 #: field:product.brand,product_ids:0
 msgid "Brand Products"
 msgstr "Znamke proizvodov"
+
+#. module: product_brand
+#: help:product.product,to_weight:0
+msgid ""
+"Check if the product should be weighted using the hardware scale integration"
+msgstr ""
+
+#. module: product_brand
+#: help:product.product,available_in_pos:0
+msgid "Check if you want this product to appear in the Point of Sale"
+msgstr ""
+
+#. module: product_brand
+#: help:product.product,income_pdt:0
+msgid ""
+"Check if, this is a product you can use to put cash into a statement for the "
+"point of sale backend."
+msgstr ""
+
+#. module: product_brand
+#: help:product.product,expense_pdt:0
+msgid ""
+"Check if, this is a product you can use to take cash from a statement for "
+"the point of sale backend, example: money lost, transfer to bank, etc."
+msgstr ""
 
 #. module: product_brand
 #: field:product.brand,create_uid:0
@@ -105,6 +135,21 @@ msgid "Partner"
 msgstr "Partner"
 
 #. module: product_brand
+#: field:product.product,income_pdt:0
+msgid "Point of Sale Cash In"
+msgstr ""
+
+#. module: product_brand
+#: field:product.product,expense_pdt:0
+msgid "Point of Sale Cash Out"
+msgstr ""
+
+#. module: product_brand
+#: field:product.product,pos_categ_id:0
+msgid "Point of Sale Category"
+msgstr ""
+
+#. module: product_brand
 #: model:ir.model,name:product_brand.model_product_product
 msgid "Product"
 msgstr "Proizvod"
@@ -142,6 +187,16 @@ msgstr "Izberite znamko tega proizvoda"
 #: help:product.brand,partner_id:0
 msgid "Select a partner for this brand if it exists"
 msgstr "Izberite partnerja te znamke, če obstaja"
+
+#. module: product_brand
+#: help:product.product,pos_categ_id:0
+msgid "Those categories are used to group similar products for point of sale."
+msgstr ""
+
+#. module: product_brand
+#: field:product.product,to_weight:0
+msgid "To Weigh With Scale"
+msgstr ""
 
 #. module: product_brand
 #: view:product.brand:product_brand.view_product_brand_tree
