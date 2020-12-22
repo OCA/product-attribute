@@ -30,7 +30,7 @@ This module Extends the existing functionality of Open ERP Products
 
 **Note**: This module was built generically but in focus of the Magento
 Open ERP connector.
-  
+
 **Note 2**: The additional categories are only for classification and does
 not affect other operations.
     """,
