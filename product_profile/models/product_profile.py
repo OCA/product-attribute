@@ -1,7 +1,6 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import json
 import logging
 from copy import deepcopy
 
@@ -259,9 +258,6 @@ class ProductMixinProfile(models.AbstractModel):
                         if node:
                             for current_node in node:
                                 current_node.set("attrs", str(attrs))
-                                modifiers = json.loads(current_node.get("modifiers"))
-                                modifiers["attrs"] = str(attrs)
-                                current_node.set("modifiers", json.dumps(modifiers))
             res["arch"] = etree.tostring(doc, pretty_print=True)
         elif view_type == "search":
             # Allow to dynamically create search filters for each profile

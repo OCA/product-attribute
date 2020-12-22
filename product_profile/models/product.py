@@ -12,11 +12,11 @@ class ProductTemplate(models.Model):
     profile_explanation = fields.Text(related="profile_id.explanation", readonly=True)
 
     @api.model
-    def fields_view_get(
+    def _fields_view_get(
         self, view_id=None, view_type="form", toolbar=False, submenu=False
     ):
         """ fields_view_get comes from Model (not AbstractModel) """
-        res = super().fields_view_get(
+        res = super()._fields_view_get(
             view_id=view_id,
             view_type=view_type,
             toolbar=toolbar,
