@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo8-addon-product_attribute_multi_type',
         'odoo8-addon-product_attribute_priority',
         'odoo8-addon-product_brand',
+        'odoo8-addon-product_categ_image',
         'odoo8-addon-product_code_builder',
         'odoo8-addon-product_code_builder_sequence',
         'odoo8-addon-product_custom_info',
