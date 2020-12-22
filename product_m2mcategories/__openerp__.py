@@ -17,7 +17,7 @@
 
 {
     "name": "Product - Many Categories",
-    "version": "8.0.1.0.2",
+    "version": "8.0.1.0.3",
     "author": "Sharoon Thomas,Odoo Community Association (OCA)",
     "contributors": ["Mikel Arregi <mikelarregi@avanzosc.es>"],
     "website": "https://odoo-community.org/",
