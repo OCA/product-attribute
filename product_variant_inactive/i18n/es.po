@@ -19,6 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_variant_inactive
+#: help:product.product,sale_tax_price_include:0
+msgid "Indicate if the Sale Price include Taxes or not"
+msgstr ""
+
+#. module: product_variant_inactive
 #: model:ir.model,name:product_variant_inactive.model_product_product
 msgid "Product"
 msgstr "Producto"
+
+#. module: product_variant_inactive
+#: field:product.product,price_vat_excl:0
+msgid "Sale Price Taxes Excluded"
+msgstr ""
+
+#. module: product_variant_inactive
+#: field:product.product,price_vat_incl:0
+msgid "Sale Price Taxes Included"
+msgstr ""
+
+#. module: product_variant_inactive
+#: field:product.product,sale_tax_price_include:0
+msgid "Taxes in Sale Price"
+msgstr ""
