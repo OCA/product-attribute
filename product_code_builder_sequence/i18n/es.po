@@ -31,21 +31,6 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: product_code_builder_sequence
-#: field:product.product,taxes_id:0
-msgid "Customer Taxes"
-msgstr ""
-
-#. module: product_code_builder_sequence
-#: field:product.product,property_account_expense:0
-msgid "Expense Account"
-msgstr ""
-
-#. module: product_code_builder_sequence
-#: field:product.product,property_account_income:0
-msgid "Income Account"
-msgstr ""
-
-#. module: product_code_builder_sequence
 #: model:ir.model,name:product_code_builder_sequence.model_product_product
 msgid "Product"
 msgstr "Producto"
@@ -59,22 +44,3 @@ msgstr "Plantilla de producto"
 #: field:product.product,supplier_ids:0
 msgid "Supplier"
 msgstr "Proveedor"
-
-#. module: product_code_builder_sequence
-#: field:product.product,supplier_taxes_id:0
-msgid "Supplier Taxes"
-msgstr ""
-
-#. module: product_code_builder_sequence
-#: help:product.product,property_account_expense:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"expenses for the current product."
-msgstr ""
-
-#. module: product_code_builder_sequence
-#: help:product.product,property_account_income:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"sales for the current product."
-msgstr ""
