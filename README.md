@@ -37,7 +37,7 @@ addon | version | summary
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 10.0.3.0.1 | Allows to define prices for customers in the products
 [product_template_tags](product_template_tags/) | 10.0.1.0.0 | This addon allow to add tags on products
 [product_uom](product_uom/) | 10.0.1.0.0 | Provide missing uom
-[product_uom_technology](product_uom_technology/) | 10.0.1.0.0 | Adds technology related units of measure, such as informational units like gigabyte.
+[product_uom_technology](product_uom_technology/) | 10.0.1.0.1 | Adds technology related units of measure, such as informational units like gigabyte.
 [product_variant_inactive](product_variant_inactive/) | 10.0.1.0.0 | Product Variant Inactive
 [product_weight](product_weight/) | 10.0.1.0.0 | Allows to calculate products weight from its components.
 
