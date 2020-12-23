@@ -6,7 +6,7 @@
     'name': 'Product UoM - Technology',
     'summary': 'Adds technology related units of measure, such as '
                'informational units like gigabyte.',
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.0.1',
     'category': 'Extra Tools',
     'website': 'https://laslabs.com/',
     'author': 'LasLabs, Odoo Community Association (OCA)',
