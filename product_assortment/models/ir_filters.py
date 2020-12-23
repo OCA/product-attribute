@@ -22,6 +22,12 @@ class IrFilters(models.Model):
 
     model_id = fields.Selection(default=lambda x: x._get_default_model())
 
+    partner_ids = fields.Many2many(
+        comodel_name="res.partner",
+        help="This field allow to relate a partner to a domain of products",
+        default=lambda p: p.env.context.get("default_partner_ids"),
+    )
+
     blacklist_product_ids = fields.Many2many(
         comodel_name="product.product", relation="assortment_product_blacklisted"
     )
@@ -37,7 +43,7 @@ class IrFilters(models.Model):
     def _get_eval_domain(self):
         res = super()._get_eval_domain()
 
-        if self.whitelist_product_ids and res:
+        if self.whitelist_product_ids:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
             res = expression.OR([result_domain, res])
 
