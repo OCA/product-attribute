@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo10-addon-product_supplierinfo_for_customer',
         'odoo10-addon-product_template_tags',
         'odoo10-addon-product_uom',
+        'odoo10-addon-product_uom_technology',
         'odoo10-addon-product_variant_inactive',
         'odoo10-addon-product_weight',
     ],
