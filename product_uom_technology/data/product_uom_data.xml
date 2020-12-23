@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Copyright 2017 LasLabs Inc.
+    License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+
+<odoo>
+
+    <!-- Binary Information Units -->
+    <record id="product_uom_byte" model="product.uom">
+        <field name="name">byte</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">reference</field>
+        <field name="factor" eval="1.0" />
+        <field name="rounding" eval="0.001" />
+    </record>
+    <record id="product_uom_kib" model="product.uom">
+        <field name="name">KiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1024" />
+    </record>
+    <record id="product_uom_mib" model="product.uom">
+        <field name="name">MiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1048576" />
+    </record>
+    <record id="product_uom_gib" model="product.uom">
+        <field name="name">GiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1073741824" />
+    </record>
+    <record id="product_uom_tib" model="product.uom">
+        <field name="name">TiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1.0995116e+12" />
+    </record>
+    <record id="product_uom_pib" model="product.uom">
+        <field name="name">PiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1.1258999e+15" />
+    </record>
+    <record id="product_uom_eib" model="product.uom">
+        <field name="name">EiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1.1529215e+18" />
+    </record>
+    <record id="product_uom_zib" model="product.uom">
+        <field name="name">ZiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1.1805916e+21" />
+    </record>
+    <record id="product_uom_yib" model="product.uom">
+        <field name="name">YiB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1.2089258e+24" />
+    </record>
+
+    <!-- Decimal Information Units -->
+    <record id="product_uom_kb" model="product.uom">
+        <field name="name">kB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1000" />
+    </record>
+    <record id="product_uom_mb" model="product.uom">
+        <field name="name">mB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+6" />
+    </record>
+    <record id="product_uom_gb" model="product.uom">
+        <field name="name">gB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+9" />
+    </record>
+    <record id="product_uom_tb" model="product.uom">
+        <field name="name">tB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+12" />
+    </record>
+    <record id="product_uom_pb" model="product.uom">
+        <field name="name">pB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+15" />
+    </record>
+    <record id="product_uom_eb" model="product.uom">
+        <field name="name">eB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+18" />
+    </record>
+    <record id="product_uom_zb" model="product.uom">
+        <field name="name">zB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+21" />
+    </record>
+    <record id="product_uom_yb" model="product.uom">
+        <field name="name">yB</field>
+        <field name="category_id" ref="product_uom_categ_information" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+24" />
+    </record>
+
+    <!-- Frequency Units -->
+    <record id="product_uom_hertz" model="product.uom">
+        <field name="name">Hz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">reference</field>
+        <field name="factor" eval="1.0" />
+        <field name="rounding" eval="0.001" />
+    </record>
+    <record id="product_uom_dahz" model="product.uom">
+        <field name="name">daHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="10" />
+    </record>
+    <record id="product_uom_hhz" model="product.uom">
+        <field name="name">hHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="100" />
+    </record>
+    <record id="product_uom_khz" model="product.uom">
+        <field name="name">kHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1000" />
+    </record>
+    <record id="product_uom_mhz" model="product.uom">
+        <field name="name">MHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+6" />
+    </record>
+    <record id="product_uom_ghz" model="product.uom">
+        <field name="name">GHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+9" />
+    </record>
+    <record id="product_uom_thz" model="product.uom">
+        <field name="name">THz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+12" />
+    </record>
+    <record id="product_uom_phz" model="product.uom">
+        <field name="name">PHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+15" />
+    </record>
+    <record id="product_uom_ehz" model="product.uom">
+        <field name="name">EHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+18" />
+    </record>
+    <record id="product_uom_zhz" model="product.uom">
+        <field name="name">ZHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+21" />
+    </record>
+    <record id="product_uom_yhz" model="product.uom">
+        <field name="name">YHz</field>
+        <field name="category_id" ref="product_uom_categ_frequency" />
+        <field name="uom_type">bigger</field>
+        <field name="factor_inv" eval="1e+24" />
+    </record>
+
+</odoo>
