@@ -17,6 +17,7 @@ class TestProductAssortment(TransactionCase):
                 "domain": [],
             }
         )
+        self.partner = self.env["res.partner"].create({"name": "Test partner"})
 
     def test_assortment(self):
         products = self.product_obj.search([])
@@ -61,3 +62,23 @@ class TestProductAssortment(TransactionCase):
         )
         self.assertTrue(assortment.is_assortment)
         self.assertEqual(assortment.model_id, "product.product")
+
+    def test_search_assortment_with_partner(self):
+        self.filter_obj.with_context(product_assortment=True).create(
+            {
+                "name": "Test Assortment Partner",
+                "domain": [],
+                "partner_ids": [(4, self.partner.id)],
+            }
+        )
+        search_domain = self.partner.action_define_product_assortment()["domain"]
+        self.assertEqual(
+            search_domain,
+            [("partner_ids", "in", [self.partner.id]), ("is_assortment", "=", True)],
+        )
+
+    def test_product_assortment_view(self):
+        included_product = self.env.ref("product.product_product_7")
+        self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        res = self.assortment.show_products()
+        self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
