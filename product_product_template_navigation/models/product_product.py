@@ -5,7 +5,7 @@ from odoo import models
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
     def action_open_product_template(self):
         self.ensure_one()
