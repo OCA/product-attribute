@@ -10,9 +10,6 @@ class ResConfigSettings(models.TransientModel):
 
     group_no_list_price = fields.Boolean(
         "Hide field 'Sales price'",
-        help=(
-            "Use fixed price and hide "
-            "the native 'Sales Price' field"
-        ),
+        help=("Use fixed price and hide the native 'Sales Price' field"),
         implied_group="product_form_pricelist.group_no_list_price",
     )
