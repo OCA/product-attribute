@@ -8,7 +8,7 @@
         <button name="open_pricelist_rules" position="attributes">
             <attribute name="invisible">1</attribute>
         </button>
-        <xpath expr="//page[@name='general_information']/group" position="after">
+        <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
             <group name="price" string="Fixed Price">
                 <field name="fixed_pricelist_item_ids" nolabel="1">
                     <tree editable="bottom">
