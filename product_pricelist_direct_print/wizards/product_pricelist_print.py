@@ -2,6 +2,8 @@
 # Copyright 2018 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from collections import defaultdict
+
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -52,6 +54,7 @@ class ProductPricelistPrint(models.TransientModel):
         help="If you enter an X number here, then, for each selected customer,"
              " the last X ordered products will be obtained for the report."
     )
+    summary = fields.Text(string="Summary")
 
     @api.multi
     @api.depends('partner_ids')
@@ -218,3 +221,52 @@ class ProductPricelistPrint(models.TransientModel):
         if not pricelist and self.partner_count == 1:
             pricelist = self.partner_ids[0].property_product_pricelist
         return pricelist
+
+    def get_products_domain(self):
+        domain = [
+            ('sale_ok', '=', True)
+        ]
+        if self.categ_ids:
+            domain.append(('categ_id', 'in', self.categ_ids.ids))
+        return domain
+
+    def get_products_to_print(self):
+        self.ensure_one()
+        if self.last_ordered_products:
+            products = self.get_last_ordered_products_to_print()
+        else:
+            if self.show_variants:
+                products = self.product_ids or self.product_tmpl_ids.mapped(
+                    'product_variant_ids')
+            else:
+                products = self.product_tmpl_ids
+        if not products:
+            products = products.search(self.get_products_domain())
+        return products
+
+    def get_group_key(self, product):
+        return product.categ_id.name
+
+    def get_sorted_products(self, products):
+        if self.order_field:
+            # Using "or ''" to avoid issues with None type
+            return products.sorted(
+                lambda x: getattr(x, self.order_field) or '')
+        return products
+
+    def get_groups_to_print(self):
+        self.ensure_one()
+        products = self.get_products_to_print()
+        if not products:
+            return []
+        group_dict = defaultdict(lambda: products.browse())
+        for product in products:
+            key = self.get_group_key(product)
+            group_dict[key] |= product
+        group_list = []
+        for key in sorted(group_dict.keys()):
+            group_list.append({
+                'group_name': key,
+                'products': self.get_sorted_products(group_dict[key])
+            })
+        return group_list
