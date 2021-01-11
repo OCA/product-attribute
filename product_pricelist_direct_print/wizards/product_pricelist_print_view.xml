@@ -29,6 +29,7 @@
                             groups="product.group_product_variant"
                             attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
                         />
+                        <field name="summary" />
                         <field
                             name="last_ordered_products"
                             attrs="{'invisible':[('partner_count','=',0)]}"
