@@ -12,7 +12,7 @@ class ResConfigSettings(models.TransientModel):
         "uom.uom",
         "Default Weight Unit of Measure",
         domain="[('measure_type', '=', 'weight')]",
-        config_parameter='product_default_weight_uom_id',
+        config_parameter="product_default_weight_uom_id",
         help="Default unit of measure to express product weight",
     )
 
@@ -20,6 +20,6 @@ class ResConfigSettings(models.TransientModel):
         "uom.uom",
         "Default Volume Unit of Measure",
         domain="[('measure_type', '=', 'volume')]",
-        config_parameter='product_default_volume_uom_id',
+        config_parameter="product_default_volume_uom_id",
         help="Default unit of measure to express product volume",
     )
