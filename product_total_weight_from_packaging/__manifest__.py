@@ -6,7 +6,7 @@
     "version": "13.0.1.3.1",
     "development_status": "Alpha",
     "category": "Warehouse Management",
-    "website": "https://github.com/OCA/stock-logistics-warehouse",
+    "website": "https://github.com/OCA/product-attribute",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
