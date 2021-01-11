@@ -6,37 +6,30 @@
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <field name="volume" position="after">
-                <field name="volume_uom_id" />
+                <field name="product_uom_readonly" invisible="1" />
+                <field
+                    name="volume_uom_id"
+                    options="{'no_open': True, 'no_create': True}"
+                    groups="uom.group_uom"
+                />
             </field>
             <field name="weight" position="after">
-                <field name="weight_uom_id" />
+                <field
+                    name="weight_uom_id"
+                    options="{'no_open': True, 'no_create': True}"
+                    groups="uom.group_uom"
+                />
             </field>
             <field name="weight_uom_name" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute
+                    name="attrs"
+                >{'invisible': [('product_uom_readonly', '=', False)]}</attribute>
             </field>
-            <xpath expr="//span[contains(., 'm³')]" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="product_variant_easy_edit_view" model="ir.ui.view">
-        <field name="name">product.product.view.form.easy</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
-        <field name="arch" type="xml">
-            <field name="volume" position="after">
-                <field name="volume_uom_id" />
+            <field name="volume_uom_name" position="attributes">
+                 <attribute
+                    name="attrs"
+                >{'invisible': [('product_uom_readonly', '=', False)]}</attribute>
             </field>
-            <field name="weight" position="after">
-                <field name="weight_uom_id" />
-            </field>
-            <field name="weight_uom_name" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
-            <xpath expr="//span[contains(., 'm³')]" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
         </field>
     </record>
 </odoo>
