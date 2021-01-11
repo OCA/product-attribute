@@ -266,7 +266,6 @@ msgid "Summary"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:127
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:130
 #, python-format
 msgid "You must set price list or any customer or any show price option."
