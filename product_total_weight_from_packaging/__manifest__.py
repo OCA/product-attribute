@@ -3,7 +3,7 @@
 {
     "name": "Product Total Weight From Packaging",
     "summary": "Compute estimated weight based on product's packaging weights",
-    "version": "13.0.1.3.1",
+    "version": "14.0.1.0.0",
     "development_status": "Alpha",
     "category": "Warehouse Management",
     "website": "https://github.com/OCA/product-attribute",
