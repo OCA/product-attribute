@@ -8,13 +8,12 @@ from odoo import api, fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    volume = fields.Float(
-        help="The volume of the contents, not including any packaging, etc."
-    )
     volume_uom_id = fields.Many2one(
         "uom.uom",
         string="Volume Unit of Measure",
-        domain="[('measure_type', '=', 'volume')]",
+        domain=lambda self: [
+            ("category_id", "=", self.env.ref("uom.product_uom_categ_vol").id)
+        ],
         default=lambda x: x._get_volume_uom_id_from_ir_config_parameter(),
     )
     volume_uom_name = fields.Char(
@@ -23,14 +22,12 @@ class ProductTemplate(models.Model):
         readonly=True,
     )
 
-    weight = fields.Float(
-        help="The weight of the contents, not including any packaging, etc."
-    )
-
     weight_uom_id = fields.Many2one(
         "uom.uom",
         string="Weight Unit of Measure",
-        domain="[('measure_type', '=', 'weight')]",
+        domain=lambda self: [
+            ("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)
+        ],
         compute=False,
         default=lambda x: x._get_weight_uom_id_from_ir_config_parameter(),
     )
@@ -41,6 +38,12 @@ class ProductTemplate(models.Model):
         readonly=True,
     )
 
+    product_uom_readonly = fields.Boolean(compute="_compute_product_uom_readonly")
+
+    def _compute_product_uom_readonly(self):
+        # helper for view form
+        self.product_uom_readonly = not self.env.user.has_group("uom.group_uom")
+
     @api.model
     def _get_volume_uom_id_from_ir_config_parameter(self):
         get_param = self.env["ir.config_parameter"].sudo().get_param
@@ -48,11 +51,7 @@ class ProductTemplate(models.Model):
         if default_uom:
             return self.env["uom.uom"].browse(int(default_uom))
         else:
-            # no super available in v12
-            return self.env["uom.uom"].search(
-                [("measure_type", "=", "volume"), ("uom_type", "=", "reference")],
-                limit=1,
-            )
+            return super()._get_volume_uom_id_from_ir_config_parameter()
 
     @api.model
     def _get_weight_uom_id_from_ir_config_parameter(self):
@@ -62,3 +61,12 @@ class ProductTemplate(models.Model):
             return self.env["uom.uom"].browse(int(default_uom))
         else:
             return super()._get_weight_uom_id_from_ir_config_parameter()
+
+    @api.model
+    def _get_length_uom_id_from_ir_config_parameter(self):
+        get_param = self.env["ir.config_parameter"].sudo().get_param
+        default_uom = get_param("product_default_length_uom_id")
+        if default_uom:
+            return self.env["uom.uom"].browse(int(default_uom))
+        else:
+            return super()._get_length_uom_id_from_ir_config_parameter()
