@@ -11,23 +11,12 @@
                 <field name="product_weight_in_lbs" position="after">
                     <field name="product_default_weight_uom_id" />
                 </field>
-                <xpath
-                expr="//div[@id='product_general_settings']/div/div[2]"
-                position="inside"
-            >
-                        <label
-                    for="product_default_volume_uom_id"
-                    string="Volume Measurement"
-                />
-                        <div class="text-muted">
-                            Choose the unit to measure volume
-                        </div>
-                        <div class="content-group">
-                            <div class="mt16">
-                                <field name="product_default_volume_uom_id" />
-                            </div>
-                        </div>
-                </xpath>
+                <field name="product_volume_volume_in_cubic_feet" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="product_weight_in_lbs" position="after">
+                    <field name="product_default_volume_uom_id" />
+                </field>
             </field>
         </record>
 </odoo>
