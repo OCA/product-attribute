@@ -38,8 +38,8 @@ msgid ""
 "</p>\n"
 msgstr ""
 "\n"
-"<p>Estimado ${object.partner_id and object.partner_id.name or "
-"'customer'},</p>\n"
+"<p>Estimado ${object.partner_id and object.partner_id.name or 'customer'},</"
+"p>\n"
 "<p>\n"
 "El fichero adjunto es un PDF que contiene la tarifa\n"
 "<strong>${object.pricelist_id.name}</strong> .\n"
@@ -297,6 +297,7 @@ msgid "Summary"
 msgstr "Resumen"
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:127
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:130
 #, python-format
 msgid "You must set price list or any customer or any show price option."
