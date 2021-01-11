@@ -95,6 +95,7 @@
                             </t>
                         </tbody>
                     </table>
+                    <p class="text-right text-muted" t-field="o.summary" />
                 </div>
             </t>
         </t>
