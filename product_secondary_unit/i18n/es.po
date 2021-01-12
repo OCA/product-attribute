@@ -41,16 +41,19 @@ msgstr "Segunda unidad de medida por defecto."
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__id
 msgid "ID"
 msgstr "ID (Identificador)"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -76,10 +79,25 @@ msgid "Product Secondary Unit"
 msgstr "'product.secondary.unit'"
 
 #. module: product_secondary_unit
+#: model:ir.model,name:product_secondary_unit.model_product_secondary_unit_mixin
+msgid "Product Secondary Unit Mixin"
+msgstr ""
+
+#. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
 msgstr "Plantilla de producto"
+
+#. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_id
+msgid "Second unit"
+msgstr ""
+
+#. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_qty
+msgid "Secondary Qty"
+msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor

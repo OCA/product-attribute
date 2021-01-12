@@ -40,16 +40,19 @@ msgstr "Unidad de Medida Secundaria por Defecto."
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__display_name
 msgid "Display Name"
 msgstr "Nombre para Mostrar"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin____last_update
 msgid "Last Modified on"
 msgstr "Última Actualización en"
 
@@ -74,10 +77,25 @@ msgid "Product Secondary Unit"
 msgstr "Unidad de Medida Secundaria del Producto"
 
 #. module: product_secondary_unit
+#: model:ir.model,name:product_secondary_unit.model_product_secondary_unit_mixin
+msgid "Product Secondary Unit Mixin"
+msgstr ""
+
+#. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
 msgstr "Plantilla de Producto"
+
+#. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_id
+msgid "Second unit"
+msgstr ""
+
+#. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_qty
+msgid "Secondary Qty"
+msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
