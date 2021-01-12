@@ -47,22 +47,20 @@
         <field name="view_id" ref="view_product_weight_update" />
         <field name="target">new</field>
     </record>
-    <act_window
-        id="action_multi_product_weight"
-        name="Calculate Product Weights"
-        res_model="product.weight.update"
-        binding_model="product.product"
-        view_mode="form"
-        target="new"
-        view_id="view_product_weight_update_multi"
-    />
-    <act_window
-        id="action_multi_template_weight"
-        name="Calculate Template Weights"
-        res_model="product.weight.update"
-        binding_model="product.template"
-        view_mode="form"
-        target="new"
-        view_id="view_product_weight_update_multi"
-    />
+    <record id="action_multi_product_weight" model="ir.actions.act_window">
+        <field name="name">Calculate Product Weights</field>
+        <field name="res_model">product.weight.update</field>
+        <field name="binding_model_id" ref="product.model_product_product" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_weight_update_multi" />
+        <field name="target">new</field>
+    </record>
+    <record id="action_multi_template_weight" model="ir.actions.act_window">
+        <field name="name">Calculate Template Weights</field>
+        <field name="res_model">product.weight.update</field>
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_weight_update_multi" />
+        <field name="target">new</field>
+    </record>
 </odoo>
