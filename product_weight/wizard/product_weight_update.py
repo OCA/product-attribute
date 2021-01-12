@@ -65,6 +65,11 @@ class ProductWeightUpdate(models.TransientModel):
         factor = product_tmpl.uom_id._compute_quantity(
             1, bom.product_uom_id, round=False
         )
+
+        factor = 1.0 / bom.product_uom_id._compute_quantity(
+            bom.product_qty, product_tmpl.uom_id, round=False
+        )
+
         dummy, lines_info = bom.explode(product, factor)
         weight = 0.0
         for bom_line, info in lines_info:
