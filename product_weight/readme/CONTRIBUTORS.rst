@@ -3,3 +3,4 @@
 * Juan Humanes <juan.humanes@guadaltech.es>
 * Thore Baden <thorebaden@gmail.com>
 * Tony Galmiche <tony.galmiche@infosaone.com>
+* Raphaël Reverdy <raphael.reverdy@akretion.com>
