@@ -110,5 +110,6 @@ class TestBomWeightCompute(TransactionCase):
             active_model="product.template", active_id=self.p0.product_tmpl_id.id
         ).create({})
         wizard.update_single_weight()
-        self.assertAlmostEqual(self.p0.weight, 0.33)
-        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 0.33)
+        self.assertAlmostEqual(self.p0.weight, 0.34)
+        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 0.34)
+
