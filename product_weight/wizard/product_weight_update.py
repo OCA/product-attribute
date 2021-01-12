@@ -77,7 +77,9 @@ class ProductWeightUpdate(models.TransientModel):
             component_qty = bom_line.product_uom_id._compute_quantity(
                 info.get("qty"), component.uom_id
             )
-            weight += component.weight * component_qty
+            weight += (
+                self._get_component_weight(component, product_tmpl) * component_qty
+            )
         if product:
             _logger.info("%s : %0.2f", product.name, weight)
             product.write({"weight": weight})
@@ -129,3 +131,7 @@ class ProductWeightUpdate(models.TransientModel):
             )
             if bom:
                 self.calculate_product_bom_weight(bom, bom.product_id)
+
+    def _get_component_weight(self, component, product_tmpl_id):
+        """Weight according to product_tmpl_id's weight uom"""
+        return component.weight
