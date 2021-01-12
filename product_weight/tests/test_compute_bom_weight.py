@@ -113,3 +113,13 @@ class TestBomWeightCompute(TransactionCase):
         self.assertAlmostEqual(self.p0.weight, 0.34)
         self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 0.34)
 
+    def test_bom_different_qty(self):
+        self.bom.product_qty = self.bom.product_qty * 2
+        for bomline in self.bom.bom_line_ids:
+            bomline.product_qty = bomline.product_qty * 2
+        wizard = self.WizObj.with_context(
+            active_model="product.template", active_id=self.p0.product_tmpl_id.id
+        ).create({})
+        wizard.update_single_weight()
+        self.assertAlmostEqual(self.p0.weight, 4)
+        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 4)
