@@ -2,7 +2,7 @@
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductPricelist(models.Model):
@@ -38,7 +38,8 @@ class ProductPricelistItem(models.Model):
 
     base = fields.Selection(
         selection_add=[("supplierinfo", "Prices based on supplier info")],
-                       ondelete={"supplierinfo":"set default"})
+        ondelete={"supplierinfo": "set default"},
+    )
     no_supplierinfo_min_quantity = fields.Boolean(
         string="Ignore Supplier Info Min. Quantity",
     )

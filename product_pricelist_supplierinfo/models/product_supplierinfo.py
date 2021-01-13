@@ -1,7 +1,7 @@
 # Copyright 2020 Akretion - Mourad EL HADJ MIMOUNE
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductSupplierinfo(models.Model):
@@ -13,7 +13,6 @@ class ProductSupplierinfo(models.Model):
         digits=(16, 2),
         help="Margin to apply on price to obtain sale price",
     )
-
 
     def _get_supplierinfo_pricelist_price(self):
         self.ensure_one()

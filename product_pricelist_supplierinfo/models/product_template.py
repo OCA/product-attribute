@@ -40,11 +40,11 @@ class ProductTemplate(models.Model):
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
             # Verbatim copy of part of product.pricelist._compute_price_rule.
-            qty_uom_id = self._context.get("uom") or self.uom_id.id
-            price_uom = self.env["uom.uom"].browse([qty_uom_id])
-            convert_to_price_uom = lambda price: self.uom_id._compute_price(
-                price, price_uom
-            )
+            def convert_to_price_uom(self, price):
+                qty_uom_id = self._context.get("uom") or self.uom_id.id
+                price_uom = self.env["uom.uom"].browse([qty_uom_id])
+                return self.uom_id._compute_price(price, price_uom)
+
             price_limit = price
             price = (price - (price * (rule.price_discount / 100))) or 0.0
             if rule.price_round:
