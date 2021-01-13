@@ -59,6 +59,8 @@ class ProductAssortment(models.Model):
     @api.multi
     def _compute_record_count(self):
         for record in self:
+            if record.model_id not in self.env:
+                continue  # invalid model
             domain = record._get_eval_domain()
             record.record_count = self.env[
                 record.model_id].search_count(domain)
