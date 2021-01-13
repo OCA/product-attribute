@@ -9,12 +9,13 @@
             name="groups_id"
             eval="[(4,ref('product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin'))]"
         />
-        <field name="arch" type="xml">
+     <field name="arch" type="xml">
             <field name="price" position="after">
-                <field name="sale_margin" string="Sale margin" />
+                <field name="sale_margin" string="Sale margin" optional="show" />
             </field>
         </field>
     </record>
+
 
     <record id="product_supplierinfo_form_view" model="ir.ui.view">
         <field name="name">product.supplierinfo.form.view.pricelist</field>

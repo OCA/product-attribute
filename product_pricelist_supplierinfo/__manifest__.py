@@ -1,16 +1,17 @@
 # Copyright 2018 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
+# 2020 Nexterp Romania
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Supplier info prices in sales pricelists",
     "summary": "Allows to create priceslists based on supplier info",
-    "version": "12.0.4.0.1",
+    "version": "14.0.0.1",
     "category": "Sales",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa," " Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": [
-        "product",
+        "product","purchase"
     ],
     "data": [
         "security/res_groups.xml",

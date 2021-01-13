@@ -8,7 +8,6 @@ from odoo import api, fields, models
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 
-    @api.multi
     def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """Recompute price after calling the atomic super method for
         getting proper prices when based on supplier info.
@@ -38,10 +37,8 @@ class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
     base = fields.Selection(
-        selection_add=[
-            ("supplierinfo", "Prices based on supplier info"),
-        ],
-    )
+        selection_add=[("supplierinfo", "Prices based on supplier info")],
+                       ondelete={"supplierinfo":"set default"})
     no_supplierinfo_min_quantity = fields.Boolean(
         string="Ignore Supplier Info Min. Quantity",
     )
