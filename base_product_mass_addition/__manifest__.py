@@ -9,7 +9,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
-    "depends": ["stock"],
+    "depends": ["stock", "onchange_helper"],
     "data": ["views/product_view.xml"],
     "installable": True,
 }
