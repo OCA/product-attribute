@@ -59,39 +59,13 @@ class ProductMassAddition(models.AbstractModel):
         if not lines_key:
             raise NotImplementedError
         init_keys = ["product_id"]
-        init_vals = {key: val for key, val in vals.items() if key in init_keys}
         update_vals = {key: val for key, val in vals.items() if key not in init_keys}
-        # Try to use onchange_helper if installed
-        try:
-            lines = getattr(self, lines_key)
-            if "id" in vals:
-                line = lines.filtered(lambda x: x.id == vals["id"])
-                return line.play_onchanges(update_vals, list(update_vals.keys()))
-            else:
-                line = lines
-                if len(lines) > 1:
-                    line = lines[0]
-                return line.play_onchanges(vals, list(vals.keys()))
-        except AttributeError as e:
-            from odoo.tests.common import Form
-
-            _logger.warning(
-                "onchange_helper not installed, "
-                "you may experience slow inputs: {}".format(e.args)
-            )
-        form_parent = Form(self)
-        form_line = False
-        if vals.get("id"):
-            for index, line in enumerate(self[lines_key]):
-                if line.id == vals.get("id"):
-                    form_line = getattr(form_parent, lines_key).edit(index)
-                    del vals["id"]
-                    break
-        if not form_line:
-            form_line = getattr(form_parent, lines_key).new()
-            form_line._values.update(init_vals)
-            form_line._perform_onchange(init_keys)
-
-        form_line._values.update(update_vals)
-        form_line._perform_onchange(list(update_vals.keys()))
-        return form_line._values
+        lines = getattr(self, lines_key)
+        if "id" in vals:
+            line = lines.filtered(lambda x: x.id == vals["id"])
+            return line.play_onchanges(update_vals, list(update_vals.keys()))
+        else:
+            line = lines
+            if len(lines) > 1:
+                line = lines[0]
+            return line.play_onchanges(vals, list(vals.keys()))
