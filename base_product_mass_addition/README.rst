@@ -37,10 +37,6 @@ Example implementations:
  - purchase_quick
  - stock_picking_quick
 
-This module does not depend on onchange_helper but it is faster when installed.
-If not, it will us Form emulation from backend.
-
-
 **Table of contents**
 
 .. contents::
