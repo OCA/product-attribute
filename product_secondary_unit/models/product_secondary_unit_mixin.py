@@ -75,7 +75,15 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         """Set the target qty field defined in model"""
         for rec in self:
             if not rec.secondary_uom_id:
+                rec[rec._secondary_unit_fields["qty_field"]] = rec._origin[
+                    rec._secondary_unit_fields["qty_field"]
+                ]
                 continue
+            # To avoid recompute secondary_uom_qty field when
+            # secondary_uom_id changes.
+            rec.env.remove_to_compute(
+                field=rec._fields["secondary_uom_qty"], records=rec
+            )
             factor = rec._get_factor_line()
             qty = float_round(
                 rec.secondary_uom_qty * factor,
