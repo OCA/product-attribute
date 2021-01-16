@@ -100,3 +100,15 @@ class TestProductSecondaryUnitMixin(SavepointCase, FakeModelLoader):
         fake_model = self.secondary_unit_fake
         fake_model._onchange_helper_product_uom_for_secondary()
         self.assertEqual(fake_model.secondary_uom_qty, 0)
+
+    def test_chained_compute_field(self):
+        """Secondary_uom_qty has not been computed when secondary_uom_id changes
+        """
+        fake_model = self.secondary_unit_fake
+        fake_model.secondary_uom_qty = 2.0
+        fake_model.secondary_uom_id = self.secondary_unit_box_5
+        self.assertEqual(fake_model.product_uom_qty, 10.0)
+        self.assertEqual(fake_model.secondary_uom_qty, 2.0)
+        fake_model.secondary_uom_id = self.secondary_unit_box_10
+        self.assertEqual(fake_model.product_uom_qty, 20.0)
+        self.assertEqual(fake_model.secondary_uom_qty, 2.0)
