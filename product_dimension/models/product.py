@@ -24,7 +24,11 @@ class Product(models.Model):
         return [("category_id", "=", self.env.ref("uom.uom_categ_length").id)]
 
     @api.onchange(
-        "product_length", "product_height", "product_width", "dimensional_uom_id"
+        "product_length",
+        "product_height",
+        "product_width",
+        "dimensional_uom_id",
+        "volume_uom_id",
     )
     def onchange_calculate_volume(self):
         self.volume = self.env["product.template"]._calc_volume(
@@ -32,6 +36,7 @@ class Product(models.Model):
             self.product_height,
             self.product_width,
             self.dimensional_uom_id,
+            self.volume_uom_id,
         )
 
 
@@ -46,15 +51,21 @@ class ProductTemplate(models.Model):
         )
 
     @api.model
-    def _calc_volume(self, product_length, product_height, product_width, uom_id):
-        volume = 0
+    def _calc_volume(
+        self, product_length, product_height, product_width, uom_id, volume_uom_id
+    ):
+        uom_litre = self.env.ref("uom.product_uom_litre")
+        volume_litre = 0
+
         if product_length and product_height and product_width and uom_id:
             length_m = self._convert_to_meters(product_length, uom_id)
             height_m = self._convert_to_meters(product_height, uom_id)
             width_m = self._convert_to_meters(product_width, uom_id)
-            volume = length_m * height_m * width_m
+            volume_litre = (length_m * height_m * width_m) * 1000
 
-        return volume
+        return uom_litre._compute_quantity(
+            qty=volume_litre, to_unit=volume_uom_id, round=False,
+        )
 
     # Define all the related fields in product.template with 'readonly=False'
     # to be able to modify the values from product.template.
@@ -76,7 +87,11 @@ class ProductTemplate(models.Model):
     )
 
     @api.onchange(
-        "product_length", "product_height", "product_width", "dimensional_uom_id"
+        "product_length",
+        "product_height",
+        "product_width",
+        "dimensional_uom_id",
+        "volume_uom_id",
     )
     def onchange_calculate_volume(self):
         self.volume = self._calc_volume(
@@ -84,4 +99,5 @@ class ProductTemplate(models.Model):
             self.product_height,
             self.product_width,
             self.dimensional_uom_id,
+            self.volume_uom_id,
         )
