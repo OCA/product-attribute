@@ -54,15 +54,17 @@ class ProductTemplate(models.Model):
     def _calc_volume(
         self, product_length, product_height, product_width, uom_id, volume_uom_id
     ):
+        # TODO: in v14 use native UoM data for m3 "uom.product_uom_cubic_meter"
         uom_litre = self.env.ref("uom.product_uom_litre")
-        volume_litre = 0
+        volume_m3 = 0
 
         if product_length and product_height and product_width and uom_id:
             length_m = self._convert_to_meters(product_length, uom_id)
             height_m = self._convert_to_meters(product_height, uom_id)
             width_m = self._convert_to_meters(product_width, uom_id)
-            volume_litre = (length_m * height_m * width_m) * 1000
+            volume_m3 = length_m * height_m * width_m
 
+        volume_litre = volume_m3 * 1000
         return uom_litre._compute_quantity(
             qty=volume_litre, to_unit=volume_uom_id, round=False,
         )
