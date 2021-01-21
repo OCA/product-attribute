@@ -7,7 +7,8 @@ from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = ['product.template', 'product.customerinfo.mixin']
+    _name = 'product.template'
 
     customer_ids = fields.One2many(
         comodel_name="product.customerinfo",
@@ -20,3 +21,10 @@ class ProductTemplate(models.Model):
         inverse_name='product_tmpl_id',
         string='Variant Customer',
     )
+
+    def price_compute(
+            self, price_type, uom=False, currency=False, company=False):
+        if price_type == 'partner':
+            return self.get_customerinfo_price(uom, currency, company)
+        return super().price_compute(
+            price_type, uom=uom, currency=currency, company=company)
