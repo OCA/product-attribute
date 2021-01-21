@@ -36,6 +36,18 @@ class TestProductSupplierinfo(common.SavepointCase):
                 }),
             ],
         })
+        cls.product_with_diff_uom = cls.env['product.product'].create({
+            'name': 'Product UOM Test',
+            'uom_id': cls.env.ref('uom.product_uom_unit').id,
+            'uom_po_id': cls.env.ref('uom.product_uom_dozen').id,
+            'seller_ids': [
+                (0, 0, {
+                    'name': cls.supplier1.id,
+                    'min_qty': 1,
+                    'price': 1200,
+                }),
+            ],
+        })
         cls.pricelist = cls.env['product.pricelist'].create({
             'name': 'Supplierinfo Pricelist',
             'item_ids': [
@@ -217,3 +229,32 @@ class TestProductSupplierinfo(common.SavepointCase):
         self.assertEqual(product_seller_price, 50)
         # And the price with the pricelist  (USD Currency) will be 2.5
         self.assertEqual(product_pricelist_price, 2.5)
+
+    def test_line_uom_and_supplierinfo_uom(self):
+        """Test when we have a product is sold in a different uom from the one on set
+        for purchase.
+        """
+        # Setting the item with the product
+        self.pricelist.item_ids[0].write({
+            'applied_on': '0_product_variant',
+            'product_id': self.product_with_diff_uom.id,
+            'price_discount': -20,
+        })
+
+        product_seller_price = self.product_with_diff_uom.seller_ids[0].price
+        uom_dozen = self.env.ref('uom.product_uom_dozen')
+        product_pricelist_price_dozen = self.pricelist.get_product_price(
+            self.product_with_diff_uom.with_context(uom=uom_dozen.id), 1, False)
+        uom_unit = self.env.ref('uom.product_uom_unit')
+        product_pricelist_price_unit = self.pricelist.get_product_price(
+            self.product_with_diff_uom.with_context(uom=uom_unit.id), 1, False)
+        # The price with the will be 1200 on the seller (1 Dozen)
+        self.assertEqual(product_seller_price, 1200)
+
+        # The price with the will be 1200 plus the increment of the 20% which will
+        # give us a total of 1440 (1 Dozen)
+        self.assertEqual(product_pricelist_price_dozen, 1440)
+
+        # And the price with the pricelist and the uom of Units (Instead of Dozen)
+        # will be 100, plus the 20% the total will be 120 per Unit
+        self.assertEqual(product_pricelist_price_unit, 120)
