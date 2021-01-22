@@ -20,7 +20,6 @@ msgstr ""
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:64
-#: code:addons/product_sequence/models/product_product.py:70
 #, python-format
 msgid "-copy"
 msgstr "-copia"
