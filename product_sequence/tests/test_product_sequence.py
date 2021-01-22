@@ -47,9 +47,8 @@ class TestProductSequence(TransactionCase):
             name="Apple",
             default_code='PROD03'
         ))
-        self.cr.execute(
-            "update product_product set default_code='/' where id=%s"
-            % (product_3.id,))
+        sql = "update product_product set default_code='/' where id=%s"
+        self.cr.execute(sql, (product_3.id,))
         product_3.invalidate_cache()
         self.assertEqual(product_3.default_code, '/')
         pre_init_hook(self.cr)
@@ -103,6 +102,32 @@ class TestProductSequence(TransactionCase):
         categ_car.sequence_id = False
         categ_car.write({'code_prefix': 'KIA'})
         self.assertEqual(categ_car.sequence_id.prefix, "KIA")
+
+    def test_product_parent_category_sequence(self):
+        parent_categ = self.product_category.create(dict(
+            name="Parents",
+            code_prefix="PAR",
+        ))
+        categ = self.product_category.create(dict(
+            name="Child",
+            parent_id=parent_categ.id,
+        ))
+
+        product_anna = self.product_product.create(dict(
+            name="Anna",
+            categ_id=categ.id,
+        ))
+        self.assertEqual(product_anna.default_code[:2], "PR")
+        self.assertEqual(product_anna.product_tmpl_id.default_code[:2], "PR")
+
+        self.env.user.company_id.use_parent_categories_to_determine_prefix = True
+
+        product_claudia = self.product_product.create(dict(
+            name="Claudia",
+            categ_id=categ.id,
+        ))
+        self.assertEqual(product_claudia.default_code[:3], "PAR")
+        self.assertEqual(product_claudia.product_tmpl_id.default_code[:3], "PAR")
 
     def test_product_copy_with_default_values(self):
         product_2 = self.product_product.create(dict(
