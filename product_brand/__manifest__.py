@@ -8,25 +8,23 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Product Brand Manager',
-    'version': '12.0.2.0.1',
-    'development_status': "Mature",
-    'category': 'Product',
-    'summary': "Product Brand Manager",
-    'author': 'NetAndCo, Akretion, Prisnet Telecommunications SA, '
-              'MONK Software, SerpentCS Pvt. Ltd., Tecnativa, '
-              'Odoo Community Association (OCA)',
-    'website': 'https://github.com/OCA/product-attribute',
-    'license': 'AGPL-3',
-    'depends': [
-        'sale',
-        ],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/product_brand_view.xml',
-        'reports/sale_report_view.xml',
-        'reports/account_invoice_report_view.xml',
+    "name": "Product Brand Manager",
+    "version": "12.0.2.0.1",
+    "development_status": "Mature",
+    "category": "Product",
+    "summary": "Product Brand Manager",
+    "author": "NetAndCo, Akretion, Prisnet Telecommunications SA, "
+    "MONK Software, SerpentCS Pvt. Ltd., Tecnativa, "
+    "Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/product-attribute",
+    "license": "AGPL-3",
+    "depends": ["sale",],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/product_brand_view.xml",
+        "reports/sale_report_view.xml",
+        "reports/account_invoice_report_view.xml",
     ],
-    'installable': True,
-    'auto_install': False
+    "installable": True,
+    "auto_install": False,
 }
