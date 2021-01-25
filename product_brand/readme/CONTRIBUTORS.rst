@@ -7,6 +7,7 @@
 * Marcelo Pickler <loxamir@gmail.com>
 * Andrius Laukavičius <ala@boolit.eu> (Boolit)
 * Daniel Campos <danielcampos@avanzosc.es>
+* Daniel Herreros <daniel.herreros@bt-group.com>
 * `Tecnativa <https://www.tecnativa.com>`_
 
   * David Vidal <david.vidal@tecnativa.com>
