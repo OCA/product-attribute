@@ -6,74 +6,76 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-01-26 10:44+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__product_count
 msgid "# Products"
-msgstr ""
+msgstr "# Productes"
 
 #. module: product_equivalent_category
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
 msgid "<span class=\"o_stat_text\"> Products</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\"> Productes</span>"
 
 #. module: product_equivalent_category
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
 msgid "Category name"
-msgstr ""
+msgstr "Nom de categoria"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creat per"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creat el"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__description
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom visible"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificació en"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "última actualització per"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualització el"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_equivalent_category__name
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: product_equivalent_category
 #: model:ir.actions.act_window,name:product_equivalent_category.product_equivalent_category_action_form
@@ -81,7 +83,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_list_view
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_search_view
 msgid "Product Equivalent Categories"
-msgstr ""
+msgstr "Categories equivalents de productes"
 
 #. module: product_equivalent_category
 #: model:ir.model,name:product_equivalent_category.model_product_equivalent_category
@@ -89,25 +91,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_equivalent_category.field_product_template__equivalent_categ_id
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_list_view
 msgid "Product Equivalent Category"
-msgstr ""
+msgstr "Categoria de producte equivalent"
 
 #. module: product_equivalent_category
 #: model:ir.model,name:product_equivalent_category.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de producte"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,help:product_equivalent_category.field_product_product__equivalent_categ_id
 #: model:ir.model.fields,help:product_equivalent_category.field_product_template__equivalent_categ_id
 msgid "Select equivalent category for the current product"
-msgstr ""
+msgstr "Selecciona una categoria equivalent pel producte actual"
 
 #. module: product_equivalent_category
 #: model:ir.model.fields,help:product_equivalent_category.field_product_equivalent_category__product_count
 msgid "The number of products under this category"
-msgstr ""
+msgstr "El nombre de productes d’aquesta categoria"
 
 #. module: product_equivalent_category
 #: model_terms:ir.ui.view,arch_db:product_equivalent_category.product_equivalent_category_form_view
 msgid "e.g. Lamps"
-msgstr ""
+msgstr "e.x. Làmpares"
