@@ -6,65 +6,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-01-26 10:44+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,field_description:base_product_mass_addition.field_product_mass_addition__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom visible"
 
 #. module: base_product_mass_addition
 #: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_search_form_view
 msgid "Filter products in current parent"
-msgstr ""
+msgstr "Filtrar productes en el pare actual"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,field_description:base_product_mass_addition.field_product_mass_addition__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: base_product_mass_addition
 #: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_search_form_view
 msgid "In current parent"
-msgstr ""
+msgstr "Pare actual"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,field_description:base_product_mass_addition.field_product_mass_addition____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificació en"
 
 #. module: base_product_mass_addition
 #: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_product_tree_view
 msgid "Open"
-msgstr ""
+msgstr "Obrir"
 
 #. module: base_product_mass_addition
 #: model:ir.model,name:base_product_mass_addition.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producte"
 
 #. module: base_product_mass_addition
 #: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_product_tree_view
 msgid "Products"
-msgstr ""
+msgstr "Productes"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,field_description:base_product_mass_addition.field_product_product__qty_to_process
 msgid "Qty To Process"
-msgstr ""
+msgstr "Quantitat a procesar"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,help:base_product_mass_addition.field_product_product__qty_to_process
 msgid "Set this quantity to create a new line for this product or update the existing one."
 msgstr ""
+"Establiu aquesta quantitat per crear una nova línia per a aquest producte o "
+"actualitzeu-la."
 
 #. module: base_product_mass_addition
 #: model:ir.model,name:base_product_mass_addition.model_product_mass_addition
 msgid "inherit this to add a mass product addition function                    to your model"
 msgstr ""
+"hereta això per afegir una funció addicional de producte massiu al model"
