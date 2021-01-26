@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
+<odoo noupdate="1">
     <record id="ir_cron_product_abc_classification" model="ir.cron">
         <field name="name">Perform the product ABC Classification</field>
+        <field name="user_id" ref="base.user_root" />
         <field name="interval_number">1</field>
-        <field name="interval_type">days</field>
+        <field name="interval_type">months</field>
         <field name="numbercall">-1</field>
         <field name="doall" eval="False" />
-        <field name="model_id" ref="model_abc_classification_profile" />
-        <field name="code">model._compute_abc_classification()</field>
-        <field name="state">code</field>
+        <field name="model">abc.classification.profile</field>
+        <field name="function">_cron_compute_abc_classification</field>
+        <field name="args">()</field>
     </record>
 </odoo>

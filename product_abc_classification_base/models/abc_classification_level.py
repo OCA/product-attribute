@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Copyright 2020 ForgeFlow
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -10,17 +11,31 @@ class AbcClassificationLevel(models.Model):
 
     _name = "abc.classification.level"
     _order = "percentage desc, id desc"
+    _rec_name = "name"
 
     percentage = fields.Float(default=0.0, required=True, string="%")
-    profile_id = fields.Many2one("abc.classification.profile")
+    profile_id = fields.Many2one(
+        "abc.classification.profile", ondelete="cascade"
+    )
 
-    name = fields.Char(help="Classification A, B or C")  # unique par profile
+    name = fields.Char(help="Classification A, B or C", required=True)
+
+    _sql_constraints = [
+        (
+            "name_uniq",
+            "UNIQUE(profile_id, name)",
+            _("Level name must be unique by profile"),
+        )
+    ]
 
     @api.constrains("percentage")
     def _check_percentage(self):
         for level in self:
             if level.percentage > 100.0:
-                raise ValidationError(_("The percentage cannot be greater than 100."))
+                raise ValidationError(
+                    _("The percentage cannot be greater than 100.")
+                )
             if level.percentage <= 0.0:
-                raise ValidationError(_("The percentage should be a positive number."))
-
+                raise ValidationError(
+                    _("The percentage should be a positive number.")
+                )

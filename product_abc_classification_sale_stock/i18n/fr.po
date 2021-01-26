@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_abc_classification_sale_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-03 07:21+0000\n"
+"PO-Revision-Date: 2021-02-03 07:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_abc_classification_sale_stock
+#: selection:abc.classification.profile,profile_type:0
+msgid "Based on the count of delivered sale order line by product"
+msgstr "Basé sur le total des lignes de vente par article"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model,name:product_abc_classification_sale_stock.model_abc_classification_profile
+msgid "Abc Classification Profile"
+msgstr "Profil de classification ABC"
+
+#. module: product_abc_classification_sale_stock
+#: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:247
+#, python-format
+msgid "Cumulative percentage greater than 100."
+msgstr "Somme des pourcentages calculés supérieure à 100."
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_classification_profile_warehouse_id
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: product_abc_classification_sale_stock
+#: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:39
+#, python-format
+msgid "You must specify a warehouse for {profile_name}"
+msgstr "Vous devez specifier un entrepôt pour le profil {profile_name}"

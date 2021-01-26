@@ -1,2 +1,4 @@
 # generated from manifests external_dependencies
 openupgradelib
+freezegun==0.3.14
+

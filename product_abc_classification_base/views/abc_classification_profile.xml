@@ -3,7 +3,7 @@
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
   <record id="abc_classification_profile_form_view" model="ir.ui.view">
-    <field name="name">abc.classification.profile.form</field>
+    <field name="name">abc.classification.profile.form (in product_abc_classification_base)</field>
     <field name="model">abc.classification.profile</field>
     <field name="arch" type="xml">
       <form string="ABC Profile">
@@ -12,8 +12,8 @@
             <field name="name" />
             <field name="level_ids">
               <tree editable="bottom">
-                <field name="percentage" class="oe_edit_only" />
-                <field name="display_name" class="oe_read_only" string="%" />
+                <field name="percentage"/>
+                <field name="name"/>
               </tree>
             </field>
           </group>
@@ -26,7 +26,7 @@
     </field>
   </record>
   <record id="abc_classification_profile_tree_view" model="ir.ui.view">
-    <field name="name">abc.classification.profile.tree</field>
+    <field name="name">abc.classification.profile.tree (in product_abc_classification_base)</field>
     <field name="model">abc.classification.profile</field>
     <field name="arch" type="xml">
       <tree string="ABC Profiles">
@@ -35,28 +35,14 @@
     </field>
   </record>
   <record id="abc_classification_profile_action" model="ir.actions.act_window">
-    <field name="name">ABC Classification Profile</field>
+    <field name="name">ABC Classification profiles</field>
     <field name="res_model">abc.classification.profile</field>
     <field name="view_mode">tree,form</field>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">
-                  Click to add a new profile.
-              </p>
-      <p>
-                  This allows to create an ABC classification.
-              </p>
-    </field>
   </record>
   <menuitem
     action="abc_classification_profile_action"
     id="menu_abc_classification_profile_config_stock"
     parent="stock.menu_product_in_config_stock"
-    sequence="10"
-  />
-  <menuitem
-    action="abc_classification_profile_action"
-    id="menu_abc_classification_profile_config_sale"
-    parent="sale.prod_config_main"
     sequence="10"
   />
 </odoo>
