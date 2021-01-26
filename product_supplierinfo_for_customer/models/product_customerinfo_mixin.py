@@ -25,7 +25,7 @@ class ProductSupplierInfoMixin(models.AbstractModel):
                 ("product_tmpl_id", "=", self.product_tmpl_id.id),
                 ("product_id", "=", False),
             ]
-        customerinfo = self.env["product.customerinfo"].search(
+        customerinfo = self.env["product.customerinfo"].sudo().search(
             domain, limit=1, order="product_id, sequence",)
         if customerinfo:
             return customerinfo.price
