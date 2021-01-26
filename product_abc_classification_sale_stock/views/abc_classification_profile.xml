@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2020 ForgeFlow
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record id="abc_classification_profile_form_view" model="ir.ui.view">
+    <field name="name">abc.classification.profile.form (in product_abc_classification_sale_stock)</field>
+    <field name="model">abc.classification.profile</field>
+    <field name="inherit_id" ref="product_abc_classification_base.abc_classification_profile_form_view"/>
+    <field name="arch" type="xml">
+      <field name="profile_type" position="after">
+          <field name="warehouse_id" attrs="{'invisible': [('profile_type', '!=', 'sale_stock')], 'required': [('profile_type', '=', 'sale_stock')]}"/>
+      </field>
+    </field>
+  </record>
+</odoo>

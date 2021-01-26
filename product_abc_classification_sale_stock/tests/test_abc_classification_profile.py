@@ -7,47 +7,37 @@ from freezegun import freeze_time
 from odoo.tests.common import SavepointCase
 
 
-class TestAbcClassificationProfile(SavepointCase):
+class TestABCClassificationProfile(SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestAbcClassificationProfile, cls).setUpClass()
+        super(TestABCClassificationProfile, cls).setUpClass()
 
         cls.partner = cls.env["res.partner"].create(
             {"name": "Unittest partner", "ref": "12344566777878"}
         )
 
-        cls.warehouse_1 = cls.env.ref("stock.warehouse0")
-        cls.warehouse_1.write(
+        cls.warehouse = cls.env.ref("stock.warehouse0")
+        cls.warehouse.write(
             {
                 "name": "Test Warehouse",
                 "reception_steps": "one_step",
-                "delivery_steps": "pick_ship",
+                "delivery_steps": "ship_only",
                 "code": "TST",
             }
         )
-        cls.warehouse_1.pick_type_id.subcode = "PICK"
-        cls.warehouse_1.pick_type_id.groupbypartner = False
-        cls.warehouse_1.out_type_id.groupbypartner = True
 
-        cls.level_A = cls.env["abc.classification.level"].create(
-            {"name": "A", "percentage": 80}
+        cls.stock_profile = cls.env.ref(
+            "product_abc_classification_sale_stock."
+            "abc_classification_profile_sale_stock"
         )
-
-        cls.level_B = cls.env["abc.classification.level"].create(
-            {"name": "B", "percentage": 15}
+        cls.level_A = cls.env.ref(
+            "product_abc_classification_sale_stock.abc_classification_level_a"
         )
-
-        cls.level_C = cls.env["abc.classification.level"].create(
-            {"name": "C", "percentage": 5}
+        cls.level_B = cls.env.ref(
+            "product_abc_classification_sale_stock.abc_classification_level_b"
         )
-
-        cls.stock_profile = cls.env["abc.classification.profile"].create(
-            {
-                "name": "Stock profile",
-                "profile_type": "stock",
-                "period": 365,
-                "level_ids": [(6, 0, [cls.level_A.id, cls.level_B.id, cls.level_C.id])],
-            }
+        cls.level_C = cls.env.ref(
+            "product_abc_classification_sale_stock.abc_classification_level_c"
         )
 
         cls.product1 = cls.env["product.product"].create(
@@ -115,6 +105,17 @@ class TestAbcClassificationProfile(SavepointCase):
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
             }
         )
+        # Special case where the product is not yet sold nor delivered
+        cls.product_new = cls.env["product.product"].create(
+            {
+                "name": "product_new",
+                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "type": "product",
+                "default_code": "345789733",
+                "tracking": "none",
+                "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
+            }
+        )
 
         cls._create_availability(cls.product1)
         cls._create_availability(cls.product2)
@@ -125,41 +126,49 @@ class TestAbcClassificationProfile(SavepointCase):
 
         cls.so1 = cls._confirm_sale_order(
             products=[cls.product1, cls.product2, cls.product3],
-            qty={cls.product1.name: 80, cls.product2.name: 10, cls.product3.name: 30},
+            qty={
+                cls.product1.name: 80,
+                cls.product2.name: 10,
+                cls.product3.name: 30,
+            },
         )
-        cls._confirm_pick_ship(cls.so1)
+        cls._confirm_ship(cls.so1)
 
         cls.so2 = cls._confirm_sale_order(
             products=[cls.product4, cls.product5, cls.product6],
-            qty={cls.product4.name: 5, cls.product5.name: 30, cls.product6.name: 25},
+            qty={
+                cls.product4.name: 5,
+                cls.product5.name: 30,
+                cls.product6.name: 25,
+            },
         )
-        cls._confirm_pick_ship(cls.so2)
+        cls._confirm_ship(cls.so2)
 
         cls.so3 = cls._confirm_sale_order(
             products=[cls.product1], qty={cls.product1.name: 75}
         )
-        cls._confirm_pick_ship(cls.so3)
+        cls._confirm_ship(cls.so3)
 
         cls.so3 = cls._confirm_sale_order(
             products=[cls.product1], qty={cls.product1.name: 75}
         )
-        cls._confirm_pick_ship(cls.so3)
+        cls._confirm_ship(cls.so3)
 
         cls.so4 = cls._confirm_sale_order(
             products=[cls.product1], qty={cls.product1.name: 25}
         )
-        cls._confirm_pick_ship(cls.so4)
+        cls._confirm_ship(cls.so4)
 
         cls.so5 = cls._confirm_sale_order(
             products=[cls.product3, cls.product5],
             qty={cls.product3.name: 90, cls.product5.name: 50},
         )
-        cls._confirm_pick_ship(cls.so5)
+        cls._confirm_ship(cls.so5)
 
         cls.so6 = cls._confirm_sale_order(
             products=[cls.product6], qty={cls.product6.name: 30}
         )
-        cls._confirm_pick_ship(cls.so6)
+        cls._confirm_ship(cls.so6)
 
     @classmethod
     def _create_availability(cls, product):
@@ -168,7 +177,7 @@ class TestAbcClassificationProfile(SavepointCase):
                 "product_id": product.id,
                 "product_tmpl_id": product.product_tmpl_id.id,
                 "new_quantity": 500,
-                "location_id": cls.warehouse_1.lot_stock_id.id,
+                "location_id": cls.warehouse.lot_stock_id.id,
             }
         )
         update_qty_wizard.change_product_qty()
@@ -177,7 +186,7 @@ class TestAbcClassificationProfile(SavepointCase):
     def _confirm_sale_order(cls, products, qty, partner=None):
         if partner is None:
             partner = cls.partner
-        warehouse = cls.warehouse_1
+        warehouse = cls.warehouse
         Sale = cls.env["sale.order"]
         lines = [
             (
@@ -203,71 +212,54 @@ class TestAbcClassificationProfile(SavepointCase):
         return so
 
     @classmethod
-    def _confirm_pick_ship(cls, so):
-        pick = so.mapped("picking_ids").filtered(
-            lambda p: p.picking_type_subcode == "PICK"
-        )
+    def _confirm_ship(cls, so):
+        pick = so.mapped("picking_ids")
         pick.action_confirm()
         pick.action_assign()
         for pack_op in pick.pack_operation_ids:
             pack_op.qty_done = pack_op.product_qty
         pick.action_done()
-        ship = so.mapped("picking_ids").filtered(
-            lambda p: p.picking_type_code == "outgoing"
+
+    def _assertLevelIs(self, product, level_name):
+        levels = product.abc_classification_product_level_ids
+        self.assertEqual(
+            levels.computed_level_id.name,
+            level_name,
+            "{} should be classified as {}".format(product.name, level_name),
         )
-        ship.action_confirm()
-        ship.action_assign()
-        for pack_op in ship.pack_operation_ids:
-            pack_op.qty_done = pack_op.product_qty
-        ship.action_done()
+        levels = product.product_tmpl_id.abc_classification_product_level_ids
+        self.assertEqual(
+            levels.computed_level_id.name,
+            level_name,
+            "{} template should be classified as {}".format(product.name, level_name),
+        )
 
     @freeze_time("2021-01-01 07:10:00")
     def test_00(self):
+        # test computed classification and check that the classification is
+        # also set on the product_templale
         self.stock_profile._compute_abc_classification()
-        product_classification1 = self.env["abc.classification.product.level"].search(
-            [
-                ("profile_id", "=", self.stock_profile.id),
-                ("product_id", "=", self.product1.id),
-            ]
-        )
-        product_classification2 = self.env["abc.classification.product.level"].search(
-            [
-                ("profile_id", "=", self.stock_profile.id),
-                ("product_id", "=", self.product2.id),
-            ]
-        )
+        self._assertLevelIs(self.product1, "a")
+        self._assertLevelIs(self.product3, "a")
+        self._assertLevelIs(self.product5, "a")
+        self._assertLevelIs(self.product2, "b")
+        self._assertLevelIs(self.product6, "b")
+        self._assertLevelIs(self.product4, "c")
+        self._assertLevelIs(self.product_new, "c")
 
-        product_classification3 = self.env["abc.classification.product.level"].search(
-            [
-                ("profile_id", "=", self.stock_profile.id),
-                ("product_id", "=", self.product3.id),
-            ]
-        )
-
-        product_classification4 = self.env["abc.classification.product.level"].search(
-            [
-                ("profile_id", "=", self.stock_profile.id),
-                ("product_id", "=", self.product4.id),
-            ]
-        )
-
-        product_classification5 = self.env["abc.classification.product.level"].search(
-            [
-                ("profile_id", "=", self.stock_profile.id),
-                ("product_id", "=", self.product5.id),
-            ]
-        )
-
-        product_classification6 = self.env["abc.classification.product.level"].search(
-            [
-                ("profile_id", "=", self.stock_profile.id),
-                ("product_id", "=", self.product6.id),
-            ]
-        )
-
-        self.assertEqual(product_classification1.computed_level_id.name, "A")
-        self.assertEqual(product_classification3.computed_level_id.name, "A")
-        self.assertEqual(product_classification5.computed_level_id.name, "A")
-        self.assertEqual(product_classification2.computed_level_id.name, "B")
-        self.assertEqual(product_classification6.computed_level_id.name, "B")
-        self.assertEqual(product_classification4.computed_level_id.name, "C")
+    @freeze_time("2021-01-01 07:10:00")
+    def test_01(self):
+        # test computed classification and check that inactive products are
+        # not taken into account
+        self.product1.active = False
+        self.product1.refresh()
+        self.stock_profile._compute_abc_classification()
+        self.assertFalse(self.product1.abc_classification_product_level_ids)
+        self.product1.active = True
+        self.product1.refresh()
+        self.stock_profile._compute_abc_classification()
+        self.assertTrue(self.product1.abc_classification_product_level_ids)
+        self.product1.active = False
+        self.product1.refresh()
+        self.stock_profile._compute_abc_classification()
+        self.assertFalse(self.product1.abc_classification_product_level_ids)
