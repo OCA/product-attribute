@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record id="abc_classification_profile_sale_stock" model="abc.classification.profile">
+      <field name="name">Sale stock profile</field>
+      <field name="profile_type">sale_stock</field>
+      <field name="warehouse_id" ref="stock.warehouse0"/>
+      <field name="period">365</field>
+      <field name="level_ids" eval="[(6,0,[ref('abc_classification_level_a'), ref('abc_classification_level_b'), ref('abc_classification_level_c')])]"/>
+  </record>
+</odoo>
