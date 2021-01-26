@@ -2,35 +2,24 @@
 <!-- Copyright 2021 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-  <record id="product_template_tree_view" model="ir.ui.view">
-    <field name="name">product.template.tree</field>
-    <field name="model">product.template</field>
-    <field name="inherit_id" ref="product.product_template_tree_view" />
-    <field name="arch" type="xml">
-      <field name="categ_id" position="after">
-        <field
-          name="abc_product_classification_level_ids"
-          optional="hide"
-          widget="many2many_tags"
-          attrs="{'invisible':[('type','!=','product')]}"
-        />
-      </field>
-    </field>
-  </record>
   <record id="product_template_form_view" model="ir.ui.view">
     <field name="name">product.template.form (ABC Classification)</field>
     <field name="model">product.template</field>
     <field name="inherit_id" ref="product.product_template_form_view" />
     <field name="arch" type="xml">
       <xpath expr="//notebook" position="inside">
-        <page string="ABC Classification" name="abc_classification">
+        <page string="ABC Classification" name="abc_classification" attrs="{'invisible':[('type','!=','product')]}">
           <group>
             <group>
               <field
-                name="abc_product_classification_level_ids"
+                name="abc_classification_product_level_ids"
                 widget="many2many_tags"
+                context="{'default_product_tmpl_id': active_id, 'default_profile_id': abc_classification_profile_ids[0] and abc_classification_profile_ids[0][2] and abc_classification_profile_ids[0][2][0] or False}"
+                options="{'open': true}"
+                attrs="{'readonly': [('product_variant_count', '&gt;', 1)]}"
+                domain="[('product_tmpl_id', '=', active_id)]"
               />
-              <field name="abc_classification_profile_ids" widget="many2many_tags" />
+              <field name="abc_classification_profile_ids" widget="many2many_tags" options="{'open': true}"/>
             </group>
           </group>
         </page>

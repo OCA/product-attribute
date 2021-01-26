@@ -1,0 +1,281 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_abc_classification_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-03 06:57+0000\n"
+"PO-Revision-Date: 2021-02-03 06:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.product_template_form_view
+msgid "ABC Classification"
+msgstr "Classification ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_form_view
+#: model:ir.model,name:product_abc_classification_base.model_abc_classification_product_level
+msgid "ABC Classification Product Level"
+msgstr "Niveau de classification ABC des articles"
+
+#. module: product_abc_classification_base
+#: model:ir.actions.act_window,name:product_abc_classification_base.abc_classification_profile_action
+#: model:ir.ui.menu,name:product_abc_classification_base.menu_abc_classification_profile_config_stock
+msgid "ABC Classification profiles"
+msgstr "Profils de classification ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_profile_form_view
+msgid "ABC Profile"
+msgstr "Profil ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_profile_tree_view
+msgid "ABC Profiles"
+msgstr "Profils ABC"
+
+
+#. module: product_abc_classification_base
+#: model:ir.model,name:product_abc_classification_base.model_abc_classification_profile
+msgid "Abc Classification Profile"
+msgstr "Profil de classification ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_search_view
+msgid "Abc classification"
+msgstr "Classification ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_delivery_carrier_abc_classification_product_level_ids
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_product_product_abc_classification_product_level_ids
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_product_template_abc_classification_product_level_ids
+msgid "Abc classification product level ids"
+msgstr "Classes ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_allowed_profile_ids
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_delivery_carrier_abc_classification_profile_ids
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_product_product_abc_classification_profile_ids
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_product_template_abc_classification_profile_ids
+msgid "Abc classification profile ids"
+msgstr "Profils ABC"
+
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_level_id
+msgid "Classification level"
+msgstr "Classe / Niveau"
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_product_level.py:75
+#, python-format
+msgid "Classification level is mandatory"
+msgstr "La classe / niveau est obligatoire"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_search_view
+msgid "Classification not in sync with computed"
+msgstr "Classes ABC manuelle et calculée divergentes"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_computed_level_id
+msgid "Computed classification level"
+msgstr "Classe calculée"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_form_view
+msgid "Computed level differs from the specified level"
+msgstr "La class calculée diverge de la valeur spécifiée"
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_product_level.py:81
+#, python-format
+msgid "Computed level must be in  the same classifiation profile as the one on the product level"
+msgstr "La classe calculée doit utiliser le même profil de classification que celui défini sur le produit"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_create_uid
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_create_uid
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_create_date
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_create_date
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_display_name
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_display_name
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_search_view
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_id
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_id
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_flag
+msgid "If True, this means that the manual classification is different from the computed one"
+msgstr "Si coché, indique que la classe attribuée manuellement au produit diverge de la classe calculée par le système."
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level___last_update
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level___last_update
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_write_uid
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_write_uid
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_write_date
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_write_date
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_abc_classification_base
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_search_view
+msgid "Level"
+msgstr "Classe"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_level_ids
+msgid "Level ids"
+msgstr "Classes"
+
+#. module: product_abc_classification_base
+#: sql_constraint:abc.classification.level:0
+#: code:addons/product_abc_classification_base/models/abc_classification_level.py:26
+#, python-format
+msgid "Level name must be unique by profile"
+msgstr "Le nom de la classe doit être unique par profil"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_manual_level_id
+msgid "Manual classification level"
+msgstr "Classe (Valeur à utiliser)"
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_product_level.py:91
+#, python-format
+msgid "Manual level must be in  the same classifiation profile as the one on the product level"
+msgstr "La classe à utiliser doit utiliser le même profil de classification que celui défini sur le produit"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_name
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_name
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_abc_classification_base
+#: sql_constraint:abc.classification.product.level:0
+#: code:addons/product_abc_classification_base/models/abc_classification_product_level.py:67
+#, python-format
+msgid "Only one level by profile by product allowed"
+msgstr "Une classe de classification ABC par profil et par produit autorisée."
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_period
+msgid "Period on which to compute the classification (Days)"
+msgstr "Période référence pour le calcul de la classification (Nbr jours)"
+
+#. module: product_abc_classification_base
+#: model:ir.model,name:product_abc_classification_base.model_product_product
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: product_abc_classification_base
+#: model:ir.model,name:product_abc_classification_base.model_product_template
+msgid "Product Template"
+msgstr "Modèle de produit"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_product_tmpl_id
+msgid "Product template"
+msgstr "Modèle de produit"
+
+#. module: product_abc_classification_base
+#: model:ir.actions.act_window,name:product_abc_classification_base.abc_classification_product_level_action
+#: model:ir.ui.menu,name:product_abc_classification_base.menu_abc_classification_product_level_config_stock
+msgid "Products ABC Classification"
+msgstr "Classification ABC des articles"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_product_level_profile_id
+#: model:ir.ui.view,arch_db:product_abc_classification_base.abc_classification_product_level_search_view
+msgid "Profile"
+msgstr "Profil"
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_level_profile_id
+msgid "Profile id"
+msgstr "Profil"
+
+#. module: product_abc_classification_base
+#: sql_constraint:abc.classification.profile:0
+#: code:addons/product_abc_classification_base/models/abc_classification_profile.py:32
+#, python-format
+msgid "Profile name must be unique"
+msgstr "Le nom du profil doit être unique"
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_level.py:35
+#, python-format
+msgid "The percentage cannot be greater than 100."
+msgstr "Le pourcentage ne peut pas dépasser 100."
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_level.py:39
+#, python-format
+msgid "The percentage should be a positive number."
+msgstr "Le pourcentage doit être un nombre positif."
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_profile.py:51
+#, python-format
+msgid "The percentages of the levels must be unique."
+msgstr "Les valeurs de pourcentage des différentes classes doivent être uniques pour un même profil."
+
+#. module: product_abc_classification_base
+#: code:addons/product_abc_classification_base/models/abc_classification_profile.py:42
+#, python-format
+msgid "The sum of the percentages of the levels should be 100."
+msgstr "La somme des pourcentage ne doit pas dépasser 100."
+
+#. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_profile_type
+msgid "Type of ABC classification"
+msgstr "Type de classification ABC"
+
+#. module: product_abc_classification_base
+#: model:ir.model,name:product_abc_classification_base.model_abc_classification_level
+msgid "abc.classification.level"
+msgstr "Classe de classification ABC"
