@@ -6,101 +6,103 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-01-26 10:44+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
 msgid "Choose the unit to measure volume"
-msgstr ""
+msgstr "Trieu la unitat per mesurar el volum"
 
 #. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Paràmetres de configuració"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default Volume Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura de volum per defecte"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_weight_uom_id
 msgid "Default Weight Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura d'alçada per defecte"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default unit of measure to express product volume"
-msgstr ""
+msgstr "Unitat de mesura predeterminada per expressar el volum del producte"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_weight_uom_id
 msgid "Default unit of measure to express product weight"
-msgstr ""
+msgstr "Unitat de mesura predeterminada per expressar el pes del producte"
 
 #. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producte"
 
 #. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de producte"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_product_product__volume
 #: model:ir.model.fields,help:product_logistics_uom.field_product_template__volume
 msgid "The volume of the contents, not including any packaging, etc."
-msgstr ""
+msgstr "El volum del contingut, sense incloure cap embalatge, etc."
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_product_template__weight
 msgid "The weight of the contents, not including any packaging, etc."
-msgstr ""
+msgstr "El pes del contingut, sense incloure cap embalatge, etc."
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__volume
 msgid "Volume"
-msgstr ""
+msgstr "Volum"
 
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
 msgid "Volume Measurement"
-msgstr ""
+msgstr "Mesura de volum"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume_uom_id
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__volume_uom_id
 msgid "Volume Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura de volum"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume_uom_name
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__volume_uom_name
 msgid "Volume unit of measure label"
-msgstr ""
+msgstr "Etiqueta d'unitat de mesura de volum"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
 msgid "Weight"
-msgstr ""
+msgstr "Pes"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_id
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_id
 msgid "Weight Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura de pes"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_name
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_name
 msgid "Weight unit of measure label"
-msgstr ""
+msgstr "Etiqueta d'unitat de mesura de pes"
