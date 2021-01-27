@@ -7,36 +7,23 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//form/sheet/notebook/page[@name='general_information']/group[1]/group[@name='group_general']/field[@name='type']"
-                position="after"
-            >
-                <field name="is_medical" />
-            </xpath>
-            <xpath
-                expr="//form/sheet/notebook"
-                position="inside"
-                attrs="{'readonly':[('is_medical','=',0)]}"
-            >
-                <page name="mdr" string="MDR">
-                    <group name="mdr">
-                        <group name="mdr_left" string="Declaration of Conformity">
-                            <field name="conformity_declaration" />
-                            <field name="doc_lot_related" />
-                            <field name="doc_validity_date" />
+            <xpath expr="//form/sheet/notebook" position="inside">
+                <page name="conformity" string="Conformity">
+                    <group name="conformity">
+                        <group name="conformity_left" string="Categories">
+                            <field name="medical_class_id" />
+                            <field name="medicine_category_id" />
+                            <field name="ppe_category_id" />
                             <field name="in_vitro_diagnostic" />
                         </group>
-                        <group name="mdr_right" string="CE Certificate">
+                        <group name="conformity_right" string="Documents">
+                            <field name="conformity_declaration" />
+                            <field name="doc_validity_date" />
                             <field
                                 name="ce_certificate_medical_class"
                                 string="Medical class"
                             />
                             <field name="ce_certificate_validity_date" />
-                            <field name="notified_body_id" />
-                            <field name="medical_class_id" />
-                            <field name="medicine_category_id" />
-                            <field name="ppe_category_id" />
-                            <field name="medical_certificate_url" widget="url" />
                         </group>
                     </group>
                 </page>

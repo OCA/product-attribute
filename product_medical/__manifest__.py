@@ -16,4 +16,5 @@
         "views/product_template.xml",
     ],
     "installable": True,
+    "development_status": "Alpha",
 }
