@@ -54,6 +54,6 @@ class ProductSupplierinfoGroup(models.Model):
             else:
                 sorted_supinfos = rec.supplierinfo_ids.sorted(key=lambda r: r.min_qty)
                 vals = {"supinfos": [rec for rec in sorted_supinfos]}
-                rec.unit_price_note = self.env["ir.qweb"].render(
+                rec.unit_price_note = self.env["ir.qweb"]._render(
                     "product_supplierinfo_group.table_price_note", vals
                 )
