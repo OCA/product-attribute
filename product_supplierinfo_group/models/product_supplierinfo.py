@@ -2,8 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
-from odoo import api, fields, models
 from copy import deepcopy
+
+from odoo import api, fields, models
 
 # format: field_from_supplierinfo:field_from_group
 MAPPING_RELATED = {
