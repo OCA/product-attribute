@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="product_template_tree_view" model="ir.ui.view">
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <group name="vendors" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -11,11 +11,14 @@
                 <attribute name="invisible">1</attribute>
             </group>
             <group name="variant_vendors" position="after">
-                <field name="has_multiple_variants" invisible="1"/>
+                <field name="has_multiple_variants" invisible="1" />
                 <group name="supplierinfo_groups">
-                    <field name="supplierinfo_group_ids" nolabel="1"
-                           context="{'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
-                           'product_template_invisible_variant': not has_multiple_variants}"/>
+                    <field
+                        name="supplierinfo_group_ids"
+                        nolabel="1"
+                        context="{'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                           'product_template_invisible_variant': not has_multiple_variants}"
+                    />
                 </group>
             </group>
         </field>
