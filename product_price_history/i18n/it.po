@@ -49,7 +49,7 @@ msgstr "Prodotto"
 
 #. module: product_price_history
 #: model:ir.ui.menu,name:product_price_history.menu_product_price_history
-msgid "Product Price History"
+msgid "Product Cost History"
 msgstr "Storia costo medio prodotto"
 
 #. module: product_price_history
@@ -60,7 +60,7 @@ msgstr "Prodotto"
 
 #. module: product_price_history
 #: model:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
-msgid "Search Product Price History"
+msgid "Search Product Cost History"
 msgstr "Storia del costo medio"
 
 #. module: product_price_history
