@@ -23,7 +23,7 @@ Product Supplierinfo Group
     :target: https://runbot.odoo-community.org/runbot/135/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 Product price values can be tedious and error-prone to enter one by one when you need to repeat the same values:
 
@@ -95,6 +95,7 @@ Contributors
 
 * Kevin Khao <kevin.khao@akretion.com>
 * Sebastien Beau <sebastien.beau@akretion.com>
+* Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
 
 Maintainers
 ~~~~~~~~~~~
