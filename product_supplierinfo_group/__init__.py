@@ -1,6 +1,7 @@
 # Copyright 2020 Akretion France (http://www.akretion.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
+from psycopg2.extensions import AsIs
 
 from odoo.tools.sql import (
     create_column,
@@ -23,25 +24,31 @@ MAPPING_FIELDS_DB = {
 
 def fill_required_group_id_column(cr):
     """
-    On installing this module, we have the problem of adding on product.supplierinfo:
+    On installing this module, we have the problem of adding
+    on product.supplierinfo:
 
-        supplierinfo_group_id = fields.Many2one("product.supplierinfo.group", required=True)
+        supplierinfo_group_id = fields.Many2one("product.supplierinfo.group",
+             required=True)
 
-    This is complicated because the product_supplierinfo_group table doesn't exist yet:
+    This is complicated because the product_supplierinfo_group table
+    doesn't exist yet:
         - no default value is possible
         - can't put supplierinfo_group_id=0 because psycopg/postgres
           enforces constraint that the id exists in DB
         - can't suspend constraints without superuser privileges
         - we want to keep it required=True
-        - we don't want to install module twice (once where the constraint required can't
-          be applied at the DB layer, once where it can)
+        - we don't want to install module twice (once where the constraint
+          required can't be applied at the DB layer, once where it can)
 
     Thus, we must jump through the hoops:
         - Create the table product_supplierinfo_group
         - Populate the table with the right values
         - Fill the newly required supplierinfo_group_id on product_supplierinfo
     """
-    cr.execute("SELECT count(id) FROM product_supplierinfo")
+    cr.execute(
+        "SELECT count(id) FROM %s",
+        (AsIs("product_supplierinfo"),),
+    )
     res = cr.fetchall()
     if not res[0][0]:
         # No need to run the hook as they is not data to migrate
@@ -55,9 +62,8 @@ def fill_required_group_id_column(cr):
     fields_supplierinfo = ",".join(MAPPING_MATCH_GROUP.keys())
     fields_supplierinfo_group = ",".join(MAPPING_MATCH_GROUP.values())
     cr.execute(
-        "SELECT {} FROM product_supplierinfo GROUP BY {}".format(
-            fields_supplierinfo, fields_supplierinfo
-        )
+        "SELECT %s FROM product_supplierinfo GROUP BY %s",
+        (AsIs(fields_supplierinfo), AsIs(fields_supplierinfo)),
     )
     supplierinfo_group_vals = cr.dictfetchall()
     str_list = []
@@ -70,8 +76,8 @@ def fill_required_group_id_column(cr):
 
     # Populate supplierinfo_group table
     cr.execute(
-        "INSERT INTO product_supplierinfo_group({}) "
-        "VALUES {};".format(fields_supplierinfo_group, vals_str)
+        "INSERT INTO product_supplierinfo_group(%s) " "VALUES %s;",
+        (AsIs(fields_supplierinfo_group), AsIs(vals_str)),
     )
 
     # Update supplierinfo table
@@ -90,5 +96,6 @@ def fill_required_group_id_column(cr):
         "UPDATE product_supplierinfo p "
         "SET supplierinfo_group_id = g.id "
         "FROM product_supplierinfo_group g "
-        "WHERE {}".format(conditions)
+        "WHERE %s",
+        AsIs(conditions),
     )
