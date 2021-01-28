@@ -1,2 +1,1 @@
-This module add manage product history price
-
+This module allows to manage product history prices.

@@ -18,14 +18,14 @@
             <field name="name">product.price.history.filter</field>
             <field name="model">product.price.history</field>
             <field name="arch" type="xml">
-                <search string="Search Product Price History">
+                <search string="Search Product Cost History">
                     <field name="product_id" string="Product"/>
                     <group expand="0" string="Group By">
-                        <filter string="Product" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter name="product_group" string="Product" domain="[]" context="{'group_by':'product_id'}"/>
                     </group>
                     <field name="datetime" string="Date"/>
                     <group expand="0" string="Group By">
-                        <filter string="Date" domain="[]" context="{'group_by':'datetime'}"/>
+                        <filter name="date_group" string="Date" domain="[]" context="{'group_by':'datetime'}"/>
                     </group>
                 </search>
             </field>
@@ -40,7 +40,7 @@
         </record>
 
         <menuitem id="menu_product_price_history"
-                  name="Product Price History"
+                  name="Product Cost History"
                   parent="stock.menu_stock_inventory_control"
                   action="action_product_price_history_view"
                   sequence="800"
@@ -60,7 +60,7 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//sheet/div[@class='oe_button_box']" position="inside">
+                <xpath expr="//sheet/div[hasclass('oe_button_box')]" position="inside">
                     <button type="action"
                             class="oe_stat_button"
                             name="%(action_product_template_only_form_price_history)d"
@@ -76,7 +76,7 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//sheet/div[@class='oe_button_box']" position="inside">
+                <xpath expr="//sheet/div[hasclass('oe_button_box')]" position="inside">
                     <button type="action"
                             class="oe_stat_button"
                             name="%(action_product_price_history_view)d"
