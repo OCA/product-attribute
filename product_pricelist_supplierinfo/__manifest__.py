@@ -7,8 +7,7 @@
     "version": "12.0.4.0.2",
     "category": "Sales",
     "website": "https://github.com/OCA/product-attribute",
-    "author": "Tecnativa,"
-              " Odoo Community Association (OCA)",
+    "author": "Tecnativa," " Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": [
         "product",
