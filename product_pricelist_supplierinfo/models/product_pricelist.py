@@ -2,13 +2,12 @@
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 
-    @api.multi
     def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """Recompute price after calling the atomic super method for
         getting proper prices when based on supplier info.
@@ -41,6 +40,7 @@ class ProductPricelistItem(models.Model):
         selection_add=[
             ("supplierinfo", "Prices based on supplier info"),
         ],
+        ondelete={"supplierinfo": "cascade"},
     )
     no_supplierinfo_min_quantity = fields.Boolean(
         string="Ignore Supplier Info Min. Quantity",

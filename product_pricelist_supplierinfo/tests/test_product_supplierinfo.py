@@ -186,6 +186,7 @@ class TestProductSupplierinfo(common.SavepointCase):
             {
                 "price_discount": 50,
                 "applied_on": "2_product_category",
+                "categ_id": self.env.ref("product.product_category_all").id,
                 "price_round": 1,
                 "price_surcharge": 5,
                 "price_min_margin": 10,

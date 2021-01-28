@@ -48,9 +48,11 @@ class ProductTemplate(models.Model):
             if seller and seller.product_uom != price_uom:
                 price = seller.product_uom._compute_price(price, price_uom)
 
-            convert_to_price_uom = lambda price: self.uom_id._compute_price(
-                price, price_uom
-            )
+            def convert_to_price_uom(price):
+                nonlocal price_uom
+                price = self.uom_id._compute_price(price, price_uom)
+                return price
+
             price_limit = price
             price = (price - (price * (rule.price_discount / 100))) or 0.0
             if rule.price_round:
