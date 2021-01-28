@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-01-28 20:44+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@matmoz.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,88 +15,89 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__code
 msgid "Code"
-msgstr ""
+msgstr "Koda"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,help:product_secondary_unit.field_product_product__secondary_uom_ids
 #: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,help:product_secondary_unit.field_product_template__secondary_uom_ids
 msgid "Default Secondary Unit of Measure."
-msgstr ""
+msgstr "Privzeta sekundarna enota mere."
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazni naziv"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zadnja sprememba"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnja posodobitev"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_secondary_unit
 msgid "Product Secondary Unit"
-msgstr ""
+msgstr "Sekundarna enota proizvoda"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
-msgstr ""
+msgstr "Predloga proizvoda"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
 msgid "Secondary Unit Factor"
-msgstr ""
+msgstr "Faktor sekundarne enote"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
 msgid "Secondary Unit of Measure"
-msgstr ""
+msgstr "Sekundarna enota mere"
 
 #. module: product_secondary_unit
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary Unit"
-msgstr ""
+msgstr "Sekundarna enota"
 
 #. module: product_secondary_unit
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary unit of measure"
-msgstr ""
+msgstr "sekundarna enota mere"
