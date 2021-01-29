@@ -10,9 +10,10 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.product.product_height = 200.
         self.product.product_width = 100.
         self.product.dimensional_uom_id = self.uom_cm
+        self.product.volume_uom_id = self.uom_litre
         self.product.onchange_calculate_volume()
         self.assertAlmostEqual(
-            0.2,
+            200,
             self.product.volume
         )
 
@@ -21,9 +22,10 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.product.product_height = 2.
         self.product.product_width = 10.
         self.product.dimensional_uom_id = self.uom_m
+        self.product.volume_uom_id = self.uom_litre
         self.product.onchange_calculate_volume()
         self.assertAlmostEqual(
-            120,
+            120000,
             self.product.volume
         )
 
@@ -33,6 +35,7 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.product = self.env['product.product'].new()
         self.uom_m = self.env['uom.uom'].search([('name', '=', 'm')])
         self.uom_cm = self.env['uom.uom'].search([('name', '=', 'cm')])
+        self.uom_litre = self.env.ref("uom.product_uom_litre")
 
 
 class TestComputeVolumeOnTemplate(TransactionCase):
@@ -42,9 +45,10 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template.product_height = 200.
         self.template.product_width = 100.
         self.template.dimensional_uom_id = self.uom_cm
+        self.template.volume_uom_id = self.uom_litre
         self.template.onchange_calculate_volume()
         self.assertAlmostEqual(
-            0.2,
+            200,
             self.template.volume
         )
 
@@ -53,9 +57,10 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template.product_height = 2.
         self.template.product_width = 10.
         self.template.dimensional_uom_id = self.uom_m
+        self.template.volume_uom_id = self.uom_litre
         self.template.onchange_calculate_volume()
         self.assertAlmostEqual(
-            120,
+            120000,
             self.template.volume
         )
 
@@ -65,3 +70,4 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template = self.env['product.template'].new()
         self.uom_m = self.env['uom.uom'].search([('name', '=', 'm')])
         self.uom_cm = self.env['uom.uom'].search([('name', '=', 'cm')])
+        self.uom_litre = self.env.ref("uom.product_uom_litre")
