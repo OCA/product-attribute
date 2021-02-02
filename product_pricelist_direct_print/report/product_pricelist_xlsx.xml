@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <report id="product_pricelist_xlsx"
+            string="Product Pricelist XLSX"
+            model="product.pricelist.print"
+            report_type="xlsx"
+            menu="False"
+            name="product_pricelist_direct_print.product_pricelist_xlsx"
+            file="product_pricelist_direct_print.product_pricelist_xlsx"
+    />
+
+</odoo>

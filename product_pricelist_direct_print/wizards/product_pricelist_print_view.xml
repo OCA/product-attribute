@@ -20,6 +20,7 @@
                 <field name="hide_pricelist_name"/>
                 <field name="order_field"/>
                 <field name="date"/>
+                <field name="show_only_defined_products"/>
                 <field name="show_variants" groups="product.group_product_variant" attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"/>
                 <field name="summary"/>
                 <field name="last_ordered_products" attrs="{'invisible':[('partner_count','=',0)]}"/>
@@ -55,6 +56,12 @@
             <footer>
                 <button name="print_report" string="Print" type="object"
                         class="btn-primary" attrs="{'invisible':[('partner_count', '>', 1)]}"/>
+                <button name="export_xlsx"
+                    string="Export"
+                    type="object"
+                    class="btn-primary"
+                    attrs="{'invisible':[('partner_count', '>', 1)]}"
+                    icon="fa-file-excel-o"/>
                 <button name="action_pricelist_send" string="Send by email"
                         type="object" class="btn-primary" attrs="{'invisible':[('pricelist_id','=',False), ('partner_count','=',0)]}"/>
                 <button string="Cancel" class="btn-default" special="cancel" />
