@@ -4,6 +4,7 @@
   * David Vidal
   * Sergio Teruel
   * João Marques
+  * Carlos Roca
 
 * `CorporateHub <https://corporatehub.eu/>`__
 
