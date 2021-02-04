@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="abc_classification_product_level_form_view">
+        <field name="name">abc.classification.product.level.form (in product_abc_classification_sale_stock)</field>
+        <field name="model">abc.classification.product.level</field>
+        <field name="inherit_id" ref="product_abc_classification_base.abc_classification_product_level_form_view"/>
+        <field name="arch" type="xml">
+             <group name="main_info" position="after">
+                 <group name="sale_stock_history" string="History" attrs="{'invisible': [('profile_type', '!=', 'sale_stock')]}"/>
+                 <field name="sale_stock_level_history_ids" nolabel="1">
+                     <tree default_order="to_date DESC">
+                         <field name="from_date"/>
+                         <field name="to_date"/>
+                         <field name="computed_level_id"/>
+                         <field name="ranking"/>
+                         <field name="number_of_so_lines"/>
+                         <field name="total_of_so_lines"/>
+                         <field name="percentage"/>
+                         <field name="cumulated_percentage"/>
+                     </tree>
+                 </field>
+             </group>
+        </field>
+    </record>
+
+</odoo>

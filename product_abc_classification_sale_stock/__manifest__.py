@@ -11,7 +11,12 @@
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "depends": ["product_abc_classification_base", "sale_stock"],
-    "data": ["views/abc_classification_profile.xml"],
+    "data": [
+        "views/abc_classification_product_level.xml",
+        "security/abc_sale_stock_level_history.xml",
+        "views/abc_sale_stock_level_history.xml",
+        "views/abc_classification_profile.xml",
+    ],
     "demo": [
         "demo/abc_classification_level.xml",
         "demo/abc_classification_profile.xml",
