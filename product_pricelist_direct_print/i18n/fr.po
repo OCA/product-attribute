@@ -107,6 +107,11 @@ msgid "<strong>Sale Price</strong>"
 msgstr "<strong>Prix de vente</strong>"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model,name:product_pricelist_direct_print.model_report_product_pricelist_direct_print_product_pricelist_xlsx
+msgid "Abstract model to export as xlsx the product pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Cancel"
 msgstr "Annuler"
@@ -115,6 +120,13 @@ msgstr "Annuler"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__categ_ids
 msgid "Categories"
 msgstr "Catégories"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid ""
+"Check this field to print only the products defined in the pricelist. The "
+"entries in the list referring to all products will not be displayed."
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_uid
@@ -144,8 +156,14 @@ msgstr "Date"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Export"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -159,6 +177,7 @@ msgstr "Cacher le nom de la liste de prix"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__id
 msgid "ID"
 msgstr "ID"
 
@@ -184,6 +203,7 @@ msgstr "Laisser vide pour tous les produits"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx____last_update
 msgid "Last Modified on"
 msgstr "Dernière Modification le"
 
@@ -253,6 +273,11 @@ msgid "Product Pricelist Print"
 msgstr "Imprimer la liste de prix des produits"
 
 #. module: product_pricelist_direct_print
+#: model:ir.actions.report,name:product_pricelist_direct_print.product_pricelist_xlsx
+msgid "Product Pricelist XLSX"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Product Templates"
 msgstr "Produits"
@@ -289,12 +314,18 @@ msgid "Show Variants"
 msgstr "Montrer les variantes"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid "Show the products defined on pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
 msgid "Summary"
 msgstr ""
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:130
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:136
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""

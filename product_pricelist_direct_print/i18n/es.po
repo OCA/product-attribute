@@ -280,7 +280,6 @@ msgstr "Imprimir lista de precios del producto"
 #. module: product_pricelist_direct_print
 #: model:ir.actions.report,name:product_pricelist_direct_print.product_pricelist_xlsx
 #, fuzzy
-#| msgid "Product Pricelist Print"
 msgid "Product Pricelist XLSX"
 msgstr "Imprimir lista de precios del producto"
 
@@ -332,6 +331,7 @@ msgid "Summary"
 msgstr "Resumen"
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:130
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:136
 #, python-format
 msgid "You must set price list or any customer or any show price option."
