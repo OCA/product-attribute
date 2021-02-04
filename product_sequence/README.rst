@@ -46,6 +46,9 @@ To specify a different sequence for a product category proceed as follows:
    the form view, *Inventory > Configuration > Products > Products Categories*;
    or create a menuitem manually).
 #. Fill the *Prefix for Product Internal Reference* as desired.
+#. Under the settings (Settings -> General Settings -> Products), you can specify
+   whether the prefix of the parent category should be used if no prefix has been
+   specified for the category.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
