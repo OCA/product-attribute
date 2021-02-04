@@ -1,7 +1,8 @@
 * `Tecnativa <https://www.tecnativa.com>`_:
 
-  * Carlos Dauden <carlos.dauden@tecnativa.com>
-  * David Vidal <david.vidal@tecnativa.com>
+  * Carlos Dauden
+  * David Vidal
+  * Carlos Roca
 
 * `CorporateHub <https://corporatehub.eu/>`__
 

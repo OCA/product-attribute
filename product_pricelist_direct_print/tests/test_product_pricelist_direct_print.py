@@ -75,3 +75,40 @@ class TestProductPricelistDirectPrint(SavepointCase):
             active_ids=[self.partner.id, partner_2.id],
         ).create({})
         wiz.action_pricelist_send()
+
+    def test_show_only_defined_products(self):
+        self.pricelist.item_ids.write({
+            "applied_on": "0_product_variant",
+            "product_id": self.product.id,
+        })
+        wiz = self.wiz_obj.with_context(
+            active_model='product.pricelist',
+            active_id=self.pricelist.id,
+        ).create({})
+        wiz.show_only_defined_products = True
+        wiz.show_variants = True
+        products = wiz.get_products_to_print()
+        self.assertIn(products, self.pricelist.item_ids.mapped('product_id'))
+        self.pricelist.item_ids.write({
+            "applied_on": "2_product_category",
+            "categ_id": self.category.id,
+        })
+        wiz.show_only_defined_products = True
+        wiz.show_variants = True
+        products = wiz.get_products_to_print()
+        self.assertIn(self.product, products)
+
+    def test_reports(self):
+        wiz = self.wiz_obj.with_context(
+            active_model='product.pricelist',
+            active_id=self.pricelist.id,
+        ).create({})
+        # Print PDF
+        report_name = 'product_pricelist_direct_print.action_report_product_pricelist'
+        report_pdf = self.env.ref(report_name).render(wiz.ids)
+        self.assertGreaterEqual(len(report_pdf[0]), 1)
+        # Export XLSX
+        report_name = 'product_pricelist_direct_print.product_pricelist_xlsx'
+        report_xlsx = self.env.ref(report_name).render(wiz.ids)
+        self.assertGreaterEqual(len(report_xlsx[0]), 1)
+        self.assertEqual(report_xlsx[1], 'xlsx')
