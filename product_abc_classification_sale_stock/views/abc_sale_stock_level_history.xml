@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="abc_sale_stock_level_history_search_view">
+        <field name="name">abc.sale_stock.level.history.search (in product_abc_classification_sale_stock)</field>
+        <field name="model">abc.sale_stock.level.history</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="profile_id" string="Profile"/>
+                <separator/>
+                <filter string="This Year" name="thisyear" domain="['|', ('to_date', '=', False), '&amp;',('to_date','&lt;=', time.strftime('%%Y-12-31')),('to_date','&gt;=',time.strftime('%%Y-01-01'))]" help="Data collected this year"/>
+                <group expand="1" string="Group By">
+                    <filter string="Profile" name="group_by_profile" domain="[]" context="{'group_by':'profile_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="abc_sale_stock_level_history_tree_view">
+        <field name="name">abc.sale_stock.level.history.tree (in product_abc_classification_sale_stock)</field>
+        <field name="model">abc.sale_stock.level.history</field>
+        <field name="arch" type="xml">
+            <tree default_order="to_date DESC, product_id DESC">
+                <field name="from_date"/>
+                <field name="to_date"/>
+                <field name="product_id"/>
+                 <field name="computed_level_id"/>
+                 <field name="ranking"/>
+                 <field name="number_of_so_lines"/>
+                 <field name="total_of_so_lines"/>
+                 <field name="percentage"/>
+                 <field name="cumulated_percentage"/>
+                <field name="profile_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="abc_sale_stock_level_history_act_window">
+        <field name="name">Abc Sale_stock Level History</field>
+        <field name="res_model">abc.sale_stock.level.history</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_thisyear': 1}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="abc_sale_stock_level_history_menu">
+        <field name="name">Abc Sale_stock Level History</field>
+        <field name="parent_id" ref="stock.menu_warehouse_report"/>
+        <field name="action" ref="abc_sale_stock_level_history_act_window"/>
+        <field name="sequence" eval="99"/>
+
+    </record>
+
+</odoo>

@@ -13,7 +13,7 @@
                   role="alert"
                   attrs="{'invisible': [('flag','=',False)]}"
                 >Computed level differs from the specified level</div>
-          <group>
+          <group name="main_info">
             <field name="display_name" />
             <field name="allowed_profile_ids" invisible="1"/>
             <field name="profile_id" domain="[('id', 'in', allowed_profile_ids[0] and allowed_profile_ids[0][2] or False))]"/>
@@ -23,6 +23,7 @@
             <field name="level_id"/>
             <field name="manual_level_id" class="oe_edit_only"/>
             <field name="flag" invisible="1"/>
+            <field name="profile_type" invisible="1"/>
           </group>
         </sheet>
         <div class="oe_chatter">
