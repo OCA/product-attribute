@@ -263,3 +263,15 @@ class TestABCClassificationProfile(SavepointCase):
         self.product1.refresh()
         self.stock_profile._compute_abc_classification()
         self.assertFalse(self.product1.abc_classification_product_level_ids)
+
+    @freeze_time("2021-01-01 07:10:00")
+    def test_02(self):
+        # check that a line is created into the history value for each
+        # computed classification level each time a compute is done
+        levels = self.product1.abc_classification_product_level_ids
+        self.assertFalse(levels.sale_stock_level_history_ids)
+        self.stock_profile._compute_abc_classification()
+        levels = self.product1.abc_classification_product_level_ids
+        self.assertEqual(len(levels.sale_stock_level_history_ids), 1)
+        self.stock_profile._compute_abc_classification()
+        self.assertEqual(len(levels.sale_stock_level_history_ids), 2)
