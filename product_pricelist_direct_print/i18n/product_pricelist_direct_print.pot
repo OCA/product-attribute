@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-04 13:33+0000\n"
+"PO-Revision-Date: 2021-02-04 13:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -103,6 +105,12 @@ msgid "Check this field to print only the products defined in the pricelist. The
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:62
+#, python-format
+msgid "Cost Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_uid
 msgid "Created by"
 msgstr ""
@@ -110,6 +118,12 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:46
+#, python-format
+msgid "Currency:"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -126,6 +140,18 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__date
 msgid "Date"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:48
+#, python-format
+msgid "Date:"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:59
+#, python-format
+msgid "Description"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -193,6 +219,12 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:67
+#, python-format
+msgid "List Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: selection:product.pricelist.print,order_field:0
 msgid "Name"
 msgstr ""
@@ -200,6 +232,12 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__order_field
 msgid "Order"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:37
+#, python-format
+msgid "PRODUCTS"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -213,6 +251,12 @@ msgstr ""
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
 msgid "Price List"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:41
+#, python-format
+msgid "Price List Name:"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -259,6 +303,12 @@ msgid "Products"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:65
+#, python-format
+msgid "Sale Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Send by email"
 msgstr ""
@@ -289,8 +339,20 @@ msgid "Show the products defined on pricelist"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:45
+#, python-format
+msgid "Special Pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
 msgid "Summary"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:102
+#, python-format
+msgid "Summary:"
 msgstr ""
 
 #. module: product_pricelist_direct_print
