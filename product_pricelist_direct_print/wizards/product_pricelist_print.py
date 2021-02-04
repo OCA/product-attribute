@@ -6,6 +6,7 @@ from collections import defaultdict
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.osv import expression
 
 
 class ProductPricelistPrint(models.TransientModel):
@@ -16,6 +17,11 @@ class ProductPricelistPrint(models.TransientModel):
     partner_id = fields.Many2one(comodel_name="res.partner", string="Customer")
     partner_ids = fields.Many2many(comodel_name="res.partner", string="Customers")
     categ_ids = fields.Many2many(comodel_name="product.category", string="Categories")
+    show_only_defined_products = fields.Boolean(
+        string="Show the products defined on pricelist",
+        help="Check this field to print only the products defined in the pricelist. "
+        "The entries in the list referring to all products will not be displayed.",
+    )
     show_variants = fields.Boolean()
     product_tmpl_ids = fields.Many2many(
         comodel_name="product.template",
@@ -220,8 +226,47 @@ class ProductPricelistPrint(models.TransientModel):
 
     def get_products_domain(self):
         domain = [("sale_ok", "=", True)]
+        if self.show_only_defined_products:
+            aux_domain = []
+            items_dic = {"categ_ids": [], "product_ids": [], "variant_ids": []}
+            for item in self.pricelist_id.item_ids:
+                if item.applied_on == "0_product_variant":
+                    items_dic["variant_ids"].append(item.product_id.id)
+                if item.applied_on == "1_product":
+                    items_dic["product_ids"].append(item.product_tmpl_id.id)
+                if item.applied_on == "2_product_category" and item.categ_id.parent_id:
+                    items_dic["categ_ids"].append(item.categ_id.id)
+            if items_dic["categ_ids"]:
+                aux_domain = expression.OR(
+                    [aux_domain, [("categ_id", "in", items_dic["categ_ids"])]]
+                )
+            if items_dic["product_ids"]:
+                if self.show_variants:
+                    aux_domain = expression.OR(
+                        [
+                            aux_domain,
+                            [("product_tmpl_id", "in", items_dic["product_ids"])],
+                        ]
+                    )
+                else:
+                    aux_domain = expression.OR(
+                        [aux_domain, [("id", "in", items_dic["product_ids"])]]
+                    )
+            if items_dic["variant_ids"]:
+                if self.show_variants:
+                    aux_domain = expression.OR(
+                        [aux_domain, [("id", "in", items_dic["variant_ids"])]]
+                    )
+                else:
+                    aux_domain = expression.OR(
+                        [
+                            aux_domain,
+                            [("product_variant_ids", "in", items_dic["variant_ids"])],
+                        ]
+                    )
+            domain = expression.AND([domain, aux_domain])
         if self.categ_ids:
-            domain.append(("categ_id", "in", self.categ_ids.ids))
+            domain = expression.AND([domain, [("categ_id", "in", self.categ_ids.ids)]])
         return domain
 
     def get_products_to_print(self):
@@ -266,3 +311,9 @@ class ProductPricelistPrint(models.TransientModel):
                 }
             )
         return group_list
+
+    def export_xlsx(self):
+        self.ensure_one()
+        return self.env.ref(
+            "product_pricelist_direct_print.product_pricelist_xlsx"
+        ).report_action(self)
