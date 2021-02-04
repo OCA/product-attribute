@@ -23,7 +23,6 @@ class AbcClassificationProductLevel(models.Model):
     computed_level_id = fields.Many2one(
         "abc.classification.level",
         string="Computed classification level",
-        track_visibility="onchange",
         readonly=True,
     )
     level_id = fields.Many2one(
@@ -59,6 +58,11 @@ class AbcClassificationProductLevel(models.Model):
         "abc.classification.profile",
         string="Profile",
         required=True,
+    )
+    profile_type = fields.Selection(
+        related="profile_id.profile_type",
+        readonly=True,
+        store=True,
     )
     allowed_profile_ids = fields.Many2many(
         comodel_name="abc.classification.profile",

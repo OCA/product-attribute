@@ -2,6 +2,8 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import csv
+from cStringIO import StringIO
 from datetime import datetime, timedelta
 from operator import attrgetter
 
@@ -41,11 +43,15 @@ class AbcClassificationProfile(models.Model):
                     ).forman(profile_name=rec.name)
                 )
 
-    def _fill_initial_product_data(self, date):
-        product_list = []
-        if self.profile_type == "sale_stock":
-            return self._fill_data(date, product_list)
-        return product_list, 0
+    @api.model
+    def _get_collected_data_class(self):
+        return SaleStockData
+
+    def _init_collected_data_instance(self):
+        self.ensure_one()
+        sale_stock_data = self._get_collected_data_class()()
+        sale_stock_data.profile = self
+        return sale_stock_data
 
     def _get_all_product_ids(self):
         """Get a set of product ids with the current profile"""
@@ -78,6 +84,7 @@ class AbcClassificationProfile(models.Model):
                 datetime.today() - timedelta(days=self.period)
             )
         )
+        to_date = datetime.today()
         customer_location_ids = (
             self.env["stock.location"].search([("usage", "=", "customer")]).ids
         )
@@ -135,25 +142,33 @@ class AbcClassificationProfile(models.Model):
         result = self.env.cr.fetchall()
 
         total = 0
-        product_list = []
+        sale_stock_data_list = []
+        ranking = 1
+        ProductProduct = self.env["product.product"]
         for r in result:
+            sale_stock_data = self._init_collected_data_instance()
             product_id = r[0]
-            product_data = {
-                "product": self.env["product.product"].browse(product_id),
-                "number_of_so_lines": int(r[1]),
-            }
+            sale_stock_data.product = ProductProduct.browse(product_id)
+            sale_stock_data.number_of_so_lines = int(r[1])
+            sale_stock_data.ranking = ranking
+            sale_stock_data.from_date = from_date
+            sale_stock_data.to_date = to_date
+            ranking += 1
             total += int(r[1])
-            product_list.append(product_data)
+            sale_stock_data_list.append(sale_stock_data)
             all_product_ids.remove(product_id)
+
         # Add all products not sold or not delivered into this timelapse
         for product_id in all_product_ids:
-            product_list.append(
-                {
-                    "product": self.env["product.product"].browse(product_id),
-                    "number_of_so_lines": 0,
-                }
-            )
-        return product_list, total
+            sale_stock_data = self._init_collected_data_instance()
+            sale_stock_data.product = ProductProduct.browse(product_id)
+            sale_stock_data.number_of_so_lines = 0
+            sale_stock_data.ranking = ranking
+            sale_stock_data.from_date = from_date
+            sale_stock_data.to_date = to_date
+            sale_stock_data_list.append(sale_stock_data)
+
+        return sale_stock_data_list, total
 
     def _build_ordered_level_cumulative_percentage(self):
         """Return an ordered list of tuple of level, cumulative percentage
@@ -206,15 +221,15 @@ class AbcClassificationProfile(models.Model):
             {"ids": tuple(ids_to_remove)},
         )
 
-    def _product_data_to_vals(self, product_data, level, create=False):
+    def _sale_stock_data_to_vals(self, sale_stock_data, create=False):
         self.ensure_one()
         res = {
-            "computed_level_id": level.id
+            "computed_level_id": sale_stock_data.computed_level.id
         }
         if create:
             res.update({
-                "product_id": product_data["product"].id,
-                "profile_id": self.id,
+                "product_id": sale_stock_data.product.id,
+                "profile_id": sale_stock_data.profile.id,
             })
         return res
 
@@ -230,31 +245,30 @@ class AbcClassificationProfile(models.Model):
         ProductClassification = self.env["abc.classification.product.level"]
 
         for profile in to_compute:
-            product_list, total = profile._get_data()
+            sale_stock_data_list, total = profile._get_data()
             existing_level_ids_to_remove = profile._get_existing_level_ids()
             level_percentage = (
                 profile._build_ordered_level_cumulative_percentage()
             )
             level, percentage = level_percentage.pop(0)
             previous_data = {}
-            for i, product_data in enumerate(product_list):
-
+            for i, sale_stock_data in enumerate(sale_stock_data_list):
                 # Compute percentages and cumulative percentages for the products
-                product_data["number_of_so_lines_percentage"] = (
-                    (100.0 * product_data["number_of_so_lines"] / total)
+                sale_stock_data.percentage = (
+                    (100.0 * sale_stock_data.number_of_so_lines / total)
                     if total
                     else 0.0
                 )
 
-                product_data["cumulative_percentage"] = (
-                    product_data["number_of_so_lines_percentage"]
+                sale_stock_data.cumulated_percentage = (
+                    sale_stock_data.percentage
                     if i == 0
                     else (
-                        product_data["number_of_so_lines_percentage"]
-                        + previous_data["cumulative_percentage"]
+                        sale_stock_data.percentage
+                        + previous_data.cumulated_percentage
                     )
                 )
-                if float_round(product_data["cumulative_percentage"], 0) > 100:
+                if float_round(sale_stock_data.cumulated_percentage, 0) > 100:
                     raise UserError(
                         _("Cumulative percentage greater than 100.")
                     )
@@ -263,32 +277,111 @@ class AbcClassificationProfile(models.Model):
                 # cumulative percentage
 
                 if (
-                    product_data["cumulative_percentage"] > percentage
+                    sale_stock_data.cumulated_percentage > percentage
                     and len(level_percentage) > 0
                 ):
                     level, percentage = level_percentage.pop(0)
 
-                product_abc_classification = product_data[
-                    "product"
-                ].abc_classification_product_level_ids.filtered(
+                product = sale_stock_data.product
+                levels = product.abc_classification_product_level_ids
+                product_abc_classification = levels.filtered(
                     lambda p, prof=profile: p.profile_id == prof
                 )
 
+                sale_stock_data.computed_level = level
                 if product_abc_classification:
                     # The line is still significant...
                     existing_level_ids_to_remove.remove(
                         product_abc_classification.id
                     )
                     if product_abc_classification.level_id != level:
-                        vals = profile._product_data_to_vals(
-                            product_data, level, create=False
+                        vals = profile._sale_stock_data_to_vals(
+                            sale_stock_data, create=False
                         )
                         product_abc_classification.write(vals)
                 else:
-                    vals = profile._product_data_to_vals(
-                        product_data, level, create=True
+                    vals = profile._sale_stock_data_to_vals(
+                        sale_stock_data, create=True
                     )
-                    ProductClassification.create(vals)
-                previous_data = product_data
+                    product_abc_classification = ProductClassification.create(
+                        vals
+                    )
+                sale_stock_data.total_of_so_lines = total
+                sale_stock_data.product_level = product_abc_classification
+                previous_data = sale_stock_data
+            self._log_history(sale_stock_data_list)
             profile._purge_obsolete_level_values(existing_level_ids_to_remove)
         return res
+
+    def _log_history(self, sale_stock_data_list):
+        """ Log collected and computed values into
+        abc.sale_stock.level.history
+
+        """
+        vals = StringIO()
+        writer = csv.writer(vals, delimiter=";")
+        for sale_stock_data in sale_stock_data_list:
+            writer.writerow(sale_stock_data._to_csv_line())
+        vals.seek(0)
+        table = self.env["abc.sale_stock.level.history"]._table
+        columns = sale_stock_data._get_col_names()
+        self.env.cr.copy_from(vals, table, columns=columns, sep=";")
+        self.env["abc.classification.product.level"].invalidate_cache(
+            ["sale_stock_level_history_ids"]
+        )
+
+
+class SaleStockData(object):
+    """ Sale stock collected data
+
+    This class is used to store all the data collectd and computed for
+    a abc classification product level. It also provide methods used to bulk
+    insert these data into the abc.sale_stock.level.history table.
+
+    """
+    __slots__ = [
+        "product", "profile", "computed_level", "ranking", "percentage",
+        "cumulated_percentage", "number_of_so_lines", "total_of_so_lines",
+        "product_level", "from_date", "to_date"
+    ]
+
+    def _to_csv_line(self):
+        """Return values to write into a csv file"""
+        return [
+            self.product.id,
+            self.product.product_tmpl_id.id,
+            self.profile.id,
+            self.computed_level.id,
+            self.profile.warehouse_id.id,
+            self.ranking,
+            self.percentage,
+            self.cumulated_percentage,
+            self.number_of_so_lines,
+            self.total_of_so_lines,
+            self.product_level.id,
+            self.from_date,
+            self.to_date
+        ]
+
+    @classmethod
+    def _get_col_names(cls):
+        """Return the ordered list of column names related to the values
+        returned by _to_csv_line
+
+        We use the name of the columns defined into abc.sale_stock.level.history
+        """
+        return [
+            "product_id",
+            "product_tmpl_id",
+            "profile_id",
+            "computed_level_id",
+            "warehouse_id",
+            "ranking",
+            "percentage",
+            "cumulated_percentage",
+            "number_of_so_lines",
+            "total_of_so_lines",
+            "product_level_id",
+            "from_date",
+            "to_date"
+        ]
