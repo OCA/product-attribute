@@ -19,6 +19,7 @@ class ProductPackagingType(models.Model):
         )
         i = 0
         required_packaging_types = self.search([("required", "=", True)])
+        # FIXME: limit is never used and the whole method should be refactored
         for product in existing_products:
             if limit and i == limit:
                 break
