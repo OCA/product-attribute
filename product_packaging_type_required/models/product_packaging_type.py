@@ -11,7 +11,7 @@ class ProductPackagingType(models.Model):
 
     @api.model
     def cron_check_create_required_packaging(self, limit=0):
-        """ if limit=0, the method will not apply a limit to process missing
+        """if limit=0, the method will not apply a limit to process missing
         packages.
         """
         existing_products = self.env["product.product"].search(
