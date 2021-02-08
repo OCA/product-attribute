@@ -173,17 +173,17 @@ class TestProductSupplierinfo(common.SavepointCase):
         seller.sale_margin = 50
         self.assertAlmostEqual(
             seller._get_supplierinfo_pricelist_price(),
-            75.0,
+            100.0,
         )
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 6, False),
-            75.0,
+            100.0,
         )
         self.assertAlmostEqual(
             self.product.product_tmpl_id.with_context(
                 pricelist=self.pricelist.id, quantity=6
             ).price,
-            75.0,
+            100.0,
         )
 
     def test_supplierinfo_per_variant(self):
