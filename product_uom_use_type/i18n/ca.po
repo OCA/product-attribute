@@ -6,95 +6,101 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-02-08 13:44+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_barrel
 msgid "Barrel - 159L (Unit only for purchases)"
-msgstr ""
+msgstr "Barril - 159L (Unitat només per a compres)"
 
 #. module: product_uom_use_type
 #: model:product.template,name:product_uom_use_type.product_bier_faucheuse
 msgid "Bier - La Faucheuse"
-msgstr ""
+msgstr "Cervesa: The Grim Reaper"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_id
 msgid "Default unit of measure used for all stock operations."
 msgstr ""
+"Unitat de mesura predeterminada que s’utilitza per a totes les operacions "
+"d’estoc."
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_po_id
 msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
 msgstr ""
+"Unitat de mesura predeterminada que s’utilitza per a les comandes de compra. "
+"Ha de ser de la mateixa categoria que la unitat de mesura per defecte."
 
 #. module: product_uom_use_type
 #: model:product.template,uom_name:product_uom_use_type.product_bier_faucheuse
 #: model:product.template,volume_uom_name:product_uom_use_type.product_bier_faucheuse
 msgid "Liter(s)"
-msgstr ""
+msgstr "Litre(s)"
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_pint
 msgid "Pint US - 0,55L (Unit only for sales)"
-msgstr ""
+msgstr "Pint US - 0,55L (Unitat només per a vendes)"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producte"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de producte"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura del producte"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
 msgid "Purchase Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura de compres"
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for purchases"
-msgstr ""
+msgstr "Unitat disponible per compres"
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for sales"
-msgstr ""
+msgstr "Unitat disponible per vendes"
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for sales and purchases"
-msgstr ""
+msgstr "Unitat disponible per vendes i compres"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_id
 msgid "Unit of Measure"
-msgstr ""
+msgstr "Unitat de mesura"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_uom_uom__use_type
 msgid "Use Type"
-msgstr ""
+msgstr "Tipus d'ús"
 
 #. module: product_uom_use_type
 #: model:product.template,weight_uom_name:product_uom_use_type.product_bier_faucheuse
 msgid "kg"
-msgstr ""
+msgstr "kg"
