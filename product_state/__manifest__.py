@@ -16,7 +16,7 @@
         "security/ir.model.access.csv",
         "views/product_template.xml",
     ],
-    "application": True,
+    "application": False,
     "maintainers": ["emagdalenaC2i"],
     "post_init_hook": "post_init_hook",
 }
