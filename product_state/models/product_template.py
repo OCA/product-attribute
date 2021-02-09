@@ -28,7 +28,8 @@ class ProductTemplate(models.Model):
     @api.model
     def _get_default_product_state_id(self):
         return self.env.ref(
-            "product_state.product_state_sellable", raise_if_not_found=False)
+            "product_state.product_state_sellable", raise_if_not_found=False
+        )
 
     @api.depends("product_state_id")
     def _compute_product_state(self):
