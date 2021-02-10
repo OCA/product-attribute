@@ -40,7 +40,6 @@ msgstr ""
 
 #. module: packaging_uom
 #: code:addons/packaging_uom/models/product_packaging.py:0
-#: code:addons/packaging_uom/models/product_packaging.py:0
 #, python-format
 msgid "The field Unit of Measure is required"
 msgstr ""
