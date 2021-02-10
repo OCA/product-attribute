@@ -31,7 +31,6 @@
                             <field name="doc_validity_date" />
                             <field
                                 name="ce_certificate_medical_class_ids"
-                                string="Medical class"
                                 widget="many2many_binary"
                             />
                             <field name="ce_certificate_validity_date" />
