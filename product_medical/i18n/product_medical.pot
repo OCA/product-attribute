@@ -18,7 +18,7 @@ msgstr ""
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_medical_class_ids
 #: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_medical_class_ids
-msgid "CE Certificate Medical class"
+msgid "CE Certificate"
 msgstr ""
 
 #. module: product_medical

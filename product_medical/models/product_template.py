@@ -33,7 +33,7 @@ class ProductTemplate(models.Model):
         relation="product_ce_certificate_medical_class_rel",
         column1="product_template_id",
         column2="attachment_id",
-        string="CE Certificate Medical class",
+        string="CE Certificate",
     )
     ce_certificate_validity_date = fields.Date(string="Certificate Validity Date")
     notified_body_id = fields.Many2one(
