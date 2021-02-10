@@ -4,17 +4,19 @@ import odoo.tests.common as common
 from odoo.exceptions import ValidationError
 
 
-class TestProductPackaging(common.TransactionCase):
-    def setUp(self):
-        super(TestProductPackaging, self).setUp()
-        self.packaging_obj = self.env["product.packaging"]
-        self.uom_unit = self.env.ref("uom.product_uom_unit")
-        self.uom_dozen = self.env.ref("uom.product_uom_dozen")
-        self.product_dozen = self.env["product.product"].create(
-            {"name": "PRODUCT DOZEN", "uom_id": self.uom_dozen.id}
+class TestProductPackaging(common.SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestProductPackaging, cls).setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.packaging_obj = cls.env["product.packaging"]
+        cls.uom_unit = cls.env.ref("uom.product_uom_unit")
+        cls.uom_dozen = cls.env.ref("uom.product_uom_dozen")
+        cls.product_dozen = cls.env["product.product"].create(
+            {"name": "PRODUCT DOZEN", "uom_id": cls.uom_dozen.id}
         )
-        self.product_unit = self.env["product.product"].create(
-            {"name": "PRODUCT UNIT", "uom_id": self.uom_unit.id}
+        cls.product_unit = cls.env["product.product"].create(
+            {"name": "PRODUCT UNIT", "uom_id": cls.uom_unit.id}
         )
 
     def test_compute_quantity_by_package(self):
@@ -134,21 +136,15 @@ class TestProductPackaging(common.TransactionCase):
             ]
         )
         self.assertEqual(1, len(uom_524))
-        
+
     def test_packaging_qty_zero(self):
         """
             To avoid changing standard behaviour, we affect the default
             uom to packaging with qty == 0.
         """
-        
+
         product_packaging_dozen = self.packaging_obj.create(
-            {
-                "name": "PACKAGING TEST",
-                "product_id": self.product_dozen.id,
-            }
+            {"name": "PACKAGING TEST", "product_id": self.product_dozen.id}
         )
         product_packaging_dozen.qty = 0.0
-        self.assertEquals(
-            self.uom_unit,
-            product_packaging_dozen.uom_id
-        )
+        self.assertEquals(self.uom_unit, product_packaging_dozen.uom_id)
