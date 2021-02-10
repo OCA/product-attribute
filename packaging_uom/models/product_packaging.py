@@ -37,7 +37,7 @@ class ProductPackaging(models.Model):
         compute="_compute_qty", inverse="_inverse_qty", store=True, readonly=False
     )
 
-    @api.depends("uom_id", "product_id.uom_id")
+    @api.depends("uom_id", "product_id", "product_id.uom_id")
     def _compute_qty(self):
         """
         Compute the quantity by package based on uom
@@ -48,7 +48,7 @@ class ProductPackaging(models.Model):
                     1, to_unit=packaging.product_id.uom_id
                 )
             else:
-                packaging.qty = 0
+                packaging.qty = 1.0
 
     @api.onchange("product_id")
     def onchange_product_id(self):
@@ -62,20 +62,18 @@ class ProductPackaging(models.Model):
         """
         for packaging in self:
             category_id = packaging.product_id.uom_id.category_id
+            qty = packaging.qty if packaging.qty else 1.0
             uom_id = packaging.uom_id.search(
-                [
-                    ("factor", "=", 1.0 / packaging.qty),
-                    ("category_id", "=", category_id.id),
-                ]
+                [("factor", "=", 1.0 / qty), ("category_id", "=", category_id.id)]
             )
             if not uom_id:
                 uom_id = packaging.uom_id.create(
                     {
-                        "name": "{} {}".format(category_id.name, packaging.qty),
+                        "name": "{} {}".format(category_id.name, qty),
                         "category_id": category_id.id,
                         "rounding": packaging.product_id.uom_id.rounding,
                         "uom_type": "bigger",
-                        "factor_inv": packaging.qty,
+                        "factor_inv": qty,
                         "active": True,
                     }
                 )
