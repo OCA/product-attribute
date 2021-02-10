@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!-- Copyright 2017 Carlos Dauden - Tecnativa <carlos.dauden@tecnativa.com>
+<!-- Copyright 2017-2021 Tecnativa - Carlos Dauden
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="product_pricelist_item_revision_tree_view" model="ir.ui.view">
@@ -11,65 +11,73 @@
                 <attribute name="editable">bottom</attribute>
                 <attribute name="create">false</attribute>
             </tree>
-            <field name="name" position="before">
-                <field name="pricelist_id" readonly="1" />
-                <field name="applied_on" readonly="1" />
+            <field name="pricelist_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="price" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="min_quantity" position="attributes">
+                <attribute name="optional">show</attribute>
             </field>
             <field name="min_quantity" position="after">
-                <field name="compute_price" readonly="1" />
-                <field name="fixed_price" />
-                <field name="variation_percent" />
+                <field name="compute_price" readonly="1" optional="hide" />
+                <field
+                    name="fixed_price"
+                    attrs="{'invisible': [('compute_price', '!=', 'fixed')]}"
+                    optional="show"
+                />
+                <field
+                    name="percent_price"
+                    string="Percent"
+                    attrs="{'invisible': [('compute_price', '!=', 'percentage')]}"
+                    optional="show"
+                />
+                <field name="variation_percent" optional="show" />
             </field>
         </field>
     </record>
     <record id="product_pricelist_item_view_search" model="ir.ui.view">
-        <field name="name">product.pricelist.item.search</field>
         <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_view_search" />
         <field name="arch" type="xml">
-            <search string="Pricelist Items Search">
-                <field name="name" string="Item" />
-                <field name="pricelist_id" string="Pricelist" />
-                <field name="product_tmpl_id" string="Product Template" />
-                <field name="product_id" string="Product Variant" />
-                <field name="categ_id" string="Product Category" />
+            <filter name="Product Rule" position="before">
+                <filter
+                    string="Current"
+                    name="current_date"
+                    domain="[
+                        '|',
+                        ('date_start', '=', False),
+                        ('date_start', '&lt;=', context_today().strftime('%Y-%m-%d')),
+                        '|',
+                        ('date_end', '=', False),
+                        ('date_end', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                    ]"
+                />
                 <separator />
                 <filter
-                    string="Applied on global"
+                    string="Global Rule"
                     name="apply_global"
                     domain="[('applied_on','=', '3_global')]"
                 />
                 <filter
-                    string="Applied on categories"
+                    string="Category Rule"
                     name="apply_categ"
                     domain="[('applied_on','=', '2_product_category')]"
                 />
-                <filter
-                    string="Applied on products"
-                    name="apply_product"
-                    domain="[('applied_on','=', '1_product')]"
+            </filter>
+            <field name="pricelist_id" position="after">
+                <field name="product_tmpl_id" string="Product Template" />
+                <field
+                    name="product_id"
+                    string="Product Variant"
+                    groups="product.group_product_variant"
                 />
-                <filter
-                    string="Applied on variants"
-                    name="apply_variant"
-                    domain="[('applied_on','=', '0_product_variant')]"
-                />
-                <group expand="0" name="Items" string="Group By">
-                    <filter
-                        string="Pricelist"
-                        name="group_by_pricelist_id"
-                        domain="[]"
-                        help="Pricelist"
-                        context="{'group_by':'pricelist_id'}"
-                    />
-                    <filter
-                        string="Product"
-                        name="group_by_product_tmpl_id"
-                        domain="[]"
-                        help="Products"
-                        context="{'group_by':'product_tmpl_id'}"
-                    />
-                </group>
-            </search>
+                <field name="categ_id" string="Product Category" />
+            </field>
         </field>
     </record>
     <record id="product_pricelist_item_action" model="ir.actions.act_window">
@@ -77,7 +85,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.pricelist.item</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="product_pricelist_item_revision_tree_view" />
+        <field name="context">{'search_default_current_date':1}</field>
     </record>
     <menuitem
         action="product_pricelist_item_action"
