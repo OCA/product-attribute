@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_pricelist_revision
+# 	* product_pricelist_revision
 #
 msgid ""
 msgstr ""
@@ -54,6 +54,11 @@ msgstr ""
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Current"
 msgstr ""
 
 #. module: product_pricelist_revision
@@ -115,6 +120,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Name"
 msgstr "Nome"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+msgid "Percent"
+msgstr ""
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
@@ -179,7 +189,8 @@ msgstr "Relazione con l'elemento precedente quando si duplica la riga"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
-msgid "Set new start date and variation percent to duplicate.\n"
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
 "                    This process set start date previous day as end date of\n"
 "                    origin record.\n"
 "                    <br/>\n"
