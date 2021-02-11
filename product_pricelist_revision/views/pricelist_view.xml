@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Copyright 2017 Carlos Dauden - Tecnativa <carlos.dauden@tecnativa.com>
+<!-- Copyright 2017-2021 Tecnativa - Carlos Dauden
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
 
@@ -27,7 +27,11 @@
             </field>
             <field name="min_quantity" position="after">
                 <field name="compute_price" readonly="1"/>
-                <field name="fixed_price"/>
+                <field name="fixed_price"
+                       attrs="{'invisible': [('compute_price', '!=', 'fixed')]}"/>
+                <field name="percent_price"
+                       string="Percent"
+                       attrs="{'invisible': [('compute_price', '!=', 'percentage')]}"/>
                 <field name="variation_percent"/>
             </field>
         </field>
@@ -43,6 +47,16 @@
                 <field name="product_tmpl_id" string="Product Template"/>
                 <field name="product_id" string="Product Variant"/>
                 <field name="categ_id" string="Product Category"/>
+                <separator/>
+                <filter string="Current" name="current_date"
+                    domain="[
+                        '|',
+                        ('date_start', '=', False),
+                        ('date_start', '&lt;=', context_today().strftime('%Y-%m-%d')),
+                        '|',
+                        ('date_end', '=', False),
+                        ('date_end', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                    ]"/>
                 <separator/>
                 <filter string="Applied on global" name="apply_global" domain="[('applied_on','=', '3_global')]"/>
                 <filter string="Applied on categories" name="apply_categ" domain="[('applied_on','=', '2_product_category')]"/>
@@ -64,6 +78,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="product_pricelist_item_revision_tree_view"/>
+        <field name="context">{'search_default_current_date':1}</field>
     </record>
 
     <menuitem

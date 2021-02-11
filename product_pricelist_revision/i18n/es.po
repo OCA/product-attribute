@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 08:47+0000\n"
-"PO-Revision-Date: 2020-09-14 13:00+0000\n"
-"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"POT-Creation-Date: 2021-02-10 20:18+0000\n"
+"PO-Revision-Date: 2021-02-10 21:20+0100\n"
+"Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: carlos.dauden@tecnativa.com\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: product_pricelist_revision
@@ -57,6 +57,11 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
 msgid "Created on"
 msgstr "Creado en"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Current"
+msgstr "Vigente"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
@@ -119,10 +124,14 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+msgid "Percent"
+msgstr "Porcentaje"
+
+#. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
-#, fuzzy
 msgid "Previous Fixed Price"
-msgstr "Precio fijo"
+msgstr "Precio fijo anterior"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
@@ -136,9 +145,8 @@ msgstr "Lista de precios"
 
 #. module: product_pricelist_revision
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
-#, fuzzy
 msgid "Pricelist Item"
-msgstr "Elementos de tarifa"
+msgstr "Elemento de tarifa"
 
 #. module: product_pricelist_revision
 #: model:ir.actions.act_window,name:product_pricelist_revision.product_pricelist_item_action
@@ -185,7 +193,8 @@ msgstr "Relacion con elemento previo cuando se duplica la linea"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid ""
 "Set new start date and variation percent to duplicate.\n"
-"                    This process set start date previous day as end date of\n"
+"                    This process set start date previous day as end date "
+"of\n"
 "                    origin record.\n"
 "                    <br/>\n"
 "                    <br/>"
@@ -212,6 +221,3 @@ msgstr "Lista de precios del producto del asistente Elemento duplicado"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid "or"
 msgstr "o"
-
-#~ msgid "Pricelist item"
-#~ msgstr "Elemento de la tarifa"
