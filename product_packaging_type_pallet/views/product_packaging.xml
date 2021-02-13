@@ -8,10 +8,10 @@
             ref="product_packaging_dimension.product_packaging_form_view_inherit"
         />
         <field name="arch" type="xml">
-            <field name="lngth" position="before">
+            <field name="packaging_length" position="before">
                 <field name="type_is_pallet" invisible="1" />
             </field>
-            <field name="lngth" position="attributes">
+            <field name="packaging_length" position="attributes">
                 <attribute
                     name="attrs"
                 >{'invisible': [('type_is_pallet', '=', True)]}</attribute>
