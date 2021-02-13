@@ -22,7 +22,7 @@
         <field name="inherit_id" ref="product.product_category_list_view"/>
         <field name="arch" type="xml">
             <tree position="attributes">
-                <attribute name="decoration-info">not active</attribute>
+                <attribute name="decoration-muted">not active</attribute>
             </tree>
             <tree position="inside">
                 <field name="active" widget="boolean_toggle"/>
