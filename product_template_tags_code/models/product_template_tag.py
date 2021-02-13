@@ -19,7 +19,11 @@ class ProductTemplateTag(models.Model):
     )
 
     _sql_constraints = [
-        ("code_uniq", "unique(code)", "Product template tag code already exists",)
+        (
+            "code_uniq",
+            "unique(code)",
+            "Product template tag code already exists",
+        )
     ]
 
     @api.depends("name", "code")
