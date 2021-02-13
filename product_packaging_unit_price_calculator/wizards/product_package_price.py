@@ -47,7 +47,8 @@ class ProductPackagePrice(models.TransientModel):
         related="product_tmpl_id.product_variant_ids",
     )
     selected_packaging_id = fields.Many2one(
-        "product.packaging", domain="[('product_id', 'in', product_variant_ids)]",
+        "product.packaging",
+        domain="[('product_id', 'in', product_variant_ids)]",
     )
     packaging_price = fields.Float("Package Price", default=0.0, digits="Product Price")
     unit_price = fields.Float(
