@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-03 07:21+0000\n"
-"PO-Revision-Date: 2021-02-03 07:21+0000\n"
+"POT-Creation-Date: 2021-02-15 16:51+0000\n"
+"PO-Revision-Date: 2021-02-15 16:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_abc_classification_sale_stock
-#: selection:abc.classification.profile,profile_type:0
-msgid "Based on the count of delivered sale order line by product"
-msgstr "Basé sur le total des lignes de vente par article"
-
-#. module: product_abc_classification_sale_stock
 #: model:ir.model,name:product_abc_classification_sale_stock.model_abc_classification_product_level
 msgid "Abc Classification Product Level"
-msgstr "Niveau de classification ABC d'un article'"
+msgstr "Class / Niveau ABC"
 
 #. module: product_abc_classification_sale_stock
 #: model:ir.model,name:product_abc_classification_sale_stock.model_abc_classification_profile
@@ -55,7 +50,7 @@ msgstr "Créé le"
 #. module: product_abc_classification_sale_stock
 #: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_cumulated_percentage
 msgid "Cumulated percentage"
-msgstr "Poucentage cumulé"
+msgstr "Pourcentage cumulé"
 
 #. module: product_abc_classification_sale_stock
 #: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_cumulated_percentage
@@ -63,7 +58,17 @@ msgid "Cumulated percentage of all the products with a better ranking"
 msgstr "Pourcentage cumulé de tous les articles avec un meilleur classement"
 
 #. module: product_abc_classification_sale_stock
-#: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:273
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_cumulated_percentage_products
+msgid "Cumulated percentage of products"
+msgstr "Pourcentage cumulé des articles"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_cumulated_percentage_products
+msgid "Cumulated percentage of total products analyzed with a better ranking"
+msgstr "Pourcentage de tous les article avec un meilleur classement"
+
+#. module: product_abc_classification_sale_stock
+#: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:285
 #, python-format
 msgid "Cumulative percentage greater than 100."
 msgstr "Somme des pourcentages calculés supérieure à 100."
@@ -114,7 +119,7 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: product_abc_classification_sale_stock
-#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_number_of_so_lines
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_number_so_lines
 msgid "Number of sale order lines"
 msgstr "Nombre de ligne de vente"
 
@@ -122,6 +127,16 @@ msgstr "Nombre de ligne de vente"
 #: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_percentage
 msgid "Percentage"
 msgstr "Pourcentage"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_percentage_products
+msgid "Percentage of products"
+msgstr "Pourcentage des articles"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_percentage_products
+msgid "Percentage of total products analyzed"
+msgstr "Percentage of total products analyzed"
 
 #. module: product_abc_classification_sale_stock
 #: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_percentage
@@ -165,6 +180,16 @@ msgid "Sale stock level history ids"
 msgstr "Historique des données de vente collectées"
 
 #. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_sum_cumulated_percentages
+msgid "Sum cumulated % so lines and cumulated % products"
+msgstr "Somme %s cumulé lignes de vente et % cumulé articles"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_sum_cumulated_percentages
+msgid "Sum of cummulated percentages"
+msgstr "Somme % cumulés"
+
+#. module: product_abc_classification_sale_stock
 #: model:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
 msgid "This Year"
 msgstr "Cette année"
@@ -175,9 +200,14 @@ msgid "To date"
 msgstr "A"
 
 #. module: product_abc_classification_sale_stock
-#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_total_of_so_lines
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_total_so_lines
 msgid "Total of sale order lines"
 msgstr "Total des lignes de vente"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_total_products
+msgid "Total products analysed"
+msgstr "Total articles analysés"
 
 #. module: product_abc_classification_sale_stock
 #: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_classification_profile_warehouse_id

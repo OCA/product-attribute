@@ -21,8 +21,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
         self.classification_profile.write(
             {
                 "level_ids": [
-                    (0, 0, {"percentage": 60, "name": "A"}),
-                    (0, 0, {"percentage": 40, "name": "B"}),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 60,
+                            "percentage_products": 40,
+                            "name": "A",
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 40,
+                            "percentage_products": 60,
+                            "name": "B",
+                        },
+                    ),
                 ]
             }
         )
@@ -41,8 +57,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (0, 0, {"percentage": 60, "name": "A"}),
-                        (0, 0, {"percentage": 30, "name": "B"}),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 60,
+                                "percentage_products": 40,
+                                "name": "A",
+                            },
+                        ),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 30,
+                                "percentage_products": 60,
+                                "name": "B",
+                            },
+                        ),
                     ]
                 }
             )
@@ -60,8 +92,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (0, 0, {"percentage": 60, "name": "A"}),
-                        (0, 0, {"percentage": 50, "name": "B"}),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 60,
+                                "percentage_products": 40,
+                                "name": "A",
+                            },
+                        ),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 50,
+                                "percentage_products": 60,
+                                "name": "B",
+                            },
+                        ),
                     ]
                 }
             )
@@ -79,8 +127,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (0, 0, {"percentage": 50, "name": "A"}),
-                        (0, 0, {"percentage": 50, "name": "B"}),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 50,
+                                "percentage_products": 40,
+                                "name": "A",
+                            },
+                        ),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 50,
+                                "percentage_products": 60,
+                                "name": "B",
+                            },
+                        ),
                     ]
                 }
             )
@@ -99,8 +163,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (0, 0, {"percentage": 150, "name": "A"}),
-                        (0, 0, {"percentage": -50, "name": "B"}),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 150,
+                                "percentage_products": 40,
+                                "name": "A",
+                            },
+                        ),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": -50,
+                                "percentage_products": 60,
+                                "name": "B",
+                            },
+                        ),
                     ]
                 }
             )
@@ -118,8 +198,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (0, 0, {"percentage": 60, "name": "A"}),
-                        (0, 0, {"percentage": 40, "name": "A"}),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 60,
+                                "percentage_products": 40,
+                                "name": "A",
+                            },
+                        ),
+                        (
+                            0,
+                            0,
+                            {
+                                "percentage": 40,
+                                "percentage_products": 60,
+                                "name": "A",
+                            },
+                        ),
                     ]
                 }
             )
@@ -137,8 +233,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
         self.classification_profile.write(
             {
                 "level_ids": [
-                    (0, 0, {"percentage": 60, "name": "A"}),
-                    (0, 0, {"percentage": 40, "name": "B"}),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 60,
+                            "percentage_products": 40,
+                            "name": "A",
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 40,
+                            "percentage_products": 60,
+                            "name": "B",
+                        },
+                    ),
                 ]
             }
         )
@@ -147,8 +259,24 @@ class TestABCClassificationProfile(ABCClassificationCase):
                 "name": "New Profile test",
                 "profile_type": "test_type",
                 "level_ids": [
-                    (0, 0, {"percentage": 60, "name": "A"}),
-                    (0, 0, {"percentage": 40, "name": "B"}),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 60,
+                            "percentage_products": 40,
+                            "name": "A",
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 40,
+                            "percentage_products": 60,
+                            "name": "B",
+                        },
+                    ),
                 ],
             }
         )

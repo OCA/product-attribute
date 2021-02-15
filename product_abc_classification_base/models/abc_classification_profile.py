@@ -51,6 +51,17 @@ class AbcClassificationProfile(models.Model):
                 raise ValidationError(
                     _("The percentages of the levels must be unique.")
                 )
+            percentage_productss = profile.level_ids.mapped(
+                "percentage_products"
+            )
+            total = sum(percentage_productss)
+            if profile.level_ids and total != 100.0:
+                raise ValidationError(
+                    _(
+                        "The sum of the products percentages of the levels "
+                        "should be 100."
+                    )
+                )
 
     @api.multi
     def _compute_abc_classification(self):
