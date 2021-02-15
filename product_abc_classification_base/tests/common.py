@@ -26,8 +26,24 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         cls.classification_profile.write(
             {
                 "level_ids": [
-                    (0, 0, {"percentage": 60, "name": "a"}),
-                    (0, 0, {"percentage": 40, "name": "b"}),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 60,
+                            "percentage_products": 40,
+                            "name": "a",
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 40,
+                            "percentage_products": 60,
+                            "name": "b",
+                        },
+                    ),
                 ]
             }
         )
@@ -40,8 +56,24 @@ class ABCClassificationLevelCase(ABCClassificationCase):
                 "name": "Profile test bis",
                 "profile_type": "test_type",
                 "level_ids": [
-                    (0, 0, {"percentage": 80, "name": "a"}),
-                    (0, 0, {"percentage": 20, "name": "b"}),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 80,
+                            "percentage_products": 40,
+                            "name": "a",
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "percentage": 20,
+                            "percentage_products": 60,
+                            "name": "b",
+                        },
+                    ),
                 ],
             }
         )

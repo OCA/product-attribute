@@ -12,6 +12,7 @@
             <field name="name" />
             <field name="level_ids">
               <tree editable="bottom">
+                <field name="percentage_products"/>
                 <field name="percentage"/>
                 <field name="name"/>
               </tree>

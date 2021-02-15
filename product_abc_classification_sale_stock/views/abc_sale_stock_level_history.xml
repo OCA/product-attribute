@@ -24,16 +24,18 @@
         <field name="name">abc.sale_stock.level.history.tree (in product_abc_classification_sale_stock)</field>
         <field name="model">abc.sale_stock.level.history</field>
         <field name="arch" type="xml">
-            <tree default_order="to_date DESC, product_id DESC">
+            <tree default_order="ranking ASC, to_date DESC">
                 <field name="from_date"/>
                 <field name="to_date"/>
                 <field name="product_id"/>
                  <field name="computed_level_id"/>
                  <field name="ranking"/>
-                 <field name="number_of_so_lines"/>
-                 <field name="total_of_so_lines"/>
+                 <field name="number_so_lines"/>
+                 <field name="total_so_lines"/>
                  <field name="percentage"/>
                  <field name="cumulated_percentage"/>
+                 <field name="cumulated_percentage_products"/>
+                 <field name="sum_cumulated_percentages"/>
                 <field name="profile_id"/>
             </tree>
         </field>

@@ -13,7 +13,10 @@ class AbcClassificationLevel(models.Model):
     _order = "percentage desc, id desc"
     _rec_name = "name"
 
-    percentage = fields.Float(default=0.0, required=True, string="%")
+    percentage_products = fields.Float(
+        default=0.0, required=True, string="% Products"
+    )
+    percentage = fields.Float(default=0.0, required=True, string="% Indicator")
     profile_id = fields.Many2one(
         "abc.classification.profile", ondelete="cascade"
     )
@@ -38,4 +41,18 @@ class AbcClassificationLevel(models.Model):
             if level.percentage <= 0.0:
                 raise ValidationError(
                     _("The percentage should be a positive number.")
+                )
+
+    @api.constrains("percentage_products")
+    def _check_percentage_products(self):
+        for level in self:
+            if level.percentage_products > 100.0:
+                raise ValidationError(
+                    _("The percentage of products cannot be greater than 100.")
+                )
+            if level.percentage_products <= 0.0:
+                raise ValidationError(
+                    _(
+                        "The percentage of products should be a positive number."
+                    )
                 )
