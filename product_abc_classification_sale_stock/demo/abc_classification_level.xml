@@ -5,13 +5,16 @@
   <record id="abc_classification_level_a" model="abc.classification.level">
       <field name="name">a</field>
       <field name="percentage">80</field>
+      <field name="percentage_products">20</field>
   </record>
   <record id="abc_classification_level_b" model="abc.classification.level">
       <field name="name">b</field>
       <field name="percentage">15</field>
+      <field name="percentage_products">30</field>
   </record>
   <record id="abc_classification_level_c" model="abc.classification.level">
       <field name="name">c</field>
       <field name="percentage">5</field>
+      <field name="percentage_products">50</field>
   </record>
 </odoo>
