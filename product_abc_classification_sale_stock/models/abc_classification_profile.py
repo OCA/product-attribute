@@ -98,7 +98,7 @@ class AbcClassificationProfile(models.Model):
         self.env.cr.execute(
             """ SELECT
                         sol.product_id product_id,
-                        COUNT(sol.id) number_of_so_lines
+                        COUNT(sol.id) number_so_lines
                     FROM
                         sale_order so
                     JOIN
@@ -129,7 +129,7 @@ class AbcClassificationProfile(models.Model):
                         )
 
                     GROUP BY sol.product_id
-                    ORDER BY number_of_so_lines DESC
+                    ORDER BY number_so_lines DESC
         """,
             {
                 "start_date": from_date,
@@ -149,7 +149,7 @@ class AbcClassificationProfile(models.Model):
             sale_stock_data = self._init_collected_data_instance()
             product_id = r[0]
             sale_stock_data.product = ProductProduct.browse(product_id)
-            sale_stock_data.number_of_so_lines = int(r[1])
+            sale_stock_data.number_so_lines = int(r[1])
             sale_stock_data.ranking = ranking
             sale_stock_data.from_date = from_date
             sale_stock_data.to_date = to_date
@@ -162,7 +162,7 @@ class AbcClassificationProfile(models.Model):
         for product_id in all_product_ids:
             sale_stock_data = self._init_collected_data_instance()
             sale_stock_data.product = ProductProduct.browse(product_id)
-            sale_stock_data.number_of_so_lines = 0
+            sale_stock_data.number_so_lines = 0
             sale_stock_data.ranking = ranking
             sale_stock_data.from_date = from_date
             sale_stock_data.to_date = to_date
@@ -179,10 +179,10 @@ class AbcClassificationProfile(models.Model):
         levels = self.level_ids.sorted(
             key=attrgetter("percentage"), reverse=True
         )
-        percentages = levels.mapped("percentage")
         cum_percentages = []
         previous_percentage = None
-        for i, perc in enumerate(percentages):
+        for i, level in enumerate(levels):
+            perc = level.percentage + level.percentage_products
             if i == 0:
                 percentage_to_append = perc
                 cum_percentages.append(percentage_to_append)
@@ -223,14 +223,14 @@ class AbcClassificationProfile(models.Model):
 
     def _sale_stock_data_to_vals(self, sale_stock_data, create=False):
         self.ensure_one()
-        res = {
-            "computed_level_id": sale_stock_data.computed_level.id
-        }
+        res = {"computed_level_id": sale_stock_data.computed_level.id}
         if create:
-            res.update({
-                "product_id": sale_stock_data.product.id,
-                "profile_id": sale_stock_data.profile.id,
-            })
+            res.update(
+                {
+                    "product_id": sale_stock_data.product.id,
+                    "profile_id": sale_stock_data.profile.id,
+                }
+            )
         return res
 
     @api.multi
@@ -252,10 +252,22 @@ class AbcClassificationProfile(models.Model):
             )
             level, percentage = level_percentage.pop(0)
             previous_data = {}
+            total_products = len(sale_stock_data_list)
+            percentage_products = 100.0 / total_products
             for i, sale_stock_data in enumerate(sale_stock_data_list):
+                sale_stock_data.total_products = total_products
+                sale_stock_data.percentage_products = percentage_products
+                sale_stock_data.cumulated_percentage_products = (
+                    sale_stock_data.percentage_products
+                    if i == 0
+                    else (
+                        sale_stock_data.percentage_products
+                        + previous_data.cumulated_percentage_products
+                    )
+                )
                 # Compute percentages and cumulative percentages for the products
                 sale_stock_data.percentage = (
-                    (100.0 * sale_stock_data.number_of_so_lines / total)
+                    (100.0 * sale_stock_data.number_so_lines / total)
                     if total
                     else 0.0
                 )
@@ -273,11 +285,16 @@ class AbcClassificationProfile(models.Model):
                         _("Cumulative percentage greater than 100.")
                     )
 
+                sale_stock_data.sum_cumulated_percentages = (
+                    sale_stock_data.cumulated_percentage
+                    + sale_stock_data.cumulated_percentage_products
+                )
+
                 # Compute ABC classification for the products based on the
-                # cumulative percentage
+                # sum of cumulated percentages
 
                 if (
-                    sale_stock_data.cumulated_percentage > percentage
+                    sale_stock_data.sum_cumulated_percentages > percentage
                     and len(level_percentage) > 0
                 ):
                     level, percentage = level_percentage.pop(0)
@@ -306,7 +323,7 @@ class AbcClassificationProfile(models.Model):
                     product_abc_classification = ProductClassification.create(
                         vals
                     )
-                sale_stock_data.total_of_so_lines = total
+                sale_stock_data.total_so_lines = total
                 sale_stock_data.product_level = product_abc_classification
                 previous_data = sale_stock_data
             self._log_history(sale_stock_data_list)
@@ -339,10 +356,23 @@ class SaleStockData(object):
     insert these data into the abc.sale_stock.level.history table.
 
     """
+
     __slots__ = [
-        "product", "profile", "computed_level", "ranking", "percentage",
-        "cumulated_percentage", "number_of_so_lines", "total_of_so_lines",
-        "product_level", "from_date", "to_date"
+        "product",
+        "profile",
+        "computed_level",
+        "ranking",
+        "percentage",
+        "cumulated_percentage",
+        "number_so_lines",
+        "total_so_lines",
+        "product_level",
+        "from_date",
+        "to_date",
+        "total_products",
+        "percentage_products",
+        "cumulated_percentage_products",
+        "sum_cumulated_percentages",
     ]
 
     def _to_csv_line(self):
@@ -356,11 +386,15 @@ class SaleStockData(object):
             self.ranking,
             self.percentage,
             self.cumulated_percentage,
-            self.number_of_so_lines,
-            self.total_of_so_lines,
+            self.number_so_lines,
+            self.total_so_lines,
             self.product_level.id,
             self.from_date,
-            self.to_date
+            self.to_date,
+            self.total_products,
+            self.percentage_products,
+            self.cumulated_percentage_products,
+            self.sum_cumulated_percentages,
         ]
 
     @classmethod
@@ -379,9 +413,13 @@ class SaleStockData(object):
             "ranking",
             "percentage",
             "cumulated_percentage",
-            "number_of_so_lines",
-            "total_of_so_lines",
+            "number_so_lines",
+            "total_so_lines",
             "product_level_id",
             "from_date",
-            "to_date"
+            "to_date",
+            "total_products",
+            "percentage_products",
+            "cumulated_percentage_products",
+            "sum_cumulated_percentages",
         ]

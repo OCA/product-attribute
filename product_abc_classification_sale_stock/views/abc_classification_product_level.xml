@@ -17,8 +17,8 @@
                          <field name="to_date"/>
                          <field name="computed_level_id"/>
                          <field name="ranking"/>
-                         <field name="number_of_so_lines"/>
-                         <field name="total_of_so_lines"/>
+                         <field name="number_so_lines"/>
+                         <field name="total_so_lines"/>
                          <field name="percentage"/>
                          <field name="cumulated_percentage"/>
                      </tree>

@@ -241,9 +241,9 @@ class TestABCClassificationProfile(SavepointCase):
         self.stock_profile._compute_abc_classification()
         self._assertLevelIs(self.product1, "a")
         self._assertLevelIs(self.product3, "a")
-        self._assertLevelIs(self.product5, "a")
-        self._assertLevelIs(self.product2, "b")
+        self._assertLevelIs(self.product5, "b")
         self._assertLevelIs(self.product6, "b")
+        self._assertLevelIs(self.product2, "c")
         self._assertLevelIs(self.product4, "c")
         self._assertLevelIs(self.product_new, "c")
 
