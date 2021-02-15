@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-02-15 13:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,help:product_standard_price_tax_included.field_product_pricelist_item__base
@@ -21,99 +23,107 @@ msgid "Base price for computation.\n"
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
+"Preu base de càlcul.\n"
+"Preu públic: el preu base serà el preu de venda / públic.\n"
+"Preu de cost: el preu base serà el preu de cost.\n"
+"Una altra llista de preus: càlcul del preu base basat en una altra llista de "
+"preus."
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,field_description:product_standard_price_tax_included.field_product_pricelist_item__base
 msgid "Based on"
-msgstr ""
+msgstr "Basat en"
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Cost"
-msgstr ""
+msgstr "Cost"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,field_description:product_standard_price_tax_included.field_product_product__standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Cost Price Tax Included"
-msgstr ""
+msgstr "Preu de cost impost inclòs"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,help:product_standard_price_tax_included.field_product_product__standard_price_tax_included
 msgid "Cost Price of the product, All Tax Included:\n"
 "This field will be computed with the 'Cost Price', taking into account Sale Taxes setting."
 msgstr ""
+"Preu de cost del producte, tots els impostos inclosos:\n"
+"Aquest camp es calcularà amb el \"Preu de cost\", tenint en compte la "
+"configuració dels impostos sobre la venda."
 
 #. module: product_standard_price_tax_included
 #: model:product.product,volume_uom_name:product_standard_price_tax_included.product_product
 #: model:product.template,volume_uom_name:product_standard_price_tax_included.product_product_product_template
 msgid "Liter(s)"
-msgstr ""
+msgstr "Litre(s)"
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Other Price"
-msgstr ""
+msgstr "Altre preu"
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Other Pricelist"
-msgstr ""
+msgstr "Altra tarifa"
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Partner Prices on the product form"
-msgstr ""
+msgstr "Preus de soci al formulari de producte"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist
 msgid "Pricelist"
-msgstr ""
+msgstr "Tarifa"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist_item
 msgid "Pricelist Item"
-msgstr ""
+msgstr "Element de tarifa"
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Prices based on supplier info"
-msgstr ""
+msgstr "Preu basat en la informació del proveedor"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producte"
 
 #. module: product_standard_price_tax_included
 #: model:product.product,name:product_standard_price_tax_included.product_product
 #: model:product.template,name:product_standard_price_tax_included.product_product_product_template
 msgid "Product With Sale Tax (Tax Included)"
-msgstr ""
+msgstr "Producte amb impost de venda ( Impost inclòs)"
 
 #. module: product_standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
-msgstr ""
+msgstr "Preu públic"
 
 #. module: product_standard_price_tax_included
 #: model:product.pricelist,name:product_standard_price_tax_included.pricelist_price_tax_included
 msgid "Sale Price List based on Cost Price Tax Included"
-msgstr ""
+msgstr "Llista de preus de venda basada en el preu de l'impost inclòs"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_account_tax
 msgid "Tax"
-msgstr ""
+msgstr "Impost"
 
 #. module: product_standard_price_tax_included
 #: model:product.product,uom_name:product_standard_price_tax_included.product_product
 #: model:product.template,uom_name:product_standard_price_tax_included.product_product_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "Unitat(s)"
 
 #. module: product_standard_price_tax_included
 #: model:product.product,weight_uom_name:product_standard_price_tax_included.product_product
 #: model:product.template,weight_uom_name:product_standard_price_tax_included.product_product_product_template
 msgid "kg"
-msgstr ""
+msgstr "kg"
