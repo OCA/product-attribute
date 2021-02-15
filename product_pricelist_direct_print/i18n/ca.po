@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-02-15 13:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -32,76 +34,96 @@ msgid "\n"
 "</p>\n"
 ""
 msgstr ""
+"\n"
+"<p> Benvolguts $ {object.partner_id i object.partner_id.name o 'client'}, "
+"</p>\n"
+"<p>\n"
+"El fitxer adjunt és un document PDF que conté el fitxer\n"
+"<strong> Llista de preus de $ {object.pricelist_id.name} </strong>.\n"
+"</p>\n"
+"<p> Podeu respondre a aquest correu electrònic si teniu cap pregunta. </p>\n"
+"<p> Gràcies </p>\n"
+"\n"
+"<p style = \"color: # 888888;\">\n"
+"% si object.write_uid i object.write_uid.signature:\n"
+"    $ {object.write_uid.signature | Caixa forta}\n"
+"% endif\n"
+"</p>\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
 msgstr ""
+"$ {object.pricelist_id.company_id.name o object.write_uid.company_id.name} "
+"Llista de preus (Ref $ {object.pricelist_id.name o 'n / a'})"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "${object.pricelist_id.name}"
-msgstr ""
+msgstr "${object.pricelist_id.name}"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<span>Special Pricelist</span>"
-msgstr ""
+msgstr "<span>Tarifa especial</span>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Cost Price</strong>"
-msgstr ""
+msgstr "<strong>Preu de cost</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Currency</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Moneda</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Date</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Data</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Description</strong>"
-msgstr ""
+msgstr "<strong>Descripció</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>List Price</strong>"
-msgstr ""
+msgstr "<strong>Preu de llista</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Price List Name</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Nom de preu de llista</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Sale Price</strong>"
-msgstr ""
+msgstr "<strong>Preu de venta</strong>"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_report_product_pricelist_direct_print_product_pricelist_xlsx
 msgid "Abstract model to export as xlsx the product pricelist"
-msgstr ""
+msgstr "Model abstracte per exportar com a xlsx la llista de preus del producte"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__categ_ids
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
 msgid "Check this field to print only the products defined in the pricelist. The entries in the list referring to all products will not be displayed."
 msgstr ""
+"Marqueu aquest camp per imprimir només els productes definits a la llista de "
+"preus. Les entrades de la llista referents a tots els productes no es "
+"mostraran."
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:62
