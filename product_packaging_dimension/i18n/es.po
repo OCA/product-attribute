@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_packaging_dimension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-02-15 17:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__height
+msgid "Height (mm)"
+msgstr "Altura (mm)"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__lngth
+msgid "Length (mm)"
+msgstr "Longitud(mm)"
+
+#. module: product_packaging_dimension
+#: model:ir.model,name:product_packaging_dimension.model_product_packaging
+msgid "Product Packaging"
+msgstr "Empaquetado de producto"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume
+msgid "Volume (m³)"
+msgstr "Volumen(m³)"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__max_weight
+msgid "Weight (kg)"
+msgstr "Peso (kg)"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__width
+msgid "Width (mm)"
+msgstr "Amplitud (mm)"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__height
+msgid "height in millimeters"
+msgstr "altura en milímetros"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__lngth
+msgid "length in millimeters"
+msgstr "longitud en milímetros"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume
+msgid "volume in cubic meters"
+msgstr "volumen en metros cúbicos"
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__width
+msgid "width in millimeters"
+msgstr "amplitud en milímetros"
