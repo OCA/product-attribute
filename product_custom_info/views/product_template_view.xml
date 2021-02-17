@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
      Copyright 2017 Pedro M. Baeza <pedro.baeza@tecnativa.com>
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
-
     <record id="product_template_only_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
             <notebook>
                 <page name="custom_info" string="Custom Information">
                     <group name="group_custom_info_template">
                         <group>
-                        <field name="custom_info_template_id"
-                               options='{"no_quick_create": True}'
-                        />
+                            <field
+                                name="custom_info_template_id"
+                                options='{"no_quick_create": True}'
+                            />
                         </group>
-                        <field name="custom_info_ids"
-                               colspan="4"
-                               nolabel="1"
-                               context="{'embed': True, 'tree_view_ref': 'base_custom_info.custom_info_value_tree_editable'}"
+                        <field
+                            name="custom_info_ids"
+                            colspan="4"
+                            nolabel="1"
+                            context="{'embed': True, 'tree_view_ref': 'base_custom_info.custom_info_value_tree_editable'}"
                         />
                     </group>
                 </page>
             </notebook>
         </field>
     </record>
-
 </odoo>
