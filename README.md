@@ -24,6 +24,7 @@ addon | version | summary
 [product_code_unique](product_code_unique/) | 14.0.1.0.0 | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | Product cost security restriction view
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
+[product_manufacturer](product_manufacturer/) | 14.0.1.0.0 | Adds manufacturers and attributes on the product view.
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 | Product - Many Categories
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | Speedup product retrieve
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 | Print price list from menu option, product templates, products variants or price lists
