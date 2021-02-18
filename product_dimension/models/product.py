@@ -69,6 +69,19 @@ class ProductTemplate(models.Model):
             round=False,
         )
 
+    @api.model
+    def create(self, vals):
+        product_template = super().create(vals)
+        product_template.write(
+            {
+                "dimensional_uom_id": vals.get("dimensional_uom_id", False),
+                "product_length": vals.get("product_length", False),
+                "product_height": vals.get("product_height", False),
+                "product_width": vals.get("product_width", False),
+            }
+        )
+        return product_template
+
     # Define all the related fields in product.template with 'readonly=False'
     # to be able to modify the values from product.template.
     dimensional_uom_id = fields.Many2one(

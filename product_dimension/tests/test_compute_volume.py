@@ -51,3 +51,25 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template = self.env["product.template"].new()
         self.uom_m = self.env["uom.uom"].search([("name", "=", "m")])
         self.uom_cm = self.env["uom.uom"].search([("name", "=", "cm")])
+
+
+class TestCreateProductTemplate(TransactionCase):
+    def setUp(self):
+        super(TestCreateProductTemplate, self).setUp()
+        self.uom_cm = self.env["uom.uom"].search([("name", "=", "cm")])
+
+    def test_product_template_creation_should_save_user_inputs(self):
+        product_template = self.env["product.template"].create(
+            {
+                "name": "test",
+                "product_width": 12,
+                "product_height": 12,
+                "product_length": 12,
+                "dimensional_uom_id": self.uom_cm.id,
+            }
+        )
+        self.assertEqual(12, product_template.product_width)
+        self.assertEqual(12, product_template.product_height)
+        self.assertEqual(12, product_template.product_length)
+        self.assertEqual(12, product_template.product_length)
+        self.assertEqual(self.uom_cm.id, product_template.dimensional_uom_id.id)
