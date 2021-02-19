@@ -10,4 +10,3 @@ of its children categories, an error will be raised and it won't be archived.
 
 Note 2: Children category are not archived/unarchived
 when the parent category does.
-
