@@ -20,7 +20,7 @@ class ProductCategory(models.Model):
         to_archive = self.filtered(lambda r: not r.active)
         if (
             self.env["product.template"]
-            .with_context(active_test=False,)
+            .with_context(active_test=False)
             .search([("categ_id", "child_of", to_archive.ids)])
         ):
             raise ValidationError(
