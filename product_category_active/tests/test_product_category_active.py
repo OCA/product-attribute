@@ -5,20 +5,20 @@ from odoo.exceptions import ValidationError
 from odoo.tests import SavepointCase
 
 
-class TestProductCategoryArchive(SavepointCase):
+class TestProductCategoryActive(SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductCategoryArchive, cls).setUpClass()
+        super().setUpClass()
         categ_obj = cls.env["product.category"]
         product_obj = cls.env["product.template"]
-        cls.parent_categ = categ_obj.create({"name": "Parent category",})
+        cls.parent_categ = categ_obj.create({"name": "Parent category"})
         cls.child_1 = categ_obj.create(
-            {"name": "child 1", "parent_id": cls.parent_categ.id,}
+            {"name": "child 1", "parent_id": cls.parent_categ.id}
         )
         cls.child_2 = categ_obj.create(
-            {"name": "child 2", "parent_id": cls.parent_categ.id,}
+            {"name": "child 2", "parent_id": cls.parent_categ.id}
         )
-        cls.product_1 = product_obj.create({"name": "Product 1",})
+        cls.product_1 = product_obj.create({"name": "Product 1"})
 
     def test_dont_archive_non_empty_categories(self):
         self.assertTrue(self.child_1.active)
