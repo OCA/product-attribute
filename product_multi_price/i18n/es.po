@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 08:52+0000\n"
-"PO-Revision-Date: 2020-10-13 13:08+0000\n"
+"PO-Revision-Date: 2021-02-23 18:45+0000\n"
 "Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_multi_price
 #: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_multi_price_uniq
@@ -24,7 +24,6 @@ msgstr "No puede haber un nombre de campo repetido en la misma compañía"
 
 #. module: product_multi_price
 #: model:ir.model.fields,help:product_multi_price.field_product_pricelist_item__base
-#, fuzzy
 msgid ""
 "Base price for computation.\n"
 "Sales Price: The base price will be the Sales Price.\n"
@@ -32,7 +31,7 @@ msgid ""
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
 "Precio base de cálculo.\n"
-"Precio público: El precio base será el Precio de venta / público.\n"
+"Precio de venta: el precio base será el precio de venta.\n"
 "Precio de costo: el precio base será el precio de costo.\n"
 "Otra lista de precios: cálculo del precio base basado en otra lista de "
 "precios."
@@ -139,9 +138,8 @@ msgstr "Tarifa"
 
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
-#, fuzzy
 msgid "Pricelist Rule"
-msgstr "Elemento de Tarifa"
+msgstr "Regla de tarifa"
 
 #. module: product_multi_price
 #: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_name_multi_price_name_uniq
