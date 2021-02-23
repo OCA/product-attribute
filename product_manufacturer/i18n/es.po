@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:43+0000\n"
-"PO-Revision-Date: 2017-05-05 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2021-02-23 18:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
@@ -47,7 +48,7 @@ msgstr "Fabricante"
 #. module: product_manufacturer
 #: model:ir.model,name:product_manufacturer.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: product_manufacturer
 #: model:ir.model,name:product_manufacturer.model_product_template
