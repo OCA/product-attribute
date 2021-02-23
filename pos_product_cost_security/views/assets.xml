@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_tests" name="PoS Product Cost" inherit_id="web.assets_tests">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_product_cost_security/static/tests/tours/tour_pos_product_cost.js"
+            />
+        </xpath>
+    </template>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_product_cost_security/static/src/js/models.js"
+            />
+      </xpath>
+    </template>
+
+</odoo>
