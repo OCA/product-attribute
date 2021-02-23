@@ -9,36 +9,37 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-03 02:14+0000\n"
-"PO-Revision-Date: 2018-01-03 02:14+0000\n"
-"Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2018\n"
-"Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/"
-"teams/23907/nl_NL/)\n"
+"PO-Revision-Date: 2021-02-23 12:45+0000\n"
+"Last-Translator: Cas Vissers <c.vissers@brahoo.nl>\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/"
+"23907/nl_NL/)\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
-msgstr ""
+msgstr "# Producten"
 
 #. module: product_template_tags
 #: model_terms:ir.actions.act_window,help:product_template_tags.product_template_tag_act_window
 msgid "Add tags"
-msgstr ""
+msgstr "Voeg tag toe"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
-msgstr ""
+msgstr "Kleur index"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__company_id
 #: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
 msgid "Company"
-msgstr ""
+msgstr "Bedrijf"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_uid
@@ -53,7 +54,7 @@ msgstr "Aangemaakt op"
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
-msgstr "Weergavenaam"
+msgstr "Schermnaam"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
@@ -63,34 +64,34 @@ msgstr "ID"
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_uid
 msgid "Last Updated by"
-msgstr "Laatst aangepast door"
+msgstr "Laatst bijgewerkt door"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_date
 msgid "Last Updated on"
-msgstr "Laatst aangepast op"
+msgstr "Laatst bijgewerkt op"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__name
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
-msgstr ""
+msgstr "Product tag"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 #: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
 msgid "Product Tags"
-msgstr ""
+msgstr "Product tag"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
@@ -100,7 +101,7 @@ msgstr "Productsjabloon"
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
 msgid "Product Template Tag"
-msgstr ""
+msgstr "Product sjabloon tag"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
