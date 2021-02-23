@@ -6,63 +6,65 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-02-23 18:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__active
 msgid "Active"
-msgstr ""
+msgstr "Actiu"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__barcode_required_for_gtin
 msgid "Barcode Required For Gtin"
-msgstr ""
+msgstr "Codi de barres requerit per Gtin"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__code
 msgid "Code"
-msgstr ""
+msgstr "Codi"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creat per"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creat el"
 
 #. module: product_packaging_type
 #: model:product.packaging.type,name:product_packaging_type.product_packaging_type_default
 msgid "Default Type"
-msgstr ""
+msgstr "Tipus per defecte"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom visible"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__has_gtin
 msgid "Has Gtin"
-msgstr ""
+msgstr "Té Gtin"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__is_default
 msgid "Is Default"
-msgstr ""
+msgstr "és per defecte"
 
 #. module: product_packaging_type
 #: code:addons/product_packaging_type/models/product_packaging_type.py:0
@@ -71,48 +73,52 @@ msgid ""
 "It is forbidden to have different packagings with the same type for a given "
 "product ({})."
 msgstr ""
+"Està prohibit tenir embalatges diferents amb el mateix tipus per a un "
+"producte determinat ({})."
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Darrera actualització per"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Darrera actualització el"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__name
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: product_packaging_type
 #: code:addons/product_packaging_type/models/product_packaging_type.py:0
 #, python-format
 msgid "Only one product packaging type can be set as \"Is Default\"."
 msgstr ""
+"Només es pot establir un tipus d'embalatge de producte com a \"És per "
+"defecte\"."
 
 #. module: product_packaging_type
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
 msgid "Packaging"
-msgstr ""
+msgstr "Empaquetat"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__packaging_type_id
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_form
 msgid "Packaging Type"
-msgstr ""
+msgstr "Tipus d'empaquetat"
 
 #. module: product_packaging_type
 #: model:ir.model,name:product_packaging_type.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Embalatge del producte"
 
 #. module: product_packaging_type
 #: model:ir.actions.act_window,name:product_packaging_type.act_open_product_packaging_type_view
@@ -121,30 +127,32 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_search
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_tree
 msgid "Product Packaging Type"
-msgstr ""
+msgstr "Tipus d’embalatge del producte"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__qty_per_type
 msgid "Qty per package type"
-msgstr ""
+msgstr "Quantitat per tipus de paquet"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Seqüència"
 
 #. module: product_packaging_type
 #: code:addons/product_packaging_type/models/product_packaging_type.py:0
 #, python-format
 msgid "There must be one product packaging type set as \"Is Default\"."
 msgstr ""
+"Hi ha d'haver un tipus d'embalatge de producte definit com a \"És per "
+"defecte\"."
 
 #. module: product_packaging_type
 #: model:ir.model,name:product_packaging_type.model_product_packaging_type
 msgid "Type management for product.packaging"
-msgstr ""
+msgstr "Gestió de tipus per a embalatge de producte"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__type_sequence
 msgid "Type sequence"
-msgstr ""
+msgstr "Tipus de seqüència"
