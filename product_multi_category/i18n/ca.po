@@ -7,30 +7,28 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-20 17:16+0000\n"
-"PO-Revision-Date: 2010-11-17 03:56+0000\n"
-"Last-Translator: Jordi Esteve (www.zikzakmedia.com) <jesteve@zikzakmedia."
-"com>\n"
+"PO-Revision-Date: 2021-02-23 18:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 "X-Launchpad-Export-Date: 2012-10-03 05:22+0000\n"
-"X-Generator: Launchpad (build 16061)\n"
 "X-Poedit-Language: Catalan\n"
 
 #. module: product_multi_category
 #: model:ir.model.fields,field_description:product_multi_category.field_product_product__categ_ids
 #: model:ir.model.fields,field_description:product_multi_category.field_product_template__categ_ids
-#, fuzzy
 msgid "Extra Categories"
 msgstr "Categories extra"
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
-#, fuzzy
 msgid "Product Template"
-msgstr "Categories de producte"
+msgstr "Plantilla de producte"
 
 #~ msgid "Invalid XML for View Architecture!"
 #~ msgstr "﻿XML invàlid per a la definició de la vista!"
