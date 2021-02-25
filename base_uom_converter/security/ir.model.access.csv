@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_uom_converter_sale_manager,access_uom_converter_manager,model_uom_converter,sales_team.group_sale_manager,1,1,1,1
+access_uom_converter_user,access_uom_converter_user,model_uom_converter,base.group_user,1,0,0,0
+access_uom_converter_line_sale_manager,access_uom_converter_line_manager,model_uom_converter_line,sales_team.group_sale_manager,1,1,1,1
+access_uom_converter_line_user,access_uom_converter_line_user,model_uom_converter_line,base.group_user,1,0,0,0
