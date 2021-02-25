@@ -1,0 +1,220 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_uom_converter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__coefficient
+msgid "Coefficient"
+msgstr "Coefficient"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,help:base_uom_converter.field_uom_converter_line__coefficient
+msgid ""
+"Coefficient to apply on the converted quantity (To UoM / From UoM). Result "
+"Qty = converted quantity * coefficient + constant"
+msgstr ""
+"Coefficient appliqué sur la quantité convertie (en Unité de mesure de "
+"destination / unité de mesure source).Résultat Qté = quantité (convertie si "
+"nécessaire) * ce coefficient + constante"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__constant
+msgid "Constant"
+msgstr "Constante"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,help:base_uom_converter.field_uom_converter_line__constant
+msgid ""
+"Constant to add to the result quantity (To UoM). Result Qty = converted "
+"quantity * coefficient + constant"
+msgstr ""
+"Constante ajoutée pour obtenir le résultat finale (exprimé dans l'unité de "
+"mesure de destinaltion).Résultat Qté = quantité (convertie si nécessaire) * "
+"coefficient + cette constante"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__uom_converter_id
+msgid "Converter"
+msgstr "Convertisseur"
+
+#. module: base_uom_converter
+#: model_terms:ir.actions.act_window,help:base_uom_converter.uom_converter_action_window
+msgid "Create a new UoM converter"
+msgstr "Créer un nouveau barème de conversion d'unité"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__create_uid
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__create_date
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__to_uom_id
+msgid "Destinaiton Unit of Measure"
+msgstr "Unité de mesure cible"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,help:base_uom_converter.field_uom_converter__to_uom_id
+msgid ""
+"Destination unit of measure, while converting a quantity result will be in "
+"this UoM. Or in a unit in the same category that would be convert after "
+"getting the new quantity."
+msgstr ""
+"Unité de mesure de sortie, lorsque vous souhaitez convertir une quantité, "
+"grace à ce barème de conversion. Ou une autre unité de cette catégorie (la "
+"conversion est faite après l'applicatoin de la formule)"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__display_name
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__id
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__id
+msgid "ID"
+msgstr ""
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter____last_update
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line____last_update
+msgid "Last Modified on"
+msgstr "Mis à jour le"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__write_uid
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__write_uid
+msgid "Last Updated by"
+msgstr "Mise à jour par"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__write_date
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__write_date
+msgid "Last Updated on"
+msgstr "Mis à jour le"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter_line__max_qty
+msgid "Maximum"
+msgstr "Maximum"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,help:base_uom_converter.field_uom_converter_line__max_qty
+msgid ""
+"Maximum quantity in the Source Unit of Measure of the current converter "
+"(`from_uom_id` field). If qty is higher to this value while converting "
+"quantity this line will be ignored"
+msgstr ""
+"Quantité maximum (inclu) exprimé dans l'unité d'origine du présent "
+"convertisseur (champ `from_uom_id`). Si la quantité à convertir est "
+"supérieur à cette valeur, le convertisseur ignore la ligne."
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__name
+msgid "Scale"
+msgstr "Barème"
+
+#. module: base_uom_converter
+#: model_terms:ir.ui.view,arch_db:base_uom_converter.uom_converter_form_view
+msgid "Scale lines"
+msgstr "Ligne de barème"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__from_uom_id
+msgid "Source Unit of Measure"
+msgstr "Unité de mesure origine"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,help:base_uom_converter.field_uom_converter__from_uom_id
+msgid ""
+"Source unit of measure, while converting a quantity it must be in this UoM "
+"to get the right scale. Or in a unit in the same category that would be "
+"convert before getting the right line."
+msgstr ""
+"Unité de mesure d'origine, celle dont la quanité max du barème représente et "
+"qui est l'unité de mesure de la quantité à convertir. Le développeur peut "
+"choisir une quantité dans une unité de la même catégorie qui sera alors "
+"convertis avant traitement par le convertisseur."
+
+#. module: base_uom_converter
+#: model:ir.model.constraint,message:base_uom_converter.constraint_uom_converter_unique_name
+msgid "This name already exists"
+msgstr "Le nom du convertisseur existe déjà."
+
+#. module: base_uom_converter
+#: model:ir.actions.act_window,name:base_uom_converter.uom_converter_action_window
+#: model:ir.model,name:base_uom_converter.model_uom_converter
+#: model:ir.ui.menu,name:base_uom_converter.menu_sales_configuration_uom_converter
+#: model_terms:ir.ui.view,arch_db:base_uom_converter.uom_converter_form_view
+msgid "UoM converter"
+msgstr "Convertisseur d'unité de mesure"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,field_description:base_uom_converter.field_uom_converter__line_ids
+msgid "UoM converter lines"
+msgstr "Ligne de barème du convertisseur d'unité de mesure"
+
+#. module: base_uom_converter
+#: model:ir.model,name:base_uom_converter.model_uom_converter_line
+msgid "UoM converter scale line"
+msgstr "Ligne de barème du convertisseur d'unité de mesure"
+
+#. module: base_uom_converter
+#: model:ir.model.fields,help:base_uom_converter.field_uom_converter_line__uom_converter_id
+msgid "UoM converter this line is related to"
+msgstr "Convertisseur dont cette ligne est liée."
+
+#. module: base_uom_converter
+#: model_terms:ir.ui.view,arch_db:base_uom_converter.uom_converter_tree_view
+msgid "UoM converters"
+msgstr "Convertisseurs d'unité de mesure"
+
+#. module: base_uom_converter
+#: code:addons/base_uom_converter/models/uom_converter.py:0
+#, python-format
+msgid ""
+"You can't convert {uom} (expected {category} uom category) to {to_uom} using "
+"this converter {converter}."
+msgstr ""
+"Vous ne pouvez pas convertir des {uom} (s'attend à une unité de mesure de la "
+"catégorie: {category}) en {to_uom} avec ce convertissuer: {converter}."
+
+#. module: base_uom_converter
+#: code:addons/base_uom_converter/models/uom_converter.py:0
+#, python-format
+msgid ""
+"You can't convert {uom} to {to_uom} (expect {expected_category} unit "
+"category) using this converter {converter}."
+msgstr ""
+"Vous ne pouvez pas convertir des {uom} en {to_uom} (s'attend à une unité de "
+"mesurede la catégorie {expected_category}) avec ce convertissuer: "
+"{converter}."
+
+#. module: base_uom_converter
+#: code:addons/base_uom_converter/models/uom_converter.py:0
+#, python-format
+msgid ""
+"You can't converter {quantity} {uom} to {to_uom} using this converter "
+"{converter}. This quantity is out of configured scale."
+msgstr ""
+"Vous ne pouvez pas convertir {quantity} {uom} to {to_uom} avec ce "
+"convertissuer: {converter}. Cette quantité est hors barème."

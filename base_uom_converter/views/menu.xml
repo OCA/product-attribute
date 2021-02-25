@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_sales_configuration_uom_converter"
+            name="UoM converter"
+            sequence="20"
+            parent="sale.prod_config_main"
+            action="uom_converter_action_window"
+        />
+
+    </data>
+</odoo>

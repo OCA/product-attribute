@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="uom_converter_tree_view">
+            <field name="name">uom.converter.tree</field>
+            <field name="model">uom.converter</field>
+            <field name="arch" type="xml">
+                <tree string="UoM converters">
+                    <field name="name" />
+                    <field name="from_uom_id" />
+                    <field name="to_uom_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="uom_converter_form_view">
+            <field name="name">uom.converter.form</field>
+            <field name="model">uom.converter</field>
+            <field name="arch" type="xml">
+                <form string="UoM converter">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" />
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="from_uom_id" />
+                            </group>
+                            <group>
+                                <field name="to_uom_id" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="line_ids">
+                                <tree
+                                    editable="bottom"
+                                    string="Scale lines"
+                                    default_order="max_qty"
+                                >
+                                    <field name="max_qty" />
+                                    <field name="coefficient" />
+                                    <field name="constant" />
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="uom_converter_action_window">
+            <field name="name">UoM converter</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">uom.converter</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="uom_converter_tree_view" />
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new UoM converter
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
