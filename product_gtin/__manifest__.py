@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Product GTIN module for Odoo
@@ -22,21 +21,13 @@
 
 {
     "name": "Product GTIN EAN8 EAN13 UPC JPC Support",
-    "version": "8.0.1.1.0",
+    "version": "11.0.1.0.0",
     "author": "ChriCar Beteiligungs- und Beratungs- GmbH,"
               "Odoo Community Association (OCA)",
     "website": "http://www.chricar.at/ChriCar",
     "license": "AGPL-3",
     "category": "Sales Management",
     "depends": ["product"],
-    "description": """
-Product GTIN module
-===================
-
-Replaces the EAN13 field on products, partners and packaging by a field
-with the same technical name that accepts EAN13, EAN8, JPC, UPC and GTIN.
-    """,
-    "demo": [],
-    "data": ['product_view.xml'],
-    'installable': False,
+    "data": ['views/product_view.xml'],
+    'installable': True,
 }

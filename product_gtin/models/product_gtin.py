@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Product GTIN module for Odoo
@@ -19,11 +18,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import operator
+from odoo import fields, models
 import logging
 _logger = logging.getLogger(__name__)
-
-from openerp.osv import orm, fields
-import operator
 
 
 CONSTRAINT_MESSAGE = 'Error: Invalid EAN/GTIN code'
@@ -49,14 +47,14 @@ def check_ean8(eancode):
         _logger.warn('Ean8 code has to have a length of 8 characters.')
         return False
 
-    sum = 0
+    total_ean = 0
     ean_len = int(len(eancode))
-    for i in range(ean_len-1):
+    for i in range(ean_len - 1):
         if is_pair(i):
-            sum += 3 * int(eancode[i])
+            total_ean += 3 * int(eancode[i])
         else:
-            sum += int(eancode[i])
-    check = 10 - operator.mod(sum, 10)
+            total_ean += int(eancode[i])
+    check = 10 - operator.mod(total_ean, 10)
     if check == 10:
         check = 0
 
@@ -80,14 +78,14 @@ def check_upc(upccode):
 
     sum_pair = 0
     ean_len = int(len(upccode))
-    for i in range(ean_len-1):
+    for i in range(ean_len - 1):
         if is_pair(i):
             sum_pair += int(upccode[i])
-    sum = sum_pair * 3
-    for i in range(ean_len-1):
+    total_pair = sum_pair * 3
+    for i in range(ean_len - 1):
         if not is_pair(i):
-            sum += int(upccode[i])
-    check = ((sum/10 + 1) * 10) - sum
+            total_pair += int(upccode[i])
+    check = ((total_pair / 10 + 1) * 10) - total_pair
 
     return check == int(upccode[-1])
 
@@ -107,15 +105,15 @@ def check_ean13(eancode):
         _logger.warn('Ean13 code has to have a length of 13 characters.')
         return False
 
-    sum = 0
+    total_ean = 0
     ean_len = int(len(eancode))
-    for i in range(ean_len-1):
-        pos = int(ean_len-2-i)
+    for i in range(ean_len - 1):
+        pos = int(ean_len - 2 - i)
         if is_pair(i):
-            sum += 3 * int(eancode[pos])
+            total_ean += 3 * int(eancode[pos])
         else:
-            sum += int(eancode[pos])
-    check = 10 - operator.mod(sum, 10)
+            total_ean += int(eancode[pos])
+    check = 10 - operator.mod(total_ean, 10)
     if check == 10:
         check = 0
 
@@ -150,55 +148,49 @@ def check_ean(eancode):
     return DICT_CHECK_EAN[len(eancode)](eancode)
 
 
-class product_product(orm.Model):
+class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    def _check_ean_key(self, cr, uid, ids):
-        for rec in self.browse(cr, uid, ids):
+    def _check_ean_key(self):
+        for rec in self:
             if not check_ean(rec.ean13):
                 return False
         return True
 
-    _columns = {
-        'ean13': fields.char(
-            'EAN/GTIN', size=14,
-            help="Code for %s" % HELP_MESSAGE),
-    }
+    ean13 = fields.Char(
+        'EAN/GTIN', size=14,
+        help="Code for %s" % HELP_MESSAGE)
 
     _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean13'])]
 
 
-class product_packaging(orm.Model):
+class ProductPackaging(models.Model):
     _inherit = "product.packaging"
 
-    def _check_ean_key(self, cr, uid, ids):
-        for rec in self.browse(cr, uid, ids):
-            if not check_ean(rec.ean):
-                return False
-        return True
-
-    _columns = {
-        'ean': fields.char(
-            'EAN', size=14,
-            help='Barcode number for %s' % HELP_MESSAGE),
-        }
-
-    _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean'])]
-
-
-class res_partner(orm.Model):
-    _inherit = "res.partner"
-
-    def _check_ean_key(self, cr, uid, ids):
-        for rec in self.browse(cr, uid, ids):
+    def _check_ean_key(self):
+        for rec in self:
             if not check_ean(rec.ean13):
                 return False
         return True
 
-    _columns = {
-        'ean13': fields.char(
-            'EAN', size=14,
-            help="Code for %s" % HELP_MESSAGE),
-        }
+    ean = fields.Char(
+        'EAN', size=14,
+        help='Barcode number for %s' % HELP_MESSAGE)
+
+    _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean'])]
+
+
+class ResPartner(models.Model):
+    _inherit = "res.partner"
+
+    def _check_ean_key(self):
+        for rec in self:
+            if not check_ean(rec.ean13):
+                return False
+        return True
+
+    ean13 = fields.Char(
+        'EAN', size=14,
+        help="Code for %s" % HELP_MESSAGE)
 
     _constraints = [(_check_ean_key, CONSTRAINT_MESSAGE, ['ean13'])]

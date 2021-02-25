@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # #############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -24,7 +23,7 @@ import unittest2
 import logging
 _logger = logging.getLogger(__name__)
 
-from openerp.addons.product_gtin import product_gtin
+from odoo.addons.product_gtin.models import product_gtin
 
 
 class TestIsPair(unittest2.TestCase):
