@@ -29,7 +29,7 @@
                                 <field name="name" />
                             </h1>
                         </div>
-                        <group>
+                        <group name="uoms">
                             <group>
                                 <field name="from_uom_id" />
                             </group>
@@ -37,8 +37,8 @@
                                 <field name="to_uom_id" />
                             </group>
                         </group>
-                        <group>
-                            <field name="line_ids">
+                        <group name="scale_lines">
+                            <field name="line_ids" nolabel="1">
                                 <tree
                                     editable="bottom"
                                     string="Scale lines"
