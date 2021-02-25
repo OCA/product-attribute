@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2019-02-08 13:50+0000\n"
-"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"PO-Revision-Date: 2021-02-25 15:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__bom_id
@@ -81,7 +81,7 @@ msgstr "Última modificación el"
 #: code:addons/product_weight/wizard/product_weight_update.py:0
 #, python-format
 msgid "Missing active variant for product %s"
-msgstr ""
+msgstr "Falta una variante activa para el producto %s"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__product_id
