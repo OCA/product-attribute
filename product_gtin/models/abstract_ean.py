@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 # © 2004-2011 Tiny SPRL (<http://tiny.be>)
 # © 2010-2011 Camptocamp Austria (<http://www.camptocamp.at>)
 # © 2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, models
-from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
+from odoo import api, models, _
+from odoo.exceptions import ValidationError
 import operator
 import logging
 _logger = logging.getLogger(__name__)
@@ -66,8 +64,10 @@ class AbstractEan(models.AbstractModel):
         for i in range(ean_len - 1):
             if not self._is_pair(i):
                 sum += int(upccode[i])
+        mod = sum % 10
         check = ((sum / 10 + 1) * 10) - sum
-        return check == int(upccode[-1])
+        check_digit = check - mod
+        return int(check_digit) == int(upccode[-1])
 
     @api.model
     def _check_ean13(self, eancode):

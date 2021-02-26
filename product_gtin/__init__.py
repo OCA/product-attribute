@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2004 Tiny SPRL (<http://tiny.be>)
 #        Fabien Pinckaers <fp@tiny.Be>
 # © 2008 ChriCar Beteilugungs- und Beratungs- GmbH

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # © 2015 Therp BV (<http://therp.nl>)
 # © 2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
-from openerp.exceptions import ValidationError
+from odoo.tests import common
+from odoo.exceptions import ValidationError
 
 VALID_EAN8_CODES = [
     # http://www.softmatic.com/barcode-ean-8.html
