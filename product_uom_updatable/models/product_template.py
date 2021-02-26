@@ -36,7 +36,7 @@ class ProductTemplate(models.Model):
             ):
                 # pylint: disable=sql-injection
                 query = sql.SQL(
-                    "UPDATE product_template SET {field} " " = %s WHERE id in %s"
+                    "UPDATE product_template SET {field} = %s WHERE id in %s"
                 ).format(field=sql.Identifier(field_name))
                 self.env.cr.execute(query, (new_uom.id, tuple(product_ids)))
                 self.invalidate_cache(fnames=[field_name], ids=product_ids)
