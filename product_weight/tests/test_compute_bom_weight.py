@@ -16,7 +16,7 @@ class TestBomWeightCompute(TransactionCase):
         })
         self.p1 = self.ProductModel.create({
             'name': '101',
-            'type': 'product',
+            'type': 'consu',
             'weight': 0.20,
             'uom_id': unit_uom_id,
         })
