@@ -1,25 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2020 Tecnativa - Carlos Roca
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
 <odoo>
-
-<record id="view_product_pricelist_print" model="ir.ui.view">
-    <field name="name">Product pricelist print</field>
-    <field name="model">product.pricelist.print</field>
-    <field name="inherit_id" ref="product_pricelist_direct_print.view_product_pricelist_print" />
-    <field name="arch" type="xml">
-        <xpath expr="//field[@name='show_variants']" position="after">
-            <field name="is_public_categ" />
-        </xpath>
-        <xpath expr="//field[@name='categ_ids']" position="after">
-            <field name="public_categ_ids" widget="many2many_tags" attrs="{'invisible':[('is_public_categ','=',False)]}"/>
-        </xpath>
-        <xpath expr="//field[@name='categ_ids']" position="attributes">
-            <attribute name="attrs" >{'invisible':[('is_public_categ','=',True)]}</attribute>
-        </xpath>
-        <xpath expr="//field[@name='product_tmpl_ids']/parent::page" position="attributes">
-            <attribute name="attrs">{'invisible':['|', '|', ('categ_ids','!=',[]), ('last_ordered_products', '!=', 0), ('public_categ_ids', '!=', [])]}</attribute>
-        </xpath>
-    </field>
-</record>
+    <record id="view_product_pricelist_print" model="ir.ui.view">
+        <field name="name">Product pricelist print</field>
+        <field name="model">product.pricelist.print</field>
+        <field
+            name="inherit_id"
+            ref="product_pricelist_direct_print.view_product_pricelist_print"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='show_variants']" position="after">
+                <field name="is_public_categ" />
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="after">
+                <field
+                    name="public_categ_ids"
+                    widget="many2many_tags"
+                    attrs="{'invisible':[('is_public_categ','=',False)]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible':[('is_public_categ','=',True)]}</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='product_tmpl_ids']/parent::page"
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible':['|', '|', ('categ_ids','!=',[]), ('last_ordered_products', '!=', 0), ('public_categ_ids', '!=', [])]}</attribute>
+            </xpath>
+        </field>
+    </record>
 </odoo>

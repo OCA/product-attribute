@@ -5,23 +5,18 @@ from odoo import fields, models
 
 
 class ProductPricelistPrint(models.TransientModel):
-    _inherit = 'product.pricelist.print'
+    _inherit = "product.pricelist.print"
 
-    is_public_categ = fields.Boolean(
-        string="Filter/Group by public categories"
-    )
+    is_public_categ = fields.Boolean(string="Filter/Group by public categories")
 
     public_categ_ids = fields.Many2many(
-        'product.public.category',
-        string='Website Product Category'
+        "product.public.category", string="Website Product Category"
     )
 
     def get_products_domain(self):
         domain = super().get_products_domain()
         if self.public_categ_ids:
-            domain.append(
-                ('public_categ_ids', 'in', self.public_categ_ids.ids)
-            )
+            domain.append(("public_categ_ids", "in", self.public_categ_ids.ids))
         return domain
 
     def get_group_key(self, product):

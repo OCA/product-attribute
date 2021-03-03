@@ -8,15 +8,8 @@
     "category": "Product",
     "website": "https://www.github.com/OCA/product-attribute",
     "maintainers": ["CarlosRoca13"],
-    "author":
-        "Tecnativa, "
-        "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "depends": [
-        "product_pricelist_direct_print",
-        "website_sale",
-    ],
-    "data": [
-        "wizards/product_pricelist_print_view.xml"
-    ],
+    "depends": ["product_pricelist_direct_print", "website_sale",],
+    "data": ["wizards/product_pricelist_print_view.xml"],
 }
