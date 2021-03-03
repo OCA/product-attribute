@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo12-addon-product_packaging_type',
         'odoo12-addon-product_packaging_type_required',
         'odoo12-addon-product_pricelist_direct_print',
+        'odoo12-addon-product_pricelist_print_website_sale',
         'odoo12-addon-product_pricelist_revision',
         'odoo12-addon-product_pricelist_show_product_ref',
         'odoo12-addon-product_pricelist_supplierinfo',
