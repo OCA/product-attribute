@@ -23,7 +23,7 @@ msgid "Active"
 msgstr "Actiu"
 
 #. module: product_category_active
-#: code:addons/product_category_active/models/product.py:23
+#: code:addons/product_category_active/models/product.py:0
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
