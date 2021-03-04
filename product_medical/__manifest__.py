@@ -14,6 +14,10 @@
         "data/medical_data.xml",
         "security/ir.model.access.csv",
         "views/product_template.xml",
+        "views/in_vitro_diagnostic.xml",
+        "views/medical_class.xml",
+        "views/medicine_category.xml",
+        "views/ppe_category.xml",
     ],
     "installable": True,
 }
