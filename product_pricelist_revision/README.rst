@@ -40,8 +40,7 @@ Configuration
 To configure this module, you need to:
 
 #. Go to *Sales > Configuration > Settings* and check
-   "Multiple Sales Prices per Product" option and
-   "Prices computed from formulas" after that.
+   "Pricelists" option and "Advanced price rules" after that.
 
 Usage
 =====
@@ -85,6 +84,7 @@ Contributors
 
   * Carlos Dauden
   * Ernesto Tejeda
+  * Carlos Roca
 
 Maintainers
 ~~~~~~~~~~~
