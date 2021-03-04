@@ -10,10 +10,8 @@ class ProductTemplate(models.Model):
     is_medical = fields.Boolean(string="Is Medical", default=False)
 
     medical_certificate_url = fields.Char(string="CE Certificate medical devices")
-    medical_class_id = fields.Many2one("medical.class", string="Medical Class")
-    medicine_category_id = fields.Many2one(
-        "medicine.category", string="Medical Category"
-    )
+    medical_class_id = fields.Many2one("medical.class", string="Medical Device Class")
+    medicine_category_id = fields.Many2one("medicine.category", string="Drug Category")
     ppe_category_id = fields.Many2one("ppe.category", string="PPE Category")
 
     in_vitro_diagnostic = fields.Many2one(
