@@ -4,7 +4,7 @@
 {
     "name": "Product Medical",
     "summary": "Base  structure to handle medical products",
-    "version": "13.0.1.2.0",
+    "version": "13.0.1.3.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
