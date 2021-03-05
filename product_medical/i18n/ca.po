@@ -17,15 +17,10 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_medical
-#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+#: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_medical_class_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_medical_class_ids
 msgid "CE Certificate"
 msgstr "Certificat CE"
-
-#. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_medical_class
-#: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_medical_class
-msgid "CE Certificate Medical class"
-msgstr "Certificat CE Classe mèdica"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__medical_certificate_url
@@ -69,10 +64,20 @@ msgid "CE Class Is"
 msgstr "CE Classe Is"
 
 #. module: product_medical
+#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+msgid "Categories"
+msgstr ""
+
+#. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_validity_date
 #: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_validity_date
 msgid "Certificate Validity Date"
 msgstr "Data de validesa del certificat"
+
+#. module: product_medical
+#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+msgid "Conformity"
+msgstr ""
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__create_uid
@@ -91,9 +96,8 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__conformity_declaration
-#: model:ir.model.fields,field_description:product_medical.field_product_template__conformity_declaration
-#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+#: model:ir.model.fields,field_description:product_medical.field_product_product__conformity_declaration_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_template__conformity_declaration_ids
 msgid "Declaration of Conformity"
 msgstr "Declaració de conformitat"
 
@@ -109,6 +113,17 @@ msgstr "El tipus de diagnòstic ja existeix"
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__display_name
 msgid "Display Name"
 msgstr "Nom visible"
+
+#. module: product_medical
+#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+msgid "Documents"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medicine_category_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medicine_category_id
+msgid "Drug Category"
+msgstr ""
 
 #. module: product_medical
 #: model:medicine.category,name:product_medical.category_d
@@ -192,21 +207,15 @@ msgid "Lot Related"
 msgstr "Lot relacionat"
 
 #. module: product_medical
-#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
-msgid "MDR"
-msgstr "MDR"
-
-#. module: product_medical
 #: model:ir.model,name:product_medical.model_medical_class
-#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_class_id
-#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_class_id
 msgid "Medical Class"
 msgstr "Classe mèdica"
 
 #. module: product_medical
-#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
-msgid "Medical class"
-msgstr "Classe mèdica"
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_class_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_class_id
+msgid "Medical Device Class"
+msgstr ""
 
 #. module: product_medical
 #: model:ir.model.constraint,message:product_medical.constraint_medical_class_name_uniq
@@ -238,6 +247,12 @@ msgid "Notified Body"
 msgstr "Cos notificat"
 
 #. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__ppe_category_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__ppe_category_id
+msgid "PPE Category"
+msgstr ""
+
+#. module: product_medical
 #: model:ir.model,name:product_medical.model_ppe_category
 msgid "PPE category"
 msgstr "Categoría PPE"
@@ -257,3 +272,12 @@ msgstr "Plantilla de producte"
 #: model:ir.model.fields,field_description:product_medical.field_product_template__doc_validity_date
 msgid "Validity Date"
 msgstr "Data de validesa"
+
+#~ msgid "CE Certificate Medical class"
+#~ msgstr "Certificat CE Classe mèdica"
+
+#~ msgid "MDR"
+#~ msgstr "MDR"
+
+#~ msgid "Medical class"
+#~ msgstr "Classe mèdica"
