@@ -1,4 +1,4 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"multi price","product.multi.price","model_product_multi_price","base.group_user",1,1,1,1
-"multi price name read","product.multi.price.name","model_product_multi_price_name","base.group_user",1,0,0,0
-"multi price name admin","product.multi.price.name","model_product_multi_price_name","base.group_system",1,1,1,1
+"multi_price","product.multi.price","model_product_multi_price","base.group_user",1,1,1,1
+"multi_price_name_read","product.multi.price.name","model_product_multi_price_name","base.group_user",1,0,0,0
+"multi_price_name_admin","product.multi.price.name","model_product_multi_price_name","base.group_system",1,1,1,1

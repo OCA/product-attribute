@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Product Multi Price",
-    "version": "13.0.1.0.0",
-    "author": "Tecnativa," "Odoo Community Association (OCA)",
+    "version": "14.0.1.0.0",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Product Management",
     "license": "AGPL-3",
