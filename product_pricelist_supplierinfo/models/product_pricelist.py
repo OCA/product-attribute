@@ -1,7 +1,7 @@
 # Copyright 2018 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
+from datetime import datetime
 from odoo import api, fields, models
 
 
@@ -22,11 +22,13 @@ class ProductPricelist(models.Model):
         for product, qty, _partner in products_qty_partner:
             rule = rule_obj.browse(result[product.id][1])
             if rule.compute_price == 'formula' and rule.base == 'supplierinfo':
-                context = self.env.context
+                date_ctx = self.env.context.get('date', fields.Date.today())
+                if isinstance(date_ctx, datetime):
+                    date_ctx = fields.Date.to_date(date_ctx)
                 result[product.id] = (
                     product._get_supplierinfo_pricelist_price(
                         rule,
-                        date=date or context.get('date', fields.Date.today()),
+                        date=date or date_ctx,
                         quantity=qty,
                     ), rule.id,
                 )
