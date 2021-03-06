@@ -25,10 +25,11 @@ class ProductTemplate(models.Model):
         if product:
             if type(date) == datetime:
                 date = date.date()
+            # Fails is date is False so pass None
             seller = product._select_seller(
                 partner_id=rule.filter_supplier_id,
                 quantity=quantity,
-                date=date)
+                date=date or None)
             if seller:
                 price = seller._get_supplierinfo_pricelist_price()
         if price:
