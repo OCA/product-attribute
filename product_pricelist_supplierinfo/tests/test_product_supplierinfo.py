@@ -10,17 +10,17 @@ from odoo.tests import common
 class TestProductSupplierinfo(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductSupplierinfo, cls).setUpClass()
+        super().setUpClass()
         cls.partner_obj = cls.env["res.partner"]
-        cls.partner = cls.partner_obj.create({"name": "Partner Test",})
-        cls.supplier1 = cls.partner_obj.create({"name": "Supplier #1",})
-        cls.supplier2 = cls.partner_obj.create({"name": "Supplier #2",})
+        cls.partner = cls.partner_obj.create({"name": "Partner Test"})
+        cls.supplier1 = cls.partner_obj.create({"name": "Supplier #1"})
+        cls.supplier2 = cls.partner_obj.create({"name": "Supplier #2"})
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Product Test",
                 "seller_ids": [
-                    (0, 0, {"name": cls.supplier1.id, "min_qty": 5, "price": 50,}),
-                    (0, 0, {"name": cls.supplier2.id, "min_qty": 1, "price": 10,}),
+                    (0, 0, {"name": cls.supplier1.id, "min_qty": 5, "price": 50}),
+                    (0, 0, {"name": cls.supplier2.id, "min_qty": 1, "price": 10}),
                 ],
             }
         )
@@ -30,7 +30,7 @@ class TestProductSupplierinfo(common.SavepointCase):
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "uom_po_id": cls.env.ref("uom.product_uom_dozen").id,
                 "seller_ids": [
-                    (0, 0, {"name": cls.supplier1.id, "min_qty": 1, "price": 1200,}),
+                    (0, 0, {"name": cls.supplier1.id, "min_qty": 1, "price": 1200}),
                 ],
             }
         )
@@ -137,6 +137,7 @@ class TestProductSupplierinfo(common.SavepointCase):
             {
                 "price_discount": 50,
                 "applied_on": "2_product_category",
+                "categ_id": self.product.categ_id.id,
                 "price_round": 1,
                 "price_surcharge": 5,
                 "price_min_margin": 10,
@@ -251,7 +252,7 @@ class TestProductSupplierinfo(common.SavepointCase):
 
         # Setting the item with the product
         self.pricelist.item_ids[0].write(
-            {"applied_on": "0_product_variant", "product_id": self.product.id,}
+            {"applied_on": "0_product_variant", "product_id": self.product.id}
         )
         self.product.seller_ids[0].currency_id = currency_mxn
         self.pricelist.currency_id = currency_usd
