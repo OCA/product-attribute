@@ -6,44 +6,46 @@ from odoo import api, fields, models
 
 
 class ProductPricelist(models.Model):
-    _inherit = 'product.pricelist'
+    _inherit = "product.pricelist"
 
     @api.multi
-    def _compute_price_rule(self, products_qty_partner, date=False,
-                            uom_id=False):
+    def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """Recompute price after calling the atomic super method for
         getting proper prices when based on supplier info.
         """
-        rule_obj = self.env['product.pricelist.item']
+        rule_obj = self.env["product.pricelist.item"]
         result = super(ProductPricelist, self)._compute_price_rule(
-            products_qty_partner, date, uom_id)
+            products_qty_partner, date, uom_id
+        )
         # Make sure all rule records are fetched at once at put in cache
-        rule_obj.browse(x[1] for x in result.values()).mapped('price_discount')
+        rule_obj.browse(x[1] for x in result.values()).mapped("price_discount")
         for product, qty, _partner in products_qty_partner:
             rule = rule_obj.browse(result[product.id][1])
-            if rule.compute_price == 'formula' and rule.base == 'supplierinfo':
+            if rule.compute_price == "formula" and rule.base == "supplierinfo":
                 context = self.env.context
                 result[product.id] = (
                     product._get_supplierinfo_pricelist_price(
                         rule,
-                        date=date or context.get('date', fields.Date.today()),
+                        date=date or context.get("date", fields.Date.today()),
                         quantity=qty,
-                    ), rule.id,
+                    ),
+                    rule.id,
                 )
         return result
 
 
 class ProductPricelistItem(models.Model):
-    _inherit = 'product.pricelist.item'
+    _inherit = "product.pricelist.item"
 
     base = fields.Selection(
-        selection_add=[
-            ('supplierinfo', 'Prices based on supplier info'),
-        ],
+        selection_add=[("supplierinfo", "Prices based on supplier info"),],
     )
     no_supplierinfo_min_quantity = fields.Boolean(
-        string='Ignore Supplier Info Min. Quantity',
+        string="Ignore Supplier Info Min. Quantity",
     )
     filter_supplier_id = fields.Many2one(
-        "res.partner", "Supplier filter", domain=[('supplier', '=', True)],
-        help="Only match prices from the selected supplier")
+        "res.partner",
+        "Supplier filter",
+        domain=[("supplier", "=", True)],
+        help="Only match prices from the selected supplier",
+    )
