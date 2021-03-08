@@ -93,9 +93,10 @@ Contributors
 
 * `Tecnativa <https://www.tecnativa.com>`_:
 
-  * Carlos Dauden <carlos.dauden@tecnativa.com>
-  * David Vidal <david.vidal@tecnativa.com>
-  * Sergio Teruel <sergio.teruel@tecnativa.com>
+  * Carlos Dauden
+  * David Vidal
+  * Sergio Teruel
+  * Carlos Roca
 
 * `CorporateHub <https://corporatehub.eu/>`__
 
