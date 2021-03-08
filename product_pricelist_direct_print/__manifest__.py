@@ -9,11 +9,12 @@
     "website": "https://www.github.com/OCA/product-attribute",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "depends": ["sale"],
+    "depends": ["sale", "report_xlsx"],
     "data": [
         "views/report_product_pricelist.xml",
         # 'mail_template_data' has to be after 'report_product_pricelist'
         "data/mail_template_data.xml",
+        "report/product_pricelist_xlsx.xml",
         "wizards/product_pricelist_print_view.xml",
     ],
 }
