@@ -47,22 +47,24 @@ class ProductTemplate(models.Model):
             # uom on the seller is a different one that the one used there.
             if seller and seller.product_uom != price_uom:
                 price = seller.product_uom._compute_price(price, price_uom)
-
-            convert_to_price_uom = lambda price: self.uom_id._compute_price(
-                price, price_uom
-            )
             price_limit = price
             price = (price - (price * (rule.price_discount / 100))) or 0.0
             if rule.price_round:
                 price = tools.float_round(price, precision_rounding=rule.price_round)
             if rule.price_surcharge:
-                price_surcharge = convert_to_price_uom(rule.price_surcharge)
+                price_surcharge = self.uom_id._compute_price(
+                    rule.price_surcharge, price_uom
+                )
                 price += price_surcharge
             if rule.price_min_margin:
-                price_min_margin = convert_to_price_uom(rule.price_min_margin)
+                price_min_margin = self.uom_id._compute_price(
+                    rule.price_min_margin, price_uom
+                )
                 price = max(price, price_limit + price_min_margin)
             if rule.price_max_margin:
-                price_max_margin = convert_to_price_uom(rule.price_max_margin)
+                price_max_margin = self.uom_id._compute_price(
+                    rule.price_max_margin, price_uom
+                )
                 price = min(price, price_limit + price_max_margin)
         return price
 
