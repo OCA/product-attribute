@@ -90,6 +90,11 @@ msgid "<strong>Sale Price</strong>"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model,name:product_pricelist_direct_print.model_report_product_pricelist_direct_print_product_pricelist_xlsx
+msgid "Abstract model to export as xlsx the product pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Cancel"
 msgstr ""
@@ -100,6 +105,19 @@ msgid "Categories"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid ""
+"Check this field to print only the products defined in the pricelist. The "
+"entries in the list referring to all products will not be displayed."
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Cost Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_uid
 msgid "Created by"
 msgstr "Créé par"
@@ -107,6 +125,12 @@ msgstr "Créé par"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Currency:"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -126,9 +150,27 @@ msgid "Date"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Date:"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Description"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__display_name
 msgid "Display Name"
 msgstr "Nom d'affichage"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Export"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -142,6 +184,7 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__id
 msgid "ID"
 msgstr ""
 
@@ -165,6 +208,7 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
@@ -184,6 +228,12 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "List Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
 msgid "Name"
 msgstr ""
@@ -191,6 +241,12 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__order_field
 msgid "Order"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "PRODUCTS"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -205,6 +261,12 @@ msgstr ""
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "Price List"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Price List Name:"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -235,6 +297,11 @@ msgid "Product Pricelist Print"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.actions.report,name:product_pricelist_direct_print.product_pricelist_xlsx
+msgid "Product Pricelist XLSX"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 #, fuzzy
 msgid "Product Templates"
@@ -245,6 +312,12 @@ msgstr "Produits"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Products"
 msgstr "Produits"
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Sale Price"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -272,8 +345,25 @@ msgid "Show Variants"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid "Show the products defined on pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Special Pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
 msgid "Summary"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Summary:"
 msgstr ""
 
 #. module: product_pricelist_direct_print
