@@ -1,6 +1,6 @@
 For adding supplier info:
 
-#. Go to *Sales > Catalog > Products*
+#. Go to *Sales > Products > Products*
 #. Open or create a product.
 #. Go to "Purchase" page.
 #. On "Vendors" section, add the supplier and prices.
