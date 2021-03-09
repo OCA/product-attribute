@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.form (in product_follow_state)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <div name="follow">
+                    <field name="not_followed" />
+                    <label for="not_followed" />
+                    <field name="followed" />
+                    <label for="followed" />
+                </div>
+            </div>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_search_view">
+        <field name="name">product.template.search (in product_follow_state)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <filter name="filter_to_sell" position="after">
+                <filter
+                    name="not_followed"
+                    string="Not Followed"
+                    domain="[('not_followed','=',True)]"
+                />
+                <filter
+                    name="followed"
+                    string="Followed"
+                    domain="[('followed','=',True)]"
+                />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
