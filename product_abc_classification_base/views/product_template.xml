@@ -14,7 +14,7 @@
               <field
                 name="abc_classification_product_level_ids"
                 widget="many2many_tags"
-                context="{'default_product_tmpl_id': active_id, 'default_profile_id': abc_classification_profile_ids[0] and abc_classification_profile_ids[0][2] and abc_classification_profile_ids[0][2][0] or False}"
+                context="{'default_product_tmpl_id': active_id, 'default_profile_id': abc_classification_profile_ids and abc_classification_profile_ids[0] and abc_classification_profile_ids[0][2] and abc_classification_profile_ids[0][2][0] or False}"
                 options="{'open': true}"
                 attrs="{'readonly': [('product_variant_count', '&gt;', 1)]}"
                 domain="[('product_tmpl_id', '=', active_id)]"
