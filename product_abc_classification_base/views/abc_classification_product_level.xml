@@ -16,7 +16,7 @@
           <group name="main_info">
             <field name="display_name" />
             <field name="allowed_profile_ids" invisible="1"/>
-            <field name="profile_id" domain="[('id', 'in', allowed_profile_ids[0] and allowed_profile_ids[0][2] or False))]"/>
+            <field name="profile_id" domain="[('id', 'in', allowed_profile_ids and allowed_profile_ids[0] and allowed_profile_ids[0][2] or False))]"/>
             <field name="product_id"/>
             <field name="product_tmpl_id" invisible="1"/>
             <field name="computed_level_id"/>
