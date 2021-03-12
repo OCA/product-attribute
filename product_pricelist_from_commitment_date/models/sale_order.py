@@ -11,7 +11,8 @@ class SaleOrder(models.Model):
     def _apply_pricelist_from_commitment_date(self):
         self.ensure_one()
         for line in self.order_line:
-            if line.product_updatable:
+            # Price unit is still modifiable if not quantity invoiced
+            if not line.qty_invoiced:
                 # Call product_uom_change as it only update price_unit using pricelist
                 line.with_context(
                     force_pricelist_date=self.commitment_date
