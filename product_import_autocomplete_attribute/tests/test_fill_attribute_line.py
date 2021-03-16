@@ -1,16 +1,18 @@
-# © 2020 TestVariantAttrToTmplAkretion France
+# © 2020 Akretion France
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests.common import TransactionCase
 from odoo.exceptions import UserError
+from odoo.tests.common import TransactionCase
 
 
 class TestFillAttributeLine(TransactionCase):
     def _create_product(self, value_ids):
-        return self.env["product.product"].create({
-            "product_tmpl_id": self.tmpl.id,
-            "attribute_value_ids": [(6, 0, value_ids)],
-            })
+        return self.env["product.product"].create(
+            {
+                "product_tmpl_id": self.tmpl.id,
+                "attribute_value_ids": [(6, 0, value_ids)],
+            }
+        )
 
     def setUp(self):
         super().setUp()
@@ -18,12 +20,10 @@ class TestFillAttributeLine(TransactionCase):
             "product_import_autocomplete_attribute.demo_product_tmpl_tshirt"
         )
         self.attr_cut_tanktop = self.env.ref(
-            "product_import_autocomplete_attribute."
-            "demo_product_attribute_cut_tanktop"
+            "product_import_autocomplete_attribute.demo_product_attribute_cut_tanktop"
         )
         self.attr_cut_long = self.env.ref(
-            "product_import_autocomplete_attribute."
-            "demo_product_attribute_cut_long"
+            "product_import_autocomplete_attribute.demo_product_attribute_cut_long"
         )
         self.attr_emb_cheap = self.env.ref(
             "product_import_autocomplete_attribute."
