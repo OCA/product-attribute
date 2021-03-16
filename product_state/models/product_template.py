@@ -21,11 +21,13 @@ class ProductTemplate(models.Model):
         help="Select a state for this product",
         group_expand="_read_group_state_id",
         default=lambda self: self._get_default_product_state_id(),
+        index=True,
+        tracking=10,
     )
 
     @api.model
     def _get_default_product_state_id(self):
-        return self.env.ref("product_state.product_state_sellable")
+        return self.env.ref("product_state_sellable", raise_if_not_found=False)
 
     @api.depends("product_state_id")
     def _compute_product_state(self):
