@@ -1,4 +1,4 @@
-# Copyright 2017 ACSONE SA/NV (<http://acsone.eu>)
+# Copyright 2017-2021 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
@@ -20,7 +20,12 @@ class ProductTemplate(models.Model):
         string="State",
         help="Select a state for this product",
         group_expand="_read_group_state_id",
+        default=lambda self: self._get_default_product_state_id(),
     )
+
+    @api.model
+    def _get_default_product_state_id(self):
+        return self.env.ref("product_state.product_state_sellable")
 
     @api.depends("product_state_id")
     def _compute_product_state(self):
