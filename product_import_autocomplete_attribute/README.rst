@@ -47,7 +47,7 @@ Create some product attributes
 Usage
 =====
 
-In order to better test and illustrate this module, and example CSV file is provided in the exmaple folder (you will need the demo data).
+In order to better test and illustrate this module, and example CSV file is provided in the example folder (you will need the demo data).
 
 First, the setup:
 

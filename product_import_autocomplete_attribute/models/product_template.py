@@ -1,7 +1,7 @@
 # © 2020 Akretion France
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models
+from odoo import _, models
 from odoo.exceptions import UserError
 
 
@@ -22,11 +22,13 @@ class ProductTemplate(models.Model):
                     line.value_ids |= value
                     match = True
             if not match:
-                self.env["product.template.attribute.line"].create({
-                    "product_tmpl_id": self.id,
-                    "attribute_id": value.attribute_id.id,
-                    "value_ids": [(6, 0, [value.id])],
-                    })
+                self.env["product.template.attribute.line"].create(
+                    {
+                        "product_tmpl_id": self.id,
+                        "attribute_id": value.attribute_id.id,
+                        "value_ids": [(6, 0, [value.id])],
+                    }
+                )
         active_variants = self.product_variant_ids
         self.with_context(skip_create_variant=False)._create_variant_ids()
         self.flush()
@@ -41,4 +43,8 @@ class ProductTemplate(models.Model):
                 return record
         else:
             raise UserError(
-                "No matching variant found, maybe the attribute value are incoherant ")
+                _(
+                    "No matching variant found, maybe the attribute value "
+                    "are incoherant"
+                )
+            )
