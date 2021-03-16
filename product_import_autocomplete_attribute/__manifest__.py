@@ -8,7 +8,7 @@
     "summary": "Sync product variant attributes to template",
     "category": "product",
     "depends": ["product"],
-    "website": "https://github.com/oca/product-attribute",
+    "website": "https://github.com/OCA/product-attribute",
     "data": [],
     "demo": ["demo/product_demo.xml"],
     "installable": True,
