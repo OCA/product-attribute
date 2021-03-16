@@ -1,7 +1,7 @@
 # © 2020 Akretion France
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models, api, fields
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -10,12 +10,13 @@ class ProductProduct(models.Model):
     attribute_value_ids = fields.Many2many(
         "product.attribute.value",
         compute="_compute_attribute_value_ids",
-        )
+    )
 
     def _compute_attribute_value_ids(self):
         for record in self:
-            record.attribute_value_ids =\
+            record.attribute_value_ids = (
                 record.product_template_attribute_value_ids.product_attribute_value_id
+            )
 
     @api.model_create_multi
     def create(self, list_vals):
