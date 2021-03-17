@@ -22,7 +22,6 @@ class ProductSupplierinfoGroup(models.Model):
     partner_id = fields.Many2one(
         "res.partner",
         "Vendor",
-        domain=[("supplier", "=", True)],
         ondelete="cascade",
         required=True,
         help="Vendor of this product",

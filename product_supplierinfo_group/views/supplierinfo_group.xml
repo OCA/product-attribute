@@ -11,7 +11,10 @@
                     <group>
                         <group>
                             <field name="product_tmpl_id" invisible="1" />
-                            <field name="partner_id" />
+                            <field
+                                name="partner_id"
+                                context="{'res_partner_search_mode': 'supplier'}"
+                            />
                             <field
                                 name="product_id"
                                 domain="[('product_tmpl_id', '=', product_tmpl_id)]"
