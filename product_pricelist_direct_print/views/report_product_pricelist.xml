@@ -25,13 +25,13 @@
                         <div class="col-3">
                         <strong>Date</strong>:<br />
                         <t t-if="o.date">
-                                <span
-                                    t-field="o.date"
-                                    t-options='{"format": "YYYY-MM-dd"}'
-                                />
+                                <span t-field="o.date" t-options="{'widget': 'date'}" />
                             </t>
                         <t t-if="not o.date">
-                                <t t-esc="time.strftime('%Y-%m-%d')" />
+                                <t
+                                    t-esc="time.strftime('%Y-%m-%d')"
+                                    t-options="{'widget': 'date'}"
+                                />
                             </t>
                     </div>
                     </div>
