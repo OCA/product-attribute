@@ -17,7 +17,6 @@ class ProductTemplate(models.Model):
     )
 
     def _compute_supplier_product_code(self):
-        self.mapped("seller_ids.product_code")
         for prod in self:
             seller = first(
                 prod.seller_ids.filtered(
