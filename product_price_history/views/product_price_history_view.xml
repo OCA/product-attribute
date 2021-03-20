@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-
+<openerp>
+    <data>
         <record id="view_product_price_history_tree" model="ir.ui.view" >
             <field name="name">view.product.price.history.tree</field>
             <field name="model">product.price.history</field>
             <field name="arch" type="xml">
                 <tree editable="top">
-                    <field name="product_id"/>
+                    <field name="product_template_id"/>
                     <field name="datetime"/>
                     <field name="cost"/>
-                    <field name="product_tmpl_id" invisible="1"/>
                 </tree>
             </field>
         </record>
@@ -19,9 +18,9 @@
             <field name="model">product.price.history</field>
             <field name="arch" type="xml">
                 <search string="Search Product Cost History">
-                    <field name="product_id" string="Product"/>
+                    <field name="product_template_id" string="Product"/>
                     <group expand="0" string="Group By">
-                        <filter name="product_group" string="Product" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter name="product_group" string="Product" domain="[]" context="{'group_by':'product_template_id'}"/>
                     </group>
                     <field name="datetime" string="Date"/>
                     <group expand="0" string="Group By">
@@ -47,8 +46,8 @@
         />
 
         <record id="action_product_template_only_form_price_history" model="ir.actions.act_window">
-            <field name="context">{'default_product_tmpl_id': active_id, 'search_default_product_tmpl_id': active_id}</field>
-            <field name="domain">[('product_tmpl_id', '=', default_product_tmpl_id)]</field>
+            <field name="context">{'default_product_template_id': active_id, 'search_default_product_template_id': active_id}</field>
+            <field name="domain">[('product_template_id', '=', default_product_template_id)]</field>
             <field name="name">Price History</field>
             <field name="res_model">product.price.history</field>
             <field name="view_type">form</field>
@@ -77,15 +76,14 @@
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet/div[hasclass('oe_button_box')]" position="inside">
-                    <button type="action"
+                    <button type="object"
                             class="oe_stat_button"
-                            name="%(action_product_price_history_view)d"
-                            context="{'search_default_product_id': [active_id]}"
+                            name="action_product_price_history_view"
                             icon="fa-history">
                          <field string="Price History" name="price_history_count" widget="statinfo" />
                     </button>
                 </xpath>
             </field>
         </record>
-
-</odoo>
+    </data>
+</openerp>
