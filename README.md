@@ -23,6 +23,7 @@ addon | version | summary
 [product_custom_info](product_custom_info/) | 10.0.1.0.0 | Add custom field in products
 [product_default_image](product_default_image/) | 10.0.1.0.0 | Apply default images to new and existing products.
 [product_dimension](product_dimension/) | 10.0.1.0.0 | Product Dimension
+[product_life_period](product_life_period/) | 10.0.1.0.0 | Product life period
 [product_manufacturer](product_manufacturer/) | 10.0.1.0.0 | Product Manufacturers
 [product_multi_category](product_multi_category/) | 10.0.1.0.0 | Product - Many Categories
 [product_multi_image](product_multi_image/) | 10.0.1.0.0 | Multiple Images in Products
