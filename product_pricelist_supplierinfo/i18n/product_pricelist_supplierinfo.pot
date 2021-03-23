@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_pricelist_supplierinfo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_pricelist_supplierinfo
+#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_pricelist_supplier_item_form_view
+msgid "<span attrs=\"{'invisible':[('base', '!=', 'supplierinfo')]}\">Supplier price  -  </span>"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
+msgid "Base price for computation.\n"
+"Public Price: The base price will be the Sale/public Price.\n"
+"Cost Price : The base price will be the cost price.\n"
+"Other Pricelist : Computation of the base price based on another Pricelist."
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__base
+msgid "Based on"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Cost"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Cost Price Tax Included"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
+msgid "Ignore Supplier Info Min. Quantity"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
+msgid "Only match prices from the selected supplier"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Other Price"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Other Pricelist"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Partner Prices on the product form"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist
+msgid "Pricelist"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
+msgid "Pricelist Item"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Prices based on supplier info"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: selection:product.pricelist.item,base:0
+msgid "Public Price"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
+msgid "Sale Margin"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
+msgid "Sale margin"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:res.groups,name:product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin
+msgid "Show sale margin on Product Supplierinfo"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
+msgid "Supplier filter"
+msgstr ""
+
