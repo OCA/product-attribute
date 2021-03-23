@@ -17,7 +17,7 @@ class ProductPricelist(models.Model):
             products_qty_partner, date, uom_id
         )
         # Make sure all rule records are fetched at once at put in cache
-        rule_obj.browse(x[1] for x in result.values()).mapped("price_discount")
+        rule_obj.browse([x[1] for x in result.values()]).mapped("price_discount")
         for product, qty, _partner in products_qty_partner:
             rule = rule_obj.browse(result[product.id][1])
             if rule.compute_price == "formula" and rule.base == "supplierinfo":
