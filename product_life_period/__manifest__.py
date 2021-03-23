@@ -4,7 +4,7 @@
 
 {
     "name": "Product life period",
-    "version": "10.0.1.0.0",
+    "version": "10.0.1.0.1",
     'author': "Acsone SA/NV, Odoo Community Association (OCA)",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
