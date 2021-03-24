@@ -1,6 +1,7 @@
-# Copyright 2018-2019 ACSONE SA/NV
+# Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 from odoo.osv import expression
 
 
@@ -12,7 +13,7 @@ class IrFilters(models.Model):
         if self.env.context.get("product_assortment", False):
             model = self.env.ref("product.model_product_product")
             return model.model
-        return False
+        raise ValidationError(_("Error no product assortment in context"))
 
     @api.model
     def _get_default_is_assortment(self):
@@ -53,6 +54,7 @@ class IrFilters(models.Model):
 
         return res
 
+    @api.depends("domain", "blacklist_product_ids", "whitelist_product_ids")
     def _compute_record_count(self):
         for record in self:
             if record.model_id not in self.env:
