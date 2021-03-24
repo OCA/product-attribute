@@ -1,11 +1,13 @@
-# © 2015  Laetitia Gangloff, Acsone SA/NV (http://www.acsone.eu)
+# © 2021  Laetitia Gangloff, Acsone SA/NV (http://www.acsone.eu)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class ProductLifePeriod(models.Model):
     _name = "product.life.period"
+    _description = "Product Life Period : manage seasonal products"
 
     name = fields.Char(translate=True)
     start_date = fields.Date()
@@ -19,12 +21,10 @@ class ProductLifePeriod(models.Model):
     )
     products_count = fields.Integer(compute="_compute_products_count")
 
-    @api.one
     @api.depends("product_ids")
     def _compute_products_count(self):
         self.products_count = len(self.product_ids)
 
-    @api.multi
     def _run_life_period_update(self):
         """At the end of life period, set product in state end
         And set the period inactive
@@ -40,14 +40,10 @@ class ProductLifePeriod(models.Model):
         end_life_periods.write({"active": False})
         return True
 
-    @api.multi
+    @api.constrains("start_date", "end_date")
     def _check_date(self):
         """Check state date is before end date"""
         for life_period in self:
             if life_period.start_date and life_period.end_date:
-                return life_period.start_date < life_period.end_date
-        return True
-
-    _constraints = [
-        (_check_date, "Start date must be before End date", ["start_date", "end_date"])
-    ]
+                if life_period.start_date > life_period.end_date:
+                    raise ValidationError(_("Start date must be before End date"))
