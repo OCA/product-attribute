@@ -3,3 +3,4 @@
 
 from . import custom_info_template
 from . import product_application
+from . import custom_info_value
