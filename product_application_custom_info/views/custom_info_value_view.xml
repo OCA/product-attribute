@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 PlanetaTIC - Marc Poch <mpoch@planetatic.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data>
+
+    <record id="custom_info_value_product_application_tree" model="ir.ui.view">
+        <field name="model">custom.info.value</field>
+        <field name="inherit_id" ref="base_custom_info.custom_info_value_tree" />
+        <field name="arch" type="xml">
+            <field name="value" position="replace">
+                <field name="value"
+                    attrs="{'invisible': [('field_type', '=', 'id')], 'required': [('required', '=', True), ('field_type', '!=', 'id')]}"
+                    force_save="1"
+                />
+            </field>
+        </field>
+    </record>
+
+</data>
+</odoo>
