@@ -1,6 +1,7 @@
-# Copyright 2018-2019 ACSONE SA/NV
+# Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
 
 
@@ -63,6 +64,13 @@ class TestProductAssortment(TransactionCase):
         self.assertTrue(assortment.is_assortment)
         self.assertEqual(assortment.model_id, "product.product")
 
+    def test_create_assortment_without_context(self):
+
+        with self.assertRaises(ValidationError):
+            self.filter_obj.with_context(product_assortment=False).create(
+                {"name": "Test Assortment No Context", "domain": []}
+            )
+
     def test_search_assortment_with_partner(self):
         self.filter_obj.with_context(product_assortment=True).create(
             {
@@ -82,3 +90,16 @@ class TestProductAssortment(TransactionCase):
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
         res = self.assortment.show_products()
         self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
+
+    def test_record_count(self):
+        products = self.product_obj.search([])
+        self.assertEqual(self.assortment.record_count, len(products))
+
+        # reduce assortment to services products
+        domain = [("type", "=", "service")]
+        self.assortment.domain = domain
+
+        products = self.product_obj.search(domain)
+        domain = self.assortment._get_eval_domain()
+        products_filtered = self.product_obj.search(domain)
+        self.assertEqual(self.assortment.record_count, len(products_filtered))
