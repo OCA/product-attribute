@@ -23,7 +23,7 @@ class ProductProduct(models.Model):
     quick_uom_id = fields.Many2one(
         "uom.uom",
         domain="[('category_id', '=', quick_uom_category_id)]",
-        compute="_compute_purchase_quick_uom_id",
+        compute="_compute_quick_uom_id",
         inverse="_inverse_quick_vals",
     )
 
@@ -54,7 +54,7 @@ class ProductProduct(models.Model):
     def _default_quick_uom_id(self):
         raise NotImplementedError
 
-    def _compute_purchase_quick_uom_id(self):
+    def _compute_quick_uom_id(self):
         parent = self.pma_parent
         if parent:
             for rec in self:
