@@ -1,4 +1,4 @@
-from odoo.tests.common import Form, SavepointCase
+from odoo.tests.common import SavepointCase
 
 
 class TestProductPricePackagingQty(SavepointCase):
@@ -6,8 +6,9 @@ class TestProductPricePackagingQty(SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
-        cls.product = cls.env.ref("product.product_product_1")
-        cls.product.list_price = 222
+        cls.product = cls.env["product.product"].create(
+            {"name": "Test", "type": "service", "list_price": 222}
+        )
         cls.wizard = cls.env["product.package.price.wizard"]
         cls.pkg_box = cls.env["product.packaging"].create(
             {"name": "Box", "product_id": cls.product.id}
@@ -36,22 +37,19 @@ class TestProductPricePackagingQty(SavepointCase):
         )
 
     def test_set_sale_package_price(self):
-        form = Form(self.wizard_1)
-        form.packaging_price = 200
-        form.selected_packaging_id = self.pkg_box
+        self.wizard_1.packaging_price = 200
+        self.wizard_1.selected_packaging_id = self.pkg_box
         self.assertEqual(self.wizard_1.current_unit_price, 222)
-        self.assertEqual(form.unit_price, 4)
-        form.save()
+        self.assertEqual(self.wizard_1.unit_price, 4)
         self.wizard_1.action_set_price()
         self.assertEqual(self.product.list_price, 4)
 
     def test_set_purchase_pacakge_price(self):
         self.wizard_1.product_supplierinfo_id = self.supplier_info
-        form = Form(self.wizard_1)
+        self.wizard_1.product_tmpl_id = self.product.product_tmpl_id
         self.assertEqual(self.wizard_1.current_unit_price, 333)
-        form.packaging_price = 200
-        form.selected_packaging_id = self.pkg_big_box
-        self.assertEqual(form.unit_price, 1)
-        form.save()
+        self.wizard_1.packaging_price = 200
+        self.wizard_1.selected_packaging_id = self.pkg_big_box
+        self.assertEqual(self.wizard_1.unit_price, 1)
         self.wizard_1.action_set_price()
         self.assertEqual(self.supplier_info.price, 1)
