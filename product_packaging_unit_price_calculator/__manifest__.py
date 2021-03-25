@@ -3,7 +3,7 @@
 {
     "name": "Product Packaging Unit Price Calculator",
     "summary": "Wizard to calculate a unit price from a packaging price",
-    "version": "13.0.1.0.1",
+    "version": "13.0.1.0.2",
     "category": "Product",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
