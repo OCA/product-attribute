@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- Copyright 2020 ACSONE SA/NV
+<!-- Copyright 2021 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.ui.view" id="product_pricelist_assortment_item_form_view">
@@ -65,11 +65,13 @@
                     attrs="{'invisible':[('compute_price', '!=', 'formula')]}"
                 >
                     <field name="base" colspan="6" />
-                    <label for="" string="New Price =" />
+                    <span class="o_form_label">
+                        New Price =
+                    </span>
                     <div>
                         <span
                             attrs="{'invisible':[('base', '!=', 'list_price')]}"
-                        >Public Price  -  </span>
+                        >Sales Price  -  </span>
                         <span
                             attrs="{'invisible':[('base', '!=', 'standard_price')]}"
                         >Cost  -  </span>
