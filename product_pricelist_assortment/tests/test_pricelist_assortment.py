@@ -1,4 +1,4 @@
-# Copyright 2020 ACSONE SA/NV (<http://acsone.eu>)
+# Copyright 2021 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from uuid import uuid4
@@ -80,26 +80,26 @@ class TestPricelistAssortment(SavepointCase):
         existing_items = pricelist.item_ids
         pricelist.action_launch_assortment_update()
         new_items = pricelist.item_ids - existing_items
-        self.assertEquals(len(pricelist.item_assortment_ids), 1)
+        self.assertEqual(len(pricelist.item_assortment_ids), 1)
         # Check items created
         ensure_product_in = self.products_assortment
         self.assertTrue(bool(new_items))
         for item in new_items:
             self.assertIn(item.product_id, ensure_product_in)
             ensure_product_in -= item.product_id
-            self.assertEquals(item.assortment_item_id, assortment_item)
+            self.assertEqual(item.assortment_item_id, assortment_item)
         products_assortment = self.products_assortment.with_context(
             pricelist=pricelist.id
         )
         self.assertTrue(bool(products_assortment))
         for product in products_assortment:
-            self.assertAlmostEquals(
+            self.assertAlmostEqual(
                 product.price, assortment_price, places=self.precision
             )
         normal_product = self.Product.search(
             [("id", "not in", self.products_assortment.ids)], limit=1
         ).with_context(pricelist=pricelist.id)
-        self.assertAlmostEquals(
+        self.assertAlmostEqual(
             normal_product.price, normal_price, places=self.precision
         )
         return True
