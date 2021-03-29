@@ -9,10 +9,12 @@
         <field name="arch" type="xml">
             <tree position="attributes">
                 <attribute name="editable">bottom</attribute>
-                <attribute name="create">false</attribute>
             </tree>
             <field name="pricelist_id" position="attributes">
                 <attribute name="optional">show</attribute>
+                <attribute
+                    name="attrs"
+                >{'readonly': [('pricelist_id', '!=', False)]}</attribute>
             </field>
             <field name="name" position="attributes">
                 <attribute name="optional">show</attribute>
