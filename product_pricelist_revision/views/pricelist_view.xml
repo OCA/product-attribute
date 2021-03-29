@@ -10,10 +10,9 @@
         <field name="arch" type="xml">
             <tree position="attributes">
                 <attribute name="editable">bottom</attribute>
-                <attribute name="create">false</attribute>
             </tree>
             <field name="name" position="before">
-                <field name="pricelist_id" readonly="1"/>
+                <field name="pricelist_id" attrs="{'readonly': [('pricelist_id', '!=', False)]}"/>
                 <field name="applied_on" readonly="1"/>
             </field>
             <field name="product_tmpl_id" position="attributes">
