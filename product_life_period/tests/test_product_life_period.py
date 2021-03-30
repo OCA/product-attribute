@@ -5,6 +5,7 @@ from datetime import timedelta
 
 import odoo.tests.common as common
 from odoo import fields
+from odoo.exceptions import ValidationError
 
 
 class TestProductLifePeriod(common.TransactionCase):
@@ -35,6 +36,20 @@ class TestProductLifePeriod(common.TransactionCase):
 
         # run scheduler
         product_life_period_obj._run_life_period_update()
+
+        # TEST products_count
+        self.assertEqual(product_life_passed.products_count, 2)
+        product3.product_life_period_id = product_life_passed.id
+        self.assertEqual(product_life_passed.products_count, 3)
+
+        with self.assertRaises(ValidationError):
+            product_life_period_obj.create(
+                {
+                    "name": "Passed period",
+                    "end_date": passed_date,
+                    "start_date": date_today,
+                }
+            )
 
         self.assertEqual(product1.state, "end")
         self.assertEqual(product4.state, "end")
