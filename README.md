@@ -35,6 +35,7 @@ addon | version | summary
 [product_service_duration](product_service_duration/) | 10.0.1.0.0 | Extends events and meetings with services.
 [product_special_type](product_special_type/) | 10.0.1.0.0 | Add a special type selection on products.
 [product_state](product_state/) | 10.0.1.0.0 | Module introducing a state field on product template
+[product_state_history](product_state_history/) | 10.0.1.0.0 | Allows to store product state history for reporting purpose
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 10.0.3.0.1 | Allows to define prices for customers in the products
 [product_template_tags](product_template_tags/) | 10.0.1.0.0 | This addon allow to add tags on products
 [product_uom](product_uom/) | 10.0.1.0.0 | Provide missing uom
