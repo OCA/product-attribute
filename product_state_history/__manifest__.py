@@ -6,7 +6,7 @@
     'name': 'Product State History',
     'summary': """
         Allows to store product state history for reporting purpose""",
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.0.1',
     'license': 'AGPL-3',
     'category': 'Sales',
     'maintainers': ['rousseldenis'],
