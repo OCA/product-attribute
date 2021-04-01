@@ -78,3 +78,8 @@ class ProductProduct(models.Model):
             "res_id": self.id,
             "target": "current",
         }
+
+    def check_access_rights(self, operation, raise_exception=True):
+        if operation == "write" and self.env.context.get("product_mass_addition"):
+            return True
+        return super().check_access_rights(operation, raise_exception=raise_exception)
