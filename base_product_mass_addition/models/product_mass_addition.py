@@ -22,7 +22,11 @@ class ProductMassAddition(models.AbstractModel):
             "type": "ir.actions.act_window",
             "res_model": "product.product",
             "target": "current",
-            "context": {"parent_id": self.id, "parent_model": self._name},
+            "context": {
+                "parent_id": self.id,
+                "parent_model": self._name,
+                "mass_product_addition": True,
+            },
             "view_mode": "tree",
         }
 
