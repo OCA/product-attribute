@@ -10,14 +10,7 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='general_information']" position="inside">
                 <group string="secondary unit of measure">
-                    <field name="secondary_uom_ids" nolabel="1">
-                        <tree string="secondary Unit" editable="top">
-                            <field name="code" />
-                            <field name="name" />
-                            <field name="uom_id" />
-                            <field name="factor" />
-                        </tree>
-                    </field>
+                    <field name="secondary_uom_ids" nolabel="1" />
                 </group>
             </xpath>
         </field>

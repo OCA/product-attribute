@@ -62,10 +62,14 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* Carlos Dauden <carlos.dauden@tecnativa.com>
-* Sergio Teruel <sergio.teruel@tecnativa.com>
 * Kitti Upariphutthiphong <kittiu@ecosoft.co.th>
 * Pimolnat Suntian <pimolnats@ecosoft.co.th>
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Carlos Dauden
+  * Sergio Teruel
+  * Ernesto Tejeda
+  * Pedro M. Baeza
 
 Maintainers
 ~~~~~~~~~~~

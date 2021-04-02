@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_secondary_unit_view_tree" model="ir.ui.view">
+        <field name="name">product.secondary.unit.view.tree</field>
+        <field name="model">product.secondary.unit</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="code" />
+                <field name="name" />
+                <field name="uom_id" />
+                <field name="factor" />
+            </tree>
+        </field>
+    </record>
+</odoo>
