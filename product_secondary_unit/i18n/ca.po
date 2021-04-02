@@ -111,10 +111,8 @@ msgstr "Unitat de mesura secundària"
 
 #. module: product_secondary_unit
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
-msgid "secondary Unit"
-msgstr "unitat secundària"
-
-#. module: product_secondary_unit
-#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "secondary unit of measure"
 msgstr "unitat secundària de mesura"
+
+#~ msgid "secondary Unit"
+#~ msgstr "unitat secundària"
