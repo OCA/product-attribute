@@ -74,6 +74,6 @@ class ProductTemplate(models.Model):
                         "code": product_tmpl.state,
                     })
                 state_mapping[product_tmpl.state] = product_state
-            if product_tmpl.product_state_id != product_state.id:
-                product_tmpl.product_state_id = product_state.id
+            if product_tmpl.product_state_id != product_state:
+                product_tmpl.product_state_id = product_state
         self.filtered(lambda x: not x.state).write({'product_state_id': False})
