@@ -7,8 +7,10 @@ from odoo import fields, models
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    application_ids = fields.One2many(
-        string='Applications',
+    application_ids = fields.Many2many(
         comodel_name='product.application',
-        inverse_name='product_tmpl_id'
+        relation='product_template_application_rel',
+        column1='product_tmpl_id',
+        column2='application_id',
+        string='Applications',
     )

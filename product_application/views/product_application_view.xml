@@ -9,7 +9,6 @@
         <field name="arch" type="xml">
             <search string="Product Application">
                 <field name="name"/>
-                <field name="product_tmpl_id"/>
             </search>
         </field>
     </record>
@@ -22,7 +21,6 @@
                 <sheet>
                     <group name="base">
                         <field name="name" />
-                        <field name="product_tmpl_id" />
                     </group>
                 </sheet>
             </form>
@@ -35,7 +33,6 @@
         <field name="arch" type="xml">
             <tree string="Product Applications">
                 <field name="name"/>
-                <field name="product_tmpl_id"/>
             </tree>
         </field>
     </record>

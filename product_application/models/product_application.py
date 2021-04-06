@@ -9,6 +9,15 @@ class ProductApplication(models.Model):
 
     name = fields.Char('Application Name', required=True)
 
+    product_tmpl_ids = fields.Many2many(
+        comodel_name='product.template',
+        relation='product_template_application_rel',
+        column1='application_id',
+        column2='product_tmpl_id',
+        string='Product Templates',
+    )
+
+    # FIXME: Delete field product_tmpl_id:
     @api.model
     def _default_product_template(self):
         product_obj = self.env['product.product']
