@@ -16,7 +16,7 @@ class ProductApplication(models.Model):
     name = fields.Char(
         string='Application Name',
         compute='_get_application_name',
-        required=False
+        required=False, store=True
     )
 
     def _get_custom_info_name_value_pairs(self):
@@ -42,7 +42,7 @@ class ProductApplication(models.Model):
             pairs.append((info.name, str(cur_value)))
         return pairs
 
-    @api.model
+    @api.depends('custom_info_template_id', 'custom_info_ids')
     def _get_application_name(self):
         for app in self:
             pairs = app._get_custom_info_name_value_pairs()
