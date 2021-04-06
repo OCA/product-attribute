@@ -5,52 +5,16 @@ import statistics
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
-from odoo.addons import decimal_precision as dp
-
-
-class ProductSupplierinfo(models.Model):
-    _inherit = 'product.supplierinfo'
-
-    sale_price = fields.Float(
-        'Sale Price', digits=dp.get_precision('Sale Price'),
-        help="Sale Price suggested by supplier")
-
-    @api.multi
-    def _update_supplier_sale_price(self):
-        product_obj = self.env['product.product']
-        self.ensure_one()
-
-        products = product_obj.browse()
-        if self.product_id:
-            products = self.product_id
-        elif self.product_tmpl_id:
-            products = product_obj.search([
-                ('product_tmpl_id', '=', self.product_tmpl_id.id),
-            ])
-        for product in products:
-            product_vals = product._prepare_supplier_sale_price()
-            product.write(product_vals)
-
-    @api.model
-    def create(self, vals):
-        new_supplierinfo = super(ProductSupplierinfo, self).create(vals)
-        if vals.get('sale_price'):
-            new_supplierinfo._update_supplier_sale_price()
-        return new_supplierinfo
-
-    @api.multi
-    def write(self, vals):
-        res = super(ProductSupplierinfo, self).write(vals)
-
-        if vals.get('sale_price'):
-            for supplierinfo in self:
-                supplierinfo._update_supplier_sale_price()
-
-        return res
 
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
+
+    use_supplier_sale_price = fields.Boolean('Use Supplier Sale Price')
+
+    supplier_sale_price = fields.Float(
+        'Supplier_sale_price', compute='_compute_supplier_sale_price',
+        readonly=True)
 
     @api.multi
     @api.depends('seller_ids.sale_price', 'use_supplier_sale_price')
@@ -86,21 +50,17 @@ class ProductProduct(models.Model):
                 sale_price = False
             product.supplier_sale_price = sale_price
 
-    use_supplier_sale_price = fields.Boolean('Use Supplier Sale Price')
-
-    supplier_sale_price = fields.Float(
-        'Supplier_sale_price', compute='_compute_supplier_sale_price',
-        readonly=True)
-
     @api.multi
     @api.depends('fix_price', 'use_supplier_sale_price',
                  'variant_seller_ids.sale_price')
     def _compute_lst_price(self):
+        computed_lst_price_products = self.browse()
         for product in self:
             if product.use_supplier_sale_price:
                 product.lst_price = product.supplier_sale_price
             else:
-                super(ProductProduct, product)._compute_lst_price()
+                computed_lst_price_products |= product
+        super(ProductProduct, computed_lst_price_products)._compute_lst_price()
 
     @api.multi
     def _prepare_supplier_sale_price(self, force=False):
@@ -110,8 +70,8 @@ class ProductProduct(models.Model):
         supplier_sale_price = self.supplier_sale_price
         if (force or self.use_supplier_sale_price) and supplier_sale_price:
             vals = {
-                'lst_price': self.supplier_sale_price,
-                'fix_price': self.supplier_sale_price,
+                'lst_price': supplier_sale_price,
+                'fix_price': supplier_sale_price,
             }
         return vals
 

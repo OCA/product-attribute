@@ -5,9 +5,9 @@
     'name': 'Product Supplier Sale Price',
     'version': '12.0.1.0.0',
     'category': 'Product',
-    'summary': "Set Sale Price using prices suggested by supplier",
-    'author': 'PlanetaTIC',
-    'website': 'https://www.planetatic.com',
+    'summary': 'Set Sale Price using prices suggested by supplier',
+    'author': 'PlanetaTIC, Odoo Community Association (OCA)',
+    'website': 'https://github.com/OCA/product_supplier_sale_price',
     'license': 'AGPL-3',
     'depends': [
         'product',
