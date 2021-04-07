@@ -14,5 +14,8 @@
         "product",
         "product_category_code",
     ],
-    "post_init_hook": "post_init_hook",
+    "data": [
+        "data/product_category_sequence.xml",
+    ],
+    "pre_init_hook": "pre_init_hook",
 }

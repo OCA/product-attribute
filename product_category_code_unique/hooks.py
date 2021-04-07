@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-def post_init_hook(cr, registry):  # pragma: no cover
+def pre_init_hook(cr):  # pragma: no cover
     """
     Updates existing codes matching the default '/' or
     empty. Primarily this ensures installation does not
