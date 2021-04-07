@@ -23,7 +23,16 @@ class TestProductCode(common.SavepointCase):
             "code": "TEST",
         }
         with self.assertRaises(IntegrityError), self.env.cr.savepoint():
-            self.category_dup = self.env["product.category"].create(vals)
+            self.env["product.category"].create(vals)
 
         vals.update({"code": "TEST1"})
-        self.category_dup = self.env["product.category"].create(vals)
+        self.env["product.category"].create(vals)
+
+        vals = {
+            "name": "Category Auto",
+        }
+        self.category_2 = self.env["product.category"].create(vals)
+        self.assertIn(
+            "PC/",
+            self.category_2.code,
+        )
