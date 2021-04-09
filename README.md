@@ -28,6 +28,7 @@ addon | version | summary
 [product_manufacturer](product_manufacturer/) | 14.0.1.0.0 | Adds manufacturers and attributes on the product view.
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 | Product - Many Categories
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | Speedup product retrieve
+[product_packaging_type](product_packaging_type/) | 14.0.0.1.0 | Product Packaging Type
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 | Print price list from menu option, product templates, products variants or price lists
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 | Product Sequence
