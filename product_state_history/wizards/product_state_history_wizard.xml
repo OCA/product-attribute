@@ -1,23 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2020 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo>
 
     <record model="ir.ui.view" id="product_state_history_wizard_form_view">
-        <field name="name">product.state.history.wizard.form (in product_state_history)</field>
+        <field
+            name="name"
+        >product.state.history.wizard.form (in product_state_history)</field>
         <field name="model">product.state.history.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
-                        <field name="pivot_date"/>
-                        <field name="product_state"/>
+                        <field name="pivot_date" />
+                        <field name="product_state" />
                     </group>
                 </sheet>
                 <footer>
-                    <button string="Print" name="print_report" type="object" class="btn-primary"/>
-                    <button string="Cancel" class="btn-default" special="cancel"/>
+                    <button
+                        string="Print"
+                        name="print_report"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
                 </footer>
             </form>
         </field>
@@ -28,6 +34,6 @@
         <field name="res_model">product.state.history.wizard</field>
         <field name="view_type">form</field>
         <field name="target">new</field>
-        <field name="view_id" ref="product_state_history_wizard_form_view"/>
+        <field name="view_id" ref="product_state_history_wizard_form_view" />
     </record>
 </odoo>
