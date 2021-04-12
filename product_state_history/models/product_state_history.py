@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -7,26 +6,26 @@ from odoo import fields, models
 
 class ProductStateHistory(models.Model):
 
-    _name = 'product.state.history'
-    _description = 'Product State History'
-    _order = 'id desc'
-    _rec_name = 'product_template_id'
+    _name = "product.state.history"
+    _description = "Product State History"
+    _order = "id desc"
+    _rec_name = "product_template_id"
 
     product_template_id = fields.Many2one(
         comodel_name="product.template",
         string="Product",
         required=True,
-        ondelete='cascade',
+        ondelete="cascade",
         index=True,
     )
     product_state = fields.Selection(
         selection=[
-            ('draft', 'In Development'),
-            ('sellable', 'Normal'),
-            ('end', 'End of Lifecycle'),
-            ('obsolete', 'Obsolete')
+            ("draft", "In Development"),
+            ("sellable", "Normal"),
+            ("end", "End of Lifecycle"),
+            ("obsolete", "Obsolete"),
         ],
-        string='Status',
+        string="Status",
         index=True,
         required=True,
     )
