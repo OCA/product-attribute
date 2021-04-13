@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="product_brand_search_form_view" model="ir.ui.view">
         <field name="name">product.brand.search.form</field>
         <field name="model">product.brand</field>
         <field name="arch" type="xml">
             <search string="Product Brand">
-                <field name="name"/>
-                <field name="partner_id"/>
+                <field name="name" />
+                <field name="partner_id" />
             </search>
         </field>
     </record>
@@ -17,7 +17,8 @@
         res_model="product.template"
         view_type="form"
         view_mode="kanban,form,tree"
-        domain="[('product_brand_id', '=', active_id)]"/>
+        domain="[('product_brand_id', '=', active_id)]"
+    />
 
     <act_window
         id="action_open_single_product_brand"
@@ -26,7 +27,8 @@
         view_type="form"
         view_mode="kanban,form,tree"
         target="current"
-        domain="[('product_ids', 'in', active_id)]"/>
+        domain="[('product_ids', 'in', active_id)]"
+    />
 
     <record id="view_product_brand_form" model="ir.ui.view">
         <field name="name">product.brand.form</field>
@@ -35,25 +37,35 @@
             <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(action_open_brand_products)d"
+                        <button
+                            name="%(action_open_brand_products)d"
                             type="action"
                             class="oe_stat_button"
-                            icon="fa-cubes">
-                            <field name="products_count" widget="statinfo" string="Products"/>
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="products_count"
+                                widget="statinfo"
+                                string="Products"
+                            />
                         </button>
                     </div>
-                    <field name="logo" widget="image" class="oe_avatar"/>
+                    <field name="logo" widget="image" class="oe_avatar" />
                     <div class="oe_title">
-                            <label for="name" string="Brand Name" class="oe_edit_only"/>
-                            <h1><field name="name"/></h1>
+                            <label
+                            for="name"
+                            string="Brand Name"
+                            class="oe_edit_only"
+                        />
+                            <h1><field name="name" /></h1>
                     </div>
                     <group>
                         <group>
-                            <field name="partner_id"/>
+                            <field name="partner_id" />
                         </group>
                     </group>
                     <group string="Description">
-                        <field name="description" nolabel="1"/>
+                        <field name="description" nolabel="1" />
                     </group>
                 </sheet>
             </form>
@@ -65,9 +77,9 @@
         <field name="model">product.brand</field>
         <field name="arch" type="xml">
             <tree string="product.brand">
-                <field name="name"/>
-                <field name="description"/>
-                <field name="partner_id"/>
+                <field name="name" />
+                <field name="description" />
+                <field name="partner_id" />
             </tree>
         </field>
     </record>
@@ -77,23 +89,31 @@
         <field name="model">product.brand</field>
         <field name="arch" type="xml">
             <kanban>
-                <field name="id"/>
-                <field name="logo"/>
-                <field name="products_count"/>
-                <field name="description"/>
+                <field name="id" />
+                <field name="logo" />
+                <field name="products_count" />
+                <field name="description" />
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
                             <div class="o_kanban_image">
-                                <img t-att-src="kanban_image('product.brand', 'logo', record.id.raw_value)" alt="Logo"/>
+                                <img
+                                    t-att-src="kanban_image('product.brand', 'logo', record.id.raw_value)"
+                                    alt="Logo"
+                                />
                             </div>
                             <div class="oe_kanban_details">
                                 <h4>
-                                    <field name="name"/>
+                                    <field name="name" />
                                 </h4>
                                 <div>
-                                    <a name="%(product_brand.action_open_brand_products)d" type="action">
-                                        <t t-esc="record.products_count.value"/> Products
+                                    <a
+                                        name="%(product_brand.action_open_brand_products)d"
+                                        type="action"
+                                    >
+                                        <t
+                                            t-esc="record.products_count.value"
+                                        /> Products
                                     </a>
                                 </div>
                             </div>
@@ -107,13 +127,17 @@
     <record id="view_product_template_search_brand" model="ir.ui.view">
         <field name="name">product.template.search.brand</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="inherit_id" ref="product.product_template_search_view" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="product_brand_id"/>
-                <filter string="Brand" name="groupby_brand" domain="[]"
-                        context="{'group_by' : 'product_brand_id'}"/>
-                <separator/>
+                <field name="product_brand_id" />
+                <filter
+                    string="Brand"
+                    name="groupby_brand"
+                    domain="[]"
+                    context="{'group_by' : 'product_brand_id'}"
+                />
+                <separator />
             </field>
         </field>
     </record>
@@ -124,7 +148,7 @@
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <field name="sale_ok" position="before">
-                <field name="product_brand_id" placeholder="Brand"/><div/>
+                <field name="product_brand_id" placeholder="Brand" /><div />
             </field>
         </field>
     </record>
@@ -134,11 +158,17 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_kanban_view" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('oe_kanban_details')]/strong[1]" position="after">
+            <xpath
+                expr="//div[hasclass('oe_kanban_details')]/strong[1]"
+                position="after"
+            >
                 <div>
-                    <a t-if="record.product_brand_id" type="action"
-                       name="%(action_open_single_product_brand)d">
-                        <field name="product_brand_id"/>
+                    <a
+                        t-if="record.product_brand_id"
+                        type="action"
+                        name="%(action_open_single_product_brand)d"
+                    >
+                        <field name="product_brand_id" />
                     </a>
                 </div>
             </xpath>
@@ -150,10 +180,13 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_kanban_view" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('oe_kanban_details')]/strong[1]" position="after">
+            <xpath
+                expr="//div[hasclass('oe_kanban_details')]/strong[1]"
+                position="after"
+            >
                 <div>
                     <a t-if="record.product_brand_id" type="open">
-                        <field name="product_brand_id"/>
+                        <field name="product_brand_id" />
                     </a>
                 </div>
             </xpath>
@@ -166,7 +199,7 @@
         <field name="inherit_id" ref="product.product_template_tree_view" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="product_brand_id"/>
+                <field name="product_brand_id" />
             </field>
         </field>
     </record>
@@ -177,7 +210,7 @@
         <field name="inherit_id" ref="product.product_product_tree_view" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="product_brand_id"/>
+                <field name="product_brand_id" />
             </field>
         </field>
     </record>
@@ -193,5 +226,6 @@
         name="Product Brands"
         id="menu_product_brand"
         action="action_product_brand"
-        parent="sale.prod_config_main"/>
+        parent="sale.prod_config_main"
+    />
 </odoo>
