@@ -1,6 +1,6 @@
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductStateHistoryWizard(models.TransientModel):
@@ -11,29 +11,22 @@ class ProductStateHistoryWizard(models.TransientModel):
     pivot_date = fields.Datetime(
         default=lambda self: fields.Datetime.now(),
     )
-    product_state = fields.Selection(
-        selection=[
-            ("draft", "In Development"),
-            ("sellable", "Normal"),
-            ("end", "End of Lifecycle"),
-            ("obsolete", "Obsolete"),
-        ],
+    product_state_id = fields.Many2one(
+        comodel_name="product.state",
         string="Product Status",
         required=True,
     )
 
-    @api.multi
     def _get_product_domain(self):
         # Get product history for the actual product state
         self.ensure_one()
         return [
             ("state_date", ">=", self.pivot_date),
-            ("product_state", "=", self.product_state),
-            ("product_template_id.state", "=", self.product_state),
+            ("product_state_id", "=", self.product_state_id.id),
+            ("product_template_id.product_state_id", "=", self.product_state_id.id),
             ("product_template_id.active", "=", True),
         ]
 
-    @api.multi
     def print_report(self):
         for wizard in self:
             history_obj = self.env["product.state.history"]
@@ -55,13 +48,13 @@ class ProductStateHistoryWizard(models.TransientModel):
                 "model": "product.state.history",
                 "form": {"pivot_date": wizard.pivot_date},
             }
-
             return (
-                self.env["report"]
+                self.env.ref(
+                    "product_state_history.action_report_product_state_history"
+                )
                 .with_context(landscape=True)
-                .get_action(
+                .report_action(
                     history_report.ids,
-                    "product_state_history.report_product_state_history",
                     data=datas,
                 )
             )

@@ -16,13 +16,13 @@ class TestProductStateHistory(CommonProductStateHistory):
             [("product_template_id", "=", self.product_1.id)],
             limit=1,
         )
-        self.assertEquals(
-            "2020-07-29 13:00:00",
+        self.assertEqual(
+            fields.Datetime.from_string("2020-07-29 13:00:00"),
             history.state_date,
         )
-        self.assertEquals(
-            "end",
-            history.product_state,
+        self.assertEqual(
+            self.end,
+            history.product_state_id,
         )
 
         with mock.patch.object(fields.Datetime, "now") as mock_now:
@@ -33,13 +33,13 @@ class TestProductStateHistory(CommonProductStateHistory):
             [("product_template_id", "=", self.product_1.id)],
             limit=1,
         )
-        self.assertEquals(
-            "2020-07-29 14:00:00",
+        self.assertEqual(
+            fields.Datetime.from_string("2020-07-29 14:00:00"),
             history.state_date,
         )
-        self.assertEquals(
-            "obsolete",
-            history.product_state,
+        self.assertEqual(
+            self.obsolete,
+            history.product_state_id,
         )
 
         with mock.patch.object(fields.Datetime, "now") as mock_now:
@@ -49,13 +49,13 @@ class TestProductStateHistory(CommonProductStateHistory):
             [("product_template_id", "=", self.product_2.id)],
             limit=1,
         )
-        self.assertEquals(
-            "2020-07-29 15:00:00",
+        self.assertEqual(
+            fields.Datetime.from_string("2020-07-29 15:00:00"),
             history.state_date,
         )
-        self.assertEquals(
-            "end",
-            history.product_state,
+        self.assertEqual(
+            self.end,
+            history.product_state_id,
         )
 
         result = self.product_2.product_tmpl_id.action_product_state_history()
@@ -79,16 +79,16 @@ class TestProductStateHistory(CommonProductStateHistory):
             [("product_template_id", "=", self.product_1.id)],
             limit=1,
         )
-        vals = {"product_state": "end", "pivot_date": "2020-07-29 14:00"}
+        vals = {"product_state_id": self.end.id, "pivot_date": "2020-07-29 14:00"}
         report = self.history_wizard_obj.create(vals).print_report()
 
-        self.assertEquals(
+        self.assertEqual(
             report["data"]["ids"],
             [],
         )
-        vals = {"product_state": "end", "pivot_date": "2020-07-29 12:00"}
+        vals = {"product_state_id": self.end.id, "pivot_date": "2020-07-29 12:00"}
         report = self.history_wizard_obj.create(vals).print_report()
-        self.assertEquals(
+        self.assertEqual(
             report["data"]["ids"],
             history.ids,
         )
@@ -97,9 +97,9 @@ class TestProductStateHistory(CommonProductStateHistory):
             mock_now.return_value = "2020-07-29 14:00:00"
             self.product_1.state = "sellable"
 
-        vals = {"product_state": "end", "pivot_date": "2020-07-29 15:00:00"}
+        vals = {"product_state_id": self.end.id, "pivot_date": "2020-07-29 15:00:00"}
         report = self.history_wizard_obj.create(vals).print_report()
-        self.assertEquals(
+        self.assertEqual(
             report["data"]["ids"],
             [],
         )

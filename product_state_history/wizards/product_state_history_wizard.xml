@@ -13,7 +13,7 @@
                 <sheet>
                     <group>
                         <field name="pivot_date" />
-                        <field name="product_state" />
+                        <field name="product_state_id" />
                     </group>
                 </sheet>
                 <footer>
@@ -32,8 +32,8 @@
         <field name="name">Product State Report</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.state.history.wizard</field>
-        <field name="view_type">form</field>
         <field name="target">new</field>
         <field name="view_id" ref="product_state_history_wizard_form_view" />
     </record>
+
 </odoo>
