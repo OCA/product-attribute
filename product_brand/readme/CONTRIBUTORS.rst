@@ -10,3 +10,4 @@
 * `Tecnativa <https://www.tecnativa.com>`_
 
   * David Vidal <david.vidal@tecnativa.com>
+* Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
