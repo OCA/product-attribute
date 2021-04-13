@@ -5,7 +5,7 @@
     "name": "Product State History",
     "summary": """
         Allows to store product state history for reporting purpose""",
-    "version": "10.0.1.0.1",
+    "version": "14.0.1.0.1",
     "license": "AGPL-3",
     "category": "Sales",
     "maintainers": ["rousseldenis"],
@@ -16,6 +16,7 @@
     ],
     "data": [
         "security/product_state_history.xml",
+        "security/product_state_history_wizard.xml",
         "views/product_state_history.xml",
         "views/product_template.xml",
         "wizards/product_state_history_wizard.xml",

@@ -18,15 +18,10 @@ class ProductStateHistory(models.Model):
         ondelete="cascade",
         index=True,
     )
-    product_state = fields.Selection(
-        selection=[
-            ("draft", "In Development"),
-            ("sellable", "Normal"),
-            ("end", "End of Lifecycle"),
-            ("obsolete", "Obsolete"),
-        ],
-        string="Status",
+    product_state_id = fields.Many2one(
+        comodel_name="product.state",
         index=True,
+        string="Status",
         required=True,
     )
     state_date = fields.Datetime(
