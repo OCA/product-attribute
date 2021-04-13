@@ -3,8 +3,8 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <template id="report_product_state_history">
-        <t t-call="report.html_container">
-            <t t-call="report.internal_layout">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
                 <div class="page">
                     <h1>Product State History</h1>
                     <t
@@ -39,7 +39,7 @@
                                     />
                                 </td>
                                 <td name="td_product_state">
-                                    <span t-field="history.product_state" />
+                                    <span t-field="history.product_state_id" />
                                 </td>
                                 <td name="td_state_date">
                                     <span t-field="history.state_date" />
@@ -52,12 +52,18 @@
         </t>
     </template>
 
-    <report
-        id="action_report_product_state_history"
-        model="product.state.history"
-        string="Product State History"
-        report_type="qweb-pdf"
-        name="product_state_history.report_product_state_history"
-        file="product_state_history.report_product_state_history"
-    />
+    <record id="action_report_product_state_history" model="ir.actions.report">
+        <field name="model">product.state.history</field>
+        <field name="name">Product State History</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >product_state_history.report_product_state_history</field>
+        <field
+            name="report_file"
+        >product_state_history.report_product_state_history</field>
+        <field name="binding_type">report</field>
+        <field name="binding_model_id" ref="model_product_state_history" />
+    </record>
+
 </odoo>
