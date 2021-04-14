@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_category_form" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='first']" position="after">
+                <group name="stock_threshold" string="Stock Threshold" colspan="4">
+                    <field name="stock_state_threshold" />
+                    <field name="manual_stock_state_threshold" class="oe_edit_only" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

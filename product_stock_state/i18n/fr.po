@@ -1,0 +1,171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_stock_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-19 11:23+0000\n"
+"PO-Revision-Date: 2020-03-19 12:37+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
+msgstr ""
+"<span class=\"o_form_label\">Seuils des articles d'états de stocks</span>"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_res_config_settings__stock_state_threshold
+msgid ""
+"Define custom value under which the stock state will pass from 'In Stock' to "
+"'In Limited Stock' State."
+msgstr ""
+"Définir la valeur seuil déterminant l'état \"En stock\" et l'état \"En stock "
+"limité\"."
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_product__stock_state_threshold
+#: model:ir.model.fields,help:product_stock_state.field_product_template__stock_state_threshold
+msgid ""
+"Define custom value under which the stock state will pass from 'In Stock' to "
+"'In Limited Stock' State. If not set, Odoo will use the value defined in the "
+"product category. If no value is defined in product category, it will use "
+"the value defined for the company"
+msgstr ""
+"Définir la valeur seuil déterminant l'état \"En stock\" et l'état \"En stock "
+"limité\". Si elle n'est pas définie, Odoo utilisera la valeur définie dans "
+"la catégorie d'article. Si aucune valeur n'y est définie, Odoo utilisera la "
+"valeur définie au niveau de l'entreprise"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
+msgid "Manual Stock State Threshold"
+msgstr "Seuil pour l'état du stock manuel"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_category
+msgid "Product Category"
+msgstr "Catégorie d'article"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: product_stock_state
+#: model:product.product,name:product_stock_state.product_setting_by_company
+#: model:product.template,name:product_stock_state.product_setting_by_company_product_template
+msgid "Product with threshold set on the company"
+msgstr "Article avec seuil fixé au niveau de l'entreprise"
+
+#. module: product_stock_state
+#: model:product.product,name:product_stock_state.product_setting_by_product
+#: model:product.template,name:product_stock_state.product_setting_by_product_product_template
+msgid "Product with threshold set on the product"
+msgstr "Article avec seuil fixé au niveau de l'article"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Set stock state threshold"
+msgstr "Définir le seuil pour l'état du stock"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state
+msgid "Stock State"
+msgstr "État du stock"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__stock_state_threshold
+msgid "Stock State Threshold"
+msgstr "Seuil pour l'état du stock"
+
+#. module: product_stock_state
+#: model:res.groups,name:product_stock_state.group_stock_state_by_category
+msgid "Stock State Threshold by Category"
+msgstr "Seuil pour l'état du stock par catégorie"
+
+#. module: product_stock_state
+#: model:res.groups,name:product_stock_state.group_stock_state_by_product
+msgid "Stock State Threshold by Product"
+msgstr "Seuil pour l'état du stock par produit"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_category_form
+msgid "Stock Threshold"
+msgstr "Seuil de stock"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_company_view_form_threshold
+msgid "Stock parameters"
+msgstr "Paramètres de stock"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Stock threshold"
+msgstr "Seuil de stock"
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
+msgid ""
+"The custom value under which the stock state of the products of this "
+"category will pass from 'In Stock' to 'In Limited Stock' State. If not set, "
+"Odoo will use the threshold defined at the company level."
+msgstr ""
+"La valeur personnalisée sous laquelle l'état de stock des articles sous "
+"cette catégorie passera de l'état \"En stock\" à \"En stock limité\". Si "
+"elle n'est pas définie, Odoo utilisera le seuil défini au niveau de "
+"l'entreprise."
+
+#. module: product_stock_state
+#: model:product.product,uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,uom_name:product_stock_state.product_setting_by_product_product_template
+#, fuzzy
+msgid "Units"
+msgstr "Unité(s)"
+
+#~ msgid "In Limited Stock"
+#~ msgstr "En stock limité"
+
+#~ msgid "In Stock"
+#~ msgstr "En stock"
+
+#~ msgid "Out Of Stock"
+#~ msgstr "En rupture de stock"
+
+#~ msgid "Resupplying"
+#~ msgstr "En réapprovisionnement"
+
+#~ msgid "kg"
+#~ msgstr "kg"

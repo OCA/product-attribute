@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_setting_by_company" model="product.product">
+        <field name="name">Product with threshold set on the company</field>
+        <field name="categ_id" ref="product.product_category_all" />
+        <field name="company_id" ref="base.main_company" />
+    </record>
+    <record id="product_setting_by_product" model="product.product">
+        <field name="name">Product with threshold set on the product</field>
+        <field name="categ_id" ref="product.product_category_all" />
+        <field name="manual_stock_state_threshold">30</field>
+    </record>
+    <record id="base.main_company" model="res.company">
+        <field name="stock_state_threshold">66</field>
+    </record>
+</odoo>
