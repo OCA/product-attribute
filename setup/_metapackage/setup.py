@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo14-addon-product_pricelist_direct_print',
         'odoo14-addon-product_secondary_unit',
         'odoo14-addon-product_sequence',
+        'odoo14-addon-product_stock_state',
         'odoo14-addon-product_template_tags',
     ],
     classifiers=[
