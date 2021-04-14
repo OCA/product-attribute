@@ -16,6 +16,7 @@
                             <field name="name" />
                             <field name="uom_id" />
                             <field name="factor" />
+                            <field name="dependency_type" />
                         </tree>
                     </field>
                 </group>
