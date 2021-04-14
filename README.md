@@ -32,6 +32,7 @@ addon | version | summary
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 | Print price list from menu option, product templates, products variants or price lists
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 | Product Sequence
+[product_stock_state](product_stock_state/) | 14.0.1.0.0 | Compute the state of a product's stockthe stock level and sale_ok field
 [product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
 
 [//]: # (end addons)
