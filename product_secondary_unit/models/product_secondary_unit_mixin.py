@@ -61,7 +61,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     @api.depends(lambda x: x._get_secondary_uom_qty_depends())
     def _compute_secondary_uom_qty(self):
         for line in self:
-            if not line.secondary_uom_id:
+            if (
+                not line.secondary_uom_id
+                or line.secondary_uom_id.dependency_type == "independent"
+            ):
                 continue
             factor = line._get_factor_line()
             qty_line = line._get_quantity_from_line()
@@ -74,7 +77,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _compute_helper_target_field_qty(self):
         """Set the target qty field defined in model"""
         for rec in self:
-            if not rec.secondary_uom_id:
+            if (
+                not rec.secondary_uom_id
+                or rec.secondary_uom_id.dependency_type == "independent"
+            ):
                 rec[rec._secondary_unit_fields["qty_field"]] = rec._origin[
                     rec._secondary_unit_fields["qty_field"]
                 ]
@@ -95,7 +101,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         """Helper method to be called from onchange method of uom field in
         target model.
         """
-        if not self.secondary_uom_id:
+        if (
+            not self.secondary_uom_id
+            or self.secondary_uom_id.dependency_type == "independent"
+        ):
             return
         factor = self._get_factor_line()
         line_qty = self._get_quantity_from_line()
