@@ -28,7 +28,14 @@ class ProductProduct(models.Model):
     )
 
     def _inverse_quick_vals(self):
-        self._sync_quick_lines()
+        parent = self.pma_parent
+        if parent:
+            for product in self:
+                quick_line = parent._get_quick_line(product)
+                if quick_line:
+                    parent._update_quick_line(product, quick_line)
+                else:
+                    parent._add_quick_line(product, quick_line._name)
 
     @property
     def pma_parent(self):
@@ -40,16 +47,6 @@ class ProductProduct(models.Model):
 
     def _compute_quick_uom_category_id(self):
         raise NotImplementedError
-
-    def _sync_quick_lines(self):
-        parent = self.pma_parent
-        if parent:
-            for product in self:
-                quick_line = parent._get_quick_line(product)
-                if quick_line:
-                    parent._update_quick_line(product, quick_line)
-                else:
-                    parent._add_quick_line(product, quick_line._name)
 
     def _default_quick_uom_id(self):
         raise NotImplementedError
