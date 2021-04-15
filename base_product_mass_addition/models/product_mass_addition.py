@@ -25,7 +25,6 @@ class ProductMassAddition(models.AbstractModel):
             "context": {
                 "parent_id": self.id,
                 "parent_model": self._name,
-                "mass_product_addition": True,
             },
             "view_mode": "tree",
         }
