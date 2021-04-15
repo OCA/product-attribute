@@ -18,7 +18,7 @@ class ProductProduct(models.Model):
         "for this product or update the existing one.",
     )
     quick_uom_category_id = fields.Many2one(
-        "uom.category", compute="_compute_quick_uom_category_id"
+        "uom.category", related="quick_uom_id.category_id"
     )
     quick_uom_id = fields.Many2one(
         "uom.uom",
