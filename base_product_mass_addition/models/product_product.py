@@ -45,9 +45,6 @@ class ProductProduct(models.Model):
         if parent_model and parent_id:
             return self.env[parent_model].browse(parent_id)
 
-    def _compute_quick_uom_category_id(self):
-        raise NotImplementedError
-
     def _default_quick_uom_id(self):
         raise NotImplementedError
 
