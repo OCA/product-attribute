@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo14-addon-product_code_unique',
         'odoo14-addon-product_cost_security',
         'odoo14-addon-product_dimension',
+        'odoo14-addon-product_logistics_uom',
         'odoo14-addon-product_manufacturer',
         'odoo14-addon-product_multi_category',
         'odoo14-addon-product_order_noname',
