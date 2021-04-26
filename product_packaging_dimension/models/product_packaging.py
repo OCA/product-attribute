@@ -25,7 +25,7 @@ class ProductPackaging(models.Model):
 
     length_uom_id = fields.Many2one(
         "uom.uom",
-        "Dimensions",
+        "Dimensions Units of Measure",
         domain=lambda self: [
             ("category_id", "=", self.env.ref("uom.uom_categ_length").id)
         ],
@@ -44,7 +44,7 @@ class ProductPackaging(models.Model):
     max_weight = fields.Float("Maximum Weight")
     weight_uom_id = fields.Many2one(
         "uom.uom",
-        string="Weight",
+        string="Weight Units of Measure",
         domain=lambda self: [
             ("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)
         ],
@@ -72,7 +72,7 @@ class ProductPackaging(models.Model):
 
     volume_uom_id = fields.Many2one(
         "uom.uom",
-        string="Volume",
+        string="Volume Units of Measure",
         domain=lambda self: [
             ("category_id", "=", self.env.ref("uom.product_uom_categ_vol").id)
         ],
