@@ -73,7 +73,6 @@ msgstr "Dernière mise à jour le"
 #. module: product_life_period
 #: model:ir.model.fields,field_description:product_life_period.field_product_product_product_life_period_id
 #: model:ir.model.fields,field_description:product_life_period.field_product_template_product_life_period_id
-#: model:ir.ui.view,arch_db:product_life_period.product_template_search_view_inherit_product_life_period
 msgid "Life Period"
 msgstr "Période de vie"
 
@@ -86,16 +85,9 @@ msgstr "Nom"
 #: model:ir.actions.act_window,name:product_life_period.action_open_life_period_products
 #: model:ir.actions.act_window,name:product_life_period.product_life_period_action
 #: model:ir.ui.menu,name:product_life_period.product_life_period_menu
-#: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_form
-#: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_search
 #: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_tree
 msgid "Product Life Period"
 msgstr "Période de vie de l'article"
-
-#. module: product_life_period
-#: model:ir.model,name:product_life_period.model_product_template
-msgid "Product Template"
-msgstr "Modèle d'article"
 
 #. module: product_life_period
 #: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_form

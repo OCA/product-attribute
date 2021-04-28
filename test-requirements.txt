@@ -1,1 +1,0 @@
-odoo14-addon-product_state @ git+https://github.com/ecosoft-odoo/product-attribute.git@14.0-mig-product_state#subdirectory=setup/product_state
