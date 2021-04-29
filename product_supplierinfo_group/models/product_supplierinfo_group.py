@@ -11,7 +11,9 @@ class ProductSupplierinfoGroup(models.Model):
     _name = "product.supplierinfo.group"
     _description = "Supplierinfo group"
 
-    product_tmpl_id = fields.Many2one("product.template", required=True)
+    product_tmpl_id = fields.Many2one(
+        "product.template", required=True, ondelete="cascade"
+    )
     supplierinfo_ids = fields.One2many("product.supplierinfo", "supplierinfo_group_id")
     product_id = fields.Many2one(
         "product.product",
