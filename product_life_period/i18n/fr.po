@@ -1,83 +1,89 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_life_period
+# 	* product_life_period
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 16:01+0000\n"
+"POT-Creation-Date: 2021-04-29 08:01+0000\n"
 "PO-Revision-Date: 2017-05-05 16:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_active
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__active
 msgid "Active"
 msgstr "Actif"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_create_uid
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_create_date
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__create_date
 msgid "Created on"
 msgstr "Créé le"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_display_name
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__display_name
+#: model:ir.model.fields,field_description:product_life_period.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_end_date
-msgid "End date"
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__end_date
+#, fuzzy
+msgid "End Date"
 msgstr "Date de fin"
 
 #. module: product_life_period
-#: model:ir.ui.view,arch_db:product_life_period.product_template_search_view_inherit_product_life_period
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_template_search_view_inherit_product_life_period
 msgid "End of Life Period"
 msgstr "Fin de la période de vie"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_id
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__id
+#: model:ir.model.fields,field_description:product_life_period.field_product_template__id
 msgid "ID"
 msgstr ""
 
 #. module: product_life_period
-#: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_search
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_life_period_view_search
 msgid "Inactive"
 msgstr "Inactif"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period___last_update
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period____last_update
+#: model:ir.model.fields,field_description:product_life_period.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Dernière Modification le"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_write_uid
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_write_date
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_product_product_life_period_id
-#: model:ir.model.fields,field_description:product_life_period.field_product_template_product_life_period_id
+#: model:ir.model.fields,field_description:product_life_period.field_product_product__product_life_period_id
+#: model:ir.model.fields,field_description:product_life_period.field_product_template__product_life_period_id
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_template_search_view_inherit_product_life_period
 msgid "Life Period"
 msgstr "Période de vie"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_name
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__name
 msgid "Name"
 msgstr "Nom"
 
@@ -85,36 +91,54 @@ msgstr "Nom"
 #: model:ir.actions.act_window,name:product_life_period.action_open_life_period_products
 #: model:ir.actions.act_window,name:product_life_period.product_life_period_action
 #: model:ir.ui.menu,name:product_life_period.product_life_period_menu
-#: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_tree
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_life_period_view_form
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_life_period_view_search
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_life_period_view_tree
 msgid "Product Life Period"
 msgstr "Période de vie de l'article"
 
 #. module: product_life_period
-#: model:ir.ui.view,arch_db:product_life_period.product_life_period_view_form
+#: model:ir.model,name:product_life_period.model_product_life_period
+msgid "Product Life Period : manage seasonal products"
+msgstr ""
+
+#. module: product_life_period
+#: model:ir.model,name:product_life_period.model_product_template
+#, fuzzy
+msgid "Product Template"
+msgstr "Nombre de produits"
+
+#. module: product_life_period
+#: model_terms:ir.ui.view,arch_db:product_life_period.product_life_period_view_form
 msgid "Products"
 msgstr "Articles"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_products_count
-msgid "Products count"
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__products_count
+#, fuzzy
+msgid "Products Count"
 msgstr "Nombre de produits"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_product_ids
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__product_ids
 msgid "Seasonal Products"
 msgstr "Produits saisonniers"
 
 #. module: product_life_period
-#: model:ir.model.fields,field_description:product_life_period.field_product_life_period_start_date
-msgid "Start date"
+#: model:ir.actions.server,name:product_life_period.ir_cron_product_end_life_period_ir_actions_server
+#: model:ir.cron,cron_name:product_life_period.ir_cron_product_end_life_period
+#: model:ir.cron,name:product_life_period.ir_cron_product_end_life_period
+msgid "Set Product having a passed life date in state end"
+msgstr ""
+
+#. module: product_life_period
+#: model:ir.model.fields,field_description:product_life_period.field_product_life_period__start_date
+#, fuzzy
+msgid "Start Date"
 msgstr "Date de début"
 
 #. module: product_life_period
-#: constraint:product.life.period:0
+#: code:addons/product_life_period/models/product_life_period.py:0
+#, python-format
 msgid "Start date must be before End date"
 msgstr "La date de début doit être avant la date de fin"
-
-#. module: product_life_period
-#: model:ir.model,name:product_life_period.model_product_life_period
-msgid "product.life.period"
-msgstr ""
