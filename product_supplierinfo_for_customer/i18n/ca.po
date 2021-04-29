@@ -137,8 +137,8 @@ msgstr "ID"
 msgid ""
 "If not set, the vendor price will apply to all variants of this product."
 msgstr ""
-"Si no s’estableix, el preu del venedor s’aplicarà a totes les variants d’"
-"aquest producte."
+"Si no s’estableix, el preu del venedor s’aplicarà a totes les variants "
+"d’aquest producte."
 
 #. module: product_supplierinfo_for_customer
 #: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:0
@@ -171,6 +171,11 @@ msgstr ""
 "Termini de lliurament en dies entre la confirmació de la comanda de compra i "
 "la recepció dels productes al vostre magatzem. Utilitzat pel planificador "
 "per al càlcul automàtic de la planificació de la comanda de compra."
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
@@ -222,6 +227,11 @@ msgid "Quantity"
 msgstr "Quantitat"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Sequence"
 msgstr "Seqüència"
@@ -268,8 +278,8 @@ msgid ""
 "This vendor's product code will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
-"El codi del producte d’aquest proveïdor s’utilitzarà en imprimir una sol·"
-"licitud de pressupost. Mantingueu-lo buit per utilitzar l'intern."
+"El codi del producte d’aquest proveïdor s’utilitzarà en imprimir una "
+"sol·licitud de pressupost. Mantingueu-lo buit per utilitzar l'intern."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_name
@@ -277,8 +287,8 @@ msgid ""
 "This vendor's product name will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
-"El nom del producte d’aquest venedor s’utilitzarà en imprimir una sol·"
-"licitud de pressupost. Mantingueu-lo buit per utilitzar l'intern."
+"El nom del producte d’aquest venedor s’utilitzarà en imprimir una "
+"sol·licitud de pressupost. Mantingueu-lo buit per utilitzar l'intern."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
