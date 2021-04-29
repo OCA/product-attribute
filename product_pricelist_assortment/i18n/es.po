@@ -169,6 +169,11 @@ msgstr ""
 "Si no está marcada, le permitirá ocultar la lista de precios sin quitarla."
 
 #. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_min_quantity
+msgid "Ignore Supplier Info Min. Quantity"
+msgstr ""
+
+#. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
@@ -222,6 +227,11 @@ msgstr "Nombre"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "New Price ="
 msgstr "Nuevo precio ="
+
+#. module: product_pricelist_assortment
+#: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__filter_supplier_id
+msgid "Only match prices from the selected supplier"
+msgstr ""
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__multi_price_name
@@ -397,6 +407,11 @@ msgstr "Fecha inicial"
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__date_start
 msgid "Starting date for the pricelist item validation"
 msgstr "Fecha de inicio de la validación del artículo de la lista de precios"
+
+#. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__filter_supplier_id
+msgid "Supplier filter"
+msgstr ""
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
