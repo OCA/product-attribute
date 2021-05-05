@@ -25,8 +25,8 @@ Product Cost Security
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-Adds a security group for product cost price field.
-Only users with this group can view this field.
+Adds a security group for product cost price field and purchase tab on products
+sheet. Only users with this group can view this two.
 
 **Table of contents**
 
@@ -47,7 +47,7 @@ Usage
 To use this module you need to:
 
 #. Go to product form view logged with this user and you will see the
-   standard_price field.
+   standard_price field and Purchase tab.
 
 Bug Tracker
 ===========
@@ -70,7 +70,10 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* Sergio Teruel <sergio.teruel@tecnativa.com>
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Sergio Teruel
+  * Carlos Roca
 
 Maintainers
 ~~~~~~~~~~~

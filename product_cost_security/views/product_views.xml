@@ -10,6 +10,11 @@
                     name="groups"
                 >product_cost_security.group_product_cost</attribute>
             </xpath>
+            <xpath expr="//page[@name='purchase']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>
