@@ -48,9 +48,8 @@ class UomConverter(models.Model):
             if uom_qty.category_id.id != self.from_uom_id.category_id.id:
                 raise ValidationError(
                     _(
-                        "You can't convert {uom} (expected {category} uom "
-                        "category) to {to_uom} using this converter {converter}."
-                    ).format(
+                        "You can't convert %(uom)s (expected %(category)s uom "
+                        "category) to %(to_uom)s using this converter %(converter)s.",
                         uom=uom_qty.name,
                         category=self.from_uom_id.category_id.name,
                         to_uom=self.to_uom_id.name,
@@ -68,10 +67,9 @@ class UomConverter(models.Model):
             if result_uom.category_id.id != self.to_uom_id.category_id.id:
                 raise ValidationError(
                     _(
-                        "You can't convert {uom} to {to_uom} (expect "
-                        "{expected_category} unit category) using this "
-                        "converter {converter}."
-                    ).format(
+                        "You can't convert %(uom)s to %(to_uom)s (expect "
+                        "%(expected_category)s unit category) using this "
+                        "converter %(converter)s.",
                         uom=uom_qty.name,
                         to_uom=result_uom.name,
                         expected_category=self.to_uom_id.category_id.name,
@@ -86,10 +84,9 @@ class UomConverter(models.Model):
         if len(convert_line) == 0:
             raise ValidationError(
                 _(
-                    "You can't converter {quantity} {uom} to {to_uom} using "
-                    "this converter {converter}. This quantity is out of "
-                    "configured scale."
-                ).format(
+                    "You can't converter %(quantity)s %(uom)s to %(to_uom)s using "
+                    "this converter %(converter)s. This quantity is out of "
+                    "configured scale.",
                     quantity=quantity,
                     uom=uom_qty.name,
                     to_uom=result_uom.name,

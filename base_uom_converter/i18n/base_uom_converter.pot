@@ -175,22 +175,22 @@ msgstr ""
 #: code:addons/base_uom_converter/models/uom_converter.py:0
 #, python-format
 msgid ""
-"You can't convert {uom} (expected {category} uom category) to {to_uom} using"
-" this converter {converter}."
+"You can't convert %(uom)s (expected %(category)s uom category) to %(to_uom)s"
+" using this converter %(converter)s."
 msgstr ""
 
 #. module: base_uom_converter
 #: code:addons/base_uom_converter/models/uom_converter.py:0
 #, python-format
 msgid ""
-"You can't convert {uom} to {to_uom} (expect {expected_category} unit "
-"category) using this converter {converter}."
+"You can't convert %(uom)s to %(to_uom)s (expect %(expected_category)s unit "
+"category) using this converter %(converter)s."
 msgstr ""
 
 #. module: base_uom_converter
 #: code:addons/base_uom_converter/models/uom_converter.py:0
 #, python-format
 msgid ""
-"You can't converter {quantity} {uom} to {to_uom} using this converter "
-"{converter}. This quantity is out of configured scale."
+"You can't converter %(quantity)s %(uom)s to %(to_uom)s using this converter "
+"%(converter)s. This quantity is out of configured scale."
 msgstr ""
