@@ -41,6 +41,7 @@ setuptools.setup(
         'odoo12-addon-product_product_template_navigation',
         'odoo12-addon-product_profile',
         'odoo12-addon-product_restricted_type',
+        'odoo12-addon-product_sale_tax_price_included',
         'odoo12-addon-product_secondary_unit',
         'odoo12-addon-product_sequence',
         'odoo12-addon-product_standard_price_tax_included',
