@@ -3,6 +3,7 @@
 
 from uuid import uuid4
 
+from odoo.fields import first
 from odoo.tests.common import SavepointCase
 
 
@@ -114,3 +115,66 @@ class TestPricelistAssortment(SavepointCase):
         pricelist = self.Pricelist.create(pricelist_values)
         self._add_assortment_item_fixed_price(pricelist)
         return
+
+    def test_assortment_changes(self):
+        pricelist_values = self._get_pricelist_values()
+        pricelist = self.Pricelist.create(pricelist_values)
+        item_values = {
+            "assortment_filter_id": self.assortment.id,
+            "compute_price": "fixed",
+            "fixed_price": 600,
+            "pricelist_id": pricelist.id,
+        }
+        assortment_item = self.PricelistItem.create(item_values)
+        (
+            products_to_add,
+            products_to_update,
+            products_to_remove,
+        ) = assortment_item._get_assortment_changes()
+
+        self.assertEqual(self.products_assortment, products_to_add)
+        self.assertFalse(products_to_update)
+        self.assertFalse(products_to_remove)
+
+        pricelist.action_launch_assortment_update()
+
+        # change product to exclude it from assortment
+        product1 = first(self.products_assortment)
+        product1.write({"default_code": "test"})
+        expected_update = self.products_assortment - product1
+
+        (
+            products_to_add,
+            products_to_update,
+            products_to_remove,
+        ) = assortment_item._get_assortment_changes()
+        self.assertEqual(product1, products_to_remove)
+        self.assertFalse(products_to_add)
+        self.assertEqual(products_to_update, expected_update)
+
+        create_values, update_values = assortment_item._get_pricelist_item_values()
+
+        update_items = pricelist.item_ids.filtered(
+            lambda x: x.product_id in products_to_update
+        )
+        item = first(update_items)
+        self.assertFalse(assortment_item._check_need_update(item, update_values))
+        pricelist.action_launch_assortment_update()
+
+        assortment_item.write({"fixed_price": 650})
+        (
+            products_to_add,
+            products_to_update,
+            products_to_remove,
+        ) = assortment_item._get_assortment_changes()
+        self.assertFalse(products_to_remove)
+        self.assertFalse(products_to_add)
+        self.assertEqual(products_to_update, expected_update)
+
+        create_values, update_values = assortment_item._get_pricelist_item_values()
+
+        update_items = pricelist.item_ids.filtered(
+            lambda x: x.product_id in products_to_update
+        )
+        item = first(update_items)
+        self.assertTrue(assortment_item._check_need_update(item, update_values))

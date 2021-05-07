@@ -4,6 +4,7 @@
 import logging
 
 from odoo import SUPERUSER_ID, fields, models
+from odoo.fields import first
 
 _logger = logging.getLogger(__name__)
 
@@ -33,23 +34,35 @@ class ProductPricelistAssortmentItem(models.Model):
             if rec.assortment_filter_id:
                 rec.name = rec.assortment_filter_id.name
 
-    def _get_pricelist_item_values(self):
+    def _get_blacklist_columns(self):
+        # fields to ignore to create pricelist item
+        specific_columns = [
+            "pricelist_id",
+            "assortment_item_id",
+            "applied_on",
+            "product_id",
+            "name",
+            "display_name",
+        ]
+        return models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD] + specific_columns
+
+    def _get_pricelist_item_values(self, products_to_add=False):
         """
         Get a list of values to create new product.pricelist.item
         :return: list of dict
         """
         self.ensure_one()
-        products = self._get_product_from_assortment()
-        list_values = []
-        # fields to ignore to create pricelist item
-        blacklist = models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD]
-        blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
+        if not products_to_add:
+            products_to_add = self.env["product.product"].browse()
+        create_values = []
+        blacklist = self._get_blacklist_columns()
         default_values = {
             k: self._fields.get(k).convert_to_write(self[k], self)
-            for k in self._fields.keys()
+            for k in self.env["product.pricelist.item"]._fields.keys()
             if k not in blacklist
         }
-        for product in products:
+
+        for product in products_to_add:
             values = default_values.copy()
             values.update(
                 {
@@ -59,8 +72,9 @@ class ProductPricelistAssortmentItem(models.Model):
                     "product_id": product.id,
                 }
             )
-            list_values.append(values)
-        return list_values
+            create_values.append(values)
+
+        return create_values, default_values
 
     def _get_product_from_assortment(self):
         domain = self.assortment_filter_id._get_eval_domain()
@@ -69,6 +83,37 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_related_items(self):
         return self.mapped("pricelist_item_ids")
+
+    def _get_assortment_changes(self):
+        ProductProduct = self.env["product.product"]
+        assortment_products = self._get_product_from_assortment()
+        existing_products = self._get_related_items().mapped("product_id")
+        if existing_products:
+            products_to_add = assortment_products - existing_products
+            products_to_remove = existing_products - assortment_products
+            products_to_update = (
+                assortment_products - products_to_add - products_to_remove
+            )
+        else:
+            products_to_add = assortment_products
+            products_to_remove = ProductProduct.browse()
+            products_to_update = ProductProduct.browse()
+        return products_to_add, products_to_update, products_to_remove
+
+    def _check_need_update(self, item, update_value):
+        need_update = False
+        blacklist = self._get_blacklist_columns()
+        values = {
+            k: item._fields.get(k).convert_to_write(item[k], item)
+            for k in item._fields.keys()
+            if k not in blacklist
+        }
+
+        for key, val in update_value.items():
+            need_update = bool(values[key] != val)
+            if need_update:
+                break
+        return need_update
 
     def _update_assortment_items(self):
         """
@@ -88,8 +133,20 @@ class ProductPricelistAssortmentItem(models.Model):
             )
             return False
 
-        items_values = self._get_pricelist_item_values()
+        (
+            products_to_add,
+            products_to_update,
+            products_to_remove,
+        ) = self._get_assortment_changes()
+
+        create_values, update_values = self._get_pricelist_item_values(products_to_add)
         old_items = self._get_related_items()
-        old_items.unlink()
-        self.env["product.pricelist.item"].with_user(SUPERUSER_ID).create(items_values)
+
+        update_items = old_items.filtered(lambda x: x.product_id in products_to_update)
+        item = first(update_items)
+        if self._check_need_update(item, update_values):
+            update_items.write(update_values)
+        self.env["product.pricelist.item"].with_user(SUPERUSER_ID).create(create_values)
+        remove_items = old_items.filtered(lambda x: x.product_id in products_to_remove)
+        remove_items.unlink()
         return True
