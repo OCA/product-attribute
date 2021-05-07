@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017, Grap
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+        <record model="product.template" id="product_template_incl">
+            <field name="name">Demo Product 01 - Taxes included in price</field>
+            <field name="list_price">100</field>
+            <field name="taxes_id" eval="[(6,0,[ref('account_tax_included_in_price')])]" />
+        </record>
+
+        <record model="product.template" id="product_template_excl">
+            <field name="name">Demo Product 02 - Taxes excluded in price</field>
+            <field name="list_price">100</field>
+            <field name="taxes_id" eval="[(6,0,[ref('account_tax_excluded_in_price')])]" />
+        </record>
+
+        <record model="product.template" id="product_template_mixed">
+            <field name="name">Demo Product 03 - Taxes included and excluded in price</field>
+            <field name="list_price">100</field>
+            <field name="taxes_id" eval="[(6,0,[ref('account_tax_excluded_in_price'),ref('account_tax_included_in_price')])]" />
+        </record>
+
+        <record model="product.template" id="product_template_no_tax">
+            <field name="name">Demo Product 04 - No Taxes</field>
+            <field name="list_price">100</field>
+        </record>
+
+</odoo>

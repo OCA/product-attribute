@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Grap, OCA
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_template_view_form" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="list_price" position="before">
+                <field name="sale_tax_price_include"  />
+            </field>
+            <field name="list_price" position="before">
+                <field name="price_vat_excl" attrs="{'invisible': [('sale_tax_price_include', '!=', 'all_tax_incl'),
+                    ('sale_tax_price_include', '!=', 'various_taxes')]}"/>
+            </field>
+            <field name="list_price" position="after">
+                <field name="price_vat_incl" attrs="{'invisible': [('sale_tax_price_include', '!=', 'all_tax_excl'),
+                    ('sale_tax_price_include', '!=', 'various_taxes')]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
