@@ -5,7 +5,7 @@
     "name": "Product Pricelist Assortment",
     "summary": """
         Product assortment and pricelist""",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
