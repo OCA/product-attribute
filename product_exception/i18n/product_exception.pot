@@ -1,0 +1,70 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_exception
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_exception
+#: model:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Check Exception"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model,name:product_exception.model_exception_rule
+msgid "Exception Rules"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_product_product_exception_ids
+msgid "Exceptions"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_product_product_ignore_exception
+msgid "Ignore Exceptions"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_product_product_main_exception_id
+msgid "Main Exception"
+msgstr ""
+
+#. module: product_exception
+#: model:exception.rule,name:product_exception.excep_no_dump
+msgid "No dumping"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model,name:product_exception.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model,name:product_exception.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_exception_rule_product_tmpl_ids
+msgid "Product Templates"
+msgstr ""
+
+#. module: product_exception
+#: model:exception.rule,description:product_exception.excep_no_dump
+msgid "Public price should be greather than purchase price"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.ui.view,arch_db:product_exception.product_template_search_view
+msgid "With exception"
+msgstr ""
+
