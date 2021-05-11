@@ -16,7 +16,6 @@
         'product_application_custom_info',
     ],
     'data': [
-        'views/sale_view.xml',
         'wizard/filter_application_wizard_view.xml',
     ],
     'installable': True,
