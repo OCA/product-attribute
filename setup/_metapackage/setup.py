@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo8-addon-product_m2mcategories',
         'odoo8-addon-product_manufacturer',
         'odoo8-addon-product_multi_image',
+        'odoo8-addon-product_price_history',
         'odoo8-addon-product_pricelist_cache',
         'odoo8-addon-product_pricelist_fixed_price',
         'odoo8-addon-product_profile',
