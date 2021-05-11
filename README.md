@@ -28,6 +28,7 @@ addon | version | summary
 [product_m2mcategories](product_m2mcategories/) | 8.0.1.0.3 | Product - Many Categories
 [product_manufacturer](product_manufacturer/) | 8.0.1.0.0 | Products Manufacturers
 [product_multi_image](product_multi_image/) | 8.0.2.0.1 | Multiple Images in Products
+[product_price_history](product_price_history/) | 8.0.1.0.0 | Handle standard price history records
 [product_pricelist_cache](product_pricelist_cache/) | 8.0.1.0.0 | Cache product prices
 [product_pricelist_fixed_price](product_pricelist_fixed_price/) | 8.0.1.0.1 | Fixed price in pricelists
 [product_profile](product_profile/) | 8.0.1.0.2 | Allow to configure a product in 1 click
