@@ -7,7 +7,7 @@ from odoo import models
 class ProductApplication(models.Model):
     _inherit = 'product.application'
 
-    def get_filtered_product_tmpl_ids(self, custom_property, value):
+    def get_filtered_application_ids(self, custom_property, value):
         # Get all product applications according previous selection:
         product_app_model = self.env.ref(
             'product_application.model_product_application')
@@ -34,7 +34,7 @@ class ProductApplication(models.Model):
             raise
 
         query = '''SELECT
-    prod_app.product_tmpl_id
+    prod_app.id
 FROM
     custom_info_property prop,
     custom_info_template tmpl,
@@ -52,5 +52,5 @@ WHERE
         self.env.cr.execute(
             query, tuple([product_app_model.id, custom_property.id])
         )
-        product_tmpl_ids = [row[0] for row in self.env.cr.fetchall()]
-        return product_tmpl_ids
+        application_ids = [row[0] for row in self.env.cr.fetchall()]
+        return application_ids

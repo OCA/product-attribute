@@ -40,9 +40,14 @@ class FilterApplicationWizard(models.TransientModel):
 
     @api.multi
     def apply_filters(self):
-        self.ensure_one()
+        application_obj = self.env['product.application']
 
-        product_tmpl_ids = self.filter_line_ids.apply_filters()
+        self.ensure_one()
+        application_ids = self.filter_line_ids.filter_to_get_applications()
+        applications = application_obj.browse(application_ids)
+        product_tmpl_ids = []
+        for application in applications:
+            product_tmpl_ids += application.product_tmpl_ids.ids
 
         if self._context.get('from_sale_order', False):
             # Called from sale order form:
@@ -77,21 +82,6 @@ class FilterApplicationWizard(models.TransientModel):
 
         return action
 
-    @api.multi
-    def add_products(self):
-        self.ensure_one()
-
-        self.order_id.write({
-            'order_line': [(0, False, {'product_id': self.product_id.id})]}
-        )
-
-        return True
-
-    @api.model
-    def create(self, vals):
-        res = super(FilterApplicationWizard, self).create(vals)
-        return res
-
 
 class FilterApplicationLineWizard(models.TransientModel):
     _name = 'filter.application.line.wizard'
@@ -113,25 +103,25 @@ class FilterApplicationLineWizard(models.TransientModel):
     )
 
     @api.multi
-    def apply_filters(self, skip_line_id=False):
+    def filter_to_get_applications(self, skip_line_id=False):
         product_app_obj = self.env['product.application']
 
-        filtered_product_tmpl_ids = []
+        filtered_application_ids = []
         for line in self:
             if skip_line_id == line.id:
                 continue
             if line.property_id and line.value_id:
-                cur_product_tmpl_ids =\
-                    product_app_obj.get_filtered_product_tmpl_ids(
+                cur_application_ids =\
+                    product_app_obj.get_filtered_application_ids(
                         line.property_id, line.value_id)
-                if filtered_product_tmpl_ids:
+                if filtered_application_ids:
                     # intersection:
-                    filtered_product_tmpl_ids = list(
-                        set(filtered_product_tmpl_ids) &
-                        set(cur_product_tmpl_ids))
+                    filtered_application_ids = list(
+                        set(filtered_application_ids) &
+                        set(cur_application_ids))
                 else:
-                    filtered_product_tmpl_ids = cur_product_tmpl_ids
-        return filtered_product_tmpl_ids
+                    filtered_application_ids = cur_application_ids
+        return filtered_application_ids
 
     @api.onchange('property_id')
     def onchange_property_id(self):
@@ -139,11 +129,11 @@ class FilterApplicationLineWizard(models.TransientModel):
         already_filtered_properties = []
         for previous_line in self.filter_wizard_id.filter_line_ids:
             already_filtered_properties.append(previous_line.property_id.id)
-        filtered_product_tmpl_ids =\
-            self.filter_wizard_id.filter_line_ids.apply_filters(
+        filtered_application_ids =\
+            self.filter_wizard_id.filter_line_ids.filter_to_get_applications(
                 skip_line_id=self.id)
 
-        if filtered_product_tmpl_ids:
+        if filtered_application_ids:
             # get available properties:
             query = '''SELECT
     DISTINCT prop.id
@@ -151,12 +141,12 @@ FROM
     product_application prod_app,
     custom_info_property prop
 WHERE
-    prod_app.product_tmpl_id IN %s
+    prod_app.id IN %s
     AND prod_app.custom_info_template_id = prop.template_id;
 '''
             self.env.cr.execute(
                 query,
-                [tuple(filtered_product_tmpl_ids)]
+                [tuple(filtered_application_ids)]
             )
             available_properties = [row[0] for row in self.env.cr.fetchall()]
             final_available_properties = []
@@ -167,7 +157,7 @@ WHERE
                 {'property_id': [('id', 'in', final_available_properties)]})
 
         if self.property_id:
-            if filtered_product_tmpl_ids:
+            if filtered_application_ids:
                 query = '''SELECT
     MAX(val.id)
 FROM
@@ -180,7 +170,7 @@ WHERE
     AND prop.id = val.property_id
     AND prop.template_id = tmpl.id
     AND tmpl.id = prod_app.custom_info_template_id
-    AND prod_app.product_tmpl_id IN %s
+    AND prod_app.id IN %s
     AND val.res_id = prod_app.id
     AND val.model = 'product.application'
 GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool,
@@ -190,7 +180,7 @@ GROUP BY (val.value_str, val.value_int, val.value_float, val.value_bool,
                     query,
                     tuple([
                         self.property_id.id,
-                        tuple(filtered_product_tmpl_ids)
+                        tuple(filtered_application_ids)
                     ])
                 )
             else:
