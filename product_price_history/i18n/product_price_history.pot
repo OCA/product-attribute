@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,32 +14,32 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_price_history
-#: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
+#: view:product.price.history:product_price_history.view_product_price_history_filter
 msgid "Date"
 msgstr ""
 
 #. module: product_price_history
-#: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
+#: view:product.price.history:product_price_history.view_product_price_history_filter
 msgid "Group By"
 msgstr ""
 
 #. module: product_price_history
 #: model:ir.actions.act_window,name:product_price_history.action_product_price_history_view
 #: model:ir.actions.act_window,name:product_price_history.action_product_template_only_form_price_history
-#: model_terms:ir.ui.view,arch_db:product_price_history.view_product_normal_form_view_price_history
-#: model_terms:ir.ui.view,arch_db:product_price_history.view_product_template_only_form_price_history
+#: view:product.product:product_price_history.view_product_normal_form_view_price_history
+#: view:product.template:product_price_history.view_product_template_only_form_price_history
 msgid "Price History"
 msgstr ""
 
 #. module: product_price_history
-#: model:ir.model.fields,field_description:product_price_history.field_product_product__price_history_count
-#: model:ir.model.fields,field_description:product_price_history.field_product_template__price_history_count
+#: field:product.product,price_history_count:0
+#: field:product.template,price_history_count:0
 msgid "Price History Count"
 msgstr ""
 
 #. module: product_price_history
 #: model:ir.model,name:product_price_history.model_product_product
-#: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
+#: view:product.price.history:product_price_history.view_product_price_history_filter
 msgid "Product"
 msgstr ""
 
@@ -49,18 +49,18 @@ msgid "Product Cost History"
 msgstr ""
 
 #. module: product_price_history
-#: model:ir.model,name:product_price_history.model_product_price_history
-msgid "Product Price List History"
+#: code:addons/product_price_history/models/product_product.py:24
+#, python-format
+msgid "Product Price History"
 msgstr ""
 
 #. module: product_price_history
 #: model:ir.model,name:product_price_history.model_product_template
-#: model:ir.model.fields,field_description:product_price_history.field_product_price_history__product_tmpl_id
 msgid "Product Template"
 msgstr ""
 
 #. module: product_price_history
-#: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
+#: view:product.price.history:product_price_history.view_product_price_history_filter
 msgid "Search Product Cost History"
 msgstr ""
 
