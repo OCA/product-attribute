@@ -1,8 +1,9 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from psycopg2 import IntegrityError
 
-from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
+from odoo.tools.misc import mute_logger
 
 
 class TestProductAssortment(TransactionCase):
@@ -64,9 +65,9 @@ class TestProductAssortment(TransactionCase):
         self.assertTrue(assortment.is_assortment)
         self.assertEqual(assortment.model_id, "product.product")
 
+    @mute_logger("odoo.sql_db")
     def test_create_assortment_without_context(self):
-
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(IntegrityError), self.env.cr.savepoint():
             self.filter_obj.with_context(product_assortment=False).create(
                 {"name": "Test Assortment No Context", "domain": []}
             )
