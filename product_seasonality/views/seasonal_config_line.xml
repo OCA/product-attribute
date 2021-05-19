@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    # Copyright 2021 Camptocamp SA
+    # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="seasonal_config_line_view_tree" model="ir.ui.view">
+        <field name="name">seasonal.config.line.tree</field>
+        <field name="model">seasonal.config.line</field>
+        <field name="arch" type="xml">
+            <tree string="Product Seasonal Lines">
+                <field name="seasonal_config_id" />
+                <field name="product_id" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="monday" />
+                <field name="tuesday" />
+                <field name="wednesday" />
+                <field name="thursday" />
+                <field name="friday" />
+                <field name="saturday" />
+                <field name="sunday" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="seasonal_config_line_view_form" model="ir.ui.view">
+        <field name="name">seasonal.config.line.form</field>
+        <field name="model">seasonal.config.line</field>
+        <field name="arch" type="xml">
+            <form string="Product Seasonal Line">
+                <sheet>
+                    <group name="config">
+                        <group name="main">
+                            <field name="seasonal_config_id" />
+                            <field name="product_id" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                        </group>
+                        <group name="weekdays">
+                            <field name="monday" />
+                            <field name="tuesday" />
+                            <field name="wednesday" />
+                            <field name="thursday" />
+                            <field name="friday" />
+                            <field name="saturday" />
+                            <field name="sunday" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="seasonal_config_line_view_search" model="ir.ui.view">
+        <field name="name">seasonal.config.line.search</field>
+        <field name="model">seasonal.config.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="seasonal_config_id" />
+                <field name="product_id" />
+                <filter
+                    name="group_seasonal_config_id"
+                    string="Seasonal products configuration"
+                    context="{'group_by': 'seasonal_config_id'}"
+                />
+                <filter
+                    name="group_product_id"
+                    string="Products"
+                    context="{'group_by': 'product_id'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="seasonal_config_line_act_window" model="ir.actions.act_window">
+        <field name="name">Product seasonal config line</field>
+        <field name="res_model">seasonal.config.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
