@@ -21,6 +21,7 @@ addon | version | summary
 --- | --- | ---
 [base_product_mass_addition](base_product_mass_addition/) | 14.0.1.0.0 | Base Product Mass Addition
 [pos_product_cost_security](pos_product_cost_security/) | 14.0.1.0.0 | Compatibility between Point of Sale and Product Cost Security
+[product_assortment](product_assortment/) | 14.0.1.0.0 | Adds the ability to manage products assortment
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 | Store the revision of a product and a BOM
 [product_code_mandatory](product_code_mandatory/) | 14.0.1.0.1 | Set Product Internal Reference as a required field
 [product_code_unique](product_code_unique/) | 14.0.1.0.0 | Set Product Internal Reference as Unique
