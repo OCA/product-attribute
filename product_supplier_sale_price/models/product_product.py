@@ -10,7 +10,8 @@ from odoo.exceptions import UserError
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    use_supplier_sale_price = fields.Boolean('Use Supplier Sale Price')
+    use_supplier_sale_price = fields.Boolean('Use Supplier Sale Price',
+                                             default=True)
 
     supplier_sale_price = fields.Float(
         'Supplier_sale_price', compute='_compute_supplier_sale_price',
@@ -86,6 +87,16 @@ class ProductProduct(models.Model):
                 res = super(ProductProduct, product).write(product_vals)
         else:
             res = super(ProductProduct, self).write(vals)
+            if 'fix_price' in vals\
+                    and not self._context.get('update_price_list', False)\
+                    and not self._context.get('update_fix_price', False):
+                for product in self:
+                    if len(product.product_tmpl_id.product_variant_ids) == 1\
+                            and not product.use_supplier_sale_price:
+                        product.product_tmpl_id.with_context(
+                            update_price_list=True).write({
+                                'list_price': vals['fix_price'],
+                            })
         return res
 
     @api.onchange('use_supplier_sale_price')
