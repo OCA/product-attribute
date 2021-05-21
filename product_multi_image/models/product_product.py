@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3).
 
@@ -20,15 +19,15 @@ class ProductProduct(models.Model):
     image_main_small = fields.Binary(inverse="_inverse_main_image_small")
 
     image = fields.Binary(
-        related='image_main',
+        related="image_main",
         store=False,
     )
     image_medium = fields.Binary(
-        related='image_main_medium',
+        related="image_main_medium",
         store=False,
     )
     image_small = fields.Binary(
-        related='image_main_small',
+        related="image_main_small",
         store=False,
     )
 
@@ -38,8 +37,8 @@ class ProductProduct(models.Model):
             has_images = bool(product.image_ids)
             if image:
                 write_vals = {
-                    'file_db_store': image,
-                    'storage': 'db',
+                    "file_db_store": image,
+                    "storage": "db",
                 }
                 if has_images:
                     product.image_ids[0].write(write_vals)
@@ -65,13 +64,18 @@ class ProductProduct(models.Model):
             product._inverse_main_image(product.image_main_small)
 
     @api.multi
-    @api.depends('product_tmpl_id', 'product_tmpl_id.image_ids',
-                 'product_tmpl_id.image_ids.product_variant_ids')
+    @api.depends(
+        "product_tmpl_id",
+        "product_tmpl_id.image_ids",
+        "product_tmpl_id.image_ids.product_variant_ids",
+    )
     def _compute_image_ids(self):
         for product in self:
             images = product.product_tmpl_id.image_ids.filtered(
-                lambda x: (not x.product_variant_ids or
-                           product.id in x.product_variant_ids.ids))
+                lambda x: (
+                    not x.product_variant_ids or product.id in x.product_variant_ids.ids
+                )
+            )
             product.image_ids = [(6, 0, images.ids)]
 
     @api.multi
@@ -79,8 +83,10 @@ class ProductProduct(models.Model):
         for product in self:
             # Remember the list of images that were before changes
             previous_images = product.product_tmpl_id.image_ids.filtered(
-                lambda x: (not x.product_variant_ids or
-                           product.id in x.product_variant_ids.ids))
+                lambda x: (
+                    not x.product_variant_ids or product.id in x.product_variant_ids.ids
+                )
+            )
             for image in product.image_ids:
                 if isinstance(image.id, models.NewId):
                     # Image added
@@ -107,8 +113,11 @@ class ProductProduct(models.Model):
                     image.product_variant_ids = [(6, 0, variants.ids)]
 
     @api.multi
-    @api.depends('image_ids', 'product_tmpl_id.image_ids',
-                 'product_tmpl_id.image_ids.product_variant_ids')
+    @api.depends(
+        "image_ids",
+        "product_tmpl_id.image_ids",
+        "product_tmpl_id.image_ids.product_variant_ids",
+    )
     def _get_multi_image(self):
         """Needed for changing dependencies in this class."""
         super(ProductProduct, self)._get_multi_image()
@@ -119,7 +128,10 @@ class ProductProduct(models.Model):
         # Remove images that are linked only to the product variant
         for product in self:
             images2remove = product.image_ids.filtered(
-                lambda image: (product in image.product_variant_ids and
-                               len(image.product_variant_ids) == 1))
+                lambda image: (
+                    product in image.product_variant_ids
+                    and len(image.product_variant_ids) == 1
+                )
+            )
             images2remove.unlink()
         return super(ProductProduct, obj).unlink()
