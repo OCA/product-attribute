@@ -4,3 +4,4 @@
 * Dave Lasley <dave@laslabs.com>
 * Shepilov Vladislav <shepilov.v@protonmail.com>
 * Marc Poch Mallandrich <mpoch@planetatic.com>
+* Hai Lang <hailn@trobz.com>
