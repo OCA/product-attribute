@@ -14,56 +14,9 @@ class ProductProduct(models.Model):
         compute="_compute_image_ids",
         inverse="_inverse_image_ids",
     )
-    image_main = fields.Binary(inverse="_inverse_main_image_large")
-    image_main_medium = fields.Binary(inverse="_inverse_main_image_medium")
-    image_main_small = fields.Binary(inverse="_inverse_main_image_small")
 
-    image = fields.Binary(
-        related="image_main",
-        store=False,
-    )
-    image_medium = fields.Binary(
-        related="image_main_medium",
-        store=False,
-    )
-    image_small = fields.Binary(
-        related="image_main_small",
-        store=False,
-    )
+    # image, image_medium, image_small fields are not available since 13.0
 
-    @api.multi
-    def _inverse_main_image(self, image):
-        for product in self:
-            has_images = bool(product.image_ids)
-            if image:
-                write_vals = {
-                    "file_db_store": image,
-                    "storage": "db",
-                }
-                if has_images:
-                    product.image_ids[0].write(write_vals)
-                else:
-                    product.image_ids = [(0, False, write_vals)]
-            else:
-                if has_images:
-                    product.image_ids = [(3, product.image_ids[0].id)]
-
-    @api.multi
-    def _inverse_main_image_large(self):
-        for product in self:
-            product._inverse_main_image(product.image_main)
-
-    @api.multi
-    def _inverse_main_image_medium(self):
-        for product in self:
-            product._inverse_main_image(product.image_main_medium)
-
-    @api.multi
-    def _inverse_main_image_small(self):
-        for product in self:
-            product._inverse_main_image(product.image_main_small)
-
-    @api.multi
     @api.depends(
         "product_tmpl_id",
         "product_tmpl_id.image_ids",
@@ -77,8 +30,9 @@ class ProductProduct(models.Model):
                 )
             )
             product.image_ids = [(6, 0, images.ids)]
+            if product.image_ids:
+                product.image_1920 = product.image_ids[0].image_main
 
-    @api.multi
     def _inverse_image_ids(self):
         for product in self:
             # Remember the list of images that were before changes
@@ -111,18 +65,10 @@ class ProductProduct(models.Model):
                 else:
                     # Leave the images for the rest of the variants
                     image.product_variant_ids = [(6, 0, variants.ids)]
+            product.image_1920 = (
+                False if len(product.image_ids) < 1 else product.image_ids[0].image_main
+            )
 
-    @api.multi
-    @api.depends(
-        "image_ids",
-        "product_tmpl_id.image_ids",
-        "product_tmpl_id.image_ids.product_variant_ids",
-    )
-    def _get_multi_image(self):
-        """Needed for changing dependencies in this class."""
-        super(ProductProduct, self)._get_multi_image()
-
-    @api.multi
     def unlink(self):
         obj = self.with_context(bypass_image_removal=True)
         # Remove images that are linked only to the product variant
@@ -134,4 +80,5 @@ class ProductProduct(models.Model):
                 )
             )
             images2remove.unlink()
+        # We need to pass context to super so this syntax is valid
         return super(ProductProduct, obj).unlink()

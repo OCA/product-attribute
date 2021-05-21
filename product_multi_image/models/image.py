@@ -16,7 +16,7 @@ class Image(models.Model):
     )
     product_variant_count = fields.Integer(compute="_compute_product_variant_count")
 
-    @api.multi
+    @api.depends("product_variant_ids")
     def _compute_product_variant_count(self):
         for image in self:
             image.product_variant_count = len(image.product_variant_ids)
