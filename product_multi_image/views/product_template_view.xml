@@ -27,4 +27,27 @@
         </field>
     </record>
 
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field name="name">product_multi_image.product_variant_easy_edit_view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='packaging']/.." position="after">
+                <group string="Images" name="multi_image">
+                    <field
+                        name="image_ids"
+                        nolabel="1"
+                        context="{
+                               'default_owner_model': 'product.product',
+                               'default_owner_id': id,
+                               'form_view_ref': 'product_multi_image.image_form_view',
+                               'kanban_view_ref': 'product_multi_image.image_kanban_view',
+                           }"
+                        mode="kanban"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
