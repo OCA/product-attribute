@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo14-addon-product_manufacturer',
         'odoo14-addon-product_multi_category',
         'odoo14-addon-product_order_noname',
+        'odoo14-addon-product_packaging_dimension',
         'odoo14-addon-product_packaging_type',
         'odoo14-addon-product_pricelist_direct_print',
         'odoo14-addon-product_secondary_unit',
