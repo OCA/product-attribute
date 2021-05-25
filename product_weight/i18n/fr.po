@@ -1,0 +1,118 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-08 15:01+0000\n"
+"PO-Revision-Date: 2020-07-22 11:19+0000\n"
+"Last-Translator: c2cdidier <didier.donze@camptocamp.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__bom_id
+msgid "BoM"
+msgstr "Nomenclature"
+
+#. module: product_weight
+#: model:ir.actions.act_window,name:product_weight.action_multi_product_weight
+msgid "Calculate Product Weights"
+msgstr "Calculer les poids articles"
+
+#. module: product_weight
+#: model:ir.actions.act_window,name:product_weight.action_multi_template_weight
+msgid "Calculate Template Weights"
+msgstr "Calculer les poids produits"
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_weight
+#: code:addons/product_weight/wizard/product_weight_update.py:0
+#, python-format
+msgid "Missing active variant for product %s"
+msgstr "Variantes actives manquantes pour le produit %s"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__product_tmpl_id
+msgid "Template"
+msgstr "Modèle"
+
+#. module: product_weight
+#: model:ir.actions.act_window,name:product_weight.action_view_product_weight_update
+#: model:ir.model,name:product_weight.model_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "Update Product Weight"
+msgstr "Mettre à jour le poids"
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "_Apply"
+msgstr "_Appliquer"
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "or"
+msgstr "ou"
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_template_property_form
+msgid "update weights"
+msgstr "Mise à jour des poids"
+
+#~ msgid "mrp.bom.line"
+#~ msgstr "mrp.bom.line"

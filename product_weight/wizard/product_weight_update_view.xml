@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_product_weight_update" model="ir.ui.view">
+        <field name="name">Update Product Weight</field>
+        <field name="model">product.weight.update</field>
+        <field name="arch" type="xml">
+            <form string="Update Product Weight">
+                <group>
+                    <field name="product_tmpl_id" invisible="1" />
+                    <field name="product_id" invisible="1" />
+                    <field name="bom_id" required="1" />
+                </group>
+                <footer>
+            <button
+                        name="update_single_weight"
+                        string="_Apply"
+                        type="object"
+                        class="oe_highlight"
+                    />
+            or
+            <button string="Cancel" class="oe_link" special="cancel" />
+          </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_weight_update_multi" model="ir.ui.view">
+        <field name="name">Update Product Weights</field>
+        <field name="model">product.weight.update</field>
+        <field name="arch" type="xml">
+            <form string="Update Product Weight">
+                <button
+                    name="update_multi_product_weight"
+                    string="_Apply"
+                    type="object"
+                    class="oe_highlight"
+                />
+                or
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </form>
+        </field>
+    </record>
+    <record id="action_view_product_weight_update" model="ir.actions.act_window">
+        <field name="name">Update Product Weight</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.weight.update</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_weight_update" />
+        <field name="target">new</field>
+    </record>
+    <record id="action_multi_product_weight" model="ir.actions.act_window">
+        <field name="name">Calculate Product Weights</field>
+        <field name="res_model">product.weight.update</field>
+        <field name="binding_model_id" ref="product.model_product_product" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_weight_update_multi" />
+        <field name="target">new</field>
+    </record>
+    <record id="action_multi_template_weight" model="ir.actions.act_window">
+        <field name="name">Calculate Template Weights</field>
+        <field name="res_model">product.weight.update</field>
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_weight_update_multi" />
+        <field name="target">new</field>
+    </record>
+</odoo>

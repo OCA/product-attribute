@@ -1,0 +1,117 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_weight
+#
+# Translators:
+# Giuliano Lotta <giuliano.lotta@gmail.com>, 2017
+# Paolo Valier <paolo.valier@hotmail.it>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-23 02:40+0000\n"
+"PO-Revision-Date: 2017-05-23 02:40+0000\n"
+"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__bom_id
+msgid "BoM"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.actions.act_window,name:product_weight.action_multi_product_weight
+msgid "Calculate Product Weights"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.actions.act_window,name:product_weight.action_multi_template_weight
+msgid "Calculate Template Weights"
+msgstr ""
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "Cancel"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__id
+msgid "ID"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update____last_update
+msgid "Last Modified on"
+msgstr "Ultima Modifica il"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo Aggiornamento di"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_date
+msgid "Last Updated on"
+msgstr "Ultimo Aggiornamento il"
+
+#. module: product_weight
+#: code:addons/product_weight/wizard/product_weight_update.py:0
+#, python-format
+msgid "Missing active variant for product %s"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__product_id
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_weight
+#: model:ir.model.fields,field_description:product_weight.field_product_weight_update__product_tmpl_id
+msgid "Template"
+msgstr ""
+
+#. module: product_weight
+#: model:ir.actions.act_window,name:product_weight.action_view_product_weight_update
+#: model:ir.model,name:product_weight.model_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "Update Product Weight"
+msgstr ""
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "_Apply"
+msgstr ""
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update
+#: model_terms:ir.ui.view,arch_db:product_weight.view_product_weight_update_multi
+msgid "or"
+msgstr ""
+
+#. module: product_weight
+#: model_terms:ir.ui.view,arch_db:product_weight.view_template_property_form
+msgid "update weights"
+msgstr ""
