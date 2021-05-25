@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo14-addon-product_state',
         'odoo14-addon-product_stock_state',
         'odoo14-addon-product_template_tags',
+        'odoo14-addon-product_weight',
     ],
     classifiers=[
         'Programming Language :: Python',
