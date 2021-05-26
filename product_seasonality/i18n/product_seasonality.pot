@@ -6,11 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 14:55+0000\n"
-"PO-Revision-Date: 2021-05-25 14:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,7 +16,7 @@ msgstr ""
 #. module: product_seasonality
 #: model:ir.model,name:product_seasonality.model_res_company
 msgid "Companies"
-msgstr "Sociétés"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model,name:product_seasonality.model_res_partner
@@ -30,28 +27,28 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__create_uid
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__create_date
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__date_end
 msgid "Date End"
-msgstr "Date de fin"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__date_start
 msgid "Date Start"
-msgstr "Date de début"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_res_company__default_seasonal_config_id
 msgid "Default product seasonal configuration"
-msgstr "Configuration des produits de saison par défaut"
+msgstr ""
 
 #. module: product_seasonality
 #: code:addons/product_seasonality/models/res_company.py:0
@@ -59,14 +56,12 @@ msgstr "Configuration des produits de saison par défaut"
 msgid ""
 "Default product seasonal configuration is required: you can't remove it."
 msgstr ""
-"La configuration des produits de saison par défaut est requise : vous ne "
-"pouvez la supprimer."
 
 #. module: product_seasonality
 #: code:addons/product_seasonality/models/res_company.py:0
 #, python-format
 msgid "Default product seasonal configuration: %s"
-msgstr "Configuration des produits de saison par défaut : %s"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_res_company__display_name
@@ -74,12 +69,12 @@ msgstr "Configuration des produits de saison par défaut : %s"
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__display_name
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__friday
 msgid "Friday"
-msgstr "Vendredi"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_res_company__id
@@ -95,65 +90,64 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config____last_update
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line____last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__write_uid
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__write_uid
 msgid "Last Updated by"
-msgstr "Dernière modification par"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__write_date
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__write_date
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__line_ids
 msgid "Lines"
-msgstr "Lignes"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__monday
 msgid "Monday"
-msgstr "Lundi"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__name
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__product_id
 msgid "Product"
-msgstr "Produit"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_form
 msgid "Product Seasonal Line"
-msgstr "Ligne de produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_tree
 msgid "Product Seasonal Lines"
-msgstr "Lignes de produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.view_seasonal_config_view_form
-#, fuzzy
 msgid "Product seasonal"
-msgstr "Ligne de produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.view_partner_form
 msgid "Product seasonal availability is managed on"
-msgstr "La disponibilité des produits de saison est gérée sur"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.actions.act_window,name:product_seasonality.seasonal_config_line_act_window
 msgid "Product seasonal config line"
-msgstr "Ligne de configuration des produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.actions.act_window,name:product_seasonality.seasonal_config_act_window
@@ -162,56 +156,56 @@ msgstr "Ligne de configuration des produits de saison"
 #: model:ir.model.fields,field_description:product_seasonality.field_res_users__seasonal_config_id
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__seasonal_config_id
 msgid "Product seasonal configuration"
-msgstr "Configuration des produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model,name:product_seasonality.model_seasonal_config_line
 msgid "Product seasonal configuration Line"
-msgstr "Ligne de configuration des produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_search
 msgid "Products"
-msgstr "Produits"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__saturday
 msgid "Saturday"
-msgstr "Samedi"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_search
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_view_tree
 msgid "Seasonal products configuration"
-msgstr "Produits de saison"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__sunday
 msgid "Sunday"
-msgstr "Dimanche"
+msgstr ""
 
 #. module: product_seasonality
 #: code:addons/product_seasonality/models/seasonal_config_line.py:0
 #, python-format
 msgid "The end date cannot be earlier than the start date."
-msgstr "La date de fin ne peut pas être plus tôt que la date de début."
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__thursday
 msgid "Thursday"
-msgstr "Jeudi"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__tuesday
 msgid "Tuesday"
-msgstr "Mardi"
+msgstr ""
 
 #. module: product_seasonality
 #: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__wednesday
 msgid "Wednesday"
-msgstr "Mercredi"
+msgstr ""
 
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.view_partner_form
 msgid "the parent company"
-msgstr "la société parente"
+msgstr ""
