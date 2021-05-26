@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_seasonal_config_base_user,seasonal_config base user,model_seasonal_config,base.group_user,1,0,0,0
+access_seasonal_config_system,seasonal_config system,model_seasonal_config,base.group_system,1,1,1,1
+access_seasonal_config_line_base_user,seasonal_config_line base user,model_seasonal_config_line,base.group_user,1,0,0,0
+access_seasonal_config_line_system,seasonal_config_line system,model_seasonal_config_line,base.group_system,1,1,1,1

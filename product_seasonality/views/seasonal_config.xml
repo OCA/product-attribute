@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    # Copyright 2021 Camptocamp SA
+    # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="seasonal_config_view_tree" model="ir.ui.view">
+        <field name="name">seasonal.config.tree</field>
+        <field name="model">seasonal.config</field>
+        <field name="arch" type="xml">
+            <tree string="Seasonal products configuration">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_seasonal_config_view_form" model="ir.ui.view">
+        <field name="name">seasonal.config.form</field>
+        <field name="model">seasonal.config</field>
+        <field name="arch" type="xml">
+            <form string="Product seasonal">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <field name="line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="product_id" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="monday" />
+                            <field name="tuesday" />
+                            <field name="wednesday" />
+                            <field name="thursday" />
+                            <field name="friday" />
+                            <field name="saturday" />
+                            <field name="sunday" />
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="seasonal_config_act_window" model="ir.actions.act_window">
+        <field name="name">Product seasonal configuration</field>
+        <field name="res_model">seasonal.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
