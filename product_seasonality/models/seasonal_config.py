@@ -17,6 +17,7 @@ class SeasonalConfig(models.Model):
         comodel_name="seasonal.config.line",
         inverse_name="seasonal_config_id",
         string="Lines",
+        copy=True,
     )
 
     def config_for_product(self, prod):
