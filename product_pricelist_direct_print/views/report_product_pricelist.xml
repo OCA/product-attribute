@@ -88,7 +88,7 @@
                                     </td>
                                     <td t-if="pricelist" class="text-right">
                                         <strong
-                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date).price"
+                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date or None).price"
                                         />
                                     </td>
                                 </tr>
