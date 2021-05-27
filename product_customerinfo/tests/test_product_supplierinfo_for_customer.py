@@ -155,7 +155,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
             }
         )
         self._create_partnerinfo("customer", self.customer, product)
-        price_by_template = self.env["product.customerinfo"].create(
+        price_by_template = self.customerinfo_model.create(
             {"name": self.customer.id, "product_tmpl_id": template.id, "price": 30.0}
         )
         res = product.with_context(partner_id=self.customer.id).price_compute(

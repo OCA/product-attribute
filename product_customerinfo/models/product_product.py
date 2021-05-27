@@ -21,16 +21,18 @@ class ProductProduct(models.Model):
         res = super(ProductProduct, self)._name_search(
             name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
         )
-        if not limit or len(res) >= limit:
-            limit = (limit - len(res)) if limit else False
+        res_ids = list(res)
+        res_ids_len = len(res_ids)
+        if not limit or res_ids_len >= limit:
+            limit = (limit - res_ids_len) if limit else False
         if (
             not name
             and limit
             or not self._context.get("partner_id")
-            or len(res) >= limit
+            or res_ids_len >= limit
         ):
-            return res
-        limit -= len(res)
+            return res_ids
+        limit -= res_ids_len
         customerinfo_ids = self.env["product.customerinfo"]._search(
             [
                 ("name", "=", self._context.get("partner_id")),
@@ -42,23 +44,23 @@ class ProductProduct(models.Model):
             access_rights_uid=name_get_uid,
         )
         if not customerinfo_ids:
-            return res
-        res_templates = self.browse([product_id for product_id, _name in res]).mapped(
-            "product_tmpl_id"
-        )
+            return res_ids
+        res_templates = self.browse(res_ids).mapped("product_tmpl_id")
         product_tmpls = (
             self.env["product.customerinfo"]
             .browse(customerinfo_ids)
             .mapped("product_tmpl_id")
             - res_templates
         )
-        product_ids = self._search(
-            [("product_tmpl_id", "in", product_tmpls.ids)],
-            limit=limit,
-            access_rights_uid=name_get_uid,
+        product_ids = list(
+            self._search(
+                [("product_tmpl_id", "in", product_tmpls.ids)],
+                limit=limit,
+                access_rights_uid=name_get_uid,
+            )
         )
-        res.extend(self.browse(product_ids).name_get())
-        return res
+        res_ids.extend(product_ids)
+        return res_ids
 
     def _get_price_from_customerinfo(self, partner_id):
         self.ensure_one()
