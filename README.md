@@ -34,7 +34,7 @@ addon | version | summary
 [product_packaging_dimension](product_packaging_dimension/) | 14.0.1.0.0 | Manage packaging dimensions and weight
 [product_packaging_type](product_packaging_type/) | 14.0.0.1.0 | Product Packaging Type
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 | Print price list from menu option, product templates, products variants or price lists
-[product_seasonality](product_seasonality/) | 14.0.1.0.0 | Define rules for products' seasonal availability
+[product_seasonality](product_seasonality/) | 14.0.1.0.1 | Define rules for products' seasonal availability
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 | Product Sequence
 [product_state](product_state/) | 14.0.1.0.0 | Module introducing a state field on product template
