@@ -81,7 +81,7 @@ class ProductPackaging(models.Model):
 
     @api.constrains("uom_id")
     def _check_uom_id(self):
-        """ Check uom_id is not null
+        """Check uom_id is not null
 
         Since the field can be computed by the inverse method on 'qty',
         it's no more possible to add a sql constrains on the column uom_id.
