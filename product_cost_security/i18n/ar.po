@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-05-28 07:48+0000\n"
+"Last-Translator: Osoul <baruni@osoul.ly>\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -14,29 +15,30 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
 msgid "Access to product costs"
-msgstr ""
+msgstr "الاطلاع على تكلفة المنتجات"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
-msgstr ""
+msgstr "التكلفة"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "الاسم المعروض"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__id
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "المُعرف"
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -52,14 +54,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "آخر تعديل في"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "المنتج"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "قالب المنتج"
