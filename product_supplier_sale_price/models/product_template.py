@@ -17,7 +17,8 @@ class ProductTemplate(models.Model):
             elif not vals['list_price']:
                 use_supplier_sale_price = True
             for product in self.product_variant_ids:
-                product.use_supplier_sale_price = use_supplier_sale_price
+                if product.use_supplier_sale_price != use_supplier_sale_price:
+                    product.use_supplier_sale_price = use_supplier_sale_price
 
         return res
 
