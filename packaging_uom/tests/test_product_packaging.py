@@ -20,26 +20,26 @@ class TestProductPackaging(common.SavepointCase):
         )
 
     def test_compute_quantity_by_package(self):
-        """ Create a packagings with uom product_uom_dozen on
-                * product_dozen (uom is product_uom_dozen)
-                * product_unit (uom is product_uom_unit)
-            Result should be :
-                * product_dozen -> qty by package : 1
-                * product_unit -> qty by package : 12
-            Create product_uom_24
-            Update product_dozen to set this new uom
-            Result should be :
-                * product_dozen -> qty by package : 0.5
-            Update product_package_unit to set this new uom
-            Result should be :
-                * product_packaging_unit -> qty by package : 24
-            Create product_uom 6
-            Update product_dozen to set this new uom
-            Result should be :
-                * product_packaging_dozen -> qty by package : 2
-            Update product_packaging_unit to set this new uom
-            Result should be :
-                * product_packaging_unit -> qty by package : 6
+        """Create a packagings with uom product_uom_dozen on
+            * product_dozen (uom is product_uom_dozen)
+            * product_unit (uom is product_uom_unit)
+        Result should be :
+            * product_dozen -> qty by package : 1
+            * product_unit -> qty by package : 12
+        Create product_uom_24
+        Update product_dozen to set this new uom
+        Result should be :
+            * product_dozen -> qty by package : 0.5
+        Update product_package_unit to set this new uom
+        Result should be :
+            * product_packaging_unit -> qty by package : 24
+        Create product_uom 6
+        Update product_dozen to set this new uom
+        Result should be :
+            * product_packaging_dozen -> qty by package : 2
+        Update product_packaging_unit to set this new uom
+        Result should be :
+            * product_packaging_unit -> qty by package : 6
         """
 
         product_packaging_dozen = self.packaging_obj.create(
@@ -139,8 +139,8 @@ class TestProductPackaging(common.SavepointCase):
 
     def test_packaging_qty_zero(self):
         """
-            To avoid changing standard behaviour, we affect the default
-            uom to packaging with qty == 0.
+        To avoid changing standard behaviour, we affect the default
+        uom to packaging with qty == 0.
         """
 
         product_packaging_dozen = self.packaging_obj.create(
