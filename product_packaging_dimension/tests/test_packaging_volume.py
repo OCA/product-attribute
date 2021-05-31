@@ -23,7 +23,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         # Volume always in m3 (using default parameter), but with different initial UoM.
 
         # Initial dimensions in meter
-        self.packaging.packaging_length = 10.0
+        self.packaging.lnght = 10.0
         self.packaging.height = 10.0
         self.packaging.width = 10.0
         self.packaging.length_uom_id = self.uom_m
@@ -32,7 +32,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         self.assertEqual(1000, self.packaging.volume)
 
         #  Initial dimensions in cm
-        self.packaging2.packaging_length = 10.0
+        self.packaging2.lnght = 10.0
         self.packaging2.height = 10.0
         self.packaging2.width = 10.0
         self.packaging2.length_uom_id = self.uom_cm
@@ -41,7 +41,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         self.assertEqual(0.001, self.packaging2.volume)
 
         # Initial dimensions in feet
-        self.packaging3.packaging_length = 10.0
+        self.packaging3.lnght = 10.0
         self.packaging3.height = 10.0
         self.packaging3.width = 10.0
         self.packaging3.length_uom_id = self.uom_ft
@@ -52,7 +52,7 @@ class TestPackagingVolumeCompute(TransactionCase):
     def test_compute_volume(self):
         # initial UoM always in meters and Volume in m3, but with different dimensions.
 
-        self.packaging.packaging_length = 10
+        self.packaging.lnght = 10
         self.packaging.height = 8.0
         self.packaging.width = 10.8
         self.packaging.length_uom_id = self.uom_m
@@ -60,7 +60,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         self.packaging._compute_volume()
         self.assertEqual(864, self.packaging.volume)
 
-        self.packaging2.packaging_length = 6.0
+        self.packaging2.lnght = 6.0
         self.packaging2.height = 14.0
         self.packaging2.width = 1.2
         self.packaging2.length_uom_id = self.uom_m
@@ -68,7 +68,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         self.packaging2._compute_volume()
         self.assertAlmostEqual(100.8, self.packaging2.volume)
 
-        self.packaging3.packaging_length = 100.0
+        self.packaging3.lnght = 100.0
         self.packaging3.height = 50.5
         self.packaging3.width = 80.0
         self.packaging3.length_uom_id = self.uom_m
@@ -80,7 +80,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         # Tests with both different initial and volume UoMs.
 
         # feet to Liters
-        self.packaging.packaging_length = 10.0
+        self.packaging.lnght = 10.0
         self.packaging.height = 10.0
         self.packaging.width = 10.0
         self.packaging.length_uom_id = self.uom_ft
@@ -89,7 +89,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         self.assertAlmostEqual(28316.8439, self.packaging.volume)
 
         #  cm to cubic feet
-        self.packaging2.packaging_length = 10.0
+        self.packaging2.lnght = 10.0
         self.packaging2.height = 10.0
         self.packaging2.width = 10.0
         self.packaging2.length_uom_id = self.uom_cm
@@ -98,7 +98,7 @@ class TestPackagingVolumeCompute(TransactionCase):
         self.assertAlmostEqual(0.0353, self.packaging2.volume)
 
         # meters to cubic feet
-        self.packaging3.packaging_length = 10.0
+        self.packaging3.lnght = 10.0
         self.packaging3.height = 10.0
         self.packaging3.width = 10.0
         self.packaging3.length_uom_id = self.uom_m

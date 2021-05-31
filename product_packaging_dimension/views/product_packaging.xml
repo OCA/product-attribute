@@ -12,9 +12,9 @@
                             <field name="volume" />
                             <field name="volume_uom_name" />
                         </div>
-                    <label for="packaging_length" />
+                    <label for="lnght" />
                         <div class="o_row">
-                            <field name="packaging_length" />
+                            <field name="lnght" />
                             <field name="length_uom_name" />
                         </div>
                     <label for="width" />

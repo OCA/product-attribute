@@ -12,7 +12,7 @@ class ProductPackaging(models.Model):
     _sql_constraints = [
         ("positive_height", "CHECK(height>=0.0)", "Height must be positive"),
         ("positive_width", "CHECK(width>=0.0)", "Width must be positive"),
-        ("positive_length", "CHECK(packaging_length>=0.0)", "Length must be positive"),
+        ("positive_length", "CHECK(lnght>=0.0)", "Length must be positive"),
         (
             "positive_max_weight",
             "CHECK(max_weight>=0.0)",
@@ -21,7 +21,7 @@ class ProductPackaging(models.Model):
     ]
     height = fields.Float("Height")
     width = fields.Float("Width")
-    packaging_length = fields.Float("Length")
+    lnght = fields.Float("Length")
 
     length_uom_id = fields.Many2one(
         "uom.uom",
@@ -88,24 +88,20 @@ class ProductPackaging(models.Model):
         readonly=True,
     )
 
-    @api.depends(
-        "packaging_length", "width", "height", "length_uom_id", "volume_uom_id"
-    )
+    @api.depends("lnght", "width", "height", "length_uom_id", "volume_uom_id")
     def _compute_volume(self):
         self.volume = self._calculate_volume(
-            self.packaging_length,
+            self.lnght,
             self.height,
             self.width,
             self.length_uom_id,
             self.volume_uom_id,
         )
 
-    def _calculate_volume(
-        self, packaging_length, height, width, length_uom_id, volume_uom_id
-    ):
+    def _calculate_volume(self, lnght, height, width, length_uom_id, volume_uom_id):
         volume_m3 = 0
-        if packaging_length and height and width and length_uom_id:
-            length_m = self.convert_to_meters(packaging_length, length_uom_id)
+        if lnght and height and width and length_uom_id:
+            length_m = self.convert_to_meters(lnght, length_uom_id)
             height_m = self.convert_to_meters(height, length_uom_id)
             width_m = self.convert_to_meters(width, length_uom_id)
             volume_m3 = length_m * height_m * width_m
