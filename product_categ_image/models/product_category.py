@@ -6,6 +6,7 @@ from odoo import fields, models
 
 
 class ProductCategory(models.Model):
-    _inherit = "product.category"
+    _name = "product.category"
+    _inherit = [_name, "image.mixin"]
 
-    image = fields.Binary(string="Image", attachment=True)
+    image = fields.Binary(string="Category Image", attachment=True)
