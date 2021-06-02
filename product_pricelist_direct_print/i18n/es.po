@@ -1,23 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_pricelist_direct_print
+# 	* product_pricelist_direct_print
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-04 14:40+0000\n"
-"PO-Revision-Date: 2021-02-04 15:43+0100\n"
-"Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
-"Language: es\n"
+"POT-Creation-Date: 2021-06-02 10:43+0000\n"
+"PO-Revision-Date: 2021-06-02 10:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -38,8 +34,7 @@ msgid ""
 "</p>\n"
 msgstr ""
 "\n"
-"<p>Estimado ${object.partner_id and object.partner_id.name or 'customer'},</"
-"p>\n"
+"<p>Estimado ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
 "<p>\n"
 "El fichero adjunto es un PDF que contiene la tarifa\n"
 "<strong>${object.pricelist_id.name}</strong> .\n"
@@ -65,7 +60,7 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "${object.pricelist_id.name}"
-msgstr "${object.pricelist_id.name}"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -79,13 +74,21 @@ msgstr "<strong>Precio coste</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
-msgid "<strong>Currency</strong>:<br/>"
-msgstr "<strong>Moneda</strong>:<br/>"
+msgid ""
+"<strong>Currency</strong>:\n"
+"                            <br/>"
+msgstr ""
+"<strong>Moneda</strong>:\n"
+"                            <br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
-msgid "<strong>Date</strong>:<br/>"
-msgstr "<strong>Fecha</strong>:<br/>"
+msgid ""
+"<strong>Date</strong>:\n"
+"                            <br/>"
+msgstr ""
+"<strong>Fecha</strong>:\n"
+"                            <br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -99,8 +102,17 @@ msgstr "<strong>Precio tarifa</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
-msgid "<strong>Price List Name</strong>:<br/>"
-msgstr "<strong>Nombre tarifa</strong>:<br/>"
+msgid "<strong>Margin</strong>"
+msgstr "<strong>Margen</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid ""
+"<strong>Price List Name</strong>:\n"
+"                            <br/>"
+msgstr ""
+"<strong>Nombre de Tarifa</strong>:\n"
+"                            <br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -254,7 +266,13 @@ msgstr "Última actualización en"
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "List Price"
-msgstr "Precio de coste"
+msgstr "Precio de Tarifa"
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Margin"
+msgstr "Margen"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
@@ -357,6 +375,11 @@ msgid "Show Cost Price"
 msgstr "Mostrar precio de coste"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_margin
+msgid "Show Margin"
+msgstr "Mostrar Margen"
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_sale_price
 msgid "Show Sale Price"
 msgstr "Mostrar precio ficha"
@@ -386,7 +409,7 @@ msgstr "Resumen"
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Summary:"
-msgstr "Resumen:"
+msgstr "Resumen"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0

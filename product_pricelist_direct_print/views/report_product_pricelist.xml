@@ -10,30 +10,33 @@
                     <h2>Price List</h2>
                     <div class="row mt32 mb32">
                         <div class="col-7">
-                        <strong>Price List Name</strong>:<br />
-                        <t t-if="not o.hide_pricelist_name">
+                            <strong>Price List Name</strong>:
+                            <br />
+                            <t t-if="not o.hide_pricelist_name">
                                 <span t-field="pricelist.name" />
                             </t>
-                        <t t-else="">
+                            <t t-else="">
                                 <span>Special Pricelist</span>
                             </t>
-                    </div>
+                        </div>
                         <div class="col-2">
-                        <strong>Currency</strong>:<br />
-                        <span t-field="pricelist.currency_id" />
-                    </div>
+                            <strong>Currency</strong>:
+                            <br />
+                            <span t-field="pricelist.currency_id" />
+                        </div>
                         <div class="col-3">
-                        <strong>Date</strong>:<br />
-                        <t t-if="o.date">
+                            <strong>Date</strong>:
+                            <br />
+                            <t t-if="o.date">
                                 <span t-field="o.date" t-options="{'widget': 'date'}" />
                             </t>
-                        <t t-if="not o.date">
+                            <t t-if="not o.date">
                                 <t
                                     t-esc="time.strftime('%Y-%m-%d')"
                                     t-options="{'widget': 'date'}"
                                 />
                             </t>
-                    </div>
+                        </div>
                     </div>
                     <table class="table table-sm">
                         <thead>
@@ -62,6 +65,9 @@
                                 <th t-if="pricelist" class="text-right">
                                     <strong>List Price</strong>
                                 </th>
+                                <th t-if="o.show_margin" class="text-right">
+                                    <strong>Margin</strong>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,8 +94,20 @@
                                     </td>
                                     <td t-if="pricelist" class="text-right">
                                         <strong
-                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date).price"
+                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date or None).price"
                                         />
+                                    </td>
+                                    <td t-if="o.show_margin" class="text-right">
+                                        <t t-set="margin" t-value="-100.00" />
+                                        <t
+                                            t-if="product.with_context(pricelist=pricelist.id, date=o.date).price != 0"
+                                        >
+                                            <t
+                                                t-set="margin"
+                                                t-value="(product.with_context(pricelist=pricelist.id, date=o.date).price - product.standard_price) / product.standard_price *100"
+                                            />
+                                        </t>
+                                        <strong t-esc="'%.2f'%margin" />
                                     </td>
                                 </tr>
                             </t>

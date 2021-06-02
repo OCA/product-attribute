@@ -46,6 +46,7 @@ class ProductPricelistPrint(models.TransientModel):
         " the last X ordered products will be obtained for the report."
     )
     summary = fields.Text(string="Summary")
+    show_margin = fields.Boolean(string="Show Margin")
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):

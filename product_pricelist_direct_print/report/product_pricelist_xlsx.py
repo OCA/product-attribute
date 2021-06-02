@@ -1,5 +1,7 @@
 # Copyright 2021 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from xlsxwriter.utility import xl_rowcol_to_cell
+
 from odoo import _, models
 
 
@@ -62,6 +64,9 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(5, next_col, _("Sale Price"), header_format)
         next_col += 1
         sheet.write(5, next_col, _("List Price"), header_format)
+        if book.show_margin:
+            next_col += 1
+            sheet.write(5, next_col, _("Margin"), header_format)
         return sheet
 
     def _fill_data(self, workbook, sheet, book, pricelist):
@@ -77,17 +82,38 @@ class ProductPricelistXlsx(models.AbstractModel):
                 sheet.write(row, next_col, product.display_name)
                 if book.show_standard_price:
                     next_col += 1
+                    product_standard_price_cell = xl_rowcol_to_cell(row, next_col)
                     sheet.write(row, next_col, product.standard_price, decimal_format)
                 if book.show_sale_price:
                     next_col += 1
                     sheet.write(row, next_col, product.list_price, decimal_format)
                 next_col += 1
+                product_pricelist_price_cell = xl_rowcol_to_cell(row, next_col)
+                product_pricelist_price = product.with_context(
+                    pricelist=pricelist.id, date=book.date
+                ).price
                 sheet.write(
-                    row,
-                    next_col,
-                    product.with_context(pricelist=pricelist.id, date=book.date).price,
-                    decimal_bold_format,
+                    row, next_col, product_pricelist_price, decimal_bold_format,
                 )
+                if book.show_margin and book.show_standard_price:
+                    next_col += 1
+                    try:
+                        margin_percent = (
+                            "=("
+                            + product_pricelist_price_cell
+                            + "-"
+                            + product_standard_price_cell
+                            + ")"
+                            + "/"
+                            + product_pricelist_price_cell
+                            + "*100"
+                        )
+                        sheet.write_formula(
+                            row, next_col, margin_percent, decimal_format
+                        )
+                    except Exception:
+                        margin_percent = 0
+                        sheet.write(row, next_col, margin_percent, decimal_format)
                 row += 1
         if book.summary:
             sheet.write(row, 0, _("Summary:"), bold_format)

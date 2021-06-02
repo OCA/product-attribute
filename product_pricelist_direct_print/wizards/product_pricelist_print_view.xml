@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
-     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<!--  Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).  -->
 <odoo>
     <record id="view_product_pricelist_print" model="ir.ui.view">
         <field name="name">Product pricelist print</field>
@@ -21,6 +21,7 @@
                     <group string="Filter Options">
                         <field name="show_sale_price" />
                         <field name="show_standard_price" />
+                        <field name="show_margin" />
                         <field name="hide_pricelist_name" />
                         <field name="order_field" />
                         <field name="date" />

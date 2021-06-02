@@ -3,6 +3,8 @@
 # Copyright 2019 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from datetime import datetime
+
 from odoo import fields, models, tools
 
 
@@ -23,6 +25,8 @@ class ProductTemplate(models.Model):
         # The product_variant_id returns empty recordset if template is not
         # active, so we must ensure variant exists or _select_seller fails.
         if product:
+            if type(date) == datetime:
+                date = date.date()
             seller = product._select_seller(
                 partner_id=rule.filter_supplier_id, quantity=quantity, date=date
             )
