@@ -8,5 +8,6 @@
         <field
             name="definition_domain"
         >["|",["active","=",True],["active","=",False]]</field>
+        <field name="active">False</field>
     </record>
 </odoo>
