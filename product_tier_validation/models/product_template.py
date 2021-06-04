@@ -10,9 +10,13 @@ class ProductTemplate(models.Model):
     _tier_validation_manual_config = False
 
     @api.model
+    def _is_tier_validated_active(self, state_code):
+        return state_code != "draft"
+
+    @api.model
     def create(self, vals):
         new = super().create(vals)
-        if new.need_validation and new.state != "confirmed":
+        if new.need_validation and self._is_tier_validated_active(new.state):
             new.active = False
         return new
 
@@ -22,7 +26,7 @@ class ProductTemplate(models.Model):
         It is set to True when State changes to confirmed.
         """
         if "state" in vals:
-            vals["active"] = vals["state"] == "confirmed"
+            vals["active"] = self._is_tier_validated_active(vals["state"])
         return super().write(vals)
 
     @api.model
