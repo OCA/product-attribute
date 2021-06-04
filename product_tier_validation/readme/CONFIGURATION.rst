@@ -8,3 +8,6 @@ This configuration is done at
 Note that, since Product start as archived records,
 the *Definition Domain* must include ``"|",["active","=",True],["active","=",False]``.
 Otherwise the validation rule won't apply correctly in new records.
+
+Setting new Products inactive can be disabled,
+by removing the "draft" code from the initial Product State.
