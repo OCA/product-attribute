@@ -9,7 +9,7 @@
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
-    "maintainer": "dreispt",
+    "maintainer": ["dreispt"],
     "development_status": "Alpha",
     "depends": ["product_state", "base_tier_validation"],
     "data": [
