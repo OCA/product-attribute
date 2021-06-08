@@ -27,10 +27,10 @@ class ProductSecondaryUnit(models.Model):
             ("independent", "Independent"),
         ],
         default="dependent",
-        help="If dependency type is 'dependent' the factor is used for compute quantity in primary unit,"
-        "otherwise primery and secondary unit are independent. For exemple if you sell service"
-        "by packege (1 unit for example) and you want to put the real time (ex : 4 hours)"
-        "to allows employee schedelling",
+        help="If dependency type is 'dependent' the factor is used to compute quantity in primary unit,"
+        "otherwise primary and secondary unit are independent. For example if you sell service"
+        "by package (1 unit for example) and you want to put the real time (ex : 4 hours)"
+        "to allows employee scheduling",
     )
     factor = fields.Float(
         string="Secondary Unit Factor", default=1.0, digits=0, required=True
