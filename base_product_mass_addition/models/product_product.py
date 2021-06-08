@@ -13,7 +13,7 @@ class ProductProduct(models.Model):
 
     qty_to_process = fields.Float(
         compute="_compute_process_qty",
-        inverse="_inverse_quick_vals",
+        inverse="_inverse_set_process_qty",
         help="Set this quantity to create a new line "
         "for this product or update the existing one.",
     )
@@ -24,10 +24,10 @@ class ProductProduct(models.Model):
         "uom.uom",
         domain="[('category_id', '=', quick_uom_category_id)]",
         compute="_compute_quick_uom_id",
-        inverse="_inverse_quick_vals",
+        inverse="_inverse_set_process_qty",
     )
 
-    def _inverse_quick_vals(self):
+    def _inverse_set_process_qty(self):
         parent = self.pma_parent
         if parent:
             for product in self:
