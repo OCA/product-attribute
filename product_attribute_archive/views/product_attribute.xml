@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Akretion
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_attribute_form_view">
+        <field name="name">product.attribute.form</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main_fields']" position="before">
+                    <field name="active" invisible="1" />
+                    <widget
+                    name="web_ribbon"
+                    title="Archived"
+                    bg_color="bg-danger"
+                    attrs="{'invisible': [('active', '=', True)]}"
+                />
+            </xpath>
+            <field name="html_color" position="after">
+                <field name="active" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_attribute_tree_view" model="ir.ui.view">
+        <field name="name">product.attribute.tree</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.attribute_tree_view" />
+        <field name="arch" type="xml">
+            <field name="create_variant" position="after">
+                <field name="active" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product.attribute_action">
+        <field name="context">{'active_test': False}</field>
+    </record>
+
+</odoo>
