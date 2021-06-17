@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- product.template inherit form view -->
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.inherit.view.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="categ_brand_id" />
+            </field>
+        </field>
+    </record>
+
+    <!-- product.template inherit search view -->
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.inherit.view.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="categ_brand_id" />
+            </field>
+            <filter name="categ_id" position="after">
+                <filter
+                    string="Brand"
+                    name="categ_brand_id"
+                    context="{'group_by':'categ_brand_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+    <!-- product.category inherit form view -->
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.inherit.view.form</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box'][1]" position="after">
+                <div class="oe_button_box" name="button_box">
+                    <button
+                        class="oe_stat_button"
+                        name="%(product.product_template_action_all)d"
+                        icon="fa-th-list"
+                        type="action"
+                        attrs="{'invisible':[('type','!=','brand')]}"
+                        context="{'search_default_categ_brand_id': active_id, 'default_categ_brand_id': active_id, 'group_expand': True}"
+                    >
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value"><field
+                                    name="brand_product_count"
+                                /></span>
+                            <span class="o_stat_text"> Products</span>
+                        </div>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
