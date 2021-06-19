@@ -24,7 +24,7 @@ addon | version | summary
 [product_assortment](product_assortment/) | 14.0.1.0.1 | Adds the ability to manage products assortment
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 | Store the revision of a product and a BOM
 [product_category_code](product_category_code/) | 14.0.1.0.0 | Allows to define a code on product categories
-[product_category_product_link](product_category_product_link/) | 14.0.1.0.0 | Allows to get products from a category
+[product_category_product_link](product_category_product_link/) | 14.0.1.0.1 | Allows to get products from a category
 [product_code_mandatory](product_code_mandatory/) | 14.0.1.0.1 | Set Product Internal Reference as a required field
 [product_code_unique](product_code_unique/) | 14.0.1.0.0 | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | Product cost security restriction view
