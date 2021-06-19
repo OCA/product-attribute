@@ -5,7 +5,7 @@
     "name": "Product Category Product Link",
     "summary": """
         Allows to get products from a category""",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
