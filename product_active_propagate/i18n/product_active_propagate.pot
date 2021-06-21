@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * product_active_propagate
+#	* product_active_propagate
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-12 20:34+0000\n"
-"PO-Revision-Date: 2020-12-12 20:34+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,7 +16,5 @@ msgstr ""
 #. module: product_active_propagate
 #: model:ir.model,name:product_active_propagate.model_product_product
 msgid "Product"
-msgstr "Article"
+msgstr ""
 
-#~ msgid "Product Template"
-#~ msgstr "Modèle d'article"
