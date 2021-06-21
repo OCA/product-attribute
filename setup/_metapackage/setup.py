@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo12-addon-base_product_mass_addition',
         'odoo12-addon-packaging_uom',
+        'odoo12-addon-product_active_propagate',
         'odoo12-addon-product_assortment',
         'odoo12-addon-product_bom_revision',
         'odoo12-addon-product_brand',
