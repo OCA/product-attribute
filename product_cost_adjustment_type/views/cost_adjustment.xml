@@ -1,0 +1,47 @@
+<odoo>
+
+    <record id="cost_adjustment_type_inherit_view_tree" model="ir.ui.view">
+        <field name="name">cost.adjustment.type.tree</field>
+        <field name="model">cost.adjustment</field>
+        <field name="inherit_id" ref="product_cost_adjustment.cost_adjustment_view_tree" />
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field name="type_id" options="{'no_create': True}" />
+            </field>
+        </field>
+    </record>
+
+    <record id="cost_adjustment_type_inherit_view_kanban" model="ir.ui.view">
+        <field name="name">cost.adjustment.type.kanban</field>
+        <field name="model">cost.adjustment</field>
+        <field name="inherit_id" ref="product_cost_adjustment.cost_adjustment_view_kanban" />
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field name="type_id" options="{'no_create': True}" />
+            </field>
+        </field>
+    </record>
+
+    <record id="cost_adjustment_type_inherit_view_form" model="ir.ui.view">
+        <field name="name">cost.adjustment.type.form</field>
+        <field name="model">cost.adjustment</field>
+        <field name="inherit_id" ref="product_cost_adjustment.cost_adjustment_view_form" />
+        <field name="arch" type="xml">
+            <field name="product_ids" position="before">
+                <field name="type_id" options="{'no_create': True}" />
+            </field>
+        </field>
+    </record>
+
+    <record id="cost_adjustment_type_inherit_view_search" model="ir.ui.view">
+        <field name="name">cost.adjustment.type.search</field>
+        <field name="model">cost.adjustment</field>
+        <field name="inherit_id" ref="product_cost_adjustment.cost_adjustment_view_search" />
+        <field name="arch" type="xml">
+            <field name="product_ids" position="before">
+                <field name="type_id" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
