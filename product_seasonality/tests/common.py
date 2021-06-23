@@ -36,6 +36,7 @@ class CommonCaseWithLines(CommonCase):
                 "friday": False,
                 "saturday": False,
                 "sunday": False,
+                "product_template_id": cls.prod1.product_tmpl_id.id,
                 "product_id": cls.prod1.id,
             },
             {
@@ -48,7 +49,7 @@ class CommonCaseWithLines(CommonCase):
                 "friday": True,
                 "saturday": True,
                 "sunday": True,
-                "product_id": cls.prod2.id,
+                "product_template_id": cls.prod2.product_tmpl_id.id,
             },
         ]
         write_values = []
