@@ -16,10 +16,14 @@ class SeasonalConfigLine(models.Model):
         comodel_name="seasonal.config",
         required=True,
     )
-    product_id = fields.Many2one(
-        comodel_name="product.product",
+    product_template_id = fields.Many2one(
+        comodel_name="product.template",
         domain=[("sale_ok", "=", True)],
         required=True,
+    )
+    product_id = fields.Many2one(
+        comodel_name="product.product",
+        domain="[('product_tmpl_id', '=', product_template_id)]",
     )
     date_start = fields.Datetime(required=True)
     date_end = fields.Datetime()
@@ -54,7 +58,11 @@ class SeasonalConfigLine(models.Model):
 
     def find_for_product(self, prod, config=None):
         domain = [
+            "|",
             ("product_id", "=", prod.id),
+            "&",
+            ("product_id", "=", False),
+            ("product_template_id", "=", prod.product_tmpl_id.id),
         ]
         if config:
             domain.append(("seasonal_config_id", "=", config.id))
