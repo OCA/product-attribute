@@ -125,11 +125,6 @@ msgid "Product"
 msgstr ""
 
 #. module: product_seasonality
-#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__product_template_id
-msgid "Product Template"
-msgstr ""
-
-#. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_form
 msgid "Product Seasonal Line"
 msgstr ""
@@ -137,6 +132,11 @@ msgstr ""
 #. module: product_seasonality
 #: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_tree
 msgid "Product Seasonal Lines"
+msgstr ""
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__product_template_id
+msgid "Product Template"
 msgstr ""
 
 #. module: product_seasonality
