@@ -34,6 +34,7 @@ class SeasonalConfigLine(models.Model):
     friday = fields.Boolean(default=True)
     saturday = fields.Boolean(default=True)
     sunday = fields.Boolean(default=True)
+    display_name = fields.Char(compute="_compute_display_name")
 
     @api.constrains("date_start", "date_end")
     def _check_date_end(self):
@@ -67,3 +68,15 @@ class SeasonalConfigLine(models.Model):
         if config:
             domain.append(("seasonal_config_id", "=", config.id))
         return self.search(domain)
+
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = rec._name_get()
+
+    def _name_get(self):
+        parts = [
+            f"[{self.seasonal_config_id.display_name}]",
+            self.product_id.display_name,
+            f"({self.id})",
+        ]
+        return " ".join(parts)

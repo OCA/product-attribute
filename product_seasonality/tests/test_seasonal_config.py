@@ -16,6 +16,13 @@ class TestSeasonalityCase(CommonCaseWithLines):
         for dt in date_ko:
             self.assertFalse(line.is_sale_ok(dt), f"{dt.strftime('%Y-%m-%d')} is wrong")
 
+    def test_display_name(self):
+        line = self.seasonal_conf.config_for_product(self.prod1)
+        self.assertEqual(
+            line.display_name,
+            f"[{self.seasonal_conf.display_name}] {self.prod1.display_name} ({line.id})",
+        )
+
     def test_constraint(self):
         line = self.seasonal_conf.config_for_product(self.prod1)
         with self.assertRaisesRegex(
