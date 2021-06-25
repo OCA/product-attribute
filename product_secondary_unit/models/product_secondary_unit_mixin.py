@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.tools.float_utils import float_round
+from odoo.tools.float_utils import float_compare, float_round
 
 
 class ProductSecondaryUnitMixin(models.AbstractModel):
@@ -32,15 +32,23 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     _description = "Product Secondary Unit Mixin"
     _secondary_unit_fields = {}
 
+    @api.model
+    def _get_default_secondary_uom(self):
+        return self.env["product.template"]._get_default_secondary_uom()
+
     secondary_uom_qty = fields.Float(
         string="Secondary Qty",
         digits="Product Unit of Measure",
         store=True,
         readonly=False,
         compute="_compute_secondary_uom_qty",
+        default="1",
     )
     secondary_uom_id = fields.Many2one(
-        comodel_name="product.secondary.unit", string="Second unit"
+        comodel_name="product.secondary.unit",
+        string="Second unit",
+        ondelete="restrict",
+        default=_get_default_secondary_uom,
     )
 
     def _get_uom_line(self):
@@ -101,15 +109,4 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         """Helper method to be called from onchange method of uom field in
         target model.
         """
-        if (
-            not self.secondary_uom_id
-            or self.secondary_uom_id.dependency_type == "independent"
-        ):
-            return
-        factor = self._get_factor_line()
-        line_qty = self._get_quantity_from_line()
-        qty = float_round(
-            line_qty / (factor or 1.0),
-            precision_rounding=self._get_uom_line().rounding,
-        )
-        self.secondary_uom_qty = qty
+        self._compute_helper_target_field_qty()
