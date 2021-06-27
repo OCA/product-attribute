@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <record id="in_vitro_1" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-A</field>
+    </record>
+    <record id="in_vitro_2" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-B</field>
+    </record>
+    <record id="in_vitro_3" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-C</field>
+    </record>
+    <record id="in_vitro_4" model="in.vitro.diagnostic">
+        <field name="name">InVitroDiagnostika-D</field>
+    </record>
+
+</odoo>
