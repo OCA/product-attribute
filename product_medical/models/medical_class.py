@@ -10,7 +10,13 @@ class MedicalClass(models.Model):
 
     name = fields.Char(string="Name", required=True, translate=True)
 
-    _sql_constraints = [("name_uniq", "unique(name)", "Medical class already exists",)]
+    _sql_constraints = [
+        (
+            "name_uniq",
+            "unique(name)",
+            "Medical class already exists",
+        )
+    ]
 
 
 class InVitroDiagnostics(models.Model):
@@ -20,7 +26,11 @@ class InVitroDiagnostics(models.Model):
     name = fields.Char(string="Name", required=True, translate=True)
 
     _sql_constraints = [
-        ("name_uniq", "unique(name)", "Diagnostic type already exists",)
+        (
+            "name_uniq",
+            "unique(name)",
+            "Diagnostic type already exists",
+        )
     ]
 
 
@@ -31,7 +41,11 @@ class MedicineCategory(models.Model):
     name = fields.Char(string="Name", required=True, translate=True)
 
     _sql_constraints = [
-        ("name_uniq", "unique(name)", "Medicine category already exists",)
+        (
+            "name_uniq",
+            "unique(name)",
+            "Medicine category already exists",
+        )
     ]
 
 
@@ -41,4 +55,10 @@ class PPECategory(models.Model):
 
     name = fields.Char(string="Name", required=True)
 
-    _sql_constraints = [("name_uniq", "unique(name)", "PPE category already exists",)]
+    _sql_constraints = [
+        (
+            "name_uniq",
+            "unique(name)",
+            "PPE category already exists",
+        )
+    ]
