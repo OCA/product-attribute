@@ -3,8 +3,8 @@
 
 {
     "name": "Product Medical",
-    "summary": "Base  structure to handle medical products",
-    "version": "13.0.1.3.0",
+    "summary": "Base structure to handle medical products",
+    "version": "14.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
@@ -12,6 +12,9 @@
     "depends": ["product"],
     "data": [
         "data/medical_data.xml",
+        "data/in_vitro_diagnostic_data.xml",
+        "data/medicine_category_data.xml",
+        "data/ppe_category_data.xml",
         "security/ir.model.access.csv",
         "views/product_template.xml",
         "views/in_vitro_diagnostic.xml",
