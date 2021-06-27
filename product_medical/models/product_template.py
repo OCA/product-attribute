@@ -35,5 +35,7 @@ class ProductTemplate(models.Model):
     )
     ce_certificate_validity_date = fields.Date(string="Certificate Validity Date")
     notified_body_id = fields.Many2one(
-        comodel_name="res.partner", ondelete="set null", string=u"Notified Body",
+        comodel_name="res.partner",
+        ondelete="set null",
+        string=u"Notified Body",
     )
