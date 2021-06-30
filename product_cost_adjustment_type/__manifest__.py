@@ -18,5 +18,6 @@
         "security/ir.model.access.csv",
         "views/cost_adjustment_type.xml",
         "views/cost_adjustment.xml",
+        "report/report_financials.xml",
     ],
 }

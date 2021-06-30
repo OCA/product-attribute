@@ -1,0 +1,59 @@
+<odoo>
+    <template id="report_cost_adjustment_type_financial"
+              inherit_id="product_cost_adjustment.report_cost_adjustment_financial">
+        <xpath expr="//table[hasclass('table', 'table-sm', 'o_main_table')]" position="replace">
+            <table class="table table-sm o_main_table">
+                <thead>
+                    <tr>
+                        <th><strong>Product</strong></th>
+                        <th class="text-right"><strong
+                            >Original</strong></th>
+                        <th class="text-right"><strong>New Cost</strong></th>
+                        <th class="text-right"><strong
+                            >Difference</strong></th>
+                        <th class="text-right"><strong>Qty</strong></th>
+                        <th class="text-right"><strong>Account</strong></th>
+                        <th class="text-right"><strong>Debit</strong></th>
+                        <th class="text-right"><strong>Account</strong></th>
+                        <th class="text-right"><strong>Credit</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="line">
+                        <tr>
+                            <td><span t-field="line.product_id" /></td>
+                            <td class="text-right"><span
+                                t-field="line.product_original_cost"
+                                t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                            /></td>
+                            <td class="text-right"><span
+                                t-field="line.product_cost"
+                                t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                            /></td>
+                            <td class="text-right"><span
+                                t-field="line.difference_cost"
+                                t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                            /></td>
+                            <td class="text-right"><span
+                                t-field="line.qty_on_hand"
+                            /> <span
+                                t-field="line.product_id.product_uom_id"
+                                groups="uom.group_uom"
+                            /></td>
+                            <td class="text-right"><span t-field="line.product_id.categ_id.property_stock_valuation_account_id"/></td>
+                            <td class="text-right"><span
+                                t-field="line.total_difference"
+                                t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                            /></td>
+                            <td class="text-right"><span t-field="line.cost_adjustment_id.type_id.account_id"/></td>
+                            <td class="text-right"><span
+                                t-field="line.total_difference"
+                                t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                            /></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>        
+    </template>
+</odoo>
