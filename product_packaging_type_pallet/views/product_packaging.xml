@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_packaging_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.packaging.form.view.inherit</field>
+        <field name="model">product.packaging</field>
+        <field
+            name="inherit_id"
+            ref="product_packaging_dimension.product_packaging_form_view_inherit"
+        />
+        <field name="arch" type="xml">
+            <field name="packaging_length" position="before">
+                <field name="type_is_pallet" invisible="1" />
+            </field>
+            <field name="packaging_length" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('type_is_pallet', '=', True)]}</attribute>
+            </field>
+            <field name="width" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('type_is_pallet', '=', True)]}</attribute>
+            </field>
+            <group name="dimensions" position="after">
+                <group name="pallet">
+                    <field
+                        name="layers"
+                        attrs="{'invisible': [('type_is_pallet', '=', False)]}"
+                    />
+                    <field
+                        name="packs_per_layer"
+                        attrs="{'invisible': [('type_is_pallet', '=', False)]}"
+                    />
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

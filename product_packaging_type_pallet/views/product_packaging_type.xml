@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_packaging_type_form_inherit" model="ir.ui.view">
+        <field name="name">product.packaging.type.form.inherit</field>
+        <field name="model">product.packaging.type</field>
+        <field
+            name="inherit_id"
+            ref="product_packaging_type.view_product_packaging_type_form"
+        />
+        <field name="arch" type="xml">
+            <group name="codes" position="inside">
+                <field name="is_pallet" />
+            </group>
+        </field>
+    </record>
+</odoo>
