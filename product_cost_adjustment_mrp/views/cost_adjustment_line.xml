@@ -1,0 +1,15 @@
+<odoo>
+
+    <record id="cost_adjustment_line_mrp_view_tree" model="ir.ui.view">
+        <field name="name">cost.adjustment.line.mrp.tree</field>
+        <field name="model">cost.adjustment.line</field>
+        <field name="inherit_id" ref="product_cost_adjustment.cost_adjustment_line_view_tree" />
+        <field name="arch" type="xml">
+            <field name="total_difference" position="after">
+                <field name="mrp_production_ids" optional="hide" />
+                <button name="action_view_production" type="object" icon="fa-list" attrs="{'invisible': [('mrp_production_ids', '=', [])]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
