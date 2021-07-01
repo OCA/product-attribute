@@ -24,7 +24,7 @@
                         title="Archived"
                         bg_color="bg-danger"
                         attrs="{'invisible': [('active', '=', True)]}"
-                />
+                    />
                 <div class="oe_title">
                     <label for="name" class="oe_edit_only" />
                     <h1>
