@@ -24,7 +24,7 @@ class IrFilters(models.Model):
             return vals_list
         model = self.env.ref("product.model_product_product")
         for vals in vals_list:
-            if "model_id" not in vals:
+            if not vals.get("model_id"):
                 vals.update({"model_id": model.model})
         return vals_list
 
