@@ -108,7 +108,8 @@ class ProductProduct(models.Model):
                         0,
                         {
                             "name": _(
-                                "%(user)s changed cost from %(previous)s to %(new_price)s - %(product)s",
+                                """%(user)s changed cost from %(previous)s
+                                 to %(new_price)s - %(product)s""",
                                 user=self.env.user.name,
                                 previous=product.standard_price,
                                 new_price=new_price,
@@ -125,7 +126,8 @@ class ProductProduct(models.Model):
                         0,
                         {
                             "name": _(
-                                "%(user)s changed cost from %(previous)s to %(new_price)s - %(product)s",
+                                """%(user)s changed cost from %(previous)s
+                                 to %(new_price)s - %(product)s""",
                                 user=self.env.user.name,
                                 previous=product.standard_price,
                                 new_price=new_price,

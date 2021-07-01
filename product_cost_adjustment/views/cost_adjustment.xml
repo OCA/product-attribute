@@ -5,7 +5,7 @@
         <field name="model">cost.adjustment</field>
         <field name="arch" type="xml">
             <tree string="Cost Adjustment" sample="1">
-                <field name="date" />                
+                <field name="date" />
                 <field name="name" />
                 <field name="type_id" />
                 <field name="product_ids" widget="many2many_tags" optional="hide" />
