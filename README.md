@@ -45,6 +45,7 @@ addon | version | summary
 [product_stock_state](product_stock_state/) | 14.0.1.0.0 | Compute the state of a product's stockthe stock level and sale_ok field
 [product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
 [product_weight](product_weight/) | 14.0.1.0.0 | Allows to calculate products weight from its components.
+[product_weight_logistics_uom](product_weight_logistics_uom/) | 14.0.1.0.0 | Glue module for product_weight and product_logistics_uom
 
 [//]: # (end addons)
 
