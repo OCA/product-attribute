@@ -39,6 +39,7 @@ Contributors
 ------------
 
 * Alexis de Lattre <alexis.delattre@akretion.com>
+* Bhavesh Odedra <bodedra@opensourceintegrators.com>
 
 Maintainer
 ----------
