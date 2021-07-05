@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [base_product_mass_addition](base_product_mass_addition/) | 14.0.1.1.0 | Base Product Mass Addition
+[packaging_uom](packaging_uom/) | 14.0.1.0.0 | Use uom in package
 [pos_product_cost_security](pos_product_cost_security/) | 14.0.1.0.0 | Compatibility between Point of Sale and Product Cost Security
 [product_assortment](product_assortment/) | 14.0.1.0.1 | Adds the ability to manage products assortment
 [product_attribute_archive](product_attribute_archive/) | 14.0.1.0.0 | Add an active field on product attributes
