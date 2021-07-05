@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-base_product_mass_addition',
+        'odoo14-addon-packaging_uom',
         'odoo14-addon-pos_product_cost_security',
         'odoo14-addon-product_assortment',
         'odoo14-addon-product_attribute_archive',
