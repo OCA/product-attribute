@@ -13,6 +13,7 @@ class ProductPackagingType(models.Model):
 
     name = fields.Char(required=True, translate=True)
     code = fields.Char(required=True)
+    display_code_in_name = fields.Boolean(default=True)
     sequence = fields.Integer(required=True)
     has_gtin = fields.Boolean()
     active = fields.Boolean(default=True)
@@ -32,7 +33,10 @@ class ProductPackagingType(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            result.append((record.id, "{} ({})".format(record.name, record.code)))
+            if self.display_code_in_name:
+                result.append((record.id, "{} ({})".format(record.name, record.code)))
+            else:
+                result.append((record.id, record.name))
         return result
 
 

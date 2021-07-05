@@ -28,6 +28,7 @@
                     <group name="main">
                         <group name="codes">
                             <field name="code" />
+                            <field name="display_code_in_name"/>
                             <field name="has_gtin" />
                         </group>
                         <group name="misc">
