@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* packaging_uom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-02-23 12:45+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__qty
+msgid "Contained Quantity"
+msgstr "Quantitat continguda"
+
+#. module: packaging_uom
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__uom_id
+msgid "It must be in the same category than the default unit of measure."
+msgstr ""
+"Ha de ser de la mateixa categoria que la unitat de mesura predeterminada."
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_id
+msgid "Packaging Unit of Measure"
+msgstr "Unitat de mesura d’envasat"
+
+#. module: packaging_uom
+#: model:ir.model,name:packaging_uom.model_product_packaging
+msgid "Product Packaging"
+msgstr "Embalatge del producte"
+
+#. module: packaging_uom
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
+msgid "Quantity of products contained in the packaging."
+msgstr "Quantitat de productes continguts a l’envàs."
+
+#. module: packaging_uom
+#: code:addons/packaging_uom/models/product_packaging.py:0
+#, python-format
+msgid "The field Unit of Measure is required"
+msgstr "El camp Unitat de mesura és obligatori"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_categ_domain_id
+msgid "Uom Categ Domain"
+msgstr "Domini Uom Categ"

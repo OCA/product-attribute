@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * packaging_uom
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-30 03:52+0000\n"
+"PO-Revision-Date: 2020-07-21 18:19+0000\n"
+"Last-Translator: c2cdidier <didier.donze@camptocamp.com>\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__qty
+msgid "Contained Quantity"
+msgstr "Enthaltene Menge"
+
+#. module: packaging_uom
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__uom_id
+msgid "It must be in the same category than the default unit of measure."
+msgstr "Muss in der selben Kategorie wie die Mengeneinheit sein."
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_id
+msgid "Packaging Unit of Measure"
+msgstr "Verpackungseinheit"
+
+#. module: packaging_uom
+#: model:ir.model,name:packaging_uom.model_product_packaging
+msgid "Product Packaging"
+msgstr "Produktverpackung"
+
+#. module: packaging_uom
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
+msgid "Quantity of products contained in the packaging."
+msgstr "Produktmenge in der Verpackung."
+
+#. module: packaging_uom
+#: code:addons/packaging_uom/models/product_packaging.py:0
+#, python-format
+msgid "The field Unit of Measure is required"
+msgstr "Das Feld Mengeneinheit ist obligatorisch"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_categ_domain_id
+msgid "Uom Categ Domain"
+msgstr "Domäne der Mengeneinheitskategorie"
