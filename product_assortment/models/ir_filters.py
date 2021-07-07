@@ -1,7 +1,11 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+import datetime
+
 from odoo import _, api, fields, models
 from odoo.osv import expression
+from odoo.tools.safe_eval import safe_eval
 
 
 class IrFilters(models.Model):
@@ -50,6 +54,25 @@ class IrFilters(models.Model):
     record_count = fields.Integer(compute="_compute_record_count")
 
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
+    partner_domain = fields.Text(default="[]", required=True)
+    all_partner_ids = fields.Many2many(
+        comodel_name="res.partner", compute="_compute_all_partner_ids",
+    )
+
+    @api.depends("partner_ids", "partner_domain")
+    def _compute_all_partner_ids(self):
+        """Summarize selected partners and partners from partner domain field
+        """
+        for ir_filter in self:
+            if not ir_filter.is_assortment:
+                ir_filter.all_partner_ids = False
+            elif ir_filter.partner_domain != "[]":
+                ir_filter.all_partner_ids = (
+                    self.env["res.partner"].search(ir_filter._get_eval_partner_domain())
+                    + ir_filter.partner_ids
+                )
+            else:
+                ir_filter.all_partner_ids = ir_filter.partner_ids
 
     def _get_eval_domain(self):
         res = super()._get_eval_domain()
@@ -63,6 +86,13 @@ class IrFilters(models.Model):
             res = expression.AND([result_domain, res])
 
         return res
+
+    def _get_eval_partner_domain(self):
+        self.ensure_one()
+        return safe_eval(
+            self.partner_domain,
+            {"datetime": datetime, "context_today": datetime.datetime.now},
+        )
 
     def _compute_record_count(self):
         for record in self:
