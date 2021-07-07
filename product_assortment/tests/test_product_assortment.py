@@ -20,6 +20,7 @@ class TestProductAssortment(TransactionCase):
             }
         )
         self.partner = self.env["res.partner"].create({"name": "Test partner"})
+        self.partner2 = self.env["res.partner"].create({"name": "Test partner 2"})
 
     def test_assortment(self):
         products = self.product_obj.search([])
@@ -105,3 +106,13 @@ class TestProductAssortment(TransactionCase):
         products_filtered = self.product_obj.search(domain)
         self.assortment.invalidate_cache()
         self.assertEqual(self.assortment.record_count, len(products_filtered))
+
+    def test_assortment_with_partner_domain(self):
+        assortment = self.filter_obj.with_context(product_assortment=True).create(
+            {
+                "name": "Test Assortment Partner domain",
+                "partner_domain": "[('id', '=', %s)]" % self.partner.id,
+                "partner_ids": [(4, self.partner2.id)],
+            }
+        )
+        self.assertEqual(assortment.all_partner_ids, self.partner + self.partner2)
