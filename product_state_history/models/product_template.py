@@ -21,7 +21,8 @@ class ProductTemplate(models.Model):
         history_obj = self.env["product.state.history"]
         history_vals = []
         state_id = vals["product_state_id"]
-        for template in self:
+        # We check if new state is different from the current one
+        for template in self.filtered(lambda t: t.product_state_id.id != state_id):
             history_vals.append(
                 template._prepare_product_state_history_values(state_id)
             )
