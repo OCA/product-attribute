@@ -13,6 +13,7 @@ class ProductTemplate(models.Model):
         index=True,
         compute="_compute_product_state",
         inverse="_inverse_product_state",
+        readonly=True,
         store=True,
     )
     product_state_id = fields.Many2one(
