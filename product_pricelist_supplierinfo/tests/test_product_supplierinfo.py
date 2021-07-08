@@ -2,7 +2,7 @@
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from datetime import date
+from datetime import date, timedelta
 
 from odoo.tests import common
 
@@ -106,7 +106,60 @@ class TestProductSupplierinfo(common.SavepointCase):
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 10, False), 50,
         )
+        # As the sequence of both supplierinfos is the same, the next field to order
+        # is the min_qty (desc), so the price must be the one with the higher min_qty
+        # no matter if the qty is lower than the min_qty.
         self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 1, False), 50,
+        )
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 5, False), 50,
+        )
+
+    def test_pricelist_no_min_quantity(self):
+        """Testing the validations of the `_select_seller_without_min_qty` method.
+
+        As the sequence of both supplierinfos in the product is the same, the next
+        field to order is the min_qty (desc), so the price must be the one with the
+        higher min_qty (the one with the price 50), but we are going to test the
+        following cases in the supplierinfo with the higher min_qty:
+        - The start date is tomorrow (not current).
+        - The end date is yesterday (not current).
+        - The supplierinfo is current, but there is a 'Vendor' set in the field
+        `filter_supplier_id` of the item in the pricelist.
+        """
+        product = self.product
+        # Case 1: The start date is not a current one so it will be taken the next one.
+        tomorrow = date.today() + timedelta(days=1)
+        product.seller_ids[0].date_start = tomorrow
+        self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 1, False), 10,
+        )
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 5, False), 10,
+        )
+
+        # Case 2: The end date is an expired one so it will be taken the next one.
+        product.seller_ids[0].date_start = False
+        yesterday = date.today() - timedelta(days=1)
+        product.seller_ids[0].date_end = yesterday
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 1, False), 10,
+        )
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 5, False), 10,
+        )
+
+        # Case 3: Current seller but a `filter_supplier_id` is set in the item, so it
+        # will will be taken the next one.
+        product.seller_ids[0].date_start = False
+        product.seller_ids[0].date_end = False
+        self.pricelist.item_ids[0].filter_supplier_id = self.supplier2
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product, 1, False), 10,
+        )
         self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 5, False), 10,
         )

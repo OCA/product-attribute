@@ -18,17 +18,22 @@ class ProductTemplate(models.Model):
         product = self.product_variant_id
         if product_id:
             product = product.browse(product_id)
-        if rule.no_supplierinfo_min_quantity:
-            quantity = 1.0
         # The product_variant_id returns empty recordset if template is not
         # active, so we must ensure variant exists or _select_seller fails.
         if product:
             if type(date) == datetime:
                 date = date.date()
+            # If the field `no_supplierinfo_min_quantity` is set as True, we need
+            # to use the select seller that doesn't take into account the `min_qty`
+            # for the validation to know if the seller can be used (Using the param
+            # `avoid_min_qty`).
             seller = product._select_seller(
                 partner_id=rule.filter_supplier_id,
                 quantity=quantity,
-                date=date)
+                date=date,
+                params={
+                    'avoid_min_qty': rule.no_supplierinfo_min_quantity,
+                })
             if seller:
                 price = seller._get_supplierinfo_pricelist_price()
         if price:
