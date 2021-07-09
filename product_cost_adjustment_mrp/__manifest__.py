@@ -13,7 +13,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["product_cost_adjustment", "mrp"],
+    "depends": ["product_cost_adjustment", "mrp_account"],
     "data": [
         "views/cost_adjustment_line.xml",
         "report/report_mrp.xml",
