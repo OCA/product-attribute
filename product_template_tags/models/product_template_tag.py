@@ -5,11 +5,12 @@ from odoo import api, fields, models
 
 
 class ProductTemplateTag(models.Model):
-
     _name = "product.template.tag"
     _description = "Product Tag"
+    _order = "sequence, name"
 
     name = fields.Char(string="Name", required=True, translate=True)
+    sequence = fields.Integer(default=10)
     color = fields.Integer(string="Color Index")
     product_tmpl_ids = fields.Many2many(
         comodel_name="product.template",
