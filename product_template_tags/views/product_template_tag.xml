@@ -93,10 +93,4 @@
             <p class="o_view_nocontent_empty_folder">Add tags</p>
         </field>
     </record>
-    <record id="product_template_tag_config_menu" model="ir.ui.menu">
-        <field name="name">Product Tags</field>
-        <field name="parent_id" ref="base.menu_ir_property" />
-        <field name="sequence" eval="40" />
-        <field name="action" ref="product_template_tag_act_window" />
-    </record>
 </odoo>
