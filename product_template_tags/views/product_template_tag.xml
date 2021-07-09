@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
@@ -13,20 +14,34 @@
                             name="%(product.product_template_action)d"
                             type="action"
                             class="oe_stat_button"
-                            icon="fa-archive"
+                            icon="fa-tags"
                             context="{'search_default_tag_ids': active_id}"
                         >
-                            <field name="products_count" widget="statinfo" />
+                            <field
+                                name="products_count"
+                                widget="statinfo"
+                                string="Products"
+                            />
                         </button>
                     </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name" />
-                        <field name="sequence" groups="base.group_no_one" />
-                        <field
-                            name="company_id"
-                            option="{no_create_edit: True}"
-                            groups="base.group_multi_company"
-                        />
+                        <group>
+                            <field name="sequence" groups="base.group_no_one" />
+                            <field name="color" widget="color_picker" />
+                        </group>
+                        <group>
+                            <field
+                                name="company_id"
+                                option="{no_create_edit: True}"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -40,7 +55,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name" />
-                <field name="company_id" />
+                <field name="company_id" groups="base.group_multi_company" />
                 <group expand="0">
                     <filter
                         name="group_by_company"
@@ -65,7 +80,7 @@
                     widget="selection"
                     groups="base.group_multi_company"
                 />
-                <field name="products_count" />
+                <field name="color" widget="color_picker" />
             </tree>
         </field>
     </record>

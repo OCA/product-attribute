@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
 
     tag_ids = fields.Many2many(
         comodel_name="product.template.tag",
-        string="Product Tags",
+        string="Tags",
         relation="product_template_product_tag_rel",
         column1="product_tmpl_id",
         column2="tag_id",
