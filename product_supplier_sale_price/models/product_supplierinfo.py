@@ -44,3 +44,28 @@ class ProductSupplierinfo(models.Model):
                 supplierinfo._update_supplier_sale_price()
 
         return res
+
+    @api.multi
+    def unlink(self):
+        product_obj = self.env['product.product']
+
+        product_ids = []
+        product_tmpl_ids = []
+        for supplierinfo in self:
+            if supplierinfo.product_id:
+                product_ids.append(supplierinfo.product_id.id)
+            elif supplierinfo.product_tmpl_id:
+                product_tmpl_ids.append(supplierinfo.product_tmpl_id.id)
+        res = super(ProductSupplierinfo, self).unlink()
+
+        products_without_seller = product_obj.search([
+            ('seller_ids', '=', False),
+            '|',
+            ('product_tmpl_id', 'in', product_tmpl_ids),
+            ('id', 'in', product_ids),
+        ])
+        products_without_seller.write({
+            'use_supplier_sale_price': False,
+        })
+
+        return res
