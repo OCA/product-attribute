@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ForgeFlow, S.L.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_product_pricelist_price" model="ir.ui.view">
+        <field name="name">product.product.pricelist.price</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <tree string="Product Variant Pricelist Prices">
+                <field name="default_code" optional="show" readonly="1" />
+                <field name="barcode" optional="hide" readonly="1" />
+                <field name="name" readonly="1" />
+                <field
+                    name="company_id"
+                    groups="base.group_multi_company"
+                    optional="hide"
+                    readonly="1"
+                />
+                <field name="categ_id" optional="hide" />
+                <field name="type" optional="hide" readonly="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="product_product_pricelist_price_action" model="ir.actions.act_window">
+        <field name="name">Product Variant Prices</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="product_product_pricelist_price" />
+    </record>
+    <menuitem
+        id="menu_product_variant_pricelist_price"
+        action="product_product_pricelist_price_action"
+        parent="product_list_pricelist_price.menu_product_pricelist_price"
+        groups="product.group_product_variant"
+        sequence="2"
+    />
+</odoo>
