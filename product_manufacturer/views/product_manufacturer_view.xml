@@ -6,10 +6,7 @@
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <page name="general_information" position="inside">
-                <group
-                    name="manufacturer"
-                    string="Manufacturer"
-                >
+                <group name="manufacturer" string="Manufacturer">
                     <group>
                         <field
                             name="manufacturer"
