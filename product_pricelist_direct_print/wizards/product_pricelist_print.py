@@ -46,6 +46,11 @@ class ProductPricelistPrint(models.TransientModel):
         " the last X ordered products will be obtained for the report."
     )
     summary = fields.Text(string="Summary")
+    group_by_parent_categ = fields.Boolean(
+        string="Group by parent category",
+        help="If this field is selected, the different sections will be grouped"
+        " by the parent category (if it has) instead of the actual category.",
+    )
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
@@ -285,7 +290,13 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
-        return product.categ_id.name
+        if self.group_by_parent_categ:
+            return (
+                product.categ_id.name,
+                product.categ_id.parent_id.name or product.categ_id.name,
+            )
+        else:
+            return product.categ_id.name
 
     def get_sorted_products(self, products):
         if self.order_field:
@@ -303,14 +314,51 @@ class ProductPricelistPrint(models.TransientModel):
             key = self.get_group_key(product)
             group_dict[key] |= product
         group_list = []
-        for key in sorted(group_dict.keys()):
-            group_list.append(
-                {
-                    "group_name": key,
-                    "products": self.get_sorted_products(group_dict[key]),
-                }
-            )
+        if self.group_by_parent_categ:
+            for key in sorted(group_dict.keys()):
+                parent_on_list, index_parent = self._get_index_parent(
+                    group_list, key[1]
+                )
+                if parent_on_list:
+                    group_list[index_parent]["parent_group"].append(
+                        {
+                            "group_name": key[0],
+                            "products": self.get_sorted_products(group_dict[key]),
+                        }
+                    )
+                else:
+                    group_list.append(
+                        {
+                            "parent_name": key[1],
+                            "parent_group": [
+                                {
+                                    "group_name": key[0],
+                                    "products": self.get_sorted_products(
+                                        group_dict[key]
+                                    ),
+                                }
+                            ],
+                        }
+                    )
+        else:
+            for key in sorted(group_dict.keys()):
+                group_list.append(
+                    {
+                        "group_name": key,
+                        "products": self.get_sorted_products(group_dict[key]),
+                    }
+                )
         return group_list
+
+    def _get_index_parent(self, group_list, parent_name):
+        is_on_list = False
+        i = 0
+        for i in range(len(group_list)):
+            group = group_list[i]
+            if group["parent_name"] == parent_name:
+                is_on_list = True
+                break
+        return is_on_list, i
 
     def export_xlsx(self):
         self.ensure_one()

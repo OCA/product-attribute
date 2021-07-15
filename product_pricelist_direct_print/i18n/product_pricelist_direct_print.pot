@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-16 06:17+0000\n"
+"PO-Revision-Date: 2021-07-16 06:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -173,6 +175,11 @@ msgid "Filter Options"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_by_parent_categ
+msgid "Group by parent category"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
 msgid "Hide Pricelist Name"
 msgstr ""
@@ -181,6 +188,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__id
 msgid "ID"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__group_by_parent_categ
+msgid ""
+"If this field is selected, the different sections will be grouped by the "
+"parent category (if it has) instead of the actual category."
 msgstr ""
 
 #. module: product_pricelist_direct_print

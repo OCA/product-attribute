@@ -65,34 +65,48 @@ class ProductPricelistXlsx(models.AbstractModel):
         return sheet
 
     def _fill_data(self, workbook, sheet, book, pricelist):
-        bold_format = workbook.add_format({"bold": 1})
-        decimal_format = workbook.add_format({"num_format": "0.00"})
-        decimal_bold_format = workbook.add_format({"num_format": "0.00", "bold": 1})
+        bold_format = workbook.add_format({"bold": 1, "fg_color": "#CCCCCC"})
         row = 6
-        for group in book.get_groups_to_print():
-            sheet.write(row, 0, group["group_name"], bold_format)
-            row += 1
-            for product in group["products"]:
-                next_col = 0
-                sheet.write(row, next_col, product.display_name)
-                if book.show_standard_price:
-                    next_col += 1
-                    sheet.write(row, next_col, product.standard_price, decimal_format)
-                if book.show_sale_price:
-                    next_col += 1
-                    sheet.write(row, next_col, product.list_price, decimal_format)
-                next_col += 1
-                sheet.write(
-                    row,
-                    next_col,
-                    product.with_context(pricelist=pricelist.id, date=book.date).price,
-                    decimal_bold_format,
-                )
+        if book.group_by_parent_categ:
+            for parent_group in book.get_groups_to_print():
+                sheet.write(row, 0, parent_group["parent_name"], bold_format)
                 row += 1
+                for group in parent_group["parent_group"]:
+                    row = self.fill_data_table(
+                        workbook, sheet, book, group, pricelist, row
+                    )
+        else:
+            for group in book.get_groups_to_print():
+                row = self.fill_data_table(workbook, sheet, book, group, pricelist, row)
         if book.summary:
             sheet.write(row, 0, _("Summary:"), bold_format)
             sheet.write(row + 1, 0, book.summary)
         return sheet
+
+    def fill_data_table(self, workbook, sheet, book, group, pricelist, row):
+        bold_format = workbook.add_format({"bold": 1})
+        decimal_format = workbook.add_format({"num_format": "0.00"})
+        decimal_bold_format = workbook.add_format({"num_format": "0.00", "bold": 1})
+        sheet.write(row, 0, group["group_name"], bold_format)
+        row += 1
+        for product in group["products"]:
+            next_col = 0
+            sheet.write(row, next_col, product.display_name)
+            if book.show_standard_price:
+                next_col += 1
+                sheet.write(row, next_col, product.standard_price, decimal_format)
+            if book.show_sale_price:
+                next_col += 1
+                sheet.write(row, next_col, product.list_price, decimal_format)
+            next_col += 1
+            sheet.write(
+                row,
+                next_col,
+                product.with_context(pricelist=pricelist.id, date=book.date).price,
+                decimal_bold_format,
+            )
+            row += 1
+        return row
 
     def generate_xlsx_report(self, workbook, data, objects):
         book = objects[0]
