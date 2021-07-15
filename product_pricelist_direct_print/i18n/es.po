@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-04 14:40+0000\n"
-"PO-Revision-Date: 2021-02-04 15:43+0100\n"
+"POT-Creation-Date: 2021-07-16 06:17+0000\n"
+"PO-Revision-Date: 2021-07-16 08:19+0200\n"
 "Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -199,6 +199,11 @@ msgid "Filter Options"
 msgstr "Opciones de filtrado"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_by_parent_categ
+msgid "Group by parent category"
+msgstr "Agrupar por categoría padre"
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
 msgid "Hide Pricelist Name"
 msgstr "Ocultar nombre de tarifa"
@@ -208,6 +213,15 @@ msgstr "Ocultar nombre de tarifa"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__id
 msgid "ID"
 msgstr "ID (identificación)"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__group_by_parent_categ
+msgid ""
+"If this field is selected, the different sections will be grouped by the "
+"parent category (if it has) instead of the actual category."
+msgstr ""
+"Si este campo está seleccionado, las secciones van a estar agrupadas por la "
+"categoría padre (si tienen) en lugar de la categoría actual."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
