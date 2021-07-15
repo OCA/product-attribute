@@ -9,7 +9,6 @@
                 <group
                     name="manufacturer"
                     string="Manufacturer"
-                    attrs="{'invisible': [('product_variant_count', '>', 1)]}"
                 >
                     <group>
                         <field
