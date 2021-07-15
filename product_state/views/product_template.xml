@@ -144,7 +144,7 @@
         <field name="priority">50</field>
         <field name="arch" type="xml">
             <field name="type" position="after">
-                <field name="state" />
+                <field name="product_state_id" />
             </field>
         </field>
     </record>
