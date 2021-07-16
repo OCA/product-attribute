@@ -37,6 +37,9 @@ setuptools.setup(
         'odoo14-addon-product_total_weight_from_packaging',
         'odoo14-addon-product_weight',
         'odoo14-addon-product_weight_logistics_uom',
+        'odoo14-addon-purchase_product_template_tags',
+        'odoo14-addon-sale_product_template_tags',
+        'odoo14-addon-stock_product_template_tags',
     ],
     classifiers=[
         'Programming Language :: Python',
