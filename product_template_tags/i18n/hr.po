@@ -51,16 +51,19 @@ msgid "Created on"
 msgstr "Kreirano"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template__display_name
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
 msgstr "Naziv"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template__id
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template____last_update
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
 msgstr "Zadnje ažurirano"
@@ -86,13 +89,6 @@ msgid "Product Tag"
 msgstr "Oznaka proizvoda"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
-#: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
-msgid "Product Tags"
-msgstr "Oznake proizvoda"
-
-#. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
 msgid "Product Template"
 msgstr "Predložak proizvoda"
@@ -104,5 +100,25 @@ msgstr "Oznaka predloška proizvoda"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
+#: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_form_view
 msgid "Products"
 msgstr "Proizvodi"
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_template_tags
+#: model:ir.model.constraint,message:product_template_tags.constraint_product_template_tag_name_uniq
+msgid "Tag name must be unique inside a company"
+msgstr ""
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
+msgid "Tags"
+msgstr ""
+
+#~ msgid "Product Tags"
+#~ msgstr "Oznake proizvoda"
