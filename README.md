@@ -44,13 +44,13 @@ addon | version | summary
 [product_sequence](product_sequence/) | 14.0.2.0.1 | Product Sequence
 [product_state](product_state/) | 14.0.1.0.0 | Module introducing a state field on product template
 [product_stock_state](product_stock_state/) | 14.0.1.0.0 | Compute the state of a product's stockthe stock level and sale_ok field
-[product_template_tags](product_template_tags/) | 14.0.1.0.0 | This addon allow to add tags on products
+[product_template_tags](product_template_tags/) | 14.0.1.1.0 | This addon allow to add tags on products
 [product_total_weight_from_packaging](product_total_weight_from_packaging/) | 14.0.1.0.0 | Compute estimated weight based on product's packaging weights
 [product_weight](product_weight/) | 14.0.1.0.0 | Allows to calculate products weight from its components.
 [product_weight_logistics_uom](product_weight_logistics_uom/) | 14.0.1.0.0 | Glue module for product_weight and product_logistics_uom
-[purchase_product_template_tags](purchase_product_template_tags/) | 14.0.1.0.0 | Show product tags menu in Purchase app
-[sale_product_template_tags](sale_product_template_tags/) | 14.0.1.0.0 | Show product tags menu in Sale app
-[stock_product_template_tags](stock_product_template_tags/) | 14.0.1.0.0 | Show product tags menu in Inventory app
+[purchase_product_template_tags](purchase_product_template_tags/) | 14.0.1.1.0 | Show product tags menu in Purchase app
+[sale_product_template_tags](sale_product_template_tags/) | 14.0.1.1.0 | Show product tags menu in Sale app
+[stock_product_template_tags](stock_product_template_tags/) | 14.0.1.1.0 | Show product tags menu in Inventory app
 
 [//]: # (end addons)
 
