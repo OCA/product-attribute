@@ -86,13 +86,6 @@ msgid "Product Tag"
 msgstr "Product tag"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
-#: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
-msgid "Product Tags"
-msgstr "Product tag"
-
-#. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
 msgid "Product Template"
 msgstr "Productsjabloon"
@@ -104,10 +97,25 @@ msgstr "Product sjabloon tag"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
+#: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_form_view
 msgid "Products"
 msgstr "Producten"
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__sequence
+msgid "Sequence"
+msgstr ""
 
 #. module: product_template_tags
 #: model:ir.model.constraint,message:product_template_tags.constraint_product_template_tag_name_uniq
 msgid "Tag name must be unique inside a company"
 msgstr "Tag naam moet uniek zijn binnen een bedrijf"
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
+msgid "Tags"
+msgstr ""
+
+#~ msgid "Product Tags"
+#~ msgstr "Product tag"
