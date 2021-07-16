@@ -75,6 +75,10 @@ Contributors
 * Patrick Wilson <patrickraymondwilson@gmail.com>
 * Pimolnat Suntian <pimolnats@ecosoft.co.th>
 
+* `Camptocamp <https://www.camptocamp.com>`_
+
+  * Iván Todorovich <ivan.todorovich@gmail.com>
+
 Maintainers
 ~~~~~~~~~~~
 
@@ -91,10 +95,13 @@ promote its widespread use.
 .. |maintainer-patrickrwilson| image:: https://github.com/patrickrwilson.png?size=40px
     :target: https://github.com/patrickrwilson
     :alt: patrickrwilson
+.. |maintainer-ivantodorovich| image:: https://github.com/ivantodorovich.png?size=40px
+    :target: https://github.com/ivantodorovich
+    :alt: ivantodorovich
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-patrickrwilson| 
+|maintainer-patrickrwilson| |maintainer-ivantodorovich| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/14.0/product_template_tags>`_ project on GitHub.
 
