@@ -189,15 +189,13 @@ class TestProductPricelistDirectPrint(SavepointCase):
             active_model="product.pricelist", active_id=self.pricelist.id,
         ).create({})
         wiz.group_by_parent_categ = True
-        parent_groups = wiz.get_groups_to_print()
-        tested_group = False
-        for parent_group in parent_groups:
-            if parent_group["parent_name"] == "Test category":
-                groups = parent_group["parent_group"]
-                for group in groups:
-                    if group["group_name"] == "Test category child":
-                        tested_group = group
-        self.assertIn(product_category_child.id, tested_group["products"].ids)
+        groups = wiz.get_groups_to_print()
+        product_ids = False
+        for group in groups:
+            if group["group_name"] == "Test category":
+                product_ids = group["products"]
+        self.assertTrue(product_ids)
+        self.assertIn(product_category_child.id, product_ids.ids)
 
     def test_reports(self):
         wiz = self.wiz_obj.with_context(
