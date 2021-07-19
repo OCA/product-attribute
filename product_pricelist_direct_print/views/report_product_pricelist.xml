@@ -65,37 +65,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-if="o.group_by_parent_categ">
+                            <t
+                                t-foreach="o.get_groups_to_print()"
+                                t-as="category_group"
+                            >
                                 <t
-                                    t-foreach="o.get_groups_to_print()"
-                                    t-as="parent_group"
-                                >
-                                    <tr style="background-color: #CCCCCC;">
-                                        <td colspan="100">
-                                            <strong
-                                                t-esc="parent_group['parent_name']"
-                                            />
-                                        </td>
-                                    </tr>
-                                    <t
-                                        t-foreach="parent_group['parent_group']"
-                                        t-as="category_group"
-                                    >
-                                        <t
-                                            t-call="product_pricelist_direct_print.product_pricelist_item"
+                                    t-set="category_products"
+                                    t-value="category_group['products']"
+                                />
+                                <td colspan="100">
+                                    <strong t-esc="category_group['group_name']" />
+                                </td>
+                                <tr t-foreach="category_products" t-as="product">
+                                    <td>
+                                        <span t-field="product.display_name" />
+                                    </td>
+                                    <td t-if="o.show_standard_price" class="text-right">
+                                        <span t-field="product.standard_price" />
+                                    </td>
+                                    <td t-if="o.show_sale_price" class="text-right">
+                                        <span t-field="product.list_price" />
+                                    </td>
+                                    <td t-if="pricelist" class="text-right">
+                                        <strong
+                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date or None).price"
                                         />
-                                    </t>
-                                </t>
-                            </t>
-                            <t t-else="">
-                                <t
-                                    t-foreach="o.get_groups_to_print()"
-                                    t-as="category_group"
-                                >
-                                    <t
-                                        t-call="product_pricelist_direct_print.product_pricelist_item"
-                                    />
-                                </t>
+                                    </td>
+                                </tr>
                             </t>
                         </tbody>
                     </table>
@@ -103,30 +99,6 @@
                 </div>
             </t>
         </t>
-    </template>
-    <template id="product_pricelist_item">
-        <t t-set="category_products" t-value="category_group['products']" />
-        <tr>
-            <td colspan="100">
-                <strong t-esc="category_group['group_name']" />
-            </td>
-        </tr>
-        <tr t-foreach="category_products" t-as="product">
-            <td>
-                <span t-field="product.display_name" />
-            </td>
-            <td t-if="o.show_standard_price" class="text-right">
-                <span t-field="product.standard_price" />
-            </td>
-            <td t-if="o.show_sale_price" class="text-right">
-                <span t-field="product.list_price" />
-            </td>
-            <td t-if="pricelist" class="text-right">
-                <strong
-                    t-field="product.with_context(pricelist=pricelist.id, date=o.date or None).price"
-                />
-            </td>
-        </tr>
     </template>
     <template id="report_product_pricelist">
         <t t-foreach="docs" t-as="o">
