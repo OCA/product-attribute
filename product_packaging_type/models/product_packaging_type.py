@@ -60,7 +60,7 @@ class ProductPackaging(models.Model):
         readonly=True,
         store=True,
     )
-    qty_per_type = fields.Html(
+    qty_per_type = fields.Char(
         compute="_compute_qty_per_type", string="Qty per package type"
     )
 
@@ -102,28 +102,36 @@ class ProductPackaging(models.Model):
     )
     def _compute_qty_per_type(self):
         for packaging in self:
-            product = packaging.product_id
-            if not product:
+            if not packaging.product_id:
                 packaging.qty_per_type = ""
                 continue
+            mapping = packaging._get_qty_per_type_mapping()
+            packaging.qty_per_type = packaging._format_qty_per_type(mapping)
 
-            smaller_product_packagings = product.packaging_ids.filtered(
-                lambda p: p.id != packaging.id and packaging.qty > p.qty > 0.0
-            )
-            res = OrderedDict()
-            for p_pack in smaller_product_packagings.sorted(lambda p: p.qty):
-                res[p_pack.packaging_type_id.code] = p_pack.qty
-            packaging.qty_per_type = packaging._format_qty_per_type(res)
+    def _get_qty_per_type_mapping(self):
+        """Retrieve qty for each packaging type.
 
-    def _format_qty_per_type(self, qty_per_type_dict):
-        self.ensure_one()
+        :return: mapping {type.code: qty}
+        """
+        smaller_product_packagings = self.product_id.packaging_ids.filtered(
+            lambda p: p.id != self.id and self.qty > p.qty > 0.0
+        )
+        res = OrderedDict()
+        for p_pack in smaller_product_packagings.sorted(lambda p: p.qty):
+            res[p_pack.packaging_type_id.code] = p_pack.qty
+        return res
+
+    def _format_qty_per_type(self, qty_per_type_mapping, format_pattern=None):
+        """Format given qty per type mapping as string.
+        """
+        format_pattern = format_pattern or "{}{}"
         res = []
-        for code, qty in qty_per_type_dict.items():
+        for code, qty in qty_per_type_mapping.items():
             new_qty = self.qty / qty
             if not new_qty.is_integer():
                 new_qty_int = int(new_qty)
                 new_qty_decimals = new_qty - new_qty_int
-                new_qty = '{}<span style="color: red;">{}</span>'.format(
+                new_qty = format_pattern.format(
                     new_qty_int, str(new_qty_decimals).lstrip("0")
                 )
             res.append("{} {}".format(new_qty, code))
