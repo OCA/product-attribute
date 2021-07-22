@@ -40,17 +40,47 @@ msgid "Default Secondary Unit of Measure."
 msgstr "Segunda unidad de medida por defecto."
 
 #. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__dependency_type
+msgid "Dependency Type"
+msgstr ""
+
+#. module: product_secondary_unit
+#: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__dependent
+msgid "Dependent"
+msgstr ""
+
+#. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__display_name
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__id
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__id
 msgid "ID"
 msgstr "ID (Identificador)"
 
 #. module: product_secondary_unit
+#: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__dependency_type
+msgid ""
+"If dependency type is 'dependent' the factor is used to compute quantity in "
+"primary unit,otherwise primary and secondary unit are independent. For "
+"example if you sell serviceby package (1 unit for example) and you want to "
+"put the real time (ex : 4 hours) to allows employee scheduling"
+msgstr ""
+
+#. module: product_secondary_unit
+#: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
+msgid "Independent"
+msgstr ""
+
+#. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin____last_update
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -72,15 +102,29 @@ msgstr "Nombre"
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_secondary_unit
 #, fuzzy
-#| msgid "product.secondary.unit"
 msgid "Product Secondary Unit"
 msgstr "'product.secondary.unit'"
+
+#. module: product_secondary_unit
+#: model:ir.model,name:product_secondary_unit.model_product_secondary_unit_mixin
+msgid "Product Secondary Unit Mixin"
+msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
 msgstr "Plantilla de producto"
+
+#. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_id
+msgid "Second unit"
+msgstr ""
+
+#. module: product_secondary_unit
+#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_qty
+msgid "Secondary Qty"
+msgstr ""
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
@@ -91,6 +135,7 @@ msgstr "Factor segunda unidad"
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
+#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
 msgstr "Segunda unidad de medida"
 
@@ -99,10 +144,8 @@ msgstr "Segunda unidad de medida"
 msgid "secondary Unit"
 msgstr "Unidad Secundaria"
 
-#. module: product_secondary_unit
-#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
-msgid "secondary unit of measure"
-msgstr "Segunda unidad de medida"
+#~ msgid "secondary unit of measure"
+#~ msgstr "Segunda unidad de medida"
 
 #~ msgid "Default unit sale"
 #~ msgstr "Unidad de venta por defecto"
