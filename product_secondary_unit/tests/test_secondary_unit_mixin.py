@@ -98,6 +98,7 @@ class TestProductSecondaryUnitMixin(SavepointCase, FakeModelLoader):
         # If secondary_uom_id is not informed secondary_uom_qty on source
         # model is not computed.
         fake_model = self.secondary_unit_fake
+        # import pdb ; pdb.set_trace()
         fake_model._onchange_helper_product_uom_for_secondary()
         self.assertEqual(fake_model.secondary_uom_qty, 0)
 
@@ -111,3 +112,16 @@ class TestProductSecondaryUnitMixin(SavepointCase, FakeModelLoader):
         fake_model.secondary_uom_id = self.secondary_unit_box_10
         self.assertEqual(fake_model.product_uom_qty, 20.0)
         self.assertEqual(fake_model.secondary_uom_qty, 2.0)
+
+    def test_independent_type(self):
+        # dependent type is already tested as dependency_type by default
+        fake_model = self.secondary_unit_fake
+        fake_model.secondary_uom_id = self.secondary_unit_box_5
+        fake_model.secondary_uom_id.write({"dependency_type": "independent"})
+        fake_model.write({"secondary_uom_qty": 2})
+        self.assertEqual(fake_model.product_uom_qty, 0)
+        self.assertEqual(fake_model.secondary_uom_qty, 2)
+
+        fake_model.write({"product_uom_qty": 17})
+        self.assertEqual(fake_model.secondary_uom_qty, 2)
+        self.assertEqual(fake_model.product_uom_qty, 17)
