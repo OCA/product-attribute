@@ -64,18 +64,8 @@ class ProductProduct(models.Model):
         self.ensure_one()
         if not partner_id:
             return 0.0
-        customerinfo = self.env["product.customerinfo"].search(
-            [
-                ("name", "=", partner_id),
-                "|",
-                ("product_id", "=", self.id),
-                "&",
-                ("product_tmpl_id", "=", self.product_tmpl_id.id),
-                ("product_id", "=", False),
-            ],
-            limit=1,
-            order="product_id, sequence",
-        )
+        partner = self.env["res.partner"].browse(partner_id)
+        customerinfo = self._select_customerinfo(partner=partner)
         if customerinfo:
             return customerinfo.price
         return 0.0
@@ -114,3 +104,31 @@ class ProductProduct(models.Model):
         return super(ProductProduct, self).price_compute(
             price_type, uom, currency, company
         )
+
+    def _prepare_domain_customerinfo(self, params):
+        self.ensure_one()
+        partner_id = params.get("partner_id")
+        return [
+            ("name", "=", partner_id),
+            "|",
+            ("product_id", "=", self.id),
+            "&",
+            ("product_tmpl_id", "=", self.product_tmpl_id.id),
+            ("product_id", "=", False),
+        ]
+
+    def _select_customerinfo(
+        self, partner=False, _quantity=0.0, _date=None, _uom_id=False, params=False
+    ):
+        """Customer version of the standard `_select_seller`. """
+        # TODO: For now it is just the function name with same arguments, but
+        #  can be changed in future migrations to be more in line Odoo
+        #  standard way to select supplierinfo's.
+        if not params:
+            params = dict()
+        params.update({"partner_id": partner.id})
+        domain = self._prepare_domain_customerinfo(params)
+        res = self.env["product.customerinfo"].search(
+            domain, order="product_id, sequence", limit=1
+        )
+        return res
