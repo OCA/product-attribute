@@ -3,3 +3,4 @@
 * Aaron Henriquez <ahenriquez@forgeflow.com>
 * Miquel Raïch <miquel.raich@forgeflow.com>
 * Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+* Lois Rilo <lois.rilo@forgeflow.com>

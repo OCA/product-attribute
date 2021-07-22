@@ -1,10 +1,12 @@
 # Copyright 2015 OdooMRP team
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
+# Copyright 2021 ForgeFlow S.L. (https://www.forgeflow.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import datetime
 
-from odoo import api, models
+from odoo import api, fields, models
+from odoo.tools import float_compare
 
 
 class ProductProduct(models.Model):
@@ -64,18 +66,7 @@ class ProductProduct(models.Model):
         self.ensure_one()
         if not partner_id:
             return 0.0
-        customerinfo = self.env["product.customerinfo"].search(
-            [
-                ("name", "=", partner_id),
-                "|",
-                ("product_id", "=", self.id),
-                "&",
-                ("product_tmpl_id", "=", self.product_tmpl_id.id),
-                ("product_id", "=", False),
-            ],
-            limit=1,
-            order="product_id, sequence",
-        )
+        customerinfo = self._select_customerinfo(partner_id=partner_id)
         if customerinfo:
             return customerinfo.price
         return 0.0
@@ -85,8 +76,8 @@ class ProductProduct(models.Model):
             partner_id = self.env.context.get(
                 "partner_id", False
             ) or self.env.context.get("partner", False)
-            if partner_id and isinstance(partner_id, models.BaseModel):
-                partner_id = partner_id.id
+            if partner_id and isinstance(partner_id, int):
+                partner_id = self.env["res.partner"].browse(partner_id)
             prices = super(ProductProduct, self).price_compute(
                 "list_price", uom, currency, company
             )
@@ -114,3 +105,66 @@ class ProductProduct(models.Model):
         return super(ProductProduct, self).price_compute(
             price_type, uom, currency, company
         )
+
+    def _prepare_customerinfo(self, params):
+        # This search is made to avoid retrieving from the cache.
+        return (
+            self.env["product.customerinfo"]
+            .search(
+                [
+                    ("product_tmpl_id", "=", self.product_tmpl_id.id),
+                    ("name.active", "=", True),
+                ]
+            )
+            .sorted(lambda s: (s.sequence, -s.min_qty, s.price, s.id))
+        )
+
+    def _select_customerinfo(
+        self, partner_id=False, quantity=0.0, date=None, uom_id=False, params=False
+    ):
+        """Customer version of the standard `_select_seller`.
+        """
+        self.ensure_one()
+        if date is None:
+            date = fields.Date.context_today(self)
+        precision = self.env["decimal.precision"].precision_get(
+            "Product Unit of Measure"
+        )
+
+        res = self.env["product.customerinfo"]
+        customers = self._prepare_customerinfo(params)
+        if self.env.context.get("force_company"):
+            customers = customers.filtered(
+                lambda s: not s.company_id
+                or s.company_id.id == self.env.context["force_company"]
+            )
+        for customer in customers:
+            quantity_uom_customer = quantity
+            if quantity_uom_customer and uom_id and uom_id != customer.product_uom:
+                quantity_uom_customer = uom_id._compute_quantity(
+                    quantity_uom_customer, customer.product_uom
+                )
+
+            if customer.date_start and customer.date_start > date:
+                continue
+            if customer.date_end and customer.date_end < date:
+                continue
+            if (
+                float_compare(
+                    quantity_uom_customer, customer.min_qty, precision_digits=precision
+                )
+                == -1
+            ):
+                continue
+            if partner_id and customer.name not in [partner_id, partner_id.parent_id]:
+                continue
+            if customer.product_id and customer.product_id != self:
+                continue
+            if not res or res.name == customer.name:
+                res |= customer
+        # NOTE: This differs from the standard sellers logic. This is done to
+        # keep the old behavior of this module.
+        variant_specific = res.filtered(lambda r: r.product_id)
+        if variant_specific:
+            res = variant_specific
+        return res.sorted("price")[:1]

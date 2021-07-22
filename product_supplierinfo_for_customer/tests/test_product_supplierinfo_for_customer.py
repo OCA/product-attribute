@@ -48,6 +48,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         return cls.env["product." + supplierinfo_type + "info"].create(
             {
                 "name": partner.id,
+                "product_tmpl_id": product.product_tmpl_id.id,
                 "product_id": product.id,
                 "product_code": "00001",
                 "price": 100.0,
@@ -80,7 +81,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         )
 
     def test_product_supplierinfo_price(self):
-        price = self.product._get_price_from_customerinfo(partner_id=self.customer.id)
+        price = self.product._get_price_from_customerinfo(partner_id=self.customer)
         self.assertEqual(
             price, 100.0, "Error: Price not found for product and customer"
         )
