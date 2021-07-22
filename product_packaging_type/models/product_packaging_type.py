@@ -14,6 +14,7 @@ class ProductPackagingType(models.Model):
     name = fields.Char(required=True, translate=True)
     code = fields.Char(required=True)
     display_code_in_name = fields.Boolean(default=True)
+    display_qty_in_name = fields.Boolean(default=False)
     sequence = fields.Integer(required=True)
     has_gtin = fields.Boolean()
     active = fields.Boolean(default=True)
@@ -33,8 +34,8 @@ class ProductPackagingType(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            if self.display_code_in_name:
-                result.append((record.id, "{} ({})".format(record.name, record.code)))
+            if record.display_code_in_name:
+                result.append((record.id, "[{}] {}".format(record.code, record.name)))
             else:
                 result.append((record.id, record.name))
         return result
@@ -142,7 +143,15 @@ class ProductPackaging(models.Model):
         result = []
         for record in self:
             if record.product_id and record.packaging_type_id:
-                result.append((record.id, record.packaging_type_id.display_name))
+                if record.packaging_type_id.display_qty_in_name:
+                    result.append((record.id, "{} ({})".format(
+                        record.packaging_type_id.display_name,
+                        str(record.product_uom_id._compute_quantity(
+                            record.qty,
+                            record.product_uom_id)) + record.product_uom_id.name
+                    )))
+                else:
+                    result.append((record.id, record.packaging_type_id.display_name))
             else:
                 result.append((record.id, record.name))
         return result

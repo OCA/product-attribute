@@ -3,6 +3,8 @@
     <record id="product_packaging_type_default" model="product.packaging.type">
         <field name="name">Default Type</field>
         <field name="code">DEFAULT</field>
+        <field name="display_code_in_name" eval="True"/>
+        <field name="display_qty_in_name" eval="False"/>
         <field name="sequence">1</field>
         <field name="is_default" eval="True" />
     </record>
