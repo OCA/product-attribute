@@ -44,6 +44,7 @@ addon | version | summary
 [product_sequence](product_sequence/) | 14.0.2.0.1 | Product Sequence
 [product_state](product_state/) | 14.0.1.0.0 | Module introducing a state field on product template
 [product_stock_state](product_stock_state/) | 14.0.1.0.0 | Compute the state of a product's stockthe stock level and sale_ok field
+[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 14.0.1.0.0 | Allows to define prices for customers in the products
 [product_template_tags](product_template_tags/) | 14.0.1.1.0 | This addon allow to add tags on products
 [product_total_weight_from_packaging](product_total_weight_from_packaging/) | 14.0.1.0.0 | Compute estimated weight based on product's packaging weights
 [product_uom_updatable](product_uom_updatable/) | 14.0.1.0.0 | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
