@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2015 AvanzOSC
+     Copyright 2015-18 Tecnativa
+     Copyright 2017-19 ForgeFlow
+     Copyright 2019 Tecnativa - Pedro M. Baeza
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_customerinfo_form_view" model="ir.ui.view">
+        <field name="name">product.customerinfo.form.view</field>
+        <field name="model">product.customerinfo</field>
+        <field name="arch" type="xml">
+            <form string="Customer Information">
+                <group>
+                    <group string="Customer">
+                        <field
+                            name="product_id"
+                            groups="product.group_product_variant"
+                            domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                            options="{'no_create_edit': True}"
+                        />
+                        <field
+                            name="name"
+                            string="Customer"
+                            context="{'res_partner_search_mode': 'customer'}"
+                        />
+                        <field name="product_name" string="Customer Product Name" />
+                        <field name="product_code" string="Customer Product Code" />
+                        <field
+                            name="product_id"
+                            domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                            invisible="1"
+                        />
+                    </group>
+                    <group string="Price List">
+                        <field
+                            name="product_tmpl_id"
+                            string="Product"
+                            invisible="context.get('visible_product_tmpl_id', True)"
+                        />
+                        <label for="min_qty" />
+                        <div>
+                            <field name="min_qty" class="oe_inline" />
+                            <field
+                                name="product_uom"
+                                class="oe_inline"
+                                groups="uom.group_uom"
+                            />
+                        </div>
+                        <label for="price" />
+                        <div>
+                            <field name="price" class="oe_inline" />
+                            <field
+                                name="currency_id"
+                                class="oe_inline"
+                                groups="base.group_multi_currency"
+                            />
+                        </div>
+                        <label for="date_start" string="Validity" />
+                        <div><field name="date_start" class="oe_inline" /> to <field
+                                name="date_end"
+                                class="oe_inline"
+                            /></div>
+                    </group>
+                    <group string="Other Information" groups="base.group_multi_company">
+                        <field name="company_id" options="{'no_create': True}" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="product_customerinfo_tree_view" model="ir.ui.view">
+        <field name="name">product.customerinfo.tree.view</field>
+        <field name="model">product.customerinfo</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Information">
+                <field name="sequence" widget="handle" />
+                <field name="name" string="Customer" />
+                <field
+                    name="product_id"
+                    invisible="context.get('product_template_invisible_variant', False)"
+                    groups="product.group_product_variant"
+                />
+                <field
+                    name="product_tmpl_id"
+                    string="Product"
+                    invisible="context.get('visible_product_tmpl_id', True)"
+                />
+                <field name="product_name" string="Customer Product Name" />
+                <field name="product_code" string="Customer Product Code" />
+                <field
+                    name="company_id"
+                    readonly="1"
+                    groups="base.group_multi_company"
+                />
+                <field name="min_qty" />
+                <field name="price" string="Price" />
+                <field name="date_start" optional="hide" />
+                <field name="date_end" optional="hide" />
+            </tree>
+        </field>
+    </record>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
+                <separator string="Customers" />
+                <field
+                    name="customer_ids"
+                    nolabel="1"
+                    context="{
+                           'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                           'product_template_invisible_variant': True,
+                       }"
+                    attrs="{'invisible': [('product_variant_count','&gt;',1)]}"
+                />
+                <field
+                    name="variant_customer_ids"
+                    nolabel="1"
+                    context="{
+                            'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
+                        }"
+                    attrs="{'invisible': [('product_variant_count','&lt;=',1)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
