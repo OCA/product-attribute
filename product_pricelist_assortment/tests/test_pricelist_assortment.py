@@ -19,6 +19,21 @@ class TestPricelistAssortment(SavepointCase):
         cls.precision = 2
         cls.assortment = cls._create_assortment(cls)
         cls.products_assortment = cls._create_products_assortment(cls)
+        # Multi company
+        cls.company_1 = cls.env.company
+        cls.company_2 = cls.env["res.company"].create(
+            {"name": "Test Comp 2", "email": "test_pricelist_assortment@test.com"}
+        )
+        cls.user_cmp2 = cls.env["res.users"].create(
+            {
+                "name": "User Company 2 Ass",
+                "login": "ass_user_2",
+                "groups_id": [(4, cls.env.ref("base.group_system").id)],
+                "email": "ass_user_2@example.com",
+                "company_id": cls.company_2.id,
+                "company_ids": [cls.company_2.id],
+            }
+        )
 
     def _create_assortment(self):
         """
@@ -55,7 +70,14 @@ class TestPricelistAssortment(SavepointCase):
         """
         fields_list = self.Pricelist.fields_get().keys()
         values = self.Pricelist.default_get(fields_list)
-        values.update({"name": str(uuid4()), "active": True, "item_ids": [(0, 0, {})]})
+        values.update(
+            {
+                "name": str(uuid4()),
+                "active": True,
+                "company_id": self.Pricelist.env.company.id,
+                "item_ids": [(0, 0, {})],
+            }
+        )
         return values
 
     def _define_prices(self, normal_price=1.0, assortment_price=1.0):
@@ -138,4 +160,22 @@ class TestPricelistAssortment(SavepointCase):
         self._add_assortment_item_fixed_price(pricelist)
         pricelist.flush()
         self.env["product.pricelist"].cron_assortment_update()
+        self._test_values(pricelist)
+
+    def test_cron_multicompany(self):
+        """
+        * Create a new pricelist with company 2
+        * Create a new pricelist assortment item
+        * Launch cron update
+        * New pricelist items should have been created
+        """
+        self.Pricelist = self.Pricelist.with_user(self.user_cmp2).with_company(
+            self.company_2
+        )
+        self._define_prices(normal_price=111.111, assortment_price=526.369)
+        pricelist_values = self._get_pricelist_values()
+        pricelist = self.Pricelist.create(pricelist_values)
+        self._add_assortment_item_fixed_price(pricelist)
+        pricelist.flush()
+        self.env["product.pricelist"].with_user(self.user_cmp2).cron_assortment_update()
         self._test_values(pricelist)
