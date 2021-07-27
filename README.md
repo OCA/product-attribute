@@ -42,7 +42,7 @@ addon | version | summary
 [product_seasonality](product_seasonality/) | 14.0.1.2.1 | Define rules for products' seasonal availability
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.0 | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 | Product Sequence
-[product_state](product_state/) | 14.0.1.0.0 | Module introducing a state field on product template
+[product_state](product_state/) | 14.0.1.0.1 | Module introducing a state field on product template
 [product_stock_state](product_stock_state/) | 14.0.1.0.0 | Compute the state of a product's stockthe stock level and sale_ok field
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 14.0.1.0.0 | Allows to define prices for customers in the products
 [product_template_tags](product_template_tags/) | 14.0.1.1.0 | This addon allow to add tags on products
