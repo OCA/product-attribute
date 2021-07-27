@@ -33,6 +33,7 @@ addon | version | summary
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
 [product_logistics_uom](product_logistics_uom/) | 14.0.1.0.1 | Configure product weights and volume UoM
 [product_manufacturer](product_manufacturer/) | 14.0.1.0.1 | Adds manufacturers and attributes on the product view.
+[product_medical](product_medical/) | 14.0.1.0.0 | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 | Product - Many Categories
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | Speedup product retrieve
 [product_packaging_dimension](product_packaging_dimension/) | 14.0.1.0.0 | Manage packaging dimensions and weight
