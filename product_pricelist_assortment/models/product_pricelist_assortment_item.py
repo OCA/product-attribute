@@ -3,7 +3,7 @@
 
 import logging
 
-from odoo import SUPERUSER_ID, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -87,9 +87,10 @@ class ProductPricelistAssortmentItem(models.Model):
                 self.display_name,
             )
             return False
-
+        item_obj = self.env["product.pricelist.item"]
         items_values = self._get_pricelist_item_values()
         old_items = self._get_related_items()
         old_items.unlink()
-        self.env["product.pricelist.item"].with_user(SUPERUSER_ID).create(items_values)
+        for item_value in items_values:
+            item_obj.create(item_value)
         return True
