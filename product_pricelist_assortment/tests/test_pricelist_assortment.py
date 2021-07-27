@@ -10,6 +10,7 @@ class TestPricelistAssortment(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestPricelistAssortment, cls).setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.Pricelist = cls.env["product.pricelist"]
         cls.PricelistItem = cls.env["product.pricelist.assortment.item"]
         cls.Product = cls.env["product.product"]
@@ -57,6 +58,10 @@ class TestPricelistAssortment(SavepointCase):
         values.update({"name": str(uuid4()), "active": True, "item_ids": [(0, 0, {})]})
         return values
 
+    def _define_prices(self, normal_price=1.0, assortment_price=1.0):
+        self.normal_price = normal_price
+        self.assortment_price = assortment_price
+
     def _add_assortment_item_fixed_price(self, pricelist):
         """
         - Add a new item assortment
@@ -67,19 +72,22 @@ class TestPricelistAssortment(SavepointCase):
         :return: bool
         """
         item_global = pricelist.item_ids.filtered(lambda i: i.applied_on == "3_global")
-        normal_price = 111.111
-        assortment_price = 526.369
-        item_global.write({"compute_price": "fixed", "fixed_price": normal_price})
+        item_global.write({"compute_price": "fixed", "fixed_price": self.normal_price})
         item_values = {
             "assortment_filter_id": self.assortment.id,
             "compute_price": "fixed",
-            "fixed_price": assortment_price,
+            "fixed_price": self.assortment_price,
             "pricelist_id": pricelist.id,
         }
-        assortment_item = self.PricelistItem.create(item_values)
-        existing_items = pricelist.item_ids
+        self.assortment_item = self.PricelistItem.create(item_values)
+        self.existing_items = pricelist.item_ids
+        return True
+
+    def _update_assortment(self, pricelist):
         pricelist.action_launch_assortment_update()
-        new_items = pricelist.item_ids - existing_items
+
+    def _test_values(self, pricelist):
+        new_items = pricelist.item_ids - self.existing_items
         self.assertEqual(len(pricelist.item_assortment_ids), 1)
         # Check items created
         ensure_product_in = self.products_assortment
@@ -87,22 +95,21 @@ class TestPricelistAssortment(SavepointCase):
         for item in new_items:
             self.assertIn(item.product_id, ensure_product_in)
             ensure_product_in -= item.product_id
-            self.assertEqual(item.assortment_item_id, assortment_item)
+            self.assertEqual(item.assortment_item_id, self.assortment_item)
         products_assortment = self.products_assortment.with_context(
             pricelist=pricelist.id
         )
         self.assertTrue(bool(products_assortment))
         for product in products_assortment:
             self.assertAlmostEqual(
-                product.price, assortment_price, places=self.precision
+                product.price, self.assortment_price, places=self.precision
             )
         normal_product = self.Product.search(
             [("id", "not in", self.products_assortment.ids)], limit=1
         ).with_context(pricelist=pricelist.id)
         self.assertAlmostEqual(
-            normal_product.price, normal_price, places=self.precision
+            normal_product.price, self.normal_price, places=self.precision
         )
-        return True
 
     def test_pricelist_assortment(self):
         """
@@ -110,7 +117,25 @@ class TestPricelistAssortment(SavepointCase):
         assortment.
         :return:
         """
+        self._define_prices(normal_price=111.111, assortment_price=526.369)
         pricelist_values = self._get_pricelist_values()
         pricelist = self.Pricelist.create(pricelist_values)
         self._add_assortment_item_fixed_price(pricelist)
+        self._update_assortment(pricelist)
+        self._test_values(pricelist)
         return
+
+    def test_cron(self):
+        """
+        * Create a new pricelist
+        * Create a new pricelist assortment item
+        * Launch cron update
+        * New pricelist items should have been created
+        """
+        self._define_prices(normal_price=111.111, assortment_price=526.369)
+        pricelist_values = self._get_pricelist_values()
+        pricelist = self.Pricelist.create(pricelist_values)
+        self._add_assortment_item_fixed_price(pricelist)
+        pricelist.flush()
+        self.env["product.pricelist"].cron_assortment_update()
+        self._test_values(pricelist)
