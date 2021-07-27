@@ -1,0 +1,311 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_medical
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_medical_class_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_medical_class_ids
+msgid "CE Certificate"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_certificate_url
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_certificate_url
+msgid "CE Certificate medical devices"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_1
+msgid "CE Class I"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_7
+msgid "CE Class III"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_5
+msgid "CE Class IIa"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_6
+msgid "CE Class IIb"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_2
+msgid "CE Class Im"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_4
+msgid "CE Class Ir"
+msgstr ""
+
+#. module: product_medical
+#: model:medical.class,name:product_medical.medical_class_3
+msgid "CE Class Is"
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+msgid "Categories"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_validity_date
+#: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_validity_date
+msgid "Certificate Validity Date"
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+msgid "Conformity"
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.actions.act_window,help:product_medical.ppe_category_action
+msgid "Create your PPE categories here."
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.actions.act_window,help:product_medical.in_vitro_diagnostic_action
+msgid "Create your in vitro diagnostic here."
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.actions.act_window,help:product_medical.medical_class_action
+msgid "Create your medical class here."
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.actions.act_window,help:product_medical.medicine_category_action
+msgid "Create your medicine categories here."
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__create_uid
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__create_uid
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__create_uid
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__create_date
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__create_date
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__create_date
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__conformity_declaration_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_template__conformity_declaration_ids
+msgid "Declaration of Conformity"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.constraint,message:product_medical.constraint_in_vitro_diagnostic_name_uniq
+msgid "Diagnostic type already exists"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__display_name
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__display_name
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__display_name
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_medical
+#: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
+msgid "Documents"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medicine_category_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medicine_category_id
+msgid "Drug Category"
+msgstr ""
+
+#. module: product_medical
+#: model:medicine.category,name:product_medical.category_d
+msgid "Drug-D"
+msgstr ""
+
+#. module: product_medical
+#: model:medicine.category,name:product_medical.category_e
+msgid "Drug-E"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__id
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__id
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__id
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__id
+msgid "ID"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.actions.act_window,name:product_medical.in_vitro_diagnostic_action
+msgid "In Vitro Diagnostics"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model,name:product_medical.model_in_vitro_diagnostic
+#: model:ir.model.fields,field_description:product_medical.field_product_product__in_vitro_diagnostic
+#: model:ir.model.fields,field_description:product_medical.field_product_template__in_vitro_diagnostic
+msgid "In vitro diagnostics"
+msgstr ""
+
+#. module: product_medical
+#: model:in.vitro.diagnostic,name:product_medical.in_vitro_1
+msgid "InVitroDiagnostika-A"
+msgstr ""
+
+#. module: product_medical
+#: model:in.vitro.diagnostic,name:product_medical.in_vitro_2
+msgid "InVitroDiagnostika-B"
+msgstr ""
+
+#. module: product_medical
+#: model:in.vitro.diagnostic,name:product_medical.in_vitro_3
+msgid "InVitroDiagnostika-C"
+msgstr ""
+
+#. module: product_medical
+#: model:in.vitro.diagnostic,name:product_medical.in_vitro_4
+msgid "InVitroDiagnostika-D"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__is_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_template__is_medical
+msgid "Is Medical"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic____last_update
+#: model:ir.model.fields,field_description:product_medical.field_medical_class____last_update
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category____last_update
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__write_uid
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__write_uid
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__write_uid
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__write_date
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__write_date
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__write_date
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__doc_lot_related
+#: model:ir.model.fields,field_description:product_medical.field_product_template__doc_lot_related
+msgid "Lot Related"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model,name:product_medical.model_medical_class
+msgid "Medical Class"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.actions.act_window,name:product_medical.medical_class_action
+msgid "Medical Classes"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_class_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_class_id
+msgid "Medical Device Class"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.constraint,message:product_medical.constraint_medical_class_name_uniq
+msgid "Medical class already exists"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.actions.act_window,name:product_medical.medicine_category_action
+msgid "Medicine Categories"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model,name:product_medical.model_medicine_category
+msgid "Medicine Category"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.constraint,message:product_medical.constraint_medicine_category_name_uniq
+msgid "Medicine category already exists"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__name
+#: model:ir.model.fields,field_description:product_medical.field_medical_class__name
+#: model:ir.model.fields,field_description:product_medical.field_medicine_category__name
+#: model:ir.model.fields,field_description:product_medical.field_ppe_category__name
+msgid "Name"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__notified_body_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__notified_body_id
+msgid "Notified Body"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.actions.act_window,name:product_medical.ppe_category_action
+msgid "PPE Categories"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__ppe_category_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__ppe_category_id
+msgid "PPE Category"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model,name:product_medical.model_ppe_category
+msgid "PPE category"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.constraint,message:product_medical.constraint_ppe_category_name_uniq
+msgid "PPE category already exists"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model,name:product_medical.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_medical
+#: model:ir.model.fields,field_description:product_medical.field_product_product__doc_validity_date
+#: model:ir.model.fields,field_description:product_medical.field_product_template__doc_validity_date
+msgid "Validity Date"
+msgstr ""
