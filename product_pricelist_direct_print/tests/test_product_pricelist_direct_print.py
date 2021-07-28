@@ -190,7 +190,7 @@ class TestProductPricelistDirectPrint(SavepointCase):
             active_model="product.pricelist",
             active_id=self.pricelist.id,
         ).create({})
-        wiz.group_by_parent_categ = True
+        wiz.max_categ_level = 1
         groups = wiz.get_groups_to_print()
         product_ids = False
         for group in groups:
