@@ -24,6 +24,11 @@ msgid "<span class=\"o_stat_text\">Products</span>"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
+msgid "All Partner"
+msgstr ""
+
+#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortment Name"
@@ -66,6 +71,11 @@ msgid "Partner"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
+msgid "Partner Domain"
+msgstr ""
+
+#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Partners to apply"
 msgstr ""
@@ -86,6 +96,7 @@ msgid "Product assortment"
 msgstr ""
 
 #. module: product_assortment
+#: code:addons/product_assortment/models/ir_filters.py:0
 #: code:addons/product_assortment/models/ir_filters.py:0
 #, python-format
 msgid "Products"
