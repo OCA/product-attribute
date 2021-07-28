@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-16 06:17+0000\n"
-"PO-Revision-Date: 2021-07-16 08:19+0200\n"
+"POT-Creation-Date: 2021-07-28 11:51+0000\n"
+"PO-Revision-Date: 2021-07-28 13:54+0200\n"
 "Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -199,11 +199,6 @@ msgid "Filter Options"
 msgstr "Opciones de filtrado"
 
 #. module: product_pricelist_direct_print
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_by_parent_categ
-msgid "Group by parent category"
-msgstr "Agrupar por categoría padre"
-
-#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
 msgid "Hide Pricelist Name"
 msgstr "Ocultar nombre de tarifa"
@@ -215,13 +210,12 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_pricelist_direct_print
-#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__group_by_parent_categ
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
 msgid ""
-"If this field is selected, the different sections will be grouped by the "
-"parent category (if it has) instead of the actual category."
+"If this field is not 0, products are grouped at max level of category tree."
 msgstr ""
-"Si este campo está seleccionado, las secciones van a estar agrupadas por la "
-"categoría padre (si tienen) en lugar de la categoría actual."
+"Si este campo no es 0, los productos se agrupan en el nivel máximo del "
+"árbol de categorías."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
@@ -269,6 +263,11 @@ msgstr "Última actualización en"
 #, python-format
 msgid "List Price"
 msgstr "Precio de coste"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid "Max category level"
+msgstr "Nivel máximo de categoría"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
@@ -407,3 +406,13 @@ msgstr "Resumen:"
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr "Debe seleccionar una tarifa o alguna opción mostrar precio."
+
+#~ msgid "Group by parent category"
+#~ msgstr "Agrupar por categoría padre"
+
+#~ msgid ""
+#~ "If this field is selected, the different sections will be grouped by the "
+#~ "parent category (if it has) instead of the actual category."
+#~ msgstr ""
+#~ "Si este campo está seleccionado, las secciones van a estar agrupadas por "
+#~ "la categoría padre (si tienen) en lugar de la categoría actual."
