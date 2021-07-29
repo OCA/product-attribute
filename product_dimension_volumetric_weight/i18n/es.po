@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_uom_volumetric_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-22 07:53+0000\n"
+"PO-Revision-Date: 2021-07-22 09:55+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: product_uom_volumetric_weight
+#: model:ir.model,name:product_uom_volumetric_weight.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_uom_volumetric_weight
+#: model:ir.model,name:product_uom_volumetric_weight.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: product_uom_volumetric_weight
+#: model:ir.model.fields,help:product_uom_volumetric_weight.field_uom_uom__weight_volumetric_ratio
+msgid ""
+"Used as variable for the volumetric weight calculation using the formula. "
+"(Volume * Ratio) = Kg"
+msgstr ""
+"Se utiliza como variable para el cálculo del peso volumétrico mediante la "
+"fórmula. (Volumen * Relación) = Kg"
+
+#. module: product_uom_volumetric_weight
+#: model:ir.model.fields,field_description:product_uom_volumetric_weight.field_uom_uom__weight_volumetric_ratio
+msgid "Volumetric Weight Ratio (Kg/m3)"
+msgstr "Ratio de peso volumétrico (Kg/m3)"
+
+#. module: product_uom_volumetric_weight
+#: model:ir.model.fields,field_description:product_uom_volumetric_weight.field_product_product__weight_volumetric
+#: model:ir.model.fields,field_description:product_uom_volumetric_weight.field_product_template__weight_volumetric
+msgid "Volumetric weight"
+msgstr "Peso volumétrico"
