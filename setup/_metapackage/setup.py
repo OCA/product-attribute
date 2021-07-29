@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo13-addon-product_cost_security',
         'odoo13-addon-product_custom_info',
         'odoo13-addon-product_dimension',
+        'odoo13-addon-product_dimension_volumetric_weight',
         'odoo13-addon-product_list_pricelist_price',
         'odoo13-addon-product_lot_sequence',
         'odoo13-addon-product_manufacturer',
