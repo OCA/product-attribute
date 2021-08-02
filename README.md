@@ -32,7 +32,7 @@ addon | version | summary
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | Product cost security restriction view
 [product_dimension](product_dimension/) | 14.0.1.0.0 | Product Dimension
 [product_logistics_uom](product_logistics_uom/) | 14.0.1.0.1 | Configure product weights and volume UoM
-[product_lot_sequence](product_lot_sequence/) | 14.0.1.0.0 | Adds ability to define a lot sequence from the product
+[product_lot_sequence](product_lot_sequence/) | 14.0.1.0.1 | Adds ability to define a lot sequence from the product
 [product_manufacturer](product_manufacturer/) | 14.0.1.0.1 | Adds manufacturers and attributes on the product view.
 [product_medical](product_medical/) | 14.0.1.0.1 | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 | Product - Many Categories
