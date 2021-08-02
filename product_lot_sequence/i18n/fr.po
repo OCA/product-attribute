@@ -1,0 +1,92 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_lot_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-21 13:09+0000\n"
+"PO-Revision-Date: 2021-07-21 13:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_lot_sequence.field_stock_production_lot__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_id
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_id
+msgid "Entry Sequence"
+msgstr "Référence de séquence"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__id
+#: model:ir.model.fields,field_description:product_lot_sequence.field_stock_production_lot__id
+msgid "ID"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_lot_sequence.field_stock_production_lot____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lot/N° série"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_number_next
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_number_next
+msgid "Next Number"
+msgstr "Prochain numéro"
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_padding
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_padding
+msgid "Sequence Number of Digits"
+msgstr "Nombre de chiffres dans la séquence"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_prefix
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_prefix
+msgid "Sequence Prefix"
+msgstr "Préfixe de séquence"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_prefix
+#: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_prefix
+msgid "The lot's sequence will be created using this prefix."
+msgstr "La séquence sera créée avec ce préfixe."
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_padding
+#: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_padding
+msgid "The lots' sequence will be created using this number of digits."
+msgstr "La séquence sera créée avec ce nombre de chiffres"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_number_next
+#: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_number_next
+msgid "The next sequence number will be used for the next lot."
+msgstr "Le prochain numéro à utiliser"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_id
+#: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_id
+msgid "This field contains the information related to the numbering of lots."
+msgstr "Ce champ contient le lien vers la séquence de lot/numéro de série"
