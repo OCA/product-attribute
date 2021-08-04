@@ -64,7 +64,8 @@ class ProductPackaging(models.Model):
             category_id = packaging.product_id.uom_id.category_id
             qty = packaging.qty if packaging.qty else 1.0
             uom_id = packaging.uom_id.search(
-                [("factor", "=", 1.0 / qty), ("category_id", "=", category_id.id)]
+                [("factor", "=", 1.0 / qty), ("category_id", "=", category_id.id)],
+                limit=1,
             )
             if not uom_id:
                 uom_id = packaging.uom_id.create(

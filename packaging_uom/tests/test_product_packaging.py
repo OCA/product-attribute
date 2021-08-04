@@ -7,17 +7,65 @@ from odoo.exceptions import ValidationError
 class TestProductPackaging(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductPackaging, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.packaging_obj = cls.env["product.packaging"]
         cls.uom_unit = cls.env.ref("uom.product_uom_unit")
         cls.uom_dozen = cls.env.ref("uom.product_uom_dozen")
+        cls.uom_liter = cls.env.ref("uom.product_uom_litre")
+        cls.uom_volume_categ = cls.env.ref("uom.product_uom_categ_vol")
         cls.product_dozen = cls.env["product.product"].create(
             {"name": "PRODUCT DOZEN", "uom_id": cls.uom_dozen.id}
         )
         cls.product_unit = cls.env["product.product"].create(
             {"name": "PRODUCT UNIT", "uom_id": cls.uom_unit.id}
         )
+        cls.product_liter = cls.env["product.product"].create(
+            {
+                "name": "PRODUCT LITER",
+                "uom_id": cls.uom_liter.id,
+                "uom_po_id": cls.uom_liter.id,
+            }
+        )
+
+    def test_multi_uom_inverse_qty(self):
+        """Test the case when there are more than 1 UoM with same factor/category
+        - Create a packaging;
+        - Create 2 custom UoM;
+        - Assign one of them on the product;
+        - Change the qty on the packaging (to trigger the inverse)
+          with the factor of these 2 UoM;
+        - Ensure this packaging.qty = X doesn't trigger ValueError exception
+        """
+        product_packaging_liter1 = self.packaging_obj.create(
+            {
+                "name": "PACKAGING 1",
+                "product_id": self.product_liter.id,
+                "uom_id": self.uom_liter.id,
+            }
+        )
+        self.assertAlmostEqual(product_packaging_liter1.qty, 1)
+        factor = 2
+        product_double_liter1 = self.env["uom.uom"].create(
+            {
+                "category_id": self.uom_volume_categ.id,
+                "name": "Double Liters",
+                "factor_inv": factor,
+                "uom_type": "bigger",
+            }
+        )
+        self.env["uom.uom"].create(
+            {
+                "category_id": self.uom_volume_categ.id,
+                "name": "Double Liters",
+                "factor_inv": factor,
+                "uom_type": "bigger",
+            }
+        )
+        # Set Packaging Quantity
+        product_packaging_liter1.product_id.uom_id = product_double_liter1
+        product_packaging_liter1.qty = factor
+        self.assertEqual(product_double_liter1, product_packaging_liter1.uom_id)
 
     def test_compute_quantity_by_package(self):
         """ Create a packagings with uom product_uom_dozen on
