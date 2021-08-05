@@ -6,7 +6,7 @@
     "summary": "Display pricelist prices for products in list view.",
     "version": "13.0.1.0.0",
     "category": "Product",
-    "website": "https://odoo-community.org/",
+    "website": "https://github.com/OCA/product-attribute",
     "author": "ForgeFlow, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
