@@ -105,5 +105,6 @@
         id="menu_product_assortments"
         action="actions_product_assortment_view"
         sequence="5"
+        web_icon="product_assortment,static/description/icon.png"
     />
 </odoo>
