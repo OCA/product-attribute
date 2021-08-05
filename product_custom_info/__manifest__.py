@@ -11,7 +11,7 @@
     "depends": ["product", "base_custom_info"],
     "data": ["views/product_template_view.xml", "views/product_product_view.xml"],
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
-    "website": "http://www.tecnativa.com",
+    "website": "https://github.com/OCA/product-attribute",
     "license": "LGPL-3",
     "installable": True,
 }
