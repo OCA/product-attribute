@@ -15,7 +15,53 @@ Various addons related to attribute management for products.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[packaging_uom](packaging_uom/) | 13.0.1.0.3 | Use uom in package
+[product_assortment](product_assortment/) | 13.0.2.0.3 | Adds the ability to manage products assortment
+[product_barcode_required](product_barcode_required/) | 13.0.1.0.2 | Make product barcode required when enabled
+[product_bom_revision](product_bom_revision/) | 13.0.1.0.1 | Store the revision of a product and a BOM
+[product_category_active](product_category_active/) | 13.0.1.0.0 | Add option to archive product categories
+[product_code_mandatory](product_code_mandatory/) | 13.0.1.0.0 | Set Product Internal Reference as a required field
+[product_code_unique](product_code_unique/) | 13.0.1.0.0 | Set Product Internal Reference as Unique
+[product_cost_security](product_cost_security/) | 13.0.1.1.0 | Product cost security restriction view
+[product_custom_info](product_custom_info/) | 13.0.1.0.0 | Add custom field in products
+[product_dimension](product_dimension/) | 13.0.1.0.1 | Product Dimension
+[product_dimension_volumetric_weight](product_dimension_volumetric_weight/) | 13.0.1.0.0 | Product Dimension Volumetric Weight
+[product_list_pricelist_price](product_list_pricelist_price/) | 13.0.1.0.0 | Display pricelist prices for products in list view.
+[product_lot_sequence](product_lot_sequence/) | 13.0.1.0.1 | Adds ability to define a lot sequence from the product
+[product_manufacturer](product_manufacturer/) | 13.0.2.0.0 | Adds manufacturers and attributes on the product view.
+[product_medical](product_medical/) | 13.0.1.3.0 | Base structure to handle medical products
+[product_multi_category](product_multi_category/) | 13.0.1.0.0 | Product - Many Categories
+[product_multi_price](product_multi_price/) | 13.0.1.0.0 | Product Multi Price
+[product_order_noname](product_order_noname/) | 13.0.2.0.0 | Speedup product retrieve
+[product_packaging_dimension](product_packaging_dimension/) | 13.0.1.0.0 | Manage packaging dimensions and weight
+[product_packaging_type](product_packaging_type/) | 13.0.1.3.0 | Product Packaging Type
+[product_packaging_type_pallet](product_packaging_type_pallet/) | 13.0.1.0.0 | Manage packaging of pallet type
+[product_packaging_type_required](product_packaging_type_required/) | 13.0.1.0.0 | Product Packaging Type Required
+[product_packaging_unit_price_calculator](product_packaging_unit_price_calculator/) | 13.0.1.0.2 | Wizard to calculate a unit price from a packaging price
+[product_pricelist_assortment](product_pricelist_assortment/) | 13.0.1.0.1 | Product assortment and pricelist
+[product_pricelist_direct_print](product_pricelist_direct_print/) | 13.0.3.1.1 | Print price list from menu option, product templates, products variants or price lists
+[product_pricelist_direct_print_website_sale](product_pricelist_direct_print_website_sale/) | 13.0.1.0.0 | Extend Product Pricelist Direct Print for filter by public categories
+[product_pricelist_revision](product_pricelist_revision/) | 13.0.1.2.0 | Product Pricelist Revision
+[product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 13.0.1.0.2 | Allows to create priceslists based on supplier info
+[product_product_template_navigation](product_product_template_navigation/) | 13.0.1.0.1 | Adds a button in product to view the template
+[product_restricted_type](product_restricted_type/) | 13.0.1.0.0 | Product Restricted Type
+[product_secondary_unit](product_secondary_unit/) | 13.0.2.1.1 | Set a secondary unit per product
+[product_sequence](product_sequence/) | 13.0.2.0.1 | Product Sequence
+[product_state](product_state/) | 13.0.1.0.1 | Module introducing a state field on product template
+[product_stock_state](product_stock_state/) | 13.0.1.0.0 | Compute the state of a product's stockthe stock level and sale_ok field
+[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 13.0.1.0.1 | Allows to define prices for customers in the products
+[product_supplierinfo_revision](product_supplierinfo_revision/) | 13.0.1.0.0 | Product Supplierinfo Revision
+[product_template_tags](product_template_tags/) | 13.0.2.1.0 | This addon allow to add tags on products
+[product_template_tags_code](product_template_tags_code/) | 13.0.1.0.0 | This addon allow to add code on products tags
+[product_total_weight_from_packaging](product_total_weight_from_packaging/) | 13.0.1.3.1 | Compute estimated weight based on product's packaging weights
+[product_uom_updatable](product_uom_updatable/) | 13.0.1.0.0 | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
+[product_weight](product_weight/) | 13.0.1.0.1 | Allows to calculate products weight from its components.
+[stock_account_product_cost_security](stock_account_product_cost_security/) | 13.0.1.0.0 | Product cost security restriction view
+[stock_production_lot_firmware_version](stock_production_lot_firmware_version/) | 13.0.1.0.0 | Store the firmware version of a serialized electronic item
 
 [//]: # (end addons)
 
