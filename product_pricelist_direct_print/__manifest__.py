@@ -6,7 +6,7 @@
     "products variants or price lists",
     "version": "13.0.3.1.1",
     "category": "Product",
-    "website": "https://www.github.com/OCA/product-attribute",
+    "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["sale", "report_xlsx"],
