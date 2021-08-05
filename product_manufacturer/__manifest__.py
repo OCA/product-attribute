@@ -5,6 +5,7 @@
     "version": "13.0.2.0.0",
     "summary": "Adds manufacturers and attributes on the product view.",
     "author": "OpenERP SA, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
     "depends": ["product"],
