@@ -20,19 +20,20 @@ class ProductProduct(models.Model):
 
     def _inverse_set_process_qty(self):
         parent_model = self.env.context.get("parent_model")
+        if not parent_model:
+            return
         parent_id = self.env.context.get("parent_id")
-        if parent_model:
-            parent = self.env[parent_model].browse(parent_id)
-            for product in self:
-                quick_line = parent._get_quick_line(product)
-                if quick_line:
-                    parent._update_quick_line(product, quick_line)
-                else:
-                    parent._add_quick_line(product, quick_line._name)
+        parent = self.env[parent_model].browse(parent_id)
+        for product in self:
+            quick_line = parent._get_quick_line(product)
+            if quick_line:
+                parent._update_quick_line(product, quick_line)
+            else:
+                parent._add_quick_line(product, quick_line._name)
 
     def _compute_process_qty(self):
-        if not self.env.context.get("parent_id"):
-            return
+        for product in self:
+            product.qty_to_process = 0
 
     def button_quick_open_product(self):
         self.ensure_one()

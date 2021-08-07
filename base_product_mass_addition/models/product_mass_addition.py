@@ -63,9 +63,14 @@ class ProductMassAddition(models.AbstractModel):
         lines = getattr(self, lines_key)
         if "id" in vals:
             line = lines.filtered(lambda x: x.id == vals["id"])
-            return line.play_onchanges(update_vals, list(update_vals.keys()))
+            result = line.play_onchanges(update_vals, list(update_vals.keys()))
         else:
             line = lines
             if len(lines) > 1:
                 line = lines[0]
-            return line.play_onchanges(vals, list(vals.keys()))
+            result = line.play_onchanges(vals, list(vals.keys()))
+        if "product_qty" in result:
+            del result["product_qty"]
+        if "product_uom" not in result:
+            result["product_uom"] = self[init_keys[0]].uom_id.id
+        return result
