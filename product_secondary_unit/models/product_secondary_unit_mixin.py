@@ -99,10 +99,13 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 field=rec._fields["secondary_uom_qty"], records=rec
             )
             factor = rec._get_factor_line()
-            qty = float_round(
-                rec.secondary_uom_qty * factor,
-                precision_rounding=rec._get_uom_line().rounding,
-            )
+            try:
+                qty = float_round(
+                    rec.secondary_uom_qty * factor,
+                    precision_rounding=rec._get_uom_line().rounding,
+                )
+            except ZeroDivisionError:
+                pass
             rec[rec._secondary_unit_fields["qty_field"]] = qty
 
     def _onchange_helper_product_uom_for_secondary(self):
