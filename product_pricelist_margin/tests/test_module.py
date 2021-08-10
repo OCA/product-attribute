@@ -35,3 +35,8 @@ class TestModule(common.TransactionCase):
                 green=105 + 1.5 * 50,
                 blue=255 - 1.5 * 50)
         )
+
+        # We set a date when the pricelist has an exception
+        self.wizard.price_date = "2000-01-02"
+        line = self._get_wizard_line("product.list0")
+        self.assertEquals(line.margin_percent, 75.0)

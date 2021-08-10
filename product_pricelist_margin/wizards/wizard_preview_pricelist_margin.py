@@ -67,6 +67,7 @@ class WizardPreviewPricelistMargin(models.TransientModel):
             product = self.product_id.with_context(
                 quantity=self.product_qty,
                 pricelist=pricelist.id,
+                date=self.price_date,
             )
             to_currency = pricelist.currency_id
             res = product.taxes_id.compute_all(
