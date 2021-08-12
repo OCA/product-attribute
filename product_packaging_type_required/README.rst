@@ -66,6 +66,7 @@ Contributors
 * `Camptocamp <https://www.camptocamp.com>`_
 
   * Damien Crier <damien.crier@camptocamp.com>
+  * Simone Orsi <simone.orsi@camptocamp.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -79,6 +80,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-simahawk| image:: https://github.com/simahawk.png?size=40px
+    :target: https://github.com/simahawk
+    :alt: simahawk
+.. |maintainer-dcrier| image:: https://github.com/dcrier.png?size=40px
+    :target: https://github.com/dcrier
+    :alt: dcrier
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-simahawk| |maintainer-dcrier| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/13.0/product_packaging_type_required>`_ project on GitHub.
 
