@@ -24,6 +24,7 @@ addon | version | summary
 [pos_product_cost_security](pos_product_cost_security/) | 14.0.1.0.0 | Compatibility between Point of Sale and Product Cost Security
 [product_assortment](product_assortment/) | 14.0.1.0.2 | Adds the ability to manage products assortment
 [product_attribute_archive](product_attribute_archive/) | 14.0.1.0.0 | Add an active field on product attributes
+[product_barcode_required](product_barcode_required/) | 14.0.1.0.0 | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 | Store the revision of a product and a BOM
 [product_category_code](product_category_code/) | 14.0.1.0.0 | Allows to define a code on product categories
 [product_category_product_link](product_category_product_link/) | 14.0.1.0.1 | Allows to get products from a category
