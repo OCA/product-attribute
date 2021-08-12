@@ -3,7 +3,7 @@
 
 {
     "name": "Product Packaging Type Required",
-    "version": "13.0.1.1.0",
+    "version": "13.0.1.1.1",
     "development_status": "Beta",
     "category": "Product",
     "summary": "Product Packaging Type Required",
