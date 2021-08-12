@@ -40,7 +40,7 @@ addon | version | summary
 [product_packaging_dimension](product_packaging_dimension/) | 13.0.1.0.0 | Manage packaging dimensions and weight
 [product_packaging_type](product_packaging_type/) | 13.0.1.3.0 | Product Packaging Type
 [product_packaging_type_pallet](product_packaging_type_pallet/) | 13.0.1.0.0 | Manage packaging of pallet type
-[product_packaging_type_required](product_packaging_type_required/) | 13.0.1.0.0 | Product Packaging Type Required
+[product_packaging_type_required](product_packaging_type_required/) | 13.0.1.1.0 | Product Packaging Type Required
 [product_packaging_unit_price_calculator](product_packaging_unit_price_calculator/) | 13.0.1.0.2 | Wizard to calculate a unit price from a packaging price
 [product_pricelist_assortment](product_pricelist_assortment/) | 13.0.1.0.1 | Product assortment and pricelist
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 13.0.3.1.1 | Print price list from menu option, product templates, products variants or price lists
