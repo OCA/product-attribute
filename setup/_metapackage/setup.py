@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo12-addon-product_model_viewer',
         'odoo12-addon-product_multi_category',
         'odoo12-addon-product_multi_price',
+        'odoo12-addon-product_net_weight',
         'odoo12-addon-product_order_noname',
         'odoo12-addon-product_packaging_dimension',
         'odoo12-addon-product_packaging_type',
