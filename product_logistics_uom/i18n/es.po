@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_logistics_uom
+# 	* product_logistics_uom
 #
 msgid ""
 msgstr ""
@@ -47,6 +47,11 @@ msgid "Default unit of measure to express product weight"
 msgstr "Unidad de medida del peso del producto predeterminada"
 
 #. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
+msgid "Gross Weight"
+msgstr ""
+
+#. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_product_product
 msgid "Product"
 msgstr "Producto"
@@ -91,11 +96,6 @@ msgid "Volume unit of measure label"
 msgstr "Etiqueta de unidad de medida de volumen"
 
 #. module: product_logistics_uom
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
-msgid "Weight"
-msgstr "Peso"
-
-#. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_id
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_id
 msgid "Weight Unit of Measure"
@@ -106,3 +106,6 @@ msgstr "Unidad de medida del peso"
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_name
 msgid "Weight unit of measure label"
 msgstr "Etiqueta de unidad de medida del peso"
+
+#~ msgid "Weight"
+#~ msgstr "Peso"
