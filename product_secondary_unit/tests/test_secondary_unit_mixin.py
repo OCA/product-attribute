@@ -119,9 +119,13 @@ class TestProductSecondaryUnitMixin(SavepointCase, FakeModelLoader):
         fake_model.secondary_uom_id = self.secondary_unit_box_5
         fake_model.secondary_uom_id.write({"dependency_type": "independent"})
         fake_model.write({"secondary_uom_qty": 2})
-        self.assertEqual(fake_model.product_uom_qty, 0)
+        self.assertEqual(fake_model.product_uom_qty, 1)
         self.assertEqual(fake_model.secondary_uom_qty, 2)
 
         fake_model.write({"product_uom_qty": 17})
-        self.assertEqual(fake_model.secondary_uom_qty, 2)
         self.assertEqual(fake_model.product_uom_qty, 17)
+        self.assertEqual(fake_model.secondary_uom_qty, 2)
+
+        fake_model.write({"secondary_uom_qty": 4})
+        self.assertEqual(fake_model.product_uom_qty, 17)
+        self.assertEqual(fake_model.secondary_uom_qty, 4)
