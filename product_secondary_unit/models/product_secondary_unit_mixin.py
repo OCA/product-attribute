@@ -85,13 +85,14 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _compute_helper_target_field_qty(self):
         """Set the target qty field defined in model"""
         for rec in self:
-            if (
-                not rec.secondary_uom_id
-                or rec.secondary_uom_id.dependency_type == "independent"
-            ):
+            if not rec.secondary_uom_id:
                 rec[rec._secondary_unit_fields["qty_field"]] = rec._origin[
                     rec._secondary_unit_fields["qty_field"]
                 ]
+                continue
+            if rec.secondary_uom_id.dependency_type == "independent":
+                if rec[rec._secondary_unit_fields["qty_field"]] == 0.0:
+                    rec[rec._secondary_unit_fields["qty_field"]] = 1.0
                 continue
             # To avoid recompute secondary_uom_qty field when
             # secondary_uom_id changes.
