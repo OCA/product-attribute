@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[packaging_uom](packaging_uom/) | 13.0.1.0.3 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Use uom in package
+[packaging_uom](packaging_uom/) | 13.0.1.0.4 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Use uom in package
 [product_assortment](product_assortment/) | 13.0.2.0.3 |  | Adds the ability to manage products assortment
 [product_barcode_required](product_barcode_required/) | 13.0.1.0.2 |  | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 13.0.1.0.1 |  | Store the revision of a product and a BOM
