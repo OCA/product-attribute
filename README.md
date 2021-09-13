@@ -52,7 +52,7 @@ addon | version | maintainers | summary
 [product_template_tags](product_template_tags/) | 14.0.1.2.0 | [![patrickrwilson](https://github.com/patrickrwilson.png?size=30px)](https://github.com/patrickrwilson) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | This addon allow to add tags on products
 [product_template_tags_code](product_template_tags_code/) | 14.0.1.0.1 |  | This addon allow to add code on products tags
 [product_total_weight_from_packaging](product_total_weight_from_packaging/) | 14.0.1.0.0 |  | Compute estimated weight based on product's packaging weights
-[product_uom_updatable](product_uom_updatable/) | 14.0.1.0.0 |  | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
+[product_uom_updatable](product_uom_updatable/) | 14.0.1.0.1 |  | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
 [product_weight](product_weight/) | 14.0.1.0.0 |  | Allows to calculate products weight from its components.
 [product_weight_logistics_uom](product_weight_logistics_uom/) | 14.0.1.0.0 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Glue module for product_weight and product_logistics_uom
 [purchase_product_template_tags](purchase_product_template_tags/) | 14.0.1.1.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Purchase app
