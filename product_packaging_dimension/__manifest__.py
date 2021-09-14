@@ -3,7 +3,7 @@
 {
     "name": "Product Packaging Dimension",
     "summary": "Manage packaging dimensions and weight",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Product",
     "author": "Camptocamp, Akretion, Odoo Community Association (OCA)",
     "license": "AGPL-3",
