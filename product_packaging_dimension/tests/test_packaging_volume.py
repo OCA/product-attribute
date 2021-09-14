@@ -53,28 +53,28 @@ class TestPackagingVolumeCompute(TransactionCase):
         # initial UoM always in meters and Volume in m3, but with different dimensions.
 
         self.packaging.packaging_length = 10
-        self.packaging.height = 8.0
-        self.packaging.width = 10.8
+        self.packaging.height = 8
+        self.packaging.width = 10
         self.packaging.length_uom_id = self.uom_m
         self.packaging.volume_uom_id = self.uom_m3
         self.packaging._compute_volume()
-        self.assertEqual(864, self.packaging.volume)
+        self.assertEqual(800, self.packaging.volume)
 
         self.packaging2.packaging_length = 6.0
         self.packaging2.height = 14.0
-        self.packaging2.width = 1.2
+        self.packaging2.width = 1.0
         self.packaging2.length_uom_id = self.uom_m
         self.packaging2.volume_uom_id = self.uom_m3
         self.packaging2._compute_volume()
-        self.assertAlmostEqual(100.8, self.packaging2.volume)
+        self.assertEqual(84.0, self.packaging2.volume)
 
         self.packaging3.packaging_length = 100.0
-        self.packaging3.height = 50.5
-        self.packaging3.width = 80.0
+        self.packaging3.height = 50
+        self.packaging3.width = 80
         self.packaging3.length_uom_id = self.uom_m
         self.packaging3.volume_uom_id = self.uom_m3
         self.packaging3._compute_volume()
-        self.assertEqual(404000, self.packaging3.volume)
+        self.assertEqual(400000, self.packaging3.volume)
 
     def test_output_uom(self):
         # Tests with both different initial and volume UoMs.
