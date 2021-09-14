@@ -92,13 +92,14 @@ class ProductPackaging(models.Model):
         "packaging_length", "width", "height", "length_uom_id", "volume_uom_id"
     )
     def _compute_volume(self):
-        self.volume = self._calculate_volume(
-            self.packaging_length,
-            self.height,
-            self.width,
-            self.length_uom_id,
-            self.volume_uom_id,
-        )
+        for packaging in self:
+            packaging.volume = packaging._calculate_volume(
+                packaging.packaging_length,
+                packaging.height,
+                packaging.width,
+                packaging.length_uom_id,
+                packaging.volume_uom_id,
+            )
 
     def _calculate_volume(
         self, packaging_length, height, width, length_uom_id, volume_uom_id
