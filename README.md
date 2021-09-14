@@ -38,7 +38,7 @@ addon | version | maintainers | summary
 [product_medical](product_medical/) | 14.0.1.0.1 |  | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 |  | Product - Many Categories
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | [![WR-96](https://github.com/WR-96.png?size=30px)](https://github.com/WR-96) [![moylop260](https://github.com/moylop260.png?size=30px)](https://github.com/moylop260) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Speedup product retrieve
-[product_packaging_dimension](product_packaging_dimension/) | 14.0.1.0.0 |  | Manage packaging dimensions and weight
+[product_packaging_dimension](product_packaging_dimension/) | 14.0.1.0.1 |  | Manage packaging dimensions and weight
 [product_packaging_type](product_packaging_type/) | 14.0.0.1.0 |  | Product Packaging Type
 [product_packaging_type_pallet](product_packaging_type_pallet/) | 14.0.1.0.1 |  | Manage packaging of pallet type
 [product_packaging_type_required](product_packaging_type_required/) | 14.0.1.0.0 |  | Product Packaging Type Required
