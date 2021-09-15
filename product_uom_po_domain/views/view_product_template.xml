@@ -12,7 +12,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="arch" type="xml">
             <field name="uom_po_id" position="after">
                 <field name="uom_category_id" invisible="1"/>
-                <field name="uom_measure_type" invisible="1"/>
             </field>
         </field>
     </record>
