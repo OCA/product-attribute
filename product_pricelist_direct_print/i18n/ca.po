@@ -204,6 +204,12 @@ msgid "ID"
 msgstr "ID"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid ""
+"If this field is not 0, products are grouped at max level of category tree."
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
 msgid ""
 "If you enter an X number here, then, for each selected customer, the last X "
@@ -248,6 +254,11 @@ msgstr "Darrera actualització el"
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "List Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid "Max category level"
 msgstr ""
 
 #. module: product_pricelist_direct_print

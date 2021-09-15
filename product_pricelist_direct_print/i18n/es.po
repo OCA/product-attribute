@@ -214,8 +214,8 @@ msgstr "ID (identificación)"
 msgid ""
 "If this field is not 0, products are grouped at max level of category tree."
 msgstr ""
-"Si este campo no es 0, los productos se agrupan en el nivel máximo del "
-"árbol de categorías."
+"Si este campo no es 0, los productos se agrupan en el nivel máximo del árbol "
+"de categorías."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
