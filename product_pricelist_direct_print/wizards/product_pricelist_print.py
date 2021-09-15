@@ -46,6 +46,11 @@ class ProductPricelistPrint(models.TransientModel):
         " the last X ordered products will be obtained for the report."
     )
     summary = fields.Text(string="Summary")
+    max_categ_level = fields.Integer(
+        string="Max category level",
+        help="If this field is not 0, products are grouped at max level "
+        "of category tree.",
+    )
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
@@ -285,7 +290,8 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
-        return product.categ_id.name
+        max_level = self.max_categ_level or 99
+        return " / ".join(product.categ_id.complete_name.split(" / ")[:max_level])
 
     def get_sorted_products(self, products):
         if self.order_field:
