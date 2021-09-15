@@ -41,10 +41,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_uom_po_domain.field_product_template__uom_po_id
 msgid "Purchase Unit of Measure"
 msgstr ""
-
-#. module: product_uom_po_domain
-#: model:ir.model.fields,field_description:product_uom_po_domain.field_product_product__uom_measure_type
-#: model:ir.model.fields,field_description:product_uom_po_domain.field_product_template__uom_measure_type
-msgid "Type of Measure"
-msgstr ""
-

@@ -3,12 +3,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "Product - Domain on Purchase UoM",
+    "name": "Product - UoM Measure Type",
     "version": "12.0.1.0.1",
     "category": "Product",
-    "maintainers": ["legalsylvain"],
     "author": "GRAP, Odoo Community Association (OCA)",
-    "website": "http://www.grap.coop",
+    "maintainers": ["legalsylvain"],
+    "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "depends": [
         "product",
@@ -16,8 +16,6 @@
     "data": [
         "views/view_product_template.xml",
     ],
-    "demo": [
-        "demo/res_groups.xml",
-    ],
+    "pre_init_hook": "pre_init_hook",
     "installable": True,
 }
