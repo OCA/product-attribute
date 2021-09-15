@@ -6,6 +6,7 @@
     "name": "Product - Domain on Purchase UoM",
     "version": "12.0.1.0.1",
     "category": "Product",
+    "maintainers": ["legalsylvain"],
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
