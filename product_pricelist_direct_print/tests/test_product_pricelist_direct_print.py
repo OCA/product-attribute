@@ -33,6 +33,9 @@ class TestProductPricelistDirectPrint(SavepointCase):
             }
         )
         cls.category = cls.env["product.category"].create({"name": "Test category"})
+        cls.category_child = cls.env["product.category"].create(
+            {"name": "Test category child", "parent_id": cls.category.id}
+        )
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Product for test",
@@ -170,6 +173,29 @@ class TestProductPricelistDirectPrint(SavepointCase):
         wiz.show_variants = True
         products = wiz.get_products_to_print()
         self.assertIn(self.product, products)
+
+    def test_parent_categories(self):
+        product_category_child = self.env["product.template"].create(
+            {
+                "name": "Product for test 2",
+                "categ_id": self.category_child.id,
+                "default_code": "TESTPROD02",
+            }
+        )
+        self.pricelist.item_ids.write(
+            {"applied_on": "2_product_category", "categ_id": self.category_child.id}
+        )
+        wiz = self.wiz_obj.with_context(
+            active_model="product.pricelist", active_id=self.pricelist.id,
+        ).create({})
+        wiz.max_categ_level = 1
+        groups = wiz.get_groups_to_print()
+        product_ids = False
+        for group in groups:
+            if group["group_name"] == "Test category":
+                product_ids = group["products"]
+        self.assertTrue(product_ids)
+        self.assertIn(product_category_child.id, product_ids.ids)
 
     def test_reports(self):
         wiz = self.wiz_obj.with_context(

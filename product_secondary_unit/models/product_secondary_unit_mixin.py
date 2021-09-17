@@ -62,6 +62,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _compute_secondary_uom_qty(self):
         for line in self:
             if not line.secondary_uom_id:
+                line.secondary_uom_qty = 0.0
                 continue
             factor = line._get_factor_line()
             qty_line = line._get_quantity_from_line()

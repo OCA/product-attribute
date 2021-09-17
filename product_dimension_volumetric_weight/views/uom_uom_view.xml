@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="ir.ui.view" id="product_uom_form_view_custom">
+        <field name="name">product_uom_form_view_custom</field>
+        <field name="model">uom.uom</field>
+        <field name="inherit_id" ref="uom.product_uom_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rounding']" position="after">
+                <field name="volumetric_weight_ratio" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

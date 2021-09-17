@@ -8,7 +8,7 @@
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["product"],
-    "website": "https://www.camptocamp.com",
+    "website": "https://github.com/OCA/product-attribute",
     "data": [
         "views/product_view.xml",
         "views/product_supplierinfo.xml",

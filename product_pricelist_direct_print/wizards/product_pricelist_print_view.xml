@@ -31,6 +31,7 @@
                             groups="product.group_product_variant"
                             attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
                         />
+                        <field name="max_categ_level" />
                         <field name="summary" />
                         <field
                             name="last_ordered_products"
