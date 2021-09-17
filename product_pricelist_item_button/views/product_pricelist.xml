@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_pricelist_form_view">
+        <field
+            name="name"
+        >product.pricelist.form (in product_pricelist_item_button)</field>
+        <field name="model">product.pricelist</field>
+        <field
+            name="inherit_id"
+            ref="product_pricelist_button_box.product_pricelist_form_view"
+        />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="show_items"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-list"
+                    attrs="{'invisible': [('item_ids_count', '=', 0)]}"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="item_ids_count" />
+                        </span>
+                        <span class="o_stat_text">Rules</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

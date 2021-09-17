@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="action_pricelist_item_view" model="ir.actions.act_window">
+        <field name="name">Product Pricelist Rules</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.pricelist.item</field>
+        <field name="context">{'default_pricelist_id': active_id}</field>
+    </record>
+</odoo>
