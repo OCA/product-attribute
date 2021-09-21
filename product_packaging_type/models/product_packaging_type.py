@@ -122,10 +122,19 @@ class ProductPackaging(models.Model):
         return res
 
     def _format_qty_per_type(self, qty_per_type_mapping, format_pattern=None):
-        """Format given qty per type mapping as string.
-        """
-        format_pattern = format_pattern or "{}{}"
+        """Format given qty per type mapping as string."""
+        qty_per_type = self._make_qty_per_type(
+            qty_per_type_mapping, format_pattern=format_pattern
+        )
         res = []
+        for code, qty in qty_per_type:
+            res.append("{} {}".format(qty, code))
+        return "; ".join(res)
+
+    def _make_qty_per_type(self, qty_per_type_mapping, format_pattern=None):
+        """Prepare list of packaging qty by code."""
+        res = []
+        format_pattern = format_pattern or "{}{}"
         for code, qty in qty_per_type_mapping.items():
             new_qty = self.qty / qty
             if not new_qty.is_integer():
@@ -134,8 +143,8 @@ class ProductPackaging(models.Model):
                 new_qty = format_pattern.format(
                     new_qty_int, str(new_qty_decimals).lstrip("0")
                 )
-            res.append("{} {}".format(new_qty, code))
-        return "; ".join(res)
+            res.append((code, new_qty))
+        return res
 
     @api.onchange("packaging_type_id")
     def _onchange_name(self):
