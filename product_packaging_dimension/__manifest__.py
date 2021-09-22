@@ -13,6 +13,7 @@
     ],
     "website": "https://github.com/OCA/product-attribute",
     "data": [
+        "data/uom.xml",
         "views/product_packaging.xml",
     ],
     "installable": True,
