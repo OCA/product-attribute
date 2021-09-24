@@ -38,7 +38,7 @@ addon | version | maintainers | summary
 [product_multi_price](product_multi_price/) | 13.0.1.0.0 |  | Product Multi Price
 [product_order_noname](product_order_noname/) | 13.0.2.0.0 | [![WR-96](https://github.com/WR-96.png?size=30px)](https://github.com/WR-96) [![moylop260](https://github.com/moylop260.png?size=30px)](https://github.com/moylop260) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Speedup product retrieve
 [product_packaging_dimension](product_packaging_dimension/) | 13.0.1.0.0 |  | Manage packaging dimensions and weight
-[product_packaging_type](product_packaging_type/) | 13.0.1.3.0 |  | Product Packaging Type
+[product_packaging_type](product_packaging_type/) | 13.0.1.4.0 |  | Product Packaging Type
 [product_packaging_type_pallet](product_packaging_type_pallet/) | 13.0.1.0.0 |  | Manage packaging of pallet type
 [product_packaging_type_required](product_packaging_type_required/) | 13.0.1.1.1 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) [![dcrier](https://github.com/dcrier.png?size=30px)](https://github.com/dcrier) | Product Packaging Type Required
 [product_packaging_unit_price_calculator](product_packaging_unit_price_calculator/) | 13.0.1.0.2 |  | Wizard to calculate a unit price from a packaging price
