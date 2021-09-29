@@ -1,0 +1,212 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_profile
+#
+# Translators:
+# Giuliano Lotta <giuliano.lotta@gmail.com>, 2018
+# Paolo Valier, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-27 03:49+0000\n"
+"PO-Revision-Date: 2018-01-27 03:49+0000\n"
+"Last-Translator: Paolo Valier, 2018\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_profile
+#: model:ir.model.fields,help:product_profile.field_product_product__profile_explanation
+#: model:ir.model.fields,help:product_profile.field_product_profile__explanation
+#: model:ir.model.fields,help:product_profile.field_product_template__profile_explanation
+msgid ""
+"An explanation on the selected profile\n"
+"(not synchronized with product.template fields)"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: product_profile
+#: selection:product.profile,type:0
+msgid "Consumable"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_profile
+#: model:ir.model.fields,help:product_profile.field_product_profile__sequence
+msgid ""
+"Defines the order of the entries of profile_id field\n"
+"(not synchronized with product.template fields)"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile__display_name
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_res_config_settings__group_product_profile
+#: model:res.groups,name:product_profile.group_product_profile_user
+msgid "Display Product Profile fields"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,help:product_profile.field_res_config_settings__group_product_profile
+msgid ""
+"Display fields computed by product profile module.\n"
+"For debugging purpose see menu\n"
+"Sales > Configuration \n"
+"> Product Categories and Attributes\n"
+"> Product Profiles"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_product__profile_explanation
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__explanation
+#: model:ir.model.fields,field_description:product_profile.field_product_template__profile_explanation
+msgid "Explanation"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile__id
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__id
+msgid "ID"
+msgstr ""
+
+#. module: product_profile
+#: code:addons/product_profile/models/product_profile.py:146
+#, python-format
+msgid ""
+"If you update this profile, all products using this profile could also be "
+"updated. Changes can take a while."
+msgstr ""
+
+#. module: product_profile
+#: code:addons/product_profile/models/product_profile.py:34
+#, python-format
+msgid ""
+"Issue\n"
+"------\n"
+"%s\n"
+"'%s' value can't be applied to '%s' field.\n"
+"There is no matching value between 'Product Profiles' \n"
+"and '%s' models for this field.\n"
+"\n"
+"Resolution\n"
+"----------\n"
+"Check your settings on Profile model:\n"
+"%s"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile____last_update
+#: model:ir.model.fields,field_description:product_profile.field_product_profile____last_update
+msgid "Last Modified on"
+msgstr "Ultima Modifica il"
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo Aggiornamento di"
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__write_date
+msgid "Last Updated on"
+msgstr "Ultimo Aggiornamento il"
+
+#. module: product_profile
+#: model:res.groups,name:product_profile.group_product_profile_manager
+msgid "Manage Product Profiles"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__name
+msgid "Name"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_product
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_profile
+msgid "Product Profile"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_mixin_profile
+msgid "Product Profile Mixin"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.actions.act_window,name:product_profile.product_profile_action
+#: model:ir.ui.menu,name:product_profile.menu_product_profile_action
+#: model_terms:ir.ui.view,arch_db:product_profile.view_general_configuration
+msgid "Product Profiles"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model,name:product_profile.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_product__profile_id
+#: model:ir.model.fields,field_description:product_profile.field_product_template__profile_id
+#: model_terms:ir.ui.view,arch_db:product_profile.product_template_search_view
+msgid "Profile"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,help:product_profile.field_product_profile__name
+msgid ""
+"Profile name displayed on product template\n"
+"(not synchronized with product.template fields)"
+msgstr ""
+
+#. module: product_profile
+#: code:addons/product_profile/models/product_profile.py:12
+#, python-format
+msgid ""
+"Sales > Configuration \n"
+"> Product Categories and Attributes\n"
+"> Product Profiles"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,help:product_profile.field_product_profile__type
+msgid "See 'type' field in product.template"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_profile
+#: selection:product.profile,type:0
+msgid "Service"
+msgstr ""
+
+#. module: product_profile
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__type
+msgid "Type"
+msgstr ""
