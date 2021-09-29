@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo14-addon-product_packaging_type_pallet',
         'odoo14-addon-product_packaging_type_required',
         'odoo14-addon-product_pricelist_direct_print',
+        'odoo14-addon-product_profile',
         'odoo14-addon-product_seasonality',
         'odoo14-addon-product_secondary_unit',
         'odoo14-addon-product_sequence',
