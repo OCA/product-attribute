@@ -43,6 +43,7 @@ addon | version | maintainers | summary
 [product_packaging_type_pallet](product_packaging_type_pallet/) | 14.0.1.0.1 |  | Manage packaging of pallet type
 [product_packaging_type_required](product_packaging_type_required/) | 14.0.1.0.0 |  | Product Packaging Type Required
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 |  | Print price list from menu option, product templates, products variants or price lists
+[product_profile](product_profile/) | 14.0.1.0.0 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Allow to configure a product in 1 click
 [product_seasonality](product_seasonality/) | 14.0.1.2.1 |  | Define rules for products' seasonal availability
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.2 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 |  | Product Sequence
