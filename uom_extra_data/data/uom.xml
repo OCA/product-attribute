@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    This is from https://github.com/OCA/stock-logistics-warehouse/blob/14.0/stock_measuring_device/data/uom.xml
+    and originaly from stock_cubiscan module.
+-->
+<odoo>
+    <record id="product_uom_millimeter" model="uom.uom">
+        <field name="category_id" ref="uom.uom_categ_length" />
+        <field name="name">mm</field>
+        <field name="factor" eval="1000" />
+        <field name="uom_type">smaller</field>
+    </record>
+
+    <record id="product_uom_millilitre" model="uom.uom">
+        <field name="name">ml</field>
+        <field name="category_id" ref="uom.product_uom_categ_vol" />
+        <field name="factor" eval="1000" />
+        <field name="uom_type">smaller</field>
+    </record>
+
+    <record id="product_uom_7d_week" model="uom.uom">
+        <field name="name">week</field>
+        <field name="category_id" ref="uom.uom_categ_wtime" />
+        <field name="factor_inv" eval="7" />
+        <field name="uom_type">bigger</field>
+    </record>
+
+    <record id="product_uom_5d_week" model="uom.uom">
+        <field name="name">work_week</field>
+        <field name="category_id" ref="uom.uom_categ_wtime" />
+        <field name="factor_inv" eval="5" />
+        <field name="uom_type">bigger</field>
+    </record>
+</odoo>
