@@ -64,6 +64,17 @@ class ProductProduct(models.Model):
         super(ProductProduct, computed_lst_price_products)._compute_lst_price()
 
     @api.multi
+    def _compute_list_price(self):
+        computed_list_price_products = self.browse()
+        for product in self:
+            if product.use_supplier_sale_price:
+                product.list_price = product.supplier_sale_price
+            else:
+                computed_list_price_products |= product
+        super(
+            ProductProduct, computed_list_price_products)._compute_list_price()
+
+    @api.multi
     def _prepare_supplier_sale_price(self, force=False):
         self.ensure_one()
 
