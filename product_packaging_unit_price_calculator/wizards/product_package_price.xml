@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_product_package_price_form" model="ir.ui.view">
+        <field name="name">Product Package Price</field>
+        <field name="model">product.package.price.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Packaging Price">
+                <field name="product_tmpl_id" invisible="1" />
+                <field name="product_variant_ids" invisible="1" />
+                <group name="main">
+                    <group name="package_price_group">
+                        <field name="packaging_price" />
+                        <field
+                            name="selected_packaging_id"
+                            options="{'no_open': True, 'no_create': True, 'no_edit': True}"
+                        />
+                    </group>
+                    <group name="unit_price_group">
+                        <field name="unit_price" />
+                        <button
+                            name="reset_unit_price"
+                            type="object"
+                        >Reset unit price</button>
+                    </group>
+                </group>
+                <div class="text-warning">
+                    <field name="warning_message" />
+                </div>
+                <field name="packaging_ids">
+                    <tree>
+                        <field name="display_name" />
+                        <field name="qty" />
+                        <field
+                            name="packaging_wizard_price"
+                            string="Total Price"
+                            class="font-weight-bold"
+                        />
+                        <field
+                            name="product_uom_id"
+                            options="{'no_open': True, 'no_create': True}"
+                        />
+                    </tree>
+                </field>
+                <footer>
+                    <button
+                        name="action_set_price"
+                        string="Save"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_unit_price_wizard" model="ir.actions.act_window">
+        <field name="name">Product Package Price</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.package.price.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
