@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 13:25+0000\n"
-"PO-Revision-Date: 2020-11-20 13:25+0000\n"
+"POT-Creation-Date: 2021-10-13 13:54+0000\n"
+"PO-Revision-Date: 2021-10-13 13:54+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr "Nombre mostrado"
 #. module: product_brand_supplier_discount
 #: model:ir.model.fields,field_description:product_brand_supplier_discount.field_product_supplierinfo__fixed_discount
 msgid "Fixed Discount"
-msgstr "Descuento Fijo"
+msgstr "Descuento fijo"
 
 #. module: product_brand_supplier_discount
 #: model:ir.model.fields,field_description:product_brand_supplier_discount.field_product_brand_supplier_discount__id
@@ -71,9 +71,14 @@ msgid "Product Brand"
 msgstr "Marca de producto"
 
 #. module: product_brand_supplier_discount
+#: model:ir.model.fields,field_description:product_brand_supplier_discount.field_product_supplierinfo__set_fixed_discount
+msgid "Set fixed discount"
+msgstr "Descuento fijo establecido"
+
+#. module: product_brand_supplier_discount
 #: model_terms:ir.ui.view,arch_db:product_brand_supplier_discount.view_product_brand_form
 msgid "Suplier Discounts"
-msgstr "Descuentos de Proveedor"
+msgstr "Descuentos de proveedor"
 
 #. module: product_brand_supplier_discount
 #: model:ir.model.fields,field_description:product_brand_supplier_discount.field_product_brand_supplier_discount__partner_id
@@ -84,7 +89,7 @@ msgstr "Proveedor"
 #. module: product_brand_supplier_discount
 #: model_terms:ir.ui.view,arch_db:product_brand_supplier_discount.view_product_brand_form
 msgid "Supplier Discounts"
-msgstr "Descuentos de Proveedor"
+msgstr "Descuentos de proveedor"
 
 #. module: product_brand_supplier_discount
 #: model:ir.model,name:product_brand_supplier_discount.model_product_supplierinfo

@@ -21,4 +21,15 @@
     </field>
 </record>
 
+<record model="ir.ui.view" id="product_supplierinfo_form_view_brand_disc">
+     <field name="model">product.supplierinfo</field>
+     <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+     <field name="arch" type="xml">
+          <xpath expr="//div[field[@name='price']]" position="after">
+              <field name="fixed_discount"/>
+              <field name="set_fixed_discount"/>
+          </xpath>
+     </field>
+ </record>
+
 </odoo>
