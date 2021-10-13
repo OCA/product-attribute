@@ -67,7 +67,7 @@ class ProductProduct(models.Model):
     def _compute_list_price(self):
         computed_list_price_products = self.browse()
         for product in self:
-            if product.use_supplier_sale_price:
+            if product.use_supplier_sale_price and product.supplier_sale_price:
                 product.list_price = product.supplier_sale_price
             else:
                 computed_list_price_products |= product
