@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+  <record id="product_normal_form_view" model="ir.ui.view">
+    <field name="name">product.product.form.inherit</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view" />
+    <field name="arch" type="xml">
+      <field name="seller_ids" position="before">
+        <group name="main_seller">
+          <field name="main_seller_id" />
+        </group>
+      </field>
+    </field>
+  </record>
+
+  <record id="product_product_tree_view" model="ir.ui.view">
+    <field name="name">product.product.tree.inherit</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_product_tree_view" />
+    <field name="arch" type="xml">
+      <field name="uom_id" position="after">
+        <field name="main_seller_id" optional="hide" />
+      </field>
+    </field>
+  </record>
+
+</odoo>
