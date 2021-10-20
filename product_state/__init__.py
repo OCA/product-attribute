@@ -10,10 +10,13 @@ def post_init_hook(cr, registry):
     """This hook is used to add a state on existing products
     when module product_state is installed.
     """
-    env = api.Environment(cr, SUPERUSER_ID, {})
-    product_without_state = env["product.template"].search([("state", "=", False)])
-    product_without_state.write({"state": "sellable"})
-    product_without_state = env["product.template"].search(
-        [("product_state_id", "=", False)]
-    )
-    product_without_state._inverse_product_state()
+    query = """
+        UPDATE product_template
+            SET product_state_id = data.product_state_id
+            FROM
+            (SELECT tmpl.id as tmpl_id, product_state_id
+            FROM product_template tmpl
+            JOIN product_state ps on ps.code = tmpl.state) AS data
+            WHERE product_template.id = data.tmpl_id
+    """
+    cr.execute(query)
