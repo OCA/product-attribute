@@ -35,6 +35,7 @@ setuptools.setup(
         'odoo14-addon-product_packaging_unit_price_calculator',
         'odoo14-addon-product_pricelist_direct_print',
         'odoo14-addon-product_profile',
+        'odoo14-addon-product_sale_manufactured_for',
         'odoo14-addon-product_seasonality',
         'odoo14-addon-product_secondary_unit',
         'odoo14-addon-product_sequence',
