@@ -1,7 +1,4 @@
 <odoo noupdate="1">
-    <record id="product_state.product_state_draft" model="product.state">
-        <field name="code">draft</field>
-    </record>
     <record id="product_state.product_state_sellable" model="product.state">
         <field name="code">confirmed</field>
     </record>
