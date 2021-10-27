@@ -50,6 +50,11 @@ To add a product to a state:
 #. Go to the product itself and edit.
 #. You can select the desired status in the list of buttons above the form.
 
+Known issues / Roadmap
+======================
+
+File data/product_state_data.xml will be moved to demo/product_state_demo.xml since version 15.0
+
 Bug Tracker
 ===========
 
