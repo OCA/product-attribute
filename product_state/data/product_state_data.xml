@@ -9,6 +9,7 @@
         <field name="code">sellable</field>
         <field name="name">Normal</field>
         <field name="sequence">20</field>
+        <field name="default">True</field>
     </record>
     <record id="product_state_end" model="product.state">
         <field name="code">end</field>
