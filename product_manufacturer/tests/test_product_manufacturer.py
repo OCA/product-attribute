@@ -8,6 +8,7 @@ class TestProductManufacturer(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.manufacturer_a = cls.env["res.partner"].create({"name": "Manufacturer A"})
         cls.manufacturer_b = cls.env["res.partner"].create({"name": "Manufacturer B"})
         cls.attr1 = cls.env["product.attribute"].create({"name": "color"})
@@ -99,4 +100,28 @@ class TestProductManufacturer(SavepointCase):
         self.assertEqual(
             self.product1.product_variant_ids[0].manufacturer_purl,
             "https://www.manufacturerb.com/test_product_b",
+        )
+
+    def test_03_product_manufacturer_creation(self):
+        new_pt = self.env["product.template"].create(
+            {
+                "name": "New Product Template",
+                "manufacturer": self.manufacturer_a.id,
+                "manufacturer_pname": "Test Product A",
+                "manufacturer_pref": "TPA",
+                "manufacturer_purl": "https://www.manufacturera.com/test_product_a",
+            }
+        )
+
+        self.assertEqual(
+            new_pt.product_variant_id.manufacturer.id, new_pt.manufacturer.id
+        )
+        self.assertEqual(
+            new_pt.product_variant_id.manufacturer_pname, new_pt.manufacturer_pname
+        )
+        self.assertEqual(
+            new_pt.product_variant_id.manufacturer_pref, new_pt.manufacturer_pref
+        )
+        self.assertEqual(
+            new_pt.product_variant_id.manufacturer_purl, new_pt.manufacturer_purl
         )
