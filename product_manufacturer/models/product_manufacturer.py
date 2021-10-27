@@ -79,3 +79,23 @@ class ProductTemplate(models.Model):
                 template.product_variant_ids.manufacturer_purl = (
                     template.manufacturer_purl
                 )
+
+    @api.model
+    def create(self, vals):
+        """Overwrite creation for rewriting manufacturer information (if set and having
+        only one variant), after the variant creation, that is performed in super.
+        """
+        template = super().create(vals)
+        if len(template.product_variant_ids) == 1:
+            related_vals = {}
+            if vals.get("manufacturer"):
+                related_vals["manufacturer"] = vals["manufacturer"]
+            if vals.get("manufacturer_pname"):
+                related_vals["manufacturer_pname"] = vals["manufacturer_pname"]
+            if vals.get("manufacturer_pref"):
+                related_vals["manufacturer_pref"] = vals["manufacturer_pref"]
+            if vals.get("manufacturer_purl"):
+                related_vals["manufacturer_purl"] = vals["manufacturer_purl"]
+            if related_vals:
+                template.write(related_vals)
+        return template
