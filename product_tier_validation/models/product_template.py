@@ -32,5 +32,5 @@ class ProductTemplate(models.Model):
     @api.model
     def _get_default_product_state_id(self):
         return self.env.ref(
-            "product_state.product_state_draft", raise_if_not_found=False
+            "product_state.demo_product_state_draft", raise_if_not_found=False
         )

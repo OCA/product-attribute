@@ -1,0 +1,11 @@
+<odoo noupdate="1">
+    <record id="product_state.demo_product_state_draft" model="product.state">
+        <field name="code">draft</field>
+    </record>
+    <record id="product_state.demo_product_state_sellable" model="product.state">
+        <field name="code">confirmed</field>
+    </record>
+    <record id="product_state.demo_product_state_end" model="product.state">
+        <field name="code">cancel</field>
+    </record>
+</odoo>
