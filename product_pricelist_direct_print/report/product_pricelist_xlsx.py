@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, models
+from odoo import _, fields, models
 
 
 class ProductPricelistXlsx(models.AbstractModel):
@@ -69,6 +69,9 @@ class ProductPricelistXlsx(models.AbstractModel):
         decimal_format = workbook.add_format({"num_format": "0.00"})
         decimal_bold_format = workbook.add_format({"num_format": "0.00", "bold": 1})
         row = 6
+        # We should avoid sending a date as a False object as it will crash if a
+        # submethod tries to make comparisons with other date.
+        print_date = book.date or fields.Date.today()
         for group in book.get_groups_to_print():
             sheet.write(row, 0, group["group_name"], bold_format)
             row += 1
@@ -85,7 +88,7 @@ class ProductPricelistXlsx(models.AbstractModel):
                 sheet.write(
                     row,
                     next_col,
-                    product.with_context(pricelist=pricelist.id, date=book.date).price,
+                    product.with_context(pricelist=pricelist.id, date=print_date).price,
                     decimal_bold_format,
                 )
                 row += 1
