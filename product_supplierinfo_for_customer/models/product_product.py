@@ -122,7 +122,7 @@ class ProductProduct(models.Model):
     def _select_customerinfo(
         self, partner=False, _quantity=0.0, _date=None, _uom_id=False, params=False
     ):
-        """Customer version of the standard `_select_seller`. """
+        """Customer version of the standard `_select_seller`."""
         # TODO: For now it is just the function name with same arguments, but
         #  can be changed in future migrations to be more in line Odoo
         #  standard way to select supplierinfo's.
