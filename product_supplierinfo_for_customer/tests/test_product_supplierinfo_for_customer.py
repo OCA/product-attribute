@@ -55,7 +55,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         )
 
     def test_default_get(self):
-        """ checking values returned by default_get() """
+        """checking values returned by default_get()"""
         fields = ["name"]
         values = self.customer.with_context(select_type=True).default_get(fields)
         self.assertEqual(values["customer"], False, "Incorrect default")
