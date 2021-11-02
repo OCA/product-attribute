@@ -8,7 +8,7 @@ class ProductSupplierInfo(models.Model):
 
     @api.model
     def search(self, args, offset=0, limit=None, order=None, count=False):
-        res = super(ProductSupplierInfo, self).search(
+        res = super().search(
             args, offset=offset, limit=limit, order=order, count=count
         )
         if (
@@ -42,4 +42,4 @@ class ProductSupplierInfo(models.Model):
                 for x in new_ids
             ]
         else:
-            return super(ProductSupplierInfo, self).read(fields=fields, load=load)
+            return super().read(fields=fields, load=load)

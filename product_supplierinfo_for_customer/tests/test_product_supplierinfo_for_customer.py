@@ -3,13 +3,13 @@
 # Copyright 2015 Tecnativa
 # Copyright 2018 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductSupplierinfoForCustomer(SavepointCase):
+class TestProductSupplierinfoForCustomer(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductSupplierinfoForCustomer, cls).setUpClass()
+        super().setUpClass()
         cls.supplierinfo_model = cls.env["product.supplierinfo"]
         cls.customerinfo_model = cls.env["product.customerinfo"]
         cls.pricelist_item_model = cls.env["product.pricelist.item"]
@@ -134,7 +134,6 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
                 "value_ids": [(6, 0, [self.large_125.id, self.large_250.id])],
             }
         )
-
         template = self.piece_template
         product = template.product_variant_ids[0]
         product_1 = template.product_variant_ids[1]
