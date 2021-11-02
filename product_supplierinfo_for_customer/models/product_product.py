@@ -18,7 +18,7 @@ class ProductProduct(models.Model):
     def _name_search(
         self, name="", args=None, operator="ilike", limit=100, name_get_uid=None
     ):
-        res = super(ProductProduct, self)._name_search(
+        res = super()._name_search(
             name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
         )
         res_ids = list(res)
@@ -79,7 +79,7 @@ class ProductProduct(models.Model):
             ) or self.env.context.get("partner", False)
             if partner_id and isinstance(partner_id, models.BaseModel):
                 partner_id = partner_id.id
-            prices = super(ProductProduct, self).price_compute(
+            prices = super().price_compute(
                 "list_price", uom, currency, company
             )
             for product in self:
@@ -103,7 +103,7 @@ class ProductProduct(models.Model):
                         prices[product.id], currency, company, date
                     )
             return prices
-        return super(ProductProduct, self).price_compute(
+        return super().price_compute(
             price_type, uom, currency, company
         )
 
@@ -131,6 +131,7 @@ class ProductProduct(models.Model):
         params.update({"partner_id": partner.id})
         domain = self._prepare_domain_customerinfo(params)
         res = self.env["product.customerinfo"].search(
-            domain, order="product_id, sequence", limit=1
-        )
-        return res
+            domain
+        ).sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
+        res_1 = res.sorted('product_tmpl_id')[:1]
+        return res_1
