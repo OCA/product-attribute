@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<record id="product_template_view_form" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view" />
+    <field name="arch" type="xml">
+        <button name="open_pricelist_rules" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </button>
+        <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
+            <group name="price" string="Fixed Price">
+                <field name="fixed_pricelist_item_ids" nolabel="1">
+                    <tree editable="bottom">
+                        <field name="pricelist_id" />
+                        <field
+                                name="product_id"
+                                domain="[('product_tmpl_id', '=', parent.id)]"
+                                attrs="{'invisible': [('parent.product_variant_count', '&lt;=', 1)]}"
+                            />
+                        <field name="min_quantity" />
+                        <field name="fixed_price" />
+                        <field name="date_start" />
+                        <field name="date_end" />
+                        <field name="company_id" invisible="True" />
+                    </tree>
+                </field>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+<record id="product_template_view_form_no_list_price" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view" />
+    <field
+            name="groups_id"
+            eval="[(4, ref('product_form_pricelist.group_no_list_price'))]"
+        />
+    <field name="arch" type="xml">
+        <field name="list_price" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </field>
+        <label for="list_price" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </label>
+    </field>
+</record>
+
+<record id="product_template_kanban_view" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_kanban_view" />
+    <field
+            name="groups_id"
+            eval="[(4, ref('product_form_pricelist.group_no_list_price'))]"
+        />
+    <field name="arch" type="xml">
+        <div name="product_lst_price" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </div>
+    </field>
+</record>
+
+<record id="product_template_tree_view" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_tree_view" />
+    <field
+            name="groups_id"
+            eval="[(4, ref('product_form_pricelist.group_no_list_price'))]"
+        />
+    <field name="arch" type="xml">
+        <field name="list_price" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </field>
+    </field>
+</record>
+
+</odoo>
