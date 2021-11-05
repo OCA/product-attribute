@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_category_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_category_type
+#: model:ir.model.fields,help:product_category_type.field_product_category__type
+msgid "A category of the view type is a virtual category that can be used as the parent of another category to create a hierarchical structure."
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__type
+msgid "Category Type"
+msgstr ""
+
+#. module: product_category_type
+#: model:product.category,name:product_category_type.category_normal_1
+msgid "Demo Category 1 (Type Normal)"
+msgstr ""
+
+#. module: product_category_type
+#: model:product.category,name:product_category_type.category_normal_2
+msgid "Demo Category 2 (Type Normal)"
+msgstr ""
+
+#. module: product_category_type
+#: model:product.category,name:product_category_type.category_view
+msgid "Demo Parent Category (Type View)"
+msgstr ""
+
+#. module: product_category_type
+#: selection:product.category,type:0
+msgid "Normal"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__parent_id
+msgid "Parent Category"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
+msgid "Pricing/Primary Category"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields,help:product_category_type.field_product_product__categ_id
+#: model:ir.model.fields,help:product_category_type.field_product_template__categ_id
+msgid "Select category for the current product"
+msgstr ""
+
+#. module: product_category_type
+#: selection:product.category,type:0
+msgid "View"
+msgstr ""
+
