@@ -1,0 +1,110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_form_pricelist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__applied_on
+msgid "Apply On"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model,name:product_form_pricelist.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model_terms:ir.ui.view,arch_db:product_form_pricelist.product_template_view_form
+msgid "Fixed Price"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_product__fixed_pricelist_item_ids
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template__fixed_pricelist_item_ids
+msgid "Fixed Pricelist Items"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model_terms:ir.ui.view,arch_db:product_form_pricelist.res_config_settings_view_form
+msgid "Hide 'Sales Price' in product form"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings__group_no_list_price
+msgid "Hide field 'Sales price'"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:res.groups,name:product_form_pricelist.group_no_list_price
+msgid "Hide list price on product"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__id
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template__id
+#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model_terms:ir.ui.view,arch_db:product_form_pricelist.res_config_settings_view_form
+msgid ""
+"In case that you only manage your price using fixed pricelist, you can hide "
+"the field 'Sales Price'"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item____last_update
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_item__applied_on
+msgid "Pricelist Item applicable on selected option"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model,name:product_form_pricelist.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__product_tmpl_id
+msgid "Product"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model,name:product_form_pricelist.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_item__product_tmpl_id
+msgid ""
+"Specify a template if this rule only applies to one product template. Keep "
+"empty otherwise."
+msgstr ""
+
+#. module: product_form_pricelist
+#: model:ir.model.fields,help:product_form_pricelist.field_res_config_settings__group_no_list_price
+msgid "Use fixed price and hide the native 'Sales Price' field"
+msgstr ""
