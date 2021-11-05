@@ -45,11 +45,9 @@ This module extends the functionallity of product module, adding a domain on thi
 Development
 ===========
 
-Technically, this module add two new related fields on ``product.template`` model,
+Technically, this module add 1 new related field on ``product.template`` model,
 
 * ``uom_category_id``, related to ``uom_id.category_id``
-* ``uom_measure_type`` related to ``uom_id.category_id.measure_type``. This second field
-  is a technical field that can be used for other modules.
 
 Bug Tracker
 ===========
@@ -86,6 +84,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-legalsylvain| image:: https://github.com/legalsylvain.png?size=40px
+    :target: https://github.com/legalsylvain
+    :alt: legalsylvain
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-legalsylvain| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/12.0/product_uom_po_domain>`_ project on GitHub.
 
