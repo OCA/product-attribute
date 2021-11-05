@@ -238,7 +238,7 @@ class ProductMixinProfile(models.AbstractModel):
         ]
 
     @api.model
-    def _customize_view(self, res, view_type):
+    def _customize_view(self, res, view_type, profile_domain=None):
         profile_group = self.env.ref("product_profile.group_product_profile_user")
         users_in_profile_group = [user.id for user in profile_group.users]
         default_fields = self._get_default_profile_fields()
@@ -261,7 +261,7 @@ class ProductMixinProfile(models.AbstractModel):
             res["arch"] = etree.tostring(doc, pretty_print=True)
         elif view_type == "search":
             # Allow to dynamically create search filters for each profile
-            filters_to_create = self._get_profiles_to_filter()
+            filters_to_create = self._get_profiles_to_filter(profile_domain)
             doc = etree.XML(res["arch"])
             node = doc.xpath("//filter[1]")
             if node:
@@ -270,13 +270,17 @@ class ProductMixinProfile(models.AbstractModel):
                         "filter", **self._customize_profile_filters(my_filter)
                     )
                     node[0].addprevious(elm)
+                node[0].addprevious(etree.Element("separator"))
                 res["arch"] = etree.tostring(doc, pretty_print=True)
         return res
 
-    @api.model
-    def _get_profiles_to_filter(self):
+    def _get_profiles_to_filter(self, profile_domain=None):
         """Inherit if you want that some profiles doesn't have a filter"""
-        return [(x.id, x.name) for x in self.env["product.profile"].search([])]
+        if profile_domain is None:
+            profile_domain = []
+        return [
+            (x.id, x.name) for x in self.env["product.profile"].search(profile_domain)
+        ]
 
     @api.model
     def _customize_profile_filters(self, my_filter):
