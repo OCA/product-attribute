@@ -8,21 +8,16 @@ class ProductProduct(models.Model):
 
     _inherit = "product.product"
 
-    status = fields.Selection(
-        string="Status",
-        selection=[
-            ("new", "New"),
-            ("discontinued", "Discontinued"),
-            ("phaseout", "Phase Out"),
-            ("endoflife", "End-Of-Life"),
-        ],
+    status = fields.Many2one(
+        "product.state",
+        string="Status (Header)",
         compute="_compute_status",
     )
     # So the status can be displayed in the form and in the header
     # Without conflict
-    status_display = fields.Selection(
-        related="status", string="Product Status", readonly=True
-    )
+    # Odoo UI cannot represent properly the same fields twice in the
+    # same form with 2 different widgets, see github issues #43598
+    status_display = fields.Many2one(related="status", string="Status", readonly=True)
     end_of_life_date = fields.Date(
         string="End-of-life",
         help="When the product is end-of-life, and you want to warn your "
@@ -56,15 +51,18 @@ class ProductProduct(models.Model):
         for record in self:
             if record.end_of_life_date:
                 if record.end_of_life_date < today:
-                    record.status = "endoflife"
+                    record.status = self.env.ref(
+                        "product_status.product_state_endoflife"
+                    ).id
                 else:
-                    record.status = "phaseout"
-            elif (
-                record.discontinued_until
-                and record.discontinued_until >= today
-            ):
-                record.status = "discontinued"
+                    record.status = self.env.ref(
+                        "product_status.product_state_phaseout"
+                    ).id
+            elif record.discontinued_until and record.discontinued_until >= today:
+                record.status = self.env.ref(
+                    "product_status.product_state_discontinued"
+                ).id
             elif record.new_until and record.new_until >= today:
-                record.status = "new"
+                record.status = self.env.ref("product_status.product_state_new").id
             else:
                 record.status = False
