@@ -32,7 +32,7 @@ addon | version | maintainers | summary
 [product_dimension_volumetric_weight](product_dimension_volumetric_weight/) | 13.0.1.0.0 |  | Product Dimension Volumetric Weight
 [product_list_pricelist_price](product_list_pricelist_price/) | 13.0.1.0.1 |  | Display pricelist prices for products in list view.
 [product_lot_sequence](product_lot_sequence/) | 13.0.1.0.1 |  | Adds ability to define a lot sequence from the product
-[product_manufacturer](product_manufacturer/) | 13.0.2.0.0 |  | Adds manufacturers and attributes on the product view.
+[product_manufacturer](product_manufacturer/) | 13.0.2.1.0 |  | Adds manufacturers and attributes on the product view.
 [product_medical](product_medical/) | 13.0.1.3.0 |  | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 13.0.1.0.0 |  | Product - Many Categories
 [product_multi_price](product_multi_price/) | 13.0.1.0.0 |  | Product Multi Price
