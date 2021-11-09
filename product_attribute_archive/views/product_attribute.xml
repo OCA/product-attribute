@@ -17,9 +17,7 @@
                     attrs="{'invisible': [('active', '=', True)]}"
                 />
             </xpath>
-            <field name="html_color" position="after">
-                <field name="active" optional="hide" />
-            </field>
+            <field name="active" optional="hide" />
         </field>
     </record>
 
