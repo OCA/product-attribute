@@ -79,9 +79,7 @@ class ProductProduct(models.Model):
             ) or self.env.context.get("partner", False)
             if partner_id and isinstance(partner_id, models.BaseModel):
                 partner_id = partner_id.id
-            prices = super().price_compute(
-                "list_price", uom, currency, company
-            )
+            prices = super().price_compute("list_price", uom, currency, company)
             for product in self:
                 price = product._get_price_from_customerinfo(partner_id)
                 if not price:
@@ -103,9 +101,7 @@ class ProductProduct(models.Model):
                         prices[product.id], currency, company, date
                     )
             return prices
-        return super().price_compute(
-            price_type, uom, currency, company
-        )
+        return super().price_compute(price_type, uom, currency, company)
 
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
@@ -130,8 +126,10 @@ class ProductProduct(models.Model):
             params = dict()
         params.update({"partner_id": partner.id})
         domain = self._prepare_domain_customerinfo(params)
-        res = self.env["product.customerinfo"].search(
-            domain
-        ).sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
-        res_1 = res.sorted('product_tmpl_id')[:1]
+        res = (
+            self.env["product.customerinfo"]
+            .search(domain)
+            .sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
+        )
+        res_1 = res.sorted("product_tmpl_id")[:1]
         return res_1
