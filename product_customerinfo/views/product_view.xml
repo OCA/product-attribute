@@ -72,7 +72,7 @@
         <field name="name">product.customerinfo.tree.view</field>
         <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
-            <tree string="Customer Information">
+            <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" string="Customer" />
                 <field
