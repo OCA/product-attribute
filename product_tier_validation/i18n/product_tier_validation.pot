@@ -52,6 +52,11 @@ msgid "Needs an Approval"
 msgstr ""
 
 #. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__next_review
+msgid "Next Review"
+msgstr ""
+
+#. module: product_tier_validation
 #: model:ir.model,name:product_tier_validation.model_product_template
 msgid "Product Template"
 msgstr ""
