@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -68,7 +68,6 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
-#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Information"
 msgstr ""
 
@@ -106,11 +105,6 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__display_name
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item__display_name
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo__display_name
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__display_name
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -126,11 +120,6 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item__id
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__id
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo__id
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__id
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -148,11 +137,6 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo____last_update
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item____last_update
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo____last_update
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template____last_update
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 
