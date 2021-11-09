@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2021 Tecnativa - Pedro M. Baeza
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="view_partner_property_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="product.view_partner_property_form" />
+        <field name="arch" type="xml">
+            <field name="property_product_pricelist" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </field>
+            <div name="parent_pricelists" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </div>
+        </field>
+    </record>
+</data>
