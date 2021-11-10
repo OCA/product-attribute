@@ -64,10 +64,6 @@ class IrFilters(models.Model):
 
         return res
 
-    # Original : @api.depends("domain", "blacklist_product_ids", "whitelist_product_ids")
-    # TODO : Resolve bug if depending of blacklist_product_ids and
-    # whitelist_product_ids when we add some products to black / whitelist.
-    @api.depends("domain")
     def _compute_record_count(self):
         for record in self:
             if record.model_id not in self.env:
