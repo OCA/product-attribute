@@ -11,7 +11,3 @@ To use this module:
    pricelist will have a date end from which pricelist will be out of date.
 #. You can check supplier pricelists as well as variation percent in the
    product form, by clicking on *Purchase* tab.
-
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/13.0
