@@ -103,4 +103,5 @@ class TestProductAssortment(TransactionCase):
         products = self.product_obj.search(domain)
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
+        self.assortment.invalidate_cache()
         self.assertEqual(self.assortment.record_count, len(products_filtered))
