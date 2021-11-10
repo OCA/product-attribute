@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!-- Copyright 2017 Carlos Dauden - Tecnativa <carlos.dauden@tecnativa.com>
+<!-- Copyright 2017 Tecnativa - Carlos Dauden
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="pricelist_item_duplicate_wizard_view" model="ir.ui.view">
@@ -28,18 +28,16 @@
                         type="object"
                         class="oe_highlight"
                     />
-                    or
                     <button string="Cancel" class="oe_link" special="cancel" />
                 </footer>
             </form>
         </field>
     </record>
-    <act_window
-        id="pricelist_item_duplicate_wizard_action"
-        name="Duplicate Item"
-        binding_model="product.pricelist.item"
-        res_model="product.pricelist.item.duplicate.wizard"
-        view_mode="form"
-        target="new"
-    />
+    <record id="pricelist_item_duplicate_wizard_action" model="ir.actions.act_window">
+        <field name="name">Duplicate Item</field>
+        <field name="binding_model_id" ref="product.model_product_pricelist_item" />
+        <field name="view_mode">form</field>
+        <field name="res_model">product.pricelist.item.duplicate.wizard</field>
+        <field name="target">new</field>
+    </record>
 </odoo>
