@@ -5,7 +5,7 @@
     "name": "Product Assortment",
     "summary": """
         Adds the ability to manage products assortment""",
-    "version": "14.0.1.0.2",
+    "version": "14.0.1.0.3",
     "license": "AGPL-3",
     "development_status": "Production/Stable",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
