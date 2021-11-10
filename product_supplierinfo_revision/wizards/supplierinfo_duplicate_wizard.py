@@ -12,7 +12,10 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
 
     date_start = fields.Date(required=True)
     date_end = fields.Date()
-    variation_percent = fields.Float(digits="Product Price", string="Variation %",)
+    variation_percent = fields.Float(
+        digits="Product Price",
+        string="Variation %",
+    )
 
     def action_apply(self):
         Supplierinfo = self.env["product.supplierinfo"]
