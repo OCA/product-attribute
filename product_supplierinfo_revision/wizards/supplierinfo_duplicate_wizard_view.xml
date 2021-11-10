@@ -26,18 +26,16 @@
                         type="object"
                         class="oe_highlight"
                     />
-                    or
                     <button string="Cancel" class="oe_link" special="cancel" />
                 </footer>
             </form>
         </field>
     </record>
-    <act_window
-        id="supplierinfo_duplicate_wizard_action"
-        name="Duplicate Supplier Info"
-        binding_model="product.supplierinfo"
-        res_model="product.supplierinfo.duplicate.wizard"
-        view_mode="form"
-        target="new"
-    />
+    <record id="supplierinfo_duplicate_wizard_action" model="ir.actions.act_window">
+        <field name="name">Duplicate Supplier Info</field>
+        <field name="binding_model_id" ref="product.model_product_supplierinfo" />
+        <field name="view_mode">form</field>
+        <field name="res_model">product.supplierinfo.duplicate.wizard</field>
+        <field name="target">new</field>
+    </record>
 </odoo>
