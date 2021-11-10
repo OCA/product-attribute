@@ -1,6 +1,6 @@
 * `Tecnativa <https://www.tecnativa.com/>`_:
 
-  * Vicent Cubells <vicent.cubells@tecnativa.com>
+  * Vicent Cubells
   * Pedro M. Baeza
   * Carlos Roca
 
