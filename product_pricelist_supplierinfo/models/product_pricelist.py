@@ -36,12 +36,13 @@ class ProductPricelistItem(models.Model):
 
     base = fields.Selection(
         selection_add=[("supplierinfo", "Prices based on supplier info")],
+        ondelete={"supplierinfo": "set default"},
     )
     no_supplierinfo_min_quantity = fields.Boolean(
         string="Ignore Supplier Info Min. Quantity",
     )
     filter_supplier_id = fields.Many2one(
-        "res.partner",
-        "Supplier filter",
+        comodel_name="res.partner",
+        string="Supplier filter",
         help="Only match prices from the selected supplier",
     )
