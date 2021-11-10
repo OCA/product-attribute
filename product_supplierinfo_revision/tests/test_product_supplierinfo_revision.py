@@ -1,5 +1,5 @@
-# Copyright 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
-# Copyright 2018 Vicent Cubells <vicent.cubells@tecnativa.com>
+# Copyright 2016 Tecnativa - Sergio Teruel
+# Copyright 2018 Tecnativa - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
