@@ -9,7 +9,7 @@ from odoo.tests.common import SavepointCase
 class TestProductPricelistRevision(SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductPricelistRevision, cls).setUpClass()
+        super().setUpClass()
         cls.pricelist_obj = cls.env["product.pricelist"]
         cls.pricelist_item_obj = cls.env["product.pricelist.item"]
         cls.product_category_obj = cls.env["product.category"]
@@ -71,20 +71,20 @@ class TestProductPricelistRevision(SavepointCase):
         expected = self.pricelist_item_product_category
         expected |= self.pricelist_item_product_template
         expected |= self.pricelist_item_product_product
-        self.assertEquals(result, expected)
+        self.assertEqual(result, expected)
         result = item_obj.search([("name", "ilike", "product category")])
-        self.assertEquals(result, self.pricelist_item_product_category)
+        self.assertEqual(result, self.pricelist_item_product_category)
         result = item_obj.search([("name", "ilike", "product template")])
-        self.assertEquals(result, self.pricelist_item_product_template)
+        self.assertEqual(result, self.pricelist_item_product_template)
         result = item_obj.search([("name", "ilike", "product variant")])
-        self.assertEquals(result, self.pricelist_item_product_product)
+        self.assertEqual(result, self.pricelist_item_product_product)
         result = item_obj.search([("name", "ilike", "all")])
-        self.assertEquals(len(result), 0)
+        self.assertEqual(len(result), 0)
 
     def test_wizard_action_apply_and_compute_variation_percent(self):
         wizard_obj = self.env["product.pricelist.item.duplicate.wizard"]
         # Before duplicate there are 4 items
-        self.assertEquals(len(self.pricelist.item_ids), 4)
+        self.assertEqual(len(self.pricelist.item_ids), 4)
         items_before_wizard = self.pricelist.item_ids
         # Create wizard from pricelist_item_product_product and aply
         active_ids = self.pricelist_item_product_product.ids
@@ -97,9 +97,9 @@ class TestProductPricelistRevision(SavepointCase):
         )
         wizard.action_apply()
         # There will be one more item in self.pricelist
-        self.assertEquals(len(self.pricelist.item_ids), 5)
+        self.assertEqual(len(self.pricelist.item_ids), 5)
         new_item = self.pricelist.item_ids - items_before_wizard
-        self.assertEquals(new_item.previous_item_id.id, active_ids[0])
-        self.assertEquals(new_item.previous_price, 100)
-        self.assertEquals(new_item.fixed_price, 150)
-        self.assertEquals(new_item.variation_percent, 50)
+        self.assertEqual(new_item.previous_item_id.id, active_ids[0])
+        self.assertEqual(new_item.previous_price, 100)
+        self.assertEqual(new_item.fixed_price, 150)
+        self.assertEqual(new_item.variation_percent, 50)
