@@ -8,7 +8,7 @@ class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
     sale_margin = fields.Float(
-        "Sale Margin",
+        string="Sale Margin",
         default=0,
         digits=(16, 2),
         help="Margin to apply on price to obtain sale price",
