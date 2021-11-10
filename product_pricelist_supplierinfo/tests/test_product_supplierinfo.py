@@ -61,7 +61,8 @@ class TestProductSupplierinfo(common.SavepointCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False), 5.0,
+            self.pricelist.get_product_price(self.product, 1, False),
+            5.0,
         )
 
     def test_pricelist_based_on_product(self):
@@ -72,7 +73,8 @@ class TestProductSupplierinfo(common.SavepointCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False), 10.0,
+            self.pricelist.get_product_price(self.product, 1, False),
+            10.0,
         )
         self.assertAlmostEqual(
             self.product.product_tmpl_id.with_context(
@@ -90,34 +92,42 @@ class TestProductSupplierinfo(common.SavepointCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False), 12.5,
+            self.pricelist.get_product_price(self.product, 1, False),
+            12.5,
         )
         self.assertAlmostEqual(
-            self.product.with_context(pricelist=self.pricelist.id).price, 12.5,
+            self.product.with_context(pricelist=self.pricelist.id).price,
+            12.5,
         )
 
     def test_pricelist_min_quantity(self):
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False), 10,
+            self.pricelist.get_product_price(self.product, 1, False),
+            10,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False), 50,
+            self.pricelist.get_product_price(self.product, 5, False),
+            50,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 10, False), 50,
+            self.pricelist.get_product_price(self.product, 10, False),
+            50,
         )
         self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False), 10,
+            self.pricelist.get_product_price(self.product, 5, False),
+            10,
         )
 
     def test_pricelist_supplier_filter(self):
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False), 50,
+            self.pricelist.get_product_price(self.product, 5, False),
+            50,
         )
         self.pricelist.item_ids[0].filter_supplier_id = self.supplier2.id
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False), 10,
+            self.pricelist.get_product_price(self.product, 5, False),
+            10,
         )
 
     def test_pricelist_dates(self):
@@ -127,7 +137,10 @@ class TestProductSupplierinfo(common.SavepointCase):
         ].date_start = "2018-12-31"
         self.assertAlmostEqual(
             self.pricelist.get_product_price(
-                self.product, 5, False, date=date(2019, 1, 1),
+                self.product,
+                5,
+                False,
+                date=date(2019, 1, 1),
             ),
             50,
         )
@@ -145,7 +158,8 @@ class TestProductSupplierinfo(common.SavepointCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False), 20.0,
+            self.pricelist.get_product_price(self.product, 1, False),
+            20.0,
         )
 
     def test_pricelist_based_on_sale_margin(self):
@@ -158,10 +172,12 @@ class TestProductSupplierinfo(common.SavepointCase):
         seller = self.product.seller_ids[0]
         seller.sale_margin = 50
         self.assertAlmostEqual(
-            seller._get_supplierinfo_pricelist_price(), 75.0,
+            seller._get_supplierinfo_pricelist_price(),
+            75.0,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 6, False), 75.0,
+            self.pricelist.get_product_price(self.product, 6, False),
+            75.0,
         )
         self.assertAlmostEqual(
             self.product.product_tmpl_id.with_context(
@@ -228,10 +244,12 @@ class TestProductSupplierinfo(common.SavepointCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(variant1, 1, False), 15.0,
+            self.pricelist.get_product_price(variant1, 1, False),
+            15.0,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(variant2, 1, False), 25.0,
+            self.pricelist.get_product_price(variant2, 1, False),
+            25.0,
         )
 
     def test_pricelist_and_supplierinfo_currencies(self):
