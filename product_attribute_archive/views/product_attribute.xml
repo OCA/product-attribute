@@ -17,7 +17,9 @@
                     attrs="{'invisible': [('active', '=', True)]}"
                 />
             </xpath>
-            <field name="active" optional="hide" />
+            <xpath expr="//field[@name='value_ids']/tree" position="inside">
+              <field name="active" optional="hide" />
+            </xpath>
         </field>
     </record>
 
