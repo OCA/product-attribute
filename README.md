@@ -66,7 +66,7 @@ addon | version | maintainers | summary
 [purchase_product_template_tags](purchase_product_template_tags/) | 14.0.1.1.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Purchase app
 [sale_product_template_tags](sale_product_template_tags/) | 14.0.1.1.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Sale app
 [stock_product_template_tags](stock_product_template_tags/) | 14.0.1.1.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Inventory app
-[uom_extra_data](uom_extra_data/) | 14.0.1.0.0 |  | Have mm, ml, week, work_week uom
+[uom_extra_data](uom_extra_data/) | 14.0.1.0.1 |  | Have mm, ml, week, work_week uom
 
 [//]: # (end addons)
 
