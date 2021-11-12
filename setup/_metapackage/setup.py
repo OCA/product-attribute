@@ -55,6 +55,7 @@ setuptools.setup(
         'odoo14-addon-purchase_product_template_tags',
         'odoo14-addon-sale_product_template_tags',
         'odoo14-addon-stock_product_template_tags',
+        'odoo14-addon-uom_extra_data',
     ],
     classifiers=[
         'Programming Language :: Python',
