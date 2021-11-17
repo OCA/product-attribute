@@ -18,11 +18,7 @@ class ProductTemplate(models.Model):
 
     def _compute_supplier_product_code(self):
         for prod in self:
-            seller = first(
-                prod.seller_ids.filtered(
-                    lambda p: p.company_id == self.env.company or not p.company_id
-                )
-            )
+            seller = first(prod.seller_ids)
             prod.supplier_product_code = seller.product_code
 
     @api.model
