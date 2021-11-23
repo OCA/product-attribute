@@ -36,7 +36,7 @@ addon | version | maintainers | summary
 [product_logistics_uom](product_logistics_uom/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
 [product_lot_sequence](product_lot_sequence/) | 14.0.1.0.1 |  | Adds ability to define a lot sequence from the product
 [product_main_supplierinfo](product_main_supplierinfo/) | 14.0.1.0.0 | [![sebalix](https://github.com/sebalix.png?size=30px)](https://github.com/sebalix) | Display the main vendor of a product.
-[product_manufacturer](product_manufacturer/) | 14.0.1.0.1 |  | Adds manufacturers and attributes on the product view.
+[product_manufacturer](product_manufacturer/) | 14.0.1.0.2 |  | Adds manufacturers and attributes on the product view.
 [product_medical](product_medical/) | 14.0.1.0.1 |  | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 14.0.1.0.0 |  | Product - Many Categories
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | [![WR-96](https://github.com/WR-96.png?size=30px)](https://github.com/WR-96) [![moylop260](https://github.com/moylop260.png?size=30px)](https://github.com/moylop260) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Speedup product retrieve
