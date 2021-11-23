@@ -1,11 +1,9 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import datetime
-
 from odoo import _, api, fields, models
 from odoo.osv import expression
-from odoo.tools.safe_eval import safe_eval
+from odoo.tools.safe_eval import datetime, safe_eval
 
 
 class IrFilters(models.Model):
@@ -56,13 +54,13 @@ class IrFilters(models.Model):
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
     partner_domain = fields.Text(default="[]", required=True)
     all_partner_ids = fields.Many2many(
-        comodel_name="res.partner", compute="_compute_all_partner_ids",
+        comodel_name="res.partner",
+        compute="_compute_all_partner_ids",
     )
 
     @api.depends("partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
-        """Summarize selected partners and partners from partner domain field
-        """
+        """Summarize selected partners and partners from partner domain field"""
         for ir_filter in self:
             if not ir_filter.is_assortment:
                 ir_filter.all_partner_ids = False
