@@ -25,6 +25,6 @@
         <field name="model_id" ref="model_product_pricelist_assortment_item" />
         <field
             name="domain_force"
-        > ['|', ('company_id','=',user.company_id.id), ('company_id','=',False)]</field>
+        >['|', ('company_id', 'in', company_ids), ('company_id', '=', False)]</field>
     </record>
 </odoo>
