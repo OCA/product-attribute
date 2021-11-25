@@ -43,7 +43,7 @@ addon | version | maintainers | summary
 [product_packaging_type_pallet](product_packaging_type_pallet/) | 13.0.1.0.0 |  | Manage packaging of pallet type
 [product_packaging_type_required](product_packaging_type_required/) | 13.0.1.1.1 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) [![dcrier](https://github.com/dcrier.png?size=30px)](https://github.com/dcrier) | Product Packaging Type Required
 [product_packaging_unit_price_calculator](product_packaging_unit_price_calculator/) | 13.0.1.0.2 |  | Wizard to calculate a unit price from a packaging price
-[product_pricelist_assortment](product_pricelist_assortment/) | 13.0.1.0.1 |  | Product assortment and pricelist
+[product_pricelist_assortment](product_pricelist_assortment/) | 13.0.1.0.2 |  | Product assortment and pricelist
 [product_pricelist_by_contact](product_pricelist_by_contact/) | 13.0.1.0.0 |  | Product Pricelist Per Contact
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 13.0.3.3.1 |  | Print price list from menu option, product templates, products variants or price lists
 [product_pricelist_direct_print_website_sale](product_pricelist_direct_print_website_sale/) | 13.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Extend Product Pricelist Direct Print for filter by public categories
