@@ -3,7 +3,7 @@
 {
     "name": "Product Tier Validation",
     "summary": "Support a tier validation process for Products",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Products",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
