@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2015 AvanzOSC
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="product_supplierinfo_customer" model="product.customerinfo">
+        <field
+            name="product_tmpl_id"
+            ref="product.product_product_4_product_template"
+        />
+        <field name="name" ref="base.res_partner_2" />
+        <field name="delay">1</field>
+        <field name="min_qty">1</field>
+    </record>
+</odoo>
