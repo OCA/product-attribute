@@ -21,10 +21,17 @@ class ProductTemplate(models.Model):
         string="State",
         help="Select a state for this product",
         group_expand="_read_group_state_id",
+        inverse="_inverse_product_state_id",
         default=lambda self: self._get_default_product_state_id(),
         index=True,
         tracking=10,
     )
+
+    def _inverse_product_state_id(self):
+        """
+        Allow to ease triggering other stuff when product state changes
+        without a write()
+        """
 
     @api.model
     def _get_default_product_state_id(self):
