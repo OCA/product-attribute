@@ -15,7 +15,11 @@ TODO: add repo description.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 15.0.1.0.0 |  | Allows to define prices for customers in the products
 
 [//]: # (end addons)
 
