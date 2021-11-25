@@ -14,7 +14,6 @@
     "depends": ["product_state", "base_tier_validation"],
     "data": [
         "data/tier_definition.xml",
-        "data/product_state_data.xml",
         "views/product_template_view.xml",
     ],
 }
