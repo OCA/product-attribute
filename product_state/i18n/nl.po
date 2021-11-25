@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__active
+msgid "Active"
+msgstr ""
+
+#. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Code"
 msgstr "Code"
@@ -30,6 +35,11 @@ msgstr "Aangemaakt door"
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_date
 msgid "Created on"
 msgstr "Aangemaakt op"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__default
+msgid "Default state"
+msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
@@ -163,6 +173,12 @@ msgstr "Statusnaam"
 #: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
 msgid "State Products"
 msgstr "Product status"
+
+#. module: product_state
+#: code:addons/product_state/models/product_state.py:0
+#, python-format
+msgid "There should be only one default state"
+msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
