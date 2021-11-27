@@ -42,6 +42,7 @@ setuptools.setup(
         'odoo14-addon-product_secondary_unit',
         'odoo14-addon-product_sequence',
         'odoo14-addon-product_state',
+        'odoo14-addon-product_state_history',
         'odoo14-addon-product_stock_state',
         'odoo14-addon-product_supplierinfo_for_customer',
         'odoo14-addon-product_supplierinfo_revision',
