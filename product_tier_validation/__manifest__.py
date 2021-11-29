@@ -10,7 +10,7 @@
     "license": "AGPL-3",
     "installable": True,
     "maintainers": ["dreispt"],
-    "development_status": "Alpha",
+    "development_status": "Beta",
     "depends": ["product_state", "base_tier_validation"],
     "data": [
         "data/tier_definition.xml",
