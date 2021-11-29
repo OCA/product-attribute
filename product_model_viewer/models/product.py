@@ -18,11 +18,10 @@ class Product(models.Model):
     gltf_3d_model = fields.Binary(
         "3D model",
         compute="_compute_gltf_3d_model",
-        inverse="_set_gltf_3d_model",
+        inverse="_inverse_set_gltf_3d_model",
         help="3D model of the product variant.",
     )
 
-    @api.multi
     @api.depends("gltf_3d_model_variant", "product_tmpl_id.gltf_3d_model")
     def _compute_gltf_3d_model(self):
         for p in self:
@@ -30,8 +29,7 @@ class Product(models.Model):
             if not p.gltf_3d_model:
                 self.gltf_3d_model = self.product_tmpl_id.gltf_3d_model
 
-    @api.multi
-    def _set_gltf_3d_model(self):
+    def _inverse_set_gltf_3d_model(self):
         for p in self:
             if p.product_tmpl_id.gltf_3d_model and p.product_variant_count > 1:
                 p.gltf_3d_model_variant = p.gltf_3d_model
