@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-11-30 11:36+0000\n"
+"Last-Translator: Gailius <gailius.kaz@gmail.com>\n"
 "Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -15,91 +16,92 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
-msgstr ""
+msgstr "Produktų kiekis"
 
 #. module: product_template_tags
 #: model_terms:ir.actions.act_window,help:product_template_tags.product_template_tag_act_window
 msgid "Add tags"
-msgstr ""
+msgstr "Pridėti žymas"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
-msgstr ""
+msgstr "Spalvos indeksas"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__company_id
 #: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
 msgid "Company"
-msgstr ""
+msgstr "Įmonė"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Sukūrė"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Sukurta"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Rodomas pavadinimas"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Paskutinį kartą keista"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Paskutinį kartą naujino"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Paskutinį kartą naujinta"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__name
 msgid "Name"
-msgstr ""
+msgstr "Pavadinimas"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
-msgstr ""
+msgstr "Produkto žyma"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 #: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
 msgid "Product Tags"
-msgstr ""
+msgstr "Produkto žymos"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produkto šablonas"
 
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
 msgid "Product Template Tag"
-msgstr ""
+msgstr "Produkto šablono žyma"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
 msgid "Products"
-msgstr ""
+msgstr "Produktai"
