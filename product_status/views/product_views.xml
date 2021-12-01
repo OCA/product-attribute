@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-  <record id="product_normal_form_view" model="ir.ui.view">
-    <field name="model">product.product</field>
-    <field name="inherit_id" ref="product.product_normal_form_view" />
+  <record id="product_template_only_form_view" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view" />
     <field name="arch" type="xml">
-
-      <header position="inside">
-        <field
-                    name="status"
-                    widget="statusbar"
-                    attrs="{'invisible': [('sale_ok', '=', False)]}"
-                />
-        <field name="product_state_id" invisible="1" />
-      </header>
 
       <group name="sale" position="inside">
         <group name="product_status_wrapper">
@@ -21,7 +12,50 @@
             <field name="new_until" />
             <field name="discontinued_until" />
             <field name="end_of_life_date" />
-            <field name="status_display" />
+            <field name="state" />
+          </group>
+          <div class="alert alert-info" role="alert" colspan="2">
+            By order of importance, the status is computed by:<br />
+            <ul>
+              <li>End-of-life</li>
+              <li>Discontinued until</li>
+              <li>New until</li>
+            </ul>
+            <strong>End-of-life</strong> has priority over the other dates.<br />
+            <strong>Discontinued-until</strong> has priority over <strong
+                        >New until</strong>.
+          </div>
+        </group>
+      </group>
+
+    </field>
+  </record>
+
+  <record id="product_normal_form_view" model="ir.ui.view">
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view" />
+    <field name="arch" type="xml">
+
+      <group name="sale" position="inside">
+        <group name="product_status_wrapper">
+          <group name="product_status" string="Product Status">
+            <field name="has_status_date" invisible="1" />
+            <field name="new_until" />
+            <field name="discontinued_until" />
+            <field name="end_of_life_date" />
+            <field
+                            name="tmpl_new_until"
+                            attrs="{'invisible':[('has_status_date','=',True)]}"
+                        />
+            <field
+                            name="tmpl_discontinued_until"
+                            attrs="{'invisible':[('has_status_date','=',True)]}"
+                        />
+            <field
+                            name="tmpl_end_of_life_date"
+                            attrs="{'invisible':[('has_status_date','=',True)]}"
+                        />
+            <field name="state" />
           </group>
           <div class="alert alert-info" role="alert" colspan="2">
             By order of importance, the status is computed by:<br />
@@ -45,7 +79,7 @@
     <field name="inherit_id" ref="product.product_product_tree_view" />
     <field name="arch" type="xml">
       <field name="uom_id" position="after">
-        <field name="status" />
+        <field name="product_state_id" />
       </field>
     </field>
   </record>

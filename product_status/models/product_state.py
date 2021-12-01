@@ -9,30 +9,24 @@ class ProductState(models.Model):
     _inherit = "product.state"
 
     def write(self, vals):
-        default_data = [st.code for st in self._get_default_data()]
-        for rec in self:
-            if (
-                rec.code in default_data
-                and not rec.env.context.get("install_module") == "product_status"
-            ):
-                raise ValidationError(
-                    _("Cannot modified default state, state name: %s" % (rec.name))
-                )
-        return super(ProductState, self).write(vals)
+        allow = {"default", "active"}
+        if not allow.issuperset(set(vals)):
+            self._check_module_data()
+        return super().write(vals)
 
     def unlink(self):
-        default_data = [st.code for st in self._get_default_data()]
-        for state in self:
-            if state.code in default_data:
-                raise ValidationError(
-                    _("Cannot delete default state, state name: %s" % (state.name))
-                )
+        self._check_module_data()
         return super().unlink()
 
-    def _get_default_data(self):
-        return [
-            self.env.ref("product_status.product_state_new"),
-            self.env.ref("product_status.product_state_discontinued"),
-            self.env.ref("product_status.product_state_phaseout"),
-            self.env.ref("product_status.product_state_endoflife"),
-        ]
+    def _check_module_data(self):
+        if self.env.user.id == 1:
+            return True
+        default_data = [st.code for st in self._get_module_data()]
+        msg = _("Cannot delete/modified state installed by module, state name: %s")
+        for rec in self:
+            if rec.code in default_data:
+                raise ValidationError(msg % rec.name)
+
+    def _get_module_data(self):
+        code = ["new", "discontinued", "phaseout", "endoflife"]
+        return self.env["product.state"].search([("code", "in", code)])
