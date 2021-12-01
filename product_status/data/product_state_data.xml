@@ -4,7 +4,6 @@
         <field name="code">new</field>
         <field name="name">New</field>
         <field name="sequence">10</field>
-        <field name="default">True</field>
     </record>
     <record id="product_state_discontinued" model="product.state">
         <field name="code">discontinued</field>
