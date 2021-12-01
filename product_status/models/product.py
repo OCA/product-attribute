@@ -8,16 +8,24 @@ class ProductProduct(models.Model):
 
     _inherit = "product.product"
 
-    status = fields.Many2one(
-        "product.state",
-        string="Status (Header)",
-        compute="_compute_status",
+    state = fields.Char(
+        string="Product Status",
+        index=True,
+        compute="_compute_product_state",
+        inverse="_inverse_product_state",
+        readonly=True,
+        store=True,
     )
-    # So the status can be displayed in the form and in the header
-    # Without conflict
-    # Odoo UI cannot represent properly the same fields twice in the
-    # same form with 2 different widgets, see github issues #43598
-    status_display = fields.Many2one(related="status", string="Status", readonly=True)
+    product_state_id = fields.Many2one(
+        comodel_name="product.state",
+        string="State",
+        help="Select a state for this product",
+        group_expand="_read_group_state_id",
+        inverse="_inverse_product_state_id",
+        default=lambda self: self.product_tmpl_id._get_default_product_state().id,
+        index=True,
+        tracking=10,
+    )
     end_of_life_date = fields.Date(
         string="End-of-life",
         help="When the product is end-of-life, and you want to warn your "
@@ -32,37 +40,61 @@ class ProductProduct(models.Model):
         string="New until",
         help="New product, and you want to warn your client for a certain time",
     )
+    tmpl_end_of_life_date = fields.Date(
+        string="Template End-of-life",
+        related="product_tmpl_id.end_of_life_date",
+    )
+    tmpl_discontinued_until = fields.Date(
+        string="Template Discontinued until",
+        related="product_tmpl_id.discontinued_until",
+    )
+    tmpl_new_until = fields.Date(
+        string="Template New until",
+        related="product_tmpl_id.new_until",
+    )
+    has_status_date = fields.Boolean(
+        compute="_compute_has_status_date",
+        store=False,
+    )
 
     @api.onchange("end_of_life_date")
     def _onchange_end_of_life_date(self):
         for rec in self:
-            if rec.end_of_life_date:
-                rec.update({"new_until": False, "discontinued_until": False})
+            self.product_tmpl_id._update_dates_of_states(rec, "end_of_life_date")
 
     @api.onchange("discontinued_until")
     def _onchange_discontinued_until(self):
         for rec in self:
-            if rec.discontinued_until:
-                rec.update({"new_until": False})
+            self.product_tmpl_id._update_dates_of_states(rec, "discontinued_until")
 
-    @api.depends("new_until", "end_of_life_date", "discontinued_until")
-    def _compute_status(self):
-        today = fields.Date.today()
+    @api.depends(
+        "product_state_id",
+        "new_until",
+        "end_of_life_date",
+        "discontinued_until",
+        "product_tmpl_id.new_until",
+        "product_tmpl_id.end_of_life_date",
+        "product_tmpl_id.discontinued_until",
+    )
+    def _compute_product_state(self):
         for record in self:
-            if record.end_of_life_date:
-                if record.end_of_life_date < today:
-                    record.status = self.env.ref(
-                        "product_status.product_state_endoflife"
-                    ).id
-                else:
-                    record.status = self.env.ref(
-                        "product_status.product_state_phaseout"
-                    ).id
-            elif record.discontinued_until and record.discontinued_until >= today:
-                record.status = self.env.ref(
-                    "product_status.product_state_discontinued"
-                ).id
-            elif record.new_until and record.new_until >= today:
-                record.status = self.env.ref("product_status.product_state_new").id
-            else:
-                record.status = False
+            self.product_tmpl_id._check_dates_of_states(record)
+
+    def _inverse_product_state(self):
+        for product in self:
+            self.product_tmpl_id._set_product_state_id(product)
+
+    def _inverse_product_state_id(self):
+        """
+        Allow to ease triggering other stuff when product state changes
+        without a write()
+        """
+
+    @api.model
+    def _read_group_state_id(self, states, domain, order):
+        return states.search([])
+
+    def _compute_has_status_date(self):
+        for rec in self:
+            res = rec.end_of_life_date or rec.discontinued_until or rec.new_until
+            rec.has_status_date = bool(res)

@@ -11,9 +11,9 @@
     "license": "AGPL-3",
     "depends": ["product", "product_state"],
     "data": [
-        "views/product_views.xml",
-        "data/product_state_data.xml",
         "data/function_deactive_default_product_state_data.xml",
+        "data/product_state_data.xml",
+        "views/product_views.xml",
     ],
     "installable": True,
 }
