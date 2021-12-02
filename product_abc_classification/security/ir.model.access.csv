@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_abc_classification_profile_user,abc.classification.profile.user,model_abc_classification_profile,base.group_user,1,0,0,0
+access_abc_classification_profile_manager,abc.classification.profile.manager,model_abc_classification_profile,base.group_system,1,1,1,1
+access_abc_classification_profile_level_user,abc.classification.profile.level.user,model_abc_classification_profile_level,base.group_user,1,0,0,0
+access_abc_classification_profile_level_manager,abc.classification.profile.level.manager,model_abc_classification_profile_level,base.group_system,1,1,1,1
