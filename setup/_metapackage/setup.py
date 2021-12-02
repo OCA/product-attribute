@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-packaging_uom',
+        'odoo13-addon-product_abc_classification',
         'odoo13-addon-product_assortment',
         'odoo13-addon-product_attribute_archive',
         'odoo13-addon-product_barcode_required',
