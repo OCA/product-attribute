@@ -23,7 +23,7 @@
         <field name="res_model">product.state</field>
         <field name="view_mode">kanban,form,tree</field>
         <field name="context">{}</field>
-        <field name="domain">[('product_state_id', '=', active_id)]</field>
+        <field name="domain">[('id', '=', product_state_id)]</field>
         <field name="target">current</field>
     </record>
     <record id="view_product_state_form" model="ir.ui.view">
@@ -57,6 +57,8 @@
                     </group>
                     <group string="Description">
                         <field name="description" nolabel="1" />
+                        <field name="default" widget="boolean_toggle" />
+                        <field name="active" widget="boolean_toggle" />
                     </group>
                 </sheet>
             </form>
