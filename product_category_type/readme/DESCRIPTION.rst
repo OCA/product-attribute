@@ -1,6 +1,6 @@
 Add 'Type' field on Product Categories to distinguish between parent and final categories.
 
-figure:: ../static/description/product_category_tree.png
+.. figure:: ../static/description/product_category_tree.png
 
 * Categories (type view) can contain only categories.
 
@@ -9,7 +9,7 @@ figure:: ../static/description/product_category_tree.png
 It is so impossible to select a category (type view) in the product
 template form view.
 
-figure:: ../static/description/product_template_form.png
+.. figure:: ../static/description/product_template_form.png
 
 Note
 ----
