@@ -9,6 +9,7 @@
     "version": "12.0.1.0.0",
     "license": "AGPL-3",
     "author": "GRAP,Odoo Community Association (OCA)",
+    "maintainers": ["legalsylvain"],
     "website": "https://github.com/OCA/product-attribute",
     "depends": [
         "product",
