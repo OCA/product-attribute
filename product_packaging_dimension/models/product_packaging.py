@@ -10,18 +10,18 @@ class ProductPackaging(models.Model):
     # The redundancy here avoids unnecessary dependencies on sale modules.
 
     _sql_constraints = [
-        ("positive_height", "CHECK(height>=0.0)", "Height must be positive"),
-        ("positive_width", "CHECK(width>=0.0)", "Width must be positive"),
-        ("positive_length", "CHECK(packaging_length>=0.0)", "Length must be positive"),
+        ("positive_height", "CHECK(height>=0)", "Height must be positive"),
+        ("positive_width", "CHECK(width>=0)", "Width must be positive"),
+        ("positive_length", "CHECK(packaging_length>=0)", "Length must be positive"),
         (
             "positive_max_weight",
-            "CHECK(max_weight>=0.0)",
+            "CHECK(max_weight>=0)",
             "Max Weight must be positive",
         ),
     ]
-    height = fields.Float("Height")
-    width = fields.Float("Width")
-    packaging_length = fields.Float("Length")
+    height = fields.Integer("Height")
+    width = fields.Integer("Width")
+    packaging_length = fields.Integer("Length")
 
     length_uom_id = fields.Many2one(
         "uom.uom",
