@@ -62,6 +62,7 @@ addon | version | maintainers | summary
 [product_template_tags_code](product_template_tags_code/) | 13.0.1.0.0 |  | This addon allow to add code on products tags
 [product_total_weight_from_packaging](product_total_weight_from_packaging/) | 13.0.1.3.1 |  | Compute estimated weight based on product's packaging weights
 [product_uom_updatable](product_uom_updatable/) | 13.0.1.0.0 |  | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
+[product_variant_attribute_name_manager](product_variant_attribute_name_manager/) | 13.0.1.0.0 | [![oriolvforgeflow](https://github.com/oriolvforgeflow.png?size=30px)](https://github.com/oriolvforgeflow) | Manage how to display the attributes on the product variant name.
 [product_weight](product_weight/) | 13.0.1.0.1 |  | Allows to calculate products weight from its components.
 [stock_account_product_cost_security](stock_account_product_cost_security/) | 13.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [stock_production_lot_firmware_version](stock_production_lot_firmware_version/) | 13.0.1.0.0 |  | Store the firmware version of a serialized electronic item
