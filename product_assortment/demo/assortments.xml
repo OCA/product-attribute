@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- Copyright 2021 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_assortment_1" model="ir.filters">
+        <field name="model_id">product.product</field>
+        <field name="is_assortment" eval="True" />
+        <field name="name">Assortment Desk</field>
+        <field name="active" eval="True" />
+        <field
+            name="domain"
+        >["|","|",("default_code","ilike","desk"),("name","ilike","desk"),("barcode","ilike","desk")]</field>
+        <field name="partner_domain" eval="[('id', '=', ref('base.partner_admin'))]" />
+    </record>
+    <record id="product_assortment_2" model="ir.filters">
+        <field name="model_id">product.product</field>
+        <field name="is_assortment" eval="True" />
+        <field name="name">Assortment Chair</field>
+        <field name="active" eval="True" />
+        <field
+            name="domain"
+        >["|","|",("default_code","ilike","chair"),("name","ilike","chair"),("barcode","ilike","chair")]</field>
+        <field name="partner_domain" eval="[('id', '=', ref('base.partner_demo'))]" />
+    </record>
+    <record id="product_assortment_3" model="ir.filters">
+        <field name="model_id">product.product</field>
+        <field name="is_assortment" eval="True" />
+        <field name="name">Assortment Service</field>
+        <field name="active" eval="True" />
+        <field
+            name="domain"
+            eval="[('categ_id', 'child_of', ref('product.product_category_3'))]"
+        />
+        <field
+            name="partner_domain"
+            eval="[('id', '=', ref('base.partner_demo_portal'))]"
+        />
+    </record>
+</odoo>
