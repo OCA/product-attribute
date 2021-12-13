@@ -64,7 +64,6 @@ class IrFilters(models.Model):
 
         return res
 
-    @api.depends("domain", "blacklist_product_ids", "whitelist_product_ids")
     def _compute_record_count(self):
         for record in self:
             if record.model_id not in self.env:
