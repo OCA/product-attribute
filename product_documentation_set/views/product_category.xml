@@ -1,0 +1,26 @@
+<!-- Copyright 2019 Open Source Integrators
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_category_form_view">
+        <field name="name">product.category.form (in product_documentation)</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <separator string="Documents"/>
+                <field name="doc_set_ids"
+                       context="{'default_category_ids': [id]}">
+                    <tree>
+                        <field name="name"/>
+                        <field name="usage"/>
+                        <field name="country_ids" widget="many2many_tags"/>
+                        <field name="lang"/>
+                    </tree>
+                </field>
+            </sheet>
+        </field>
+    </record>
+
+</odoo>
