@@ -22,7 +22,7 @@ addon | version | maintainers | summary
 [base_product_mass_addition](base_product_mass_addition/) | 14.0.1.1.0 |  | Base Product Mass Addition
 [packaging_uom](packaging_uom/) | 14.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Use uom in package
 [pos_product_cost_security](pos_product_cost_security/) | 14.0.1.0.0 |  | Compatibility between Point of Sale and Product Cost Security
-[product_assortment](product_assortment/) | 14.0.1.0.2 |  | Adds the ability to manage products assortment
+[product_assortment](product_assortment/) | 14.0.1.0.3 |  | Adds the ability to manage products assortment
 [product_attribute_archive](product_attribute_archive/) | 14.0.1.0.0 |  | Add an active field on product attributes
 [product_barcode_required](product_barcode_required/) | 14.0.1.0.0 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 |  | Store the revision of a product and a BOM
