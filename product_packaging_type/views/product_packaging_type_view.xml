@@ -5,7 +5,7 @@
         <field name="model">product.packaging.type</field>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
-            <tree string="Product Packaging Type">
+            <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="code" />
