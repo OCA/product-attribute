@@ -32,10 +32,25 @@ msgid "All Partner"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.filters,name:product_assortment.product_assortment_2
+msgid "Assortment Chair"
+msgstr ""
+
+#. module: product_assortment
+#: model:ir.filters,name:product_assortment.product_assortment_1
+msgid "Assortment Desk"
+msgstr ""
+
+#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortment Name"
 msgstr "Nom de l'assortiment"
+
+#. module: product_assortment
+#: model:ir.filters,name:product_assortment.product_assortment_3
+msgid "Assortment Service"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
