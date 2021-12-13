@@ -23,7 +23,7 @@ Product Packaging Type
     :target: https://runbot.odoo-community.org/runbot/135/14.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows odoo users to declare packaging types
 
@@ -65,6 +65,8 @@ Contributors
 
   * Damien Crier <damien.crier@camptocamp.com>
   * Hiep (Nguyen Hoang) <hiepnh@trobz.com>
+
+* Christopher Ormaza <chris.ormaza@forgeflow.com>
 
 Other credits
 ~~~~~~~~~~~~~

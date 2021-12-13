@@ -3,7 +3,7 @@
 
 {
     "name": "Product Packaging Type",
-    "version": "14.0.0.2.0",
+    "version": "15.0.1.0.0",
     "development_status": "Beta",
     "category": "Product",
     "summary": "Product Packaging Type",
