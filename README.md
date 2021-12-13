@@ -53,6 +53,7 @@ addon | version | maintainers | summary
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.2 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 |  | Product Sequence
 [product_state](product_state/) | 14.0.1.1.1 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
+[product_state_active](product_state_active/) | 14.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define option on product state to activate or inactivate product
 [product_state_history](product_state_history/) | 14.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to store product state history for reporting purpose
 [product_stock_state](product_stock_state/) | 14.0.1.0.0 | [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Compute the state of a product's stockthe stock level and sale_ok field
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 14.0.1.0.1 |  | Allows to define prices for customers in the products
