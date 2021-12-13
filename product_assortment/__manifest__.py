@@ -18,5 +18,6 @@
         "views/product_assortment.xml",
         "views/res_partner_view.xml",
     ],
+    "demo": ["demo/assortments.xml"],
     "installable": True,
 }
