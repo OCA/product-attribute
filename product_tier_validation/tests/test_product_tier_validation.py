@@ -34,6 +34,7 @@ class TestProductTierValidation(common.SavepointCase):
                 "list_price": 120.00,
             }
         )
+        self.assertEqual(product.state, "draft")
         product.request_validation()
         product.with_user(self.test_user_1).validate_tier()
         product.write({"product_state_id": self.normal_state.id})

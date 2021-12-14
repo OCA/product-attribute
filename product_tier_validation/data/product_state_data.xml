@@ -1,8 +1,21 @@
 <odoo noupdate="1">
-    <record id="product_state.product_state_sellable" model="product.state">
-        <field name="code">confirmed</field>
-    </record>
-    <record id="product_state.product_state_end" model="product.state">
+    <record id="product_state_cancel" model="product.state">
         <field name="code">cancel</field>
+        <field name="name">Cancelled</field>
+        <field name="sequence">50</field>
     </record>
+
+    <function name="write" model="product.state">
+        <function name="search" model="product.state">
+            <value eval="[('default', '=', True), ('active', 'in', [False, True])]" />
+        </function>
+        <value eval="{'default': False}" />
+    </function>
+
+    <function name="write" model="product.state">
+        <function name="search" model="product.state">
+            <value eval="[('code', '=', 'draft'), ('active', 'in', [False, True])]" />
+        </function>
+        <value eval="{'active': True, 'default': True}" />
+    </function>
 </odoo>

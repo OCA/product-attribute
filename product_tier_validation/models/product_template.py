@@ -28,9 +28,3 @@ class ProductTemplate(models.Model):
         if "state" in vals:
             vals["active"] = self._is_tier_validated_active(vals["state"])
         return super().write(vals)
-
-    @api.model
-    def _get_default_product_state_id(self):
-        return self.env.ref(
-            "product_state.product_state_draft", raise_if_not_found=False
-        )
