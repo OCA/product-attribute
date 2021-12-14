@@ -17,6 +17,7 @@
         "views/product_template.xml",
     ],
     "application": False,
+    "installable": False,
     "maintainers": ["emagdalenaC2i"],
     "post_init_hook": "post_init_hook",
 }
