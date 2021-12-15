@@ -23,7 +23,7 @@ class ProductTemplate(models.Model):
         help="Select a state for this product",
         group_expand="_read_group_state_id",
         inverse="_inverse_product_state_id",
-        default=lambda self: self._get_default_product_state(),
+        default=lambda self: self._get_default_product_state().id,
         index=True,
         tracking=10,
     )

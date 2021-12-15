@@ -180,6 +180,12 @@ msgid "State Products"
 msgstr "Estado"
 
 #. module: product_state
+#: code:addons/product_state/models/product_template.py:0
+#, python-format
+msgid "The product state code %s could not be found."
+msgstr ""
+
+#. module: product_state
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
