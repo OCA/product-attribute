@@ -52,7 +52,9 @@ class ProductTemplate(models.Model):
             # We need to convert the price to the uom used on the sale, if the
             # uom on the seller is a different one that the one used there.
             if seller and seller.product_uom != price_uom:
-                price = seller.product_uom._compute_price(price, price_uom)
+                price = seller.sudo().product_uom._compute_price(
+                    price, price_uom.sudo()
+                )
 
             convert_to_price_uom = (
                 lambda price: self.uom_id._compute_price(
