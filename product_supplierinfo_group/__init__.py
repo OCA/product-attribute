@@ -66,18 +66,14 @@ def fill_required_group_id_column(cr):
         (AsIs(fields_supplierinfo), AsIs(fields_supplierinfo)),
     )
     supplierinfo_group_vals = cr.dictfetchall()
-    str_list = []
-    for row in supplierinfo_group_vals:
-        tuples_to_str = (
-            "(" + ",".join([str(val or "null") for val in row.values()]) + ")"
-        )
-        str_list.append(tuples_to_str)
-    vals_str = ",".join(str_list)
-
+    rows = tuple([tuple(row.values()) for row in supplierinfo_group_vals])
+    args_str = ",".join(
+        cr.mogrify(f"({(len(x)*'%s,')[:-1]})", x).decode("utf-8") for x in rows
+    )
     # Populate supplierinfo_group table
     cr.execute(
-        "INSERT INTO product_supplierinfo_group(%s) " "VALUES %s;",
-        (AsIs(fields_supplierinfo_group), AsIs(vals_str)),
+        "INSERT INTO product_supplierinfo_group(%s) VALUES %s",
+        (AsIs(fields_supplierinfo_group), AsIs(args_str)),
     )
 
     # Update supplierinfo table
