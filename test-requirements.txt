@@ -1,1 +1,4 @@
 odoo_test_helper
+
+# DONT MERGE
+odoo14-addon-base-tier-validation @ git+https://github.com/OCA/server-ux.git@refs/pull/421/head#subdirectory=setup/base_tier_validation
