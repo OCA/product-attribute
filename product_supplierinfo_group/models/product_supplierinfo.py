@@ -8,6 +8,7 @@ from odoo import api, fields, models
 
 # format: field_from_supplierinfo:field_from_group
 MAPPING_RELATED = {
+    "company_id": "company_id",
     "product_tmpl_id": "product_tmpl_id",
     "name": "partner_id",
     "product_id": "product_id",
@@ -17,6 +18,7 @@ MAPPING_RELATED = {
 }
 
 MAPPING_MATCH_GROUP = {
+    "company_id": "company_id",
     "product_tmpl_id": "product_tmpl_id",
     "name": "partner_id",
     "product_id": "product_id",
@@ -30,6 +32,7 @@ class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
     supplierinfo_group_id = fields.Many2one("product.supplierinfo.group", required=True)
+    company_id = fields.Many2one(related="supplierinfo_group_id.company_id", store=True)
     product_tmpl_id = fields.Many2one(
         related="supplierinfo_group_id.product_tmpl_id", store=True
     )

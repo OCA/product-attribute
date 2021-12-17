@@ -12,6 +12,7 @@ from .models.product_supplierinfo import MAPPING_MATCH_GROUP
 _schema = logging.getLogger("odoo.schema")
 
 MAPPING_FIELDS_DB = {
+    "company_id": "int4",
     "product_tmpl_id": "int4",
     "product_id": "int4",
     "partner_id": "int4",
