@@ -46,6 +46,9 @@ class ProductSupplierinfoGroup(models.Model):
     unit_price_note = fields.Html(
         compute="_compute_unit_price_note", string="Unit Prices (Min. Qty / Price)"
     )
+    company_id = fields.Many2one(
+        "res.company", "Company", default=lambda self: self.env.company.id, index=1
+    )
 
     @api.depends("supplierinfo_ids")
     def _compute_unit_price_note(self):
