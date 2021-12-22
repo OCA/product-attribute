@@ -25,7 +25,7 @@ Product Pricelist Button Box
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module is allowing further ones to add some buttons in a button box. 
+This module is allowing further ones to add some buttons in a button box.
 
 **Table of contents**
 
