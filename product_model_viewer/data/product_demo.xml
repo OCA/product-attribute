@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="product.product_product_12" model="product.product">
+            <field
+                name="gltf_3d_model"
+                type="base64"
+                file="web_widget_model_viewer/example/Chair.glb"
+            />
+        </record>
+    </data>
+</odoo>
