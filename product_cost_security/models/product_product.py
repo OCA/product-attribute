@@ -3,12 +3,6 @@
 from odoo import fields, models
 
 
-class ProductTemplate(models.Model):
-    _inherit = "product.template"
-
-    standard_price = fields.Float(groups="product_cost_security.group_product_cost")
-
-
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
