@@ -52,6 +52,7 @@ setuptools.setup(
         'odoo14-addon-product_tier_validation',
         'odoo14-addon-product_total_weight_from_packaging',
         'odoo14-addon-product_uom_updatable',
+        'odoo14-addon-product_video_link',
         'odoo14-addon-product_weight',
         'odoo14-addon-product_weight_logistics_uom',
         'odoo14-addon-purchase_product_template_tags',
