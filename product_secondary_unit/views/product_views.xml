@@ -11,7 +11,8 @@
             <xpath expr="//page[@name='general_information']" position="inside">
                 <group string="Secondary Unit of Measure">
                     <field name="secondary_uom_ids" nolabel="1">
-                        <tree string="secondary Unit" editable="top">
+                        <tree editable="top" decoration-muted="(not active)">
+                            <field name="active" widget="boolean_toggle" />
                             <field name="code" />
                             <field name="name" />
                             <field name="uom_id" />
