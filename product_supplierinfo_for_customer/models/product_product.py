@@ -4,11 +4,17 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import datetime
 
-from odoo import api, models
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
+
+    customer_ids = fields.One2many(
+        comodel_name="product.customerinfo",
+        inverse_name="product_id",
+        string="Customer",
+    )
 
     def name_get(self):
         res = super(ProductProduct, self.with_context(customerinfo=True)).name_get()
