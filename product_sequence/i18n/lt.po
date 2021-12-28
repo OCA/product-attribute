@@ -9,41 +9,43 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 20:03+0000\n"
-"PO-Revision-Date: 2016-11-01 20:03+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2021-12-28 12:39+0000\n"
+"Last-Translator: Gailius <gailius.kaz@gmail.com>\n"
 "Language-Team: Lithuanian (https://www.transifex.com/oca/teams/23907/lt/)\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:0
 #, python-format
 msgid "-copy"
-msgstr ""
+msgstr "-copy"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Įmonės"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Konfiguruoti nustatymus"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "Vidinis numeris"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr ""
+msgstr "Vidinio numerio priešdėlis"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
@@ -51,32 +53,34 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
+"Priešdėlis naudojamas generuoti vidiniam numeriui su šia kategorija, jei "
+"paliksime tuščia tada bus naudojama numatyta seka."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produktas"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Produkto kategorija"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
 msgid "Product Sequence"
-msgstr ""
+msgstr "Produkto seka"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Seka"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
-msgstr ""
+msgstr "Nustatyti '/' ir išsaugoti jei norite naudoti naują vidinį numerį."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
@@ -84,13 +88,15 @@ msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+"Šiame lauke pateikiama informacija, susijusi su žurnalo numeracija įrašais "
+"šio žurnalo."
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
 #: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid "Use parent categories to determine the prefix"
-msgstr ""
+msgstr "Naudokite tėvinę kategorija kad nustatyti priešdėlį"
 
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
@@ -98,6 +104,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category\n"
 "                            has no settings for the prefix."
 msgstr ""
+"Naudokite tėvinę kategoriją nustatant priešdėlį,\n"
+"                            jei kategorijoje nėra nustatyto priešdėlio."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -105,7 +113,7 @@ msgstr ""
 msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
-msgstr ""
+msgstr "Naudokite tėvinę kategoriją jei kategorijoje nėra priešdėlio nustatymo."
 
 #~ msgid "Manufacturer"
 #~ msgstr "Gamintojas"
