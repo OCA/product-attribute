@@ -60,7 +60,7 @@ class TestProductSecondaryUnitMixin(SavepointCase, FakeModelLoader):
     @classmethod
     def tearDownClass(cls):
         cls.loader.restore_registry()
-        super(TestProductSecondaryUnitMixin, cls).tearDownClass()
+        return super(TestProductSecondaryUnitMixin, cls).tearDownClass()
 
     def test_product_secondary_unit_mixin(self):
         fake_model = self.secondary_unit_fake
