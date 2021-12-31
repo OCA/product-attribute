@@ -50,6 +50,14 @@ class ProductSupplierinfoGroup(models.Model):
         "res.company", "Company", default=lambda self: self.env.company.id, index=1
     )
 
+    _sql_constraints = [
+        (
+            "product_partner_company_uniq",
+            "unique(product_tmpl_id, product_id, company_id, partner_id)",
+            "A supplier group already exist for the partner, product and company",
+        )
+    ]
+
     @api.depends("supplierinfo_ids")
     def _compute_unit_price_note(self):
         for rec in self:
