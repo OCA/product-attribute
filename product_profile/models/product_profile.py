@@ -88,9 +88,9 @@ class ProductProfile(models.Model):
             )
             if discard_value:
                 values_to_keep.pop(key)
+        res = super().write(vals)
         if values_to_keep:
             self._refresh_products_vals()
-        res = super().write(vals)
         return res
 
     def _refresh_products_vals(self):
@@ -122,9 +122,10 @@ class ProductProfile(models.Model):
         if self._fields[key].type == "many2one":
             comparison_value = self[key].id
         elif self._fields[key].type == "many2many":
-            comparison_value = [
-                (6, False, self[key].ids),
-            ]
+            if self[key]:
+                comparison_value = [(6, False, self[key].ids)]
+            else:
+                comparison_value = False
         return vals[key] == comparison_value
 
     @api.model
