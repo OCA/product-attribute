@@ -9,6 +9,17 @@ from odoo import models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
+    def _prepare_sellers(self, params):
+        """When we override min qty we want that _select_sellers gives us the
+        first possible seller for every other criteria ignoring the quantity. As
+        supplierinfos are sorted by min_qty descending, we want to revert such
+        order so we get the very first one, which is probably the one to go.
+        """
+        sellers = super()._prepare_sellers(params)
+        if self.env.context.get("override_min_qty"):
+            sellers = sellers.sorted("min_qty")
+        return sellers
+
     def _get_supplierinfo_pricelist_price(self, rule, date=None, quantity=None):
         return self.product_tmpl_id._get_supplierinfo_pricelist_price(
             rule, date=date, quantity=quantity, product_id=self.id
