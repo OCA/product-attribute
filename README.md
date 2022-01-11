@@ -19,6 +19,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[product_cost_security](product_cost_security/) | 15.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 15.0.1.0.0 |  | Allows to define prices for customers in the products
 
 [//]: # (end addons)
