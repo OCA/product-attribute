@@ -52,6 +52,11 @@
                             widget="domain"
                             options="{'model': 'product.product'}"
                         />
+                        <field
+                            name="partner_domain"
+                            widget="domain"
+                            options="{'model': 'res.partner'}"
+                        />
                     </group>
                     <group name="filters">
                         <div name="to_include">
@@ -100,5 +105,6 @@
         id="menu_product_assortments"
         action="actions_product_assortment_view"
         sequence="5"
+        web_icon="product_assortment,static/description/icon.png"
     />
 </odoo>
