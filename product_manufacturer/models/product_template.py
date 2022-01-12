@@ -4,15 +4,6 @@
 from odoo import api, fields, models
 
 
-class ProductProduct(models.Model):
-    _inherit = "product.product"
-
-    manufacturer = fields.Many2one(comodel_name="res.partner", string="Manufacturer")
-    manufacturer_pname = fields.Char(string="Manuf. Product Name")
-    manufacturer_pref = fields.Char(string="Manuf. Product Code")
-    manufacturer_purl = fields.Char(string="Manuf. Product URL")
-
-
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
@@ -21,7 +12,6 @@ class ProductTemplate(models.Model):
         compute="_compute_manufacturer_info",
         inverse="_inverse_manufacturer_info",
         store=True,
-        string="Manufacturer",
     )
     manufacturer_pname = fields.Char(
         compute="_compute_manufacturer_info",
