@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-03 15:37+0000\n"
-"PO-Revision-Date: 2021-02-25 15:45+0000\n"
-"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"PO-Revision-Date: 2022-01-12 20:39+0000\n"
+"Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,7 @@ msgid "Date Start"
 msgstr "Fecha inicio"
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__display_name
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
@@ -57,14 +58,16 @@ msgstr "Nombre mostrado"
 #. module: product_supplierinfo_revision
 #: model:ir.actions.act_window,name:product_supplierinfo_revision.supplierinfo_duplicate_wizard_action
 msgid "Duplicate Supplier Info"
-msgstr "Información de proveedor duplicada"
+msgstr "Crear revisión de precio"
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__id
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__id
 msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo____last_update
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
@@ -80,13 +83,11 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "Previous Price"
 msgstr "Precio anterior"
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Previous info"
 msgstr "Información anterior"
@@ -97,7 +98,6 @@ msgid "Product Supplier Duplicate Wizard"
 msgstr "Asistente para duplicados de proveedores de productos"
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Relation with previous info when duplicate line"
 msgstr "Relación con la información anterior cuando se duplica la línea"
@@ -124,19 +124,15 @@ msgid "Supplier Pricelist"
 msgstr "Tarifa de proveedor"
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "The price to purchase a product"
 msgstr "El precio al que se compra un producto"
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__variation_percent
 msgid "Variation %"
 msgstr "Variación %"
 
-#. module: product_supplierinfo_revision
-#: model_terms:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
-msgid "or"
-msgstr "o"
+#~ msgid "or"
+#~ msgstr "o"
