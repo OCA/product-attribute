@@ -4,9 +4,7 @@ from odoo import fields, models
 class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
-    short_name = fields.Char(
-        "Short Name", help="Displayed as the variant attribute name."
-    )
+    short_name = fields.Char(help="Displayed as the variant attribute name.")
     display_attribute_name = fields.Boolean(
         "Display Attribute Name on Product Variant",
         help="If checked, it will display the variant attribute name before its value.",
@@ -16,9 +14,7 @@ class ProductAttribute(models.Model):
 class ProductTemplateAttributeLine(models.Model):
     _inherit = "product.template.attribute.line"
 
-    sequence = fields.Integer(
-        "Sequence", help="Determine the display order", index=True
-    )
+    sequence = fields.Integer(help="Determine the display order", index=True)
 
 
 class ProductTemplateAttributeValue(models.Model):
