@@ -5,3 +5,4 @@
 * Lois Rilo <lois.rilo@forgeflow.com>
 * Guewen Baconnier <guewen.baconnier@camptocamp.com>
 * Héctor Villarreal <hector.villarreal@forgeflow.com>
+* Mantas Šniukas <mantas@vialaurea.lt>
