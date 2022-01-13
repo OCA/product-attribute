@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_category_type
+# 	* product_category_type
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,9 @@ msgstr ""
 
 #. module: product_category_type
 #: model:ir.model.fields,help:product_category_type.field_product_category__type
-msgid "A category of the view type is a virtual category that can be used as the parent of another category to create a hierarchical structure."
+msgid ""
+"A category of the view type is a virtual category that can be used as the "
+"parent of another category to create a hierarchical structure."
 msgstr ""
 
 #. module: product_category_type
@@ -24,22 +26,25 @@ msgid "Category Type"
 msgstr ""
 
 #. module: product_category_type
-#: model:product.category,name:product_category_type.category_normal_1
-msgid "Demo Category 1 (Type Normal)"
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__display_name
+msgid "Display Name"
 msgstr ""
 
 #. module: product_category_type
-#: model:product.category,name:product_category_type.category_normal_2
-msgid "Demo Category 2 (Type Normal)"
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__id
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__id
+msgid "ID"
 msgstr ""
 
 #. module: product_category_type
-#: model:product.category,name:product_category_type.category_view
-msgid "Demo Parent Category (Type View)"
+#: model:ir.model.fields,field_description:product_category_type.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_category_type.field_product_template____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: product_category_type
-#: selection:product.category,type:0
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__normal
 msgid "Normal"
 msgstr ""
 
@@ -49,13 +54,9 @@ msgid "Parent Category"
 msgstr ""
 
 #. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_category
 #: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
 #: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
-msgid "Pricing/Primary Category"
-msgstr ""
-
-#. module: product_category_type
-#: model:ir.model,name:product_category_type.model_product_category
 msgid "Product Category"
 msgstr ""
 
@@ -71,7 +72,6 @@ msgid "Select category for the current product"
 msgstr ""
 
 #. module: product_category_type
-#: selection:product.category,type:0
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__view
 msgid "View"
 msgstr ""
-
