@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="product.category" id="category_view">
+        <field name="name">Demo Parent Category (Type View)</field>
+        <field name="type">view</field>
+    </record>
+
+    <record model="product.category" id="category_normal_1">
+        <field name="name">Demo Category 1 (Type Normal)</field>
+        <field name="type">normal</field>
+        <field name="parent_id" ref="category_view" />
+    </record>
+
+    <record model="product.category" id="category_normal_2">
+        <field name="name">Demo Category 2 (Type Normal)</field>
+        <field name="type">normal</field>
+        <field name="parent_id" ref="category_view" />
+    </record>
+
+</odoo>
