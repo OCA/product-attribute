@@ -74,6 +74,9 @@ class ProductTemplate(models.Model):
     def create(self, vals_list):
         """Overwrite creation for rewriting manufacturer information (if set and having
         only one variant), after the variant creation, that is performed in super.
+        TODO : when migrating in version 16.0, remove the overload of the create function
+        and overload instead the new function _get_related_fields_variant_template()
+        introduced here : https://github.com/odoo/odoo/pull/82642
         """
         templates = super().create(vals_list)
         for template, vals in zip(templates, vals_list):
