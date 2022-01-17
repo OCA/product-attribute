@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value
+                    eval="[('module', '=', 'product_state'),
+                    ('model', '=', 'product.state')]"
+                />
+            </function>
+            <value eval="{'noupdate': False}" />
+        </function>
+
+        <record id="product_state.product_state_draft" model="product.state">
+            <field name="active" eval="False" />
+        </record>
+
+        <record id="product_state.product_state_end" model="product.state">
+            <field name="active" eval="False" />
+        </record>
+
+        <record id="product_state.product_state_obsolete" model="product.state">
+            <field name="active" eval="False" />
+        </record>
+
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value
+                    eval="[('module', '=', 'product_state'),
+                    ('model', '=', 'product.state')]"
+                />
+            </function>
+            <value eval="{'noupdate': True}" />
+        </function>
+    </data>
+</odoo>
