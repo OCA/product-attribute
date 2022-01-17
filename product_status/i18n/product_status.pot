@@ -1,0 +1,176 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_status
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_status
+#: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
+msgid ""
+"<strong>End-of-life</strong> has priority over the other dates.<br/>\n"
+"            <strong>Discontinued-until</strong> has priority over <strong>New until</strong>."
+msgstr ""
+
+#. module: product_status
+#: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
+msgid "By order of importance, the status is computed by:<br/>"
+msgstr ""
+
+#. module: product_status
+#: code:addons/product_status/models/product_state.py:0
+#, python-format
+msgid "Cannot delete/modified state installed by module, state name: %s"
+msgstr ""
+
+#. module: product_status
+#: model:product.state,name:product_status.product_state_discontinued
+msgid "Discontinued"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__discontinued_until
+#: model:ir.model.fields,field_description:product_status.field_product_template__discontinued_until
+#: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
+msgid "Discontinued until"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_status.field_product_state__display_name
+#: model:ir.model.fields,field_description:product_status.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_status
+#: model:product.state,name:product_status.product_state_endoflife
+msgid "End-Of-Life"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__end_of_life_date
+#: model:ir.model.fields,field_description:product_status.field_product_template__end_of_life_date
+#: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
+msgid "End-of-life"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__has_status_date
+msgid "Has Status Date"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__id
+#: model:ir.model.fields,field_description:product_status.field_product_state__id
+#: model:ir.model.fields,field_description:product_status.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_status.field_product_state____last_update
+#: model:ir.model.fields,field_description:product_status.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_status
+#: model:product.state,name:product_status.product_state_new
+msgid "New"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,help:product_status.field_product_product__new_until
+#: model:ir.model.fields,help:product_status.field_product_product__tmpl_new_until
+#: model:ir.model.fields,help:product_status.field_product_template__new_until
+msgid "New product, and you want to warn your client for a certain time"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__new_until
+#: model:ir.model.fields,field_description:product_status.field_product_template__new_until
+#: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
+msgid "New until"
+msgstr ""
+
+#. module: product_status
+#: model:product.state,name:product_status.product_state_phaseout
+msgid "Phase Out"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model,name:product_status.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model,name:product_status.model_product_state
+msgid "Product State"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__state
+#: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
+msgid "Product Status"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model,name:product_status.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,help:product_status.field_product_product__product_state_id
+msgid "Select a state for this product"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__product_state_id
+msgid "State"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__tmpl_discontinued_until
+msgid "Template Discontinued until"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__tmpl_end_of_life_date
+msgid "Template End-of-life"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,field_description:product_status.field_product_product__tmpl_new_until
+msgid "Template New until"
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,help:product_status.field_product_product__discontinued_until
+#: model:ir.model.fields,help:product_status.field_product_product__tmpl_discontinued_until
+#: model:ir.model.fields,help:product_status.field_product_template__discontinued_until
+msgid ""
+"When the product is discontinued for a certain time, to warn your "
+"client/avoid order during this downtime."
+msgstr ""
+
+#. module: product_status
+#: model:ir.model.fields,help:product_status.field_product_product__end_of_life_date
+#: model:ir.model.fields,help:product_status.field_product_product__tmpl_end_of_life_date
+#: model:ir.model.fields,help:product_status.field_product_template__end_of_life_date
+msgid ""
+"When the product is end-of-life, and you want to warn your client/avoid "
+"order in the future."
+msgstr ""
