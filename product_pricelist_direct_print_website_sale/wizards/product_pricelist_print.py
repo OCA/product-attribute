@@ -8,7 +8,7 @@ class ProductPricelistPrint(models.TransientModel):
     _inherit = "product.pricelist.print"
 
     is_public_categ = fields.Boolean(string="Filter/Group by public categories")
-
+    show_public_category = fields.Boolean(string="Show public categories")
     public_categ_ids = fields.Many2many(
         "product.public.category", string="Website Product Category"
     )
