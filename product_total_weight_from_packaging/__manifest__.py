@@ -9,7 +9,6 @@
     "website": "https://github.com/OCA/product-attribute",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "application": False,
     "installable": True,
     "depends": ["stock_packaging_calculator", "product_packaging_dimension"],
 }
