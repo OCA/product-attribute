@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-18 07:53+0000\n"
-"PO-Revision-Date: 2020-12-18 08:53+0100\n"
+"POT-Creation-Date: 2022-01-21 15:33+0000\n"
+"PO-Revision-Date: 2022-01-21 16:35+0100\n"
 "Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model,name:product_pricelist_direct_print_website_sale.model_report_product_pricelist_direct_print_product_pricelist_xlsx
+msgid "Abstract model to export as xlsx the product pricelist"
+msgstr ""
 
 #. module: product_pricelist_direct_print_website_sale
 #: model:ir.model.fields,field_description:product_pricelist_direct_print_website_sale.field_product_pricelist_print__is_public_categ
@@ -26,6 +31,17 @@ msgstr "Filtrar/Agrupar por categorías publicas"
 #: model:ir.model,name:product_pricelist_direct_print_website_sale.model_product_pricelist_print
 msgid "Product Pricelist Print"
 msgstr "Impresión de tarifa de precios"
+
+#. module: product_pricelist_direct_print_website_sale
+#: code:addons/product_pricelist_direct_print_website_sale/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Public Category"
+msgstr "Categoría pública"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model.fields,field_description:product_pricelist_direct_print_website_sale.field_product_pricelist_print__show_public_category
+msgid "Show public categories"
+msgstr "Mostrar categorías públicas"
 
 #. module: product_pricelist_direct_print_website_sale
 #: model:ir.model.fields,field_description:product_pricelist_direct_print_website_sale.field_product_pricelist_print__public_categ_ids
