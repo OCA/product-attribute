@@ -75,6 +75,12 @@
                         <field name="partner_ids" />
                         <field name="partner_count" invisible="1" />
                     </page>
+                    <page string="Export Options">
+                        <group>
+                            <field name="breakage_per_category" />
+                            <field name="show_internal_category" />
+                        </group>
+                    </page>
                 </notebook>
                 <footer>
                     <button
