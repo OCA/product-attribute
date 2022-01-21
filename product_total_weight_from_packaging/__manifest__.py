@@ -4,7 +4,7 @@
     "name": "Product Total Weight From Packaging",
     "summary": "Compute estimated weight based on product's packaging weights",
     "version": "14.0.1.0.0",
-    "development_status": "Alpha",
+    "development_status": "Beta",
     "category": "Warehouse Management",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Camptocamp, Odoo Community Association (OCA)",
