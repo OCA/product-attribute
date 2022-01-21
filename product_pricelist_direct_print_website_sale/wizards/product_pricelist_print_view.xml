@@ -33,6 +33,9 @@
                     name="attrs"
                 >{'invisible':['|', '|', ('categ_ids','!=',[]), ('last_ordered_products', '!=', 0), ('public_categ_ids', '!=', [])]}</attribute>
             </xpath>
+            <xpath expr="//field[@name='show_internal_category']" position="after">
+                <field name="show_public_category" />
+            </xpath>
         </field>
     </record>
 </odoo>
