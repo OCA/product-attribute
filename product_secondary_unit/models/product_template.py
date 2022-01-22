@@ -11,4 +11,5 @@ class ProductTemplate(models.Model):
         inverse_name="product_tmpl_id",
         string="Secondary Unit of Measure",
         help="Default Secondary Unit of Measure.",
+        context={"active_test": False},
     )
