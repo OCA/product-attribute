@@ -7,7 +7,8 @@
       <field name="inherit_id" ref="product.product_normal_form_view"/>
       <field name="arch" type="xml">
         <xpath expr="//group[@name='inventory']" position="inside">
-          <group name="dimensions" string="Dimensions">
+          <group name="dimensions" string="Dimensions"
+                attrs="{'invisible': False}">
             <field name="dimensional_uom_id"/>
             <field name="product_length" string="Length"/>
             <field name="product_height" string="Height"/>
