@@ -14,13 +14,13 @@ Unique Product Internal Reference
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/14.0/product_code_unique
+    :target: https://github.com/OCA/product-attribute/tree/15.0/product_code_unique
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-14-0/product-attribute-14-0-product_code_unique
+    :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_code_unique
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/135/14.0
+    :target: https://runbot.odoo-community.org/runbot/135/15.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -41,13 +41,18 @@ Usage
 * A pre_init_hook process is initiated when there exist records without an internal reference(default_code).
   A default value is generated to populate empty field as a temporary value.
 
+Known issues / Roadmap
+======================
+
+* Avoid duplicate warnings. Odoo has a warning for duplicate "Internal Reference" of its own (it doesn't block from saving). Now both warnings are displayed when trying to save a duplicate "Internal Reference".
+
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_code_unique%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_code_unique%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -65,6 +70,7 @@ Contributors
 * Antonio Yamuta <ayamuta@opensourceintegrators.com>
 * Raf Ven <raf.ven@dynapps.be>
 * Watthanun Khorchai <watthanun_t@hotmail.com>
+* Nedas Žilinskas <nedas.zilinskas@web-veistamo.fi>
 
 Maintainers
 ~~~~~~~~~~~
@@ -79,6 +85,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/14.0/product_code_unique>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_code_unique>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
