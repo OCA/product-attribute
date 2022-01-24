@@ -45,6 +45,7 @@ setuptools.setup(
         'odoo13-addon-product_sequence',
         'odoo13-addon-product_state',
         'odoo13-addon-product_stock_state',
+        'odoo13-addon-product_supplierinfo_archive',
         'odoo13-addon-product_supplierinfo_for_customer',
         'odoo13-addon-product_supplierinfo_revision',
         'odoo13-addon-product_template_tags',
