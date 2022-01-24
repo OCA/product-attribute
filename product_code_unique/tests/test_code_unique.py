@@ -2,11 +2,11 @@
 
 import psycopg2
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.tools.misc import mute_logger
 
 
-class TestCodeUnique(SavepointCase):
+class TestCodeUnique(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
