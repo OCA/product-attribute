@@ -116,6 +116,11 @@ msgstr "Tiempo inicial entrega"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -131,6 +136,11 @@ msgstr "Fecha final para este precio de proveedor"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item__id
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__id
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo__id
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__id
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner__id
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -150,6 +160,11 @@ msgstr "Importar plantilla para tarifas de clientes"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_supplierinfo____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
