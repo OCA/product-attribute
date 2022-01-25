@@ -24,6 +24,7 @@ class ProductSecondaryUnit(models.Model):
     factor = fields.Float(
         string="Secondary Unit Factor", default=1.0, digits=0, required=True
     )
+    active = fields.Boolean(default=True)
 
     def name_get(self):
         result = []

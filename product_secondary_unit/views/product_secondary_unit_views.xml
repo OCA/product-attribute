@@ -4,7 +4,8 @@
         <field name="name">product.secondary.unit.view.tree</field>
         <field name="model">product.secondary.unit</field>
         <field name="arch" type="xml">
-            <tree editable="top">
+            <tree editable="top" decoration-muted="(not active)">
+                <field name="active" widget="boolean_toggle" />
                 <field name="code" />
                 <field name="name" />
                 <field name="uom_id" />
