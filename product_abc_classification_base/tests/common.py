@@ -82,6 +82,9 @@ class ABCClassificationLevelCase(ABCClassificationCase):
             lambda l: l.name == "a"
         )
 
+        cls.classification_level_bis_b = levels.filtered(
+            lambda l: l.name == "b"
+        )
         # create a template with one variant adn declare attributes to create
         # an other variant on demand
         cls.size_attr = cls.env["product.attribute"].create(

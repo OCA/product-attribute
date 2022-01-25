@@ -21,6 +21,7 @@
           <group>
             <field name="period" />
             <field name="profile_type" />
+            <field name="auto_apply_computed_value" />
           </group>
         </sheet>
       </form>

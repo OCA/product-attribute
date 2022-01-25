@@ -29,6 +29,8 @@ class AbcClassificationProfile(models.Model):
         required=True,
     )
 
+    auto_apply_computed_value = fields.Boolean(default=False)
+
     _sql_constraints = [
         ("name_uniq", "UNIQUE(name)", _("Profile name must be unique"))
     ]

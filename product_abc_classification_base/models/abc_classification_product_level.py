@@ -140,4 +140,20 @@ class AbcClassificationProductLevel(models.Model):
             # at creation the manual level is set to the same value as the
             # computed one
             vals["manual_level_id"] = vals["computed_level_id"]
+
+        if "profile_id" in vals:
+            profile = self.env["abc.classification.profile"].browse(vals['profile_id'])
+            if profile.auto_apply_computed_value and "computed_level_id" in vals:
+                vals["manual_level_id"] = vals["computed_level_id"]
         return super(AbcClassificationProductLevel, self).create(vals)
+
+    def write(self, vals):
+        values = vals.copy()
+        if "profile_id" in values:
+            profile = self.env["abc.classification.profile"].browse(values['profile_id'])
+        else:
+            profile = self.mapped("profile_id")
+
+        if profile.auto_apply_computed_value and "computed_level_id" in values:
+            values["manual_level_id"] = values["computed_level_id"]
+        return super(AbcClassificationProductLevel, self).write(values)
