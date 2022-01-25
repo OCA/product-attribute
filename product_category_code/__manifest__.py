@@ -10,10 +10,6 @@
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "maintainers": ["rousseldenis"],
     "website": "https://github.com/OCA/product-attribute",
-    "depends": [
-        "product",
-    ],
-    "data": [
-        "views/product_category.xml",
-    ],
+    "depends": ["product",],
+    "data": ["views/product_category.xml",],
 }

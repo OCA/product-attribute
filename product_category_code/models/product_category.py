@@ -8,10 +8,7 @@ class ProductCategory(models.Model):
 
     _inherit = "product.category"
 
-    code = fields.Char(
-        default="/",
-        index=True,
-    )
+    code = fields.Char(default="/", index=True,)
 
     @api.returns("self", lambda value: value.id)
     def copy(self, default=None):

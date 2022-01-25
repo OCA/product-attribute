@@ -18,6 +18,5 @@ class TestProductCategoryCode(common.SavepointCase):
         new_category = self.category.copy()
 
         self.assertEqual(
-            "TEST-copy",
-            new_category.code,
+            "TEST-copy", new_category.code,
         )
