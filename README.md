@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [product_pricelist_button_box](product_pricelist_button_box/) | 14.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a button_box section on pricelist form
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.0.0 |  | Print price list from menu option, product templates, products variants or price lists
 [product_pricelist_revision](product_pricelist_revision/) | 14.0.1.0.0 |  | Product Pricelist Revision
+[product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 14.0.1.0.0 |  | Allows to create priceslists based on supplier info
 [product_profile](product_profile/) | 14.0.1.0.0 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Allow to configure a product in 1 click
 [product_sale_manufactured_for](product_sale_manufactured_for/) | 14.0.1.0.0 |  | Allows to indicate in products that they were made specifically for some customers.
 [product_seasonality](product_seasonality/) | 14.0.1.2.1 |  | Define rules for products' seasonal availability
