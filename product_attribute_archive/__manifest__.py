@@ -8,7 +8,7 @@
     "version": "13.0.1.0.1",
     "license": "AGPL-3",
     "author": "Akretion,Odoo Community Association (OCA)",
-    "depends": ["product"],
-    "data": ["views/product_attribute.xml"],
+    "depends": ["product", "product_attribute_value_menu"],
+    "data": ["views/product_attribute.xml", "views/product_attribute_value.xml"],
     "website": "https://github.com/OCA/product-attribute",
 }

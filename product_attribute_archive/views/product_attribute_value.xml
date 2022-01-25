@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ForgeFlow
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_attribute_value_tree_view" model="ir.ui.view">
+        <field
+            name="name"
+        >product.attribute.value.tree - product_attribute_archive</field>
+        <field name="model">product.attribute.value</field>
+        <field
+            name="inherit_id"
+            ref="product_attribute_value_menu.product_attribute_value_tree_view"
+        />
+        <field name="arch" type="xml">
+            <tree string="Attribute Values">
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_attribute_value_search_view" model="ir.ui.view">
+        <field
+            name="name"
+        >product.attribute.value.search - product_attribute_archive</field>
+        <field name="model">product.attribute.value</field>
+        <field
+            name="inherit_id"
+            ref="product_attribute_value_menu.product_attribute_value_search_view"
+        />
+        <field name="arch" type="xml">
+            <field name="attribute_id" position="after">
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+            </field>
+        </field>
+
+    </record>
+
+</odoo>
