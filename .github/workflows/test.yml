@@ -1,4 +1,4 @@
-name: test Odoo addons
+name: tests
 
 on:
   pull_request:
@@ -12,13 +12,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
+    name: ${{ matrix.name }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - container: ghcr.io/oca/oca-ci/py3.8-odoo15.0:latest
             makepot: "true"
+            name: test with Odoo
           - container: ghcr.io/oca/oca-ci/py3.8-ocb15.0:latest
+            name: test with OCB
     services:
       postgres:
         image: postgres:9.6
