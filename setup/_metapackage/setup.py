@@ -34,6 +34,7 @@ setuptools.setup(
         'odoo13-addon-product_packaging_type_required',
         'odoo13-addon-product_packaging_unit_price_calculator',
         'odoo13-addon-product_pricelist_assortment',
+        'odoo13-addon-product_pricelist_button_box',
         'odoo13-addon-product_pricelist_by_contact',
         'odoo13-addon-product_pricelist_direct_print',
         'odoo13-addon-product_pricelist_direct_print_website_sale',
