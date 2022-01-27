@@ -1,4 +1,4 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/135/14.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-product-attribute-135)
+[![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=14.0)
 [![Build Status](https://travis-ci.com/OCA/product-attribute.svg?branch=14.0)](https://travis-ci.com/OCA/product-attribute)
 [![codecov](https://codecov.io/gh/OCA/product-attribute/branch/14.0/graph/badge.svg)](https://codecov.io/gh/OCA/product-attribute)
 [![Translation Status](https://translation.odoo-community.org/widgets/product-attribute-14-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/product-attribute-14-0/?utm_source=widget)
