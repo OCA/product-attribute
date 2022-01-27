@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_code_unique
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_code_unique
+#: model:ir.model.fields,field_description:product_code_unique.field_product_product__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_code_unique
+#: model:ir.model.fields,field_description:product_code_unique.field_product_product__id
+msgid "ID"
+msgstr ""
+
+#. module: product_code_unique
+#: model:ir.model.constraint,message:product_code_unique.constraint_product_product_default_code_uniq
+msgid "Internal Reference must be unique across the database!"
+msgstr ""
+
+#. module: product_code_unique
+#: model:ir.model.fields,field_description:product_code_unique.field_product_product____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_code_unique
+#: model:ir.model,name:product_code_unique.model_product_product
+msgid "Product"
+msgstr ""
