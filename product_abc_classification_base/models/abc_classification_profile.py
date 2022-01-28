@@ -5,6 +5,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from psycopg2.extensions import AsIs
 
 
 class AbcClassificationProfile(models.Model):
@@ -72,3 +73,26 @@ class AbcClassificationProfile(models.Model):
     @api.model
     def _cron_compute_abc_classification(self):
         self.search([])._compute_abc_classification()
+
+    def write(self, vals):
+        res = super(AbcClassificationProfile, self).write(vals)
+        if 'auto_apply_computed_value' in vals and vals['auto_apply_computed_value']:
+            self._auto_apply_computed_value_for_product_levels()
+        return res
+
+    def _auto_apply_computed_value_for_product_levels(self):
+        for rec in self:
+            self.env.cr.execute("""
+                    UPDATE %(table)s
+                        SET manual_level_id = computed_level_id,
+                            level_id = computed_level_id
+                        WHERE profile_id = %(profile_id)s
+
+            """, {"table": AsIs(self.env["abc.classification.product.level"]._table),
+                  "profile_id": rec.id}
+            )
+
+        self.env["abc.classification.product.level"].invalidate_cache(
+            ["manual_level_id", "computed_level_id", "level_id"]
+        )
+

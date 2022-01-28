@@ -27,6 +27,40 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             }
         )
 
+    @classmethod
+    def _create_product_levels(cls):
+        product_2 = cls.env["product.product"].create(
+            {
+                "name": "Test 2",
+                "uom_id": cls.uom_unit.id,
+                "uom_po_id": cls.uom_unit.id,
+            }
+        )
+
+        product_3 = cls.env["product.product"].create(
+            {
+                "name": "Test 3",
+                "uom_id": cls.uom_unit.id,
+                "uom_po_id": cls.uom_unit.id,
+            }
+        )
+        cls.ProductLevel.create(
+            {
+                "product_id": product_2.id,
+                "manual_level_id": cls.classification_level_b.id,
+                "computed_level_id": cls.classification_level_a.id,
+                "profile_id": cls.classification_profile.id
+            }
+        )
+        cls.ProductLevel.create(
+            {
+                "product_id": product_3.id,
+                "manual_level_id": cls.classification_level_b.id,
+                "computed_level_id": cls.classification_level_a.id,
+                "profile_id": cls.classification_profile.id
+            }
+        )
+
     def test_00(self):
         """
         Test case:
@@ -248,37 +282,7 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
         )
 
     def test_08_update_recordset_with__autocompute(self):
-        product_2 = self.env["product.product"].create(
-            {
-                "name": "Test 2",
-                "uom_id": self.uom_unit.id,
-                "uom_po_id": self.uom_unit.id,
-            }
-        )
-
-        product_3 = self.env["product.product"].create(
-            {
-                "name": "Test 3",
-                "uom_id": self.uom_unit.id,
-                "uom_po_id": self.uom_unit.id,
-            }
-        )
-        self.ProductLevel.create(
-            {
-                "product_id": product_2.id,
-                "manual_level_id": self.classification_level_b.id,
-                "computed_level_id": self.classification_level_a.id,
-                "profile_id": self.classification_profile.id
-            }
-        )
-        self.ProductLevel.create(
-            {
-                "product_id": product_3.id,
-                "manual_level_id": self.classification_level_b.id,
-                "computed_level_id": self.classification_level_a.id,
-                "profile_id": self.classification_profile.id
-            }
-        )
+        self._create_product_levels()
         self.classification_profile.auto_apply_computed_value = True
 
         levels = self.ProductLevel.search([("profile_id", "=", self.classification_profile.id)])
@@ -294,37 +298,7 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             self.assertEqual(level.level_id, self.classification_level_b)
 
     def test_09_update_recordset_and_change_profile(self):
-        product_2 = self.env["product.product"].create(
-            {
-                "name": "Test 2",
-                "uom_id": self.uom_unit.id,
-                "uom_po_id": self.uom_unit.id,
-            }
-        )
-
-        product_3 = self.env["product.product"].create(
-            {
-                "name": "Test 3",
-                "uom_id": self.uom_unit.id,
-                "uom_po_id": self.uom_unit.id,
-            }
-        )
-        self.ProductLevel.create(
-            {
-                "product_id": product_2.id,
-                "manual_level_id": self.classification_level_b.id,
-                "computed_level_id": self.classification_level_a.id,
-                "profile_id": self.classification_profile.id
-            }
-        )
-        self.ProductLevel.create(
-            {
-                "product_id": product_3.id,
-                "manual_level_id": self.classification_level_b.id,
-                "computed_level_id": self.classification_level_a.id,
-                "profile_id": self.classification_profile.id
-            }
-        )
+        self._create_product_levels()
         self.classification_profile_bis.auto_apply_computed_value = True
 
         levels = self.ProductLevel.search([("profile_id", "=", self.classification_profile.id)])
@@ -354,3 +328,31 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
         self.assertEqual(level.manual_level_id, self.classification_level_a)
         self.assertEqual(level.computed_level_id, self.classification_level_a)
         self.assertEqual(level.level_id, self.classification_level_a)
+
+    def test_11_auto_apply_computed_level(self):
+        self._create_product_levels()
+
+        levels = self.ProductLevel.search([("profile_id", "=", self.classification_profile.id)])
+        level0 = levels[0]
+        level1 = levels[1]
+        level2 = levels[2]
+        self.assertEqual(level0.manual_level_id, level0.computed_level_id)
+        self.assertEqual(level0.manual_level_id, self.classification_level_a)
+        self.assertEqual(level0.computed_level_id, self.classification_level_a)
+        self.assertEqual(level0.level_id, self.classification_level_a)
+
+        self.assertNotEqual(level1.manual_level_id, level1.computed_level_id)
+        self.assertEqual(level1.manual_level_id, self.classification_level_b)
+        self.assertEqual(level1.computed_level_id, self.classification_level_a)
+        self.assertEqual(level1.level_id, self.classification_level_b)
+
+        self.assertNotEqual(level2.manual_level_id, level2.computed_level_id)
+        self.assertEqual(level2.manual_level_id, self.classification_level_b)
+        self.assertEqual(level2.computed_level_id, self.classification_level_a)
+        self.assertEqual(level2.level_id, self.classification_level_b)
+
+        self.classification_profile.auto_apply_computed_value = True
+        for level in levels:
+            self.assertEqual(level.manual_level_id, self.classification_level_a)
+            self.assertEqual(level.computed_level_id, self.classification_level_a)
+            self.assertEqual(level.level_id, self.classification_level_a)
