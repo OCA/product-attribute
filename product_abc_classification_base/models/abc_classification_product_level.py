@@ -157,3 +157,4 @@ class AbcClassificationProductLevel(models.Model):
         if profile.auto_apply_computed_value and "computed_level_id" in values:
             values["manual_level_id"] = values["computed_level_id"]
         return super(AbcClassificationProductLevel, self).write(values)
+

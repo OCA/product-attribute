@@ -298,3 +298,4 @@ class TestABCClassificationProfile(ABCClassificationCase):
                     "profile_type": "test_type",
                 }
             )
+
