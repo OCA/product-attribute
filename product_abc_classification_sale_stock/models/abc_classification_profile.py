@@ -229,7 +229,6 @@ class AbcClassificationProfile(models.Model):
                 {
                     "product_id": sale_stock_data.product.id,
                     "profile_id": sale_stock_data.profile.id,
-                    "auto_apply_computed_value": sale_stock_data.profile.auto_apply_computed_value
                 }
             )
         return res

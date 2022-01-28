@@ -275,3 +275,4 @@ class TestABCClassificationProfile(SavepointCase):
         self.assertEqual(len(levels.sale_stock_level_history_ids), 1)
         self.stock_profile._compute_abc_classification()
         self.assertEqual(len(levels.sale_stock_level_history_ids), 2)
+
