@@ -44,6 +44,14 @@ class ProductSupplierinfo(models.Model):
     product_code = fields.Char(related="supplierinfo_group_id.product_code", store=True)
     sequence = fields.Integer(related="supplierinfo_group_id.sequence", store=True)
 
+    _sql_constraints = [
+        (
+            "uniq_price_per_qty",
+            "unique(supplierinfo_group_id, min_qty, date_start, date_end)",
+            "You can not have a two price for the same qty",
+        )
+    ]
+
     def _find_or_create_supplierinfo_group(self, vals):
         domain = [
             (field_group, "=", vals.get(field_supplierinfo))
