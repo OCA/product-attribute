@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-21 15:22+0000\n"
+"PO-Revision-Date: 2022-01-21 15:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -90,6 +92,11 @@ msgid "Abstract model to export as xlsx the product pricelist"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
+msgid "Breakage per category"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Cancel"
 msgstr ""
@@ -169,6 +176,11 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Export Options"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Filter Options"
 msgstr ""
 
@@ -194,6 +206,12 @@ msgstr ""
 msgid ""
 "If you enter an X number here, then, for each selected customer, the last X "
 "ordered products will be obtained for the report."
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Internal Category"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -347,6 +365,11 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants
 msgid "Show Variants"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_internal_category
+msgid "Show internal categories"
 msgstr ""
 
 #. module: product_pricelist_direct_print

@@ -54,6 +54,10 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(4, 0, book.partner_ids[0].name, header_format)
         next_col = 0
         sheet.write(5, next_col, _("Description"), header_format)
+        next_col = self._add_extra_header(sheet, book, next_col, header_format)
+        if book.show_internal_category:
+            next_col += 1
+            sheet.write(5, next_col, _("Internal Category"), header_format)
         if book.show_standard_price:
             next_col += 1
             sheet.write(5, next_col, _("Cost Price"), header_format)
@@ -64,6 +68,9 @@ class ProductPricelistXlsx(models.AbstractModel):
         sheet.write(5, next_col, _("List Price"), header_format)
         return sheet
 
+    def _add_extra_header(self, sheet, book, next_col, header_format):
+        return next_col
+
     def _fill_data(self, workbook, sheet, book, pricelist):
         bold_format = workbook.add_format({"bold": 1})
         decimal_format = workbook.add_format({"num_format": "0.00"})
@@ -73,11 +80,16 @@ class ProductPricelistXlsx(models.AbstractModel):
         # submethod tries to make comparisons with other date.
         print_date = book.date or fields.Date.today()
         for group in book.get_groups_to_print():
-            sheet.write(row, 0, group["group_name"], bold_format)
-            row += 1
+            if book.breakage_per_category:
+                sheet.write(row, 0, group["group_name"], bold_format)
+                row += 1
             for product in group["products"]:
                 next_col = 0
                 sheet.write(row, next_col, product.display_name)
+                next_col = self._add_extra_info(sheet, book, product, row, next_col)
+                if book.show_internal_category:
+                    next_col += 1
+                    sheet.write(row, next_col, product.categ_id.display_name)
                 if book.show_standard_price:
                     next_col += 1
                     sheet.write(row, next_col, product.standard_price, decimal_format)
@@ -96,6 +108,9 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(row, 0, _("Summary:"), bold_format)
             sheet.write(row + 1, 0, book.summary)
         return sheet
+
+    def _add_extra_info(self, sheet, book, product, row, next_col):
+        return next_col
 
     def generate_xlsx_report(self, workbook, data, objects):
         book = objects[0]
