@@ -29,9 +29,8 @@ class ProductPricelistItemDuplicateWizard(models.TransientModel):
             )
             item.date_end = self.date_start - relativedelta(days=1)
 
-        action = self.env.ref(
-            "product_pricelist_revision.product_pricelist_item_action"
-        ).read()[0]
+        xmlid = "product_pricelist_revision.product_pricelist_item_action"
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         if len(new_items) > 0:
             action["domain"] = [("id", "in", new_items.ids)]
         else:
