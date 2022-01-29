@@ -112,7 +112,8 @@ class IrFilters(models.Model):
 
     def show_products(self):
         self.ensure_one()
-        action = self.env.ref("product.product_normal_action_sell").read([])[0]
+        xmlid = "product.product_normal_action_sell"
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         action.update(
             {
                 "domain": self._get_eval_domain(),
