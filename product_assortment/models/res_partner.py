@@ -8,9 +8,9 @@ class ResPartner(models.Model):
 
     def action_define_product_assortment(self):
         self.ensure_one()
-        action = self.env.ref("product_assortment.actions_product_assortment_view")
-        action_dict = action.read()[0]
-        action_dict["domain"] = [
+        xmlid = "product_assortment.actions_product_assortment_view"
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
+        action["domain"] = [
             ("partner_ids", "in", self.ids),
             ("is_assortment", "=", True),
         ]
@@ -22,5 +22,5 @@ class ResPartner(models.Model):
                 "product_assortment": True,
             }
         )
-        action_dict["context"] = ctx
-        return action_dict
+        action["context"] = ctx
+        return action

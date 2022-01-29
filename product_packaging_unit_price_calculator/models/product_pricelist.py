@@ -9,8 +9,7 @@ class PricelistItem(models.Model):
 
     def open_packaging_price(self):
         self.ensure_one()
-        action = self.env.ref(
-            "product_packaging_unit_price_calculator.action_unit_price_wizard"
-        ).read()[0]
+        xmlid = "product_packaging_unit_price_calculator.action_unit_price_wizard"
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         action["context"] = {"product_tmpl_id": self.product_tmpl_id.id}
         return action
