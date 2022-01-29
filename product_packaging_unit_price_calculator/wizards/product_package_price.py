@@ -127,9 +127,8 @@ class ProductPackagePrice(models.TransientModel):
             self.product_tmpl_id.list_price = self.unit_price
 
     def reset_unit_price(self):
-        action = self.env.ref(
-            "product_packaging_unit_price_calculator.action_unit_price_wizard"
-        ).read()[0]
+        xmlid = "product_packaging_unit_price_calculator.action_unit_price_wizard"
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         action["context"] = {
             "product_tmpl_id": self._context.get("product_tmpl_id"),
             "active_model": self._context.get("active_model"),
