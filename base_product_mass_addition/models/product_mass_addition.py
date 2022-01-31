@@ -67,7 +67,6 @@ class ProductMassAddition(models.AbstractModel):
             line = lines.filtered(lambda x: x.id == vals["id"])
             return line.play_onchanges(update_vals, list(update_vals.keys()))
         else:
-            line = lines
-            if len(lines) > 1:
-                line = lines[0]
+            # create a new line
+            line = lines.new(vals)
             return line.play_onchanges(vals, list(vals.keys()))
