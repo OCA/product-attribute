@@ -85,7 +85,8 @@ class AbcClassificationProfile(models.Model):
             self.env.cr.execute("""
                     UPDATE %(table)s
                         SET manual_level_id = computed_level_id,
-                            level_id = computed_level_id
+                            level_id = computed_level_id,
+                            flag = false
                         WHERE profile_id = %(profile_id)s
 
             """, {"table": AsIs(self.env["abc.classification.product.level"]._table),

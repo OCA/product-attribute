@@ -317,6 +317,11 @@ msgid "Type of ABC classification"
 msgstr "Type de classification ABC"
 
 #. module: product_abc_classification_base
+#: model:ir.model.fields,field_description:product_abc_classification_base.field_abc_classification_profile_auto_apply_computed_value
+msgid "Auto apply computed value"
+msgstr "Appliquer automatiquement la classification calculée"
+
+#. module: product_abc_classification_base
 #: model:ir.model,name:product_abc_classification_base.model_abc_classification_level
 msgid "abc.classification.level"
 msgstr "Classe de classification ABC"
