@@ -10,15 +10,19 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="product_tmpl_id" invisible="1" />
+                            <field
+                                name="product_tmpl_id"
+                                invisible="context.get('from_template')"
+                            />
                             <field
                                 name="partner_id"
                                 context="{'res_partner_search_mode': 'supplier'}"
                             />
+                            <field name="has_multiple_variants" invisible="1" />
                             <field
                                 name="product_id"
-                                domain="[('product_tmpl_id', '=', product_tmpl_id)]"
-                                invisible="context.get('product_template_invisible_variant')"
+                                domain="[('product_tmpl_id', '=', context.get('from_template') and parent.id or product_tmpl_id)]"
+                                attrs="{'invisible': [('has_multiple_variants', '=', False)]}"
                             />
                         </group>
                         <group>
