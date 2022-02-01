@@ -49,6 +49,7 @@ class ProductSupplierinfoGroup(models.Model):
     company_id = fields.Many2one(
         "res.company", "Company", default=lambda self: self.env.company.id, index=1
     )
+    has_multiple_variants = fields.Boolean(compute="_compute_has_variants")
 
     _sql_constraints = [
         (
@@ -57,6 +58,11 @@ class ProductSupplierinfoGroup(models.Model):
             "A supplier group already exist for the partner, product and company",
         )
     ]
+
+    @api.depends("product_tmpl_id")
+    def _compute_has_variants(self):
+        for rec in self:
+            rec.has_multiple_variants = len(rec.product_tmpl_id.product_variant_ids) > 1
 
     @api.depends("supplierinfo_ids")
     def _compute_unit_price_note(self):
