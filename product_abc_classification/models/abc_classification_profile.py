@@ -138,19 +138,21 @@ class ABCClasificationProfile(models.Model):
             levels = profile.level_ids.sorted(
                 key=_get_sort_key_percentage, reverse=True
             )
-            percentages = levels.mapped("percentage")
-            level_percentage = list(zip(levels, percentages))
+            level_percentage = [[level, level.percentage] for level in levels]
+            current_value = 0
+            accumulated_percentage = level_percentage[0][1]
             for product_data in product_list:
-                product_data["value_percentage"] = (
-                    (100.0 * product_data["value"] / totals["value"])
-                    if totals["value"]
-                    else 0.0
-                )
+                # Accumulated current value
+                current_value += product_data["value"] or 0.0
+                # This comparison would be the same as:
+                # current_value * 100 / totals["value"] > accumulated_percentage,
+                # but it is written in the next way to avoid division and decimal lost.
                 while (
-                    product_data["value_percentage"] < level_percentage[0][1]
+                    current_value * 100 > accumulated_percentage * totals["value"]
                     and len(level_percentage) > 1
                 ):
                     level_percentage.pop(0)
+                    accumulated_percentage += level_percentage[0][1]
                 product_data["product"].abc_classification_level_id = level_percentage[
                     0
                 ][0]
