@@ -51,6 +51,7 @@
         <field name="arch" type="xml">
             <tree string="ABC Profiles" decoration-muted="representation==''">
                 <field name="name" />
+                <field name="value_criteria" />
                 <field name="representation" />
             </tree>
         </field>
