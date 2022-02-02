@@ -33,6 +33,12 @@ class ABCClassificationProfile(models.Model):
     past_period = fields.Integer(
         default=365, string="Past demand period (Days)", required=True
     )
+    product_variant_ids = fields.One2many(
+        "product.product", inverse_name="abc_classification_profile_id"
+    )
+    product_count = fields.Integer(
+        string="Product Count", compute="_compute_product_count", readonly=True
+    )
 
     @api.depends("level_ids")
     def _compute_representation(self):
@@ -55,8 +61,33 @@ class ABCClassificationProfile(models.Model):
                     _("The sum of the percentages of the levels should be 100.")
                 )
 
-    def write(self, vals):
-        return super().write(vals)
+    @api.depends("product_variant_ids")
+    def _compute_product_count(self):
+        for profile in self:
+            profile.product_count = len(profile.product_variant_ids)
+
+    def action_view_products(self):
+        products = self.mapped("product_variant_ids")
+        action = self.env["ir.actions.act_window"].for_xml_id(
+            "product", "product_variant_action"
+        )
+        del action["context"]
+        if len(products) > 1:
+            action["domain"] = [("id", "in", products.ids)]
+        elif len(products) == 1:
+            form_view = [
+                (self.env.ref("product.product_variant_easy_edit_view").id, "form")
+            ]
+            if "views" in action:
+                action["views"] = form_view + [
+                    (state, view) for state, view in action["views"] if view != "form"
+                ]
+            else:
+                action["views"] = form_view
+            action["res_id"] = products.id
+        else:
+            action = {"type": "ir.actions.act_window_close"}
+        return action
 
     def _fill_initial_product_data(self, date):
         product_list = []
