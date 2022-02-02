@@ -23,7 +23,7 @@ Product State
     :target: https://runbot.odoo-community.org/runbot/135/14.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module introduces the state field on product template and allows simple product life cycle:
 
@@ -82,6 +82,7 @@ Contributors
 * Eduardo Magdalena <emagdalena@c2i.es> (C2i Change 2 improve http://www.c2i.es)
 * Andrii Skrypka <andrijskrypa@ukr.net>
 * Denis Roussel <denis.roussel@acsone.eu>
+* Riccardo Fresco <riccardo.fresco@bt-group.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -102,7 +103,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-emagdalenaC2i| 
+|maintainer-emagdalenaC2i|
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/14.0/product_state>`_ project on GitHub.
 
