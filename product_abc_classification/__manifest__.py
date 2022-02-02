@@ -3,7 +3,7 @@
 {
     "name": "Product ABC Classification",
     "summary": "Includes ABC classification for inventory management",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Inventory Management",
