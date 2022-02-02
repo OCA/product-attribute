@@ -23,8 +23,12 @@ class ABCClassificationProfile(models.Model):
         required=True,
     )
     value_criteria = fields.Selection(
-        selection=[("consumption_value", "Consumption Value")],
-        # others: 'sales revenue', 'profitability', ...
+        selection=[
+            ("consumption_value", "Consumption Value"),
+            ("sales_revenue", "Sales Revenue"),
+            ("sales_volume", "Sales Volume"),
+            # others: 'profitability', ...
+        ],
         default="consumption_value",
         string="Value",
         index=True,
@@ -134,6 +138,10 @@ class ABCClassificationProfile(models.Model):
         self.ensure_one()
         if self.value_criteria == "consumption_value":
             return data["unit_cost"] * data["units_sold"]
+        elif self.value_criteria == "sales_revenue":
+            return data["unit_price"] * data["units_sold"]
+        elif self.value_criteria == "sales_volume":
+            return data["units_sold"]
         raise 0.0
 
     @api.model
@@ -156,6 +164,7 @@ class ABCClassificationProfile(models.Model):
             product_list = profile._fill_initial_product_data(oldest_date)
             for product_data in product_list:
                 product_data["unit_cost"] = product_data["product"].standard_price
+                product_data["unit_price"] = product_data["product"].list_price
                 totals["units_sold"] += product_data["units_sold"]
                 product_data["value"] = profile._get_inventory_product_value(
                     product_data
