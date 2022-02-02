@@ -54,10 +54,6 @@ class ABCClasificationProfile(models.Model):
                 raise ValidationError(
                     _("The sum of the percentages of the levels should be 100.")
                 )
-            if profile.level_ids and len({}.fromkeys(percentages)) != len(percentages):
-                raise ValidationError(
-                    _("The percentages of the levels must be unique.")
-                )
 
     def write(self, vals):
         return super().write(vals)
