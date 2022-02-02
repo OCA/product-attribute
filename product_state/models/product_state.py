@@ -12,9 +12,7 @@ class ProductState(models.Model):
 
     name = fields.Char(comodel_name="State Name", required=True, translate=True)
     code = fields.Char(string="State Code", required=True)
-    sequence = fields.Integer(
-        string="Sequence", help="Used to order the States", default=25
-    )
+    sequence = fields.Integer(help="Used to order the States", default=25)
     active = fields.Boolean(default=True)
     description = fields.Text(translate=True)
     product_ids = fields.One2many(
