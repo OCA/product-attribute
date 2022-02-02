@@ -5,9 +5,9 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
-class ABCClasificationProfileLevel(models.Model):
+class ABCClassificationProfileLevel(models.Model):
     _name = "abc.classification.profile.level"
-    _description = "ABC Clasification Profile Level"
+    _description = "ABC Classification Profile Level"
     _order = "percentage desc, id desc"
 
     percentage = fields.Float(default=0.0, required=True, string="%")

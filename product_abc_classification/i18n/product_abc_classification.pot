@@ -15,12 +15,12 @@ msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_profile
-msgid "ABC Clasification Profile"
+msgid "ABC Classification Profile"
 msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_profile_level
-msgid "ABC Clasification Profile Level"
+msgid "ABC Classification Profile Level"
 msgstr ""
 
 #. module: product_abc_classification

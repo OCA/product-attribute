@@ -6,9 +6,9 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
-class ABCClasificationProfile(models.Model):
+class ABCClassificationProfile(models.Model):
     _name = "abc.classification.profile"
-    _description = "ABC Clasification Profile"
+    _description = "ABC Classification Profile"
 
     name = fields.Char()
     level_ids = fields.One2many(
