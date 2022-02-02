@@ -30,6 +30,15 @@ class AbcClassificationProfile(models.Model):
         required=True,
     )
 
+    product_variant_ids = fields.Many2many(
+        comodel_name="product.product",
+        relation="abc_classification_profile_product_rel",
+        column1="profile_id",
+        column2="product_id",
+        index=True,
+    )
+    product_count = fields.Integer(compute="_compute_product_count", readonly=True)
+
     auto_apply_computed_value = fields.Boolean(default=False)
 
     _sql_constraints = [("name_uniq", "UNIQUE(name)", _("Profile name must be unique"))]
@@ -59,6 +68,34 @@ class AbcClassificationProfile(models.Model):
 
     def _compute_abc_classification(self):
         raise NotImplementedError()
+
+    @api.depends("product_variant_ids")
+    def _compute_product_count(self):
+        for profile in self:
+            profile.product_count = len(profile.product_variant_ids)
+
+    def action_view_products(self):
+        products = self.mapped("product_variant_ids")
+        action = self.env["ir.actions.act_window"].for_xml_id(
+            "product", "product_variant_action"
+        )
+        del action["context"]
+        if len(products) > 1:
+            action["domain"] = [("id", "in", products.ids)]
+        elif len(products) == 1:
+            form_view = [
+                (self.env.ref("product.product_variant_easy_edit_view").id, "form")
+            ]
+            if "views" in action:
+                action["views"] = form_view + [
+                    (state, view) for state, view in action["views"] if view != "form"
+                ]
+            else:
+                action["views"] = form_view
+            action["res_id"] = products.id
+        else:
+            action = {"type": "ir.actions.act_window_close"}
+        return action
 
     @api.model
     def _cron_compute_abc_classification(self):
