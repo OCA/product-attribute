@@ -57,7 +57,7 @@ addon | version | maintainers | summary
 [product_seasonality](product_seasonality/) | 14.0.1.2.1 |  | Define rules for products' seasonal availability
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.2 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 |  | Product Sequence
-[product_state](product_state/) | 14.0.1.1.2 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
+[product_state](product_state/) | 14.0.1.1.3 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_state_active](product_state_active/) | 14.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define option on product state to activate or inactivate product
 [product_state_history](product_state_history/) | 14.0.1.0.2 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to store product state history for reporting purpose
 [product_status](product_status/) | 14.0.1.0.0 |  | Product Status Computed From Fields
