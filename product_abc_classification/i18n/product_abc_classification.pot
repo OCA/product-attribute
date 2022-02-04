@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_abc_classification
-#: model:ir.model,name:product_abc_classification.model_abc_classification_profile
-msgid "ABC Classification Profile"
-msgstr ""
-
-#. module: product_abc_classification
-#: model:ir.model,name:product_abc_classification.model_abc_classification_profile_level
-msgid "ABC Classification Profile Level"
-msgstr ""
-
-#. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_form_view
 msgid "ABC Classification"
 msgstr ""
@@ -35,10 +25,16 @@ msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.actions.act_window,name:product_abc_classification.abc_classification_profile_action
+#: model:ir.model,name:product_abc_classification.model_abc_classification_profile
 #: model:ir.ui.menu,name:product_abc_classification.menu_abc_classification_profile_config_sale
 #: model:ir.ui.menu,name:product_abc_classification.menu_abc_classification_profile_config_stock
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_search_view
 msgid "ABC Classification Profile"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model,name:product_abc_classification.model_abc_classification_profile_level
+msgid "ABC Classification Profile Level"
 msgstr ""
 
 #. module: product_abc_classification
@@ -154,13 +150,24 @@ msgid "Product Category"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_count
+msgid "Product Count"
+msgstr ""
+
+#. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_template
 msgid "Product Template"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_variant_ids
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_category__product_variant_ids
 msgid "Product Variant"
+msgstr ""
+
+#. module: product_abc_classification
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
+msgid "Products"
 msgstr ""
 
 #. module: product_abc_classification
@@ -171,6 +178,16 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__representation
 msgid "Representation"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__value_criteria__sales_revenue
+msgid "Sales Revenue"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__value_criteria__sales_volume
+msgid "Sales Volume"
 msgstr ""
 
 #. module: product_abc_classification
@@ -197,6 +214,7 @@ msgid "The percentages of the levels must be unique."
 msgstr ""
 
 #. module: product_abc_classification
+#: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the percentages of the levels should be 100."
