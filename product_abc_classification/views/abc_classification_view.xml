@@ -8,6 +8,20 @@
         <field name="arch" type="xml">
             <form string="ABC Profile">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_view_products"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="product_count"
+                                widget="statinfo"
+                                string="Products"
+                            />
+                        </button>
+                    </div>
                     <group>
                         <field name="name" />
                         <field name="level_ids">
@@ -37,6 +51,7 @@
         <field name="arch" type="xml">
             <tree string="ABC Profiles" decoration-muted="representation==''">
                 <field name="name" />
+                <field name="value_criteria" />
                 <field name="representation" />
             </tree>
         </field>

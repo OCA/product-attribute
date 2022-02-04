@@ -6,9 +6,9 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
-class ABCClasificationProfile(models.Model):
+class ABCClassificationProfile(models.Model):
     _name = "abc.classification.profile"
-    _description = "ABC Clasification Profile"
+    _description = "ABC Classification Profile"
 
     name = fields.Char()
     level_ids = fields.One2many(
@@ -23,8 +23,12 @@ class ABCClasificationProfile(models.Model):
         required=True,
     )
     value_criteria = fields.Selection(
-        selection=[("consumption_value", "Consumption Value")],
-        # others: 'sales revenue', 'profitability', ...
+        selection=[
+            ("consumption_value", "Consumption Value"),
+            ("sales_revenue", "Sales Revenue"),
+            ("sales_volume", "Sales Volume"),
+            # others: 'profitability', ...
+        ],
         default="consumption_value",
         string="Value",
         index=True,
@@ -32,6 +36,12 @@ class ABCClasificationProfile(models.Model):
     )
     past_period = fields.Integer(
         default=365, string="Past demand period (Days)", required=True
+    )
+    product_variant_ids = fields.One2many(
+        "product.product", inverse_name="abc_classification_profile_id"
+    )
+    product_count = fields.Integer(
+        string="Product Count", compute="_compute_product_count", readonly=True
     )
 
     @api.depends("level_ids")
@@ -54,13 +64,34 @@ class ABCClasificationProfile(models.Model):
                 raise ValidationError(
                     _("The sum of the percentages of the levels should be 100.")
                 )
-            if profile.level_ids and len({}.fromkeys(percentages)) != len(percentages):
-                raise ValidationError(
-                    _("The percentages of the levels must be unique.")
-                )
 
-    def write(self, vals):
-        return super().write(vals)
+    @api.depends("product_variant_ids")
+    def _compute_product_count(self):
+        for profile in self:
+            profile.product_count = len(profile.product_variant_ids)
+
+    def action_view_products(self):
+        products = self.mapped("product_variant_ids")
+        action = self.env["ir.actions.act_window"].for_xml_id(
+            "product", "product_variant_action"
+        )
+        del action["context"]
+        if len(products) > 1:
+            action["domain"] = [("id", "in", products.ids)]
+        elif len(products) == 1:
+            form_view = [
+                (self.env.ref("product.product_variant_easy_edit_view").id, "form")
+            ]
+            if "views" in action:
+                action["views"] = form_view + [
+                    (state, view) for state, view in action["views"] if view != "form"
+                ]
+            else:
+                action["views"] = form_view
+            action["res_id"] = products.id
+        else:
+            action = {"type": "ir.actions.act_window_close"}
+        return action
 
     def _fill_initial_product_data(self, date):
         product_list = []
@@ -107,6 +138,10 @@ class ABCClasificationProfile(models.Model):
         self.ensure_one()
         if self.value_criteria == "consumption_value":
             return data["unit_cost"] * data["units_sold"]
+        elif self.value_criteria == "sales_revenue":
+            return data["unit_price"] * data["units_sold"]
+        elif self.value_criteria == "sales_volume":
+            return data["units_sold"]
         raise 0.0
 
     @api.model
@@ -129,6 +164,7 @@ class ABCClasificationProfile(models.Model):
             product_list = profile._fill_initial_product_data(oldest_date)
             for product_data in product_list:
                 product_data["unit_cost"] = product_data["product"].standard_price
+                product_data["unit_price"] = product_data["product"].list_price
                 totals["units_sold"] += product_data["units_sold"]
                 product_data["value"] = profile._get_inventory_product_value(
                     product_data
