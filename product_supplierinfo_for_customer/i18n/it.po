@@ -6,18 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-02-05 01:33+0000\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
-msgstr ""
+msgstr "Assegna la priorità all'elenco fornitori del prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_pricelist_item__base
@@ -27,36 +29,41 @@ msgid ""
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
+"Prezzo di riferimento per il calcolo.\n"
+"Prezzo di vendita: il prezzo base è il prezzo di vendita.\n"
+"Prezzo di costo: il prezzo base è il prezzo di costo.\n"
+"Altro listino prezzi: prezzo di riferimento calcolato in base a un altro "
+"listino prezzi."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_pricelist_item__base
 msgid "Based on"
-msgstr ""
+msgstr "Basato su"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
@@ -65,45 +72,45 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Information"
-msgstr ""
+msgstr "Informazioni cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_customerinfo
 msgid "Customer Pricelist"
-msgstr ""
+msgstr "Listino prezzi cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Product Code"
-msgstr ""
+msgstr "Codice prodotto cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Product Name"
-msgstr ""
+msgstr "Nome prodotto cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__name
 msgid "Customer of this product"
-msgstr ""
+msgstr "Cliente del prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
 msgid "Customers"
-msgstr ""
+msgstr "Clienti"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__delay
 msgid "Delivery Lead Time"
-msgstr ""
+msgstr "Tempo di risposta per consegne"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__display_name
@@ -113,17 +120,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__display_name
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_end
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_end
 msgid "End date for this vendor price"
-msgstr ""
+msgstr "Data finale per il prezzo fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
@@ -133,13 +140,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__id
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_id
 msgid ""
 "If not set, the vendor price will apply to all variants of this product."
 msgstr ""
+"Se non impostato, il prezzo fornitore viene applicato a tutte le varianti di "
+"questo prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:0
@@ -155,17 +164,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template____last_update
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_res_partner____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__delay
@@ -174,90 +183,93 @@ msgid ""
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
 msgstr ""
+"Tempo di risposta, in giorni, tra la conferma dell'ordine di acquisto e la "
+"ricezione dei prodotti in magazzino. Utilizzato dal pianificatore per il "
+"calcolo automatico della programmazione degli ordini di acquisto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
 msgid "Margin to apply on price to obtain sale price"
-msgstr ""
+msgstr "Margine da applicare per ottenere il prezzo di vendita"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
-msgstr ""
+msgstr "Altre informazioni"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields.selection,name:product_supplierinfo_for_customer.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
-msgstr ""
+msgstr "Prezzi del partner nella scheda prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__price
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Price"
-msgstr ""
+msgstr "Prezzo"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Price List"
-msgstr ""
+msgstr "Listino prezzi"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Regola listino prezzi"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_tmpl_id
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Quantity"
-msgstr ""
+msgstr "Quantità"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
 msgid "Sale Margin"
-msgstr ""
+msgstr "Margine di vendita"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_start
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_start
 msgid "Start date for this vendor price"
-msgstr ""
+msgstr "Data iniziale per il prezzo fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
 msgid "Supplier Pricelist"
-msgstr ""
+msgstr "Listino prezzi fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__price
 msgid "The price to purchase a product"
-msgstr ""
+msgstr "Prezzo di acquisto di un prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
@@ -266,11 +278,14 @@ msgid ""
 "expressed in the vendor Product Unit of Measure if not any, in the default "
 "unit of measure of the product otherwise."
 msgstr ""
+"Quantità da acquistare per beneficiare del prezzo, espressa nell'unità di "
+"misura prodotto del fornitore. Altrimenti, se non presente, nell'unità di "
+"misura predefinita del prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
 msgid "This comes from the product form."
-msgstr ""
+msgstr "Proviene dalla scheda prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_code
@@ -278,6 +293,8 @@ msgid ""
 "This vendor's product code will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
+"Codice prodotto del fornitore utilizzato nella stampa di una richiesta di "
+"preventivo. Lasciare vuoto per usare quello interno."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_name
@@ -285,21 +302,23 @@ msgid ""
 "This vendor's product name will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
+"Nome prodotto del fornitore utilizzato nella stampa di una richiesta di "
+"preventivo. Lasciare vuoto per usare quello interno."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
 msgid "Unit of Measure"
-msgstr ""
+msgstr "Unità di misura"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Validity"
-msgstr ""
+msgstr "Validità"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_variant_count
 msgid "Variant Count"
-msgstr ""
+msgstr "Numero varianti"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__variant_customer_ids
@@ -310,14 +329,14 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
 msgid "Vendor Product Code"
-msgstr ""
+msgstr "Codice prodotto fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
 msgid "Vendor Product Name"
-msgstr ""
+msgstr "Nome prodotto fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
-msgstr ""
+msgstr "→"
