@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Dimension",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "category": "Product",
     "author": "brain-tec AG, ADHOC SA, Camptocamp SA, "
     "Odoo Community Association (OCA)",
