@@ -27,7 +27,7 @@ Product Category Type
 
 Add 'Type' field on Product Categories to distinguish between parent and final categories.
 
-figure:: ../static/description/product_category_tree.png
+.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_category_type/static/description/product_category_tree.png
 
 * Categories (type view) can contain only categories.
 
@@ -36,7 +36,7 @@ figure:: ../static/description/product_category_tree.png
 It is so impossible to select a category (type view) in the product
 template form view.
 
-figure:: ../static/description/product_template_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_category_type/static/description/product_template_form.png
 
 Note
 ----
@@ -86,6 +86,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-legalsylvain| image:: https://github.com/legalsylvain.png?size=40px
+    :target: https://github.com/legalsylvain
+    :alt: legalsylvain
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-legalsylvain| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/12.0/product_category_type>`_ project on GitHub.
 
