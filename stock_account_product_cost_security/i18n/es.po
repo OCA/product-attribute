@@ -12,3 +12,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: stock_account_product_cost_security
+#: model:ir.model,name:stock_account_product_cost_security.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: stock_account_product_cost_security
+#: model:ir.model.fields,field_description:stock_account_product_cost_security.field_product_product__show_update_cost
+#: model:ir.model.fields,field_description:stock_account_product_cost_security.field_product_template__show_update_cost
+msgid "Show Update Cost"
+msgstr ""
