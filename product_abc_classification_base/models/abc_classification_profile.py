@@ -81,19 +81,20 @@ class AbcClassificationProfile(models.Model):
         return res
 
     def _auto_apply_computed_value_for_product_levels(self):
+        level_ids = []
         for rec in self:
             self.env.cr.execute("""
                     UPDATE %(table)s
-                        SET manual_level_id = computed_level_id,
-                            level_id = computed_level_id,
-                            flag = false
+                        SET manual_level_id = computed_level_id
                         WHERE profile_id = %(profile_id)s
+                        RETURNING id
 
             """, {"table": AsIs(self.env["abc.classification.product.level"]._table),
                   "profile_id": rec.id}
             )
-
-        self.env["abc.classification.product.level"].invalidate_cache(
-            ["manual_level_id", "computed_level_id", "level_id"]
-        )
-
+            level_ids.extend(r[0] for r in self.env.cr.fetchall())
+        self.env["abc.classification.product.level"].invalidate_cache(["manual_level_id"], level_ids)
+        modified_levels = self.env["abc.classification.product.level"].browse(level_ids)
+        # mark field as modified and trigger recompute of dependent fields.
+        modified_levels.modified(["manual_level_id"])
+        modified_levels.recompute()
