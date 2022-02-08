@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [product_barcode_required](product_barcode_required/) | 13.0.1.0.2 |  | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 13.0.1.0.1 |  | Store the revision of a product and a BOM
 [product_category_active](product_category_active/) | 13.0.1.0.0 |  | Add option to archive product categories
+[product_category_code](product_category_code/) | 13.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a code on product categories
 [product_code_mandatory](product_code_mandatory/) | 13.0.1.0.0 |  | Set Product Internal Reference as a required field
 [product_code_unique](product_code_unique/) | 13.0.1.0.0 |  | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 13.0.1.1.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
