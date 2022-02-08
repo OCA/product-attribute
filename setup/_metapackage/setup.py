@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo13-addon-product_barcode_required',
         'odoo13-addon-product_bom_revision',
         'odoo13-addon-product_category_active',
+        'odoo13-addon-product_category_code',
         'odoo13-addon-product_code_mandatory',
         'odoo13-addon-product_code_unique',
         'odoo13-addon-product_cost_security',
