@@ -12,6 +12,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["product", "purchase"],
+    "depends": ["product"],
     "data": ["security/product_cost_security.xml", "views/product_views.xml"],
 }
