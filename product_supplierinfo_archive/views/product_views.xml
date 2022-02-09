@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_supplierinfo_search_view" model="ir.ui.view">
+            <field name="name">product.supplierinfo.search.view</field>
+            <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_search_view" />
+            <field name="arch" type="xml">
+                <filter name="active" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </filter>
+                <filter name="archived" position="attributes">
+                    <attribute name="domain">[('active', '=', False)]</attribute>
+                </filter>
+            </field>
+    </record>
+</odoo>
