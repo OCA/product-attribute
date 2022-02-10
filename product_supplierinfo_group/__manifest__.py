@@ -16,6 +16,7 @@
         "views/templates.xml",
         "views/assets.xml",
         "security/ir.model.access.csv",
+        "security/supplierinfo_group_security.xml",
     ],
     "pre_init_hook": "fill_required_group_id_column",
     "excludes": ["product_supplierinfo_for_customer"],
