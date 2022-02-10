@@ -14,6 +14,7 @@
                                 name="product_tmpl_id"
                                 invisible="context.get('from_template')"
                             />
+                            <field name="company_id" />
                             <field
                                 name="partner_id"
                                 context="{'res_partner_search_mode': 'supplier'}"
@@ -58,6 +59,7 @@
                 />
                 <field name="product_name" />
                 <field name="product_code" />
+                <field name="company_id" />
                 <field name="unit_price_note" />
             </tree>
         </field>
