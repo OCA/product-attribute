@@ -1,1 +1,4 @@
-* Miquel Raïch <miquel.raich@eficent.com>
+* Miquel Raïch <miquel.raich@forgeflow.com>
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Carlos Roca
