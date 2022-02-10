@@ -4,6 +4,7 @@ from datetime import timedelta
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tools import float_is_zero
 
 
 class ABCClassificationProfile(models.Model):
@@ -13,6 +14,12 @@ class ABCClassificationProfile(models.Model):
     name = fields.Char()
     level_ids = fields.One2many(
         comodel_name="abc.classification.profile.level", inverse_name="profile_id"
+    )
+    classification_type = fields.Selection(
+        selection=[("percentage", "Percentage"), ("fixed", "Fixed")],
+        string="Classification Type",
+        default="percentage",
+        required=True,
     )
     representation = fields.Char(compute="_compute_representation")
     data_source = fields.Selection(
@@ -37,12 +44,22 @@ class ABCClassificationProfile(models.Model):
     past_period = fields.Integer(
         default=365, string="Past demand period (Days)", required=True
     )
+    days_to_ignore = fields.Integer(string="Ignore newer than these days")
     product_variant_ids = fields.One2many(
         "product.product", inverse_name="abc_classification_profile_id"
     )
     product_count = fields.Integer(
         string="Product Count", compute="_compute_product_count", readonly=True
     )
+    company_id = fields.Many2one(comodel_name="res.company", string="Company")
+
+    @api.constrains("past_period", "days_to_ignore")
+    def _check_period(self):
+        for profile in self:
+            if profile.days_to_ignore > profile.past_period:
+                raise ValidationError(
+                    _("The days to ignore can not be greater than the past period.")
+                )
 
     @api.depends("level_ids")
     def _compute_representation(self):
@@ -58,12 +75,13 @@ class ABCClassificationProfile(models.Model):
     @api.constrains("level_ids")
     def _check_levels(self):
         for profile in self:
-            percentages = profile.level_ids.mapped("percentage")
-            total = sum(percentages)
-            if profile.level_ids and total != 100.0:
-                raise ValidationError(
-                    _("The sum of the percentages of the levels should be 100.")
-                )
+            if profile.classification_type == "percentage":
+                percentages = profile.level_ids.mapped("percentage")
+                total = sum(percentages)
+                if profile.level_ids and total != 100.0:
+                    raise ValidationError(
+                        _("The sum of the percentages of the levels should be 100.")
+                    )
 
     @api.depends("product_variant_ids")
     def _compute_product_count(self):
@@ -93,38 +111,39 @@ class ABCClassificationProfile(models.Model):
             action = {"type": "ir.actions.act_window_close"}
         return action
 
-    def _fill_initial_product_data(self, date):
+    def _fill_initial_product_data(self, date, date_end=False):
         product_list = []
         if self.data_source == "stock_moves":
-            return self._fill_data_from_stock_moves(date, product_list)
+            return self._fill_data_from_stock_moves(
+                date, product_list, date_end=date_end
+            )
         else:
             return product_list
 
-    def _fill_data_from_stock_moves(self, date, product_list):
+    def _fill_data_from_stock_moves(self, date, product_list, date_end=False):
         self.ensure_one()
+        domain = [
+            ("state", "=", "done"),
+            ("date", ">=", date),
+            ("location_dest_id.usage", "=", "customer"),
+            ("location_id.usage", "!=", "customer"),
+            ("product_id.type", "=", "product"),
+            "|",
+            ("product_id.abc_classification_profile_id", "=", self.id),
+            "|",
+            ("product_id.categ_id.abc_classification_profile_id", "=", self.id),
+            (
+                "product_id.categ_id.parent_id.abc_classification_profile_id",
+                "=",
+                self.id,
+            ),
+        ]
+        if date_end:
+            domain.append(("date", "<=", date_end))
         moves = (
             self.env["stock.move"]
             .sudo()
-            .read_group(
-                [
-                    ("state", "=", "done"),
-                    ("date", ">", date),
-                    ("location_dest_id.usage", "=", "customer"),
-                    ("location_id.usage", "!=", "customer"),
-                    ("product_id.type", "=", "product"),
-                    "|",
-                    ("product_id.abc_classification_profile_id", "=", self.id),
-                    "|",
-                    ("product_id.categ_id.abc_classification_profile_id", "=", self.id),
-                    (
-                        "product_id.categ_id.parent_id.abc_classification_profile_id",
-                        "=",
-                        self.id,
-                    ),
-                ],
-                ["product_id", "product_qty"],
-                ["product_id"],
-            )
+            .read_group(domain, ["product_id", "product_qty"], ["product_id"],)
         )
         for move in moves:
             product_data = {
@@ -145,23 +164,31 @@ class ABCClassificationProfile(models.Model):
         raise 0.0
 
     @api.model
+    def _get_sort_key_percentage(self, rec):
+        return rec.percentage
+
+    @api.model
+    def _get_sort_key_fixed(self, rec):
+        return rec.fixed
+
+    @api.model
     def _compute_abc_classification(self):
         def _get_sort_key_value(data):
             return data["value"]
-
-        def _get_sort_key_percentage(rec):
-            return rec.percentage
 
         profiles = self.search([]).filtered(lambda p: p.level_ids)
         for profile in profiles:
             oldest_date = fields.Datetime.to_string(
                 fields.Datetime.today() - timedelta(days=profile.past_period)
             )
+            final_date = fields.Datetime.to_string(
+                fields.Datetime.today() - timedelta(days=profile.days_to_ignore)
+            )
             totals = {
                 "units_sold": 0,
                 "value": 0.0,
             }
-            product_list = profile._fill_initial_product_data(oldest_date)
+            product_list = profile._fill_initial_product_data(oldest_date, final_date)
             for product_data in product_list:
                 product_data["unit_cost"] = product_data["product"].standard_price
                 product_data["unit_price"] = product_data["product"].list_price
@@ -172,23 +199,44 @@ class ABCClassificationProfile(models.Model):
                 totals["value"] += product_data["value"]
             product_list.sort(reverse=True, key=_get_sort_key_value)
             levels = profile.level_ids.sorted(
-                key=_get_sort_key_percentage, reverse=True
+                key=getattr(self, "_get_sort_key_%s" % profile.classification_type),
+                reverse=True,
             )
-            level_percentage = [[level, level.percentage] for level in levels]
-            current_value = 0
-            accumulated_percentage = level_percentage[0][1]
-            for product_data in product_list:
-                # Accumulated current value
-                current_value += product_data["value"] or 0.0
-                # This comparison would be the same as:
-                # current_value * 100 / totals["value"] > accumulated_percentage,
-                # but it is written in the next way to avoid division and decimal lost.
-                while (
-                    current_value * 100 > accumulated_percentage * totals["value"]
-                    and len(level_percentage) > 1
-                ):
-                    level_percentage.pop(0)
-                    accumulated_percentage += level_percentage[0][1]
-                product_data["product"].abc_classification_level_id = level_percentage[
-                    0
-                ][0]
+            if profile.classification_type == "percentage":
+                level_percentage = [[level, level.percentage] for level in levels]
+                current_value = 0
+                accumulated_percentage = level_percentage[0][1]
+                for product_data in product_list:
+                    # Accumulated current value
+                    current_value += product_data["value"] or 0.0
+                    # This comparison would be the same as:
+                    # current_value * 100 / totals["value"] > accumulated_percentage,
+                    # but it is written in the next way to avoid division and decimal lost.
+                    while (
+                        current_value * 100 > accumulated_percentage * totals["value"]
+                        and len(level_percentage) > 1
+                    ):
+                        level_percentage.pop(0)
+                        accumulated_percentage += level_percentage[0][1]
+                    product_data[
+                        "product"
+                    ].abc_classification_level_id = level_percentage[0][0]
+            elif profile.classification_type == "fixed":
+                if product_list:
+                    zero_level = profile.level_ids.filtered(
+                        lambda l: float_is_zero(l.fixed, precision_digits=2)
+                    )
+                    self.env["product.product"].search(
+                        [("abc_classification_profile_id", "=", profile.id)]
+                    ).write({"abc_classification_level_id": zero_level.id})
+                    current_value = 0
+                    for product_data in product_list:
+                        level_fixed = [[level, level.fixed] for level in levels]
+                        fixed_value = level_fixed[0][1]
+                        current_value = product_data["value"] or 0.0
+                        while current_value < fixed_value and len(level_fixed) > 1:
+                            level_fixed.pop(0)
+                            fixed_value = level_fixed[0][1]
+                        product_data[
+                            "product"
+                        ].abc_classification_level_id = level_fixed[0][0]
