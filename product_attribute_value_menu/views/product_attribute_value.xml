@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ForgeFlow
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_attribute_value_tree_view" model="ir.ui.view">
+        <field name="name">product.attribute.value.tree</field>
+        <field name="model">product.attribute.value</field>
+        <field name="arch" type="xml">
+            <tree string="Attribute Values">
+                <field name="attribute_id" widget="many2one" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_attribute_value_search_view" model="ir.ui.view">
+        <field name="name">product.attribute.value.search</field>
+        <field name="model">product.attribute.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="attribute_id" />
+                <group expand="1" string="Group By">
+                    <filter
+                        string="Attribute"
+                        name="attribute"
+                        context="{'group_by':'attribute_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <act_window
+        id="attribute_value_action"
+        name="Attributes Values"
+        res_model="product.attribute.value"
+        view_mode="tree"
+    />
+
+    <menuitem
+        id="sale_menu_product_archived_attribute_action"
+        action="attribute_value_action"
+        parent="sale.prod_config_main"
+        groups="product.group_product_variant"
+        sequence="2"
+    />
+
+    <menuitem
+        id="stock_menu_product_archived_attribute_action"
+        action="attribute_value_action"
+        parent="stock.menu_product_in_config_stock"
+        sequence="4"
+        groups="product.group_product_variant"
+    />
+
+</odoo>
