@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [product_attribute_archive](product_attribute_archive/) | 14.0.1.0.0 |  | Add an active field on product attributes
 [product_barcode_required](product_barcode_required/) | 14.0.1.0.0 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 |  | Store the revision of a product and a BOM
+[product_category_active](product_category_active/) | 14.0.1.0.0 |  | Add option to archive product categories
 [product_category_code](product_category_code/) | 14.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a code on product categories
 [product_category_product_link](product_category_product_link/) | 14.0.1.0.1 |  | Allows to get products from a category
 [product_category_type](product_category_type/) | 14.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add Type field on Product Categories to distinguish between parent and final categories
