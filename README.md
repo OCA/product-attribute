@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 [product_abc_classification](product_abc_classification/) | 13.0.2.0.0 | [![MiquelRForgeFlow](https://github.com/MiquelRForgeFlow.png?size=30px)](https://github.com/MiquelRForgeFlow) | Includes ABC classification for inventory management
 [product_assortment](product_assortment/) | 13.0.2.1.0 |  | Adds the ability to manage products assortment
 [product_attribute_archive](product_attribute_archive/) | 13.0.1.0.1 |  | Add an active field on product attributes
+[product_attribute_value_menu](product_attribute_value_menu/) | 13.0.1.0.0 |  | Add a menu item containing the Attribute Values
 [product_barcode_required](product_barcode_required/) | 13.0.1.0.2 |  | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 13.0.1.0.1 |  | Store the revision of a product and a BOM
 [product_category_active](product_category_active/) | 13.0.1.0.0 |  | Add option to archive product categories
