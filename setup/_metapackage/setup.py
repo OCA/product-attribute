@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-product_abc_classification',
         'odoo13-addon-product_assortment',
         'odoo13-addon-product_attribute_archive',
+        'odoo13-addon-product_attribute_value_menu',
         'odoo13-addon-product_barcode_required',
         'odoo13-addon-product_bom_revision',
         'odoo13-addon-product_category_active',
