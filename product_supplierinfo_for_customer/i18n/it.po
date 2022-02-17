@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-02-07 19:59+0000\n"
-"Last-Translator: Samuele Mariani <samuele@ooops404.com>\n"
+"PO-Revision-Date: 2022-02-17 18:30+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -324,7 +324,7 @@ msgstr "Numero varianti"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__variant_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__variant_customer_ids
 msgid "Variant Customer"
-msgstr ""
+msgstr "Variante Cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
