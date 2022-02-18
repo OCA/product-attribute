@@ -1,0 +1,206 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_state
+#
+# Translators:
+# Bole <bole@dajmi5.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-29 08:49+0000\n"
+"PO-Revision-Date: 2018-01-29 08:49+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2018\n"
+"Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__active
+msgid "Active"
+msgstr ""
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+msgid "Code"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__default
+msgid "Default state"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__description
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+msgid "Description"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__display_name
+#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_end
+msgid "End of Lifecycle"
+msgstr "Kraj životnog ciklusa"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__id
+#: model:ir.model.fields,field_description:product_state.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_draft
+msgid "In Development"
+msgstr "U razvoju"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state____last_update
+#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__name
+msgid "Name"
+msgstr ""
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_sellable
+msgid "Normal"
+msgstr "Normalno"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__products_count
+msgid "Number of products"
+msgstr ""
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_obsolete
+msgid "Obsolete"
+msgstr "Zastarjelo"
+
+#. module: product_state
+#: model:ir.actions.act_window,name:product_state.action_open_single_product_state
+#: model:ir.model,name:product_state.model_product_state
+#: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
+#, fuzzy
+msgid "Product State"
+msgstr "Predložak proizvoda"
+
+#. module: product_state
+#: model:ir.model.constraint,message:product_state.constraint_product_state_code_unique
+msgid "Product State Code must be unique."
+msgstr ""
+
+#. module: product_state
+#: model:ir.ui.menu,name:product_state.menu_product_state
+#, fuzzy
+msgid "Product States"
+msgstr "Predložak proizvoda"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_product__state
+#: model:ir.model.fields,field_description:product_state.field_product_template__state
+#, fuzzy
+msgid "Product Status"
+msgstr "Predložak proizvoda"
+
+#. module: product_state
+#: model:ir.model,name:product_state.model_product_template
+msgid "Product Template"
+msgstr "Predložak proizvoda"
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_kanban
+msgid "Products"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,help:product_state.field_product_product__product_state_id
+#: model:ir.model.fields,help:product_state.field_product_template__product_state_id
+msgid "Select a state for this product"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_state
+#: model:ir.actions.act_window,name:product_state.action_product_state
+#: model:ir.model.fields,field_description:product_state.field_product_product__product_state_id
+#: model:ir.model.fields,field_description:product_state.field_product_template__product_state_id
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_template_search_state
+#, fuzzy
+msgid "State"
+msgstr "Status"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__code
+msgid "State Code"
+msgstr ""
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+msgid "State Name"
+msgstr ""
+
+#. module: product_state
+#: model:ir.actions.act_window,name:product_state.action_open_state_products
+#: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
+#, fuzzy
+msgid "State Products"
+msgstr "Status"
+
+#. module: product_state
+#: code:addons/product_state/models/product_template.py:0
+#, python-format
+msgid "The product state code %s could not be found."
+msgstr ""
+
+#. module: product_state
+#: code:addons/product_state/models/product_state.py:0
+#, python-format
+msgid "There should be only one default state"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,help:product_state.field_product_state__sequence
+msgid "Used to order the States"
+msgstr ""
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
+#, fuzzy
+msgid "product.state"
+msgstr "Predložak proizvoda"
