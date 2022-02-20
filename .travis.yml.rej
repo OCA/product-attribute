@@ -1,0 +1,7 @@
+diff a/.travis.yml b/.travis.yml	(rejected hunks)
+@@ -23,3 +23,4 @@ jobs:
+       env:
+-        - TESTS=1 ODOO_REPO="odoo/odoo" MAKEPOT=1 INCLUDE="product_supplierinfo_for_customer"
++        - TESTS=1 ODOO_REPO="odoo/odoo" MAKEPOT=1
++          INCLUDE="product_supplierinfo_for_customer"
+     - stage: test
