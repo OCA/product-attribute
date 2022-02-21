@@ -52,27 +52,39 @@ class ProductSupplierinfo(models.Model):
         )
     ]
 
-    def _find_or_create_supplierinfo_group(self, vals):
-        domain = [
+    def _get_group_domain(self, vals):
+        return [
             (field_group, "=", vals.get(field_supplierinfo))
             for field_supplierinfo, field_group in MAPPING_MATCH_GROUP.items()
         ]
-        group = self.env["product.supplierinfo.group"].search(domain)
-        if not group:
-            group = self.env["product.supplierinfo.group"].create(
-                {
-                    field_group: vals.get(field_supplierinfo)
-                    for field_supplierinfo, field_group in MAPPING_MATCH_GROUP.items()
-                }
-            )
-        return group
+
+    def _prepare_group_vals(self, vals):
+        return {
+            field_group: vals.get(field_supplierinfo)
+            for field_supplierinfo, field_group in MAPPING_MATCH_GROUP.items()
+        }
+
+    def _set_group_id(self, vals):
+        id_in_vals = vals.get("supplierinfo_group_id")
+        if id_in_vals:
+            vals["supplierinfo_group_id"] = id_in_vals
+            return
+
+        group = self.env["product.supplierinfo.group"].search(
+            self._get_group_domain(vals)
+        )
+        if group:
+            vals["supplierinfo_group_id"] = group.id
+            return
+
+        new_group = self.env["product.supplierinfo.group"].create(
+            self._prepare_group_vals(vals)
+        )
+        vals["supplierinfo_group_id"] = new_group.id
 
     def to_supplierinfo_group(self, vals):
         new_val = deepcopy(vals)
-        group = self.env["product.supplierinfo.group"].browse(
-            new_val.get("supplierinfo_group_id")
-        ) or self._find_or_create_supplierinfo_group(new_val)
-        new_val["supplierinfo_group_id"] = group.id
+        self._set_group_id(new_val)
         for field_supplierinfo in MAPPING_RELATED.keys():
             if field_supplierinfo in new_val:
                 del new_val[field_supplierinfo]
