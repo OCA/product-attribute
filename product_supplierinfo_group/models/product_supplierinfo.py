@@ -52,17 +52,8 @@ class ProductSupplierinfo(models.Model):
         )
     ]
 
-    def _get_group_domain(self, vals):
-        return [
-            (field_group, "=", vals.get(field_supplierinfo))
-            for field_supplierinfo, field_group in MAPPING_MATCH_GROUP.items()
-        ]
-
-    def _prepare_group_vals(self, vals):
-        return {
-            field_group: vals.get(field_supplierinfo)
-            for field_supplierinfo, field_group in MAPPING_MATCH_GROUP.items()
-        }
+    def _fields_for_group_match(self):
+        return MAPPING_MATCH_GROUP
 
     def _set_group_id(self, vals):
         id_in_vals = vals.get("supplierinfo_group_id")
@@ -71,14 +62,20 @@ class ProductSupplierinfo(models.Model):
             return
 
         group = self.env["product.supplierinfo.group"].search(
-            self._get_group_domain(vals)
+            [
+                (field_group, "=", vals.get(field_supplierinfo))
+                for field_supplierinfo, field_group in self._fields_for_group_match().items()
+            ]
         )
         if group:
             vals["supplierinfo_group_id"] = group.id
             return
 
         new_group = self.env["product.supplierinfo.group"].create(
-            self._prepare_group_vals(vals)
+            {
+                field_group: vals.get(field_supplierinfo)
+                for field_supplierinfo, field_group in self._fields_for_group_match().items()
+            }
         )
         vals["supplierinfo_group_id"] = new_group.id
 
