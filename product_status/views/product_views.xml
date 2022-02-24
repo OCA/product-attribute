@@ -84,4 +84,16 @@
     </field>
   </record>
 
+  <record id="product_template_form_view" model="ir.ui.view">
+    <field name="name">product.template.form.inherit</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product_state.product_template_form_view" />
+    <field name="arch" type="xml">
+      <field name="product_state_id" position="attributes">
+        <!-- State cannot anymore be changed manually through the statusbar -->
+        <attribute name="options">{'clickable': 0}</attribute>
+      </field>
+    </field>
+  </record>
+
 </odoo>
