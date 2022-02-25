@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+  <record model="ir.cron" id="cron_recompute_product_state">
+    <field name='name'>Recompute Product State</field>
+    <field name='interval_number'>1</field>
+    <field name='interval_type'>days</field>
+    <field name="numbercall">-1</field>
+    <field name="active" eval="True" />
+    <field name="doall" eval="False" />
+    <field
+            name="nextcall"
+            eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 00:00:00')"
+        />
+    <field name="model_id" ref="product_status.model_product_state" />
+    <field name="state">code</field>
+    <field name="code">model._cron_recompute_product_state()</field>
+  </record>
+
+</odoo>
