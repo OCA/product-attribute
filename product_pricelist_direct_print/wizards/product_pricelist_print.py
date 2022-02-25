@@ -199,15 +199,21 @@ class ProductPricelistPrint(models.TransientModel):
         composer.write(values)
         composer.send_mail()
 
+    @api.model
+    def _get_sale_order_domain(self, partner):
+        return [
+            ("state", "not in", ["draft", "sent", "cancel"]),
+            ("partner_id", "child_of", partner.id),
+        ]
+
     def get_last_ordered_products_to_print(self):
         self.ensure_one()
         partner = self.partner_id
         if not partner and self.partner_count == 1:
             partner = self.partner_ids[0]
-        orders = partner.sale_order_ids.filtered(
-            lambda r: r.state not in ["draft", "sent", "cancel"]
+        orders = self.env["sale.order"].search(
+            self._get_sale_order_domain(partner), order="date_order desc"
         )
-        orders = orders.sorted(key=lambda r: r.date_order, reverse=True)
         products = orders.mapped("order_line").mapped("product_id")
         return products[: self.last_ordered_products]
 
