@@ -133,6 +133,13 @@ msgid "Product Template"
 msgstr ""
 
 #. module: product_status
+#: model:ir.actions.server,name:product_status.cron_recompute_product_state_ir_actions_server
+#: model:ir.cron,cron_name:product_status.cron_recompute_product_state
+#: model:ir.cron,name:product_status.cron_recompute_product_state
+msgid "Recompute Product State"
+msgstr ""
+
+#. module: product_status
 #: model:ir.model.fields,help:product_status.field_product_product__product_state_id
 msgid "Select a state for this product"
 msgstr ""
