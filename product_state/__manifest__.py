@@ -11,11 +11,11 @@
     "license": "AGPL-3",
     "depends": ["product", "sale"],
     "data": [
+        "data/product_state_data.xml",
         "security/ir.model.access.csv",
         "security/ir.model.access.csv",
         "views/product_template.xml",
     ],
-    "demo": ["demo/product_state_data.xml"],
     "application": False,
     "maintainers": ["emagdalenaC2i"],
     "post_init_hook": "post_init_hook",
