@@ -14,8 +14,61 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
+msgid "Attribute"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.model,name:product_attribute_value_menu.model_product_attribute_value
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
+msgid "Attribute Values"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
+#: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
+msgid "Attribute Values Extra Prices"
+msgstr ""
+
+#. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_template_attribute_value_inherited_view_tree
 msgid "Attributes"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.actions.act_window,name:product_attribute_value_menu.attribute_value_action
+#: model:ir.ui.menu,name:product_attribute_value_menu.sale_menu_product_archived_attribute_action
+#: model:ir.ui.menu,name:product_attribute_value_menu.stock_menu_product_archived_attribute_action
+msgid "Attributes Values"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__id
+msgid "ID"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_attribute_value_menu
+#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__product_count
+msgid "Product"
 msgstr ""
 
 #. module: product_attribute_value_menu
@@ -24,7 +77,6 @@ msgid "Product Attribute"
 msgstr ""
 
 #. module: product_attribute_value_menu
-#: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
-#: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
-msgid "Product Variant Values"
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
+msgid "Products"
 msgstr ""
