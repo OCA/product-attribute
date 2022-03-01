@@ -12,7 +12,11 @@
     "category": "Sales Management",
     "license": "AGPL-3",
     "depends": ["product"],
-    "data": ["security/ir.model.access.csv", "views/product_view.xml"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/product_pricelist_views.xml",
+        "views/product_view.xml",
+    ],
     "demo": ["demo/product_demo.xml"],
     "installable": True,
 }
