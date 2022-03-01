@@ -5,10 +5,24 @@
     <record id="product_attribute_value_tree_view" model="ir.ui.view">
         <field name="name">product.attribute.value.tree</field>
         <field name="model">product.attribute.value</field>
+        <field name="priority">1</field>
         <field name="arch" type="xml">
             <tree string="Attribute Values">
                 <field name="attribute_id" widget="many2one" />
                 <field name="name" />
+                <field
+                    name="product_count"
+                    class="text-right"
+                    string="Products"
+                    attrs="{'invisible': [('product_count', '=', 0)]}"
+                />
+                <button
+                    type="object"
+                    name="action_view_product"
+                    class="btn btn-link text-left"
+                    icon="fa-wrench"
+                    attrs="{'invisible': [('product_count', '=', 0)]}"
+                />
             </tree>
         </field>
     </record>
