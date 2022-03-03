@@ -24,13 +24,23 @@
                     </div>
                     <group>
                         <field name="name" />
+                        <field name="classification_type" />
                         <field name="level_ids">
                             <tree editable="bottom">
-                                <field name="percentage" class="oe_edit_only" />
                                 <field
                                     name="display_name"
                                     class="oe_read_only"
-                                    string="%"
+                                    string="Value"
+                                />
+                                <field
+                                    name="percentage"
+                                    class="oe_edit_only"
+                                    attrs="{'column_invisible': [('parent.classification_type', '!=', 'percentage')]}"
+                                />
+                                <field
+                                    name="fixed"
+                                    class="oe_edit_only"
+                                    attrs="{'column_invisible': [('parent.classification_type', '!=', 'fixed')]}"
                                 />
                             </tree>
                         </field>
@@ -38,8 +48,10 @@
                     </group>
                     <group>
                         <field name="past_period" />
+                        <field name="days_to_ignore" />
                         <field name="data_source" />
                         <field name="value_criteria" />
+                        <field name="company_id" />
                     </group>
                 </sheet>
             </form>
@@ -53,6 +65,7 @@
                 <field name="name" />
                 <field name="value_criteria" />
                 <field name="representation" />
+                <field name="company_id" />
             </tree>
         </field>
     </record>

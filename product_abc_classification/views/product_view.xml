@@ -31,12 +31,12 @@
                 <field
                     name="abc_classification_profile_id"
                     optional="hide"
-                    attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
+                    attrs="{'invisible':[('product_variant_count', '>', 1)]}"
                 />
                 <field
                     name="abc_classification_level_id"
                     optional="hide"
-                    attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
+                    attrs="{'invisible':[('product_variant_count', '>', 1)]}"
                 />
             </field>
         </field>
@@ -60,21 +60,52 @@
             </field>
         </field>
     </record>
-    <record id="product_template_form_view" model="ir.ui.view">
+    <record id="product_template_only_form_view" model="ir.ui.view">
         <field name="name">product.template.form (ABC Classification)</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
             <xpath
                 expr="//page[@name='inventory']/group[@name='inventory']"
                 position="inside"
             >
                 <page string="ABC Classification" name="abc_classification">
-                    <group
-                        attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
-                    >
-                        <field name="abc_classification_profile_id" />
-                        <field name="abc_classification_level_id" />
+                    <group attrs="{'invisible':[('product_variant_count', '>', 1)]}">
+                        <field
+                            name="abc_classification_profile_id"
+                            groups="sales_team.group_sale_manager"
+                        />
+                        <field
+                            name="abc_classification_level_id"
+                            groups="sales_team.group_sale_manager"
+                            domain="[('profile_id', '=', abc_classification_profile_id)]"
+                            options="{'no_create': True}"
+                        />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='inventory']/group[@name='inventory']"
+                position="inside"
+            >
+                <page string="ABC Classification" name="abc_classification">
+                    <group>
+                        <field
+                            name="abc_classification_profile_id"
+                            groups="sales_team.group_sale_manager"
+                        />
+                        <field
+                            name="abc_classification_level_id"
+                            groups="sales_team.group_sale_manager"
+                            domain="[('profile_id', '=', abc_classification_profile_id)]"
+                            options="{'no_create': True}"
+                        />
                     </group>
                 </page>
             </xpath>
