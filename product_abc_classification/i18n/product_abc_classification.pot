@@ -251,20 +251,17 @@ msgstr ""
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
-#: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage cannot be greater than 100."
 msgstr ""
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
-#: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage should be a positive number."
 msgstr ""
 
 #. module: product_abc_classification
-#: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the percentages of the levels should be 100."
