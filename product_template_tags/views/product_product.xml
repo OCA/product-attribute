@@ -10,7 +10,7 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_kanban_view" />
         <field name="arch" type="xml">
-            <field name="product_template_attribute_value_ids" position="before">
+            <field name="product_template_variant_value_ids" position="before">
                 <span class="oe_kanban_list_many2many">
                     <field
                         name="tag_ids"
