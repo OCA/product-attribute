@@ -14,7 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_abc_classification
-#: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_only_form_view
 msgid "ABC Classification"
 msgstr ""
 
@@ -61,8 +62,20 @@ msgid "Abc Classification Profile"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__classification_type
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__classification_type
+msgid "Classification Type"
+msgstr ""
+
+#. module: product_abc_classification
 #: model_terms:ir.actions.act_window,help:product_abc_classification.abc_classification_profile_action
 msgid "Click to add a new profile."
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__company_id
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__company_id
+msgid "Company"
 msgstr ""
 
 #. module: product_abc_classification
@@ -83,6 +96,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__data_source
 msgid "Data Source"
 msgstr ""
@@ -94,9 +112,24 @@ msgid "Display Name"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__classification_type__fixed
+msgid "Fixed"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__fixed
+msgid "Fixed Value"
+msgstr ""
+
+#. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__id
 msgid "ID"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__days_to_ignore
+msgid "Ignore newer than these days"
 msgstr ""
 
 #. module: product_abc_classification
@@ -130,6 +163,11 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__past_period
 msgid "Past demand period (Days)"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__classification_type__percentage
+msgid "Percentage"
 msgstr ""
 
 #. module: product_abc_classification
@@ -191,11 +229,28 @@ msgid "Sales Volume"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__data_source__stock_moves
 msgid "Stock Moves"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__symbol
+msgid "Symbol"
+msgstr ""
+
+#. module: product_abc_classification
+#: code:addons/product_abc_classification/models/abc_classification_profile.py:0
+#, python-format
+msgid "The days to ignore can not be greater than the past period."
+msgstr ""
+
+#. module: product_abc_classification
+#: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage cannot be greater than 100."
@@ -203,11 +258,13 @@ msgstr ""
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
+#: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage should be a positive number."
 msgstr ""
 
 #. module: product_abc_classification
+#: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the percentages of the levels should be 100."
@@ -220,5 +277,6 @@ msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__value_criteria
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
 msgid "Value"
 msgstr ""
