@@ -12,15 +12,18 @@ class TestProductSupplierinfoGroup(common.SavepointCase):
         super().setUpClass()
         cls.product_sofa = cls.env.ref("product.consu_delivery_01_product_template")
         cls.vendor_gemini = cls.env.ref("base.res_partner_3")
-        cls.supplierinfo_vals = {
-            "name": cls.vendor_gemini.id,
-            "product_tmpl_id": cls.product_sofa.id,
+
+    @property
+    def supplierinfo_vals(self):
+        return {
+            "name": self.vendor_gemini.id,
+            "product_tmpl_id": self.product_sofa.id,
             "product_name": "aProductName",
             "product_code": "aProductCode",
             "min_qty": 5.0,
             "price": 10.0,
             "delay": 1,
-        }
+        }.copy()
 
     def test_no_group(self):
         """
