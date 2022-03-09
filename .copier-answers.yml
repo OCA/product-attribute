@@ -10,7 +10,6 @@ org_name: Odoo Community Association (OCA)
 org_slug: OCA
 rebel_module_groups:
 - product_supplierinfo_for_customer
-- product_supplierinfo_group
 repo_description: 'TODO: add repo description.'
 repo_name: product-attribute
 repo_slug: product-attribute

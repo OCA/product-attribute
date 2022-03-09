@@ -28,13 +28,12 @@ def fill_required_group_id_column(cr):
     On installing this module, we have the problem of adding
     on product.supplierinfo:
 
-        supplierinfo_group_id = fields.Many2one("product.supplierinfo.group",
-             required=True)
+        group_id = fields.Many2one("product.supplierinfo.group", required=True)
 
     This is complicated because the product_supplierinfo_group table
     doesn't exist yet:
         - no default value is possible
-        - can't put supplierinfo_group_id=0 because psycopg/postgres
+        - can't put group_id=0 because psycopg/postgres
           enforces constraint that the id exists in DB
         - can't suspend constraints without superuser privileges
         - we want to keep it required=True
@@ -44,7 +43,7 @@ def fill_required_group_id_column(cr):
     Thus, we must jump through the hoops:
         - Create the table product_supplierinfo_group
         - Populate the table with the right values
-        - Fill the newly required supplierinfo_group_id on product_supplierinfo
+        - Fill the newly required group_id on product_supplierinfo
     """
     cr.execute(
         "SELECT count(id) FROM %s",
@@ -78,7 +77,7 @@ def fill_required_group_id_column(cr):
     )
 
     # Update supplierinfo table
-    create_column(cr, "product_supplierinfo", "supplierinfo_group_id", "int4")
+    create_column(cr, "product_supplierinfo", "group_id", "int4")
 
     # Assign the right group to supplierinfo's
     conditions = " AND ".join(
@@ -89,7 +88,7 @@ def fill_required_group_id_column(cr):
     )
     cr.execute(
         "UPDATE product_supplierinfo p "
-        "SET supplierinfo_group_id = g.id "
+        "SET group_id = g.id "
         "FROM product_supplierinfo_group g "
         "WHERE %s",
         (AsIs(conditions),),
