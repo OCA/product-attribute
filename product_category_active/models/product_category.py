@@ -9,7 +9,6 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     active = fields.Boolean(
-        string="Active",
         default=True,
         help="If unchecked, it will allow you to hide the "
         "product category without removing it.",
