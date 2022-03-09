@@ -29,31 +29,53 @@ def _create_profile_from_config_parameters(env):
     openupgrade.logged_query(
         env.cr,
         """
-        INSERT INTO abc_classification_profile_level (
-            profile_id,
-            fixed,
-        )
-        SELECT
-            (
-                SELECT acp.id as profile, rc.sale_classification_a as fixed
-                FROM abc_classification_profile acp
-                    JOIN res_company rc ON rc.id = acp.company_id
-            ),
-            (
-                SELECT acp.id as profile, rc.sale_classification_b as fixed
-                FROM abc_classification_profile acp
-                    JOIN res_company rc ON rc.id = acp.company_id
-            ),
-            (
-                SELECT acp.id as profile, rc.sale_classification_c as fixed
-                FROM abc_classification_profile acp
-                    JOIN res_company rc ON rc.id = acp.company_id
-            ),
-            (
-                SELECT acp.id as profile, 0 as fixed
-                FROM abc_classification_profile acp
-                    JOIN res_company rc ON rc.id = acp.company_id
+            INSERT INTO abc_classification_profile_level (
+                profile_id,
+                fixed
             )
+            SELECT acp.id, rc.sale_classification_a
+            FROM abc_classification_profile acp
+                JOIN res_company rc ON rc.id = acp.company_id
+            ;
+        """,
+    )
+    openupgrade.logged_query(
+        env.cr,
+        """
+            INSERT INTO abc_classification_profile_level (
+                profile_id,
+                fixed
+            )
+            SELECT acp.id, rc.sale_classification_b
+            FROM abc_classification_profile acp
+                JOIN res_company rc ON rc.id = acp.company_id
+            ;
+        """,
+    )
+    openupgrade.logged_query(
+        env.cr,
+        """
+            INSERT INTO abc_classification_profile_level (
+                profile_id,
+                fixed
+            )
+            SELECT acp.id, rc.sale_classification_c
+            FROM abc_classification_profile acp
+                JOIN res_company rc ON rc.id = acp.company_id
+            ;
+        """,
+    )
+    openupgrade.logged_query(
+        env.cr,
+        """
+            INSERT INTO abc_classification_profile_level (
+                profile_id,
+                fixed
+            )
+            SELECT acp.id, 0
+            FROM abc_classification_profile acp
+                JOIN res_company rc ON rc.id = acp.company_id
+            ;
         """,
     )
 
