@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_tag_form_view" model="ir.ui.view">
+        <field name="name">product.template.tag.form (in product_template_tags)</field>
+        <field name="model">product.template.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <header />
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="%(product.product_template_action)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-tags"
+                            context="{'search_default_tag_ids': active_id}"
+                        >
+                            <field
+                                name="products_count"
+                                widget="statinfo"
+                                string="Products"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sequence" groups="base.group_no_one" />
+                            <field name="color" widget="color_picker" />
+                        </group>
+                        <group>
+                            <field
+                                name="company_id"
+                                option="{no_create_edit: True}"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_template_tag_search_view" model="ir.ui.view">
+        <field name="name">
+            product.template.tag.search (in product_template_tags)
+        </field>
+        <field name="model">product.template.tag</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <group expand="0">
+                    <filter
+                        name="group_by_company"
+                        string="Company"
+                        domain="[]"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="product_template_tag_tree_view" model="ir.ui.view">
+        <field name="name">product.template.tag.tree (in product_template_tags)</field>
+        <field name="model">product.template.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field
+                    name="company_id"
+                    widget="selection"
+                    groups="base.group_multi_company"
+                />
+                <field name="color" widget="color_picker" />
+            </tree>
+        </field>
+    </record>
+    <record id="product_template_tag_act_window" model="ir.actions.act_window">
+        <field name="name">Product Template Tag</field>
+        <field name="res_model">product.template.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="product_template_tag_search_view" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">Add tags</p>
+        </field>
+    </record>
+</odoo>
