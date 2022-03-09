@@ -10,11 +10,12 @@ from odoo import api, fields, models
 class ProductSupplierinfoGroup(models.Model):
     _name = "product.supplierinfo.group"
     _description = "Supplierinfo group"
+    _order = "sequence, id"
 
     product_tmpl_id = fields.Many2one(
         "product.template", required=True, ondelete="cascade"
     )
-    supplierinfo_ids = fields.One2many("product.supplierinfo", "supplierinfo_group_id")
+    supplierinfo_ids = fields.One2many("product.supplierinfo", "group_id")
     product_id = fields.Many2one(
         "product.product",
         "Product Variant",
