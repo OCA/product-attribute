@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [product_dimension](product_dimension/) | 15.0.1.0.1 |  | Product Dimension
 [product_state](product_state/) | 15.0.1.1.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 15.0.1.0.0 |  | Allows to define prices for customers in the products
+[product_template_tags](product_template_tags/) | 15.0.1.0.0 | [![patrickrwilson](https://github.com/patrickrwilson.png?size=30px)](https://github.com/patrickrwilson) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | This addon allow to add tags on products
 
 [//]: # (end addons)
 
