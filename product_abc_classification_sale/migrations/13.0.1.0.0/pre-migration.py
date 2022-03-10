@@ -31,12 +31,15 @@ def _create_profile_from_config_parameters(env):
         """
             INSERT INTO abc_classification_profile_level (
                 profile_id,
-                fixed
+                fixed,
+                company_id,
+                currency_id,
+                symbol
             )
-            SELECT acp.id, rc.sale_classification_a
+            SELECT acp.id, rc.sale_classification_a, rc.id, rc.currency_id, cur.symbol
             FROM abc_classification_profile acp
                 JOIN res_company rc ON rc.id = acp.company_id
-            ;
+                JOIN res_currency as cur ON cur.id = rc.currency_id
         """,
     )
     openupgrade.logged_query(
@@ -44,12 +47,15 @@ def _create_profile_from_config_parameters(env):
         """
             INSERT INTO abc_classification_profile_level (
                 profile_id,
-                fixed
+                fixed,
+                company_id,
+                currency_id,
+                symbol
             )
-            SELECT acp.id, rc.sale_classification_b
+            SELECT acp.id, rc.sale_classification_b, rc.id, rc.currency_id, cur.symbol
             FROM abc_classification_profile acp
                 JOIN res_company rc ON rc.id = acp.company_id
-            ;
+                JOIN res_currency as cur ON cur.id = rc.currency_id
         """,
     )
     openupgrade.logged_query(
@@ -57,12 +63,15 @@ def _create_profile_from_config_parameters(env):
         """
             INSERT INTO abc_classification_profile_level (
                 profile_id,
-                fixed
+                fixed,
+                company_id,
+                currency_id,
+                symbol
             )
-            SELECT acp.id, rc.sale_classification_c
+            SELECT acp.id, rc.sale_classification_c, rc.id, rc.currency_id, cur.symbol
             FROM abc_classification_profile acp
                 JOIN res_company rc ON rc.id = acp.company_id
-            ;
+                JOIN res_currency as cur ON cur.id = rc.currency_id
         """,
     )
     openupgrade.logged_query(
@@ -70,12 +79,15 @@ def _create_profile_from_config_parameters(env):
         """
             INSERT INTO abc_classification_profile_level (
                 profile_id,
-                fixed
+                fixed,
+                company_id,
+                currency_id,
+                symbol
             )
-            SELECT acp.id, 0
+            SELECT acp.id, 0, rc.id, rc.currency_id, cur.symbol
             FROM abc_classification_profile acp
                 JOIN res_company rc ON rc.id = acp.company_id
-            ;
+                JOIN res_currency as cur ON cur.id = rc.currency_id
         """,
     )
 
