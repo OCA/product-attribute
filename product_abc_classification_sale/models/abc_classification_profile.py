@@ -40,13 +40,14 @@ class ABCClassificationProfile(models.Model):
             ["product_id"],
         )
         for result in sales_report:
+            product_uom_qty = result["product_uom_qty"]
             product_data = {
                 "product": self.env["product.product"].browse(result["product_id"][0]),
-                "units_sold": result["product_uom_qty"],
-                "price_subtotal_delivered": (
-                    result.get("price_subtotal") / result.get("product_uom_qty")
-                )
-                * result.get("qty_delivered"),
+                "units_sold": product_uom_qty,
+                "price_subtotal_delivered": product_uom_qty
+                and (result.get("price_subtotal") / result.get("product_uom_qty"))
+                * result.get("qty_delivered")
+                or 0,
             }
             product_list.append(product_data)
         return product_list
