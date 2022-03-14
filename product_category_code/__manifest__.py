@@ -5,7 +5,7 @@
     "name": "Product Category Code",
     "summary": """
         Allows to define a code on product categories""",
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "maintainers": ["rousseldenis"],
