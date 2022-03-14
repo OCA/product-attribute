@@ -4,7 +4,7 @@
 import odoo.tests.common as common
 
 
-class TestProductCategoryCode(common.SavepointCase):
+class TestProductCategoryCode(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
