@@ -1,2 +1,3 @@
+partner-contact
 reporting-engine
 stock-logistics-warehouse
