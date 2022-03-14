@@ -40,6 +40,7 @@ setuptools.setup(
         'odoo13-addon-product_pricelist_button_box',
         'odoo13-addon-product_pricelist_by_contact',
         'odoo13-addon-product_pricelist_direct_print',
+        'odoo13-addon-product_pricelist_direct_print_company_group',
         'odoo13-addon-product_pricelist_direct_print_website_sale',
         'odoo13-addon-product_pricelist_revision',
         'odoo13-addon-product_pricelist_supplierinfo',
