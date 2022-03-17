@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2019 Akretion (http://www.akretion.com).
 # @author Raphaël Reverdy <raphael.reverdy@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -7,12 +6,12 @@ from odoo import api, models
 
 
 class ProductTemplate(models.Model):
-    _inherit = ['product.template', 'base.exception']
-    _name = 'product.template'
+    _inherit = ["product.template", "base.exception"]
+    _name = "product.template"
 
     @api.model
     def check_product_template_cron(self):
-        products = self.env['product.template'].search([])
+        products = self.env["product.template"].search([])
         products.detect_exceptions()
 
     @api.multi
@@ -22,11 +21,11 @@ class ProductTemplate(models.Model):
 
     @api.model
     def _reverse_field(self):
-        return 'product_tmpl_ids'
+        return "product_tmpl_ids"
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
     @api.multi
     def check_exception(self):
