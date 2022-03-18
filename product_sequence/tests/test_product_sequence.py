@@ -28,7 +28,7 @@ class TestProductSequence(TransactionCase):
 
     def test_product_create_without_default_code(self):
         product_1 = self.product_product.create(dict(name="Orange", default_code="/"))
-        self.assertRegexpMatches(str(product_1.default_code), r"PR/*")
+        self.assertRegex(str(product_1.default_code), r"PR/*")
 
     def test_product_copy(self):
         product_2 = self.product_template.create(
