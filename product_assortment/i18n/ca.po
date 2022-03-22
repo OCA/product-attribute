@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-02-23 12:45+0000\n"
-"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"PO-Revision-Date: 2022-03-22 13:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "<span class=\"o_stat_text\">Productes</span>"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
 msgid "All Partner"
-msgstr ""
+msgstr "Tots socis"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -56,7 +56,7 @@ msgstr "Contacte"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__display_name
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom de visualització"
 
 #. module: product_assortment
 #: model:ir.model,name:product_assortment.model_ir_filters
@@ -68,7 +68,7 @@ msgstr "Filtres"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__id
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__is_assortment
@@ -79,7 +79,7 @@ msgstr "És Assortiment"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters____last_update
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificació el"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
@@ -89,7 +89,7 @@ msgstr "Soci"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
-msgstr ""
+msgstr "Domini del soci"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
