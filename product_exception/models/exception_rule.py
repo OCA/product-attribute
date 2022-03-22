@@ -8,6 +8,11 @@ from odoo import fields, models
 class ExceptionRule(models.Model):
     _inherit = "exception.rule"
 
-    model = fields.Selection(selection_add=[("product.template", "Product Template"),])
+    model = fields.Selection(
+        selection_add=[
+            ("product.template", "Product Template"),
+            ("product.product", "Product Variant"),
+        ]
+    )
 
     product_tmpl_ids = fields.Many2many("product.template", string="Product Templates")
