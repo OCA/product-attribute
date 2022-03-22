@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-02-23 18:45+0000\n"
-"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"PO-Revision-Date: 2022-03-22 13:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "CE Classe Is"
 #. module: product_medical
 #: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_validity_date
@@ -77,27 +77,27 @@ msgstr "Data de validesa del certificat"
 #. module: product_medical
 #: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
 msgid "Conformity"
-msgstr ""
+msgstr "Conformitat"
 
 #. module: product_medical
 #: model_terms:ir.actions.act_window,help:product_medical.ppe_category_action
 msgid "Create your PPE categories here."
-msgstr ""
+msgstr "Creeu les vostres categories d'EPI aquí."
 
 #. module: product_medical
 #: model_terms:ir.actions.act_window,help:product_medical.in_vitro_diagnostic_action
 msgid "Create your in vitro diagnostic here."
-msgstr ""
+msgstr "Creeu el vostre diagnòstic in vitro aquí."
 
 #. module: product_medical
 #: model_terms:ir.actions.act_window,help:product_medical.medical_class_action
 msgid "Create your medical class here."
-msgstr ""
+msgstr "Crea la teva classe mèdica aquí."
 
 #. module: product_medical
 #: model_terms:ir.actions.act_window,help:product_medical.medicine_category_action
 msgid "Create your medicine categories here."
-msgstr ""
+msgstr "Creeu les vostres categories de medicaments aquí."
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__create_uid
@@ -131,19 +131,20 @@ msgstr "El tipus de diagnòstic ja existeix"
 #: model:ir.model.fields,field_description:product_medical.field_medical_class__display_name
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__display_name
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__display_name
+#: model:ir.model.fields,field_description:product_medical.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nom visible"
 
 #. module: product_medical
 #: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
 msgid "Documents"
-msgstr ""
+msgstr "Documents"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__medicine_category_id
 #: model:ir.model.fields,field_description:product_medical.field_product_template__medicine_category_id
 msgid "Drug Category"
-msgstr ""
+msgstr "Categoria de drogues"
 
 #. module: product_medical
 #: model:medicine.category,name:product_medical.category_d
@@ -160,13 +161,14 @@ msgstr "Droga-E"
 #: model:ir.model.fields,field_description:product_medical.field_medical_class__id
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__id
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_medical
 #: model:ir.actions.act_window,name:product_medical.in_vitro_diagnostic_action
 msgid "In Vitro Diagnostics"
-msgstr ""
+msgstr "Diagnòstic in vitro"
 
 #. module: product_medical
 #: model:ir.model,name:product_medical.model_in_vitro_diagnostic
@@ -206,6 +208,7 @@ msgstr "És mèdic"
 #: model:ir.model.fields,field_description:product_medical.field_medical_class____last_update
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category____last_update
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category____last_update
+#: model:ir.model.fields,field_description:product_medical.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Darrera modificació el"
 
@@ -239,13 +242,13 @@ msgstr "Classe mèdica"
 #. module: product_medical
 #: model:ir.actions.act_window,name:product_medical.medical_class_action
 msgid "Medical Classes"
-msgstr ""
+msgstr "Classes mèdiques"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__medical_class_id
 #: model:ir.model.fields,field_description:product_medical.field_product_template__medical_class_id
 msgid "Medical Device Class"
-msgstr ""
+msgstr "Classe de dispositiu mèdic"
 
 #. module: product_medical
 #: model:ir.model.constraint,message:product_medical.constraint_medical_class_name_uniq
@@ -255,7 +258,7 @@ msgstr "La classe mèdica ja existeix"
 #. module: product_medical
 #: model:ir.actions.act_window,name:product_medical.medicine_category_action
 msgid "Medicine Categories"
-msgstr ""
+msgstr "Categories de Medicina"
 
 #. module: product_medical
 #: model:ir.model,name:product_medical.model_medicine_category
@@ -284,13 +287,13 @@ msgstr "Cos notificat"
 #. module: product_medical
 #: model:ir.actions.act_window,name:product_medical.ppe_category_action
 msgid "PPE Categories"
-msgstr ""
+msgstr "Categories EPI"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__ppe_category_id
 #: model:ir.model.fields,field_description:product_medical.field_product_template__ppe_category_id
 msgid "PPE Category"
-msgstr ""
+msgstr "Categoria EPI"
 
 #. module: product_medical
 #: model:ir.model,name:product_medical.model_ppe_category

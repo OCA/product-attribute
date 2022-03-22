@@ -37,5 +37,5 @@ class ProductTemplate(models.Model):
     notified_body_id = fields.Many2one(
         comodel_name="res.partner",
         ondelete="set null",
-        string=u"Notified Body",
+        string="Notified Body",
     )
