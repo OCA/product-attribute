@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_lot_sequence_form_view" model="ir.ui.view">
+        <field name="name">product.lot.sequence.form.view</field>
+        <field name="model">product.lot.sequence</field>
+        <field name="arch" type="xml">
+            <form string="Product Lot Sequence">
+                <group>
+                    <group string="Product">
+                        <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+                        <field name="product_id" groups="product.group_product_variant" domain="[('product_tmpl_id', '=', product_tmpl_id)]" options="{'no_create_edit': True}"/>
+                        <field name="name"/>
+                        <field name="lot_sequence_id"/>
+                    </group>
+                    <group string="Sequence">
+                        <field name="lot_sequence_prefix"/>
+                        <field name="lot_sequence_suffix"/>
+                        <field name="lot_sequence_padding"/>
+                        <field name="lot_sequence_number_next"/>
+                    </group>
+<!--                    <group string="Other Information" groups="base.group_multi_company">-->
+<!--                        <field name="company_id" options="{'no_create': True}"/>-->
+<!--                    </group>-->
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_lot_sequence_search_view" model="ir.ui.view">
+        <field name="name">product.lot.sequence.search.view</field>
+        <field name="model">product.lot.sequence</field>
+        <field name="arch" type="xml">
+            <search string="Vendor">
+                <field name="name"/>
+                <field name="product_tmpl_id"/>
+                <filter string="Active" name="active" domain="[('date_end', '&gt;=',  (context_today() - datetime.timedelta(days=1)).strftime('%%Y-%%m-%%d'))]"/>
+                <filter string="Archived" name="archived" domain="[('date_end', '&lt;',  (context_today() - datetime.timedelta(days=1)).strftime('%%Y-%%m-%%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Product" name="groupby_product" domain="[]" context="{'group_by': 'product_tmpl_id'}"/>
+                    <filter string="Variant" name="groupby_variant" domain="[]" context="{'group_by': 'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_lot_sequence_tree_view" model="ir.ui.view">
+        <field name="name">product.lot.sequence.tree.view</field>
+        <field name="model">product.lot.sequence</field>
+        <field name="arch" type="xml">
+            <tree string="Vendor Information">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="product_id" invisible="context.get('product_template_invisible_variant', False)" groups="product.group_product_variant"/>
+                <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+                <field name="lot_sequence_id"/>
+                <field name="lot_sequence_prefix"/>
+                <field name="lot_sequence_suffix"/>
+                <field name="lot_sequence_padding"/>
+                <field name="lot_sequence_number_next"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_lot_sequence_type_action" model="ir.actions.act_window">
+        <field name="name">Product Lot Sequences</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.lot.sequence</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{'visible_product_tmpl_id':False}</field>
+    </record>
+
+</odoo>

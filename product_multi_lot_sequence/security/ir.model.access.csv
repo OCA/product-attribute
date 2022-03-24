@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_lot_sequence_user","product.lot.sequence.manager","model_product_lot_sequence","base.group_user",1,0,0,0
+"access_product_lot_sequence_manager","product.lot.sequence.user","model_product_lot_sequence","stock.group_production_lot",1,1,1,1

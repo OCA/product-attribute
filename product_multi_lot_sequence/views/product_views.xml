@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- view common to both template and product -->
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.stock.property.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <page name="inventory" position="after">
+                <page name="tracking" string="Tracking" attrs="{'invisible': [('tracking', '=', 'none')]}">
+                    <group string="Product Lot Sequence" name="product_lot_sequence">
+                        <field name="product_lot_sequence_ids" context="{'default_product_tmpl_id': context.get('product_tmpl_id', active_id)}" nolabel="1"/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+</odoo>
