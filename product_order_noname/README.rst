@@ -108,6 +108,11 @@ More info about this on:
 .. contents::
    :local:
 
+Check on version 16
+===================
+
+Check if this module is still necessary in that version due to the changes on "ir.translation".
+
 Usage
 =====
 
