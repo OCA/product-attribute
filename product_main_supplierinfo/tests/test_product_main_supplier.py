@@ -20,13 +20,13 @@ class TestProductMainSupplierInfo(SavepointCase):
         cls.company_2 = cls.env.company.create({"name": "Company2"})
 
     def test_main_seller_1(self):
-        """"Case 1: all the sellers share the same company."""
+        """Case 1: all the sellers share the same company."""
         self.assertEqual(self.product.main_seller_id, self.seller_1)
         self.seller_2.sequence = -1
         self.assertEqual(self.product.main_seller_id, self.seller_2)
 
     def test_main_seller_2(self):
-        """"Case 2: the sellers do not share the same company."""
+        """Case 2: the sellers do not share the same company."""
         # Assign 'seller_1' to the second company, so the main vendor computed
         # for the main company is now 'seller_2'
         self.seller_1.company_id = self.company_2
@@ -38,7 +38,7 @@ class TestProductMainSupplierInfo(SavepointCase):
         )
 
     def test_main_seller_3(self):
-        """"Case 3: the sellers have different start/end dates."""
+        """Case 3: the sellers have different start/end dates."""
         today = fields.Date.today()
         tomorrow = fields.Date.add(today, days=1)
         yesterday = fields.Date.subtract(today, days=1)
