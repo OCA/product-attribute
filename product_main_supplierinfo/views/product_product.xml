@@ -7,11 +7,11 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
-            <field name="seller_ids" position="before">
+            <xpath expr="//group[@name='packaging']" position="before">
                 <group name="main_seller">
                     <field name="main_seller_id" />
                 </group>
-            </field>
+            </xpath>
         </field>
     </record>
 
