@@ -13,4 +13,5 @@ class ProductPricelistItem(models.Model):
         string="Assortment item",
         readonly=True,
         ondelete="cascade",
+        index=True,
     )
