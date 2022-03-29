@@ -2,6 +2,7 @@
 <!-- Copyright 2021 Tecnativa - Carlos Roca
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
+    <!-- pylint:disable=dangerous-filter-wo-user -->
     <record id="product_assortment_1" model="ir.filters">
         <field name="model_id">product.product</field>
         <field name="is_assortment" eval="True" />
