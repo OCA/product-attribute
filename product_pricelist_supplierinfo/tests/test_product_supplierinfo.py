@@ -131,7 +131,7 @@ class TestProductSupplierinfo(common.SavepointCase):
         )
 
     def test_pricelist_dates(self):
-        """ Test pricelist and supplierinfo dates """
+        """Test pricelist and supplierinfo dates"""
         self.product.seller_ids.filtered(lambda x: x.min_qty == 5)[
             0
         ].date_start = "2018-12-31"
