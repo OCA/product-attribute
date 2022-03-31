@@ -15,6 +15,11 @@ class ProductAttribute(models.Model):
         help="If checked, it will display the variant attribute name before its value.",
     )
 
+    display_no_variant_attribute = fields.Boolean(
+        "Display No Variant Attributes on Product Variant",
+        help="If checked, it will display the no variant attribute.",
+    )
+
 
 class ProductTemplateAttributeLine(models.Model):
     _inherit = "product.template.attribute.line"
@@ -31,11 +36,14 @@ class ProductTemplateAttributeValue(models.Model):
         The order of the attributes is defined by the user"""
         display_ptav_list = []
         for ptav in sorted(
-            self._without_no_variant_attributes()._filter_single_value_lines(),
+            self._filter_single_value_lines(),
             key=lambda seq: seq.attribute_line_id.sequence,
         ):
             if not ptav.attribute_id.display_attribute_value:
                 continue
+            if not ptav.attribute_id.display_no_variant_attribute:
+                if not ptav._without_no_variant_attributes():
+                    continue
             if ptav.attribute_id.display_attribute_name:
                 if ptav.attribute_id.short_name:
                     display_ptav_list.append(
