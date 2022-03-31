@@ -15,7 +15,7 @@ class ProductTemplate(models.Model):
     def _fields_view_get(
         self, view_id=None, view_type="form", toolbar=False, submenu=False
     ):
-        """ fields_view_get comes from Model (not AbstractModel) """
+        """fields_view_get comes from Model (not AbstractModel)"""
         res = super()._fields_view_get(
             view_id=view_id,
             view_type=view_type,
