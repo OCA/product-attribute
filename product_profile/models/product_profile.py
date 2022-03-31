@@ -131,7 +131,7 @@ class ProductProfile(models.Model):
     def fields_view_get(
         self, view_id=None, view_type="form", toolbar=False, submenu=False
     ):
-        """ Display a warning for end user if edit record """
+        """Display a warning for end user if edit record"""
         res = super().fields_view_get(
             view_id=view_id,
             view_type=view_type,
@@ -195,7 +195,7 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.onchange("profile_id")
     def _onchange_from_profile(self):
-        """ Update product fields with product.profile corresponding fields """
+        """Update product fields with product.profile corresponding fields"""
         self.ensure_one()
         if self.profile_id:
             ignore_defaults = True if self._origin.profile_id else False
@@ -230,7 +230,7 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _get_default_profile_fields(self):
-        " Get profile fields with prefix PROF_DEFAULT_STR "
+        "Get profile fields with prefix PROF_DEFAULT_STR"
         return [
             x
             for x in self.env["product.profile"]._fields.keys()
@@ -275,12 +275,12 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _get_profiles_to_filter(self):
-        """ Inherit if you want that some profiles doesn't have a filter """
+        """Inherit if you want that some profiles doesn't have a filter"""
         return [(x.id, x.name) for x in self.env["product.profile"].search([])]
 
     @api.model
     def _customize_profile_filters(self, my_filter):
-        """ Inherit if you to customize search filter display"""
+        """Inherit if you to customize search filter display"""
         return {
             "string": "%s" % my_filter[1],
             "help": "Filtering by Product Profile",
