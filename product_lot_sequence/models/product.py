@@ -31,7 +31,7 @@ class ProductTemplate(models.Model):
 
     @api.model
     def _create_lot_sequence(self, vals):
-        """ Create new no_gap entry sequence"""
+        """Create new no_gap entry sequence"""
         name = vals.get("name", False) or self.name
         prefix = vals.get("lot_sequence_prefix", False) or self.lot_sequence_prefix
         padding = vals.get("lot_sequence_padding") or self.lot_sequence_padding
