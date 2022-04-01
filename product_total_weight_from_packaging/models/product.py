@@ -10,12 +10,11 @@ class ProductProduct(models.Model):
 
     def get_total_weight_from_packaging(self, qty):
         self.ensure_one()
-        qty_by_packaging_with_weight = self.with_context(
-            **{
-                "_packaging_filter": lambda p: p.max_weight,
-                "_packaging_values_handler": self._prepare_qty_by_packaging_values_with_weight,  # noqa
-            }
-        ).product_qty_by_packaging(qty)
+        with self.product_qty_by_packaging_arg_ctx(
+            packaging_filter=lambda p: p.max_weight,
+            packaging_values_handler=self._prepare_qty_by_packaging_values_with_weight,  # noqa
+        ):
+            qty_by_packaging_with_weight = self.product_qty_by_packaging(qty)
         total_weight = sum(
             [
                 pck.get("qty", 0) * pck.get("weight", 0)
