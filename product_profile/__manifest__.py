@@ -3,7 +3,7 @@
 
 {
     "name": "Product Profile",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "author": "Akretion, Odoo Community Association (OCA)",
     "summary": "Allow to configure a product in 1 click",
     "category": "product",
