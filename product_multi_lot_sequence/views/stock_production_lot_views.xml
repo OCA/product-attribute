@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding='UTF-8'?>
+<?xml version="1.0" encoding='UTF-8' ?>
 <odoo>
     <record id="view_production_lot_form" model="ir.ui.view">
         <field name="name">stock.production.lot.inherit.form</field>
@@ -8,7 +8,10 @@
             <field name="product_id" position="after">
                 <field name="available_product_lot_sequence_count" invisible="1" />
                 <field name="product_tmpl_id" invisible="1" />
-                <field name="product_lot_sequence_id" attrs="{'invisible': [('available_product_lot_sequence_count', '=', 1)]}" />
+                <field
+                    name="product_lot_sequence_id"
+                    attrs="{'invisible': [('available_product_lot_sequence_count', '=', 1)]}"
+                />
             </field>
         </field>
     </record>

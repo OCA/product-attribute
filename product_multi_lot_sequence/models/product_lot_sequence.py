@@ -11,20 +11,23 @@ class ProductLotSequence(models.Model):
     name = fields.Char(default="/")
     active = fields.Boolean(default=True)
     sequence = fields.Integer(
-        'Sequence', default=1, help="Assigns the priority to the list of product lot sequences.")
-    product_id = fields.Many2one(
-        "product.product", string="Product Variant"
+        "Sequence",
+        default=1,
+        help="Assigns the priority to the list of product lot sequences.",
     )
+    product_id = fields.Many2one("product.product", string="Product Variant")
     product_tmpl_id = fields.Many2one(
-        'product.template', 'Product Template',
-        index=True, ondelete='cascade', domain="[('tracking', 'in', ['lot', 'serial'])]"
+        "product.template",
+        "Product Template",
+        index=True,
+        ondelete="cascade",
+        domain="[('tracking', 'in', ['lot', 'serial'])]",
     )
 
     lot_sequence_id = fields.Many2one(
         "ir.sequence",
         string="Entry Sequence",
-        help="This field contains the information related to the "
-        "numbering of lots.",
+        help="This field contains the information related to the " "numbering of lots.",
         copy=False,
     )
     lot_sequence_prefix = fields.Char(
@@ -51,9 +54,7 @@ class ProductLotSequence(models.Model):
     def _create_lot_sequence(self, vals):
         """ Create new no_gap entry sequence"""
         name = vals.get("name", False) or self.name
-        prefix = (
-            vals.get("lot_sequence_prefix", False) or self.lot_sequence_prefix
-        )
+        prefix = vals.get("lot_sequence_prefix", False) or self.lot_sequence_prefix
         padding = vals.get("lot_sequence_padding") or self.lot_sequence_padding
         suffix = vals.get("lot_sequence_suffix") or self.lot_sequence_suffix
         seq = {
@@ -75,12 +76,10 @@ class ProductLotSequence(models.Model):
     @api.multi
     # do not depend on 'lot_sequence_id.date_range_ids', because
     # lot_sequence_id._get_current_sequence() may invalidate it!
-    @api.depends(
-        "lot_sequence_id.use_date_range", "lot_sequence_id.number_next_actual"
-    )
+    @api.depends("lot_sequence_id.use_date_range", "lot_sequence_id.number_next_actual")
     def _compute_lot_seq_number_next(self):
-        """ Compute 'lot_sequence_number_next' according to the current
-            sequence in use, an ir.sequence or an ir.sequence.date_range.
+        """Compute 'lot_sequence_number_next' according to the current
+        sequence in use, an ir.sequence or an ir.sequence.date_range.
         """
         for p_sequence in self:
             if p_sequence.lot_sequence_id:
@@ -122,13 +121,9 @@ class ProductLotSequence(models.Model):
     @api.model
     def create(self, vals):
         if not vals.get("lot_sequence_id", False):
-            vals["lot_sequence_id"] = (
-                self.sudo()._create_lot_sequence(vals).id
-            )
+            vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
         else:
-            lot_sequence_id = self.env["ir.sequence"].browse(
-                vals["lot_sequence_id"]
-            )
+            lot_sequence_id = self.env["ir.sequence"].browse(vals["lot_sequence_id"])
             vals["lot_sequence_prefix"] = lot_sequence_id.prefix
             vals["lot_sequence_suffix"] = lot_sequence_id.suffix
             vals["lot_sequence_padding"] = lot_sequence_id.padding
