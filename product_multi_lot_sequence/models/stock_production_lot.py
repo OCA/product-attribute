@@ -33,4 +33,26 @@ class ProductionLot(models.Model):
     @api.onchange('product_lot_sequence_id')
     def onchange_product_lot_sequence_id(self):
         if self.product_lot_sequence_id:
-            self.name = self.product_lot_sequence_id.lot_sequence_id._next()
+            self.name = self.product_lot_sequence_id.lot_sequence_id.get_next_char(self.product_lot_sequence_id.lot_sequence_id.number_next_actual)
+
+    @api.multi
+    def write(self, vals):
+        for rec in self:
+            if vals.get('product_lot_sequence_id', False):
+                pls = self.env["product.lot.sequence"].browse(vals.get('product_lot_sequence_id', False))
+                if vals.get('name', False) != pls.lot_sequence_id.get_next_char(pls.lot_sequence_id.number_next_actual):
+                    vals['name'] = pls.lot_sequence_id._next()
+                else:
+                    pls.lot_sequence_id._next()
+        return super().write(vals)
+
+    @api.model
+    def create(self, vals):
+        if vals.get('product_lot_sequence_id', False):
+            pls = self.env["product.lot.sequence"].browse(vals.get('product_lot_sequence_id', False))
+            if vals.get('name', False) != pls.lot_sequence_id.get_next_char(pls.lot_sequence_id.number_next_actual):
+                vals['name'] = pls.lot_sequence_id._next()
+            else:
+                pls.lot_sequence_id._next()
+        return super().create(vals)
+
