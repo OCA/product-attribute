@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [product_code_unique](product_code_unique/) | 15.0.1.0.0 |  | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 15.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [product_dimension](product_dimension/) | 15.0.1.0.1 |  | Product Dimension
-[product_manufacturer](product_manufacturer/) | 15.0.1.0.0 |  | Adds manufacturers and attributes on the product view.
+[product_manufacturer](product_manufacturer/) | 15.0.1.0.1 |  | Adds manufacturers and attributes on the product view.
 [product_packaging_type](product_packaging_type/) | 15.0.1.0.0 |  | Product Packaging Type
 [product_state](product_state/) | 15.0.1.1.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 15.0.1.0.0 |  | Allows to define prices for customers in the products
