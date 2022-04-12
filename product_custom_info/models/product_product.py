@@ -8,8 +8,12 @@ class ProductProduct(models.Model):
     _name = "product.product"
     _inherit = [_name, "custom.info"]
 
-    custom_info_template_id = fields.Many2one(context={"default_model": _name},)
-    custom_info_ids = fields.One2many(context={"default_model": _name},)
+    custom_info_template_id = fields.Many2one(
+        context={"default_model": _name},
+    )
+    custom_info_ids = fields.One2many(
+        context={"default_model": _name},
+    )
     product_tmpl_custom_info_ids = fields.One2many(
         comodel_name="custom.info.value",
         compute="_compute_product_tmpl_custom_info_ids",
