@@ -12,6 +12,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product_expiry"],
     "data": [
+        "data/product_expiry_data.xml",
         "views/product_category.xml",
         "views/product_template.xml",
         "views/stock_production_lot.xml",
