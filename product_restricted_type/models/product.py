@@ -32,3 +32,23 @@ class ProductCategory(models.Model):
                             "product type"
                         )
                     )
+
+
+class ProductProduct(models.Model):
+    _inherit = "product.product"
+
+    @api.onchange("categ_id")
+    def _onchange_categ_id(self):
+        if self.categ_id and self.categ_id.restricted_product_type:
+            self.type = self.categ_id.restricted_product_type
+
+    @api.onchange("type")
+    def _onchange_type(self):
+        if self.type:
+            return {
+                "domain": {
+                    "categ_id": [("restricted_product_type", "in", [self.type, False])]
+                }
+            }
+        else:
+            return {"domain": {"categ_id": []}}
