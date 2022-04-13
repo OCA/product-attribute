@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-02-25 12:17+0000\n"
+"PO-Revision-Date: 2022-04-13 10:05+0000\n"
 "Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -22,6 +22,8 @@ msgid ""
 "<span attrs=\"{'invisible':[('base', '!=', 'partner')]}\">Partner prices -  "
 "</span>"
 msgstr ""
+"<span attrs=\"{'invisible':[('base', '!=', 'partner')]}\">Preu de partner-  "
+"</span>"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
