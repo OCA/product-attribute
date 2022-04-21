@@ -6,39 +6,41 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-04-21 10:05+0000\n"
+"Last-Translator: Samuele Mariani <samuele@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
 msgid "<span class=\"o_stat_text\">Product Assortments</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Assortimento dei prodotti </span>"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "<span class=\"o_stat_text\">Products</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Prodotti</span>"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
 msgid "All Partner"
-msgstr ""
+msgstr "Tutti i Partner"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortment Name"
-msgstr ""
+msgstr "Nome Assortimento"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortments"
-msgstr ""
+msgstr "Assortimento"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__blacklist_product_ids
@@ -48,25 +50,25 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model,name:product_assortment.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__display_name
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_assortment
 #: model:ir.model,name:product_assortment.model_ir_filters
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Filters"
-msgstr ""
+msgstr "Filtri"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__id
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__is_assortment
@@ -77,27 +79,27 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters____last_update
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
-msgstr ""
+msgstr "Dominio Partner"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Partners to apply"
-msgstr ""
+msgstr "Partner da applicare"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Product"
-msgstr ""
+msgstr "prodotto"
 
 #. module: product_assortment
 #: model:ir.ui.menu,name:product_assortment.menu_product_assortments
@@ -113,17 +115,17 @@ msgstr ""
 #: code:addons/product_assortment/models/ir_filters.py:0
 #, python-format
 msgid "Products"
-msgstr ""
+msgstr "Prodotti"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
-msgstr ""
+msgstr "Prodotto da escludere"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to include"
-msgstr ""
+msgstr "Prodotto da includere"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
