@@ -9,7 +9,7 @@
         <field name="name">seasonal.config.tree</field>
         <field name="model">seasonal.config</field>
         <field name="arch" type="xml">
-            <tree string="Seasonal products configuration">
+            <tree>
                 <field name="name" />
             </tree>
         </field>

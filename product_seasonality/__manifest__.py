@@ -3,7 +3,7 @@
 {
     "name": "Product seasonality",
     "summary": "Define rules for products' seasonal availability",
-    "version": "14.0.1.2.1",
+    "version": "15.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Others",

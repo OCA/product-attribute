@@ -9,7 +9,7 @@
         <field name="name">seasonal.config.line.tree</field>
         <field name="model">seasonal.config.line</field>
         <field name="arch" type="xml">
-            <tree string="Product Seasonal Lines">
+            <tree>
                 <field name="seasonal_config_id" />
                 <field name="product_template_id" />
                 <field name="product_id" />
