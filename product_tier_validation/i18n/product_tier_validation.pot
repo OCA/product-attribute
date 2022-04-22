@@ -77,6 +77,11 @@ msgid "Rejected"
 msgstr ""
 
 #. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__rejected_message
+msgid "Rejected Message"
+msgstr ""
+
+#. module: product_tier_validation
 #: model:ir.model.fields,field_description:product_tier_validation.field_product_template__reviewer_ids
 msgid "Reviewers"
 msgstr ""
@@ -87,8 +92,18 @@ msgid "Tier Definition"
 msgstr ""
 
 #. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__to_validate_message
+msgid "To Validate Message"
+msgstr ""
+
+#. module: product_tier_validation
 #: model:ir.model.fields,field_description:product_tier_validation.field_product_template__validated
 msgid "Validated"
+msgstr ""
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__validated_message
+msgid "Validated Message"
 msgstr ""
 
 #. module: product_tier_validation
