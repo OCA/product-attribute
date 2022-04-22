@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    # Copyright 2021 - 2022 Camptocamp SA
+    # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="product_list_line_view_tree" model="ir.ui.view">
+        <field name="name">product.allowed.list.line.tree</field>
+        <field name="model">product.allowed.list.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_list_id" />
+                <field name="product_template_id" />
+                <field name="product_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_list_line_view_form" model="ir.ui.view">
+        <field name="name">product.allowed.list.line.form</field>
+        <field name="model">product.allowed.list.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="config">
+                        <group name="main">
+                            <field name="product_list_id" />
+                            <field name="product_template_id" />
+                            <field name="product_id" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_list_line_view_search" model="ir.ui.view">
+        <field name="name">product.allowed.list.line.search</field>
+        <field name="model">product.allowed.list.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_list_id" />
+                <field name="product_template_id" />
+                <field name="product_id" />
+                <filter
+                    name="group_product_list_id"
+                    string="Products list configuration"
+                    context="{'group_by': 'product_list_id'}"
+                />
+                <filter
+                    name="group_product_template_id"
+                    string="Product templates"
+                    context="{'group_by': 'product_template_id'}"
+                />
+                <filter
+                    name="group_product_id"
+                    string="Products"
+                    context="{'group_by': 'product_id'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="product_list_line_act_window" model="ir.actions.act_window">
+        <field name="name">product.allowed.list.line</field>
+        <field name="res_model">product.allowed.list.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

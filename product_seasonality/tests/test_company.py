@@ -4,7 +4,7 @@
 
 from odoo import exceptions
 
-from .common import CommonCase
+from odoo.addons.product_allowed_list.tests.common import CommonCase
 
 
 class TestCompanyCase(CommonCase):
@@ -17,13 +17,13 @@ class TestCompanyCase(CommonCase):
 
     def test_create(self):
         rec = self.env["res.company"].create(
-            {"name": "ACME Inc.", "default_seasonal_config_id": self.seasonal_conf.id}
+            {"name": "ACME Inc.", "default_seasonal_config_id": self.product_list.id}
         )
-        self.assertEqual(rec.default_seasonal_config_id, self.seasonal_conf)
+        self.assertEqual(rec.default_seasonal_config_id, self.product_list)
 
     def test_write(self):
         rec = self.env.ref("base.main_company")
-        rec.default_seasonal_config_id = self.seasonal_conf
+        rec.default_seasonal_config_id = self.product_list
         with self.assertRaisesRegex(
             exceptions.ValidationError,
             "Default product seasonal configuration is required",

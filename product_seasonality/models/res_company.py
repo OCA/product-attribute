@@ -1,6 +1,7 @@
 # Copyright 2021 Camptocamp SA
 # @author: Julien Coux <julien.coux@camptocamp.com>
 # @author: Simone Orsi <simone.orsi@camptocamp.com>
+# @author: Damien Crier <damien.crier@camptocamp.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
@@ -12,13 +13,14 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     default_seasonal_config_id = fields.Many2one(
-        string="Default product seasonal configuration", comodel_name="seasonal.config"
+        string="Default product seasonal configuration",
+        comodel_name="product.allowed.list",
     )
 
     def _create_default_seasonal_conf(self):
         self.ensure_one()
         if not self.default_seasonal_config_id:
-            self.default_seasonal_config_id = self.env["seasonal.config"].create(
+            self.default_seasonal_config_id = self.env["product.allowed.list"].create(
                 {"name": _("Default product seasonal configuration: %s") % self.name}
             )
 

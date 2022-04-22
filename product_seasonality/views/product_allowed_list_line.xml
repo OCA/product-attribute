@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    # Copyright 2021 Camptocamp SA
+    # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="product_list_line_view_tree" model="ir.ui.view">
+        <field name="model">product.allowed.list.line</field>
+        <field
+            name="inherit_id"
+            ref="product_allowed_list.product_list_line_view_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="monday" />
+                <field name="tuesday" />
+                <field name="wednesday" />
+                <field name="thursday" />
+                <field name="friday" />
+                <field name="saturday" />
+                <field name="sunday" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_list_line_view_form" model="ir.ui.view">
+        <field name="model">product.allowed.list.line</field>
+        <field
+            name="inherit_id"
+            ref="product_allowed_list.product_list_line_view_form"
+        />
+        <field name="arch" type="xml">
+            <group name="main" position="after">
+                <group name="weekdays">
+                    <field name="monday" />
+                    <field name="tuesday" />
+                    <field name="wednesday" />
+                    <field name="thursday" />
+                    <field name="friday" />
+                    <field name="saturday" />
+                    <field name="sunday" />
+                </group>
+            </group>
+            <field name="product_id" position="after">
+                <field name="date_start" />
+                <field name="date_end" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

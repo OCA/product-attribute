@@ -6,16 +6,14 @@
 from odoo import fields, models
 
 
-class SeasonalConfig(models.Model):
-    """Seasonal configuration for products."""
-
-    _name = "seasonal.config"
-    _description = "Product seasonal configuration"
+class ProductAllowedList(models.Model):
+    _name = "product.allowed.list"
+    _description = "Product list configuration"
 
     name = fields.Char(required=True)
     line_ids = fields.One2many(
-        comodel_name="seasonal.config.line",
-        inverse_name="seasonal_config_id",
+        comodel_name="product.allowed.list.line",
+        inverse_name="product_list_id",
         string="Lines",
         copy=True,
     )

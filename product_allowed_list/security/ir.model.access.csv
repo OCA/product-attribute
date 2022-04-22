@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_allowed_list_base_user,product_allowed_list base user,model_product_allowed_list,base.group_user,1,0,0,0
+access_product_allowed_list_system,product_allowed_list system,model_product_allowed_list,base.group_system,1,1,1,1
+access_product_allowed_list_line_base_user,product_allowed_list_line base user,model_product_allowed_list_line,base.group_user,1,0,0,0
+access_product_allowed_list_line_system,productallowed__list_line system,model_product_allowed_list_line,base.group_system,1,1,1,1

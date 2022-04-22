@@ -6,34 +6,18 @@ import datetime
 
 from odoo import exceptions
 
-from .common import CommonCaseWithLines
+from .common import CommonCaseWithSeasonalLines
 
 
-class TestSeasonalityCase(CommonCaseWithLines):
+class TestSeasonalityCase(CommonCaseWithSeasonalLines):
     def _test_conf_line(self, line, date_ok, date_ko):
         for dt in date_ok:
             self.assertTrue(line.is_sale_ok(dt), f"{dt.strftime('%Y-%m-%d')} is wrong")
         for dt in date_ko:
             self.assertFalse(line.is_sale_ok(dt), f"{dt.strftime('%Y-%m-%d')} is wrong")
 
-    def test_display_name_with_variant(self):
-        line = self.seasonal_conf.config_for_product(self.prod1)
-        self.assertEqual(
-            line.display_name,
-            f"[{self.seasonal_conf.display_name}] {self.prod1.display_name} ({line.id})",
-        )
-
-    def test_display_name_with_template_only(self):
-        line = self.seasonal_conf.config_for_product(self.prod1)
-        line.product_id = False
-        tmpl = line.product_template_id
-        self.assertEqual(
-            line.display_name,
-            f"[{self.seasonal_conf.display_name}] {tmpl.display_name} ({line.id})",
-        )
-
     def test_constraint(self):
-        line = self.seasonal_conf.config_for_product(self.prod1)
+        line = self.product_list.config_for_product(self.prod1)
         with self.assertRaisesRegex(
             exceptions.ValidationError,
             "The end date cannot be earlier than the start date.",
@@ -55,7 +39,7 @@ class TestSeasonalityCase(CommonCaseWithLines):
             datetime.datetime(2021, 5, 16),  # sun
             datetime.datetime(2021, 5, 18),  # out-of-range
         )
-        line = self.seasonal_conf.config_for_product(self.prod1)
+        line = self.product_list.config_for_product(self.prod1)
         self._test_conf_line(line, date_ok, date_ko)
 
     def test_config2(self):
@@ -78,5 +62,5 @@ class TestSeasonalityCase(CommonCaseWithLines):
             datetime.datetime(2021, 5, 19),  # wed
             datetime.datetime(2021, 5, 24),  # out-of-range
         )
-        line = self.seasonal_conf.config_for_product(self.prod2)
+        line = self.product_list.config_for_product(self.prod2)
         self._test_conf_line(line, date_ok, date_ko)

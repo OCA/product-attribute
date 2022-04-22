@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    # Copyright 2021 - 2022 Camptocamp SA
+    # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="product_list_view_tree" model="ir.ui.view">
+        <field name="name">product.allowed.list tree</field>
+        <field name="model">product.allowed.list</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_list_view_form" model="ir.ui.view">
+        <field name="name">product.allowed.list form</field>
+        <field name="model">product.allowed.list</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <field name="line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="product_template_id" />
+                            <field name="product_id" />
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_list_act_window" model="ir.actions.act_window">
+        <field name="name">Product list configuration</field>
+        <field name="res_model">product.allowed.list</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
