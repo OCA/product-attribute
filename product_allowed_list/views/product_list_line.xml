@@ -10,7 +10,7 @@
         <field name="model">product.allowed.list.line</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="product_list_id" />
+                <field name="product_allowed_list_id" />
                 <field name="product_template_id" />
                 <field name="product_id" />
             </tree>
@@ -25,7 +25,7 @@
                 <sheet>
                     <group name="config">
                         <group name="main">
-                            <field name="product_list_id" />
+                            <field name="product_allowed_list_id" />
                             <field name="product_template_id" />
                             <field name="product_id" />
                         </group>
@@ -40,13 +40,13 @@
         <field name="model">product.allowed.list.line</field>
         <field name="arch" type="xml">
             <search>
-                <field name="product_list_id" />
+                <field name="product_allowed_list_id" />
                 <field name="product_template_id" />
                 <field name="product_id" />
                 <filter
                     name="group_product_list_id"
                     string="Products list configuration"
-                    context="{'group_by': 'product_list_id'}"
+                    context="{'group_by': 'product_allowed_list_id'}"
                 />
                 <filter
                     name="group_product_template_id"

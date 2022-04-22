@@ -36,6 +36,6 @@ class CommonCaseWithLines(CommonCase):
         ]
         write_values = []
         for vals in line_values:
-            vals["product_list_id"] = cls.product_list.id
+            vals["product_allowed_list_id"] = cls.product_list.id
             write_values.append((0, 0, vals))
         cls.product_list.write({"line_ids": write_values})

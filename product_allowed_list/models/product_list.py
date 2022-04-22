@@ -8,12 +8,12 @@ from odoo import fields, models
 
 class ProductAllowedList(models.Model):
     _name = "product.allowed.list"
-    _description = "Product list configuration"
+    _description = "Product Allowed list configuration"
 
     name = fields.Char(required=True)
     line_ids = fields.One2many(
         comodel_name="product.allowed.list.line",
-        inverse_name="product_list_id",
+        inverse_name="product_allowed_list_id",
         string="Lines",
         copy=True,
     )

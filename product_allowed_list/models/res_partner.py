@@ -11,7 +11,7 @@ class ResPartner(models.Model):
 
     _inherit = "res.partner"
 
-    product_list_ids = fields.Many2many("product.allowed.list")
+    product_allowed_list_ids = fields.Many2many("product.allowed.list")
 
     def _commercial_fields(self):
-        return super()._commercial_fields() + ["product_list_ids"]
+        return super()._commercial_fields() + ["product_allowed_list_ids"]

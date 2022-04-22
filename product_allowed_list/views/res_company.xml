@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='vat']/parent::group" position="inside">
-                <field name="default_seasonal_config_id" />
+                <field name="default_product_allowed_config_id" />
             </xpath>
 
         </field>

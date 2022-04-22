@@ -10,7 +10,7 @@ class ProductListLine(models.Model):
     _name = "product.allowed.list.line"
     _description = "Product allowed list configuration Line"
 
-    product_list_id = fields.Many2one(
+    product_allowed_list_id = fields.Many2one(
         string="Product list configuration",
         comodel_name="product.allowed.list",
         required=True,
@@ -35,17 +35,17 @@ class ProductListLine(models.Model):
             ("product_template_id", "=", prod.product_tmpl_id.id),
         ]
         if config:
-            domain.append(("product_list_id", "=", config.id))
+            domain.append(("product_allowed_list_id", "=", config.id))
         return self.search(domain)
 
-    @api.depends("product_list_id", "product_template_id", "product_id")
+    @api.depends("product_allowed_list_id", "product_template_id", "product_id")
     def _compute_display_name(self):
         for rec in self:
             rec.display_name = rec._name_get()
 
     def _name_get(self):
         parts = [
-            f"[{self.product_list_id.display_name}]",
+            f"[{self.product_allowed_list_id.display_name}]",
             self.product_id.display_name or self.product_template_id.display_name,
             f"({self.id})",
         ]

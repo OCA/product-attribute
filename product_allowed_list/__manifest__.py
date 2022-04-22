@@ -18,6 +18,7 @@
         # Views
         "views/product_list.xml",
         "views/product_list_line.xml",
+        "views/res_company.xml",
         "views/res_partner.xml",
     ],
     "installable": True,

@@ -8,7 +8,7 @@
 
             <group name="sale" position="inside">
                 <field
-                    name="product_list_ids"
+                    name="product_allowed_list_ids"
                     attrs="{'invisible': [('is_company','=',False), ('parent_id','!=',False)]}"
                 />
                 <div

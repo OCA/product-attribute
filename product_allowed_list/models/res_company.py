@@ -12,31 +12,33 @@ class ResCompany(models.Model):
 
     _inherit = "res.company"
 
-    default_seasonal_config_id = fields.Many2one(
-        string="Default product seasonal configuration",
+    default_product_allowed_config_id = fields.Many2one(
+        string="Default product allowed configuration",
         comodel_name="product.allowed.list",
     )
 
-    def _create_default_seasonal_conf(self):
+    def _create_default_allowed_conf(self):
         self.ensure_one()
-        if not self.default_seasonal_config_id:
-            self.default_seasonal_config_id = self.env["product.allowed.list"].create(
-                {"name": _("Default product seasonal configuration: %s") % self.name}
+        if not self.default_product_allowed_config_id:
+            self.default_product_allowed_config_id = self.env[
+                "product.allowed.list"
+            ].create(
+                {"name": _("Default product allowed configuration: %s") % self.name}
             )
 
     @api.model
     def create(self, vals):
         company = super().create(vals)
-        company._create_default_seasonal_conf()
+        company._create_default_allowed_conf()
         return company
 
     def write(self, vals):
-        if "default_seasonal_config_id" in vals and not vals.get(
-            "default_seasonal_config_id"
+        if "default_product_allowed_config_id" in vals and not vals.get(
+            "default_product_allowed_config_id"
         ):
             raise ValidationError(
                 _(
-                    "Default product seasonal configuration is required: you can't remove it."
+                    "Default product allowed configuration is required: you can't remove it."
                 )
             )
         return super().write(vals)

@@ -17,7 +17,6 @@
     "data": [
         # Views
         "views/product_allowed_list_line.xml",
-        "views/res_company.xml",
     ],
     "installable": True,
 }
