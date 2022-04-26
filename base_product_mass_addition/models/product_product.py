@@ -6,6 +6,7 @@
 
 
 from odoo import fields, models
+from odoo.models import LOG_ACCESS_COLUMNS
 
 
 class ProductProduct(models.Model):
@@ -36,6 +37,34 @@ class ProductProduct(models.Model):
                     parent._update_quick_line(product, quick_line)
                 else:
                     parent._add_quick_line(product, quick_line._name)
+
+    def modified(self, fnames, create=False, before=False):
+        # OVERRIDE to supress LOG_ACCESS_COLUMNS writes if we're only writing on quick
+        # magic fields, as they could lead to concurrency issues.
+        #
+        # Moreover, from a functional perspective, these magic fields aren't really
+        # modifying the product's data so it doesn't make sense to update its metadata.
+        #
+        # We achieve it by reverting the changes made by ``write`` [^1], before [^2]
+        # reaching any explicit flush [^3] or inverse computation [^4].
+        #
+        # [^1]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3652-L3663
+        # [^2]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3686
+        # [^3]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3689
+        # [^4]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3703
+        #
+        # Basically, if all we're modifying are quick magic fields, and we don't have
+        # any other column to flush besides the LOG_ACCESS_COLUMNS, clear it.
+        quick_fnames = ("qty_to_process", "quick_uom_id")
+        if self and fnames and all(fname in quick_fnames for fname in fnames):
+            for record in self.filtered("id"):
+                towrite = self.env.all.towrite[self._name]
+                vals = towrite[record.id]
+                if not vals:  # pragma: no cover
+                    continue
+                if all(fname in LOG_ACCESS_COLUMNS for fname in vals.keys()):
+                    towrite.pop(record.id)
+        return super().modified(fnames, create=create, before=before)
 
     @property
     def pma_parent(self):
