@@ -5,9 +5,6 @@ that can be used as a starting point fot this configuration.
 This configuration is done at
 *Settings > Technical > Tier Validations > Tier Definition*.
 
-Note that, since Product start as archived records,
-the *Definition Domain* must include ``"|",["active","=",True],["active","=",False]``.
-Otherwise the validation rule won't apply correctly in new records.
-
-Setting new Products inactive can be disabled,
-by removing the "draft" code from the initial Product State.
+Note: This module is incompatible with product_status.
+Since tier validations use the state field and the product_status module needs
+specific states/stages, tier validations will not trigger if that module is installed.
