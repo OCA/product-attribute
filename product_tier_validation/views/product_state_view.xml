@@ -1,0 +1,17 @@
+<odoo>
+
+    <record id="product_state_tier_form" model="ir.ui.view">
+        <field name="name">product.state.tier.form</field>
+        <field name="model">product.state</field>
+        <field name="inherit_id" ref="product_state.view_product_state_form" />
+        <field name="arch" type="xml">
+            <field name="default" position="after">
+                <field
+                    name="state"
+                    help="The related internal state (selection field) that the product will be set to."
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
