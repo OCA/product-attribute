@@ -34,8 +34,8 @@ msgstr "Ajustes Configuración"
 #. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_res_config_settings__stock_state_threshold
 msgid ""
-"Define custom value under which the stock state will pass from 'In Stock' to"
-" 'In Limited Stock' State."
+"Define custom value under which the stock state will pass from 'In Stock' to "
+"'In Limited Stock' State."
 msgstr ""
 "Defina el valor personalizado por debajo del cual el estado de stock pasará "
 "del estado 'En stock' al estado 'En stock limitado'."
@@ -44,10 +44,10 @@ msgstr ""
 #: model:ir.model.fields,help:product_stock_state.field_product_product__stock_state_threshold
 #: model:ir.model.fields,help:product_stock_state.field_product_template__stock_state_threshold
 msgid ""
-"Define custom value under which the stock state will pass from 'In Stock' to"
-" 'In Limited Stock' State. If not set, Odoo will use the value defined in "
-"the product category. If no value is defined in product category, it will "
-"use the value defined for the company"
+"Define custom value under which the stock state will pass from 'In Stock' to "
+"'In Limited Stock' State. If not set, Odoo will use the value defined in the "
+"product category. If no value is defined in product category, it will use "
+"the value defined for the company"
 msgstr ""
 "Defina el valor personalizado por debajo del cual el estado de stock pasará "
 "del estado 'En stock' al estado 'En stock limitado'. Si no se establece, "
@@ -138,6 +138,7 @@ msgstr "Umbral de Estado de Existencias por Producto"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_category_form
+#: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_template_form
 msgid "Stock Threshold"
 msgstr "Umbral de existencias"
 
