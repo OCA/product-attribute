@@ -62,10 +62,6 @@ class ProductWeightUpdate(models.TransientModel):
                         % (product_tmpl.display_name)
                     )
                 )
-        factor = product_tmpl.uom_id._compute_quantity(
-            1, bom.product_uom_id, round=False
-        )
-
         factor = 1.0 / bom.product_uom_id._compute_quantity(
             bom.product_qty, product_tmpl.uom_id, round=False
         )
