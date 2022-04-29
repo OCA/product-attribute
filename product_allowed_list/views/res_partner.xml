@@ -6,10 +6,14 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
 
-            <group name="sale" position="inside">
+            <xpath
+                expr="//group[@name='sale']//field[@name='user_id']"
+                position="before"
+            >
                 <field
                     name="product_allowed_list_ids"
                     attrs="{'invisible': [('is_company','=',False), ('parent_id','!=',False)]}"
+                    widget="many2many_tags"
                 />
                 <div
                     colspan="2"
@@ -22,7 +26,7 @@
                             class="oe_link"
                         /></p>
                 </div>
-            </group>
+            </xpath>
 
         </field>
     </record>

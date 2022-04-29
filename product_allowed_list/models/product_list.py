@@ -9,6 +9,7 @@ from odoo import fields, models
 class ProductAllowedList(models.Model):
     _name = "product.allowed.list"
     _description = "Product Allowed list configuration"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(required=True)
     line_ids = fields.One2many(
