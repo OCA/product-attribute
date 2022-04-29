@@ -13,6 +13,7 @@ class CommonCase(TransactionCase):
         cls.product_list = cls.env["product.allowed.list"].create(
             {"name": "Test product list conf"}
         )
+        cls.env.company.default_product_allowed_config_id = cls.product_list.id
 
 
 class CommonCaseWithLines(CommonCase):
