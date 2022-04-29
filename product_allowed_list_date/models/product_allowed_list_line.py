@@ -11,7 +11,7 @@ from odoo.exceptions import ValidationError
 class ProductAllowedListLine(models.Model):
     _inherit = "product.allowed.list.line"
 
-    date_start = fields.Datetime(required=True)
+    date_start = fields.Datetime()
     date_end = fields.Datetime()
     monday = fields.Boolean(default=True)
     tuesday = fields.Boolean(default=True)
@@ -24,7 +24,7 @@ class ProductAllowedListLine(models.Model):
     @api.constrains("date_start", "date_end")
     def _check_date_end(self):
         for line in self:
-            if line.date_end and line.date_end < line.date_start:
+            if line.date_start and line.date_end and line.date_end < line.date_start:
                 raise ValidationError(
                     _("The end date cannot be earlier than the start date.")
                 )
@@ -38,4 +38,7 @@ class ProductAllowedListLine(models.Model):
             return False
 
         date_end = self.date_end or date
-        return self.date_start <= date <= date_end
+        if not self.date_start:
+            return date <= date_end
+        else:
+            return self.date_start <= date <= date_end
