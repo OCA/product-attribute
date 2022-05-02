@@ -6,16 +6,6 @@ import logging
 from odoo import api, fields, models
 
 # format: field_from_supplierinfo:field_from_group
-MAPPING_RELATED = {
-    "company_id": "company_id",
-    "product_tmpl_id": "product_tmpl_id",
-    "name": "partner_id",
-    "product_id": "product_id",
-    "product_name": "product_name",
-    "product_code": "product_code",
-    "sequence": "sequence",
-}
-
 MAPPING_MATCH_GROUP = {
     "company_id": "company_id",
     "product_tmpl_id": "product_tmpl_id",
@@ -51,6 +41,9 @@ class ProductSupplierinfo(models.Model):
     def _fields_for_group_match(self):
         return MAPPING_MATCH_GROUP
 
+    def _none_writable_related_fields(self):
+        return list(self._fields_for_group_match().keys()) + ["sequence"]
+
     def _get_or_create_group(self, vals):
         field_mapping = self._fields_for_group_match().items()
         group = self.env["product.supplierinfo.group"].search(
@@ -73,7 +66,7 @@ class ProductSupplierinfo(models.Model):
         for vals in list_vals:
             if not vals.get("group_id"):
                 vals["group_id"] = self._get_or_create_group(vals).id
-                # remove useless key
-                for key in MAPPING_RELATED.keys():
-                    vals.pop(key, None)
+                # remove useless related fields
+                for field_name in self._none_writable_related_fields():
+                    vals.pop(field_name, None)
         return super().create(list_vals)
