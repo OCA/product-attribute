@@ -9,7 +9,9 @@ class ProductTemplate(models.Model):
     _name = "product.template"
 
     profile_id = fields.Many2one(
-        comodel_name="product.profile", string="Profile", tracking=True
+        comodel_name="product.profile",
+        string="Profile",
+        tracking=True,
     )
     profile_explanation = fields.Text(related="profile_id.explanation", readonly=True)
 
