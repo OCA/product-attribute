@@ -8,7 +8,9 @@ class ProductTemplate(models.Model):
     _inherit = ["product.template", "product.mixin.profile"]
     _name = "product.template"
 
-    profile_id = fields.Many2one(comodel_name="product.profile", string="Profile")
+    profile_id = fields.Many2one(
+        comodel_name="product.profile", string="Profile", tracking=True
+    )
     profile_explanation = fields.Text(related="profile_id.explanation", readonly=True)
 
     @api.model
