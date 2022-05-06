@@ -11,3 +11,5 @@
 * Sudhir Arya <sudhir@erpharbor.com>
 * Pimolnat Suntian <pimolnats@ecosoft.co.th>
 * Watthanun Khorchai <watthanun_t@hotmail.com>
+* `Greenice <https://www.greenice.com>`_:
+  * Fernando La Chica <fernandolachica@gmail.com>
