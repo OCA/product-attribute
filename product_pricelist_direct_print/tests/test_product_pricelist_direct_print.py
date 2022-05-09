@@ -206,10 +206,10 @@ class TestProductPricelistDirectPrint(SavepointCase):
         ).create({})
         # Print PDF
         report_name = "product_pricelist_direct_print.action_report_product_pricelist"
-        report_pdf = self.env.ref(report_name).render(wiz.ids)
+        report_pdf = self.env.ref(report_name)._render(wiz.ids)
         self.assertGreaterEqual(len(report_pdf[0]), 1)
         # Export XLSX
         report_name = "product_pricelist_direct_print.product_pricelist_xlsx"
-        report_xlsx = self.env.ref(report_name).render(wiz.ids)
+        report_xlsx = self.env.ref(report_name)._render(wiz.ids)
         self.assertGreaterEqual(len(report_xlsx[0]), 1)
         self.assertEqual(report_xlsx[1], "xlsx")
