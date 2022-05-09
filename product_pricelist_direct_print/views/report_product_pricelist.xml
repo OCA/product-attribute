@@ -4,8 +4,9 @@
 <odoo>
     <template id="report_product_pricelist_document">
         <t t-call="web.html_container">
+            <t t-set="pricelist" t-value="o.get_pricelist_to_print()" />
+            <t t-set="company" t-value="pricelist.company_id or env.company" />
             <t t-call="web.external_layout">
-                <t t-set="pricelist" t-value="o.get_pricelist_to_print()" />
                 <div class="page">
                     <h2>Price List</h2>
                     <div class="row mt32 mb32">
@@ -25,13 +26,13 @@
                         <div class="col-3">
                         <strong>Date</strong>:<br />
                         <t t-if="o.date">
-                                <span
-                                    t-field="o.date"
-                                    t-options='{"format": "YYYY-MM-dd"}'
-                                />
+                                <span t-field="o.date" t-options="{'widget': 'date'}" />
                             </t>
                         <t t-if="not o.date">
-                                <t t-esc="time.strftime('%Y-%m-%d')" />
+                                <t
+                                    t-esc="time.strftime('%Y-%m-%d')"
+                                    t-options="{'widget': 'date'}"
+                                />
                             </t>
                     </div>
                     </div>
@@ -65,49 +66,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-if="o.last_ordered_products">
-                                <t
-                                    t-set="products"
-                                    t-value="o.get_last_ordered_products_to_print()"
-                                />
-                            </t>
-                            <t t-if="not o.last_ordered_products">
-                                <t t-if="not o.show_variants">
-                                    <t t-set="products" t-value="o.product_tmpl_ids" />
-                                </t>
-                                <t t-if="o.show_variants">
-                                    <t
-                                        t-set="products"
-                                        t-value="o.product_ids or o.product_tmpl_ids.mapped('product_variant_ids')"
-                                    />
-                                </t>
-                            </t>
                             <t
-                                t-foreach="(o.categ_ids or products.mapped('categ_id') or o.categ_ids.search([])).sorted(key=lambda x:x.name)"
-                                t-as="category"
+                                t-foreach="o.get_groups_to_print()"
+                                t-as="category_group"
                             >
                                 <t
                                     t-set="category_products"
-                                    t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
-                                        ((not o.last_ordered_products) and products.search([('sale_ok','=',True), ('categ_id','=',category.id)]) or products.browse())"
+                                    t-value="category_group['products']"
                                 />
-                                <t t-if="o.order_field == 'name'">
-                                    <t
-                                        t-set="category_products"
-                                        t-value="category_products.sorted(lambda x: x.name)"
-                                    />
-                                </t>
-                                <t t-if="o.order_field == 'default_code'">
-                                    <t
-                                        t-set="category_products"
-                                        t-value="category_products.sorted(lambda x: x.default_code or '')"
-                                    />
-                                </t>
-                                <tr t-if="category_products">
-                                    <td colspan="100">
-                                        <strong t-field="category.name" />
-                                    </td>
-                                </tr>
+                                <td colspan="100">
+                                    <strong t-esc="category_group['group_name']" />
+                                </td>
                                 <tr t-foreach="category_products" t-as="product">
                                     <td>
                                         <span t-field="product.display_name" />
@@ -120,13 +89,14 @@
                                     </td>
                                     <td t-if="pricelist" class="text-right">
                                         <strong
-                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date).price"
+                                            t-field="product.with_context(pricelist=pricelist.id, date=o.date or None).price"
                                         />
                                     </td>
                                 </tr>
                             </t>
                         </tbody>
                     </table>
+                    <p class="text-right text-muted" t-field="o.summary" />
                 </div>
             </t>
         </t>
