@@ -138,6 +138,11 @@ msgstr ""
 "no se van a tener en cuenta."
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
+msgid "Context Active Model"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Cost Price"
@@ -224,8 +229,8 @@ msgstr "ID (identificación)"
 msgid ""
 "If this field is not 0, products are grouped at max level of category tree."
 msgstr ""
-"Si este campo no es 0, los productos se agrupan en el nivel máximo del "
-"árbol de categorías."
+"Si este campo no es 0, los productos se agrupan en el nivel máximo del árbol "
+"de categorías."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
