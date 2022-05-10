@@ -75,7 +75,6 @@ class TestProductState(TransactionCase):
         Create another default state,
         It should have the existing only one default state at time
         """
-
         with self.assertRaises(ValidationError) as cm:
             self.env["product.state"].create(
                 {"name": "Default State 2", "code": "df2", "default": True}
@@ -87,3 +86,17 @@ class TestProductState(TransactionCase):
         self._create_product()
         with self.assertRaises(UserError):
             self.product.state = "new_code"
+
+    def test_05_copy(self):
+        """
+        Create product with non-default state.
+        Copy product.
+        The copy should have the default state.
+        """
+        self._create_product()
+        self.product.state = "Code"
+        copied_product = self.product.copy()
+        self.assertEqual(
+            self.env.ref("product_state.product_state_sellable"),
+            copied_product.product_state_id,
+        )
