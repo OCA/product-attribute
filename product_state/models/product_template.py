@@ -25,6 +25,7 @@ class ProductTemplate(models.Model):
         default=lambda self: self._get_default_product_state().id,
         index=True,
         tracking=10,
+        copy=False,
     )
 
     def _inverse_product_state_id(self):
