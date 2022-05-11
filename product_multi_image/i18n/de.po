@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_multi_image
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_multi_image
+#: model:ir.model,name:product_multi_image.model_base_multi_image_image
+msgid " image model for multiple image functionality "
+msgstr ""
+
+#. module: product_multi_image
+#: model_terms:ir.ui.view,arch_db:product_multi_image.image_form_view
+msgid "(keep empty for being visible for all variants)"
+msgstr ""
+
+#. module: product_multi_image
+#: model_terms:ir.ui.view,arch_db:product_multi_image.image_kanban_view
+msgid "<i>Visible in all variants</i>"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_base_multi_image_image__display_name
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_base_multi_image_image__id
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product__id
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,help:product_multi_image.field_base_multi_image_image__product_variant_ids
+msgid ""
+"If you leave it empty, all variants will show this image. Selecting one or "
+"several of the available variants, you restrict the availability of the "
+"image to those variants."
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product__image_ids
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template__image_ids
+#: model_terms:ir.ui.view,arch_db:product_multi_image.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product_multi_image.view_product_template_form_img_inh
+msgid "Images"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_base_multi_image_image____last_update
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product__image_main
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template__image_main
+msgid "Main image"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product__image_main_medium
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template__image_main_medium
+msgid "Medium image"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model,name:product_multi_image.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model,name:product_multi_image.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_base_multi_image_image__product_variant_count
+msgid "Product Variant Count"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_product_product__image_main_small
+#: model:ir.model.fields,field_description:product_multi_image.field_product_template__image_main_small
+msgid "Small image"
+msgstr ""
+
+#. module: product_multi_image
+#: model_terms:ir.ui.view,arch_db:product_multi_image.image_kanban_view
+msgid "Visible in"
+msgstr ""
+
+#. module: product_multi_image
+#: model:ir.model.fields,field_description:product_multi_image.field_base_multi_image_image__product_variant_ids
+msgid "Visible in these variants"
+msgstr ""
+
+#. module: product_multi_image
+#: model_terms:ir.ui.view,arch_db:product_multi_image.image_kanban_view
+msgid "variant(s)"
+msgstr ""
