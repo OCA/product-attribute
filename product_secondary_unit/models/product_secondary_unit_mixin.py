@@ -86,9 +86,6 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         """Set the target qty field defined in model"""
         for rec in self:
             if not rec.secondary_uom_id:
-                rec[rec._secondary_unit_fields["qty_field"]] = rec._origin[
-                    rec._secondary_unit_fields["qty_field"]
-                ]
                 continue
             if rec.secondary_uom_id.dependency_type == "independent":
                 if rec[rec._secondary_unit_fields["qty_field"]] == 0.0:
