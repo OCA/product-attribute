@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_assortment_view_form_inherit" model="ir.ui.view">
+        <field name="model">ir.filters</field>
+        <field
+            name="inherit_id"
+            ref="product_assortment.product_assortment_view_form"
+        />
+        <field name="arch" type="xml">
+            <group name="filters" position="before">
+                <group name="details">
+                    <field name="description" />
+                </group>
+            </group>
+            <sheet position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </sheet>
+        </field>
+    </record>
+
+    <record id="product_assortment_view_tree_inherit" model="ir.ui.view">
+        <field name="model">ir.filters</field>
+        <field
+            name="inherit_id"
+            ref="product_assortment.product_assortment_view_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="description" />
+            </field>
+        </field>
+    </record>
+</odoo>
