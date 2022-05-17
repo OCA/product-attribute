@@ -11,7 +11,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
-    "depends": ["product", "product_code_unique"],
+    "depends": ["product"],
     "data": [
         "data/product_sequence.xml",
         "views/product_category.xml",
