@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-packaging_uom',
         'odoo14-addon-pos_product_cost_security',
         'odoo14-addon-product_assortment',
+        'odoo14-addon-product_assortment_description',
         'odoo14-addon-product_attribute_archive',
         'odoo14-addon-product_barcode_required',
         'odoo14-addon-product_bom_revision',
