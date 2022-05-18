@@ -56,7 +56,7 @@ class TestProductMultiLotSequence(TransactionCase):
         lot.onchange_product_lot_sequence_id()
         lot_form = Form(lot)
         lot = lot_form.save()
-        self.assertRegexpMatches(lot.name, r"foo/\d{5}/bar")
+        self.assertRegex(lot.name, r"foo/\d{5}/bar")
 
     def test_lot_creation_product_template_serial(self):
         lot = self.stock_production_lot.create(
@@ -69,4 +69,4 @@ class TestProductMultiLotSequence(TransactionCase):
         lot.onchange_product_lot_sequence_id()
         lot_form = Form(lot)
         lot = lot_form.save()
-        self.assertRegexpMatches(lot.name, r"bar/\d{5}/foo")
+        self.assertRegex(lot.name, r"bar/\d{5}/foo")
