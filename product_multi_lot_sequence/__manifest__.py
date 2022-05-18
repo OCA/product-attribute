@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "author": "ForgeFlow S.L., Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
-    "depends": ["stock", "product"],
+    "depends": ["stock"],
     "data": [
         "security/ir.model.access.csv",
         "views/product_sequence_views.xml",

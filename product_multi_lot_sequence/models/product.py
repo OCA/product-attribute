@@ -11,6 +11,6 @@ class ProductTemplate(models.Model):
         "product.lot.sequence",
         "product_tmpl_id",
         string="Product Lot Sequence",
-        help="This field contains the information related to the " "numbering of lots.",
+        help="This field contains the information related to the numbering of lots.",
         copy=False,
     )
