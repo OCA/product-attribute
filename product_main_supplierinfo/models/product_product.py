@@ -35,7 +35,7 @@ class ProductProduct(models.Model):
         They are ordered and filtered like it is done in the standard 'product' addon.
         """
         self.ensure_one()
-        all_sellers = self._prepare_sellers().filtered(
+        all_sellers = self._prepare_sellers(False).filtered(
             lambda s: not s.company_id or s.company_id.id == self.env.company.id
         )
         today = fields.Date.context_today(self)
@@ -49,5 +49,7 @@ class ProductProduct(models.Model):
             )
         )
         if not sellers:
-            sellers = all_sellers
-        return sellers
+            sellers = all_sellers.filtered(lambda s: (s.product_id == self))
+            if not sellers:
+                sellers = sellers = all_sellers.filtered(lambda s: not s.product_id)
+        return sellers.sorted("price")
