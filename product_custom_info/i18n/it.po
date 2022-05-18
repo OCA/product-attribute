@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-05-18 11:05+0000\n"
+"PO-Revision-Date: 2022-05-18 17:05+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -25,19 +25,19 @@ msgstr "Informazioni personalizzate"
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_template_id
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_template_id
 msgid "Custom Information Template"
-msgstr ""
+msgstr "Template informazioni personalizzate"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_ids
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_ids
 msgid "Custom Properties"
-msgstr ""
+msgstr "Proprietà personalizzate"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__id
@@ -65,17 +65,17 @@ msgstr "Modello Prodotto"
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__product_tmpl_custom_info_ids
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Product template info"
-msgstr ""
+msgstr "Informazioni modello prodotto"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "This info is managed on"
-msgstr ""
+msgstr "Questa informazione è gestita in"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "Variant info"
-msgstr ""
+msgstr "Informazioni variante"
 
 #. module: product_custom_info
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
