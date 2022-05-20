@@ -55,17 +55,19 @@ class ProductionLot(models.Model):
             )
 
     def write(self, vals):
-        for _ in self:
-            if vals.get("product_lot_sequence_id", False):
-                pls = self.env["product.lot.sequence"].browse(
-                    vals.get("product_lot_sequence_id", False)
-                )
+        if vals.get("product_lot_sequence_id", False):
+            pls = self.env["product.lot.sequence"].browse(
+                vals.get("product_lot_sequence_id", False)
+            )
+            for rec in self:
                 if vals.get("name", False) != pls.lot_sequence_id.get_next_char(
                     pls.lot_sequence_id.number_next_actual
                 ):
                     vals["name"] = pls.lot_sequence_id._next()
                 else:
                     pls.lot_sequence_id._next()
+                super(ProductionLot, rec).write(vals)
+            return True
         return super().write(vals)
 
     @api.model
