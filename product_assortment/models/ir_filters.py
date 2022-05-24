@@ -56,6 +56,12 @@ class IrFilters(models.Model):
     all_partner_ids = fields.Many2many(
         comodel_name="res.partner",
         compute="_compute_all_partner_ids",
+        # Make it store=True because we will need this field to search by involved
+        # partners
+        store=True,
+        relation="ir_filter_all_partner_rel",
+        column1="filter_id",
+        column2="partner_id",
     )
 
     @api.depends("partner_ids", "partner_domain")
