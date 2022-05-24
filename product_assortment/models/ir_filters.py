@@ -42,11 +42,15 @@ class IrFilters(models.Model):
     )
 
     blacklist_product_ids = fields.Many2many(
-        comodel_name="product.product", relation="assortment_product_blacklisted"
+        comodel_name="product.product",
+        string="Restricted products",
+        relation="assortment_product_blacklisted",
     )
 
     whitelist_product_ids = fields.Many2many(
-        comodel_name="product.product", relation="assortment_product_whitelisted"
+        comodel_name="product.product",
+        string="Allowed products",
+        relation="assortment_product_whitelisted",
     )
 
     record_count = fields.Integer(compute="_compute_record_count")
@@ -62,6 +66,12 @@ class IrFilters(models.Model):
         relation="ir_filter_all_partner_rel",
         column1="filter_id",
         column2="partner_id",
+    )
+    apply_black_list_product_domain = fields.Boolean(
+        string="Apply restricted product domain"
+    )
+    black_list_product_domain = fields.Text(
+        string="Restricted product domain", default="[]", required=True
     )
 
     @api.depends("partner_ids", "partner_domain")
@@ -89,6 +99,24 @@ class IrFilters(models.Model):
             result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
             res = expression.AND([result_domain, res])
 
+        if self.apply_black_list_product_domain:
+            black_list_domain = safe_eval(
+                self.black_list_product_domain,
+                {"datetime": datetime, "context_today": datetime.datetime.now},
+            )
+            res = expression.AND(
+                [expression.distribute_not(["!"] + black_list_domain), res]
+            )
+        return res
+
+    def _get_eval_black_list_domain(self):
+        res = safe_eval(
+            self.black_list_product_domain,
+            {"datetime": datetime, "context_today": datetime.datetime.now},
+        )
+        if self.blacklist_product_ids:
+            result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
+            res = expression.AND([result_domain, res])
         return res
 
     def _get_eval_partner_domain(self):
