@@ -47,6 +47,10 @@ class IrFilters(models.Model):
     all_partner_ids = fields.Many2many(
         comodel_name="res.partner", compute="_compute_all_partner_ids",
     )
+    apply_black_list_product_domain = fields.Boolean(
+        string="Apply black list product domain"
+    )
+    black_list_product_domain = fields.Text(default="[]", required=True)
 
     @api.depends("partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
@@ -74,6 +78,24 @@ class IrFilters(models.Model):
             result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
             res = expression.AND([result_domain, res])
 
+        if self.apply_black_list_product_domain:
+            black_list_domain = safe_eval(
+                self.black_list_product_domain,
+                {"datetime": datetime, "context_today": datetime.datetime.now},
+            )
+            res = expression.AND(
+                [expression.distribute_not(["!"] + black_list_domain), res]
+            )
+        return res
+
+    def _get_eval_black_list_domain(self):
+        res = safe_eval(
+            self.black_list_product_domain,
+            {"datetime": datetime, "context_today": datetime.datetime.now},
+        )
+        if self.blacklist_product_ids:
+            result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
+            res = expression.AND([result_domain, res])
         return res
 
     def _get_eval_partner_domain(self):
