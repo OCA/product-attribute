@@ -116,3 +116,19 @@ class TestProductAssortment(TransactionCase):
             }
         )
         self.assertEqual(assortment.all_partner_ids, self.partner + self.partner2)
+
+    def test_assortment_with_black_list_product_domain(self):
+        excluded_product = self.env.ref("product.product_product_7")
+        assortment = self.filter_obj.with_context(product_assortment=True).create(
+            {
+                "name": "Test Assortment black product domain",
+                "domain": [],
+                "partner_ids": [(4, self.partner2.id)],
+                "apply_black_list_product_domain": True,
+                "black_list_product_domain": [("id", "=", excluded_product.id)],
+            }
+        )
+        allowed_products = self.env["product.product"].search(
+            assortment._get_eval_domain()
+        )
+        self.assertNotIn(excluded_product, allowed_products)

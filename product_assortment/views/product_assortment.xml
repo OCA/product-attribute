@@ -46,16 +46,34 @@
                             <field name="is_assortment" invisible="1" />
                         </group>
                     </group>
-                    <group>
+                    <group string="Allowed product domain">
                         <field
                             name="domain"
                             widget="domain"
                             options="{'model': 'product.product'}"
+                            nolabel="1"
                         />
+                    </group>
+                    <group>
+                        <field name="apply_black_list_product_domain" />
+                    </group>
+                    <group
+                        string="Restricted product domain"
+                        attrs="{'invisible': [('apply_black_list_product_domain', '=', False)]}"
+                    >
+                        <field
+                            name="black_list_product_domain"
+                            widget="domain"
+                            options="{'model': 'product.product'}"
+                            nolabel="1"
+                        />
+                    </group>
+                    <group string="Partner domain">
                         <field
                             name="partner_domain"
                             widget="domain"
                             options="{'model': 'res.partner'}"
+                            nolabel="1"
                         />
                     </group>
                     <group name="filters">
