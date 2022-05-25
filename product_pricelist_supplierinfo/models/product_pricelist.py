@@ -21,7 +21,7 @@ class ProductPricelist(models.Model):
             if rule.compute_price == "formula" and rule.base == "supplierinfo":
                 context = self.env.context
                 result[product.id] = (
-                    product._get_supplierinfo_pricelist_price(
+                    product.sudo()._get_supplierinfo_pricelist_price(
                         rule,
                         date=date or context.get("date", fields.Date.today()),
                         quantity=qty,
