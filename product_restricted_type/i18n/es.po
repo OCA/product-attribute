@@ -27,6 +27,11 @@ msgstr ""
 "tipo de producto restringido seleccionado"
 
 #. module: product_restricted_type
+#: model:ir.model,name:product_restricted_type.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_category
 msgid "Product Category"
 msgstr "Categoría de producto"
@@ -45,8 +50,8 @@ msgstr "Tipo de producto restringido"
 #: code:addons/product_restricted_type/models/product_template.py:0
 #, python-format
 msgid ""
-"The product type must be equal to the restricted product type defined in the"
-" product category"
+"The product type must be equal to the restricted product type defined in the "
+"product category"
 msgstr ""
 "El tipo de producto debe ser igual al tipo de producto restringido definido "
 "en la categoría de producto"
