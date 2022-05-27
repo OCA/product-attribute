@@ -41,7 +41,7 @@ addon | version | maintainers | summary
 [product_form_pricelist](product_form_pricelist/) | 14.0.1.0.1 |  | Show/edit pricelist in product form
 [product_logistics_uom](product_logistics_uom/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
 [product_lot_sequence](product_lot_sequence/) | 14.0.1.0.1 |  | Adds ability to define a lot sequence from the product
-[product_main_supplierinfo](product_main_supplierinfo/) | 14.0.1.0.0 | [![sebalix](https://github.com/sebalix.png?size=30px)](https://github.com/sebalix) | Display the main vendor of a product.
+[product_main_supplierinfo](product_main_supplierinfo/) | 14.0.1.0.1 | [![sebalix](https://github.com/sebalix.png?size=30px)](https://github.com/sebalix) | Display the main vendor of a product.
 [product_manufacturer](product_manufacturer/) | 14.0.1.0.2 |  | Adds manufacturers and attributes on the product view.
 [product_medical](product_medical/) | 14.0.1.0.1 |  | Base structure to handle medical products
 [product_model_viewer](product_model_viewer/) | 14.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | 3D model viewer for products
