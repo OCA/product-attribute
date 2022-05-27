@@ -22,6 +22,11 @@ msgid ""
 msgstr ""
 
 #. module: product_restricted_type
+#: model:ir.model,name:product_restricted_type.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_category
 msgid "Product Category"
 msgstr ""
