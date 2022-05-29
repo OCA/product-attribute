@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_net_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__weight
+msgid "Gross Weight"
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__id
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__net_weight
+msgid "Net Weight"
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model.fields,help:product_net_weight.field_product_product__net_weight
+#: model:ir.model.fields,help:product_net_weight.field_product_template__net_weight
+msgid "Net Weight of the product, container excluded."
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model,name:product_net_weight.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_net_weight
+#: model:ir.model,name:product_net_weight.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,name:product_net_weight.product_strawberry_jam
+#: model:product.template,name:product_net_weight.product_strawberry_jam_product_template
+msgid "Strawberry Jam (Jar of 250 grams)"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "Units"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,weight_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,weight_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "kg"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "m³"
+msgstr ""
