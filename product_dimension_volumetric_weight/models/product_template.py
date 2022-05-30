@@ -8,7 +8,6 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     volumetric_weight = fields.Float(
-        string="Volumetric weight",
         compute="_compute_volumetric_weight",
         store=True,
         digits="Stock Weight",
