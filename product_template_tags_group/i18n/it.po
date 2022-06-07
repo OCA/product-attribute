@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_template_tags_group
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-07 13:51+0000\n"
+"PO-Revision-Date: 2022-06-07 13:51+0000\n"
+"Last-Translator: Simone Rubino <sir@takobi.online>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__company_id
+msgid "Company"
+msgstr "Azienda"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag__tag_group_id
+msgid "Group"
+msgstr "Gruppo"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__id
+msgid "ID"
+msgstr ""
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: product_template_tags_group
+#: model:ir.model,name:product_template_tags_group.model_product_template_tag
+msgid "Product Tag"
+msgstr "Tag Prodotto"
+
+#. module: product_template_tags_group
+#: model:ir.model,name:product_template_tags_group.model_product_template_tag_group
+msgid "Product Tag Group"
+msgstr "Gruppo per tag prodotto"
+
+#. module: product_template_tags_group
+#: model:ir.actions.act_window,name:product_template_tags_group.product_template_tag_group_action
+#: model:ir.ui.menu,name:product_template_tags_group.product_template_tag_group_menu
+msgid "Product Tag Groups"
+msgstr "Gruppi per tag prodotto"
+
+#. module: product_template_tags_group
+#: model:ir.model.fields,field_description:product_template_tags_group.field_product_template_tag_group__tag_ids
+msgid "Tags"
+msgstr "Etichette"

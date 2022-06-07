@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2022 Simone Rubino - TAKOBI
+  ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+  -->
+
+<odoo>
+    <record id="product_template_tag_form_view" model="ir.ui.view">
+        <field name="name">Add group to Product Tag</field>
+        <field name="model">product.template.tag</field>
+        <field name="inherit_id" ref="product_template_tags.product_template_tag_form_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="tag_group_id" options="{'no_open': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
