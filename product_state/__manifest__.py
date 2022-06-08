@@ -12,10 +12,10 @@
     "depends": ["product", "sale"],
     "data": [
         "security/ir.model.access.csv",
-        "data/product_state_data.xml",
         "security/ir.model.access.csv",
         "views/product_template.xml",
     ],
+    "demo": ["demo/product_state_demo.xml"],
     "application": False,
     "maintainers": ["emagdalenaC2i"],
     "post_init_hook": "post_init_hook",
