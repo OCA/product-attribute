@@ -54,8 +54,8 @@
         <field
             name="view_ids"
             eval="[(5, 0, 0),
-                (0, 0, {'view_mode': 'tree', 'view_id': ref('product_attribute_value_price_import.product_template_attribute_value_inherited_view_tree')}),
-                (0, 0, {'view_mode': 'form', 'view_id': ref('product_attribute_value_price_import.pt_attribute_value_inherit_view_form')})]"
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('product_attribute_value_menu.product_template_attribute_value_inherited_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product_attribute_value_menu.pt_attribute_value_inherit_view_form')})]"
         />
     </record>
 
@@ -65,7 +65,7 @@
         parent="sale.prod_config_main"
         sequence="1"
         groups="product.group_product_variant"
-        action="product_attribute_value_price_import.import_product_attribute_value_action"
+        action="product_attribute_value_menu.import_product_attribute_value_action"
     />
 
 </odoo>
