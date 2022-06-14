@@ -67,7 +67,7 @@ class ProductTemplate(models.Model):
             record.state = "new"
         else:
             if record._name == "product.template":
-                product_state = record.product_state_id
+                product_state = record._get_default_product_state()
             else:
                 product_state = record.product_tmpl_id.product_state_id
             record.state = product_state.code

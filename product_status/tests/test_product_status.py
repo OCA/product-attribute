@@ -16,6 +16,7 @@ class TestProductStatusCase(TestProductCommon):
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env.ref("product.product_product_4")
         cls.product2 = cls.env.ref("product.product_product_4b")
+        cls.product_tmpl = cls.product.product_tmpl_id
         # To avoid error with filestore and Form test
         cls.product.image_1920 = False
         cls.state_model = cls.env["product.state"]
@@ -31,6 +32,16 @@ class TestProductStatusCase(TestProductCommon):
         self.product.new_until = "2020-09-14"
         self.assertEqual(self.product.state, "sellable")
         self.assertEqual(self.product.product_state_id.code, "sellable")
+
+    @freeze_time("2020-09-15")
+    def test_product_template_no_specific_state(self):
+        """Check product template back to default state."""
+        self.product_tmpl.new_until = "2020-09-16"
+        self.assertEqual(self.product_tmpl.state, "new")
+        self.assertEqual(self.product_tmpl.product_state_id.code, "new")
+        self.product_tmpl.new_until = "2020-09-14"
+        self.assertEqual(self.product_tmpl.state, "sellable")
+        self.assertEqual(self.product_tmpl.product_state_id.code, "sellable")
 
     @freeze_time("2020-09-15")
     def test_discontinued(self):
