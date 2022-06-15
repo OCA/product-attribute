@@ -6,26 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-06-15 10:06+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_template_attribute_value_inherited_view_tree
 msgid "Attributes"
-msgstr ""
+msgstr "Attributi"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.pt_attribute_value_inherit_view_form
 msgid "Product Attribute"
-msgstr ""
+msgstr "Attributo Prodotto"
 
 #. module: product_attribute_value_menu
 #: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
 #: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
 msgid "Product Variant Values"
-msgstr ""
+msgstr "Prezzi extra valori attributo"
