@@ -7,7 +7,7 @@
     "name": "Product Custom Info",
     "summary": "Add custom field in products",
     "category": "Customize",
-    "version": "14.0.1.0.1",
+    "version": "15.0.1.0.1",
     "depends": ["product", "base_custom_info"],
     "data": ["views/product_template_view.xml", "views/product_product_view.xml"],
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
