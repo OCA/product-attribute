@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2020-03-13 03:13+0000\n"
+"POT-Creation-Date: 2022-06-16 10:47+0000\n"
+"PO-Revision-Date: 2022-06-16 12:47+0200\n"
 "Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_pricelist_item_form_view
@@ -25,11 +25,13 @@ msgid ""
 "<span attrs=\"{'invisible':[('base', '!=', 'partner')]}\">Partner prices -  "
 "</span>"
 msgstr ""
+"<span attrs=\"{'invisible':[('base', '!=', 'partner')]}\">Precios del "
+"contacto -  </span>"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
-msgid "Active"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.res_partner_form_view
+msgid "<span class=\"o_stat_text\">Prices of customer</span>"
+msgstr "<span class=\"o_stat_text\">Precios de cliente</span>"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -187,11 +189,6 @@ msgstr ""
 "cálculo automático de la planificación de pedidos de compra."
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Margin to apply on price to obtain sale price"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr "Otra información"
@@ -218,6 +215,12 @@ msgid "Pricelist Rule"
 msgstr "Elemento de tarifa"
 
 #. module: product_supplierinfo_for_customer
+#: code:addons/product_supplierinfo_for_customer/models/res_partner.py:0
+#, python-format
+msgid "Prices of customer"
+msgstr "Precios de cliente"
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
@@ -239,11 +242,6 @@ msgstr "Variante de producto"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Quantity"
 msgstr "Cantidad"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Sale Margin"
-msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -338,7 +336,7 @@ msgstr "Nombre del producto del proveedor"
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
-msgstr "para"
+msgstr "hasta"
 
 #, fuzzy
 #~| msgid "Price List"

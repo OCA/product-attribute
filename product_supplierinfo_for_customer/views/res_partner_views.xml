@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2022 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_partner_form_view" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    icon="fa-user"
+                    name="action_view_customerinfo"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Prices of customer</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

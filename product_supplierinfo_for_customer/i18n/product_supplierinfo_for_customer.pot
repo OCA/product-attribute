@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-16 10:47+0000\n"
+"PO-Revision-Date: 2022-06-16 10:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,8 +23,8 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
-msgid "Active"
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.res_partner_form_view
+msgid "<span class=\"o_stat_text\">Prices of customer</span>"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -172,11 +174,6 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Margin to apply on price to obtain sale price"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr ""
@@ -203,6 +200,12 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#: code:addons/product_supplierinfo_for_customer/models/res_partner.py:0
+#, python-format
+msgid "Prices of customer"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
@@ -223,11 +226,6 @@ msgstr ""
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Quantity"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Sale Margin"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
