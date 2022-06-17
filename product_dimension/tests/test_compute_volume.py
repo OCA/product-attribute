@@ -11,6 +11,10 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.product.product_width = 100.
         self.product.dimensional_uom_id = self.uom_cm
         self.product.volume_uom_id = self.uom_litre
+        self.assertAlmostEqual(
+            0,
+            self.product.volume
+        )
         self.product.onchange_calculate_volume()
         self.assertAlmostEqual(
             200,
@@ -23,6 +27,10 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.product.product_width = 10.
         self.product.dimensional_uom_id = self.uom_m
         self.product.volume_uom_id = self.uom_litre
+        self.assertAlmostEqual(
+            0,
+            self.product.volume
+        )
         self.product.onchange_calculate_volume()
         self.assertAlmostEqual(
             120000,
@@ -46,6 +54,10 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template.product_width = 100.
         self.template.dimensional_uom_id = self.uom_cm
         self.template.volume_uom_id = self.uom_litre
+        self.assertAlmostEqual(
+            0,
+            self.template.volume
+        )
         self.template.onchange_calculate_volume()
         self.assertAlmostEqual(
             200,
@@ -58,6 +70,10 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template.product_width = 10.
         self.template.dimensional_uom_id = self.uom_m
         self.template.volume_uom_id = self.uom_litre
+        self.assertAlmostEqual(
+            0,
+            self.template.volume
+        )
         self.template.onchange_calculate_volume()
         self.assertAlmostEqual(
             120000,
