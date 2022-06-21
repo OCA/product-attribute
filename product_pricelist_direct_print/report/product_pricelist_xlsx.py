@@ -79,6 +79,11 @@ class ProductPricelistXlsx(models.AbstractModel):
         # We should avoid sending a date as a False object as it will crash if a
         # submethod tries to make comparisons with other date.
         print_date = book.date or fields.Date.today()
+        formats = {
+            "bold_format": bold_format,
+            "decimal_format": decimal_format,
+            "decimal_bold_format": decimal_bold_format,
+        }
         for group in book.get_groups_to_print():
             if book.breakage_per_category:
                 sheet.write(row, 0, group["group_name"], bold_format)
@@ -86,7 +91,9 @@ class ProductPricelistXlsx(models.AbstractModel):
             for product in group["products"]:
                 next_col = 0
                 sheet.write(row, next_col, product.display_name)
-                next_col = self._add_extra_info(sheet, book, product, row, next_col)
+                next_col = self.with_context(formats)._add_extra_info(
+                    sheet, book, product, row, next_col
+                )
                 if book.show_internal_category:
                     next_col += 1
                     sheet.write(row, next_col, product.categ_id.display_name)
@@ -109,6 +116,7 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(row + 1, 0, book.summary)
         return sheet
 
+    # TODO: In futures versions add **kw to allow add more arguments
     def _add_extra_info(self, sheet, book, product, row, next_col):
         return next_col
 
