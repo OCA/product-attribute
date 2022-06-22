@@ -7,7 +7,7 @@
         Automatically compute the volume depending on the dimensions.""",
     "version": "12.0.1.0.0",
     "category": "Product",
-    "website": "https://coopiteasy.be",
+    "website": "https://github.com/OCA/product-attribute",
     "author": "Odoo Community Association (OCA), Coop IT Easy SCRLfs",
     "maintainers": ["carmenbianca"],
     "license": "AGPL-3",
@@ -15,8 +15,4 @@
     "depends": [
         "product_dimension",
     ],
-    "excludes": [],
-    "data": [],
-    "demo": [],
-    "qweb": [],
 }
