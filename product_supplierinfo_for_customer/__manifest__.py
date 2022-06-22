@@ -17,6 +17,7 @@
         "security/ir.model.access.csv",
         "views/product_pricelist_views.xml",
         "views/product_view.xml",
+        "views/res_partner_views.xml",
     ],
     "demo": ["demo/product_demo.xml"],
     "installable": True,

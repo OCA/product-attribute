@@ -10,61 +10,66 @@
         <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
             <form string="Customer Information">
-                <group>
-                    <group string="Customer">
-                        <field
-                            name="product_id"
-                            groups="product.group_product_variant"
-                            domain="[('product_tmpl_id', '=', product_tmpl_id)]"
-                            options="{'no_create_edit': True}"
-                        />
-                        <field
-                            name="name"
-                            string="Customer"
-                            context="{'res_partner_search_mode': 'customer'}"
-                        />
-                        <field name="product_name" string="Customer Product Name" />
-                        <field name="product_code" string="Customer Product Code" />
-                        <field
-                            name="product_id"
-                            domain="[('product_tmpl_id', '=', product_tmpl_id)]"
-                            invisible="1"
-                        />
-                    </group>
-                    <group string="Price List">
-                        <field
-                            name="product_tmpl_id"
-                            string="Product"
-                            invisible="context.get('visible_product_tmpl_id', True)"
-                        />
-                        <label for="min_qty" />
-                        <div>
-                            <field name="min_qty" class="oe_inline" />
+                <sheet>
+                    <group>
+                        <group string="Customer">
                             <field
-                                name="product_uom"
-                                class="oe_inline"
-                                groups="uom.group_uom"
+                                name="product_id"
+                                groups="product.group_product_variant"
+                                domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                                options="{'no_create_edit': True}"
                             />
-                        </div>
-                        <label for="price" />
-                        <div>
-                            <field name="price" class="oe_inline" />
                             <field
-                                name="currency_id"
-                                class="oe_inline"
-                                groups="base.group_multi_currency"
+                                name="name"
+                                string="Customer"
+                                context="{'res_partner_search_mode': 'customer'}"
                             />
-                        </div>
-                        <label for="date_start" string="Validity" />
-                        <div><field name="date_start" class="oe_inline" /> to <field
-                                name="date_end"
-                                class="oe_inline"
-                            /></div>
+                            <field name="product_name" string="Customer Product Name" />
+                            <field name="product_code" string="Customer Product Code" />
+                            <field
+                                name="product_id"
+                                domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                                invisible="1"
+                            />
+                        </group>
+                        <group string="Price List">
+                            <field
+                                name="product_tmpl_id"
+                                string="Product"
+                                invisible="context.get('visible_product_tmpl_id', True)"
+                            />
+                            <label for="min_qty" />
+                            <div>
+                                <field name="min_qty" class="oe_inline" />
+                                <field
+                                    name="product_uom"
+                                    class="oe_inline"
+                                    groups="uom.group_uom"
+                                />
+                            </div>
+                            <label for="price" />
+                            <div>
+                                <field name="price" class="oe_inline" />
+                                <field
+                                    name="currency_id"
+                                    class="oe_inline"
+                                    groups="base.group_multi_currency"
+                                />
+                            </div>
+                            <label for="date_start" string="Validity" />
+                            <div><field name="date_start" class="oe_inline" /> to <field
+                                    name="date_end"
+                                    class="oe_inline"
+                                /></div>
+                        </group>
+                        <group
+                            string="Other Information"
+                            groups="base.group_multi_company"
+                        >
+                            <field name="company_id" options="{'no_create': True}" />
+                        </group>
                     </group>
-                    <group string="Other Information" groups="base.group_multi_company">
-                        <field name="company_id" options="{'no_create': True}" />
-                    </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>
