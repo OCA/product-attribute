@@ -1,6 +1,5 @@
-# SPDX-FileCopyrightText: 2022 Coop IT Easy SCRLfs
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# Copyright 2022 Coop IT Easy SCRLfs
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
 
