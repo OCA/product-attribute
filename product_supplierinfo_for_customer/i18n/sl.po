@@ -28,6 +28,11 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.res_partner_form_view
+msgid "<span class=\"o_stat_text\">Prices of customer</span>"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
 msgid "Active"
 msgstr ""
@@ -215,6 +220,12 @@ msgstr "Cenik"
 #, fuzzy
 msgid "Pricelist Rule"
 msgstr "Cenik"
+
+#. module: product_supplierinfo_for_customer
+#: code:addons/product_supplierinfo_for_customer/models/res_partner.py:0
+#, python-format
+msgid "Prices of customer"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
