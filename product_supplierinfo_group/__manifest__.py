@@ -3,7 +3,7 @@
 
 {
     "name": "Product Supplierinfo Group",
-    "version": "14.0.2.0.0",
+    "version": "14.0.2.0.1",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Akretion, Odoo Community Association (OCA)",
