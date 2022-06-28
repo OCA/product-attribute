@@ -18,12 +18,22 @@ stages:
 
 jobs:
   include:
+    # Test separately: product_supplierinfo_for_customer
     - stage: test
       env:
-        - TESTS=1 ODOO_REPO="odoo/odoo" MAKEPOT="1"
+        - TESTS=1 ODOO_REPO="odoo/odoo" MAKEPOT=1
+          INCLUDE="product_supplierinfo_for_customer"
     - stage: test
       env:
-        - TESTS=1 ODOO_REPO="OCA/OCB"
+        - TESTS=1 ODOO_REPO="OCA/OCB" INCLUDE="product_supplierinfo_for_customer"
+    # Test all other addons together
+    - stage: test
+      env:
+        - TESTS=1 ODOO_REPO="odoo/odoo" MAKEPOT=1
+          EXCLUDE="product_supplierinfo_for_customer"
+    - stage: test
+      env:
+        - TESTS=1 ODOO_REPO="OCA/OCB" EXCLUDE="product_supplierinfo_for_customer"
 env:
   global:
     - VERSION="14.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
