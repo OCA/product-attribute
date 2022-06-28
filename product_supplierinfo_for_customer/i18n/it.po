@@ -195,11 +195,6 @@ msgstr ""
 "calcolo automatico della programmazione degli ordini di acquisto."
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Margin to apply on price to obtain sale price"
-msgstr "Margine da applicare per ottenere il prezzo di vendita"
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr "Altre informazioni"
@@ -247,11 +242,6 @@ msgstr "Variante prodotto"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Quantity"
 msgstr "Quantità"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Sale Margin"
-msgstr "Margine di vendita"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -347,3 +337,9 @@ msgstr "Nome prodotto fornitore"
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr "→"
+
+#~ msgid "Margin to apply on price to obtain sale price"
+#~ msgstr "Margine da applicare per ottenere il prezzo di vendita"
+
+#~ msgid "Sale Margin"
+#~ msgstr "Margine di vendita"
