@@ -71,6 +71,7 @@ addon | version | maintainers | summary
 [product_status](product_status/) | 14.0.1.0.2 |  | Product Status Computed From Fields
 [product_stock_state](product_stock_state/) | 14.0.1.0.0 | [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Compute the state of a product's stockthe stock level and sale_ok field
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 14.0.1.2.2 |  | Allows to define prices for customers in the products
+[product_supplierinfo_group](product_supplierinfo_group/) | 14.0.2.0.0 |  | Product Supplierinfo Group
 [product_supplierinfo_revision](product_supplierinfo_revision/) | 14.0.1.0.0 |  | Product Supplierinfo Revision
 [product_template_tags](product_template_tags/) | 14.0.1.2.0 | [![patrickrwilson](https://github.com/patrickrwilson.png?size=30px)](https://github.com/patrickrwilson) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | This addon allow to add tags on products
 [product_template_tags_code](product_template_tags_code/) | 14.0.1.0.1 |  | This addon allow to add code on products tags
