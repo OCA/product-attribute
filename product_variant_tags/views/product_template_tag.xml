@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="product_template_tag_form_view" model="ir.ui.view">
+        <field name="name">product.template.tag.form (in product_template_tags)</field>
+        <field name="model">product.template.tag</field>
+        <field name="inherit_id" ref="product_template_tags.product_template_tag_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='products_count']/.." position="after">
+                <button name="%(product.product_normal_action_sell)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-archive"
+                        context="{'search_default_tag_ids': active_id}">
+                    <field name="variants_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_variant_tag_tree_view" model="ir.ui.view">
+        <field name="name">product_variant_tag_tree_view</field>
+        <field name="model">product.template.tag</field>
+        <field name="inherit_id" ref="product_template_tags.product_template_tag_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="products_count" position="after">
+                <field name="variants_count"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
