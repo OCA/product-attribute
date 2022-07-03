@@ -17,24 +17,9 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_code_mandatory
-#: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
-
-#. module: product_code_mandatory
-#: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__id
-msgid "ID"
-msgstr ""
-
-#. module: product_code_mandatory
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__default_code
 msgid "Internal Reference"
 msgstr "Référence interne"
-
-#. module: product_code_mandatory
-#: model:ir.model.fields,field_description:product_code_mandatory.field_product_product____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification"
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
@@ -48,3 +33,9 @@ msgid ""
 msgstr ""
 "Mettez '/' et sauvegardez si vous voulez qu'une nouvelle référence vous soit "
 "proposée."
+
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification"
