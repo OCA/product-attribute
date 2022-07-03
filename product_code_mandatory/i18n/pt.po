@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_code_mandatory
+# 	* product_code_mandatory
 #
 msgid ""
 msgstr ""
@@ -28,7 +28,8 @@ msgstr "Produto"
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,help:product_code_mandatory.field_product_product__default_code
-msgid "Set to '/' and save if you want a new internal reference to be proposed."
+msgid ""
+"Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
 "Defina como '/' e guarde caso pretenda que uma nova referência interna seja "
 "proposta."
