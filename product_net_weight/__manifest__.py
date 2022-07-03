@@ -11,15 +11,8 @@
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "depends": ["product"],
-    "data": [
-        "views/view_product_product.xml",
-        "views/view_product_template.xml",
-    ],
-    "demo": [
-        "demo/product_product.xml",
-    ],
-    "images": [
-        "static/description/product_product_form.png",
-    ],
+    "data": ["views/view_product_product.xml", "views/view_product_template.xml",],
+    "demo": ["demo/product_product.xml",],
+    "images": ["static/description/product_product_form.png",],
     "installable": True,
 }
