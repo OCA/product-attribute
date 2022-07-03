@@ -1,4 +1,4 @@
-In futur version (> 12.0), allow to compute Weight Price
+In futur version (> 13.0), allow to compute Weight Price
 (Net weight / Price).
 For that purpose, refactor with ``product_logistics_uom``.
 
