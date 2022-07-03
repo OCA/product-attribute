@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_sequence
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-23 02:40+0000\n"
+"PO-Revision-Date: 2020-07-22 14:19+0000\n"
+"Last-Translator: c2cdidier <didier.donze@camptocamp.com>\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: product_sequence
+#: code:addons/product_sequence/models/product_product.py:0
+#, python-format
+msgid "-copy"
+msgstr "-copie"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__display_name
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_sequence.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__id
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__id
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__id
+#: model:ir.model.fields,field_description:product_sequence.field_res_company__id
+#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
+msgid "Internal Reference"
+msgstr "Référence interne"
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence____last_update
+#: model:ir.model.fields,field_description:product_sequence.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_sequence.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_sequence.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
+msgid "Prefix for Product Internal Reference"
+msgstr "Préfixe référence article interne"
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
+msgid ""
+"Prefix used to generate the internal reference for products created with "
+"this category. If blank the default sequence will be used."
+msgstr ""
+"Préfixe utilisé pour générer la référence pour les articles de cette "
+"catégorie. Si vide, la séquence par défaut sera utilisée."
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_category
+msgid "Product Category"
+msgstr "Catégorie d'article"
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
+msgid "Product Sequence"
+msgstr "Séquence d'article"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_ir_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_product__default_code
+msgid ""
+"Set to '/' and save if you want a new internal reference to be proposed."
+msgstr ""
+"Définir la valeur '/' et sauvegarder si une nouvelle référence doit être "
+"définie."
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
+msgid ""
+"This field contains the information related to the numbering of the journal "
+"entries of this journal."
+msgstr ""
+"Ce champ contient les informations relatives à la numérotation des entrées "
+"de ce journal."
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
+#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Use parent categories to determine the prefix"
+msgstr ""
+
+#. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid ""
+"Use parent categories to determine the prefix if the category\n"
+"                            has no settings for the prefix."
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
+#: model:ir.model.fields,help:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
+msgid ""
+"Use parent categories to determine the prefix if the category has no "
+"settings for the prefix."
+msgstr ""
