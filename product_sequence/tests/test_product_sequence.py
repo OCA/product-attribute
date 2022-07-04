@@ -120,3 +120,9 @@ class TestProductSequence(TransactionCase):
             {"default_code": "product test sequence"}
         )
         self.assertEqual(copy_product_2.default_code, "product test sequence")
+
+    def test_product_subsequent_copies(self):
+        self.product_template.default_code = "PSTEST001"
+        template1 = self.product_template.copy()
+        template2 = self.product_template.copy()
+        self.assertNotEqual(template1.default_code, template2.default_code)
