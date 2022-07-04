@@ -31,7 +31,9 @@ class ProductProduct(models.Model):
             )
             product.image_ids = [(6, 0, images.ids)]
             if product.image_ids:
-                product.image_1920 = product.image_ids[0].image_main
+                image_main = product.image_ids[0].image_main
+                image64 =  getattr(s, "_get_image_from_%s" % s.storage)()
+                product.image_1920 = image64
 
     def _inverse_image_ids(self):
         for product in self:
