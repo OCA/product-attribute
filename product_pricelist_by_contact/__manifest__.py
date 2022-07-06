@@ -3,7 +3,7 @@
 
 {
     "name": "Product Pricelist Per Contact",
-    "version": "13.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",
