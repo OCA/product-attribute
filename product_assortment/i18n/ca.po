@@ -32,6 +32,11 @@ msgid "All Partner"
 msgstr "Tots socis"
 
 #. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
+msgid "Apply black list product domain"
+msgstr ""
+
+#. module: product_assortment
 #: model:ir.filters,name:product_assortment.product_assortment_2
 msgid "Assortment Chair"
 msgstr "Cadira d'assortiment"
@@ -56,6 +61,16 @@ msgstr "Servei d'Asortiment"
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortments"
 msgstr "Assortiments"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__black_list_product_domain
+msgid "Black List Product Domain"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Black list product domain"
+msgstr ""
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__blacklist_product_ids
@@ -92,6 +107,11 @@ msgstr "Soci"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
 msgstr "Domini del soci"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partner domain"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -138,6 +158,11 @@ msgstr "Recompte de registres"
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
 msgid "This field allow to relate a partner to a domain of products"
 msgstr "Aquest camp permet relacionar un soci amb un domini de productes"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "White list product domain"
+msgstr ""
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
