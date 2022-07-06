@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-24 21:14+0000\n"
+"PO-Revision-Date: 2022-05-24 21:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,13 +31,8 @@ msgid "All Partner"
 msgstr ""
 
 #. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_2
-msgid "Assortment Chair"
-msgstr ""
-
-#. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_1
-msgid "Assortment Desk"
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
+msgid "Apply Black List Product Domain"
 msgstr ""
 
 #. module: product_assortment
@@ -45,13 +42,18 @@ msgid "Assortment Name"
 msgstr ""
 
 #. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_3
-msgid "Assortment Service"
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
+msgid "Assortments"
 msgstr ""
 
 #. module: product_assortment
-#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
-msgid "Assortments"
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__black_list_product_domain
+msgid "Black List Product Domain"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Black list product domain"
 msgstr ""
 
 #. module: product_assortment
@@ -88,6 +90,11 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partner domain"
 msgstr ""
 
 #. module: product_assortment
@@ -134,6 +141,11 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
 msgid "This field allow to relate a partner to a domain of products"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "White list product domain"
 msgstr ""
 
 #. module: product_assortment

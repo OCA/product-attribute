@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-23 08:01+0000\n"
-"PO-Revision-Date: 2020-12-23 09:03+0100\n"
-"Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
+"POT-Creation-Date: 2022-05-24 21:14+0000\n"
+"PO-Revision-Date: 2022-05-24 23:18+0200\n"
+"Last-Translator: Sergio Teruel <sergio.teruel@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
@@ -30,17 +30,12 @@ msgstr "<span class=\"o_stat_text\">Productos</span>"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
 msgid "All Partner"
-msgstr ""
+msgstr "Todos los contactos"
 
 #. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_2
-msgid "Assortment Chair"
-msgstr ""
-
-#. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_1
-msgid "Assortment Desk"
-msgstr ""
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
+msgid "Apply Black List Product Domain"
+msgstr "Aplicar dominio de lista negra de productos"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -49,14 +44,19 @@ msgid "Assortment Name"
 msgstr "Nombre del surtido"
 
 #. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_3
-msgid "Assortment Service"
-msgstr ""
-
-#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortments"
 msgstr "Surtidos"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__black_list_product_domain
+msgid "Black List Product Domain"
+msgstr "Dominio de lista negra de productos"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Black list product domain"
+msgstr "Dominio de lista negra de productos"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__blacklist_product_ids
@@ -92,7 +92,12 @@ msgstr "Contacto"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
-msgstr ""
+msgstr "Dominio de contactos"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partner domain"
+msgstr "Dominio de contactos"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -139,6 +144,11 @@ msgstr "Número de registros"
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
 msgid "This field allow to relate a partner to a domain of products"
 msgstr "Este campo permite relacionar un contacto con un dominio de productos"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "White list product domain"
+msgstr "Dominio de lista blanca de productos"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
