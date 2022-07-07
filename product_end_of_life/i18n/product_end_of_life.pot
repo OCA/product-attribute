@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,13 +14,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_end_of_life
-#: model:ir.model.fields,field_description:product_end_of_life.field_res_config_settings_product_eol_approaching_type
+#: model:ir.model.fields,field_description:product_end_of_life.field_res_config_settings__product_eol_approaching_type
 msgid "Approaching Interval Unit"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.model.fields,help:product_end_of_life.field_res_config_settings_product_eol_approaching_number
+#: model:ir.model.fields,help:product_end_of_life.field_res_config_settings__product_eol_approaching_number
 msgid "Close to X unit(s) to Eol."
+msgstr ""
+
+#. module: product_end_of_life
+#: model:ir.model,name:product_end_of_life.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: product_end_of_life
@@ -29,28 +34,28 @@ msgid "Days"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Define the window of the product EoL notifications"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Define the window value"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.model.fields,field_description:product_end_of_life.field_product_product_eol_date
-#: model:ir.model.fields,field_description:product_end_of_life.field_product_template_eol_date
+#: model:ir.model.fields,field_description:product_end_of_life.field_product_product__eol_date
+#: model:ir.model.fields,field_description:product_end_of_life.field_product_template__eol_date
 msgid "End of Life Date"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.message_product_eol
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.message_product_eol
 msgid "End-of-Life Date"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Interval"
 msgstr ""
 
@@ -60,7 +65,7 @@ msgid "Months"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Notification Window"
 msgstr ""
 
@@ -70,7 +75,7 @@ msgid "Product"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Product End of Life"
 msgstr ""
 
@@ -80,18 +85,18 @@ msgid "Product End-Of-Life Channel"
 msgstr ""
 
 #. module: product_end_of_life
-#: code:addons/product_end_of_life/models/product.py:44
+#: code:addons/product_end_of_life/models/product.py:45
 #, python-format
 msgid "Product End-Of-Life Notification"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.model.fields,field_description:product_end_of_life.field_res_config_settings_product_eol_approaching_number
+#: model:ir.model.fields,field_description:product_end_of_life.field_res_config_settings__product_eol_approaching_number
 msgid "Product Eol Approaching Number"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.message_product_eol
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.message_product_eol
 msgid "Product Name"
 msgstr ""
 
@@ -108,17 +113,12 @@ msgid "Product: End-Of-Life Notification"
 msgstr ""
 
 #. module: product_end_of_life
-#: model:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Unit"
 msgstr ""
 
 #. module: product_end_of_life
 #: selection:res.config.settings,product_eol_approaching_type:0
 msgid "Weeks"
-msgstr ""
-
-#. module: product_end_of_life
-#: model:ir.model,name:product_end_of_life.model_res_config_settings
-msgid "res.config.settings"
 msgstr ""
 
