@@ -4,7 +4,7 @@
 {
     "name": "Product model viewer",
     "summary": "3D model viewer for products",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "development_status": "Beta",
     "category": "Sales",
     "website": "https://github.com/OCA/product-attribute",
