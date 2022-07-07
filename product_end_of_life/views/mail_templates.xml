@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="message_product_eol">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th></th>
+                        <th>End-of-Life Date</th>
+                    </tr>
+                </thead>
+                <t t-foreach="origin" t-as="o">
+                   <tr>
+                       <td><a href="#" t-att-data-oe-model="o._name" t-att-data-oe-id="o.id">
+                               <t t-esc="o.display_name"/>
+                          </a>
+                       </td>
+                       <td>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                       <td> <span t-field="o.eol_date"/></td>
+                   </tr>
+                </t>
+            </table>
+
+        </template>
+    </data>
+</odoo>
+

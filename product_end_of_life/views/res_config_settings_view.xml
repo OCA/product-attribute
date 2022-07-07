@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.product_end_of_life</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='stock']" position="inside">
+                <h2>Product End of Life</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box" title="Define the window of the product EoL notifications">
+                        <div class="o_setting_right_pane">
+                            <div>Notification Window</div>
+                            <div class="text-muted">
+                                Define the window value
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16_row">
+                                    <label for="product_eol_approaching_number" string="Interval" class="col-xs-3 col-md-3 o_light_label" />
+                                    <field name="product_eol_approaching_number" class="oe_inline" required="True" />
+                                </div>
+                                <div class="mt16_row">
+                                    <label for="product_eol_approaching_type" string="Unit" class="col-xs-3 col-md-3 o_light_label" />
+                                    <field name="product_eol_approaching_type" class="oe_inline" required="True" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
