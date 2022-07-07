@@ -31,6 +31,7 @@ addon | version | maintainers | summary
 [product_manufacturer](product_manufacturer/) | 15.0.1.0.1 |  | Adds manufacturers and attributes on the product view.
 [product_net_weight](product_net_weight/) | 15.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add 'Net Weight' on product models
 [product_packaging_type](product_packaging_type/) | 15.0.1.0.0 |  | Product Packaging Type
+[product_pricelist_by_contact](product_pricelist_by_contact/) | 15.0.1.0.0 |  | Product Pricelist Per Contact
 [product_secondary_unit](product_secondary_unit/) | 15.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 15.0.1.0.0 |  | Product Sequence
 [product_state](product_state/) | 15.0.1.1.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
