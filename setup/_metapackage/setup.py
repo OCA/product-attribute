@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo-addon-product_manufacturer>=15.0dev,<15.1dev',
         'odoo-addon-product_net_weight>=15.0dev,<15.1dev',
         'odoo-addon-product_packaging_type>=15.0dev,<15.1dev',
+        'odoo-addon-product_pricelist_by_contact>=15.0dev,<15.1dev',
         'odoo-addon-product_secondary_unit>=15.0dev,<15.1dev',
         'odoo-addon-product_sequence>=15.0dev,<15.1dev',
         'odoo-addon-product_state>=15.0dev,<15.1dev',
