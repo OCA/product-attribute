@@ -22,7 +22,7 @@ class Product(models.Model):
         for p in self:
             p.gltf_3d_model = p.gltf_3d_model_variant
             if not p.gltf_3d_model:
-                self.gltf_3d_model = self.product_tmpl_id.gltf_3d_model
+                p.gltf_3d_model = p.product_tmpl_id.gltf_3d_model
 
     @api.multi
     def _set_gltf_3d_model(self):
