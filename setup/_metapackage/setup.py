@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo12-addon-product_custom_info',
         'odoo12-addon-product_dimension',
         'odoo12-addon-product_documentation_set',
+        'odoo12-addon-product_end_of_life',
         'odoo12-addon-product_equivalent_category',
         'odoo12-addon-product_firmware_version',
         'odoo12-addon-product_logistics_uom',
