@@ -55,7 +55,7 @@ class ProductTemplate(models.Model):
         if "product_state_id" in vals:
             stage_id = vals.get("product_state_id")
             stage = self.env["product.state"].browse(stage_id)
-            product_status_module = self.env["ir.module.module"].search(
+            product_status_module = self.env["ir.module.module"].sudo().search(
                 [("name", "=", "product_status")]
             )
             if (
