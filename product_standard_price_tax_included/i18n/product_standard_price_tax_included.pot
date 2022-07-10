@@ -65,11 +65,6 @@ msgid "Partner Prices on the product form"
 msgstr ""
 
 #. module: product_standard_price_tax_included
-#: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist
-msgid "Pricelist"
-msgstr ""
-
-#. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist_item
 msgid "Pricelist Item"
 msgstr ""
