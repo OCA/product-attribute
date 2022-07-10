@@ -5,3 +5,6 @@
 * Shepilov Vladislav <shepilov.v@protonmail.com>
 * Marc Poch Mallandrich <mpoch@planetatic.com>
 * Hai Lang <hailn@trobz.com>
+
+* `Trey <https://www.trey.es>`_:
+    * Vicent Cubells <vicent@trey.es>
