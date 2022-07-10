@@ -4,7 +4,7 @@
 
 {
     "name": "Multiple Images in Products",
-    "version": "14.0.1.0.0",
+    "version": "13.0.1.0.0",
     "author": "Antiun Ingeniería, "
     "Tecnativa, "
     "LasLabs, "
@@ -14,14 +14,8 @@
     "category": "Sales Management",
     "pre_init_hook": "pre_init_hook",
     "uninstall_hook": "uninstall_hook",
-    "depends": [
-        "base_multi_image",
-        "product",
-    ],
-    "data": [
-        "views/image_view.xml",
-        "views/product_template_view.xml",
-    ],
+    "depends": ["base_multi_image", "product"],
+    "data": ["views/image_view.xml", "views/product_template_view.xml"],
     "installable": True,
     "images": [
         "images/product.png",

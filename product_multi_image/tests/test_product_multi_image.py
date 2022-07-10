@@ -20,21 +20,13 @@ class TestProductMultiImage(common.TransactionCase):
             b"R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
         )
         self.attribute = self.env["product.attribute"].create(
-            {
-                "name": "Test attribute",
-            }
+            {"name": "Test attribute"}
         )
         self.value_1 = self.env["product.attribute.value"].create(
-            {
-                "name": "Test value 1",
-                "attribute_id": self.attribute.id,
-            }
+            {"name": "Test value 1", "attribute_id": self.attribute.id}
         )
         self.value_2 = self.env["product.attribute.value"].create(
-            {
-                "name": "Test value 2",
-                "attribute_id": self.attribute.id,
-            }
+            {"name": "Test value 2", "attribute_id": self.attribute.id}
         )
         self.product_template = self.env["product.template"].create(
             {
@@ -187,24 +179,21 @@ class TestProductMultiImage(common.TransactionCase):
         image = self.product_1.image_ids[0]
         image.product_variant_ids = [(6, 0, self.product_1.ids)]
         self.assertEqual(
-            image.product_variant_count,
-            1,
+            image.product_variant_count, 1,
         )
 
     def test_pre_init_hook_product(self):
         """It should populate the ``image_ids`` on existing product"""
         product = self.env.ref("product.product_product_3")
         self.assertEqual(
-            len(product.image_ids),
-            1,
+            len(product.image_ids), 1,
         )
 
     def test_pre_init_hook_template(self):
         """It should populate the ``image_ids`` on existing template"""
         product = self.env.ref("product.product_product_3_product_template")
         self.assertEqual(
-            len(product.image_ids),
-            1,
+            len(product.image_ids), 1,
         )
 
     def test_uninstall_hook_product(self):
