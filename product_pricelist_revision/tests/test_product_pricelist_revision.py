@@ -1,7 +1,7 @@
 # Copyright 2019 Tecnativa - Ernesto Tejeda
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from datetime import date
+from datetime import datetime
 
 from odoo.tests.common import SavepointCase
 
@@ -90,8 +90,8 @@ class TestProductPricelistRevision(SavepointCase):
         active_ids = self.pricelist_item_product_product.ids
         wizard = wizard_obj.with_context(active_ids=active_ids).create(
             {
-                "date_start": date.today(),
-                "date_end": date.today(),
+                "date_start": datetime.now(),
+                "date_end": datetime.now(),
                 "variation_percent": 50,
             }
         )
