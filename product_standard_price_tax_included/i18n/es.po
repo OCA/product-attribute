@@ -82,11 +82,6 @@ msgid "Partner Prices on the product form"
 msgstr "Precios de socio en el formulario de producto"
 
 #. module: product_standard_price_tax_included
-#: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist
-msgid "Pricelist"
-msgstr "Tarifa"
-
-#. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist_item
 msgid "Pricelist Item"
 msgstr "Elemento de tarifa"
@@ -135,3 +130,6 @@ msgstr "Unidad(es)"
 #: model:product.template,weight_uom_name:product_standard_price_tax_included.product_product_product_template
 msgid "kg"
 msgstr "Kg"
+
+#~ msgid "Pricelist"
+#~ msgstr "Tarifa"
