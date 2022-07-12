@@ -1,14 +1,13 @@
-* Go to "Sale > Products > Products"
+To use this module, you need to:
 
-* Open a product form
-
-* a new button is available, named "See Margins per Pricelist"
-
-.. image:: ../static/description/product_template_form.png
-
-* Click on the button, and check if the margins are correct
-
-.. image:: ../static/description/wizard_preview_pricelist_margin_form.png
-
-* you can optionnaly change date, or quantity, if you have complex pricelist depending
-  on such parameters.
+#. Go to product form view.
+#. Click *See Price per Pricelist* button.
+#. A new dialog will appear showing the prices for the current date and
+   quantity=1 for the current product.
+#. You can modify the date to see the prices on that date (if you have
+   pricelists with specific intervals of time), or for other quantity (if you
+   have pricelists depending on the number).
+#. If you have clicked from a product with variants, you will see by default
+   the prices for all the existing variants on each shown pricelist, but you
+   can select a specific variant in the field "Product Variant" to filter out
+   the rest of the variants except the selected one.

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Tecnativa - Ernesto Tejeda
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_pricelist_simulation_view_form" model="ir.ui.view">
+        <field name="name">wizard.preview.pricelist.form</field>
+        <field name="model">wizard.preview.pricelist</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="variant_count" invisible="1" />
+                <group name="settings_group">
+                    <group name="settings_left_group">
+                        <field name="template_id" />
+                        <field
+                            name="product_id"
+                            options="{'no_create': True}"
+                            attrs="{'invisible': [('variant_count', '=', 1)]}"
+                        />
+                    </group>
+                    <group name="settings_right_group">
+                        <field name="product_qty" />
+                        <field name="price_date" />
+                    </group>
+                </group>
+                <group name="lines_group">
+                    <field name="line_ids" nolabel="1">
+                        <tree>
+                            <field
+                                name="product_id"
+                                attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
+                            />
+                            <field name="pricelist_id" />
+                            <field name="price" />
+                            <field name="currency_id" invisible="1" />
+                        </tree>
+                        <form>
+                            <group>
+                                <group>
+                                    <field
+                                        name="product_id"
+                                        attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
+                                    />
+                                    <field name="pricelist_id" />
+                                </group>
+                                <group>
+                                    <field name="price" />
+                                    <field name="currency_id" invisible="1" />
+                                </group>
+                            </group>
+                            <footer>
+                                <button
+                                    string="Close"
+                                    class="btn-secondary"
+                                    special="cancel"
+                                />
+                            </footer>
+                        </form>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="pricelist_simulation_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">See Price per Pricelist</field>
+        <field name="res_model">wizard.preview.pricelist</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
