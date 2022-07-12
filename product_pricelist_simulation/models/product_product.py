@@ -15,13 +15,13 @@ class Productproduct(models.Model):
             "product_pricelist_margin.view_wizard_preview_pricelist_margin_form"
         )
         return {
-            'name': _('See Margins per Pricelist'),
-            'type': 'ir.actions.act_window',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'wizard.preview.pricelist.margin',
-            'views': [(view.id, 'form')],
-            'view_id': view.id,
-            'target': 'new',
-            'context': {},
+            "name": _("See Margins per Pricelist"),
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "wizard.preview.pricelist.margin",
+            "views": [(view.id, "form")],
+            "view_id": view.id,
+            "target": "new",
+            "context": {},
         }
