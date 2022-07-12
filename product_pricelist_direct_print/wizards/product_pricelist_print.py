@@ -240,9 +240,7 @@ class ProductPricelistPrint(models.TransientModel):
         pricelist = self.pricelist_id
         if not pricelist and self.partner_count == 1:
             pricelist = self.partner_ids[0].property_product_pricelist
-            self.write({
-                'pricelist_id': self.partner_ids[0].property_product_pricelist
-            })
+            self.write({'pricelist_id': self.partner_ids[0].property_product_pricelist})
         return pricelist
 
     def _compute_context_active_model(self):
