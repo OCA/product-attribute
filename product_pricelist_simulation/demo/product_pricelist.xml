@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021-Today GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="sale_pricelist_exception" model="product.pricelist.item">
+        <field name="applied_on">0_product_variant</field>
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="product_id" ref="demo_product" />
+        <field name="compute_price">fixed</field>
+        <field name="fixed_price">80.0</field>
+         <field name="date_start">2000-01-01</field>
+         <field name="date_end">2000-01-03</field>
+    </record>
+
+    <record id="sale_pricelist_10" model="product.pricelist">
+        <field name="name">Public Pricelist -10%</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="sale_pricelist_item_10" model="product.pricelist.item">
+        <field name="applied_on">3_global</field>
+        <field name="pricelist_id" ref="sale_pricelist_10" />
+        <field name="compute_price">percentage</field>
+        <field name="percent_price">10</field>
+         <field name="base">list_price</field>
+    </record>
+
+    <record id="sale_pricelist_20" model="product.pricelist">
+        <field name="name">Public Pricelist -20%</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="sale_pricelist_item_20" model="product.pricelist.item">
+        <field name="applied_on">3_global</field>
+        <field name="pricelist_id" ref="sale_pricelist_20" />
+        <field name="compute_price">percentage</field>
+        <field name="percent_price">20</field>
+         <field name="base">list_price</field>
+    </record>
+
+    <record id="sale_pricelist_30" model="product.pricelist">
+        <field name="name">Public Pricelist -30%</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="sale_pricelist_item_30" model="product.pricelist.item">
+        <field name="applied_on">3_global</field>
+        <field name="pricelist_id" ref="sale_pricelist_30" />
+        <field name="compute_price">percentage</field>
+        <field name="percent_price">30</field>
+         <field name="base">list_price</field>
+    </record>
+
+</odoo>
