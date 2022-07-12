@@ -1,2 +1,2 @@
-This module is designed to extend Product Module in Odoo to preview product margin
-depending on the different pricelists.
+This module extends the product pricelists feature to allow show price for all
+pricelists from a product form view.
