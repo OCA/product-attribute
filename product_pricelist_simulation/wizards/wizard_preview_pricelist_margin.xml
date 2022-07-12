@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021-Today GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="view_wizard_preview_pricelist_margin_form" model="ir.ui.view">
+        <field name="model">wizard.preview.pricelist.margin</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Settings">
+                        <group colspan="4" col="2">
+                            <field name="template_id" invisible="1"/>
+                            <field name="product_id"
+                                attrs="{'readonly': [('template_id', '=', False)]}"
+                                options="{'no_open': True, 'no_create_edit': True}"/>
+                            <field name="standard_price" readonly="True"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="product_qty"/>
+                            <field name="price_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="line_ids" nolabel="1">
+                            <tree colors="bg_color_field: bg_color">
+                                <field name="bg_color" invisible="1"/>
+                                <field name="pricelist_id"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                                <field name="price_vat_excl" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="price_vat_incl" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="margin" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="margin_percent"/>
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <field name="pricelist_id"/>
+                                        <field name="currency_id" groups="base.group_multi_currency"/>
+                                        <field name="price_vat_excl" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="price_vat_incl" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="margin" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="margin_percent"/>
+                                    </group>
+                                    <footer>
+                                        <button string="Close" class="oe_link" special="cancel"/>
+                                    </footer>
+                                </sheet>
+                            </form>
+                        </field>
+                    </group>
+                    <footer>
+                        <button string="Close" class="oe_link" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
