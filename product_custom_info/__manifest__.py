@@ -19,7 +19,7 @@
     ],
     'author': "Tecnativa, "
               "Odoo Community Association (OCA)",
-    'website': 'http://www.tecnativa.com',
+    'website': 'https://github.com/OCA/product-attribute',
     'license': 'LGPL-3',
     'installable': True,
 }
