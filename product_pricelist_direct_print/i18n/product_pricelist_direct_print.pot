@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-14 13:05+0000\n"
+"PO-Revision-Date: 2022-07-14 13:05+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,32 +18,22 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or 'customer'\"/>,</p>\n"
+"    <p>\n"
+"    The attached file is a PDF document containg the\n"
+"    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
+"    </p>\n"
+"    <p>You can reply to this email if you have any questions.</p>\n"
+"    <p>Thank you,</p>\n"
 "\n"
-"<p>Dear ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
-"<p>\n"
-"The attached file is a PDF document containg the\n"
-"<strong>${object.pricelist_id.name}</strong> pricelist.\n"
-"</p>\n"
-"<p>You can reply to this email if you have any questions.</p>\n"
-"<p>Thank you,</p>\n"
-"\n"
-"<p style=\"color:#888888;\">\n"
-"% if object.write_uid and object.write_uid.signature:\n"
-"    ${object.write_uid.signature | safe}\n"
-"% endif\n"
-"</p>\n"
-msgstr ""
-
-#. module: product_pricelist_direct_print
-#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid ""
-"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
-"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
-msgstr ""
-
-#. module: product_pricelist_direct_print
-#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "${object.pricelist_id.name}"
+"    <p style=\"color:#888888;\">\n"
+"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"            <span t-out=\"object.write_uid.signature or 'safe'\"/>\n"
+"        </t>\n"
+"    </p>\n"
+"</div>\n"
+"        "
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -91,7 +83,7 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
-msgid "Breakage per category"
+msgid "Breakage Per Category"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -168,7 +160,6 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -194,7 +185,6 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__id
 msgid "ID"
 msgstr ""
 
@@ -230,7 +220,6 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -300,6 +289,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__pricelist_id
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "Pricelist - Send by Email"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -401,4 +395,16 @@ msgstr ""
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #, python-format
 msgid "You must set price list or any customer or any show price option."
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id.name "
+"}} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "{{ object.pricelist_id.name }}"
 msgstr ""
