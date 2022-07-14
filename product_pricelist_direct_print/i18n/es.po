@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-21 15:22+0000\n"
-"PO-Revision-Date: 2022-01-21 16:26+0100\n"
+"POT-Creation-Date: 2022-07-14 13:05+0000\n"
+"PO-Revision-Date: 2022-07-14 15:09+0200\n"
 "Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -17,55 +17,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
+"'customer'\"/>,</p>\n"
+"    <p>\n"
+"    The attached file is a PDF document containg the\n"
+"    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
+"    </p>\n"
+"    <p>You can reply to this email if you have any questions.</p>\n"
+"    <p>Thank you,</p>\n"
 "\n"
-"<p>Dear ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
-"<p>\n"
-"The attached file is a PDF document containg the\n"
-"<strong>${object.pricelist_id.name}</strong> pricelist.\n"
-"</p>\n"
-"<p>You can reply to this email if you have any questions.</p>\n"
-"<p>Thank you,</p>\n"
-"\n"
-"<p style=\"color:#888888;\">\n"
-"% if object.write_uid and object.write_uid.signature:\n"
-"    ${object.write_uid.signature | safe}\n"
-"% endif\n"
-"</p>\n"
+"    <p style=\"color:#888888;\">\n"
+"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"            <span t-out=\"object.write_uid.signature or 'safe'\"/>\n"
+"        </t>\n"
+"    </p>\n"
+"</div>\n"
+"        "
 msgstr ""
-"\n"
-"<p>Estimado ${object.partner_id and object.partner_id.name or 'customer'},</"
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Estimado <span t-out=\"object.partner_id and object.partner_id.name "
+"or 'customer'\"/>,</p>\n"
+"    <p>\n"
+"    El fichero adjunto es un PDF que contiene la tarifa\n"
+"    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
+"    </p>\n"
+"    <p>Puede responder a este correo electrónico si tiene alguna pregunta.</"
 "p>\n"
-"<p>\n"
-"El fichero adjunto es un PDF que contiene la tarifa\n"
-"<strong>${object.pricelist_id.name}</strong> .\n"
-"</p>\n"
-"<p>Puede responder a este correo electrónico si tiene alguna pregunta.</p>\n"
-"<p>Gracias,</p>\n"
+"    <p>Gracias,</p>\n"
 "\n"
-"<p style=\"color:#888888;\">\n"
-"% if object.write_uid and object.write_uid.signature:\n"
-"    ${object.write_uid.signature | safe}\n"
-"% endif\n"
-"</p>\n"
-
-#. module: product_pricelist_direct_print
-#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid ""
-"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
-"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
-msgstr ""
-"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
-"Tarifa (Ref ${object.pricelist_id.name or 'n/a' })"
-
-#. module: product_pricelist_direct_print
-#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "${object.pricelist_id.name}"
-msgstr "${object.pricelist_id.name}"
+"    <p style=\"color:#888888;\">\n"
+"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"            <span t-out=\"object.write_uid.signature or 'safe'\"/>\n"
+"        </t>\n"
+"    </p>\n"
+"</div>\n"
+"        "
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -114,7 +106,9 @@ msgstr "Modelo abstracto para exportar los productos de tarifa a xlsx"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
-msgid "Breakage per category"
+#, fuzzy
+#| msgid "Breakage per category"
+msgid "Breakage Per Category"
 msgstr "Rotura por categoría"
 
 #. module: product_pricelist_direct_print
@@ -194,7 +188,6 @@ msgstr "Descripción"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
@@ -220,7 +213,6 @@ msgstr "Ocultar nombre de tarifa"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx__id
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -260,7 +252,6 @@ msgstr "Dejar vacío para mostrar todos los productos"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_report_product_pricelist_direct_print_product_pricelist_xlsx____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -331,6 +322,13 @@ msgstr "Nombre tarifa:"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Pricelist"
 msgstr "Tarifa"
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,name:product_pricelist_direct_print.email_template_edi_pricelist
+#, fuzzy
+#| msgid "Send by email"
+msgid "Pricelist - Send by Email"
+msgstr "Enviar por email"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -432,6 +430,20 @@ msgstr "Resumen:"
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr "Debe seleccionar una tarifa o alguna opción mostrar precio."
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+msgstr ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Tarifa (Ref {{ object.pricelist_id.name or 'n/a' }})"
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "{{ object.pricelist_id.name }}"
+msgstr "{{ object.pricelist_id.name }}"
 
 #~ msgid "Group by parent category"
 #~ msgstr "Agrupar por categoría padre"

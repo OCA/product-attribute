@@ -37,8 +37,8 @@ class ProductPricelistPrint(models.TransientModel):
         help="Keep empty for all products",
     )
     show_standard_price = fields.Boolean(string="Show Cost Price")
-    show_sale_price = fields.Boolean(string="Show Sale Price")
-    hide_pricelist_name = fields.Boolean(string="Hide Pricelist Name")
+    show_sale_price = fields.Boolean()
+    hide_pricelist_name = fields.Boolean()
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
     )
@@ -48,14 +48,14 @@ class ProductPricelistPrint(models.TransientModel):
         help="If you enter an X number here, then, for each selected customer,"
         " the last X ordered products will be obtained for the report."
     )
-    summary = fields.Text(string="Summary")
+    summary = fields.Text()
     max_categ_level = fields.Integer(
         string="Max category level",
         help="If this field is not 0, products are grouped at max level "
         "of category tree.",
     )
     # Excel export options
-    breakage_per_category = fields.Boolean(string="Breakage per category", default=True)
+    breakage_per_category = fields.Boolean(default=True)
     show_internal_category = fields.Boolean(string="Show internal categories")
 
     @api.depends("partner_ids")
@@ -199,22 +199,20 @@ class ProductPricelistPrint(models.TransientModel):
         composer = (
             self.env["mail.compose.message"]
             .with_context(
-                {
-                    "default_composition_mode": "mass_mail",
-                    "default_notify": True,
-                    "default_res_id": self.id,
-                    "default_model": "product.pricelist.print",
-                    "default_template_id": template_id,
-                    "active_ids": self.ids,
-                }
+                default_composition_mode="mass_mail",
+                default_notify=True,
+                default_res_id=self.id,
+                default_model="product.pricelist.print",
+                default_template_id=template_id,
+                active_ids=self.ids,
             )
             .create({})
         )
-        values = composer.onchange_template_id(
+        values = composer._onchange_template_id(
             template_id, "mass_mail", "product.pricelist.print", self.id
         )["value"]
         composer.write(values)
-        composer.send_mail()
+        composer.action_send_mail()
 
     @api.model
     def _get_sale_order_domain(self, partner):
