@@ -57,7 +57,7 @@ addon | version | maintainers | summary
 [product_packaging_unit_price_calculator](product_packaging_unit_price_calculator/) | 14.0.1.1.1 |  | Wizard to calculate a unit price from a packaging price
 [product_pricelist_assortment](product_pricelist_assortment/) | 14.0.1.0.1 |  | Product assortment and pricelist
 [product_pricelist_button_box](product_pricelist_button_box/) | 14.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a button_box section on pricelist form
-[product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.1.0 |  | Print price list from menu option, product templates, products variants or price lists
+[product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.1.1 |  | Print price list from menu option, product templates, products variants or price lists
 [product_pricelist_revision](product_pricelist_revision/) | 14.0.1.0.2 |  | Product Pricelist Revision
 [product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 14.0.1.0.3 |  | Allows to create priceslists based on supplier info
 [product_profile](product_profile/) | 14.0.1.0.1 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Allow to configure a product in 1 click
