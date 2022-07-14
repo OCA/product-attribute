@@ -91,8 +91,8 @@ class ProductPricelistXlsx(models.AbstractModel):
             for product in group["products"]:
                 next_col = 0
                 sheet.write(row, next_col, product.display_name)
-                next_col = self.with_context(formats)._add_extra_info(
-                    sheet, book, product, row, next_col
+                next_col = self._add_extra_info(
+                    sheet, book, product, row, next_col, **formats
                 )
                 if book.show_internal_category:
                     next_col += 1
@@ -116,8 +116,7 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(row + 1, 0, book.summary)
         return sheet
 
-    # TODO: In futures versions add **kw to allow add more arguments
-    def _add_extra_info(self, sheet, book, product, row, next_col):
+    def _add_extra_info(self, sheet, book, product, row, next_col, **kw):
         return next_col
 
     def generate_xlsx_report(self, workbook, data, objects):
