@@ -2,11 +2,11 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
-from odoo.tests.common import SavepointCase, tagged
+from odoo.tests.common import TransactionCase, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestProductPricelistDirectPrint(SavepointCase):
+class TestProductPricelistDirectPrint(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestProductPricelistDirectPrint, cls).setUpClass()
