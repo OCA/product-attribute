@@ -56,6 +56,7 @@ addon | version | maintainers | summary
 [product_pricelist_direct_print_company_group](product_pricelist_direct_print_company_group/) | 13.0.1.0.0 |  | Print Pricelist items using the company group model
 [product_pricelist_direct_print_website_sale](product_pricelist_direct_print_website_sale/) | 13.0.2.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Extend Product Pricelist Direct Print for filter by public categories
 [product_pricelist_revision](product_pricelist_revision/) | 13.0.1.2.0 |  | Product Pricelist Revision
+[product_pricelist_simulation](product_pricelist_simulation/) | 13.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Simulate the product price for all pricelists
 [product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 13.0.1.0.5 |  | Allows to create priceslists based on supplier info
 [product_product_template_navigation](product_product_template_navigation/) | 13.0.1.0.1 |  | Adds a button in product to view the template
 [product_restricted_type](product_restricted_type/) | 13.0.1.1.0 |  | Product Restricted Type
