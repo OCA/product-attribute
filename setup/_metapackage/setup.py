@@ -43,6 +43,7 @@ setuptools.setup(
         'odoo13-addon-product_pricelist_direct_print_company_group',
         'odoo13-addon-product_pricelist_direct_print_website_sale',
         'odoo13-addon-product_pricelist_revision',
+        'odoo13-addon-product_pricelist_simulation',
         'odoo13-addon-product_pricelist_supplierinfo',
         'odoo13-addon-product_product_template_navigation',
         'odoo13-addon-product_restricted_type',
