@@ -59,5 +59,10 @@ class ProductProduct(models.Model):
         if default is None:
             default = {}
         if self.default_code and "default_code" not in default:
-            default.update({"default_code": self.default_code + _("-copy")})
+            code = self.default_code
+            while True:  # check for previous duplicates
+                code += _("-copy")
+                if not self.search([("default_code", "=", code)]):
+                    break
+            default.update({"default_code": code})
         return super().copy(default)
