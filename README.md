@@ -29,6 +29,7 @@ addon | version | maintainers | summary
 [product_attribute_value_menu](product_attribute_value_menu/) | 14.0.1.0.0 |  | Product attributes values tree and form. Import attribute values.
 [product_barcode_required](product_barcode_required/) | 14.0.1.0.0 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 |  | Store the revision of a product and a BOM
+[product_categ_image](product_categ_image/) | 14.0.1.0.0 |  | Add image on product category
 [product_category_active](product_category_active/) | 14.0.1.0.0 |  | Add option to archive product categories
 [product_category_code](product_category_code/) | 14.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a code on product categories
 [product_category_code_unique](product_category_code_unique/) | 14.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to set product category code field as unique
