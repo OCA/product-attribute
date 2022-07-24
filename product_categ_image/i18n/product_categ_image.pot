@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_categ_image
+# 	* product_categ_image
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,17 +14,51 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_categ_image
-#: model:ir.model.fields,field_description:product_categ_image.field_product_category_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__image
+msgid "Category Image"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__id
+msgid "ID"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__image_1920
 msgid "Image"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: product_categ_image
+#: model:ir.model.fields,field_description:product_categ_image.field_product_category____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: product_categ_image
 #: model:ir.model,name:product_categ_image.model_product_category
 msgid "Product Category"
 msgstr ""
-
-#. module: product_categ_image
-#: model:ir.model.fields,help:product_categ_image.field_product_category_image
-msgid "This field holds the image used for the category, limited to 1024x1024px. Also used as the default image for products of this category."
-msgstr ""
-
