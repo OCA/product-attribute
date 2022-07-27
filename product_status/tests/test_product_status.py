@@ -120,7 +120,8 @@ class TestProductStatusCase(TestProductCommon):
 
     def test_modified_default_data(self):
         st_env = self.env["product.state"]
-        demo_user = self.env.ref("base.user_demo").id
+        demo_user = self.env.ref("base.user_demo")
+        demo_user.groups_id = [(4, self.env.ref("sales_team.group_sale_manager").id)]
         default_state = st_env._get_module_data()
         vals = {
             "name": "State change",
@@ -131,7 +132,7 @@ class TestProductStatusCase(TestProductCommon):
         for ds_id in default_state:
             vals["code"] = ds_id.code
             with self.assertRaises(ValidationError) as cm:
-                st_env.browse(ds_id.id).with_user(demo_user).write(vals)
+                st_env.browse(ds_id.id).with_user(demo_user.id).write(vals)
             wn_expect = cm.exception.args[0]
             self.assertEqual(
                 "Cannot delete/modified state installed by module, state name: %s"
@@ -139,7 +140,7 @@ class TestProductStatusCase(TestProductCommon):
                 wn_expect,
             )
             with self.assertRaises(ValidationError) as cm:
-                st_env.browse(ds_id.id).with_user(demo_user).unlink()
+                st_env.browse(ds_id.id).with_user(demo_user.id).unlink()
             wn_expect = cm.exception.args[0]
             self.assertEqual(
                 "Cannot delete/modified state installed by module, state name: %s"
@@ -148,7 +149,7 @@ class TestProductStatusCase(TestProductCommon):
             )
         # Allow update default value
         current_default_state = st_env.search([("default", "=", True)])
-        current_default_state = current_default_state.with_user(demo_user)
+        current_default_state = current_default_state.with_user(demo_user.id)
         for vals in [
             {"default": False},
             {"active": False},
