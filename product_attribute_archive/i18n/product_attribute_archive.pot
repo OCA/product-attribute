@@ -21,12 +21,18 @@ msgstr ""
 
 #. module: product_attribute_archive
 #: model_terms:ir.ui.view,arch_db:product_attribute_archive.product_attribute_form_view
+#: model_terms:ir.ui.view,arch_db:product_attribute_archive.product_attribute_value_search_view
 msgid "Archived"
 msgstr ""
 
 #. module: product_attribute_archive
 #: model:ir.model,name:product_attribute_archive.model_product_attribute_value
 msgid "Attribute Value"
+msgstr ""
+
+#. module: product_attribute_archive
+#: model_terms:ir.ui.view,arch_db:product_attribute_archive.product_attribute_value_tree_view
+msgid "Attribute Values"
 msgstr ""
 
 #. module: product_attribute_archive
