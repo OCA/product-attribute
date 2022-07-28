@@ -6,3 +6,4 @@
 
   * Eduardo Magdalena <emagdalena@c2i.es>
 * Carlos Lopez <celm1990@gmail.com>
+* Scott Fleming <scott@piboy.ca>
