@@ -36,8 +36,8 @@ addon | version | maintainers | summary
 [product_code_unique](product_code_unique/) | 13.0.1.0.0 |  | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 13.0.1.1.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [product_custom_info](product_custom_info/) | 13.0.1.0.0 |  | Add custom field in products
-[product_dimension](product_dimension/) | 13.0.1.0.1 |  | Product Dimension
-[product_dimension_volumetric_weight](product_dimension_volumetric_weight/) | 13.0.1.0.0 |  | Product Dimension Volumetric Weight
+[product_dimension](product_dimension/) | 13.0.1.0.2 |  | Product Dimension
+[product_dimension_volumetric_weight](product_dimension_volumetric_weight/) | 13.0.1.0.1 |  | Product Dimension Volumetric Weight
 [product_list_pricelist_price](product_list_pricelist_price/) | 13.0.1.0.1 |  | Display pricelist prices for products in list view.
 [product_lot_sequence](product_lot_sequence/) | 13.0.1.0.1 |  | Adds ability to define a lot sequence from the product
 [product_manufacturer](product_manufacturer/) | 13.0.2.1.0 |  | Adds manufacturers and attributes on the product view.
