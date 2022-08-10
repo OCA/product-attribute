@@ -61,6 +61,7 @@ Contributors
 * Graeme Gellatly <g@o4sb.com>
 * Sodexis <dev@sodexis.com>
 * Lois Rilo <lois.rilo@eficent.com>
+* Hugo Córdoba <hugo.cordoba@factorlibre.com>
 
 Maintainer
 ----------
