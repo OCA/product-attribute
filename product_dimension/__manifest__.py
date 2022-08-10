@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Dimension",
-    "version": "13.0.1.0.1",
+    "version": "13.0.1.0.2",
     "development_status": "Production/Stable",
     "category": "Product",
     "author": "brain-tec AG, ADHOC SA, Camptocamp SA, "
