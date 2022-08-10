@@ -5,6 +5,7 @@
 {
     "name": "Product Dimension",
     "version": "13.0.1.0.1",
+    "development_status": "Production/Stable",
     "category": "Product",
     "author": "brain-tec AG, ADHOC SA, Camptocamp SA, "
     "Odoo Community Association (OCA)",

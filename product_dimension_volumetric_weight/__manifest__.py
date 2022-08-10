@@ -4,6 +4,7 @@
 {
     "name": "Product Dimension Volumetric Weight",
     "version": "13.0.1.0.0",
+    "development_status": "Production/Stable",
     "category": "Product",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
