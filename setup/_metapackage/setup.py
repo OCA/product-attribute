@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-product_assortment>=15.0dev,<15.1dev',
+        'odoo-addon-product_category_active>=15.0dev,<15.1dev',
         'odoo-addon-product_category_code>=15.0dev,<15.1dev',
         'odoo-addon-product_category_code_unique>=15.0dev,<15.1dev',
         'odoo-addon-product_category_product_link>=15.0dev,<15.1dev',
