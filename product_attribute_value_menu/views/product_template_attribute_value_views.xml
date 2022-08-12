@@ -48,7 +48,7 @@
     </record>
 
     <record id="import_product_attribute_value_action" model="ir.actions.act_window">
-        <field name="name">Product Variant Values</field>
+        <field name="name">Attribute Values Extra Prices</field>
         <field name="res_model">product.template.attribute.value</field>
         <field name="view_mode">tree,form</field>
         <field
@@ -61,7 +61,7 @@
 
     <menuitem
         id="import_product_attribute_value_configuration_action_menu"
-        name="Product Variant Values"
+        name="Attribute Values Extra Prices"
         parent="sale.prod_config_main"
         sequence="1"
         groups="product.group_product_variant"
