@@ -34,6 +34,7 @@
                         name="display_no_variant_attribute"
                         attrs="{'invisible': [('create_variant','!=','no_variant')]}"
                     />
+                    <field name="display_single_variant_attribute" />
                 </group>
             </group>
         </field>
