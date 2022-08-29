@@ -11,7 +11,9 @@ class ExceptionRule(models.Model):
     model = fields.Selection(
         selection_add=[
             ("product.template", "Product Template"),
-        ]
+            ("product.product", "Product Variant"),
+        ],
+        ondelete={"product.template": "cascade", "product.product": "cascade"},
     )
 
     product_tmpl_ids = fields.Many2many("product.template", string="Product Templates")

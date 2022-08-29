@@ -1,19 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="action_product_test_tree" model="ir.actions.act_window">
+        <field name="name">Product Exception Rules</field>
+        <field name="res_model">exception.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="base_exception.view_exception_rule_tree" />
+        <field
+            name="domain"
+        >[('model', 'in', ['product.template', 'product.product'])]</field>
+        <field
+            name="context"
+        >{'active_test': False, 'default_model' : 'product.template'}</field>
+    </record>
+
+    <menuitem
+        id="menu_product_test_parent"
+        name="Product Exceptions Rules"
+        action="action_product_test_tree"
+        sequence="90"
+        parent="stock.menu_product_in_config_stock"
+        groups="base_exception.group_exception_rule_manager"
+    />
+
     <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product_template_form_view - product_exception</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <xpath expr="//notebook/page/group" position="after">
-                <group>
-                    <field name="exception_ids" readonly='1' />
-                    <field name="ignore_exception" />
-                </group>
-            </xpath>
-            <header position="inside">
-                <button string="Check Exception" type="object" name="check_exception" />
-            </header>
+            <sheet position="before">
+                <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-bottom:0px;"
+                    attrs="{'invisible': [('exceptions_summary','=',False)]}"
+                >
+                    <p>
+                        <strong>There are exceptions for this Product:</strong>
+                    </p>
+                    <field name="exceptions_summary" />
+                    <button
+                        name="action_ignore_exceptions"
+                        type="object"
+                        class="btn-danger"
+                        string="Ignore Exceptions"
+                        help="Click here to ignore the current exceptions for this product."
+                        groups="base_exception.group_exception_rule_manager"
+                    />
+                </div>
+            </sheet>
+        </field>
+    </record>
+    <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <field name="activity_exception_decoration" position="after">
+                <field name="main_exception_id" optional="hide" />
+            </field>
         </field>
     </record>
 
