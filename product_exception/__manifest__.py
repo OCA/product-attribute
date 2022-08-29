@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     "name": "Product Exception",
     "summary": "Ensure products are valid against a set of rules",
@@ -11,10 +10,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "product",
-        "base_exception"
-    ],
+    "depends": ["product", "base_exception"],
     "demo": [
         "demo/product_exception.xml",
     ],
