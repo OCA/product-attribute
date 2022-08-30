@@ -7,7 +7,7 @@
         <field name="model">product.attribute.value</field>
         <field name="priority">1</field>
         <field name="arch" type="xml">
-            <tree string="Attribute Values">
+            <tree>
                 <field name="attribute_id" widget="many2one" />
                 <field name="name" />
                 <field
