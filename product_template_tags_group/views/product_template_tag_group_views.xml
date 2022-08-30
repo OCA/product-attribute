@@ -37,10 +37,4 @@
         <field name="view_mode">tree,form</field>
         <field name="view_type">form</field>
     </record>
-
-    <record id="product_template_tag_group_menu" model="ir.ui.menu">
-        <field name="name">Product Tag Groups</field>
-        <field name="parent_id" ref="base.menu_ir_property"/>
-        <field name="action" ref="product_template_tag_group_action"/>
-    </record>
 </odoo>

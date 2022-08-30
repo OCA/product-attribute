@@ -16,5 +16,6 @@
         'security/product_template_tag_group_rule.xml',
         'views/product_template_tag_group_views.xml',
         'views/product_template_tag_views.xml',
+        'views/res_config_settings_views.xml',
     ],
 }
