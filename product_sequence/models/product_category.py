@@ -6,19 +6,21 @@ from odoo import api, fields, models
 
 
 class ProductCategory(models.Model):
-    _inherit = 'product.category'
+    _inherit = "product.category"
 
     code_prefix = fields.Char(
         string="Prefix for Product Internal Reference",
         help="Prefix used to generate the internal reference for products "
-             "created with this category. If blank the "
-             "default sequence will be used.",
+        "created with this category. If blank the "
+        "default sequence will be used.",
     )
     sequence_id = fields.Many2one(
-        comodel_name="ir.sequence", string="Product Sequence",
+        comodel_name="ir.sequence",
+        string="Product Sequence",
         help="This field contains the information related to the numbering "
-             "of the journal entries of this journal.",
-        copy=False, readonly=True,
+        "of the journal entries of this journal.",
+        copy=False,
+        readonly=True,
     )
 
     @api.model
@@ -39,20 +41,66 @@ class ProductCategory(models.Model):
     @api.multi
     def write(self, vals):
         prefix = vals.get("code_prefix")
-        if prefix:
-            for rec in self:
-                if rec.sequence_id:
-                    rec.sudo().sequence_id.prefix = prefix
-                else:
+        for rec in self:
+            if vals.get("parent_id"):
+                categories = self.env["product.category"].search(
+                    [("id", "=", vals["parent_id"])], limit=1
+                )
+                if categories:
+                    if categories.parent_id.sequence_id:
+                        if categories.sequence_id != rec.sequence_id:
+                            sequence = categories.parent_id.sequence_id
+                            vals["code_prefix"] = sequence.prefix
+                            vals["sequence_id"] = sequence.id
+                    else:
+                        vals["code_prefix"] = categories.sequence_id.prefix
+                        vals["sequence_id"] = categories.sequence_id.id
+            elif rec.parent_id:
+                vals["code_prefix"] = rec.parent_id.sequence_id.prefix
+                vals["sequence_id"] = rec.parent_id.sequence_id.id
+            else:
+                if prefix is False:
+                    vals["sequence_id"] = ""
+                elif prefix:
                     seq_vals = self._prepare_ir_sequence(prefix)
-                    rec.sequence_id = self.env["ir.sequence"].create(seq_vals)
+                    vals_sequence = self.env["ir.sequence"].search(
+                        [("code", "=", seq_vals["code"])]
+                    )
+                    if bool(vals_sequence) is False:
+                        rec.sequence_id = self.env["ir.sequence"].create(seq_vals)
+                    else:
+                        rec.sequence_id = vals_sequence
+                    childs = self.env["product.category"].search(
+                        [("id", "child_of", rec.id)]
+                    )
+                    for child in childs:
+                        child.sequence_id = rec.sequence_id
         return super().write(vals)
 
     @api.model
     def create(self, vals):
         prefix = vals.get("code_prefix")
-        if prefix:
-            seq_vals = self._prepare_ir_sequence(prefix)
-            sequence = self.env["ir.sequence"].create(seq_vals)
-            vals["sequence_id"] = sequence.id
+        categories = self.env["product.category"].search(
+            [("id", "=", vals["parent_id"])], limit=1
+        )
+        if vals.get("parent_id"):
+            for category in categories:
+                if category.parent_id.sequence_id:
+                    sequence = category.parent_id.sequence_id
+                    vals["code_prefix"] = sequence.prefix
+                    vals["sequence_id"] = sequence.id
+                else:
+                    vals["code_prefix"] = categories.sequence_id.prefix
+                    vals["sequence_id"] = categories.sequence_id.id
+        else:
+            if prefix:
+                seq_vals = self._prepare_ir_sequence(prefix)
+                vals_sequence = self.env["ir.sequence"].search(
+                    [("code", "=", seq_vals["code"])]
+                )
+                if bool(vals_sequence) is False:
+                    sequence = self.env["ir.sequence"].create(seq_vals)
+                else:
+                    sequence = vals_sequence
+                vals["sequence_id"] = sequence.id
         return super().create(vals)
