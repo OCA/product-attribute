@@ -17,6 +17,7 @@
         'security/product_template_tag.xml',
         'views/product_template.xml',
         'views/product_template_tag.xml',
+        'views/res_config_settings_views.xml',
     ],
     'maintainers': [
         'patrickrwilson',
