@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-06-15 10:06+0000\n"
+"PO-Revision-Date: 2022-08-31 18:07+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,23 +19,23 @@ msgstr ""
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
 msgid "Attribute"
-msgstr ""
+msgstr "Attributo"
 
 #. module: product_attribute_value_menu
 #: model:ir.model,name:product_attribute_value_menu.model_product_attribute_value
 msgid "Attribute Value"
-msgstr ""
+msgstr "Valore attributo"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
 msgid "Attribute Values"
-msgstr ""
+msgstr "Valori attributo"
 
 #. module: product_attribute_value_menu
 #: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
 #: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
 msgid "Attribute Values Extra Prices"
-msgstr ""
+msgstr "Prezzi extra valore attributo"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_template_attribute_value_inherited_view_tree
@@ -47,32 +47,32 @@ msgstr "Attributi"
 #: model:ir.ui.menu,name:product_attribute_value_menu.sale_menu_product_archived_attribute_action
 #: model:ir.ui.menu,name:product_attribute_value_menu.stock_menu_product_archived_attribute_action
 msgid "Attributes Values"
-msgstr ""
+msgstr "Valori attributo"
 
 #. module: product_attribute_value_menu
 #: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
 msgid "Group By"
-msgstr ""
+msgstr "Raggruppa per"
 
 #. module: product_attribute_value_menu
 #: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_attribute_value_menu
 #: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_attribute_value_menu
 #: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__product_count
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.pt_attribute_value_inherit_view_form
@@ -82,7 +82,7 @@ msgstr "Attributo Prodotto"
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
 msgid "Products"
-msgstr ""
+msgstr "Prodotti"
 
 #~ msgid "Product Variant Values"
 #~ msgstr "Prezzi extra valori attributo"
