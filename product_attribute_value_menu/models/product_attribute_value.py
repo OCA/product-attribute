@@ -1,7 +1,7 @@
 # Copyright 2022 ForgeFlow, S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProductAttributeValue(models.Model):
@@ -9,6 +9,7 @@ class ProductAttributeValue(models.Model):
 
     product_count = fields.Integer(string="Product", compute="_compute_product_count")
 
+    @api.depends("pav_attribute_line_ids")
     def _compute_product_count(self):
         for value in self:
             value.product_count = len(value.pav_attribute_line_ids)
