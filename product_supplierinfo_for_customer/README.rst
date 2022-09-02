@@ -26,7 +26,7 @@ Product Supplierinfo for Customers
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This modules allows to use supplier info structure, available in
-*Inventory* tab of the product form, also for defining customer information,
+*Purchase* tab of the product form, also for defining customer information,
 allowing to define prices per customer and product.
 
 **Table of contents**
