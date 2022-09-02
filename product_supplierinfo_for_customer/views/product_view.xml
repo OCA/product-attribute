@@ -15,8 +15,8 @@
                         <field
                             name="product_id"
                             groups="product.group_product_variant"
-                            domain="[('product_tmpl_id', '=', product_tmpl_id)]"
-                            options="{'no_create_edit': True}"
+                            domain="[('product_tmpl_id', '=', context.get('from_template') and parent.id or product_tmpl_id)]"
+                            options="{'no_create_edit': True, 'no_create': True}"
                         />
                         <field
                             name="name"
@@ -25,11 +25,6 @@
                         />
                         <field name="product_name" string="Customer Product Name" />
                         <field name="product_code" string="Customer Product Code" />
-                        <field
-                            name="product_id"
-                            domain="[('product_tmpl_id', '=', product_tmpl_id)]"
-                            invisible="1"
-                        />
                     </group>
                     <group string="Price List">
                         <field
@@ -118,9 +113,7 @@
                 <field
                     name="variant_customer_ids"
                     nolabel="1"
-                    context="{
-                            'default_product_tmpl_id': context.get('product_tmpl_id',active_id),
-                        }"
+                    context="{'from_template': True}"
                     attrs="{'invisible': [('product_variant_count','&lt;=',1)]}"
                 />
             </xpath>
