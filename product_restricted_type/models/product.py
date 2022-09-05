@@ -8,7 +8,7 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     restricted_product_type = fields.Selection(
-        string="Restricted Product Type",
+        string="Restricted Product Type ",
         selection=lambda self: self.env["product.template"]._fields["type"].selection,
     )
 
