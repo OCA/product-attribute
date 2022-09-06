@@ -19,9 +19,10 @@ class ProductSupplierInfo(models.Model):
             res2 = self.env["product.customerinfo"].search(
                 args, offset=offset, limit=limit2, order=order, count=count
             )
-            res2 = res2.read(list(self.env["product.supplierinfo"]._fields.keys()))
-            for result in res2:
-                res += self.env["product.supplierinfo"].new(result)
+            if res2:
+                res2 = res2.read(list(self.env["product.supplierinfo"]._fields.keys()))
+                for result in res2:
+                    res += self.env["product.supplierinfo"].new(result)
         return res
 
     def read(self, fields=None, load="_classic_read"):
