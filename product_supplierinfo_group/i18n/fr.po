@@ -22,12 +22,14 @@ msgid "A supplier group already exist for the partner, product and company"
 msgstr "Un groupe fournisseur existe déjà pour ce contact, produit et société"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,help:product_supplierinfo_group.field_product_customerinfo__sequence
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo__sequence
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo_group__sequence
 msgid "Assigns the priority to the list of product vendor."
 msgstr "Affecte la priorité à la liste des fournisseurs."
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__company_id
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__company_id
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__company_id
 msgid "Company"
@@ -44,6 +46,16 @@ msgid "Created on"
 msgstr ""
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__name
+msgid "Customer"
+msgstr ""
+
+#. module: product_supplierinfo_group
+#: model:ir.model.fields,help:product_supplierinfo_group.field_product_customerinfo__name
+msgid "Customer of this product"
+msgstr ""
+
+#. module: product_supplierinfo_group
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__display_name
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__display_name
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_template__display_name
@@ -51,6 +63,7 @@ msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__group_id
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__group_id
 msgid "Group"
 msgstr ""
@@ -68,6 +81,7 @@ msgid "ID"
 msgstr ""
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,help:product_supplierinfo_group.field_product_customerinfo__product_id
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo__product_id
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo_group__product_id
 msgid ""
@@ -95,6 +109,7 @@ msgstr ""
 
 #. module: product_supplierinfo_group
 #: model:ir.model,name:product_supplierinfo_group.model_product_template
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__product_tmpl_id
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__product_tmpl_id
 msgid "Product Template"
 msgstr "Modèle de produit"
@@ -105,12 +120,14 @@ msgid "Product Tmpl"
 msgstr "Template produit"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__product_id
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__product_id
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__product_id
 msgid "Product Variant"
 msgstr "Variante d'article"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__sequence
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__sequence
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__sequence
 msgid "Sequence"
@@ -138,6 +155,7 @@ msgid "Supplierinfo group"
 msgstr ""
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,help:product_supplierinfo_group.field_product_customerinfo__product_code
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo__product_code
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo_group__product_code
 msgid ""
@@ -148,6 +166,7 @@ msgstr ""
 "devis. Laissez le champ vide si vous voulez utiliser la référence interne."
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,help:product_supplierinfo_group.field_product_customerinfo__product_name
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo__product_name
 #: model:ir.model.fields,help:product_supplierinfo_group.field_product_supplierinfo_group__product_name
 msgid ""
@@ -169,12 +188,14 @@ msgid "Vendor"
 msgstr "Fournisseur"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__product_code
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__product_code
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__product_code
 msgid "Vendor Product Code"
 msgstr "Référence Fournisseur"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_customerinfo__product_name
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo__product_name
 #: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__product_name
 msgid "Vendor Product Name"
@@ -187,6 +208,7 @@ msgid "Vendor of this product"
 msgstr "Fournisseur de cet article"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.constraint,message:product_supplierinfo_group.constraint_product_customerinfo_uniq_price_per_qty
 #: model:ir.model.constraint,message:product_supplierinfo_group.constraint_product_supplierinfo_uniq_price_per_qty
 msgid "You can not have a two price for the same qty"
 msgstr ""
