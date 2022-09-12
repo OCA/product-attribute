@@ -50,6 +50,7 @@ setuptools.setup(
         'odoo14-addon-product_pricelist_revision',
         'odoo14-addon-product_pricelist_supplierinfo',
         'odoo14-addon-product_profile',
+        'odoo14-addon-product_restricted_type',
         'odoo14-addon-product_sale_manufactured_for',
         'odoo14-addon-product_seasonality',
         'odoo14-addon-product_secondary_unit',
