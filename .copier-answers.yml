@@ -8,7 +8,7 @@ github_check_license: true
 github_enable_codecov: true
 github_enable_makepot: true
 github_enable_stale_action: true
-github_enforce_dev_status_compatibility: true
+github_enforce_dev_status_compatibility: false
 include_wkhtmltopdf: false
 odoo_version: 14.0
 org_name: Odoo Community Association (OCA)
