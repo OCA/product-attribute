@@ -196,6 +196,11 @@ msgstr ""
 "per al càlcul automàtic de la planificació de la comanda de compra."
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr "Marge a aplicar al preu per obtenir el preu de venda"
+
+#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr "Altra informació"
@@ -243,6 +248,11 @@ msgstr "Variant de producte"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Quantity"
 msgstr "Quantitat"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
+msgstr "Marge de venda"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -338,9 +348,3 @@ msgstr "Nom del producte del proveïdor"
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr "a"
-
-#~ msgid "Margin to apply on price to obtain sale price"
-#~ msgstr "Marge a aplicar al preu per obtenir el preu de venda"
-
-#~ msgid "Sale Margin"
-#~ msgstr "Marge de venda"
