@@ -45,12 +45,11 @@
         </field>
     </record>
 
-    <act_window
-        id="attribute_value_action"
-        name="Attributes Values"
-        res_model="product.attribute.value"
-        view_mode="tree"
-    />
+    <record id="attribute_value_action" model="ir.actions.act_window">
+        <field name="name">Attributes Values</field>
+        <field name="res_model">product.attribute.value</field>
+        <field name="view_mode">tree</field>
+    </record>
 
     <menuitem
         id="sale_menu_product_archived_attribute_action"
