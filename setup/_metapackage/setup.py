@@ -47,6 +47,7 @@ setuptools.setup(
         'odoo14-addon-product_pricelist_assortment',
         'odoo14-addon-product_pricelist_button_box',
         'odoo14-addon-product_pricelist_direct_print',
+        'odoo14-addon-product_pricelist_direct_print_company_group',
         'odoo14-addon-product_pricelist_revision',
         'odoo14-addon-product_pricelist_supplierinfo',
         'odoo14-addon-product_profile',
