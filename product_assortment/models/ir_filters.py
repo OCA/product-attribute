@@ -9,32 +9,6 @@ from odoo.tools.safe_eval import datetime, safe_eval
 class IrFilters(models.Model):
     _inherit = "ir.filters"
 
-    @api.model
-    def _get_default_is_assortment(self):
-        if self.env.context.get("product_assortment", False):
-            return True
-        return False
-
-    @api.model
-    def _update_assortment_default_values(self, vals_list):
-        """
-        If we create the filter through the assortment, we need to force
-        model_id to product.product
-        """
-        product_assortment = self.env.context.get("product_assortment", False)
-        if not product_assortment:
-            return vals_list
-        model = self.env.ref("product.model_product_product")
-        for vals in vals_list:
-            if not vals.get("model_id"):
-                vals.update({"model_id": model.model})
-        return vals_list
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        self._update_assortment_default_values(vals_list=vals_list)
-        return super().create(vals_list=vals_list)
-
     partner_ids = fields.Many2many(
         comodel_name="res.partner",
         help="This field allow to relate a partner to a domain of products",
@@ -73,6 +47,32 @@ class IrFilters(models.Model):
     black_list_product_domain = fields.Text(
         string="Restricted product domain", default="[]", required=True
     )
+
+    @api.model
+    def _get_default_is_assortment(self):
+        if self.env.context.get("product_assortment", False):
+            return True
+        return False
+
+    @api.model
+    def _update_assortment_default_values(self, vals_list):
+        """
+        If we create the filter through the assortment, we need to force
+        model_id to product.product
+        """
+        product_assortment = self.env.context.get("product_assortment", False)
+        if not product_assortment:
+            return vals_list
+        model = self.env.ref("product.model_product_product")
+        for vals in vals_list:
+            if not vals.get("model_id"):
+                vals.update({"model_id": model.model})
+        return vals_list
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        self._update_assortment_default_values(vals_list=vals_list)
+        return super().create(vals_list=vals_list)
 
     @api.depends("partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
