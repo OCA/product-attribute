@@ -12,6 +12,7 @@
     "data": [
         "security/product_template_rule.xml",
         "security/product_template_tag.xml",
+        "views/product_product.xml",
         "views/product_template.xml",
         "views/product_template_tag.xml",
     ],
