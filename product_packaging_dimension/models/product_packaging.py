@@ -19,9 +19,9 @@ class ProductPackaging(models.Model):
             "Max Weight must be positive",
         ),
     ]
-    height = fields.Integer("Height")
-    width = fields.Integer("Width")
-    packaging_length = fields.Integer("Length")
+    height = fields.Integer()
+    width = fields.Integer()
+    packaging_length = fields.Integer()
 
     length_uom_id = fields.Many2one(
         "uom.uom",
@@ -40,7 +40,7 @@ class ProductPackaging(models.Model):
         readonly=True,
     )
 
-    weight = fields.Float("Weight")
+    weight = fields.Float()
     max_weight = fields.Float("Maximum Weight")
     weight_uom_id = fields.Many2one(
         "uom.uom",
@@ -62,7 +62,6 @@ class ProductPackaging(models.Model):
     )
 
     volume = fields.Float(
-        "Volume",
         digits=(8, 4),
         compute="_compute_volume",
         readonly=True,
