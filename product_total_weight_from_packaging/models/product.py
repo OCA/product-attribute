@@ -16,10 +16,10 @@ class ProductProduct(models.Model):
             }
         ).product_qty_by_packaging(qty)
         total_weight = sum(
-            [
+            
                 pck.get("qty", 0) * pck.get("weight", 0)
                 for pck in qty_by_packaging_with_weight
-            ]
+            
         )
         return total_weight
 
