@@ -39,7 +39,6 @@ msgid "Last Modified on"
 msgstr "Última modificación el"
 
 #. module: product_supplierinfo_stock_picking_type
-#: model:ir.model.fields,field_description:product_supplierinfo_stock_picking_type.field_product_customerinfo__picking_type_id
 #: model:ir.model.fields,field_description:product_supplierinfo_stock_picking_type.field_product_supplierinfo__picking_type_id
 msgid "Picking Type"
 msgstr "Tipo de albarán"
