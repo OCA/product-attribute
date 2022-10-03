@@ -7,7 +7,7 @@
     >
         <field
             name="groups_id"
-            eval="[(5,), (4, ref('product_cost_security.group_product_cost'))]"
+            eval="[(6, 0, [ref('stock_account_product_cost_security.group_product_edit_cost')])]"
         />
     </record>
 </odoo>
