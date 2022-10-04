@@ -36,35 +36,8 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__id
-msgid "ID"
-msgstr ""
-
-#. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_category____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_company____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: product_sequence
@@ -80,11 +53,6 @@ msgid ""
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model,name:product_sequence.model_product_product
-msgid "Product"
-msgstr "Proizvod"
-
-#. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
 #, fuzzy
 msgid "Product Category"
@@ -95,6 +63,16 @@ msgstr "Proizvod"
 #, fuzzy
 msgid "Product Sequence"
 msgstr "Proizvod"
+
+#. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Product Sequences"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
@@ -125,7 +103,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
 "Use parent categories to determine the prefix if the category\n"
-"                            has no settings for the prefix."
+"                                has no settings for the prefix."
 msgstr ""
 
 #. module: product_sequence
@@ -135,6 +113,9 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
 msgstr ""
+
+#~ msgid "Product"
+#~ msgstr "Proizvod"
 
 #~ msgid "The reference must be unique"
 #~ msgstr "Referenca mora biti jedinstvena"
