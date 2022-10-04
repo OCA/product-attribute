@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2020-02-20 19:13+0000\n"
-"Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
+"PO-Revision-Date: 2022-11-04 14:44+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:0
@@ -28,30 +28,12 @@ msgstr "-kopie"
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Unternehmen"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__id
-msgid "ID"
-msgstr ""
+msgstr "Konfigurationseinstellungen"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
@@ -59,18 +41,9 @@ msgid "Internal Reference"
 msgstr "Interne Referenz"
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_category____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_company____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr "Präfix interen Referenz Produkt"
+msgstr "Präfix (interne Referenz)"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
@@ -78,14 +51,9 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
-"Präfix der bei der Erstellung von Produkten in dieser Produktkategorie "
-"verwendet wird. Wenn kein Präfix definiert ist, wird die Standardsequenz "
-"verwendet."
-
-#. module: product_sequence
-#: model:ir.model,name:product_sequence.model_product_product
-msgid "Product"
-msgstr "Produkt"
+"Der Präfix wird der bei der Erstellung von Produkten in dieser "
+"Produktkategorie verwendet. Wenn kein Präfix definiert ist, wird die "
+"Standardsequenz verwendet."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
@@ -98,9 +66,19 @@ msgid "Product Sequence"
 msgstr "Produktsequenz"
 
 #. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Product Sequences"
+msgstr "Produktesequenzen"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product Variant"
+msgstr "Produktvariante"
+
+#. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenz"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
@@ -124,14 +102,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid "Use parent categories to determine the prefix"
-msgstr ""
+msgstr "Übergeordnete Produktkategorie für Präfix verwenden"
 
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
 "Use parent categories to determine the prefix if the category\n"
-"                            has no settings for the prefix."
+"                                has no settings for the prefix."
 msgstr ""
+"Es kann die übergeordnete Produktkategorie verwendet werden, um den Präfix "
+"für die interne Referenz von Produkten zu bestimmen, wenn für die aktuelle "
+"Produktkategorie selbst keinen Präfix eingetragen ist."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -140,6 +121,12 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
 msgstr ""
+"Es kann die übergeordnete Produktkategorie verwendet werden, um den Präfix "
+"für die interne Referenz von Produkten zu bestimmen, wenn für die aktuelle "
+"Produktkategorie selbst keinen Präfix eingetragen ist."
+
+#~ msgid "Product"
+#~ msgstr "Produkt"
 
 #~ msgid "The reference must be unique"
 #~ msgstr "Die Referenz muss eindeutig sein"

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,11 +47,6 @@ msgid ""
 msgstr ""
 
 #. module: product_sequence
-#: model:ir.model,name:product_sequence.model_product_product
-msgid "Product"
-msgstr ""
-
-#. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
 msgid "Product Category"
 msgstr ""
@@ -59,6 +54,16 @@ msgstr ""
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
 msgid "Product Sequence"
+msgstr ""
+
+#. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Product Sequences"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_sequence
@@ -90,7 +95,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
 "Use parent categories to determine the prefix if the category\n"
-"                            has no settings for the prefix."
+"                                has no settings for the prefix."
 msgstr ""
 
 #. module: product_sequence

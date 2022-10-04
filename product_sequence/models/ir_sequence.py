@@ -11,6 +11,6 @@ class IrSequence(models.Model):
     @api.model
     def get_category_sequence_id(self, category=False):
         if self.env.user.company_id.use_parent_categories_to_determine_prefix:
-            while not category.sequence_id and category.parent_id:
+            while category and not category.sequence_id and category.parent_id:
                 category = category.parent_id
         return category.sequence_id or self.env.ref("product_sequence.seq_product_auto")
