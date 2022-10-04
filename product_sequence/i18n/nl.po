@@ -36,36 +36,9 @@ msgid "Config Settings"
 msgstr "Config instellingen"
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr "Schermnaam"
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
 msgstr "Interne referentie"
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_category____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_company____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr "Laatst gewijzigd op"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
@@ -82,11 +55,6 @@ msgstr ""
 "deze categorie. Wanneer leeg wordt de standaard reeks gebruikt."
 
 #. module: product_sequence
-#: model:ir.model,name:product_sequence.model_product_product
-msgid "Product"
-msgstr "Product"
-
-#. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
 msgid "Product Category"
 msgstr "Productcategorie"
@@ -95,6 +63,16 @@ msgstr "Productcategorie"
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
 msgid "Product Sequence"
 msgstr "Product reeks"
+
+#. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Product Sequences"
+msgstr ""
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
@@ -128,11 +106,8 @@ msgstr "Gebruik bovenliggende categorieën bij bepalen voorvoegsel"
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
 "Use parent categories to determine the prefix if the category\n"
-"                            has no settings for the prefix."
+"                                has no settings for the prefix."
 msgstr ""
-"Gebruik bovenliggende categorieën om het voorvoegsel te bepalen als de "
-"categorie\n"
-"                            geen instellingen bevat voor een voorvoegsel."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -143,6 +118,26 @@ msgid ""
 msgstr ""
 "Gebruik bovenliggende categorieën om het voervoegsel te bepalen als de "
 "categorie geen voorvoegsel heeft."
+
+#~ msgid "Display Name"
+#~ msgstr "Schermnaam"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Laatst gewijzigd op"
+
+#~ msgid "Product"
+#~ msgstr "Product"
+
+#~ msgid ""
+#~ "Use parent categories to determine the prefix if the category\n"
+#~ "                            has no settings for the prefix."
+#~ msgstr ""
+#~ "Gebruik bovenliggende categorieën om het voorvoegsel te bepalen als de "
+#~ "categorie\n"
+#~ "                            geen instellingen bevat voor een voorvoegsel."
 
 #~ msgid "Manufacturer"
 #~ msgstr "Fabrikant"
