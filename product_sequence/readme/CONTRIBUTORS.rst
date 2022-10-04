@@ -6,3 +6,4 @@
 * Alexandre Díaz <alexandre.diaz@tecnativa.com>
 * Sergio Teruel <sergio.teruel@tecnativa.com>
 * Watthanun Khorchai <watthanun_t@hotmail.com>
+* Marie Lejeune <marie.lejeune@acsone.eu>
