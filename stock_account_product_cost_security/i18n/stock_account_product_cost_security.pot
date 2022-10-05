@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: stock_account_product_cost_security
+#: model:res.groups,name:stock_account_product_cost_security.group_product_edit_cost
+msgid "Modify product costs"
+msgstr ""
+
+#. module: stock_account_product_cost_security
 #: model:ir.model,name:stock_account_product_cost_security.model_product_template
 msgid "Product Template"
 msgstr ""
