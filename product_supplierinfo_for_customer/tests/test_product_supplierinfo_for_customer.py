@@ -149,3 +149,21 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
             'partner', product_1.uom_id, self.company.currency_id,
             self.company)
         self.assertEqual(res[product_1.id], 10.0)
+
+    def test_product_template_methods(self):
+        template = self.env["product.template"].create({
+            "name": "Product template for test",
+            "list_price": 20.0
+        })
+        partner_info = self._create_partnerinfo(
+            'customer', self.customer, template.product_variant_ids)
+        partner_info.product_id = False
+        partner_info.product_tmpl_id = template
+        partner_info.price = 100.00
+        prices = template.with_context(
+            partner_id=self.customer).price_compute("partner")
+        self.assertEqual(prices[template.id], 100.00)
+        partner_info.unlink()
+        prices = template.with_context(
+            partner_id=self.customer).price_compute("partner")
+        self.assertEqual(prices[template.id], 20.00)
