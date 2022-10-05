@@ -3,7 +3,7 @@
 {
     "name": "Stock Account Product Cost Security",
     "summary": "Product cost security restriction view",
-    "version": "13.0.3.0.0",
+    "version": "13.0.3.1.0",
     "development_status": "Beta",
     "maintainers": ["sergio-teruel"],
     "category": "Product",
