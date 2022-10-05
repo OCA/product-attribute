@@ -11,7 +11,7 @@
             <xpath expr="//div[@name='update_cost_price']" position="attributes">
                 <attribute
                     name="groups"
-                >product_cost_security.group_product_cost</attribute>
+                >stock_account_product_cost_security.group_product_edit_cost</attribute>
             </xpath>
         </field>
     </record>
@@ -26,7 +26,7 @@
             <xpath expr="//span[@name='update_cost_price']" position="attributes">
                 <attribute
                     name="groups"
-                >product_cost_security.group_product_cost</attribute>
+                >stock_account_product_cost_security.group_product_edit_cost</attribute>
                 <attribute
                     name="attrs"
                 >{'invisible': [('show_update_cost', '=', False)]}</attribute>

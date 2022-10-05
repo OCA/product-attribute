@@ -1,4 +1,2 @@
-This module depends on product_cost_security and stock_account modules to
-help their to hide some elements for product cost security group.
-
-This module is self-installable.
+This module is a complement to `product_cost_security` and `stock_account` to add
+and extra permission level on product cost editing.

@@ -25,15 +25,28 @@ Stock Account Product Cost Security
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module depends on product_cost_security and stock_account modules to
-help their to hide some elements for product cost security group.
-
-This module is self-installable.
+This module is a complement to `product_cost_security` and `stock_account` to add
+and extra permission level on product cost editing.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Installation
+============
+
+This module auto installs when `product_cost_security` and `stock_account` are already
+installed in your database.
+
+Configuration
+=============
+
+To allow users editing prices, you should:
+
+#. Go to *Settings > Users & Companies > Groups*.
+#. Search for the *Modify product costs*.
+#. Add users who are allowed to modify costs in the products form.
 
 Bug Tracker
 ===========
@@ -58,7 +71,8 @@ Contributors
 
 * `Tecnativa <https://www.tecnativa.com>`_:
 
-    * Sergio Teruel <sergio.teruel@tecnativa.com>
+    * Sergio Teruel
+    * David Vidal
 
 Maintainers
 ~~~~~~~~~~~
