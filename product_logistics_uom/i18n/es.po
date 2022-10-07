@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_logistics_uom
+# 	* product_logistics_uom
 #
 msgid ""
 msgstr ""
@@ -17,14 +17,14 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: product_logistics_uom
-#: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
-msgid "Choose the unit to measure volume"
-msgstr "Escoja la unidad para medir el volumen"
-
-#. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_res_config_settings
 msgid "Config Settings"
 msgstr "Ajustes de configuración"
+
+#. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_length_uom_id
+msgid "Default Length Unit of Measure"
+msgstr ""
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
@@ -37,6 +37,11 @@ msgid "Default Weight Unit of Measure"
 msgstr "Unidad de medida de peso predeterminada"
 
 #. module: product_logistics_uom
+#: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_length_uom_id
+msgid "Default unit of measure to express product length"
+msgstr ""
+
+#. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default unit of measure to express product volume"
 msgstr "Unidad de medida del volumen del producto predeterminada"
@@ -47,36 +52,15 @@ msgid "Default unit of measure to express product weight"
 msgstr "Unidad de medida del peso del producto predeterminada"
 
 #. module: product_logistics_uom
-#: model:ir.model,name:product_logistics_uom.model_product_product
+#: model:ir.model,name:product_logistics_uom.model_product_template
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_logistics_uom
-#: model:ir.model,name:product_logistics_uom.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
-
-#. module: product_logistics_uom
-#: model:ir.model.fields,help:product_logistics_uom.field_product_product__volume
-#: model:ir.model.fields,help:product_logistics_uom.field_product_template__volume
-msgid "The volume of the contents, not including any packaging, etc."
-msgstr "El volumen de los contenidos, sin incluir ningún embalaje, etc."
-
-#. module: product_logistics_uom
-#: model:ir.model.fields,help:product_logistics_uom.field_product_template__weight
-msgid "The weight of the contents, not including any packaging, etc."
-msgstr "El peso de los contenidos, sin incluir ningún embalaje, etc."
-
-#. module: product_logistics_uom
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__volume
-msgid "Volume"
-msgstr "Volumen"
-
-#. module: product_logistics_uom
-#: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
-msgid "Volume Measurement"
-msgstr "Medición de volumen"
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__product_uom_readonly
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__product_uom_readonly
+msgid "Product Uom Readonly"
+msgstr ""
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume_uom_id
@@ -91,11 +75,6 @@ msgid "Volume unit of measure label"
 msgstr "Etiqueta de unidad de medida de volumen"
 
 #. module: product_logistics_uom
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
-msgid "Weight"
-msgstr "Peso"
-
-#. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_id
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_id
 msgid "Weight Unit of Measure"
@@ -106,3 +85,24 @@ msgstr "Unidad de medida del peso"
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_name
 msgid "Weight unit of measure label"
 msgstr "Etiqueta de unidad de medida del peso"
+
+#~ msgid "Choose the unit to measure volume"
+#~ msgstr "Escoja la unidad para medir el volumen"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
+
+#~ msgid "The volume of the contents, not including any packaging, etc."
+#~ msgstr "El volumen de los contenidos, sin incluir ningún embalaje, etc."
+
+#~ msgid "The weight of the contents, not including any packaging, etc."
+#~ msgstr "El peso de los contenidos, sin incluir ningún embalaje, etc."
+
+#~ msgid "Volume"
+#~ msgstr "Volumen"
+
+#~ msgid "Volume Measurement"
+#~ msgstr "Medición de volumen"
+
+#~ msgid "Weight"
+#~ msgstr "Peso"
