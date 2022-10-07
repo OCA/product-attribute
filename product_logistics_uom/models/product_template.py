@@ -14,7 +14,7 @@ class ProductTemplate(models.Model):
         domain=lambda self: [
             ("category_id", "=", self.env.ref("uom.product_uom_categ_vol").id)
         ],
-        default=lambda x: x._get_volume_uom_id_from_ir_config_parameter(),
+        default=lambda self: self._get_volume_uom_id_from_ir_config_parameter(),
     )
     volume_uom_name = fields.Char(
         string="Volume unit of measure label",
@@ -29,7 +29,7 @@ class ProductTemplate(models.Model):
             ("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)
         ],
         compute=False,
-        default=lambda x: x._get_weight_uom_id_from_ir_config_parameter(),
+        default=lambda self: self._get_weight_uom_id_from_ir_config_parameter(),
     )
 
     weight_uom_name = fields.Char(
