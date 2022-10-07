@@ -14,7 +14,7 @@
                 <field name="product_volume_volume_in_cubic_feet" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
-                <field name="product_weight_in_lbs" position="after">
+                <field name="product_volume_volume_in_cubic_feet" position="after">
                     <field name="product_default_volume_uom_id" />
                 </field>
             </field>
