@@ -9,7 +9,7 @@
         <field name="model">product.template.attribute.value</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="Attributes" delete="0" create="0" multi_edit="1">
+            <tree string="Attributes" delete="0" create="1" multi_edit="1">
                 <field name="product_tmpl_id" />
                 <field name="attribute_id" />
                 <field name="name" />
