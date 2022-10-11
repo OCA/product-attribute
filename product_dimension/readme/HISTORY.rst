@@ -13,3 +13,10 @@
 
 * [MIG] Migration from Odoo 12.0 to 13.0
 * [IMP] Black, isort, prettier
+
+
+16.0.1.0.0 (2022-10-11)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* [MIG] Migration from Odoo 15.0 to 16.0
+* [IMP] Black, isort, prettier (pre-commit)
