@@ -27,7 +27,7 @@ class TestProductManufacturer(TransactionCase):
     def test_01_product_manufacturer(self):
         self.product1.update(
             {
-                "manufacturer": self.manufacturer_a.id,
+                "manufacturer_id": self.manufacturer_a.id,
                 "manufacturer_pname": "Test Product A",
                 "manufacturer_pref": "TPA",
                 "manufacturer_purl": "https://www.manufacturera.com/test_product_a",
@@ -35,7 +35,7 @@ class TestProductManufacturer(TransactionCase):
         )
 
         self.assertEqual(
-            self.product1.product_variant_id.manufacturer.id, self.manufacturer_a.id
+            self.product1.product_variant_id.manufacturer_id.id, self.manufacturer_a.id
         )
         self.assertEqual(
             self.product1.product_variant_id.manufacturer_pname, "Test Product A"
@@ -63,7 +63,7 @@ class TestProductManufacturer(TransactionCase):
         )
         self.product1.product_variant_ids[0].update(
             {
-                "manufacturer": self.manufacturer_b.id,
+                "manufacturer_id": self.manufacturer_b.id,
                 "manufacturer_pname": "Test Product B",
                 "manufacturer_pref": "TPB",
                 "manufacturer_purl": "https://www.manufacturerb.com/test_product_b",
@@ -71,18 +71,19 @@ class TestProductManufacturer(TransactionCase):
         )
         self.product1.product_variant_ids[1].update(
             {
-                "manufacturer": self.manufacturer_a.id,
+                "manufacturer_id": self.manufacturer_a.id,
                 "manufacturer_pname": "Test Product A",
                 "manufacturer_pref": "TPA",
                 "manufacturer_purl": "https://www.manufacturera.com/test_product_a",
             }
         )
-        self.assertEqual(self.product1.manufacturer.id, False)
+        self.assertEqual(self.product1.manufacturer_id.id, False)
         self.assertEqual(self.product1.manufacturer_pname, False)
         self.assertEqual(self.product1.manufacturer_pref, False)
         self.assertEqual(self.product1.manufacturer_purl, False)
         self.assertEqual(
-            self.product1.product_variant_ids[1].manufacturer.id, self.manufacturer_a.id
+            self.product1.product_variant_ids[1].manufacturer_id.id,
+            self.manufacturer_a.id,
         )
         self.assertEqual(
             self.product1.product_variant_ids[1].manufacturer_pname, "Test Product A"
@@ -93,7 +94,8 @@ class TestProductManufacturer(TransactionCase):
             "https://www.manufacturera.com/test_product_a",
         )
         self.assertEqual(
-            self.product1.product_variant_ids[0].manufacturer.id, self.manufacturer_b.id
+            self.product1.product_variant_ids[0].manufacturer_id.id,
+            self.manufacturer_b.id,
         )
         self.assertEqual(
             self.product1.product_variant_ids[0].manufacturer_pname, "Test Product B"
@@ -108,7 +110,7 @@ class TestProductManufacturer(TransactionCase):
         new_pt = self.env["product.template"].create(
             {
                 "name": "New Product Template",
-                "manufacturer": self.manufacturer_a.id,
+                "manufacturer_id": self.manufacturer_a.id,
                 "manufacturer_pname": "Test Product A",
                 "manufacturer_pref": "TPA",
                 "manufacturer_purl": "https://www.manufacturera.com/test_product_a",
@@ -116,7 +118,7 @@ class TestProductManufacturer(TransactionCase):
         )
 
         self.assertEqual(
-            new_pt.product_variant_id.manufacturer.id, new_pt.manufacturer.id
+            new_pt.product_variant_id.manufacturer_id.id, new_pt.manufacturer_id.id
         )
         self.assertEqual(
             new_pt.product_variant_id.manufacturer_pname, new_pt.manufacturer_pname

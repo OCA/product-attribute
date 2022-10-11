@@ -9,41 +9,48 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:43+0000\n"
-"PO-Revision-Date: 2017-05-05 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2023-04-27 10:06+0000\n"
+"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
-msgid "Manuf. Product Code"
-msgstr ""
-
-#. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pname
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pname
-msgid "Manuf. Product Name"
-msgstr ""
-
-#. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_purl
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_purl
-msgid "Manuf. Product URL"
-msgstr ""
-
-#. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_id
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_id
+#: model_terms:ir.ui.view,arch_db:product_manufacturer.product_product_view_form_easy_inherit_product_manufacturer
 #: model_terms:ir.ui.view,arch_db:product_manufacturer.product_template_manufacturer_form_view
 msgid "Manufacturer"
 msgstr "Produttore"
 
 #. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
+msgid "Manufacturer Product Code"
+msgstr "Codice prodotto del produttore"
+
+#. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pname
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pname
+msgid "Manufacturer Product Name"
+msgstr "Nome prodotto del produttore"
+
+#. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_purl
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_purl
+msgid "Manufacturer Product URL"
+msgstr "URL Prodotto del produttore"
+
+#. module: product_manufacturer
 #: model:ir.model,name:product_manufacturer.model_product_template
-msgid "Product Template"
-msgstr ""
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_manufacturer
+#: model:ir.model,name:product_manufacturer.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
