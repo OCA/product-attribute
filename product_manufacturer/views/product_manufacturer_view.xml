@@ -9,7 +9,7 @@
                 <group name="manufacturer" string="Manufacturer">
                     <group>
                         <field
-                            name="manufacturer"
+                            name="manufacturer_id"
                             context="{'res_partner_search_mode': 'supplier'}"
                         />
                         <field name="manufacturer_pname" />
@@ -36,7 +36,7 @@
                 <group name="manufacturer" string="Manufacturer">
                     <group>
                         <field
-                            name="manufacturer"
+                            name="manufacturer_id"
                             context="{'res_partner_search_mode': 'supplier'}"
                         />
                         <field name="manufacturer_pname" />

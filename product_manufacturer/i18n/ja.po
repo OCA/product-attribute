@@ -19,31 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
-msgid "Manuf. Product Code"
-msgstr ""
-
-#. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pname
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pname
-msgid "Manuf. Product Name"
-msgstr ""
-
-#. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_purl
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_purl
-msgid "Manuf. Product URL"
-msgstr ""
-
-#. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_id
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_id
+#: model_terms:ir.ui.view,arch_db:product_manufacturer.product_product_view_form_easy_inherit_product_manufacturer
 #: model_terms:ir.ui.view,arch_db:product_manufacturer.product_template_manufacturer_form_view
 msgid "Manufacturer"
 msgstr "製造者"
 
 #. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
+msgid "Manufacturer Product Code"
+msgstr ""
+
+#. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pname
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pname
+msgid "Manufacturer Product Name"
+msgstr ""
+
+#. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_purl
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_purl
+msgid "Manufacturer Product URL"
+msgstr ""
+
+#. module: product_manufacturer
 #: model:ir.model,name:product_manufacturer.model_product_template
-msgid "Product Template"
+msgid "Product"
+msgstr ""
+
+#. module: product_manufacturer
+#: model:ir.model,name:product_manufacturer.model_product_product
+msgid "Product Variant"
 msgstr ""
