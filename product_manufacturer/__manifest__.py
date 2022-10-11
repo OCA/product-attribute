@@ -8,6 +8,7 @@
     "author": "OpenERP SA, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Product",
+    "external_dependencies": {"python": ["openupgradelib"]},
     "depends": ["product"],
     "data": ["views/product_manufacturer_view.xml"],
     "auto_install": False,
