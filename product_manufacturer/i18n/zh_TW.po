@@ -21,19 +21,19 @@ msgstr ""
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
-msgid "Manuf. Product Code"
+msgid "Manufacturer Product Code"
 msgstr ""
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pname
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pname
-msgid "Manuf. Product Name"
+msgid "Manufacturer Product Name"
 msgstr ""
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_purl
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_purl
-msgid "Manuf. Product URL"
+msgid "Manufacturer Product URL"
 msgstr ""
 
 #. module: product_manufacturer
