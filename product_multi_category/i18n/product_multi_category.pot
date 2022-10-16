@@ -14,27 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_multi_category
-#: model:ir.model.fields,field_description:product_multi_category.field_product_template__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: product_multi_category
 #: model:ir.model.fields,field_description:product_multi_category.field_product_product__categ_ids
 #: model:ir.model.fields,field_description:product_multi_category.field_product_template__categ_ids
 msgid "Extra Categories"
 msgstr ""
 
 #. module: product_multi_category
-#: model:ir.model.fields,field_description:product_multi_category.field_product_template__id
-msgid "ID"
-msgstr ""
-
-#. module: product_multi_category
-#: model:ir.model.fields,field_description:product_multi_category.field_product_template____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
-msgid "Product Template"
+msgid "Product"
 msgstr ""
