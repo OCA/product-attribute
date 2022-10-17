@@ -26,5 +26,5 @@ msgstr "Product - Many Categories"
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
-msgid "Product Template"
+msgid "Product"
 msgstr ""
