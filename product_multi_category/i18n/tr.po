@@ -27,6 +27,9 @@ msgstr "Ürün Kategorileri"
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
+msgid "Product"
+msgstr ""
+
 #, fuzzy
-msgid "Product Template"
-msgstr "Ürün Kategorileri"
+#~ msgid "Product Template"
+#~ msgstr "Ürün Kategorileri"
