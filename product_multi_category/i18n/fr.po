@@ -28,5 +28,8 @@ msgstr "Catégories supplémentaires"
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
-msgid "Product Template"
-msgstr "Modèle de produit"
+msgid "Product"
+msgstr ""
+
+#~ msgid "Product Template"
+#~ msgstr "Modèle de produit"
