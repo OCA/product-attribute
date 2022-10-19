@@ -20,29 +20,52 @@
             </tree>
         </field>
     </record>
+
     <record id="product_assortment_view_form" model="ir.ui.view">
+        <field name="name">product.assortment.form</field>
         <field name="model">ir.filters</field>
         <field name="arch" type="xml">
             <form string="Filters">
-                <sheet>
-                    <div class="oe_button_box" name="buttons">
+                <header />
+                <sheet name="assortment_form">
+                    <div class="oe_button_box" name="button_box">
                         <button
                             class="oe_stat_button"
                             name="show_products"
-                            icon="fa-list"
+                            icon="fa-list-ul"
                             type="object"
                         >
-                            <div class="o_stat_info">
-                                <field name="record_count" class="o_stat_value" />
-                                <span class="o_stat_text">Products</span>
-                            </div>
+                               <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="record_count" />
+                                    </span>
+                                    <span
+                                    attrs="{'invisible': [('record_count', '&lt;=', 1)]}"
+                                >
+                                        Products
+                                    </span>
+                                    <span
+                                    attrs="{'invisible': [('record_count', '&gt;', 1)]}"
+                                >
+                                        Product
+                                    </span>
+                               </div>
                         </button>
+                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
+                    <div class="oe_title">
+                        <label for="name" string="Assortment Name" />
+                        <h1><field class="text-break" name="name" /></h1>
                     </div>
                     <group name="main">
                         <group name="left">
-                            <field name="name" string="Assortment Name" />
                             <field name="model_id" invisible="1" />
-                            <field name="active" />
+                            <field name="active" invisible="1" />
                             <field name="is_assortment" invisible="1" />
                         </group>
                     </group>
@@ -52,6 +75,7 @@
                             widget="domain"
                             options="{'model': 'product.product'}"
                             nolabel="1"
+                            colspan="2"
                         />
                     </group>
                     <group>
@@ -66,6 +90,7 @@
                             widget="domain"
                             options="{'model': 'product.product'}"
                             nolabel="1"
+                            colspan="2"
                         />
                     </group>
                     <group string="Partner domain">
@@ -74,34 +99,45 @@
                             widget="domain"
                             options="{'model': 'res.partner'}"
                             nolabel="1"
+                            colspan="2"
                         />
                     </group>
                     <group name="filters">
-                        <div name="to_include">
-                            <separator string="Products to include" />
-                            <field name="whitelist_product_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="display_name" string="Product" />
-                                </tree>
+                        <group name="to_include" string="Products to include">
+                            <field
+                                name="whitelist_product_ids"
+                                nolabel="1"
+                                colspan="2"
+                                context="{'tree_view_ref': 'product_assortment.product_product_view_tree'}"
+                            >
                             </field>
-                        </div>
-                        <div name="to_exclude">
-                            <separator string="Products to exclude" />
-                            <field name="blacklist_product_ids" nolabel="1">
-                                <tree>
-                                    <field name="display_name" string="Product" />
-                                </tree>
+                        </group>
+                        <group name="to_exclude" string="Products to exclude">
+                            <field
+                                name="blacklist_product_ids"
+                                nolabel="1"
+                                colspan="2"
+                                context="{'tree_view_ref': 'product_assortment.product_product_view_tree'}"
+                            >>
                             </field>
-                        </div>
+                        </group>
                     </group>
-                    <group invisible="context.get('default_partner_ids', False)">
-                        <div>
-                            <separator string="Partners to apply" />
-                            <field name="partner_ids" nolabel="1" />
-                        </div>
+                    <group
+                        invisible="context.get('default_partner_ids', False)"
+                        string="Partners to apply"
+                    >
+                        <field name="partner_ids" nolabel="1" colspan="2" />
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+    <record id="product_product_view_tree" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="display_name" string="Product" />
+            </tree>
         </field>
     </record>
     <record id="actions_product_assortment_view" model="ir.actions.act_window">
