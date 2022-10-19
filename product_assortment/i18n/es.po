@@ -18,14 +18,26 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 
 #. module: product_assortment
-#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
-msgid "<span class=\"o_stat_text\">Product Assortments</span>"
-msgstr "<span class=\"o_stat_text\">Surtido de productos</span>"
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "&gt;"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
-msgid "<span class=\"o_stat_text\">Products</span>"
-msgstr "<span class=\"o_stat_text\">Productos</span>"
+msgid ""
+"<span attrs=\"{'invisible': [('record_count', '&lt;=', 1)]}\">\n"
+"                                        Products\n"
+"                                    </span>\n"
+"                                    <span attrs=\"{'invisible': "
+"[('record_count', '&gt;', 1)]}\">\n"
+"                                        Product\n"
+"                                    </span>"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
+msgid "<span class=\"o_stat_text\">Product Assortments</span>"
+msgstr "<span class=\"o_stat_text\">Surtido de productos</span>"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
@@ -46,6 +58,11 @@ msgstr "Productos permitidos"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
 msgid "Apply restricted product domain"
 msgstr "Aplicar dominio de productos restringidos"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Archived"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -95,7 +112,7 @@ msgid "Partners to apply"
 msgstr "Contactos a los que aplica"
 
 #. module: product_assortment
-#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_product_view_tree
 msgid "Product"
 msgstr "Producto"
 
@@ -145,3 +162,6 @@ msgstr "Productos restringidos"
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
 msgid "This field allow to relate a partner to a domain of products"
 msgstr "Este campo permite relacionar un contacto con un dominio de productos"
+
+#~ msgid "<span class=\"o_stat_text\">Products</span>"
+#~ msgstr "<span class=\"o_stat_text\">Productos</span>"

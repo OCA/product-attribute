@@ -17,14 +17,26 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_assortment
-#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
-msgid "<span class=\"o_stat_text\">Product Assortments</span>"
-msgstr "<span class=\"o_stat_text\">Assortiment de producte</span>"
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "&gt;"
+msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
-msgid "<span class=\"o_stat_text\">Products</span>"
-msgstr "<span class=\"o_stat_text\">Productes</span>"
+msgid ""
+"<span attrs=\"{'invisible': [('record_count', '&lt;=', 1)]}\">\n"
+"                                        Products\n"
+"                                    </span>\n"
+"                                    <span attrs=\"{'invisible': "
+"[('record_count', '&gt;', 1)]}\">\n"
+"                                        Product\n"
+"                                    </span>"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
+msgid "<span class=\"o_stat_text\">Product Assortments</span>"
+msgstr "<span class=\"o_stat_text\">Assortiment de producte</span>"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
@@ -44,6 +56,11 @@ msgstr ""
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
 msgid "Apply restricted product domain"
+msgstr ""
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Archived"
 msgstr ""
 
 #. module: product_assortment
@@ -94,7 +111,7 @@ msgid "Partners to apply"
 msgstr "Socis a aplicar"
 
 #. module: product_assortment
-#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_product_view_tree
 msgid "Product"
 msgstr "Producte"
 
@@ -144,6 +161,9 @@ msgstr ""
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
 msgid "This field allow to relate a partner to a domain of products"
 msgstr "Aquest camp permet relacionar un soci amb un domini de productes"
+
+#~ msgid "<span class=\"o_stat_text\">Products</span>"
+#~ msgstr "<span class=\"o_stat_text\">Productes</span>"
 
 #~ msgid "Blacklist Product"
 #~ msgstr "Producte de la llista negra"
