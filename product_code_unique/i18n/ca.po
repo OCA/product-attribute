@@ -23,5 +23,8 @@ msgstr "La referència interna ha de ser única a tota la base de dades!"
 
 #. module: product_code_unique
 #: model:ir.model,name:product_code_unique.model_product_product
-msgid "Product"
-msgstr "Producte"
+msgid "Product Variant"
+msgstr ""
+
+#~ msgid "Product"
+#~ msgstr "Producte"
