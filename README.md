@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[product_assortment](product_assortment/) | 16.0.1.0.0 |  | Adds the ability to manage products assortment
 [product_code_unique](product_code_unique/) | 16.0.1.0.0 |  | Set Product Internal Reference as Unique
 [product_multi_category](product_multi_category/) | 16.0.1.0.0 |  | Product - Many Categories
 
