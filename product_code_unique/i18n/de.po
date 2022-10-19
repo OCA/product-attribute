@@ -24,5 +24,8 @@ msgstr ""
 
 #. module: product_code_unique
 #: model:ir.model,name:product_code_unique.model_product_product
-msgid "Product"
-msgstr "Produkt"
+msgid "Product Variant"
+msgstr ""
+
+#~ msgid "Product"
+#~ msgstr "Produkt"
