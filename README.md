@@ -38,6 +38,7 @@ addon | version | maintainers | summary
 [product_custom_info](product_custom_info/) | 13.0.1.0.0 |  | Add custom field in products
 [product_dimension](product_dimension/) | 13.0.1.0.2 |  | Product Dimension
 [product_dimension_volumetric_weight](product_dimension_volumetric_weight/) | 13.0.1.0.1 |  | Product Dimension Volumetric Weight
+[product_expiry_configurable](product_expiry_configurable/) | 13.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
 [product_list_pricelist_price](product_list_pricelist_price/) | 13.0.1.0.1 |  | Display pricelist prices for products in list view.
 [product_lot_sequence](product_lot_sequence/) | 13.0.1.0.1 |  | Adds ability to define a lot sequence from the product
 [product_manufacturer](product_manufacturer/) | 13.0.2.1.0 |  | Adds manufacturers and attributes on the product view.
