@@ -52,3 +52,15 @@ msgstr ""
 #: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
 msgid "Units"
 msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,weight_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,weight_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "kg"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "m³"
+msgstr ""
