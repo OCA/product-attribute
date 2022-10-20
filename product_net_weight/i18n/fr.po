@@ -23,12 +23,6 @@ msgid "Gross Weight"
 msgstr "Poids brut"
 
 #. module: product_net_weight
-#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "Liter(s)"
-msgstr ""
-
-#. module: product_net_weight
 #: model:ir.model.fields,field_description:product_net_weight.field_product_product__net_weight
 #: model:ir.model.fields,field_description:product_net_weight.field_product_template__net_weight
 msgid "Net Weight"
@@ -57,28 +51,34 @@ msgid "Strawberry Jam (Jar of 250 grams)"
 msgstr "Confiture de fraise (Pot de 250 grammes)"
 
 #. module: product_net_weight
-#: model:ir.model.fields,help:product_net_weight.field_product_template__weight
-#, fuzzy
-msgid "The weight of the contents, not including any packaging, etc."
-msgstr "Le poids du contenu en kilogrammes, sans compter tout emballage, etc."
-
-#. module: product_net_weight
 #: model:product.product,uom_name:product_net_weight.product_strawberry_jam
 #: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "Unit(s)"
-msgstr "Unité(s)"
-
-#. module: product_net_weight
-#: model:ir.model.fields,help:product_net_weight.field_product_product__weight
-msgid ""
-"Weight of the product, packaging not included. The unit of measure can be "
-"changed in the general settings"
+msgid "Units"
 msgstr ""
-"Poids du produit, sans le conditionnement. L'unité de mesure peut être "
-"changée dans les paramètres généraux."
 
 #. module: product_net_weight
 #: model:product.product,weight_uom_name:product_net_weight.product_strawberry_jam
 #: model:product.template,weight_uom_name:product_net_weight.product_strawberry_jam_product_template
 msgid "kg"
 msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "m³"
+msgstr ""
+
+#, fuzzy
+#~ msgid "The weight of the contents, not including any packaging, etc."
+#~ msgstr ""
+#~ "Le poids du contenu en kilogrammes, sans compter tout emballage, etc."
+
+#~ msgid "Unit(s)"
+#~ msgstr "Unité(s)"
+
+#~ msgid ""
+#~ "Weight of the product, packaging not included. The unit of measure can be "
+#~ "changed in the general settings"
+#~ msgstr ""
+#~ "Poids du produit, sans le conditionnement. L'unité de mesure peut être "
+#~ "changée dans les paramètres généraux."
