@@ -5,8 +5,8 @@
 from odoo import api, fields, models
 
 
-class ProductProduct(models.Model):
-    _inherit = "product.product"
+class ProductTemplate(models.Model):
+    _inherit = "product.template"
 
     standard_price_tax_included = fields.Float(
         compute="_compute_standard_price_tax_included",
@@ -18,14 +18,21 @@ class ProductProduct(models.Model):
     )
 
     @api.depends_context("company")
-    @api.depends("standard_price", "taxes_id", "taxes_id.price_include")
+    @api.depends(
+        "product_variant_ids",
+        "product_variant_ids.standard_price",
+        "taxes_id",
+        "taxes_id.price_include",
+    )
     def _compute_standard_price_tax_included(self):
         # Depends on force_company context because standard_price is company_dependent
-        for product in self:
-            info = product.taxes_id.compute_all(
-                product.standard_price,
-                quantity=1,
-                product=product,
-                handle_price_include=False,
+        # on the product_product
+        unique_variants = self.filtered(
+            lambda template: len(template.product_variant_ids) == 1
+        )
+        for template in unique_variants:
+            template.standard_price_tax_included = (
+                template.product_variant_ids.standard_price_tax_included
             )
-            product.standard_price_tax_included = info["total_included"]
+        for template in self - unique_variants:
+            template.standard_price_tax_included = 0.0

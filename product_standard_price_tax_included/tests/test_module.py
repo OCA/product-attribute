@@ -14,70 +14,83 @@ class TestProductStandardPriceTaxIncluded(TransactionCase):
         self.SaleOrder = self.env["sale.order"]
         self.SaleOrderLine = self.env["sale.order.line"]
 
-        self.tax = self.env.ref(
-            "product_standard_price_tax_included.account_tax_tax_included"
-        )
         self.partner = self.env.ref("base.res_partner_3")
         self.uom = self.env.ref("uom.product_uom_unit")
-        self.product = self.env.ref(
-            "product_standard_price_tax_included.product_product"
+        self.product_tax_included = self.env.ref(
+            "product_standard_price_tax_included.product_product_tax_included"
         )
-        self.pricelist = self.env.ref(
+        self.product_tax_excluded = self.env.ref(
+            "product_standard_price_tax_included.product_product_tax_excluded"
+        )
+        self.pricelist_included = self.env.ref(
             "product_standard_price_tax_included.pricelist_price_tax_included"
         )
-        self.pricelist_item = self.env.ref(
-            "product_standard_price_tax_included." "pricelist_item_price_tax_included"
+        self.pricelist_excluded = self.env.ref(
+            "product_standard_price_tax_included.pricelist_price_tax_excluded"
         )
+
         # ensure that the currency of the price list is the same as
         # the main company to avoid error due to undesired conversion
-        self.pricelist.currency_id = self.env.ref("base.main_company").currency_id
+        self.pricelist_included.currency_id = self.env.ref(
+            "base.main_company"
+        ).currency_id
+        self.pricelist_excluded.currency_id = self.env.ref(
+            "base.main_company"
+        ).currency_id
 
         # Create an Order
         self.order = self.SaleOrder.create(
             {
                 "partner_id": self.partner.id,
-                "pricelist_id": self.pricelist.id,
             }
         )
 
     # Test Section
-    def test_01_correct_tax_compute(self):
-        """Test if the total of a sale order is correct with price
-        based on Price List Tax Included."""
+    def test_01_test_standard_price_tax_included_product_vat_incl(self):
+        self.assertEqual(self.product_tax_included.standard_price_tax_included, 1200)
+
+    def test_02_test_standard_price_tax_included_product_vat_excl(self):
+        self.assertEqual(self.product_tax_excluded.standard_price_tax_included, 120)
+
+    def test_11_correct_tax_compute_tax_included(self):
+        """Test if the total of a sale order is correct with pricelist
+        based on standard price with tax included."""
 
         # Create an Order line with a product with Tax Included
+        self.order.pricelist_id = self.pricelist_included
         self.SaleOrderLine.create(
             {
                 "order_id": self.order.id,
-                "product_id": self.product.id,
+                "product_id": self.product_tax_included.id,
                 "product_uom_qty": 1,
                 "product_uom": self.uom.id,
             }
         )
+        # standard_price is 100 so standard_price vat incl is 120
         self.assertEqual(
             self.order.amount_total,
-            12.0,
+            1200.0,
             "Computation of Price based on Cost Price Tax Included incorrect.",
         )
 
-    def test_02_correct_tax_compute_with_discount(self):
-        """Test if the total of a sale order is correct with price
-        based on Price List Tax Included with discount on the pricelist"""
+    def test_12_correct_tax_compute_tax_included(self):
+        """Test if the total of a sale order is correct with pricelist
+        based on standard price with tax included.
+        (No regression test)"""
 
-        self.pricelist_item.price_discount = 50
-
-        # Create an Order line with a product with Tax Included
+        # Create an Order line with a product with Tax Excluded
+        self.order.pricelist_id = self.pricelist_excluded
         self.SaleOrderLine.create(
             {
                 "order_id": self.order.id,
-                "product_id": self.product.id,
+                "product_id": self.product_tax_excluded.id,
                 "product_uom_qty": 1,
                 "product_uom": self.uom.id,
             }
         )
+        # standard_price is 100 so standard_price vat incl is 120
         self.assertEqual(
             self.order.amount_total,
-            6.0,
-            "Computation of Price based on Cost Price Tax Included incorrect."
-            " when discount is set",
+            120.0,
+            "Computation of Price based on Cost Price incorrect. Regression.",
         )

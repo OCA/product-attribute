@@ -9,5 +9,6 @@ class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
     base = fields.Selection(
-        selection_add=[("standard_price_tax_included", "Cost Price Tax Included")]
+        selection_add=[("standard_price_tax_included", "Cost Price Tax Included")],
+        ondelete={"standard_price_tax_included": "set default"},
     )

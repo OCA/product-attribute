@@ -2,13 +2,13 @@ this module extend Odoo Sale module to handle correctly the possibility to
 create and use pricelist **based on the cost Price**, if you are in a B2C
 configuration (VAT set with 'Price Tax inlude').
 
-If you have don't use VAT price tax Included, this module is useless.
+If you don't use VAT price tax Included, this module is useless.
 
 **Typical Use Case**
 
 You have a product :
-- Cost : 10€ (Vat Excl)
-- Sale Price (Vat incl) : 20€
+- Cost : 1000€ (Vat Excl)
+- Sale Price (Vat incl) : 2400€
 - VAT : 20% (Price with Tax included)
 
 You have a marginless pricelist based on the cost
@@ -21,9 +21,7 @@ you will sale under your cost price.
 With this module installed, the price will be good and you will not loose
 the vat amount, when you realize this sale:
 
-.. image:: ../static/description/sale_order_form.png
-
-**Technical information**
+.. image:: ../static/description/sale_order_form_with_module.png
 
 This module fixes the problem,
 
