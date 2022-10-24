@@ -23,7 +23,7 @@ Product logistics UoM
     :target: https://runbot.odoo-community.org/runbot/135/16.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module allows to choose an Unit Of Measure (UoM) for products weight and volume.
 It can be set product per product for users in group_uom.
@@ -79,6 +79,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Raphaël Reverdy <raphael.reverdy@akretion.com>
+* Fernando La Chica <fernandolachica@gmail.com>
 
 Other credits
 ~~~~~~~~~~~~~
@@ -107,7 +108,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-hparfr|
+|maintainer-hparfr| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_logistics_uom>`_ project on GitHub.
 
