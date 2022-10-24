@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record model="res.groups" id="sales_team.group_sale_manager">
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+
+    <record model="res.groups" id="base.group_multi_company">
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+
+    <record model="res.groups" id="base.group_no_one">
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+
+    <record model="res.groups" id="manager">
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+
+</odoo>

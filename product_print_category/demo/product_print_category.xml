@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record model="product.print.category" id="demo_category_1">
+        <field name="name">Demo Category 1</field>
+        <field
+            name="product_ids"
+            eval="[(4, ref('product.product_product_4')),(4, ref('product.product_product_5'))]"
+        />
+        <field name="qweb_view_id" ref="qweb_template_demo_1" />
+        <field
+            name="field_ids"
+            eval="[(4, ref('product.field_product_product__name')),(4, ref('product.field_product_product__list_price'))]"
+        />
+    </record>
+
+    <record model="product.print.category" id="demo_category_2">
+        <field name="name">Demo Category 2</field>
+        <field name="product_ids" eval="[(4, ref('product.product_product_3'))]" />
+        <field name="qweb_view_id" ref="qweb_template_demo_2" />
+        <field
+            name="field_ids"
+            eval="[(4, ref('product.field_product_product__name')),(4, ref('product.field_product_product__list_price'))]"
+        />
+    </record>
+
+</odoo>
