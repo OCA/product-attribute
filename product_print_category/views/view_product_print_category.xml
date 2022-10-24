@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record model="ir.ui.view" id="view_product_print_category_tree">
+        <field name="model">product.print.category</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="product_to_print_qty != 0">
+                <field name="name" />
+                <field name="product_to_print_qty" />
+                <field name="product_qty" />
+                <field name="company_id" groups="base.group_multi_company" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_print_category_form_2">
+        <field name="model">product.print.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="%(product_print_category.action_product_product_2_product_print_wizard)d"
+                        type="action"
+                        attrs="{'invisible': [('product_to_print_qty', '=', 0)]}"
+                        string="Print Obsolete Products"
+                        class="oe_highlight"
+                        icon="fa-print"
+                    />
+                    <button
+                        name="%(product_print_category.action_product_product_2_product_print_wizard)d"
+                        type="action"
+                        attrs="{'invisible': [('product_qty', '=', 0)]}"
+                        string="Print All Products"
+                        context="{'all_products': True}"
+                        icon="fa-print"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+
+                        <button
+                            class="oe_stat_button"
+                            name="action_view_product_product"
+                            type="object"
+                            icon="fa-print"
+                            context="{'to_print': True}"
+                            attrs="{'invisible': [('product_to_print_qty', '=', 0)]}"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                   <field name="product_to_print_qty" />
+                                </span>
+                                <span class="o_stat_text">To print</span>
+                            </div>
+                        </button>
+
+                        <button
+                            class="oe_stat_button"
+                            name="action_view_product_product"
+                            type="object"
+                            icon="fa-list"
+                            context="{'to_print': False}"
+                            attrs="{'invisible': [('product_qty', '=', 0)]}"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                   <field name="product_qty" />
+                                </span>
+                                <span class="o_stat_text">Products</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Name" />
+                        <h1><field name="name" placeholder="Print category name" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field
+                                name="qweb_view_id"
+                                groups="product_print_category.manager"
+                            />
+                            <field
+                                name="field_ids"
+                                widget="many2many_tags"
+                                groups="product_print_category.manager"
+                            />
+                        </group>
+                        <group>
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field
+                                name="active"
+                                groups="product_print_category.manager"
+                                widget="boolean_toggle"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_print_category" model="ir.actions.act_window">
+        <field name="name">Print Categories</field>
+        <field name="res_model">product.print.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_product_print_category"
+        parent="sale.product_menu_catalog"
+        sequence="110"
+        action="action_product_print_category"
+        groups="product_print_category.user"
+    />
+
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="pricetag" model="ir.actions.report">
+        <field name="name">Pricetags</field>
+        <field name="model">product.print.wizard.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">product_print_category.report_pricetag</field>
+        <field name="report_file">product_print_category.report_pricetag</field>
+        <field name="paperformat_id" ref="product_print_category.paper_format" />
+        <field name="print_report_name">'Products Labels'</field>
+        <field name="binding_model_id" eval="False" />
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

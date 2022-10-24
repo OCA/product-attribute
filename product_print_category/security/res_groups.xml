@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2012-Today GRAP (http://www.grap.coop)
+@author Julien WESTE
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="user" model="res.groups">
+        <field name="name">Print Category User</field>
+        <field name="category_id" ref="module_product_print_category" />
+    </record>
+
+    <record id="manager" model="res.groups">
+        <field name="name">Print Category Manager</field>
+        <field name="implied_ids" eval="[(4, ref('user'))]" />
+        <field name="category_id" ref="module_product_print_category" />
+    </record>
+
+</odoo>
