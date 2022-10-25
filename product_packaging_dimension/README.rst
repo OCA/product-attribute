@@ -23,7 +23,7 @@ Product Packaging Dimension
     :target: https://runbot.odoo-community.org/runbot/135/16.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module allows to store dimensions (length, width, height), weight and
 volume of product packagings.
@@ -63,6 +63,7 @@ Contributors
 * Patrick Tombez <patrick.tombez@camptocamp.com>
 * Akim Juillerat <akim.juillerat@camptocamp.com>
 * Kévin Roche <kevin.roche@akretion.com>
+* Fernando La Chica <fernandolachica@gmail.com>
 
 Maintainers
 ~~~~~~~~~~~
