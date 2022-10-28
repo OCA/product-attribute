@@ -8,6 +8,8 @@ from odoo import _, api, fields, models
 from odoo.osv import expression
 from odoo.exceptions import ValidationError
 
+from odoo.tools.misc import formatLang
+
 
 class ProductPricelistPrint(models.TransientModel):
     _name = 'product.pricelist.print'
@@ -45,6 +47,11 @@ class ProductPricelistPrint(models.TransientModel):
         string='Products',
         help='Keep empty for all products',
     )
+    vat_mode = fields.Selection(selection=[
+        ("vat_excl", "Vat Excluded"),
+        ("vat_incl", "Vat Included"),
+    ])
+    show_product_uom = fields.Boolean(string='Show Product UoM')
     show_standard_price = fields.Boolean(string='Show Cost Price')
     show_sale_price = fields.Boolean(string='Show Sale Price')
     hide_pricelist_name = fields.Boolean(string='Hide Pricelist Name')
@@ -52,6 +59,14 @@ class ProductPricelistPrint(models.TransientModel):
         ('name', 'Name'),
         ('default_code', 'Internal Reference'),
     ], string='Order')
+    group_field_id = fields.Many2one(
+        comodel_name="ir.model.fields",
+        required=True,
+        domain=[
+            ("model", "=", "product.product"),
+            ("ttype", "=", "many2one"),
+        ],
+        default=lambda x: x._default_group_field_id())
     partner_count = fields.Integer(
         compute='_compute_partner_count'
     )
@@ -128,6 +143,13 @@ class ProductPricelistPrint(models.TransientModel):
                 res['categ_ids'] = [
                     (6, 0, category_items.mapped('categ_id').ids)]
         return res
+
+    def _default_group_field_id(self):
+        IrModelFields = self.env["ir.model.fields"]
+        return IrModelFields.search([
+            ("model", "=", "product.product"),
+            ("name", "=", "categ_id"),
+        ])
 
     @api.multi
     def print_report(self):
@@ -289,7 +311,10 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
-        return product.categ_id.name
+        group_field = getattr(product, self.group_field_id.name)
+        return getattr(
+            group_field, "complete_name", getattr(group_field, "name")
+        ) or _("Undefined")
 
     def get_sorted_products(self, products):
         if self.order_field:
@@ -319,3 +344,21 @@ class ProductPricelistPrint(models.TransientModel):
         self.ensure_one()
         return self.env.ref(
             'product_pricelist_direct_print.product_pricelist_xlsx').report_action(self)
+
+    def compute_pricelist_price(self, product, display_currency=True):
+        self.ensure_one()
+        price = product.with_context(
+            pricelist=self.get_pricelist_to_print().id, date=self.date
+        ).price
+
+        if self.vat_mode == "vat_excl":
+            price = product.taxes_id.compute_all(price)["total_excluded"]
+        elif self.vat_mode == "vat_incl":
+            price = product.taxes_id.compute_all(price)["total_included"]
+
+        if display_currency:
+            return formatLang(
+                self.env, price, currency_obj=self.get_pricelist_to_print().currency_id
+            )
+        else:
+            return price
