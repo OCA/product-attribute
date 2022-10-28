@@ -6,7 +6,7 @@
     " categories",
     "version": "12.0.1.0.0",
     "category": "Product",
-    "website": "https://www.github.com/OCA/product-attribute",
+    "website": "https://github.com/OCA/product-attribute",
     "maintainers": ["CarlosRoca13"],
     "author":
         "Tecnativa, "

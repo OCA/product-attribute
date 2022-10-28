@@ -25,6 +25,8 @@ class Product(models.Model):
                 p.gltf_3d_model = p.product_tmpl_id.gltf_3d_model
 
     @api.multi
+    # fixme: Name of inverse method should start with "_inverse_"
+    # pylint: disable=method-inverse
     def _set_gltf_3d_model(self):
         for p in self:
             if p.product_tmpl_id.gltf_3d_model and p.product_variant_count > 1:

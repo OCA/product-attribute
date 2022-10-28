@@ -8,7 +8,7 @@
     'category': 'Product',
     'summary': 'Brings a Cost Price Field Tax Included on Product Model',
     'author': 'GRAP,Odoo Community Association (OCA)',
-    'website': 'http://www.odoo-community.org',
+    'website': 'https://github.com/OCA/product-attribute',
     'license': 'AGPL-3',
     'development_status': 'Beta',
     'maintainers': ['legalsylvain'],

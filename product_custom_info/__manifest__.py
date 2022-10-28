@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2015 Antiun Ingeniería S.L. - Sergio Teruel
 # © 2015 Antiun Ingeniería S.L. - Carlos Dauden
 # © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
@@ -19,7 +18,7 @@
     ],
     'author': "Tecnativa, "
               "Odoo Community Association (OCA)",
-    'website': 'http://www.tecnativa.com',
+    'website': 'https://github.com/OCA/product-attribute',
     'license': 'LGPL-3',
     'installable': True,
 }
