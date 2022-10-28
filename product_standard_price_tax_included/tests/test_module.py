@@ -68,3 +68,22 @@ class TestProductStandardPriceTaxIncluded(TransactionCase):
             self.order.amount_total, 6.0,
             "Computation of Price based on Cost Price Tax Included incorrect."
             " when discount is set")
+
+    def test_10_product_product_computation(self):
+        product_price = self.product.with_context(
+            pricelist=self.pricelist.id
+        ).price
+
+        self.assertEquals(
+            product_price, 12.0,
+            "Computation of Price based on Cost Price Tax Included incorrect"
+            " for product.product model.")
+
+    def test_11_product_template_computation(self):
+        template_price = self.product.product_tmpl_id.with_context(
+            pricelist=self.pricelist.id
+        ).price
+        self.assertEquals(
+            template_price, 12.0,
+            "Computation of Price based on Cost Price Tax Included incorrect"
+            " for product.template model.")
