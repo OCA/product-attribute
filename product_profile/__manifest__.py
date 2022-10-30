@@ -3,10 +3,11 @@
 
 {
     "name": "Product Profile",
-    "version": "14.0.1.0.1",
+    "version": "15.0.1.0.0",
     "author": "Akretion, Odoo Community Association (OCA)",
     "summary": "Allow to configure a product in 1 click",
     "category": "product",
+    "development_status": "Production/Stable",
     "depends": ["sale_management"],
     "website": "https://github.com/OCA/product-attribute",
     "data": [
