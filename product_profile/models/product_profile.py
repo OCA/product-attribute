@@ -9,9 +9,6 @@ from lxml import etree
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
-PROFILE_MENU = _(
-    "Sales > Configuration \n> Product Categories and Attributes" "\n> Product Profiles"
-)
 # Prefix name of profile fields setting a default value,
 # not an immutable value according to profile
 PROF_DEFAULT_STR = "profile_default_"
@@ -25,13 +22,18 @@ def format_except_message(error, field, self):
     model = type(self)._name
     message = _(
         "Issue\n------\n"
-        "%s\n'%s' value can't be applied to '%s' field."
+        "%(error)s\n %(value)s value can't be applied to %(field)s field."
         "\nThere is no matching value between 'Product Profiles' "
-        "\nand '%s' models for this field.\n\n"
+        "\nand %(model)s models for this field.\n\n"
         "Resolution\n----------\n"
-        "Check your settings on Profile model:\n%s"
-        % (error, value, field, model, PROFILE_MENU)
-    )
+        "Check your settings on Profile model:\n Sales > Configuration \n> Products"
+        "\n> Product Profiles"
+    ) % {
+        "error": error,
+        "value": value,
+        "field": field,
+        "model": model,
+    }
     return message
 
 
@@ -67,11 +69,11 @@ class ProductProfile(models.Model):
         help="An explanation on the selected profile\n"
         "(not synchronized with product.template fields)",
     )
-    type = fields.Selection(
+    detailed_type = fields.Selection(
         selection=[("consu", "Consumable"), ("service", "Service")],
         required=True,
         default="consu",
-        help="See 'type' field in product.template",
+        help="See 'detailed_type' field in product.template",
     )
 
     def write(self, vals):
@@ -111,11 +113,11 @@ class ProductProfile(models.Model):
     def check_useless_key_in_vals(self, vals, key):
         """If replacing values are the same than in db, we remove them.
         Use cases:
-        1/ if in edition mode you switch a field
-           from value A to value B and then go back to value A
-           then save form, field is in vals whereas it shouldn't.
-        2/ if profile data are in csv file there are processed
-           each time module containing csv is loaded
+        1/  if in edition mode you switch a field
+            from value A to value B and then go back to value A
+            then save form, field is in vals whereas it shouldn't.
+        2/  if profile data are in csv file there are processed
+            each time module containing csv is loaded
         we remove field from vals to minimize impact on products
         """
         comparison_value = self[key]
@@ -207,7 +209,7 @@ class ProductMixinProfile(models.AbstractModel):
                 try:
                     self[field] = value
                 except Exception as e:
-                    raise UserError(format_except_message(e, field, self))
+                    raise UserError(format_except_message(e, field, self)) from e
 
     @api.model
     def create(self, vals):
