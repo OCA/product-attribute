@@ -6,13 +6,18 @@
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//h1" position="after">
-                <group name="profile">
-                    <field name="profile_id" widget="selection" />
+                <group name="profile" col="2">
+                <group>
+                    <field name="profile_id" widget="selection" class="oe_inline" />
+                </group>
+                    <field
+                        name="profile_explanation"
+                        string=""
+                        nolabel="1"
+                        class="oe_right font-italic text-muted"
+                    />
                 </group>
             </xpath>
-            <field name="type" position="after">
-                <field name="profile_explanation" />
-            </field>
         </field>
     </record>
 
@@ -37,7 +42,7 @@
             <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
-                <field name="type" />
+                <field name="detailed_type" />
                 <field name="explanation" />
             </tree>
         </field>
