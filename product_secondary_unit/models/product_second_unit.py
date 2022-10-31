@@ -34,9 +34,7 @@ class ProductSecondaryUnit(models.Model):
         "by package (1 unit for example) and you want to put the "
         "real time (ex : 4 hours) to allows employee scheduling",
     )
-    factor = fields.Float(
-        string="Secondary Unit Factor", default=1.0, digits=0, required=True
-    )
+    factor = fields.Float(string="Secondary Unit Factor", default=1.0, required=True)
     active = fields.Boolean(default=True)
 
     def name_get(self):
