@@ -19,7 +19,7 @@ class ProductTemplate(models.Model):
             if len(p.product_variant_ids) == 1:
                 p.price_ids = p.product_variant_ids.price_ids
             else:
-                p.price_ids = False
+                p.price_ids = []
 
     def _inverse_price_ids(self):
         for p in self:
@@ -27,9 +27,12 @@ class ProductTemplate(models.Model):
                 p.product_variant_ids.price_ids = p.price_ids
 
     def _get_multiprice_pricelist_price(self, rule):
-        if len(self.product_variant_ids) == 1:
-            return self.product_variant_ids._get_multiprice_pricelist_price(rule)
-        return 0
+        res = (
+            len(self.product_variant_ids) == 1
+            and self.product_variant_ids._get_multiprice_pricelist_price(rule)
+            or 0.0
+        )
+        return res
 
     @api.model
     def create(self, vals):

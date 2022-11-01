@@ -10,7 +10,6 @@ class ProductMultiPrice(models.Model):
     name = fields.Many2one(
         comodel_name="product.multi.price.name",
         required=True,
-        translate=True,
     )
     product_id = fields.Many2one(
         comodel_name="product.product",
