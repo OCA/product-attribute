@@ -3,8 +3,8 @@
 {
     "name": "Stock Account Product Cost Security",
     "summary": "Product cost security restriction view",
-    "version": "13.0.3.1.0",
-    "development_status": "Beta",
+    "version": "15.0.1.0.0",
+    "development_status": "Production/Stable",
     "maintainers": ["sergio-teruel"],
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
