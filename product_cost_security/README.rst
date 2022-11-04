@@ -25,8 +25,8 @@ Product Cost Security
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-Adds a security group for product cost price field.
-Only users with this group can view this field.
+It adds two security groups, one for viewing the product cost price, and the other for
+editing it.
 
 **Table of contents**
 
@@ -70,7 +70,11 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* Sergio Teruel <sergio.teruel@tecnativa.com>
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Sergio Teruel
+  * David vidal
+
 * Watthanun Khorchai <watthanun_t@hotmail.com>
 * Carlos Lopez <celm1990@gmail.com>
 
