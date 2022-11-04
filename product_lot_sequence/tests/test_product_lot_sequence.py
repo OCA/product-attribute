@@ -23,7 +23,10 @@ class TestProductLotSequence(TransactionCase):
                 suffix="/bar",
             )
         )
-        self.assertRegexpMatches(product.lot_sequence_id._next(), r"foo/\d{5}/bar")
+        next_serial = self.env["stock.production.lot"]._get_next_serial(
+            self.env.company, product
+        )
+        self.assertRegexpMatches(next_serial, r"foo/\d{5}/bar")
 
     def test_lot_onchange_product_id(self):
         product = self.product_product.create(dict(name="Shiba plush", tracking="lot"))
