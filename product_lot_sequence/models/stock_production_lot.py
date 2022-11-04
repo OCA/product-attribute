@@ -20,3 +20,10 @@ class ProductionLot(models.Model):
                 if product and product.product_tmpl_id.lot_sequence_id:
                     lot_vals["name"] = product.product_tmpl_id.lot_sequence_id._next()
         return super(ProductionLot, self).create(vals_list)
+
+    @api.model
+    def _get_next_serial(self, company, product):
+        seq = product.lot_sequence_id
+        if seq:
+            return seq._next()
+        return super()._get_next_serial(company, product)
