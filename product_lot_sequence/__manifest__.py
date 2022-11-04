@@ -10,5 +10,5 @@
     "author": "ForgeFlow S.L., Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["stock"],
-    "data": ["views/product_views.xml"],
+    "data": ["data/ir_config_parameter.xml", "views/product_views.xml"],
 }
