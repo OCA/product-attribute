@@ -28,6 +28,14 @@ class ProductTemplate(models.Model):
         compute="_compute_lot_seq_number_next",
         inverse="_inverse_lot_seq_number_next",
     )
+    display_lot_sequence_fields = fields.Boolean(
+        compute="_compute_display_lot_sequence_fields"
+    )
+
+    def _compute_display_lot_sequence_fields(self):
+        self.display_lot_sequence_fields = (
+            self.env["stock.production.lot"]._get_sequence_policy() == "product"
+        )
 
     @api.model
     def _create_lot_sequence(self, vals):
@@ -75,27 +83,30 @@ class ProductTemplate(models.Model):
                 sequence.sudo().number_next = template.lot_sequence_number_next
 
     def write(self, vals):
-        for template in self:
-            tracking = vals.get("tracking", False) or template.tracking
-            if tracking in ["lot", "serial"]:
-                if (
-                    not vals.get("lot_sequence_id", False)
-                    and not template.lot_sequence_id
-                ):
-                    vals["lot_sequence_id"] = (
-                        template.sudo()._create_lot_sequence(vals).id
-                    )
-                elif vals.get("lot_sequence_id", False):
-                    lot_sequence_id = self.env["ir.sequence"].browse(
-                        vals["lot_sequence_id"]
-                    )
-                    vals["lot_sequence_prefix"] = lot_sequence_id.prefix
-                    vals["lot_sequence_padding"] = lot_sequence_id.padding
+        seq_policy = self.env["stock.production.lot"]._get_sequence_policy()
+        if seq_policy == "product":
+            for template in self:
+                tracking = vals.get("tracking", False) or template.tracking
+                if tracking in ["lot", "serial"]:
+                    if (
+                        not vals.get("lot_sequence_id", False)
+                        and not template.lot_sequence_id
+                    ):
+                        vals["lot_sequence_id"] = (
+                            template.sudo()._create_lot_sequence(vals).id
+                        )
+                    elif vals.get("lot_sequence_id", False):
+                        lot_sequence_id = self.env["ir.sequence"].browse(
+                            vals["lot_sequence_id"]
+                        )
+                        vals["lot_sequence_prefix"] = lot_sequence_id.prefix
+                        vals["lot_sequence_padding"] = lot_sequence_id.padding
         return super().write(vals)
 
     @api.model
     def create(self, vals):
-        if vals.get("tracking", False) in ["lot", "serial"]:
+        seq_policy = self.env["stock.production.lot"]._get_sequence_policy()
+        if seq_policy == "product" and vals.get("tracking", False) in ["lot", "serial"]:
             if not vals.get("lot_sequence_id", False):
                 vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
             else:
