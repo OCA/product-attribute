@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record model="ir.config_parameter" id="lot_sequence_policy">
+        <field name="key">product_lot_sequence.policy</field>
+        <field name="value">product</field>
+    </record>
+</odoo>
