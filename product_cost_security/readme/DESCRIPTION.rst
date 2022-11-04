@@ -1,2 +1,2 @@
-Adds a security group for product cost price field.
-Only users with this group can view this field.
+It adds two security groups, one for viewing the product cost price, and the other for
+editing it.
