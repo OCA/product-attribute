@@ -86,11 +86,14 @@ class ProductTemplate(models.Model):
         for template in self:
             tracking = vals.get("tracking", False) or template.tracking
             if tracking in ["lot", "serial"]:
-                if not vals.get("lot_sequence_id", False):
+                if (
+                    not vals.get("lot_sequence_id", False)
+                    and not template.lot_sequence_id
+                ):
                     vals["lot_sequence_id"] = (
                         template.sudo()._create_lot_sequence(vals).id
                     )
-                else:
+                elif vals.get("lot_sequence_id", False):
                     lot_sequence_id = self.env["ir.sequence"].browse(
                         vals["lot_sequence_id"]
                     )
