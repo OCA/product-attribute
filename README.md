@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [product_medical](product_medical/) | 13.0.1.3.0 |  | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 13.0.1.0.0 |  | Product - Many Categories
 [product_multi_price](product_multi_price/) | 13.0.1.0.0 |  | Product Multi Price
+[product_net_weight](product_net_weight/) | 13.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add 'Net Weight' on product models
 [product_order_noname](product_order_noname/) | 13.0.2.0.0 | [![WR-96](https://github.com/WR-96.png?size=30px)](https://github.com/WR-96) [![moylop260](https://github.com/moylop260.png?size=30px)](https://github.com/moylop260) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Speedup product retrieve
 [product_packaging_dimension](product_packaging_dimension/) | 13.0.1.0.0 |  | Manage packaging dimensions and weight
 [product_packaging_type](product_packaging_type/) | 13.0.1.4.0 |  | Product Packaging Type
