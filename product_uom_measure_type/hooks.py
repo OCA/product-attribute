@@ -9,13 +9,17 @@ def pre_init_hook(cr):
     installation of this module on a large database.
     """
 
-    cr.execute("""
+    cr.execute(
+        """
         ALTER TABLE product_template
         ADD column uom_measure_type character varying;
-        """)
-    cr.execute("""
+        """
+    )
+    cr.execute(
+        """
         UPDATE product_template
         SET uom_measure_type = uom_uom.measure_type
         FROM uom_uom
         WHERE uom_uom.id = product_template.uom_id
-        """)
+        """
+    )
