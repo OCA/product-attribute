@@ -10,4 +10,7 @@ class ProductTemplate(models.Model):
 
     uom_measure_type = fields.Selection(
         string="UoM Measure Type",
-        related="uom_id.measure_type", store=True, readonly=True)
+        related="uom_id.measure_type",
+        store=True,
+        readonly=True,
+    )
