@@ -13,9 +13,14 @@ class ProductProduct(models.Model):
     )
 
     def _convert_to_price_uom(self, price):
-        qty_uom_id = self._context.get("uom") or self.uom_id.id
-        price_uom = self.env["uom.uom"].browse([qty_uom_id])
-        return self.uom_id._compute_price(price, price_uom)
+        self.ensure_one()
+        uom = (
+            self._context.get("uom")
+            and self.env["uom.uom"].browse(self._context.get("uom"))
+            or self.uom_id
+        )
+        price_uom = self.uom_id._compute_price(price, uom)
+        return price_uom
 
     def _get_multiprice_pricelist_price(self, rule):
         """Method for getting the price from multi price."""
@@ -53,7 +58,7 @@ class ProductProduct(models.Model):
                 price = min(price, price_limit + price_max_margin)
         return price
 
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
+    def price_compute(self, price_type, uom=False, currency=False, company=None):
         """Return temporary prices when computation is done for multi price for
         avoiding error on super method. We will later fill these with the
         correct values.

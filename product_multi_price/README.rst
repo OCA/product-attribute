@@ -23,7 +23,7 @@ Product Multi Price
     :target: https://runbot.odoo-community.org/runbot/135/13.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows to set multiple prices to products and base pricelist
 rules on them.
@@ -99,6 +99,8 @@ Contributors
   * David Vidal
   * Pedro M. Baeza
   * Ernesto Tejeda
+
+* Cécile Jallais <cjallais@archeti.com>
 
 Maintainers
 ~~~~~~~~~~~

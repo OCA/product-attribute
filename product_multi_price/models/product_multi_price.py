@@ -10,7 +10,6 @@ class ProductMultiPrice(models.Model):
     name = fields.Many2one(
         comodel_name="product.multi.price.name",
         required=True,
-        translate=True,
     )
     product_id = fields.Many2one(
         comodel_name="product.product",
@@ -35,6 +34,10 @@ class ProductMultiPrice(models.Model):
             "company",
         ),
     ]
+
+    @api.depends("name.name")
+    def name_get(self):
+        return [multi.name.name for multi in self]
 
 
 class ProductMultiPriceName(models.Model):

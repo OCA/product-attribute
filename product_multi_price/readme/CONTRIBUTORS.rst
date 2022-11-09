@@ -3,3 +3,5 @@
   * David Vidal
   * Pedro M. Baeza
   * Ernesto Tejeda
+
+* Cécile Jallais <cjallais@archeti.com>
