@@ -23,7 +23,7 @@ Product Pricelist Revision
     :target: https://runbot.odoo-community.org/runbot/135/14.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module adds a 'Pricelist items' tree view that allows to select several
 elements to version them and also to see the percentage 'fixed price'
@@ -48,7 +48,7 @@ Usage
 To use this module, you need to:
 
 #. Go to *Sales > Products > Pricelists* and create a new Price List.
-#. Add a Pricelist Items to that Price List. Set 'Fix Price' value on the field
+#. Add a Pricelist Items to that Pricelist. Set 'Fix Price' value on the field
    'Compute Price' and set a fixed price.
 #. Go to the new menu *Sales > Products > Pricelist Items*, select the
    previously created item and click on *Action > Duplicate Item*.
