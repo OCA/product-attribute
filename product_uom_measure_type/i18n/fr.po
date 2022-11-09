@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-08 23:55+0000\n"
-"PO-Revision-Date: 2022-11-08 23:55+0000\n"
+"POT-Creation-Date: 2022-11-08 23:56+0000\n"
+"PO-Revision-Date: 2022-11-08 23:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,22 +18,22 @@ msgstr ""
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__length
 msgid "Length"
-msgstr ""
+msgstr "Longueur"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Article"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unité de mesure d'article"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_uom_category
 msgid "Product UoM Categories"
-msgstr ""
+msgstr "Catégorie d'UdM"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__surface
@@ -44,18 +44,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_uom_category__measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_uom_uom__measure_type
 msgid "Type of Measure"
-msgstr ""
+msgstr "Type de mesure"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__unit
 msgid "Units"
-msgstr ""
+msgstr "Unité"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_product_product__uom_measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_product_template__uom_measure_type
 msgid "UoM Type of Measure"
-msgstr ""
+msgstr "Type de mesure de l'unité"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__volume
@@ -65,14 +65,14 @@ msgstr ""
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__weight
 msgid "Weight"
-msgstr ""
+msgstr "Poids"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__working_time
 msgid "Working Time"
-msgstr ""
+msgstr "Temps de travail"
 
 #. module: product_uom_measure_type
 #: model:ir.model.constraint,message:product_uom_measure_type.constraint_uom_category_uom_category_unique_type
 msgid "You can have only one category per measurement type."
-msgstr ""
+msgstr "Vous pouvez seulement avoir une catégorie de mesure par type de mesure."
