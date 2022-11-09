@@ -4,7 +4,7 @@
 
 {
     "name": "Product - UoM Measure Type",
-    "version": "12.0.1.0.1",
+    "version": "16.0.1.0.1",
     "category": "Product",
     "author": "GRAP, Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
@@ -14,6 +14,8 @@
         "product",
     ],
     "data": [
+        "views/view_uom_category.xml",
+        "views/view_uom_uom.xml",
         "views/view_product_template.xml",
     ],
     "pre_init_hook": "pre_init_hook",

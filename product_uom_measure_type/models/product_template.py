@@ -9,7 +9,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     uom_measure_type = fields.Selection(
-        string="UoM Measure Type",
+        string="UoM Type of Measure",
         related="uom_id.measure_type",
         store=True,
         readonly=True,
