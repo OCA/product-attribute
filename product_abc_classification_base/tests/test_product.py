@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -81,12 +80,8 @@ class TestProduct(ABCClassificationLevelCase):
         )
         product_level.unlink()
 
-        self.assertFalse(
-            self.product_product.abc_classification_product_level_ids
-        )
-        self.assertFalse(
-            self.product_template.abc_classification_product_level_ids
-        )
+        self.assertFalse(self.product_product.abc_classification_product_level_ids)
+        self.assertFalse(self.product_template.abc_classification_product_level_ids)
 
     def test_03(self):
         """
@@ -108,8 +103,7 @@ class TestProduct(ABCClassificationLevelCase):
             }
         )
         self.assertEqual(
-            new_variant.abc_classification_product_level_ids, product_level,
+            new_variant.abc_classification_product_level_ids,
+            product_level,
         )
-        self.assertFalse(
-            self.product_template.abc_classification_product_level_ids
-        )
+        self.assertFalse(self.product_template.abc_classification_product_level_ids)

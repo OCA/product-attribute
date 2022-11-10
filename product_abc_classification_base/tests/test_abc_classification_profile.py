@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from psycopg2 import IntegrityError
 
-from .common import ABCClassificationCase
 from odoo.exceptions import ValidationError
+
+from .common import ABCClassificationCase
 
 
 class TestABCClassificationProfile(ABCClassificationCase):
@@ -298,4 +298,3 @@ class TestABCClassificationProfile(ABCClassificationCase):
                     "profile_type": "test_type",
                 }
             )
-

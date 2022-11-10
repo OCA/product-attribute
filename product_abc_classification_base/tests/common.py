@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -78,13 +77,9 @@ class ABCClassificationLevelCase(ABCClassificationCase):
             }
         )
         levels = cls.classification_profile_bis.level_ids
-        cls.classification_level_bis_a = levels.filtered(
-            lambda l: l.name == "a"
-        )
+        cls.classification_level_bis_a = levels.filtered(lambda l: l.name == "a")
 
-        cls.classification_level_bis_b = levels.filtered(
-            lambda l: l.name == "b"
-        )
+        cls.classification_level_bis_b = levels.filtered(lambda l: l.name == "b")
         # create a template with one variant adn declare attributes to create
         # an other variant on demand
         cls.size_attr = cls.env["product.attribute"].create(

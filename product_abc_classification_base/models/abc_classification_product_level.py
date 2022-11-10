@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -18,7 +17,7 @@ class AbcClassificationProductLevel(models.Model):
         "abc.classification.level",
         string="Manual classification level",
         track_visibility="onchange",
-        domain="[('profile_id', '=', profile_id)]"
+        domain="[('profile_id', '=', profile_id)]",
     )
     computed_level_id = fields.Many2one(
         "abc.classification.level",
@@ -30,7 +29,7 @@ class AbcClassificationProductLevel(models.Model):
         string="Classification level",
         compute="_compute_level_id",
         store=True,
-        domain="[('profile_id', '=', profile_id)]"
+        domain="[('profile_id', '=', profile_id)]",
     )
     flag = fields.Boolean(
         default=False,
@@ -66,7 +65,7 @@ class AbcClassificationProductLevel(models.Model):
     )
     allowed_profile_ids = fields.Many2many(
         comodel_name="abc.classification.profile",
-        related="product_id.abc_classification_profile_ids"
+        related="product_id.abc_classification_profile_ids",
     )
 
     _sql_constraints = [
@@ -92,10 +91,7 @@ class AbcClassificationProductLevel(models.Model):
                         "profile as the one on the product level"
                     )
                 )
-            if (
-                rec.manual_level_id
-                and rec.manual_level_id.profile_id != rec.profile_id
-            ):
+            if rec.manual_level_id and rec.manual_level_id.profile_id != rec.profile_id:
                 raise ValidationError(
                     _(
                         "Manual level must be in  the same classifiation "
@@ -113,7 +109,7 @@ class AbcClassificationProductLevel(models.Model):
     @api.depends("level_id", "profile_id")
     def _compute_display_name(self):
         for record in self:
-            record.display_name = u"{profile_name}: {level_name}".format(
+            record.display_name = "{profile_name}: {level_name}".format(
                 profile_name=record.profile_id.name,
                 level_name=record.level_id.name,
             )
@@ -130,8 +126,7 @@ class AbcClassificationProductLevel(models.Model):
     def _compute_flag(self):
         for rec in self:
             rec.flag = (
-                rec.computed_level_id
-                and rec.manual_level_id != rec.computed_level_id
+                rec.computed_level_id and rec.manual_level_id != rec.computed_level_id
             )
 
     @api.model
@@ -142,7 +137,7 @@ class AbcClassificationProductLevel(models.Model):
             vals["manual_level_id"] = vals["computed_level_id"]
 
         if "profile_id" in vals:
-            profile = self.env["abc.classification.profile"].browse(vals['profile_id'])
+            profile = self.env["abc.classification.profile"].browse(vals["profile_id"])
             if profile.auto_apply_computed_value and "computed_level_id" in vals:
                 vals["manual_level_id"] = vals["computed_level_id"]
         return super(AbcClassificationProductLevel, self).create(vals)
@@ -150,11 +145,12 @@ class AbcClassificationProductLevel(models.Model):
     def write(self, vals):
         values = vals.copy()
         if "profile_id" in values:
-            profile = self.env["abc.classification.profile"].browse(values['profile_id'])
+            profile = self.env["abc.classification.profile"].browse(
+                values["profile_id"]
+            )
         else:
             profile = self.mapped("profile_id")
 
         if profile.auto_apply_computed_value and "computed_level_id" in values:
             values["manual_level_id"] = values["computed_level_id"]
         return super(AbcClassificationProductLevel, self).write(values)
-

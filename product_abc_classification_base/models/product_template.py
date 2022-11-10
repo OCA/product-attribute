@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ForgeFlow
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -48,8 +47,9 @@ class ProductTemplate(models.Model):
         )
         for template in unique_variants:
             variants = template.product_variant_ids
-            template.abc_classification_product_level_ids = \
+            template.abc_classification_product_level_ids = (
                 variants.abc_classification_product_level_ids
+            )
         for template in self - unique_variants:
             template.abc_classification_product_level_ids = False
 
@@ -57,12 +57,14 @@ class ProductTemplate(models.Model):
         for template in self:
             if len(template.product_variant_ids) == 1:
                 variants = template.product_variant_ids
-                variants.abc_classification_profile_ids = \
+                variants.abc_classification_profile_ids = (
                     template.abc_classification_profile_ids
+                )
 
     def _inverse_abc_classification_product_level_ids(self):
         for template in self:
             if len(template.product_variant_ids) == 1:
                 variants = template.product_variant_ids
-                variants.abc_classification_product_level_ids = \
+                variants.abc_classification_product_level_ids = (
                     template.abc_classification_product_level_ids
+                )
