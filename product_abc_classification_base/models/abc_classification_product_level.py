@@ -16,7 +16,7 @@ class AbcClassificationProductLevel(models.Model):
     manual_level_id = fields.Many2one(
         "abc.classification.level",
         string="Manual classification level",
-        track_visibility="onchange",
+        tracking=True,
         domain="[('profile_id', '=', profile_id)]",
     )
     computed_level_id = fields.Many2one(
@@ -129,18 +129,21 @@ class AbcClassificationProductLevel(models.Model):
                 rec.computed_level_id and rec.manual_level_id != rec.computed_level_id
             )
 
-    @api.model
-    def create(self, vals):
-        if "manual_level_id" not in vals and "computed_level_id" in vals:
-            # at creation the manual level is set to the same value as the
-            # computed one
-            vals["manual_level_id"] = vals["computed_level_id"]
-
-        if "profile_id" in vals:
-            profile = self.env["abc.classification.profile"].browse(vals["profile_id"])
-            if profile.auto_apply_computed_value and "computed_level_id" in vals:
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if "manual_level_id" not in vals and "computed_level_id" in vals:
+                # at creation the manual level is set to the same value as the
+                # computed one
                 vals["manual_level_id"] = vals["computed_level_id"]
-        return super(AbcClassificationProductLevel, self).create(vals)
+
+            if "profile_id" in vals:
+                profile = self.env["abc.classification.profile"].browse(
+                    vals["profile_id"]
+                )
+                if profile.auto_apply_computed_value and "computed_level_id" in vals:
+                    vals["manual_level_id"] = vals["computed_level_id"]
+        return super().create(vals_list)
 
     def write(self, vals):
         values = vals.copy()
@@ -153,4 +156,4 @@ class AbcClassificationProductLevel(models.Model):
 
         if profile.auto_apply_computed_value and "computed_level_id" in values:
             values["manual_level_id"] = values["computed_level_id"]
-        return super(AbcClassificationProductLevel, self).write(values)
+        return super().write(values)

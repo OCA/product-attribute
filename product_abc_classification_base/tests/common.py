@@ -1,13 +1,14 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class ABCClassificationCase(SavepointCase):
+class ABCClassificationCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(ABCClassificationCase, cls).setUpClass()
+        super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         # add a fake profile_type
         cls.ABCClassificationProfile = cls.env["abc.classification.profile"]
         cls.ABCClassificationProfile._fields["profile_type"].selection = [
@@ -21,7 +22,7 @@ class ABCClassificationCase(SavepointCase):
 class ABCClassificationLevelCase(ABCClassificationCase):
     @classmethod
     def setUpClass(cls):
-        super(ABCClassificationLevelCase, cls).setUpClass()
+        super().setUpClass()
         cls.classification_profile.write(
             {
                 "level_ids": [
@@ -85,13 +86,13 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         cls.size_attr = cls.env["product.attribute"].create(
             {
                 "name": "Size",
-                "create_variant": False,
+                "create_variant": "no_variant",
                 "value_ids": [(0, 0, {"name": "S"}), (0, 0, {"name": "M"})],
             }
         )
         cls.size_attr_value_s = cls.size_attr.value_ids[0]
         cls.size_attr_value_m = cls.size_attr.value_ids[1]
-        cls.uom_unit = cls.env.ref("product.product_uom_unit")
+        cls.uom_unit = cls.env.ref("uom.product_uom_unit")
         cls.product_template = cls.env["product.template"].create(
             {
                 "name": "Test sized",
@@ -117,6 +118,6 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         return cls.env["product.product"].create(
             {
                 "product_tmpl_id": cls.product_template.id,
-                "attribute_value_ids": [(6, 0, size_value.ids)],
+                "product_template_attribute_value_ids": [(6, 0, size_value.ids)],
             }
         )

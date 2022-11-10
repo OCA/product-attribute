@@ -57,7 +57,6 @@ class AbcClassificationProfile(models.Model):
                     )
                 )
 
-    @api.multi
     def _compute_abc_classification(self):
         raise NotImplementedError()
 
@@ -94,4 +93,4 @@ class AbcClassificationProfile(models.Model):
         modified_levels = self.env["abc.classification.product.level"].browse(level_ids)
         # mark field as modified and trigger recompute of dependent fields.
         modified_levels.modified(["manual_level_id"])
-        modified_levels.recompute()
+        modified_levels._recompute_recordset()

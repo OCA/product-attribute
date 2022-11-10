@@ -35,7 +35,7 @@
         >abc.classification.profile.tree (in product_abc_classification_base)</field>
     <field name="model">abc.classification.profile</field>
     <field name="arch" type="xml">
-      <tree string="ABC Profiles">
+      <tree>
         <field name="name" />
       </tree>
     </field>

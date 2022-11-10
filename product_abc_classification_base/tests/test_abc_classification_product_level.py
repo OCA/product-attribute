@@ -11,7 +11,7 @@ from .common import ABCClassificationLevelCase
 class TestABCClassificationProductLevel(ABCClassificationLevelCase):
     @classmethod
     def setUpClass(cls):
-        super(TestABCClassificationProductLevel, cls).setUpClass()
+        super().setUpClass()
         cls.product_1 = cls.env["product.product"].create(
             {
                 "name": "Test 1",

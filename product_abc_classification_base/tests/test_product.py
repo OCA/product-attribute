@@ -7,7 +7,7 @@ from .common import ABCClassificationLevelCase
 class TestProduct(ABCClassificationLevelCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProduct, cls).setUpClass()
+        super().setUpClass()
 
     def test_00(self):
         """
