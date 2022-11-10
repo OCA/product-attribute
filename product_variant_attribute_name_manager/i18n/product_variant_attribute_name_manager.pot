@@ -24,8 +24,28 @@ msgid "Display Attribute Name on Product Variant"
 msgstr ""
 
 #. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_no_variant_attribute
+msgid "Display No Variant Attributes on Product Variant"
+msgstr ""
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_single_variant_attribute
+msgid "Display Single Variant Attributes on Product Variant"
+msgstr ""
+
+#. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__short_name
 msgid "Displayed as the variant attribute name."
+msgstr ""
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_no_variant_attribute
+msgid "If checked, it will display the no variant attribute."
+msgstr ""
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_single_variant_attribute
+msgid "If checked, it will display the single variant attribute."
 msgstr ""
 
 #. module: product_variant_attribute_name_manager
