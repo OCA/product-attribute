@@ -25,6 +25,8 @@
             </xpath>
             <xpath expr="//field[@name='create_variant']" position="after">
               <field name="display_attribute_name" />
+              <field name="display_no_variant_attribute" />
+              <field name="display_single_variant_attribute" />
             </xpath>
         </field>
     </record>
