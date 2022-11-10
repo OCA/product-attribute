@@ -9,8 +9,8 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV, ForgeFlow, Odoo Community Association (OCA)",
-    "depends": ["product", "stock", "web_m2x_options"],
     "website": "https://github.com/OCA/product-attribute",
+    "depends": ["product", "stock"],
     "data": [
         "views/abc_classification_product_level.xml",
         "views/abc_classification_profile.xml",
