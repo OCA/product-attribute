@@ -5,7 +5,7 @@
   <record id="abc_classification_product_level_form_view" model="ir.ui.view">
     <field
             name="name"
-        >abc.classification.product.level.form (in product_abc_classification_base)</field>
+        >abc.classification.product.level.form (in product_abc_classification)</field>
     <field name="model">abc.classification.product.level</field>
     <field name="arch" type="xml">
       <form string="ABC Classification Product Level">
@@ -41,7 +41,7 @@
   <record id="abc_classification_product_level_tree_view" model="ir.ui.view">
     <field
             name="name"
-        >abc.classification.product.level.tree (in product_abc_classification_base)</field>
+        >abc.classification.product.level.tree (in product_abc_classification)</field>
     <field name="model">abc.classification.product.level</field>
     <field name="arch" type="xml">
       <tree decoration-danger="flag == True" editable="bottom">
@@ -56,7 +56,7 @@
   <record model="ir.ui.view" id="abc_classification_product_level_search_view">
     <field
             name="name"
-        >abc.classification.product.level.search (in product_abc_classification_base)</field>
+        >abc.classification.product.level.search (in product_abc_classification)</field>
     <field name="model">abc.classification.product.level</field>
     <field name="arch" type="xml">
         <search string="Abc classification">

@@ -5,7 +5,7 @@
   <record id="abc_classification_profile_form_view" model="ir.ui.view">
     <field
             name="name"
-        >abc.classification.profile.form (in product_abc_classification_base)</field>
+        >abc.classification.profile.form (in product_abc_classification)</field>
     <field name="model">abc.classification.profile</field>
     <field name="arch" type="xml">
       <form string="ABC Profile">
@@ -32,7 +32,7 @@
   <record id="abc_classification_profile_tree_view" model="ir.ui.view">
     <field
             name="name"
-        >abc.classification.profile.tree (in product_abc_classification_base)</field>
+        >abc.classification.profile.tree (in product_abc_classification)</field>
     <field name="model">abc.classification.profile</field>
     <field name="arch" type="xml">
       <tree>
