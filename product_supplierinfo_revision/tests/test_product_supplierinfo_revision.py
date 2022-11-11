@@ -6,13 +6,11 @@ from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
-from odoo.tests import common
+from odoo.tests import common, tagged
 
 
-class TestProductSupplierinfoRevision(common.SavepointCase):
-    post_install = True
-    at_install = False
-
+@tagged("post_install", "-at_install")
+class TestProductSupplierinfoRevision(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
