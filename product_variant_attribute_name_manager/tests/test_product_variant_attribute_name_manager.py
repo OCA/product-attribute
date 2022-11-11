@@ -17,6 +17,7 @@ class TestProductTemplateAttributeValue(TransactionCase):
         self._add_ssd_attribute()
         self._add_ram_attribute()
         self._add_hdd_attribute()
+        self._add_color_attribute()
 
     def _add_ssd_attribute(self):
         self.ssd_attribute = self.env["product.attribute"].create(
@@ -91,6 +92,29 @@ class TestProductTemplateAttributeValue(TransactionCase):
             }
         )
 
+    def _add_color_attribute(self):
+        self.color_attribute = self.env["product.attribute"].create(
+            {
+                "name": "COLOR",
+                "sequence": 4,
+                "display_attribute_name": True,
+            }
+        )
+        self.color_white = self.env["product.attribute.value"].create(
+            {"name": "White", "attribute_id": self.color_attribute.id, "sequence": 1}
+        )
+
+        self.computer_color_attribute_lines = self.env[
+            "product.template.attribute.line"
+        ].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": self.color_attribute.id,
+                "value_ids": [(6, 0, [self.color_white.id])],
+                "sequence": 4,
+            }
+        )
+
     def test_display_attribute_name(self):
         variant_names = [
             variant.product_template_attribute_value_ids._get_combination_name()
@@ -116,6 +140,21 @@ class TestProductTemplateAttributeValue(TransactionCase):
             "Mem: 256 GB, 1 To, RAM: 8 GB",
             variant_names,
             "Variant name extension not correct",
+        )
+
+        self.color_attribute.display_single_variant_attribute = True
+
+        variant_names = [
+            variant.product_template_attribute_value_ids._get_combination_name()
+            for variant in self.env["product.product"].search(
+                [("product_tmpl_id", "=", self.computer.id)]
+            )
+        ]
+
+        self.assertIn(
+            "1 To, Mem: 256 GB, RAM: 8 GB, COLOR: White",
+            variant_names,
+            "Variant name extension not found",
         )
 
     def test_display_attribute_value(self):
