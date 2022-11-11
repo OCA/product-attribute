@@ -49,7 +49,6 @@ msgid "Date Start"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__display_name
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__display_name
 msgid "Display Name"
 msgstr "Nom d'affichage"
@@ -60,13 +59,11 @@ msgid "Duplicate Supplier Info"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__id
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__id
 msgid "ID"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo____last_update
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
@@ -82,11 +79,13 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "Previous Price"
 msgstr ""
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Previous info"
 msgstr ""
@@ -97,6 +96,7 @@ msgid "Product Supplier Duplicate Wizard"
 msgstr ""
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Relation with previous info when duplicate line"
 msgstr ""
@@ -117,11 +117,13 @@ msgid "Supplier Pricelist"
 msgstr ""
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "The price to purchase a product"
 msgstr ""
 
 #. module: product_supplierinfo_revision
+#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__variation_percent
 msgid "Variation %"
