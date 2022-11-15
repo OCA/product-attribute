@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_sequence
+#. odoo-python
 #: code:addons/product_sequence/models/product_product.py:0
 #, python-format
 msgid "-copy"
