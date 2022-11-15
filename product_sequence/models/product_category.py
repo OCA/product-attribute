@@ -49,11 +49,15 @@ class ProductCategory(models.Model):
                     rec.sequence_id = self.env["ir.sequence"].create(seq_vals)
         return super().write(vals)
 
-    @api.model
-    def create(self, vals):
-        prefix = vals.get("code_prefix", False)
-        if prefix:
-            seq_vals = self._prepare_ir_sequence(prefix)
-            sequence = self.env["ir.sequence"].create(seq_vals)
-            vals["sequence_id"] = sequence.id
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals_list_updated = []
+        for vals in vals_list:
+            prefix = vals.get("code_prefix", False)
+            if prefix:
+                seq_vals = self._prepare_ir_sequence(prefix)
+                sequence = self.env["ir.sequence"].create(seq_vals)
+                vals_list_updated.append(dict(vals, sequence_id=sequence.id))
+            else:
+                vals_list_updated.append(vals)
+        return super().create(vals_list_updated)
