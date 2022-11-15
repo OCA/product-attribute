@@ -34,7 +34,7 @@ class TestProductSequence(TransactionCase):
         product_2 = self.product_template.create(
             dict(name="Apple", default_code="PROD02")
         )
-        product_2.flush()
+        product_2.flush_recordset()
         copy_product_2 = product_2.product_variant_id.copy()
         self.assertEqual(copy_product_2.default_code, "PROD02-copy")
 
@@ -46,10 +46,10 @@ class TestProductSequence(TransactionCase):
             "update product_product set default_code='/' where id=%s",
             (tuple(product_3.ids),),
         )
-        product_3.invalidate_cache()
+        product_3.invalidate_recordset()
         self.assertEqual(product_3.default_code, "/")
         pre_init_hook(self.cr)
-        product_3.invalidate_cache()
+        product_3.invalidate_recordset()
         self.assertEqual(product_3.default_code, "!!mig!!{}".format(product_3.id))
 
     def test_product_category_sequence(self):
@@ -80,7 +80,7 @@ class TestProductSequence(TransactionCase):
         categ_car = self.product_category.create(dict(name="Car", code_prefix="CAR"))
         product_3.product_tmpl_id.categ_id = categ_car
         product_3.product_tmpl_id.default_code = "/"
-        product_3.refresh()
+        product_3.invalidate_recordset()
         self.assertEqual(product_3.default_code[:3], "CAR")
         self.assertEqual(product_3.product_tmpl_id.default_code[:3], "CAR")
         categ_car.write(dict(name="Bike", code_prefix="BIK"))
@@ -127,7 +127,7 @@ class TestProductSequence(TransactionCase):
         product_2 = self.product_template.create(
             dict(name="Apple", default_code="PROD02")
         )
-        product_2.flush()
+        product_2.flush_recordset()
         copy_product_2 = product_2.product_variant_id.copy(
             {"default_code": "product test sequence"}
         )
