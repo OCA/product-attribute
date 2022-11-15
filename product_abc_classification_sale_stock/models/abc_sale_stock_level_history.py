@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -6,7 +5,7 @@ from odoo import fields, models
 
 
 class AbcSaleStockLevelHistory(models.Model):
-    """ ABC Classification Product Level History
+    """ABC Classification Product Level History
 
     This model is used to display the history of values collected and involved
     into the computation of the ABC classification level.
@@ -61,7 +60,10 @@ class AbcSaleStockLevelHistory(models.Model):
         ondelete="cascade",
     )
     warehouse_id = fields.Many2one(
-        "stock.warehouse", "Warehouse", readonly=False, ondelete="cascade",
+        "stock.warehouse",
+        "Warehouse",
+        readonly=False,
+        ondelete="cascade",
     )
     ranking = fields.Integer(
         "Ranking",
@@ -70,10 +72,14 @@ class AbcSaleStockLevelHistory(models.Model):
         help="Ranking by number of oder lines",
     )
     number_so_lines = fields.Integer(
-        "Number of sale order lines", required=True, readonly=True,
+        "Number of sale order lines",
+        required=True,
+        readonly=True,
     )
     total_so_lines = fields.Integer(
-        "Total of sale order lines", required=True, readonly=True,
+        "Total of sale order lines",
+        required=True,
+        readonly=True,
     )
     percentage = fields.Float(
         "Percentage",
@@ -109,8 +115,7 @@ class AbcSaleStockLevelHistory(models.Model):
         "Cumulated percentage of products",
         required=True,
         readonly=True,
-        help="Cumulated percentage of total products analyzed with a "
-             "better ranking",
+        help="Cumulated percentage of total products analyzed with a " "better ranking",
         digits=(7, 4),
         group_operator=None,
     )

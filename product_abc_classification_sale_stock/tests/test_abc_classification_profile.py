@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -275,4 +274,3 @@ class TestABCClassificationProfile(SavepointCase):
         self.assertEqual(len(levels.sale_stock_level_history_ids), 1)
         self.stock_profile._compute_abc_classification()
         self.assertEqual(len(levels.sale_stock_level_history_ids), 2)
-
