@@ -3,13 +3,14 @@
 
 from freezegun import freeze_time
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestABCClassificationProfile(SavepointCase):
+class TestABCClassificationProfile(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestABCClassificationProfile, cls).setUpClass()
+        super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
 
         cls.partner = cls.env["res.partner"].create(
             {"name": "Unittest partner", "ref": "12344566777878"}
@@ -42,7 +43,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product1 = cls.env["product.product"].create(
             {
                 "name": "Product1",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "987654321",
                 "tracking": "none",
@@ -53,7 +54,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product2 = cls.env["product.product"].create(
             {
                 "name": "Product2",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "123456789",
                 "tracking": "none",
@@ -64,7 +65,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product3 = cls.env["product.product"].create(
             {
                 "name": "Product3",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "67548309",
                 "tracking": "none",
@@ -75,7 +76,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product4 = cls.env["product.product"].create(
             {
                 "name": "Product4",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "123409876",
                 "tracking": "none",
@@ -86,7 +87,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product5 = cls.env["product.product"].create(
             {
                 "name": "Product5",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "0987540321",
                 "tracking": "none",
@@ -97,7 +98,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product6 = cls.env["product.product"].create(
             {
                 "name": "Product6",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "345789732",
                 "tracking": "none",
@@ -108,7 +109,7 @@ class TestABCClassificationProfile(SavepointCase):
         cls.product_new = cls.env["product.product"].create(
             {
                 "name": "product_new",
-                "uom_id": cls.env.ref("product.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "type": "product",
                 "default_code": "345789733",
                 "tracking": "none",
@@ -171,15 +172,18 @@ class TestABCClassificationProfile(SavepointCase):
 
     @classmethod
     def _create_availability(cls, product):
-        update_qty_wizard = cls.env["stock.change.product.qty"].create(
-            {
-                "product_id": product.id,
-                "product_tmpl_id": product.product_tmpl_id.id,
-                "new_quantity": 500,
-                "location_id": cls.warehouse.lot_stock_id.id,
-            }
+        quant = (
+            cls.env["stock.quant"]
+            .with_context(inventory_mode=True)
+            .create(
+                {
+                    "product_id": product.id,
+                    "inventory_quantity": 500,
+                    "location_id": cls.warehouse.lot_stock_id.id,
+                }
+            )
         )
-        update_qty_wizard.change_product_qty()
+        quant.action_apply_inventory()
 
     @classmethod
     def _confirm_sale_order(cls, products, qty, partner=None):
@@ -215,9 +219,9 @@ class TestABCClassificationProfile(SavepointCase):
         pick = so.mapped("picking_ids")
         pick.action_confirm()
         pick.action_assign()
-        for pack_op in pick.pack_operation_ids:
-            pack_op.qty_done = pack_op.product_qty
-        pick.action_done()
+        for move_line in pick.move_line_ids:
+            move_line.qty_done = move_line.reserved_qty
+        pick._action_done()
 
     def _assertLevelIs(self, product, level_name):
         levels = product.abc_classification_product_level_ids

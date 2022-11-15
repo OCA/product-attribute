@@ -66,7 +66,6 @@ class AbcSaleStockLevelHistory(models.Model):
         ondelete="cascade",
     )
     ranking = fields.Integer(
-        "Ranking",
         required=True,
         readonly=True,
         help="Ranking by number of oder lines",
@@ -82,7 +81,6 @@ class AbcSaleStockLevelHistory(models.Model):
         readonly=True,
     )
     percentage = fields.Float(
-        "Percentage",
         required=True,
         readonly=True,
         help="Percentage of total sale order lines",
@@ -90,7 +88,6 @@ class AbcSaleStockLevelHistory(models.Model):
         group_operator="SUM",
     )
     cumulated_percentage = fields.Float(
-        "Cumulated percentage",
         required=True,
         readonly=True,
         help="Cumulated percentage of all the products with a better ranking",
