@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. module: product_sequence
+#. odoo-python
 #: code:addons/product_sequence/models/product_product.py:0
 #, python-format
 msgid "-copy"

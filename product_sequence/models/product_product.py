@@ -18,22 +18,27 @@ class ProductProduct(models.Model):
         "to be proposed.",
     )
 
-    @api.model
-    def create(self, vals):
-        if "default_code" not in vals or vals["default_code"] == "/":
-            categ_id = vals.get("categ_id", False)
-            template_id = vals.get("product_tmpl_id", False)
-            category = self.env["product.category"]
-            if categ_id:
-                # Created as a product.product
-                category = category.browse(categ_id)
-            elif template_id:
-                # Created from a product.template
-                template = self.env["product.template"].browse(template_id)
-                category = template.categ_id
-            sequence = self.env["ir.sequence"].get_category_sequence_id(category)
-            vals["default_code"] = sequence.next_by_id()
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals_list_updated = []
+        for vals in vals_list:
+            if "default_code" not in vals or vals["default_code"] == "/":
+                categ_id = vals.get("categ_id", False)
+                template_id = vals.get("product_tmpl_id", False)
+                category = self.env["product.category"]
+                if categ_id:
+                    # Created as a product.product
+                    category = category.browse(categ_id)
+                elif template_id:
+                    # Created from a product.template
+                    template = self.env["product.template"].browse(template_id)
+                    category = template.categ_id
+                sequence = self.env["ir.sequence"].get_category_sequence_id(category)
+                vals_list_updated.append(dict(vals, default_code=sequence.next_by_id()))
+            else:
+                vals_list_updated.append(vals)
+        res = super().create(vals_list_updated)
+        return res
 
     def write(self, vals):
         """To assign a new internal reference, just write '/' on the field.
