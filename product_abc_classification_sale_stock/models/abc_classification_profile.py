@@ -3,9 +3,8 @@
 
 import csv
 from datetime import datetime, timedelta
+from io import StringIO
 from operator import attrgetter
-
-from cStringIO import StringIO
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
@@ -22,7 +21,8 @@ class AbcClassificationProfile(models.Model):
                 "sale_stock",
                 "Based on the count of delivered sale order line by product",
             )
-        ]
+        ],
+        ondelete={"sale_stock": "cascade"},
     )
     warehouse_id = fields.Many2one(
         "stock.warehouse",
@@ -118,13 +118,10 @@ class AbcClassificationProfile(models.Model):
                                 1
                             FROM
                                 stock_move sm
-                            JOIN
-                                procurement_order po
-                                on po.id = sm.procurement_id
                             WHERE
                                 sm.date > %(start_date)s
                                 AND sm.location_dest_id in %(customer_loc_ids)s
-                                AND po.sale_line_id = sol.id
+                                AND sm.sale_line_id = sol.id
                         )
 
                     GROUP BY sol.product_id
@@ -230,7 +227,6 @@ class AbcClassificationProfile(models.Model):
             )
         return res
 
-    @api.multi
     def _compute_abc_classification(self):
         to_compute = self.filtered(lambda p: p.profile_type == "sale_stock")
         remaining = self - to_compute
