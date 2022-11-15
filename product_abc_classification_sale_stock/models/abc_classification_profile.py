@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import csv
-from cStringIO import StringIO
 from datetime import datetime, timedelta
 from operator import attrgetter
 
+from cStringIO import StringIO
+
 from odoo import _, api, fields, models
-from odoo.tools import float_round
 from odoo.exceptions import UserError, ValidationError
+from odoo.tools import float_round
 
 
 class AbcClassificationProfile(models.Model):
@@ -38,9 +38,9 @@ class AbcClassificationProfile(models.Model):
         for rec in self:
             if rec.profile_type == "sale_stock" and not rec.warehouse_id:
                 raise ValidationError(
-                    _(
-                        "You must specify a warehouse for {profile_name}"
-                    ).forman(profile_name=rec.name)
+                    _("You must specify a warehouse for {profile_name}").forman(
+                        profile_name=rec.name
+                    )
                 )
 
     @api.model
@@ -74,8 +74,7 @@ class AbcClassificationProfile(models.Model):
         return {r[0] for r in self.env.cr.fetchall()}
 
     def _get_data(self, from_date=None):
-        """Get a list of statics info from the DB ordered by number of lines desc
-        """
+        """Get a list of statics info from the DB ordered by number of lines desc"""
         self.ensure_one()
         from_date = (
             from_date
@@ -176,9 +175,7 @@ class AbcClassificationProfile(models.Model):
         The ordering is based on the level with the higher percentage first
         """
         self.ensure_one()
-        levels = self.level_ids.sorted(
-            key=attrgetter("percentage"), reverse=True
-        )
+        levels = self.level_ids.sorted(key=attrgetter("percentage"), reverse=True)
         cum_percentages = []
         previous_percentage = None
         for i, level in enumerate(levels):
@@ -235,7 +232,7 @@ class AbcClassificationProfile(models.Model):
 
     @api.multi
     def _compute_abc_classification(self):
-        to_compute = self.filtered((lambda p: p.profile_type == "sale_stock"))
+        to_compute = self.filtered(lambda p: p.profile_type == "sale_stock")
         remaining = self - to_compute
         res = None
         if remaining:
@@ -247,9 +244,7 @@ class AbcClassificationProfile(models.Model):
         for profile in to_compute:
             sale_stock_data_list, total = profile._get_data()
             existing_level_ids_to_remove = profile._get_existing_level_ids()
-            level_percentage = (
-                profile._build_ordered_level_cumulative_percentage()
-            )
+            level_percentage = profile._build_ordered_level_cumulative_percentage()
             level, percentage = level_percentage.pop(0)
             previous_data = {}
             total_products = len(sale_stock_data_list)
@@ -267,23 +262,18 @@ class AbcClassificationProfile(models.Model):
                 )
                 # Compute percentages and cumulative percentages for the products
                 sale_stock_data.percentage = (
-                    (100.0 * sale_stock_data.number_so_lines / total)
-                    if total
-                    else 0.0
+                    (100.0 * sale_stock_data.number_so_lines / total) if total else 0.0
                 )
 
                 sale_stock_data.cumulated_percentage = (
                     sale_stock_data.percentage
                     if i == 0
                     else (
-                        sale_stock_data.percentage
-                        + previous_data.cumulated_percentage
+                        sale_stock_data.percentage + previous_data.cumulated_percentage
                     )
                 )
                 if float_round(sale_stock_data.cumulated_percentage, 0) > 100:
-                    raise UserError(
-                        _("Cumulative percentage greater than 100.")
-                    )
+                    raise UserError(_("Cumulative percentage greater than 100."))
 
                 sale_stock_data.sum_cumulated_percentages = (
                     sale_stock_data.cumulated_percentage
@@ -308,9 +298,7 @@ class AbcClassificationProfile(models.Model):
                 sale_stock_data.computed_level = level
                 if product_abc_classification:
                     # The line is still significant...
-                    existing_level_ids_to_remove.remove(
-                        product_abc_classification.id
-                    )
+                    existing_level_ids_to_remove.remove(product_abc_classification.id)
                     if product_abc_classification.level_id != level:
                         vals = profile._sale_stock_data_to_vals(
                             sale_stock_data, create=False
@@ -320,9 +308,7 @@ class AbcClassificationProfile(models.Model):
                     vals = profile._sale_stock_data_to_vals(
                         sale_stock_data, create=True
                     )
-                    product_abc_classification = ProductClassification.create(
-                        vals
-                    )
+                    product_abc_classification = ProductClassification.create(vals)
                 sale_stock_data.total_so_lines = total
                 sale_stock_data.product_level = product_abc_classification
                 previous_data = sale_stock_data
@@ -331,7 +317,7 @@ class AbcClassificationProfile(models.Model):
         return res
 
     def _log_history(self, sale_stock_data_list):
-        """ Log collected and computed values into
+        """Log collected and computed values into
         abc.sale_stock.level.history
 
         """
@@ -349,7 +335,7 @@ class AbcClassificationProfile(models.Model):
 
 
 class SaleStockData(object):
-    """ Sale stock collected data
+    """Sale stock collected data
 
     This class is used to store all the data collectd and computed for
     a abc classification product level. It also provide methods used to bulk
