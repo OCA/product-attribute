@@ -76,8 +76,8 @@ class AbcClassificationProfile(models.Model):
 
     def action_view_products(self):
         products = self.mapped("product_variant_ids")
-        action = self.env["ir.actions.act_window"].for_xml_id(
-            "product", "product_variant_action"
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "product.product_variant_action"
         )
         del action["context"]
         if len(products) > 1:
