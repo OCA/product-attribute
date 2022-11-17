@@ -14,16 +14,19 @@ class SeasonalConfigLine(models.Model):
     seasonal_config_id = fields.Many2one(
         string="Product seasonal configuration",
         comodel_name="seasonal.config",
+        index=True,
         required=True,
     )
     product_template_id = fields.Many2one(
         comodel_name="product.template",
         domain=[("sale_ok", "=", True)],
+        index=True,
         required=True,
     )
     product_id = fields.Many2one(
         comodel_name="product.product",
         domain="[('product_tmpl_id', '=', product_template_id)]",
+        index=True,
     )
     date_start = fields.Datetime(required=True)
     date_end = fields.Datetime()
