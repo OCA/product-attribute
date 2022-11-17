@@ -107,3 +107,33 @@ class TestProduct(ABCClassificationLevelCase):
             product_level,
         )
         self.assertFalse(self.product_template.abc_classification_product_level_ids)
+
+    def test_04(self):
+        """
+        Data:
+            A product template
+        Test case:
+            Check if resource id in action is the product variant one
+        """
+        self.product_template.abc_classification_profile_ids = (
+            self.classification_profile
+        )
+        action = self.classification_profile.action_view_products()
+        self.assertEqual(action["res_id"], self.product_template.product_variant_ids.id)
+
+    def test_05(self):
+        """
+        Data:
+            A product template with two variants
+        Test case:
+            Check if doamin in action is the product variants ids
+        """
+        self._create_variant(self.size_attr_value_m)
+        self.product_template.product_variant_ids.abc_classification_profile_ids = (
+            self.classification_profile
+        )
+        action = self.classification_profile.action_view_products()
+        self.assertEqual(
+            action["domain"],
+            [("id", "in", self.product_template.product_variant_ids.ids)],
+        )
