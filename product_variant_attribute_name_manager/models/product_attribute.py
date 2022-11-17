@@ -35,7 +35,10 @@ class ProductTemplateAttributeValue(models.Model):
         The order of the attributes is defined by the user"""
         display_ptav_list = []
 
-        for ptav in sorted(self, key=lambda seq: seq.attribute_line_id.sequence):
+        for ptav in sorted(
+            self._without_no_variant_attributes(),
+            key=lambda seq: seq.attribute_line_id.sequence,
+        ):
             if not ptav.attribute_id.display_single_variant_attribute:
                 if not ptav._filter_single_value_lines():
                     continue
