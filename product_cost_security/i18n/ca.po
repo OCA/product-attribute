@@ -32,18 +32,26 @@ msgstr "Cost"
 #: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
 #, fuzzy
 msgid ""
-"In Standard Price & AVCO: value of the product (automatically computed in AVCO).\n"
-"        In FIFO: value of the next unit that will leave the stock (automatically computed).\n"
-"        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
+"In Standard Price & AVCO: value of the product (automatically computed in "
+"AVCO).\n"
+"        In FIFO: value of the next unit that will leave the stock "
+"(automatically computed).\n"
+"        Used to value the product when the purchase cost is not known (e.g. "
+"inventory adjustment).\n"
 "        Used to compute margins on sale orders."
 msgstr ""
 "A Preu estàndard i AVCO: valor del producte (calculat automàticament en "
 "AVCO).\n"
-"         En FIFO: valor de la propera unitat que sortirà de l'estoc ("
-"calculat automàticament).\n"
+"         En FIFO: valor de la propera unitat que sortirà de l'estoc "
+"(calculat automàticament).\n"
 "         S'utilitza per valorar el producte quan no es coneix el cost de "
 "compra (p. ex., ajust d'inventari).\n"
 "         S'utilitza per calcular els marges de les comandes de venda."
+
+#. module: product_cost_security
+#: model:res.groups,name:product_cost_security.group_product_edit_cost
+msgid "Modify product costs"
+msgstr ""
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
@@ -54,3 +62,9 @@ msgstr "Producte"
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producte"
+
+#. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
+msgid "User Can Update Cost"
+msgstr ""

@@ -3,7 +3,7 @@
 {
     "name": "Product Cost Security",
     "summary": "Product cost security restriction view",
-    "version": "15.0.1.0.1",
+    "version": "15.0.2.0.0",
     "development_status": "Production/Stable",
     "maintainers": ["sergio-teruel"],
     "category": "Product",
