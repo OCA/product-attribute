@@ -7,7 +7,7 @@ from datetime import date
 from odoo.tests import common
 
 
-class TestProductSupplierinfo(common.SavepointCase):
+class TestProductSupplierinfo(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

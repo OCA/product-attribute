@@ -5,15 +5,7 @@
         <field name="model">product.pricelist.item</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//group[@name='pricelist_rule_advanced']/div"
-                position="inside"
-            >
-                <span
-                    attrs="{'invisible':[('base', '!=', 'supplierinfo')]}"
-                >Supplier price  -  </span>
-            </xpath>
-            <field name="price_max_margin" position="after">
+            <xpath expr="//field[@name='price_max_margin']/.." position="after">
                 <field
                     name="no_supplierinfo_min_quantity"
                     attrs="{'invisible':[('base', '!=', 'supplierinfo')]}"
@@ -22,7 +14,7 @@
                     name="filter_supplier_id"
                     attrs="{'invisible':[('base', '!=', 'supplierinfo')]}"
                 />
-            </field>
+            </xpath>
         </field>
     </record>
 </odoo>
