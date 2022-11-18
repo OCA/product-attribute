@@ -72,7 +72,7 @@ class ProductProduct(models.Model):
             return customerinfo.price
         return 0.0
 
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
+    def price_compute(self, price_type, uom=False, currency=False, company=None):
         if price_type == "partner":
             partner_id = self.env.context.get(
                 "partner_id", False
