@@ -2,10 +2,10 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo_test_helper import FakeModelLoader
 
-from odoo.tests import SavepointCase
+from odoo.tests import TransactionCase
 
 
-class TestProductSecondaryUnitMixin(SavepointCase, FakeModelLoader):
+class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
