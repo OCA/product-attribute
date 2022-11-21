@@ -126,6 +126,7 @@ msgid "Product assortment"
 msgstr "Assortiment de producte"
 
 #. module: product_assortment
+#. odoo-python
 #: code:addons/product_assortment/models/ir_filters.py:0
 #, python-format
 msgid "Products"
