@@ -27,15 +27,16 @@ msgid ""
 "<span attrs=\"{'invisible': [('record_count', '&lt;=', 1)]}\">\n"
 "                                        Products\n"
 "                                    </span>\n"
-"                                    <span attrs=\"{'invisible': [('record_count', '&gt;', 1)]}\">\n"
+"                                    <span attrs=\"{'invisible': "
+"[('record_count', '&gt;', 1)]}\">\n"
 "                                        Product\n"
 "                                    </span>"
 msgstr ""
 "<span attrs=\"{'invisible': [('record_count', '&lt;=', 1)]}\">\n"
 "                                        Produkte\n"
 "                                    </span>\n"
-"                                    <span attrs=\"{'invisible': [("
-"'record_count', '&gt;', 1)]}\">\n"
+"                                    <span attrs=\"{'invisible': "
+"[('record_count', '&gt;', 1)]}\">\n"
 "                                        Produkt\n"
 "                                    </span>"
 
@@ -132,6 +133,7 @@ msgid "Product assortment"
 msgstr "Produkt-Sortiment"
 
 #. module: product_assortment
+#. odoo-python
 #: code:addons/product_assortment/models/ir_filters.py:0
 #, python-format
 msgid "Products"
