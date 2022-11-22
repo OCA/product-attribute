@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-27 03:49+0000\n"
-"PO-Revision-Date: 2018-01-27 03:49+0000\n"
-"Last-Translator: Paolo Valier, 2018\n"
+"PO-Revision-Date: 2022-11-22 16:44+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_product__profile_explanation
@@ -88,7 +89,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile__id
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_profile
 #: code:addons/product_profile/models/product_profile.py:146
@@ -119,7 +120,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile____last_update
 #: model:ir.model.fields,field_description:product_profile.field_product_profile____last_update
 msgid "Last Modified on"
-msgstr "Ultima Modifica il"
+msgstr "Ultima modifica il"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__write_uid
@@ -199,12 +200,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Service"
-msgstr ""
+msgstr "Servizio"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__type
