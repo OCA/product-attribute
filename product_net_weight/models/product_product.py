@@ -4,15 +4,13 @@
 
 from odoo import fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
     net_weight = fields.Float(
         string="Net Weight",
-        digits=dp.get_precision("Stock Weight"),
+        digits="Stock Weight",
         help="Net Weight of the product, container excluded.",
     )
 
