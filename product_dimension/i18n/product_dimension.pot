@@ -38,13 +38,13 @@ msgid "Length"
 msgstr ""
 
 #. module: product_dimension
-#: model:ir.model,name:product_dimension.model_product_product
+#: model:ir.model,name:product_dimension.model_product_template
 msgid "Product"
 msgstr ""
 
 #. module: product_dimension
-#: model:ir.model,name:product_dimension.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:product_dimension.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_dimension
