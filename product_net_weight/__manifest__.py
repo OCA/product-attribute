@@ -4,7 +4,7 @@
 {
     "name": "Products - Net Weight",
     "summary": "Add 'Net Weight' on product models",
-    "version": "15.0.1.0.1",
+    "version": "15.0.1.0.2",
     "category": "Product",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
