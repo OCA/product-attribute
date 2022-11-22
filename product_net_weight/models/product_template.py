@@ -4,8 +4,6 @@
 
 from odoo import fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
@@ -13,7 +11,7 @@ class ProductTemplate(models.Model):
     net_weight = fields.Float(
         string="Net Weight",
         related="product_variant_ids.net_weight",
-        digits=dp.get_precision("Stock Weight"),
+        digits="Stock Weight",
         help="Net Weight of the product, container excluded.",
         readonly=False,
     )
