@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [product_assortment](product_assortment/) | 16.0.1.0.2 |  | Adds the ability to manage products assortment
 [product_category_code](product_category_code/) | 16.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a code on product categories
 [product_code_unique](product_code_unique/) | 16.0.1.0.0 |  | Set Product Internal Reference as Unique
+[product_dimension](product_dimension/) | 16.0.1.0.0 |  | Product Dimension
 [product_logistics_uom](product_logistics_uom/) | 16.0.1.0.0 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
 [product_multi_category](product_multi_category/) | 16.0.1.0.0 |  | Product - Many Categories
 [product_packaging_dimension](product_packaging_dimension/) | 16.0.1.0.1 |  | Manage packaging dimensions and weight
