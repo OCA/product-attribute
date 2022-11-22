@@ -5,7 +5,10 @@
         <field name="model">product.pricelist.item</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='base']/../div" position="inside">
+            <xpath
+                expr="//group[@name='pricelist_rule_advanced']/div"
+                position="inside"
+            >
                 <span
                     attrs="{'invisible':[('base', '!=', 'supplierinfo')]}"
                 >Supplier price  -  </span>
