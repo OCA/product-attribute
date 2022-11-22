@@ -146,14 +146,36 @@ class AbcClassificationProductLevel(models.Model):
         return super().create(vals_list)
 
     def write(self, vals):
+        """
+        We apply the manual level to the product level if
+        computed level is modified and only for profiles with
+        auto_apply_computed_value = =True
+        """
         values = vals.copy()
-        if "profile_id" in values:
-            profile = self.env["abc.classification.profile"].browse(
-                values["profile_id"]
+        new_self = self
+        if "computed_level_id" in values:
+            profile_obj = self.env["abc.classification.profile"]
+            target_profile_id = (
+                profile_obj.browse(values["profile_id"]).filtered(
+                    "auto_apply_computed_value"
+                )
+                if "profile_id" in values
+                else profile_obj.browse()
             )
-        else:
-            profile = self.mapped("profile_id")
-
-        if profile.auto_apply_computed_value and "computed_level_id" in values:
-            values["manual_level_id"] = values["computed_level_id"]
-        return super().write(values)
+            if target_profile_id:
+                # If the profile of levels should be changed at the same time
+                # and has auto_apply_computed_value True
+                # So, we can apply change to the whole recordset
+                values["manual_level_id"] = values["computed_level_id"]
+            else:
+                # If profile is not modified, filter levels per profile
+                # if it has auto_apply_computed_value True and modify only
+                # those ones
+                auto_applied_profiles_levels = self.filtered(
+                    lambda l: l.profile_id.auto_apply_computed_value
+                )
+                new_self = self - auto_applied_profiles_levels
+                super(
+                    AbcClassificationProductLevel, auto_applied_profiles_levels
+                ).write(dict(values, manual_level_id=values["computed_level_id"]))
+        return super(AbcClassificationProductLevel, new_self).write(values)
