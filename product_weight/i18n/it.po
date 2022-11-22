@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-23 02:40+0000\n"
-"PO-Revision-Date: 2017-05-23 02:40+0000\n"
-"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
+"PO-Revision-Date: 2022-11-22 16:44+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__bom_id
@@ -58,22 +59,22 @@ msgstr "Nome visualizzato"
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update____last_update
 msgid "Last Modified on"
-msgstr "Ultima Modifica il"
+msgstr "Ultima modifica il"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_uid
 msgid "Last Updated by"
-msgstr "Ultimo Aggiornamento di"
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_date
 msgid "Last Updated on"
-msgstr "Ultimo Aggiornamento il"
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_weight
 #: code:addons/product_weight/wizard/product_weight_update.py:0
