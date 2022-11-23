@@ -54,6 +54,12 @@ msgid "UoM for length, height, width"
 msgstr ""
 
 #. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__volume
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__volume
+msgid "Volume"
+msgstr ""
+
+#. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
 msgid "Width"
