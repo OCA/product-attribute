@@ -9,15 +9,15 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.product.product_height = 200.0
         self.product.product_width = 100.0
         self.product.dimensional_uom_id = self.uom_cm
-        self.product.onchange_calculate_volume()
         self.assertAlmostEqual(0.2, self.product.volume)
+        self.product.volume = 1.0
+        self.assertAlmostEqual(1.0, self.product.volume)
 
     def test_it_computes_volume_in_meters(self):
         self.product.product_length = 6.0
         self.product.product_height = 2.0
         self.product.product_width = 10.0
         self.product.dimensional_uom_id = self.uom_m
-        self.product.onchange_calculate_volume()
         self.assertAlmostEqual(120, self.product.volume)
 
     def setUp(self):
@@ -34,15 +34,15 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.template.product_height = 200.0
         self.template.product_width = 100.0
         self.template.dimensional_uom_id = self.uom_cm
-        self.template.onchange_calculate_volume()
         self.assertAlmostEqual(0.2, self.template.volume)
+        self.template.volume = 1.0
+        self.assertAlmostEqual(1.0, self.template.volume)
 
     def test_it_computes_volume_in_meters(self):
         self.template.product_length = 6.0
         self.template.product_height = 2.0
         self.template.product_width = 10.0
         self.template.dimensional_uom_id = self.uom_m
-        self.template.onchange_calculate_volume()
         self.assertAlmostEqual(120, self.template.volume)
 
     def setUp(self):
