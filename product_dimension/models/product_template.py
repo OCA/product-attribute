@@ -63,3 +63,18 @@ class ProductTemplate(models.Model):
             to_unit=uom_meters,
             round=False,
         )
+
+    def _prepare_variant_values(self, combination):
+        """
+        As variant is created inside template create() method and as
+        template fields values are flushed after _create_variant_ids(),
+        we catch the variant values preparation to update them
+        """
+        res = super()._prepare_variant_values(combination)
+        if self.product_length:
+            res.update({"product_length": self.product_length})
+        if self.product_height:
+            res.update({"product_height": self.product_height})
+        if self.product_width:
+            res.update({"product_width": self.product_width})
+        return res
