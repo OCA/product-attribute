@@ -18,17 +18,24 @@ class ProductProduct(models.Model):
         help="UoM for length, height, width",
         default=lambda self: self.env.ref("uom.product_uom_meter"),
     )
+    volume = fields.Float(
+        compute="_compute_volume",
+        readonly=False,
+        store=True,
+    )
 
-    @api.onchange(
+    @api.depends(
         "product_length", "product_height", "product_width", "dimensional_uom_id"
     )
-    def onchange_calculate_volume(self):
-        self.volume = self.env["product.template"]._calc_volume(
-            self.product_length,
-            self.product_height,
-            self.product_width,
-            self.dimensional_uom_id,
-        )
+    def _compute_volume(self):
+        template_obj = self.env["product.template"]
+        for product in self:
+            product.volume = template_obj._calc_volume(
+                product.product_length,
+                product.product_height,
+                product.product_width,
+                product.dimensional_uom_id,
+            )
 
     @api.model
     def _get_dimension_uom_domain(self):
