@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -21,9 +20,7 @@ class TestStockConfigSettings(SavepointCase):
         Expected result:
             Values retrieved are those saved
         """
-        default_value = (
-            self.StockConfigSettings.get_production_lot_expiry_date_field()
-        )
+        default_value = self.StockConfigSettings.get_production_lot_expiry_date_field()
         xml_data_value = self.env.ref(
             "stock_production_lot_expiry."
             "default_stock_production_lot_expiry_field_name"
@@ -33,7 +30,5 @@ class TestStockConfigSettings(SavepointCase):
         self.StockConfigSettings.create(
             {"production_lot_expiry_date_field": "life_date"}
         ).execute()
-        default_value = (
-            self.StockConfigSettings.get_production_lot_expiry_date_field()
-        )
+        default_value = self.StockConfigSettings.get_production_lot_expiry_date_field()
         self.assertEqual("life_date", default_value)

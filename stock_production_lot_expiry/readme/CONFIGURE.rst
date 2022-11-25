@@ -11,4 +11,3 @@ through the category hierarchy until the field name to use is defined. If the
 field name is not defined by the category hierarchy we take the one defined
 by the config parameter `stock_product_lot_expiry.field_name` (default 'removal_date').
 This configuration is available into stock configuration from.
-

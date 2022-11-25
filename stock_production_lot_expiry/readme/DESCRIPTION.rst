@@ -16,4 +16,3 @@ The 'Is expired' field is a computed field that can be used into the business
 code to easily know if a product is expired.
 
 It also allows you to easily search for expired lots.
-

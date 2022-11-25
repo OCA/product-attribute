@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.osv.expression import NEGATIVE_TERM_OPERATORS
 
 
@@ -43,14 +42,14 @@ class StockProductionLot(models.Model):
         for rec in self:
             rec.is_expired = (
                 rec.expiry_date
-                and fields.Datetime.from_string(rec.expiry_date)
-                < datetime.now()
+                and fields.Datetime.from_string(rec.expiry_date) < datetime.now()
             )
 
     def _search_is_expired(self, operator, value):
         search_expired = (
             # is_expired != False
-            (operator in NEGATIVE_TERM_OPERATORS and not value) or
+            (operator in NEGATIVE_TERM_OPERATORS and not value)
+            or
             # is_expired = True
             (operator not in NEGATIVE_TERM_OPERATORS and value)
         )

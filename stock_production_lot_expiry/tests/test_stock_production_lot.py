@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime, timedelta
+
 from odoo import fields
 from odoo.tests.common import SavepointCase
 
@@ -21,12 +21,8 @@ class TestStockProductionLot(SavepointCase):
             }
         )
         cls.today = fields.Datetime.to_string(datetime.now())
-        cls.tomorrow = fields.Datetime.to_string(
-            datetime.now() + timedelta(days=1)
-        )
-        cls.yesterday = fields.Datetime.to_string(
-            datetime.now() - timedelta(days=1)
-        )
+        cls.tomorrow = fields.Datetime.to_string(datetime.now() + timedelta(days=1))
+        cls.yesterday = fields.Datetime.to_string(datetime.now() - timedelta(days=1))
 
     def test_00(self):
         """

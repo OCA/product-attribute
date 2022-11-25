@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -22,19 +21,17 @@ class ProductTemplate(models.Model):
     )
 
     category_lot_expiry_field_name = fields.Selection(
-        related="categ_id.lot_expiry_field_name", readonly=True,
+        related="categ_id.lot_expiry_field_name",
+        readonly=True,
     )
 
     @api.model
     def _selection_lot_expiry_field_name(self):
         return self.env["stock.production.lot"]._selection_expiry_date_field()
 
-    @api.depends(
-        "specific_lot_expiry_field_name", "category_lot_expiry_field_name"
-    )
+    @api.depends("specific_lot_expiry_field_name", "category_lot_expiry_field_name")
     def _compute_lot_expiry_field_name(self):
         for rec in self:
             rec.lot_expiry_field_name = (
-                rec.specific_lot_expiry_field_name
-                or rec.category_lot_expiry_field_name
+                rec.specific_lot_expiry_field_name or rec.category_lot_expiry_field_name
             )

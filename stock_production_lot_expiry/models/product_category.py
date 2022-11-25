@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -34,9 +33,7 @@ class ProductCategory(models.Model):
     def _selection_lot_expiry_field_name(self):
         return self.env["stock.production.lot"]._selection_expiry_date_field()
 
-    @api.depends(
-        "specific_lot_expiry_field_name", "parent_lot_expiry_field_name"
-    )
+    @api.depends("specific_lot_expiry_field_name", "parent_lot_expiry_field_name")
     def _compute_lot_expiry_field_name(self):
         default_value = self.env[
             "stock.config.settings"

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -51,9 +50,7 @@ class TestProductCategory(SavepointCase):
             self.categ_lvl_1_1_1.lot_expiry_field_name,
         )
         self.modify_config_expiry_field_name("life_date")
-        self.assertEqual(
-            "life_date", self.categ_lvl_1_1_1.lot_expiry_field_name
-        )
+        self.assertEqual("life_date", self.categ_lvl_1_1_1.lot_expiry_field_name)
 
     def test_01(self):
         """
@@ -76,12 +73,8 @@ class TestProductCategory(SavepointCase):
             self.default_expiry_field_name,
             self.categ_lvl_1.lot_expiry_field_name,
         )
-        self.assertEqual(
-            "life_date", self.categ_lvl_1_1.lot_expiry_field_name
-        )
-        self.assertEqual(
-            "life_date", self.categ_lvl_1_1_1.lot_expiry_field_name
-        )
+        self.assertEqual("life_date", self.categ_lvl_1_1.lot_expiry_field_name)
+        self.assertEqual("life_date", self.categ_lvl_1_1_1.lot_expiry_field_name)
 
     def test_02(self):
         """
