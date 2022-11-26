@@ -14,7 +14,7 @@
                     <group string="Customer">
                         <field
                             name="product_id"
-                            groups="product.group_product_variant"
+                            groups="product.group_product_variant,base.group_multi_company"
                             domain="[('product_tmpl_id', '=', product_tmpl_id)]"
                             options="{'no_create_edit': True}"
                         />
@@ -28,6 +28,7 @@
                         <field
                             name="product_id"
                             domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                            groups="product.group_product_variant,base.group_multi_company"
                             invisible="1"
                         />
                     </group>
@@ -36,6 +37,7 @@
                             name="product_tmpl_id"
                             string="Product"
                             invisible="context.get('visible_product_tmpl_id', True)"
+                            groups="base.group_multi_company"
                         />
                         <label for="min_qty" />
                         <div>
@@ -62,7 +64,11 @@
                             /></div>
                     </group>
                     <group string="Other Information" groups="base.group_multi_company">
-                        <field name="company_id" options="{'no_create': True}" />
+                        <field
+                            name="company_id"
+                            options="{'no_create': True}"
+                            groups="base.group_multi_company"
+                        />
                     </group>
                 </group>
             </form>
@@ -78,12 +84,13 @@
                 <field
                     name="product_id"
                     invisible="context.get('product_template_invisible_variant', False)"
-                    groups="product.group_product_variant"
+                    groups="product.group_product_variant,base.group_multi_company"
                 />
                 <field
                     name="product_tmpl_id"
                     string="Product"
                     invisible="context.get('visible_product_tmpl_id', True)"
+                    groups="base.group_multi_company"
                 />
                 <field name="product_name" string="Customer Product Name" />
                 <field name="product_code" string="Customer Product Code" />
