@@ -1,0 +1,158 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_packaging_level
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-10-14 14:08+0000\n"
+"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Level: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__barcode_required_for_gtin
+msgid "Barcode Required For Gtin"
+msgstr "Código de barras obligatorio para Gtin"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__code
+msgid "Code"
+msgstr "Código"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_packaging_level
+#: model:product.packaging.level,name:product_packaging_level.product_packaging_level_default
+msgid "Default Level"
+msgstr "Tipo predeterminado"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__has_gtin
+msgid "Has Gtin"
+msgstr "Tiene Gtin"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__is_default
+msgid "Is Default"
+msgstr "Es predeterminado"
+
+#. module: product_packaging_level
+#: code:addons/product_packaging_level/models/product_packaging_level.py:0
+#, python-format
+msgid ""
+"It is forbidden to have different packagings with the same level for a given "
+"product ({})."
+msgstr ""
+"Está prohibido tener diferentes embalajes con el mismo tipo para un producto "
+"determinado ({})."
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_packaging_level
+#: code:addons/product_packaging_level/models/product_packaging_level.py:0
+#, python-format
+msgid "Only one product packaging level can be set as \"Is Default\"."
+msgstr ""
+"Solo se puede establecer un tipo de empaque de producto como \""
+"Predeterminado\"."
+
+#. module: product_packaging_level
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.product_packaging_tree_view_inherit
+msgid "Packaging"
+msgstr "Empaquetado"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__packaging_level_id
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_form
+msgid "Packaging Level"
+msgstr "Tipo de empaquetado"
+
+#. module: product_packaging_level
+#: model:ir.model,name:product_packaging_level.model_product_packaging
+msgid "Product Packaging"
+msgstr "Empaquetado de producto"
+
+#. module: product_packaging_level
+#: model:ir.actions.act_window,name:product_packaging_level.act_open_product_packaging_level_view
+#: model:ir.ui.menu,name:product_packaging_level.menu_product_packaging_level
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_form
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_search
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_tree
+msgid "Product Packaging Level"
+msgstr "Tipo de empaquetado de producto"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__qty_per_level
+msgid "Qty per package level"
+msgstr "Cantidad por tipo de paquete"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_packaging_level
+#: code:addons/product_packaging_level/models/product_packaging_level.py:0
+#, python-format
+msgid "There must be one product packaging level set as \"Is Default\"."
+msgstr ""
+"Debe haber un tipo de empaque de producto establecido como \"Es "
+"predeterminado\"."
+
+#. module: product_packaging_level
+#: model:ir.model,name:product_packaging_level.model_product_packaging_level
+msgid "Level management for product.packaging"
+msgstr "Tipo de administración para empaquetado de producto"
+
+#. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__level_sequence
+msgid "Level sequence"
+msgstr "Tipo de secuencia"
