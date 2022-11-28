@@ -23,11 +23,12 @@ class ProductTemplate(models.Model):
     category_lot_expiry_field_name = fields.Selection(
         related="categ_id.lot_expiry_field_name",
         readonly=True,
+        string="Category lot expiry field name",
     )
 
     @api.model
     def _selection_lot_expiry_field_name(self):
-        return self.env["stock.production.lot"]._selection_expiry_date_field()
+        return self.env["stock.lot"]._selection_expiry_date_field()
 
     @api.depends("specific_lot_expiry_field_name", "category_lot_expiry_field_name")
     def _compute_lot_expiry_field_name(self):

@@ -3,51 +3,51 @@
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestStockProductionLot(SavepointCase):
+class TestStockLot(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestStockProductionLot, cls).setUpClass()
+        super(TestStockLot, cls).setUpClass()
         cls.ProductProduct = cls.env["product.product"]
-        cls.StockProductionLot = cls.env["stock.production.lot"]
+        cls.StockLot = cls.env["stock.lot"]
         cls.categ_lvl = cls.env.ref("product.product_category_all")
         cls.product = cls.ProductProduct.create(
             {
                 "name": "test product",
-                "specific_lot_expiry_field_name": "life_date",
+                "specific_lot_expiry_field_name": "expiration_date",
             }
         )
-        cls.today = fields.Datetime.to_string(datetime.now())
-        cls.tomorrow = fields.Datetime.to_string(datetime.now() + timedelta(days=1))
-        cls.yesterday = fields.Datetime.to_string(datetime.now() - timedelta(days=1))
+        cls.today = datetime.now()
+        cls.tomorrow = datetime.now() + timedelta(days=1)
+        cls.yesterday = datetime.now() - timedelta(days=1)
 
     def test_00(self):
         """
         Data:
             * A product with value for specific_lot_expiry_field_name set to
-              "life_date"
+              "expiration_date"
         Test case:
             1. Create a lot with a remove_date set to today
-            2. Update the life_date on the lot to tomorrow
+            2. Update the expiration_date on the lot to tomorrow
         Expected result:
             1. expiry_date on lot must be today
             2. expiry_date on lot must be tomorrow
         """
-        self.assertEqual(self.product.lot_expiry_field_name, "life_date")
+        self.assertEqual(self.product.lot_expiry_field_name, "expiration_date")
 
-        lot = self.StockProductionLot.create(
+        lot = self.StockLot.create(
             {
                 "name": "lot1",
                 "product_id": self.product.id,
-                "life_date": self.today,
+                "expiration_date": self.today,
+                "company_id": self.env.user.company_id.id,
             }
         )
         self.assertEqual(self.today, lot.expiry_date)
-        lot.life_date = self.tomorrow
-        self.assertEqual(self.tomorrow, lot.life_date)
+        lot.expiration_date = self.tomorrow
+        self.assertEqual(self.tomorrow, lot.expiration_date)
 
     def test_01(self):
         """
@@ -59,8 +59,8 @@ class TestStockProductionLot(SavepointCase):
             2. Update the removal_date on the lot to tomorrow
             3. Create a lot with a removal_date set to today
             4. Set the specific_lot_expiry_field_name on the product to
-               'life_date'
-            5. Update the life_date on the first lot to today
+               'expiration_date'
+            5. Update the expiration_date on the first lot to today
         Expected result:
             1. expiry_date is not set
             2. expiry_date is not tomorrow
@@ -72,11 +72,12 @@ class TestStockProductionLot(SavepointCase):
         self.product.specific_lot_expiry_field_name = "removal_date"
         self.assertEqual(self.product.lot_expiry_field_name, "removal_date")
         # 1
-        lot = self.StockProductionLot.create(
+        lot = self.StockLot.create(
             {
                 "name": "lot1",
                 "product_id": self.product.id,
-                "life_date": self.today,
+                "expiration_date": self.today,
+                "company_id": self.env.user.company_id.id,
             }
         )
         self.assertFalse(lot.expiry_date)
@@ -86,17 +87,18 @@ class TestStockProductionLot(SavepointCase):
         self.assertEqual(self.tomorrow, lot.expiry_date)
 
         # 3
-        new_lot = self.StockProductionLot.create(
+        new_lot = self.StockLot.create(
             {
                 "name": "lot2",
                 "product_id": self.product.id,
                 "removal_date": self.today,
+                "company_id": self.env.user.company_id.id,
             }
         )
         self.assertEqual(self.today, new_lot.expiry_date)
 
         # 4
-        self.product.specific_lot_expiry_field_name = "life_date"
+        self.product.specific_lot_expiry_field_name = "expiration_date"
         self.assertEqual(self.tomorrow, lot.expiry_date)
         lot.removal_date = False
         # since we assign a value to one of the field that can be used as
@@ -105,7 +107,7 @@ class TestStockProductionLot(SavepointCase):
         self.assertEqual(self.today, lot.expiry_date)
 
         # 5
-        lot.life_date = self.today
+        lot.expiration_date = self.today
         self.assertEqual(self.today, lot.expiry_date)
 
     def test_02(self):
@@ -122,64 +124,66 @@ class TestStockProductionLot(SavepointCase):
         """
         self.product.specific_lot_expiry_field_name = "removal_date"
         self.assertEqual(self.product.lot_expiry_field_name, "removal_date")
-        lot = self.StockProductionLot.create(
+        lot = self.StockLot.create(
             {
                 "name": "lot1",
                 "product_id": self.product.id,
-                "lif_date": self.today,
+                "removal_date": self.tomorrow,
+                "company_id": self.env.user.company_id.id,
             }
         )
-        self.assertFalse(lot.is_expired)
+        self.assertFalse(lot.product_expiry_alert)
         lot.removal_date = self.yesterday
-        self.assertTrue(lot.is_expired)
+        self.assertTrue(lot.product_expiry_alert)
 
     def test_03(self):
         """
         Data:
             An expired lot
         Test case:
-            Search with different domain on the is_expired field
+            Search with different domain on the product_expiry_alert field
         """
         self.product.specific_lot_expiry_field_name = "removal_date"
         self.assertEqual(self.product.lot_expiry_field_name, "removal_date")
-        lot = self.StockProductionLot.create(
+        lot = self.StockLot.create(
             {
                 "name": "lot1",
                 "product_id": self.product.id,
                 "removal_date": self.yesterday,
+                "company_id": self.env.user.company_id.id,
             }
         )
         self.assertEqual(
             lot,
-            self.StockProductionLot.search(
+            self.StockLot.search(
                 [
                     ("product_id", "=", self.product.id),
-                    ("is_expired", "=", True),
+                    ("product_expiry_alert", "=", True),
                 ]
             ),
         )
         self.assertEqual(
             lot,
-            self.StockProductionLot.search(
+            self.StockLot.search(
                 [
                     ("product_id", "=", self.product.id),
-                    ("is_expired", "!=", False),
+                    ("product_expiry_alert", "!=", False),
                 ]
             ),
         )
         self.assertFalse(
-            self.StockProductionLot.search(
+            self.StockLot.search(
                 [
                     ("product_id", "=", self.product.id),
-                    ("is_expired", "!=", True),
+                    ("product_expiry_alert", "!=", True),
                 ]
             )
         )
         self.assertFalse(
-            self.StockProductionLot.search(
+            self.StockLot.search(
                 [
                     ("product_id", "=", self.product.id),
-                    ("is_expired", "=", False),
+                    ("product_expiry_alert", "=", False),
                 ]
             )
         )
@@ -199,42 +203,45 @@ class TestStockProductionLot(SavepointCase):
         """
         self.product.specific_lot_expiry_field_name = "removal_date"
         self.assertEqual(self.product.lot_expiry_field_name, "removal_date")
-        expired_lot = self.StockProductionLot.create(
+        expired_lot = self.StockLot.create(
             {
                 "name": "lot expired",
                 "product_id": self.product.id,
                 "removal_date": self.yesterday,
+                "company_id": self.env.user.company_id.id,
             }
         )
-        not_expired_lot = self.StockProductionLot.create(
+        not_expired_lot = self.StockLot.create(
             {
                 "name": "lot not expired",
                 "product_id": self.product.id,
                 "removal_date": self.tomorrow,
+                "company_id": self.env.user.company_id.id,
             }
         )
-        no_expiring_lot = self.StockProductionLot.create(
+        no_expiring_lot = self.StockLot.create(
             {
                 "name": "not expiring lot",
                 "product_id": self.product.id,
+                "company_id": self.env.user.company_id.id,
             }
         )
         self.assertEqual(
             expired_lot,
-            self.StockProductionLot.search(
+            self.StockLot.search(
                 [
                     ("product_id", "=", self.product.id),
-                    ("is_expired", "=", True),
+                    ("product_expiry_alert", "=", True),
                 ]
             ),
         )
 
         self.assertEqual(
             not_expired_lot | no_expiring_lot,
-            self.StockProductionLot.search(
+            self.StockLot.search(
                 [
                     ("product_id", "=", self.product.id),
-                    ("is_expired", "=", False),
+                    ("product_expiry_alert", "=", False),
                 ]
             ),
         )

@@ -13,12 +13,11 @@
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["stock", "product_expiry"],
     "data": [
-        "views/stock_production_lot.xml",
-        "data/ir_config_parameter.xml",
-        "views/product_category.xml",
-        "views/product_template.xml",
-        "wizards/stock_config_settings.xml",
+        "views/stock_lot_views.xml",
+        "data/ir_config_parameter_data.xml",
+        "views/product_category_views.xml",
+        "views/product_template_views.xml",
+        "wizards/res_config_settings_views.xml",
     ],
-    "demo": [],
     "pre_init_hook": "pre_init_hook",
 }

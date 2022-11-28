@@ -1,14 +1,14 @@
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductCategory(SavepointCase):
+class TestProductCategory(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestProductCategory, cls).setUpClass()
-        cls.StockConfigSettings = cls.env["stock.config.settings"]
+        cls.ResConfigSettings = cls.env["res.config.settings"]
         cls.ProductCategory = cls.env["product.category"]
         cls.ProductCategory._parent_store_compute()
         cls.categ_lvl = cls.env.ref("product.product_category_all")
@@ -23,12 +23,12 @@ class TestProductCategory(SavepointCase):
             {"name": "level_1_1_1", "parent_id": cls.categ_lvl_1_1.id}
         )
         cls.default_expiry_field_name = (
-            cls.StockConfigSettings.get_production_lot_expiry_date_field()
+            cls.ResConfigSettings.get_production_lot_expiry_date_field()
         )
         assert cls.default_expiry_field_name == "removal_date"
 
     def modify_config_expiry_field_name(self, field_name):
-        self.StockConfigSettings.create(
+        self.ResConfigSettings.create(
             {"production_lot_expiry_date_field": field_name}
         ).execute()
 
@@ -49,8 +49,9 @@ class TestProductCategory(SavepointCase):
             self.default_expiry_field_name,
             self.categ_lvl_1_1_1.lot_expiry_field_name,
         )
-        self.modify_config_expiry_field_name("life_date")
-        self.assertEqual("life_date", self.categ_lvl_1_1_1.lot_expiry_field_name)
+        self.modify_config_expiry_field_name("expiration_date")
+        self.categ_lvl_1_1_1.invalidate_recordset()
+        self.assertEqual("expiration_date", self.categ_lvl_1_1_1.lot_expiry_field_name)
 
     def test_01(self):
         """
@@ -64,7 +65,7 @@ class TestProductCategory(SavepointCase):
             specified into the config
             The value at level_1_1 and level_1_1_1 is the new one
         """
-        self.categ_lvl_1_1.specific_lot_expiry_field_name = "life_date"
+        self.categ_lvl_1_1.specific_lot_expiry_field_name = "expiration_date"
         self.assertEqual(
             self.default_expiry_field_name,
             self.categ_lvl.lot_expiry_field_name,
@@ -73,8 +74,8 @@ class TestProductCategory(SavepointCase):
             self.default_expiry_field_name,
             self.categ_lvl_1.lot_expiry_field_name,
         )
-        self.assertEqual("life_date", self.categ_lvl_1_1.lot_expiry_field_name)
-        self.assertEqual("life_date", self.categ_lvl_1_1_1.lot_expiry_field_name)
+        self.assertEqual("expiration_date", self.categ_lvl_1_1.lot_expiry_field_name)
+        self.assertEqual("expiration_date", self.categ_lvl_1_1_1.lot_expiry_field_name)
 
     def test_02(self):
         """
@@ -86,7 +87,7 @@ class TestProductCategory(SavepointCase):
         Expected result:
             The value at each level must modified.
         """
-        self.categ_lvl.specific_lot_expiry_field_name = "life_date"
+        self.categ_lvl.specific_lot_expiry_field_name = "expiration_date"
         children = self.categ_lvl.child_id
 
         def check_field(categs, name):
@@ -98,4 +99,4 @@ class TestProductCategory(SavepointCase):
                 )
                 check_field(categ.child_id, name)
 
-        check_field(children, "life_date")
+        check_field(children, "expiration_date")

@@ -4,35 +4,32 @@
 from odoo import api, fields, models
 
 
-class StockConfigSettings(models.TransientModel):
+class ResConfigSettings(models.TransientModel):
 
-    _inherit = "stock.config.settings"
+    _inherit = "res.config.settings"
 
     production_lot_expiry_date_field = fields.Selection(
         selection="_selection_production_lot_expiry_date_field",
         string="Lot/serial date field name used as expiration date",
+        config_parameter="stock_production_lot_expiry.field_name",
     )
 
     @api.model
     def _selection_production_lot_expiry_date_field(self):
-        return self.env["stock.production.lot"]._selection_expiry_date_field()
+        return self.env["stock.lot"]._selection_expiry_date_field()
 
     @api.model
     def get_default_production_lot_expiry_date_field(self, fields):
         icp = self.env["ir.config_parameter"]
         return {
             "production_lot_expiry_date_field": icp.get_param(
-                "stock_production_lot_expiry.field_name", "life_date"
+                "stock_production_lot_expiry.field_name", "expiration_date"
             )
         }
-
-    def set_production_lot_expiry_date_field(self):
-        self.env["ir.config_parameter"].set_param(
-            "stock_production_lot_expiry.field_name",
-            self.production_lot_expiry_date_field,
-        )
 
     @api.model
     def get_production_lot_expiry_date_field(self):
         icp = self.env["ir.config_parameter"]
-        return icp.get_param("stock_production_lot_expiry.field_name", "life_date")
+        return icp.get_param(
+            "stock_production_lot_expiry.field_name", "expiration_date"
+        )

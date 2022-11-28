@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_production_lot_expiry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-05 13:12+0000\n"
+"PO-Revision-Date: 2022-12-05 13:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_production_lot_expiry
+#. odoo-python
+#: code:addons/stock_production_lot_expiry/models/stock_lot.py:0
+#, python-format
+msgid "Alert date"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_product__category_lot_expiry_field_name
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_template__category_lot_expiry_field_name
+msgid "Category lot expiry field name"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model,name:stock_production_lot_expiry.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#. odoo-python
+#: code:addons/stock_production_lot_expiry/models/stock_lot.py:0
+#, python-format
+msgid "End of Life Date"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model_terms:ir.ui.view,arch_db:stock_production_lot_expiry.stock_lot_search_view
+msgid "Expired"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model_terms:ir.ui.view,arch_db:stock_production_lot_expiry.stock_lot_search_view
+msgid "Expired lots"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_stock_lot__expiry_date
+msgid "Expiry Date"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_category__lot_expiry_field_name
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_product__lot_expiry_field_name
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_template__lot_expiry_field_name
+msgid "Lot Expiry Field Name"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model_terms:ir.ui.view,arch_db:stock_production_lot_expiry.product_category_form_view
+msgid "Lot expiry"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model,name:stock_production_lot_expiry.model_stock_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_res_config_settings__production_lot_expiry_date_field
+msgid "Lot/serial date field name used as expiration date"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,help:stock_production_lot_expiry.field_product_product__specific_lot_expiry_field_name
+#: model:ir.model.fields,help:stock_production_lot_expiry.field_product_template__specific_lot_expiry_field_name
+msgid ""
+"Name of the field to use on a Lot/serial to determine if the lot is expired "
+"or not. If not provided, the one defined on the category is used"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,help:stock_production_lot_expiry.field_product_category__specific_lot_expiry_field_name
+msgid ""
+"Name of the field to use on a Lot/serial to determine if the lot is expired "
+"or not. If not provided, the one defined on the parent is used. In the case "
+"where this field is not defined intothe hierarchy, the default one specified"
+" into the stock settings is used."
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model_terms:ir.ui.view,arch_db:stock_production_lot_expiry.stock_lot_search_view
+msgid "Not Expired"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model_terms:ir.ui.view,arch_db:stock_production_lot_expiry.stock_lot_search_view
+msgid "Not expired lots and lots no subject to expiration"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_category__parent_lot_expiry_field_name
+msgid "Parent Lot Expiry Field Name"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model,name:stock_production_lot_expiry.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model,name:stock_production_lot_expiry.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_stock_lot__product_expiry_alert
+msgid "Product Expiry Alert"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#. odoo-python
+#: code:addons/stock_production_lot_expiry/models/stock_lot.py:0
+#, python-format
+msgid "Removal date"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model_terms:ir.ui.view,arch_db:stock_production_lot_expiry.stock_config_settings_form_view
+msgid ""
+"Set the field name used as expiration date on lots &amp; serial numbers"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_category__specific_lot_expiry_field_name
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_product__specific_lot_expiry_field_name
+#: model:ir.model.fields,field_description:stock_production_lot_expiry.field_product_template__specific_lot_expiry_field_name
+msgid "Specific Lot Expiry Field Name"
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#: model:ir.model.fields,help:stock_production_lot_expiry.field_stock_lot__product_expiry_alert
+msgid "The Expiration Date has been reached."
+msgstr ""
+
+#. module: stock_production_lot_expiry
+#. odoo-python
+#: code:addons/stock_production_lot_expiry/models/stock_lot.py:0
+#, python-format
+msgid "Use date"
+msgstr ""

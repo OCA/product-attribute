@@ -27,16 +27,17 @@ class ProductCategory(models.Model):
         compute="_compute_parent_lot_expiry_field_name",
         store=True,
         readonly=True,
+        recursive=True,
     )
 
     @api.model
     def _selection_lot_expiry_field_name(self):
-        return self.env["stock.production.lot"]._selection_expiry_date_field()
+        return self.env["stock.lot"]._selection_expiry_date_field()
 
     @api.depends("specific_lot_expiry_field_name", "parent_lot_expiry_field_name")
     def _compute_lot_expiry_field_name(self):
         default_value = self.env[
-            "stock.config.settings"
+            "res.config.settings"
         ].get_production_lot_expiry_date_field()
         for rec in self:
             rec.lot_expiry_field_name = (
