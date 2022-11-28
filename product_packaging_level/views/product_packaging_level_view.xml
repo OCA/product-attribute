@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_packaging_level_tree" model="ir.ui.view">
+        <field name="name">product.packaging.level.tree</field>
+        <field name="model">product.packaging.level</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="code" />
+                <field name="has_gtin" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_product_packaging_level_form" model="ir.ui.view">
+        <field name="name">product.packaging.level.form</field>
+        <field name="model">product.packaging.level</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <form string="Product Packaging Level">
+                <sheet>
+                    <label for="name" string="Packaging Level" />
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group name="main">
+                        <group name="codes">
+                            <field name="code" />
+                            <field name="has_gtin" />
+                        </group>
+                        <group name="misc">
+                            <field name="sequence" />
+                            <field name="active" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_packaging_level_search" model="ir.ui.view">
+        <field name="name">product.packaging.level.search</field>
+        <field name="model">product.packaging.level</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <search string="Product Packaging Level">
+                <field name="name" />
+                <field name="code" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="act_open_product_packaging_level_view">
+        <field name="name">Product Packaging Level</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.packaging.level</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_product_packaging_level_search" />
+    </record>
+    <menuitem
+        id="menu_product_packaging_level"
+        parent="stock.menu_product_in_config_stock"
+        sequence="20"
+        groups="product.group_stock_packaging"
+        action="act_open_product_packaging_level_view"
+    />
+</odoo>
