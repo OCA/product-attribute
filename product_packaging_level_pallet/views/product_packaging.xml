@@ -9,27 +9,27 @@
         />
         <field name="arch" type="xml">
             <field name="packaging_length" position="before">
-                <field name="type_is_pallet" invisible="1" />
+                <field name="level_is_pallet" invisible="1" />
             </field>
-            <field name="packaging_length" position="attributes">
+            <group id="group_packaging_length" position="attributes">
                 <attribute
                     name="attrs"
-                >{'invisible': [('type_is_pallet', '=', True)]}</attribute>
-            </field>
-            <field name="width" position="attributes">
+                >{'invisible': [('level_is_pallet', '=', True)]}</attribute>
+            </group>
+            <group id="group_width" position="attributes">
                 <attribute
                     name="attrs"
-                >{'invisible': [('type_is_pallet', '=', True)]}</attribute>
-            </field>
+                >{'invisible': [('level_is_pallet', '=', True)]}</attribute>
+            </group>
             <group name="dimensions" position="after">
                 <group name="pallet">
                     <field
                         name="layers"
-                        attrs="{'invisible': [('type_is_pallet', '=', False)]}"
+                        attrs="{'invisible': [('level_is_pallet', '=', False)]}"
                     />
                     <field
                         name="packs_per_layer"
-                        attrs="{'invisible': [('type_is_pallet', '=', False)]}"
+                        attrs="{'invisible': [('level_is_pallet', '=', False)]}"
                     />
                 </group>
             </group>
