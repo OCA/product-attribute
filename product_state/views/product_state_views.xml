@@ -9,14 +9,6 @@
             </search>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_open_state_products">
-        <field name="name">State Products</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">product.template</field>
-        <field name="view_mode">kanban,form,tree</field>
-        <field name="context">{}</field>
-        <field name="domain">[('product_state_id', '=', active_id)]</field>
-    </record>
     <record model="ir.actions.act_window" id="action_open_single_product_state">
         <field name="name">Product State</field>
         <field name="type">ir.actions.act_window</field>
@@ -56,7 +48,7 @@
                         <field name="code" nolabel="1" />
                     </group>
                     <group string="Description">
-                        <field name="description" nolabel="1" />
+                        <field name="description" nolabel="1" colspan="2" />
                         <field name="default" widget="boolean_toggle" />
                         <field name="active" widget="boolean_toggle" />
                     </group>
@@ -105,49 +97,6 @@
                     </t>
                 </templates>
             </kanban>
-        </field>
-    </record>
-    <record id="view_product_template_search_state" model="ir.ui.view">
-        <field name="name">product.template.search.state</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_search_view" />
-        <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="product_state_id" />
-                <filter
-                    string="State"
-                    name="groupby_state"
-                    domain="[]"
-                    context="{'group_by' : 'product_state_id'}"
-                />
-                <separator />
-            </field>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="product_template_form_view">
-        <field name="name">product.template.common.form</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view" />
-        <field name="arch" type="xml">
-            <header position="inside">
-                <field
-                    name="product_state_id"
-                    widget="statusbar"
-                    options="{'clickable': '1'}"
-                />
-                <field name="state" invisible="1" />
-            </header>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="product_template_view_tree_inherit_product_state_id">
-        <field name="name">product.template.tree (product_state_id)</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_tree_view" />
-        <field name="priority">50</field>
-        <field name="arch" type="xml">
-            <field name="type" position="after">
-                <field name="state" />
-            </field>
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_product_state">
