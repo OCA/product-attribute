@@ -42,20 +42,26 @@ msgid "Length"
 msgstr "Länge"
 
 #. module: product_dimension
-#: model:ir.model,name:product_dimension.model_product_product
+#: model:ir.model,name:product_dimension.model_product_template
 msgid "Product"
 msgstr "Produkt"
 
 #. module: product_dimension
-#: model:ir.model,name:product_dimension.model_product_template
-msgid "Product Template"
-msgstr "Produktvorlage"
+#: model:ir.model,name:product_dimension.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_dimension
 #: model:ir.model.fields,help:product_dimension.field_product_product__dimensional_uom_id
 #: model:ir.model.fields,help:product_dimension.field_product_template__dimensional_uom_id
 msgid "UoM for length, height, width"
 msgstr "Einheit für Länge, Höhe, Breite"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__volume
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__volume
+msgid "Volume"
+msgstr ""
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
@@ -80,3 +86,6 @@ msgstr "Länge"
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_width
 msgid "width"
 msgstr "Breite"
+
+#~ msgid "Product Template"
+#~ msgstr "Produktvorlage"
