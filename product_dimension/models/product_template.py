@@ -26,6 +26,11 @@ class ProductTemplate(models.Model):
     product_width = fields.Float(
         related="product_variant_ids.product_width", readonly=False
     )
+    volume = fields.Float(
+        compute="_compute_volume",
+        readonly=False,
+        store=True,
+    )
 
     @api.model
     def _calc_volume(self, product_length, product_height, product_width, uom_id):
@@ -38,16 +43,17 @@ class ProductTemplate(models.Model):
 
         return volume
 
-    @api.onchange(
+    @api.depends(
         "product_length", "product_height", "product_width", "dimensional_uom_id"
     )
-    def onchange_calculate_volume(self):
-        self.volume = self._calc_volume(
-            self.product_length,
-            self.product_height,
-            self.product_width,
-            self.dimensional_uom_id,
-        )
+    def _compute_volume(self):
+        for template in self:
+            template.volume = template._calc_volume(
+                template.product_length,
+                template.product_height,
+                template.product_width,
+                template.dimensional_uom_id,
+            )
 
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env.ref("uom.product_uom_meter")
@@ -57,3 +63,18 @@ class ProductTemplate(models.Model):
             to_unit=uom_meters,
             round=False,
         )
+
+    def _prepare_variant_values(self, combination):
+        """
+        As variant is created inside template create() method and as
+        template fields values are flushed after _create_variant_ids(),
+        we catch the variant values preparation to update them
+        """
+        res = super()._prepare_variant_values(combination)
+        if self.product_length:
+            res.update({"product_length": self.product_length})
+        if self.product_height:
+            res.update({"product_height": self.product_height})
+        if self.product_width:
+            res.update({"product_width": self.product_width})
+        return res
