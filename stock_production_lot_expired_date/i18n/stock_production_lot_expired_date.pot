@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_production_lot_expired_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Alert date"
+msgstr ""
+
+#. module: stock_production_lot_expired_date
+#: model:ir.model.fields,field_description:stock_production_lot_expired_date.field_res_config_settings__production_lot_base_date
+msgid "Base date to compute expiration dates"
+msgstr ""
+
+#. module: stock_production_lot_expired_date
+#: model:ir.model,name:stock_production_lot_expired_date.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Expiration date"
+msgstr ""
+
+#. module: stock_production_lot_expired_date
+#: model:ir.model,name:stock_production_lot_expired_date.model_stock_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Removal date"
+msgstr ""
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Use date"
+msgstr ""
