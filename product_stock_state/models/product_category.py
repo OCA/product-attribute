@@ -20,6 +20,7 @@ class ProductCategory(models.Model):
         " State. If not set, Odoo will use the threshold defined at the"
         " company level.",
         digits="Stock Threshold",
+        recursive=True,
     )
     manual_stock_state_threshold = fields.Float(digits="Stock Threshold")
 
