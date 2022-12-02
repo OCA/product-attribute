@@ -10,7 +10,7 @@
         id="menu_product_template_tag"
         name="Tags"
         parent="sale.prod_config_main"
-        action="product_template_tags.product_template_tag_act_window"
+        action="product.product_tag_action"
         sequence="10"
     />
 
