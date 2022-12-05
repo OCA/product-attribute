@@ -21,6 +21,14 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. module: product_manufacturer
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_id
+#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_id
+#: model_terms:ir.ui.view,arch_db:product_manufacturer.product_product_view_form_easy_inherit_product_manufacturer
+#: model_terms:ir.ui.view,arch_db:product_manufacturer.product_template_manufacturer_form_view
+msgid "Manufacturer"
+msgstr "Fabricant"
+
+#. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
 msgid "Manufacturer Product Code"
@@ -39,13 +47,14 @@ msgid "Manufacturer Product URL"
 msgstr "URL du produit chez le fabricant"
 
 #. module: product_manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer
-#: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer
-#: model_terms:ir.ui.view,arch_db:product_manufacturer.product_template_manufacturer_form_view
-msgid "Manufacturer"
-msgstr "Fabricant"
+#: model:ir.model,name:product_manufacturer.model_product_template
+msgid "Product"
+msgstr ""
 
 #. module: product_manufacturer
-#: model:ir.model,name:product_manufacturer.model_product_template
-msgid "Product Template"
-msgstr "Modèle de produit"
+#: model:ir.model,name:product_manufacturer.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#~ msgid "Product Template"
+#~ msgstr "Modèle de produit"
