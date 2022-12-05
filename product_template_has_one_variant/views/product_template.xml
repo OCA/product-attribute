@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_template_search_view">
+        <field
+            name="name"
+        >product.template.search (in product_template_has_one_variant)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <filter name="consumable" position="after">
+                <filter
+                    string="Has One Variant"
+                    name="has_one_variant"
+                    domain="[('has_one_variant', '=', True)]"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
