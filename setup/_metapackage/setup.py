@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo-addon-product_multi_category>=16.0dev,<16.1dev',
         'odoo-addon-product_packaging_dimension>=16.0dev,<16.1dev',
         'odoo-addon-product_sequence>=16.0dev,<16.1dev',
+        'odoo-addon-product_state>=16.0dev,<16.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
