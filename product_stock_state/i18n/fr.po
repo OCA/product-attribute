@@ -148,6 +148,7 @@ msgstr "Seuil pour l'état du stock par produit"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_category_form
+#: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_template_form
 msgid "Stock Threshold"
 msgstr "Seuil de stock"
 
