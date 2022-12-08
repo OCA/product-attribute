@@ -63,6 +63,7 @@ setuptools.setup(
         'odoo14-addon-product_stock_state',
         'odoo14-addon-product_supplierinfo_archive',
         'odoo14-addon-product_supplierinfo_for_customer',
+        'odoo14-addon-product_supplierinfo_for_customer_group',
         'odoo14-addon-product_supplierinfo_group',
         'odoo14-addon-product_supplierinfo_revision',
         'odoo14-addon-product_supplierinfo_stock_picking_type',
