@@ -24,6 +24,11 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
+msgid "Active"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
 msgstr "Assegna la priorità all'elenco fornitori del prodotto."
@@ -73,7 +78,6 @@ msgid "Currency"
 msgstr "Valuta"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__customer_ids
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
@@ -195,6 +199,11 @@ msgstr ""
 "calcolo automatico della programmazione degli ordini di acquisto."
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr "Margine da applicare per ottenere il prezzo di vendita"
+
+#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Other Information"
 msgstr "Altre informazioni"
@@ -242,6 +251,11 @@ msgstr "Variante prodotto"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__min_qty
 msgid "Quantity"
 msgstr "Quantità"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
+msgstr "Margine di vendita"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -324,6 +338,11 @@ msgid "Variant Customer"
 msgstr "Variante Cliente"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
+msgid "Vendor"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
 msgid "Vendor Product Code"
 msgstr "Codice prodotto fornitore"
@@ -337,9 +356,3 @@ msgstr "Nome prodotto fornitore"
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr "→"
-
-#~ msgid "Margin to apply on price to obtain sale price"
-#~ msgstr "Margine da applicare per ottenere il prezzo di vendita"
-
-#~ msgid "Sale Margin"
-#~ msgstr "Margine di vendita"
