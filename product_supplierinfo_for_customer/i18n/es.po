@@ -62,6 +62,11 @@ msgid "Based on"
 msgstr "Basado en"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_customerinfo_mixin
+msgid "Common methods to compute prices based on partners"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__company_id
 msgid "Company"
 msgstr "Compañia"
@@ -135,6 +140,7 @@ msgstr "Tiempo inicial entrega"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo_mixin__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -150,6 +156,7 @@ msgstr "Fecha final para este precio de proveedor"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo_mixin__id
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -169,6 +176,7 @@ msgstr "Importar plantilla para tarifas de clientes"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo_mixin____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
