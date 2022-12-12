@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.form (in product_route_mto)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form" />
+        <field name="arch" type="xml">
+            <group name="operations" position="inside">
+                <label for="is_mto" />
+                <div class="o_row" name="is_mto">
+                    <field name="is_mto" class="oe_inline" />
+                    </div>
+            </group>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_search_view">
+        <field name="name">product.template.search (in product_route_mto)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//filter[@name='filter_to_purchase']/following::separator"
+                position="after"
+            >
+                <filter string="MTO" name="is_mto" domain="[('is_mto', '=', True)]" />
+                <filter
+                    string="Is not MTO"
+                    name="is_not_mto"
+                    domain="[('is_mto', '=', False)]"
+                />
+                <separator />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_tree_view">
+        <field name="name">product.template.tree (in product_route_mto)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="is_mto" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
