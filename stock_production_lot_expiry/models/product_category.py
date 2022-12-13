@@ -1,7 +1,7 @@
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class ProductCategory(models.Model):
@@ -32,7 +32,10 @@ class ProductCategory(models.Model):
 
     @api.model
     def _selection_lot_expiry_field_name(self):
-        return self.env["stock.lot"]._selection_expiry_date_field()
+        return [
+            (item[0], _(item[1]))
+            for item in self.env["stock.lot"]._selection_expiry_date_field()
+        ]
 
     @api.depends("specific_lot_expiry_field_name", "parent_lot_expiry_field_name")
     def _compute_lot_expiry_field_name(self):

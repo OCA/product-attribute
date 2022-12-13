@@ -1,7 +1,7 @@
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.osv.expression import NEGATIVE_TERM_OPERATORS
 
 
@@ -18,10 +18,10 @@ class StockProductionLot(models.Model):
     @api.model
     def _selection_expiry_date_field(self):
         return [
-            ("use_date", _("Use date")),
-            ("expiration_date", _("End of Life Date")),
-            ("alert_date", _("Alert date")),
-            ("removal_date", _("Removal date")),
+            ("use_date", "Best before Date"),
+            ("expiration_date", "Expiration Date"),
+            ("alert_date", "Alert date"),
+            ("removal_date", "Removal date"),
         ]
 
     @api.depends(lambda self: self._expiry_date_depends())
