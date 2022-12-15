@@ -47,7 +47,7 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
     def _create_partnerinfo(cls, supplierinfo_type, partner, product):
         return cls.env["product." + supplierinfo_type + "info"].create(
             {
-                "name": partner.id,
+                "partner_id": partner.id,
                 "product_id": product.id,
                 "product_code": "00001",
                 "price": 100.0,
@@ -61,15 +61,15 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
         self.assertEqual(values["customer"], False, "Incorrect default")
 
     def test_product_supplierinfo_for_customer(self):
-        cond = [("name", "=", self.customer.id)]
+        cond = [("partner_id", "=", self.customer.id)]
         supplierinfos = self.supplierinfo_model.search(cond)
         self.assertEqual(len(supplierinfos), 0, "Error: Supplier found in Supplierinfo")
-        cond = [("name", "=", self.customer.id)]
+        cond = [("partner_id", "=", self.customer.id)]
         customerinfos = self.customerinfo_model.search(cond)
         self.assertNotEqual(
             len(customerinfos), 0, "Error: Customer not found in Supplierinfo"
         )
-        price, rule_id = self.pricelist.get_product_price_rule(
+        price, rule_id = self.pricelist._get_product_price_rule(
             self.product, 1, partner=self.customer
         )
         self.assertEqual(
@@ -106,7 +106,11 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
         other variants --> 30.0).
         """
         self.piece_template = self.env["product.template"].create(
-            {"name": "Piece for test", "price": 10.0, "company_id": self.company.id}
+            {
+                "name": "Piece for test",
+                "list_price": 10.0,
+                "company_id": self.company.id,
+            }
         )
         self.large_attribute = self.env["product.attribute"].create(
             {"name": "Large test", "sequence": 1}
@@ -155,7 +159,11 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
         )
         self._create_partnerinfo("customer", self.customer, product)
         price_by_template = self.customerinfo_model.create(
-            {"name": self.customer.id, "product_tmpl_id": template.id, "price": 30.0}
+            {
+                "partner_id": self.customer.id,
+                "product_tmpl_id": template.id,
+                "price": 30.0,
+            }
         )
         res = product.with_context(partner_id=self.customer.id).price_compute(
             "partner", product.uom_id, self.company.currency_id, self.company
