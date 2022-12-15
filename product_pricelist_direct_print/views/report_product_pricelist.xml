@@ -65,6 +65,9 @@
                                     <strong>List Price</strong>
                                 </th>
                                 <th t-if="o.show_uom" />
+                                <th t-if="o.show_product_images" class="text-right">
+                                    <strong>Image</strong>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -98,6 +101,14 @@
                                     </td>
                                     <td t-if="o.show_uom">
                                         <span t-field="product.uom_id" />
+                                    </td>
+                                    <td t-if="o.show_product_images" class="text-right">
+                                        <img
+                                            t-if="product.image_128"
+                                            t-att-src="image_data_uri(product.image_128)"
+                                            alt="Img"
+                                            style="max-height: 80px;"
+                                        />
                                     </td>
                                 </tr>
                             </t>
