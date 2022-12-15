@@ -18,7 +18,7 @@ class ProductProduct(models.Model):
     def _name_search(
         self, name="", args=None, operator="ilike", limit=100, name_get_uid=None
     ):
-        res = super()._name_search(
+        res = super(ProductProduct, self)._name_search(
             name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
         )
         res_ids = list(res)
@@ -35,7 +35,7 @@ class ProductProduct(models.Model):
         limit -= res_ids_len
         customerinfo_ids = self.env["product.customerinfo"]._search(
             [
-                ("name", "=", self._context.get("partner_id")),
+                ("partner_id", "=", self._context.get("partner_id")),
                 "|",
                 ("product_code", operator, name),
                 ("product_name", operator, name),
@@ -72,14 +72,18 @@ class ProductProduct(models.Model):
             return customerinfo.price
         return 0.0
 
-    def price_compute(self, price_type, uom=False, currency=False, company=None):
+    def price_compute(
+        self, price_type, uom=False, currency=False, company=None, date=False
+    ):
         if price_type == "partner":
             partner_id = self.env.context.get(
                 "partner_id", False
             ) or self.env.context.get("partner", False)
             if partner_id and isinstance(partner_id, models.BaseModel):
                 partner_id = partner_id.id
-            prices = super().price_compute("list_price", uom, currency, company)
+            prices = super().price_compute(
+                "list_price", uom, currency, company, date=date
+            )
             for product in self:
                 price = product._get_price_from_customerinfo(partner_id)
                 if not price:
@@ -101,13 +105,13 @@ class ProductProduct(models.Model):
                         prices[product.id], currency, company, date
                     )
             return prices
-        return super().price_compute(price_type, uom, currency, company)
+        return super().price_compute(price_type, uom, currency, company, date=date)
 
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
         partner_id = params.get("partner_id")
         return [
-            ("name", "=", partner_id),
+            ("partner_id", "=", partner_id),
             "|",
             ("product_id", "=", self.id),
             "&",
