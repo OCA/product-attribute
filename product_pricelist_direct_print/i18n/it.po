@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_pricelist_direct_print
+# 	* product_pricelist_direct_print
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "\n"
+msgid ""
+"\n"
 "<p>Dear ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
 "<p>\n"
 "The attached file is a PDF document containg the\n"
@@ -32,11 +33,10 @@ msgid "\n"
 "    ${object.write_uid.signature | safe}\n"
 "% endif\n"
 "</p>\n"
-""
 msgstr ""
 "\n"
-"<p>Spett.le ${object.partner_id and object.partner_id.name or "
-"'customer'},</p>\n"
+"<p>Spett.le ${object.partner_id and object.partner_id.name or 'customer'},</"
+"p>\n"
 "<p>\n"
 "L'allegato è un documento PDF contenente il \n"
 "<strong>${object.pricelist_id.name}</strong> listino prezzi.\n"
@@ -52,7 +52,9 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
+msgid ""
+"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
+"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
 msgstr ""
 "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
 "Listino Prezzi (Rif ${object.pricelist_id.name or 'n/a' })"
@@ -103,6 +105,11 @@ msgid "<strong>Sale Price</strong>"
 msgstr "<strong>Prezzo di Vendita</strong>"
 
 #. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>UoM</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_report_product_pricelist_direct_print_product_pricelist_xlsx
 msgid "Abstract model to export as xlsx the product pricelist"
 msgstr "Modello astratto per esportazione xlsx listino prezzi prodotto"
@@ -119,7 +126,9 @@ msgstr "Categorie"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
-msgid "Check this field to print only the products defined in the pricelist. The entries in the list referring to all products will not be displayed."
+msgid ""
+"Check this field to print only the products defined in the pricelist. The "
+"entries in the list referring to all products will not be displayed."
 msgstr ""
 "Spunta questo campo per stampare solo i prodotti definiti nel listino "
 "prezzi. Le voci nella lista riferite a tutti i prodotti non saranno esposte."
@@ -191,6 +200,11 @@ msgid "Filter Options"
 msgstr "Opzioni Filtro"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field_id
+msgid "Group Field"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
 msgid "Hide Pricelist Name"
 msgstr "Nascondi Nome Listino Prezzi"
@@ -203,7 +217,9 @@ msgstr "ID"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
-msgid "If you enter an X number here, then, for each selected customer, the last X ordered products will be obtained for the report."
+msgid ""
+"If you enter an X number here, then, for each selected customer, the last X "
+"ordered products will be obtained for the report."
 msgstr ""
 "Se imposti un X numero qui, allora, per ogni cliente selezionato, gli ultimi "
 "X prodotti ordinati saranno usati per il report."
@@ -241,7 +257,7 @@ msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:67
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:70
 #, python-format
 msgid "List Price"
 msgstr "Listino Prezzi"
@@ -346,6 +362,11 @@ msgid "Show Cost Price"
 msgstr "Mostra Prezzo di Costo"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_uom
+msgid "Show Product UoM"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_sale_price
 msgid "Show Sale Price"
 msgstr "Mostra Prezzo di Vendita"
@@ -372,13 +393,40 @@ msgid "Summary"
 msgstr "Riepilogo"
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:102
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:107
 #, python-format
 msgid "Summary:"
 msgstr "Riepilogo:"
 
 #. module: product_pricelist_direct_print
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:136
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:317
+#, python-format
+msgid "Undefined"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:68
+#, python-format
+msgid "UoM"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: selection:product.pricelist.print,vat_mode:0
+msgid "Vat Excluded"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: selection:product.pricelist.print,vat_mode:0
+msgid "Vat Included"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__vat_mode
+msgid "Vat Mode"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:158
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""

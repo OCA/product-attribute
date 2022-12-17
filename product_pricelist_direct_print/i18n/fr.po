@@ -21,7 +21,8 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "\n"
+msgid ""
+"\n"
 "<p>Dear ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
 "<p>\n"
 "The attached file is a PDF document containg the\n"
@@ -35,8 +36,8 @@ msgid "\n"
 "    ${object.write_uid.signature | safe}\n"
 "% endif\n"
 "</p>\n"
-""
-msgstr "\n"
+msgstr ""
+"\n"
 "<p>Cher ${object.partner_id and object.partner_id.name or 'customer'},</p>\n"
 "<p>\n"
 "La pièce jointe est un document PDF contenant la\n"
@@ -50,12 +51,15 @@ msgstr "\n"
 "    ${object.write_uid.signature | safe}\n"
 "% endif\n"
 "</p>\n"
-""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
-msgstr "${object.pricelist_id.company_id.name or object.write_uid.company_id.name} Liste de prix (Ref ${object.pricelist_id.name or 'n/a' })"
+msgid ""
+"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
+"Pricelist (Ref ${object.pricelist_id.name or 'n/a' })"
+msgstr ""
+"${object.pricelist_id.company_id.name or object.write_uid.company_id.name} "
+"Liste de prix (Ref ${object.pricelist_id.name or 'n/a' })"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
@@ -110,7 +114,9 @@ msgstr "<strong>UdM</strong>"
 #. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_report_product_pricelist_direct_print_product_pricelist_xlsx
 msgid "Abstract model to export as xlsx the product pricelist"
-msgstr "Faire abstraction du modèle afin d'exporter la liste de prix du produit en xlsx"
+msgstr ""
+"Faire abstraction du modèle afin d'exporter la liste de prix du produit en "
+"xlsx"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -124,8 +130,13 @@ msgstr "Catégories"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
-msgid "Check this field to print only the products defined in the pricelist. The entries in the list referring to all products will not be displayed."
-msgstr "Cocher cette case afin d'imprimer uniquement les produits définis dans la liste de prix. Les entrées de la liste se référant à tous les produits ne seront pas affichées."
+msgid ""
+"Check this field to print only the products defined in the pricelist. The "
+"entries in the list referring to all products will not be displayed."
+msgstr ""
+"Cocher cette case afin d'imprimer uniquement les produits définis dans la "
+"liste de prix. Les entrées de la liste se référant à tous les produits ne "
+"seront pas affichées."
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:62
@@ -211,8 +222,12 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
-msgid "If you enter an X number here, then, for each selected customer, the last X ordered products will be obtained for the report."
-msgstr "Si vous entrez un nombre X ici, alors, pour chaque client·e sélectionné·e, les derniers X produits commandés seront récupérés pour le rapport."
+msgid ""
+"If you enter an X number here, then, for each selected customer, the last X "
+"ordered products will be obtained for the report."
+msgstr ""
+"Si vous entrez un nombre X ici, alors, pour chaque client·e sélectionné·e, "
+"les derniers X produits commandés seront récupérés pour le rapport."
 
 #. module: product_pricelist_direct_print
 #: selection:product.pricelist.print,order_field:0
@@ -419,5 +434,6 @@ msgstr "Mode de TVA"
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:158
 #, python-format
 msgid "You must set price list or any customer or any show price option."
-msgstr "Vous devez établir une liste de prix ou un client ou une option de prix à afficher."
-
+msgstr ""
+"Vous devez établir une liste de prix ou un client ou une option de prix à "
+"afficher."
