@@ -57,6 +57,9 @@
                             <th t-if="o.show_sale_price" class="text-right">
                                 <strong>Sale Price</strong>
                             </th>
+                            <th t-if="o.show_product_uom" class="text-right">
+                                <strong>UoM</strong>
+                            </th>
                             <th t-if="pricelist" class="text-right">
                                 <strong>List Price</strong>
                             </th>
@@ -78,8 +81,11 @@
                                 <td t-if="o.show_sale_price" class="text-right">
                                     <span t-field="product.list_price"/>
                                 </td>
+                                <td t-if="o.show_product_uom" class="text-right">
+                                    <span t-field="product.uom_id.name"/>
+                                </td>
                                 <td t-if="pricelist" class="text-right">
-                                    <strong t-field="product.with_context(pricelist=pricelist.id, date=o.date).price"/>
+                                    <strong t-esc="o.compute_pricelist_price(product)"/>
                                 </td>
                             </tr>
                         </t>

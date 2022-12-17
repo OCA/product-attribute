@@ -63,6 +63,9 @@ class ProductPricelistXlsx(models.AbstractModel):
         if book.show_sale_price:
             next_col += 1
             sheet.write(5, next_col, _('Sale Price'), header_format)
+        if book.show_product_uom:
+            next_col += 1
+            sheet.write(5, next_col, _('UoM'), header_format)
         next_col += 1
         sheet.write(5, next_col, _('List Price'), header_format)
         return sheet
@@ -89,12 +92,14 @@ class ProductPricelistXlsx(models.AbstractModel):
                 if book.show_sale_price:
                     next_col += 1
                     sheet.write(row, next_col, product.list_price, decimal_format)
+                if book.show_product_uom:
+                    next_col += 1
+                    sheet.write(row, next_col, product.uom_id.name, decimal_format)
                 next_col += 1
                 sheet.write(
                     row,
                     next_col,
-                    product.with_context(
-                        pricelist=pricelist.id, date=book.date).price,
+                    book.compute_pricelist_price(product, display_currency=False),
                     decimal_bold_format
                 )
                 row += 1
