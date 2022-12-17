@@ -400,3 +400,4 @@ msgstr ""
 #, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""
+
