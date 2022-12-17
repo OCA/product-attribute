@@ -4,7 +4,7 @@
     "name": "Product Pricelist Direct Print",
     "summary": "Print price list from menu option, product templates, "
                "products variants or price lists",
-    "version": "12.0.2.0.1",
+    "version": "12.0.2.1.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author":
