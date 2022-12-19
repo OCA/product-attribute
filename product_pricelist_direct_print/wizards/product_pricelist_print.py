@@ -226,7 +226,8 @@ class ProductPricelistPrint(models.TransientModel):
         if not partner and self.partner_count == 1:
             partner = self.partner_ids[0]
         orders = self.env["sale.order"].search(
-            self._get_sale_order_domain(partner), order="date_order desc"
+            self._get_sale_order_domain(partner.commercial_partner_id),
+            order="date_order desc",
         )
         products = orders.mapped("order_line").mapped("product_id")
         return products[: self.last_ordered_products]
@@ -285,8 +286,10 @@ class ProductPricelistPrint(models.TransientModel):
 
     def get_products_to_print(self):
         self.ensure_one()
+        domain = self.get_products_domain()
         if self.last_ordered_products:
             products = self.get_last_ordered_products_to_print()
+            products = products.filtered_domain(domain)
         else:
             if self.show_variants:
                 products = self.product_ids or self.product_tmpl_ids.mapped(
@@ -294,7 +297,10 @@ class ProductPricelistPrint(models.TransientModel):
                 )
             else:
                 products = self.product_tmpl_ids
-        if not products:
+        # We default to the products model search but if the last ordered products
+        # checkbox is on we don't want to confuse the user with products which don't
+        # belong to their sales. It's better to show the empty report in that case.
+        if not products and not self.last_ordered_products:
             products = products.search(self.get_products_domain())
         return products
 
