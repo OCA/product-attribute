@@ -143,7 +143,11 @@ class ABCClassificationProfile(models.Model):
         moves = (
             self.env["stock.move"]
             .sudo()
-            .read_group(domain, ["product_id", "product_qty"], ["product_id"],)
+            .read_group(
+                domain,
+                ["product_id", "product_qty"],
+                ["product_id"],
+            )
         )
         for move in moves:
             product_data = {
