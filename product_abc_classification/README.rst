@@ -23,7 +23,7 @@ Product ABC Classification
     :target: https://runbot.odoo-community.org/runbot/135/13.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This modules includes the ABC analysis (or ABC classification), which is
 used by inventory management teams to help identify the most important
@@ -80,6 +80,7 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Carlos Roca
+  * Stefan Ungureanu
 
 Maintainers
 ~~~~~~~~~~~
@@ -100,7 +101,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-MiquelRForgeFlow| 
+|maintainer-MiquelRForgeFlow|
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/13.0/product_abc_classification>`_ project on GitHub.
 

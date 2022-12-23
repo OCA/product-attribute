@@ -61,7 +61,7 @@
         <field name="name">abc.classification.profile.tree</field>
         <field name="model">abc.classification.profile</field>
         <field name="arch" type="xml">
-            <tree string="ABC Profiles" decoration-muted="representation==''">
+            <tree decoration-muted="representation==''">
                 <field name="name" />
                 <field name="value_criteria" />
                 <field name="representation" />

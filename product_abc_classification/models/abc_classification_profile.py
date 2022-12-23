@@ -17,7 +17,6 @@ class ABCClassificationProfile(models.Model):
     )
     classification_type = fields.Selection(
         selection=[("percentage", "Percentage"), ("fixed", "Fixed")],
-        string="Classification Type",
         default="percentage",
         required=True,
     )
@@ -25,7 +24,6 @@ class ABCClassificationProfile(models.Model):
     data_source = fields.Selection(
         selection=[("stock_moves", "Stock Moves")],
         default="stock_moves",
-        string="Data Source",
         index=True,
         required=True,
     )
@@ -48,9 +46,7 @@ class ABCClassificationProfile(models.Model):
     product_variant_ids = fields.One2many(
         "product.product", inverse_name="abc_classification_profile_id"
     )
-    product_count = fields.Integer(
-        string="Product Count", compute="_compute_product_count", readonly=True
-    )
+    product_count = fields.Integer(compute="_compute_product_count", readonly=True)
     company_id = fields.Many2one(comodel_name="res.company", string="Company")
 
     @api.constrains("past_period", "days_to_ignore")
@@ -165,7 +161,7 @@ class ABCClassificationProfile(models.Model):
             return data["unit_price"] * data["units_sold"]
         elif self.value_criteria == "sales_volume":
             return data["units_sold"]
-        raise 0.0
+        return 0.0
 
     @api.model
     def _get_sort_key_percentage(self, rec):

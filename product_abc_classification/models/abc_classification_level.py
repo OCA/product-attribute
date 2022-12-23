@@ -25,9 +25,7 @@ class ABCClassificationProfileLevel(models.Model):
         "res.currency", string="Currency", store=True, related="company_id.currency_id"
     )
     profile_id = fields.Many2one("abc.classification.profile")
-    sequence = fields.Integer(
-        string="Sequence", compute="_compute_sequence", store=True
-    )
+    sequence = fields.Integer(compute="_compute_sequence", store=True)
     symbol = fields.Char(compute="_compute_symbol", store=True)
 
     def name_get(self):
