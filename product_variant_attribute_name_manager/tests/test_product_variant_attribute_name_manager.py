@@ -1,6 +1,4 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-
 from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
 
@@ -10,16 +8,16 @@ class TestProductTemplateAttributeValue(TransactionCase):
     def setUp(self):
         super(TestProductTemplateAttributeValue, self).setUp()
 
-        self.computer = self.env["product.template"].create(
-            {"name": "Super Computer", "price": 2000}
-        )
+        self.product_attr_value_obj = self.env["product.attribute.value"]
+        self.product_attr_obj = self.env["product.attribute"]
+        self.computer = self.env["product.template"].create({"name": "Super Computer"})
 
         self._add_ssd_attribute()
         self._add_ram_attribute()
         self._add_hdd_attribute()
 
     def _add_ssd_attribute(self):
-        self.ssd_attribute = self.env["product.attribute"].create(
+        self.ssd_attribute = self.product_attr_obj.create(
             {
                 "name": "Memory",
                 "short_name": "Mem",
@@ -27,10 +25,10 @@ class TestProductTemplateAttributeValue(TransactionCase):
                 "sequence": 1,
             }
         )
-        self.ssd_256 = self.env["product.attribute.value"].create(
+        self.ssd_256 = self.product_attr_value_obj.create(
             {"name": "256 GB", "attribute_id": self.ssd_attribute.id, "sequence": 1}
         )
-        self.ssd_512 = self.env["product.attribute.value"].create(
+        self.ssd_512 = self.product_attr_value_obj.create(
             {"name": "512 GB", "attribute_id": self.ssd_attribute.id, "sequence": 2}
         )
 
@@ -46,16 +44,16 @@ class TestProductTemplateAttributeValue(TransactionCase):
         )
 
     def _add_ram_attribute(self):
-        self.ram_attribute = self.env["product.attribute"].create(
+        self.ram_attribute = self.product_attr_obj.create(
             {"name": "RAM", "display_attribute_name": True, "sequence": 2}
         )
-        self.ram_8 = self.env["product.attribute.value"].create(
+        self.ram_8 = self.product_attr_value_obj.create(
             {"name": "8 GB", "attribute_id": self.ram_attribute.id, "sequence": 1}
         )
-        self.ram_16 = self.env["product.attribute.value"].create(
+        self.ram_16 = self.product_attr_value_obj.create(
             {"name": "16 GB", "attribute_id": self.ram_attribute.id, "sequence": 2}
         )
-        self.ram_32 = self.env["product.attribute.value"].create(
+        self.ram_32 = self.product_attr_value_obj.create(
             {"name": "32 GB", "attribute_id": self.ram_attribute.id, "sequence": 3}
         )
         self.computer_ram_attribute_lines = self.env[
@@ -70,13 +68,13 @@ class TestProductTemplateAttributeValue(TransactionCase):
         )
 
     def _add_hdd_attribute(self):
-        self.hdd_attribute = self.env["product.attribute"].create(
+        self.hdd_attribute = self.product_attr_obj.create(
             {"name": "HDD", "sequence": 3}
         )
-        self.hdd_1 = self.env["product.attribute.value"].create(
+        self.hdd_1 = self.product_attr_value_obj.create(
             {"name": "1 To", "attribute_id": self.hdd_attribute.id, "sequence": 1}
         )
-        self.hdd_2 = self.env["product.attribute.value"].create(
+        self.hdd_2 = self.product_attr_value_obj.create(
             {"name": "2 To", "attribute_id": self.hdd_attribute.id, "sequence": 2}
         )
 
