@@ -30,14 +30,12 @@ class ProductTemplateAttributeValue(models.Model):
             key=lambda seq: seq.attribute_line_id.sequence,
         ):
             if ptav.attribute_id.display_attribute_name:
-                if ptav.attribute_id.short_name:
-                    display_ptav_list.append(
-                        "%s: %s" % (ptav.attribute_id.short_name, ptav.name)
+                display_ptav_list.append(
+                    "{}: {}".format(
+                        ptav.attribute_id.short_name or ptav.attribute_id.name,
+                        ptav.name,
                     )
-                else:
-                    display_ptav_list.append(
-                        "%s: %s" % (ptav.attribute_id.name, ptav.name)
-                    )
+                )
             else:
                 display_ptav_list.append(ptav.name)
         return ", ".join(display_ptav_list)
