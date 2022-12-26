@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <odoo>
 
     <record id="product_template_only_form_view" model="ir.ui.view">
