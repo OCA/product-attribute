@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-05-18 11:05+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2022-12-28 22:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_needaction
@@ -100,7 +100,7 @@ msgstr "Icona per indicare un'attività eccezione."
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__message_needaction
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__message_unread
 msgid "If checked, new messages require your attention."
-msgstr "Se attivo, nuovi messaggi richiedono la tua attenzione."
+msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: product_assortment_description
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__message_has_error
@@ -196,10 +196,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
-"Stato basato sulle attività\n"
-"In ritardo: scadenza già superata\n"
-"Oggi: attività in data odierna\n"
-"Pianificato: attività future."
+"Stati in base alle attività\n"
+"Scaduti: la data richiesta è trascorsa\n"
+"Oggi: la data attività è oggi\n"
+"Pianificate: attività future."
 
 #. module: product_assortment_description
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__activity_exception_decoration
