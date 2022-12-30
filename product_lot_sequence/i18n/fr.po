@@ -17,6 +17,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__display_lot_sequence_fields
+#: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__display_lot_sequence_fields
+msgid "Display Lot Sequence Fields"
+msgstr ""
+
+#. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_id
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_id
 msgid "Entry Sequence"
@@ -26,6 +32,11 @@ msgstr "Référence de séquence"
 #: model:ir.model,name:product_lot_sequence.model_stock_production_lot
 msgid "Lot/Serial"
 msgstr "Lot/N° série"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,field_description:product_lot_sequence.field_stock_production_lot__name
+msgid "Lot/Serial Number"
+msgstr ""
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_number_next
@@ -73,6 +84,11 @@ msgstr "Le prochain numéro à utiliser"
 #: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_id
 msgid "This field contains the information related to the numbering of lots."
 msgstr "Ce champ contient le lien vers la séquence de lot/numéro de série"
+
+#. module: product_lot_sequence
+#: model:ir.model.fields,help:product_lot_sequence.field_stock_production_lot__name
+msgid "Unique Lot/Serial Number"
+msgstr ""
 
 #~ msgid "Display Name"
 #~ msgstr "Nom affiché"
