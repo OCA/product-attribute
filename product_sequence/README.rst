@@ -26,7 +26,7 @@ Product Sequence
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module allows to associate a sequence to the product reference.
-The reference (default code) is unique (SQL constraint) and required.
+The reference (default code) is required. If you want to enforce reference uniqueness you can also install product_code_unique from this same repository.
 
 You can optionally specify different sequences for different product
 categories.
