@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [product_manufacturer](product_manufacturer/) | 15.0.1.0.2 |  | Adds manufacturers and attributes on the product view.
 [product_multi_image](product_multi_image/) | 15.0.1.0.0 |  | Multiple Images in Products
 [product_net_weight](product_net_weight/) | 15.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add 'Net Weight' on product models
+[product_order_noname](product_order_noname/) | 15.0.1.0.0 | [![WR-96](https://github.com/WR-96.png?size=30px)](https://github.com/WR-96) [![moylop260](https://github.com/moylop260.png?size=30px)](https://github.com/moylop260) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Speedup product retrieve
 [product_packaging_type](product_packaging_type/) | 15.0.1.0.0 |  | Product Packaging Type
 [product_pricelist_by_contact](product_pricelist_by_contact/) | 15.0.1.0.0 |  | Product Pricelist Per Contact
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 15.0.1.0.0 |  | Print price list from menu option, product templates, products variants or price lists
