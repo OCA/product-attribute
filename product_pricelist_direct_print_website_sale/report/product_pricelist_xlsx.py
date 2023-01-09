@@ -13,8 +13,8 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(5, next_col, _("Public Category"), header_format)
         return next_col
 
-    def _add_extra_info(self, sheet, book, product, row, next_col):
-        next_col = super()._add_extra_info(sheet, book, product, row, next_col)
+    def _add_extra_info(self, sheet, book, product, row, next_col, **kw):
+        next_col = super()._add_extra_info(sheet, book, product, row, next_col, **kw)
         if book.show_public_category:
             next_col += 1
             if product.public_categ_ids:
