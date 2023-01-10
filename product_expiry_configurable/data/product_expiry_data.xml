@@ -55,9 +55,9 @@
         <record
             model="ir.cron"
             forcecreate="True"
-            id="ir_cron_product_expiry_life_date"
+            id="ir_cron_product_expiry_expiration_date"
         >
-            <field name="name">Product Life Date Reached</field>
+            <field name="name">Product Expiration Date Reached</field>
             <field name="active" eval="0" />
             <field name="user_id" ref="base.user_root" />
             <field name="model_id" ref="stock.model_stock_production_lot" />
@@ -68,7 +68,7 @@
             <field name="doall" eval="0" />
             <field
                 name="code"
-            >model._expiry_date_exceeded(date_field='life_date')</field>
+            >model._expiry_date_exceeded(date_field='expiration_date')</field>
             <field
                 name="nextcall"
                 eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')"

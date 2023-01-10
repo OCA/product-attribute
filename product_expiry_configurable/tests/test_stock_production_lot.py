@@ -41,18 +41,18 @@ class TestProductCategory(SavepointCase):
         Test case:
               By default compute_dates_from is "current_date".
               Product alert_time, use_time, removal_time
-              and life_time are set to 2 each of them.
+              and expiration_time are set to 2 each of them.
               Create product lot.
         Expected result:
-             The expected values of lot alert_date, use_date, removal_date and life_date
+             The expected values of lot alert_date, use_date, removal_date and expiration_date
               are 2 days after current_date.
         """
 
         def _get_times():
-            return ["alert_time", "use_time", "removal_time", "life_time"]
+            return ["alert_time", "use_time", "removal_time", "expiration_time"]
 
         def _get_dates():
-            return ["alert_date", "use_date", "removal_date", "life_date"]
+            return ["alert_date", "use_date", "removal_date", "expiration_date"]
 
         for time in _get_times():
             setattr(self.product, "specific_%s" % time, 2)
@@ -71,15 +71,15 @@ class TestProductCategory(SavepointCase):
                     fields.Datetime.to_string(getattr(lot, date)), "2022-02-12 10:00:00"
                 )
 
-    def test_product_life_date(self):
+    def test_product_expiration_date(self):
         """
         Test case:
-              Set product compute_dates_from to "life_date".
+              Set product compute_dates_from to "expiration_date".
               Product alert_time, use_time and removal_time are set to 2 each of them.
-              Create product lot with life_date.
+              Create product lot with expiration_date.
         Expected result:
-             The expected values of lot alert_date, use_date, removal_date and life_date
-              are 2 days before life_date.
+             The expected values of lot alert_date, use_date, removal_date and expiration_date
+              are 2 days before expiration_date.
         """
 
         def _get_times():
@@ -88,7 +88,7 @@ class TestProductCategory(SavepointCase):
         def _get_dates():
             return ["alert_date", "use_date", "removal_date"]
 
-        self.product.specific_compute_dates_from = "life_date"
+        self.product.specific_compute_dates_from = "expiration_date"
 
         for time in _get_times():
             setattr(self.product, "specific_%s" % time, 2)
@@ -99,7 +99,7 @@ class TestProductCategory(SavepointCase):
                 {
                     "name": "lot1",
                     "product_id": self.product.id,
-                    "life_date": datetime(2022, 2, 28, 10, 0, 0),
+                    "expiration_date": datetime(2022, 2, 28, 10, 0, 0),
                     "company_id": self.env.company.id,
                 }
             )
@@ -113,7 +113,7 @@ class TestProductCategory(SavepointCase):
         Test case:
               Create a product without tracking.
         Expected result:
-             The expected values of lot alert_date, use_date, removal_date and life_date
+             The expected values of lot alert_date, use_date, removal_date and expiration_date
               are False
         """
         product = self.ProductProduct.create(
@@ -132,22 +132,22 @@ class TestProductCategory(SavepointCase):
         )
 
         def _get_dates():
-            return ["alert_date", "use_date", "removal_date", "life_date"]
+            return ["alert_date", "use_date", "removal_date", "expiration_date"]
 
         for date in _get_dates():
             self.assertFalse(getattr(lot, date))
 
-    def test_onchange_product_life_date(self):
+    def test_onchange_product_expiration_date(self):
         """
         Test case:
-              Create a product with compute_dates_from = 'life_date'.
-              Create lot without life_date.
-              Set lot life_date after being created.
+              Create a product with compute_dates_from = 'expiration_date'.
+              Create lot without expiration_date.
+              Set lot expiration_date after being created.
 
         Expected result:
              First dates are expected to be False.
-             After adding the life_date, the fields alert_date, use_date and removal_date
-             should be computed according to 'life_date'.
+             After adding the expiration_date, the fields alert_date, use_date and removal_date
+             should be computed according to 'expiration_date'.
         """
 
         def _get_times():
@@ -156,7 +156,7 @@ class TestProductCategory(SavepointCase):
         def _get_dates():
             return ["alert_date", "use_date", "removal_date"]
 
-        self.product.specific_compute_dates_from = "life_date"
+        self.product.specific_compute_dates_from = "expiration_date"
 
         for time in _get_times():
             setattr(self.product, "specific_%s" % time, 2)
@@ -171,23 +171,23 @@ class TestProductCategory(SavepointCase):
             )
             for date in _get_dates():
                 self.assertEqual(fields.Datetime.to_string(getattr(lot, date)), False)
-            self.assertFalse(lot.life_date)
+            self.assertFalse(lot.expiration_date)
 
             with Form(lot) as lot_form:
-                lot_form.life_date = datetime(2022, 2, 28, 10, 0, 0)
+                lot_form.expiration_date = datetime(2022, 2, 28, 10, 0, 0)
                 for date in _get_dates():
                     self.assertEqual(
                         fields.Datetime.to_string(getattr(lot_form, date)),
                         "2022-02-26 10:00:00",
                     )
 
-    def test_cron_life_date_reached(self):
+    def test_cron_expiration_date_reached(self):
         """
         Test case:
-               Create a product with compute_dates_from = 'life_date'
+               Create a product with compute_dates_from = 'expiration_date'
                and configure durations.
-               Create lot with a past life_date.
-               Run manually cron setting a date after life_date and
+               Create lot with a past expiration_date.
+               Run manually cron setting a date after expiration_date and
                the other dates.
 
         Expected result:
@@ -199,9 +199,9 @@ class TestProductCategory(SavepointCase):
             return ["alert_time", "use_time", "removal_time"]
 
         def _get_dates():
-            return ["life_date", "use_date", "removal_date"]
+            return ["expiration_date", "use_date", "removal_date"]
 
-        self.product.specific_compute_dates_from = "life_date"
+        self.product.specific_compute_dates_from = "expiration_date"
 
         for time in _get_times():
             setattr(self.product, "specific_%s" % time, 2)
@@ -211,7 +211,7 @@ class TestProductCategory(SavepointCase):
                 "name": "lot1",
                 "product_id": self.product.id,
                 "company_id": self.env.company.id,
-                "life_date": datetime(2021, 2, 28, 10, 0, 0),
+                "expiration_date": datetime(2021, 2, 28, 10, 0, 0),
             }
         )
 

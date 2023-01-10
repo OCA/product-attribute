@@ -37,8 +37,8 @@ class TestProductTemplate(SavepointCase):
                  The values at the product must be the same that at the category
         """
         self.assertEqual(self.product.compute_dates_from, "current_date")
-        self.categ_lvl_1_1_1.specific_compute_dates_from = "life_date"
-        self.assertEqual(self.product.compute_dates_from, "life_date")
+        self.categ_lvl_1_1_1.specific_compute_dates_from = "expiration_date"
+        self.assertEqual(self.product.compute_dates_from, "expiration_date")
         for time in self._get_times():
             self.assertEqual(getattr(self.product, time), 0)
             setattr(self.categ_lvl_1_1_1, "specific_%s" % time, 2)
@@ -53,8 +53,8 @@ class TestProductTemplate(SavepointCase):
                  The values at the product must be different from category's values
         """
         self.assertEqual(self.product.compute_dates_from, "current_date")
-        self.product.specific_compute_dates_from = "life_date"
-        self.assertEqual(self.product.compute_dates_from, "life_date")
+        self.product.specific_compute_dates_from = "expiration_date"
+        self.assertEqual(self.product.compute_dates_from, "expiration_date")
         for time in self._get_times():
             self.assertEqual(getattr(self.product, time), 0)
             setattr(self.product, "specific_%s" % time, 2)
