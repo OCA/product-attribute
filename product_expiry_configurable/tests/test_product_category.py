@@ -26,7 +26,8 @@ class TestProductCategory(SavepointCase):
     def check_field(self, categs, field, name):
         for categ in categs:
             self.assertEqual(
-                name, getattr(categ, field),
+                name,
+                getattr(categ, field),
             )
             self.check_field(categ.child_id, field, name)
 
@@ -52,13 +53,13 @@ class TestProductCategory(SavepointCase):
 
     def test_modify_child_category(self):
         """
-          Test Case:
-              Specify a specific_compute_dates_from and specific_alert_time,
-              specific_use_time and specific_removal_time at level_1_1
-          Expected result:
-              The values at root level and level are the default ("current_date").
-              The values at level_1 and level_1_1_1 are the new ones.
-          """
+        Test Case:
+            Specify a specific_compute_dates_from and specific_alert_time,
+            specific_use_time and specific_removal_time at level_1_1
+        Expected result:
+            The values at root level and level are the default ("current_date").
+            The values at level_1 and level_1_1_1 are the new ones.
+        """
 
         self.check_field(self.categ_lvl, "compute_dates_from", "current_date")
         self.categ_lvl_1_1.specific_compute_dates_from = "life_date"
