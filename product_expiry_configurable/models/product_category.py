@@ -9,24 +9,32 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     compute_dates_from = fields.Selection(
-        selection=[("current_date", "Current Date"), ("life_date", "Life Time Date")],
+        selection=[
+            ("current_date", "Current Date"),
+            ("expiration_date", "Expiration Time Date"),
+        ],
         help="If current_date is selected, the dates will be computed taking "
         "as reference the current date when the lot is created."
-        "Whereas if life_date is selected, "
-        "the dates will be computed taking as reference the lot's life_date.",
+        "Whereas if expiration_date is selected, "
+        "the dates will be computed taking as reference the lot's expiration_date.",
         compute="_compute_compute_dates_from",
     )
     specific_compute_dates_from = fields.Selection(
-        selection=[("current_date", "Current Date"), ("life_date", "Life Time Date")],
+        selection=[
+            ("current_date", "Current Date"),
+            ("expiration_date", "Expiration Time Date"),
+        ],
         help="If not provided, the one defined on the parent is used.",
     )
     parent_compute_dates_from = fields.Selection(
-        selection=[("current_date", "Current Date"), ("life_date", "Life Time Date")],
+        selection=[
+            ("current_date", "Current Date"),
+            ("expiration_date", "Expiration Time Date"),
+        ],
         compute="_compute_parent_compute_dates_from",
     )
-
-    life_time = fields.Integer(
-        string="Product Life Time",
+    expiration_time = fields.Integer(
+        string="Product Expiration Time",
         help="Number of days before the goods"
         " may become dangerous and must not be consumed. "
         "It will be computed on the lot/serial number.",
@@ -52,8 +60,8 @@ class ProductCategory(models.Model):
         compute="_compute_date_fields",
     )
 
-    specific_life_time = fields.Integer(
-        string="Specific Product Life Time",
+    specific_expiration_time = fields.Integer(
+        string="Specific Product Expiration Time",
         help="Number of days before the goods may become dangerous "
         "and must not be consumed. "
         "It will be computed on the lot/serial number."
@@ -78,8 +86,8 @@ class ProductCategory(models.Model):
         " If not provided, the one defined on the parent is used.",
     )
 
-    parent_life_time = fields.Integer(
-        string="Parent Product Life Time",
+    parent_expiration_time = fields.Integer(
+        string="Parent Product Expiration Time",
         help="Number of days before the goods may become dangerous and must not be consumed. "
         "It will be computed on the lot/serial number.",
         compute="_compute_parent_date_fields",
@@ -124,7 +132,7 @@ class ProductCategory(models.Model):
             )
 
     def _get_date_fields(self):
-        return ["life_time", "use_time", "removal_time", "alert_time"]
+        return ["expiration_time", "use_time", "removal_time", "alert_time"]
 
     def _get_specific_and_parent_date_fields(self):
         specific_dates = ["specific_%s" % date for date in self._get_date_fields()]

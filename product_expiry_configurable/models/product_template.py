@@ -9,40 +9,45 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     compute_dates_from = fields.Selection(
-        selection=[("current_date", "Current Date"), ("life_date", "Life Date")],
+        selection=[
+            ("current_date", "Current Date"),
+            ("expiration_date", "Expiration Date"),
+        ],
         help="If current_date is selected, "
         "the dates will be computed taking as reference "
         "the current date when the lot is created."
-        "Whereas if life_date is selected,"
-        " the dates will be computed taking as reference the lot's life_date.",
+        "Whereas if expiration_time is selected,"
+        " the dates will be computed taking as reference the lot's expiration_time.",
         compute="_compute_compute_dates_from",
     )
     specific_compute_dates_from = fields.Selection(
-        selection=[("current_date", "Current Date"), ("life_date", "Life Date")],
+        selection=[
+            ("current_date", "Current Date"),
+            ("expiration_date", "Expiration Date"),
+        ],
         help="If current_date is selected, "
         "the dates will be computed taking as reference "
         "the current date when the lot is created."
-        "Whereas if life_date is selected,"
-        " the dates will be computed taking as reference the lot's life_date.",
+        "Whereas if expiration_time is selected,"
+        " the dates will be computed taking as reference the lot's expiration_date.",
     )
     category_compute_dates_from = fields.Selection(
-        selection=[("current_date", "Current Date"), ("life_date", "Life Date")],
+        string="Category compute dates from",
         help="If current_date is selected, "
         "the dates will be computed taking as reference "
         "the current date when the lot is created."
-        "Whereas if life_date is selected, "
-        "the dates will be computed taking as reference the lot's life_date.",
+        "Whereas if expiration_date is selected, "
+        "the dates will be computed taking as reference the lot's expiration_date.",
         related="categ_id.compute_dates_from",
-        string="Category Compute Dates From",
     )
 
-    life_time = fields.Integer(compute="_compute_date_fields")
+    expiration_time = fields.Integer(compute="_compute_date_fields")
     use_time = fields.Integer(compute="_compute_date_fields")
     removal_time = fields.Integer(compute="_compute_date_fields")
     alert_time = fields.Integer(compute="_compute_date_fields")
 
-    specific_life_time = fields.Integer(
-        string="Specific Product Life Time",
+    specific_expiration_time = fields.Integer(
+        string="Specific Product Expiration Time",
         help="Number of days before the goods may "
         "become dangerous and must not be consumed. "
         "It will be computed on the lot/serial number."
@@ -67,12 +72,12 @@ class ProductTemplate(models.Model):
         "If not provided, the one defined on the category is used.",
     )
 
-    category_life_time = fields.Integer(
-        string="Category Product Life Time",
+    category_expiration_time = fields.Integer(
+        string="Category Product Expiration Time",
         help="Number of days before the goods may become "
         "dangerous and must not be consumed. "
         "It will be computed on the lot/serial number.",
-        related="categ_id.life_time",
+        related="categ_id.expiration_time",
     )
     category_use_time = fields.Integer(
         string="Category Product Use Time",
@@ -95,7 +100,7 @@ class ProductTemplate(models.Model):
     )
 
     def _get_date_fields(self):
-        return ["life_time", "use_time", "removal_time", "alert_time"]
+        return ["expiration_time", "use_time", "removal_time", "alert_time"]
 
     @api.depends("specific_compute_dates_from", "category_compute_dates_from")
     def _compute_compute_dates_from(self):

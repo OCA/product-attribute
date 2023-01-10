@@ -25,9 +25,9 @@
                     domain="[('removal_date', '&lt;=', time.strftime('%Y-%m-%d %H:%M:%S'))]"
                 />
                 <filter
-                    name="life_date_reached"
-                    string="Life Date Reached"
-                    domain="[('life_date', '&lt;=', time.strftime('%Y-%m-%d %H:%M:%S'))]"
+                    name="expiration_date_reached"
+                    string="Expiration Date Reached"
+                    domain="[('expiration_date', '&lt;=', time.strftime('%Y-%m-%d %H:%M:%S'))]"
                 />
             </filter>
         </field>

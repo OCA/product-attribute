@@ -41,10 +41,10 @@ class TestProductCategory(SavepointCase):
         """
 
         self.check_field(self.categ_lvl, "compute_dates_from", "current_date")
-        self.categ_lvl.specific_compute_dates_from = "life_date"
-        self.check_field(self.categ_lvl, "compute_dates_from", "life_date")
+        self.categ_lvl.specific_compute_dates_from = "expiration_date"
+        self.check_field(self.categ_lvl, "compute_dates_from", "expiration_date")
         children = self.categ_lvl.child_id
-        self.check_field(children, "compute_dates_from", "life_date")
+        self.check_field(children, "compute_dates_from", "expiration_date")
 
         for time in self._get_times():
             setattr(self.categ_lvl, "specific_%s" % time, 2)
@@ -62,10 +62,10 @@ class TestProductCategory(SavepointCase):
         """
 
         self.check_field(self.categ_lvl, "compute_dates_from", "current_date")
-        self.categ_lvl_1_1.specific_compute_dates_from = "life_date"
-        self.check_field(self.categ_lvl_1_1, "compute_dates_from", "life_date")
+        self.categ_lvl_1_1.specific_compute_dates_from = "expiration_date"
+        self.check_field(self.categ_lvl_1_1, "compute_dates_from", "expiration_date")
         children = self.categ_lvl_1_1.child_id
-        self.check_field(children, "compute_dates_from", "life_date")
+        self.check_field(children, "compute_dates_from", "expiration_date")
         self.assertEqual(self.categ_lvl_1.compute_dates_from, "current_date")
         self.assertEqual(self.categ_lvl.compute_dates_from, "current_date")
 

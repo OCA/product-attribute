@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record
+        model="ir.cron"
+        forcecreate="True"
+        id="ir_cron_product_expiry_expiration_date"
+    >
+        <field name="name">Product Expiration Date Reached</field>
+        <field
+            name="code"
+        >model._expiry_date_exceeded(date_field='expiration_date')</field>
+    </record>
+</odoo>
