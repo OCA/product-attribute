@@ -28,7 +28,7 @@ class StockProductionLot(models.Model):
 
     def _get_dates(self, product_id=None):
         """Returns dates based on number of days configured in current lot's product.
-            The date will be computed depending on the field 'compute_dates_from'"""
+        The date will be computed depending on the field 'compute_dates_from'"""
         mapped_fields = {
             "use_date": "use_time",
             "removal_date": "removal_time",
