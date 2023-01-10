@@ -24,13 +24,13 @@
                             <span> days</span>
                         </div>
                         <label
-                            for="life_time"
-                            attrs="{'invisible': [('compute_dates_from', '==', 'life_date')]}"
+                            for="expiration_time"
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
                         />
                         <div
-                            attrs="{'invisible': [('compute_dates_from', '==', 'life_date')]}"
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
                         >
-                            <field name="life_time" class="oe_inline" />
+                            <field name="expiration_time" class="oe_inline" />
                             <span> days</span>
                         </div>
                         <label for="removal_time" />
@@ -52,13 +52,13 @@
                             <span> days</span>
                         </div>
                         <label
-                            for="specific_life_time"
-                            attrs="{'invisible': [('compute_dates_from', '==', 'life_date')]}"
+                            for="specific_expiration_time"
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
                         />
                         <div
-                            attrs="{'invisible': [('compute_dates_from', '==', 'life_date')]}"
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
                         >
-                            <field name="specific_life_time" class="oe_inline" />
+                            <field name="specific_expiration_time" class="oe_inline" />
                             <span> days</span>
                         </div>
                         <label for="specific_removal_time" />

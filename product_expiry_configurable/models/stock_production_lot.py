@@ -14,15 +14,17 @@ class StockProductionLot(models.Model):
 
     removal_date_reminded = fields.Boolean(default=False)
 
-    life_date_reminded = fields.Boolean(default=False)
+    expiration_date_reminded = fields.Boolean(default=False)
 
-    def _get_dates_from_life_date(self, product, mapped_fields, life_date=False):
+    def _get_dates_from_expiration_date(
+        self, product, mapped_fields, expiration_date=False
+    ):
         res = dict.fromkeys(mapped_fields, False)
-        life_date = self.life_date or life_date
+        expiration_date = self.expiration_date or expiration_date
         for field in mapped_fields:
             duration = getattr(product, mapped_fields[field])
-            if duration and life_date:
-                date = life_date - datetime.timedelta(days=duration)
+            if duration and expiration_date:
+                date = expiration_date - datetime.timedelta(days=duration)
                 res[field] = fields.Datetime.to_string(date)
         return res
 
@@ -36,24 +38,30 @@ class StockProductionLot(models.Model):
         }
         product = self.env["product.product"].browse(product_id) or self.product_id
         res = dict.fromkeys(mapped_fields, False)
-        life_date = self.life_date or self.env.context.get("life_date")
+        expiration_date = self.expiration_date or self.env.context.get(
+            "expiration_date"
+        )
         if product and product.tracking != "none":
-            if product.compute_dates_from == "life_date" and life_date:
-                res = self._get_dates_from_life_date(product, mapped_fields, life_date)
+            if product.compute_dates_from == "expiration_date" and expiration_date:
+                res = self._get_dates_from_expiration_date(
+                    product, mapped_fields, expiration_date
+                )
             elif product.compute_dates_from == "current_date":
                 res = super()._get_dates(product_id=product_id)
         return res
 
-    @api.onchange("life_date")
-    def _onchange_life_date(self):
-        if self.product_id.compute_dates_from == "life_date":
+    @api.onchange("expiration_date")
+    def _onchange_expiration_date(self):
+        if self.product_id.compute_dates_from == "expiration_date":
             dates_dict = self._get_dates()
             for field, value in dates_dict.items():
                 setattr(self, field, value)
 
     @api.model
     def create(self, vals):
-        dates = self.with_context(life_date=vals.get("life_date"))._get_dates(
+        dates = self.with_context(
+            expiration_date=vals.get("expiration_date")
+        )._get_dates(
             vals.get("product_id") or self.env.context.get("default_product_id")
         )
         for d in dates:
