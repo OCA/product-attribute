@@ -38,14 +38,14 @@ class TestProductCategory(SavepointCase):
 
     def test_product_current_date(self):
         """
-            Test case:
-                  By default compute_dates_from is "current_date".
-                  Product alert_time, use_time, removal_time
-                  and life_time are set to 2 each of them.
-                  Create product lot.
-            Expected result:
-                 The expected values of lot alert_date, use_date, removal_date and life_date
-                  are 2 days after current_date.
+        Test case:
+              By default compute_dates_from is "current_date".
+              Product alert_time, use_time, removal_time
+              and life_time are set to 2 each of them.
+              Create product lot.
+        Expected result:
+             The expected values of lot alert_date, use_date, removal_date and life_date
+              are 2 days after current_date.
         """
 
         def _get_times():
@@ -73,13 +73,13 @@ class TestProductCategory(SavepointCase):
 
     def test_product_life_date(self):
         """
-            Test case:
-                  Set product compute_dates_from to "life_date".
-                  Product alert_time, use_time and removal_time are set to 2 each of them.
-                  Create product lot with life_date.
-            Expected result:
-                 The expected values of lot alert_date, use_date, removal_date and life_date
-                  are 2 days before life_date.
+        Test case:
+              Set product compute_dates_from to "life_date".
+              Product alert_time, use_time and removal_time are set to 2 each of them.
+              Create product lot with life_date.
+        Expected result:
+             The expected values of lot alert_date, use_date, removal_date and life_date
+              are 2 days before life_date.
         """
 
         def _get_times():
@@ -110,11 +110,11 @@ class TestProductCategory(SavepointCase):
 
     def test_product_wo_tracking(self):
         """
-             Test case:
-                   Create a product without tracking.
-             Expected result:
-                  The expected values of lot alert_date, use_date, removal_date and life_date
-                   are False
+        Test case:
+              Create a product without tracking.
+        Expected result:
+             The expected values of lot alert_date, use_date, removal_date and life_date
+              are False
         """
         product = self.ProductProduct.create(
             {
@@ -139,15 +139,15 @@ class TestProductCategory(SavepointCase):
 
     def test_onchange_product_life_date(self):
         """
-       Test case:
-             Create a product with compute_dates_from = 'life_date'.
-             Create lot without life_date.
-             Set lot life_date after being created.
+        Test case:
+              Create a product with compute_dates_from = 'life_date'.
+              Create lot without life_date.
+              Set lot life_date after being created.
 
-       Expected result:
-            First dates are expected to be False.
-            After adding the life_date, the fields alert_date, use_date and removal_date
-            should be computed according to 'life_date'.
+        Expected result:
+             First dates are expected to be False.
+             After adding the life_date, the fields alert_date, use_date and removal_date
+             should be computed according to 'life_date'.
         """
 
         def _get_times():
@@ -183,17 +183,17 @@ class TestProductCategory(SavepointCase):
 
     def test_cron_life_date_reached(self):
         """
-         Test case:
-                Create a product with compute_dates_from = 'life_date'
-                and configure durations.
-                Create lot with a past life_date.
-                Run manually cron setting a date after life_date and
-                the other dates.
+        Test case:
+               Create a product with compute_dates_from = 'life_date'
+               and configure durations.
+               Create lot with a past life_date.
+               Run manually cron setting a date after life_date and
+               the other dates.
 
-         Expected result:
-                Activities warning the different lot expiry times
-                should rise.
-            """
+        Expected result:
+               Activities warning the different lot expiry times
+               should rise.
+        """
 
         def _get_times():
             return ["alert_time", "use_time", "removal_time"]
