@@ -15,6 +15,11 @@ class ProductSecondaryUnit(models.Model):
         required=True,
         ondelete="cascade",
     )
+    product_id = fields.Many2one(
+        comodel_name="product.product",
+        string="Product Variant",
+        ondelete="cascade",
+    )
     uom_id = fields.Many2one(
         comodel_name="uom.uom",
         string="Secondary Unit of Measure",
