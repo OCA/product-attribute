@@ -40,6 +40,7 @@ addon | version | maintainers | summary
 [product_packaging_type](product_packaging_type/) | 15.0.1.0.0 |  | Product Packaging Type
 [product_pricelist_by_contact](product_pricelist_by_contact/) | 15.0.1.0.0 |  | Product Pricelist Per Contact
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 15.0.1.0.0 |  | Print price list from menu option, product templates, products variants or price lists
+[product_pricelist_direct_print_website_sale](product_pricelist_direct_print_website_sale/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Extend Product Pricelist Direct Print for filter by public categories
 [product_pricelist_revision](product_pricelist_revision/) | 15.0.1.0.0 |  | Product Pricelist Revision
 [product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 15.0.1.0.0 |  | Allows to create priceslists based on supplier info
 [product_restricted_type](product_restricted_type/) | 15.0.1.0.0 |  | Product Restricted Type
