@@ -7,7 +7,10 @@
             ref="product_abc_classification.product_template_only_form_view"
         />
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='abc_classification']/group" position="after">
+            <xpath
+                expr="//page[@name='inventory']/group[@name='abc_classification']"
+                position="after"
+            >
                 <group
                     attrs="{'invisible':['|',('type','!=','product'),('product_variant_count', '>', 1)]}"
                 >
@@ -26,7 +29,10 @@
             ref="product_abc_classification.product_normal_form_view"
         />
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='abc_classification']/group" position="inside">
+            <xpath
+                expr="//page[@name='inventory']/group[@name='inventory']"
+                position="after"
+            >
                 <group attrs="{'invisible':[('type','!=','product')]}">
                     <field
                         name="seasonality_classification"

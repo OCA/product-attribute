@@ -7,9 +7,13 @@ from odoo import fields, models
 class ABCClassificationProfile(models.Model):
     _inherit = "abc.classification.profile"
 
-    data_source = fields.Selection(selection_add=([("sale_report", "Sales Report")]))
+    data_source = fields.Selection(
+        selection_add=[("sale_report", "Sales Report")],
+        ondelete={"sale_report": "set default"},
+    )
     value_criteria = fields.Selection(
-        selection_add=([("sold_delivered_value", "Sold Delivered Value")])
+        selection_add=[("sold_delivered_value", "Sold Delivered Value")],
+        ondelete={"sold_delivered_value": "set default"},
     )
 
     def _fill_initial_product_data(self, date, date_end=False):

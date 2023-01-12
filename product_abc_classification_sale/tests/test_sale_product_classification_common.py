@@ -7,7 +7,7 @@ from odoo.tests import Form, common
 
 
 @freeze_time("2021-04-01 00:00:00")
-class TestSaleProductClassificationCase(common.SavepointCase):
+class TestSaleProductClassificationCase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -80,7 +80,7 @@ class TestSaleProductClassificationCase(common.SavepointCase):
                 line_form.product_uom_qty = qty
                 line_form.qty_delivered = qty
         sale_order = sale_form.save()
-        sale_order.action_confirm()
+        sale_order.action_done()
         # Force the date so to reproduce the calendar
         sale_order.date_order = date
 
