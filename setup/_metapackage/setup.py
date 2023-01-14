@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo-addon-product_code_unique>=15.0dev,<15.1dev',
         'odoo-addon-product_cost_security>=15.0dev,<15.1dev',
         'odoo-addon-product_dimension>=15.0dev,<15.1dev',
+        'odoo-addon-product_drained_weight>=15.0dev,<15.1dev',
         'odoo-addon-product_logistics_uom>=15.0dev,<15.1dev',
         'odoo-addon-product_lot_sequence>=15.0dev,<15.1dev',
         'odoo-addon-product_manufacturer>=15.0dev,<15.1dev',
