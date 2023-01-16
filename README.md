@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [product_category_code_unique](product_category_code_unique/) | 15.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Allows to set product category code field as unique
 [product_category_product_link](product_category_product_link/) | 15.0.1.0.0 |  | Allows to get products from a category
 [product_code_mandatory](product_code_mandatory/) | 15.0.1.0.1 |  | Set Product Internal Reference as a required field
-[product_code_unique](product_code_unique/) | 15.0.1.0.0 |  | Set Product Internal Reference as Unique
+[product_code_unique](product_code_unique/) | 15.0.1.0.1 |  | Set Product Internal Reference as Unique
 [product_cost_security](product_cost_security/) | 15.0.2.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [product_dimension](product_dimension/) | 15.0.1.0.1 |  | Product Dimension
 [product_drained_weight](product_drained_weight/) | 15.0.1.0.0 |  | Add 'Drained Weight' on product models
