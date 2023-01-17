@@ -23,7 +23,8 @@ msgid "Active"
 msgstr "Ativo"
 
 #. module: product_category_active
-#: code:addons/product_category_active/models/product.py:23
+#. odoo-python
+#: code:addons/product_category_active/models/product_category.py:0
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
