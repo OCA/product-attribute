@@ -20,8 +20,12 @@ class ProductPricelist(models.Model):
             rule = rule_obj.browse(result[product.id][1])
             if rule.compute_price == "formula" and rule.base == "supplierinfo":
                 context = self.env.context
+                # Getting the company from the context is not ideal, but it is enough and
+                # is improved in higher versions
                 result[product.id] = (
-                    product.sudo()._get_supplierinfo_pricelist_price(
+                    product.sudo()
+                    .with_context(force_company=self.env.company.id)
+                    ._get_supplierinfo_pricelist_price(
                         rule,
                         date=date or context.get("date", fields.Date.today()),
                         quantity=qty,
