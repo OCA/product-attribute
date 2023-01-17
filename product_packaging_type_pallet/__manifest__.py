@@ -3,7 +3,7 @@
 {
     "name": "Product Packaging Type Pallet",
     "summary": "Manage packaging of pallet type",
-    "version": "14.0.1.0.1",
+    "version": "15.0.1.0.1",
     "category": "Product",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
