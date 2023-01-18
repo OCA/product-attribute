@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
             <xpath
-                expr="//form/sheet/notebook/page[@name='general_information']/group[1]/group[@name='group_general']/field[@name='type']"
+                expr="//form/sheet/notebook/page[@name='general_information']/group[1]/group[@name='group_general']/field[@name='detailed_type']"
                 position="after"
             >
                 <field name="is_medical" />

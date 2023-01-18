@@ -7,7 +7,7 @@ from odoo import fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    is_medical = fields.Boolean(string="Is Medical", default=False)
+    is_medical = fields.Boolean(default=False)
 
     medical_certificate_url = fields.Char(string="CE Certificate medical devices")
     medical_class_id = fields.Many2one("medical.class", string="Medical Device Class")
