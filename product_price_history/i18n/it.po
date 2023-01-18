@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-05 15:14+0000\n"
-"PO-Revision-Date: 2021-06-15 12:48+0000\n"
-"Last-Translator: Mario Riva <mario.riva@agilebg.com>\n"
+"PO-Revision-Date: 2023-01-18 11:46+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_price_history
 #: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
@@ -61,7 +61,7 @@ msgstr "Storico costo medio prodotto"
 #: model:ir.model,name:product_price_history.model_product_template
 #: model:ir.model.fields,field_description:product_price_history.field_product_price_history__product_tmpl_id
 msgid "Product Template"
-msgstr "Prodotto"
+msgstr "Modello prodotto"
 
 #. module: product_price_history
 #: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
