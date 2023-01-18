@@ -20,6 +20,15 @@ class ProductTemplate(models.Model):
 
     to_print = fields.Boolean(compute="_compute_to_print", inverse="_inverse_to_print")
 
+    def _get_related_fields_variant_template(self):
+        res = super()._get_related_fields_variant_template()
+        res += ["print_category_id", "to_print"]
+        return res
+
+    @api.onchange("print_category_id")
+    def onchange_print_category_id(self):
+        self.to_print = bool(self.print_category_id)
+
     @api.depends("product_variant_ids", "product_variant_ids.print_category_id")
     def _compute_print_category_id(self):
         unique_variants = self.filtered(
@@ -51,9 +60,3 @@ class ProductTemplate(models.Model):
         for template in self:
             if len(template.product_variant_ids) == 1:
                 template.product_variant_ids.to_print = template.to_print
-
-    def write(self, vals):
-        res = super().write(vals)
-        if self.env.context.get("update_to_print_category", True):
-            self._update_to_print_values(vals)
-        return res
