@@ -25,6 +25,12 @@ class ProductTemplate(models.Model):
         res += ["print_category_id", "to_print"]
         return res
 
+    @api.onchange("categ_id", "company_id")
+    def _onchange_categ_id_company_id(self):
+        rule = self.env["product.print.category.rule"].get_print_category_rule(self)
+        if rule:
+            self.print_category_id = rule.print_category_id
+
     @api.onchange("print_category_id")
     def onchange_print_category_id(self):
         self.to_print = bool(self.print_category_id)
