@@ -21,6 +21,14 @@ class TestProductPrintCategory(TransactionCase):
         product = self.ProductProduct.create(
             {
                 "name": "Demo Product Product Name",
+                "print_category_id": self.print_category_1.id,
+            }
+        )
+        self.assertEqual(product.to_print, True)
+
+        product = self.ProductProduct.create(
+            {
+                "name": "Demo Product Product Name",
             }
         )
         self.assertEqual(product.to_print, False)
@@ -33,6 +41,14 @@ class TestProductPrintCategory(TransactionCase):
         self.assertEqual(product.to_print, True)
 
     def test_02_product_template_to_print_value(self):
+        template = self.ProductTemplate.create(
+            {
+                "name": "Demo Product Product Name",
+                "print_category_id": self.print_category_1.id,
+            }
+        )
+        self.assertEqual(template.to_print, True)
+
         template = self.ProductTemplate.create(
             {
                 "name": "Demo Product Template Name",

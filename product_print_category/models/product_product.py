@@ -19,20 +19,22 @@ class ProductProduct(models.Model):
 
     to_print = fields.Boolean()
 
+    @api.onchange("print_category_id")
+    def onchange_print_category_id(self):
+        self.to_print = bool(self.print_category_id)
+
     # Default Section
     def _default_print_category_id(self):
         return self.env.user.company_id.print_category_id
 
     @api.model_create_multi
     def create(self, vals_list):
-        for vals in vals_list:
-            if vals.get("print_category_id", False):
-                vals["to_print"] = True
-        return super().create(vals)
-
-    def write(self, vals):
-        res = super(
-            ProductProduct, self.with_context(update_to_print_category=False)
-        ).write(vals)
-        self._update_to_print_values(vals)
-        return res
+        if not self.env.context.get("to_print_ok", False):
+            for vals in vals_list:
+                # if not explicitely defined, we guess "to_print" value,
+                # based on the print_category_id value.
+                if "to_print" not in vals:
+                    vals["to_print"] = bool(vals.get("print_category_id", False))
+        return super(ProductProduct, self.with_context(to_print_ok=True)).create(
+            vals_list
+        )
