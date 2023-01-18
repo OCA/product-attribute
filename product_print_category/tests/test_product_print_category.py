@@ -15,6 +15,7 @@ class TestProductPrintCategory(TransactionCase):
         self.ProductTemplate = self.env["product.template"]
         self.CustomReport = self.env["report.product_print_category.report_pricetag"]
         self.print_category_1 = self.env.ref("product_print_category.demo_category_1")
+        self.print_category_2 = self.env.ref("product_print_category.demo_category_2")
 
     # Test Section
     def test_01_product_product_to_print_value(self):
@@ -112,3 +113,26 @@ class TestProductPrintCategory(TransactionCase):
             len(products),
             "Print all products should propose 3 products",
         )
+
+    def test_21_onchange(self):
+        product = self.ProductProduct.create(
+            {
+                "name": "Demo Product Product Name",
+            }
+        )
+        self.assertEqual(product.print_category_id.id, False)
+
+        # check rule with exact setting
+        product.categ_id = self.env.ref("product.product_category_consumable")
+        product._onchange_categ_id_company_id()
+        self.assertEqual(product.print_category_id, self.print_category_2)
+
+        # Test with child category setting
+        product.categ_id = self.env.ref("product.product_category_5")
+        product._onchange_categ_id_company_id()
+        self.assertEqual(product.print_category_id, self.print_category_1)
+
+        # Test if fallback settings works
+        product.categ_id = self.env.ref("product.product_category_all")
+        product._onchange_categ_id_company_id()
+        self.assertEqual(product.print_category_id.id, False)

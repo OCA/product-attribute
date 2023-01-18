@@ -8,8 +8,8 @@
 {
     "name": "Product - Print Categories",
     "summary": "Define print categories for products"
-    "and automate products print, when data has changed",
-    "version": "16.0.1.0.1",
+    " and automate products print, when data has changed",
+    "version": "16.0.1.0.2",
     "category": "Product",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
@@ -26,11 +26,13 @@
         "demo/res_groups.xml",
         "demo/qweb_template.xml",
         "demo/product_print_category.xml",
+        "demo/product_print_category_rule.xml",
         "demo/product_product.xml",
     ],
     "data": [
         "security/ir_module_category.xml",
         "security/res_groups.xml",
+        "security/ir_rule.xml",
         "security/ir.model.access.csv",
         "data/report_paperformat.xml",
         "report/report_pricetag.xml",
@@ -38,8 +40,8 @@
         "wizard/view_product_print_wizard.xml",
         "views/view_product_product.xml",
         "views/view_product_template.xml",
-        "views/view_res_company.xml",
         "views/view_product_print_category.xml",
+        "views/view_product_print_category_rule.xml",
     ],
     "installable": True,
 }
