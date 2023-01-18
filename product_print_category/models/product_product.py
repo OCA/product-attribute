@@ -14,18 +14,19 @@ class ProductProduct(models.Model):
     print_category_id = fields.Many2one(
         string="Print Category",
         comodel_name="product.print.category",
-        default=lambda s: s._default_print_category_id(),
     )
 
     to_print = fields.Boolean()
 
+    @api.onchange("categ_id", "company_id")
+    def _onchange_categ_id_company_id(self):
+        rule = self.env["product.print.category.rule"].get_print_category_rule(self)
+        if rule:
+            self.print_category_id = rule.print_category_id
+
     @api.onchange("print_category_id")
     def onchange_print_category_id(self):
         self.to_print = bool(self.print_category_id)
-
-    # Default Section
-    def _default_print_category_id(self):
-        return self.env.user.company_id.print_category_id
 
     @api.model_create_multi
     def create(self, vals_list):

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2023-Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record model="ir.ui.view" id="view_product_print_category_rule_tree">
+        <field name="model">product.print.category.rule</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="main_category_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="print_category_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_print_category_rule" model="ir.actions.act_window">
+        <field name="name">Print Category Rules</field>
+        <field name="res_model">product.print.category.rule</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="menu_product_print_category_rule"
+        parent="sale.product_menu_catalog"
+        sequence="115"
+        action="action_product_print_category_rule"
+        groups="product_print_category.user"
+    />
+
+</odoo>
