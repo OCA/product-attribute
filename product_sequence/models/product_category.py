@@ -46,7 +46,7 @@ class ProductCategory(models.Model):
                     rec.sudo().sequence_id.prefix = prefix
                 else:
                     seq_vals = self._prepare_ir_sequence(prefix)
-                    rec.sequence_id = self.env["ir.sequence"].create(seq_vals)
+                    vals["sequence_id"] = self.env["ir.sequence"].create(seq_vals)
         return super().write(vals)
 
     @api.model
