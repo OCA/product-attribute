@@ -38,22 +38,31 @@ class ProductCategory(models.Model):
         }
         return vals
 
+    def _get_or_create_sequence(self, prefix):
+        seq_vals = self._prepare_ir_sequence(prefix)
+        sequence = self.env["ir.sequence"].search(
+            [("code", "=", seq_vals.get("code")), ("prefix", "=", prefix)]
+        )
+        if not sequence:
+            sequence = self.env["ir.sequence"].create(seq_vals)
+        return sequence
+
     def write(self, vals):
-        prefix = vals.get("code_prefix", False)
-        if prefix:
-            for rec in self:
-                if rec.sequence_id:
-                    rec.sudo().sequence_id.prefix = prefix
-                else:
-                    seq_vals = self._prepare_ir_sequence(prefix)
-                    vals["sequence_id"] = self.env["ir.sequence"].create(seq_vals)
+        if "code_prefix" in vals:
+            prefix = vals.get("code_prefix")
+            if prefix:
+                for rec in self:
+                    if rec.sequence_id:
+                        rec.sudo().sequence_id.prefix = prefix
+                    else:
+                        vals["sequence_id"] = self._get_or_create_sequence(prefix).id
+            else:
+                vals["sequence_id"] = False
         return super().write(vals)
 
     @api.model
     def create(self, vals):
         prefix = vals.get("code_prefix", False)
         if prefix:
-            seq_vals = self._prepare_ir_sequence(prefix)
-            sequence = self.env["ir.sequence"].create(seq_vals)
-            vals["sequence_id"] = sequence.id
+            vals["sequence_id"] = self._get_or_create_sequence(prefix).id
         return super().create(vals)

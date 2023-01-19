@@ -132,3 +132,18 @@ class TestProductSequence(TransactionCase):
             {"default_code": "product test sequence"}
         )
         self.assertEqual(copy_product_2.default_code, "product test sequence")
+
+    def test_remove_and_reuse_sequence(self):
+        prefix = "TEST"
+        category = self.product_category.create({"name": "Test", "code_prefix": prefix})
+        test_sequence = category.sequence_id
+        self.assertTrue(test_sequence)
+        self.assertEqual(test_sequence.prefix, prefix)
+        category.write({"code_prefix": ""})
+        self.assertFalse(category.sequence_id)
+        category.write({"code_prefix": prefix})
+        self.assertEqual(category.sequence_id, test_sequence)
+        category_2 = self.product_category.create(
+            {"name": "Test reuse", "code_prefix": prefix}
+        )
+        self.assertEqual(category_2.sequence_id, test_sequence)
