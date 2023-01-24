@@ -26,8 +26,7 @@ Product Attribute Description
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 
-This module Product Attribute Description is a part of product and used to show
-attribute description of the product.
+This module Product Attribute Description is a part of product and used to show attribute description at the product page on website.
 
 **Table of contents**
 
@@ -40,8 +39,8 @@ Usage
 To use this module, you need to:
 
 #. Go to "Product -> Select Attribute -> Add your description"
-#. To check you description Go to the Shop(website) find relevant product of attribute
-#. Move cursor over attribute and you will get your description from as a attribute tooltip
+#. Then go to the website and select the product that you have configured in the attribute description.
+#. Move cursor over the tooltip icon and you will get your attribute description.
 
 
 Known issues / Roadmap
