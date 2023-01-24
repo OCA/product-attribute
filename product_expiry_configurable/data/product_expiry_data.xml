@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="mail_activity_type_expiry_date_reached" model="mail.activity.type">
+            <field name="name">Expiry Date Reached</field>
+            <field name="category">default</field>
+            <field name="res_model_id" ref="stock.model_stock_production_lot" />
+            <field name="icon">fa-tasks</field>
+            <field name="delay_count">0</field>
+        </record>
+
+        <record
+            model="ir.cron"
+            forcecreate="True"
+            id="ir_cron_product_expiry_removal_date"
+        >
+            <field name="name">Product Removal Date Reached</field>
+            <field name="active" eval="0" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="model_id" ref="stock.model_stock_production_lot" />
+            <field name="state">code</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="0" />
+            <field
+                name="code"
+            >model._expiry_date_exceeded(date_field='removal_date')</field>
+            <field
+                name="nextcall"
+                eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')"
+            />
+        </record>
+
+        <record model="ir.cron" forcecreate="True" id="ir_cron_product_expiry_use_date">
+            <field name="name">Product Use Date Reached</field>
+            <field name="active" eval="0" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="model_id" ref="stock.model_stock_production_lot" />
+            <field name="state">code</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="0" />
+            <field
+                name="code"
+            >model._expiry_date_exceeded(date_field='use_date')</field>
+            <field
+                name="nextcall"
+                eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')"
+            />
+        </record>
+
+        <record
+            model="ir.cron"
+            forcecreate="True"
+            id="ir_cron_product_expiry_expiration_date"
+        >
+            <field name="name">Product Expiration Date Reached</field>
+            <field name="active" eval="0" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="model_id" ref="stock.model_stock_production_lot" />
+            <field name="state">code</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="0" />
+            <field
+                name="code"
+            >model._expiry_date_exceeded(date_field='expiration_date')</field>
+            <field
+                name="nextcall"
+                eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')"
+            />
+        </record>
+
+    </data>
+</odoo>
