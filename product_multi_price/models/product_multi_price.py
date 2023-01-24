@@ -35,9 +35,11 @@ class ProductMultiPrice(models.Model):
         ),
     ]
 
-    @api.depends("name.name")
     def name_get(self):
-        return [multi.name.name for multi in self]
+        result = []
+        for record in self:
+            result.append((record.id, record.name.name))
+        return result
 
 
 class ProductMultiPriceName(models.Model):
