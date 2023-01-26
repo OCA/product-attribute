@@ -44,14 +44,17 @@ class ProductSupplierinfo(models.Model):
     def _none_writable_related_fields(self):
         return list(self._fields_for_group_match().keys()) + ["sequence"]
 
-    def _get_or_create_group(self, vals):
-        field_mapping = self._fields_for_group_match().items()
-        group = self.env["product.supplierinfo.group"].search(
+    def _get_existing_group(self, field_mapping, vals):
+        return self.env["product.supplierinfo.group"].search(
             [
                 (field_group, "=", vals.get(field_supplierinfo))
                 for field_supplierinfo, field_group in field_mapping
             ]
         )
+
+    def _get_or_create_group(self, vals):
+        field_mapping = self._fields_for_group_match().items()
+        group = self._get_existing_group(field_mapping, vals)
         if not group:
             group = self.env["product.supplierinfo.group"].create(
                 {
