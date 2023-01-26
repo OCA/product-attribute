@@ -6,12 +6,12 @@
 
 {
     "name": "Product Sequence",
-    "version": "16.0.1.0.2",
+    "version": "16.0.2.0.0",
     "author": "Zikzakmedia SL, Sodexis, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
-    "depends": ["product", "product_code_unique"],
+    "depends": ["product"],
     "data": [
         "data/product_sequence.xml",
         "views/product_category.xml",
