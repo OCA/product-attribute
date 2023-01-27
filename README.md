@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[product_abc_classification](product_abc_classification/) | 15.0.1.0.0 | [![MiquelRForgeFlow](https://github.com/MiquelRForgeFlow.png?size=30px)](https://github.com/MiquelRForgeFlow) | Includes ABC classification for inventory management
 [product_assortment](product_assortment/) | 15.0.1.0.0 |  | Adds the ability to manage products assortment
 [product_attribute_value_menu](product_attribute_value_menu/) | 15.0.1.1.0 |  | Product attributes values tree and form. Import attribute values.
 [product_category_active](product_category_active/) | 15.0.1.0.0 |  | Add option to archive product categories
