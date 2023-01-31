@@ -1,4 +1,5 @@
 # Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
+# Copyright 2023 Michael Tietz (MT Software) <mtietz@mt-software.de>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Manufacturer",
@@ -12,4 +13,5 @@
     "data": ["views/product_manufacturer_view.xml"],
     "auto_install": False,
     "installable": True,
+    "pre_init_hook": "pre_init_hook",
 }

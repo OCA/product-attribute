@@ -68,6 +68,7 @@ Contributors
 * Lois Rilo <lois.rilo@forgeflow.com>
 * Guewen Baconnier <guewen.baconnier@camptocamp.com>
 * Héctor Villarreal <hector.villarreal@forgeflow.com>
+* Michael Tietz (MT Software) <mtietz@mt-software.de>
 
 Maintainers
 ~~~~~~~~~~~
