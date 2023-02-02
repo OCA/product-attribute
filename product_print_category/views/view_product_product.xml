@@ -11,8 +11,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
              <xpath expr="//group[@name='group_general']" position="inside">
-                <field name="print_category_id" groups="product_print_category.user" />
-                <field name="to_print" groups="product_print_category.user" />
+                <field name="print_category_id" />
+                <field name="to_print" />
             </xpath>
         </field>
     </record>

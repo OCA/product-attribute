@@ -29,7 +29,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         parent="sale.product_menu_catalog"
         sequence="115"
         action="action_product_print_category_rule"
-        groups="product_print_category.user"
     />
 
 </odoo>
