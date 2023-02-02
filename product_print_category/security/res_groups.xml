@@ -7,15 +7,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
 
-    <record id="user" model="res.groups">
-        <field name="name">Print Category User</field>
-        <field name="category_id" ref="module_product_print_category" />
-    </record>
-
     <record id="manager" model="res.groups">
         <field name="name">Print Category Manager</field>
-        <field name="implied_ids" eval="[(4, ref('user'))]" />
-        <field name="category_id" ref="module_product_print_category" />
+        <field name="category_id" ref="base.module_category_hidden" />
     </record>
 
 </odoo>

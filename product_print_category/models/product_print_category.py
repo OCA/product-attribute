@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+from odoo.osv import expression
 
 
 class ProductPrintCategory(models.Model):
@@ -79,14 +80,12 @@ class ProductPrintCategory(models.Model):
     # Action Section
     def action_view_product_product(self):
         self.ensure_one()
-        action = self.env.ref("product.product_normal_action")
-        action_data = action.read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "product.product_normal_action"
+        )
+        action["domain"] = [("print_category_id", "=", self.id)]
         if self.env.context.get("to_print"):
-            action_data["domain"] = (
-                "['&', ('print_category_id','=', "
-                + str(self.id)
-                + "), ('to_print','=', True)]"
+            action["domain"] = expression.AND(
+                [action["domain"], [("to_print", "=", True)]]
             )
-        else:
-            action_data["domain"] = "[('print_category_id','=', " + str(self.id) + ")]"
-        return action_data
+        return action
