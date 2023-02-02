@@ -59,6 +59,9 @@ class ProductPrintCategory(models.Model):
     def _default_company_id(self):
         return self.env.company
 
+    def get_xml_id_view(self):
+        return self.qweb_view_id.sudo().key
+
     # Compute Section
     @api.depends("product_ids.print_category_id")
     def _compute_product_qty(self):
