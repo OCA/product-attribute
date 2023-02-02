@@ -10,7 +10,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <t t-call="web.basic_layout">
             <t t-foreach="categories_data" t-as="category_data">
                 <div class="page">
-                    <t t-call="#{ category_data['print_category'].qweb_view_id.key }" />
+                    <t
+                        t-call="#{ category_data['print_category'].get_xml_id_view() }"
+                    />
                 </div>
             </t>
         </t>
