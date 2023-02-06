@@ -41,6 +41,7 @@ addon | version | maintainers | summary
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [product_custom_info](product_custom_info/) | 14.0.1.0.1 |  | Add custom field in products
 [product_dimension](product_dimension/) | 14.0.1.0.0 |  | Product Dimension
+[product_expiry_configurable](product_expiry_configurable/) | 14.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
 [product_form_pricelist](product_form_pricelist/) | 14.0.1.0.1 |  | Show/edit pricelist in product form
 [product_logistics_uom](product_logistics_uom/) | 14.0.1.0.2 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
 [product_lot_sequence](product_lot_sequence/) | 14.0.1.0.2 |  | Adds ability to define a lot sequence from the product

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_category_form_view_inherit">
+        <field
+            name="name"
+        >product.category.form (in product_expiry_configurable)</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+          <group name="first" position="after">
+              <group
+                    string="Expiry Dates"
+                    name="expiry_and_lots"
+                    groups="stock.group_production_lot"
+                >
+                    <group>
+                        <field name="compute_dates_from" />
+                        <label for="use_time" />
+                        <div>
+                            <field name="use_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                        <label
+                            for="expiration_time"
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
+                        />
+                        <div
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
+                        >
+                            <field name="expiration_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                        <label for="removal_time" />
+                        <div>
+                            <field name="removal_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                        <label for="alert_time" />
+                        <div>
+                            <field name="alert_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                    </group>
+                   <group>
+                       <field name="specific_compute_dates_from" />
+                        <label for="specific_use_time" />
+                        <div>
+                            <field name="specific_use_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                        <label
+                            for="specific_expiration_time"
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
+                        />
+                        <div
+                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
+                        >
+                            <field name="specific_expiration_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                        <label for="specific_removal_time" />
+                        <div>
+                            <field name="specific_removal_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                        <label for="specific_alert_time" />
+                        <div>
+                            <field name="specific_alert_time" class="oe_inline" />
+                            <span> days</span>
+                        </div>
+                    </group>
+              </group>
+           </group>
+        </field>
+    </record>
+
+</odoo>

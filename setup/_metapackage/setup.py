@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo14-addon-product_cost_security',
         'odoo14-addon-product_custom_info',
         'odoo14-addon-product_dimension',
+        'odoo14-addon-product_expiry_configurable',
         'odoo14-addon-product_form_pricelist',
         'odoo14-addon-product_logistics_uom',
         'odoo14-addon-product_lot_sequence',
