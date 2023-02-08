@@ -30,7 +30,7 @@ class PricelistSimulation(models.TransientModel):
         string="Product Variant",
     )
     product_qty = fields.Float(string="Quantity", default=1, required=True)
-    price_date = fields.Date(
+    price_date = fields.Datetime(
         string="Date", default=fields.Date.context_today, required=True
     )
     line_ids = fields.One2many(
@@ -100,6 +100,4 @@ class PricelistSimulationLine(models.TransientModel):
         string="Currency",
         readonly=True,
     )
-    price = fields.Monetary(
-        string="Price", digits="Price", readonly=True, currency_field="currency_id"
-    )
+    price = fields.Monetary(readonly=True, currency_field="currency_id")
