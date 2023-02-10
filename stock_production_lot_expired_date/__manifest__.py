@@ -4,7 +4,7 @@
 
 {
     "name": "Stock production lot expired date",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "author": "Camptocamp, ACSONE SA/NV, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Product",
