@@ -32,7 +32,7 @@ addon | version | maintainers | summary
 [product_sequence](product_sequence/) | 16.0.1.0.2 |  | Product Sequence
 [product_state](product_state/) | 16.0.1.0.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_uom_measure_type](product_uom_measure_type/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Product - UoM Measure Type
-[stock_production_lot_expired_date](stock_production_lot_expired_date/) | 16.0.1.0.0 |  | Stock production lot expired date
+[stock_production_lot_expired_date](stock_production_lot_expired_date/) | 16.0.1.0.1 |  | Stock production lot expired date
 
 [//]: # (end addons)
 
