@@ -278,3 +278,14 @@ class TestABCClassificationProfile(TransactionCase):
         self.assertEqual(len(levels.sale_stock_level_history_ids), 1)
         self.stock_profile._compute_abc_classification()
         self.assertEqual(len(levels.sale_stock_level_history_ids), 2)
+
+    @freeze_time("2021-01-01 07:10:00")
+    def test_void_profile(self):
+        # Create a profile with no product
+        void_profile = self.env["abc.classification.profile"].create(
+            {
+                "name": "Test Void",
+                "profile_type": "sale_stock",
+            }
+        )
+        void_profile._compute_abc_classification()
