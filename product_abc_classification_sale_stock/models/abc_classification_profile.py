@@ -241,10 +241,12 @@ class AbcClassificationProfile(models.Model):
             sale_stock_data_list, total = profile._get_data()
             existing_level_ids_to_remove = profile._get_existing_level_ids()
             level_percentage = profile._build_ordered_level_cumulative_percentage()
+            if not level_percentage:
+                continue
             level, percentage = level_percentage.pop(0)
             previous_data = {}
             total_products = len(sale_stock_data_list)
-            percentage_products = 100.0 / total_products
+            percentage_products = (100.0 / total_products) if total_products else 0.0
             for i, sale_stock_data in enumerate(sale_stock_data_list):
                 sale_stock_data.total_products = total_products
                 sale_stock_data.percentage_products = percentage_products
@@ -308,7 +310,8 @@ class AbcClassificationProfile(models.Model):
                 sale_stock_data.total_so_lines = total
                 sale_stock_data.product_level = product_abc_classification
                 previous_data = sale_stock_data
-            self._log_history(sale_stock_data_list)
+            if sale_stock_data_list:
+                self._log_history(sale_stock_data_list)
             profile._purge_obsolete_level_values(existing_level_ids_to_remove)
         return res
 
