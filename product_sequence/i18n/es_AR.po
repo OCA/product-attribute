@@ -11,8 +11,8 @@ msgstr ""
 "POT-Creation-Date: 2016-11-01 20:03+0000\n"
 "PO-Revision-Date: 2022-09-17 22:07+0000\n"
 "Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
-"Language-Team: Spanish (Argentina) (https://www.transifex.com/oca/teams/"
-"23907/es_AR/)\n"
+"Language-Team: Spanish (Argentina) (https://www.transifex.com/oca/"
+"teams/23907/es_AR/)\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,36 +37,9 @@ msgid "Config Settings"
 msgstr "Configurar Ajustes"
 
 #. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__display_name
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr "Nombre Mostrado"
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_category__id
-#: model:ir.model.fields,field_description:product_sequence.field_product_product__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_company__id
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
 msgstr "Referencia Interna"
-
-#. module: product_sequence
-#: model:ir.model.fields,field_description:product_sequence.field_ir_sequence____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_category____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_company____last_update
-#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
@@ -104,12 +77,29 @@ msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: product_sequence
+#: code:addons/product_sequence/models/ir_sequence.py:0
+#, python-format
+msgid ""
+"Sequence %(seq_name)s is used on following product categories and prefix "
+"cannot be changed here:\n"
+"%(categ_names)s"
+msgstr ""
+
+#. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
 "Configure como '/' y guarde si quiere que una nueva referencia interna sea "
 "propuesta."
+
+#. module: product_sequence
+#: code:addons/product_sequence/models/product_category.py:0
+#, python-format
+msgid ""
+"The prefix defined on product category %s does not match the prefix of "
+"linked sequence"
+msgstr ""
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
@@ -145,6 +135,15 @@ msgid ""
 msgstr ""
 "Utilizar categorías principales para determinar el prefijo si la categoría "
 "no tiene configuración para el prefijo."
+
+#~ msgid "Display Name"
+#~ msgstr "Nombre Mostrado"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
 
 #~ msgid "Manufacturer"
 #~ msgstr "Fabricante"
