@@ -20,6 +20,7 @@ class TestProductTierValidation(common.SavepointCase):
         )
 
         cls.tier_def_obj = cls.env["tier.definition"]
+        cls.draft_state = cls.env.ref("product_state.product_state_draft")
         cls.normal_state = cls.env.ref("product_state.product_state_sellable")
 
     def test_tier_validation_model_name(self):
@@ -38,3 +39,9 @@ class TestProductTierValidation(common.SavepointCase):
         product.with_user(self.test_user_1).validate_tier()
         product.write({"product_state_id": self.normal_state.id})
         self.assertEqual(product.state, self.normal_state.code)
+
+    def test_create_product_default_state(self):
+        product = self.env["product.template"].create(
+            {"name": "Product bis for test", "product_state_id": self.normal_state.id}
+        )
+        self.assertEqual(product.product_state_id, self.draft_state)
