@@ -67,9 +67,25 @@ msgid "Sequence"
 msgstr ""
 
 #. module: product_sequence
+#: code:addons/product_sequence/models/ir_sequence.py:0
+#, python-format
+msgid ""
+"Sequence %(seq_name)s is used on following product categories and prefix cannot be changed here:\n"
+"%(categ_names)s"
+msgstr ""
+
+#. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
+msgstr ""
+
+#. module: product_sequence
+#: code:addons/product_sequence/models/product_category.py:0
+#, python-format
+msgid ""
+"The prefix defined on product category %s does not match the prefix of "
+"linked sequence"
 msgstr ""
 
 #. module: product_sequence
