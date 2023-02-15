@@ -1,6 +1,7 @@
 # Copyright 2016 Sodexis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase, tagged
 
 from ..hooks import pre_init_hook
@@ -132,3 +133,37 @@ class TestProductSequence(TransactionCase):
             {"default_code": "product test sequence"}
         )
         self.assertEqual(copy_product_2.default_code, "product test sequence")
+
+    def test_remove_and_reuse_sequence(self):
+        prefix = "TEST"
+        category = self.product_category.create({"name": "Test", "code_prefix": prefix})
+        test_sequence = category.sequence_id
+        self.assertTrue(test_sequence)
+        self.assertEqual(test_sequence.prefix, prefix)
+        category.write({"code_prefix": ""})
+        self.assertFalse(category.sequence_id)
+        category.write({"code_prefix": prefix})
+        self.assertEqual(category.sequence_id, test_sequence)
+        category_2 = self.product_category.create(
+            {"name": "Test reuse", "code_prefix": prefix}
+        )
+        self.assertEqual(category_2.sequence_id, test_sequence)
+
+    def test_sequence_prefix_discrepancies(self):
+        prefix_test = "TEST"
+        category_test = self.product_category.create(
+            {"name": "Test", "code_prefix": prefix_test}
+        )
+        sequence_test = category_test.sequence_id
+        prefix_demo = "DEMO"
+        category_demo = self.product_category.create(
+            {"name": "Demo", "code_prefix": prefix_demo}
+        )
+        with self.assertRaisesRegex(
+            ValidationError, "prefix defined on product category"
+        ):
+            category_demo.sequence_id = sequence_test
+        with self.assertRaisesRegex(
+            ValidationError, "used on following product categories"
+        ):
+            sequence_test.prefix = prefix_demo
