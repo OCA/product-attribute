@@ -39,7 +39,11 @@ class AbcClassificationProfile(models.Model):
     )
     product_count = fields.Integer(compute="_compute_product_count", readonly=True)
 
-    auto_apply_computed_value = fields.Boolean(default=False)
+    auto_apply_computed_value = fields.Boolean(
+        default=False,
+        help="Check this if you want to apply the computed level on each product that has this "
+        "profile.",
+    )
 
     _sql_constraints = [("name_uniq", "UNIQUE(name)", _("Profile name must be unique"))]
 
