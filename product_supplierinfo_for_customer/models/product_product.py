@@ -132,4 +132,13 @@ class ProductProduct(models.Model):
             .sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
         )
         res_1 = res.sorted("product_tmpl_id")[:1]
-        return res_1
+        if res_1 or not partner.parent_id:
+            return res_1
+        else:
+            return self._select_customerinfo(
+                partner=partner.parent_id,
+                params=params,
+                _quantity=_quantity,
+                _date=_date,
+                _uom_id=_uom_id,
+            )

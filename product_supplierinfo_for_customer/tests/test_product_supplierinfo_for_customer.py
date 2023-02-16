@@ -98,6 +98,16 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
             res[self.product.id], 750.0, "Error: price does not match list price"
         )
 
+    def test_product_supplierinfo_price_parent(self):
+        child = self._create_customer("child")
+        child.parent_id = self.customer
+        price = self.product._get_price_from_customerinfo(partner_id=child.id)
+        self.assertEqual(
+            price,
+            100.0,
+            "Error: Price not found for product and customer (set on parent)",
+        )
+
     def test_variant_supplierinfo_price(self):
         """
         This test check the price for a customer with a product with variants.
