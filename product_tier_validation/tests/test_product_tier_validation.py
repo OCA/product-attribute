@@ -42,6 +42,9 @@ class TestProductTierValidation(common.SavepointCase):
 
     def test_create_product_default_state(self):
         product = self.env["product.template"].create(
-            {"name": "Product bis for test", "product_state_id": self.normal_state.id}
+            {
+                "name": "Product bis for test",
+                "product_state_id": self.normal_state.id,
+            }
         )
         self.assertEqual(product.product_state_id, self.draft_state)

@@ -1,8 +1,8 @@
 # Copyright 2021 Open Source Integrators
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import models
-
+from odoo import api, models
+from odoo.exceptions import UserError
 
 class ProductTemplate(models.Model):
     _name = "product.template"
@@ -20,3 +20,13 @@ class ProductTemplate(models.Model):
         if "product_state_id" in vals:
             self.restart_validation()
         return res
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        states = self.env["product.state"].search([("code", "in", self._state_from)])
+        if not states:
+            raise UserError("Wrong configuration of '_state_from' in product.state")
+        for vals in vals_list:
+            if vals.get("product_state_id") not in states.ids:
+                vals["product_state_id"] = states[0].id
+        return super().create(vals_list)
