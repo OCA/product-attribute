@@ -11,6 +11,36 @@ from odoo import fields, models, tools
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
+    def price_compute(self, price_type, uom=False, currency=False, company=False):
+        """Return dummy not falsy prices when computation is done from supplier
+        info for avoiding error on super method. We will later fill these with
+        correct values.
+        """
+        if price_type == "supplierinfo":
+            return dict.fromkeys(self.ids, 1.0)
+        return super().price_compute(
+            price_type, uom=uom, currency=currency, company=company
+        )
+
+    def _get_select_seller_params(
+        self, rule=None, date=None, quantity=0.0, product_id=None
+    ):
+        """Hook: extend to propagate params to _select_seller and
+        _prepare_seller methods. This can be used to impact on the
+         way sellers will be filtered and fetched. Unused args
+         are there to provide extensibility"""
+
+        to_currency = rule.currency_id or rule.pricelist_id.currency_id
+        convert_date = date or self.env.context.get("date", fields.Date.today())
+        # Provide params to 'trigger' currency rate conversion
+        params = {
+            "convert_currencies": True,
+            "to_currency": to_currency,
+            "convert_date": convert_date,
+            "company": self.env.company,
+        }
+        return params
+
     def _get_supplierinfo_pricelist_price(
         self, rule, date=None, quantity=None, product_id=None
     ):
@@ -29,6 +59,11 @@ class ProductTemplate(models.Model):
         if product:
             if type(date) == datetime:
                 date = date.date()
+            # params: ensure ordering consistency for product with
+            # multiple sellers that might have different currencies
+            params = self._get_select_seller_params(
+                rule=rule, date=date, quantity=quantity, product_id=product_id
+            )
             seller = product.with_context(
                 override_min_qty=rule.no_supplierinfo_min_quantity
             )._select_seller(
@@ -37,12 +72,16 @@ class ProductTemplate(models.Model):
                 partner_id=rule.sudo().filter_supplier_id,
                 quantity=quantity,
                 date=date,
+                params=params,
             )
             if seller:
                 price = seller._get_supplierinfo_pricelist_price()
         if price:
             # We need to convert the price if the pricelist and seller have
             # different currencies so the price have the pricelist currency
+            # This second conversion step is still necessary: the selection
+            # of seller (in terms of browse/re-ordering) is threated as an
+            # individual proces from the price fetch, we can keep it split
             if rule.currency_id != seller.currency_id:
                 convert_date = date or self.env.context.get("date", fields.Date.today())
                 price = seller.currency_id._convert(
@@ -79,14 +118,3 @@ class ProductTemplate(models.Model):
                 )
                 price = min(price, price_limit + price_max_margin)
         return price
-
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
-        """Return dummy not falsy prices when computation is done from supplier
-        info for avoiding error on super method. We will later fill these with
-        correct values.
-        """
-        if price_type == "supplierinfo":
-            return dict.fromkeys(self.ids, 1.0)
-        return super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
-        )

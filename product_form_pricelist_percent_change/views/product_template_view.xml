@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--
+    This module extends the feature provided by field 'fixed_pricelist_item_ids'.
+
+    Now it is possible to access the whole pricelist rule configuration panel by the
+    product form-view. This will allow a lot of new possibilities, but it will also
+    require a decent amount of small adjustments.
+
+    The majority of adjustments must not be shared between models, so we cannot apply
+    adjustments by using 'form_view_ref', because they would be shared in every form
+    view even if we use primary mode. Make a copy-paste of the whole form and define
+    an inline form-view would lose the reference to the original form-view.
+
+    Best way I found is to add contextual keys like 'open_pricelist_item_by_product' and
+    evaluate them in fields_view_get(). This way we keep the reference between inherited
+    views, and we have pretty good control on every single form / displayed elements -->
+
+    <record id="product_template_view_form" model="ir.ui.view">
+        <field name="name">product.template.pricelist.item.o2m.patch</field>
+        <field name="model">product.template</field>
+        <field
+            name="inherit_id"
+            ref="product_form_pricelist.product_template_view_form"
+        />
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='price']" position="attributes">
+                <attribute name="string">Pricelist Rules</attribute>
+            </xpath>
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']"
+                position="attributes"
+            >
+                <attribute
+                    name="context"
+                >{'open_pricelist_item_by_product': True, 'pid': active_id, 'model_name':
+                    'product_template'}
+                </attribute>
+            </xpath>
+
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree"
+                position="attributes"
+            >
+                <attribute name="editable" />
+            </xpath>
+
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='pricelist_id']"
+                position="after"
+            >
+                <!-- Add selling price + some good optional info -->
+                <field
+                    name="product_pricelist_selling_price"
+                    string="Selling Price"
+                    widget="monetary"
+                    options="{'currency_field': 'currency_id'}"
+                    optional="show"
+                />
+                <field name="base" optional="hide" />
+                <field name="base_pricelist_id" optional="hide" />
+                <field name="percent_price" optional="hide" />
+                <field name="price_discount" optional="hide" />
+
+            </xpath>
+
+            <!-- Allow more control on tree-view elements... -->
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='min_quantity']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='date_start']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='date_end']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add specific context key for product.product -->
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.pricelist.item.o2m.patch</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']"
+                position="attributes"
+            >
+                <attribute
+                    name="context"
+                >{'open_pricelist_item_by_product': True, 'pid': active_id, 'model_name':
+                    'product_product'}
+                </attribute>
+            </xpath>
+
+            <xpath
+                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree"
+                position="attributes"
+            >
+                <attribute name="editable" />
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- if product variant is opened from smart button the view will not inherit from 'product_template_form_view',
+    it's a completely different view. We have to add field 'fixed_pricelist_item_ids' and logic here as well -->
+
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field name="name">product.product.view.form.easy.add.pricelist.o2m</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='packaging']" position="after">
+                <group name="price" string="Fixed Price">
+                    <field
+                        name="fixed_pricelist_item_ids"
+                        context="{'open_pricelist_item_by_product': True, 'variant_easy_edit_view': True, 'pid': active_id, 'model_name': 'product_product'}"
+                        nolabel="1"
+                    >
+                        <tree>
+                            <field name="pricelist_id" optional="show" />
+                            <field
+                                name="product_pricelist_selling_price"
+                                string="Selling Price"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                                optional="show"
+                            />
+                            <field name="base" optional="hide" />
+                            <field name="base_pricelist_id" optional="hide" />
+                            <field name="percent_price" optional="hide" />
+                            <field name="price_discount" optional="hide" />
+                            <field
+                                name="product_id"
+                                attrs="{'invisible': [('parent.product_variant_count', '&lt;=', 1)]}"
+                                optional="show"
+                            />
+                            <field name="min_quantity" optional="show" />
+                            <field
+                                name="product_pricelist_selling_price"
+                                string="Selling Price"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                                optional="show"
+                            />
+                            <field name="date_start" optional="show" />
+                            <field name="date_end" optional="show" />
+                            <field name="company_id" invisible="True" optional="show" />
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
