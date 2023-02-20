@@ -1,4 +1,5 @@
 # Copyright 2021 Tecnativa - Carlos Roca
+# Copyright 2021 Tecnativa - Carlos Dauden
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 from odoo import models
 
@@ -24,3 +25,10 @@ class ResPartner(models.Model):
         )
         action["context"] = ctx
         return action
+
+    def write(self, vals):
+        res = super().write(vals)
+        IrFilters = self.env["ir.filters"]
+        if IrFilters.get_partner_domain_fields() & set(vals.keys()):
+            IrFilters.clear_caches()
+        return res
