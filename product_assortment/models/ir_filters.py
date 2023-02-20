@@ -69,15 +69,6 @@ class IrFilters(models.Model):
 
     def _get_eval_domain(self):
         res = super()._get_eval_domain()
-
-        if self.whitelist_product_ids:
-            result_domain = [("id", "in", self.whitelist_product_ids.ids)]
-            res = expression.OR([result_domain, res])
-
-        if self.blacklist_product_ids:
-            result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
-            res = expression.AND([result_domain, res])
-
         if self.apply_black_list_product_domain:
             black_list_domain = safe_eval(
                 self.black_list_product_domain,
@@ -86,6 +77,12 @@ class IrFilters(models.Model):
             res = expression.AND(
                 [expression.distribute_not(["!"] + black_list_domain), res]
             )
+        if self.whitelist_product_ids:
+            result_domain = [("id", "in", self.whitelist_product_ids.ids)]
+            res = expression.OR([result_domain, res])
+        if self.blacklist_product_ids:
+            result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
+            res = expression.AND([result_domain, res])
         return res
 
     def _get_eval_black_list_domain(self):
