@@ -1,8 +1,10 @@
 # Copyright 2021 ACSONE SA/NV
+# Copyright 2023 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.osv import expression
+from odoo.tools import ormcache
 from odoo.tools.safe_eval import datetime, safe_eval
 
 
@@ -74,6 +76,22 @@ class IrFilters(models.Model):
         string="Restricted product domain", default="[]", required=True
     )
 
+    @ormcache("self.id")
+    def get_all_partner_ids(self):
+        self.ensure_one()
+        return self.all_partner_ids.ids
+
+    @api.model
+    @ormcache()
+    def get_partner_domain_fields(self):
+        field_set = set()
+        for ir_filter in self.sudo().search([("is_assortment", "=", True)]):
+            domain = ir_filter._get_eval_partner_domain()
+            for item in domain:
+                if isinstance(item, (list, tuple)) and isinstance(item[0], str):
+                    field_set.add(item[0].split(".")[0])
+        return field_set
+
     @api.depends("partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
         """Summarize selected partners and partners from partner domain field"""
@@ -140,6 +158,12 @@ class IrFilters(models.Model):
         domain = expression.AND([[("is_assortment", "=", False)], domain])
 
         return domain
+
+    def write(self, vals):
+        res = super().write(vals)
+        if "partner_ids" in vals or "partner_domain" in vals:
+            self.clear_caches()
+        return res
 
     def show_products(self):
         self.ensure_one()
