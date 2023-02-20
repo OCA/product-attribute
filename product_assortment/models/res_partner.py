@@ -24,3 +24,10 @@ class ResPartner(models.Model):
         )
         action_dict["context"] = ctx
         return action_dict
+
+    def write(self, vals):
+        res = super().write(vals)
+        IrFilters = self.env["ir.filters"]
+        if IrFilters.get_partner_domain_fields() & set(vals.keys()):
+            IrFilters.clear_caches()
+        return res

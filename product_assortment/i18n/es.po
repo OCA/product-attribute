@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-24 21:14+0000\n"
-"PO-Revision-Date: 2022-05-24 23:18+0200\n"
-"Last-Translator: Sergio Teruel <sergio.teruel@tecnativa.com>\n"
+"POT-Creation-Date: 2023-03-06 11:12+0000\n"
+"PO-Revision-Date: 2023-03-06 12:14+0100\n"
+"Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
@@ -38,25 +38,10 @@ msgid "Apply black list product domain"
 msgstr ""
 
 #. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_2
-msgid "Assortment Chair"
-msgstr ""
-
-#. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_1
-msgid "Assortment Desk"
-msgstr ""
-
-#. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortment Name"
 msgstr "Nombre del surtido"
-
-#. module: product_assortment
-#: model:ir.filters,name:product_assortment.product_assortment_3
-msgid "Assortment Service"
-msgstr ""
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
@@ -133,6 +118,13 @@ msgstr "Surtido de producto"
 #: model:ir.actions.act_window,name:product_assortment.actions_product_assortment_view
 msgid "Product assortment"
 msgstr "Surtido de producto"
+
+#. module: product_assortment
+#: model:ir.actions.server,name:product_assortment.action_product_assortment_invalidate_cache
+#: model:ir.cron,cron_name:product_assortment.ir_cron_product_assortment_invalidate_cache
+#: model:ir.cron,name:product_assortment.ir_cron_product_assortment_invalidate_cache
+msgid "Product assortment reset cache"
+msgstr "Resetear cache de surtido de producto"
 
 #. module: product_assortment
 #: code:addons/product_assortment/models/ir_filters.py:0
