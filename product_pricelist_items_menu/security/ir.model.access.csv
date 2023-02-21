@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dimension_rule_user,access.dimension.rule.user,model_ooops_dimension_rule,base.group_user,1,0,0,0
+access_dimension_rule_admin,access.dimension.rule.admin,model_ooops_dimension_rule,stock.group_stock_manager,1,1,1,1
+access_dimension_rule_inv_manager,access.dimension.rule.inventory.manager,model_ooops_dimension_rule,stock.group_stock_manager,1,1,1,1
+access_dimension_rule_line_user,access.dimension.rule.line.user,model_ooops_dimension_rule_line,base.group_user,1,0,0,0
+access_dimension_rule_line_admin,access.dimension.rule.line.admin,model_ooops_dimension_rule_line,stock.group_stock_manager,1,1,1,1
+access_dimension_rule_line_inv_manager,access.dimension.rule.line.inventory.manager,model_ooops_dimension_rule_line,stock.group_stock_manager,1,1,1,1
+access_dimension_exclusion_rule_user,access.dimension.exclusion.rule.user,model_ooops_dimension_exclusion_rule,base.group_user,1,0,0,0
+access_dimension_exclusion_rule_admin,access.dimension.exclusion.rule.admin,model_ooops_dimension_exclusion_rule,stock.group_stock_manager,1,1,1,1
+access_dimension_exclusion_rule_line_user,access.dimension.exclusion.rule.line.user,model_ooops_dimension_exclusion_rule_line,base.group_user,1,0,0,0
+access_dimension_exclusion_rule_line_admin,access.dimension.exclusion.rule.line.admin,model_ooops_dimension_exclusion_rule_line,stock.group_stock_manager,1,1,1,1

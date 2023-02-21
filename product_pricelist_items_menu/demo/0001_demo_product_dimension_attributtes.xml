@@ -1,0 +1,38 @@
+<odoo>
+    <!--    Product attribute height   -->
+    <record id="product_attribute_height" model="product.attribute">
+        <field name="name">Height</field>
+        <field name="display_type">radio</field>
+        <field name="create_variant">no_variant</field>
+        <field name="dimension">product_height</field>
+    </record>
+    <record id="product_attribute_value_height_mm" model="product.attribute.value">
+        <field name="attribute_id" ref="product_attribute_height" />
+        <field name="name">mm</field>
+        <field name="is_custom">1</field>
+        <field name="uom_id" ref="product_pricelist_items_menu.product_uom_mm" />
+    </record>
+    <record id="product_attribute_width" model="product.attribute">
+        <field name="name">Width</field>
+        <field name="display_type">radio</field>
+        <field name="create_variant">no_variant</field>
+        <field name="dimension">product_width</field>
+    </record>
+    <record id="product_attribute_value_width_mm" model="product.attribute.value">
+        <field name="attribute_id" ref="product_attribute_width" />
+        <field name="name">mm</field>
+        <field name="is_custom">1</field>
+        <field name="uom_id" ref="product_pricelist_items_menu.product_uom_mm" />
+    </record>
+    <record forcecreate="0" id="base.rateUSD" model="res.currency.rate">
+        <field name="rate">1.0</field>
+        <field name="currency_id" ref="base.USD" />
+        <field name="name">2010-01-01</field>
+    </record>
+
+    <record id="base.rateUSDbis" model="res.currency.rate">
+        <field name="rate">1.0</field>
+        <field name="currency_id" ref="base.USD" />
+        <field eval="time.strftime('%Y-06-06')" name="name" />
+    </record>
+</odoo>

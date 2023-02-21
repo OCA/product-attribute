@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--####################################
+        # Product Template Attribute Value #
+        #################################-->
+    <!--## Tree ##-->
+    <record id="ooops_product_tmpl_att_val_tree" model="ir.ui.view">
+        <field name="name">ooops.product.tmpl.att.val.tree</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="priority">99</field>
+        <field
+            name="inherit_id"
+            ref="product.product_template_attribute_value_view_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="html_color" position="replace" />
+            <field name="price_extra" position="replace">
+                <field name="uom_value_raise_up" string="Billing Minimum:" />
+                <field name="price_formula" />
+            </field>
+        </field>
+    </record>
+    <!--## Form ##-->
+    <record id="ooops_product_tmpl_att_val_form" model="ir.ui.view">
+        <field name="name">ooops.product.tmpl.att.val.form</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="priority">99</field>
+        <field
+            name="inherit_id"
+            ref="product.product_template_attribute_value_view_form"
+        />
+        <field name="arch" type="xml">
+            <!-- Replace Extra Price -->
+            <field name="price_extra" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="price_extra" position="attributes">
+                <attribute name="attrs">
+                    {
+                    'readonly': [
+                        ('extra_price_product_tmpl_id', '!=', False),
+                    ]
+                }
+                </attribute>
+            </field>
+            <field name="price_extra" position="after">
+                <field name="extra_price_product_tmpl_id" />
+            </field>
+
+            <field name="price_extra" position="after">
+                <label
+                    for="price_extra_base"
+                    attrs="{
+                        'invisible': [('extra_price_product_tmpl_id', '!=', False)],
+                    }"
+                />
+                <div
+                    name="extra_price_row"
+                    class="o_row"
+                    attrs="{
+                        'invisible': [('extra_price_product_tmpl_id', '!=', False)],
+                    }"
+                >
+                    <field name="price_extra_base" invisible="1" />
+                    <field name="uom_category_price_type" invisible="1" />
+                    <field name="price_extra_base_uom" />
+                    <span
+                        attrs="{
+                            'invisible': [
+                                '|',
+                                    ('price_type', '=', 'f'),
+                                    ('price_type', '=', False)
+                            ]
+                        }"
+                    >
+                        <b>*</b>
+                    </span>
+                    <field name="price_type" />
+                    <span
+                        attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                    >
+                        in
+                    </span>
+                    <field
+                        name="using_uom"
+                        domain="[('category_id', '=', uom_category_price_type)]"
+                        attrs="{
+                            'invisible': [
+                                '|',
+                                    ('price_type', '=', 'f'),
+                                    ('price_type', '=', False),
+                                ]
+                            }"
+                    />
+
+                    <span
+                        attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                    >
+                        <b>+</b>
+                        (
+                    </span>
+                    <field
+                        name="price_surcharge"
+                        attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                    />
+                    <span
+                        attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                    >
+                        ) rounded to
+                    </span>
+                    <field
+                        attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                        name="price_round"
+                    />
+                </div>
+            </field>
+
+            <!-- Add dimensional exclusions -->
+            <field name="exclude_for" position="replace" />
+        </field>
+    </record>
+    <record id="product_template_attribute_value_view_form" model="ir.ui.view">
+        <field name="name">product.template.attribute.value</field>
+        <field name="model">product.template.attribute.value</field>
+        <field
+            name="inherit_id"
+            ref="product.product_template_attribute_value_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="price_extra" position="after">
+                <field name="extra_price_product_tmpl_id" />
+            </field>
+            <field name="extra_price_product_tmpl_id" position="after">
+                <!-- <field name="related_extra_price_dimension" /> -->
+                <label
+                    for="price_type"
+                    attrs="{
+                        'invisible': [
+                            '|',
+                                ('extra_price_product_tmpl_id', '=', ''),
+                                ('extra_price_product_tmpl_id', '=', False)
+                        ]
+                    }"
+                />
+                <div
+                    name="linked_extra_price_row"
+                    class="o_row"
+                    attrs="{
+                        'invisible': [
+                            '|',
+                                ('extra_price_product_tmpl_id', '=', ''),
+                                ('extra_price_product_tmpl_id', '=', False)
+                        ]
+                    }"
+                >
+                    <field name="price_type" />
+                    <span
+                        attrs="{
+                        'invisible': [
+                            '|',
+                                ('price_type', '=', 'f'),
+                                ('price_type', '=', False)
+                        ]
+                    }"
+                    >
+                        in
+                    </span>
+                    <field
+                        name="using_uom"
+                        domain="[('category_id', '=', uom_category_price_type)]"
+                        attrs="{
+                        'invisible': [
+                            '|',
+                                ('price_type', '=', 'f'),
+                                ('price_type', '=', False)
+                        ]
+                    }"
+                    />
+                </div>
+                <label
+                    for="value_raise_up"
+                    string="Billing Minimum:"
+                    attrs="{
+                        'invisible': [
+                            '|',
+                                ('price_type', '=', 'f'),
+                                ('price_type', '=', False)
+                            ]
+                        }"
+                />
+                <div
+                    class="o_row"
+                    attrs="{
+                        'invisible': [
+                            '|',
+                                ('price_type', '=', 'f'),
+                                ('price_type', '=', False)
+                            ]
+                        }"
+                >
+                    <field name="value_raise_up" invisible="1" />
+                    <field name="uom_value_raise_up" />
+                    <field
+                        name="using_uom"
+                        domain="[('category_id', '=', uom_category_price_type)]"
+                        attrs="{
+
+                            'readonly': True
+
+                        }"
+                    />
+                </div>
+            </field>
+        </field>
+    </record>
+    <record id="product_template_attribute_value_view_tree" model="ir.ui.view">
+        <field name="name">product.template.attribute.value</field>
+        <field name="model">product.template.attribute.value</field>
+        <field
+            name="inherit_id"
+            ref="product.product_template_attribute_value_view_tree"
+        />
+        <field name="arch" type="xml">
+            <tree position="inside">
+                <field name="extra_price_product_tmpl_id" />
+                <field name="price_type" />
+                <field name="using_uom" />
+            </tree>
+        </field>
+    </record>
+</odoo>

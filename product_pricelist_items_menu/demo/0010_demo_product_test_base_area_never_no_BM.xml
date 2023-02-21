@@ -1,0 +1,119 @@
+<odoo>
+    <!--   Product test base area never no BM     -->
+    <record id="product_template_test_base_area_never_no_bm" model="product.template">
+        <field name="name">test base area never no BM</field>
+        <field name="type">product</field>
+        <field name="list_price">0.0</field>
+        <field
+            name="categ_id"
+            ref="ooops_dimensions_core.product_category_dimension_base_products"
+        />
+    </record>
+    <record
+        id="test_base_area_never_no_bm_attribute_line_height"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_area_never_no_bm"
+        />
+        <field name="attribute_id" ref="product_attribute_height" />
+        <field
+            name="value_ids"
+            eval="[
+                    (4, ref('product_attribute_value_height_mm'))
+                ]"
+        />
+    </record>
+    <record
+        id="test_base_area_never_no_bm_attribute_line_width"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_area_never_no_bm"
+        />
+        <field name="attribute_id" ref="product_attribute_width" />
+        <field
+            name="value_ids"
+            eval="[
+                    (4, ref('ooops_dimensions_core.product_attribute_value_width_mm'))
+                ]"
+        />
+    </record>
+    <record
+        id="test_base_area_never_no_bm_attribute_line_net_color"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_area_never_no_bm"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_net_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                    (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+                    (4, ref('ooops_configurator.product_attribute_net_color_value_yellow'))
+                ]"
+        />
+    </record>
+    <record
+        id="test_base_area_never_no_bm_attribute_line_aluminium_color"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_area_never_no_bm"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_aluminium_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                    (4, ref('ooops_configurator.product_attribute_aluminium_color_value_grey')),
+                    (4, ref('ooops_configurator.product_attribute_aluminium_color_value_black')),
+                ]"
+        />
+    </record>
+    <function model="product.template" name="_create_variant_ids">
+        <function
+            model="product.template"
+            name="search"
+            eval="[
+                    [
+                        ('id', '=', ref('product_template_test_base_area_never_no_bm')),
+                    ]
+                ]"
+        />
+    </function>
+    <function model="ir.model.data" name="_update_xmlids">
+        <value
+            model="base"
+            eval="[{
+
+                    'xml_id': 'ooops_dimensions_core.ptav_price_type_product_area_wh_price_extra_base_10',
+                    'record': obj().env['product.template.attribute.value'].search([
+                        ('product_tmpl_id','=',obj().env.ref('ooops_dimensions_core.product_template_test_base_area_never_no_bm').id),
+                        ('attribute_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color').id),
+                        ('product_attribute_value_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color_value_blue').id),
+                ]),
+                'noupdate': True,
+            }]"
+        />
+    </function>
+    <record
+        id="ptav_price_type_product_area_wh_price_extra_base_10"
+        model="product.template.attribute.value"
+    >
+        <field name="price_extra_base">10.00</field>
+        <field name="price_type">product_area_wh</field>
+        <field name="price_extra_base_uom">10.00</field>
+        <field name="using_uom" ref="ooops_dimensions_core.product_uom_m2" />
+    </record>
+</odoo>

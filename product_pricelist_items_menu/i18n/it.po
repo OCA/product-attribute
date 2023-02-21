@@ -1,0 +1,1091 @@
+# Francesco @ Ooops <francesco.foresti@ooops404.com>, 2022, 2023.
+# Sam @ Ooops <samuele@ooops404.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-11 20:37+0200\n"
+"PO-Revision-Date: 2023-02-20 21:38+0000\n"
+"Last-Translator: Francesco @ Ooops <francesco.foresti@ooops404.com>\n"
+"Language-Team: Italian <http://weblate.ops404.it/projects/"
+"ooops-configurator-14-0/ooops_dimensions_core/it/>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4-dev\n"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_template_attribute_value_view_form
+msgid ""
+"<span attrs=\"{                         'invisible': "
+"[                             '|',                                 "
+"('price_type', '=', 'f'),                                 ('price_type', "
+"'=', False)                         ]                     }\">\n"
+"                        in\n"
+"                    </span>"
+msgstr ""
+"<span attrs=\"{                         'invisible': "
+"[                             '|',                                 "
+"('price_type', '=', 'f'),                                 ('price_type', "
+"'=', False)                         ]                     }\">\n"
+"                        in\n"
+"                    </span>"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_product_tmpl_att_val_form
+msgid ""
+"<span attrs=\"{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', "
+"'=', False)]}\">\n"
+"                        ) rounded to\n"
+"                    </span>"
+msgstr ""
+"<span attrs=\"{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', "
+"'=', False)]}\">\n"
+"                        ) arrotondato a\n"
+"                    </span>"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_product_tmpl_att_val_form
+msgid ""
+"<span attrs=\"{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', "
+"'=', False)]}\">\n"
+"                        in\n"
+"                    </span>"
+msgstr ""
+"<span attrs=\"{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', "
+"'=', False)]}\">\n"
+"                        in\n"
+"                    </span>"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid ""
+"<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">\n"
+"                                Sales Price  -\n"
+"                            </span>\n"
+"                            <span attrs=\"{'invisible':[('base', '!=', "
+"'standard_price')]}\">\n"
+"                                Cost  -\n"
+"                            </span>\n"
+"                            <span attrs=\"{'invisible':[('base', '!=', "
+"'pricelist')]}\">\n"
+"                                Other Pricelist  -\n"
+"                            </span>"
+msgstr ""
+"<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">\n"
+"                                Sales Price  -\n"
+"                            </span>\n"
+"                            <span attrs=\"{'invisible':[('base', '!=', "
+"'standard_price')]}\">\n"
+"                                Cost  -\n"
+"                            </span>\n"
+"                            <span attrs=\"{'invisible':[('base', '!=', "
+"'pricelist')]}\">\n"
+"                                Other Pricelist  -\n"
+"                            </span>"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_rule_view_form
+msgid "<span>) rounded to</span>"
+msgstr "<span>) arrotondato a </span>"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute__active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__product_area_wh
+#: model:uom.category,name:ooops_dimensions_core.product_uom_categ_area
+msgid "Area"
+msgstr "Area"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/constants/constants.py:0
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_exclusion_rule_line__dimension__product_area_wh
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule__price_type__product_area_wh
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule_line__dimension__product_area_wh
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_attribute__dimension__product_area_wh
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__price_type__product_area_wh
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__related_extra_price_dimension__product_area_wh
+#, python-format
+msgid "Area W*H"
+msgstr "Area W*H"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__product_area_wh
+msgid "Area, m2"
+msgstr "Area, m2"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_extra_base
+msgid "Attribute Extra Price"
+msgstr "Prezzo Extra Attributo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_extra_base_uom
+msgid "Attribute Extra Price "
+msgstr "Prezzo Extra Attributo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_extra
+msgid "Attribute Price Extra"
+msgstr "Prezzo Extra Attributo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Valore attributo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__value_ids
+msgid "Attribute Values to exclude"
+msgstr "Valori Attributo da escludere"
+
+#. module: ooops_dimensions_core
+#. openerp-web
+#: code:addons/ooops_dimensions_core/static/src/js/product_configurator_controller.js:0
+#, python-format
+msgid "Back"
+msgstr "Indietro"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__price_extra_base
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__price_extra_base_uom
+msgid "Base for attribute extra price"
+msgstr "Base per prezzo extra attributo"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_product_tmpl_att_val_tree
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_template_attribute_value_view_form
+msgid "Billing Minimum:"
+msgstr "Minimo di Fatturazione"
+
+#. module: ooops_dimensions_core
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_area_never_with_bm_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_height_never_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_height_never_with_bm_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_linked_height_never_with_bm_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_attribute_product_link_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_base_fixed_no_dimension_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_base_fixed_price_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_area_never_no_bm_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_area_never_with_bm_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_height_never_no_bm_attribute_net_color_value_blue
+#: model:product.template.attribute.value,name:ooops_dimensions_core.ptav_price_type_product_area_wh_price_extra_base_10
+msgid "Blue (net color)"
+msgstr "Blu (colore rete)"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Compute Price"
+msgstr "Calcola prezzo"
+
+#. module: ooops_dimensions_core
+#. openerp-web
+#: code:addons/ooops_dimensions_core/static/src/js/product_configurator_controller.js:0
+#, python-format
+msgid "Configure"
+msgstr "Configura"
+
+#. module: ooops_dimensions_core
+#. openerp-web
+#: code:addons/ooops_dimensions_core/static/src/js/product_configurator_controller.js:0
+#, python-format
+msgid "Confirm"
+msgstr "Conferma"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__create_uid
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__create_uid
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__create_uid
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__create_date
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__create_date
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__create_date
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__global_id
+msgid "Custom ID"
+msgstr "Custom ID"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__dimension
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__price_type
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__dimension
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute__dimension
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_type
+msgid "Dimension"
+msgstr "Dimensione"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_ooops_dimension_exclusion_rule
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_exclusion_rule_view_form
+msgid "Dimension Exclusion Rule"
+msgstr "Regola esclusione dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_ooops_dimension_exclusion_rule_line
+msgid "Dimension Exclusion Rule Line"
+msgstr "Riga Regola Esclusione Dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:ir.actions.act_window,name:ooops_dimensions_core.dimension_exclusion_rule_action
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_product__der_ids
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template__der_ids
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__dimension_rule_ids
+#: model:ir.ui.menu,name:ooops_dimensions_core.menu_dimension_exclusion_line_action
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_exclusion_rule_view_tree
+msgid "Dimension Exclusion Rules"
+msgstr "Regole Esclusioni per Dimensione"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_product_template_form
+msgid "Dimension Exclusions"
+msgstr "Esclusioni per Dimensione"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_ooops_dimension_rule
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__rule_id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__rule_id
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_rule_view_form
+msgid "Dimension Rule"
+msgstr "Regola dimensione"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_ooops_dimension_rule_line
+msgid "Dimension Rule Line"
+msgstr "Riga regola dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_product__dimension_rule_ids
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template__dimension_rule_ids
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_rule_view_tree
+msgid "Dimension Rules"
+msgstr "Regole Dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:product.pricelist,name:ooops_dimensions_core.pricelist_dimension_in_pricelist
+msgid "Dimension in pricelist"
+msgstr "Dimension in pricelist"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_ooops_dimensions_mixin
+msgid "Dimensions Implementation for different Models"
+msgstr "Implementazione Dimensioni per diversi Modelli"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Dimensions rules"
+msgstr "Regole dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute_value__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_product__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order__display_name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__price_extra
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_formula
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_rule_view_tree
+msgid "Extra Price"
+msgstr "Prezzo Extra"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "Extra price cannot be equal to zero!"
+msgstr "Prezzo Extra non può essere uguale a zero!"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/product_attribute.py:0
+#, python-format
+msgid ""
+"Field \"Related Product (for Extra Price) Dimension\" can only be used "
+"together with field \"Related Product (for Extra Price).\""
+msgstr ""
+"Il campo \"Dimensione Prodotto Collegato (per Prezzo Extra)\" può essere "
+"usato solo insieme al campo \"Prodotto Collegato (per Prezzo Extra)\"."
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule__price_type__f
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__price_type__f
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__related_extra_price_dimension__f
+msgid "Fixed"
+msgstr "Fisso"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__line_ids
+msgid "For dimensions"
+msgstr "Per le dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__value_from
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__value_from
+msgid "From"
+msgstr "Da"
+
+#. module: ooops_dimensions_core
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_attribute_product_link_attribute_net_color_value_green
+msgid "Green (net color)"
+msgstr "Verde (colore rete)"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/constants/constants.py:0
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__product_height
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_exclusion_rule_line__dimension__product_height
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule__price_type__product_height
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule_line__dimension__product_height
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_attribute__dimension__product_height
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__price_type__product_height
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__related_extra_price_dimension__product_height
+#: model:product.attribute,name:ooops_dimensions_core.product_attribute_height
+#, python-format
+msgid "Height"
+msgstr "Altezza"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_pricelist_item__height_from
+msgid "Height from"
+msgstr "Altezza da"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__height_from
+msgid "Height from (mm)"
+msgstr "Altezza da (mm)"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_pricelist_item__height_to
+msgid "Height to"
+msgstr "Altezza a"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__height_to
+msgid "Height to (mm)"
+msgstr "Altezza a (mm)"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__product_height
+msgid "Height, mm"
+msgstr "Altezza, mm"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute_value__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_product__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order__id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_ooops_dimension_rule__product_tmpl_attribute_value_id
+msgid "If set rule is used for dimension exclusions"
+msgstr "Se impostata, la regola è usata per escludere dimensioni"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_exclusion_rule.py:0
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "Invalid Expression"
+msgstr "Espressione non valida"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute_value____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_product____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order____last_update
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__write_uid
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__write_uid
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__write_uid
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__write_date
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__write_date
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__write_date
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/constants/constants.py:0
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__product_length
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_exclusion_rule_line__dimension__product_length
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule__price_type__product_length
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule_line__dimension__product_length
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_attribute__dimension__product_length
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__price_type__product_length
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__related_extra_price_dimension__product_length
+#: model:product.attribute,name:ooops_dimensions_core.product_attribute_length
+#, python-format
+msgid "Length"
+msgstr "Lunghezza"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__product_length
+msgid "Length, mm"
+msgstr "Lunghezza, mm"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__line_ids
+msgid "Lines"
+msgstr "Righe"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Max. Margin"
+msgstr "Margine max."
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Min. Margin"
+msgstr "Margine min."
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__name
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "New Price ="
+msgstr "Nuovo prezzo =\t"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/product_pricelist_item.py:0
+#, python-format
+msgid "One of the dimensions values \"from\" must be at least %s "
+msgstr "Uno dei valori dimensioni \"da\" deve essere almeno %s"
+
+#. module: ooops_dimensions_core
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_attribute_product_link_attribute_net_color_value_orange
+msgid "Orange (net color)"
+msgstr "Arancione (colore rete)"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_revision_tree_view
+msgid "Percent"
+msgstr "Percentuale (sconto)"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__product_perimeter
+msgid "Perimeter, mm"
+msgstr "Perimetro, mm"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "Please add at least one condition!"
+msgstr "Inserire almeno una condizione!"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Price Computation"
+msgstr "Calcola prezzo\t"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__price_extra
+msgid ""
+"Price Extra: Extra price for the variant with this attribute value on sale "
+"price. eg. 200 price extra, 1000 + 200 = 1200. If \"Related Product (for "
+"Extra Price)\" is set its taken from that product sales price. "
+msgstr ""
+"Prezzo Extra: Prezzo extra per la variante con questo valore attributo sul "
+"prezzo di vendita. Es: Extra price 200, 1000+200 = 1200. Se \"Prodotto "
+"Relazionato (per Prezzo Extra) è impostato, viene preso dal prezzo di "
+"vendita del prodotto relazionato."
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__price_round
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_round
+msgid "Price Rounding"
+msgstr "Arrotondamento Prezzo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__price_surcharge
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_surcharge
+msgid "Price Surcharge"
+msgstr "Maggiorazione prezzo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__price_type_name
+msgid "Price Type"
+msgstr "Tipo prezzo"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_pricelist
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Pricelist"
+msgstr "Listino Prezzi"
+
+#. module: ooops_dimensions_core
+#: model:ir.actions.act_window,name:ooops_dimensions_core.product_pricelist_item_action
+#: model:ir.ui.menu,name:ooops_dimensions_core.menu_product_pricelist_item_action
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Pricelist Items"
+msgstr "Righe Listini Prezzi"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regola listino prezzi"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__priority
+msgid "Priority"
+msgstr "Priorità"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_product
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_attribute
+msgid "Product Attribute"
+msgstr "Attributo prodotto"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_template
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__product_tmpl_id
+msgid "Product Template"
+msgstr "Modello prodotto"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_product_template_attribute_value
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule__product_tmpl_attribute_value_id
+msgid "Product Template Attribute Value"
+msgstr "Valore attributo modello prodotto"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/sale_order.py:0
+#, python-format
+msgid "Product prices have been recomputed according to pricelist <b>%s<b> "
+msgstr ""
+"I prezzi dei prodotti sono stati ricalcolati secondo il listino <b>%s<b> "
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__product_tmpl_ids
+msgid "Products"
+msgstr "Prodotti"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__uom_value_raise_up
+msgid "Raise Value Up To"
+msgstr "Minimo di fatturazione"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__value_raise_up
+msgid "Raise Value Up To "
+msgstr "Minimo di fatturazione"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__related_extra_price_dimension
+msgid "Related Product (for Extra Price) Dimension"
+msgstr "Dimensione Prodotto Collegato (per Prezzo Extra)"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__uom_value_raise_up
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__value_raise_up
+msgid "Rise all dimensional values below this value up to this value"
+msgstr "Minimo di fatturazione"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid "Rounding Method"
+msgstr "Metodo arrotondamento"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__rule_name
+msgid "Rule name"
+msgstr "Nome regola"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: ooops_dimensions_core
+#: model:ir.model,name:ooops_dimensions_core.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Riga ordine di vendita"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_exclusion_rule.py:0
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "Same values in 'From' and 'To' fields are not allowed!"
+msgstr "Non puoi inserire gli stessi valori nei campi \"Da\" e \"A\"!"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.ooops_dimension_exclusion_rule_view_search
+msgid "Search Dimension Exclusion Rule"
+msgstr "Cerca Regola di Esclusione per Dimensione"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__configurator_data
+msgid "Selected attributes"
+msgstr "Attributi selezionati"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_sale_order_line__configurator_data
+msgid "Selected attributes in configurator"
+msgstr "Attributi selezionati in configuratore"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_ooops_dimension_rule__price_round
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__price_round
+msgid ""
+"Sets the price so that it is a multiple of this value.\n"
+"Rounding is applied after the discount and before the surcharge.\n"
+"To have prices that end in 9.99, set rounding 10, surcharge -0.01"
+msgstr ""
+"Impostare il prezzo come multiplo di questo valore.\n"
+"L'arrotondamento è applicato dopo lo sconto e prima della maggiorazione.\n"
+"Per avere prezzi terminanti in 9.99, impostare arrotondamento 10, "
+"maggiorazione -0.01"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_ooops_dimensions_mixin__product_perimeter
+msgid "Shape perimeter value storage"
+msgstr "Memorizzazione valore perimetro forma"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_ooops_dimension_rule__price_surcharge
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__price_surcharge
+msgid ""
+"Specify the fixed amount to add or subtract(if negative) to the amount "
+"calculated with the discount."
+msgstr ""
+"Specificare l'importo fisso da aggiungere o sottrarre (se negativo) "
+"all'importo calcolato con lo sconto."
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_attribute_product_link
+msgid "Test attribute product link"
+msgstr "Test attribute product link"
+
+#. module: ooops_dimensions_core
+#: model_terms:ir.ui.view,arch_db:ooops_dimensions_core.product_pricelist_item_form_view_for_action
+msgid ""
+"The computed price is expressed in the default Unit of\n"
+"                            Measure of the product."
+msgstr ""
+"Il prezzo calcolato è espresso nell'unità di misura\n"
+"                            predefinita del prodotto."
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_exclusion_rule_line__value_to
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimension_rule_line__value_to
+msgid "To"
+msgstr "A"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_attribute_value__uom_id
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__using_uom
+msgid "UOM"
+msgstr "UdM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_linked_height_never_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_attribute_product_link
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_area_always_no_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_area_always_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_area_exclusion
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_area_never_no_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_area_never_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_fixed_no_dimension
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_fixed_price
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_height_always_1
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_height_always_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_height_and_width_exclusion
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_height_exclusion
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_height_never_no_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_base_height_never_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_area_always_no_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_area_always_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_area_never_no_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_area_never_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_height_always_no_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_height_always_with_bm
+#: model:product.template,uom_name:ooops_dimensions_core.product_template_test_linked_height_never_no_bm
+msgid "Units"
+msgstr "Unità"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__uom_category_price_type
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__uom_category_price_type
+msgid "Uom Category"
+msgstr "Categoria UdM"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__use_dim_rules
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_pricelist_item__use_dim_rules
+msgid "Use dimension rules"
+msgstr "Usa listini tabellari"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_ooops_dimension_rule__global_id
+msgid "Used as unique rule identifier"
+msgstr "Usato come identificatore univoco della regola"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_ooops_dimension_exclusion_rule__rule_name
+msgid "User assigned name"
+msgstr "Nome assegnato dall'utente"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_template_attribute_value__using_uom
+msgid "Using uom"
+msgstr "Usa UdM"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/constants/constants.py:0
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__product_volume
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_exclusion_rule_line__dimension__product_volume
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule__price_type__product_volume
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule_line__dimension__product_volume
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_attribute__dimension__product_volume
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__price_type__product_volume
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__related_extra_price_dimension__product_volume
+#, python-format
+msgid "Volume"
+msgstr "Volume"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__product_volume
+msgid "Volume, m3"
+msgstr "Volume, m3"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__product_weight
+msgid "Weight"
+msgstr "Peso"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/constants/constants.py:0
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_sale_order_line__product_width
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_exclusion_rule_line__dimension__product_width
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule__price_type__product_width
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__ooops_dimension_rule_line__dimension__product_width
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_attribute__dimension__product_width
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__price_type__product_width
+#: model:ir.model.fields.selection,name:ooops_dimensions_core.selection__product_template_attribute_value__related_extra_price_dimension__product_width
+#: model:product.attribute,name:ooops_dimensions_core.product_attribute_width
+#, python-format
+msgid "Width"
+msgstr "Larghezza"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_pricelist_item__width_from
+msgid "Width from"
+msgstr "Larghezza da"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__width_from
+msgid "Width from (mm)"
+msgstr "Larghezza da (mm)"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,help:ooops_dimensions_core.field_product_pricelist_item__width_to
+msgid "Width to"
+msgstr "Larghezza a"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_pricelist_item__width_to
+msgid "Width to (mm)"
+msgstr "Larghezza a (mm)"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_ooops_dimensions_mixin__product_width
+msgid "Width, mm"
+msgstr "Larghezza, mm"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_exclusion_rule.py:0
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "and"
+msgstr "e"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_exclusion_rule.py:0
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "between"
+msgstr "compreso tra"
+
+#. module: ooops_dimensions_core
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_base_fixed_no_dimension_attribute_net_color_2_value_green
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_base_fixed_price_attribute_net_color_2_value_green
+msgid "green (net color 2)"
+msgstr "Verde (colore rete 2)"
+
+#. module: ooops_dimensions_core
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_always_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_area_always_with_bm_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_height_always_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_attribute_value_height_always_with_bm_1
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_area_always_no_bm_attribute_aluminium_color_value_grey
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_area_always_with_bm_attribute_aluminium_color_value_grey
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_height_always_no_bm_attribute_aluminium_color_value_grey
+#: model:product.template.attribute.value,name:ooops_dimensions_core.product_template_test_linked_height_always_with_bm_attribute_aluminium_color_value_grey
+msgid "grey"
+msgstr "grigio"
+
+#. module: ooops_dimensions_core
+#: model:product.attribute.value,name:ooops_dimensions_core.product_attribute_value_height_mm
+#: model:product.attribute.value,name:ooops_dimensions_core.product_attribute_value_length_mm
+#: model:product.attribute.value,name:ooops_dimensions_core.product_attribute_value_width_mm
+#: model:uom.uom,name:ooops_dimensions_core.product_uom_mm
+msgid "mm"
+msgstr "mm"
+
+#. module: ooops_dimensions_core
+#: model:uom.uom,name:ooops_dimensions_core.product_uom_m2
+msgid "m²"
+msgstr "m²"
+
+#. module: ooops_dimensions_core
+#: model:ir.model.fields,field_description:ooops_dimensions_core.field_product_template_attribute_value__price_extra_storable
+msgid "price_extra"
+msgstr "price_extra"
+
+#. module: ooops_dimensions_core
+#: code:addons/ooops_dimensions_core/models/dimension_rule.py:0
+#, python-format
+msgid "rounded to"
+msgstr "arrotondato a"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_area_always_no_bm
+msgid "test base area always no BM"
+msgstr "test base area always no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_area_always_with_bm
+msgid "test base area always with BM"
+msgstr "test base area always with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_area_exclusion
+msgid "test base area exclusion"
+msgstr "test base area exclusion"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_area_never_no_bm
+msgid "test base area never no BM"
+msgstr "test base area never no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_area_never_with_bm
+msgid "test base area never with BM"
+msgstr "test base area never with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_fixed_no_dimension
+msgid "test base fixed no dimension"
+msgstr "test base fisso senza dimensioni"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_fixed_price
+msgid "test base fixed price"
+msgstr "test base prezzo fisso"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_height_always_1
+msgid "test base height always no BM"
+msgstr "test base height always no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_height_always_with_bm
+msgid "test base height always with BM"
+msgstr "test base height always with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_height_and_width_exclusion
+msgid "test base height and width exclusion"
+msgstr "test base height and width exclusion"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_height_exclusion
+msgid "test base height exclusion"
+msgstr "test base height exclusion"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_height_never_no_bm
+msgid "test base height never no BM"
+msgstr "test base height never no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_base_height_never_with_bm
+msgid "test base height never with BM"
+msgstr "test base height never with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_area_always_no_bm
+msgid "test linked area always no BM"
+msgstr "test linked area always no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_area_always_with_bm
+msgid "test linked area always with BM"
+msgstr "test linked area always with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_area_never_no_bm
+msgid "test linked area never no BM"
+msgstr "test linked area never no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_area_never_with_bm
+msgid "test linked area never with BM"
+msgstr "test linked area never with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_height_always_no_bm
+msgid "test linked height always no BM"
+msgstr "test linked height always no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_height_always_with_bm
+msgid "test linked height always with BM"
+msgstr "test linked height always with BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_test_linked_height_never_no_bm
+msgid "test linked height never no BM"
+msgstr "test linked height never no BM"
+
+#. module: ooops_dimensions_core
+#: model:product.template,name:ooops_dimensions_core.product_template_linked_height_never_with_bm
+msgid "test linked height never with BM"
+msgstr "test linked height never with BM"
+
+#~ msgid "Dimensions"
+#~ msgstr "Dimensioni"
+
+#~ msgid "test price dimension rule area"
+#~ msgstr "test price dimension rule area"
+
+#~ msgid "test price dimension rule area and height"
+#~ msgstr "test price dimension rule area and height"
+
+#~ msgid "test price dimension rule height"
+#~ msgstr "test price dimension rule height"
+
+#~ msgid "Extra Price by Dimension"
+#~ msgstr "Prezzo Extra per Dimensione"
+
+#~ msgid "Length from"
+#~ msgstr "Lunghezza da"
+
+#~ msgid "Length to"
+#~ msgstr "Lunghezza a"
+
+#~ msgid "test base length always no BM"
+#~ msgstr "test base length always no BM"
+
+#~ msgid "test base length always with BM"
+#~ msgstr "test base length always with BM"
+
+#~ msgid "test base length and width exclusion"
+#~ msgstr "test base length and width exclusion"
+
+#~ msgid "test base length exclusion"
+#~ msgstr "test base length exclusion"
+
+#~ msgid "test base length never no BM"
+#~ msgstr "test base length never no BM"
+
+#~ msgid "test base length never with BM"
+#~ msgstr "test base length never with BM"
+
+#~ msgid "test price dimension rule area and length"
+#~ msgstr "test price dimension rule area and length"
+
+#~ msgid "test price dimension rule length"
+#~ msgstr "test price dimension rule length"
+
+#~ msgid ""
+#~ "Extra price for the variant with this attribute value on sale price. eg. "
+#~ "200 price extra, 1000 + 200 = 1200."
+#~ msgstr ""
+#~ "Prezzo extra per la variante per questo valore attributo sul prezzo di "
+#~ "vendita, es: prezzo extra 200, prezzo prodotto 1000, prezzo totale 1200."
+
+#~ msgid "Value Price Extra"
+#~ msgstr "Valore prezzo extra"
+
+#~ msgid "Yellow (net color)"
+#~ msgstr "Giallo (colore rete)"
+
+#~ msgid "aluminium color"
+#~ msgstr "Colore Alluminio"
+
+#~ msgid "black"
+#~ msgstr "nero"
+
+#~ msgid "net color"
+#~ msgstr "Colore rete"
+
+#~ msgid "net color 2"
+#~ msgstr "colore rete 2"
+
+#~ msgid "pink (net color 2)"
+#~ msgstr "Rosa (colore rete 2)"
+
+#~ msgid "m2"
+#~ msgstr "m2"

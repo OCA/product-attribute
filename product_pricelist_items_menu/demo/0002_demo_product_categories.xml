@@ -1,0 +1,8 @@
+<odoo>
+    <record id="product_category_dimension_base_products" model="product.category">
+        <field name="name">dimension base products</field>
+    </record>
+    <record id="product_category_dimension_exclusion_products" model="product.category">
+        <field name="name">dimension exclusion products</field>
+    </record>
+</odoo>

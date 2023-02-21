@@ -1,0 +1,132 @@
+<odoo>
+    <record id="product_template_test_base_fixed_no_dimension" model="product.template">
+        <field name="name">test base fixed no dimension</field>
+        <field name="type">product</field>
+        <field name="list_price">0</field>
+        <field
+            name="categ_id"
+            ref="ooops_dimensions_core.product_category_dimension_base_products"
+        />
+    </record>
+    <record
+        id="product_template_attribute_line_test_base_fixed_no_dimension_net_color_blue_yellow"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_fixed_no_dimension"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_net_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+                (4, ref('ooops_configurator.product_attribute_net_color_value_yellow'))
+            ]"
+        />
+    </record>
+    <record
+        id="product_template_attribute_line_test_base_fixed_no_dimension_aluminium_color_grey_black"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_fixed_no_dimension"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_aluminium_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_configurator.product_attribute_aluminium_color_value_grey')),
+                (4, ref('ooops_configurator.product_attribute_aluminium_color_value_black')),
+            ]"
+        />
+    </record>
+
+    <record
+        id="product_template_attribute_line_test_base_fixed_no_dimension_net_color_2_green_pink"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_fixed_no_dimension"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_net_color_2"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                    (4, ref('ooops_configurator.product_attribute_net_color_2_value_green')),
+                    (4, ref('ooops_configurator.product_attribute_net_color_2_value_pink'))
+                ]"
+        />
+    </record>
+
+    <function model="product.template" name="_create_variant_ids">
+        <function
+            model="product.template"
+            name="search"
+            eval="[
+                [
+                    ('id', '=', ref('ooops_dimensions_core.product_template_test_base_fixed_no_dimension')),
+                ]
+            ]"
+        />
+    </function>
+
+    <function model="ir.model.data" name="_update_xmlids">
+        <value
+            model="base"
+            eval="[{
+            'xml_id': 'ooops_dimensions_core.product_template_test_base_fixed_no_dimension_attribute_net_color_value_blue',
+            'record': obj().env['product.template.attribute.value'].search([
+                ('product_tmpl_id','=',obj().env.ref('ooops_dimensions_core.product_template_test_base_fixed_no_dimension').id),
+                ('attribute_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color').id),
+                ('product_attribute_value_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color_value_blue').id),
+            ]),
+            'noupdate': True,
+        }]"
+        />
+    </function>
+
+    <record
+        id="product_template_test_base_fixed_no_dimension_attribute_net_color_value_blue"
+        model="product.template.attribute.value"
+    >
+        <field name="price_extra_base">10.00</field>
+        <field name="price_type">f</field>
+        <field name="price_extra_base_uom">10.00</field>
+    </record>
+
+    <function model="ir.model.data" name="_update_xmlids">
+        <value
+            model="base"
+            eval="[{
+            'xml_id': 'ooops_dimensions_core.product_template_test_base_fixed_no_dimension_attribute_net_color_2_value_green',
+            'record': obj().env['product.template.attribute.value'].search([
+                ('product_tmpl_id','=',obj().env.ref('ooops_dimensions_core.product_template_test_base_fixed_no_dimension').id),
+                ('attribute_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color_2').id),
+                ('product_attribute_value_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color_2_value_green').id),
+            ]),
+            'noupdate': True,
+        }]"
+        />
+    </function>
+
+    <record
+        id="product_template_test_base_fixed_no_dimension_attribute_net_color_2_value_green"
+        model="product.template.attribute.value"
+    >
+        <field name="price_extra_base">20.00</field>
+        <field name="price_type">f</field>
+        <field name="price_extra_base_uom">20.00</field>
+    </record>
+</odoo>

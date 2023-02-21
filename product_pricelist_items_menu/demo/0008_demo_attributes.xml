@@ -1,0 +1,97 @@
+<odoo>
+    <!--    Product attribute net color   -->
+    <record id="product_attribute_net_color" model="product.attribute">
+        <field name="name">net color</field>
+        <field name="display_type">select</field>
+        <field name="create_variant">no_variant</field>
+    </record>
+    <record id="product_attribute_net_color_value_blue" model="product.attribute.value">
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_net_color"
+        />
+        <field name="name">Blue (net color)</field>
+    </record>
+    <record
+        id="product_attribute_net_color_value_yellow"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_net_color"
+        />
+        <field name="name">Yellow (net color)</field>
+    </record>
+    <record
+        id="product_attribute_net_color_value_orange"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_net_color"
+        />
+        <field name="name">Orange (net color)</field>
+    </record>
+    <record
+        id="product_attribute_net_color_value_green"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_net_color"
+        />
+        <field name="name">Green (net color)</field>
+    </record>
+    <!-- Create attribute “net color 2” (select, never, attr values: “green”, “pink”)-->
+    <record id="product_attribute_net_color_2" model="product.attribute">
+        <field name="name">net color 2</field>
+        <field name="display_type">select</field>
+        <field name="create_variant">no_variant</field>
+    </record>
+    <record
+        id="product_attribute_net_color_2_value_green"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_net_color_2"
+        />
+        <field name="name">green (net color 2)</field>
+    </record>
+    <record
+        id="product_attribute_net_color_2_value_pink"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_net_color_2"
+        />
+        <field name="name">pink (net color 2)</field>
+    </record>
+    <!--    Product attribute aluminium color   -->
+    <record id="product_attribute_aluminium_color" model="product.attribute">
+        <field name="name">aluminium color</field>
+        <field name="display_type">select</field>
+        <field name="create_variant">always</field>
+    </record>
+    <record
+        id="product_attribute_aluminium_color_value_grey"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_aluminium_color"
+        />
+        <field name="name">grey</field>
+    </record>
+    <record
+        id="product_attribute_aluminium_color_value_black"
+        model="product.attribute.value"
+    >
+        <field
+            name="attribute_id"
+            ref="product_pricelist_items_menu.product_attribute_aluminium_color"
+        />
+        <field name="name">black</field>
+    </record>
+</odoo>

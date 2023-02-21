@@ -1,0 +1,68 @@
+<odoo>
+    <record id="product_template_test_attribute_product_link" model="product.template">
+        <field name="name">Test attribute product link</field>
+        <field name="type">consu</field>
+        <field name="list_price">0</field>
+    </record>
+    <record
+        id="product_template_test_attribute_product_link_attribute_line_height"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_attribute_product_link"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_dimensions_core.product_attribute_height"
+        />
+        <field
+            name="value_ids"
+            eval="[
+            (4, ref('ooops_dimensions_core.product_attribute_value_height_mm')),
+        ]"
+        />
+    </record>
+    <record
+        id="product_template_test_attribute_product_link_attribute_line_width"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_attribute_product_link"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_dimensions_core.product_attribute_width"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_dimensions_core.product_attribute_value_width_mm')),
+            ]"
+        />
+    </record>
+    <!--        “Net Color” (Values: Blue, Yellow, Orange)-->
+    <record
+        id="product_template_test_attribute_product_link_attribute_line_net_color"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_attribute_product_link"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_net_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+            (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+            (4, ref('ooops_configurator.product_attribute_net_color_value_yellow')),
+            (4, ref('ooops_configurator.product_attribute_net_color_value_orange')),
+            (4, ref('ooops_configurator.product_attribute_net_color_value_green')),
+        ]"
+        />
+    </record>
+</odoo>

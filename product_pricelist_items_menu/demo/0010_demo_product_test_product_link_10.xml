@@ -1,0 +1,13 @@
+<odoo>
+    <record id="product_template_test_product_link_10" model="product.template">
+        <field name="name">Test Product link 10</field>
+        <field name="type">service</field>
+        <field name="list_price">10</field>
+        <field name="taxes_id" eval="False" />
+        <field name="sale_ok" eval="False" />
+        <field
+            name="categ_id"
+            ref="product_pricelist_items_menu.product_category_child_linked_product"
+        />
+    </record>
+</odoo>

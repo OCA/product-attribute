@@ -1,0 +1,43 @@
+<odoo>
+    <record
+        id="exclusion_rule_line_height_from_1000"
+        model="ooops.dimension.exclusion.rule.line"
+    >
+        <field name="dimension">product_height</field>
+        <field name="value_from">1000</field>
+        <field name="value_to">0.0</field>
+    </record>
+    <record
+        id="exclusion_rule_line_width_from_1000"
+        model="ooops.dimension.exclusion.rule.line"
+    >
+        <field name="dimension">product_width</field>
+        <field name="value_from">1000</field>
+        <field name="value_to">0.0</field>
+    </record>
+    <record
+        id="exclusion_rule_exclude_blue_if_height_more_1000_AND_width_more_1000"
+        model="ooops.dimension.exclusion.rule"
+    >
+        <field name="rule_name">Exclude blue if height > 1000 AND width > 1000</field>
+        <field
+            name="line_ids"
+            eval="[
+                (4, ref('ooops_dimensions_core.exclusion_rule_line_height_from_1000')),
+                (4, ref('ooops_dimensions_core.exclusion_rule_line_width_from_1000')),
+            ]"
+        />
+        <field
+            name="product_tmpl_ids"
+            eval="[
+                (4, ref('ooops_dimensions_core.product_template_test_base_height_and_width_exclusion')),
+            ]"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+            ]"
+        />
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+    0190_demo_exclusion_rule_exclude_blue_if_area_gt_2.xml
+    <!--    Exclude blue if area > 2    -->
+    <record
+        id="ooops_dimensions_exclusion_rule_line_product_area_wh_from_2_to_0"
+        model="ooops.dimension.exclusion.rule.line"
+    >
+        <field name="dimension">product_area_wh</field>
+        <field name="value_from">2</field>
+        <field name="value_to">0</field>
+    </record>
+    <record
+        id="ooops_dimensions_exclusion_rule_exclude_blue_if_area_gt_2"
+        model="ooops.dimension.exclusion.rule"
+    >
+        <field name="rule_name">Exclude blue if area > 2</field>
+        <field
+            name="product_tmpl_ids"
+            eval="[
+                (4, ref('ooops_dimensions_core.product_template_test_base_area_exclusion')),
+            ]"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+            ]"
+        />
+        <field
+            name="line_ids"
+            eval="[
+                (4, ref('ooops_dimensions_core.ooops_dimensions_exclusion_rule_line_product_area_wh_from_2_to_0'))
+            ]"
+        />
+    </record>
+</odoo>

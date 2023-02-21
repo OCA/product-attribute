@@ -1,0 +1,120 @@
+<odoo>
+    <!--   Product test base height always no BM     -->
+    <record id="product_template_test_base_height_always_1" model="product.template">
+        <field name="name">test base height always no BM</field>
+        <field name="type">product</field>
+        <field name="list_price">0.0</field>
+        <field
+            name="categ_id"
+            ref="ooops_dimensions_core.product_category_dimension_base_products"
+        />
+    </record>
+    <record
+        id="product_template_attribute_line_test_base_height_always_1"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_height_always_1"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_dimensions_core.product_attribute_height"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_dimensions_core.product_attribute_value_height_mm'))
+            ]"
+        />
+    </record>
+    <record
+        id="product_template_attribute_line_test_base_height_always_2"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_height_always_1"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_dimensions_core.product_attribute_width"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('product_attribute_value_width_mm'))
+            ]"
+        />
+    </record>
+    <record
+        id="product_template_attribute_line_test_base_height_always_3"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_height_always_1"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_net_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+                (4, ref('ooops_configurator.product_attribute_net_color_value_yellow'))
+            ]"
+        />
+    </record>
+    <record
+        id="product_template_attribute_line_test_base_height_always_4"
+        model="product.template.attribute.line"
+    >
+        <field
+            name="product_tmpl_id"
+            ref="ooops_dimensions_core.product_template_test_base_height_always_1"
+        />
+        <field
+            name="attribute_id"
+            ref="ooops_configurator.product_attribute_aluminium_color"
+        />
+        <field
+            name="value_ids"
+            eval="[
+                (4, ref('ooops_configurator.product_attribute_aluminium_color_value_grey')),
+                (4, ref('ooops_configurator.product_attribute_aluminium_color_value_black')),
+            ]"
+        />
+    </record>
+    <function model="product.template" name="_create_variant_ids">
+        <function
+            model="product.template"
+            name="search"
+            eval="[
+                [
+                    ('id', '=', ref('ooops_dimensions_core.product_template_test_base_height_always_1')),
+                ]
+            ]"
+        />
+    </function>
+    <function model="ir.model.data" name="_update_xmlids">
+        <value
+            model="base"
+            eval="[{
+            'xml_id': 'ooops_dimensions_core.product_template_attribute_value_height_always_1',
+            'record': obj().env.ref('ooops_dimensions_core.product_template_attribute_line_test_base_height_always_4').product_template_value_ids[0],
+            'noupdate': True,
+        }]"
+        />
+    </function>
+    <record
+        id="product_template_attribute_value_height_always_1"
+        model="product.template.attribute.value"
+    >
+        <field name="price_extra_base">10.00</field>
+        <field name="price_type">product_height</field>
+        <field name="price_extra_base_uom">10.00</field>
+        <field name="using_uom" ref="ooops_dimensions_core.product_uom_mm" />
+    </record>
+</odoo>

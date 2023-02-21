@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="product_uom_categ_area" model="uom.category">
+            <field name="name">Area</field>
+        </record>
+        <!--== Millimeters UOM -->
+        <record id="product_uom_mm" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length" />
+            <field name="name">mm</field>
+            <field name="factor" eval="1000" />
+            <field name="uom_type">smaller</field>
+        </record>
+        <record id="product_uom_m2" model="uom.uom">
+            <field
+                name="category_id"
+                ref="product_pricelist_items_menu.product_uom_categ_area"
+            />
+            <field name="name">m²</field>
+            <field name="factor" eval="1.0" />
+            <field name="rounding" eval="0.000001" />
+        </record>
+        <!--    Product attribute length   -->
+        <record id="product_attribute_length" model="product.attribute">
+            <field name="name">Length</field>
+            <field name="display_type">radio</field>
+            <field name="create_variant">no_variant</field>
+            <field name="dimension">product_length</field>
+        </record>
+        <record id="product_attribute_value_length_mm" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_length" />
+            <field name="name">mm</field>
+            <field name="is_custom">1</field>
+            <field name="uom_id" ref="product_uom_mm" />
+        </record>
+        <!--    Product attribute width   -->
+        <record id="product_attribute_width" model="product.attribute">
+            <field name="name">Width</field>
+            <field name="display_type">radio</field>
+            <field name="create_variant">no_variant</field>
+            <field name="dimension">product_width</field>
+        </record>
+        <record id="product_attribute_value_width_mm" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_width" />
+            <field name="name">mm</field>
+            <field name="is_custom">1</field>
+            <field name="uom_id" ref="product_uom_mm" />
+        </record>
+        <!--    Product attribute height   -->
+        <record id="product_attribute_height" model="product.attribute">
+            <field name="name">Height</field>
+            <field name="display_type">radio</field>
+            <field name="create_variant">no_variant</field>
+            <field name="dimension">product_height</field>
+        </record>
+        <record id="product_attribute_value_height_mm" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_height" />
+            <field name="name">mm</field>
+            <field name="is_custom">1</field>
+            <field name="uom_id" ref="product_uom_mm" />
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--##################
+        # Dimension Exclusion Rule #
+        ##################-->
+    <record id="dimension_exclusion_rule_action" model="ir.actions.act_window">
+        <field name="name">Dimension Exclusion Rules</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ooops.dimension.exclusion.rule</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_type">form</field> -->
+    </record>
+    <menuitem
+        action="product_pricelist_items_menu.dimension_exclusion_rule_action"
+        id="menu_dimension_exclusion_line_action"
+        parent="stock.menu_product_in_config_stock"
+        sequence="8"
+        groups="base.group_user"
+    />
+    <!--## Tree ##-->
+    <record id="ooops_dimension_exclusion_rule_view_tree" model="ir.ui.view">
+        <field name="name">ooops.dimension.exclusion.rule.view.tree</field>
+        <field name="model">ooops.dimension.exclusion.rule</field>
+        <field name="arch" type="xml">
+            <tree string="Dimension Exclusion Rules">
+                <field name="rule_name" />
+                <field name="name" />
+                <field name="value_ids" widget="many2many_tags" />
+            </tree>
+        </field>
+    </record>
+    <!--## Form ##-->
+    <record id="ooops_dimension_exclusion_rule_view_form" model="ir.ui.view">
+        <field name="name">ooops.dimension.exclusion.rule.view.form</field>
+        <field name="model">ooops.dimension.exclusion.rule</field>
+        <field name="arch" type="xml">
+            <form string="Dimension Exclusion Rule">
+                <sheet>
+                    <group>
+                        <field name="rule_name" required="1" />
+                        <field name="name" string=" " />
+                        <field name="value_ids" widget="many2many_tags" required="1" />
+                        <field name="line_ids" required="1">
+                            <tree editable="bottom">
+                                <field name="dimension" />
+                                <field name="value_from" />
+                                <field name="value_to" />
+                            </tree>
+                        </field>
+                        <field name="product_tmpl_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="ooops_dimension_exclusion_rule_view_search" model="ir.ui.view">
+        <field name="name">ooops.dimension.exclusion.rule.view.search</field>
+        <field name="model">ooops.dimension.exclusion.rule</field>
+        <field name="arch" type="xml">
+            <search string="Search Dimension Exclusion Rule">
+                <field name="name" filter_domain="[('name','ilike',self)]" />
+                <field name="rule_name" filter_domain="[('rule_name','ilike',self)]" />
+            </search>
+        </field>
+    </record>
+</odoo>

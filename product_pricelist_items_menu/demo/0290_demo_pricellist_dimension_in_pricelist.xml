@@ -1,0 +1,94 @@
+<odoo>
+    <record id="pricelist_dimension_in_pricelist" model="product.pricelist">
+        <field name="name">Dimension in pricelist</field>
+        <field name="currency_id" ref="base.USD" />
+    </record>
+    <record
+        id="pricelist_dimension_in_pricelist_item_50_percentage_discount"
+        model="product.pricelist.item"
+    >
+        <field name="applied_on">2_product_category</field>
+        <field
+            name="categ_id"
+            ref="product_pricelist_items_menu.product_category_dimension_base_products"
+        />
+        <field
+            name="pricelist_id"
+            ref="product_pricelist_items_menu.pricelist_dimension_in_pricelist"
+        />
+        <field name="compute_price">percentage</field>
+        <field name="use_dim_rules" eval="True" />
+        <field name="percent_price">50.0</field>
+        <field name="width_from">1</field>
+        <field name="width_to">1500</field>
+        <field name="height_from">1</field>
+        <field name="height_to">1500</field>
+    </record>
+    <record
+        id="pricelist_dimension_in_pricelist_item_20_percentage_discount"
+        model="product.pricelist.item"
+    >
+        <field name="applied_on">2_product_category</field>
+        <field
+            name="categ_id"
+            ref="product_pricelist_items_menu.product_category_dimension_base_products"
+        />
+        <field
+            name="pricelist_id"
+            ref="product_pricelist_items_menu.pricelist_dimension_in_pricelist"
+        />
+        <field name="compute_price">percentage</field>
+        <field name="use_dim_rules" eval="True" />
+        <field name="percent_price">20.0</field>
+        <field name="width_from">1500</field>
+        <field name="width_to">3000</field>
+        <field name="height_from">1500</field>
+        <field name="height_to">3000</field>
+    </record>
+
+    <record
+        id="pricelist_dimension_in_pricelist_item_test_product_link_10_50_percentage_discount"
+        model="product.pricelist.item"
+    >
+        <field name="applied_on">1_product</field>
+        <field
+            name="product_tmpl_id"
+            ref="product_pricelist_items_menu.product_template_test_product_link_10"
+        />
+        <field
+            name="pricelist_id"
+            ref="product_pricelist_items_menu.pricelist_dimension_in_pricelist"
+        />
+
+        <field name="compute_price">percentage</field>
+        <field name="use_dim_rules" eval="True" />
+        <field name="percent_price">50.0</field>
+        <field name="width_from">1</field>
+        <field name="width_to">1500</field>
+        <field name="height_from">1</field>
+        <field name="height_to">1500</field>
+    </record>
+
+    <record
+        id="pricelist_dimension_in_pricelist_item_test_product_link_10_20_percentage_discount"
+        model="product.pricelist.item"
+    >
+        <field name="applied_on">1_product</field>
+        <field
+            name="product_tmpl_id"
+            ref="product_pricelist_items_menu.product_template_test_product_link_10"
+        />
+        <field
+            name="pricelist_id"
+            ref="product_pricelist_items_menu.pricelist_dimension_in_pricelist"
+        />
+
+        <field name="compute_price">percentage</field>
+        <field name="use_dim_rules" eval="True" />
+        <field name="percent_price">20.0</field>
+        <field name="width_from">1500</field>
+        <field name="width_to">3000</field>
+        <field name="height_from">1500</field>
+        <field name="height_to">3000</field>
+    </record>
+</odoo>

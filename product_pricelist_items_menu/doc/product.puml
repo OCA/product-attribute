@@ -1,0 +1,1135 @@
+@startuml product
+!define Model(name,desc) class name as "desc" << (M,#FFAAAA) >>
+!define TransientModel(name,desc) class name as "desc" << (T,magenta) >>
+!define AbstractModel(name,desc) class name as "desc" << (T,green) >>
+!define model(x) -<b>_<color:red>x</color></b>
+!define char(x) +<b><i>x</i> Char</b>
+!define m2o(x) +<b><color:magenta><i>x</i> Many2one</color></b>
+!define m2m(x) +<b><color:magenta><i>x</i> Many2many</color></b>
+!define o2m(x) +<b><color:darkorange><i>x</i> One2many</color></b>
+!define ref(x) +<b><color:magenta><i>x</i> Reference</color></b>
+!define text(x) +<b><i>x</i> Text</b>
+!define html(x) +<b><i>x</i> Html</b>
+!define int(x) +<b><color:blue><i>x</i> Integer</color></b>
+!define float(x) +<b><color:blue><i>x </i>Float</color></b>
+!define money(x) +<b><color:blue><i>x </i>Monetary</color></b>
+!define sel(x) +<b><color:green><i>x</i> Selection</color></b>
+!define bool(x) +<b><color:darkblue><i>x</i> Boolean</color></b>
+!define date(x) +<b><color:darkgreen><i>x</i> Date</color></b>
+!define dtime(x) +<b><color:darkgreen><i>x</i> Datetime</color></b>
+!define bin(x) +<b><color:purple><i>x</i> Binary</color></b>
+!define help(x) x
+!define cm(x) <color:magenta>->x</color>
+!define inv(x) <color:darkorange><-x</color>
+!define rtbl(x) <color:magenta>x</color>
+!define col1(x) <color:magenta>x</color>
+!define col2(x) <color:magenta>x</color>
+!define dom(x) <color:red>x</color>
+!define is(x) <color:red>x</color>
+!define not(x) <color:red><s>x</s></color>
+!define variants(x) <color:green>x</color>
+!define default(x) <color:red>default=x</color>
+!define related(x) <color:red><i>-->x</i></color>
+!define compute(x) <color:red>x()</color>
+hide methods
+hide stereotypes
+
+package "New" {
+
+Model(ProductAttribute, "Product Attribute") {
+model(name) product.attribute
+==New or Modified==
+char(name) Attribute
+is(required)
+..
+o2m(value_ids) Values
+cm(product.attribute.value) inv(attribute_id)
+..
+int(sequence) Sequence
+is(index)
+Determine the display order
+..
+o2m(attribute_line_ids) Lines
+cm(product.template.attribute.line) inv(attribute_id)
+not(copy)
+..
+sel(create_variant) Create Variants
+variants(no_variant: Never; always: Always; dynamic: Only when the product is added to a sales order)
+default(lambda self: ...())
+is(required)
+Check this if you want to create multiple variants for this attribute.
+..
+}
+
+Model(ProductAttributeValue, "Attribute Value") {
+model(name) product.attribute.value
+==New or Modified==
+char(name) Value
+is(required)
+..
+int(sequence) Sequence
+is(index)
+Determine the display order
+..
+m2o(attribute_id) Attribute
+cm(product.attribute)
+is(required) is(index)
+..
+}
+
+Model(ProductCategory, "Product Category") {
+model(name) product.category
+==New or Modified==
+char(name) Name
+is(required) is(index)
+..
+char(complete_name) Complete Name
+is(computed) is(stored)
+is(readonly) not(copy)
+..
+m2o(parent_id) Parent Category
+cm(product.category)
+is(index)
+..
+char(parent_path) Parent Path
+is(index)
+..
+o2m(child_id) Child Categories
+cm(product.category) inv(parent_id)
+not(copy)
+..
+int(product_count) # Products
+is(computed)
+is(readonly) not(copy)
+The number of products under this category (Does not consider the children categories)
+..
+}
+
+Model(ProductPackaging, "Product Packaging") {
+model(name) product.packaging
+==New or Modified==
+char(name) Package Type
+is(required)
+..
+int(sequence) Sequence
+default(lambda self: ...())
+The first in the sequence is the default one.
+..
+m2o(product_id) Product
+cm(product.product)
+..
+float(qty) Contained Quantity
+The total number of products you can have per pallet or box.
+..
+char(barcode) Barcode
+not(copy)
+Barcode used for packaging identification.
+..
+m2o(product_uom_id) Unit of Measure
+cm(uom.uom)
+related(product_id.uom_id)
+is(computed)
+is(readonly) not(copy)
+Default unit of measure used for all stock operations.
+..
+}
+
+Model(ProductPriceHistory, "Product Price List History") {
+model(name) product.price.history
+==New or Modified==
+m2o(company_id) Company
+cm(res.company)
+default(_get_default_company_id())
+is(required)
+..
+m2o(product_id) Product
+cm(product.product)
+is(required)
+..
+dtime(datetime) Date
+default(now())
+..
+float(cost) Cost
+..
+}
+
+TransientModel(ProductPrice_list, "Product Price per Unit Based on Pricelist Version") {
+model(name) product.price_list
+==New or Modified==
+m2o(price_list) PriceList
+cm(product.pricelist)
+is(required)
+..
+int(qty1) Quantity-1
+default(lambda self: ...())
+..
+int(qty2) Quantity-2
+default(lambda self: ...())
+..
+int(qty3) Quantity-3
+default(lambda self: ...())
+..
+int(qty4) Quantity-4
+default(lambda self: ...())
+..
+int(qty5) Quantity-5
+default(lambda self: ...())
+..
+}
+
+Model(ProductPricelist, "Pricelist") {
+model(name) product.pricelist
+==New or Modified==
+char(name) Pricelist Name
+is(required)
+..
+bool(active) Active
+default(lambda self: ...())
+If unchecked, it will allow you to hide the pricelist without removing it.
+..
+o2m(item_ids) Pricelist Items
+cm(product.pricelist.item) inv(pricelist_id)
+default(_get_default_item_ids())
+..
+m2o(currency_id) Currency
+cm(res.currency)
+default(_get_default_currency_id())
+is(required)
+..
+m2o(company_id) Company
+cm(res.company)
+..
+int(sequence) Sequence
+default(lambda self: ...())
+..
+m2m(country_group_ids) Country Groups
+cm(res.country.group)
+rtbl(res_country_group_pricelist_rel) col1(pricelist_id) col2(res_country_group_id)
+..
+}
+
+Model(ProductPricelistItem, "Pricelist Item") {
+model(name) product.pricelist.item
+==New or Modified==
+m2o(product_tmpl_id) Product Template
+cm(product.template)
+Specify a template if this rule only applies to one product template. Keep empty otherwise.
+..
+m2o(product_id) Product
+cm(product.product)
+Specify a product if this rule only applies to one product. Keep empty otherwise.
+..
+m2o(categ_id) Product Category
+cm(product.category)
+Specify a product category if this rule only applies to products belonging to this category or its children categories. Keep empty otherwise.
+..
+int(min_quantity) Min. Quantity
+default(lambda self: ...())
+For the rule to apply, bought/sold quantity must be greater than or equal to the minimum quantity specified in this field.
+Expressed in the default unit of measure of the product.
+..
+sel(applied_on) Apply On
+variants(3_global: Global; 2_product_category:  Product Category; 1_product: Product; 0_product_variant: Product Variant)
+default(lambda self: ...())
+is(required)
+Pricelist Item applicable on selected option
+..
+sel(base) Based on
+variants(list_price: Public Price; standard_price: Cost; pricelist: Other Pricelist)
+default(lambda self: ...())
+is(required)
+Base price for computation.
+Public Price: The base price will be the Sale/public Price.
+Cost Price : The base price will be the cost price.
+Other Pricelist : Computation of the base price based on another Pricelist.
+..
+m2o(base_pricelist_id) Other Pricelist
+cm(product.pricelist)
+..
+m2o(pricelist_id) Pricelist
+cm(product.pricelist)
+is(index)
+..
+float(price_surcharge) Price Surcharge
+Specify the fixed amount to add or substract(if negative) to the amount calculated with the discount.
+..
+float(price_discount) Price Discount
+default(lambda self: ...())
+..
+float(price_round) Price Rounding
+Sets the price so that it is a multiple of this value.
+Rounding is applied after the discount and before the surcharge.
+To have prices that end in 9.99, set rounding 10, surcharge -0.01
+..
+float(price_min_margin) Min. Price Margin
+Specify the minimum amount of margin over the base price.
+..
+float(price_max_margin) Max. Price Margin
+Specify the maximum amount of margin over the base price.
+..
+m2o(company_id) Company
+cm(res.company)
+related(pricelist_id.company_id)
+is(computed) is(stored)
+is(readonly) not(copy)
+..
+m2o(currency_id) Currency
+cm(res.currency)
+related(pricelist_id.currency_id)
+is(computed) is(stored)
+is(readonly) not(copy)
+..
+date(date_start) Start Date
+Starting date for the pricelist item validation
+..
+date(date_end) End Date
+Ending valid for the pricelist item validation
+..
+sel(compute_price) Compute Price
+variants(fixed: Fix Price; percentage: Percentage (discount); formula: Formula)
+default(lambda self: ...())
+is(index)
+..
+float(fixed_price) Fixed Price
+..
+float(percent_price) Percentage Price
+..
+char(name) Name
+is(computed)
+is(readonly) not(copy)
+Explicit rule name for this pricelist line.
+..
+char(price) Price
+is(computed)
+is(readonly) not(copy)
+Explicit rule name for this pricelist line.
+..
+}
+
+Model(ProductProduct, "Product") {
+model(name) product.product
+model(inherits) {'product.template': 'product_tmpl_id'}
+is(activity) is(chatter)
+==New or Modified==
+float(price) Price
+is(computed)
+not(copy)
+..
+float(price_extra) Variant Price Extra
+is(computed)
+is(readonly) not(copy)
+This is the sum of the extra price of all attributes
+..
+float(lst_price) Sale Price
+is(computed)
+not(copy)
+The sale price is managed from the product template. Click on the 'Configure Variants' button to set the extra attribute prices.
+..
+char(default_code) Internal Reference
+is(index)
+..
+char(code) Reference
+is(computed)
+is(readonly) not(copy)
+..
+char(partner_ref) Customer Ref
+is(computed)
+is(readonly) not(copy)
+..
+bool(active) Active
+default(lambda self: ...())
+If unchecked, it will allow you to hide the product without removing it.
+..
+m2o(product_tmpl_id) Product Template
+cm(product.template)
+is(required) is(index)
+..
+char(barcode) Barcode
+not(copy)
+International Article Number used for product identification.
+..
+m2m(attribute_line_ids) Attribute Values
+cm(product.attribute.value)
+rtbl(product_attribute_value_product_product_rel) col1(product_product_id) col2(product_attribute_value_id)
+..
+m2m(product_template_attribute_line_ids) Template Attribute Values
+cm(product.template.attribute.value)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+..
+bin(image_variant) Variant Image
+This field holds the image used as image for the product variant, limited to 1024x1024px.
+..
+bin(image) Big-sized image
+is(computed)
+not(copy)
+Image of the product variant (Big-sized image of product template if false). It is automatically resized as a 1024x1024px image, with aspect ratio preserved.
+..
+bin(image_small) Small-sized image
+is(computed)
+not(copy)
+Image of the product variant (Small-sized image of product template if false).
+..
+bin(image_medium) Medium-sized image
+is(computed)
+not(copy)
+Image of the product variant (Medium-sized image of product template if false).
+..
+bool(is_product_variant) Is Product Variant
+is(computed)
+is(readonly) not(copy)
+..
+float(standard_price) Cost
+default(_default_company_dependent())
+is(computed)
+not(copy)
+Cost used for stock valuation in standard price and as a first price to set in average/fifo. Also used as a base price for pricelists. Expressed in the default unit of measure of the product.
+..
+float(volume) Volume
+The volume in m3.
+..
+float(weight) Weight
+Weight of the product, packaging not included. The unit of measure can be changed in the general settings
+..
+m2m(pricelist_item_ids) Pricelist Item
+cm(product.pricelist.item)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+..
+o2m(packaging_ids) Product Packages
+cm(product.packaging) inv(product_id)
+not(copy)
+Gives the different ways to package the same product.
+..
+char(name) Name
+related(product_tmpl_id.name)
+is(computed)
+is(required)
+..
+int(sequence) Sequence
+related(product_tmpl_id.sequence)
+is(computed)
+Gives the sequence order when displaying a product list
+..
+text(description) Description
+related(product_tmpl_id.description)
+is(computed)
+..
+text(description_purchase) Purchase Description
+related(product_tmpl_id.description_purchase)
+is(computed)
+..
+text(description_sale) Sale Description
+related(product_tmpl_id.description_sale)
+is(computed)
+A description of the Product that you want to communicate to your customers. This description will be copied to every Sales Order, Delivery Order and Customer Invoice/Credit Note
+..
+bool(rental) Can be Rent
+related(product_tmpl_id.rental)
+is(computed)
+..
+m2o(categ_id) Product Category
+cm(product.category)
+related(product_tmpl_id.categ_id)
+is(computed)
+is(required)
+Select category for the current product
+..
+m2o(currency_id) Currency
+cm(res.currency)
+related(product_tmpl_id.currency_id)
+is(computed)
+is(readonly) not(copy)
+..
+m2o(cost_currency_id) Cost Currency
+cm(res.currency)
+related(product_tmpl_id.cost_currency_id)
+is(computed)
+is(readonly) not(copy)
+..
+float(list_price) Sales Price
+related(product_tmpl_id.list_price)
+is(computed)
+Price at which the product is sold to customers.
+..
+m2o(weight_uom_id) Weight Unit of Measure
+cm(uom.uom)
+related(product_tmpl_id.weight_uom_id)
+is(computed)
+is(readonly) not(copy)
+..
+char(weight_uom_name) Weight unit of measure label
+related(product_tmpl_id.weight_uom_name)
+is(computed)
+is(readonly) not(copy)
+..
+bool(sale_ok) Can be Sold
+related(product_tmpl_id.sale_ok)
+is(computed)
+..
+bool(purchase_ok) Can be Purchased
+related(product_tmpl_id.purchase_ok)
+is(computed)
+..
+m2o(pricelist_id) Pricelist
+cm(product.pricelist)
+related(product_tmpl_id.pricelist_id)
+is(computed)
+Technical field. Used for searching on pricelists, not stored in database.
+..
+m2o(uom_id) Unit of Measure
+cm(uom.uom)
+related(product_tmpl_id.uom_id)
+is(computed)
+is(required)
+Default unit of measure used for all stock operations.
+..
+char(uom_name) Unit of Measure Name
+related(product_tmpl_id.uom_name)
+is(computed)
+is(readonly) not(copy)
+..
+m2o(uom_po_id) Purchase Unit of Measure
+cm(uom.uom)
+related(product_tmpl_id.uom_po_id)
+is(computed)
+is(required)
+Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure.
+..
+m2o(company_id) Company
+cm(res.company)
+related(product_tmpl_id.company_id)
+is(computed)
+..
+o2m(seller_ids) Vendors
+cm(product.supplierinfo) inv(None)
+related(product_tmpl_id.seller_ids)
+is(computed)
+not(copy)
+Define vendor pricelists.
+..
+o2m(variant_seller_ids) Variant Seller
+cm(product.supplierinfo) inv(None)
+related(product_tmpl_id.variant_seller_ids)
+is(computed)
+not(copy)
+..
+int(color) Color Index
+related(product_tmpl_id.color)
+is(computed)
+..
+o2m(attribute_line_ids) Product Attributes
+cm(product.template.attribute.line) inv(None)
+related(product_tmpl_id.attribute_line_ids)
+is(computed)
+not(copy)
+..
+m2m(valid_product_template_attribute_line_ids) Valid Product Attribute Lines
+cm(product.template.attribute.line)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_product_template_attribute_line_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_line_ids) Valid Product Attribute Values
+cm(product.attribute.value)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_product_attribute_line_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_ids) Valid Product Attributes
+cm(product.attribute)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_product_attribute_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_template_attribute_line_wnva_ids) Valid Product Attribute Lines Without No Variant Attributes
+cm(product.template.attribute.line)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_product_template_attribute_line_wnva_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_value_wnva_ids) Valid Product Attribute Values Without No Variant Attributes
+cm(product.attribute.value)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_product_attribute_value_wnva_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_wnva_ids) Valid Product Attributes Without No Variant Attributes
+cm(product.attribute)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_product_attribute_wnva_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_archived_variant_ids) Valid Archived Variants
+cm(product.product)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_archived_variant_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_existing_variant_ids) Valid Existing Variants
+cm(product.product)
+rtbl(None) col1(None) col2(None)
+related(product_tmpl_id.valid_existing_variant_ids)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+o2m(product_variant_ids) Products
+cm(product.product) inv(None)
+related(product_tmpl_id.product_variant_ids)
+is(computed)
+is(required) not(copy)
+..
+m2o(product_variant_id) Product
+cm(product.product)
+related(product_tmpl_id.product_variant_id)
+is(computed)
+is(readonly) not(copy)
+..
+int(product_variant_count) # Product Variants
+related(product_tmpl_id.product_variant_count)
+is(computed)
+is(readonly) not(copy)
+..
+o2m(item_ids) Pricelist Items
+cm(product.pricelist.item) inv(None)
+related(product_tmpl_id.item_ids)
+is(computed)
+not(copy)
+..
+sel(type) Product Type
+variants(consu: Consumable; service: Service; product: Storable Product)
+related(product_tmpl_id.type)
+is(computed)
+is(required)
+A storable product is a product for which you manage stock. The Inventory app has to be installed.
+A consumable product is a product for which stock is not managed.
+A service is a non-material product you provide.
+..
+}
+
+Model(ProductSupplierinfo, "Supplier Pricelist") {
+model(name) product.supplierinfo
+==New or Modified==
+m2o(name) Vendor
+cm(res.partner)
+is(required)
+Vendor of this product
+..
+char(product_name) Vendor Product Name
+This vendor's product name will be used when printing a request for quotation. Keep empty to use the internal one.
+..
+char(product_code) Vendor Product Code
+This vendor's product code will be used when printing a request for quotation. Keep empty to use the internal one.
+..
+int(sequence) Sequence
+default(lambda self: ...())
+Assigns the priority to the list of product vendor.
+..
+m2o(product_uom) Unit of Measure
+cm(uom.uom)
+related(product_tmpl_id.uom_po_id)
+is(computed)
+is(readonly) not(copy)
+This comes from the product form.
+..
+float(min_qty) Minimal Quantity
+default(lambda self: ...())
+is(required)
+The minimal quantity to purchase from this vendor, expressed in the vendor Product Unit of Measure if not any, in the default unit of measure of the product otherwise.
+..
+float(price) Price
+default(lambda self: ...())
+is(required)
+The price to purchase a product
+..
+m2o(company_id) Company
+cm(res.company)
+default(lambda self: ...())
+is(index)
+..
+m2o(currency_id) Currency
+cm(res.currency)
+default(lambda self: ...())
+is(required)
+..
+date(date_start) Start Date
+Start date for this vendor price
+..
+date(date_end) End Date
+End date for this vendor price
+..
+m2o(product_id) Product Variant
+cm(product.product)
+If not set, the vendor price will apply to all variants of this product.
+..
+m2o(product_tmpl_id) Product Template
+cm(product.template)
+is(index)
+..
+int(product_variant_count) Variant Count
+related(product_tmpl_id.product_variant_count)
+is(computed)
+not(copy)
+..
+int(delay) Delivery Lead Time
+default(lambda self: ...())
+is(required)
+Lead time in days between the confirmation of the purchase order and the receipt of the products in your warehouse. Used by the scheduler for automatic computation of the purchase order planning.
+..
+}
+
+Model(ProductTemplate, "Product Template") {
+model(name) product.template
+is(activity) is(chatter)
+==New or Modified==
+char(name) Name
+is(required) is(index)
+..
+int(sequence) Sequence
+default(lambda self: ...())
+Gives the sequence order when displaying a product list
+..
+text(description) Description
+..
+text(description_purchase) Purchase Description
+..
+text(description_sale) Sale Description
+A description of the Product that you want to communicate to your customers. This description will be copied to every Sales Order, Delivery Order and Customer Invoice/Credit Note
+..
+bool(rental) Can be Rent
+..
+m2o(categ_id) Product Category
+cm(product.category)
+default(_get_default_category_id())
+is(required)
+Select category for the current product
+..
+m2o(currency_id) Currency
+cm(res.currency)
+is(computed)
+is(readonly) not(copy)
+..
+m2o(cost_currency_id) Cost Currency
+cm(res.currency)
+is(computed)
+is(readonly) not(copy)
+..
+float(price) Price
+is(computed)
+not(copy)
+..
+float(list_price) Sales Price
+default(lambda self: ...())
+Price at which the product is sold to customers.
+..
+float(lst_price) Public Price
+related(list_price)
+is(computed)
+not(copy)
+Price at which the product is sold to customers.
+..
+float(standard_price) Cost
+is(computed)
+not(copy)
+Cost used for stock valuation in standard price and as a first price to set in average/FIFO.
+..
+float(volume) Volume
+is(computed) is(stored)
+not(copy)
+The volume in m3.
+..
+float(weight) Weight
+is(computed) is(stored)
+not(copy)
+The weight of the contents in Kg, not including any packaging, etc.
+..
+m2o(weight_uom_id) Weight Unit of Measure
+cm(uom.uom)
+is(computed)
+is(readonly) not(copy)
+..
+char(weight_uom_name) Weight unit of measure label
+related(weight_uom_id.name)
+is(computed)
+is(readonly) not(copy)
+..
+bool(sale_ok) Can be Sold
+default(lambda self: ...())
+..
+bool(purchase_ok) Can be Purchased
+default(lambda self: ...())
+..
+m2o(pricelist_id) Pricelist
+cm(product.pricelist)
+Technical field. Used for searching on pricelists, not stored in database.
+..
+m2o(uom_id) Unit of Measure
+cm(uom.uom)
+default(_get_default_uom_id())
+is(required)
+Default unit of measure used for all stock operations.
+..
+char(uom_name) Unit of Measure Name
+related(uom_id.name)
+is(computed)
+is(readonly) not(copy)
+..
+m2o(uom_po_id) Purchase Unit of Measure
+cm(uom.uom)
+default(_get_default_uom_id())
+is(required)
+Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure.
+..
+m2o(company_id) Company
+cm(res.company)
+default(lambda self: ...())
+is(index)
+..
+o2m(packaging_ids) Product Packages
+cm(product.packaging) inv(None)
+is(computed)
+not(copy)
+Gives the different ways to package the same product.
+..
+o2m(seller_ids) Vendors
+cm(product.supplierinfo) inv(product_tmpl_id)
+not(copy)
+Define vendor pricelists.
+..
+o2m(variant_seller_ids) Variant Seller
+cm(product.supplierinfo) inv(product_tmpl_id)
+not(copy)
+..
+bool(active) Active
+default(lambda self: ...())
+If unchecked, it will allow you to hide the product without removing it.
+..
+int(color) Color Index
+..
+bool(is_product_variant) Is a product variant
+is(computed)
+is(readonly) not(copy)
+..
+o2m(attribute_line_ids) Product Attributes
+cm(product.template.attribute.line) inv(product_tmpl_id)
+not(copy)
+..
+m2m(valid_product_template_attribute_line_ids) Valid Product Attribute Lines
+cm(product.template.attribute.line)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_line_ids) Valid Product Attribute Values
+cm(product.attribute.value)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_ids) Valid Product Attributes
+cm(product.attribute)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_template_attribute_line_wnva_ids) Valid Product Attribute Lines Without No Variant Attributes
+cm(product.template.attribute.line)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_value_wnva_ids) Valid Product Attribute Values Without No Variant Attributes
+cm(product.attribute.value)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_product_attribute_wnva_ids) Valid Product Attributes Without No Variant Attributes
+cm(product.attribute)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_archived_variant_ids) Valid Archived Variants
+cm(product.product)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+m2m(valid_existing_variant_ids) Valid Existing Variants
+cm(product.product)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+Technical compute
+..
+o2m(product_variant_ids) Products
+cm(product.product) inv(product_tmpl_id)
+is(required) not(copy)
+..
+m2o(product_variant_id) Product
+cm(product.product)
+is(computed)
+is(readonly) not(copy)
+..
+int(product_variant_count) # Product Variants
+is(computed)
+is(readonly) not(copy)
+..
+char(barcode) Barcode
+related(product_variant_ids.barcode)
+is(computed)
+not(copy)
+International Article Number used for product identification.
+..
+char(default_code) Internal Reference
+is(computed) is(stored)
+not(copy)
+..
+o2m(item_ids) Pricelist Items
+cm(product.pricelist.item) inv(product_tmpl_id)
+not(copy)
+..
+bin(image) Image
+This field holds the image used as image for the product, limited to 1024x1024px.
+..
+bin(image_medium) Medium-sized image
+Medium-sized image of the product. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. Use this field in form views or some kanban views.
+..
+bin(image_small) Small-sized image
+Small-sized image of the product. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required.
+..
+sel(type) Product Type
+variants(consu: Consumable; service: Service; product: Storable Product)
+default(lambda self: ...())
+is(required)
+A storable product is a product for which you manage stock. The Inventory app has to be installed.
+A consumable product is a product for which stock is not managed.
+A service is a non-material product you provide.
+..
+}
+
+Model(ProductTemplateAttributeExclusion, "Product Template Attribute Exclusion") {
+model(name) product.template.attribute.exclusion
+==New or Modified==
+m2o(product_template_attribute_value_id) Attribute Value
+cm(product.template.attribute.value)
+is(index)
+..
+m2o(product_tmpl_id) Product Template
+cm(product.template)
+is(required) is(index)
+..
+m2m(value_ids) Attribute Values
+cm(product.template.attribute.value)
+rtbl(product_attr_exclusion_value_ids_rel) col1(product_template_attribute_exclusion_id) col2(product_template_attribute_value_id)
+..
+}
+
+Model(ProductTemplateAttributeLine, "Product Template Attribute Line") {
+model(name) product.template.attribute.line
+==New or Modified==
+m2o(product_tmpl_id) Product Template
+cm(product.template)
+is(required) is(index)
+..
+m2o(attribute_id) Attribute
+cm(product.attribute)
+is(required) is(index)
+..
+m2m(value_ids) Attribute Values
+cm(product.attribute.value)
+rtbl(product_attribute_value_product_template_attribute_line_rel) col1(product_template_attribute_line_id) col2(product_attribute_value_id)
+..
+m2m(product_template_value_ids) Product Attribute Values
+cm(product.template.attribute.value)
+rtbl(None) col1(None) col2(None)
+is(computed)
+is(readonly) not(copy)
+..
+}
+
+Model(ProductTemplateAttributeValue, "Product Attribute Value") {
+model(name) product.template.attribute.value
+==New or Modified==
+char(name) Value
+related(product_attribute_value_id.name)
+is(computed)
+is(readonly) not(copy)
+..
+m2o(product_attribute_value_id) Attribute Value
+cm(product.attribute.value)
+is(required) is(index)
+..
+m2o(product_tmpl_id) Product Template
+cm(product.template)
+is(required) is(index)
+..
+m2o(attribute_id) Attribute
+cm(product.attribute)
+related(product_attribute_value_id.attribute_id)
+is(computed)
+is(readonly) not(copy)
+..
+int(sequence) Sequence
+related(product_attribute_value_id.sequence)
+is(computed)
+is(readonly) not(copy)
+Determine the display order
+..
+o2m(exclude_for) Exclude for
+cm(product.template.attribute.exclusion) inv(product_template_attribute_value_id)
+not(copy)
+Make this attribute value not compatible with
+        other values of the product or some attribute values of optional and accessory products.
+..
+float(price_extra) Attribute Price Extra
+default(lambda self: ...())
+is(computed)
+is(readonly) not(copy)
+Price Extra: Extra price for the variant with
+        this attribute value on sale price. eg. 200 price extra, 1000 + 200 = 1200.
+..
+}
+
+Model(ReportProductReport_pricelist, "Product Price List Report") {
+model(name) report.product.report_pricelist
+}
+
+note "<b>res_country_group_pricelist_rel</b>\npricelist_id\nres_country_group_id" as res_country_group_pricelist_rel
+note "<b>product_attribute_value_product_product_rel</b>\nproduct_product_id\nproduct_attribute_value_id" as product_attribute_value_product_product_rel
+note "<b>product_attr_exclusion_value_ids_rel</b>\nproduct_template_attribute_exclusion_id\nproduct_template_attribute_value_id" as product_attr_exclusion_value_ids_rel
+note "<b>product_attribute_value_product_template_attribute_line_rel</b>\nproduct_template_attribute_line_id\nproduct_attribute_value_id" as product_attribute_value_product_template_attribute_line_rel
+}
+
+package "Inherited" {
+
+Model(DecimalPrecision, "Decimal Precision") {
+model(inherit) decimal.precision
+}
+
+Model(ResCompany, "Companies") {
+model(inherit) res.company
+}
+
+TransientModel(ResConfigSettings, "Config Settings") {
+model(inherit) res.config.settings
+==New or Modified==
+bool(company_share_product) Share product to all companies
+Share your product to all companies defined in your instance.
+ * Checked : Product are visible for every company, even if a company is defined on the partner.
+ * Unchecked : Each company can see only its product (product where company is defined). Product not related to a company are visible for all companies.
+..
+bool(group_uom) Units of Measure
+..
+bool(group_product_variant) Variants and Options
+..
+bool(group_stock_packaging) Product Packagings
+..
+bool(group_sale_pricelist) Use pricelists to adapt your price per customers
+Allows to manage different prices based on rules per category of customers.
+                Example: 10% for retailers, promotion of 5 EUR on this product, etc.
+..
+bool(group_product_pricelist) Show pricelists On Products
+..
+bool(group_pricelist_item) Show pricelists to customers
+..
+sel(product_weight_in_lbs) Weight unit of measure
+variants(0: Kilogram; 1: Pound)
+default(lambda self: ...())
+..
+}
+
+Model(ResCountryGroup, "Country Group") {
+model(inherit) res.country.group
+==New or Modified==
+m2m(pricelist_ids) Pricelists
+cm(product.pricelist)
+rtbl(res_country_group_pricelist_rel) col1(res_country_group_id) col2(pricelist_id)
+..
+}
+
+Model(ResPartner, "Contact") {
+model(inherit) res.partner
+==New or Modified==
+m2o(property_product_pricelist) Pricelist
+cm(product.pricelist)
+is(computed)
+not(copy)
+This pricelist will be used, instead of the default one, for sales to the current partner
+..
+}
+
+Model(UomUom, "Product Unit of Measure") {
+model(inherit) uom.uom
+}
+
+}
+
+Model(ResCurrency, "Currency") {
+model(name) res.currency
+}
+ProductAttributeValue --> "attribute_id" ProductAttribute: "value_ids"
+ProductTemplateAttributeLine --> "attribute_id" ProductAttribute: "attribute_line_ids"
+ProductCategory --> "parent_id" ProductCategory: "child_id"
+ProductPricelistItem --> "pricelist_id" ProductPricelist: "item_ids"
+ProductPackaging --> "product_id" ProductProduct: "packaging_ids"
+ProductSupplierinfo --> "product_tmpl_id" ProductTemplate: "seller_ids"
+ProductSupplierinfo --> "product_tmpl_id" ProductTemplate: "variant_seller_ids"
+ProductTemplateAttributeLine --> "product_tmpl_id" ProductTemplate: "attribute_line_ids"
+ProductProduct --> "product_tmpl_id" ProductTemplate: "product_variant_ids"
+ProductPricelistItem --> "product_tmpl_id" ProductTemplate: "item_ids"
+ProductTemplateAttributeExclusion --> "product_template_attribute_value_id" ProductTemplateAttributeValue: "exclude_for"
+ProductPriceHistory --> "company_id" ResCompany
+ProductPriceHistory --> "product_id" ProductProduct
+ProductPrice_list --> "price_list" ProductPricelist
+ProductPricelist --> "currency_id" ResCurrency
+ProductPricelist --> "company_id" ResCompany
+ProductPricelistItem --> "product_id" ProductProduct
+ProductPricelistItem --> "categ_id" ProductCategory
+ProductPricelistItem --> "base_pricelist_id" ProductPricelist
+ProductSupplierinfo --> "name" ResPartner
+ProductSupplierinfo --> "company_id" ResCompany
+ProductSupplierinfo --> "currency_id" ResCurrency
+ProductSupplierinfo --> "product_id" ProductProduct
+ProductTemplate --> "categ_id" ProductCategory
+ProductTemplate --> "pricelist_id" ProductPricelist
+ProductTemplate --> "uom_id" UomUom
+ProductTemplate --> "uom_po_id" UomUom
+ProductTemplate --> "company_id" ResCompany
+ProductTemplateAttributeExclusion --> "product_tmpl_id" ProductTemplate
+ProductTemplateAttributeValue --> "product_attribute_value_id" ProductAttributeValue
+ProductTemplateAttributeValue --> "product_tmpl_id" ProductTemplate
+ProductPricelist .. res_country_group_pricelist_rel
+res_country_group_pricelist_rel .. ResCountryGroup
+ProductProduct .. product_attribute_value_product_product_rel
+product_attribute_value_product_product_rel .. ProductAttributeValue
+ProductTemplateAttributeExclusion .. product_attr_exclusion_value_ids_rel
+product_attr_exclusion_value_ids_rel .. ProductTemplateAttributeValue
+ProductTemplateAttributeLine .. product_attribute_value_product_template_attribute_line_rel
+product_attribute_value_product_template_attribute_line_rel .. ProductAttributeValue
+@enduml

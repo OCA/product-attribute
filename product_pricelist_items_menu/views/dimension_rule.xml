@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--##################
+        # Dimension Rule #
+        ##################-->
+    <!-- Update dimension values -->
+    <data noupdate="0">
+        <function model="ooops.dimension.rule" name="fix_rules" />
+    </data>
+    <!--## Tree ##-->
+    <record id="ooops_dimension_rule_view_tree" model="ir.ui.view">
+        <field name="name">ooops.dimension.rule.view.tree</field>
+        <field name="model">ooops.dimension.rule</field>
+        <field name="arch" type="xml">
+            <tree string="Dimension Rules">
+                <field name="priority" widget="handle" />
+                <field name="name" />
+                <field name="price_type_name" string="Extra Price" />
+                <field name="global_id" groups="base.group_no_one" />
+            </tree>
+        </field>
+    </record>
+    <!--## Form ##-->
+    <record id="ooops_dimension_rule_view_form" model="ir.ui.view">
+        <field name="name">ooops.dimension.rule.view.form</field>
+        <field name="model">ooops.dimension.rule</field>
+        <field name="arch" type="xml">
+            <form string="Dimension Rule">
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            <field name="name" />
+                        </h3>
+                    </div>
+                    <group>
+                        <label
+                            for="price_extra"
+                            invisible="context.get('hide_price',False)"
+                        />
+                        <div class="o_row" invisible="context.get('hide_price',False)">
+                            <field name="price_extra" />
+                            <span
+                                attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                            >
+                                <b>*</b>
+                            </span>
+                            <field name="price_type" />
+                            <div
+                                class="o_row"
+                                attrs="{'invisible': ['|', ('price_type', '=', 'f'), ('price_type', '=', False)]}"
+                            >
+                                <span>
+                                    <b>+</b>
+                                    (
+                                </span>
+                                <field name="price_surcharge" />
+                                <span>) rounded to</span>
+                                <field name="price_round" />
+                            </div>
+                        </div>
+                        <field name="product_tmpl_id" invisible="1" />
+                        <field name="line_ids">
+                            <tree editable="bottom">
+                                <field name="name" invisible="1" />
+                                <field name="dimension" />
+                                <field name="value_from" />
+                                <field name="value_to" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

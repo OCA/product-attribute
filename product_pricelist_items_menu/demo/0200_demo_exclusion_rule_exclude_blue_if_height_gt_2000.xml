@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--    Exclude blue if height > 2000    -->
+
+        <record
+            id="ooops_dimensions_exclusion_rule_line_product_height_from_2000_to_0"
+            model="ooops.dimension.exclusion.rule.line"
+        >
+            <field name="dimension">product_height</field>
+            <field name="value_from">2000</field>
+            <field name="value_to">0</field>
+        </record>
+        <record
+            id="ooops_dimensions_exclusion_rule_exclude_blue_if_height_gt_2000"
+            model="ooops.dimension.exclusion.rule"
+        >
+            <field name="rule_name">Exclude blue if height > 2000</field>
+            <field
+                name="product_tmpl_ids"
+                eval="[
+                    (4, ref('ooops_dimensions_core.product_template_test_base_height_exclusion'))
+                ]"
+            />
+            <field
+                name="value_ids"
+                eval="[
+                    (4, ref('ooops_configurator.product_attribute_net_color_value_blue')),
+                ]"
+            />
+            <field
+                name="line_ids"
+                eval="[
+                    (4, ref('ooops_dimensions_core.ooops_dimensions_exclusion_rule_line_product_height_from_2000_to_0'))
+                ]"
+            />
+        </record>
+    </data>
+</odoo>

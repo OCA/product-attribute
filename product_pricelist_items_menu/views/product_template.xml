@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--####################
+        # Product Template #
+        #################-->
+    <!--## Form ##-->
+    <record id="ooops_product_template_form" model="ir.ui.view">
+        <field name="name">ooops.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <!-- Dimension Exclusion Rules -->
+                <page name="dimensions" string="Dimension Exclusions">
+                    <field name="der_ids" options="{'no_create': True}">
+                        <tree editable="bottom">
+                            <field name="product_tmpl_ids" invisible="1" />
+                            <field name="rule_name" readonly="1" />
+                            <field name="name" />
+                            <field
+                                name="value_ids"
+                                widget="many2many_tags"
+                                readonly="1"
+                            />
+                        </tree>
+                        <form create="false" edit="false">
+                            <sheet>
+                                <div class="oe_title">
+                                    <h3>
+                                        <field name="name" />
+                                        <field name="product_tmpl_ids" invisible="1" />
+                                    </h3>
+                                </div>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

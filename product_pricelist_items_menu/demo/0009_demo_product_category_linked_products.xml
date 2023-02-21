@@ -1,0 +1,19 @@
+<odoo>
+    <record id="product_category_linked_product" model="product.category">
+        <field name="name">Linked products</field>
+    </record>
+    <record id="product_category_child_linked_product" model="product.category">
+        <field name="name">Child linked products</field>
+        <field
+            name="parent_id"
+            ref="product_pricelist_items_menu.product_category_linked_product"
+        />
+    </record>
+    <record id="product_category_special_linked_product" model="product.category">
+        <field name="name">Special linked products</field>
+        <field
+            name="parent_id"
+            ref="product_pricelist_items_menu.product_category_child_linked_product"
+        />
+    </record>
+</odoo>

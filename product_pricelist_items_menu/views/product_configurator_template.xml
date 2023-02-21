@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--== Variants ==-->
+    <template id="variants" inherit_id="sale.variants">
+        <xpath
+            expr="//label[hasclass('col-form-label')]/div/input"
+            position="attributes"
+        >
+            <attribute name="t-att-data-dimension">
+                ptal.value_ids.is_dimension()
+            </attribute>
+        </xpath>
+    </template>
+</odoo>

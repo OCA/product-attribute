@@ -1,0 +1,26 @@
+<odoo>
+    <function model="ir.model.data" name="_update_xmlids">
+        <value
+            model="base"
+            eval="[{
+                'xml_id': 'ooops_dimensions_core.product_template_test_attribute_product_link_attribute_net_color_value_orange',
+                'record': obj().env['product.template.attribute.value'].search([
+                    ('product_tmpl_id','=',obj().env.ref('ooops_dimensions_core.product_template_test_attribute_product_link').id),
+                    ('attribute_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color').id),
+                    ('product_attribute_value_id','=',obj().env.ref('ooops_configurator.product_attribute_net_color_value_orange').id),
+                ]),
+                'noupdate': True,
+            }]"
+        />
+    </function>
+    <record
+        id="product_template_test_attribute_product_link_attribute_net_color_value_orange"
+        model="product.template.attribute.value"
+    >
+        <field
+            name="extra_price_product_tmpl_id"
+            ref="ooops_configurator.product_template_test_product_link_100"
+        />
+        <field name="related_extra_price_dimension">product_area_wh</field>
+    </record>
+</odoo>
