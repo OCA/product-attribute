@@ -11,6 +11,7 @@ from odoo.osv import expression
 
 class ProductPricelistPrint(models.TransientModel):
     _name = "product.pricelist.print"
+    _inherit = "mail.thread"
     _description = "Product Pricelist Print"
 
     pricelist_id = fields.Many2one(comodel_name="product.pricelist", string="Pricelist")
