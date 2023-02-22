@@ -1,7 +1,7 @@
 {
-    "name": "Product Pricelist Items Menu",
+    "name": "Product Pricelist Item Menu",
     "version": "14.0.1.0.0",
-    "summary": "Product Pricelist Items Menu",
+    "summary": "Product Pricelist Item Menu",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "category": "Productivity",
