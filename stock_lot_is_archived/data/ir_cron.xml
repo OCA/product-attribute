@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <!-- Scheduler to archive lots -->
+    <record forcecreate="True" id="ir_cron_archive_lots" model="ir.cron">
+        <field name="name">Archive product lots (Is Archived)</field>
+        <field eval="False" name="active" />
+        <field name="doall" eval="False" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="model_id" ref="model_stock_lot_archive" />
+        <field name="code">model._archive_lots()</field>
+        <field name="state">code</field>
+    </record>
+
+</odoo>
