@@ -1,1 +1,1 @@
-odoo-test-helper
+odoo-addon-base_custom_info@ git+https://github.com/oca/server-tools@refs/pull/2360/head#subdirectory=setup/base_custom_info
