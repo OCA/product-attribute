@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="view_product_category_search">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view" />
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="level" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_category_tree">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view" />
+        <field name="arch" type="xml">
+            <field name="display_name" position="after">
+                <field name="level" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_category_form">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <field name="parent_id" position="before">
+                <field name="level" class="oe_inline" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
