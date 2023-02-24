@@ -76,8 +76,11 @@ class ProductPricelistAssortmentItem(models.Model):
 
         return create_values, default_values
 
+    def _get_product_from_assortment_domain(self):
+        return self.assortment_filter_id._get_eval_domain()
+
     def _get_product_from_assortment(self):
-        domain = self.assortment_filter_id._get_eval_domain()
+        domain = self._get_product_from_assortment_domain()
         products = self.env[self.assortment_filter_id.model_id].search(domain)
         return products
 
