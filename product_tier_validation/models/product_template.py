@@ -1,13 +1,25 @@
 # Copyright 2021 Open Source Integrators
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, models
+from odoo import api, models, tools
 from odoo.exceptions import UserError
 
 class ProductTemplate(models.Model):
     _name = "product.template"
     _inherit = ["product.template", "tier.validation"]
     _tier_validation_manual_config = False
+
+    @property
+    @tools.ormcache()
+    def _state_to(self):
+        return (
+            self.env["product.state"]
+            .search([])
+            .filtered(
+                lambda x, s=self: x.code not in (s._state_from + [s._cancel_state])
+            )
+            .mapped("code")
+        )
 
     def write(self, vals):
         # Tier Validation does not work with Stages, only States :-(
