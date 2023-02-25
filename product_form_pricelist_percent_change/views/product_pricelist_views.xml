@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Pricelist item form: logic added here will be propagated in every pricelist item form-view  -->
+
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='pricelist_rule_computation']" position="before">
+                <div
+                    attrs="{'invisible': ['|', ('applied_on', 'not in', ['1_product', '0_product_variant']), ('pricelist_id', '=', False)]}"
+                >
+                    <!-- ('pricelist_id', '=', False): if rule is opened from standard pricelist menu, the new feature will
+                    be visible only after record is saved. It's a security measure, because there is no default 'pricelist_id'
+                    plus it's not visible so instead of showing 'required' on button click it might raise validation error.
+                    Considering this feature is mainly for product it's an efficient way to avoid adjustments -->
+                    <hr />
+                    <group
+                        col="4"
+                        string="Compute Selling price"
+                        name="group_compute_product_pricelist_selling_price"
+                    >
+                        <group>
+                            <field
+                                name="product_pricelist_selling_price"
+                                string="Selling Price"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                                optional="show"
+                            />
+                        </group>
+
+                        <div>
+                            <button
+                                name="set_percentage_change"
+                                type="object"
+                                string=" Set Price Discount %"
+                                class="fa fa-arrow-right btn-secondary"
+                                colspan="3"
+                            />
+                            <field
+                                name="selling_price_set_inverse"
+                                nolabel="1"
+                                style="max-width:80%; text-align:center;"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                            />
+                        </div>
+
+                    </group>
+                    <div
+                        class="alert alert-info"
+                        role="alert"
+                        attrs="{'invisible': [('product_has_variants', '=', False)]}"
+                    >
+                        Product has variants: Keep in mind that price shown here might not be
+                        computed consistently. Check variant rules for specific selling prices.
+                    </div>
+                    <!-- Technical fields -->
+                    <field name="base_pricelist_id_recursion_prefetch" invisible="1" />
+                    <field name="product_has_variants" invisible="1" />
+                    <hr />
+                </div>
+            </xpath>
+            <xpath expr="//group[@name='pricelist_rule_computation']" position="inside">
+                <div
+                    colspan="2"
+                    style="max-width:95%;"
+                    class="alert alert-warning"
+                    role="alert"
+                    attrs="{'invisible': [('recursion_rule_warning', '=', False)]}"
+                >
+                    <i class="fa fa-warning" title="warning" />
+                    Recursion found between active pricelist rule and the following rule:
+                    <field name="recursion_rule_warning" readonly="1" />
+                    <br />
+                    Selling Price cannot be computed for recursive rules.
+                </div>
+                <div
+                    colspan="2"
+                    style="max-width:95%;"
+                    class="alert alert-warning"
+                    role="alert"
+                    attrs="{'invisible': [('recursion_error_warning', '=', False)]}"
+                >
+                    <i class="fa fa-warning" title="warning" />
+                    <field name="recursion_error_warning" readonly="1" />
+                    <br />
+                    Hint: check rules form-view for selected pricelist will show more
+                    information on recursive rules, it will help to solve the issue.
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Pricelist item tree-view -->
+    <record id="product_pricelist_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view_inherit" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='item_ids']//tree//field[@name='price']"
+                position="after"
+            >
+                <!-- Add selling price + some good optional info -->
+                <field
+                    name="product_pricelist_selling_price"
+                    string="Selling Price"
+                    widget="monetary"
+                    options="{'currency_field': 'currency_id'}"
+                    optional="show"
+                    attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
+                />
+                <field name="base" optional="hide" />
+                <field name="base_pricelist_id" optional="hide" />
+                <field name="percent_price" optional="hide" />
+                <field name="price_discount" optional="hide" />
+            </xpath>
+
+            <!-- Allow more control on tree-view elements... -->
+            <xpath
+                expr="//field[@name='item_ids']//tree//field[@name='min_quantity']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+
+            <xpath
+                expr="//field[@name='item_ids']//tree//field[@name='date_start']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='item_ids']//tree//field[@name='date_end']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+
+            <xpath
+                expr="//field[@name='item_ids']//tree//field[@name='compute_price']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+
+            <xpath
+                expr="//field[@name='item_ids']//tree//field[@name='applied_on']"
+                position="attributes"
+            >
+                <attribute name="optional">show</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Theese adjustments will only be visible when pricelist-item is opened by products (and product template) form-view -->
+    <record id="product_pricelist_item_form_view_by_product" model="ir.ui.view">
+        <field name="model">product.pricelist.item</field>
+        <field name="name">pricelist.item.formview.by.product</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='pricelist_rule_target']" position="before">
+                <group name="group_pricelist_id">
+                    <field name="pricelist_id" />
+                </group>
+                <group>
+                </group>
+            </xpath>
+
+            <!-- options must be set on the last field node or it will be overridden -->
+            <xpath
+                expr="//group[@name='pricelist_rule_related']//field[@name='pricelist_id']"
+                position="attributes"
+            >
+                <attribute
+                    name="options"
+                >{"no_open": True, "no_create": True, "no_edit": True}</attribute>
+            </xpath>
+
+            <!-- product_tmpl_id and product_id are readonly: they will be automatically setup depending on the context. -->
+            <xpath
+                expr="//group[@name='pricelist_rule_target']//field[@name='product_tmpl_id']"
+                position="attributes"
+            >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath
+                expr="//group[@name='pricelist_rule_target']//field[@name='product_id']"
+                position="attributes"
+            >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath
+                expr="//group[@name='pricelist_rule_target']//field[@name='applied_on']"
+                position="attributes"
+            >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!--
+    "product.product.view.form.easy" has it's own view and logic (accessible from variant smart button)
+    -->
+
+    <record id="product_pricelist_item_form_view_variant_smart_btn" model="ir.ui.view">
+        <field name="model">product.pricelist.item</field>
+        <field name="name">pricelist.item.formview.variant.smart.btn</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='pricelist_rule_target']" position="before">
+                <group name="group_pricelist_id">
+                    <field name="pricelist_id" />
+                </group>
+                <group>
+                </group>
+            </xpath>
+
+            <xpath
+                expr="//group[@name='pricelist_rule_related']//field[@name='pricelist_id']"
+                position="attributes"
+            >
+                <attribute
+                    name="options"
+                >{"no_open": True, "no_create": True, "no_edit": True}</attribute>
+            </xpath>
+
+            <xpath
+                expr="//group[@name='pricelist_rule_target']//field[@name='product_tmpl_id']"
+                position="attributes"
+            >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
+            <xpath
+                expr="//group[@name='pricelist_rule_target']//field[@name='applied_on']"
+                position="attributes"
+            >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
