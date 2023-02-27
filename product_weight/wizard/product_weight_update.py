@@ -57,10 +57,8 @@ class ProductWeightUpdate(models.TransientModel):
             product = product_tmpl.product_variant_ids[:1]
             if not product:
                 raise UserError(
-                    _(
-                        "Missing active variant for product %s"
-                        % (product_tmpl.display_name)
-                    )
+                    _("Missing active variant for product %s")
+                    % product_tmpl.display_name
                 )
         factor = 1.0 / bom.product_uom_id._compute_quantity(
             bom.product_qty, product_tmpl.uom_id, round=False
