@@ -1,1 +1,1 @@
-odoo-test-helper
+odoo-addon-product_packaging_dimension@ git+https://github.com/oca/product-attribute@refs/pull/1149/head#subdirectory=setup/product_packaging_dimension
