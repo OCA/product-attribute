@@ -4,13 +4,13 @@
 {
     "name": "Products - Net Weight",
     "summary": "Add 'Net Weight' on product models",
-    "version": "15.0.1.0.2",
+    "version": "16.0.1.0.0",
     "category": "Product",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
-    "depends": ["product"],
+    "depends": ["stock"],
     "data": [
         "views/view_product_product.xml",
         "views/view_product_template.xml",
