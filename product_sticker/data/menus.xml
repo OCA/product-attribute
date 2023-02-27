@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="menu_product_sticker" model="ir.ui.menu">
+        <field name="name">Product Stickers</field>
+        <field name="sequence" eval="10" />
+        <field
+            name="parent_id"
+            search="[('child_id', 'in', ref('base.menu_action_attachment'))]"
+        />
+        <field name="action" ref="product_sticker.action_product_sticker" />
+    </record>
+</odoo>
