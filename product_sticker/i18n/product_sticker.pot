@@ -1,0 +1,241 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_sticker
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
+msgid "<strong>Attribute:</strong>"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
+msgid "<strong>Category:</strong>"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_attribute_id
+msgid "Attribute"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model,name:product_sticker.model_product_attribute_value
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_attribute_value_id
+msgid "Attribute value"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_category_id
+msgid "Category"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__company_id
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Company"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Cross Attribute"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Cross Category"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Cross Company"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
+msgid "Delete"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Display Name with the Image"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
+msgid "Dropdown menu"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__id
+msgid "ID"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,help:product_sticker.field_product_sticker__show_sticker_note
+msgid "If checked, the note will be displayed with the sticker"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_1920
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
+msgid "Image"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__name
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
+msgid "Name"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__note
+msgid "Note"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model,name:product_sticker.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model,name:product_sticker.model_product_attribute
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Product Attribute Value"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Product Category"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model,name:product_sticker.model_product_sticker
+msgid "Product Sticker"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model,name:product_sticker.model_product_sticker_mixin
+msgid "Product Sticker Mixin"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.actions.act_window,name:product_sticker.action_product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_attribute__sticker_ids
+#: model:ir.model.fields,field_description:product_sticker.field_product_attribute_value__sticker_ids
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker_mixin__sticker_ids
+#: model:ir.ui.menu,name:product_sticker.menu_product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Product Stickers"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model,name:product_sticker.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_attribute__sticker_count
+#: model:ir.model.fields,field_description:product_sticker.field_product_attribute_value__sticker_count
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker_mixin__sticker_count
+msgid "Sticker Count"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__show_sticker_note
+msgid "Sticker Note"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
+msgid "Sticker note that goes below image"
+msgstr ""
+
+#. module: product_sticker
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_attribute_view_form
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_template_form_view
+msgid "Stickers"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,help:product_sticker.field_product_sticker__note
+msgid ""
+"Used to display a note with the sticker.\n"
+"Will be HTML sanitized and displayed as plain text."
+msgstr ""

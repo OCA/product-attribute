@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_product_sticker" model="ir.actions.act_window">
+        <field name="name">Product Stickers</field>
+        <field name="res_model">product.sticker</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="product_sticker_form_view" model="ir.ui.view">
+        <field name="name">product.sticker.form.view</field>
+        <field name="model">product.sticker</field>
+        <field name="arch" type="xml">
+            <form string="Product Stickers">
+                <sheet>
+                    <group>
+                        <group name="grp_data">
+                            <field name="sequence" invisible="1" />
+                            <label for="name" string="Name" colspan="2" />
+                            <field
+                                name="name"
+                                placeholder="Name"
+                                nolabel="1"
+                                colspan="2"
+                                class="h2 mb-5"
+                            />
+                            <field
+                                name="company_id"
+                                options="{'no_create': True}"
+                                groups="base.group_multi_company"
+                            />
+                            <field
+                                name="product_category_id"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="product_attribute_id"
+                                options="{'no_create': True}"
+                                groups="product.group_product_variant"
+                            />
+                            <field
+                                name="product_attribute_value_id"
+                                options="{'no_create': True}"
+                                groups="product.group_product_variant"
+                            />
+                            <field name="show_sticker_note" widget="boolean_toggle" />
+                            <field
+                                name="note"
+                                colspan="2"
+                                nolabel="1"
+                                attrs="{'invisible': [('show_sticker_note', '=', False)]}"
+                                placeholder="Sticker note that goes below image"
+                            />
+                        </group>
+                        <group name="grp_image">
+                            <label for="image_1920" string="Image" colspan="2" />
+                            <field
+                                name="image_1920"
+                                widget="image"
+                                nolabel="1"
+                                colspan="2"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_sticker_tree_view" model="ir.ui.view">
+        <field name="name">product.sticker.form.view</field>
+        <field name="model">product.sticker</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="product_category_id" />
+                <field
+                    name="product_attribute_id"
+                    groups="product.group_product_variant"
+                />
+                <field
+                    name="product_attribute_value_id"
+                    groups="product.group_product_variant"
+                />
+                <field
+                    name="company_id"
+                    groups="base.group_multi_company"
+                    optional="hide"
+                />
+                <field name="show_sticker_note" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_sticker_kanban_view" model="ir.ui.view">
+        <field name="name">product.sticker.kanban.view</field>
+        <field name="model">product.sticker</field>
+        <field name="arch" type="xml">
+            <kanban
+                string="Product Stickers"
+                default_order="sequence"
+                group_create="false"
+                quick_create="false"
+            >
+                <field name="id" />
+                <field name="name" />
+                <field name="image_1920" />
+                <field name="product_attribute_id" />
+                <field name="product_attribute_value_id" />
+                <field name="sequence" widget="handle" />
+                <field name="company_id" />
+                <field name="show_sticker_note" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                            class="oe_kanban_global_area oe_kanban_global_click o_kanban_attachment"
+                        >
+                            <div class="row">
+                                <div class="offset-10">
+                                    <div
+                                        class="o_dropdown_kanban dropdown"
+                                        groups="base.group_user"
+                                    >
+                                        <a
+                                            role="button"
+                                            class="dropdown-toggle o-no-caret btn"
+                                            data-toggle="dropdown"
+                                            href="#"
+                                            aria-label="Dropdown menu"
+                                            title="Dropdown menu"
+                                        >
+                                            <span class="fa fa-ellipsis-v" />
+                                        </a>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a
+                                                role="menuitem"
+                                                type="delete"
+                                                class="dropdown-item"
+                                            >Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_image">
+                                <div class="o_kanban_image_wrapper">
+                                    <img
+                                        class="o_attachment_image"
+                                        t-att-src="kanban_image('product.sticker', 'image_1920', record.id.raw_value)"
+                                        t-att-alt="record.name.value"
+                                    />
+                                </div>
+                            </div>
+                            <div class="o_kanban_details">
+                                <div class="o_kanban_details_wrapper">
+                                    <div
+                                        t-att-title="record.name.value"
+                                        class="o_kanban_record_title"
+                                    >
+                                        <t t-set="cross_company" t-value="1" />
+                                        <t t-if="record.company_id.raw_value">
+                                            <t t-set="cross_company" t-value="0" />
+                                        </t>
+                                        <i
+                                            t-if="cross_company"
+                                            class="fa fa-globe pr-1"
+                                            aria-label="Cross Company"
+                                            title="Cross Company"
+                                        />
+                                        <field name="name" class="o_text_overflow" />
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div
+                                            t-if="record.product_category_id.value"
+                                            class="d-block"
+                                        >
+                                            <strong>Category:</strong>
+                                            <field name="product_category_id" />
+                                        </div>
+                                        <div
+                                            t-if="record.product_attribute_id.value"
+                                            groups="product.group_product_variant"
+                                            class="d-block"
+                                        >
+                                            <strong>Attribute:</strong>
+                                            <field name="product_attribute_id" />
+                                            <span
+                                                t-if="record.product_attribute_value_id.value"
+                                            > / </span>
+                                            <field name="product_attribute_value_id" />
+                                        </div>
+
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field
+                                                name="create_uid"
+                                                widget="many2one_avatar_user"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="product_sticker_search_view" model="ir.ui.view">
+        <field name="name">product.sticker.search.view</field>
+        <field name="model">product.sticker</field>
+        <field name="arch" type="xml">
+            <search string="Product Stickers">
+                <field name="name" />
+                <field name="product_category_id" />
+                <field
+                    name="product_attribute_id"
+                    groups="product.group_product_variant"
+                />
+                <field
+                    name="product_attribute_value_id"
+                    groups="product.group_product_variant"
+                />
+                <separator />
+                <filter
+                    name="flt_not_company"
+                    string="Cross Company"
+                    domain="[('company_id', '=', False)]"
+                />
+                <separator />
+                <filter
+                    name="flt_not_product_category"
+                    string="Cross Category"
+                    domain="[('product_category_id', '=', False)]"
+                />
+                <separator />
+                <filter
+                    name="flt_not_product_attribute"
+                    string="Cross Attribute"
+                    domain="[('product_attribute_id', '=', False)]"
+                    groups="product.group_product_variant"
+                />
+                <separator />
+                <filter
+                    name="flt_show_sticker_note_true"
+                    string="Display Name with the Image"
+                    domain="[('show_sticker_note', '=', True)]"
+                />
+                <group>
+                    <filter
+                        name="grp_company"
+                        string="Company"
+                        context="{'group_by': 'company_id'}"
+                    />
+                    <filter
+                        name="grp_product_category"
+                        string="Product Category"
+                        context="{'group_by': 'product_category_id'}"
+                    />
+                    <filter
+                        name="grp_product_attribute"
+                        string="Product Attribute"
+                        context="{'group_by': 'product_attribute_id'}"
+                        groups="product.group_product_variant"
+                    />
+                    <filter
+                        name="grp_product_attribute_value"
+                        string="Product Attribute Value"
+                        context="{'group_by': 'product_attribute_value_id'}"
+                        groups="product.group_product_variant"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
