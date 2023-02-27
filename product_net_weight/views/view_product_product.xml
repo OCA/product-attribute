@@ -19,5 +19,18 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             </xpath>
         </field>
     </record>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='weight']" position="before">
+                <label for="net_weight" />
+                <div class="o_row">
+                    <field name="net_weight" class="oe_inline" />
+                    <span><field name="weight_uom_name" /></span>
+                </div>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>
