@@ -8,3 +8,7 @@ Akretion
 * `Camptocamp <https://www.camptocamp.com>`_
 
     * Iván Todorovich <ivan.todorovich@camptocamp.com>
+
+* `Sygel <https://www.sygel.es>`_:
+
+  * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
