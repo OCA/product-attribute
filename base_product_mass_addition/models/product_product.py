@@ -48,15 +48,23 @@ class ProductProduct(models.Model):
         # We achieve it by reverting the changes made by ``write`` [^1], before [^2]
         # reaching any explicit flush [^3] or inverse computation [^4].
         #
-        # [^1]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3652-L3663
-        # [^2]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3686
-        # [^3]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3689
-        # [^4]: https://github.com/odoo/odoo/blob/f74434c6f/odoo/models.py#L3703
+        # [^1]:
+        # https://github.com/odoo/odoo/blob/3991737a53e75398fcf70b1924525783b54d256b/odoo/models.py#L3778-L3787 # noqa: B950
+        # [^2]:
+        # https://github.com/odoo/odoo/blob/3991737a53e75398fcf70b1924525783b54d256b/odoo/models.py#L3882 # noqa: B950
+        # [^3]:
+        # https://github.com/odoo/odoo/blob/3991737a53e75398fcf70b1924525783b54d256b/odoo/models.py#L3885 # noqa: B950
+        # [^4]:
+        # https://github.com/odoo/odoo/blob/f74434c6f4303650e886d99fb950c763f2d4cc6e/odoo/models.py#L3703 # noqa: B950
         #
         # Basically, if all we're modifying are quick magic fields, and we don't have
         # any other column to flush besides the LOG_ACCESS_COLUMNS, clear it.
         quick_fnames = ("qty_to_process", "quick_uom_id")
-        if self and fnames and all(fname in quick_fnames for fname in fnames):
+        if (
+            self
+            and fnames
+            and any(quick_fname in fnames for quick_fname in quick_fnames)
+        ):
             for record in self.filtered("id"):
                 towrite = self.env.all.towrite[self._name]
                 vals = towrite[record.id]
