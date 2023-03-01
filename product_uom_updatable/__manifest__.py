@@ -5,9 +5,9 @@
 {
     "name": "Product Uom Updatable",
     "summary": """
-        allows products uom to be modified after be used in a stock picking if \
-         the product uom is of the same category""",
-    "version": "14.0.1.0.1",
+        allows products uom to be modified after be used in a stock picking if
+        the product uom is of the same category""",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV, Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
