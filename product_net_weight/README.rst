@@ -14,16 +14,16 @@ Products - Net Weight
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/15.0/product_net_weight
+    :target: https://github.com/OCA/product-attribute/tree/16.0/product_net_weight
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_net_weight
     :alt: Translate me on Weblate
-.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/135/15.0
-    :alt: Try me on Runbot
+.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
+    :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/product-attribute&target_branch=16.0
+    :alt: Try me on Runboat
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module extends the functionality of stock module to support net weight. (container excluded)
 
@@ -78,6 +78,10 @@ Contributors
 
   * Fernando La Chica <fernandolachica@gmail.com>
 
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Sergio Teruel
+
 Maintainers
 ~~~~~~~~~~~
 
@@ -97,7 +101,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-legalsylvain| 
+|maintainer-legalsylvain|
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_net_weight>`_ project on GitHub.
 
