@@ -51,6 +51,12 @@ msgid "Strawberry Jam (Jar of 250 grams)"
 msgstr ""
 
 #. module: product_net_weight
+#: code:addons/product_net_weight/models/product_product.py:0
+#, python-format
+msgid "The net weight of product must be lower than gross weight."
+msgstr ""
+
+#. module: product_net_weight
 #: model:product.product,uom_name:product_net_weight.product_strawberry_jam
 #: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
 msgid "Units"
