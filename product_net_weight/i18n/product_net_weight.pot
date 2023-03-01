@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-02 08:36+0000\n"
+"PO-Revision-Date: 2023-03-02 08:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,35 +34,23 @@ msgid "Net Weight of the product, container excluded."
 msgstr ""
 
 #. module: product_net_weight
-#: model:ir.model,name:product_net_weight.model_product_product
+#: model:ir.model,name:product_net_weight.model_product_template
 msgid "Product"
 msgstr ""
 
 #. module: product_net_weight
-#: model:ir.model,name:product_net_weight.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:product_net_weight.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_net_weight
-#: model:product.product,name:product_net_weight.product_strawberry_jam
 #: model:product.template,name:product_net_weight.product_strawberry_jam_product_template
 msgid "Strawberry Jam (Jar of 250 grams)"
 msgstr ""
 
 #. module: product_net_weight
-#: model:product.product,uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "Units"
-msgstr ""
-
-#. module: product_net_weight
-#: model:product.product,weight_uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,weight_uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "kg"
-msgstr ""
-
-#. module: product_net_weight
-#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "m³"
+#. odoo-python
+#: code:addons/product_net_weight/models/product_product.py:0
+#, python-format
+msgid "The net weight of product must be lower than gross weight."
 msgstr ""
