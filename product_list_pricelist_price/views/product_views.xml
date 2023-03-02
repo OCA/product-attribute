@@ -6,7 +6,7 @@
         <field name="name">product.product.pricelist.price</field>
         <field name="model">product.product</field>
         <field name="arch" type="xml">
-            <tree string="Product Variant Pricelist Prices">
+            <tree>
                 <field name="default_code" optional="show" readonly="1" />
                 <field name="barcode" optional="hide" readonly="1" />
                 <field name="name" readonly="1" />
