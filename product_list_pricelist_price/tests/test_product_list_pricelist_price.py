@@ -28,9 +28,9 @@ class TestProductListPricelistPrice(TransactionCase):
             template_field_name = "product_tmpl_price_pricelist_%s" % (pricelist.id)
             variant_field_name = "product_price_pricelist_%s" % (pricelist.id)
             if pricelist == self.displayed_pricelist:
-                self.assertTrue(self.product_template[template_field_name])
-                self.assertTrue(self.product_variant[variant_field_name])
+                self.assertTrue(self.product_template._fields[template_field_name])
+                self.assertTrue(self.product_variant._fields[variant_field_name])
             else:
                 with self.assertRaises(KeyError):
-                    self.assertTrue(self.product_template[template_field_name])
-                    self.assertTrue(self.product_variant[variant_field_name])
+                    self.assertTrue(self.product_template._fields[template_field_name])
+                    self.assertTrue(self.product_variant._fields[variant_field_name])

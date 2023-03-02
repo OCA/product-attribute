@@ -36,7 +36,10 @@ class ProductTemplate(models.Model):
         self, view_id=None, view_type="form", toolbar=False, submenu=False
     ):
         result = super(ProductTemplate, self).fields_view_get(
-            view_id, view_type, toolbar=toolbar, submenu=submenu,
+            view_id,
+            view_type,
+            toolbar=toolbar,
+            submenu=submenu,
         )
 
         doc = etree.XML(result["arch"])

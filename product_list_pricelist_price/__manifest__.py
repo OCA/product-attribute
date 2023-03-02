@@ -4,7 +4,7 @@
 {
     "name": "Product List Pricelist Price",
     "summary": "Display pricelist prices for products in list view.",
-    "version": "13.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "ForgeFlow, " "Odoo Community Association (OCA)",
