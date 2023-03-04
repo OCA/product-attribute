@@ -5,8 +5,13 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     short_name = fields.Char(help="Displayed as the variant attribute name.")
+    display_attribute_value = fields.Boolean(
+        "Display Attribute Value on Product Variant",
+        default=True,
+        help="If checked, it will display the variant attribute value in the product name.",
+    )
     display_attribute_name = fields.Boolean(
-        "Display Attribute Name on Product Variant",
+        "Display Attribute Name/Short Name on Product Variant",
         help="If checked, it will display the variant attribute name before its value.",
     )
 
@@ -29,6 +34,8 @@ class ProductTemplateAttributeValue(models.Model):
             self._without_no_variant_attributes()._filter_single_value_lines(),
             key=lambda seq: seq.attribute_line_id.sequence,
         ):
+            if not ptav.attribute_id.display_attribute_value:
+                continue
             if ptav.attribute_id.display_attribute_name:
                 if ptav.attribute_id.short_name:
                     display_ptav_list.append(

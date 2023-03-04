@@ -23,9 +23,15 @@
             <xpath expr="//field[@name='name']" position="after">
               <field name="short_name" />
             </xpath>
-            <xpath expr="//field[@name='create_variant']" position="after">
-              <field name="display_attribute_name" />
-            </xpath>
+            <group name="main_fields" position="after">
+                <group name="product_variant_name" class="o_label_nowrap">
+                    <field name="display_attribute_value" />
+                    <field
+                        name="display_attribute_name"
+                        attrs="{'invisible': [('display_attribute_value','=',False)]}"
+                    />
+                </group>
+            </group>
         </field>
     </record>
 
