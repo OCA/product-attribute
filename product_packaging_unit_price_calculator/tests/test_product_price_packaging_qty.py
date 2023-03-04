@@ -1,7 +1,8 @@
-from odoo.tests.common import Form, SavepointCase
+from odoo.exceptions import UserError
+from odoo.tests.common import Form, TransactionCase
 
 
-class TestProductPricePackagingQty(SavepointCase):
+class TestProductPricePackagingQty(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -55,3 +56,40 @@ class TestProductPricePackagingQty(SavepointCase):
         form.save()
         self.wizard_1.action_set_price()
         self.assertEqual(self.supplier_info.price, 1)
+
+        # BizzAppDev Customization: Start
+
+    def test_no_selected_package(self):
+        form = Form(self.wizard_1)
+        form.packaging_price = 200
+        form.save()
+        with self.assertRaises(UserError):
+            self.wizard_1.action_set_price()
+
+    def test_reset_unit_price(self):
+        form = Form(self.wizard_1)
+        form.selected_packaging_id = self.pkg_box
+        form.packaging_price = 100
+        self.wizard_1.reset_unit_price()
+        self.assertEqual(self.wizard_1.packaging_price, 0)
+        self.assertFalse(self.wizard_1.selected_packaging_id)
+
+    def test_no_packaging_price(self):
+        form = Form(self.wizard_1)
+        form.selected_packaging_id = self.pkg_box
+        self.assertFalse(self.wizard_1.packaging_price)
+        self.wizard_1.action_set_price()
+
+    def test_open_package_product_template(self):
+        open_package = self.product.product_tmpl_id.open_packaging_price()
+        self.assertEqual(open_package.get("res_model"), "product.package.price.wizard")
+
+    def test_open_package_product_product(self):
+        open_package = self.product.open_packaging_price()
+        self.assertEqual(open_package.get("res_model"), "product.package.price.wizard")
+
+    def test_open_package_product_supplier_info(self):
+        open_package = self.supplier_info.open_packaging_price()
+        self.assertEqual(open_package.get("res_model"), "product.package.price.wizard")
+
+    # BizzAppDev Customization: End
