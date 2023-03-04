@@ -4,10 +4,10 @@
 
 from odoo_test_helper import FakeModelLoader
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductMassAddition(SavepointCase):
+class TestProductMassAddition(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
