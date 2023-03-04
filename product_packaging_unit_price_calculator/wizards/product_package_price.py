@@ -52,7 +52,6 @@ class ProductPackagePrice(models.TransientModel):
     )
     packaging_price = fields.Float("Package Price", default=0.0, digits="Product Price")
     unit_price = fields.Float(
-        "Unit Price",
         compute="_compute_unit_price",
         readonly=True,
         digits="Product Price",
