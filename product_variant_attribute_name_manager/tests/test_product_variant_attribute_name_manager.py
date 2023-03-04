@@ -115,7 +115,7 @@ class TestProductTemplateAttributeValue(TransactionCase):
             }
         )
 
-    def test_get_combination_name(self):
+    def test_display_attribute_name(self):
         variant_names = [
             variant.product_template_attribute_value_ids._get_combination_name()
             for variant in self.env["product.product"].search(
@@ -155,4 +155,35 @@ class TestProductTemplateAttributeValue(TransactionCase):
             "1 To, Mem: 256 GB, RAM: 8 GB, COLOR: White",
             variant_names,
             "Variant name extension not found",
+        )
+
+    def test_display_attribute_value(self):
+        # Do not display RAM Attribute value
+        self.ram_attribute.write({"display_attribute_value": False})
+        variant_names = [
+            variant.product_template_attribute_value_ids._get_combination_name()
+            for variant in self.env["product.product"].search(
+                [("product_tmpl_id", "=", self.computer.id)]
+            )
+        ]
+
+        self.assertIn(
+            "1 To, Mem: 256 GB",
+            variant_names,
+            "Variant name extension not found",
+        )
+        self.assertIn(
+            "2 To, Mem: 512 GB",
+            variant_names,
+            "Variant name extension not found",
+        )
+        self.assertNotIn(
+            "1 To, Mem: 256 GB, RAM: 8 GB",
+            variant_names,
+            "Variant name extension not correct",
+        )
+        self.assertNotIn(
+            "2 To, Mem: 512 GB, RAM: 8 GB",
+            variant_names,
+            "Variant name extension not correct",
         )
