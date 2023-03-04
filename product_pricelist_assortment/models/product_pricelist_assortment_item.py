@@ -28,10 +28,11 @@ class ProductPricelistAssortmentItem(models.Model):
     )
 
     def _get_pricelist_item_name_price(self):
-        super()._get_pricelist_item_name_price()
+        res = super()._get_pricelist_item_name_price()
         for rec in self:
             if rec.assortment_filter_id:
                 rec.name = rec.assortment_filter_id.name
+        return res
 
     def _get_pricelist_item_values(self):
         """
