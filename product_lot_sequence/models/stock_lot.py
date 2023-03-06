@@ -4,8 +4,8 @@
 from odoo import api, fields, models
 
 
-class ProductionLot(models.Model):
-    _inherit = "stock.production.lot"
+class StockLot(models.Model):
+    _inherit = "stock.lot"
 
     name = fields.Char(default=lambda self: self._default_name())
 
@@ -52,7 +52,7 @@ class ProductionLot(models.Model):
                         lot_vals["name"] = self.env["ir.sequence"].next_by_code(
                             "stock.lot.serial"
                         )
-        return super(ProductionLot, self).create(vals_list)
+        return super(StockLot, self).create(vals_list)
 
     @api.model
     def _get_next_serial(self, company, product):
