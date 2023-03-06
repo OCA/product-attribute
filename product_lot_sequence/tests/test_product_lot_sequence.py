@@ -8,7 +8,7 @@ class TestProductLotSequence(TransactionCase):
     def setUp(self):
         super(TestProductLotSequence, self).setUp()
         self.product_product = self.env["product.product"]
-        self.stock_production_lot = self.env["stock.production.lot"]
+        self.stock_production_lot = self.env["stock.lot"]
 
     def test_product_sequence(self):
         self.assertEqual(self.stock_production_lot._get_sequence_policy(), "product")
@@ -25,9 +25,7 @@ class TestProductLotSequence(TransactionCase):
                 suffix="/bar",
             )
         )
-        next_serial = self.env["stock.production.lot"]._get_next_serial(
-            self.env.company, product
-        )
+        next_serial = self.env["stock.lot"]._get_next_serial(self.env.company, product)
         self.assertRegexpMatches(next_serial, r"foo/\d{5}/bar")
 
     def test_lot_onchange_product_id(self):
@@ -57,13 +55,13 @@ class TestProductLotSequence(TransactionCase):
         self.assertFalse(product_2.lot_sequence_id)
         seq = self.env["ir.sequence"].search([("code", "=", "stock.lot.serial")])
         next_sequence_number = seq.get_next_char(seq.number_next_actual)
-        next_serial = self.env["stock.production.lot"]._get_next_serial(
+        next_serial = self.env["stock.lot"]._get_next_serial(
             self.env.company, product_1
         )
         self.assertEqual(next_serial, next_sequence_number)
         seq._get_number_next_actual()
         next_sequence_number_2 = seq.get_next_char(seq.number_next_actual)
-        next_serial_2 = self.env["stock.production.lot"]._get_next_serial(
+        next_serial_2 = self.env["stock.lot"]._get_next_serial(
             self.env.company, product_2
         )
         self.assertEqual(next_serial_2, next_sequence_number_2)
