@@ -34,7 +34,7 @@ class ProductTemplate(models.Model):
 
     def _compute_display_lot_sequence_fields(self):
         self.display_lot_sequence_fields = (
-            self.env["stock.production.lot"]._get_sequence_policy() == "product"
+            self.env["stock.lot"]._get_sequence_policy() == "product"
         )
 
     @api.model
@@ -83,7 +83,7 @@ class ProductTemplate(models.Model):
                 sequence.sudo().number_next = template.lot_sequence_number_next
 
     def write(self, vals):
-        seq_policy = self.env["stock.production.lot"]._get_sequence_policy()
+        seq_policy = self.env["stock.lot"]._get_sequence_policy()
         if seq_policy == "product":
             for template in self:
                 tracking = vals.get("tracking", False) or template.tracking
@@ -105,7 +105,7 @@ class ProductTemplate(models.Model):
 
     @api.model
     def create(self, vals):
-        seq_policy = self.env["stock.production.lot"]._get_sequence_policy()
+        seq_policy = self.env["stock.lot"]._get_sequence_policy()
         if seq_policy == "product" and vals.get("tracking", False) in ["lot", "serial"]:
             if not vals.get("lot_sequence_id", False):
                 vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
