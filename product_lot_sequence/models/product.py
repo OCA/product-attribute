@@ -19,7 +19,7 @@ class ProductTemplate(models.Model):
     )
     lot_sequence_padding = fields.Integer(
         string="Sequence Number of Digits",
-        default=7,
+        default=lambda self: self.env.company.lot_sequence_padding,
         help="The lots' sequence will be created using this number of digits.",
     )
     lot_sequence_number_next = fields.Integer(
@@ -32,6 +32,7 @@ class ProductTemplate(models.Model):
         compute="_compute_display_lot_sequence_fields"
     )
 
+    @api.depends("tracking")  # For products being created (before saved).
     def _compute_display_lot_sequence_fields(self):
         self.display_lot_sequence_fields = (
             self.env["stock.lot"]._get_sequence_policy() == "product"
