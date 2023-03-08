@@ -1,3 +1,6 @@
+Lot Sequence policy
+~~~~~~~~~~~~~~~~~~~
+
 There are two ways you can configure this module through the use of System Parameter
 `product_lot_sequence.policy`:
 
@@ -11,3 +14,9 @@ There are two ways you can configure this module through the use of System Param
 If any other value is used for this System Parameter, then you will get the default
 behaviour from odoo 15.0 which will look for the last lot number for each product and
 will increment it.
+
+Default Number of Digits for Product Sequence Generation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The default is 7 digits.  To change that to something else, go to the inventory
+configuration, find "Sequence Number of Digits" and change the number.
