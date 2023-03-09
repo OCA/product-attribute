@@ -119,6 +119,6 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         line_qty = self._get_quantity_from_line()
         qty = float_round(
             line_qty / (factor or 1.0),
-            precision_rounding=self._get_uom_line().rounding,
+            precision_rounding=self.secondary_uom_id.uom_id.rounding,
         )
         self.secondary_uom_qty = qty
