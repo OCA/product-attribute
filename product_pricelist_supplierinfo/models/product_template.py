@@ -34,7 +34,9 @@ class ProductTemplate(models.Model):
             )._select_seller(
                 # For a public user this record could be not accessible, but we
                 # need to get the price anyway
-                partner_id=rule.sudo().filter_supplier_id,
+                partner_id=self.env.context.get(
+                    "force_filter_supplier_id", rule.sudo().filter_supplier_id
+                ),
                 quantity=quantity,
                 date=date,
             )
