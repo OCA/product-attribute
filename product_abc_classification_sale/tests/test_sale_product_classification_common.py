@@ -83,6 +83,7 @@ class TestSaleProductClassificationCase(common.TransactionCase):
         sale_order.action_done()
         # Force the date so to reproduce the calendar
         sale_order.date_order = date
+        return sale_order
 
     def _test_product_classification(self, classifications):
         """Helper to assert classifications in batch. It's expected to come

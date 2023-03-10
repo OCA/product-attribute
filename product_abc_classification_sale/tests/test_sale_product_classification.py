@@ -57,7 +57,8 @@ class TestSaleProductClassification(TestSaleProductClassificationCase):
         )
         self._test_product_classification(product_classification)
         # Product 1 gets an A!
-        self._create_sale("2021-04-01", self.partner, self.prod_1, 20000)
+        order = self._create_sale("2021-04-01", self.partner, self.prod_1, 20000)
+        order.flush()  # make sure data are dumped to DB
         cron_classify()
         product_classification.update({self.prod_1: self.a})
         self._test_product_classification(product_classification)
