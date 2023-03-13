@@ -1,0 +1,6 @@
+diff a/.pre-commit-config.yaml b/.pre-commit-config.yaml	(rejected hunks)
+@@ -40,3 +40,3 @@ repos:
+       - id: flake8
+-        language_version: python3.6
++        language_version: python3
+         name: flake8 excluding __init__.py
