@@ -6,7 +6,7 @@
     "summary": """
         Allows to define a field on product template level to determine
         if it has only one variant""",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "maintainers": ["rousseldenis"],
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
