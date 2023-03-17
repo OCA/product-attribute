@@ -21,7 +21,11 @@ _logger = logging.getLogger(__name__)
 class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
-    group_id = fields.Many2one("product.supplierinfo.group", required=True)
+    group_id = fields.Many2one(
+        "product.supplierinfo.group",
+        required=True,
+        ondelete="cascade",
+    )
     company_id = fields.Many2one(related="group_id.company_id", store=True)
     product_tmpl_id = fields.Many2one(related="group_id.product_tmpl_id", store=True)
     name = fields.Many2one(related="group_id.partner_id", store=True, required=False)
