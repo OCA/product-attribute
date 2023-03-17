@@ -19,9 +19,12 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid ""
-"<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Sales Price  -  </span>\n"
-"                        <span attrs=\"{'invisible':[('base', '!=', 'standard_price')]}\">Cost  -  </span>\n"
-"                        <span attrs=\"{'invisible':[('base', '!=', 'pricelist')]}\">Other Pricelist  -  </span>"
+"<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Sales Price  -  "
+"</span>\n"
+"                        <span attrs=\"{'invisible':[('base', '!=', "
+"'standard_price')]}\">Cost  -  </span>\n"
+"                        <span attrs=\"{'invisible':[('base', '!=', "
+"'pricelist')]}\">Other Pricelist  -  </span>"
 msgstr ""
 
 #. module: product_pricelist_assortment
@@ -141,7 +144,8 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__min_quantity
 msgid ""
-"For the rule to apply, bought/sold quantity must be greater than or equal to the minimum quantity specified in this field.\n"
+"For the rule to apply, bought/sold quantity must be greater than or equal to "
+"the minimum quantity specified in this field.\n"
 "Expressed in the default unit of measure of the product."
 msgstr ""
 
@@ -358,7 +362,7 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
 msgid ""
-"Specify the fixed amount to add or substract(if negative) to the amount "
+"Specify the fixed amount to add or subtract(if negative) to the amount "
 "calculated with the discount."
 msgstr ""
 
