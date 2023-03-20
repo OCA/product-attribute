@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * product_net_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-13 18:38+0000\n"
+"PO-Revision-Date: 2021-08-13 18:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__weight
+msgid "Gross Weight"
+msgstr "Poids brut"
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__net_weight
+msgid "Net Weight"
+msgstr "Poids net"
+
+#. module: product_net_weight
+#: model:ir.model.fields,help:product_net_weight.field_product_product__net_weight
+#: model:ir.model.fields,help:product_net_weight.field_product_template__net_weight
+msgid "Net Weight of the product, container excluded."
+msgstr "Poids net du produit, contenant exclus."
+
+#. module: product_net_weight
+#: model:ir.model,name:product_net_weight.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: product_net_weight
+#: model:ir.model,name:product_net_weight.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: product_net_weight
+#: model:product.product,name:product_net_weight.product_strawberry_jam
+#: model:product.template,name:product_net_weight.product_strawberry_jam_product_template
+msgid "Strawberry Jam (Jar of 250 grams)"
+msgstr "Confiture de fraise (Pot de 250 grammes)"
+
+#. module: product_net_weight
+#: code:addons/product_net_weight/models/product_product.py:0
+#, python-format
+msgid "The net weight of product must be lower than gross weight."
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "Units"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,weight_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,weight_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "kg"
+msgstr ""
+
+#. module: product_net_weight
+#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
+#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
+msgid "m³"
+msgstr ""
+
+#, fuzzy
+#~ msgid "The weight of the contents, not including any packaging, etc."
+#~ msgstr ""
+#~ "Le poids du contenu en kilogrammes, sans compter tout emballage, etc."
+
+#~ msgid "Unit(s)"
+#~ msgstr "Unité(s)"
+
+#~ msgid ""
+#~ "Weight of the product, packaging not included. The unit of measure can be "
+#~ "changed in the general settings"
+#~ msgstr ""
+#~ "Poids du produit, sans le conditionnement. L'unité de mesure peut être "
+#~ "changée dans les paramètres généraux."

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+    <record id="product_default_code_seq" model="ir.sequence">
+        <field name="name">Product Default Code Mandatory</field>
+        <field name="code">product.default.code</field>
+        <field name="prefix">DEFAULT-</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False" />
+    </record>
+</odoo>

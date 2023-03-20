@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_packaging_add_type_form" model="ir.ui.view">
+        <field name="name">product.packaging.form</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_form_view" />
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="before">
+                <field name="qty_per_type" />
+                <field name="packaging_type_id" />
+                <field name="barcode_required_for_gtin" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='barcode']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('barcode_required_for_gtin', '=', True)]}</attribute>
+            </xpath>
+            <field name="name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="name" position="after">
+                <field name="packaging_type_id" position="move" />
+            </field>
+        </field>
+    </record>
+    <record id="product_packaging_tree_view_inherit" model="ir.ui.view">
+        <field name="name">product.packaging.tree.view.inherit</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_tree_view" />
+        <field name="arch" type="xml">
+            <field name="product_uom_id" position="after">
+                <field name="qty_per_type" />
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="name" position="before">
+                <field name="display_name" string="Packaging" />
+            </field>
+        </field>
+    </record>
+</odoo>

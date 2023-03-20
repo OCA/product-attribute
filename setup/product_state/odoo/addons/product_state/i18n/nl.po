@@ -1,0 +1,197 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-05-09 16:47+0000\n"
+"Last-Translator: Bosd <c5e2fd43-d292-4c90-9d1f-74ff3436329a@anonaddy.me>\n"
+"Language-Team: none\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__active
+msgid "Active"
+msgstr ""
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+msgid "Code"
+msgstr "Code"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__default
+msgid "Default state"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__description
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+msgid "Description"
+msgstr "Omschrijving"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__display_name
+#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_end
+msgid "End of Lifecycle"
+msgstr "Einde levenscyclus"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__id
+#: model:ir.model.fields,field_description:product_state.field_product_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_draft
+msgid "In Development"
+msgstr "In ontwikkeling"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state____last_update
+#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__name
+msgid "Name"
+msgstr "Naam"
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_sellable
+msgid "Normal"
+msgstr "Normaal"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__products_count
+msgid "Number of products"
+msgstr "Aantal producten"
+
+#. module: product_state
+#: model:product.state,name:product_state.product_state_obsolete
+msgid "Obsolete"
+msgstr "Verouderd"
+
+#. module: product_state
+#: model:ir.actions.act_window,name:product_state.action_open_single_product_state
+#: model:ir.model,name:product_state.model_product_state
+#: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
+msgid "Product State"
+msgstr "Product status"
+
+#. module: product_state
+#: model:ir.model.constraint,message:product_state.constraint_product_state_code_unique
+msgid "Product State Code must be unique."
+msgstr "Product Status Code moet uniek zijn."
+
+#. module: product_state
+#: model:ir.ui.menu,name:product_state.menu_product_state
+msgid "Product States"
+msgstr "Product status"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_product__state
+#: model:ir.model.fields,field_description:product_state.field_product_template__state
+msgid "Product Status"
+msgstr "Product status"
+
+#. module: product_state
+#: model:ir.model,name:product_state.model_product_template
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_kanban
+msgid "Products"
+msgstr "Producten"
+
+#. module: product_state
+#: model:ir.model.fields,help:product_state.field_product_product__product_state_id
+#: model:ir.model.fields,help:product_state.field_product_template__product_state_id
+msgid "Select a state for this product"
+msgstr "Selecteer een status voor dir product"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__sequence
+msgid "Sequence"
+msgstr "Volgorde"
+
+#. module: product_state
+#: model:ir.actions.act_window,name:product_state.action_product_state
+#: model:ir.model.fields,field_description:product_state.field_product_product__product_state_id
+#: model:ir.model.fields,field_description:product_state.field_product_template__product_state_id
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_template_search_state
+msgid "State"
+msgstr "Status"
+
+#. module: product_state
+#: model:ir.model.fields,field_description:product_state.field_product_state__code
+msgid "State Code"
+msgstr "Status code"
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
+msgid "State Name"
+msgstr "Statusnaam"
+
+#. module: product_state
+#: model:ir.actions.act_window,name:product_state.action_open_state_products
+#: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
+msgid "State Products"
+msgstr "Product status"
+
+#. module: product_state
+#: code:addons/product_state/models/product_template.py:0
+#, python-format
+msgid "The product state code %s could not be found."
+msgstr ""
+
+#. module: product_state
+#: code:addons/product_state/models/product_state.py:0
+#, python-format
+msgid "There should be only one default state"
+msgstr ""
+
+#. module: product_state
+#: model:ir.model.fields,help:product_state.field_product_state__sequence
+msgid "Used to order the States"
+msgstr ""
+
+#. module: product_state
+#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
+msgid "product.state"
+msgstr ""

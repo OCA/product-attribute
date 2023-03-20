@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2020 ForgeFlow
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="abc_classification_profile_form_view" model="ir.ui.view">
+        <field name="name">abc.classification.profile.form</field>
+        <field name="model">abc.classification.profile</field>
+        <field name="arch" type="xml">
+            <form string="ABC Profile">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_view_products"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="product_count"
+                                widget="statinfo"
+                                string="Products"
+                            />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name" />
+                        <field name="classification_type" />
+                        <field name="level_ids">
+                            <tree editable="bottom">
+                                <field
+                                    name="display_name"
+                                    class="oe_read_only"
+                                    string="Value"
+                                />
+                                <field
+                                    name="percentage"
+                                    class="oe_edit_only"
+                                    attrs="{'column_invisible': [('parent.classification_type', '!=', 'percentage')]}"
+                                />
+                                <field
+                                    name="fixed"
+                                    class="oe_edit_only"
+                                    attrs="{'column_invisible': [('parent.classification_type', '!=', 'fixed')]}"
+                                />
+                            </tree>
+                        </field>
+                        <field name="representation" class="oe_read_only" />
+                    </group>
+                    <group>
+                        <field name="past_period" />
+                        <field name="days_to_ignore" />
+                        <field name="data_source" />
+                        <field name="value_criteria" />
+                        <field name="company_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="abc_classification_profile_tree_view" model="ir.ui.view">
+        <field name="name">abc.classification.profile.tree</field>
+        <field name="model">abc.classification.profile</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="representation==''">
+                <field name="name" />
+                <field name="value_criteria" />
+                <field name="representation" />
+                <field name="company_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="abc_classification_profile_action" model="ir.actions.act_window">
+        <field name="name">ABC Classification Profile</field>
+        <field name="res_model">abc.classification.profile</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                  Click to add a new profile.
+              </p>
+            <p>
+                  This allows to create an ABC classification.
+              </p>
+        </field>
+    </record>
+    <menuitem
+        action="product_abc_classification.abc_classification_profile_action"
+        id="menu_abc_classification_profile_config_stock"
+        parent="stock.menu_product_in_config_stock"
+        sequence="10"
+    />
+    <menuitem
+        action="product_abc_classification.abc_classification_profile_action"
+        id="menu_abc_classification_profile_config_sale"
+        parent="sale.prod_config_main"
+        sequence="10"
+    />
+</odoo>

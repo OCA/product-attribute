@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_assortment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-12-29 17:44+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
+msgid "<span class=\"o_stat_text\">Product Assortments</span>"
+msgstr "<span class=\"o_stat_text\">Assortimento dei prodotti </span>"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "<span class=\"o_stat_text\">Products</span>"
+msgstr "<span class=\"o_stat_text\">Prodotti</span>"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
+msgid "All Partner"
+msgstr "Tutti i Partner"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
+msgid "Assortment Name"
+msgstr "Nome Assortimento"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
+msgid "Assortments"
+msgstr "Assortimenti"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__blacklist_product_ids
+msgid "Blacklist Product"
+msgstr "Prodotti da escludere"
+
+#. module: product_assortment
+#: model:ir.model,name:product_assortment.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__display_name
+#: model:ir.model.fields,field_description:product_assortment.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_assortment
+#: model:ir.model,name:product_assortment.model_ir_filters
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Filters"
+msgstr "Filtri"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__id
+#: model:ir.model.fields,field_description:product_assortment.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__is_assortment
+msgid "Is Assortment"
+msgstr "E' assortimento"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters____last_update
+#: model:ir.model.fields,field_description:product_assortment.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
+msgid "Partner"
+msgstr "Partner"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
+msgid "Partner Domain"
+msgstr "Dominio Partner"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Partners to apply"
+msgstr "Partner da applicare"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_assortment
+#: model:ir.ui.menu,name:product_assortment.menu_product_assortments
+msgid "Product Assortment"
+msgstr "Assortimento Prodotto"
+
+#. module: product_assortment
+#: model:ir.actions.act_window,name:product_assortment.actions_product_assortment_view
+msgid "Product assortment"
+msgstr "Assortimento prodotto"
+
+#. module: product_assortment
+#: code:addons/product_assortment/models/ir_filters.py:0
+#, python-format
+msgid "Products"
+msgstr "Prodotti"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Products to exclude"
+msgstr "Prodotto da escludere"
+
+#. module: product_assortment
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
+msgid "Products to include"
+msgstr "Prodotto da includere"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
+msgid "Record Count"
+msgstr "Conteggio Record"
+
+#. module: product_assortment
+#: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
+msgid "This field allow to relate a partner to a domain of products"
+msgstr ""
+"Questo campo consente di relazionare un partner con un dominio di prodotti"
+
+#. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
+msgid "Whitelist Product"
+msgstr "Prodotti da includere"
