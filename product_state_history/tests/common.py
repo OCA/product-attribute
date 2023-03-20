@@ -1,9 +1,9 @@
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class CommonProductStateHistory(SavepointCase):
+class CommonProductStateHistory(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(CommonProductStateHistory, cls).setUpClass()
@@ -15,5 +15,5 @@ class CommonProductStateHistory(SavepointCase):
         cls.obsolete = cls.env.ref("product_state.product_state_obsolete")
         if not cls.env.company.external_report_layout_id:
             cls.env.company.external_report_layout_id = cls.env.ref(
-                "web.external_layout_background"
+                "web.external_layout_striped"
             )
