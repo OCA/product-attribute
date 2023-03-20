@@ -5,7 +5,7 @@ from odoo.tests import common, tagged
 
 
 @tagged("-at_install", "post_install")
-class TestProductTierValidation(common.SavepointCase):
+class TestProductTierValidation(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
