@@ -1,6 +1,5 @@
 from odoo import api, fields, models
 from odoo.osv import expression
-from odoo.tools import html2plaintext
 
 
 class ProductSticker(models.Model):
@@ -37,17 +36,12 @@ class ProductSticker(models.Model):
         string="Sticker Note",
         help="If checked, the note will be displayed with the sticker",
     )
+    # You can use <t-esc="sticker.note" style="white-space: pre;" /> to display
+    # break lines in reports
     note = fields.Text(
         translate=True,
-        help="Used to display a note with the sticker.\n"
-        "Will be HTML sanitized and displayed as plain text.",
+        help="Used to display a note with the sticker",
     )
-
-    def get_html_sanitized_note(self):
-        self.ensure_one()
-        if self.show_sticker_note and self.note:
-            return "<br/>".join(html2plaintext(self.note).split("\n"))
-        return ""
 
     @api.onchange("product_attribute_id")
     def _onchange_product_attribute_id(self):
