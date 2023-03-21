@@ -235,7 +235,5 @@ msgstr ""
 
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__note
-msgid ""
-"Used to display a note with the sticker.\n"
-"Will be HTML sanitized and displayed as plain text."
+msgid "Used to display a note with the sticker"
 msgstr ""
