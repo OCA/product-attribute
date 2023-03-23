@@ -28,6 +28,7 @@ Product Variant Attribute Name Manager
 Manage how to display the attributes on the product variant name.
 
 * Choose if you want to display the name of the attribute before its value.
+* Choose if you want to display the attribute value in the product name.
 * Set a short name to be displayed as the attribute's name.
 * Set the order of the attributes for each product.
 
@@ -58,6 +59,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Oriol Villamayor <oriol.villamayor@forgeflow.com>
+* Jordi Masvidal <jordi.masvidal@forgeflow.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -72,13 +74,13 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-oriolvforgeflow| image:: https://github.com/oriolvforgeflow.png?size=40px
-    :target: https://github.com/oriolvforgeflow
-    :alt: oriolvforgeflow
+.. |maintainer-JordiMForgeFlow| image:: https://github.com/JordiMForgeFlow.png?size=40px
+    :target: https://github.com/JordiMForgeFlow
+    :alt: JordiMForgeFlow
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-oriolvforgeflow| 
+|maintainer-JordiMForgeFlow| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/13.0/product_variant_attribute_name_manager>`_ project on GitHub.
 
