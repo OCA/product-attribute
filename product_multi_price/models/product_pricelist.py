@@ -29,6 +29,7 @@ class ProductPricelistItem(models.Model):
 
     base = fields.Selection(
         selection_add=[("multi_price", "Other Price")],
+        ondelete={"multi_price": "set default"},
     )
     multi_price_name = fields.Many2one(
         comodel_name="product.multi.price.name",
