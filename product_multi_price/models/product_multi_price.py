@@ -5,13 +5,11 @@ from odoo import api, fields, models
 
 class ProductMultiPrice(models.Model):
     _name = "product.multi.price"
+    _rec_name = "name_text"
     _description = "Product Multiple Prices"
 
-    name = fields.Many2one(
-        comodel_name="product.multi.price.name",
-        required=True,
-        translate=True,
-    )
+    name = fields.Many2one("product.multi.price.name", required=True)
+    name_text = fields.Char(related="name.name")
     product_id = fields.Many2one(
         comodel_name="product.product",
         required=True,
