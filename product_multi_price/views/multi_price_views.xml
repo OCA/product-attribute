@@ -3,7 +3,7 @@
     <record id="product_multi_price_tree_view" model="ir.ui.view">
         <field name="model">product.multi.price</field>
         <field name="arch" type="xml">
-            <tree string="Product Multi Price">
+            <tree>
                 <field name="product_id" />
                 <field name="name" options="{'no_open': True, 'no_create': True}" />
                 <field name="price" />
@@ -52,7 +52,7 @@
     <record id="product_multi_price_name_tree_view" model="ir.ui.view">
         <field name="model">product.multi.price.name</field>
         <field name="arch" type="xml">
-            <tree string="Product Multi Price Field Name" editable="bottom">
+            <tree editable="bottom">
                 <field name="name" />
                 <field name="company_id" groups="base.group_multi_company" />
             </tree>
