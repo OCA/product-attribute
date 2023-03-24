@@ -8,12 +8,18 @@ class ProductMultiPrice(models.Model):
     _description = "Product Multiple Prices"
 
     name = fields.Many2one(
-        comodel_name="product.multi.price.name", required=True, translate=True,
+        comodel_name="product.multi.price.name",
+        required=True,
+        translate=True,
     )
     product_id = fields.Many2one(
-        comodel_name="product.product", required=True, ondelete="cascade",
+        comodel_name="product.product",
+        required=True,
+        ondelete="cascade",
     )
-    price = fields.Float(digits="Product Price",)
+    price = fields.Float(
+        digits="Product Price",
+    )
     company_id = fields.Many2one(
         comodel_name="res.company",
         related="name.company_id",
