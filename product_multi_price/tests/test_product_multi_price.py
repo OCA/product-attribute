@@ -1,9 +1,9 @@
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductMultiPrice(SavepointCase):
+class TestProductMultiPrice(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -16,7 +16,11 @@ class TestProductMultiPrice(SavepointCase):
                 "name": "Test Product Template",
                 "price_ids": [
                     (0, 0, {"name": cls.price_field_1.id, "price": 5.5}),
-                    (0, 0, {"name": cls.price_field_2.id, "price": 20.0}),
+                    (
+                        0,
+                        0,
+                        {"name": cls.price_field_2.id, "price": 20.0},
+                    ),
                 ],
             }
         )
