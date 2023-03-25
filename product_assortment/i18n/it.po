@@ -132,6 +132,13 @@ msgid "Product assortment"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.actions.server,name:product_assortment.action_product_assortment_invalidate_cache
+#: model:ir.cron,cron_name:product_assortment.ir_cron_product_assortment_invalidate_cache
+#: model:ir.cron,name:product_assortment.ir_cron_product_assortment_invalidate_cache
+msgid "Product assortment reset cache"
+msgstr ""
+
+#. module: product_assortment
 #: code:addons/product_assortment/models/ir_filters.py:0
 #, python-format
 msgid "Products"
