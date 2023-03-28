@@ -144,7 +144,6 @@ msgstr "Factor segunda unidad"
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
-#: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_variant_easy_edit_view
 msgid "Secondary Unit of Measure"
 msgstr "Segunda unidad de medida"
 
