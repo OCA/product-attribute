@@ -11,8 +11,16 @@
             <xpath expr="//page[@name='general_information']" position="inside">
                 <group string="Secondary Unit of Measure">
                     <field name="secondary_uom_ids" nolabel="1">
-                        <tree editable="top" decoration-muted="(not active)">
+                        <tree editable="bottom" decoration-muted="(not active)">
                             <field name="active" widget="boolean_toggle" />
+                            <field name="product_tmpl_id" invisible="1" />
+                            <field
+                                name="product_id"
+                                domain="[('product_tmpl_id', '=', parent.id)]"
+                                groups="product.group_product_variant"
+                                options="{'no_create': True}"
+                                attrs="{'column_invisible': [('parent.product_variant_count', '&lt;=', 1)]}"
+                            />
                             <field name="code" />
                             <field name="name" />
                             <field name="uom_id" />
@@ -24,4 +32,20 @@
             </xpath>
         </field>
     </record>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">Product Secondary Unit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="groups_id" eval="[(4, ref('uom.group_uom'))]" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='secondary_uom_ids']/tree/field[@name='product_id']"
+                position="attributes"
+            >
+                <attribute name="domain">[('id', '=', parent.id)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>

@@ -82,17 +82,26 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             )
             line.secondary_uom_qty = qty
 
+    def _get_default_value_for_qty_field(self):
+        return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
+            self._secondary_unit_fields["qty_field"]
+        )
+
     def _compute_helper_target_field_qty(self):
         """Set the target qty field defined in model"""
+        default_qty_field_value = self._get_default_value_for_qty_field()
         for rec in self:
             if not rec.secondary_uom_id:
-                rec[rec._secondary_unit_fields["qty_field"]] = rec._origin[
-                    rec._secondary_unit_fields["qty_field"]
-                ]
+                rec[rec._secondary_unit_fields["qty_field"]] = (
+                    rec._origin[rec._secondary_unit_fields["qty_field"]]
+                    or default_qty_field_value
+                )
                 continue
             if rec.secondary_uom_id.dependency_type == "independent":
                 if rec[rec._secondary_unit_fields["qty_field"]] == 0.0:
-                    rec[rec._secondary_unit_fields["qty_field"]] = 1.0
+                    rec[
+                        rec._secondary_unit_fields["qty_field"]
+                    ] = default_qty_field_value
                 continue
             # To avoid recompute secondary_uom_qty field when
             # secondary_uom_id changes.
@@ -119,6 +128,6 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         line_qty = self._get_quantity_from_line()
         qty = float_round(
             line_qty / (factor or 1.0),
-            precision_rounding=self._get_uom_line().rounding,
+            precision_rounding=self.secondary_uom_id.uom_id.rounding,
         )
         self.secondary_uom_qty = qty
