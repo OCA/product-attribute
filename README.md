@@ -34,6 +34,7 @@ addon | version | maintainers | summary
 [product_state](product_state/) | 16.0.1.0.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_template_has_one_variant](product_template_has_one_variant/) | 16.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a field on product template level to determine if it has only one variant
 [product_uom_measure_type](product_uom_measure_type/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Product - UoM Measure Type
+[sale_product_template_tags](sale_product_template_tags/) | 16.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Sale app
 [stock_production_lot_expired_date](stock_production_lot_expired_date/) | 16.0.1.0.1 |  | Stock production lot expired date
 
 [//]: # (end addons)
