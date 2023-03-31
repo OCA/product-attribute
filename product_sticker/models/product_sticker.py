@@ -16,6 +16,12 @@ class ProductSticker(models.Model):
     sequence = fields.Integer(default=10, index=True)
     name = fields.Char(required=True, translate=True)
     image_1920 = fields.Image(required=True)
+    image_64 = fields.Image(
+        related="image_1920",
+        max_width=64,
+        max_height=64,
+        store=True,
+    )
     product_category_id = fields.Many2one(
         comodel_name="product.category",
         string="Category",
