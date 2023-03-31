@@ -3,11 +3,11 @@
 {
     "name": "Product logistics UoM",
     "summary": "Configure product weights and volume UoM",
-    "version": "16.0.1.0.0",
+    "version": "16.0.3.0.0",
     "development_status": "Beta",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
-    "author": " Akretion, Odoo Community Association (OCA)",
+    "author": " Akretion, ACSONE SA/NV, Odoo Community Association (OCA)",
     "maintainers": ["hparfr"],
     "license": "AGPL-3",
     "installable": True,
@@ -18,4 +18,5 @@
         "views/res_config_settings.xml",
         "views/product.xml",
     ],
+    "pre_init_hook": "pre_init_hook",
 }
