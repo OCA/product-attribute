@@ -42,7 +42,7 @@
                                 colspan="3"
                             />
                             <field
-                                name="selling_price_set_inverse"
+                                name="percent_change_user_input"
                                 nolabel="1"
                                 style="max-width:80%; text-align:center;"
                                 widget="monetary"
