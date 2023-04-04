@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-12-30 11:56+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-04-04 15:25+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -126,7 +126,7 @@ msgstr "Allegato principale"
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_has_error
 msgid "Message Delivery error"
-msgstr "Messaggio errore di consegna"
+msgstr "Errore consegna messaggio"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_ids
