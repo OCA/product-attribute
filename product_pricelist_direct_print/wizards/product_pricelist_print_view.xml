@@ -54,7 +54,13 @@
                             nolabel="1"
                             attrs="{'invisible':[('show_variants','=',True)]}"
                         >
-                            <tree>
+                            <!--
+                            HACK: Force create="1" because if the user doesn't have access right
+                            to create new products, he won't be able to select some products.
+                            issue: https://github.com/odoo/odoo/issues/19878
+                            Not needed for new versions
+                            -->
+                            <tree create="1">
                                 <field name="name" />
                             </tree>
                         </field>
@@ -62,7 +68,13 @@
                             name="product_ids"
                             attrs="{'invisible':[('show_variants','=',False)]}"
                         >
-                            <tree>
+                            <!--
+                            HACK: Force create="1" because if the user doesn't have access right
+                            to create new products, he won't be able to select some products.
+                            issue: https://github.com/odoo/odoo/issues/19878
+                            Not needed for new versions
+                            -->
+                            <tree create="1">
                                 <field name="name" />
                             </tree>
                         </field>
