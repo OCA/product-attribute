@@ -74,7 +74,7 @@ msgid "Cumulative percentage greater than 100."
 msgstr "Somme des pourcentages calculés supérieure à 100."
 
 #. module: product_abc_classification_sale_stock
-#: model:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
 msgid "Data collected this year"
 msgstr "Données collectées cette année"
 
@@ -89,12 +89,12 @@ msgid "From date"
 msgstr "De"
 
 #. module: product_abc_classification_sale_stock
-#: model:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
 msgid "Group By"
 msgstr "Grouper par"
 
 #. module: product_abc_classification_sale_stock
-#: model:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_classification_product_level_form_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_classification_product_level_form_view
 msgid "History"
 msgstr "Historique"
 
@@ -160,7 +160,7 @@ msgstr "Modèle de produit"
 
 #. module: product_abc_classification_sale_stock
 #: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history_profile_id
-#: model:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
 msgid "Profile"
 msgstr "Profil"
 
@@ -190,7 +190,7 @@ msgid "Sum of cummulated percentages"
 msgstr "Somme % cumulés"
 
 #. module: product_abc_classification_sale_stock
-#: model:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
 msgid "This Year"
 msgstr "Cette année"
 
