@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-04 15:25+0000\n"
+"PO-Revision-Date: 2023-04-05 09:20+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -64,17 +64,17 @@ msgstr "Filtri"
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_follower_ids
 msgid "Followers"
-msgstr "Followers"
+msgstr "Seguito da"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Followers (Canali)"
+msgstr "Seguito da (canali)"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Followers (Contatti)"
+msgstr "Seguito da (partner)"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__activity_type_icon
