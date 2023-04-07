@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-20 11:22+0000\n"
+"PO-Revision-Date: 2023-04-07 16:34+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -344,7 +344,7 @@ msgstr "Prodotti"
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:65
 #, python-format
 msgid "Sale Price"
-msgstr "Prezzo di Vendita"
+msgstr "Prezzo di vendita"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
