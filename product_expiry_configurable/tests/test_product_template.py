@@ -1,32 +1,13 @@
-from odoo.tests import SavepointCase
+# Copyright 2022 Creu Blanca
+# Copyright 2023 ACSONE SA/NV
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo.tests import TransactionCase
+
+from .common import ProductExpiryCategoryCommon
 
 
-class TestProductTemplate(SavepointCase):
-    @classmethod
-    def setUpClass(cls):
-        super(TestProductTemplate, cls).setUpClass()
-
-        cls.ProductCategory = cls.env["product.category"]
-        cls.ProductProduct = cls.env["product.product"]
-        cls.ProductCategory._parent_store_compute()
-        cls.categ_lvl = cls.env.ref("product.product_category_all")
-        cls.categ_lvl_1 = cls.ProductCategory.create(
-            {"name": "level_1", "parent_id": cls.categ_lvl.id}
-        )
-        cls.categ_lvl_1_1 = cls.ProductCategory.create(
-            {"name": "level_1_1", "parent_id": cls.categ_lvl_1.id}
-        )
-
-        cls.categ_lvl_1_1_1 = cls.ProductCategory.create(
-            {"name": "level_1_1_1", "parent_id": cls.categ_lvl_1_1.id}
-        )
-        cls.product = cls.ProductProduct.create(
-            {"name": "test product", "categ_id": cls.categ_lvl_1_1_1.id}
-        )
-
-    def _get_times(self):
-        return ["alert_time", "use_time", "removal_time"]
-
+class TestProductTemplate(ProductExpiryCategoryCommon, TransactionCase):
     def test_no_specific_values_set(self):
         """
             Test case:
@@ -36,12 +17,12 @@ class TestProductTemplate(SavepointCase):
         Expected result:
                  The values at the product must be the same that at the category
         """
-        self.assertEqual(self.product.compute_dates_from, "current_date")
-        self.categ_lvl_1_1_1.specific_compute_dates_from = "expiration_date"
-        self.assertEqual(self.product.compute_dates_from, "expiration_date")
+        self.assertFalse(self.product.use_expiration_date)
+        self.categ_lvl_1_1_1.use_expiration_date = True
+        self.assertTrue(self.product.use_expiration_date)
         for time in self._get_times():
             self.assertEqual(getattr(self.product, time), 0)
-            setattr(self.categ_lvl_1_1_1, "specific_%s" % time, 2)
+            setattr(self.categ_lvl_1_1_1, "%s" % time, 2)
             self.assertEqual(getattr(self.product, time), 2)
 
     def test_specific_values_set(self):
@@ -52,10 +33,10 @@ class TestProductTemplate(SavepointCase):
         Expected result:
                  The values at the product must be different from category's values
         """
-        self.assertEqual(self.product.compute_dates_from, "current_date")
-        self.product.specific_compute_dates_from = "expiration_date"
-        self.assertEqual(self.product.compute_dates_from, "expiration_date")
+        self.assertFalse(self.product.use_expiration_date)
+        self.product.use_expiration_date = True
+        self.assertTrue(self.product.use_expiration_date)
         for time in self._get_times():
             self.assertEqual(getattr(self.product, time), 0)
-            setattr(self.product, "specific_%s" % time, 2)
+            setattr(self.product, "%s" % time, 2)
             self.assertEqual(getattr(self.product, time), 2)

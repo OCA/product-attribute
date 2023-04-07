@@ -1,77 +1,96 @@
-from odoo.tests import SavepointCase
+# Copyright 2022 Creu Blanca
+# Copyright 2023 ACSONE SA/NV
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo.tests import TransactionCase
+
+from .common import ProductExpiryCategoryCommon
 
 
-class TestProductCategory(SavepointCase):
-    @classmethod
-    def setUpClass(cls):
-        super(TestProductCategory, cls).setUpClass()
+class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
+    def check_fields(self, categs, expected_values, children=True):
+        """
 
-        cls.ProductCategory = cls.env["product.category"]
-        cls.ProductCategory._parent_store_compute()
-        cls.categ_lvl = cls.env.ref("product.product_category_all")
-        cls.categ_lvl_1 = cls.ProductCategory.create(
-            {"name": "level_1", "parent_id": cls.categ_lvl.id}
-        )
-        cls.categ_lvl_1_1 = cls.ProductCategory.create(
-            {"name": "level_1_1", "parent_id": cls.categ_lvl_1.id}
-        )
-
-        cls.categ_lvl_1_1_1 = cls.ProductCategory.create(
-            {"name": "level_1_1_1", "parent_id": cls.categ_lvl_1_1.id}
-        )
-
-    def _get_times(self):
-        return ["alert_time", "use_time", "removal_time"]
-
-    def check_field(self, categs, field, name):
+        Check that a value modification on a root category is
+        transmitted to all children.
+        """
         for categ in categs:
-            self.assertEqual(
-                name,
-                getattr(categ, field),
-            )
-            self.check_field(categ.child_id, field, name)
+            for field, value in expected_values:
+                self.assertEqual(
+                    value,
+                    getattr(categ, field),
+                    msg=f"The field {field} on category {categ.name} is not correct!",
+                )
+            if children:
+                self.check_fields(categ.child_id, expected_values=expected_values)
 
     def test_modify_root_category(self):
         """
         Test Case:
-            Specify a specific_compute_dates_from and specific_alert_time,
-            specific_use_time and specific_removal_time at root level
-        Expected result:
-            The values at all levels must be modified
+            Set dates on root category
+            Create a category that has that root as parent
+            Check the corresponding dates are same
+
+            Then, modify some dates on the child category and check
+            they remain.
+        """
+        self.categ_lvl_1.update(
+            {
+                "alert_time": 3,
+                "removal_time": 2,
+                "use_time": 1,
+                "expiration_time": 5,
+            }
+        )
+
+        expected_values = [
+            ("alert_time", 3),
+            ("removal_time", 2),
+            ("use_time", 1),
+            ("expiration_time", 5),
+        ]
+
+        self.check_fields(self.categ_lvl_1, expected_values)
+
+        expected_values = [
+            ("alert_time", 4),
+            ("removal_time", 3),
+            ("use_time", 2),
+            ("expiration_time", 6),
+        ]
+
+        self.categ_lvl_1_1.write(
+            {
+                "alert_time": 4,
+                "removal_time": 3,
+                "use_time": 2,
+                "expiration_time": 6,
+            }
+        )
+
+        self.check_fields(self.categ_lvl_1_1, expected_values, False)
+
+    def test_modify_root_category_use(self):
+        """
+        Modify the parent category use_expiration_date field
+        Children should not be modified.
+        Create a new category with the parent here above.
+        The field use_expiration_date should be True
+
         """
 
-        self.check_field(self.categ_lvl, "compute_dates_from", "current_date")
-        self.categ_lvl.specific_compute_dates_from = "expiration_date"
-        self.check_field(self.categ_lvl, "compute_dates_from", "expiration_date")
-        children = self.categ_lvl.child_id
-        self.check_field(children, "compute_dates_from", "expiration_date")
+        self.categ_lvl_1_1.write(
+            {
+                "use_expiration_date": True,
+            }
+        )
+        self.assertFalse(self.categ_lvl_1_1_1.use_expiration_date)
 
-        for time in self._get_times():
-            setattr(self.categ_lvl, "specific_%s" % time, 2)
-            children = self.categ_lvl.child_id
-            self.check_field(children, time, 2)
+        self.categ_lvl_1_1_2 = self.ProductCategory.create(
+            {
+                "name": "Category 2",
+                "parent_id": self.categ_lvl_1_1.id,
+            }
+        )
 
-    def test_modify_child_category(self):
-        """
-        Test Case:
-            Specify a specific_compute_dates_from and specific_alert_time,
-            specific_use_time and specific_removal_time at level_1_1
-        Expected result:
-            The values at root level and level are the default ("current_date").
-            The values at level_1 and level_1_1_1 are the new ones.
-        """
-
-        self.check_field(self.categ_lvl, "compute_dates_from", "current_date")
-        self.categ_lvl_1_1.specific_compute_dates_from = "expiration_date"
-        self.check_field(self.categ_lvl_1_1, "compute_dates_from", "expiration_date")
-        children = self.categ_lvl_1_1.child_id
-        self.check_field(children, "compute_dates_from", "expiration_date")
-        self.assertEqual(self.categ_lvl_1.compute_dates_from, "current_date")
-        self.assertEqual(self.categ_lvl.compute_dates_from, "current_date")
-
-        for time in self._get_times():
-            setattr(self.categ_lvl_1_1, "specific_%s" % time, 2)
-            children = self.categ_lvl_1_1.child_id
-            self.check_field(children, time, 2)
-            self.assertEqual(getattr(self.categ_lvl, time), 0)
-            self.assertEqual(getattr(self.categ_lvl_1, time), 0)
+        self.assertTrue(self.categ_lvl_1_1_2.use_expiration_date)
