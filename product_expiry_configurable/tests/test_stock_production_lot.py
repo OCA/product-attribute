@@ -3,38 +3,17 @@ from datetime import datetime
 import freezegun
 
 from odoo import fields
-from odoo.tests import SavepointCase
+from odoo.tests import TransactionCase
 from odoo.tests.common import Form
 
+from .common import ProductExpiryCategoryCommon
 
-class TestProductCategory(SavepointCase):
+
+class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductCategory, cls).setUpClass()
-
-        cls.ProductCategory = cls.env["product.category"]
-        cls.ProductProduct = cls.env["product.product"]
-        cls.StockProductionLot = cls.env["stock.production.lot"]
-        cls.ProductCategory._parent_store_compute()
-        cls.categ_lvl = cls.env.ref("product.product_category_all")
-        cls.categ_lvl_1 = cls.ProductCategory.create(
-            {"name": "level_1", "parent_id": cls.categ_lvl.id}
-        )
-        cls.categ_lvl_1_1 = cls.ProductCategory.create(
-            {"name": "level_1_1", "parent_id": cls.categ_lvl_1.id}
-        )
-
-        cls.categ_lvl_1_1_1 = cls.ProductCategory.create(
-            {"name": "level_1_1_1", "parent_id": cls.categ_lvl_1_1.id}
-        )
-        cls.product = cls.ProductProduct.create(
-            {
-                "name": "test product",
-                "categ_id": cls.categ_lvl_1_1_1.id,
-                "tracking": "lot",
-                "type": "product",
-            }
-        )
+        super().setUpClass()
+        cls.product.tracking = "lot"
 
     def test_product_current_date(self):
         """
@@ -55,9 +34,10 @@ class TestProductCategory(SavepointCase):
             return ["alert_date", "use_date", "removal_date", "expiration_date"]
 
         for time in _get_times():
-            setattr(self.product, "specific_%s" % time, 2)
+            setattr(self.product, "%s" % time, 2)
 
         with freezegun.freeze_time("2022-02-10 10:00:00"):
+            self.product.use_expiration_date = True
 
             lot = self.StockProductionLot.create(
                 {
@@ -67,9 +47,16 @@ class TestProductCategory(SavepointCase):
                 }
             )
             for date in _get_dates():
-                self.assertEqual(
-                    fields.Datetime.to_string(getattr(lot, date)), "2022-02-12 10:00:00"
-                )
+                if date == "expiration_date":
+                    self.assertEqual(
+                        fields.Datetime.to_string(getattr(lot, date)),
+                        "2022-02-12 10:00:00",
+                    )
+                else:
+                    self.assertEqual(
+                        fields.Datetime.to_string(getattr(lot, date)),
+                        "2022-02-10 10:00:00",
+                    )
 
     def test_product_expiration_date(self):
         """
@@ -88,10 +75,10 @@ class TestProductCategory(SavepointCase):
         def _get_dates():
             return ["alert_date", "use_date", "removal_date"]
 
-        self.product.specific_compute_dates_from = "expiration_date"
+        self.product.use_expiration_date = True
 
         for time in _get_times():
-            setattr(self.product, "specific_%s" % time, 2)
+            setattr(self.product, "%s" % time, 2)
 
         with freezegun.freeze_time("2022-02-12 10:00:00"):
 
@@ -137,7 +124,7 @@ class TestProductCategory(SavepointCase):
         for date in _get_dates():
             self.assertFalse(getattr(lot, date))
 
-    def test_onchange_product_expiration_date(self):
+    def test_change_product_expiration_date(self):
         """
         Test case:
               Create a product with compute_dates_from = 'expiration_date'.
@@ -156,10 +143,10 @@ class TestProductCategory(SavepointCase):
         def _get_dates():
             return ["alert_date", "use_date", "removal_date"]
 
-        self.product.specific_compute_dates_from = "expiration_date"
+        self.product.use_expiration_date = False
 
         for time in _get_times():
-            setattr(self.product, "specific_%s" % time, 2)
+            setattr(self.product, "%s" % time, 2)
 
         with freezegun.freeze_time("2022-02-12 10:00:00"):
             lot = self.StockProductionLot.create(
@@ -172,6 +159,8 @@ class TestProductCategory(SavepointCase):
             for date in _get_dates():
                 self.assertEqual(fields.Datetime.to_string(getattr(lot, date)), False)
             self.assertFalse(lot.expiration_date)
+
+            self.product.use_expiration_date = True
 
             with Form(lot) as lot_form:
                 lot_form.expiration_date = datetime(2022, 2, 28, 10, 0, 0)
@@ -201,10 +190,10 @@ class TestProductCategory(SavepointCase):
         def _get_dates():
             return ["expiration_date", "use_date", "removal_date"]
 
-        self.product.specific_compute_dates_from = "expiration_date"
+        self.product.use_expiration_date = True
 
         for time in _get_times():
-            setattr(self.product, "specific_%s" % time, 2)
+            setattr(self.product, "%s" % time, 2)
 
         lot = self.StockProductionLot.create(
             {
@@ -233,7 +222,7 @@ class TestProductCategory(SavepointCase):
             counter = 1
             for date in _get_dates():
                 self.assertFalse(getattr(lot, "%s_reminded" % date))
-                self.env["stock.production.lot"]._expiry_date_exceeded(date_field=date)
+                self.env["stock.lot"]._expiry_date_exceeded(date_field=date)
                 activity_id = self.env.ref(
                     "product_expiry_configurable.mail_activity_type_expiry_date_reached"
                 ).id
@@ -243,7 +232,7 @@ class TestProductCategory(SavepointCase):
                         (
                             "res_model_id",
                             "=",
-                            self.env.ref("stock.model_stock_production_lot").id,
+                            self.env.ref("stock.model_stock_lot").id,
                         ),
                         ("res_id", "=", lot.id),
                     ]

@@ -17,19 +17,14 @@
                     groups="stock.group_production_lot"
                 >
                     <group>
-                        <field name="compute_dates_from" />
+                        <!-- <field name="compute_dates_from" /> -->
                         <label for="use_time" />
                         <div>
                             <field name="use_time" class="oe_inline" />
                             <span> days</span>
                         </div>
-                        <label
-                            for="expiration_time"
-                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
-                        />
-                        <div
-                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
-                        >
+                        <label for="expiration_time" />
+                        <div>
                             <field name="expiration_time" class="oe_inline" />
                             <span> days</span>
                         </div>
@@ -45,32 +40,8 @@
                         </div>
                     </group>
                    <group>
-                       <field name="specific_compute_dates_from" />
-                        <label for="specific_use_time" />
-                        <div>
-                            <field name="specific_use_time" class="oe_inline" />
-                            <span> days</span>
-                        </div>
-                        <label
-                            for="specific_expiration_time"
-                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
-                        />
-                        <div
-                            attrs="{'invisible': [('compute_dates_from', '==', 'expiration_date')]}"
-                        >
-                            <field name="specific_expiration_time" class="oe_inline" />
-                            <span> days</span>
-                        </div>
-                        <label for="specific_removal_time" />
-                        <div>
-                            <field name="specific_removal_time" class="oe_inline" />
-                            <span> days</span>
-                        </div>
-                        <label for="specific_alert_time" />
-                        <div>
-                            <field name="specific_alert_time" class="oe_inline" />
-                            <span> days</span>
-                        </div>
+                        <field name="use_expiration_date" />
+
                     </group>
               </group>
            </group>

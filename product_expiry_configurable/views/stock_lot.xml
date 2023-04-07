@@ -3,8 +3,10 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
       <record id="search_product_lot_filter_inherit_product_expiry" model="ir.ui.view">
-        <field name="name">stock.production.lot.search.inherit</field>
-        <field name="model">stock.production.lot</field>
+        <field
+            name="name"
+        >stock.lot.search.inherit (in product_expiry_configurable)</field>
+        <field name="model">stock.lot</field>
         <field
             name="inherit_id"
             ref="product_expiry.search_product_lot_filter_inherit_product_expiry"
@@ -36,7 +38,7 @@
     <record id="stock.action_production_lot_form" model="ir.actions.act_window">
         <field name="name">Lots/Serial Numbers</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">stock.production.lot</field>
+        <field name="res_model">stock.lot</field>
         <field
             name="context"
         >{'search_default_group_by_product': 1, 'display_complete': True, 'default_company_id': allowed_company_ids[0]}</field>
