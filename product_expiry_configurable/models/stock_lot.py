@@ -36,17 +36,21 @@ class StockLot(models.Model):
             ("location_id.scrap_location", "=", False),
         ]
 
+    def _get_expired_lots_domain_for_remind(self, date_field, date_reminded_field):
+        return [
+            (date_field, "<=", fields.Date.today()),
+            (date_reminded_field, "=", False),
+        ]
+
     @api.model
     def _expiry_date_exceeded(self, date_field=False):
         """Log an activity on internally stored lots whose "date" field has been reached.
         No further activity will be generated on lots whose "date"
         has already been reached (even if the "date" is changed).
         """
-
         date_reminded_field = "%s_reminded" % date_field
-
         expiry_lots = self.env["stock.lot"].search(
-            [(date_field, "<=", fields.Date.today()), (date_reminded_field, "=", False)]
+            self._get_expired_lots_domain_for_remind(date_field, date_reminded_field)
         )
 
         lot_stock_quants = self.env["stock.quant"].search(
