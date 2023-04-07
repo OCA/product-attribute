@@ -11,7 +11,6 @@ class ProductTemplate(models.Model):
     use_expiration_date = fields.Boolean(
         compute="_compute_use_expiration_date", readonly=False, store=True
     )
-
     expiration_time = fields.Integer(
         compute="_compute_date_fields",
         store=True,
