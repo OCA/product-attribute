@@ -250,16 +250,6 @@ class ProductPricelistItem(models.Model):
             if not product:
                 return
 
-            if product._name == "product.product":
-                # Unfortunately there is some issue with price_compute,
-                # which is a very good shortcut to deal with multiple
-                # currencies and unit of measure. Until it is fixed,
-                # it's a little bit harder to deal with product variants,
-                # so there is no plan at the moment for product variant.
-                # This cast is a workaround to avoid AssertionError, see
-                # https://github.com/odoo/odoo/pull/117435 for more info
-                product = product.product_tmpl_id
-
             product_price = rule._get_product_price_rule_base(product=product)
 
             if product_price:
@@ -393,16 +383,6 @@ class ProductPricelistItem(models.Model):
             product = self.product_tmpl_id
         elif applied_on == "0_product_variant":
             product = self.product_id
-
-        if product._name == "product.product":
-            # Unfortunately there is some issue with price_compute,
-            # which is a very good shortcut to deal with multiple
-            # currencies and unit of measure. Until it is fixed,
-            # it's a little bit harder to deal with product variants,
-            # so there is no plan at the moment for product variant.
-            # This cast is a workaround to avoid AssertionError, see
-            # https://github.com/odoo/odoo/pull/117435 for more info
-            product = product.product_tmpl_id
 
         self._get_percentage_change_consistency_check(product=product)
         discount = self._get_percent_change_rule_base(product)
