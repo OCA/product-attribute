@@ -2,3 +2,7 @@
 
   * Alexandre Díaz
   * Pedro M. Baeza
+
+* `Cetmix <https://www.cetmix.com>`__:
+
+  * Dessan Hemrayev
