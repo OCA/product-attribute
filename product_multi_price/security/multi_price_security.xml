@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="group_show_multi_prices" model="res.groups">
+            <field name="name">Show multi prices</field>
+            <field name="category_id" ref="base.module_category_hidden" />
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="multi_price_rule" model="ir.rule">
+            <field name="name">Multiple Price multi-company</field>
+            <field name="model_id" ref="model_product_multi_price" />
+            <field eval="True" name="global" />
+            <field
+                name="domain_force"
+            >['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+        </record>
+        <record id="multi_price_name_rule" model="ir.rule">
+            <field name="name">Multiple Price Field Name multi-company</field>
+            <field name="model_id" ref="model_product_multi_price_name" />
+            <field eval="True" name="global" />
+            <field
+                name="domain_force"
+            >['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+        </record>
+    </data>
+</odoo>
