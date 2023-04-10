@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -113,6 +113,7 @@ msgid "Price"
 msgstr ""
 
 #. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__name_text
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name__name
 msgid "Price Field Name"
 msgstr ""
@@ -146,13 +147,7 @@ msgstr ""
 
 #. module: product_multi_price
 #: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
-#: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_tree_view
 msgid "Product Multi Price"
-msgstr ""
-
-#. module: product_multi_price
-#: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_name_tree_view
-msgid "Product Multi Price Field Name"
 msgstr ""
 
 #. module: product_multi_price
