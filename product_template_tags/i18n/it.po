@@ -1,24 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * product_template_tags
+# 	* product_template_tags
 #
-# Translators:
-# Giuliano Lotta <giuliano.lotta@gmail.com>, 2018
-# Paolo Valier <paolo.valier@hotmail.it>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 02:14+0000\n"
-"PO-Revision-Date: 2023-01-03 12:44+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
-"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
-"Language: it\n"
+"POT-Creation-Date: 2023-04-10 12:58+0000\n"
+"PO-Revision-Date: 2023-04-10 12:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"Plural-Forms: \n"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
@@ -52,19 +47,16 @@ msgid "Created on"
 msgstr "Creato il"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template__display_name
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template__id
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template____last_update
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
 msgstr "Ultima Modifica il"
@@ -85,14 +77,14 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: product_template_tags
+#: model:ir.model,name:product_template_tags.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
 msgstr "Tag Prodotto"
-
-#. module: product_template_tags
-#: model:ir.model,name:product_template_tags.model_product_template
-msgid "Product Template"
-msgstr "Modello Prodotto"
 
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
@@ -119,4 +111,4 @@ msgstr "Il nome del tag dev'essere univoco all'interno della stessa Azienda"
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
-msgstr "Tags"
+msgstr ""
