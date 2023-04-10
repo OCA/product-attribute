@@ -2,11 +2,11 @@
 
 {
     "name": "Product Access Right",
-    "version": "16.0.1.0.2",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "summary": "Access Right of Product",
     "author": "Jumeldi, PT.SAI, Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/stock-logistics-warehouse",
+    "website": "https://github.com/OCA/product-attribute",
     "category": "Warehouse Management",
     "depends": ["purchase"],
     "data": [
