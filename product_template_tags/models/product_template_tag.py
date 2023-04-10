@@ -33,7 +33,7 @@ class ProductTemplateTag(models.Model):
             "name_uniq",
             "unique(name, company_id)",
             "Tag name must be unique inside a company",
-        ),
+        )
     ]
 
     @api.depends("product_tmpl_ids")
