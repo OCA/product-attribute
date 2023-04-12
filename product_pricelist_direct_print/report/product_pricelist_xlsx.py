@@ -107,7 +107,9 @@ class ProductPricelistXlsx(models.AbstractModel):
                 sheet.write(
                     row,
                     next_col,
-                    product.with_context(pricelist=pricelist.id, date=print_date).price,
+                    product.with_context(
+                        pricelist=pricelist.id, date=print_date
+                    ).list_price,
                     decimal_bold_format,
                 )
                 row += 1
