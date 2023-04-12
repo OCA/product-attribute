@@ -212,4 +212,4 @@ class TestProductPricelistDirectPrint(TransactionCase):
         self.assertGreaterEqual(len(report_pdf[0]), 1)
         # Export XLSX
         report_name = "product_pricelist_direct_print.product_pricelist_xlsx"
-        report_xlsx = self.env.ref(report_name).report_action(wiz.ids)
+        self.env.ref(report_name).report_action(wiz.ids)
