@@ -42,12 +42,14 @@ msgstr "Coût"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,field_description:product_standard_price_tax_included.field_product_product__standard_price_tax_included
+#: model:ir.model.fields,field_description:product_standard_price_tax_included.field_product_template__standard_price_tax_included
 #: selection:product.pricelist.item,base:0
 msgid "Cost Price Tax Included"
 msgstr "Prix de revient taxe inclue"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,help:product_standard_price_tax_included.field_product_product__standard_price_tax_included
+#: model:ir.model.fields,help:product_standard_price_tax_included.field_product_template__standard_price_tax_included
 msgid ""
 "Cost Price of the product, All Tax Included:\n"
 "This field will be computed with the 'Cost Price', taking into account Sale "
@@ -93,6 +95,11 @@ msgstr ""
 #: model:ir.model,name:product_standard_price_tax_included.model_product_product
 msgid "Product"
 msgstr "Article"
+
+#. module: product_standard_price_tax_included
+#: model:ir.model,name:product_standard_price_tax_included.model_product_template
+msgid "Product Template"
+msgstr ""
 
 #. module: product_standard_price_tax_included
 #: model:product.product,name:product_standard_price_tax_included.product_product
