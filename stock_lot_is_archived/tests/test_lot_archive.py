@@ -39,3 +39,16 @@ class TestStockLotArchive(TransactionCase):
         self.archive_wizard_obj._archive_lots()
         self.assertTrue(self.lot.is_archived)
         self.assertFalse(self.newer_lot.is_archived)
+
+    def test_lot_archive_editable(self):
+        """
+        With a user which is not stock manager check the editable is False
+        Then add the the stock manager group, editable should be True
+        """
+        user_demo = self.env.ref("base.user_demo")
+        lot_demo = self.lot.with_user(user_demo)
+        user_demo.groups_id -= self.env.ref("stock.group_stock_manager")
+        self.assertFalse(lot_demo.is_archived_editable)
+        user_demo.groups_id += self.env.ref("stock.group_stock_manager")
+        lot_demo = self.lot.with_user(user_demo)
+        self.assertTrue(lot_demo.is_archived_editable)
