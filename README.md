@@ -37,6 +37,7 @@ addon | version | maintainers | summary
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 16.0.1.0.0 |  | Allows to define prices for customers in the products
 [product_template_has_one_variant](product_template_has_one_variant/) | 16.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a field on product template level to determine if it has only one variant
 [product_uom_measure_type](product_uom_measure_type/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Product - UoM Measure Type
+[product_uom_updatable](product_uom_updatable/) | 16.0.1.0.0 |  | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
 [sale_product_template_tags](sale_product_template_tags/) | 16.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Sale app
 [stock_production_lot_expired_date](stock_production_lot_expired_date/) | 16.0.1.0.1 |  | Stock production lot expired date
 
