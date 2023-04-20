@@ -25,17 +25,41 @@ Product Expiry Configurable
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module allows changing the standard expiry dates managing.
-Currently, the odoo product_expiry modules compute the use_date, removal_date, expiration_date, and alert_date applying the use_time, removal_time, expiration_date, and alert_date to the creation date of the lot. For example, if alert_time is set to 2 days and the lot is created the 16/02/2022, the alert_date is set to 18/02/2022.
-With this module, this behavior can be changed. It computes the use_date, removal_date, and alert_date depending on the expiration_date. For example, if the alert_time is set to 2 days, and the lot expiration_date is 20/04/2022, the alert_date is set to 18/04/22.
-In addition, the times and type of computing (from current_date or expiration_date) can be configured on the product_category and on the product_template. If a field is provided on the product, the provided on the category is set.
-Filters of "Alert Date Reached", "Use Date Reached", "Expiration Date Reached" and "Removal Date Reached" have been added.
-Finally, crons that generate activities have been created to warn for each date. By default, they are desastivated.
+This module allows to manage product life delays on category level:
+
+- Use Time
+- Removal Time
+- Alert Time
+- Expiration Time
+
+If these values are set on category level, when creating a product and assigning that category or changing that category on existing product,
+those value are reflected on product side. Those values can also be set per product.
+
+The 'Use Expiration Date' field that exists on product level is set too on category with the same behavior as above.
+
+Last but not least, activities can be created automatically to warn users for product that have some dates expired (Removal, Use and Expiration).
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+* To configure a times on categories, Go to Configuration menu (in Purchase/Invoicing/Inventory), then Product Categories.
+* Choose the one you want to configure and fill in the times and the Use Expiration Date:
+
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_expiry_configurable/static/images/category.png
+  :width: 600
+  :alt: Category
+
+* To configure activities crons, go to Settings > Technical > Scheduled Actions
+* Choose the one you want to activate and configure the time to run it
+
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_expiry_configurable/static/images/crons.png
+  :width: 600
+  :alt: Category
 
 Bug Tracker
 ===========
