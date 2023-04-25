@@ -7,31 +7,39 @@ from odoo.tests.common import TransactionCase
 class TestBomWeightCompute(TransactionCase):
     def setUp(self):
         super().setUp()
+
         self.ProductModel = self.env["product.product"]
-        unit_uom_id = self.env.ref("uom.product_uom_unit").id
-        self.p0 = self.ProductModel.create({"name": "000", "type": "product"})
-        self.p1 = self.ProductModel.create(
-            {"name": "101", "type": "product", "weight": 0.20, "uom_id": unit_uom_id}
+
+        self.p0 = self.env.ref("product.product_product_25")
+        self.p0.write({"weight": 0.00})
+        self.p0tmpl = self.env.ref("product.product_product_25_product_template")
+        self.p1 = self.env.ref("mrp.product_product_wood_ply")
+        self.p1.write({"weight": 0.20})
+        self.p1tmpl = self.env.ref("mrp.product_product_wood_ply_product_template")
+        self.p2 = self.env.ref("mrp.product_product_computer_desk_screw")
+        self.p2.write({"weight": 0.22})
+        self.p2tmpl = self.env.ref(
+            "mrp.product_product_computer_desk_screw_product_template"
         )
-        self.p2 = self.ProductModel.create(
-            {"name": "202", "type": "product", "weight": 0.22, "uom_id": unit_uom_id}
+        self.p3 = self.env.ref("mrp.product_product_wood_wear")
+        self.p3.write({"weight": 0.68})
+        self.p3tmpl = self.env.ref("mrp.product_product_wood_wear_product_template")
+        self.p4 = self.env.ref("mrp.product_product_ply_veneer")
+        self.p4.write({"weight": 0.10})
+        self.p4tmpl = self.env.ref("mrp.product_product_ply_veneer_product_template")
+        self.v1 = self.env.ref("product.product_product_20")
+        self.v1.write({"weight": 0.00})
+        self.v1tmpl = self.env.ref("product.product_product_20_product_template")
+        self.v2 = self.env.ref("mrp.product_product_computer_desk_leg")
+        self.v2.write({"weight": 0.00})
+        self.v2tmpl = self.env.ref(
+            "mrp.product_product_computer_desk_leg_product_template"
         )
-        self.p3 = self.ProductModel.create(
-            {"name": "303", "type": "product", "weight": 0.68, "uom_id": unit_uom_id}
-        )
-        self.p4 = self.ProductModel.create(
-            {"name": "404", "type": "product", "weight": 0.10, "uom_id": unit_uom_id}
-        )
-        self.v1 = self.ProductModel.create(
-            {"name": "v101", "type": "product", "weight": 0.00, "uom_id": unit_uom_id}
-        )
-        self.v2 = self.ProductModel.create(
-            {"name": "v202", "type": "product", "weight": 0.00, "uom_id": unit_uom_id}
-        )
+
         self.BomModel = self.env["mrp.bom"]
         self.bom = self.BomModel.create(
             {
-                "product_tmpl_id": self.p0.product_tmpl_id.id,
+                "product_tmpl_id": self.p0tmpl.id,
                 "product_id": self.p0.id,
                 "product_qty": 1,
                 "type": "normal",
@@ -39,7 +47,7 @@ class TestBomWeightCompute(TransactionCase):
         )
         self.bom1 = self.BomModel.create(
             {
-                "product_tmpl_id": self.p1.product_tmpl_id.id,
+                "product_tmpl_id": self.p1tmpl.id,
                 "product_id": self.p1.id,
                 "product_qty": 1,
                 "type": "phantom",
@@ -63,11 +71,11 @@ class TestBomWeightCompute(TransactionCase):
 
     def test_calculate_product_weight_from_template_form(self):
         wizard = self.WizObj.with_context(
-            active_model="product.template", active_id=self.p0.product_tmpl_id.id
+            active_model="product.template", active_id=self.p0tmpl.id
         ).create({})
         wizard.update_single_weight()
         self.assertAlmostEqual(self.p0.weight, 4)
-        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 4)
+        self.assertAlmostEqual(self.p0tmpl.weight, 4)
 
     def test_calculate_product_weight_from_product_form(self):
         wizard = self.WizObj.with_context(
@@ -75,22 +83,22 @@ class TestBomWeightCompute(TransactionCase):
         ).create({})
         wizard.update_single_weight()
         self.assertAlmostEqual(self.p0.weight, 4)
-        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 4)
+        self.assertAlmostEqual(self.p0tmpl.weight, 4)
 
     def test_calculate_weight_from_template_tree(self):
-        self.bom.product_tmpl_id = self.v1.product_tmpl_id.id
+        self.bom.product_tmpl_id = self.v1tmpl.id
         self.bom.product_id = self.v1.id
         wizard = self.WizObj.with_context(
             active_model="product.template",
-            active_ids=[self.v1.product_tmpl_id.id, self.v2.product_tmpl_id.id],
+            active_ids=[self.v1tmpl.id, self.v2tmpl.id],
         ).create({})
         wizard.update_multi_product_weight()
         # You can't update template weight if it as variants
-        self.assertAlmostEqual(self.v1.product_tmpl_id.weight, 4)
-        self.assertAlmostEqual(self.v2.product_tmpl_id.weight, 0.0)
+        self.assertAlmostEqual(self.v1tmpl.weight, 4)
+        self.assertAlmostEqual(self.v2tmpl.weight, 0.0)
 
     def test_calculate_weight_from_product_tree(self):
-        self.bom.product_tmpl_id = self.v1.product_tmpl_id.id
+        self.bom.product_tmpl_id = self.v1tmpl.id
         self.bom.product_id = self.v1.id
         wizard = self.WizObj.with_context(
             active_model="product.product", active_ids=[self.v1.id, self.v2.id]
@@ -107,19 +115,29 @@ class TestBomWeightCompute(TransactionCase):
         dozen_uom_id = self.env.ref("uom.product_uom_dozen").id
         self.bom.product_uom_id = dozen_uom_id
         wizard = self.WizObj.with_context(
-            active_model="product.template", active_id=self.p0.product_tmpl_id.id
+            active_model="product.template", active_id=self.p0tmpl.id
         ).create({})
         wizard.update_single_weight()
         self.assertAlmostEqual(self.p0.weight, 0.34)
-        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 0.34)
+        self.assertAlmostEqual(self.p0tmpl.weight, 0.34)
 
     def test_bom_different_qty(self):
         self.bom.product_qty = self.bom.product_qty * 2
         for bomline in self.bom.bom_line_ids:
             bomline.product_qty = bomline.product_qty * 2
         wizard = self.WizObj.with_context(
-            active_model="product.template", active_id=self.p0.product_tmpl_id.id
+            active_model="product.template", active_id=self.p0tmpl.id
         ).create({})
         wizard.update_single_weight()
+        self.assertAlmostEqual(self.p0tmpl.weight, 4)
         self.assertAlmostEqual(self.p0.weight, 4)
-        self.assertAlmostEqual(self.p0.product_tmpl_id.weight, 4)
+
+    def test_cron_weight_update(self):
+        self.p2.write({"weight": 0.44})
+        self.p3.write({"weight": 0.85})
+        self.p4.write({"weight": 0.20})
+        self.ProductModel.cron_recompute_bom_weight()
+        self.assertAlmostEqual(self.p0.weight, 5.96)
+        self.assertAlmostEqual(self.p0tmpl.weight, 5.96)
+        self.assertAlmostEqual(self.p1.weight, 0.40)
+        self.assertAlmostEqual(self.p1tmpl.weight, 0.40)

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo noupdate="1">
+
+    <record id="weight_recompute_cron" model="ir.cron">
+        <field name="name">Recompute Bom's weight</field>
+        <field name="state">code</field>
+        <field name="code">model.cron_recompute_bom_weight()</field>
+        <field
+            name="model_id"
+            ref="product.model_product_product"
+        />  <!-- il attend le xml id du model sur lequel on veut pointer -->
+        <field name="interval_number">1</field>
+        <field name="interval_type">months</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False" />
+        <field name="active" eval="True" />
+    </record>
+
+</odoo>

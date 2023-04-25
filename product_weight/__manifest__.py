@@ -4,7 +4,7 @@
 
 {
     "name": "Product Weight Calculation",
-    "version": "14.0.1.0.1",
+    "version": "16.0.1.0.1",
     "author": "Savoir-faire Linux,Akretion,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
@@ -15,6 +15,7 @@
         "security/ir.model.access.csv",
         "wizard/product_weight_update_view.xml",
         "views/product_view.xml",
+        "data/ir_cron_data.xml",
     ],
     "installable": True,
 }
