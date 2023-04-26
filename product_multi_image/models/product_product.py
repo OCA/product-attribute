@@ -31,7 +31,9 @@ class ProductProduct(models.Model):
             )
             product.image_ids = [(6, 0, images.ids)]
             if product.image_ids:
-                product.image_1920 = product.image_ids[0].image_main
+                product.image_1920 = (
+                    product.image_ids[0].with_context(bin_size=False).image_main
+                )
 
     def _inverse_image_ids(self):
         for product in self:

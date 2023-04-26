@@ -4,10 +4,11 @@
 
 {
     "name": "Multiple Images in Products",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "author": "Antiun Ingeniería, "
     "Tecnativa, "
     "LasLabs, "
+    "Yigit Budak, "
     "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
