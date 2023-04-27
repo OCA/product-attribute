@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_archive
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-05-24 18:11+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_attribute_archive
+#: model:ir.model.fields,field_description:product_attribute_archive.field_product_attribute__active
+#: model:ir.model.fields,field_description:product_attribute_archive.field_product_attribute_value__active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: product_attribute_archive
+#: model_terms:ir.ui.view,arch_db:product_attribute_archive.product_attribute_form_view
+msgid "Archived"
+msgstr "In archivio"
+
+#. module: product_attribute_archive
+#: model:ir.model,name:product_attribute_archive.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Valore attributo"
+
+#. module: product_attribute_archive
+#: model:ir.model,name:product_attribute_archive.model_product_attribute
+msgid "Product Attribute"
+msgstr "Prodotto attributo"
