@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_product_nutritional_type_tree" model="ir.ui.view">
+        <field name="name">product.nutritional.type.tree</field>
+        <field name="model">nutritional.type</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_nutritional_type" model="ir.actions.act_window">
+         <field name="name">Nutritional Types</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">nutritional.type</field>
+         <field name="view_mode">tree</field>
+    </record>
+</odoo>
