@@ -23,7 +23,7 @@ Product Cost Security
     :target: https://runbot.odoo-community.org/runbot/135/16.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 It adds two security groups, one for viewing the product cost price, and the other for
 editing it.
@@ -77,6 +77,9 @@ Contributors
 
 * Watthanun Khorchai <watthanun_t@hotmail.com>
 * Carlos Lopez <celm1990@gmail.com>
+* `Onestein <https://www.onestein.eu>`_:
+
+  * Anjeel Haria
 
 Maintainers
 ~~~~~~~~~~~
@@ -97,7 +100,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-sergio-teruel|
+|maintainer-sergio-teruel| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_cost_security>`_ project on GitHub.
 
