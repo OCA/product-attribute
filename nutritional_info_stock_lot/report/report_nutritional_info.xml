@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="stock_lot_nutritional_info_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <h1><span t-field="doc.display_name" /> - <span
+                            t-field="doc.product_id"
+                        /></h1>
+                    <t t-call="nutritional_info.nutritional_info_table">
+                        <t t-set="main_object" t-value="doc" />
+                        <t t-set="alt_object" t-value="doc.product_id" />
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_nutritional_info_template_report" model="ir.actions.report">
+        <field name="name">Nutritional Info</field>
+        <field name="model">stock.production.lot</field>
+        <field name="binding_model_id" ref="model_stock_production_lot" />
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_file"
+        >nutritional_info_stock_lot.stock_lot_nutritional_info_report</field>
+        <field
+            name="report_name"
+        >nutritional_info_stock_lot.stock_lot_nutritional_info_report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro" />
+    </record>
+</odoo>
