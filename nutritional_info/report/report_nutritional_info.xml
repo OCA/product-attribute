@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="nutritional_info_table_title">
+        <span>Nutrition facts (</span><span
+            t-out="str(quantity) + uom.display_name"
+        /><span>)</span>
+    </template>
+    <template id="nutritional_info_table">
+        <!-- Combination of records as it can be called from other sites overriding the
+            values set on product.product. Example: some value change on lots
+            (See nutritional_info_stock_lot). -->
+        <t t-set="langs" t-value="langs or [doc.env.user.lang]" />
+        <t t-set="vals" t-value="alt_object.nutritional_value_ids" />
+        <t t-if="main_object != alt_object">
+            <t t-foreach="main_object.nutritional_value_ids" t-as="nutritional_value">
+                <t
+                    t-set="vals"
+                    t-value="vals - vals.filtered(lambda v: v.type_id == nutritional_value.type_id) + nutritional_value"
+                />
+            </t>
+        </t>
+        <t t-set="vals" t-value="vals.sorted(key='sequence')" />
+        <!-- End of Combination -->
+        <table class="nutrition-table">
+            <thead>
+                <tr>
+                    <th colspan="2" name="title">
+                        <t t-foreach="langs" t-as="lang">
+                            <t
+                                t-call="nutritional_info.nutritional_info_table_title"
+                                t-lang="lang"
+                            >
+                                <t
+                                    t-set="quantity"
+                                    t-value="alt_object.nutritional_reference_qty"
+                                />
+                                <t
+                                    t-set="uom"
+                                    t-value="alt_object.nutritional_reference_uom"
+                                />
+                            </t>
+                            <span t-if="lang != langs[-1]"> / </span>
+                        </t>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="vals" t-as="val">
+                    <tr>
+                        <td class="col-left" name="measure">
+                            <t t-foreach="langs" t-as="lang">
+                                <span t-field="val.with_context(lang=lang).type_id" />
+                                <span t-if="lang != langs[-1]"> / </span>
+                            </t>
+                        </td>
+                        <td class="col-right" name="value">
+                            <span t-field="val.value" />
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </template>
+    <template id="product_product_nutritional_info_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <h1 t-field="doc.display_name" />
+                    <t t-call="nutritional_info.nutritional_info_table">
+                        <t t-set="main_object" t-value="doc" />
+                        <t t-set="alt_object" t-value="doc" />
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_nutritional_info_product_report" model="ir.actions.report">
+        <field name="name">Nutritional Info</field>
+        <field name="model">product.product</field>
+        <field name="binding_model_id" ref="model_product_product" />
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_file"
+        >nutritional_info.product_product_nutritional_info_report</field>
+        <field
+            name="report_name"
+        >nutritional_info.product_product_nutritional_info_report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro" />
+    </record>
+    <template id="product_template_nutritional_info_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs.mapped('product_variant_ids')" t-as="doc">
+                    <h1 t-field="doc.display_name" />
+                    <t t-call="nutritional_info.nutritional_info_table">
+                        <t t-set="main_object" t-value="doc" />
+                        <t t-set="alt_object" t-value="doc" />
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_nutritional_info_template_report" model="ir.actions.report">
+        <field name="name">Nutritional Info</field>
+        <field name="model">product.template</field>
+        <field name="binding_model_id" ref="model_product_template" />
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_file"
+        >nutritional_info.product_template_nutritional_info_report</field>
+        <field
+            name="report_name"
+        >nutritional_info.product_template_nutritional_info_report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro" />
+    </record>
+</odoo>
