@@ -6,18 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-04-27 11:19+0000\n"
+"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_uom_updatable
 #: model:ir.model,name:product_uom_updatable.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_uom_updatable
 #. odoo-python
@@ -27,3 +29,5 @@ msgid ""
 "You cannot change the unit of measure of a product to a new unit that "
 "doesn't have the same category and factor"
 msgstr ""
+"Non puoi cambiare l'unità di misura di un prodotto ad una nuova unità che "
+"non ha la stessa categoria e fattore"
