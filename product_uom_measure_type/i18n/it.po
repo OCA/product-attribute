@@ -6,72 +6,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-04-27 15:33+0000\n"
+"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__length
 msgid "Length"
-msgstr ""
+msgstr "Lunghezza"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unità di Misura prodotto"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_uom_category
 msgid "Product UoM Categories"
-msgstr ""
+msgstr "Categories UdM prodotto"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__surface
 msgid "Surface"
-msgstr ""
+msgstr "Superficie"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_uom_category__measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_uom_uom__measure_type
 msgid "Type of Measure"
-msgstr ""
+msgstr "Tipo di misura"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__unit
 msgid "Units"
-msgstr ""
+msgstr "Unità"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_product_product__uom_measure_type
 #: model:ir.model.fields,field_description:product_uom_measure_type.field_product_template__uom_measure_type
 msgid "UoM Type of Measure"
-msgstr ""
+msgstr "Tipo di misura UdM"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__volume
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__weight
 msgid "Weight"
-msgstr ""
+msgstr "Peso"
 
 #. module: product_uom_measure_type
 #: model:ir.model.fields.selection,name:product_uom_measure_type.selection__uom_category__measure_type__working_time
 msgid "Working Time"
-msgstr ""
+msgstr "Tempo di lavoro"
 
 #. module: product_uom_measure_type
 #: model:ir.model.constraint,message:product_uom_measure_type.constraint_uom_category_uom_category_unique_type
 msgid "You can have only one category per measurement type."
-msgstr ""
+msgstr "Puoi avere solo una categoria per tipo di misurazione."
