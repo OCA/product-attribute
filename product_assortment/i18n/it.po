@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-27 10:06+0000\n"
+"PO-Revision-Date: 2023-04-27 11:19+0000\n"
 "Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -53,22 +53,22 @@ msgstr "Tutti i Partner"
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Allowed product domain"
-msgstr ""
+msgstr "Dominio prodotti consentiti"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
 msgid "Allowed products"
-msgstr ""
+msgstr "Prodotti consentiti"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
 msgid "Apply restricted product domain"
-msgstr ""
+msgstr "Applica dominio prodotti limitati"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Archived"
-msgstr ""
+msgstr "Archiviato"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -110,7 +110,7 @@ msgstr "Dominio Partner"
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Partner domain"
-msgstr ""
+msgstr "Dominio partner"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -158,12 +158,12 @@ msgstr "Conteggio Record"
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__black_list_product_domain
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Restricted product domain"
-msgstr ""
+msgstr "Dominio prodotto limitato"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__blacklist_product_ids
 msgid "Restricted products"
-msgstr ""
+msgstr "Prodotti limitati"
 
 #. module: product_assortment
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
