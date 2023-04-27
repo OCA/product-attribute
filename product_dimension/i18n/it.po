@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_dimension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-04-27 15:33+0000\n"
+"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__dimensional_uom_id
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__dimensional_uom_id
+msgid "Dimensional UoM"
+msgstr "UdM dimensionale"
+
+#. module: product_dimension
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
+msgid "Dimensions"
+msgstr "Dimensioni"
+
+#. module: product_dimension
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
+msgid "Height"
+msgstr "Altezza"
+
+#. module: product_dimension
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
+msgid "Length"
+msgstr "Lunghezza"
+
+#. module: product_dimension
+#: model:ir.model,name:product_dimension.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_dimension
+#: model:ir.model,name:product_dimension.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_dimension
+#: model:ir.model.fields,help:product_dimension.field_product_product__dimensional_uom_id
+#: model:ir.model.fields,help:product_dimension.field_product_template__dimensional_uom_id
+msgid "UoM for length, height, width"
+msgstr "UdM per lunghezza, altezza, larghezza"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__volume
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__volume
+msgid "Volume"
+msgstr "Volume"
+
+#. module: product_dimension
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
+msgid "Width"
+msgstr "Larghezza"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__product_height
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__product_height
+msgid "height"
+msgstr "altezza"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__product_length
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__product_length
+msgid "length"
+msgstr "lunghezza"
+
+#. module: product_dimension
+#: model:ir.model.fields,field_description:product_dimension.field_product_product__product_width
+#: model:ir.model.fields,field_description:product_dimension.field_product_template__product_width
+msgid "width"
+msgstr "larghezza"
