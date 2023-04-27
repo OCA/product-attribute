@@ -103,7 +103,7 @@
         action="product_pricelist_item_action"
         id="menu_product_pricelist_item_action"
         parent="sale.product_menu_catalog"
-        sequence="4"
+        sequence="35"
         groups="product.group_sale_pricelist"
     />
 </odoo>
