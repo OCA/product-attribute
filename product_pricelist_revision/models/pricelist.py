@@ -6,8 +6,9 @@ from odoo import api, fields, models
 
 class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
+    _rec_names_search = ["name"]  # Initialize here to be able to extend
 
-    name = fields.Char(search="_search_name")
+    name = fields.Char(store=True)
 
     previous_item_id = fields.Many2one(
         comodel_name="product.pricelist.item",
@@ -24,15 +25,10 @@ class ProductPricelistItem(models.Model):
         string="Variation %",
     )
 
-    @api.model
-    def _search_name(self, operator, value):
-        return [
-            "|",
-            "|",
-            ("categ_id", operator, value),
-            ("product_tmpl_id", operator, value),
-            ("product_id", operator, value),
-        ]
+    def _auto_init(self):
+        other_fields = ["categ_id", "product_tmpl_id", "product_id"]
+        self.env["product.pricelist.item"]._rec_names_search.extend(other_fields)
+        return super()._auto_init()
 
     @api.depends("fixed_price", "previous_item_id.fixed_price")
     def _compute_variation_percent(self):

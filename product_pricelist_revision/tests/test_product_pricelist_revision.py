@@ -67,18 +67,21 @@ class TestProductPricelistRevision(TransactionCase):
 
     def test_search_name(self):
         item_obj = self.pricelist_item_obj
-        result = item_obj.search([("name", "ilike", "product")])
+        result = item_obj.search([])
         expected = self.pricelist_item_product_category
         expected |= self.pricelist_item_product_template
         expected |= self.pricelist_item_product_product
-        self.assertEqual(result, expected)
-        result = item_obj.search([("name", "ilike", "product category")])
+        for exp in expected:
+            self.assertIn(exp, result)
+        result = item_obj.search([("categ_id.name", "ilike", "product category")])
         self.assertEqual(result, self.pricelist_item_product_category)
-        result = item_obj.search([("name", "ilike", "product template")])
+        result = item_obj.search(
+            [("product_tmpl_id.name", "ilike", "product template")]
+        )
         self.assertEqual(result, self.pricelist_item_product_template)
-        result = item_obj.search([("name", "ilike", "product variant")])
+        result = item_obj.search([("product_id.name", "ilike", "product variant")])
         self.assertEqual(result, self.pricelist_item_product_product)
-        result = item_obj.search([("name", "ilike", "all")])
+        result = item_obj.search([("pricelist_id.name", "ilike", "all")])
         self.assertEqual(len(result), 0)
 
     def test_wizard_action_apply_and_compute_variation_percent(self):
