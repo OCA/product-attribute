@@ -5,7 +5,7 @@
     "name": "Product Category Code Unique",
     "summary": """
         Allows to set product category code field as unique""",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "maintainers": ["rousseldenis", "luisg123v"],
