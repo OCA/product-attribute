@@ -14,7 +14,7 @@ Product Category Code Unique
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/15.0/product_category_code_unique
+    :target: https://github.com/OCA/product-attribute/tree/16.0/product_category_code_unique
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_category_code_unique
@@ -56,6 +56,7 @@ Contributors
 
 * Denis Roussel <denis.roussel@acsone.eu>
 * Rolando Duarte <rolando@vauxoo.com>
+* Dhara Solanki <dhara.solanki@initos.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -81,6 +82,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-rousseldenis| |maintainer-luisg123v| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_category_code_unique>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_category_code_unique>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
