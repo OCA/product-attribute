@@ -16,6 +16,7 @@
         "views/config_view.xml",
         "security/ir.model.access.csv",
     ],
+    "demo": ["demo/profile_demo.xml"],
     "installable": True,
     "license": "AGPL-3",
     "maintainers": ["bealdav", "sebastienbeau", "kevinkhao"],
