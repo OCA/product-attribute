@@ -43,6 +43,12 @@ class ProductPricelistItem(models.Model):
         compute="_compute_base_pricelist_id_recursion_prefetch",
     )
 
+    show_percent_change_button = fields.Boolean(
+        default=False,
+        help="Technical field to compute button visibility. Rule buttons "
+        "must become visible/clickable after rule creation.",
+    )
+
     def _get_product_price_rule_base(self, product):
         """
         Inheritable method to compute and return selling
@@ -664,6 +670,37 @@ class ProductPricelistItem(models.Model):
                 vals["base_pricelist_id"] = False
 
         return super().write(vals)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+
+        # When buttons are clicked on PricelistItem pseudo-record
+        # :meth:`create()` will be executed and new record will be
+        # flushed in DB. This is a very dangerous behaviour because
+        # rule is flushed unintentionally.
+        #
+        # To bypass this issue:
+        #
+        # we use a technical field `show_percent_change_buttonthat` that
+        # we set True on create(), and show button only if field is True.
+        #
+        # This still pretty dangerous in case of:
+        # * call from external API
+        # * attrs in removed from XML header definition for some reason
+        #
+        # In fact, it would be MUCH better to check field value python side
+        # and raise UserError when technical field is false after create,
+        # instead of manipulating button visibility in XML side. On the other
+        # hand the situation is a little bit more complex to manage by using
+        # :exc:`~odoo.exceptions.UserError` since :meth:`set_percentage_change()`
+        # will be called after :meth:`create()` and python context is not shared
+        # between two methods, this basically makes technical field unreliable
+        # at python-side.
+
+        for values in vals_list:
+            values.update(dict(show_percent_change_button=True))
+        res = super().create(vals_list)
+        return res
 
     @api.depends("pricelist_id", "base_pricelist_id")
     def _compute_base_pricelist_id_recursion_prefetch(self):

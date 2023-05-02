@@ -33,7 +33,10 @@
                             />
                         </group>
 
-                        <div>
+                        <div
+                            name="div_set_percent_change"
+                            attrs="{'invisible': [('show_percent_change_button', '=', False)]}"
+                        >
                             <button
                                 name="set_percentage_change"
                                 type="object"
@@ -62,6 +65,7 @@
                     <!-- Technical fields -->
                     <field name="base_pricelist_id_recursion_prefetch" invisible="1" />
                     <field name="product_has_variants" invisible="1" />
+                    <field name="show_percent_change_button" invisible="1" />
                     <hr />
                 </div>
             </xpath>
