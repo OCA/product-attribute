@@ -11,8 +11,6 @@ class ProductProduct(models.Model):
     def cron_recompute_bom_weight(self):
         products = self.recompute_bom_weight_search()
         batch_size = 1000
-        # print('****')
-        # import pdb;pdb.set_trace()
 
         for i in range(0, len(products), batch_size):
 
