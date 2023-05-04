@@ -25,11 +25,11 @@ class ProductAttributeIsFavoriteMixin(models.AbstractModel):
 
     @api.model_create_multi
     def create(self, vals_list):
+        param = "product_attribute_company_favorite.%s_enable_for_all_companies" % (
+            self._name.replace(".", "_")
+        )
         new_record_favorite_for_all_companies = (
-            self.env["ir.config_parameter"].sudo()
-            # Class constant stores the configuration boolean
-            # for its model to distinguish itself from other models.
-            .get_param(self.CREATION_ACROSS_COMPANY_CONFIG)
+            self.env["ir.config_parameter"].sudo().get_param(param)
         )
         records = super().create(vals_list)
         if new_record_favorite_for_all_companies:

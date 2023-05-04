@@ -80,7 +80,7 @@ class TestProductAttributeMultiCompany(TransactionCase):
         a new attribute should be favorite for other companies"""
 
         self.env["ir.config_parameter"].sudo().set_param(
-            "product_attribute_company_favorite.new_attribute_favorite_for_all_companies",
+            "product_attribute_company_favorite.product_attribute_enable_for_all_companies",
             True,
         )
         self.attribute_2 = self.attribute.create(
@@ -146,7 +146,8 @@ class TestProductAttributeMultiCompany(TransactionCase):
         a new attribute value should be favorite for other companies"""
 
         self.env["ir.config_parameter"].sudo().set_param(
-            "product_attribute_company_favorite.new_attribute_value_favorite_for_all_companies",
+            "product_attribute_company_favorite."
+            "product_attribute_value_enable_for_all_companies",
             True,
         )
         self.attribute_1_value_2 = self.attribute_value.create(
