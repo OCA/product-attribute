@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_product_template_navigation
+# 	* product_product_template_navigation
 #
 msgid ""
 msgstr ""
@@ -15,6 +15,21 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.10\n"
+
+#. module: product_product_template_navigation
+#: model:ir.model.fields,field_description:product_product_template_navigation.field_product_product__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_product_template_navigation
+#: model:ir.model.fields,field_description:product_product_template_navigation.field_product_product__id
+msgid "ID"
+msgstr ""
+
+#. module: product_product_template_navigation
+#: model:ir.model.fields,field_description:product_product_template_navigation.field_product_product____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: product_product_template_navigation
 #: model:ir.model,name:product_product_template_navigation.model_product_product
