@@ -17,6 +17,7 @@
         "views/product_template_view.xml",
         "views/product_pricelist_views.xml",
     ],
+    "post_init_hook": "_post_init_hook",
     "application": False,
     "installable": True,
     "license": "AGPL-3",

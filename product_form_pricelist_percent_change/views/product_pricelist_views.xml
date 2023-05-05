@@ -167,6 +167,7 @@
     <record id="product_pricelist_item_form_view_by_product" model="ir.ui.view">
         <field name="model">product.pricelist.item</field>
         <field name="name">pricelist.item.formview.by.product</field>
+        <field name="priority" eval="1000" />
         <field name="mode">primary</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
@@ -218,6 +219,7 @@
     <record id="product_pricelist_item_form_view_variant_smart_btn" model="ir.ui.view">
         <field name="model">product.pricelist.item</field>
         <field name="name">pricelist.item.formview.variant.smart.btn</field>
+        <field name="priority" eval="1000" />
         <field name="mode">primary</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">

@@ -621,9 +621,6 @@ class ProductPricelistItem(models.Model):
                     view_ref = module_prefix + view_name
                     view_id = self.env.ref(view_ref).id
 
-            else:
-                view_id = self.env.ref("product.product_pricelist_item_form_view").id
-
         res = super(ProductPricelistItem, self).fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu
         )
