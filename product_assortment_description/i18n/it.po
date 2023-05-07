@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-12-30 11:56+0000\n"
+"PO-Revision-Date: 2023-04-26 18:34+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_needaction
 msgid "Action Needed"
-msgstr "Azione necessaria"
+msgstr "Azione richiesta"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__activity_ids
@@ -64,17 +64,17 @@ msgstr "Filtri"
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_follower_ids
 msgid "Followers"
-msgstr "Followers"
+msgstr "Seguito da"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Followers (Canali)"
+msgstr "Seguito da (canali)"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Followers (Contatti)"
+msgstr "Seguito da (partner)"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__activity_type_icon
@@ -111,7 +111,7 @@ msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_is_follower
 msgid "Is Follower"
-msgstr "E' un follower"
+msgstr "Sta seguendo"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters____last_update
@@ -126,7 +126,7 @@ msgstr "Allegato principale"
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_has_error
 msgid "Message Delivery error"
-msgstr "Messaggio errore di consegna"
+msgstr "Errore di consegna messaggio"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_ids
@@ -151,7 +151,7 @@ msgstr "Riepilogo prossima attività"
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__activity_type_id
 msgid "Next Activity Type"
-msgstr "Tipo prossima attività"
+msgstr "Tipologia prossima attività"
 
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_needaction_counter
@@ -196,10 +196,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
-"Stati in base alle attività\n"
-"Scaduti: la data richiesta è trascorsa\n"
+"Stato in base alle attività\n"
+"Scaduto: la data richiesta è trascorsa\n"
 "Oggi: la data attività è oggi\n"
-"Pianificate: attività future."
+"Pianificato: attività future."
 
 #. module: product_assortment_description
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__activity_exception_decoration
