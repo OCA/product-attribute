@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-27 15:33+0000\n"
-"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
+"PO-Revision-Date: 2023-11-02 09:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__active
@@ -39,7 +39,7 @@ msgstr "Creato il"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__default
 msgid "Default state"
-msgstr "Stato di default"
+msgstr "Stato predefinito"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
@@ -50,12 +50,12 @@ msgstr "Descrizione"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
 msgid "Display Name"
-msgstr "Mostra nome"
+msgstr "Nome visualizzato"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_end
 msgid "End of Lifecycle"
-msgstr "Fine del ciclo vitale"
+msgstr "Fine ciclo di vita"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
@@ -75,12 +75,12 @@ msgstr "Ultima modifica il"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
-msgstr "Ultima modifica di"
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_date
 msgid "Last Updated on"
-msgstr "Ultima modifica il"
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__name
@@ -128,7 +128,7 @@ msgstr "Stati prodotto"
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
-msgstr "Status prodotto"
+msgstr "Stato prodotto"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -140,7 +140,7 @@ msgstr "Prodotti"
 #: model:ir.model.fields,help:product_state.field_product_product__product_state_id
 #: model:ir.model.fields,help:product_state.field_product_template__product_state_id
 msgid "Select a state for this product"
-msgstr "Seleziona uno stato per questo prodotto"
+msgstr "Selezionare uno stato per questo prodotto"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__sequence
@@ -183,7 +183,7 @@ msgstr "Il codice di stato prodotto %s non è stato trovato."
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
-msgstr "Ci deve essere un solo stato di default"
+msgstr "Ci deve essere un solo stato predefinito"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence

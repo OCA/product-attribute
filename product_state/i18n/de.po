@@ -52,7 +52,6 @@ msgstr "Beschreibung"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
-#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
 msgid "Display Name"
 msgstr "Anzeigename"
 
@@ -63,7 +62,6 @@ msgstr "Ende des Lebenszyklus"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
-#: model:ir.model.fields,field_description:product_state.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
@@ -74,7 +72,6 @@ msgstr "In Entwicklung"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Letzte Änderung am"
 
@@ -109,6 +106,11 @@ msgid "Obsolete"
 msgstr "Veraltet"
 
 #. module: product_state
+#: model:ir.model,name:product_state.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
@@ -130,11 +132,6 @@ msgstr "Produkt-Zustände"
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
 msgstr "Produkt-Status"
-
-#. module: product_state
-#: model:ir.model,name:product_state.model_product_template
-msgid "Product Template"
-msgstr "Produktvorlage"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -178,12 +175,14 @@ msgid "State Products"
 msgstr "Produkte Zustand"
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_template.py:0
 #, python-format
 msgid "The product state code %s could not be found."
 msgstr ""
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
@@ -194,7 +193,8 @@ msgstr ""
 msgid "Used to order the States"
 msgstr "Dient zu Sortierung der Zustände"
 
-#. module: product_state
-#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
-msgid "product.state"
-msgstr "Produktzustand"
+#~ msgid "Product Template"
+#~ msgstr "Produktvorlage"
+
+#~ msgid "product.state"
+#~ msgstr "Produktzustand"
