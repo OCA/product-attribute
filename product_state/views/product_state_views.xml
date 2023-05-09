@@ -61,6 +61,7 @@
         <field name="model">product.state</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="description" />
             </tree>

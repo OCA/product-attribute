@@ -49,7 +49,6 @@ msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
-#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -60,7 +59,6 @@ msgstr "Fim de Ciclo de Vida"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
-#: model:ir.model.fields,field_description:product_state.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -71,7 +69,6 @@ msgstr "Em Desenvolvimento"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -106,6 +103,11 @@ msgid "Obsolete"
 msgstr "Obsoleto"
 
 #. module: product_state
+#: model:ir.model,name:product_state.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
@@ -129,11 +131,6 @@ msgstr "Modelo de Produto"
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 #, fuzzy
 msgid "Product Status"
-msgstr "Modelo de Produto"
-
-#. module: product_state
-#: model:ir.model,name:product_state.model_product_template
-msgid "Product Template"
 msgstr "Modelo de Produto"
 
 #. module: product_state
@@ -180,12 +177,14 @@ msgid "State Products"
 msgstr "Estado"
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_template.py:0
 #, python-format
 msgid "The product state code %s could not be found."
 msgstr ""
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
@@ -196,8 +195,9 @@ msgstr ""
 msgid "Used to order the States"
 msgstr ""
 
-#. module: product_state
-#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
+#~ msgid "Product Template"
+#~ msgstr "Modelo de Produto"
+
 #, fuzzy
-msgid "product.state"
-msgstr "Modelo de Produto"
+#~ msgid "product.state"
+#~ msgstr "Modelo de Produto"

@@ -103,6 +103,11 @@ msgid "Obsolete"
 msgstr "Obsolet"
 
 #. module: product_state
+#: model:ir.model,name:product_state.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
@@ -124,11 +129,6 @@ msgstr "Estats del producte"
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
 msgstr "Estat del producte"
-
-#. module: product_state
-#: model:ir.model,name:product_state.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producte"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -173,12 +173,14 @@ msgid "State Products"
 msgstr "Estat dels productes"
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_template.py:0
 #, fuzzy, python-format
 msgid "The product state code %s could not be found."
 msgstr "No s'ha pogut trobar el codi d'estat del producte %s."
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
@@ -188,3 +190,6 @@ msgstr "Només hi hauria d'haver un estat per defecte"
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
 msgstr "S'utilitza per ordenar els Estats"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producte"
