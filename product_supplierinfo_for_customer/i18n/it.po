@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-02-17 18:30+0000\n"
+"PO-Revision-Date: 2023-05-12 17:34+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_pricelist_item_form_view
@@ -22,11 +22,13 @@ msgid ""
 "<span attrs=\"{'invisible':[('base', '!=', 'partner')]}\">Partner prices -  "
 "</span>"
 msgstr ""
+"<span attrs=\"{'invisible':[('base', '!=', 'partner')]}\">Prezzi partner -  "
+"</span>"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -340,7 +342,7 @@ msgstr "Variante Cliente"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
 msgid "Vendor"
-msgstr ""
+msgstr "Fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
