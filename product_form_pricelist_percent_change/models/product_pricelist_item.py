@@ -596,10 +596,35 @@ class ProductPricelistItem(models.Model):
         self, view_id=None, view_type="form", toolbar=False, submenu=False
     ):
 
-        """Better control for view-rendering.
-        For more info on views read xml files."""
+        """Better control for view-rendering. We choose to define a primary
+        view that inherits structure from standard pricelist item form-view.
+        Using primary-view it's a little painful to mantain, but keeps field
+        rendering separate, so we can actually have different behaviour for
+        this view without conditioning the original one.
+        We choose `fields_view_get()` over `form_view_ref` because it is more
+        consistent in complex scenarios."""
 
         if view_type == "form":
+            if self.env.context.get("skip_primary_item_view_render"):
+                # To open the primary view when rule is opened by product
+                # we use a special context-key in `fixed_pricelist_item_ids`
+                # one2many field. There are very rare case when this might
+                # be an issue: when you open a rule by products and want
+                # open other dialogs (wizards) if the one2many rule dialog
+                # is still opened in background, the context-key is still
+                # active in the context. At this point if you try to return
+                # another view for the pricelist-rule dialog, the renderer
+                # will be forced to this primary product item view. It is
+                # an extremely rare case, in such a scenario you can add
+                # this `skip_primary_item_view_render` to the context.
+                # It will bypass the precence of `open_pricelist_item_by_
+                # product` key in `fixed_pricelist_item_ids` context.
+                return super().fields_view_get(
+                    view_id=view_id,
+                    view_type=view_type,
+                    toolbar=toolbar,
+                    submenu=submenu,
+                )
 
             open_pricelist_item_by_product = self.env.context.get(
                 "open_pricelist_item_by_product"
@@ -621,7 +646,7 @@ class ProductPricelistItem(models.Model):
                     view_ref = module_prefix + view_name
                     view_id = self.env.ref(view_ref).id
 
-        res = super(ProductPricelistItem, self).fields_view_get(
+        res = super().fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu
         )
 
