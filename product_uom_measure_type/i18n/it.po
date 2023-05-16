@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-27 15:33+0000\n"
-"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
+"PO-Revision-Date: 2023-05-17 04:05+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Prodotto"
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr "Unità di Misura prodotto"
+msgstr "Unità di misura del prodotto"
 
 #. module: product_uom_measure_type
 #: model:ir.model,name:product_uom_measure_type.model_uom_category
