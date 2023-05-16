@@ -9,6 +9,22 @@ class TestProductLotSequence(TransactionCase):
         super(TestProductLotSequence, self).setUp()
         self.product_product = self.env["product.product"]
         self.stock_production_lot = self.env["stock.production.lot"]
+        self.receipt_type = self.env.ref("stock.picking_type_in")
+        self.delivery_type = self.env.ref("stock.picking_type_out")
+
+    def _create_picking(self, picking_type, move_vals_list):
+        picking_form = Form(self.env["stock.picking"])
+        picking_form.picking_type_id = picking_type
+        for move_vals in move_vals_list:
+            with picking_form.move_ids_without_package.new() as move_form:
+                move_form.product_id = move_vals.get("product_id")
+                move_form.product_uom_qty = move_vals.get("product_uom_qty", 1.0)
+                move_form.product_uom = move_vals.get(
+                    "product_uom", self.env.ref("uom.product_uom_unit")
+                )
+        picking = picking_form.save()
+        picking.action_confirm()
+        return picking
 
     def test_product_sequence(self):
         self.assertEqual(self.stock_production_lot._get_sequence_policy(), "product")
@@ -88,3 +104,36 @@ class TestProductLotSequence(TransactionCase):
         lot_form.product_id = product
         lot = lot_form.save()
         self.assertEqual(lot.name, next_sequence_number)
+
+    def test_open_detailed_operations(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "global"
+        )
+        seq = self.env["ir.sequence"].search([("code", "=", "stock.lot.serial")])
+        first_next_sequence_number = seq.get_next_char(seq.number_next_actual)
+        product = self.product_product.create(
+            {"name": "Test global", "tracking": "serial"}
+        )
+        delivery_picking = self._create_picking(
+            self.delivery_type, [{"product_id": product}]
+        )
+        delivery_move = delivery_picking.move_lines
+        self.assertFalse(delivery_move.next_serial)
+        delivery_move.action_show_details()
+        self.assertFalse(delivery_move.next_serial)
+        self.assertEqual(
+            seq.get_next_char(seq.number_next_actual), first_next_sequence_number
+        )
+        receipt_picking = self._create_picking(
+            self.receipt_type, [{"product_id": product}]
+        )
+        receipt_move = receipt_picking.move_lines
+        self.assertFalse(receipt_move.next_serial)
+        receipt_move.action_show_details()
+        self.assertEqual(receipt_move.next_serial, first_next_sequence_number)
+        new_next_sequence_number = seq.get_next_char(seq.number_next_actual)
+        self.assertNotEqual(new_next_sequence_number, first_next_sequence_number)
+        receipt_move.action_show_details()
+        self.assertEqual(
+            new_next_sequence_number, seq.get_next_char(seq.number_next_actual)
+        )
