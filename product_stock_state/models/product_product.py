@@ -15,19 +15,15 @@ from odoo.tools.float_utils import float_compare
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    _STOCK_STATE_SELECTION = [
-        ("in_stock", "In Stock"),
-        ("in_limited_stock", "In Limited Stock"),
-        ("resupplying", "Resupplying"),
-        ("out_of_stock", "Out Of Stock"),
-    ]
-
     stock_state = fields.Selection(
-        selection="_selection_stock_state", compute="_compute_stock_state"
+        selection=[
+            ("in_stock", "In Stock"),
+            ("in_limited_stock", "In Limited Stock"),
+            ("resupplying", "Resupplying"),
+            ("out_of_stock", "Out Of Stock"),
+        ],
+        compute="_compute_stock_state",
     )
-
-    def _selection_stock_state(self):
-        return self._STOCK_STATE_SELECTION
 
     def _get_qty_available_for_stock_state(self):
         """
@@ -58,7 +54,7 @@ class ProductProduct(models.Model):
         return True
 
     def _available_states(self):
-        return [x[0] for x in self._selection_stock_state()]
+        return [x[0] for x in self._fields["stock_state"].selection]
 
     @api.depends(
         "qty_available",
