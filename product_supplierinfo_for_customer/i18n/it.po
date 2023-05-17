@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-12 12:56+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-05-17 12:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -217,7 +217,7 @@ msgstr "Prodotto"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_tmpl_id
 msgid "Product Template"
-msgstr "Template prodotto"
+msgstr "Modello prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
