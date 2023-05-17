@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="uom_category_form_view" model="ir.ui.view">
+        <field name="name">uom.category.form.inherit</field>
+        <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.product_uom_categ_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="before">
+                <widget
+                    name="web_ribbon"
+                    text="Archived"
+                    bg_color="bg-danger"
+                    attrs="{'invisible': [('active', '=', True)]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="active" options='{"always_reload": True}' />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
