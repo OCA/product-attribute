@@ -18,8 +18,7 @@ msgstr ""
 
 #. module: product_multi_price
 #: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_multi_price_uniq
-msgid ""
-"A field name cannot be assigned to a product twice for the same company"
+msgid "A field name cannot be assigned to a product twice for the same company"
 msgstr ""
 "No es pot assignar un nom de camp a un producte dues vegades per a la "
 "mateixa empresa"
@@ -123,6 +122,7 @@ msgid "Price"
 msgstr "Preu"
 
 #. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__name_text
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name__name
 msgid "Price Field Name"
 msgstr "Nom del camp del preu"
@@ -156,14 +156,8 @@ msgstr "Producte"
 
 #. module: product_multi_price
 #: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
-#: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_tree_view
 msgid "Product Multi Price"
 msgstr "Preu múltiple de producte"
-
-#. module: product_multi_price
-#: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_name_tree_view
-msgid "Product Multi Price Field Name"
-msgstr "Nom del camp del preu múltiple del producte"
 
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_multi_price
@@ -179,3 +173,6 @@ msgstr "Plantilla de producte"
 #: model:res.groups,name:product_multi_price.group_show_multi_prices
 msgid "Show multi prices"
 msgstr "Mostra preus múltiples"
+
+#~ msgid "Product Multi Price Field Name"
+#~ msgstr "Nom del camp del preu múltiple del producte"
