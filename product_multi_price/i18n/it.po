@@ -124,6 +124,7 @@ msgid "Price"
 msgstr "Prezzo"
 
 #. module: product_multi_price
+#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__name_text
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name__name
 msgid "Price Field Name"
 msgstr "Nome campo prezzo"
@@ -158,14 +159,8 @@ msgstr "Prodotto"
 
 #. module: product_multi_price
 #: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_form_view
-#: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_tree_view
 msgid "Product Multi Price"
 msgstr "Prezzi multipli prodotto"
-
-#. module: product_multi_price
-#: model_terms:ir.ui.view,arch_db:product_multi_price.product_multi_price_name_tree_view
-msgid "Product Multi Price Field Name"
-msgstr ""
 
 #. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_multi_price
