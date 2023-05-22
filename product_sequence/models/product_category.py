@@ -80,10 +80,10 @@ class ProductCategory(models.Model):
     @api.model
     def create(self, vals):
         prefix = vals.get("code_prefix")
-        categories = self.env["product.category"].search(
-            [("id", "=", vals["parent_id"])], limit=1
-        )
         if vals.get("parent_id"):
+            categories = self.env["product.category"].search(
+                [("id", "=", vals["parent_id"])], limit=1
+            )
             for category in categories:
                 if category.parent_id.sequence_id:
                     sequence = category.parent_id.sequence_id
