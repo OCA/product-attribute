@@ -14,7 +14,7 @@ Product Supplier Info Archive
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/15.0/product_supplierinfo_archive
+    :target: https://github.com/OCA/product-attribute/tree/16.0/product_supplierinfo_archive
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_supplierinfo_archive
@@ -63,6 +63,7 @@ Contributors
 * Guillem Casassas <guillem.casassas@forgeflow.com>
 * Álvaro Trius Béjar <alvaro.trius@forgeflow.com>
 * Oriol Villamayor <oriol.villamayor@forgeflow.com>
+* Dhara Solanki <dhara.solanki@initos.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -91,6 +92,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-GuillemCForgeFlow| |maintainer-AlvaroTForgeFlow| |maintainer-OriolVForgeFlow| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_supplierinfo_archive>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_supplierinfo_archive>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
