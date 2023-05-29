@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-26 12:03+0000\n"
-"PO-Revision-Date: 2023-05-26 12:03+0000\n"
+"POT-Creation-Date: 2023-05-26 12:04+0000\n"
+"PO-Revision-Date: 2023-05-26 12:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,18 +23,18 @@ msgid ""
 "A product (or multiple products) in the category have different type than "
 "the selected restricted product type"
 msgstr ""
-"Un producto (o varios productos) de la categoría tienen un tipo diferente al"
-" tipo de producto restringido seleccionado"
+"Un producte (o diversos productes) de la categoria té un tipus diferent al "
+"tipus de producte restringit seleccionat"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_template
 msgid "Product"
-msgstr "Producto"
+msgstr "Producte"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_category
 msgid "Product Category"
-msgstr "Categoría de producto"
+msgstr "Categoria del producte"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__restricted_product_type
@@ -49,5 +49,5 @@ msgid ""
 "The product type must be equal to the restricted product type defined in the"
 " product category"
 msgstr ""
-"El tipo de producto debe ser igual al tipo de producto restringido definido "
-"en la categoría de producto"
+"El tipus de producte ha de ser igual al tipus de producte restringit definit"
+" a la categoria de producte"

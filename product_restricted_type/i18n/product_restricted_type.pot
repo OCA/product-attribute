@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-26 12:03+0000\n"
+"PO-Revision-Date: 2023-05-26 12:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,6 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_restricted_type
+#. odoo-python
 #: code:addons/product_restricted_type/models/product.py:0
 #, python-format
 msgid ""
@@ -22,13 +25,13 @@ msgid ""
 msgstr ""
 
 #. module: product_restricted_type
-#: model:ir.model,name:product_restricted_type.model_product_category
-msgid "Product Category"
+#: model:ir.model,name:product_restricted_type.model_product_template
+msgid "Product"
 msgstr ""
 
 #. module: product_restricted_type
-#: model:ir.model,name:product_restricted_type.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:product_restricted_type.model_product_category
+msgid "Product Category"
 msgstr ""
 
 #. module: product_restricted_type
@@ -37,6 +40,7 @@ msgid "Restricted Product Type "
 msgstr ""
 
 #. module: product_restricted_type
+#. odoo-python
 #: code:addons/product_restricted_type/models/product_template.py:0
 #, python-format
 msgid ""
