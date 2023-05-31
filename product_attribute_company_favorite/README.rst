@@ -25,8 +25,7 @@ Product Attribute Company Favorite
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-Set favorite product attributes per company. Only the favorite attributes will be displayed when adding an attribute in a product template form.
-This is a flexible way to isolate product attributes per company, allowing a subset of companies to access the same attribute.
+Set favorite product attributes and attribute values per company. Only the favorite attributes and values will be displayed in the dropdown menu in a product template form.
 
 **Table of contents**
 
@@ -36,8 +35,11 @@ This is a flexible way to isolate product attributes per company, allowing a sub
 Configuration
 =============
 
-There is a setting to allow to set new attribute as favorites for all companies, instead of the user's current company only.
-Go to Settings>Inventory>Products and check "Set new attributes as favorite for all companies"
+There is two setting to allow to set new attribute and new attribute values as favorites at creation for all companies, instead of the user's current company only.
+
+Go to Settings>Inventory>Products and check
+- "Set new attribute as favorite for all companies"
+- "Set new attribute value as favorite for all companies"
 
 Usage
 =====
