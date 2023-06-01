@@ -4,7 +4,8 @@ odoo.define("pos_product_cost_security.models", function (require) {
     var models = require("point_of_sale.models");
 
     // Extend the product model context so we can inject an aditionl context key
-    var existing_models = models.PosModel.prototype.models;
+    var pos_super = models.PosModel.prototype;
+    var existing_models = pos_super.models;
     var product_index = _.findIndex(existing_models, function (model) {
         return model.model === "product.product";
     });
@@ -17,4 +18,11 @@ odoo.define("pos_product_cost_security.models", function (require) {
     product_model.context = function () {
         return extended_context;
     };
+    models.PosModel = models.PosModel.extend({
+        async _loadMissingProducts() {
+            this.session.user_context.pos_override_cost_security = true;
+            const result = pos_super._loadMissingProducts.apply(this, arguments);
+            return result;
+        },
+    });
 });
