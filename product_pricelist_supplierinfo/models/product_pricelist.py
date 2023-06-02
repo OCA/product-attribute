@@ -46,3 +46,8 @@ class ProductPricelistItem(models.Model):
         string="Supplier filter",
         help="Only match prices from the selected supplier",
     )
+
+    def get_supplier_id(self):
+        self.ensure_one()
+        supplier_id = self._context.get("supplier") or self.filter_supplier_id.id
+        return self.env["res.partner"].browse(supplier_id)

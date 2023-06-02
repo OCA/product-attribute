@@ -130,6 +130,22 @@ class TestProductSupplierinfo(common.SavepointCase):
             10,
         )
 
+    def test_pricelist_select_supplier(self):
+        supplier3 = self.partner_obj.create({"name": "Supplier #3"})
+        self.product.write(
+            {"seller_ids": [(0, 0, {"name": supplier3.id, "min_qty": 1, "price": 9})]}
+        )
+        for seller_id in self.product.seller_ids:
+            price = self.pricelist.with_context(
+                supplier=seller_id.name.id
+            ).get_product_price(
+                product=seller_id.product_id or seller_id.product_tmpl_id,
+                quantity=seller_id.min_qty,
+                partner=False,
+                uom_id=seller_id.product_uom.id,
+            )
+            self.assertEqual(price, seller_id.price)
+
     def test_pricelist_dates(self):
         """Test pricelist and supplierinfo dates"""
         self.product.seller_ids.filtered(lambda x: x.min_qty == 5)[
