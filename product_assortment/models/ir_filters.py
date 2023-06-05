@@ -76,11 +76,6 @@ class IrFilters(models.Model):
         self._update_assortment_default_values(vals_list=vals_list)
         return super().create(vals_list=vals_list)
 
-    @ormcache("self.id")
-    def get_all_partner_ids(self):
-        self.ensure_one()
-        return self.all_partner_ids.ids
-
     @api.model
     @ormcache()
     def get_partner_domain_fields(self):
