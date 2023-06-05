@@ -76,11 +76,6 @@ class IrFilters(models.Model):
         string="Restricted product domain", default="[]", required=True
     )
 
-    @ormcache("self.id")
-    def get_all_partner_ids(self):
-        self.ensure_one()
-        return self.all_partner_ids.ids
-
     @api.model
     @ormcache()
     def get_partner_domain_fields(self):
