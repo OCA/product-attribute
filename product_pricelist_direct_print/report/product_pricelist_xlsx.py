@@ -8,8 +8,9 @@ class ProductPricelistXlsx(models.AbstractModel):
     _inherit = "report.report_xlsx.abstract"
     _description = "Abstract model to export as xlsx the product pricelist"
 
-    def _get_lang(self, user_id):
-        lang_code = self.env["res.users"].browse(user_id).lang
+    def _get_lang(self, user_id, lang_code=False):
+        if not lang_code:
+            lang_code = self.env["res.users"].browse(user_id).lang
         return self.env["res.lang"]._lang_get(lang_code)
 
     def _create_product_pricelist_sheet(self, workbook, book, pricelist):
@@ -25,7 +26,7 @@ class ProductPricelistXlsx(models.AbstractModel):
                 "fg_color": "#F2F2F2",
             }
         )
-        lang = self._get_lang(book.create_uid.id)
+        lang = self._get_lang(book.create_uid.id, lang_code=book.lang)
         date_format = lang.date_format.replace("%d", "dd")
         date_format = date_format.replace("%m", "mm")
         date_format = date_format.replace("%Y", "YYYY")
@@ -120,7 +121,13 @@ class ProductPricelistXlsx(models.AbstractModel):
         return next_col
 
     def generate_xlsx_report(self, workbook, data, objects):
-        book = objects[0]
+        book = objects[0].with_context(
+            lang=objects[0].lang
+            or self.env["res.users"].browse(objects[0].create_uid.id).lang
+        )
+        self = self.with_context(
+            lang=book.lang or self.env["res.users"].browse(book.create_uid.id).lang
+        )
         pricelist = book.get_pricelist_to_print()
         sheet = self._create_product_pricelist_sheet(workbook, book, pricelist)
         sheet = self._fill_data(workbook, sheet, book, pricelist)

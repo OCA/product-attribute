@@ -217,6 +217,11 @@ msgid "Keep empty for all products"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
+msgid "Language"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
 msgid "Last Modified on"
 msgstr ""
