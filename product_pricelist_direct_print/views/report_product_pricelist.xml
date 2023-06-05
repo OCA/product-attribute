@@ -4,6 +4,7 @@
 <odoo>
     <template id="report_product_pricelist_document">
         <t t-call="web.html_container">
+            <t t-set="o" t-value="o.with_context(lang=o.lang)" />
             <t t-set="pricelist" t-value="o.get_pricelist_to_print()" />
             <t t-set="company" t-value="pricelist.company_id or env.company" />
             <t t-call="web.external_layout">
@@ -105,7 +106,7 @@
         <t t-foreach="docs" t-as="o">
             <t
                 t-call="product_pricelist_direct_print.report_product_pricelist_document"
-                t-lang="o.env.user.lang"
+                t-lang="o.lang"
             />
         </t>
     </template>
