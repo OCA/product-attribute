@@ -9,6 +9,11 @@ from odoo.exceptions import ValidationError
 from odoo.osv import expression
 
 
+@api.model
+def _lang_get(self):
+    return self.env["res.lang"].get_installed()
+
+
 class ProductPricelistPrint(models.TransientModel):
     _name = "product.pricelist.print"
     _description = "Product Pricelist Print"
@@ -57,6 +62,9 @@ class ProductPricelistPrint(models.TransientModel):
     # Excel export options
     breakage_per_category = fields.Boolean(default=True)
     show_internal_category = fields.Boolean(string="Show internal categories")
+    lang = fields.Selection(
+        _lang_get, string="Language", default=lambda self: self.env.user.lang
+    )
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
