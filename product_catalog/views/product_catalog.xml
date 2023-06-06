@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Akretion 2023 -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_catalog_view_form" model="ir.ui.view">
+        <field name="model">product.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Product Catalog">
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
+                    <h1 class="mt0">
+                        <field name="name" />
+                    </h1>
+                    <group name="general_info" string="General information">
+                        <field name="active" invisible="1" />
+                        <field name="assortment_domain" invisible="1" />
+                        <field name="product_assortment_id" />
+                        <field name="pp_candidate_member_ids" />
+                        <field name="pp_to_remove_member_ids" />
+                        <field
+                            name="pp_effective_member_ids"
+                            domain="assortment_domain"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_catalog_view_tree" model="ir.ui.view">
+        <field name="model">product.catalog</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_catalog_action" model="ir.actions.act_window">
+        <field name="name">Product catalogs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.catalog</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menuitem_product_catalog"
+        name="Product Catalogs"
+        parent="sale.menu_sale_config"
+        action="product_catalog_action"
+    />
+</odoo>
