@@ -58,7 +58,9 @@ class PricelistSimulation(models.TransientModel):
 
     def _prepare_simulation_lines_vals(self, variant, pricelist):
         price = variant.with_context(
-            pricelist=pricelist.id, quantity=self.product_qty, date=self.price_date,
+            pricelist=pricelist.id,
+            quantity=self.product_qty,
+            date=self.price_date,
         ).price
         return {
             "product_id": variant.id,
@@ -79,13 +81,18 @@ class PricelistSimulationLine(models.TransientModel):
     _description = "wizard - Preview Pricelist Line"
 
     simulation_id = fields.Many2one(
-        string="Simulation", comodel_name="wizard.preview.pricelist",
+        string="Simulation",
+        comodel_name="wizard.preview.pricelist",
     )
     product_id = fields.Many2one(
-        comodel_name="product.product", string="Product Variant", readonly=True,
+        comodel_name="product.product",
+        string="Product Variant",
+        readonly=True,
     )
     pricelist_id = fields.Many2one(
-        comodel_name="product.pricelist", string="Pricelist", readonly=True,
+        comodel_name="product.pricelist",
+        string="Pricelist",
+        readonly=True,
     )
     currency_id = fields.Many2one(
         comodel_name="res.currency",
