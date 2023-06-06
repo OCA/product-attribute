@@ -8,55 +8,49 @@
         <field name="arch" type="xml">
             <form>
                 <field name="variant_count" invisible="1" />
-                <group name="settings_group">
-                    <group name="settings_left_group">
-                        <field name="template_id" />
+                <group name="settings_group" colspan="6">
+                    <field name="template_id" />
+                    <field
+                        name="product_id"
+                        options="{'no_create': True}"
+                        attrs="{'invisible': [('variant_count', '=', 1)]}"
+                    />
+                    <field name="product_qty" />
+                    <field name="price_date" />
+                </group>
+                <field name="line_ids" nolabel="1" widget="one2many">
+                    <form>
+                        <group>
+                            <group>
+                                <field
+                                    name="product_id"
+                                    attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
+                                />
+                                <field name="pricelist_id" />
+                            </group>
+                            <group>
+                                <field name="price" />
+                                <field name="currency_id" invisible="1" />
+                            </group>
+                        </group>
+                        <footer>
+                            <button
+                                string="Close"
+                                class="btn-secondary"
+                                special="cancel"
+                            />
+                        </footer>
+                    </form>
+                    <tree>
                         <field
                             name="product_id"
-                            options="{'no_create': True}"
-                            attrs="{'invisible': [('variant_count', '=', 1)]}"
+                            attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
                         />
-                    </group>
-                    <group name="settings_right_group">
-                        <field name="product_qty" />
-                        <field name="price_date" />
-                    </group>
-                </group>
-                <group name="lines_group">
-                    <field name="line_ids" nolabel="1">
-                        <tree>
-                            <field
-                                name="product_id"
-                                attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
-                            />
-                            <field name="pricelist_id" />
-                            <field name="price" />
-                            <field name="currency_id" invisible="1" />
-                        </tree>
-                        <form>
-                            <group>
-                                <group>
-                                    <field
-                                        name="product_id"
-                                        attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
-                                    />
-                                    <field name="pricelist_id" />
-                                </group>
-                                <group>
-                                    <field name="price" />
-                                    <field name="currency_id" invisible="1" />
-                                </group>
-                            </group>
-                            <footer>
-                                <button
-                                    string="Close"
-                                    class="btn-secondary"
-                                    special="cancel"
-                                />
-                            </footer>
-                        </form>
-                    </field>
-                </group>
+                        <field name="pricelist_id" />
+                        <field name="price" />
+                        <field name="currency_id" invisible="1" />
+                    </tree>
+                </field>
                 <footer>
                     <button string="Close" class="btn-secondary" special="cancel" />
                 </footer>

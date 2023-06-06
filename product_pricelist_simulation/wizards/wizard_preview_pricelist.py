@@ -57,11 +57,9 @@ class PricelistSimulation(models.TransientModel):
         self.line_ids = line_ids_vals
 
     def _prepare_simulation_lines_vals(self, variant, pricelist):
-        price = variant.with_context(
-            pricelist=pricelist.id,
-            quantity=self.product_qty,
-            date=self.price_date,
-        ).price
+        pricelist_id = pricelist.id
+        price = pricelist._price_get(variant, self.product_qty)
+        price = price[pricelist_id]
         return {
             "product_id": variant.id,
             "pricelist_id": pricelist.id,
@@ -101,5 +99,7 @@ class PricelistSimulationLine(models.TransientModel):
         readonly=True,
     )
     price = fields.Monetary(
-        string="Price", digits="Price", readonly=True, currency_field="currency_id"
+        digits="Price",
+        readonly=True,
+        currency_field="currency_id",
     )
