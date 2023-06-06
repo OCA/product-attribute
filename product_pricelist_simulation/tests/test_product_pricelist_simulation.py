@@ -83,7 +83,8 @@ class TestProductPricelistSimulation(common.SavepointCase):
         # # Template 1
         wizard_form = Form(
             self.env["wizard.preview.pricelist"].with_context(
-                active_model="product.template", active_id=self.template_1.id,
+                active_model="product.template",
+                active_id=self.template_1.id,
             ),
         )
         self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 50.0)
@@ -91,7 +92,8 @@ class TestProductPricelistSimulation(common.SavepointCase):
         # # Template 2
         wizard_form = Form(
             self.env["wizard.preview.pricelist"].with_context(
-                active_model="product.template", active_id=self.template_2.id,
+                active_model="product.template",
+                active_id=self.template_2.id,
             ),
         )
         prices = [r["price"] for r in wizard_form.line_ids._records]
