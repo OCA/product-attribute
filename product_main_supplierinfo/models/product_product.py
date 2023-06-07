@@ -14,7 +14,7 @@ class ProductProduct(models.Model):
     )
 
     @api.depends(
-        "seller_ids.name.active",
+        "seller_ids.partner_id.active",
         "seller_ids.sequence",
         "seller_ids.min_qty",
         "seller_ids.price",
