@@ -48,6 +48,19 @@ class IrFilters(models.Model):
         string="Restricted product domain", default="[]", required=True
     )
 
+    # Technical field to store the relation between the assortment and the
+    # product.product. This is needed to know if a product is or was in
+    # the assortment and be able to generate event
+    product_ids = fields.Many2many(
+        "product.product",
+        string="Product in the assortment",
+        help=(
+            "This is a technical field to store if a product is or not in an "
+            "assortment."
+        ),
+        readonly=True,
+    )
+
     @api.model
     def _get_default_is_assortment(self):
         if self.env.context.get("product_assortment", False):
@@ -157,3 +170,41 @@ class IrFilters(models.Model):
             }
         )
         return action
+
+    def _get_product_to_add_in_assortment(self):
+        domain = self._get_eval_domain()
+        query = self.env["product.product"]._where_calc(domain)
+        self.env["product.product"]._apply_ir_rules(query, "read")
+        query.left_join(
+            "product_product",
+            "id",
+            "ir_filters_product_product_rel",
+            "product_product_id",
+            "ir_filters_rel",
+        )
+        query.add_where("product_product__ir_filters_rel.ir_filters_id IS NULL")
+        return self.env["product.product"].browse(query)
+
+    def _get_product_to_remove_from_assortment(self):
+        domain = self._get_eval_domain()
+        query = self.env["product.product"]._where_calc(domain)
+        self.env["product.product"]._apply_ir_rules(query, "read")
+        query_str, query_params = query.select()
+        full_query_str = f"""SELECT ir_filters_product_product_rel.product_product_id
+            FROM
+            ir_filters_product_product_rel
+            LEFT JOIN ({query_str}) AS valide_product
+            ON valide_product.id = ir_filters_product_product_rel.product_product_id
+            WHERE valide_product.id IS NULL"""
+        self._cr.execute(full_query_str, query_params)
+        return self.env["product.product"].browse([x[0] for x in self._cr.fetchall()])
+
+    def cron_update_product_list(self):
+        records = self.search([("is_assortment", "=", True)])
+        records.update_product_list()
+
+    def update_product_list(self):
+        products = self._get_product_to_add_in_assortment()
+        products._add_product_in_assortment(self)
+        products = self._get_product_to_remove_from_assortment()
+        products._remove_product_from_assortment(self)

@@ -132,3 +132,16 @@ class TestProductAssortment(TransactionCase):
             assortment._get_eval_domain()
         )
         self.assertNotIn(excluded_product, allowed_products)
+
+    def test_update_product_list(self):
+        products = self.product_obj.search([])
+        self.assortment.update_product_list()
+        self.assertEqual(products, self.assortment.product_ids)
+
+        # reduce assortment to services products
+        domain = [("type", "=", "service")]
+        self.assortment.domain = domain
+
+        products = self.product_obj.search(domain)
+        self.assortment.update_product_list()
+        self.assertEqual(products, self.assortment.product_ids)
