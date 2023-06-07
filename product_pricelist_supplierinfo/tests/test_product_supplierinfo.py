@@ -12,6 +12,7 @@ class TestProductSupplierinfo(common.TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.partner_obj = cls.env["res.partner"]
+        cls.currency_rate_obj = cls.env["res.currency.rate"]
         cls.partner = cls.partner_obj.create({"name": "Partner Test"})
         cls.supplier1 = cls.partner_obj.create({"name": "Supplier #1"})
         cls.supplier2 = cls.partner_obj.create({"name": "Supplier #2"})
@@ -51,6 +52,18 @@ class TestProductSupplierinfo(common.TransactionCase):
                 ],
             }
         )
+
+    @classmethod
+    def _update_rate(cls, currency_id, rate):
+        currency_rate = cls.currency_rate_obj.search(
+            [("name", "=", date.today()), ("currency_id", "=", currency_id.id)], limit=1
+        )
+        if not currency_rate:
+            cls.currency_rate_obj.create(
+                {"currency_id": currency_id.id, "rate": rate, "name": date.today()}
+            )
+        else:
+            currency_rate.write({"rate": rate})
 
     def test_pricelist_based_on_product_category(self):
         self.pricelist.item_ids[0].write(
@@ -261,12 +274,8 @@ class TestProductSupplierinfo(common.TransactionCase):
         # and pricelist with different currencies
         currency_usd = self.env.ref("base.USD")
         currency_mxn = self.env.ref("base.MXN")
-        self.env["res.currency.rate"].create(
-            {"currency_id": currency_usd.id, "rate": 1, "name": date.today()}
-        )
-        self.env["res.currency.rate"].create(
-            {"currency_id": currency_mxn.id, "rate": 20, "name": date.today()}
-        )
+        self._update_rate(currency_usd, 1)
+        self._update_rate(currency_mxn, 20)
 
         # Setting the item with the product
         self.pricelist.item_ids[0].write(
