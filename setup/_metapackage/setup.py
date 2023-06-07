@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo-addon-product_packaging_dimension>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_revision>=16.0dev,<16.1dev',
         'odoo-addon-product_route_mto>=16.0dev,<16.1dev',
+        'odoo-addon-product_secondary_unit>=16.0dev,<16.1dev',
         'odoo-addon-product_sequence>=16.0dev,<16.1dev',
         'odoo-addon-product_state>=16.0dev,<16.1dev',
         'odoo-addon-product_supplierinfo_for_customer>=16.0dev,<16.1dev',
