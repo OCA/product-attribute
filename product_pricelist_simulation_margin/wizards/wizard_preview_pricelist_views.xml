@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2022 - Today: GRAP (http://www.grap.coop)
+@author: Hugo Córdoba - FactorLibre (https://www.factorlibre.com)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="view_pricelist_simulation_view_form_inherit" model="ir.ui.view">
+        <field name="name">wizard.preview.pricelist.form</field>
+        <field name="model">wizard.preview.pricelist</field>
+        <field
+            name="inherit_id"
+            ref="product_pricelist_simulation.view_pricelist_simulation_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_date']" position="before">
+                <field name="standard_price" readonly="1" />
+            </xpath>
+            <xpath
+                expr="//field[@name='line_ids']/tree/field[@name='price']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='line_ids']/tree/field[@name='price']"
+                position="after"
+            >
+                <field name="price_vat_excl" />
+                <field name="price_vat_incl" />
+                <field name="margin" />
+                <field name="margin_percent" />
+            </xpath>
+            <xpath
+                expr="//field[@name='line_ids']/form//field[@name='price']"
+                position="after"
+            >
+                <field name="price_vat_excl" />
+                <field name="price_vat_incl" />
+                <field name="margin" />
+                <field name="margin_percent" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
