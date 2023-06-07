@@ -27,7 +27,7 @@ addon | version | maintainers | summary
 [product_assortment](product_assortment/) | 14.0.1.1.1 |  | Adds the ability to manage products assortment
 [product_assortment_description](product_assortment_description/) | 14.0.1.0.1 |  | Description field for assortment
 [product_attribute_archive](product_attribute_archive/) | 14.0.1.0.0 |  | Add an active field on product attributes
-[product_attribute_value_menu](product_attribute_value_menu/) | 14.0.2.0.1 |  | Product attributes values tree and form. Import attribute values.
+[product_attribute_value_menu](product_attribute_value_menu/) | 14.0.2.0.2 |  | Product attributes values tree and form. Import attribute values.
 [product_barcode_required](product_barcode_required/) | 14.0.1.0.0 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) | Make product barcode required when enabled
 [product_bom_revision](product_bom_revision/) | 14.0.1.0.1 |  | Store the revision of a product and a BOM
 [product_categ_image](product_categ_image/) | 14.0.1.0.0 |  | Add image on product category
@@ -63,7 +63,7 @@ addon | version | maintainers | summary
 [product_pricelist_direct_print](product_pricelist_direct_print/) | 14.0.1.1.1 |  | Print price list from menu option, product templates, products variants or price lists
 [product_pricelist_direct_print_company_group](product_pricelist_direct_print_company_group/) | 14.0.1.0.0 |  | Print Pricelist items using the company group model
 [product_pricelist_revision](product_pricelist_revision/) | 14.0.1.0.2 |  | Product Pricelist Revision
-[product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 14.0.1.1.0 |  | Allows to create priceslists based on supplier info
+[product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 14.0.1.1.1 |  | Allows to create priceslists based on supplier info
 [product_product_template_navigation](product_product_template_navigation/) | 14.0.1.0.1 |  | Adds a button in product to view the template
 [product_profile](product_profile/) | 14.0.1.0.1 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Allow to configure a product in 1 click
 [product_restricted_type](product_restricted_type/) | 14.0.1.0.1 |  | Product Restricted Type
