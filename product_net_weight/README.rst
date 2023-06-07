@@ -17,13 +17,13 @@ Products - Net Weight
     :target: https://github.com/OCA/product-attribute/tree/16.0/product_net_weight
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_net_weight
+    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_net_weight
     :alt: Translate me on Weblate
-.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/product-attribute&target_branch=16.0
-    :alt: Try me on Runboat
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/135/16.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extends the functionality of stock module to support net weight. (container excluded)
 
@@ -39,7 +39,7 @@ Usage
 
 * Go to 'Inventory' tab, and fill the "Net Weight" value.
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/15.0/product_net_weight/static/description/product_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_net_weight/static/description/product_form.png
 
 **Note**: The original weight field is renamed to "Gross Weight", to be more explicit.
 
@@ -58,7 +58,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_net_weight%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_net_weight%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -101,8 +101,8 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-legalsylvain|
+|maintainer-legalsylvain| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_net_weight>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_net_weight>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
