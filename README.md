@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [product_abc_classification_sale](product_abc_classification_sale/) | 15.0.1.0.1 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Includes ABC classification for inventory management
 [product_assortment](product_assortment/) | 15.0.1.0.0 |  | Adds the ability to manage products assortment
 [product_attribute_archive](product_attribute_archive/) | 15.0.1.0.1 |  | Add an active field on product attributes
-[product_attribute_value_menu](product_attribute_value_menu/) | 15.0.1.1.0 |  | Product attributes values tree and form. Import attribute values.
+[product_attribute_value_menu](product_attribute_value_menu/) | 15.0.1.1.1 |  | Product attributes values tree and form. Import attribute values.
 [product_category_active](product_category_active/) | 15.0.1.0.0 |  | Add option to archive product categories
 [product_category_code](product_category_code/) | 15.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a code on product categories
 [product_category_code_unique](product_category_code_unique/) | 15.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Allows to set product category code field as unique
@@ -50,7 +50,7 @@ addon | version | maintainers | summary
 [product_pricelist_direct_print_website_sale](product_pricelist_direct_print_website_sale/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Extend Product Pricelist Direct Print for filter by public categories
 [product_pricelist_revision](product_pricelist_revision/) | 15.0.1.0.0 |  | Product Pricelist Revision
 [product_pricelist_simulation](product_pricelist_simulation/) | 15.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Simulate the product price for all pricelists
-[product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 15.0.1.0.1 |  | Allows to create priceslists based on supplier info
+[product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 15.0.1.0.2 |  | Allows to create priceslists based on supplier info
 [product_restricted_type](product_restricted_type/) | 15.0.1.0.0 |  | Product Restricted Type
 [product_secondary_unit](product_secondary_unit/) | 15.0.2.0.1 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 15.0.2.1.0 |  | Product Sequence
