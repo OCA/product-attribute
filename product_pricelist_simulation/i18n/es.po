@@ -109,8 +109,8 @@ msgstr "Ver precio por tarifa"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_product_pricelist__show_in_simulation
-msgid "Show in simulation"
-msgstr "Mostrar en simulación"
+msgid "Show In Simulation"
+msgstr ""
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__simulation_id
@@ -136,3 +136,6 @@ msgstr ""
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist_line
 msgid "wizard - Preview Pricelist Line"
 msgstr ""
+
+#~ msgid "Show in simulation"
+#~ msgstr "Mostrar en simulación"
