@@ -35,38 +35,29 @@ msgid "Net Weight of the product, container excluded."
 msgstr "Poids net du produit, contenant exclus."
 
 #. module: product_net_weight
-#: model:ir.model,name:product_net_weight.model_product_product
+#: model:ir.model,name:product_net_weight.model_product_template
 msgid "Product"
 msgstr "Article"
 
 #. module: product_net_weight
-#: model:ir.model,name:product_net_weight.model_product_template
-msgid "Product Template"
-msgstr "Modèle d'article"
+#: model:ir.model,name:product_net_weight.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_net_weight
-#: model:product.product,name:product_net_weight.product_strawberry_jam
 #: model:product.template,name:product_net_weight.product_strawberry_jam_product_template
 msgid "Strawberry Jam (Jar of 250 grams)"
 msgstr "Confiture de fraise (Pot de 250 grammes)"
 
 #. module: product_net_weight
-#: model:product.product,uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "Units"
+#. odoo-python
+#: code:addons/product_net_weight/models/product_product.py:0
+#, python-format
+msgid "The net weight of product must be lower than gross weight."
 msgstr ""
 
-#. module: product_net_weight
-#: model:product.product,weight_uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,weight_uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "kg"
-msgstr ""
-
-#. module: product_net_weight
-#: model:product.product,volume_uom_name:product_net_weight.product_strawberry_jam
-#: model:product.template,volume_uom_name:product_net_weight.product_strawberry_jam_product_template
-msgid "m³"
-msgstr ""
+#~ msgid "Product Template"
+#~ msgstr "Modèle d'article"
 
 #, fuzzy
 #~ msgid "The weight of the contents, not including any packaging, etc."
