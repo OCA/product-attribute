@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [product_multi_category](product_multi_category/) | 16.0.1.0.0 |  | Product - Many Categories
 [product_packaging_dimension](product_packaging_dimension/) | 16.0.1.0.1 |  | Manage packaging dimensions and weight
 [product_pricelist_revision](product_pricelist_revision/) | 16.0.1.0.0 |  | Product Pricelist Revision
+[product_pricelist_simulation](product_pricelist_simulation/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Simulate the product price for all pricelists
 [product_route_mto](product_route_mto/) | 16.0.1.0.0 |  | This module allows to compute if a product is an 'MTO' one from its configured routes
 [product_secondary_unit](product_secondary_unit/) | 16.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 16.0.2.0.0 |  | Product Sequence
