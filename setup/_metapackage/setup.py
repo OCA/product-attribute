@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo-addon-product_logistics_uom>=16.0dev,<16.1dev',
         'odoo-addon-product_manufacturer>=16.0dev,<16.1dev',
         'odoo-addon-product_multi_category>=16.0dev,<16.1dev',
+        'odoo-addon-product_net_weight>=16.0dev,<16.1dev',
         'odoo-addon-product_packaging_dimension>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_revision>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_simulation>=16.0dev,<16.1dev',
