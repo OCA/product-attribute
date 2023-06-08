@@ -5,10 +5,6 @@
 from odoo import fields, models
 
 
-class ProductPricelist(models.Model):
-    _inherit = "product.pricelist"
-
-
 class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
