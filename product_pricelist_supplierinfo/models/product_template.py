@@ -5,7 +5,7 @@
 
 from datetime import datetime
 
-from odoo import fields, models, tools
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
@@ -48,36 +48,13 @@ class ProductTemplate(models.Model):
                 price = seller.currency_id._convert(
                     price, rule.currency_id, seller.company_id, convert_date
                 )
-
-            # We have to replicate this logic in this method as pricelist
-            # method are atomic and we can't hack inside.
-            # Verbatim copy of part of product.pricelist._compute_price_rule.
-            qty_uom_id = self._context.get("uom") or self.uom_id.id
-            price_uom = self.env["uom.uom"].browse([qty_uom_id])
-
             # We need to convert the price to the uom used on the sale, if the
             # uom on the seller is a different one that the one used there.
-            if seller and seller.product_uom != price_uom:
-                price = seller.product_uom._compute_price(price, price_uom)
-            price_limit = price
-            price = (price - (price * (rule.price_discount / 100))) or 0.0
-            if rule.price_round:
-                price = tools.float_round(price, precision_rounding=rule.price_round)
-            if rule.price_surcharge:
-                price_surcharge = self.uom_id._compute_price(
-                    rule.price_surcharge, price_uom
-                )
-                price += price_surcharge
-            if rule.price_min_margin:
-                price_min_margin = self.uom_id._compute_price(
-                    rule.price_min_margin, price_uom
-                )
-                price = max(price, price_limit + price_min_margin)
-            if rule.price_max_margin:
-                price_max_margin = self.uom_id._compute_price(
-                    rule.price_max_margin, price_uom
-                )
-                price = min(price, price_limit + price_max_margin)
+            if seller:
+                qty_uom_id = self._context.get("uom") or self.uom_id.id
+                price_uom = self.env["uom.uom"].browse([qty_uom_id])
+                if seller.product_uom != price_uom:
+                    price = seller.product_uom._compute_price(price, price_uom)
         return price
 
     def price_compute(self, price_type, uom=False, currency=False, company=False):

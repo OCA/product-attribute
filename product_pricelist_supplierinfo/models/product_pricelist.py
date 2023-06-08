@@ -8,28 +8,6 @@ from odoo import fields, models
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 
-    def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
-        """Recompute price after calling the atomic super method for
-        getting proper prices when based on supplier info.
-        """
-        rule_obj = self.env["product.pricelist.item"]
-        result = super()._compute_price_rule(products_qty_partner, date, uom_id)
-        # Make sure all rule records are fetched at once at put in cache
-        rule_obj.browse(x[1] for x in result.values()).mapped("price_discount")
-        for product, qty, _partner in products_qty_partner:
-            rule = rule_obj.browse(result[product.id][1])
-            if rule.compute_price == "formula" and rule.base == "supplierinfo":
-                context = self.env.context
-                result[product.id] = (
-                    product.sudo()._get_supplierinfo_pricelist_price(
-                        rule,
-                        date=date or context.get("date", fields.Date.today()),
-                        quantity=qty,
-                    ),
-                    rule.id,
-                )
-        return result
-
 
 class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
@@ -51,3 +29,16 @@ class ProductPricelistItem(models.Model):
         self.ensure_one()
         supplier_id = self._context.get("supplier") or self.filter_supplier_id.id
         return self.env["res.partner"].browse(supplier_id)
+
+    def _compute_price(self, price, price_uom, product, quantity=1.0, partner=False):
+        if self.compute_price == "formula" and self.base == "supplierinfo":
+            context = self.env.context
+            price = product.sudo()._get_supplierinfo_pricelist_price(
+                self,
+                date=context.get("date", fields.Date.today()),
+                quantity=quantity,
+                partner=partner,
+            )
+        # Re-use existing method that will apply discount/rounding/surcharge/margin
+        price = super()._compute_price(price, price_uom, product, quantity, partner)
+        return price
