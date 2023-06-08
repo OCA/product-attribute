@@ -161,9 +161,23 @@ class TestProductSupplierinfo(common.SavepointCase):
 
     def test_pricelist_dates(self):
         """Test pricelist and supplierinfo dates"""
+
+        # Set a start date for the supplier #1
         self.product.seller_ids.filtered(lambda x: x.min_qty == 5)[
             0
         ].date_start = "2018-12-31"
+        # If today is before this date, supplier #1 is ignored and we fallback on
+        # selecting supplier #2
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(
+                self.product,
+                5,
+                False,
+                date=date(2018, 12, 30),
+            ),
+            10,
+        )
+        # If today is after this date, supplier #1 is selected
         self.assertAlmostEqual(
             self.pricelist.get_product_price(
                 self.product,
@@ -172,6 +186,46 @@ class TestProductSupplierinfo(common.SavepointCase):
                 date=date(2019, 1, 1),
             ),
             50,
+        )
+        # Now create a new and more interesting supplier offer (same min. quantities)
+        # with a starting date already set
+        supplier3 = self.partner_obj.create({"name": "Supplier #3"})
+        self.product.write(
+            {
+                "seller_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": supplier3.id,
+                            "min_qty": 5,
+                            "price": 45,
+                            "date_start": "2019-01-02",
+                        },
+                    )
+                ]
+            }
+        )
+        # If today is before this date, supplier #3 is ignored and we fallback on
+        # selecting supplier #1
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(
+                self.product,
+                5,
+                False,
+                date=date(2019, 1, 1),
+            ),
+            50,
+        )
+        # If today is after this date, the new supplier #3 is selected
+        self.assertAlmostEqual(
+            self.pricelist.get_product_price(
+                self.product,
+                5,
+                False,
+                date=date(2019, 1, 3),
+            ),
+            45,
         )
 
     def test_pricelist_based_price_round(self):
