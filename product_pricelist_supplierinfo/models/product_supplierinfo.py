@@ -8,10 +8,12 @@ class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
     sale_margin = fields.Float(
-        string="Sale Margin",
+        string="Sale Margin (%)",
         default=0,
         digits=(16, 2),
-        help="Margin to apply on price to obtain sale price",
+        help="Margin to apply on price to obtain sale price.\n"
+        "Note that a pricelist rule based on supplier info must exists to use this "
+        "functionality",
     )
 
     def _get_supplierinfo_pricelist_price(self):
