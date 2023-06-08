@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-27 03:49+0000\n"
-"PO-Revision-Date: 2018-01-27 03:49+0000\n"
-"Last-Translator: Paolo Valier, 2018\n"
+"PO-Revision-Date: 2023-06-08 09:10+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_product_profile_explanation
@@ -118,12 +119,12 @@ msgstr "Ultima Modifica il"
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_uid
 msgid "Last Updated by"
-msgstr "Ultimo Aggiornamento di"
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_write_date
 msgid "Last Updated on"
-msgstr "Ultimo Aggiornamento il"
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile_name
