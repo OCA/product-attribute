@@ -20,11 +20,6 @@ class ProductProduct(models.Model):
             sellers = sellers.sorted("min_qty")
         return sellers
 
-    def _get_supplierinfo_pricelist_price(self, rule, date=None, quantity=None):
-        return self.product_tmpl_id._get_supplierinfo_pricelist_price(
-            rule, date=date, quantity=quantity, product_id=self.id
-        )
-
     def price_compute(self, price_type, uom=False, currency=False, company=False):
         """Return dummy not falsy prices when computation is done from supplier
         info for avoiding error on super method. We will later fill these with
