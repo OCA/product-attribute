@@ -49,8 +49,6 @@ class ProductPricelistItem(models.Model):
         """Method for getting the price from supplier info.
         Please note that product could be a template or a variant
         """
-        if product._name == "product.template":
-            product = product.product_variant_id
         product.ensure_one()
         price = 0.0
         if self.no_supplierinfo_min_quantity:

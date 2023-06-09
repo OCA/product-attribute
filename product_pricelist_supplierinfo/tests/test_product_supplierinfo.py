@@ -86,6 +86,10 @@ class TestProductSupplierinfo(common.SavepointCase):
             }
         )
         self.assertAlmostEqual(
+            self.pricelist.get_product_price(self.product.product_tmpl_id, 1, False),
+            10.0,
+        )
+        self.assertAlmostEqual(
             self.pricelist.get_product_price(self.product, 1, False),
             10.0,
         )
