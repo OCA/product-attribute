@@ -107,7 +107,6 @@ msgstr "Modelo abstracto para exportar los productos de tarifa a xlsx"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
 #, fuzzy
-#| msgid "Breakage per category"
 msgid "Breakage Per Category"
 msgstr "Rotura por categoría"
 
@@ -331,7 +330,6 @@ msgstr "Tarifa"
 #. module: product_pricelist_direct_print
 #: model:mail.template,name:product_pricelist_direct_print.email_template_edi_pricelist
 #, fuzzy
-#| msgid "Send by email"
 msgid "Pricelist - Send by Email"
 msgstr "Enviar por email"
 
