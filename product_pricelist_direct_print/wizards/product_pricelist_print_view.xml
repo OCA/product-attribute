@@ -43,6 +43,9 @@
                     >
                         <field name="categ_ids" widget="many2many_tags" />
                     </group>
+                    <group>
+                        <field name="lang" />
+                    </group>
                 </group>
                 <notebook>
                     <page
