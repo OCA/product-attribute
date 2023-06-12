@@ -3,9 +3,8 @@
 
 {
     "name": "Product Category Description",
-    "summary": """
-        Allows to add a detailed description for a product category.""",
-    "version": "13.0.1.0.0",
+    "summary": "Allows to add a detailed description for a product category.",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "maintainers": ["MarcBForgeFlow"],
