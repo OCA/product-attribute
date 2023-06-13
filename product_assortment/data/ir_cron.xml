@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <!--  Force to recompute all partners to take into account changes in related partner fields models.
+          P.E.: Domain includes tag_ids.name contains "**" and user changes tag name from tags view -->
+    <record
+        id="action_product_assortment_recompute_all_partners"
+        model="ir.actions.server"
+    >
+        <field name="name">Product assortment recompute all partbers</field>
+        <field name="model_id" ref="model_ir_filters" />
+        <field name="binding_model_id" ref="model_ir_filters" />
+        <field name="state">code</field>
+        <field name="code">model.search([])._compute_all_partner_ids()</field>
+    </record>
+
+    <!--  Cron to recompute all partners. (Not active by default).  -->
+    <record id="ir_cron_product_assortment_recompute_all_partners" model="ir.cron">
+        <field
+            name="ir_actions_server_id"
+            ref="action_product_assortment_recompute_all_partners"
+        />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False" />
+        <field name="active" eval="False" />
+        <field
+            name="nextcall"
+            eval="(DateTime.now().replace(hour=3, minute=0, second=0) + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"
+        />
+    </record>
+
+</odoo>
