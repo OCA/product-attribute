@@ -39,6 +39,12 @@ msgid "Allowed products"
 msgstr ""
 
 #. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_res_partner__applied_assortment_ids
+#: model:ir.model.fields,field_description:product_assortment.field_res_users__applied_assortment_ids
+msgid "Applied Assortment"
+msgstr ""
+
+#. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
 msgid "Apply restricted product domain"
 msgstr ""
@@ -106,10 +112,10 @@ msgid "Product assortment"
 msgstr ""
 
 #. module: product_assortment
-#: model:ir.actions.server,name:product_assortment.action_product_assortment_invalidate_cache
-#: model:ir.cron,cron_name:product_assortment.ir_cron_product_assortment_invalidate_cache
-#: model:ir.cron,name:product_assortment.ir_cron_product_assortment_invalidate_cache
-msgid "Product assortment reset cache"
+#: model:ir.actions.server,name:product_assortment.action_product_assortment_recompute_all_partners
+#: model:ir.cron,cron_name:product_assortment.ir_cron_product_assortment_recompute_all_partners
+#: model:ir.cron,name:product_assortment.ir_cron_product_assortment_recompute_all_partners
+msgid "Product assortment recompute all partbers"
 msgstr ""
 
 #. module: product_assortment
