@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_exception
+# 	* product_exception
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,28 +14,40 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_exception
-#: model:ir.ui.view,arch_db:product_exception.product_template_form_view
-msgid "Check Exception"
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "<strong>There are exceptions for this Product:</strong>"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_exception_rule__model
+msgid "Apply on"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.actions.server,name:product_exception.check_product_template_exception_ir_actions_server
+#: model:ir.cron,cron_name:product_exception.check_product_template_exception
+#: model:ir.cron,name:product_exception.check_product_template_exception
+msgid "Check Product Template Exceptions"
+msgstr ""
+
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Click here to ignore the current exceptions for this product."
 msgstr ""
 
 #. module: product_exception
 #: model:ir.model,name:product_exception.model_exception_rule
-msgid "Exception Rules"
+msgid "Exception Rule"
 msgstr ""
 
 #. module: product_exception
-#: model:ir.model.fields,field_description:product_exception.field_product_product_exception_ids
+#: model:ir.model.fields,field_description:product_exception.field_product_product__exception_ids
 msgid "Exceptions"
 msgstr ""
 
 #. module: product_exception
-#: model:ir.model.fields,field_description:product_exception.field_product_product_ignore_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
 msgid "Ignore Exceptions"
-msgstr ""
-
-#. module: product_exception
-#: model:ir.model.fields,field_description:product_exception.field_product_product_main_exception_id
-msgid "Main Exception"
 msgstr ""
 
 #. module: product_exception
@@ -49,13 +61,29 @@ msgid "Product"
 msgstr ""
 
 #. module: product_exception
+#: model:ir.actions.act_window,name:product_exception.action_product_test_tree
+msgid "Product Exception Rules"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.ui.menu,name:product_exception.menu_product_test_parent
+msgid "Product Exceptions Rules"
+msgstr ""
+
+#. module: product_exception
 #: model:ir.model,name:product_exception.model_product_template
+#: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_template
 msgid "Product Template"
 msgstr ""
 
 #. module: product_exception
-#: model:ir.model.fields,field_description:product_exception.field_exception_rule_product_tmpl_ids
+#: model:ir.model.fields,field_description:product_exception.field_exception_rule__product_tmpl_ids
 msgid "Product Templates"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_exception
@@ -64,7 +92,11 @@ msgid "Public price should be greather than purchase price"
 msgstr ""
 
 #. module: product_exception
-#: model:ir.ui.view,arch_db:product_exception.product_template_search_view
-msgid "With exception"
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Test button"
 msgstr ""
 
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_search_view
+msgid "With exception"
+msgstr ""
