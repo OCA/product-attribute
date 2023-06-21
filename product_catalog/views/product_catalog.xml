@@ -19,13 +19,18 @@
                     <group name="general_info" string="General information">
                         <field name="active" invisible="1" />
                         <field name="assortment_domain" invisible="1" />
-                        <field name="product_assortment_id" />
+                        <field
+                            name="product_assortment_id"
+                            options="{&quot;no_create&quot;: True}"
+                        />
                         <field name="pp_candidate_member_ids" />
                         <field name="pp_to_remove_member_ids" />
                         <field
                             name="pp_effective_member_ids"
                             domain="assortment_domain"
+                            options="{'no_create': true}"
                         />
+                        <!-- todo: fix no_create: true on pp_effective_member_ids -->
                     </group>
                 </sheet>
             </form>

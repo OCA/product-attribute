@@ -12,7 +12,8 @@ class ProductCatalog(models.Model):
     active = fields.Boolean(default=True)
     name = fields.Char(required=True)
     product_assortment_id = fields.Many2one(
-        "ir.filters", domain="[['is_assortment', '=', True]]"
+        "ir.filters",
+        domain="[['is_assortment', '=', True]]",
     )
 
     assortment_domain = fields.Binary(
@@ -38,9 +39,13 @@ class ProductCatalog(models.Model):
         readonly=True,
     )
 
+    @api.depends("product_assortment_id")
     def _compute_assortment_domain(self):
         for rec in self:
-            rec.assortment_domain = rec.product_assortment_id._get_eval_domain()
+            if rec.product_assortment_id:
+                rec.assortment_domain = rec.product_assortment_id._get_eval_domain()
+            else:
+                rec.assortment_domain = [["id", "=", -1]]
 
     def _add_all_candidates(self):
         for rec in self:
@@ -62,7 +67,7 @@ class ProductCatalog(models.Model):
                 rec.pp_to_remove_member_ids = [(5, 0, 0)]  # clear
                 continue
 
-            domain = rec.product_assortment_id._get_eval_domain()
+            domain = rec.assortment_domain
             target = set(self.env["product.product"].search(domain).ids)
             effective = set(rec.pp_effective_member_ids.ids)
 
