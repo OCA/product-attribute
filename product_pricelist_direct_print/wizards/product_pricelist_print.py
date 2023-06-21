@@ -66,6 +66,13 @@ class ProductPricelistPrint(models.TransientModel):
         _lang_get, string="Language", default=lambda self: self.env.user.lang
     )
 
+    product_price = fields.Float(compute="_compute_product_price")
+
+    def _compute_product_price(self):
+        self.product_price = self.get_pricelist_to_print()._get_product_price(
+            self.env.context["product"], 1, date=self.date
+        )
+
     @api.depends("partner_ids")
     def _compute_partner_count(self):
         for record in self:
