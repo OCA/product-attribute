@@ -139,7 +139,6 @@ class TestProductPricelistDirectPrint(TransactionCase):
                 ],
             }
         )
-        so.onchange_partner_id()
         sale_order = SaleOrder.create(so._convert_to_write(so._cache))
         sale_order.action_confirm()
 
@@ -205,11 +204,15 @@ class TestProductPricelistDirectPrint(TransactionCase):
             active_id=self.pricelist.id,
         ).create({})
         # Print PDF
-        report_name = "product_pricelist_direct_print.action_report_product_pricelist"
-        report_pdf = self.env.ref(report_name)._render(wiz.ids)
+        report_pdf = self.env.ref(
+            "product_pricelist_direct_print.action_report_product_pricelist"
+        )._render_qweb_pdf(
+            "product_pricelist_direct_print.report_product_pricelist", wiz.ids
+        )
         self.assertGreaterEqual(len(report_pdf[0]), 1)
         # Export XLSX
-        report_name = "product_pricelist_direct_print.product_pricelist_xlsx"
-        report_xlsx = self.env.ref(report_name)._render(wiz.ids)
+        report_xlsx = self.env["ir.actions.report"]._render(
+            "product_pricelist_direct_print.product_pricelist_xlsx", wiz.ids
+        )
         self.assertGreaterEqual(len(report_xlsx[0]), 1)
         self.assertEqual(report_xlsx[1], "xlsx")
