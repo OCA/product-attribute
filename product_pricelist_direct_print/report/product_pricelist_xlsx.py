@@ -79,7 +79,7 @@ class ProductPricelistXlsx(models.AbstractModel):
         row = 6
         # We should avoid sending a date as a False object as it will crash if a
         # submethod tries to make comparisons with other date.
-        print_date = book.date or fields.Date.today()
+        book.date or fields.Date.today()
         formats = {
             "bold_format": bold_format,
             "decimal_format": decimal_format,
@@ -108,7 +108,7 @@ class ProductPricelistXlsx(models.AbstractModel):
                 sheet.write(
                     row,
                     next_col,
-                    product.with_context(pricelist=pricelist.id, date=print_date).price,
+                    book.with_context(product=product).product_price,
                     decimal_bold_format,
                 )
                 row += 1
