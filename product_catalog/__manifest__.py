@@ -11,6 +11,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
+    "maintainers": ["hparfr"],
     "depends": [
         "product_assortment",
         "sale_management",  # for the menu
