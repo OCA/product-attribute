@@ -1,4 +1,4 @@
-This module extends unities of measure (uom) by sorting them into three 
+This module extends unities of measure (uom) by sorting them into three
 categories :
 
 * uom for sales only

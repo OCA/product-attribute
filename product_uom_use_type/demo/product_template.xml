@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 @author: Quentin DUPONT
@@ -9,8 +9,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record model="product.template" id="product_bier_faucheuse">
         <field name="name">Bier - La Faucheuse</field>
         <field name="uom_id" ref="uom.product_uom_litre" />
-        <field name="uom_po_id" ref="uom.product_uom_litre"/>
-        <field name="image" type="base64" file="product_uom_use_type/static/src/img/demo/bier_faucheuse.png"/>
+        <field name="uom_po_id" ref="uom.product_uom_litre" />
+        <field
+            name="image"
+            type="base64"
+            file="product_uom_use_type/static/src/img/demo/bier_faucheuse.png"
+        />
     </record>
 
 </odoo>

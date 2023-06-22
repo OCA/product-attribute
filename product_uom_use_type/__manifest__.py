@@ -11,7 +11,9 @@
     "depends": ["product"],
     "data": ["views/view_product_uom.xml"],
     "demo": [
-        "demo/product_uom.xml", "demo/product_template.xml", "demo/res_groups.xml"
+        "demo/product_uom.xml",
+        "demo/product_template.xml",
+        "demo/res_groups.xml",
     ],
     "installable": True,
 }
