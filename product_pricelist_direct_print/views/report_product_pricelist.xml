@@ -64,6 +64,9 @@
                                 <th t-if="pricelist" class="text-right">
                                     <strong>List Price</strong>
                                 </th>
+                                <th t-if="o.show_product_uom" class="text-right">
+                                    <strong>UoM</strong>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,6 +95,9 @@
                                         <strong
                                             t-field="o.with_context(product=product).product_price"
                                         />
+                                    </td>
+                                    <td t-if="o.show_product_uom" class="text-right">
+                                        <span t-field="product.uom_id.name" />
                                     </td>
                                 </tr>
                             </t>
