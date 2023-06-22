@@ -41,6 +41,12 @@ class ProductPricelistPrint(models.TransientModel):
         string="Products",
         help="Keep empty for all products",
     )
+    vat_mode = fields.Selection(
+        selection=[
+            ("vat_excl", "Vat Excluded"),
+            ("vat_incl", "Vat Included"),
+        ]
+    )
     show_product_uom = fields.Boolean(string="Show Product UoM")
     show_standard_price = fields.Boolean(string="Show Cost Price")
     show_sale_price = fields.Boolean()
@@ -70,9 +76,16 @@ class ProductPricelistPrint(models.TransientModel):
     product_price = fields.Float(compute="_compute_product_price")
 
     def _compute_product_price(self):
-        self.product_price = self.get_pricelist_to_print()._get_product_price(
-            self.env.context["product"], 1, date=self.date
+        product = self.env.context["product"]
+        price = self.get_pricelist_to_print()._get_product_price(
+            product, 1, date=self.date
         )
+        if self.vat_mode == "vat_excl":
+            self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
+        elif self.vat_mode == "vat_incl":
+            self.product_price = product.taxes_id.compute_all(price)["total_included"]
+        else:
+            self.product_price = price
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
