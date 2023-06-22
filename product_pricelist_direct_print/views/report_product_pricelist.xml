@@ -13,7 +13,7 @@
                     <div class="row mt32 mb32">
                         <div class="col-7">
                         <strong>Price List Name</strong>:<br />
-                        <t t-if="not o.hide_pricelist_name">
+                        <t t-if="o.show_pricelist_name">
                                 <span t-field="pricelist.name" />
                             </t>
                         <t t-else="">
