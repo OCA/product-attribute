@@ -23,8 +23,7 @@ class TestModule(TransactionCase):
         self.assertEqual(
             self.product_template.uom_po_id.use_type,
             self.both_unit.use_type,
-            "Setting a 'both' unit as main UoM should set the same as Purchase"
-            " UoM",
+            "Setting a 'both' unit as main UoM should set the same as Purchase" " UoM",
         )
 
         # Change unit to sale unit
@@ -35,6 +34,5 @@ class TestModule(TransactionCase):
         self.assertEqual(
             self.product_template.uom_po_id,
             uom_po_id_before,
-            "Setting a 'sale' unit as main UoM should not change the purchase"
-            " UoM",
+            "Setting a 'sale' unit as main UoM should not change the purchase" " UoM",
         )

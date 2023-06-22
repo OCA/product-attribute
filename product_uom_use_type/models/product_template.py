@@ -10,9 +10,7 @@ class ProductTemplate(models.Model):
 
     uom_id = fields.Many2one(domain=[("use_type", "in", ("sale", "both"))])
 
-    uom_po_id = fields.Many2one(
-        domain=[("use_type", "in", ("purchase", "both"))]
-    )
+    uom_po_id = fields.Many2one(domain=[("use_type", "in", ("purchase", "both"))])
 
     @api.onchange("uom_id")
     def _onchange_uom_id(self):
