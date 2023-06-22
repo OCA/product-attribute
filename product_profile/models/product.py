@@ -12,16 +12,9 @@ class ProductTemplate(models.Model):
     profile_explanation = fields.Text(related="profile_id.explanation", readonly=True)
 
     @api.model
-    def _fields_view_get(
-        self, view_id=None, view_type="form", toolbar=False, submenu=False
-    ):
+    def get_view(self, view_id=None, view_type="form", **options):
         """fields_view_get comes from Model (not AbstractModel)"""
-        res = super()._fields_view_get(
-            view_id=view_id,
-            view_type=view_type,
-            toolbar=toolbar,
-            submenu=submenu,
-        )
+        res = super().get_view(view_id=view_id, view_type=view_type, **options)
         return self._customize_view(res, view_type)
 
 
@@ -30,16 +23,9 @@ class ProductProduct(models.Model):
     _name = "product.product"
 
     @api.model
-    def fields_view_get(
-        self, view_id=None, view_type="form", toolbar=False, submenu=False
-    ):
+    def get_view(self, view_id=None, view_type="form", **options):
         view = self.env["ir.ui.view"].browse(view_id)
-        res = super().fields_view_get(
-            view_id=view_id,
-            view_type=view_type,
-            toolbar=toolbar,
-            submenu=submenu,
-        )
+        res = super().get_view(view_id=view_id, view_type=view_type, **options)
         # This is a simplified view for which the customization do not apply
         if view.name == "product.product.view.form.easy":
             return res
