@@ -11,7 +11,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="uom_id" ref="uom.product_uom_litre" />
         <field name="uom_po_id" ref="uom.product_uom_litre" />
         <field
-            name="image"
+            name="image_1920"
             type="base64"
             file="product_uom_use_type/static/src/img/demo/bier_faucheuse.png"
         />
