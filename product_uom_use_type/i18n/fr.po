@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-16 12:06+0000\n"
-"PO-Revision-Date: 2017-10-16 12:06+0000\n"
+"PO-Revision-Date: 2023-06-22 21:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_barrel
@@ -31,6 +32,7 @@ msgstr ""
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_id
 msgid "Default unit of measure used for all stock operations."
 msgstr ""
+"Unité de mesure par défaut utilisée pour toutes les opérations de stock"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
@@ -39,12 +41,8 @@ msgid ""
 "Default unit of measure used for purchase orders. It must be in the same "
 "category as the default unit of measure."
 msgstr ""
-
-#. module: product_uom_use_type
-#: model:product.template,uom_name:product_uom_use_type.product_bier_faucheuse
-#: model:product.template,volume_uom_name:product_uom_use_type.product_bier_faucheuse
-msgid "Liter(s)"
-msgstr ""
+"Unité de mesure par défaut utilisée pour les bons de commande. Elle doit "
+"être dans la même catégorie que l'unité de mesure par défaut."
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_pint
@@ -52,57 +50,48 @@ msgid "Pint US - 0,55L (Unit only for sales)"
 msgstr "Pinte US - 0,55L (Unité valable seulement à la vente)"
 
 #. module: product_uom_use_type
-#: model:ir.model,name:product_uom_use_type.model_product_product
-#, fuzzy
-msgid "Product"
-msgstr "Modèle d'article"
-
-#. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_template
-msgid "Product Template"
-msgstr "Modèle d'article"
+msgid "Product"
+msgstr "Produit"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr "Unité de mesure d'article"
+msgstr "Unité de mesure du produit"
+
+#. module: product_uom_use_type
+#: model:ir.model,name:product_uom_use_type.model_product_product
+msgid "Product Variant"
+msgstr "Variante de produit"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
-#, fuzzy
-msgid "Purchase Unit of Measure"
-msgstr "Unité de mesure d'article"
+msgid "Purchase UoM"
+msgstr "UdM achat"
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__purchase
 msgid "Unit available for purchases"
 msgstr "Achat uniquement"
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__sale
 msgid "Unit available for sales"
 msgstr "Vente uniquement"
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__both
 msgid "Unit available for sales and purchases"
 msgstr "Achat et vente"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_id
-#, fuzzy
 msgid "Unit of Measure"
 msgstr "Unité de mesure d'article"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_uom_uom__use_type
-#, fuzzy
 msgid "Use Type"
 msgstr "Type d'usage"
-
-#. module: product_uom_use_type
-#: model:product.template,weight_uom_name:product_uom_use_type.product_bier_faucheuse
-msgid "kg"
-msgstr ""

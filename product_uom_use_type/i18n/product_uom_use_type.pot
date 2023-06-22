@@ -1,12 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_uom_use_type
+#   * product_uom_use_type
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2023-06-22 21:41+0000\n"
+"PO-Revision-Date: 2023-06-22 21:41+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,13 +34,9 @@ msgstr ""
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_po_id
-msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
-msgstr ""
-
-#. module: product_uom_use_type
-#: model:product.template,uom_name:product_uom_use_type.product_bier_faucheuse
-#: model:product.template,volume_uom_name:product_uom_use_type.product_bier_faucheuse
-msgid "Liter(s)"
+msgid ""
+"Default unit of measure used for purchase orders. It must be in the same "
+"category as the default unit of measure."
 msgstr ""
 
 #. module: product_uom_use_type
@@ -47,13 +45,8 @@ msgid "Pint US - 0,55L (Unit only for sales)"
 msgstr ""
 
 #. module: product_uom_use_type
-#: model:ir.model,name:product_uom_use_type.model_product_product
-msgid "Product"
-msgstr ""
-
-#. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_template
-msgid "Product Template"
+msgid "Product"
 msgstr ""
 
 #. module: product_uom_use_type
@@ -62,23 +55,28 @@ msgid "Product Unit of Measure"
 msgstr ""
 
 #. module: product_uom_use_type
-#: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
-#: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
-msgid "Purchase Unit of Measure"
+#: model:ir.model,name:product_uom_use_type.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
+#: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
+msgid "Purchase UoM"
+msgstr ""
+
+#. module: product_uom_use_type
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__purchase
 msgid "Unit available for purchases"
 msgstr ""
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__sale
 msgid "Unit available for sales"
 msgstr ""
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__both
 msgid "Unit available for sales and purchases"
 msgstr ""
 
@@ -92,9 +90,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_uom_use_type.field_uom_uom__use_type
 msgid "Use Type"
 msgstr ""
-
-#. module: product_uom_use_type
-#: model:product.template,weight_uom_name:product_uom_use_type.product_bier_faucheuse
-msgid "kg"
-msgstr ""
-
