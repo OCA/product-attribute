@@ -34,7 +34,7 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: product_profile
-#: selection:product.profile,type:0
+#: model:ir.model.fields.selection,name:product_profile.selection__product_profile__detailed_type__consu
 msgid "Consumable"
 msgstr ""
 
@@ -56,7 +56,11 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile__display_name
+#: model:ir.model.fields,field_description:product_profile.field_product_profile__detailed_type
+msgid "Detailed Type"
+msgstr ""
+
+#. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__display_name
 msgid "Display Name"
 msgstr "Weergavenaam"
@@ -73,7 +77,7 @@ msgid ""
 "Display fields computed by product profile module.\n"
 "For debugging purpose see menu\n"
 "Sales > Configuration \n"
-"> Product Categories and Attributes\n"
+"> Products\n"
 "> Product Profiles"
 msgstr ""
 
@@ -85,13 +89,12 @@ msgid "Explanation"
 msgstr ""
 
 #. module: product_profile
-#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile__id
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_profile
-#: code:addons/product_profile/models/product_profile.py:146
+#: code:addons/product_profile/models/product_profile.py:0
 #, python-format
 msgid ""
 "If you update this profile, all products using this profile could also be "
@@ -99,24 +102,25 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: code:addons/product_profile/models/product_profile.py:34
+#: code:addons/product_profile/models/product_profile.py:0
 #, python-format
 msgid ""
 "Issue\n"
 "------\n"
-"%s\n"
-"'%s' value can't be applied to '%s' field.\n"
+"%(error)s\n"
+" %(value)s value can't be applied to %(field)s field.\n"
 "There is no matching value between 'Product Profiles' \n"
-"and '%s' models for this field.\n"
+"and %(model)s models for this field.\n"
 "\n"
 "Resolution\n"
 "----------\n"
 "Check your settings on Profile model:\n"
-"%s"
+" Sales > Configuration \n"
+"> Products\n"
+"> Product Profiles"
 msgstr ""
 
 #. module: product_profile
-#: model:ir.model.fields,field_description:product_profile.field_product_mixin_profile____last_update
 #: model:ir.model.fields,field_description:product_profile.field_product_profile____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -183,17 +187,8 @@ msgid ""
 msgstr ""
 
 #. module: product_profile
-#: code:addons/product_profile/models/product_profile.py:12
-#, python-format
-msgid ""
-"Sales > Configuration \n"
-"> Product Categories and Attributes\n"
-"> Product Profiles"
-msgstr ""
-
-#. module: product_profile
-#: model:ir.model.fields,help:product_profile.field_product_profile__type
-msgid "See 'type' field in product.template"
+#: model:ir.model.fields,help:product_profile.field_product_profile__detailed_type
+msgid "See 'detailed_type' field in product.template"
 msgstr ""
 
 #. module: product_profile
@@ -202,11 +197,6 @@ msgid "Sequence"
 msgstr ""
 
 #. module: product_profile
-#: selection:product.profile,type:0
+#: model:ir.model.fields.selection,name:product_profile.selection__product_profile__detailed_type__service
 msgid "Service"
-msgstr ""
-
-#. module: product_profile
-#: model:ir.model.fields,field_description:product_profile.field_product_profile__type
-msgid "Type"
 msgstr ""
