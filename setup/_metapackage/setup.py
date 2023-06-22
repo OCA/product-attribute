@@ -38,6 +38,7 @@ setuptools.setup(
         'odoo-addon-product_pricelist_revision>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_simulation>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_supplierinfo>=15.0dev,<15.1dev',
+        'odoo-addon-product_profile>=15.0dev,<15.1dev',
         'odoo-addon-product_restricted_type>=15.0dev,<15.1dev',
         'odoo-addon-product_secondary_unit>=15.0dev,<15.1dev',
         'odoo-addon-product_sequence>=15.0dev,<15.1dev',
