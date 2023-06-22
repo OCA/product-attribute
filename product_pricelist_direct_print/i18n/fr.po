@@ -76,6 +76,11 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Image</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>List Price</strong>"
 msgstr ""
 
@@ -214,6 +219,17 @@ msgstr ""
 msgid ""
 "If you enter an X number here, then, for each selected customer, the last X "
 "ordered products will be obtained for the report."
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Image"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "Img"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -379,6 +395,11 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_internal_category
 msgid "Show internal categories"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_images
+msgid "Show product images"
 msgstr ""
 
 #. module: product_pricelist_direct_print
