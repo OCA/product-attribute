@@ -64,7 +64,7 @@ class ProductPricelistPrint(models.TransientModel):
         default=lambda x: x._default_group_field_id(),
     )
     partner_count = fields.Integer(compute="_compute_partner_count")
-    date = fields.Date()
+    date = fields.Datetime(required=True, default=fields.Datetime.now)
     last_ordered_products = fields.Integer(
         help="If you enter an X number here, then, for each selected customer,"
         " the last X ordered products will be obtained for the report."

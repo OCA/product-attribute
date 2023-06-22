@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, fields, models
+from odoo import _, models
 
 
 class ProductPricelistXlsx(models.AbstractModel):
@@ -44,10 +44,7 @@ class ProductPricelistXlsx(models.AbstractModel):
         sheet.write("B1", _("Currency:"), title_format)
         sheet.write("B2", pricelist.currency_id.name)
         sheet.write("D1", _("Date:"), title_format)
-        if book.date:
-            sheet.write("D2", book.date, date_format)
-        else:
-            sheet.write("D2", book.create_date, date_format)
+        sheet.write("D2", book.date, date_format)
         # Header construction
         if book.partner_id:
             sheet.write(4, 0, book.partner_id.name, header_format)
@@ -80,9 +77,6 @@ class ProductPricelistXlsx(models.AbstractModel):
         decimal_format = workbook.add_format({"num_format": "0.00"})
         decimal_bold_format = workbook.add_format({"num_format": "0.00", "bold": 1})
         row = 6
-        # We should avoid sending a date as a False object as it will crash if a
-        # submethod tries to make comparisons with other date.
-        book.date or fields.Date.today()
         formats = {
             "bold_format": bold_format,
             "decimal_format": decimal_format,
