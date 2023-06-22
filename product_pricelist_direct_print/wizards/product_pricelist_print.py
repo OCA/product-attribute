@@ -54,6 +54,15 @@ class ProductPricelistPrint(models.TransientModel):
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
     )
+    group_field_id = fields.Many2one(
+        comodel_name="ir.model.fields",
+        required=True,
+        domain=[
+            ("model", "=", "product.product"),
+            ("ttype", "=", "many2one"),
+        ],
+        default=lambda x: x._default_group_field_id(),
+    )
     partner_count = fields.Integer(compute="_compute_partner_count")
     date = fields.Date()
     last_ordered_products = fields.Integer(
@@ -154,6 +163,15 @@ class ProductPricelistPrint(models.TransientModel):
             if category_items and not product_items and not template_items:
                 res["categ_ids"] = [(6, 0, category_items.mapped("categ_id").ids)]
         return res
+
+    def _default_group_field_id(self):
+        IrModelFields = self.env["ir.model.fields"]
+        return IrModelFields.search(
+            [
+                ("model", "=", "product.product"),
+                ("name", "=", "categ_id"),
+            ]
+        )
 
     def print_report(self):
         if not (
@@ -333,8 +351,13 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
-        max_level = self.max_categ_level or 99
-        return " / ".join(product.categ_id.complete_name.split(" / ")[:max_level])
+        group_field = getattr(product, self.group_field_id.name)
+        complete_name = getattr(group_field, "complete_name", group_field.name) or _(
+            "Undefined"
+        )
+        if not self.max_categ_level:
+            return complete_name
+        return " / ".join(complete_name.split(" / ")[: self.max_categ_level])
 
     def get_sorted_products(self, products):
         if self.order_field:
