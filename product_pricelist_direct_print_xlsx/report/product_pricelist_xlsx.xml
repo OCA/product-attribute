@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="report" model="ir.actions.report">
+        <field name="model">product.pricelist.print</field>
+        <field name="name">Product Pricelist XLSX</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">product_pricelist_direct_print_xlsx.report</field>
+        <field name="report_file">product_pricelist_direct_print_xlsx.report</field>
+    </record>
+</odoo>
