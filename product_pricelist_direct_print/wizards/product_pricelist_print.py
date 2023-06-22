@@ -41,11 +41,27 @@ class ProductPricelistPrint(models.TransientModel):
         string="Products",
         help="Keep empty for all products",
     )
+    vat_mode = fields.Selection(
+        selection=[
+            ("vat_excl", "Vat Excluded"),
+            ("vat_incl", "Vat Included"),
+        ]
+    )
+    show_product_uom = fields.Boolean(string="Show Product UoM")
     show_standard_price = fields.Boolean(string="Show Cost Price")
     show_sale_price = fields.Boolean()
     hide_pricelist_name = fields.Boolean()
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
+    )
+    group_field_id = fields.Many2one(
+        comodel_name="ir.model.fields",
+        required=True,
+        domain=[
+            ("model", "=", "product.product"),
+            ("ttype", "=", "many2one"),
+        ],
+        default=lambda x: x._default_group_field_id(),
     )
     partner_count = fields.Integer(compute="_compute_partner_count")
     date = fields.Date()
@@ -69,9 +85,16 @@ class ProductPricelistPrint(models.TransientModel):
     product_price = fields.Float(compute="_compute_product_price")
 
     def _compute_product_price(self):
-        self.product_price = self.get_pricelist_to_print()._get_product_price(
-            self.env.context["product"], 1, date=self.date
+        product = self.env.context["product"]
+        price = self.get_pricelist_to_print()._get_product_price(
+            product, 1, date=self.date
         )
+        if self.vat_mode == "vat_excl":
+            self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
+        elif self.vat_mode == "vat_incl":
+            self.product_price = product.taxes_id.compute_all(price)["total_included"]
+        else:
+            self.product_price = price
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
@@ -140,6 +163,15 @@ class ProductPricelistPrint(models.TransientModel):
             if category_items and not product_items and not template_items:
                 res["categ_ids"] = [(6, 0, category_items.mapped("categ_id").ids)]
         return res
+
+    def _default_group_field_id(self):
+        IrModelFields = self.env["ir.model.fields"]
+        return IrModelFields.search(
+            [
+                ("model", "=", "product.product"),
+                ("name", "=", "categ_id"),
+            ]
+        )
 
     def print_report(self):
         if not (
@@ -319,8 +351,13 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
-        max_level = self.max_categ_level or 99
-        return " / ".join(product.categ_id.complete_name.split(" / ")[:max_level])
+        group_field = getattr(product, self.group_field_id.name)
+        complete_name = getattr(group_field, "complete_name", group_field.name) or _(
+            "Undefined"
+        )
+        if not self.max_categ_level:
+            return complete_name
+        return " / ".join(complete_name.split(" / ")[: self.max_categ_level])
 
     def get_sorted_products(self, products):
         if self.order_field:
