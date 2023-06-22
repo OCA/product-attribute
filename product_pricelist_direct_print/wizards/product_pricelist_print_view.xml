@@ -20,10 +20,13 @@
                         <field name="context_active_model" invisible="1" />
                     </group>
                     <group string="Filter Options">
+                        <field name="vat_mode" />
                         <field name="show_sale_price" />
                         <field name="show_standard_price" />
+                        <field name="show_product_uom" />
                         <field name="hide_pricelist_name" />
                         <field name="order_field" />
+                        <field name="group_field_id" nocreate="1" />
                         <field name="date" />
                         <field name="show_only_defined_products" />
                         <field
