@@ -6,6 +6,10 @@
   * João Marques
   * Carlos Roca
 
-* `CorporateHub <https://corporatehub.eu/>`__
+* `CorporateHub <https://corporatehub.eu/>`_:
 
   * Alexey Pelykh <alexey.pelykh@corphub.eu>
+
+* `GRAP <http://www.grap.coop/>`_:
+
+  * Sylvain LE GAL <https://twitter.com/legalsylvain>
