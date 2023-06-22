@@ -75,9 +75,6 @@ class ProductPricelistPrint(models.TransientModel):
         help="If this field is not 0, products are grouped at max level "
         "of category tree.",
     )
-    # Excel export options
-    breakage_per_category = fields.Boolean(default=True)
-    show_internal_category = fields.Boolean(string="Show internal categories")
     lang = fields.Selection(
         _lang_get, string="Language", default=lambda self: self.env.user.lang
     )
@@ -383,9 +380,3 @@ class ProductPricelistPrint(models.TransientModel):
                 }
             )
         return group_list
-
-    def export_xlsx(self):
-        self.ensure_one()
-        return self.env.ref(
-            "product_pricelist_direct_print.product_pricelist_xlsx"
-        ).report_action(self)
