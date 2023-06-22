@@ -1,5 +1,11 @@
 # Copyright 2021 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+import base64
+from io import BytesIO
+
+from PIL import Image
+
 from odoo import _, fields, models
 
 
@@ -66,6 +72,9 @@ class ProductPricelistXlsx(models.AbstractModel):
             sheet.write(5, next_col, _("Sale Price"), header_format)
         next_col += 1
         sheet.write(5, next_col, _("List Price"), header_format)
+        if book.show_product_images:
+            next_col += 1
+            sheet.write(5, next_col, _("Image"), header_format)
         return sheet
 
     def _add_extra_header(self, sheet, book, next_col, header_format):
@@ -110,6 +119,28 @@ class ProductPricelistXlsx(models.AbstractModel):
                     product.with_context(pricelist=pricelist.id, date=print_date).price,
                     decimal_bold_format,
                 )
+                if book.show_product_images:
+                    sheet.set_row(row, 50)
+                    next_col += 1
+                    if product.image_128:
+                        # We have to check if the field contains a valid image for XlsxWriter
+                        try:
+                            image = BytesIO(base64.decodebytes(product.image_128))
+                            Image.open(image)
+                        except Exception:
+                            break
+                        sheet.insert_image(
+                            row,
+                            next_col,
+                            "product_{}.png".format(product.default_code),
+                            {
+                                "image_data": image,
+                                "x_scale": 0.5,
+                                "y_scale": 0.5,
+                                "object_position": 2,
+                                "x_offset": 40,
+                            },
+                        )
                 row += 1
         if book.summary:
             sheet.write(row, 0, _("Summary:"), bold_format)

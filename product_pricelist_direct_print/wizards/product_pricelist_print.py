@@ -57,6 +57,7 @@ class ProductPricelistPrint(models.TransientModel):
     # Excel export options
     breakage_per_category = fields.Boolean(string="Breakage per category", default=True)
     show_internal_category = fields.Boolean(string="Show internal categories")
+    show_product_images = fields.Boolean(string="Show product images")
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):

@@ -78,6 +78,7 @@
                         <group>
                             <field name="breakage_per_category" />
                             <field name="show_internal_category" />
+                            <field name="show_product_images" />
                         </group>
                     </page>
                 </notebook>
