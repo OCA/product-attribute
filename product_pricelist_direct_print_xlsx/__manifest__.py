@@ -2,19 +2,17 @@
 # Copyright 2020 Tecnativa - João Marques
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
-    "name": "Product Pricelist Direct Print",
-    "summary": "Print price list from menu option, product templates, "
-    "products variants or price lists",
+    "name": "Product Pricelist Direct Print (XLSX)",
+    "summary": "Print price list in XLSX format",
     "version": "16.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "depends": ["sale"],
+    "depends": ["product_pricelist_direct_print", "report_xlsx"],
     "data": [
         "security/ir.model.access.csv",
-        "reports/report_product_pricelist.xml",
-        "data/mail_template_data.xml",
+        "report/product_pricelist_xlsx.xml",
         "wizards/product_pricelist_print_view.xml",
     ],
 }

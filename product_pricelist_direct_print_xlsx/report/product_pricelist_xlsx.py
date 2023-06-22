@@ -4,7 +4,7 @@ from odoo import _, models
 
 
 class ProductPricelistXlsx(models.AbstractModel):
-    _name = "report.product_pricelist_direct_print.product_pricelist_xlsx"
+    _name = "report.product_pricelist_direct_print_xlsx.report"
     _inherit = "report.report_xlsx.abstract"
     _description = "Abstract model to export as xlsx the product pricelist"
 
