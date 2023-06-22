@@ -13,3 +13,5 @@ To use this module, you have several options:
 #. Go to *Sales > Orders > Customers*
     * Select customers in list view
     * Press *Action > Send customer pricelist by EMail*
+
+.. figure:: ../static/description/wizard_form.png

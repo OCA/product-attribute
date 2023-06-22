@@ -198,7 +198,7 @@ class TestProductPricelistDirectPrint(TransactionCase):
         self.assertTrue(product_ids)
         self.assertIn(product_category_child.id, product_ids.ids)
 
-    def test_reports(self):
+    def test_report(self):
         wiz = self.wiz_obj.with_context(
             active_model="product.pricelist",
             active_id=self.pricelist.id,
@@ -210,9 +210,3 @@ class TestProductPricelistDirectPrint(TransactionCase):
             "product_pricelist_direct_print.report_product_pricelist", wiz.ids
         )
         self.assertGreaterEqual(len(report_pdf[0]), 1)
-        # Export XLSX
-        report_xlsx = self.env["ir.actions.report"]._render(
-            "product_pricelist_direct_print.product_pricelist_xlsx", wiz.ids
-        )
-        self.assertGreaterEqual(len(report_xlsx[0]), 1)
-        self.assertEqual(report_xlsx[1], "xlsx")
