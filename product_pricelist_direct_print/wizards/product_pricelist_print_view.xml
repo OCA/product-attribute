@@ -20,7 +20,7 @@
                         />
                         <field name="date" />
                         <field name="lang" />
-                        <field name="hide_pricelist_name" />
+                        <field name="show_pricelist_name" />
                         <field name="context_active_model" invisible="1" />
                     </group>
                     <group string="Column Options">
