@@ -9,44 +9,46 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <group
-                        string="Pricelist"
-                        attrs="{'invisible' : ['|', ('partner_count', '!=', 0), ('context_active_model', '=', 'product.pricelist')]}"
-                    >
+                    <group string="Main Settings">
                         <field
                             name="pricelist_id"
                             options="{'no_create': True, 'no_create_edit': True}"
+                            attrs="{
+                                'invisible' : [('partner_count', '!=', 0)],
+                                'required' : [('partner_count', '=', 0)],
+                            }"
                         />
+                        <field name="date" />
+                        <field name="lang" />
+                        <field name="hide_pricelist_name" />
                         <field name="context_active_model" invisible="1" />
                     </group>
-                    <group string="Filter Options">
+                    <group string="Column Options">
                         <field name="vat_mode" />
                         <field name="show_sale_price" />
                         <field name="show_standard_price" />
                         <field name="show_product_uom" />
-                        <field name="hide_pricelist_name" />
+                    </group>
+                    <group string="Order Options">
                         <field name="order_field" />
                         <field name="group_field_id" nocreate="1" />
-                        <field name="date" />
+                        <field name="max_categ_level" />
+                    </group>
+                    <group string="Product Options">
+                        <field
+                            name="categ_ids"
+                            widget="many2many_tags"
+                            attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}"
+                        />
                         <field name="show_only_defined_products" />
                         <field
                             name="show_variants"
                             attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
                         />
-                        <field name="max_categ_level" />
-                        <field name="summary" />
                         <field
                             name="last_ordered_products"
                             attrs="{'invisible':[('partner_count','=',0)]}"
                         />
-                    </group>
-                    <group
-                        attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}"
-                    >
-                        <field name="categ_ids" widget="many2many_tags" />
-                    </group>
-                    <group>
-                        <field name="lang" />
                     </group>
                 </group>
                 <notebook>
@@ -78,6 +80,9 @@
                     >
                         <field name="partner_ids" />
                         <field name="partner_count" invisible="1" />
+                    </page>
+                    <page string="Summary">
+                        <field name="summary" nolabel="1" />
                     </page>
                     <page string="Export Options">
                         <group>
