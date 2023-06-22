@@ -37,7 +37,7 @@ class ProductPricelistXlsx(models.AbstractModel):
         sheet.set_column("B:H", 15)
         # Title construction
         sheet.write("A1", _("Price List Name:"), title_format)
-        if not book.hide_pricelist_name:
+        if book.show_pricelist_name:
             sheet.write("A2", pricelist.name)
         else:
             sheet.write("A2", _("Special Pricelist"))
