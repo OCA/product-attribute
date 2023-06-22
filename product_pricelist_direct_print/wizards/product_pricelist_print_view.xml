@@ -26,6 +26,7 @@
                         <field name="show_product_uom" />
                         <field name="hide_pricelist_name" />
                         <field name="order_field" />
+                        <field name="group_field_id" nocreate="1" />
                         <field name="date" />
                         <field name="show_only_defined_products" />
                         <field
