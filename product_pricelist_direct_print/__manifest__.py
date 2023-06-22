@@ -8,7 +8,8 @@
     "version": "16.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
-    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "Tecnativa, GRAP, Odoo Community Association (OCA)",
+    "maintainers": ["legalsylvain"],
     "license": "AGPL-3",
     "depends": ["sale"],
     "data": [
