@@ -50,7 +50,7 @@ class ProductPricelistPrint(models.TransientModel):
     show_product_uom = fields.Boolean(string="Show Product UoM")
     show_standard_price = fields.Boolean(string="Show Cost Price")
     show_sale_price = fields.Boolean()
-    hide_pricelist_name = fields.Boolean()
+    show_pricelist_name = fields.Boolean(default=True)
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
     )
@@ -64,7 +64,7 @@ class ProductPricelistPrint(models.TransientModel):
         default=lambda x: x._default_group_field_id(),
     )
     partner_count = fields.Integer(compute="_compute_partner_count")
-    date = fields.Date()
+    date = fields.Datetime(required=True, default=fields.Datetime.now)
     last_ordered_products = fields.Integer(
         help="If you enter an X number here, then, for each selected customer,"
         " the last X ordered products will be obtained for the report."
@@ -75,9 +75,6 @@ class ProductPricelistPrint(models.TransientModel):
         help="If this field is not 0, products are grouped at max level "
         "of category tree.",
     )
-    # Excel export options
-    breakage_per_category = fields.Boolean(default=True)
-    show_internal_category = fields.Boolean(string="Show internal categories")
     lang = fields.Selection(
         _lang_get, string="Language", default=lambda self: self.env.user.lang
     )
@@ -383,9 +380,3 @@ class ProductPricelistPrint(models.TransientModel):
                 }
             )
         return group_list
-
-    def export_xlsx(self):
-        self.ensure_one()
-        return self.env.ref(
-            "product_pricelist_direct_print.product_pricelist_xlsx"
-        ).report_action(self)

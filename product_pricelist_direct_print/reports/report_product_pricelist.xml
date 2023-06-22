@@ -13,7 +13,7 @@
                     <div class="row mt32 mb32">
                         <div class="col-7">
                         <strong>Price List Name</strong>:<br />
-                        <t t-if="not o.hide_pricelist_name">
+                        <t t-if="o.show_pricelist_name">
                                 <span t-field="pricelist.name" />
                             </t>
                         <t t-else="">
@@ -26,15 +26,7 @@
                     </div>
                         <div class="col-3">
                         <strong>Date</strong>:<br />
-                        <t t-if="o.date">
-                                <span t-field="o.date" t-options="{'widget': 'date'}" />
-                            </t>
-                        <t t-if="not o.date">
-                                <t
-                                    t-esc="time.strftime('%Y-%m-%d')"
-                                    t-options="{'widget': 'date'}"
-                                />
-                            </t>
+                        <span t-field="o.date" t-options="{'widget': 'datetime'}" />
                     </div>
                     </div>
                     <table class="table table-sm">
