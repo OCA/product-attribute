@@ -5,7 +5,7 @@
     "name": "Product Pricelist Direct Print",
     "summary": "Print price list from menu option, product templates, "
     "products variants or price lists",
-    "version": "14.0.1.1.1",
+    "version": "14.0.2.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
