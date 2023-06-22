@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="group_product_profile_user" model="res.groups">
+        <field name="name">Display Product Profile fields</field>
+        <field name="category_id" ref="base.module_category_product" />
+    </record>
+
+    <record id="group_product_profile_manager" model="res.groups">
+        <field name="name">Manage Product Profiles</field>
+        <field name="category_id" ref="base.module_category_product" />
+        <field
+            name="implied_ids"
+            eval="[(4, ref('product_profile.group_product_profile_user'))]"
+        />
+    </record>
+
+</odoo>
