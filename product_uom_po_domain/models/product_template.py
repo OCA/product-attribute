@@ -9,9 +9,8 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     uom_category_id = fields.Many2one(
-        comodel_name="uom.category", related="uom_id.category_id")
+        comodel_name="uom.category", related="uom_id.category_id"
+    )
 
     # Overload field to add a domain
-    uom_po_id = fields.Many2one(
-        domain="[('category_id', '=', uom_category_id)]"
-    )
+    uom_po_id = fields.Many2one(domain="[('category_id', '=', uom_category_id)]")
