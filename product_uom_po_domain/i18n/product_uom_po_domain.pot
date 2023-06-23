@@ -1,12 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_uom_po_domain
+#   * product_uom_po_domain
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2023-06-23 12:44+0000\n"
+"PO-Revision-Date: 2023-06-23 12:44+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,31 +16,34 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_uom_po_domain
-#: model:ir.model.fields,field_description:product_uom_po_domain.field_product_product__uom_category_id
-#: model:ir.model.fields,field_description:product_uom_po_domain.field_product_template__uom_category_id
-msgid "Category"
-msgstr ""
-
-#. module: product_uom_po_domain
 #: model:ir.model.fields,help:product_uom_po_domain.field_product_product__uom_category_id
 #: model:ir.model.fields,help:product_uom_po_domain.field_product_template__uom_category_id
-msgid "Conversion between Units of Measure can only occur if they belong to the same category. The conversion will be made based on the ratios."
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
 msgstr ""
 
 #. module: product_uom_po_domain
 #: model:ir.model.fields,help:product_uom_po_domain.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_po_domain.field_product_template__uom_po_id
-msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
+msgid ""
+"Default unit of measure used for purchase orders. It must be in the same "
+"category as the default unit of measure."
 msgstr ""
 
 #. module: product_uom_po_domain
 #: model:ir.model,name:product_uom_po_domain.model_product_template
-msgid "Product Template"
+msgid "Product"
 msgstr ""
 
 #. module: product_uom_po_domain
 #: model:ir.model.fields,field_description:product_uom_po_domain.field_product_product__uom_po_id
 #: model:ir.model.fields,field_description:product_uom_po_domain.field_product_template__uom_po_id
-msgid "Purchase Unit of Measure"
+msgid "Purchase UoM"
 msgstr ""
 
+#. module: product_uom_po_domain
+#: model:ir.model.fields,field_description:product_uom_po_domain.field_product_product__uom_category_id
+#: model:ir.model.fields,field_description:product_uom_po_domain.field_product_template__uom_category_id
+msgid "UoM Category"
+msgstr ""
