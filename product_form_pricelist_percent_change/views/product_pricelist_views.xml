@@ -15,13 +15,12 @@
                 >
                     <!-- ('pricelist_id', '=', False): if rule is opened from standard pricelist menu, the new feature will
                     be visible only after record is saved. It's a security measure, because there is no default 'pricelist_id'
-                    plus it's not visible so instead of showing 'required' on button click it might raise validation error.
-                    Considering this feature is mainly for product it's an efficient way to avoid adjustments -->
+                    plus it's not visible so instead of showing 'required' on button click it might raise validation error. -->
                     <hr />
                     <group
                         col="4"
                         string="Compute Selling price"
-                        name="group_compute_product_pricelist_selling_price"
+                        name="selling_price_percent_change"
                     >
                         <group>
                             <field
@@ -63,7 +62,6 @@
                         computed consistently. Check variant rules for specific selling prices.
                     </div>
                     <!-- Technical fields -->
-                    <field name="base_pricelist_id_recursion_prefetch" invisible="1" />
                     <field name="product_has_variants" invisible="1" />
                     <field name="show_percent_change_button" invisible="1" />
                     <hr />
@@ -75,29 +73,11 @@
                     style="max-width:95%;"
                     class="alert alert-warning"
                     role="alert"
-                    attrs="{'invisible': [('recursion_rule_warning', '=', False)]}"
-                >
-                    <i class="fa fa-warning" title="warning" />
-                    Recursion found between active pricelist rule and the following rule:
-                    <field name="recursion_rule_warning" readonly="1" />
-                    <br />
-                    Selling Price cannot be computed for recursive rules.
-                </div>
-                <div
-                    colspan="2"
-                    style="max-width:95%;"
-                    class="alert alert-warning"
-                    role="alert"
                     attrs="{'invisible': [('recursion_error_warning', '=', False)]}"
                 >
-                    <i class="fa fa-warning" title="warning" />
                     <field name="recursion_error_warning" readonly="1" />
-                    <br />
-                    Hint: check rules form-view for selected pricelist will show more
-                    information on recursive rules, it will help to solve the issue.
                 </div>
             </xpath>
-
         </field>
     </record>
 
@@ -107,11 +87,18 @@
         <field name="model">product.pricelist</field>
         <field name="inherit_id" ref="product.product_pricelist_view_inherit" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='item_ids']" position="attributes">
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="compute_rule_selling_prices"
+                >True</attribute>
+            </xpath>
+
             <xpath
                 expr="//field[@name='item_ids']//tree//field[@name='price']"
                 position="after"
             >
-                <!-- Add selling price + some good optional info -->
                 <field
                     name="product_pricelist_selling_price"
                     string="Selling Price"
@@ -120,45 +107,6 @@
                     optional="show"
                     attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
                 />
-                <field name="base" optional="hide" />
-                <field name="base_pricelist_id" optional="hide" />
-                <field name="percent_price" optional="hide" />
-                <field name="price_discount" optional="hide" />
-            </xpath>
-
-            <!-- Allow more control on tree-view elements... -->
-            <xpath
-                expr="//field[@name='item_ids']//tree//field[@name='min_quantity']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-
-            <xpath
-                expr="//field[@name='item_ids']//tree//field[@name='date_start']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-            <xpath
-                expr="//field[@name='item_ids']//tree//field[@name='date_end']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-
-            <xpath
-                expr="//field[@name='item_ids']//tree//field[@name='compute_price']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-
-            <xpath
-                expr="//field[@name='item_ids']//tree//field[@name='applied_on']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
             </xpath>
         </field>
     </record>
@@ -173,6 +121,7 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='pricelist_rule_target']" position="before">
                 <group name="group_pricelist_id">
+                    <!-- When it's opened by product the item/pricelist relation must be set manually -->
                     <field name="pricelist_id" />
                 </group>
                 <group>
