@@ -55,6 +55,19 @@
                             </div>
                         </div>
                     </group>
+                    <group>
+                        <field
+                            name="base"
+                            attrs="{'invisible':[('compute_price', '!=', 'formula')]}"
+                        />
+                        <field
+                            name="base_pricelist_id"
+                            attrs="{
+                                'invisible': ['|', ('compute_price', '!=', 'formula'), ('base', '!=', 'pricelist')],
+                                'required': [('compute_price', '=', 'formula'), ('base', '=', 'pricelist')],
+                                'readonly': [('base', '!=', 'pricelist')]}"
+                        />
+                    </group>
                 </group>
                 <div class="oe_grey" groups="uom.group_uom">
                     <p
@@ -64,37 +77,29 @@
                     col="6"
                     attrs="{'invisible':[('compute_price', '!=', 'formula')]}"
                 >
-                    <field name="base" colspan="6" />
-                    <span class="o_form_label">
-                        New Price =
-                    </span>
-                    <div>
-                        <span
+                      <label for="base" string="New Price = " />
+                      <div>
+                          <span
                             attrs="{'invisible':[('base', '!=', 'list_price')]}"
                         >Sales Price  -  </span>
-                        <span
+                          <span
                             attrs="{'invisible':[('base', '!=', 'standard_price')]}"
                         >Cost  -  </span>
-                        <span
+                          <span
                             attrs="{'invisible':[('base', '!=', 'pricelist')]}"
                         >Other Pricelist  -  </span>
-                    </div>
-                    <label for="price_discount" />
-                    <div class="o_row">
-                        <field name="price_discount" />
-                        <span>%%</span>
-                    </div>
-                    <label string=" + " for="price_surcharge" />
-                    <field name="price_surcharge" nolabel="1" />
-                    <field name="price_round" string="Rounding Method" />
-                    <field name="price_min_margin" string="Min. Margin" />
-                    <field name="price_max_margin" string="Max. Margin" />
-                    <field
-                        name="base_pricelist_id"
-                        attrs="{'invisible':[('base', '!=', 'pricelist')],
-                                   'required': [('base','=', 'pricelist')],
-                                   'readonly': [('base','!=', 'pricelist')]}"
-                    />
+                      </div>
+                      <label for="price_discount" />
+                      <div class="o_row">
+                          <field name="price_discount" />
+                          <span>%%</span>
+                      </div>
+                      <label string=" + " for="price_surcharge" />
+                      <field name="price_surcharge" nolabel="1" />
+
+                      <field name="price_round" string="Rounding Method" />
+                      <field name="price_min_margin" string="Min. Margin" />
+                      <field name="price_max_margin" string="Max. Margin" />
                 </group>
             </form>
         </field>
