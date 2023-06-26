@@ -3,10 +3,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.exceptions import UserError
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductUomUpdate(SavepointCase):
+class TestProductUomUpdate(TransactionCase):
     def setUp(self):
         super(TestProductUomUpdate, self).setUp()
         self.env = self.env(context=dict(self.env.context, tracking_disable=True))
