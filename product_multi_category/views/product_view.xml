@@ -10,6 +10,7 @@
             </xpath>
         </field>
     </record>
+
     <record id="product_template_only_form_view_add_categids" model="ir.ui.view">
         <field name="name">product.template.only.form</field>
         <field name="model">product.template</field>
@@ -20,4 +21,32 @@
             </xpath>
         </field>
     </record>
+
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="filter_domain">
+                    ['|', ('categ_id', 'ilike', raw_value), ('categ_ids', 'ilike', raw_value) ]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_search_view" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_search_form_view" />
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field
+                    name="categ_id"
+                    filter_domain="['|', ('categ_id', 'ilike', raw_value),
+                ('categ_ids', 'ilike', raw_value) ]"
+                />
+            </xpath>
+        </field>
+    </record>
+
+
 </odoo>
