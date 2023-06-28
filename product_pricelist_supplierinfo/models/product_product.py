@@ -25,7 +25,9 @@ class ProductProduct(models.Model):
             rule, date=date, quantity=quantity, product_id=self.id
         )
 
-    def price_compute(self, price_type, uom=False, currency=False, company=None):
+    def price_compute(
+        self, price_type, uom=None, currency=None, company=None, date=False
+    ):
         """Return dummy not falsy prices when computation is done from supplier
         info for avoiding error on super method. We will later fill these with
         correct values.
@@ -33,5 +35,9 @@ class ProductProduct(models.Model):
         if price_type == "supplierinfo":
             return dict.fromkeys(self.ids, 1.0)
         return super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
+            price_type,
+            uom=uom,
+            currency=currency,
+            company=company,
+            date=date,
         )

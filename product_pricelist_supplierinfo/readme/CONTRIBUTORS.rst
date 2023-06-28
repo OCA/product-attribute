@@ -9,3 +9,5 @@
 * `TAKOBI <https://takobi.online/>`_:
 
   * Lorenzo Battistini
+
+* Andrea Gidalti <andreag@vauxoo.com>

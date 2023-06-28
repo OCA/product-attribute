@@ -4,10 +4,12 @@
 
 from datetime import date
 
-from odoo.tests import common
+from odoo import Command
+from odoo.tests import TransactionCase, tagged
 
 
-class TestProductSupplierinfo(common.TransactionCase):
+@tagged("product_supplier_info")
+class TestProductSupplierinfo(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -20,8 +22,12 @@ class TestProductSupplierinfo(common.TransactionCase):
             {
                 "name": "Product Test",
                 "seller_ids": [
-                    (0, 0, {"name": cls.supplier1.id, "min_qty": 5, "price": 50}),
-                    (0, 0, {"name": cls.supplier2.id, "min_qty": 1, "price": 10}),
+                    Command.create(
+                        {"partner_id": cls.supplier1.id, "min_qty": 5, "price": 50},
+                    ),
+                    Command.create(
+                        {"partner_id": cls.supplier2.id, "min_qty": 1, "price": 10},
+                    ),
                 ],
             }
         )
@@ -31,7 +37,9 @@ class TestProductSupplierinfo(common.TransactionCase):
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "uom_po_id": cls.env.ref("uom.product_uom_dozen").id,
                 "seller_ids": [
-                    (0, 0, {"name": cls.supplier1.id, "min_qty": 1, "price": 1200}),
+                    Command.create(
+                        {"partner_id": cls.supplier1.id, "min_qty": 1, "price": 1200},
+                    )
                 ],
             }
         )
@@ -39,16 +47,14 @@ class TestProductSupplierinfo(common.TransactionCase):
             {
                 "name": "Supplierinfo Pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "compute_price": "formula",
                             "base": "supplierinfo",
                             "price_discount": 0,
                             "min_quantity": 1.0,
                         },
-                    ),
+                    )
                 ],
             }
         )
@@ -60,7 +66,11 @@ class TestProductSupplierinfo(common.TransactionCase):
         )
         if not currency_rate:
             cls.currency_rate_obj.create(
-                {"currency_id": currency_id.id, "rate": rate, "name": date.today()}
+                {
+                    "currency_id": currency_id.id,
+                    "rate": rate,
+                    "name": date.today(),
+                }
             )
         else:
             currency_rate.write({"rate": rate})
@@ -74,7 +84,7 @@ class TestProductSupplierinfo(common.TransactionCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False),
+            self.pricelist._get_product_price(self.product, 1),
             5.0,
         )
 
@@ -86,13 +96,7 @@ class TestProductSupplierinfo(common.TransactionCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False),
-            10.0,
-        )
-        self.assertAlmostEqual(
-            self.product.product_tmpl_id.with_context(
-                pricelist=self.pricelist.id
-            ).price,
+            self.pricelist._get_product_price(self.product, 1),
             10.0,
         )
 
@@ -105,41 +109,37 @@ class TestProductSupplierinfo(common.TransactionCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False),
-            12.5,
-        )
-        self.assertAlmostEqual(
-            self.product.with_context(pricelist=self.pricelist.id).price,
+            self.pricelist._get_product_price(self.product, 1),
             12.5,
         )
 
     def test_pricelist_min_quantity(self):
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False),
+            self.pricelist._get_product_price(self.product, 1),
             10,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False),
+            self.pricelist._get_product_price(self.product, 5),
             50,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 10, False),
+            self.pricelist._get_product_price(self.product, 10),
             50,
         )
         self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False),
+            self.pricelist._get_product_price(self.product, 5),
             10,
         )
 
     def test_pricelist_supplier_filter(self):
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False),
+            self.pricelist._get_product_price(self.product, 5),
             50,
         )
         self.pricelist.item_ids[0].filter_supplier_id = self.supplier2.id
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 5, False),
+            self.pricelist._get_product_price(self.product, 5),
             10,
         )
 
@@ -149,10 +149,9 @@ class TestProductSupplierinfo(common.TransactionCase):
             0
         ].date_start = "2018-12-31"
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(
+            self.pricelist._get_product_price(
                 self.product,
                 5,
-                False,
                 date=date(2019, 1, 1),
             ),
             50,
@@ -171,7 +170,7 @@ class TestProductSupplierinfo(common.TransactionCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 1, False),
+            self.pricelist._get_product_price(self.product, 1),
             20.0,
         )
 
@@ -189,13 +188,7 @@ class TestProductSupplierinfo(common.TransactionCase):
             75.0,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(self.product, 6, False),
-            75.0,
-        )
-        self.assertAlmostEqual(
-            self.product.product_tmpl_id.with_context(
-                pricelist=self.pricelist.id, quantity=6
-            ).price,
+            self.pricelist._get_product_price(self.product, 6),
             75.0,
         )
 
@@ -204,29 +197,25 @@ class TestProductSupplierinfo(common.TransactionCase):
             {
                 "name": "Test Product",
                 "attribute_line_ids": [
-                    [
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": self.env.ref(
                                 "product.product_attribute_1"
                             ).id,
                             "value_ids": [
-                                (
-                                    4,
+                                Command.link(
                                     self.env.ref(
                                         "product.product_attribute_value_1"
                                     ).id,
                                 ),
-                                (
-                                    4,
+                                Command.link(
                                     self.env.ref(
                                         "product.product_attribute_value_2"
                                     ).id,
                                 ),
                             ],
                         },
-                    ]
+                    )
                 ],
             }
         )
@@ -235,20 +224,16 @@ class TestProductSupplierinfo(common.TransactionCase):
         tmpl.write(
             {
                 "seller_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
-                            "name": self.supplier1.id,
+                            "partner_id": self.supplier1.id,
                             "product_id": variant1.id,
                             "price": 15,
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
-                            "name": self.supplier1.id,
+                            "partner_id": self.supplier1.id,
                             "product_id": variant2.id,
                             "price": 25,
                         },
@@ -257,11 +242,11 @@ class TestProductSupplierinfo(common.TransactionCase):
             }
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(variant1, 1, False),
+            self.pricelist._get_product_price(variant1, 1),
             15.0,
         )
         self.assertAlmostEqual(
-            self.pricelist.get_product_price(variant2, 1, False),
+            self.pricelist._get_product_price(variant2, 1),
             25.0,
         )
 
@@ -279,15 +264,16 @@ class TestProductSupplierinfo(common.TransactionCase):
 
         # Setting the item with the product
         self.pricelist.item_ids[0].write(
-            {"applied_on": "0_product_variant", "product_id": self.product.id}
+            {
+                "applied_on": "0_product_variant",
+                "product_id": self.product.id,
+            }
         )
         self.product.seller_ids[0].currency_id = currency_mxn
         self.pricelist.currency_id = currency_usd
 
         product_seller_price = self.product.seller_ids[0].price
-        product_pricelist_price = self.pricelist.get_product_price(
-            self.product, 5, False
-        )
+        product_pricelist_price = self.pricelist._get_product_price(self.product, 5)
         # The price with MXN Currency will be 50 as is set in the setup
         self.assertEqual(product_seller_price, 50)
         # And the price with the pricelist  (USD Currency) will be 2.5
@@ -308,12 +294,12 @@ class TestProductSupplierinfo(common.TransactionCase):
 
         product_seller_price = self.product_with_diff_uom.seller_ids[0].price
         uom_dozen = self.env.ref("uom.product_uom_dozen")
-        product_pricelist_price_dozen = self.pricelist.get_product_price(
-            self.product_with_diff_uom.with_context(uom=uom_dozen.id), 1, False
+        product_pricelist_price_dozen = self.pricelist._get_product_price(
+            self.product_with_diff_uom.with_context(uom=uom_dozen.id), 1
         )
         uom_unit = self.env.ref("uom.product_uom_unit")
-        product_pricelist_price_unit = self.pricelist.get_product_price(
-            self.product_with_diff_uom.with_context(uom=uom_unit.id), 1, False
+        product_pricelist_price_unit = self.pricelist._get_product_price(
+            self.product_with_diff_uom.with_context(uom=uom_unit.id), 1
         )
         # The price with the will be 1200 on the seller (1 Dozen)
         self.assertEqual(product_seller_price, 1200)
