@@ -8,16 +8,16 @@ from odoo import fields, models
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 
-    def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
+    def _compute_price_rule(self, products, qty, uom=None, date=False, **kwargs):
         """Recompute price after calling the atomic super method for
         getting proper prices when based on supplier info.
         """
         rule_obj = self.env["product.pricelist.item"]
-        result = super()._compute_price_rule(products_qty_partner, date, uom_id)
+        result = super()._compute_price_rule(products, qty, uom, date, **kwargs)
         # Make sure all rule records are fetched at once at put in cache
         rule_obj.browse(x[1] for x in result.values()).mapped("price_discount")
         context = self.env.context
-        for product, qty, _partner in products_qty_partner:
+        for product in products:
             rule = rule_obj.browse(result[product.id][1])
             if rule.compute_price == "formula" and rule.base == "supplierinfo":
                 result[product.id] = (
