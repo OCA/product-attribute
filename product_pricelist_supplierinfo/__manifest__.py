@@ -4,10 +4,11 @@
 {
     "name": "Supplier info prices in sales pricelists",
     "summary": "Allows to create priceslists based on supplier info",
-    "version": "15.0.1.0.2",
-    "category": "Sales",
+    "version": "16.0.1.0.0",
+    "category": "Sales/Sales",
     "website": "https://github.com/OCA/product-attribute",
-    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "author": "Tecnativa, Odoo Community Association (OCA), Vauxoo",
+    "maintainers": ["luisg123v"],
     "license": "AGPL-3",
     "depends": ["product"],
     "data": [
