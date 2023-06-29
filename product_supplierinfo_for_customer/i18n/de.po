@@ -20,11 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
-msgid "Active"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
 msgstr ""
@@ -69,7 +64,7 @@ msgid "Currency"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__partner_id
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__customer_ids
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
@@ -103,7 +98,7 @@ msgid "Customer Product Name"
 msgstr "Produktbezeichnung des Partners"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__name
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__partner_id
 #, fuzzy
 msgid "Customer of this product"
 msgstr "Artikelnummer des Partners"
@@ -112,6 +107,13 @@ msgstr "Artikelnummer des Partners"
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
 msgid "Customers"
 msgstr "Kunden"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
+msgid ""
+"Default unit of measure used for purchase orders. It must be in the same "
+"category as the default unit of measure."
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__delay
@@ -145,6 +147,7 @@ msgid ""
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#. odoo-python
 #: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:0
 #, python-format
 msgid "Import Template for Customer Pricelists"
@@ -208,7 +211,7 @@ msgid "Pricelist Rule"
 msgstr "Preisliste"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
@@ -216,12 +219,12 @@ msgid "Product"
 msgstr "Produktvorlage"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_tmpl_id
 msgid "Product Template"
 msgstr "Produktvorlage"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model,name:product_supplierinfo_for_customer.model_product_product
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_id
 #, fuzzy
 msgid "Product Variant"
@@ -269,11 +272,6 @@ msgid ""
 "The quantity to purchase from this vendor to benefit from the price, "
 "expressed in the vendor Product Unit of Measure if not any, in the default "
 "unit of measure of the product otherwise."
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
-msgid "This comes from the product form."
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
