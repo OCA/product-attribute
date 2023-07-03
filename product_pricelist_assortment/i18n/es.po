@@ -21,18 +21,10 @@ msgstr ""
 msgid ""
 "<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Sales Price  -  "
 "</span>\n"
-"                        <span attrs=\"{'invisible':[('base', '!=', "
+"                          <span attrs=\"{'invisible':[('base', '!=', "
 "'standard_price')]}\">Cost  -  </span>\n"
-"                        <span attrs=\"{'invisible':[('base', '!=', "
+"                          <span attrs=\"{'invisible':[('base', '!=', "
 "'pricelist')]}\">Other Pricelist  -  </span>"
-msgstr ""
-
-#. module: product_pricelist_assortment
-#: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
-msgid ""
-"<span class=\"o_form_label\">\n"
-"                        New Price =\n"
-"                    </span>"
 msgstr ""
 
 #. module: product_pricelist_assortment
@@ -231,6 +223,11 @@ msgstr "Cantidad mínima"
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: product_pricelist_assortment
+#: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
+msgid "New Price ="
+msgstr "Nuevo precio ="
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__filter_supplier_id
@@ -439,9 +436,6 @@ msgstr ""
 #~ msgid "Ending valid for the pricelist item validation"
 #~ msgstr ""
 #~ "Finalización válida para la validación del artículo de la lista de precios"
-
-#~ msgid "New Price ="
-#~ msgstr "Nuevo precio ="
 
 #~ msgid ""
 #~ "Specify the fixed amount to add or substract(if negative) to the amount "
