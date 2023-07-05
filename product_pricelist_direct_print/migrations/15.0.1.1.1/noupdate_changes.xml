@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--
-    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
--->
-<odoo noupdate="1">
-    <!--Email template -->
+<odoo>
     <record id="email_template_edi_pricelist" model="mail.template">
-        <field name="name">Pricelist - Send by Email</field>
         <field
             name="email_from"
         >{{ (object.write_uid.email and '&quot;%s&quot; &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '') or "" }}</field>
@@ -15,12 +10,6 @@
         <field
             name="partner_to"
         >{{ object.partner_id and object.partner_id.id or '' }}</field>
-        <field
-            name="model_id"
-            ref="product_pricelist_direct_print.model_product_pricelist_print"
-        />
-        <field name="auto_delete" eval="True" />
-        <field name="report_template" ref="action_report_product_pricelist" />
         <field name="report_name">{{ object.pricelist_id.name }}</field>
         <field
             name="lang"
