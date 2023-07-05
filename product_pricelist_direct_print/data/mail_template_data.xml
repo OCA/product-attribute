@@ -8,7 +8,7 @@
         <field name="name">Pricelist - Send by Email</field>
         <field
             name="email_from"
-        >{{ (object.write_uid.email and '&quot;%s&quot; &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '') or "safe" }}</field>
+        >{{ (object.write_uid.email and '&quot;%s&quot; &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '') or "" }}</field>
         <field
             name="subject"
         >{{ object.pricelist_id.company_id.name or object.write_uid.company_id.name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})</field>
@@ -39,7 +39,7 @@
 
     <p style="color:#888888;">
         <t t-if="object.write_uid and object.write_uid.signature">
-            <span t-out="object.write_uid.signature or 'safe'" />
+            <span t-out="object.write_uid.signature or ''" />
         </t>
     </p>
 </div>
