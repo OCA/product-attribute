@@ -43,11 +43,6 @@ msgid "Only match prices from the selected supplier"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
-#: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist
-msgid "Pricelist"
-msgstr ""
-
-#. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr ""
