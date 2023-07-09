@@ -35,14 +35,6 @@ class ProductPricelistItem(models.Model):
         compute="_compute_product_pricelist_selling_price"
     )
 
-    base_pricelist_id_recursion_prefetch = fields.Boolean(
-        compute="_compute_base_pricelist_id_recursion_prefetch",
-    )
-
-    recursion_rule_warning = fields.Html(
-        compute="_compute_base_pricelist_id_recursion_prefetch",
-    )
-
     show_percent_change_button = fields.Boolean(
         default=False,
         help="Technical field to compute button visibility. Rule buttons "
@@ -93,62 +85,56 @@ class ProductPricelistItem(models.Model):
 
                 product = product._origin  # avoid issues with newid
 
-                if not self.base_pricelist_id_recursion_prefetch:
-                    try:
-                        partner = date = uom_id = False
-                        product_price = self.base_pricelist_id._compute_price_rule(
-                            products_qty_partner=[
-                                (product, self.min_quantity, partner)
-                            ],
-                            date=date,
-                            uom_id=uom_id,
-                        )[product.id][0]
+                # if not self.base_pricelist_id_recursion_prefetch:
+                try:
+                    partner = date = uom_id = False
+                    product_price = self.base_pricelist_id._compute_price_rule(
+                        products_qty_partner=[(product, self.min_quantity, partner)],
+                        date=date,
+                        uom_id=uom_id,
+                    )[product.id][0]
 
-                        # Support for multi-currency: we can't call price_compute()
-                        # in this flow so if pricelist or product has different
-                        # currency than company, we must deal with it
+                    # Support for multi-currency: we can't call price_compute()
+                    # in this flow so if pricelist or product has different
+                    # currency than company, we must deal with it
 
-                        current_currency = (
-                            self.currency_id or self.pricelist_id.currency_id
-                        )
+                    current_currency = self.currency_id or self.pricelist_id.currency_id
 
-                        if current_currency != product.currency_id:
-                            current_currency = product.currency_id
+                    if current_currency != product.currency_id:
+                        current_currency = product.currency_id
 
-                        converted_price = self.base_pricelist_id.currency_id._convert(
-                            from_amount=product_price,
-                            to_currency=current_currency,
-                            company=company_id,
-                            date=fields.Date.today(),
-                        )
+                    converted_price = self.base_pricelist_id.currency_id._convert(
+                        from_amount=product_price,
+                        to_currency=current_currency,
+                        company=company_id,
+                        date=fields.Date.today(),
+                    )
 
-                        product_price = converted_price
+                    product_price = converted_price
 
-                    except RecursionError:
-                        # Important note: calling _compute_price_rule() can cause
-                        # recursion error in several situations, some of them are
-                        # prevented by _compute_base_pricelist_id_recursion_prefetch
-                        # so we have not to wait for recursion error to show.
-                        #
-                        # There are other situation that are hard to catch or too
-                        # expensive to check for performance, for example when a
-                        # rule A depends on B, B has a rule that depends on C and
-                        # C has a rule that depends on A. To avoid server error to
-                        # show up in those situation we catch and manage exception.
-                        # Still super-bad to wait for recursion error but at least
-                        # user has record access and remove/correct recursive rules.
-                        # (test with stored fields)
-                        recursion_error_warning = (
-                            "Catched Recursion Error on %s. It is based on %s "
-                            "which has recursive pricelist rule. This can cause "
-                            "performance issues. Module features will not be "
-                            "available for this rule."
-                            % (self.pricelist_id.name, self.base_pricelist_id.name)
-                        )
+                except RecursionError:
+                    # calling _compute_price_rule() can cause recursion error
+                    # in several situations. It would be an issue in sale order,
+                    # but even more an issue on this module, because if there's
+                    # a recursion error and this module is installed, you would
+                    # not have access to product record to resolve recurrency.
+                    # For this reason, it is very important to dodge recursion
+                    # between pricelist items while this module is installed.
+                    recursion_error_warning = (
+                        "Catched Recursion:"
+                        "\n\n- Recursive rule id=%s"
+                        "\n- Recursive rule name: %s "
+                        "\n\nHint: fix 'Other pricelist' value or fix rule "
+                        "on %s to avoid recursion.\n "
+                        "Percent change module features are disabled for this rule."
+                        % (self.id, self.name, self.base_pricelist_id.name)
+                    )
 
-                        # form-view warning + sys log if user reaches this point
-                        self.recursion_error_warning = recursion_error_warning
-                        _logger.warning(recursion_error_warning)
+                    _logger.warning(recursion_error_warning)
+                    # format msg for html field
+                    self.recursion_error_warning = recursion_error_warning.replace(
+                        "\n", "<br/>"
+                    )
 
         return product_price
 
@@ -174,14 +160,6 @@ class ProductPricelistItem(models.Model):
 
         self.product_pricelist_selling_price = selling_price_rule
 
-    # base_pricelist_id.item_ids dependencies are added to make
-    # possible the recomputation of rule based on pricelist, when
-    # computed fields are stored. Note that if pricelist C >
-    # depending on B > depending on A > the C pricelist selling
-    # price will not be automatically recomputed with store=True.
-    # Can be probably fixed with cache invalidate or method
-    # add_to_recompute() and some checks, but if that's your
-    # need at that point you probably just want to use store=False
     @api.depends(
         "pricelist_id",
         "product_tmpl_id",
@@ -197,33 +175,31 @@ class ProductPricelistItem(models.Model):
         "price_round",
         "price_min_margin",
         "price_max_margin",
-        "base_pricelist_id_recursion_prefetch",
-        "recursion_rule_warning",
         "base_pricelist_id",
-        "base_pricelist_id.item_ids.product_tmpl_id",
-        "base_pricelist_id.item_ids.product_id",
-        "base_pricelist_id.item_ids.currency_id",
-        "base_pricelist_id.item_ids.min_quantity",
-        "base_pricelist_id.item_ids.compute_price",
-        "base_pricelist_id.item_ids.fixed_price",
-        "base_pricelist_id.item_ids.percent_price",
-        "base_pricelist_id.item_ids.base",
-        "base_pricelist_id.item_ids.price_discount",
-        "base_pricelist_id.item_ids.price_surcharge",
-        "base_pricelist_id.item_ids.price_round",
-        "base_pricelist_id.item_ids.price_min_margin",
-        "base_pricelist_id.item_ids.price_max_margin",
-        "base_pricelist_id.item_ids.base_pricelist_id_recursion_prefetch",
-        "base_pricelist_id.item_ids.recursion_rule_warning",
     )
     def _compute_product_pricelist_selling_price(self):
 
         """Compute selling price to display on pricelist item"""
 
+        if not self.env.context.get("compute_rule_selling_prices"):
+            # Workaround: when item_ids recordset has thousands of records
+            # the exec time can be huge. We mitigate the potential issue
+            # by using this key which is not really avoiding the computation
+            # but only return dummy value for cache, so it speeds up a lot.
+            # Note that the cache still needs to retrieve some value, so we
+            # cannot really bypass computation by self.env.remove_to_compute()
+            # since it would give cacheMiss error
+            for rule in self:
+                rule.product_pricelist_selling_price = 0.00
+                rule.product_has_variants = False
+                rule.recursion_error_warning = False
+            return
+
         for rule in self:
 
             # as first operaton, assign possible non-stored
             # field 'dummy' values to avoid ValueError
+
             rule.product_pricelist_selling_price = 0.00
             rule.product_has_variants = False
             rule.recursion_error_warning = False
@@ -235,14 +211,14 @@ class ProductPricelistItem(models.Model):
                 # main reason of this check is to avoid key errors when we
                 # call price_compute() function to retrieve product prices.
                 # Modules can inherit and add proper key to this check.
-                return
+                continue
 
             # Only compute price for specific products selected on the rule
             if (
                 rule.applied_on not in ["1_product", "0_product_variant"]
                 or not pricelist
             ):
-                return
+                continue
 
             product = None
 
@@ -254,7 +230,7 @@ class ProductPricelistItem(models.Model):
                     rule.product_has_variants = True
 
             if not product:
-                return
+                continue
 
             product_price = rule._get_product_price_rule_base(product=product)
 
@@ -332,9 +308,6 @@ class ProductPricelistItem(models.Model):
                     raise UserError(_("Select which pricelist this rule is based on."))
                 partner = date = uom_id = False
 
-                # prevent exception in some case to speed-up warning pop-up
-                self._onclick_check_pricelist_recursive()
-
                 try:
                     product_price = self.base_pricelist_id._compute_price_rule(
                         products_qty_partner=[(product, self.min_quantity, partner)],
@@ -360,13 +333,12 @@ class ProductPricelistItem(models.Model):
 
                     product_price = converted_price
 
-                except RecursionError:  # catch exc when it can't be prevented
+                except RecursionError:
                     warning = _(
-                        "Recursion Error: selected pricelist has some recursive rules "
-                        "with other pricelists. It will not possible to retrieve product "
-                        "price and discount until recursion is removed. You can check "
-                        "'%s' form-view to see info about recursive rules and solve issue. "
-                        % self.base_pricelist_id.name
+                        "Recursion Error: Catched recursivity between pricelist rules "
+                        "from %s and %s. Module features are not available for this "
+                        "rule. Check rule form-view for more info."
+                        % (self.pricelist_id.name, self.base_pricelist_id.name)
                     )
                     raise UserError(warning)
 
@@ -723,167 +695,3 @@ class ProductPricelistItem(models.Model):
             values.update(dict(show_percent_change_button=True))
         res = super().create(vals_list)
         return res
-
-    @api.depends("pricelist_id", "base_pricelist_id")
-    def _compute_base_pricelist_id_recursion_prefetch(self):
-        """
-        Some check for recursion between rules depending on pricelists.
-        It would be a problem for this module because computed fields
-        are not stored by default, so python recursion error is going
-        to deny record access, and it has to be avoided. We prefer to
-        show a warning at form level over odoo.Exceptions because it's
-        safer to deal with @api.depends.
-
-        If recursion is found:
-        - we set 'base_pricelist_id_recursion_prefetch' to True, this
-          will avoid _compute_price_rule() being recursively called
-
-        - warning message will appear on both recursive rules form-views
-          to notify that feature introduced by this module are disabled
-          for those 'product pricelist rules' until recursion is removed
-
-        - an html field is computed to show info about recursive records
-
-        - dictionary {'rule_id': {rule info...}} will be shown in log
-        """
-
-        recursive_rule_data = {}
-
-        for rule in self:
-
-            rule.recursion_rule_warning = False
-            rule.base_pricelist_id_recursion_prefetch = False
-
-            if (
-                rule.pricelist_id
-                and rule.base_pricelist_id
-                and rule.base == "pricelist"
-            ):
-
-                if rule.base_pricelist_id.id == rule.pricelist_id.id:
-                    # skip if pricelist_id/base_pricelist_id is redundant, will be
-                    # managed later by original @api.constrains _check_recursion()
-                    rule.base_pricelist_id_recursion_prefetch = True
-                    continue
-
-                target_pricelist_id = rule.base_pricelist_id
-                if not target_pricelist_id:
-                    target_pricelist_id = rule.base_pricelist_id._origin
-
-                # Prefetch product_id: we need to discard rule if not applied on same product
-                active_rule_product_id = None
-                if rule.applied_on == "1_product":
-                    active_rule_product_id = rule.product_tmpl_id._origin.id
-                elif rule.applied_on == "0_product_variant":
-                    active_rule_product_id = rule.product_id._origin.id
-
-                if not active_rule_product_id:
-                    continue
-
-                for item in target_pricelist_id.item_ids:
-                    item_product_id = False
-                    if item.applied_on == "1_product":
-                        item_product_id = item.product_tmpl_id.id
-                    elif item.applied_on == "0_product_variant":
-                        item_product_id = item.product_id.id
-
-                    if item_product_id != active_rule_product_id:
-                        # avoid crossed warning between products with similar recursive rules
-                        continue
-
-                    if item.base_pricelist_id.id == rule.pricelist_id.id:
-                        rule.base_pricelist_id_recursion_prefetch = True
-
-                        recursive_rule_data[str(rule.id)] = {
-                            "pricelist_id": rule.pricelist_id.name,
-                            "base_pricelist_id": rule.base_pricelist_id.name,
-                            "applied_on": rule.applied_on,
-                            "product_id": active_rule_product_id,
-                        }  # product recursive rules for syslog
-
-                        pricelist_name = rule.base_pricelist_id.name
-                        rule_name = item.name
-                        rule_id = str(item.id)
-                        item_product_id = str(item_product_id)
-
-                        # UI info:
-                        # Note: this does not work super well with pseudo-records: if both rules
-                        # are pseudo-records 'item.base_pricelist_id' will not be reachable yet,
-                        # so in that case warnings will show up after save of product record...
-                        rule.recursion_rule_warning = (
-                            "<br/><b>pricelist name:</b> "
-                            + pricelist_name
-                            + "<br/><b>rule name</b>: "
-                            + rule_name
-                            + "<br/><b>rule ID</b>: "
-                            + rule_id
-                            + "<br/><b>product ID</b>: "
-                            + item_product_id
-                        )
-
-        if recursive_rule_data:
-            _logger.info(
-                "Found recursion on product pricelist items: %s" % recursive_rule_data
-            )
-
-    def _onclick_check_pricelist_recursive(self):
-
-        """Similar to @api.depends check but for button:
-
-        Checks for recursive pricelist rules and tries to
-        prevent RecursionError exception. This allows to
-        speed up the odoo.Exception pop-up in some case.
-
-        :returns: UserError if 'base_pricelist_id' has a rule
-        based on 'self'
-
-        See _compute_base_pricelist_id_recursion_prefetch()
-        for more information.
-        """
-
-        if self.pricelist_id and self.base_pricelist_id and self.base == "pricelist":
-
-            # discard from 'base_pricelist_id' rules recordset all rules that are
-            # not related to the product linked on the active pricelist rule
-
-            recursive_items = []
-            active_rule_product_id = False
-
-            if self.applied_on == "1_product":
-                active_rule_product_id = self.product_tmpl_id.id
-            elif self.applied_on == "0_product_variant":
-                active_rule_product_id = self.product_id.id
-
-            for item in self.base_pricelist_id.item_ids:
-                item_product_id = False
-
-                if item.applied_on == "1_product":
-                    item_product_id = item.product_tmpl_id.id
-                elif item.applied_on == "0_product_variant":
-                    item_product_id = item.product_id.id
-
-                if (
-                    item_product_id == active_rule_product_id
-                    and item.base_pricelist_id.id == self.pricelist_id.id
-                ):
-                    # recursive + same product id on both rules
-                    recursive_items.append(item)
-                else:
-                    continue
-
-            warning = _(
-                "Recursive rule: selected pricelist %s has some rules that depends "
-                "on this pricelist for same product and quantity, therefore is not "
-                "possible to evaluate product price and discount until recursion "
-                "will be removed. Recursive rules:\n" % self.base_pricelist_id.name
-            )
-
-            rules = ""
-            if recursive_items:
-                for rule in recursive_items:
-                    rules += _(
-                        "\n-Pricelist name: %s, rule name: %s, rule ID: %s"
-                        % (rule.pricelist_id.name, rule.name, rule.id)
-                    )
-
-                raise UserError(warning + rules)

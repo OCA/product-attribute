@@ -35,9 +35,24 @@
             >
                 <attribute
                     name="context"
-                >{'open_pricelist_item_by_product': True, 'pid': active_id, 'model_name':
-                    'product_template'}
-                </attribute>
+                    operation="python_dict"
+                    key="compute_rule_selling_prices"
+                >True</attribute>
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="open_pricelist_item_by_product"
+                >True</attribute>
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="pid"
+                >active_id</attribute>
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="model_name"
+                >'product_template'</attribute>
             </xpath>
 
             <xpath
@@ -51,7 +66,6 @@
                 expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='pricelist_id']"
                 position="after"
             >
-                <!-- Add selling price + some good optional info -->
                 <field
                     name="product_pricelist_selling_price"
                     string="Selling Price"
@@ -59,31 +73,6 @@
                     options="{'currency_field': 'currency_id'}"
                     optional="show"
                 />
-                <field name="base" optional="hide" />
-                <field name="base_pricelist_id" optional="hide" />
-                <field name="percent_price" optional="hide" />
-                <field name="price_discount" optional="hide" />
-
-            </xpath>
-
-            <!-- Allow more control on tree-view elements... -->
-            <xpath
-                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='min_quantity']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-            <xpath
-                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='date_start']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-            <xpath
-                expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree//field[@name='date_end']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
             </xpath>
         </field>
     </record>
@@ -102,11 +91,27 @@
             >
                 <attribute
                     name="context"
-                >{'open_pricelist_item_by_product': True, 'pid': active_id, 'model_name':
-                    'product_product'}
-                </attribute>
+                    operation="python_dict"
+                    key="compute_rule_selling_prices"
+                >True</attribute>
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="open_pricelist_item_by_product"
+                >True</attribute>
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="pid"
+                >active_id</attribute>
+                <attribute
+                    name="context"
+                    operation="python_dict"
+                    key="model_name"
+                >'product_product'</attribute>
             </xpath>
 
+            <!-- todo: remove editable? (check if needed for fields_view_get) -->
             <xpath
                 expr="//group[@name='price']//field[@name='fixed_pricelist_item_ids']//tree"
                 position="attributes"
@@ -126,10 +131,10 @@
         <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='packaging']" position="after">
-                <group name="price" string="Fixed Price">
+                <group name="price" string="Pricelist Rules">
                     <field
                         name="fixed_pricelist_item_ids"
-                        context="{'open_pricelist_item_by_product': True, 'variant_easy_edit_view': True, 'pid': active_id, 'model_name': 'product_product'}"
+                        context="{'open_pricelist_item_by_product': True, 'variant_easy_edit_view': True, 'pid': active_id, 'model_name': 'product_product', 'compute_rule_selling_prices': True}"
                         nolabel="1"
                     >
                         <tree>
