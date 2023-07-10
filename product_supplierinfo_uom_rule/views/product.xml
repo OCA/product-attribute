@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record
+            id="product_supplierinfo_tree_view"
+            model="ir.ui.view">
+            <field name="name">Product SupplierInfo (UoM Rule)</field>
+            <field name="model">product.supplierinfo</field>
+            <field
+                name="inherit_id"
+                ref="product.product_supplierinfo_tree_view" />
+            <field
+                name="arch"
+                type="xml">
+                <data>
+                    <field
+                        name="date_start"
+                        position="before">
+                        <field name="rule_price" />
+                        <field name="rule_uom_id" />
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record
+            id="product_supplierinfo_form_view"
+            model="ir.ui.view">
+            <field name="name">Product SupplierInfo (UoM Rule)</field>
+            <field name="model">product.supplierinfo</field>
+            <field
+                name="inherit_id"
+                ref="product.product_supplierinfo_form_view" />
+            <field
+                name="arch"
+                type="xml">
+                <data>
+                    <field name="price" position="attributes">
+                        <attribute name="attrs">{'readonly': [('rule_uom_id', '!=', False)]}</attribute>
+                        <attribute name="force_save">1</attribute>
+                    </field>
+                    <label for="date_start" position="before" >
+                        <field name="product_uom_category_id" invisible="1" />
+                        <field name="rule_price" attrs="{'invisible': [('rule_uom_id', '=', False)],'required': [('rule_uom_id', '!=', False)]}" />
+                        <field name="rule_uom_id" />
+                    </label>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>
