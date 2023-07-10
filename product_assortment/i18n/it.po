@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-10 08:09+0000\n"
+"PO-Revision-Date: 2023-07-10 13:09+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -35,7 +35,7 @@ msgstr "Tutti i partner"
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortment Name"
-msgstr "Nome Assortimento"
+msgstr "Nome assortimento"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
@@ -89,7 +89,7 @@ msgstr "Partner"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
-msgstr "Dominio Partner"
+msgstr "Dominio partner"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -120,17 +120,17 @@ msgstr "Prodotti"
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
-msgstr "Prodotto da escludere"
+msgstr "Prodotti da escludere"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to include"
-msgstr "Prodotto da includere"
+msgstr "Prodotti da includere"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
 msgid "Record Count"
-msgstr "Conteggio Record"
+msgstr "Conteggio record"
 
 #. module: product_assortment
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
