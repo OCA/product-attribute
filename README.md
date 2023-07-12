@@ -41,7 +41,7 @@ addon | version | maintainers | summary
 [product_exception](product_exception/) | 13.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Ensure products are valid against a set of rules
 [product_expiry_configurable](product_expiry_configurable/) | 13.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
 [product_list_pricelist_price](product_list_pricelist_price/) | 13.0.1.0.1 |  | Display pricelist prices for products in list view.
-[product_lot_sequence](product_lot_sequence/) | 13.0.1.0.1 |  | Adds ability to define a lot sequence from the product
+[product_lot_sequence](product_lot_sequence/) | 13.0.1.0.2 |  | Adds ability to define a lot sequence from the product
 [product_manufacturer](product_manufacturer/) | 13.0.2.1.0 |  | Adds manufacturers and attributes on the product view.
 [product_medical](product_medical/) | 13.0.1.3.0 |  | Base structure to handle medical products
 [product_multi_category](product_multi_category/) | 13.0.1.0.0 |  | Product - Many Categories
