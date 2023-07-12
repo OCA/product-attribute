@@ -1,4 +1,4 @@
-You can manage your images at Product template level:
+You can manage your images at Product template level :
 
 #. Go to *Sales > Products > Products* and choose a product template.
 #. Go to the *Images* tab.
