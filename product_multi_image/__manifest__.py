@@ -4,7 +4,7 @@
 
 {
     "name": "Multiple Images in Products",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "author": "Antiun Ingeniería, "
     "Tecnativa, "
     "LasLabs, "
