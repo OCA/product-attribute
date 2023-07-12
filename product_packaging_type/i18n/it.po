@@ -6,65 +6,67 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-12 12:13+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__barcode_required_for_gtin
 msgid "Barcode Required For Gtin"
-msgstr ""
+msgstr "Codice a barre obbligatorio per GTIN"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__code
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_packaging_type
 #: model:product.packaging.type,name:product_packaging_type.product_packaging_type_default
 msgid "Default Type"
-msgstr ""
+msgstr "Tipo predefinito"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__display_name
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__has_gtin
 msgid "Has Gtin"
-msgstr ""
+msgstr "Ha GTIN"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__id
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__is_default
 msgid "Is Default"
-msgstr ""
+msgstr "È predefinito"
 
 #. module: product_packaging_type
 #: code:addons/product_packaging_type/models/product_packaging_type.py:0
@@ -73,49 +75,53 @@ msgid ""
 "It is forbidden to have different packagings with the same type for a given "
 "product ({})."
 msgstr ""
+"Non è permesso avere imballaggi differenti con lo stesso tipo per un dato "
+"prodotto ({})."
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging____last_update
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_packaging_type
 #: code:addons/product_packaging_type/models/product_packaging_type.py:0
 #, python-format
 msgid "Only one product packaging type can be set as \"Is Default\"."
 msgstr ""
+"Solo un tipo imballaggio prodotto può essere impostato come \"È predefinito\""
+"."
 
 #. module: product_packaging_type
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
 msgid "Packaging"
-msgstr ""
+msgstr "Imballaggio"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__packaging_type_id
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_form
 msgid "Packaging Type"
-msgstr ""
+msgstr "Tipo imballaggio"
 
 #. module: product_packaging_type
 #: model:ir.model,name:product_packaging_type.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Imballaggio prodotto"
 
 #. module: product_packaging_type
 #: model:ir.actions.act_window,name:product_packaging_type.act_open_product_packaging_type_view
@@ -124,30 +130,31 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_search
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_tree
 msgid "Product Packaging Type"
-msgstr ""
+msgstr "Tipo imballaggio prodotto"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__qty_per_type
 msgid "Qty per package type"
-msgstr ""
+msgstr "Q.tà per tipo imballaggio"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_packaging_type
 #: code:addons/product_packaging_type/models/product_packaging_type.py:0
 #, python-format
 msgid "There must be one product packaging type set as \"Is Default\"."
 msgstr ""
+"Deve esserci un tipo imballaggio prodotto impostato come \"È predefinito\"."
 
 #. module: product_packaging_type
 #: model:ir.model,name:product_packaging_type.model_product_packaging_type
 msgid "Type management for product.packaging"
-msgstr ""
+msgstr "Gestione tipo per product.packaging"
 
 #. module: product_packaging_type
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__type_sequence
 msgid "Type sequence"
-msgstr ""
+msgstr "Sequenza tipo"
