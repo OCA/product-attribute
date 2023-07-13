@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+        <record id="view_product_price_history_graph" model="ir.ui.view" >
+            <field name="model">product.price.history</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="datetime" type="col"/>
+                    <field name="cost" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
         <record id="view_product_price_history_tree" model="ir.ui.view" >
             <field name="name">view.product.price.history.tree</field>
             <field name="model">product.price.history</field>
@@ -35,7 +45,7 @@
             <field name="name">Price History</field>
             <field name="res_model">product.price.history</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">tree,graph</field>
             <field name="search_view_id" ref="view_product_price_history_filter"/>
         </record>
 
