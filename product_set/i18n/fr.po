@@ -1,0 +1,199 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * sale_product_set
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-26 11:44+0000\n"
+"PO-Revision-Date: 2021-05-14 18:47+0000\n"
+"Last-Translator: Yves Le Doeuff <yld@alliasys.fr>\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__active
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Archived"
+msgstr ""
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__company_id
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__create_uid
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__create_date
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__display_name
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__display_name
+msgid "Display Name"
+msgstr "Afficher le nom"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__id
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__ref
+msgid "Internal Reference"
+msgstr "Référence interne"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set____last_update
+#: model:ir.model.fields,field_description:product_set.field_product_set_line____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__write_uid
+msgid "Last Updated by"
+msgstr "Modifié par"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__write_date
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__write_date
+msgid "Last Updated on"
+msgstr "Modifié le"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_id
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+msgid "Product"
+msgstr "Article"
+
+#. module: product_set
+#: model:ir.actions.act_window,name:product_set.act_open_product_set_view
+#: model:ir.model,name:product_set.model_product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Product set"
+msgstr "Set de produit"
+
+#. module: product_set
+#: model:ir.model.fields,help:product_set.field_product_set__ref
+msgid "Product set internal reference"
+msgstr "Référence interne du set de produits"
+
+#. module: product_set
+#: model:ir.actions.act_window,name:product_set.act_open_product_set_line_view
+#: model:ir.model,name:product_set.model_product_set_line
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+msgid "Product set line"
+msgstr "ligne du Set"
+
+#. module: product_set
+#: model:ir.model.fields,help:product_set.field_product_set__name
+msgid "Product set name"
+msgstr "Nom du Set"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__set_line_ids
+msgid "Products"
+msgstr "Produits"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
+msgid "Set"
+msgstr "Set"
+
+#. module: product_set
+#: model:ir.model.fields,help:product_set.field_product_set__partner_id
+msgid ""
+"You can attache the set to a specific partner or no one. If you don't "
+"specify one, it's going to be available for all of them."
+msgstr ""
+"Vous pouvez attacher le set à un partenaire spécifique ou à personne. Si "
+"vous n'en précisez pas un, il sera disponible pour tous."
+
+#~ msgid "Add set"
+#~ msgstr "Ajout d'un Set"
+
+#~ msgid "Add set in sale order"
+#~ msgstr "Ajouter un Set"
+
+#~ msgid "Add set in sale order line"
+#~ msgstr "Ajout d'un Set au devis"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
+#~ msgid "Customer"
+#~ msgstr "Client"
+
+#~ msgid "Discount (%)"
+#~ msgstr "Remise (%)"
+
+#~ msgid ""
+#~ "Enable this to not add new lines for products already included in SO "
+#~ "lines."
+#~ msgstr ""
+#~ "Activez cette option pour ne pas ajouter de nouvelles lignes pour les "
+#~ "produits déjà inclus dans les lignes de commande."
+
+#~ msgid "Product set lines"
+#~ msgstr "Lignes du Set"
+
+#~ msgid "Sale Order"
+#~ msgstr "Commande"
+
+#~ msgid "Skip Existing Products"
+#~ msgstr "Sauter les produits existants"
+
+#~ msgid "Wizard model to add product set into a quotation"
+#~ msgstr "Wizard pour ajouter un set dans une offre"
+
+#~ msgid "You can use a sale order assigned only to following partner(s): {}"
+#~ msgstr ""
+#~ "Vous pouvez utiliser un ordre de vente affecté uniquement au(x) "
+#~ "partenaire(s) suivant(s) : {}"
