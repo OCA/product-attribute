@@ -7,38 +7,50 @@
         <field name="arch" type="xml">
             <group name="qty" position="after">
                 <group name="dimensions" string="Dimensions">
-                    <label for="volume" />
+                    <group id="group_volume">
+                        <label for="volume" />
                         <div class="o_row">
                             <field name="volume" />
                             <field name="volume_uom_name" />
                         </div>
-                    <label for="packaging_length" />
+                    </group>
+                    <group id="group_packaging_length">
+                        <label for="packaging_length" />
                         <div class="o_row">
                             <field name="packaging_length" />
                             <field name="length_uom_name" />
                         </div>
-                    <label for="width" />
+                    </group>
+                    <group id="group_width">
+                        <label for="width" />
                         <div class="o_row">
                             <field name="width" />
                             <field name="length_uom_name" />
                         </div>
-                    <label for="height" />
+                    </group>
+                    <group id="group_height">
+                        <label for="height" />
                         <div class="o_row">
-                        <field name="height" />
-                        <field name="length_uom_name" />
+                            <field name="height" />
+                            <field name="length_uom_name" />
                         </div>
+                    </group>
                 </group>
                 <group string="Weight">
-                    <label for="max_weight" />
+                    <group id="group_max_weight">
+                        <label for="max_weight" />
                         <div class="o_row" name="max_weight">
-                    <field name="max_weight" />
-                             <span><field name="weight_uom_name" /></span>
+                            <field name="max_weight" />
+                            <span><field name="weight_uom_name" /></span>
                         </div>
-                    <label for="weight" />
+                    </group>
+                    <group id="group_weight">
+                        <label for="weight" />
                         <div class="o_row" name="weight">
                             <field name="weight" />
-                             <span><field name="weight_uom_name" /></span>
-                    </div>
+                            <span><field name="weight_uom_name" /></span>
+                        </div>
+                    </group>
                 </group>
                 <group string="Units of Measure">
                     <field name="volume_uom_id" />
