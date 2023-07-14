@@ -21,7 +21,7 @@ class ProductPackaging(models.Model):
     ]
     height = fields.Integer()
     width = fields.Integer()
-    packaging_length = fields.Integer()
+    packaging_length = fields.Integer(string="Length")
 
     length_uom_id = fields.Many2one(
         "uom.uom",
