@@ -17,7 +17,7 @@ class TestProductSupplierinfoRevision(common.TransactionCase):
         cls.vendor = cls.env["res.partner"].create({"name": "Suplier test"})
         cls.today = datetime.today()
         cls.supplierinfo = cls.env["product.supplierinfo"].create(
-            {"name": cls.vendor.id, "price": 100.0}
+            {"partner_id": cls.vendor.id, "price": 100.0}
         )
 
     def test_product_supplierinfo_revision(self):
