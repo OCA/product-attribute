@@ -37,13 +37,6 @@
                     </group>
                 </group>
                 <group string="Weight">
-                    <group id="group_max_weight">
-                        <label for="max_weight" />
-                        <div class="o_row" name="max_weight">
-                            <field name="max_weight" />
-                            <span><field name="weight_uom_name" /></span>
-                        </div>
-                    </group>
                     <group id="group_weight">
                         <label for="weight" />
                         <div class="o_row" name="weight">

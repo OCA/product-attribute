@@ -14,14 +14,14 @@ class ProductPackaging(models.Model):
         ("positive_width", "CHECK(width>=0)", "Width must be positive"),
         ("positive_length", "CHECK(packaging_length>=0)", "Length must be positive"),
         (
-            "positive_max_weight",
-            "CHECK(max_weight>=0)",
-            "Max Weight must be positive",
+            "positive_weight",
+            "CHECK(weight>=0)",
+            "Weight must be positive",
         ),
     ]
     height = fields.Integer()
     width = fields.Integer()
-    packaging_length = fields.Integer()
+    packaging_length = fields.Integer(string="Length")
 
     length_uom_id = fields.Many2one(
         "uom.uom",
@@ -41,7 +41,6 @@ class ProductPackaging(models.Model):
     )
 
     weight = fields.Float()
-    max_weight = fields.Float("Maximum Weight")
     weight_uom_id = fields.Many2one(
         "uom.uom",
         string="Weight Units of Measure",
