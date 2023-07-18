@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_dimension_compute_volume
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_dimension_compute_volume
+#: model:ir.model,name:product_dimension_compute_volume.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_dimension_compute_volume
+#: model:ir.model.fields,help:product_dimension_compute_volume.field_product_product__volume
+msgid "The volume of the contents, not including any packaging, etc."
+msgstr ""
+
+#. module: product_dimension_compute_volume
+#: model:ir.model.fields,field_description:product_dimension_compute_volume.field_product_product__volume
+msgid "Volume"
+msgstr ""
+
