@@ -46,6 +46,7 @@ addon | version | maintainers | summary
 [product_route_mto](product_route_mto/) | 16.0.1.0.0 |  | This module allows to compute if a product is an 'MTO' one from its configured routes
 [product_secondary_unit](product_secondary_unit/) | 16.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 16.0.2.0.0 |  | Product Sequence
+[product_set](product_set/) | 16.0.1.0.0 |  | Product set
 [product_state](product_state/) | 16.0.1.0.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 16.0.1.0.0 |  | Allows to define prices for customers in the products
 [product_template_has_one_variant](product_template_has_one_variant/) | 16.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a field on product template level to determine if it has only one variant
