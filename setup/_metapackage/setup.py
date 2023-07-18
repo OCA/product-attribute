@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo12-addon-product_cost_security',
         'odoo12-addon-product_custom_info',
         'odoo12-addon-product_dimension',
+        'odoo12-addon-product_dimension_compute_volume',
         'odoo12-addon-product_documentation_set',
         'odoo12-addon-product_end_of_life',
         'odoo12-addon-product_equivalent_category',
