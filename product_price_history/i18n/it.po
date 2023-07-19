@@ -18,6 +18,11 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: product_price_history
+#: model:ir.model.fields,field_description:product_price_history.field_product_price_history__cost
+msgid "Cost"
+msgstr ""
+
+#. module: product_price_history
 #: model_terms:ir.ui.view,arch_db:product_price_history.view_product_price_history_filter
 msgid "Date"
 msgstr "Data"
