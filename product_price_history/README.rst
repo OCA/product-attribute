@@ -35,7 +35,14 @@ This module allows to manage product history prices.
 Usage
 =====
 
-Go to ``Inventory > Master data > Product cost history`` and handle prices
+* Go to a ``Inventory > Master data > Products (Variants)`` and click on the smart Button
+  ``X Price History``
+
+.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/12.0/product_price_history/static/description/product_price_history_graph.png
+
+Or
+
+* Go to ``Inventory > Master data > Product cost history`` and handle prices
 
 Changelog
 =========
@@ -61,6 +68,7 @@ Credits
 Authors
 ~~~~~~~
 
+* GRAP
 * Pordenone Linux User Group (PNLUG)
 
 Contributors
@@ -72,6 +80,8 @@ Contributors
 * `TAKOBI <https://takobi.online>`_:
 
   * Lorenzo Battistini
+
+* Sylvain LE GAL (https://twitter.com/legalsylvain)
 
 Maintainers
 ~~~~~~~~~~~
@@ -92,10 +102,13 @@ promote its widespread use.
 .. |maintainer-andreampiovesana| image:: https://github.com/andreampiovesana.png?size=40px
     :target: https://github.com/andreampiovesana
     :alt: andreampiovesana
+.. |maintainer-legalsylvain| image:: https://github.com/legalsylvain.png?size=40px
+    :target: https://github.com/legalsylvain
+    :alt: legalsylvain
 
 Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-marcelofrare| |maintainer-andreampiovesana| 
+|maintainer-marcelofrare| |maintainer-andreampiovesana| |maintainer-legalsylvain| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/12.0/product_price_history>`_ project on GitHub.
 
