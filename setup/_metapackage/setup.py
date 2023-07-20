@@ -57,6 +57,7 @@ setuptools.setup(
         'odoo12-addon-product_supplierinfo_revision',
         'odoo12-addon-product_template_copy_attributes',
         'odoo12-addon-product_template_tags',
+        'odoo12-addon-product_top_category',
         'odoo12-addon-product_uom_measure_type',
         'odoo12-addon-product_uom_po_domain',
         'odoo12-addon-product_uom_use_type',
