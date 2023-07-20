@@ -1,0 +1,16 @@
+<!-- Copyright 2017 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.top.category.form</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="top_categ_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
