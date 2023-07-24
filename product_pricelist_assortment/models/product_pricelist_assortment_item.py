@@ -14,6 +14,17 @@ class ProductPricelistAssortmentItem(models.Model):
     _description = "Product Pricelist Assortment Item"
     _inherit = "product.pricelist.item"
 
+    compute_price = fields.Selection(
+        [
+            ("fixed", "Fixed Price"),
+            ("percentage", "Percentage (discount)"),
+            ("formula", "Formula"),
+        ],
+        index=True,
+        default="fixed",
+        required=True,
+    )
+
     assortment_filter_id = fields.Many2one(
         comodel_name="ir.filters",
         domain=[("is_assortment", "=", True)],
