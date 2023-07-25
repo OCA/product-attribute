@@ -3,18 +3,16 @@
 
 {
     "name": "Product Origin",
-    "summary": """
-        Adds the origin of the product""",
+    "summary": """Adds the origin of the product""",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "development_status": "Beta",
-    "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
+    "author": "ACSONE SA/NV,GRAP,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
-    "maintainers": ["rousseldenis"],
-    "depends": [
-        "product",
-    ],
+    "maintainers": ["rousseldenis", "legalsylvain"],
+    "depends": ["product"],
     "data": [
+        "views/product_product.xml",
         "views/product_template.xml",
     ],
 }
