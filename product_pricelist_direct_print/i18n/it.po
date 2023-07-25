@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-07 13:14+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-07-25 12:12+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -227,7 +227,7 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: selection:product.pricelist.print,order_field:0
 msgid "Internal Reference"
-msgstr "Riferimento Interno"
+msgstr "Riferimento interno"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_ids
@@ -289,13 +289,13 @@ msgstr "Conteggio Partner"
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
 msgid "Price List"
-msgstr "Listino Prezzi"
+msgstr "Listino prezzi"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:41
 #, python-format
 msgid "Price List Name:"
-msgstr "Nome Listino Prezzi:"
+msgstr "Nome listino prezzi:"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__pricelist_id
@@ -332,7 +332,7 @@ msgstr "Listino Prezzi Prodotto XLSX"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Product Templates"
-msgstr "Modello Prodotti"
+msgstr "Modelli prodotto"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
@@ -354,7 +354,7 @@ msgstr "Invia per email"
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
 msgid "Send customer pricelist by EMail"
-msgstr "Invia listinot prezzi a cliente per Email"
+msgstr "Invia listino prezzi a cliente per email"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_standard_price
