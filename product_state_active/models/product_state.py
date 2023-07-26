@@ -6,7 +6,6 @@ from odoo.exceptions import ValidationError
 
 
 class ProductState(models.Model):
-
     _inherit = "product.state"
 
     deactivate_product = fields.Boolean(

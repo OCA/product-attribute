@@ -5,7 +5,7 @@
     "name": "Product State Active",
     "summary": """
         Allows to define option on product state to activate or inactivate product""",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "maintainers": ["rousseldenis"],

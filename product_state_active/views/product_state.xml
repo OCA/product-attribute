@@ -9,8 +9,9 @@
         <field name="inherit_id" ref="product_state.view_product_state_form" />
         <field name="arch" type="xml">
             <field name="code" position="after">
-                <field name="deactivate_product" />
-                <field name="activate_product" />
+                <br />
+                <field name="deactivate_product" widget="boolean_toggle" />
+                <field name="activate_product" widget="boolean_toggle" />
             </field>
         </field>
     </record>
