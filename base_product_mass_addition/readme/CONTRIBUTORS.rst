@@ -12,3 +12,4 @@ Akretion
 * `Sygel <https://www.sygel.es>`_:
 
   * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+* Aiendry Sarkar <aiendry@aktivsoftware.com>

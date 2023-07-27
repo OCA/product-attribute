@@ -35,11 +35,11 @@ class ProductMassAddition(models.AbstractModel):
         return res
 
     def _get_quick_line(self, product):
-        raise NotImplementedError
+        raise NotImplementedError()
 
     def _add_quick_line(self, product, lines_key=""):
         if not lines_key:
-            raise NotImplementedError
+            raise NotImplementedError()
         vals = self._prepare_quick_line(product)
         vals = self._complete_quick_line_vals(vals)
         self.write({lines_key: [(0, 0, vals)]})
@@ -55,11 +55,11 @@ class ProductMassAddition(models.AbstractModel):
             line.unlink()
 
     def _get_quick_line_qty_vals(self, product):
-        raise NotImplementedError
+        raise NotImplementedError()
 
     def _complete_quick_line_vals(self, vals, lines_key=""):
         if not lines_key:
-            raise NotImplementedError
+            raise NotImplementedError()
         init_keys = ["product_id"]
         update_vals = {key: val for key, val in vals.items() if key not in init_keys}
         lines = getattr(self, lines_key)

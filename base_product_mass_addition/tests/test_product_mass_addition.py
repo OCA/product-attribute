@@ -49,17 +49,17 @@ class TestProductMassAddition(TransactionCase):
         """Using quick magic fields shouldn't write on product's metadata"""
         user_demo = self.env.ref("base.user_demo")
         self.product.write_uid = user_demo
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, user_demo)
         # Case 1: Updating qty_to_process shouldn't write on products
         self.product.qty_to_process = 1.0
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, user_demo)
         # Case 2: Updating quick_uom_id shouldn't write on products
         self.product.quick_uom_id = self.env.ref("uom.product_uom_categ_unit").uom_ids[
             1
         ]
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, user_demo)
 
     def test_quick_should_write_on_product(self):
@@ -68,20 +68,20 @@ class TestProductMassAddition(TransactionCase):
         # Change the product write_uid for testing
         user_demo = self.env.ref("base.user_demo")
         self.product.write_uid = user_demo
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, user_demo)
         # Case 1: Updating name field should write on product's metadata
         self.product.name = "Testing"
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, self.env.user)
         # Change the product write_uid for testing
         user_demo = self.env.ref("base.user_demo")
         self.product.write_uid = user_demo
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, user_demo)
         # Case 2: Updating qty_to_process and name before flush should
         # write on product's metadata
         self.product.qty_to_process = 2.0
         self.product.name = "Testing 2"
-        self.env["base"].flush()
+        self.env["base"].flush_model()
         self.assertEqual(self.product.write_uid, self.env.user)

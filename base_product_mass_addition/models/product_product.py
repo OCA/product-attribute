@@ -26,6 +26,7 @@ class ProductProduct(models.Model):
         domain="[('category_id', '=', quick_uom_category_id)]",
         compute="_compute_quick_uom_id",
         inverse="_inverse_set_process_qty",
+        store=True,
     )
 
     def _inverse_set_process_qty(self):
@@ -38,41 +39,34 @@ class ProductProduct(models.Model):
                 else:
                     parent._add_quick_line(product, quick_line._name)
 
-    def modified(self, fnames, create=False, before=False):
+    def write(self, vals):
         # OVERRIDE to supress LOG_ACCESS_COLUMNS writes if we're only writing on quick
         # magic fields, as they could lead to concurrency issues.
         #
         # Moreover, from a functional perspective, these magic fields aren't really
         # modifying the product's data so it doesn't make sense to update its metadata.
         #
-        # We achieve it by reverting the changes made by ``write`` [^1], before [^2]
-        # reaching any explicit flush [^3] or inverse computation [^4].
+        # We achieve it by stopping the ``write`` [^1] to modify LOG_ACCESS_COLUMNS.
+        # By changing the log access rights ``_log_access``
         #
         # [^1]:
-        # https://github.com/odoo/odoo/blob/3991737a53e75398fcf70b1924525783b54d256b/odoo/models.py#L3778-L3787 # noqa: B950
-        # [^2]:
-        # https://github.com/odoo/odoo/blob/3991737a53e75398fcf70b1924525783b54d256b/odoo/models.py#L3882 # noqa: B950
-        # [^3]:
-        # https://github.com/odoo/odoo/blob/3991737a53e75398fcf70b1924525783b54d256b/odoo/models.py#L3885 # noqa: B950
-        # [^4]:
-        # https://github.com/odoo/odoo/blob/f74434c6f4303650e886d99fb950c763f2d4cc6e/odoo/models.py#L3703 # noqa: B950
+        # https://github.com/odoo/odoo/blob/dab802a939c97603f70c504e98ecc92b0ac552f9/odoo/models.py#L3677C1-L3679C61 # noqa: B950
         #
         # Basically, if all we're modifying are quick magic fields, and we don't have
         # any other column to flush besides the LOG_ACCESS_COLUMNS, clear it.
         quick_fnames = ("qty_to_process", "quick_uom_id")
-        if (
-            self
-            and fnames
-            and any(quick_fname in fnames for quick_fname in quick_fnames)
-        ):
-            for record in self.filtered("id"):
-                towrite = self.env.all.towrite[self._name]
-                vals = towrite[record.id]
-                if not vals:  # pragma: no cover
-                    continue
-                if all(fname in LOG_ACCESS_COLUMNS for fname in vals.keys()):
-                    towrite.pop(record.id)
-        return super().modified(fnames, create=create, before=before)
+        if self and any(quick_fname in vals.keys() for quick_fname in quick_fnames):
+            cr = self.env.cr
+            Model = self._build_model(self.pool, cr)
+            Model._auto = False
+            Model._log_access = set(list([]))
+        res = super(ProductProduct, self).write(vals)
+        if not self._log_access:
+            cr = self.env.cr
+            Model = self._build_model(self.pool, cr)
+            Model._auto = True
+            Model._log_access = set(LOG_ACCESS_COLUMNS)
+        return res
 
     @property
     def pma_parent(self):
@@ -83,7 +77,7 @@ class ProductProduct(models.Model):
             return self.env[parent_model].browse(parent_id)
 
     def _default_quick_uom_id(self):
-        raise NotImplementedError
+        raise NotImplementedError()
 
     def _compute_quick_uom_id(self):
         parent = self.pma_parent
