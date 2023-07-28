@@ -36,8 +36,7 @@ class ProductTemplate(models.Model):
         return res
 
     def action_product_state_history(self):
-        action = self.env.ref("product_state_history.product_state_history_act_window")
-        result = action.read()[0]
-        result.update({"domain": [("product_template_id", "in", self.ids)]})
-
-        return result
+        xmlid = "product_state_history.product_state_history_act_window"
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
+        action.update({"domain": [("product_template_id", "in", self.ids)]})
+        return action
