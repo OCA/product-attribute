@@ -5,7 +5,6 @@ from odoo import api, models
 
 
 class ReportProductStateHistory(models.AbstractModel):
-
     _name = "report.product_state_history.report_product_state_history"
     _description = "Product State History Report"
 

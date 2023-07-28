@@ -1,9 +1,9 @@
 # Copyright 2020 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class CommonProductStateHistory(SavepointCase):
+class CommonProductStateHistory(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(CommonProductStateHistory, cls).setUpClass()

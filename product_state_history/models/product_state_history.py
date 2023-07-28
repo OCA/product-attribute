@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductStateHistory(models.Model):
-
     _name = "product.state.history"
     _description = "Product State History"
     _order = "id desc"
