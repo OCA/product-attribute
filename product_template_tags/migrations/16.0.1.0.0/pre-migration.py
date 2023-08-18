@@ -24,7 +24,7 @@ def migrate(env, version):
         """
         INSERT INTO product_tag(id, name, color)
         SELECT id, name, color
-        FROM product_template_tags;
+        FROM product_template_tag;
         """,
     )
 
