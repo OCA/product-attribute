@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="report_product_state_history">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h1>Product State History</h1>
+                    <t
+                        t-if="data and data.get('form') and data['form'].get('pivot_date')"
+                    >
+                        <h2>Pivot Date: <span
+                                t-esc="data['form']['pivot_date']"
+                                t-options='{"widget": "datetime"}'
+                            /></h2>
+                    </t>
+                    <table class="table table-condensed table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th name="th_default_code">
+                                    <strong>Code</strong>
+                                </th>
+                                <th name="th_product">Product</th>
+                                <th name="th_state">State</th>
+                                <th name="th_state_date">State Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="history">
+                                <td name="td_default_code">
+                                    <span
+                                        t-esc="history.product_template_id.default_code"
+                                    />
+                                </td>
+                                <td name="td_display_name">
+                                    <span
+                                        t-esc="history.product_template_id.display_name"
+                                    />
+                                </td>
+                                <td name="td_product_state">
+                                    <span t-field="history.product_state_id" />
+                                </td>
+                                <td name="td_state_date">
+                                    <span t-field="history.state_date" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_product_state_history" model="ir.actions.report">
+        <field name="model">product.state.history</field>
+        <field name="name">Product State History</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >product_state_history.report_product_state_history</field>
+        <field
+            name="report_file"
+        >product_state_history.report_product_state_history</field>
+        <field name="binding_type">report</field>
+        <field name="binding_model_id" ref="model_product_state_history" />
+    </record>
+
+</odoo>
