@@ -6,66 +6,68 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
 msgid "<span> days</span>"
-msgstr ""
+msgstr "<span> dias</span>"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__alert_time
 msgid "Alert Date"
-msgstr ""
+msgstr "Fecha de alerta"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Alert Date Reached"
-msgstr ""
+msgstr "Fecha de alerta alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__use_time
 msgid "Best Before Date"
-msgstr ""
+msgstr "Consumir preferentemente antes de la fecha"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__expiration_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__expiration_time
 msgid "Expiration Date"
-msgstr ""
+msgstr "Fecha de vencimiento"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Expiration Date Reached"
-msgstr ""
+msgstr "Fecha de expiración alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_lot__expiration_date_reminded
 msgid "Expiration Date Reminded"
-msgstr ""
+msgstr "Recordatorio de la fecha de expiración"
 
 #. module: product_expiry_configurable
 #: model:mail.activity.type,name:product_expiry_configurable.mail_activity_type_expiry_date_reached
 msgid "Expiry Date Reached"
-msgstr ""
+msgstr "Fecha de expiración alcanzada"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
 msgid "Expiry Dates"
-msgstr ""
+msgstr "Fechas de caducidad"
 
 #. module: product_expiry_configurable
 #: model:ir.model,name:product_expiry_configurable.model_stock_lot
 msgid "Lot/Serial"
-msgstr ""
+msgstr "Lote/Serie"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__expiration_time
@@ -75,6 +77,10 @@ msgid ""
 "stock after production) after which the goods may become dangerous and must "
 "not be consumed. It will be computed on the lot/serial number."
 msgstr ""
+"Número de días transcurridos desde la recepción de los productos (del "
+"vendedor o en existencias tras la producción) después de los cuales la "
+"mercancía puede volverse peligrosa y no debe consumirse. Se computará sobre "
+"el número de lote/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__alert_time
@@ -82,6 +88,8 @@ msgstr ""
 msgid ""
 "Number of days before an alert should be raised on the lot/serial number."
 msgstr ""
+"Número de días antes de que se emita una alerta sobre el lote/número de "
+"serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__alert_time
@@ -91,6 +99,9 @@ msgid ""
 "raised on the lot/serial number. It will be computed on the lot/serial "
 "number."
 msgstr ""
+"Número de días antes de la fecha de caducidad tras los cuales debe emitirse "
+"una alerta sobre el lote/número de serie. Se calculará sobre el número de "
+"lote/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__removal_time
@@ -99,6 +110,8 @@ msgid ""
 "Number of days before the Expiration Date after which the goods should be "
 "removed from the stock. It will be computed on the lot/serial number."
 msgstr ""
+"Número de días antes de la fecha de caducidad tras los cuales la mercancía "
+"debe retirarse del almacén. Se calculará en función del número de lote/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__use_time
@@ -108,6 +121,9 @@ msgid ""
 "deteriorating, without being dangerous yet. It will be computed on the "
 "lot/serial number."
 msgstr ""
+"Número de días antes de la Fecha de Caducidad a partir de los cuales la "
+"mercancía empieza a deteriorarse, sin ser todavía peligrosa. Se calculará en "
+"función del número de lote/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__expiration_time
@@ -115,6 +131,8 @@ msgid ""
 "Number of days before the goods may become dangerous and must not be "
 "consumed. It will be computed on the lot/serial number."
 msgstr ""
+"Número de días antes de que la mercancía pueda volverse peligrosa y no deba "
+"consumirse. Se computará sobre el número de lote/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__use_time
@@ -122,94 +140,96 @@ msgid ""
 "Number of days before the goods starts deteriorating, without being "
 "dangerous yet. It will be computed using the lot/serial number."
 msgstr ""
+"Número de días antes de que la mercancía empiece a deteriorarse, sin ser "
+"peligrosa todavía. Se calculará utilizando el número de lote/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model,name:product_expiry_configurable.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__alert_time
 msgid "Product Alert Time"
-msgstr ""
+msgstr "Tiempo de alerta del producto"
 
 #. module: product_expiry_configurable
 #: model:ir.model,name:product_expiry_configurable.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoría del producto"
 
 #. module: product_expiry_configurable
 #: model:ir.actions.server,name:product_expiry_configurable.ir_cron_product_expiry_expiration_date_ir_actions_server
 #: model:ir.cron,cron_name:product_expiry_configurable.ir_cron_product_expiry_expiration_date
 msgid "Product Expiration Date Reached"
-msgstr ""
+msgstr "Fecha de caducidad del producto alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__expiration_time
 msgid "Product Expiration Time"
-msgstr ""
+msgstr "Tiempo de caducidad del producto"
 
 #. module: product_expiry_configurable
 #: model:ir.actions.server,name:product_expiry_configurable.ir_cron_product_expiry_removal_date_ir_actions_server
 #: model:ir.cron,cron_name:product_expiry_configurable.ir_cron_product_expiry_removal_date
 msgid "Product Removal Date Reached"
-msgstr ""
+msgstr "Fecha de retirada del producto alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__removal_time
 msgid "Product Removal Time"
-msgstr ""
+msgstr "Tiempo de retirada del producto"
 
 #. module: product_expiry_configurable
 #: model:ir.actions.server,name:product_expiry_configurable.ir_cron_product_expiry_use_date_ir_actions_server
 #: model:ir.cron,cron_name:product_expiry_configurable.ir_cron_product_expiry_use_date
 msgid "Product Use Date Reached"
-msgstr ""
+msgstr "Fecha de uso del producto alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__use_time
 msgid "Product Use Time"
-msgstr ""
+msgstr "Tiempo de uso del producto"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__removal_time
 msgid "Removal Date"
-msgstr ""
+msgstr "Fecha de retirada"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Removal Date Reached"
-msgstr ""
+msgstr "Fecha de retirada alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_lot__removal_date_reminded
 msgid "Removal Date Reminded"
-msgstr ""
+msgstr "Recordatorio de la fecha de retirada"
 
 #. module: product_expiry_configurable
 #. odoo-python
 #: code:addons/product_expiry_configurable/models/stock_lot.py:0
 #, python-format
 msgid "The {date_name} has been reached for this lot/serial number"
-msgstr ""
+msgstr "Se ha alcanzado el {date_name} para este lote/número de serie"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Use Date Reached"
-msgstr ""
+msgstr "Fecha de uso alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_lot__use_date_reminded
 msgid "Use Date Reminded"
-msgstr ""
+msgstr "Recordatorio de fecha de uso"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__use_expiration_date
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__use_expiration_date
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__use_expiration_date
 msgid "Use Expiration Date"
-msgstr ""
+msgstr "Fecha de caducidad de uso"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__use_expiration_date
@@ -219,3 +239,6 @@ msgid ""
 " product expiration, on the product and on the corresponding lot/serial "
 "numbers"
 msgstr ""
+"Cuando esta casilla está marcada, tiene la posibilidad de especificar fechas "
+"para gestionar la caducidad del producto, en el producto y en los números de "
+"lote/serie correspondientes"
