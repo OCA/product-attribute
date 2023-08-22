@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-16 15:34+0000\n"
-"PO-Revision-Date: 2021-02-11 21:44+0000\n"
-"Last-Translator: Mat-moran <amadeo.moran@gmail.com>\n"
+"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
@@ -40,11 +40,18 @@ msgid ""
 "inventory adjustment).\n"
 "        Used to compute margins on sale orders."
 msgstr ""
+"En Precio estándar y AVCO: valor del producto (calculado automáticamente en "
+"AVCO).\n"
+"        En FIFO: valor de la siguiente unidad que saldrá de las existencias ("
+"calculado automáticamente).\n"
+"        Se utiliza para valorar el producto cuando no se conoce el coste de "
+"compra (por ejemplo, ajuste de inventario).\n"
+"        Se utiliza para calcular los márgenes de los pedidos de venta."
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_edit_cost
 msgid "Modify product costs"
-msgstr ""
+msgstr "Modificar los costes de los productos"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
@@ -54,13 +61,13 @@ msgstr "Producto"
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante del producto"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
 msgid "User Can Update Cost"
-msgstr ""
+msgstr "El usuario puede actualizar el coste"
 
 #~ msgid "Product Template"
 #~ msgstr "Plantilla de producto"
