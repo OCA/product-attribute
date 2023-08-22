@@ -7,6 +7,20 @@
         <field name="arch" type="xml">
             <form string="Product Catalog">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            name="action_open_effective_member_ids"
+                            type="object"
+                            icon="fa-bars"
+                        >
+                        <div class="o_stat_info">
+                            <span class="o_stat_value" />
+                            <span class="o_stat_text">Related Products</span>
+                        </div>
+                    </button>
+
+                    </div>
                     <widget
                         name="web_ribbon"
                         title="Archived"

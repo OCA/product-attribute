@@ -2,7 +2,7 @@
 # @author Raphaël Reverdy<raphael.reverdy@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class ProductCatalog(models.Model):
@@ -82,3 +82,12 @@ class ProductCatalog(models.Model):
                 rec.pp_to_remove_member_ids = [(6, 0, to_remove_ids)]  # set
             else:
                 rec.pp_to_remove_member_ids = [(5, 0, 0)]  # clear
+
+    def action_open_effective_member_ids(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": _("Products"),
+            "res_model": "product.template",
+            "view_mode": "tree,form",
+            "domain": [("id", "in", self.pp_effective_member_ids.ids)],
+        }
