@@ -10,6 +10,7 @@
                         name="manufactured_for_partner_ids"
                         widget="many2many_tags"
                         options="{'no_create_edit': True}"
+                        context="{'active_test': False}"
                     />
               </group>
           </page>
