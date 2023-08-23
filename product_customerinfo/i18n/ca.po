@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
+msgid "Active"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
 msgstr "Assigna la prioritat a la llista de proveïdors de productes."
