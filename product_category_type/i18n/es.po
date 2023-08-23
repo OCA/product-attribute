@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_category_type
+#: model:ir.model.fields,help:product_category_type.field_product_category__type
+msgid ""
+"A category of the view type is a virtual category that can be used as the "
+"parent of another category to create a hierarchical structure."
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__type
+msgid "Category Type"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__normal
+msgid "Normal"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__parent_id
+msgid "Parent Category"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_category
+#: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
+msgid "Product Category"
+msgstr ""
+
+#. module: product_category_type
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__view
+msgid "View"
+msgstr ""
