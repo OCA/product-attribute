@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-11 04:38+0000\n"
-"PO-Revision-Date: 2023-01-11 05:40+0100\n"
-"Last-Translator: Sergio Teruel <sergio.teruel@tecnativa.com>\n"
+"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__active
@@ -72,11 +72,16 @@ msgid ""
 "example if you sell serviceby package (1 unit for example) and you want to "
 "put the real time (ex : 4 hours) to allows employee scheduling"
 msgstr ""
+"Si el tipo de dependencia es 'dependiente' el factor se utiliza para "
+"calcular la cantidad en la unidad primaria, de lo contrario la unidad "
+"primaria y secundaria son independientes. Por ejemplo, si vende un servicio "
+"por paquete (1 unidad, por ejemplo) y desea poner el tiempo real (por "
+"ejemplo, 4 horas) para permitir la programación de los empleados"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
 msgid "Independent"
-msgstr ""
+msgstr "Independiente"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
