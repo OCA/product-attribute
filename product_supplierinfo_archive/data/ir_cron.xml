@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo noupdate="1">
+
+  <record model="ir.cron" id="cron_archive_product_supplierinfo">
+    <field name='name'>Archive Vendor Pricelists</field>
+    <field name='interval_number'>1</field>
+    <field name='interval_type'>days</field>
+    <field name="numbercall">-1</field>
+    <field name="active" eval="False" />
+    <field name="doall" eval="False" />
+    <field
+            name="nextcall"
+            eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 00:00:00')"
+        />
+    <field name="model_id" ref="product.model_product_supplierinfo" />
+    <field name="state">code</field>
+    <field name="code">model._cron_archive_product_supplierinfo()</field>
+  </record>
+
+</odoo>
