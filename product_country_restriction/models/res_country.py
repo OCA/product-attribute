@@ -24,7 +24,6 @@ class ResCountry(models.Model):
                 country.product_country_restriction_ids
             )
 
-    @api.multi
     def _get_country_restriction_domain(self):
         return [
             "|",
@@ -32,7 +31,6 @@ class ResCountry(models.Model):
             ("country_group_ids.country_ids", "in", self.ids),
         ]
 
-    @api.multi
     def _compute_product_country_restriction_ids(self):
         domain = self._get_country_restriction_domain()
         restrictions = self.env["product.country.restriction"].search(domain)
@@ -43,7 +41,6 @@ class ResCountry(models.Model):
             )
             country.product_country_restriction_ids = restrictions
 
-    @api.multi
     def action_view_country_restrictions(self):
         self.ensure_one()
         ref = "product_country_restriction." "product_country_restrictionact_window"

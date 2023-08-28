@@ -60,9 +60,8 @@ class ProductCountryRestriction(models.Model):
 
     @api.model
     def _default_company_id(self):
-        return self.env["res.company"]._company_default_get()
+        return self.env.company
 
-    @api.multi
     @api.depends("country_group_ids.country_ids", "country_ids")
     def _compute_resulting_country_ids(self):
         for restriction in self:
@@ -95,7 +94,6 @@ class ProductCountryRestriction(models.Model):
             )
         return country_domain
 
-    @api.multi
     def _get_country_restriction_items_by_date(self, date):
         items = self.item_ids.filtered(
             lambda i: (not i.start_date or i.start_date <= date)
@@ -112,7 +110,7 @@ class ProductCountryRestriction(models.Model):
         :return:
         """
         if applied_items:
-            for product, item in applied_items.iteritems():
+            for product, item in applied_items.items():
                 existing_items = result.get(product, [])
                 existing_items.append((country, item))
                 result.update(
@@ -137,7 +135,7 @@ class ProductCountryRestriction(models.Model):
             date = fields.Date.today()
         res = {}
         countries = self.env["res.country"].browse()
-        for country, product in product_by_country.iteritems():
+        for country, _product in product_by_country.items():
             countries |= country
 
             domain = self._get_country_restriction_domain(
@@ -146,7 +144,7 @@ class ProductCountryRestriction(models.Model):
             )
             restrictions = self.search(domain)
 
-        for country, products in product_by_country.iteritems():
+        for country, products in product_by_country.items():
             restriction = first(
                 restrictions.filtered(
                     lambda r, c=country: c.id in r.country_ids.ids
@@ -169,16 +167,19 @@ class ProductCountryRestriction(models.Model):
         :return:
         """
         messages = []
-        strategy = self.env.user.company_id.country_restriction_strategy
-        for product, restrictions in restrictions_by_product.iteritems():
+        strategy = self.env.company.country_restriction_strategy
+        for product, restrictions in restrictions_by_product.items():
             if strategy == "authorize":
                 for restriction in restrictions:
                     messages.append(
                         _(
-                            "The product %s has country restriction for %s."
-                            "(Rule : %s)"
+                            "The product {name} has country restriction for {restriction}."
+                            "(Rule : {rule})"
+                        ).format(
+                            name=product.name,
+                            restriction=restriction[0].name,
+                            rule=restriction[1].name,
                         )
-                        % (product.name, restriction[0].name, restriction[1].name)
                     )
             elif strategy == "restrict":
                 messages.append(

@@ -8,7 +8,7 @@ class ResCompany(models.Model):
 
     _inherit = "res.company"
 
-    default_country_restriction_id = fields.Many2one(
+    country_restriction_id = fields.Many2one(
         comodel_name="product.country.restriction",
     )
     country_restriction_strategy = fields.Selection(
