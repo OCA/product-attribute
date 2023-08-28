@@ -15,3 +15,8 @@
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * The rule on product template must apply to its variants
+
+16.0.1.0.0 (2023-08-28)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* Migration to odoo16

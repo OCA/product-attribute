@@ -55,22 +55,23 @@ class ProductCountryRestrictionItem(models.Model):
     start_date = fields.Date()
     end_date = fields.Date()
 
-    @api.multi
     @api.depends("start_date", "end_date", "restriction_id.name", "rule_id.name")
     def _compute_name(self):
-        res = []
         for rec in self:
             dates = ""
             if rec.start_date and rec.end_date:
-                dates = " : ".join([rec.start_date, rec.end_date])
+                dates = " : ".join(
+                    [
+                        fields.Date.to_string(rec.start_date),
+                        fields.Date.to_string(rec.end_date),
+                    ]
+                )
             params = [rec.restriction_id.name, rec.rule_id.name]
             if dates:
                 params.append(dates)
             name = " - ".join(params)
             rec.name = name
-        return res
 
-    @api.multi
     def _get_country_restriction_item_by_rule(self, products):
         """
         For one product apply one and just one item
@@ -89,7 +90,6 @@ class ProductCountryRestrictionItem(models.Model):
                     )
         return result
 
-    @api.multi
     @api.constrains("start_date", "end_date")
     def _constrains_dates(self):
         if any(

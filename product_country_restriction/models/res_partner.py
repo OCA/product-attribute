@@ -11,9 +11,9 @@ class ResPartner(models.Model):
     country_restriction_id = fields.Many2one(
         comodel_name="product.country.restriction",
         string="Country Restriction",
-        default=lambda self: self._get_default_country_restriction_id(),
+        default=lambda self: self._get_country_restriction_id(),
     )
 
     @api.model
-    def _get_default_country_restriction_id(self):
-        return self.env.user.company_id.default_country_restriction_id
+    def _get_country_restriction_id(self):
+        return self.env.company.country_restriction_id

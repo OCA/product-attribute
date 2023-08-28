@@ -1,14 +1,14 @@
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class CountryRestrictionMixin(models.AbstractModel):
 
     _name = "country.restriction.mixin"
+    _description = "Country Restriction Mixin"
 
-    @api.multi
     def _has_country_restriction(self, countries, date=False):
         """
         For one product, get if it has country embargo
@@ -24,7 +24,6 @@ class CountryRestrictionMixin(models.AbstractModel):
             return res
         return {}
 
-    @api.multi
     def _get_country_restrictions(self, countries, date=False, restriction_id=False):
         if not date:
             date = fields.Date.today()
@@ -39,14 +38,17 @@ class CountryRestrictionMixin(models.AbstractModel):
         res = self._update_country_strategy(res)
         return res
 
-    @api.multi
     def _update_country_strategy(self, result):
         """
         This is used to apply another strategy to the rules result
         depending on company strategy
         :return:
         """
-        strategy = self.env.user.company_id.country_restriction_strategy
+        company = self.env.company
+        if hasattr(self, "company_id") and self.company_id:
+            company = self.company_id
+        strategy = company.country_restriction_strategy
+
         if strategy == "authorize":
             # The default strategy that authorizes all products
             return result

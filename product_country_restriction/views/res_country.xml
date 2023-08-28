@@ -7,22 +7,22 @@
         <field name="model">res.country</field>
         <field name="inherit_id" ref="base.view_country_form" />
         <field name="arch" type="xml">
-            <field name="image" position="before">
+            <field name="image_url" position="before">
                 <div class="oe_button_box" name="button_box">
-                      <button
+                    <button
                         name="action_view_country_restrictions"
                         type="object"
                         class="oe_stat_button"
                         icon="fa-flag"
                     >
-                          <field
+                        <field
                             name="product_country_restriction_count"
                             widget="statinfo"
                             help="Product Country Restrictions"
                             modifiers="{'readonly': true}"
                             string="Product Country Restrictions"
                         />
-                      </button>
+                    </button>
                 </div>
             </field>
         </field>

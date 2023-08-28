@@ -49,7 +49,11 @@
                 <field name="product_template_id" />
                 <field name="product_category_id" />
                 <separator />
-                <filter string="Global" domain="[('rule_id.code', '=', 'global')]" />
+                <filter
+                    name='global'
+                    string="Global"
+                    domain="[('rule_id.code', '=', 'global')]"
+                />
                 <separator />
                 <filter
                     string="Rule"
@@ -86,8 +90,6 @@
         <field name="name">Product Country Restriction Items</field>
         <field name="res_model">product.country.restriction.item</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[]</field>
-        <field name="context">{}</field>
     </record>
 
 </odoo>

@@ -6,7 +6,7 @@ from odoo.tests import common
 
 class CountryRestrictionCommon(common.TransactionCase):
     def setUp(self):
-        super(CountryRestrictionCommon, self).setUp()
+        super().setUp()
         self.restriction_obj = self.env["product.country.restriction"]
         self.rule_obj = self.env["product.country.restriction.rule"]
         self.product_1 = self.env.ref("product.product_product_1")
@@ -49,7 +49,7 @@ class CountryRestrictionCommon(common.TransactionCase):
 
         vals = {
             "name": "Australia & Philippines Restriction",
-            "company_id": self.env.user.company_id.id,
+            "company_id": self.env.company.id,
             "country_group_ids": [(6, 0, [self.country_group.id])],
         }
 
@@ -63,7 +63,7 @@ class CountryRestrictionCommon(common.TransactionCase):
 
         vals = {
             "name": "North Korea",
-            "company_id": self.env.user.company_id.id,
+            "company_id": self.env.company.id,
             "country_ids": [(6, 0, [self.kp.id])],
         }
 
