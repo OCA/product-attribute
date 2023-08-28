@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -7,7 +6,7 @@ from odoo import api, fields, models
 
 class CountryRestrictionMixin(models.AbstractModel):
 
-    _name = 'country.restriction.mixin'
+    _name = "country.restriction.mixin"
 
     @api.multi
     def _has_country_restriction(self, countries, date=False):
@@ -26,19 +25,13 @@ class CountryRestrictionMixin(models.AbstractModel):
         return {}
 
     @api.multi
-    def _get_country_restrictions(
-            self,
-            countries,
-            date=False,
-            restriction_id=False):
+    def _get_country_restrictions(self, countries, date=False, restriction_id=False):
         if not date:
             date = fields.Date.today()
         product_by_country = {}
         for country in countries:
-            product_by_country.update({
-                country: self
-            })
-        res = self.env['product.country.restriction']._get_restriction(
+            product_by_country.update({country: self})
+        res = self.env["product.country.restriction"]._get_restriction(
             product_by_country=product_by_country,
             date=date,
             restriction_id=restriction_id,
@@ -54,17 +47,18 @@ class CountryRestrictionMixin(models.AbstractModel):
         :return:
         """
         strategy = self.env.user.company_id.country_restriction_strategy
-        if strategy == 'authorize':
+        if strategy == "authorize":
             # The default strategy that authorizes all products
             return result
-        elif strategy == 'restrict':
+        elif strategy == "restrict":
             # The strategy that restricts all products but those with
             # applied rules
             applied_products = result.keys()
             result = {}
-            for product in self.filtered(
-                    lambda p, ap=applied_products: p not in ap):
-                result.update({
-                    product: False,
-                })
+            for product in self.filtered(lambda p, ap=applied_products: p not in ap):
+                result.update(
+                    {
+                        product: False,
+                    }
+                )
         return result

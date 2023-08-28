@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo>
 
     <record model="ir.ui.view" id="product_country_restriction_form_view">
-        <field name="name">product.country.restriction.form (in product_country_restriction)</field>
+        <field
+            name="name"
+        >product.country.restriction.form (in product_country_restriction)</field>
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
             <form>
@@ -14,37 +15,44 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="toggle_active" type="object"
-                                class="oe_stat_button" icon="fa-archive">
-                            <field name="active" widget="boolean_button"
-                                options='{"terminology": "active"}'/>
+                        <button
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-archive"
+                        >
+                            <field
+                                name="active"
+                                widget="boolean_button"
+                                options='{"terminology": "active"}'
+                            />
                         </button>
                     </div>
 
                     <group>
                         <group>
-                            <field name="name"/>
-                            <field name="country_group_ids" widget="many2many_tags"/>
+                            <field name="name" />
+                            <field name="country_group_ids" widget="many2many_tags" />
                         </group>
                         <group>
-                            <field name="company_id"/>
+                            <field name="company_id" />
                         </group>
                     </group>
                     <group>
                         <field name="country_ids">
                             <tree>
-                                <field name="name"/>
+                                <field name="name" />
                             </tree>
                         </field>
                         <field name="item_ids">
                              <tree>
-                                 <field name="sequence" widget="handle"/>
-                                 <field name="rule_id"/>
-                                 <field name="start_date"/>
-                                 <field name="end_date"/>
-                                 <field name="product_id"/>
-                                 <field name="product_template_id"/>
-                                 <field name="product_category_id"/>
+                                 <field name="sequence" widget="handle" />
+                                 <field name="rule_id" />
+                                 <field name="start_date" />
+                                 <field name="end_date" />
+                                 <field name="product_id" />
+                                 <field name="product_template_id" />
+                                 <field name="product_category_id" />
                             </tree>
                         </field>
                     </group>
@@ -58,21 +66,25 @@
     </record>
 
     <record model="ir.ui.view" id="product_country_restriction_search_view">
-        <field name="name">product.country.restriction.search (in product_country_restriction)</field>
+        <field
+            name="name"
+        >product.country.restriction.search (in product_country_restriction)</field>
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
+                <field name="name" />
             </search>
         </field>
     </record>
 
     <record model="ir.ui.view" id="product_country_restriction_tree_view">
-        <field name="name">product.country.restriction.tree (in product_country_restriction)</field>
+        <field
+            name="name"
+        >product.country.restriction.tree (in product_country_restriction)</field>
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
+                <field name="name" />
             </tree>
         </field>
     </record>

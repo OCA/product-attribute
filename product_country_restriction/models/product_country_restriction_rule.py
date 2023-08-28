@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -7,14 +6,11 @@ from odoo import api, fields, models
 
 class ProductCountryRestrictionRule(models.Model):
 
-    _name = 'product.country.restriction.rule'
-    _description = 'Product Country Restriction Rule'
-    _order = 'sequence asc, id desc'
+    _name = "product.country.restriction.rule"
+    _description = "Product Country Restriction Rule"
+    _order = "sequence asc, id desc"
 
-    name = fields.Char(
-        required=True,
-        translate=True
-    )
+    name = fields.Char(required=True, translate=True)
     code = fields.Char(
         required=True,
     )
@@ -23,13 +19,16 @@ class ProductCountryRestrictionRule(models.Model):
     )
 
     _sql_constraints = [
-        ('code_unique', 'UNIQUE (code)',
-         'Product Country Restriction Rule Code has to be unique !'),
+        (
+            "code_unique",
+            "UNIQUE (code)",
+            "Product Country Restriction Rule Code has to be unique !",
+        ),
     ]
 
     @api.model
     def _get_by_code(self, code):
-        return self.search([('code', '=', code)], limit=1)
+        return self.search([("code", "=", code)], limit=1)
 
     def _apply(self, products, item):
         """
@@ -41,7 +40,7 @@ class ProductCountryRestrictionRule(models.Model):
         """
         self.ensure_one()
         res = {}
-        method = '_apply_rule_%s' % self.code
+        method = "_apply_rule_%s" % self.code
         if hasattr(self, method):
             res = getattr(self, method)(products, item)
         return res
@@ -84,13 +83,15 @@ class ProductCountryRestrictionRule(models.Model):
         :return:
         """
         res = set()
-        if products and products[0]._name == 'product.template':
+        if products and products[0]._name == "product.template":
             for product in products.filtered(
-                    lambda p: p.id == item.product_template_id.id):
+                lambda p: p.id == item.product_template_id.id
+            ):
                 res.add(product)
-        elif products and products[0]._name == 'product.product':
+        elif products and products[0]._name == "product.product":
             for product in products.filtered(
-                    lambda p: p.product_tmpl_id == item.product_template_id):
+                lambda p: p.product_tmpl_id == item.product_template_id
+            ):
                 res.add(product)
         return res
 
@@ -102,8 +103,7 @@ class ProductCountryRestrictionRule(models.Model):
         :return:
         """
         res = set()
-        if products and products[0]._name == 'product.product':
-            for product in products.filtered(
-                    lambda p: p.id == item.product_id.id):
+        if products and products[0]._name == "product.product":
+            for product in products.filtered(lambda p: p.id == item.product_id.id):
                 res.add(product)
         return res
