@@ -4,7 +4,7 @@
 {
     "name": "Product Status",
     "summary": "Product Status Computed From Fields",
-    "version": "14.0.1.0.2",
+    "version": "15.0.1.0.0",
     "category": "Product",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
