@@ -5,7 +5,7 @@
 {
     "name": "Product Sale Description",
     "summary": "Long and short description for products",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
