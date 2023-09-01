@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-17 11:12+0000\n"
+"PO-Revision-Date: 2023-09-02 10:57+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__code
@@ -77,9 +77,9 @@ msgid ""
 msgstr ""
 "Se il tipo di dipendenza è \"dipendente\", il fattore è usato per calcolare "
 "la quantità nell'udm primaria, altrimenti le udm primaria e secondaria sono "
-"indipendenti. Esempio: vendi un servizio per imballo (es: 1 unità) e vuoi "
-"inserire il tempo necessario (es: 4 ore) per gestire la pianificazione dei "
-"dipendenti"
+"indipendenti. Esempio: vendi un servizio per imballaggio (es: 1 unità) e "
+"vuoi inserire il tempo necessario (es: 4 ore) per gestire la pianificazione "
+"dei dipendenti"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
