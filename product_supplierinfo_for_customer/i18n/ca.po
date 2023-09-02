@@ -210,6 +210,7 @@ msgid "Other Information"
 msgstr "Altra informació"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields.selection,name:product_supplierinfo_for_customer.selection__product_pricelist_assortment_item__base__partner
 #: model:ir.model.fields.selection,name:product_supplierinfo_for_customer.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
 msgstr "Preus per a socis al formulari de producte"
