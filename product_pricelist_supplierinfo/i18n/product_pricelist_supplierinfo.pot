@@ -87,6 +87,7 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_assortment_item__base__supplierinfo
 #: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_item__base__supplierinfo
 msgid "Prices based on supplier info"
 msgstr ""
