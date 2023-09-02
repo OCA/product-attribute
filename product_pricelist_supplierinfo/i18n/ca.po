@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_pricelist_supplierinfo
+# 	* product_pricelist_supplierinfo
 #
 msgid ""
 msgstr ""
@@ -18,23 +18,21 @@ msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_pricelist_supplier_item_form_view
-msgid "<span attrs=\"{'invisible':[('base', '!=', 'supplierinfo')]}\">Supplier price  -  </span>"
+msgid ""
+"<span attrs=\"{'invisible':[('base', '!=', 'supplierinfo')]}\">Supplier "
+"price  -  </span>"
 msgstr ""
 "<span attrs=\"{'invisible':[('base', '!=', 'supplierinfo')]}\">Preu de "
 "proveïdor  -  </span>"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
-msgid "Base price for computation.\n"
-"Public Price: The base price will be the Sale/public Price.\n"
+msgid ""
+"Base price for computation.\n"
+"Sales Price: The base price will be the Sales Price.\n"
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
-"Preu base de càlcul.\n"
-"Preu públic: el preu base serà el preu de venda / públic.\n"
-"Preu de cost: el preu base serà el preu de cost.\n"
-"Una altra llista de preus: càlcul del preu base basat en una altra llista de "
-"preus."
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__base
@@ -42,19 +40,36 @@ msgid "Based on"
 msgstr "Basat en"
 
 #. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
-msgid "Cost"
-msgstr "Cost"
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist__display_name
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__display_name
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
-msgid "Cost Price Tax Included"
-msgstr "Preu de cost impost inclòs"
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist__id
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__id
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_product__id
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__id
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_template__id
+msgid "ID"
+msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignora la informació del proveïdor Min. Quantitat"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist____last_update
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item____last_update
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo____last_update
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
@@ -67,32 +82,18 @@ msgid "Only match prices from the selected supplier"
 msgstr "Coincideix només amb els preus del proveïdor seleccionat"
 
 #. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
-msgid "Other Price"
-msgstr "Altre preu"
-
-#. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
-msgid "Other Pricelist"
-msgstr "Altra tarifa"
-
-#. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
-msgid "Partner Prices on the product form"
-msgstr "Preus de soci al formulari de producte"
-
-#. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist
 msgid "Pricelist"
 msgstr "Tarifa"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
-msgid "Pricelist Item"
-msgstr "Element de tarifa"
+msgid "Pricelist Rule"
+msgstr ""
 
 #. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
+#: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_assortment_item__base__supplierinfo
+#: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_item__base__supplierinfo
 msgid "Prices based on supplier info"
 msgstr "Preu basat en la informació del proveedor"
 
@@ -105,11 +106,6 @@ msgstr "Producte"
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producte"
-
-#. module: product_pricelist_supplierinfo
-#: selection:product.pricelist.item,base:0
-msgid "Public Price"
-msgstr "Preu públic"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
@@ -135,3 +131,37 @@ msgstr "Tarifa de proveedor"
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
 msgid "Supplier filter"
 msgstr "Filtre de proveïdor"
+
+#~ msgid ""
+#~ "Base price for computation.\n"
+#~ "Public Price: The base price will be the Sale/public Price.\n"
+#~ "Cost Price : The base price will be the cost price.\n"
+#~ "Other Pricelist : Computation of the base price based on another "
+#~ "Pricelist."
+#~ msgstr ""
+#~ "Preu base de càlcul.\n"
+#~ "Preu públic: el preu base serà el preu de venda / públic.\n"
+#~ "Preu de cost: el preu base serà el preu de cost.\n"
+#~ "Una altra llista de preus: càlcul del preu base basat en una altra llista "
+#~ "de preus."
+
+#~ msgid "Cost"
+#~ msgstr "Cost"
+
+#~ msgid "Cost Price Tax Included"
+#~ msgstr "Preu de cost impost inclòs"
+
+#~ msgid "Other Price"
+#~ msgstr "Altre preu"
+
+#~ msgid "Other Pricelist"
+#~ msgstr "Altra tarifa"
+
+#~ msgid "Partner Prices on the product form"
+#~ msgstr "Preus de soci al formulari de producte"
+
+#~ msgid "Pricelist Item"
+#~ msgstr "Element de tarifa"
+
+#~ msgid "Public Price"
+#~ msgstr "Preu públic"
