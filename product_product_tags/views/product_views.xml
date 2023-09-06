@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="tag_product_variant_easy_edit_view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='weight']" position="after">
+                <group name="Tags">
+                    <field
+                        name="var_tag_ids"
+                        widget="many2many_tags"
+                        options="{'color_field': 'color'}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_kanban_view_inherited" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product_template_tags.product_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field
+                    name="var_tag_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_search_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_search_form_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field
+                    name="var_tag_ids"
+                    filter_domain="[('var_tag_ids.name', '=', self)]"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_product_tree_view_inherited" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field
+            name="inherit_id"
+            ref="product_template_tags.product_product_tree_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field
+                    name="var_tag_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
