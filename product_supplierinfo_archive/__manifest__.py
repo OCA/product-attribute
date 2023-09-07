@@ -11,7 +11,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "depends": ["product"],
-    "data": ["views/product_views.xml"],
+    "data": ["data/ir_cron.xml", "views/product_views.xml"],
     "installable": True,
     "maintainers": ["GuillemCForgeFlow", "AlvaroTForgeFlow", "OriolVForgeFlow"],
 }
