@@ -19,6 +19,13 @@ msgid "Active"
 msgstr ""
 
 #. module: product_supplierinfo_archive
+#: model:ir.actions.server,name:product_supplierinfo_archive.cron_archive_product_supplierinfo_ir_actions_server
+#: model:ir.cron,cron_name:product_supplierinfo_archive.cron_archive_product_supplierinfo
+#: model:ir.cron,name:product_supplierinfo_archive.cron_archive_product_supplierinfo
+msgid "Archive Vendor Pricelists"
+msgstr ""
+
+#. module: product_supplierinfo_archive
 #: model:ir.model.fields,field_description:product_supplierinfo_archive.field_product_supplierinfo__display_name
 msgid "Display Name"
 msgstr ""
