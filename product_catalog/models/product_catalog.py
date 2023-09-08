@@ -87,7 +87,7 @@ class ProductCatalog(models.Model):
         return {
             "type": "ir.actions.act_window",
             "name": _("Products"),
-            "res_model": "product.template",
+            "res_model": "product.product",
             "view_mode": "tree,form",
             "domain": [("id", "in", self.pp_effective_member_ids.ids)],
         }

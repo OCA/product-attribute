@@ -37,7 +37,6 @@
                             name="product_assortment_id"
                             options="{&quot;no_create&quot;: True}"
                         />
-                        <field name="pp_candidate_member_ids" />
                         <field name="pp_to_remove_member_ids" />
                         <field
                             name="pp_effective_member_ids"
