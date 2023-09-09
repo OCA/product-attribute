@@ -67,7 +67,7 @@ addon | version | maintainers | summary
 [product_product_template_navigation](product_product_template_navigation/) | 14.0.1.0.1 |  | Adds a button in product to view the template
 [product_profile](product_profile/) | 14.0.1.0.1 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) [![sebastienbeau](https://github.com/sebastienbeau.png?size=30px)](https://github.com/sebastienbeau) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Allow to configure a product in 1 click
 [product_restricted_type](product_restricted_type/) | 14.0.1.0.1 |  | Product Restricted Type
-[product_sale_manufactured_for](product_sale_manufactured_for/) | 14.0.1.0.0 |  | Allows to indicate in products that they were made specifically for some customers.
+[product_sale_manufactured_for](product_sale_manufactured_for/) | 14.0.1.1.0 |  | Allows to indicate in products that they were made specifically for some customers.
 [product_seasonality](product_seasonality/) | 14.0.1.3.0 |  | Define rules for products' seasonal availability
 [product_secondary_unit](product_secondary_unit/) | 14.0.1.0.4 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 14.0.2.0.1 |  | Product Sequence
