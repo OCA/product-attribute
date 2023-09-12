@@ -89,13 +89,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _compute_helper_target_field_qty(self):
         """Set the target qty field defined in model"""
         default_qty_field_value = self._get_default_value_for_qty_field()
-        for rec in self:
-            if not rec.secondary_uom_id:
-                rec[rec._secondary_unit_fields["qty_field"]] = (
-                    rec._origin[rec._secondary_unit_fields["qty_field"]]
-                    or default_qty_field_value
-                )
-                continue
+        for rec in self.filtered("secondary_uom_id"):
             if rec.secondary_uom_id.dependency_type == "independent":
                 if rec[rec._secondary_unit_fields["qty_field"]] == 0.0:
                     rec[
