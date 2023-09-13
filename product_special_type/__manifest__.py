@@ -3,7 +3,7 @@
 
 {
     "name": "Product Special Types",
-    "version": "10.0.1.0.0",
+    "version": "16.0.1.0.0",
     "author": "Camptocamp,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Product",
