@@ -31,6 +31,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     _name = "product.secondary.unit.mixin"
     _description = "Product Secondary Unit Mixin"
     _secondary_unit_fields = {}
+    _product_uom_field = "uom_id"
 
     @api.model
     def _get_default_secondary_uom(self):
@@ -54,7 +55,12 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         return self[self._secondary_unit_fields["uom_field"]]
 
     def _get_factor_line(self):
-        return self.secondary_uom_id.factor * self._get_uom_line().factor
+        uom_line = self._get_uom_line()
+        return self.secondary_uom_id.factor * (
+            uom_line.factor
+            if self.product_id[self._product_uom_field] != uom_line
+            else 1.0
+        )
 
     def _get_quantity_from_line(self):
         return self[self._secondary_unit_fields["qty_field"]]
