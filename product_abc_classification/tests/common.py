@@ -1,6 +1,7 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.fields import Command
 from odoo.tests.common import TransactionCase
 
 
@@ -118,6 +119,10 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         return cls.env["product.product"].create(
             {
                 "product_tmpl_id": cls.product_template.id,
-                "product_template_attribute_value_ids": [(6, 0, size_value.ids)],
+                "product_template_attribute_value_ids": [
+                    Command.set(
+                        size_value.pav_attribute_line_ids.product_template_value_ids.ids
+                    )
+                ],
             }
         )
