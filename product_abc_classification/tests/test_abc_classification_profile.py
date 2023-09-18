@@ -4,6 +4,7 @@
 from psycopg2 import IntegrityError
 
 from odoo.exceptions import ValidationError
+from odoo.tools.misc import mute_logger
 
 from .common import ABCClassificationCase
 
@@ -185,6 +186,7 @@ class TestABCClassificationProfile(ABCClassificationCase):
                 }
             )
 
+    @mute_logger("odoo.sql_db")
     def test_05(self):
         """
         Data:
@@ -282,6 +284,7 @@ class TestABCClassificationProfile(ABCClassificationCase):
         )
         self.assertTrue(new_profile)
 
+    @mute_logger("odoo.sql_db")
     def test_07(self):
         """
         Data:
