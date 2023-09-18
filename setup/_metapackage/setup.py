@@ -25,6 +25,7 @@ setuptools.setup(
         'odoo-addon-product_multi_category>=16.0dev,<16.1dev',
         'odoo-addon-product_net_weight>=16.0dev,<16.1dev',
         'odoo-addon-product_packaging_dimension>=16.0dev,<16.1dev',
+        'odoo-addon-product_packaging_level>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_direct_print>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_direct_print_company_group>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_direct_print_xlsx>=16.0dev,<16.1dev',
