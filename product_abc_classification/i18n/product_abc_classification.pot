@@ -4,13 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0+e\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-15 16:46+0000\n"
-"PO-Revision-Date: 2021-02-15 16:46+0000\n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,46 +16,45 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__percentage
 msgid "% Indicator"
-msgstr "% KPI"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__percentage_products
 msgid "% Products"
-msgstr "% Articles"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_form_view
 msgid "ABC Classification"
-msgstr "Classification ABC"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_level
-#, fuzzy
 msgid "ABC Classification Level"
-msgstr "Classe / Niveau"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_form_view
 msgid "ABC Classification Product Level"
-msgstr "Niveau de classification ABC des articles"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.actions.act_window,name:product_abc_classification.abc_classification_profile_action
 #: model:ir.ui.menu,name:product_abc_classification.menu_abc_classification_profile_config_stock
 msgid "ABC Classification profiles"
-msgstr "Profils de classification ABC"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
 msgid "ABC Profile"
-msgstr "Profil ABC"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_product_level
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_product_level_ids
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_template__abc_classification_product_level_ids
 msgid "Abc Classification Product Level"
-msgstr "Niveau de classification"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_profile
@@ -66,12 +62,12 @@ msgstr "Niveau de classification"
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_profile_ids
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_template__abc_classification_profile_ids
 msgid "Abc Classification Profile"
-msgstr "Profil de classification ABC"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_search_view
 msgid "Abc classification"
-msgstr "Classification ABC"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_needaction
@@ -90,9 +86,8 @@ msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__auto_apply_computed_value
-#, fuzzy
 msgid "Auto Apply Computed Value"
-msgstr "Appliquer automatiquement la classification calculée"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,help:product_abc_classification.field_abc_classification_profile__auto_apply_computed_value
@@ -104,24 +99,24 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model.fields,help:product_abc_classification.field_abc_classification_level__name
 msgid "Classification A, B or C"
-msgstr "Classification A, B ou C"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__level_id
 msgid "Classification level"
-msgstr "Classe / Niveau"
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_product_level.py:0
 #, python-format
 msgid "Classification level is mandatory"
-msgstr "La classe / niveau est obligatoire"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_search_view
 msgid "Classification not in sync with computed"
-msgstr "Classes ABC manuelle et calculée divergentes"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
@@ -131,12 +126,12 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__computed_level_id
 msgid "Computed classification level"
-msgstr "Classe calculée"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_form_view
 msgid "Computed level differs from the specified level"
-msgstr "La class calculée diverge de la valeur spécifiée"
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
@@ -146,29 +141,27 @@ msgid ""
 "Computed level must be in  the same classifiation profile as the one on the "
 "product level"
 msgstr ""
-"La classe calculée doit utiliser le même profil de classification que celui "
-"défini sur le produit"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__create_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__create_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__create_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__create_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__display_name
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__display_name
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_follower_ids
@@ -183,7 +176,7 @@ msgstr ""
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_search_view
 msgid "Group By"
-msgstr "Grouper par"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__has_message
@@ -195,7 +188,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__flag
@@ -203,8 +196,6 @@ msgid ""
 "If True, this means that the manual classification is different from the "
 "computed one"
 msgstr ""
-"Si coché, indique que la classe attribuée manuellement au produit diverge de "
-"la classe calculée par le système."
 
 #. module: product_abc_classification
 #: model:ir.model.fields,help:product_abc_classification.field_abc_classification_product_level__message_needaction
@@ -227,27 +218,27 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level____last_update
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile____last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__write_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__write_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__write_uid
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__write_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__write_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__write_date
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__level_ids
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_search_view
 msgid "Level"
-msgstr "Niveau"
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
@@ -255,13 +246,12 @@ msgstr "Niveau"
 #: model:ir.model.constraint,message:product_abc_classification.constraint_abc_classification_level_name_uniq
 #, python-format
 msgid "Level name must be unique by profile"
-msgstr "Le nom de la classe doit être unique par profil"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
-#, fuzzy
 msgid "Levels"
-msgstr "Niveau"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_main_attachment_id
@@ -271,7 +261,7 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__manual_level_id
 msgid "Manual classification level"
-msgstr "Classe (Valeur à utiliser)"
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
@@ -281,8 +271,6 @@ msgid ""
 "Manual level must be in  the same classifiation profile as the one on the "
 "product level"
 msgstr ""
-"La classe à utiliser doit utiliser le même profil de classification que "
-"celui défini sur le produit"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_has_error
@@ -298,7 +286,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__name
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__name
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_needaction_counter
@@ -326,68 +314,63 @@ msgstr ""
 #: model:ir.model.constraint,message:product_abc_classification.constraint_abc_classification_product_level_product_level_uniq
 #, python-format
 msgid "Only one level by profile by product allowed"
-msgstr "Une classe de classification ABC par profil et par produit autorisée."
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.actions.server,name:product_abc_classification.ir_cron_product_abc_classification_ir_actions_server
 #: model:ir.cron,cron_name:product_abc_classification.ir_cron_product_abc_classification
-#, fuzzy
 msgid "Perform the product ABC Classification"
-msgstr "Classification ABC des articles"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__period
 msgid "Period on which to compute the classification (Days)"
-msgstr "Période référence pour le calcul de la classification (Nbr jours)"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_template
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__product_id
 msgid "Product"
-msgstr "Article"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_count
-#, fuzzy
 msgid "Product Count"
-msgstr "Article"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_product
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_variant_ids
-#, fuzzy
 msgid "Product Variant"
-msgstr "Modèle de produit"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__product_tmpl_id
 msgid "Product template"
-msgstr "Modèle de produit"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
-#, fuzzy
 msgid "Products"
-msgstr "Article"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.actions.act_window,name:product_abc_classification.abc_classification_product_level_action
 #: model:ir.ui.menu,name:product_abc_classification.menu_abc_classification_product_level_config_stock
 msgid "Products ABC Classification"
-msgstr "Classification ABC des articles"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__profile_id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__profile_id
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_search_view
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
-#, fuzzy
 msgid "Profile Information"
-msgstr "Profil"
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
@@ -395,7 +378,7 @@ msgstr "Profil"
 #: model:ir.model.constraint,message:product_abc_classification.constraint_abc_classification_profile_name_uniq
 #, python-format
 msgid "Profile name must be unique"
-msgstr "Le nom du profil doit être unique"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_has_sms_error
@@ -407,28 +390,28 @@ msgstr ""
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage cannot be greater than 100."
-msgstr "Le pourcentage ne peut pas dépasser 100."
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage of products cannot be greater than 100."
-msgstr "Le pourcentage d'articles' ne peut pas dépasser 100."
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage of products should be a positive number."
-msgstr "Le pourcentage d'articles' doit être un nombre positif."
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage should be a positive number."
-msgstr "Le pourcentage doit être un nombre positif."
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
@@ -436,28 +419,26 @@ msgstr "Le pourcentage doit être un nombre positif."
 #, python-format
 msgid "The percentages of the levels must be unique."
 msgstr ""
-"Les valeurs de pourcentage des différentes classes doivent être uniques pour "
-"un même profil."
 
 #. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the percentages of the levels should be 100."
-msgstr "La somme des pourcentages ne doit pas dépasser 100."
+msgstr ""
 
 #. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the products percentages of the levels should be 100."
-msgstr "La somme des pourcentages d'articles ne doit pas dépasser 100."
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__profile_type
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__profile_type
 msgid "Type of ABC classification"
-msgstr "Type de classification ABC"
+msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__website_message_ids
@@ -473,21 +454,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
 msgid "e.g. Sale Profile"
 msgstr ""
-
-#~ msgid "ABC Profiles"
-#~ msgstr "Profils ABC"
-
-#~ msgid "Abc classification product level ids"
-#~ msgstr "Classes ABC"
-
-#~ msgid "Abc classification profile ids"
-#~ msgstr "Profils ABC"
-
-#~ msgid "Based on the count of delivered sale order line by product"
-#~ msgstr "Basé sur le total des lignes de vente par article"
-
-#~ msgid "Level ids"
-#~ msgstr "Classes"
-
-#~ msgid "abc.classification.level"
-#~ msgstr "Classe de classification ABC"
