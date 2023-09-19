@@ -15,7 +15,7 @@ def pre_init_hook(cr):
             (
                 "product.packaging",
                 "product_packaging",
-                "packaging_level_id",
+                "packaging_type_id",
                 "packaging_level_id",
             )
         ]
