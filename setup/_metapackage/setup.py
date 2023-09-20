@@ -39,6 +39,7 @@ setuptools.setup(
         'odoo-addon-product_sequence>=16.0dev,<16.1dev',
         'odoo-addon-product_set>=16.0dev,<16.1dev',
         'odoo-addon-product_state>=16.0dev,<16.1dev',
+        'odoo-addon-product_supplierinfo_archive>=16.0dev,<16.1dev',
         'odoo-addon-product_supplierinfo_for_customer>=16.0dev,<16.1dev',
         'odoo-addon-product_supplierinfo_revision>=16.0dev,<16.1dev',
         'odoo-addon-product_template_has_one_variant>=16.0dev,<16.1dev',
