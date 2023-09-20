@@ -4,7 +4,7 @@ from odoo import _, models
 
 
 class ProductPricelistXlsx(models.AbstractModel):
-    _inherit = "report.product_pricelist_direct_print.product_pricelist_xlsx"
+    _inherit = "report.product_pricelist_direct_print_xlsx.report"
 
     def _add_extra_header(self, sheet, book, next_col, header_format):
         next_col = super()._add_extra_header(sheet, book, next_col, header_format)
