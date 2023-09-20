@@ -27,4 +27,5 @@ class ProductProduct(models.Model):
     partner_price = fields.Float(
         "Contact's Price",
         compute="_compute_partner_and_price",
+        digits=2,
     )

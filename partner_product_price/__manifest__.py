@@ -7,10 +7,11 @@
     "author": "Ows, Odoo Community Association (OCA)",
     "category": "Product",
     "data": [
-        "data/ir_actions_server.xml",
+        "views/res_partner_views.xml",
         "views/product_product_views.xml",
     ],
     "depends": [
+        "partner_stage",  # inherit header
         "product",
     ],
     "development_status": "Alpha",
