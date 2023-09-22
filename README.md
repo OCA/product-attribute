@@ -79,7 +79,7 @@ addon | version | maintainers | summary
 [product_supplierinfo_archive](product_supplierinfo_archive/) | 14.0.1.1.0 | [![GuillemCForgeFlow](https://github.com/GuillemCForgeFlow.png?size=30px)](https://github.com/GuillemCForgeFlow) [![AlvaroTForgeFlow](https://github.com/AlvaroTForgeFlow.png?size=30px)](https://github.com/AlvaroTForgeFlow) [![OriolVForgeFlow](https://github.com/OriolVForgeFlow.png?size=30px)](https://github.com/OriolVForgeFlow) | Add the active field to the product supplier info
 [product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 14.0.1.3.0 |  | Allows to define prices for customers in the products
 [product_supplierinfo_for_customer_group](product_supplierinfo_for_customer_group/) | 14.0.1.0.0 |  | Fixes compatibility of product_supplierinfo_for_customer and product_supplierinfo_group
-[product_supplierinfo_group](product_supplierinfo_group/) | 14.0.2.0.2 |  | Product Supplierinfo Group
+[product_supplierinfo_group](product_supplierinfo_group/) | 14.0.2.0.3 |  | Product Supplierinfo Group
 [product_supplierinfo_revision](product_supplierinfo_revision/) | 14.0.1.0.0 |  | Product Supplierinfo Revision
 [product_supplierinfo_stock_picking_type](product_supplierinfo_stock_picking_type/) | 14.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Product supplierinfo stock picking type
 [product_template_tags](product_template_tags/) | 14.0.1.2.0 | [![patrickrwilson](https://github.com/patrickrwilson.png?size=30px)](https://github.com/patrickrwilson) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | This addon allow to add tags on products
