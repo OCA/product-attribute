@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -28,24 +28,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_ids
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_ids
 msgid "Custom Properties"
-msgstr ""
-
-#. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product__id
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template__id
-msgid "ID"
-msgstr ""
-
-#. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: product_custom_info
