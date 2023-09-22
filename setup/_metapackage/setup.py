@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo-addon-product_attribute_company_favorite>=16.0dev,<16.1dev',
         'odoo-addon-product_category_active>=16.0dev,<16.1dev',
         'odoo-addon-product_category_code>=16.0dev,<16.1dev',
+        'odoo-addon-product_category_hr_department>=16.0dev,<16.1dev',
         'odoo-addon-product_category_type>=16.0dev,<16.1dev',
         'odoo-addon-product_code_unique>=16.0dev,<16.1dev',
         'odoo-addon-product_cost_security>=16.0dev,<16.1dev',
