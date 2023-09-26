@@ -81,6 +81,7 @@ class ProductPricelistPrint(models.TransientModel):
 
     product_price = fields.Float(compute="_compute_product_price")
 
+    @api.depends_context("product")
     def _compute_product_price(self):
         product = self.env.context["product"]
         price = self.get_pricelist_to_print()._get_product_price(
