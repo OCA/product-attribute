@@ -70,26 +70,16 @@ class ProductTemplate(models.Model):
                     template.manufacturer_purl
                 )
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        """Overwrite creation for rewriting manufacturer information (if set and having
-        only one variant), after the variant creation, that is performed in super.
-        TODO : when migrating in version 16.0, remove the overload of the create function
-        and overload instead the new function _get_related_fields_variant_template()
-        introduced here : https://github.com/odoo/odoo/pull/82642
-        """
-        templates = super().create(vals_list)
-        for template, vals in zip(templates, vals_list):
-            if len(template.product_variant_ids) == 1:
-                related_vals = {}
-                if vals.get("manufacturer_id"):
-                    related_vals["manufacturer_id"] = vals["manufacturer_id"]
-                if vals.get("manufacturer_pname"):
-                    related_vals["manufacturer_pname"] = vals["manufacturer_pname"]
-                if vals.get("manufacturer_pref"):
-                    related_vals["manufacturer_pref"] = vals["manufacturer_pref"]
-                if vals.get("manufacturer_purl"):
-                    related_vals["manufacturer_purl"] = vals["manufacturer_purl"]
-                if related_vals:
-                    template.write(related_vals)
-        return templates
+    def _get_related_fields_variant_template(self):
+        """Adds fields related to manufacturer that are present on template and
+        variants models"""
+        res = super()._get_related_fields_variant_template()
+        res.extend(
+            [
+                "manufacturer_id",
+                "manufacturer_pname",
+                "manufacturer_pref",
+                "manufacturer_purl",
+            ]
+        )
+        return res
