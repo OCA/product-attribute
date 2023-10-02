@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-10 17:09+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-12-26 17:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,11 @@ msgid "Height must be positive"
 msgstr "L'altezza deve essere positiva"
 
 #. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
+msgid "Length"
+msgstr "Lunghezza"
+
+#. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_length
 msgid "Length must be positive"
 msgstr "La lunghezza deve essere positiva"
@@ -47,24 +52,9 @@ msgid "Length unit of measure label"
 msgstr "Etichetta unità di misura lunghezza"
 
 #. module: product_packaging_dimension
-#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_max_weight
-msgid "Max Weight must be positive"
-msgstr "Il peso massimo deve essere positivo"
-
-#. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__max_weight
-msgid "Maximum Weight"
-msgstr "Peso massimo"
-
-#. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
-msgid "Packaging Length"
-msgstr "Lunghezza imballaggio"
-
-#. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume_uom_id
 msgid "Packaging volume unit of measure"
-msgstr "Unità di misura per la lunghezza dell'imballaggio"
+msgstr "Unità di misura per il volume dell'imballaggio"
 
 #. module: product_packaging_dimension
 #: model:ir.model,name:product_packaging_dimension.model_product_packaging
@@ -85,7 +75,7 @@ msgstr "Unità di misura"
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__length_uom_id
 msgid "UoM for packaging length, height, width (based on lenght UoM)"
 msgstr ""
-"UdM per lunghezza, larghezza (basato sull'UdM della lunghezza) e peso "
+"UdM per lunghezza, altezza, larghezza (basato sull'UdM della lunghezza) "
 "dell'imballaggio"
 
 #. module: product_packaging_dimension
@@ -120,6 +110,11 @@ msgid "Weight Units of Measure"
 msgstr "Unità di misura del peso"
 
 #. module: product_packaging_dimension
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_weight
+msgid "Weight must be positive"
+msgstr "Il peso deve essere positivo"
+
+#. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_name
 msgid "Weight unit of measure label"
 msgstr "Etichetta unità di misura peso"
@@ -133,3 +128,12 @@ msgstr "Larghezza"
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_width
 msgid "Width must be positive"
 msgstr "La larghezza deve essere positiva"
+
+#~ msgid "Max Weight must be positive"
+#~ msgstr "Il peso massimo deve essere positivo"
+
+#~ msgid "Maximum Weight"
+#~ msgstr "Peso massimo"
+
+#~ msgid "Packaging Length"
+#~ msgstr "Lunghezza imballaggio"
