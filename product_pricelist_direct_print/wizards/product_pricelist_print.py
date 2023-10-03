@@ -72,6 +72,7 @@ class ProductPricelistPrint(models.TransientModel):
         help="If this field is not 0, products are grouped at max level "
         "of category tree.",
     )
+    breakage_per_category = fields.Boolean(default=True)
     lang = fields.Selection(
         _lang_get, string="Language", default=lambda self: self.env.user.lang
     )
@@ -360,6 +361,8 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
+        if not self.breakage_per_category:
+            return _("Products")
         group_field = getattr(product, self.group_field)
         complete_name = getattr(group_field, "complete_name", group_field.name) or _(
             "Undefined"
