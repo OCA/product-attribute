@@ -35,6 +35,7 @@
                         <field name="max_categ_level" />
                     </group>
                     <group string="Product Options">
+                        <field name="breakage_per_category" />
                         <field
                             name="categ_ids"
                             widget="many2many_tags"
