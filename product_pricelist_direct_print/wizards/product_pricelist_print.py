@@ -293,7 +293,9 @@ class ProductPricelistPrint(models.TransientModel):
                     )
             domain = expression.AND([domain, aux_domain])
         if self.categ_ids:
-            domain = expression.AND([domain, [("categ_id", "in", self.categ_ids.ids)]])
+            domain = expression.AND(
+                [domain, [("categ_id", "child_of", self.categ_ids.ids)]]
+            )
         return domain
 
     def get_products_to_print(self):
