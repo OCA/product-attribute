@@ -9,8 +9,6 @@ from odoo import fields, models
 class ProductPricelistPrint(models.TransientModel):
     _inherit = "product.pricelist.print"
 
-    breakage_per_category = fields.Boolean(default=True)
-
     show_internal_category = fields.Boolean(string="Show internal categories")
 
     def export_xlsx(self):
