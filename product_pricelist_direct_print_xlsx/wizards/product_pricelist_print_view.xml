@@ -14,7 +14,6 @@
             <notebook position="inside">
                 <page string="XLSX Export Options">
                     <group>
-                        <field name="breakage_per_category" />
                         <field name="show_internal_category" />
                     </group>
                 </page>
