@@ -11,7 +11,7 @@ class ProductProduct(models.Model):
         self.ensure_one()
         qty_by_packaging_with_weight = self.with_context(
             **{
-                "_packaging_filter": lambda p: p.max_weight,
+                "_packaging_filter": lambda p: p.weight,
                 "_packaging_values_handler": self._prepare_qty_by_packaging_values_with_weight,  # noqa
             }
         ).product_qty_by_packaging(qty)
@@ -33,5 +33,5 @@ class ProductProduct(models.Model):
             res["weight"] = self.weight
         else:
             packaging = self.env["product.packaging"].browse(packaging_tuple.id)
-            res["weight"] = packaging.max_weight
+            res["weight"] = packaging.weight
         return res

@@ -11,14 +11,14 @@ class TestProductTotalWeightFromPackaging(common.TransactionCase):
         cls.product = cls.env.ref("product.product_product_20")
         cls.product.weight = 5
         cls.env["product.packaging"].create(
-            {"name": "pair", "product_id": cls.product.id, "qty": 2, "max_weight": 12.5}
+            {"name": "pair", "product_id": cls.product.id, "qty": 2, "weight": 12.5}
         )
         cls.env["product.packaging"].create(
             {
                 "name": "cardbox",
                 "product_id": cls.product.id,
                 "qty": 10,
-                "max_weight": 55,
+                "weight": 55,
             }
         )
         cls.env["product.packaging"].create(
