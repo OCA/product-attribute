@@ -6,130 +6,132 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-10-09 02:46+0000\n"
+"Last-Translator: Adriano Prado <adrianojprado@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_pricelist_simulation
 #: model_terms:ir.ui.view,arch_db:product_pricelist_simulation.view_pricelist_simulation_view_form
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__create_uid
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__create_date
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Moeda"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__price_date
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__display_name
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome Exibição"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__id
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist____last_update
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificação em"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__write_uid
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Atualização por"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__write_date
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Atualização em"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
 msgid "Price"
-msgstr ""
+msgstr "Preço"
 
 #. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_product_pricelist
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__pricelist_id
 msgid "Pricelist"
-msgstr ""
+msgstr "Lista de Preço"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__template_id
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo Produto"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__product_id
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Variantes de Produto"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__product_qty
 msgid "Quantity"
-msgstr ""
+msgstr "Quantidade"
 
 #. module: product_pricelist_simulation
 #: model:ir.actions.act_window,name:product_pricelist_simulation.pricelist_simulation_action
 #: model_terms:ir.ui.view,arch_db:product_pricelist_simulation.product_template_form_view_pricelist_simulation
 msgid "See Price per Pricelist"
-msgstr ""
+msgstr "Consulte Preço por Lista de Preços"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_product_pricelist__show_in_simulation
 msgid "Show In Simulation"
-msgstr ""
+msgstr "Mostrar na Simulação"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__simulation_id
 msgid "Simulation"
-msgstr ""
+msgstr "Simulação"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__line_ids
 msgid "Simulation Lines"
-msgstr ""
+msgstr "Linhas de Simulação"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__variant_count
 msgid "Variants Count"
-msgstr ""
+msgstr "Contagem de Variantes"
 
 #. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist
 msgid "wizard - Preview Pricelist"
-msgstr ""
+msgstr "Assistente - Visualizar Lista de Preços"
 
 #. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist_line
 msgid "wizard - Preview Pricelist Line"
-msgstr ""
+msgstr "Assistente - Visualizar Linha da Lista de Preços"
