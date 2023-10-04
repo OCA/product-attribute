@@ -312,6 +312,8 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
+        if not self.breakage_per_category:
+            return _("Products")
         max_level = self.max_categ_level or 99
         return " / ".join(product.categ_id.complete_name.split(" / ")[:max_level])
 
