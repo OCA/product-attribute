@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-10 22:13+0000\n"
+"PO-Revision-Date: 2023-10-09 02:46+0000\n"
 "Last-Translator: Adriano Prado <adrianojprado@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -54,6 +54,9 @@ msgid ""
 "    product.attribute.value to implement is_favorite functionalities\n"
 "    "
 msgstr ""
+"Métodos usados em product.attribute e\n"
+"     product.attribute.value para implementar funcionalidades is_favorite\n"
+"    "
 
 #. module: product_attribute_company_favorite
 #: model:ir.model,name:product_attribute_company_favorite.model_product_attribute
