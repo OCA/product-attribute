@@ -1,5 +1,5 @@
 This module provides a function to estimate the weight of a given quantity of a product,
-taking into account the product packaging's weights.
+taking into account the product packaging's weights and return the weight in the product uom.
 
 It uses the module `stock_packaging_calculator` to get weight from product packagings
 having a weight defined first and fallback on product weight field
