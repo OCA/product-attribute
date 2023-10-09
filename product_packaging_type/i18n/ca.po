@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_packaging_type
+# 	* product_packaging_type
 #
 msgid ""
 msgstr ""
@@ -87,8 +87,8 @@ msgstr "Nom"
 #, python-format
 msgid "Only one product packaging type can be set as \"Is Default\"."
 msgstr ""
-"Només es pot establir un tipus d'embalatge de producte com a \"És per "
-"defecte\"."
+"Només es pot establir un tipus d'embalatge de producte com a \"És per defecte"
+"\"."
 
 #. module: product_packaging_type
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
@@ -130,8 +130,8 @@ msgstr "Seqüència"
 #, python-format
 msgid "There must be one product packaging type set as \"Is Default\"."
 msgstr ""
-"Hi ha d'haver un tipus d'embalatge de producte definit com a \"És per "
-"defecte\"."
+"Hi ha d'haver un tipus d'embalatge de producte definit com a \"És per defecte"
+"\"."
 
 #. module: product_packaging_type
 #: model:ir.model,name:product_packaging_type.model_product_packaging_type
