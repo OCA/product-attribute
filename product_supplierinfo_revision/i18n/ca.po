@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_supplierinfo_revision
+# 	* product_supplierinfo_revision
 #
 msgid ""
 msgstr ""
@@ -101,7 +101,8 @@ msgstr "Relació amb la informació anterior quan es duplica la línia"
 
 #. module: product_supplierinfo_revision
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
-msgid "Set new start date and variation percent to duplicate.\n"
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
 "                    This process set start date previous day as end date of\n"
 "                    origin record.\n"
 "                    <br/>\n"
