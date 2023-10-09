@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_cost_security
+# 	* product_cost_security
 #
 msgid ""
 msgstr ""
@@ -29,14 +29,19 @@ msgstr "Custo"
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
-msgid "Cost used for stock valuation in standard price and as a first price to set in average/FIFO."
+msgid ""
+"Cost used for stock valuation in standard price and as a first price to set "
+"in average/FIFO."
 msgstr ""
 "Custo usado na valorização de stock a custo padrão e como primeiro custo em "
 "custo médio e FIFO."
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
-msgid "Cost used for stock valuation in standard price and as a first price to set in average/fifo. Also used as a base price for pricelists. Expressed in the default unit of measure of the product."
+msgid ""
+"Cost used for stock valuation in standard price and as a first price to set "
+"in average/fifo. Also used as a base price for pricelists. Expressed in the "
+"default unit of measure of the product."
 msgstr ""
 "Custo usado na valorização de stock a custo padrão e como primeiro custo em "
 "custo médio e FIFO. Também usado como custo base em listas de preços. "
