@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_code_mandatory
+# 	* product_code_mandatory
 #
 msgid ""
 msgstr ""
@@ -17,9 +17,24 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: product_code_mandatory
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_code_mandatory
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__id
+msgid "ID"
+msgstr ""
+
+#. module: product_code_mandatory
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__default_code
 msgid "Internal Reference"
 msgstr "Referência Interna"
+
+#. module: product_code_mandatory
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_product____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
@@ -28,7 +43,8 @@ msgstr "Produto"
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,help:product_code_mandatory.field_product_product__default_code
-msgid "Set to '/' and save if you want a new internal reference to be proposed."
+msgid ""
+"Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
 "Defina como '/' e guarde caso pretenda que uma nova referência interna seja "
 "proposta."
