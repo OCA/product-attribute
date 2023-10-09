@@ -47,7 +47,6 @@ msgid "Default Type"
 msgstr "Standaard type"
 
 #. module: product_packaging_type
-#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__display_name
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__display_name
 msgid "Display Name"
 msgstr "Weergavenaam"
@@ -58,7 +57,6 @@ msgid "Has Gtin"
 msgstr "heeft GTIN"
 
 #. module: product_packaging_type
-#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__id
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__id
 msgid "ID"
 msgstr "ID"
@@ -77,7 +75,6 @@ msgid ""
 msgstr ""
 
 #. module: product_packaging_type
-#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging____last_update
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type____last_update
 msgid "Last Modified on"
 msgstr "Laatst gewijzigd op"
@@ -125,7 +122,6 @@ msgstr "Product verpakking"
 #: model:ir.ui.menu,name:product_packaging_type.menu_product_packaging_type
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_form
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_search
-#: model_terms:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_tree
 msgid "Product Packaging Type"
 msgstr "Product verpakking type"
 
