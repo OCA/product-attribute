@@ -37,6 +37,11 @@ msgid "Height must be positive"
 msgstr "Die Höhe muss positiv sein."
 
 #. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
+msgid "Length"
+msgstr ""
+
+#. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_length
 msgid "Length must be positive"
 msgstr "Die Länge muss positiv sein."
@@ -45,21 +50,6 @@ msgstr "Die Länge muss positiv sein."
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__length_uom_name
 msgid "Length unit of measure label"
 msgstr "Label für Längen-ME"
-
-#. module: product_packaging_dimension
-#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_max_weight
-msgid "Max Weight must be positive"
-msgstr "Das maximale Gewicht muss positiv sein."
-
-#. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__max_weight
-msgid "Maximum Weight"
-msgstr "Max. Gewicht"
-
-#. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
-msgid "Packaging Length"
-msgstr "Länge (Verpackung)"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume_uom_id
@@ -120,6 +110,11 @@ msgid "Weight Units of Measure"
 msgstr "Gewicht-ME"
 
 #. module: product_packaging_dimension
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_weight
+msgid "Weight must be positive"
+msgstr ""
+
+#. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_name
 msgid "Weight unit of measure label"
 msgstr "Label für Gewicht-ME"
@@ -133,3 +128,12 @@ msgstr "Breite"
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_width
 msgid "Width must be positive"
 msgstr "Die Breite muss positiv sein."
+
+#~ msgid "Max Weight must be positive"
+#~ msgstr "Das maximale Gewicht muss positiv sein."
+
+#~ msgid "Maximum Weight"
+#~ msgstr "Max. Gewicht"
+
+#~ msgid "Packaging Length"
+#~ msgstr "Länge (Verpackung)"
