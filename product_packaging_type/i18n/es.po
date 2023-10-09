@@ -101,8 +101,8 @@ msgstr "Nombre"
 #, python-format
 msgid "Only one product packaging type can be set as \"Is Default\"."
 msgstr ""
-"Solo se puede establecer un tipo de empaque de producto como \""
-"Predeterminado\"."
+"Solo se puede establecer un tipo de empaque de producto como \"Predeterminado"
+"\"."
 
 #. module: product_packaging_type
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
