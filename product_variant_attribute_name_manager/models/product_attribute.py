@@ -5,9 +5,24 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     short_name = fields.Char(help="Displayed as the variant attribute name.")
+    display_attribute_value = fields.Boolean(
+        "Display Attribute Value on Product Variant",
+        default=True,
+        help="If checked, it will display the variant attribute value in the product name.",
+    )
     display_attribute_name = fields.Boolean(
-        "Display Attribute Name on Product Variant",
+        "Display Attribute Name/Short Name on Product Variant",
         help="If checked, it will display the variant attribute name before its value.",
+    )
+
+    display_no_variant_attribute = fields.Boolean(
+        "Display No Variant Attributes on Product Variant",
+        help="If checked, it will display the no variant attribute.",
+    )
+
+    display_single_variant_attribute = fields.Boolean(
+        "Display Single Variant Attributes on Product Variant",
+        help="If checked, it will display the single variant attribute.",
     )
 
 
@@ -25,10 +40,15 @@ class ProductTemplateAttributeValue(models.Model):
         If active, it will display the name or short name before its value.
         The order of the attributes is defined by the user"""
         display_ptav_list = []
-        for ptav in sorted(
-            self._without_no_variant_attributes()._filter_single_value_lines(),
-            key=lambda seq: seq.attribute_line_id.sequence,
-        ):
+        for ptav in sorted(self, key=lambda seq: seq.attribute_line_id.sequence):
+            if not ptav.attribute_id.display_attribute_value:
+                continue
+            if not ptav.attribute_id.display_single_variant_attribute:
+                if not ptav._filter_single_value_lines():
+                    continue
+            if not ptav.attribute_id.display_no_variant_attribute:
+                if not ptav._without_no_variant_attributes():
+                    continue
             if ptav.attribute_id.display_attribute_name:
                 if ptav.attribute_id.short_name:
                     display_ptav_list.append(
