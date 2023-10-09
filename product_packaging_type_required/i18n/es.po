@@ -17,6 +17,21 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: product_packaging_type_required
+#: model:ir.model.fields,field_description:product_packaging_type_required.field_product_packaging_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_packaging_type_required
+#: model:ir.model.fields,field_description:product_packaging_type_required.field_product_packaging_type__id
+msgid "ID"
+msgstr ""
+
+#. module: product_packaging_type_required
+#: model:ir.model.fields,field_description:product_packaging_type_required.field_product_packaging_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_packaging_type_required
 #: model:ir.actions.server,name:product_packaging_type_required.ir_cron_packaging_required_ir_actions_server
 #: model:ir.cron,cron_name:product_packaging_type_required.ir_cron_packaging_required
 #: model:ir.cron,name:product_packaging_type_required.ir_cron_packaging_required
