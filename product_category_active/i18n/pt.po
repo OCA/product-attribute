@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_category_active
+# 	* product_category_active
 #
 msgid ""
 msgstr ""
@@ -24,12 +24,16 @@ msgstr "Ativo"
 #. module: product_category_active
 #: code:addons/product_category_active/models/product.py:23
 #, python-format
-msgid "At least one category that you are trying to archive or one of its children has one or more product linked to it."
+msgid ""
+"At least one category that you are trying to archive or one of its children "
+"has one or more product linked to it."
 msgstr ""
 
 #. module: product_category_active
 #: model:ir.model.fields,help:product_category_active.field_product_category__active
-msgid "If unchecked, it will allow you to hide the product category without removing it."
+msgid ""
+"If unchecked, it will allow you to hide the product category without "
+"removing it."
 msgstr ""
 
 #. module: product_category_active
