@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_packaging_dimension
+# 	* product_packaging_dimension
 #
 msgid ""
 msgstr ""
@@ -17,14 +17,44 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__height
-msgid "Height (mm)"
-msgstr "Alçacada (mm)"
+#: model_terms:ir.ui.view,arch_db:product_packaging_dimension.product_packaging_form_view_inherit
+msgid "Dimensions"
+msgstr ""
 
 #. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__lngth
-msgid "Length (mm)"
-msgstr "Longitud (mm)"
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__length_uom_id
+msgid "Dimensions Units of Measure"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__height
+msgid "Height"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_height
+msgid "Height must be positive"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
+msgid "Length"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_length
+msgid "Length must be positive"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__length_uom_name
+msgid "Length unit of measure label"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume_uom_id
+msgid "Packaging volume unit of measure"
+msgstr ""
 
 #. module: product_packaging_dimension
 #: model:ir.model,name:product_packaging_dimension.model_product_packaging
@@ -32,36 +62,94 @@ msgid "Product Packaging"
 msgstr "Empaquetat de producte"
 
 #. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume
-msgid "Volume (m³)"
-msgstr "Volum (m³)"
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume
+msgid "The Packaging volume"
+msgstr ""
 
 #. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__max_weight
-msgid "Weight (kg)"
-msgstr "Pes (kg)"
+#: model_terms:ir.ui.view,arch_db:product_packaging_dimension.product_packaging_form_view_inherit
+msgid "Units of Measure"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__length_uom_id
+msgid "UoM for packaging length, height, width (based on lenght UoM)"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume
+msgid "Volume"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume_uom_name
+msgid "Volume Unit of Measure label"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume_uom_id
+msgid "Volume Units of Measure"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight
+#: model_terms:ir.ui.view,arch_db:product_packaging_dimension.product_packaging_form_view_inherit
+msgid "Weight"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__weight_uom_id
+msgid "Weight Unit of Measure"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_id
+msgid "Weight Units of Measure"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_weight
+msgid "Weight must be positive"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_name
+msgid "Weight unit of measure label"
+msgstr ""
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__width
-msgid "Width (mm)"
-msgstr "Amplada (mm)"
+msgid "Width"
+msgstr ""
 
 #. module: product_packaging_dimension
-#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__height
-msgid "height in millimeters"
-msgstr "alçada en milímetres"
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_width
+msgid "Width must be positive"
+msgstr ""
 
-#. module: product_packaging_dimension
-#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__lngth
-msgid "length in millimeters"
-msgstr "longitud en milímetres"
+#~ msgid "Height (mm)"
+#~ msgstr "Alçacada (mm)"
 
-#. module: product_packaging_dimension
-#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume
-msgid "volume in cubic meters"
-msgstr "volum en metres cúbics"
+#~ msgid "Length (mm)"
+#~ msgstr "Longitud (mm)"
 
-#. module: product_packaging_dimension
-#: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__width
-msgid "width in millimeters"
-msgstr "amplada en milímetres"
+#~ msgid "Volume (m³)"
+#~ msgstr "Volum (m³)"
+
+#~ msgid "Weight (kg)"
+#~ msgstr "Pes (kg)"
+
+#~ msgid "Width (mm)"
+#~ msgstr "Amplada (mm)"
+
+#~ msgid "height in millimeters"
+#~ msgstr "alçada en milímetres"
+
+#~ msgid "length in millimeters"
+#~ msgstr "longitud en milímetres"
+
+#~ msgid "volume in cubic meters"
+#~ msgstr "volum en metres cúbics"
+
+#~ msgid "width in millimeters"
+#~ msgstr "amplada en milímetres"
