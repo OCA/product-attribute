@@ -27,6 +27,32 @@ msgstr ""
 "tipo de producto restringido seleccionado"
 
 #. module: product_restricted_type
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_restricted_type
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_category__id
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_product__id
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_restricted_type
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_restricted_type
+#: model:ir.model,name:product_restricted_type.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_category
 msgid "Product Category"
 msgstr "Categoría de producto"
@@ -45,8 +71,8 @@ msgstr "Tipo de producto restringido"
 #: code:addons/product_restricted_type/models/product_template.py:0
 #, python-format
 msgid ""
-"The product type must be equal to the restricted product type defined in the"
-" product category"
+"The product type must be equal to the restricted product type defined in the "
+"product category"
 msgstr ""
 "El tipo de producto debe ser igual al tipo de producto restringido definido "
 "en la categoría de producto"
