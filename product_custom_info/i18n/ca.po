@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_custom_info
+# 	* product_custom_info
 #
 msgid ""
 msgstr ""
@@ -17,8 +17,7 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_custom_info
-#: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
-#: model_terms:ir.ui.view,arch_db:product_custom_info.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product_custom_info.product_template_form_view
 msgid "Custom Information"
 msgstr "Informació personalitzada"
 
