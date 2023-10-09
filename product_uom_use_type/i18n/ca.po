@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_uom_use_type
+# 	* product_uom_use_type
 #
 msgid ""
 msgstr ""
@@ -37,7 +37,9 @@ msgstr ""
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_po_id
-msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
+msgid ""
+"Default unit of measure used for purchase orders. It must be in the same "
+"category as the default unit of measure."
 msgstr ""
 "Unitat de mesura predeterminada que s’utilitza per a les comandes de compra. "
 "Ha de ser de la mateixa categoria que la unitat de mesura per defecte."
