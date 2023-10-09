@@ -20,7 +20,8 @@ msgstr ""
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
-"    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or 'customer'\"></span>,</p>\n"
+"    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
+"'customer'\"></span>,</p>\n"
 "    <p>\n"
 "    The attached file is a PDF document containg the\n"
 "    <strong t-out=\"object.pricelist_id.name\"></strong> pricelist.\n"
@@ -401,11 +402,11 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
-"{{ object.pricelist_id.company_id.name or object.write_uid.company_id.name "
-"}} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
 msgstr ""
-"{{ object.pricelist_id.company_id.name or object.write_uid.company_id.name }}"
-" Listino (Rif. {{ object.pricelist_id.name or 'n/d' }})"
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Listino (Rif. {{ object.pricelist_id.name or 'n/d' }})"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
