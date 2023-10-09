@@ -347,8 +347,10 @@ msgid "Product Templates"
 msgstr "Productos"
 
 #. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+#, python-format
 msgid "Products"
 msgstr "Productos"
 
