@@ -53,7 +53,6 @@ msgstr "Descripción"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
-#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
 msgid "Display Name"
 msgstr "Mostrar Nombre"
 
@@ -64,7 +63,6 @@ msgstr "Fin del ciclo de vida"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
-#: model:ir.model.fields,field_description:product_state.field_product_template__id
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -75,7 +73,6 @@ msgstr "En desarrollo"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Última Modificación el"
 
@@ -110,6 +107,11 @@ msgid "Obsolete"
 msgstr "Obsoleto"
 
 #. module: product_state
+#: model:ir.model,name:product_state.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
@@ -130,11 +132,6 @@ msgstr "Estados del producto"
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
-msgstr "Plantilla de producto"
-
-#. module: product_state
-#: model:ir.model,name:product_state.model_product_template
-msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_state
@@ -179,12 +176,14 @@ msgid "State Products"
 msgstr "Productos estatales"
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_template.py:0
 #, python-format
 msgid "The product state code %s could not be found."
 msgstr "No se ha encontrado el código de estado del producto %s."
 
 #. module: product_state
+#. odoo-python
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
@@ -195,7 +194,8 @@ msgstr "Sólo debería haber un estado predeterminado"
 msgid "Used to order the States"
 msgstr "Usado para pedir a los estados"
 
-#. module: product_state
-#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
-msgid "product.state"
-msgstr "producto.estado"
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
+
+#~ msgid "product.state"
+#~ msgstr "producto.estado"
