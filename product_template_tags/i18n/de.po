@@ -52,19 +52,16 @@ msgid "Created on"
 msgstr "Angelegt am"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template__display_name
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
 msgstr "Anzeigebezeichnung"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template__id
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_template_tags
-#: model:ir.model.fields,field_description:product_template_tags.field_product_template____last_update
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
 msgstr "Zuletzt verändert am"
