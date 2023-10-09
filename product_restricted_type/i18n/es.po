@@ -38,15 +38,18 @@ msgstr "Plantilla de producto"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__restricted_product_type
-msgid "Restricted Product Type"
-msgstr "Tipo de producto restringido"
+msgid "Restricted Product Type "
+msgstr ""
 
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product_template.py:0
 #, python-format
 msgid ""
-"The product type must be equal to the restricted product type defined in the"
-" product category"
+"The product type must be equal to the restricted product type defined in the "
+"product category"
 msgstr ""
 "El tipo de producto debe ser igual al tipo de producto restringido definido "
 "en la categoría de producto"
+
+#~ msgid "Restricted Product Type"
+#~ msgstr "Tipo de producto restringido"
