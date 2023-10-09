@@ -6,44 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-10-09 18:29+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__percentage
 msgid "% Indicator"
-msgstr ""
+msgstr "% Indicador"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__percentage_products
 msgid "% Products"
-msgstr ""
+msgstr "% Productos"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_form_view
 msgid "ABC Classification"
-msgstr ""
+msgstr "Clasificación ABC"
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_level
 msgid "ABC Classification Level"
-msgstr ""
+msgstr "Nivel de clasificación ABC"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_form_view
 msgid "ABC Classification Product Level"
-msgstr ""
+msgstr "Clasificación ABC Nivel de producto"
 
 #. module: product_abc_classification
 #: model:ir.actions.act_window,name:product_abc_classification.abc_classification_profile_action
 #: model:ir.ui.menu,name:product_abc_classification.menu_abc_classification_profile_config_stock
 msgid "ABC Classification profiles"
-msgstr ""
+msgstr "Perfiles de clasificación ABC"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
