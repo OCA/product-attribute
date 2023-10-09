@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_packaging_type_required
+# 	* product_packaging_type_required
 #
 msgid ""
 msgstr ""
