@@ -23,7 +23,7 @@ msgid "Active"
 msgstr "Actiu"
 
 #. module: product_category_active
-#: code:addons/product_category_active/models/product.py:0
+#: code:addons/product_category_active/models/product_category.py:0
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
@@ -33,6 +33,16 @@ msgstr ""
 "més productes vinculats."
 
 #. module: product_category_active
+#: model:ir.model.fields,field_description:product_category_active.field_product_category__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_category_active
+#: model:ir.model.fields,field_description:product_category_active.field_product_category__id
+msgid "ID"
+msgstr ""
+
+#. module: product_category_active
 #: model:ir.model.fields,help:product_category_active.field_product_category__active
 msgid ""
 "If unchecked, it will allow you to hide the product category without "
@@ -40,6 +50,11 @@ msgid ""
 msgstr ""
 "Si no està marcat, us permetrà amagar la categoria de producte sense "
 "eliminar-la."
+
+#. module: product_category_active
+#: model:ir.model.fields,field_description:product_category_active.field_product_category____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: product_category_active
 #: model:ir.model,name:product_category_active.model_product_category
