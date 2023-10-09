@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_restricted_type
+# 	* product_restricted_type
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,9 @@ msgstr ""
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product.py:27
 #, python-format
-msgid "A product (or multiple products) in the category have different type than the selected restricted product type"
+msgid ""
+"A product (or multiple products) in the category have different type than "
+"the selected restricted product type"
 msgstr ""
 "Un producte (o diversos productes) de la categoria té un tipus diferent al "
 "tipus de producte restringit seleccionat"
@@ -42,7 +44,9 @@ msgstr "Tipus de producte restringit"
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product_template.py:28
 #, python-format
-msgid "The product type must be equal to the restricted product type defined in the product category"
+msgid ""
+"The product type must be equal to the restricted product type defined in the "
+"product category"
 msgstr ""
 "El tipus de producte ha de ser igual al tipus de producte restringit definit "
 "a la categoria de producte"
