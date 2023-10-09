@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_pricelist_show_product_ref
+# 	* product_pricelist_show_product_ref
 #
 msgid ""
 msgstr ""
