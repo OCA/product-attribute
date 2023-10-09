@@ -34,24 +34,6 @@ msgid "Custom Properties"
 msgstr "Proprietà personalizzate"
 
 #. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product__id
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_custom_info
-#: model:ir.model.fields,field_description:product_custom_info.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_custom_info.field_product_template____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: product_custom_info
 #: model:ir.model,name:product_custom_info.model_product_product
 msgid "Product"
 msgstr "Prodotto"
@@ -81,3 +63,12 @@ msgstr "Informazioni variante"
 #: model_terms:ir.ui.view,arch_db:product_custom_info.product_normal_form_view
 msgid "the product template"
 msgstr "il modello prodotto"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
