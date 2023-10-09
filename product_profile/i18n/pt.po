@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_profile
+# 	* product_profile
 #
 msgid ""
 msgstr ""
@@ -20,7 +20,8 @@ msgstr ""
 #: model:ir.model.fields,help:product_profile.field_product_product__profile_explanation
 #: model:ir.model.fields,help:product_profile.field_product_profile__explanation
 #: model:ir.model.fields,help:product_profile.field_product_template__profile_explanation
-msgid "An explanation on the selected profile\n"
+msgid ""
+"An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 "Uma explicação sobre o perfil selecionado\n"
@@ -48,7 +49,8 @@ msgstr "Criado em"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile__sequence
-msgid "Defines the order of the entries of profile_id field\n"
+msgid ""
+"Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 "Define a ordem das entradas do campo profile_id\n"
@@ -68,7 +70,8 @@ msgstr "Mostrar campos do Perfil de Produto"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_res_config_settings__group_product_profile
-msgid "Display fields computed by product profile module.\n"
+msgid ""
+"Display fields computed by product profile module.\n"
 "For debugging purpose see menu\n"
 "Sales > Configuration \n"
 "> Product Categories and Attributes\n"
@@ -96,7 +99,9 @@ msgstr "ID"
 #. module: product_profile
 #: code:addons/product_profile/models/product_profile.py:146
 #, python-format
-msgid "If you update this profile, all products using this profile could also be updated. Changes can take a while."
+msgid ""
+"If you update this profile, all products using this profile could also be "
+"updated. Changes can take a while."
 msgstr ""
 "Se você atualizar este perfil, todos os produtos que o utilizam também "
 "poderão ser atualizados. As mudanças podem demorar um pouco."
@@ -104,7 +109,8 @@ msgstr ""
 #. module: product_profile
 #: code:addons/product_profile/models/product_profile.py:34
 #, python-format
-msgid "Issue\n"
+msgid ""
+"Issue\n"
 "------\n"
 "%s\n"
 "'%s' value can't be applied to '%s' field.\n"
@@ -190,7 +196,8 @@ msgstr "Perfil"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile__name
-msgid "Profile name displayed on product template\n"
+msgid ""
+"Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
 "Nome do perfil exibido no modelo do produto\n"
@@ -199,7 +206,8 @@ msgstr ""
 #. module: product_profile
 #: code:addons/product_profile/models/product_profile.py:12
 #, python-format
-msgid "Sales > Configuration \n"
+msgid ""
+"Sales > Configuration \n"
 "> Product Categories and Attributes\n"
 "> Product Profiles"
 msgstr ""
