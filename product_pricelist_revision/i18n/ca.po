@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_pricelist_revision
+# 	* product_pricelist_revision
 #
 msgid ""
 msgstr ""
@@ -189,7 +189,8 @@ msgstr "Relació amb l'element anterior quan es duplica la línia"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
-msgid "Set new start date and variation percent to duplicate.\n"
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
 "                    This process set start date previous day as end date of\n"
 "                    origin record.\n"
 "                    <br/>\n"
