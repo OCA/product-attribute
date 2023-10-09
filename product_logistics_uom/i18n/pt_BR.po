@@ -17,8 +17,11 @@ msgstr ""
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid ""
-"<span attrs=\"{'invisible':[('show_volume_uom_warning', '=', False)]}\" groups=\"!uom.group_uom\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
+"<span attrs=\"{'invisible':[('show_volume_uom_warning', '=', False)]}\" "
+"groups=\"!uom.group_uom\">\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
+"\"Value too small for the selected uom. Select another uom to display the "
+"value.\"/>\n"
 "                </span>"
 msgstr ""
 
@@ -26,15 +29,20 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid ""
 "<span attrs=\"{'invisible':[('show_volume_uom_warning', '=', False)]}\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
+"\"Value too small for the selected uom. Select another uom to display the "
+"value.\"/>\n"
 "                </span>"
 msgstr ""
 
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid ""
-"<span attrs=\"{'invisible':[('show_weight_uom_warning', '=', False)]}\" groups=\"!uom.group_uom\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
+"<span attrs=\"{'invisible':[('show_weight_uom_warning', '=', False)]}\" "
+"groups=\"!uom.group_uom\">\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
+"\"Value too small for the selected uom. Select another uom to display the "
+"value.\"/>\n"
 "                </span>"
 msgstr ""
 
@@ -42,7 +50,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid ""
 "<span attrs=\"{'invisible':[('show_weight_uom_warning', '=', False)]}\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
+"\"Value too small for the selected uom. Select another uom to display the "
+"value.\"/>\n"
 "                </span>"
 msgstr ""
 
