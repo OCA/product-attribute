@@ -118,8 +118,8 @@ msgstr ""
 #. module: product_attribute_company_favorite
 #: model_terms:ir.ui.view,arch_db:product_attribute_company_favorite.res_config_settings_view_form
 msgid ""
-"When a new attribute value is created, set it as favorite for all companies."
-" Otherwise, it is only set as favorite for the user's current company"
+"When a new attribute value is created, set it as favorite for all companies. "
+"Otherwise, it is only set as favorite for the user's current company"
 msgstr ""
 "Cuando se crea un nuevo valor de atributo, se establece como favorito para "
 "todas las compañías. De lo contrario, sólo se establecerá como favorito para "
