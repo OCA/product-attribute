@@ -32,24 +32,6 @@ msgid "Category Type"
 msgstr "Kategorie-Typ"
 
 #. module: product_category_type
-#: model:ir.model.fields,field_description:product_category_type.field_product_category__display_name
-#: model:ir.model.fields,field_description:product_category_type.field_product_template__display_name
-msgid "Display Name"
-msgstr "Anzeigename"
-
-#. module: product_category_type
-#: model:ir.model.fields,field_description:product_category_type.field_product_category__id
-#: model:ir.model.fields,field_description:product_category_type.field_product_template__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_category_type
-#: model:ir.model.fields,field_description:product_category_type.field_product_category____last_update
-#: model:ir.model.fields,field_description:product_category_type.field_product_template____last_update
-msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
-
-#. module: product_category_type
 #: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__normal
 msgid "Normal"
 msgstr "Normal"
@@ -60,6 +42,11 @@ msgid "Parent Category"
 msgstr "Übergeordnete Kategorie"
 
 #. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_category_type
 #: model:ir.model,name:product_category_type.model_product_category
 #: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
 #: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
@@ -67,17 +54,21 @@ msgid "Product Category"
 msgstr "Produktkategorie"
 
 #. module: product_category_type
-#: model:ir.model,name:product_category_type.model_product_template
-msgid "Product Template"
-msgstr "Produktvorlage"
-
-#. module: product_category_type
-#: model:ir.model.fields,help:product_category_type.field_product_product__categ_id
-#: model:ir.model.fields,help:product_category_type.field_product_template__categ_id
-msgid "Select category for the current product"
-msgstr "Kategorie für das aktuelle Produkt auswählen"
-
-#. module: product_category_type
 #: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__view
 msgid "View"
 msgstr "Ansicht"
+
+#~ msgid "Display Name"
+#~ msgstr "Anzeigename"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zuletzt geändert am"
+
+#~ msgid "Product Template"
+#~ msgstr "Produktvorlage"
+
+#~ msgid "Select category for the current product"
+#~ msgstr "Kategorie für das aktuelle Produkt auswählen"
