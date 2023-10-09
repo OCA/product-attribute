@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* base_product_mass_addition
+# 	* base_product_mass_addition
 #
 msgid ""
 msgstr ""
@@ -63,14 +63,18 @@ msgstr "Qty para procesar"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,help:base_product_mass_addition.field_product_product__qty_to_process
-msgid "Set this quantity to create a new line for this product or update the existing one."
+msgid ""
+"Set this quantity to create a new line for this product or update the "
+"existing one."
 msgstr ""
 "Establezca esta cantidad para crear una nueva línea para este producto o "
 "actualizar la existente."
 
 #. module: base_product_mass_addition
 #: model:ir.model,name:base_product_mass_addition.model_product_mass_addition
-msgid "inherit this to add a mass product addition function                    to your model"
+msgid ""
+"inherit this to add a mass product addition function                    to "
+"your model"
 msgstr ""
 "herede esto para agregar una función de adición masiva de productos a su "
 "modelo"
