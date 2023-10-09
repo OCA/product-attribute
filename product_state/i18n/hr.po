@@ -52,7 +52,6 @@ msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
-#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -63,7 +62,6 @@ msgstr "Kraj životnog ciklusa"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
-#: model:ir.model.fields,field_description:product_state.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -74,7 +72,6 @@ msgstr "U razvoju"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -199,8 +196,6 @@ msgstr ""
 msgid "Used to order the States"
 msgstr ""
 
-#. module: product_state
-#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
 #, fuzzy
-msgid "product.state"
-msgstr "Predložak proizvoda"
+#~ msgid "product.state"
+#~ msgstr "Predložak proizvoda"

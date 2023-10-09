@@ -49,7 +49,6 @@ msgstr "Omschrijving"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
-#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
 msgid "Display Name"
 msgstr "Weergavenaam"
 
@@ -60,7 +59,6 @@ msgstr "Einde levenscyclus"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
-#: model:ir.model.fields,field_description:product_state.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
@@ -71,7 +69,6 @@ msgstr "In ontwikkeling"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Laatst gewijzigd op"
 
@@ -189,9 +186,4 @@ msgstr ""
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
-msgstr ""
-
-#. module: product_state
-#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
-msgid "product.state"
 msgstr ""

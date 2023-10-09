@@ -53,7 +53,6 @@ msgstr "Description"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
-#: model:ir.model.fields,field_description:product_state.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
@@ -64,7 +63,6 @@ msgstr "Fin de vie"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
-#: model:ir.model.fields,field_description:product_state.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
@@ -75,7 +73,6 @@ msgstr "Phase de recherche et de développement"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-#: model:ir.model.fields,field_description:product_state.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
@@ -195,7 +192,5 @@ msgstr ""
 msgid "Used to order the States"
 msgstr "Utilisé pour trier les statuts"
 
-#. module: product_state
-#: model_terms:ir.ui.view,arch_db:product_state.view_product_state_tree
-msgid "product.state"
-msgstr "Statut de l'article"
+#~ msgid "product.state"
+#~ msgstr "Statut de l'article"
