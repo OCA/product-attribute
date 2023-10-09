@@ -18,8 +18,7 @@ msgstr ""
 
 #. module: product_multi_price
 #: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_multi_price_uniq
-msgid ""
-"A field name cannot be assigned to a product twice for the same company"
+msgid "A field name cannot be assigned to a product twice for the same company"
 msgstr ""
 "No es pot assignar un nom de camp a un producte dues vegades per a la "
 "mateixa empresa"
