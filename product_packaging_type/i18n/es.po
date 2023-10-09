@@ -47,6 +47,7 @@ msgid "Default Type"
 msgstr "Tipo predeterminado"
 
 #. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__display_name
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
@@ -57,6 +58,7 @@ msgid "Has Gtin"
 msgstr "Tiene Gtin"
 
 #. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging__id
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type__id
 msgid "ID"
 msgstr "ID"
@@ -77,6 +79,7 @@ msgstr ""
 "determinado ({})."
 
 #. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging____last_update
 #: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
@@ -101,8 +104,8 @@ msgstr "Nombre"
 #, python-format
 msgid "Only one product packaging type can be set as \"Is Default\"."
 msgstr ""
-"Solo se puede establecer un tipo de empaque de producto como \""
-"Predeterminado\"."
+"Solo se puede establecer un tipo de empaque de producto como \"Predeterminado"
+"\"."
 
 #. module: product_packaging_type
 #: model_terms:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
