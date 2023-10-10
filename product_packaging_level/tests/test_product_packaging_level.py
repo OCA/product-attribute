@@ -28,12 +28,65 @@ class TestProductPackagingLevel(common.TransactionCase):
         cls.product = cls.env["product.template"].create(
             {"name": "Product Test", "packaging_ids": [(6, 0, cls.packaging.ids)]}
         )
+        cls.package_type_pallet = cls.env.ref("stock.package_type_01")
+        cls.package_type_box = cls.env.ref("stock.package_type_02")
 
     def test_packaging_default_level(self):
         self.assertEqual(self.default_level, self.packaging_default.packaging_level_id)
 
     def test_display_name(self):
         self.assertEqual(self.default_level.display_name, "Default Level (DEFAULT)")
+
+    def test_name_by_level(self):
+        self.packaging.name_policy = "by_package_level"
+        self.assertEqual(self.packaging.name, "Packaging Test")
+
+    def test_name_by_package_type(self):
+        # Required for `package_type_id` to be visible in the view
+        self.env.user.write(
+            {"groups_id": [(4, self.env.ref("stock.group_tracking_lot").id)]}
+        )
+        self.packaging.name_policy = "by_package_type"
+        self.packaging.package_type_id = self.package_type_box
+        self.packaging._onchange_name()
+        self.assertEqual(self.packaging.name, "Box")
+
+    def test_name_by_user_defined(self):
+        # Required for `package_type_id` to be visible in the view
+        self.env.user.write(
+            {"groups_id": [(4, self.env.ref("stock.group_tracking_lot").id)]}
+        )
+        packaging_name = "user defined - not box - not pallet"
+        self.packaging.packaging_level_id.name_policy = "user_defined"
+        self.packaging.name = packaging_name
+        # try to change package_type_id
+        self.packaging.package_type_id = self.package_type_box
+        self.packaging._onchange_name()
+        self.assertEqual(self.packaging.name, packaging_name)
+
+        # try to change packaging level
+        self.packaging.packaging_level_id = self.level
+        self.packaging._onchange_name()
+        self.assertEqual(self.packaging.name, packaging_name)
+
+    def test_name_by_package_type_without_group_tracking_lot(self):
+        # remove Packages from Internal group
+        internal_group = self.env.ref("base.group_user")
+        group_tracking_lot = self.env.ref("stock.group_tracking_lot")
+        internal_group.implied_ids -= group_tracking_lot
+        self.env.user.groups_id -= group_tracking_lot
+        with self.assertRaises(ValidationError):
+            self.packaging.packaging_level_id.write({"name_policy": "by_package_type"})
+
+    def test_default_packaging_level_defined_on_package_type(self):
+        self.package_type_box.packaging_level_id = self.default_level
+        # check current level
+        self.assertEqual(self.packaging.packaging_level_id, self.level)
+        # set package_type and
+        # recheck new level if same as level on package_type
+        self.packaging.package_type_id = self.package_type_box
+        self.packaging._onchange_package_type()
+        self.assertEqual(self.packaging.packaging_level_id, self.default_level)
 
     def test_product_level_constraint(self):
         # Add a new packaging to product with same level as the other one.
