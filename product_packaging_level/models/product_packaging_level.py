@@ -15,6 +15,33 @@ class ProductPackagingLevel(models.Model):
     has_gtin = fields.Boolean()
     active = fields.Boolean(default=True)
     is_default = fields.Boolean()
+    name_policy = fields.Selection(
+        selection=[
+            ("by_package_level", "Package Level Name"),
+            ("by_package_type", "Package Type Name"),
+            ("user_defined", "User Defined"),
+        ],
+        default="by_package_level",
+        help=(
+            "config to set name of product packaging. Three options:"
+            "- The package level name (default)"
+            "- The package type name (if groups='stock.group_tracking_lot')"
+            "- user defined: free text value defined"
+        ),
+    )
+
+    @api.constrains("name_policy")
+    def _check_packaging_name(self):
+        for packaging in self:
+            activated_packages = self.env.user.has_group("stock.group_tracking_lot")
+            if packaging.name_policy == "by_package_type" and not activated_packages:
+                raise ValidationError(
+                    _(
+                        "Packaging name based on package type is only allowed"
+                        " after activating the option Packages in Inventory >"
+                        " Configuration > Settings !"
+                    )
+                )
 
     @api.constrains("is_default")
     def _check_is_default(self):

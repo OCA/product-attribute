@@ -29,6 +29,7 @@
                         <group name="codes">
                             <field name="code" />
                             <field name="has_gtin" />
+                            <field name="name_policy" />
                         </group>
                         <group name="misc">
                             <field name="sequence" />
