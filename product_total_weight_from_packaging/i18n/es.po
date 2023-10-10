@@ -18,5 +18,8 @@ msgstr ""
 
 #. module: product_total_weight_from_packaging
 #: model:ir.model,name:product_total_weight_from_packaging.model_product_product
-msgid "Product"
-msgstr "Producto"
+msgid "Product Variant"
+msgstr ""
+
+#~ msgid "Product"
+#~ msgstr "Producto"
