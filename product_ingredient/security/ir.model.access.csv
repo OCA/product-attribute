@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+product_ingredient.access_product_ingredient,access_product_ingredient,product_ingredient.model_product_ingredient,base.group_user,1,1,1,1
+product_ingredient.access_product_ingredient_value,access_product_ingredient_value,product_ingredient.model_product_ingredient_value,base.group_user,1,1,1,1
+product_ingredient.access_production_lot_ingredient_value,access_production_lot_ingredient_value,product_ingredient.model_production_lot_ingredient_value,base.group_user,1,1,1,1
