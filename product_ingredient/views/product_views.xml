@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <page name="inventory" position="after">
+                <page string="Ingredients">
+                    <group>
+                        <field
+                            name="ingredient_ids"
+                            nolabel="1"
+                            context="{'show_attribute': False}"
+                        >
+                            <tree editable="bottom" default_order="sequence, id">
+                                <field name="sequence" widget="handle" />
+                                <field name="product_id" invisible="1" />
+                                <field name="ingredient_id" />
+                                <field name="allergen_id" optional="show" />
+                                <field name="scientific_name" optional="show" />
+                                <field name="percentage" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field
+                            name="ingredient_allergen_trace_ids"
+                            widget="many2many_tags"
+                        />
+                        <field name="ingredient_additional_info" />
+                        <field name="allergen_id" widget="many2many_tags" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <page name="inventory" position="after">
+                <page
+                    string="Ingredients"
+                    attrs="{'invisible': [['product_variant_count', '!=', 1]]}"
+                >
+                    <group>
+                        <field
+                            name="ingredient_ids"
+                            nolabel="1"
+                            context="{'show_attribute': False}"
+                        >
+                            <tree editable="bottom" default_order="sequence, id">
+                                <field name="sequence" widget="handle" />
+                                <field name="product_id" invisible="1" />
+                                <field name="ingredient_id" />
+                                <field name="allergen_id" optional="show" />
+                                <field name="scientific_name" optional="show" />
+                                <field name="percentage" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field
+                            name="ingredient_allergen_trace_ids"
+                            widget="many2many_tags"
+                        />
+                        <field name="ingredient_additional_info" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
