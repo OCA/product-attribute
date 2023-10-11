@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_production_lot_form" model="ir.ui.view">
+        <field name="inherit_id" ref="stock.view_production_lot_form" />
+        <field name="model">stock.production.lot</field>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='description']" position="after">
+                <page name="ingredients" string="Ingredients">
+                    <field
+                        name="ingredient_ids"
+                        nolabel="1"
+                        context="{'show_attribute': False}"
+                    >
+                        <tree editable="bottom" default_order="sequence, id">
+                            <field name="sequence" widget="handle" />
+                            <field name="lot_id" invisible="1" />
+                            <field name="ingredient_id" />
+                            <field name="allergen_id" optional="show" />
+                            <field name="scientific_name" optional="show" />
+                            <field name="percentage" />
+                        </tree>
+                    </field>
+                    <group>
+                        <field
+                            name="ingredient_allergen_trace_ids"
+                            widget="many2many_tags"
+                        />
+                        <field name="ingredient_additional_info" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
