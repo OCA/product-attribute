@@ -106,6 +106,12 @@ msgid "Name"
 msgstr "Naam"
 
 #. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__name_policy
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__name_policy
+msgid "Name Policy"
+msgstr ""
+
+#. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging_level.py:0
 #, python-format
@@ -114,15 +120,35 @@ msgstr ""
 "Er kan slechts een verpakkingslevel worden ingesteld als \"Is standaard\"."
 
 #. module: product_packaging_level
+#: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_level
+msgid "Package Level Name"
+msgstr ""
+
+#. module: product_packaging_level
+#: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_type
+msgid "Package Type Name"
+msgstr ""
+
+#. module: product_packaging_level
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.product_packaging_tree_view
 msgid "Packaging"
 msgstr "Verpakking"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__packaging_level_id
+#: model:ir.model.fields,field_description:product_packaging_level.field_stock_package_type__packaging_level_id
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_form
 msgid "Packaging Level"
 msgstr "Verpakkingslevel"
+
+#. module: product_packaging_level
+#. odoo-python
+#: code:addons/product_packaging_level/models/product_packaging_level.py:0
+#, python-format
+msgid ""
+"Packaging name based on package type is only allowed after activating the "
+"option Packages in Inventory > Configuration > Settings !"
+msgstr ""
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging
@@ -148,11 +174,30 @@ msgid "Sequence"
 msgstr "Volgorde"
 
 #. module: product_packaging_level
+#: model:ir.model,name:product_packaging_level.model_stock_package_type
+msgid "Stock package type"
+msgstr ""
+
+#. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging_level.py:0
 #, python-format
 msgid "There must be one product packaging level set as \"Is Default\"."
 msgstr "Er dient een verpakkingslevel te zijn ingesteld als \"Is standaard\"."
+
+#. module: product_packaging_level
+#: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__user_defined
+msgid "User Defined"
+msgstr ""
+
+#. module: product_packaging_level
+#: model:ir.model.fields,help:product_packaging_level.field_product_packaging__name_policy
+#: model:ir.model.fields,help:product_packaging_level.field_product_packaging_level__name_policy
+msgid ""
+"config to set name of product packaging. Three options:- The package level "
+"name (default)- The package type name (if groups='stock."
+"group_tracking_lot')- user defined: free text value defined"
+msgstr ""
 
 #~ msgid "Level sequence"
 #~ msgstr "Level volgorde"
