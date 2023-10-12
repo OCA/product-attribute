@@ -1,0 +1,233 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_abc_classification_sale_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model,name:product_abc_classification_sale_stock.model_abc_classification_product_level
+msgid "Abc Classification Product Level"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model,name:product_abc_classification_sale_stock.model_abc_classification_profile
+msgid "Abc Classification Profile"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.actions.act_window,name:product_abc_classification_sale_stock.abc_sale_stock_level_history_act_window
+#: model:ir.model,name:product_abc_classification_sale_stock.model_abc_sale_stock_level_history
+#: model:ir.ui.menu,name:product_abc_classification_sale_stock.abc_sale_stock_level_history_menu
+msgid "Abc Sale_stock Level History"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields.selection,name:product_abc_classification_sale_stock.selection__abc_classification_profile__profile_type__sale_stock
+msgid "Based on the count of delivered sale order line by product"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__computed_level_id
+msgid "Computed classification level"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__cumulated_percentage
+msgid "Cumulated Percentage"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__cumulated_percentage
+msgid "Cumulated percentage of all the products with a better ranking"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__cumulated_percentage_products
+msgid "Cumulated percentage of products"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__cumulated_percentage_products
+msgid "Cumulated percentage of total products analyzed with a better ranking"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#. odoo-python
+#: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:0
+#, python-format
+msgid "Cumulative percentage greater than 100."
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+msgid "Data collected this year"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__from_date
+msgid "From Date"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_classification_product_level_form_view
+msgid "History"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__id
+msgid "ID"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__number_so_lines
+msgid "Number of sale order lines"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__percentage
+msgid "Percentage"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__percentage_products
+msgid "Percentage of products"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__percentage_products
+msgid "Percentage of total products analyzed"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__percentage
+msgid "Percentage of total sale order lines"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__product_id
+msgid "Product"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__product_level_id
+msgid "Product Level"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__product_tmpl_id
+msgid "Product template"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__profile_id
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+msgid "Profile"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__ranking
+msgid "Ranking"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__ranking
+msgid "Ranking by number of oder lines"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_classification_product_level__sale_stock_level_history_ids
+msgid "Sale Stock Level History"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,help:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__sum_cumulated_percentages
+msgid "Sum cumulated % so lines and cumulated % products"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__sum_cumulated_percentages
+msgid "Sum of cummulated percentages"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_sale_stock_level_history_search_view
+msgid "This Year"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__to_date
+msgid "To Date"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__total_so_lines
+msgid "Total of sale order lines"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__total_products
+msgid "Total products analysed"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_classification_profile__profile_type
+msgid "Type of ABC classification"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_classification_profile__warehouse_id
+#: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__warehouse_id
+msgid "Warehouse"
+msgstr ""
+
+#. module: product_abc_classification_sale_stock
+#. odoo-python
+#: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:0
+#, python-format
+msgid "You must specify a warehouse for {profile_name}"
+msgstr ""
