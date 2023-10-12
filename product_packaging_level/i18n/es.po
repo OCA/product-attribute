@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-09 02:46+0000\n"
+"PO-Revision-Date: 2023-10-12 15:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -112,7 +112,7 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__name_policy
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__name_policy
 msgid "Name Policy"
-msgstr ""
+msgstr "Política de nombres"
 
 #. module: product_packaging_level
 #. odoo-python
@@ -126,12 +126,12 @@ msgstr ""
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_level
 msgid "Package Level Name"
-msgstr ""
+msgstr "Nivel de paquete Nombre"
 
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_type
 msgid "Package Type Name"
-msgstr ""
+msgstr "Tipo de paquete Nombre"
 
 #. module: product_packaging_level
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.product_packaging_tree_view
@@ -153,6 +153,8 @@ msgid ""
 "Packaging name based on package type is only allowed after activating the "
 "option Packages in Inventory > Configuration > Settings !"
 msgstr ""
+"¡El nombre del paquete basado en el tipo de paquete sólo se permite tras "
+"activar la opción Paquetes en Inventario > Configuración > Ajustes!"
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging
@@ -180,7 +182,7 @@ msgstr "Secuencia"
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_stock_package_type
 msgid "Stock package type"
-msgstr ""
+msgstr "Tipo de empaquetado de existencias"
 
 #. module: product_packaging_level
 #. odoo-python
@@ -194,7 +196,7 @@ msgstr ""
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__user_defined
 msgid "User Defined"
-msgstr ""
+msgstr "Definido por el usuario"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,help:product_packaging_level.field_product_packaging__name_policy
@@ -204,6 +206,10 @@ msgid ""
 "name (default)- The package type name (if groups='stock."
 "group_tracking_lot')- user defined: free text value defined"
 msgstr ""
+"config para establecer el nombre del embalaje del producto. Tres opciones:- "
+"El nombre de nivel de paquete (por defecto)- El nombre de tipo de paquete ("
+"si groups='stock.group_tracking_lot')- definido por el usuario: valor de "
+"texto libre definido"
 
 #~ msgid "Level sequence"
 #~ msgstr "Tipo de secuencia"
