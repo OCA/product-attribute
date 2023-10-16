@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Lorenzo Battistini - Agile Business Group
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
@@ -7,7 +6,7 @@
     "summary": "View and search the list of pricelist items",
     "version": "9.0.1.0.0",
     "category": "Sales Management",
-    "website": "https://www.agilebg.com",
+    "website": "https://github.com/OCA/product-attribute",
     "author": "Agile Business Group, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "application": False,
@@ -16,6 +15,6 @@
         "product",
     ],
     "data": [
-        'views/pricelist_view.xml',
+        "views/pricelist_view.xml",
     ],
 }
