@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-08-30 07:22+0000\n"
-"Last-Translator: Davide Corio <enlightx@gmail.com>\n"
+"PO-Revision-Date: 2023-10-31 09:38+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,8 @@ msgstr ""
 
 #. module: product_pricelist_direct_print_xlsx
 #: model:ir.model,name:product_pricelist_direct_print_xlsx.model_report_product_pricelist_direct_print_xlsx_report
-#, fuzzy
 msgid "Abstract model to export as xlsx the product pricelist"
-msgstr "Modello usato come esportare il listino prodotti come xlsx"
+msgstr "Modello astratto per esportazione xlsx listino prezzi prodotto"
 
 #. module: product_pricelist_direct_print_xlsx
 #: model:ir.model.fields,field_description:product_pricelist_direct_print_xlsx.field_product_pricelist_print__breakage_per_category
@@ -32,7 +31,7 @@ msgstr "Suddivisione per categoria"
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Cost Price"
-msgstr "Costo"
+msgstr "Prezzo di costo"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
@@ -91,12 +90,12 @@ msgstr "Nome listino:"
 #. module: product_pricelist_direct_print_xlsx
 #: model:ir.model,name:product_pricelist_direct_print_xlsx.model_product_pricelist_print
 msgid "Product Pricelist Print"
-msgstr "Stampa listino"
+msgstr "Stampa listino prezzi prodotto"
 
 #. module: product_pricelist_direct_print_xlsx
 #: model:ir.actions.report,name:product_pricelist_direct_print_xlsx.report
 msgid "Product Pricelist XLSX"
-msgstr "Listino prodotti XLSX"
+msgstr "Listino prezzi prodotto XLSX"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
@@ -115,7 +114,7 @@ msgstr "Mostra categorie interne"
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Special Pricelist"
-msgstr "Listino speciale"
+msgstr "Listino prezzi speciale"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
@@ -129,7 +128,7 @@ msgstr "Riepilogo:"
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "UoM"
-msgstr "U.M."
+msgstr "UdM"
 
 #. module: product_pricelist_direct_print_xlsx
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print_xlsx.view_product_pricelist_print
