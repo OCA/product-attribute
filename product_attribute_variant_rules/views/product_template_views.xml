@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="product_template_only_form_view" model="ir.ui.view">
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view" />
+    <field name="arch" type="xml">
+      <field name="categ_id" position="after">
+        <field name="product_attribute_value_ids" />
+      </field>
+
+      <xpath expr="//page[@name='variants']" position="inside">
+
+        <field name="use_attribute_rules" />
+        <label for="use_attribute_rules" string="Use Attribute Rules" class="mt-3" />
+
+        <field
+                    name="product_attribute_rule_ids"
+                    attrs="{'invisible': [('use_attribute_rules', '=', False)]}"
+                >
+
+          <tree string="Product Attribute Rules" editable="bottom">
+            <field name="available_precondition_attribute_ids" invisible="1" />
+            <field name="available_postcondition_attribute_ids" invisible="1" />
+            <field
+                            name="product_attribute_value_precondition_ids"
+                            widget="many2many_tags"
+                            domain="[('attribute_id', 'in', available_precondition_attribute_ids), ('id', 'in', parent.product_attribute_value_ids )]"
+                        />
+            <field name="type" />
+            <field
+                            name="product_attribute_value_postcondition_ids"
+                            widget="many2many_tags"
+                            domain="[('attribute_id', 'in', available_postcondition_attribute_ids), ('id', 'in', parent.product_attribute_value_ids )]"
+                        />
+          </tree>
+
+        </field>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>
