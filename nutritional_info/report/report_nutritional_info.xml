@@ -12,16 +12,33 @@
             values set on product.product. Example: some value change on lots
             (See nutritional_info_stock_lot). -->
         <t t-set="langs" t-value="langs or [doc.env.user.lang]" />
-        <t t-set="vals" t-value="alt_object.nutritional_value_ids" />
+        <t t-set="vals" t-value="[]" />
         <t t-if="main_object != alt_object">
-            <t t-foreach="main_object.nutritional_value_ids" t-as="nutritional_value">
+            <t
+                t-set="main_nutritional_values"
+                t-value="main_object.nutritional_value_ids"
+            />
+            <t t-foreach="alt_object.nutritional_value_ids" t-as="nutritional_value">
                 <t
-                    t-set="vals"
-                    t-value="vals - vals.filtered(lambda v: v.type_id == nutritional_value.type_id) + nutritional_value"
+                    t-set="main_nutritional_value"
+                    t-value="main_nutritional_values.filtered(lambda nv: nv.type_id == nutritional_value.type_id)"
                 />
+                <t t-if="main_nutritional_value">
+                    <t t-set="vals" t-value="vals + [main_nutritional_value]" />
+                    <t
+                        t-set="main_nutritional_values"
+                        t-value="main_nutritional_values - main_nutritional_value"
+                    />
+                </t>
+                <t t-else="">
+                    <t t-set="vals" t-value="vals + [nutritional_value]" />
+                </t>
+            </t>
+            <t t-foreach="main_nutritional_values" t-as="nutritional_value">
+                <t t-set="vals" t-value="vals + [nutritional_value]" />
             </t>
         </t>
-        <t t-set="vals" t-value="vals.sorted(key='sequence')" />
+        <t t-set="vals" t-value="sorted(vals, key=lambda v: v.sequence)" />
         <!-- End of Combination -->
         <table class="nutrition-table">
             <thead>
