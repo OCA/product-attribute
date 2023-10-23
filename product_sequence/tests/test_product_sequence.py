@@ -11,11 +11,22 @@ from ..hooks import pre_init_hook
 class TestProductSequence(TransactionCase):
     """Tests for creating product with and without Product Sequence"""
 
-    def setUp(self):
-        super(TestProductSequence, self).setUp()
-        self.product_product = self.env["product.product"]
-        self.product_category = self.env["product.category"]
-        self.product_template = self.env["product.template"].create(
+    @classmethod
+    def setUpClass(cls):
+        super(TestProductSequence, cls).setUpClass()
+        # Remove this variable in v16 and put instead:
+        # from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+        DISABLED_MAIL_CONTEXT = {
+            "tracking_disable": True,
+            "mail_create_nolog": True,
+            "mail_create_nosubscribe": True,
+            "mail_notrack": True,
+            "no_reset_password": True,
+        }
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
+        cls.product_product = cls.env["product.product"]
+        cls.product_category = cls.env["product.category"]
+        cls.product_template = cls.env["product.template"].create(
             {"name": "Demo Product"}
         )
 
