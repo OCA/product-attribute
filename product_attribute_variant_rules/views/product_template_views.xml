@@ -5,7 +5,7 @@
     <field name="inherit_id" ref="product.product_template_only_form_view" />
     <field name="arch" type="xml">
       <field name="categ_id" position="after">
-        <field name="product_attribute_value_ids" />
+        <field name="product_attribute_value_ids" invisible="1" />
       </field>
 
       <xpath expr="//page[@name='variants']" position="inside">
@@ -26,7 +26,7 @@
                             widget="many2many_tags"
                             domain="[('attribute_id', 'in', available_precondition_attribute_ids), ('id', 'in', parent.product_attribute_value_ids )]"
                         />
-            <field name="type" />
+            <field name="rule_type" />
             <field
                             name="product_attribute_value_postcondition_ids"
                             widget="many2many_tags"

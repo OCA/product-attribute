@@ -46,7 +46,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(4, self.ram_16.id)],
-                    "type": "only",
+                    "rule_type": "only",
                     "product_attribute_value_postcondition_ids": [(4, self.hdd_1.id)],
                 },
             )
@@ -85,7 +85,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(4, self.ram_16.id)],
-                    "type": "only",
+                    "rule_type": "only",
                     "product_attribute_value_postcondition_ids": [(4, self.hdd_1.id)],
                 },
             )
@@ -120,7 +120,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(4, self.ram_16.id)],
-                    "type": "never",
+                    "rule_type": "never",
                     "product_attribute_value_postcondition_ids": [(4, self.hdd_1.id)],
                 },
             )
@@ -162,7 +162,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                         (4, self.ram_32.id),
                         (4, self.hdd_2.id),
                     ],
-                    "type": "only",
+                    "rule_type": "only",
                     "product_attribute_value_postcondition_ids": [(4, self.ssd_256.id)],
                 },
             ),
@@ -172,7 +172,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(4, self.ram_16.id)],
-                    "type": "never",
+                    "rule_type": "never",
                     "product_attribute_value_postcondition_ids": [
                         (4, self.hdd_4.id),
                         (4, self.ssd_512.id),
@@ -212,7 +212,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(5,)],
-                    "type": "only",
+                    "rule_type": "only",
                     "product_attribute_value_postcondition_ids": [
                         (4, self.ssd_256.id),
                         (4, self.ram_8.id),
@@ -241,7 +241,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(5,)],
-                    "type": "never",
+                    "rule_type": "never",
                     "product_attribute_value_postcondition_ids": [
                         (4, self.ssd_256.id),
                         (4, self.ram_8.id),
@@ -283,7 +283,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(5,)],
-                    "type": "never",
+                    "rule_type": "never",
                     "product_attribute_value_postcondition_ids": [
                         (4, self.ssd_256.id),
                         (4, self.ram_8.id),
@@ -298,7 +298,7 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
                 {
                     "product_tmpl_id": self.computer.id,
                     "product_attribute_value_precondition_ids": [(5,)],
-                    "type": "only",
+                    "rule_type": "only",
                     "product_attribute_value_postcondition_ids": [
                         (4, self.ssd_256.id),
                         (4, self.ram_8.id),
