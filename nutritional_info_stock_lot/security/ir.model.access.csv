@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nutritional_value_lot_employee,access_nutritional_value_lot_employee,model_nutritional_value_lot,base.group_user,1,0,0,0
+access_nutritional_value_lot_manager,access_nutritional_value_lot_manager,model_nutritional_value_lot,base.group_system,1,1,1,1

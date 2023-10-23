@@ -12,6 +12,7 @@
     "license": "AGPL-3",
     "depends": ["nutritional_info", "stock"],
     "data": [
+        "security/ir.model.access.csv",
         "report/report_nutritional_info.xml",
         "views/stock_production_lot_view.xml",
     ],
