@@ -5,11 +5,14 @@ from datetime import datetime
 
 from odoo.tests.common import TransactionCase
 
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+
 
 class TestProductPricelistRevision(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.pricelist_obj = cls.env["product.pricelist"]
         cls.pricelist_item_obj = cls.env["product.pricelist.item"]
         cls.product_category_obj = cls.env["product.category"]
