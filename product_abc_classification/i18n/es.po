@@ -6,24 +6,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-10-28 20:20+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_only_form_view
 msgid "ABC Classification"
-msgstr ""
+msgstr "Clasificación ABC"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_search_view
 msgid "ABC Classification Level"
-msgstr ""
+msgstr "Nivel de clasificación ABC"
 
 #. module: product_abc_classification
 #: model:ir.actions.act_window,name:product_abc_classification.abc_classification_profile_action
@@ -32,244 +34,244 @@ msgstr ""
 #: model:ir.ui.menu,name:product_abc_classification.menu_abc_classification_profile_config_stock
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_search_view
 msgid "ABC Classification Profile"
-msgstr ""
+msgstr "Perfil de Clasificación ABC"
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_profile_level
 msgid "ABC Classification Profile Level"
-msgstr ""
+msgstr "Nivel de Perfil de Clasificación ABC"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
 msgid "ABC Profile"
-msgstr ""
+msgstr "Perfil ABC"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_level_id
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_template__abc_classification_level_id
 msgid "Abc Classification Level"
-msgstr ""
+msgstr "Nivel de Clasificación Abc"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_category__abc_classification_profile_id
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_profile_id
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_template__abc_classification_profile_id
 msgid "Abc Classification Profile"
-msgstr ""
+msgstr "Perfil de Clasificación Abc"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__classification_type
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__classification_type
 msgid "Classification Type"
-msgstr ""
+msgstr "Tipo de Clasificación"
 
 #. module: product_abc_classification
 #: model_terms:ir.actions.act_window,help:product_abc_classification.abc_classification_profile_action
 msgid "Click to add a new profile."
-msgstr ""
+msgstr "Haz clic para añadir un nuevo perfil."
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__company_id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__company_id
 msgid "Company"
-msgstr ""
+msgstr "Compañía"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__value_criteria__consumption_value
 msgid "Consumption Value"
-msgstr ""
+msgstr "Valor de Consumo"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__create_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__create_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Divisa"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__data_source
 msgid "Data Source"
-msgstr ""
+msgstr "Fuente de Datos"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__display_name
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__classification_type__fixed
 msgid "Fixed"
-msgstr ""
+msgstr "Fijado"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__fixed
 msgid "Fixed Value"
-msgstr ""
+msgstr "Valor Fijo"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__days_to_ignore
 msgid "Ignore newer than these days"
-msgstr ""
+msgstr "Ignorar más nuevo que en estos días"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile____last_update
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__write_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Actualización Por"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__write_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultima Actualización el"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__level_ids
 msgid "Level"
-msgstr ""
+msgstr "Nivel"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__past_period
 msgid "Past demand period (Days)"
-msgstr ""
+msgstr "Periodo de demanda pasado (Días)"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__classification_type__percentage
 msgid "Percentage"
-msgstr ""
+msgstr "Porcentaje"
 
 #. module: product_abc_classification
 #: model:ir.actions.server,name:product_abc_classification.ir_cron_product_abc_classification_ir_actions_server
 #: model:ir.cron,cron_name:product_abc_classification.ir_cron_product_abc_classification
 #: model:ir.cron,name:product_abc_classification.ir_cron_product_abc_classification
 msgid "Perform the product ABC Classification"
-msgstr ""
+msgstr "Realizar la Clasificación ABC del producto"
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoría de Producto"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_count
 msgid "Product Count"
-msgstr ""
+msgstr "Conteo de Producto"
 
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla del Producto"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_variant_ids
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_category__product_variant_ids
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante del Producto"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__profile_id
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__representation
 msgid "Representation"
-msgstr ""
+msgstr "Representación"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__value_criteria__sales_revenue
 msgid "Sales Revenue"
-msgstr ""
+msgstr "Ingresos por Ventas"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__value_criteria__sales_volume
 msgid "Sales Volume"
-msgstr ""
+msgstr "Volumen de Ventas"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Secuencia"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__data_source__stock_moves
 msgid "Stock Moves"
-msgstr ""
+msgstr "Movimientos de Existencias"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__symbol
 msgid "Symbol"
-msgstr ""
+msgstr "Símbolo"
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The days to ignore can not be greater than the past period."
-msgstr ""
+msgstr "Los días a ignorar no pueden ser mayores que el periodo pasado."
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage cannot be greater than 100."
-msgstr ""
+msgstr "El porcentaje no puede ser superior a 100."
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
 msgid "The percentage should be a positive number."
-msgstr ""
+msgstr "El porcentaje debe ser un número positivo."
 
 #. module: product_abc_classification
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the percentages of the levels should be 100."
-msgstr ""
+msgstr "La suma de los porcentajes de los niveles debe ser 100."
 
 #. module: product_abc_classification
 #: model_terms:ir.actions.act_window,help:product_abc_classification.abc_classification_profile_action
 msgid "This allows to create an ABC classification."
-msgstr ""
+msgstr "Esto permite crear una clasificación ABC."
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__value_criteria
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
 msgid "Value"
-msgstr ""
+msgstr "Valor"
