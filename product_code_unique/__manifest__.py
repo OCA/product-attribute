@@ -4,7 +4,7 @@
 {
     "name": "Unique Product Internal Reference",
     "summary": "Set Product Internal Reference as Unique",
-    "version": "15.0.1.0.1",
+    "version": "15.0.1.0.2",
     "license": "AGPL-3",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "category": "Product",
