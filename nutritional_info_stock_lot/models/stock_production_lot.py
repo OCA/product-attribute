@@ -7,6 +7,6 @@ class StockProductionLot(models.Model):
     _inherit = "stock.production.lot"
 
     nutritional_value_ids = fields.One2many(
-        comodel_name="nutritional.value",
+        comodel_name="nutritional.value.lot",
         inverse_name="lot_id",
     )
