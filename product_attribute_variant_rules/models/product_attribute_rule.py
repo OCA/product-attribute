@@ -26,7 +26,7 @@ class ProductAttributeRule(models.Model):
         "If empty, the rule will always be applied.",
     )
 
-    type = fields.Selection(
+    rule_type = fields.Selection(
         [
             ("only", "Only With"),
             ("never", "Never With"),
@@ -104,10 +104,10 @@ class ProductAttributeRule(models.Model):
             combination, self.product_attribute_value_postcondition_ids
         )
 
-        if self.type == "only" and match:
+        if self.rule_type == "only" and match:
             # Both conditions are met in only, the combination is possible
             return True
-        elif self.type == "never" and not match:
+        elif self.rule_type == "never" and not match:
             # Precondition is met but postcondition is not met in never,
             # the combination is possible
             return True
