@@ -7,19 +7,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-21 10:58+0000\n"
-"PO-Revision-Date: 2021-05-21 10:58+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-10-28 20:20+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_base_multi_image_image
 msgid " image model for multiple image functionality "
-msgstr ""
+msgstr " modelo de imagen para la funcionalidad de imágenes múltiples "
 
 #. module: product_multi_image
 #: model_terms:ir.ui.view,arch_db:product_multi_image.image_form_view
