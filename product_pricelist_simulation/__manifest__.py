@@ -4,7 +4,7 @@
 {
     "name": "Product Pricelist Simulation",
     "summary": "Simulate the product price for all pricelists",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "GRAP, Tecnativa, Odoo Community Association (OCA)",
