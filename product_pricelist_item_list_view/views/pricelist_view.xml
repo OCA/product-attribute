@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <group name="pricelist">
+                    <field
+                        name="pricelist_id"
+                        invisible="not context.get('show_item_pricelist_id')"
+                    />
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_view_search" model="ir.ui.view">
+        <field name="name">product.pricelist.item.search</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_view_search" />
+        <field name="arch" type="xml">
+            <field name="pricelist_id" position="after">
+                <field name="product_id" groups="product.group_product_variant" />
+                <field name="product_tmpl_id" />
+                <field name="categ_id" />
+            </field>
+            <filter name="Variant Rule" position="after">
+                <filter name="date_start" string="Start Date" date="date_start" />
+                <filter name="date_end" string="End Date" date="date_end" />
+            </filter>
+        </field>
+    </record>
+
+    <record id="product.product_pricelist_item_action" model="ir.actions.act_window">
+        <field name="context">{'show_item_pricelist_id': 1}</field>
+    </record>
+
+    <menuitem
+        action="product.product_pricelist_item_action"
+        id="product_pricelist_items_action_menu"
+        parent="sale.product_menu_catalog"
+        sequence="40"
+        groups="product.group_product_pricelist"
+    />
+</odoo>
