@@ -5,7 +5,7 @@
 from odoo.tests import Form, common
 
 
-class TestProductPricelistSimulation(common.SavepointCase):
+class TestProductPricelistSimulation(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
