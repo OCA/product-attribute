@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2020-10-14 14:08+0000\n"
-"Last-Translator: claudiagn <claudia.gargallo@qubiq.es>\n"
+"PO-Revision-Date: 2023-10-28 20:20+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_product__profile_explanation
@@ -64,7 +64,7 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__detailed_type
 msgid "Detailed Type"
-msgstr ""
+msgstr "Tipo Detallado"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__display_name
@@ -86,6 +86,11 @@ msgid ""
 "> Products\n"
 "> Product Profiles"
 msgstr ""
+"Muestra los campos calculados por el módulo de perfil de producto.\n"
+"Para depuración, véase el menú\n"
+"Ventas > Configuración \n"
+"> Productos\n"
+"> Perfiles de producto"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product__profile_explanation
@@ -127,6 +132,19 @@ msgid ""
 "> Products\n"
 "> Product Profiles"
 msgstr ""
+"Asunto\n"
+"------\n"
+"%(error)s\n"
+" El valor de %(value)s no se puede aplicar al campo de %(field)s.\n"
+"No hay ningún valor coincidente entre 'Perfiles de productos'\n"
+"y %(model)s modelos para este campo.\n"
+"\n"
+"Resolución\n"
+"----------\n"
+"Verifique su configuración en el modelo de perfil:\n"
+" Ventas > Configuración\n"
+"> Productos\n"
+"> Perfiles de productos"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile____last_update
@@ -199,7 +217,7 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile__detailed_type
 msgid "See 'detailed_type' field in product.template"
-msgstr ""
+msgstr "Ver 'detailed_type' field en product.template"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__sequence
