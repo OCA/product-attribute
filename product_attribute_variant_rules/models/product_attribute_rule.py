@@ -1,8 +1,8 @@
 # Copyright 2023 Akretion (https://www.akretion.com).
 # @author Florian Mounier <florian.mounier@akretion.com>
-from collections import defaultdict
 
 from odoo import api, fields, models
+from odoo.tools import groupby
 
 
 class ProductAttributeRule(models.Model):
@@ -126,9 +126,9 @@ class ProductAttributeRule(models.Model):
 
         # Check if the combination matches the preconditions ANDed between
         # different attributes
-        for attribute, attribute_values in self._aggregate_conditions(
-            conditions
-        ).items():
+        for attribute, attribute_values in groupby(
+            conditions, lambda condition: condition.attribute_id
+        ):
             if (
                 combination.filtered(
                     lambda value: value.attribute_id == attribute
@@ -140,13 +140,3 @@ class ProductAttributeRule(models.Model):
 
         # The combination matches all preconditions
         return True
-
-    def _aggregate_conditions(self, conditions):
-        """
-        Group the attribute values by attribute.
-        """
-        aggregated_conditions = defaultdict(set)
-        for condition in conditions:
-            aggregated_conditions[condition.attribute_id].add(condition)
-
-        return aggregated_conditions

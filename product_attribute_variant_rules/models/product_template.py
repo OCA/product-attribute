@@ -57,7 +57,7 @@ class ProductTemplate(models.Model):
         return True
 
     def write(self, vals):
-        res = super(ProductTemplate, self).write(vals)
+        res = super().write(vals)
 
         # Recreate variants if the rules have changed
         empty = vals.get("active") and len(self.product_variant_ids) == 0
