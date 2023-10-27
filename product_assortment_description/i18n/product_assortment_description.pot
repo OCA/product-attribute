@@ -101,7 +101,6 @@ msgstr ""
 
 #. module: product_assortment_description
 #: model:ir.model.fields,help:product_assortment_description.field_ir_filters__message_has_error
-#: model:ir.model.fields,help:product_assortment_description.field_ir_filters__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -178,11 +177,6 @@ msgstr ""
 #. module: product_assortment_description
 #: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__activity_user_id
 msgid "Responsible User"
-msgstr ""
-
-#. module: product_assortment_description
-#: model:ir.model.fields,field_description:product_assortment_description.field_ir_filters__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: product_assortment_description
