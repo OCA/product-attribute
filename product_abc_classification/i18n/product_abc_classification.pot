@@ -204,7 +204,6 @@ msgstr ""
 
 #. module: product_abc_classification
 #: model:ir.model.fields,help:product_abc_classification.field_abc_classification_product_level__message_has_error
-#: model:ir.model.fields,help:product_abc_classification.field_abc_classification_product_level__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -378,11 +377,6 @@ msgstr ""
 #: model:ir.model.constraint,message:product_abc_classification.constraint_abc_classification_profile_name_uniq
 #, python-format
 msgid "Profile name must be unique"
-msgstr ""
-
-#. module: product_abc_classification
-#: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: product_abc_classification
