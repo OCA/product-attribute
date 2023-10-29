@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-25 12:11+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-10-29 13:07+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -239,8 +239,8 @@ msgid ""
 "If you enter an X number here, then, for each selected customer, the last X "
 "ordered products will be obtained for the report."
 msgstr ""
-"Se imposti un numero X qui, allora, per ogni cliente selezionato, gli ultimi "
-"X prodotti ordinati saranno usati per la stampa."
+"Se viene inserito un numero X in questo punto, per ogni cliente selezionato, "
+"gli ultimi X prodotti ordinati verranno usati per il resoconto."
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
@@ -321,7 +321,7 @@ msgstr "PRODOTTI"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_count
 msgid "Partner Count"
-msgstr "Numero partner"
+msgstr "Conteggio partner"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_item_pricelist_print
