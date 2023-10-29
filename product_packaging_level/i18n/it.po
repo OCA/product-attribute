@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 15:40+0000\n"
+"PO-Revision-Date: 2023-10-29 18:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -152,11 +152,14 @@ msgid ""
 "Packaging name based on package type is only allowed after activating the "
 "option Packages in Inventory > Configuration > Settings !"
 msgstr ""
+"Il nome imballaggio basato sul tipo collo è consentito solo dopo "
+"l'attivazione dell'opzione \"Colli in inventario\" > Configurazione > "
+"Impostazioni !"
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Imballaggio prodotto"
 
 #. module: product_packaging_level
 #: model:ir.actions.act_window,name:product_packaging_level.act_open_product_packaging_level_view
@@ -164,22 +167,22 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_form
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_search
 msgid "Product Packaging Level"
-msgstr ""
+msgstr "Livello imballaggio prodotto"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__qty_per_level
 msgid "Qty per package level"
-msgstr ""
+msgstr "Q.tà per livello collo"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_stock_package_type
 msgid "Stock package type"
-msgstr ""
+msgstr "Tipo collo magazzino"
 
 #. module: product_packaging_level
 #. odoo-python
@@ -187,11 +190,13 @@ msgstr ""
 #, python-format
 msgid "There must be one product packaging level set as \"Is Default\"."
 msgstr ""
+"Deve esserci un livello imballaggio prodotto impostato come \"È predefinito\""
+"."
 
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__user_defined
 msgid "User Defined"
-msgstr ""
+msgstr "Definito dall'utente"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,help:product_packaging_level.field_product_packaging__name_policy
@@ -201,3 +206,6 @@ msgid ""
 "name (default)- The package type name (if "
 "groups='stock.group_tracking_lot')- user defined: free text value defined"
 msgstr ""
+"Configurare per impostare il nome dell'imballo prodotto. Tre opzioni: - Il "
+"nome livello collo (predefinito) - Il nome tipo collo (se gruppi='stock."
+"group_tracking_lot') - definito dall'utente: testo libero"
