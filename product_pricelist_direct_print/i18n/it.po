@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 13:26+0000\n"
+"PO-Revision-Date: 2023-10-29 18:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -64,7 +64,7 @@ msgstr "<span>Listino speciale</span>"
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Cost Price</strong>"
-msgstr "<strong>Costo</strong>"
+msgstr "<strong>Prezzo di costo</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -118,12 +118,12 @@ msgid ""
 "entries in the list referring to all products will not be displayed."
 msgstr ""
 "Selezionare questa opzione se si vuole stampare solo i prodotti specificati "
-"nel listino. Le righe relativa a tutti i prodotti non verranno visualizzate."
+"nel listino. Le righe relative a tutti i prodotti non verranno visualizzate."
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Column Options"
-msgstr "Colonne opzionali"
+msgstr "Opzioni colonna"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
