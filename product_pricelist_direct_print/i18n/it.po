@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 13:07+0000\n"
+"PO-Revision-Date: 2023-10-29 16:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -102,7 +102,7 @@ msgstr "<strong>Listino prezzi</strong>"
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Price List Name</strong>:<br/>"
-msgstr "<strong>Nome listino prezzi</strong>:<br/>"
+msgstr "<strong>Nome listino</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -135,13 +135,13 @@ msgid ""
 "Check this field to print only the products defined in the pricelist. The "
 "entries in the list referring to all products will not be displayed."
 msgstr ""
-"Spunta questo campo per stampare solo i prodotti definiti nel listino "
-"prezzi. Le voci nella lista riferite a tutti i prodotti non saranno esposte."
+"Selezionare questa opzione se si vuole stampare solo i prodotti specificati "
+"nel listino. Le righe relativa a tutti i prodotti non verranno visualizzate."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
 msgid "Context Active Model"
-msgstr "Modello contesto attivo"
+msgstr "Contesto modello attivo"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
