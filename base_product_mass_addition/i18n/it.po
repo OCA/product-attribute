@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-09 11:08+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-10-29 16:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +77,7 @@ msgstr "Prodotti"
 #. module: base_product_mass_addition
 #: model:ir.model.fields,field_description:base_product_mass_addition.field_product_product__qty_to_process
 msgid "Qty To Process"
-msgstr "Qtà da gestire"
+msgstr "Q.tà da gestire"
 
 #. module: base_product_mass_addition
 #: model:ir.model.fields,field_description:base_product_mass_addition.field_product_product__quick_uom_id
