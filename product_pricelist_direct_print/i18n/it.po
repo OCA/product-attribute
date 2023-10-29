@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-09 02:46+0000\n"
-"Last-Translator: Davide Corio <enlightx@gmail.com>\n"
+"PO-Revision-Date: 2023-10-29 13:26+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -164,31 +164,29 @@ msgstr "Nome visualizzato"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field_id
 msgid "Group Field"
-msgstr ""
+msgstr "Campo gruppo"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
-#, fuzzy
 msgid ""
 "If this field is not 0, products are grouped at max level of category tree."
 msgstr ""
-"Se questo campo è diverso da 0, i prodotti vengono raggruppati in base al "
-"numero massimo di categorie"
+"Se questo campo non è 0, i prodotti vengono raggruppati per il livello più "
+"alto dell'albero delle categorie."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
-#, fuzzy
 msgid ""
 "If you enter an X number here, then, for each selected customer, the last X "
 "ordered products will be obtained for the report."
 msgstr ""
-"Se viene inserito un numero X in questo punto, per ogni clienti selezionato, "
-"gli ultimi X prodotti ordinati verranno usati per il report."
+"Se viene inserito un numero X in questo punto, per ogni cliente selezionato, "
+"gli ultimi X prodotti ordinati verranno usati per il resoconto."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
@@ -198,7 +196,6 @@ msgstr "Riferimento interno"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
-#, fuzzy
 msgid "Keep empty for all products"
 msgstr "Lasciare vuoto per tutti i prodotti"
 
@@ -234,9 +231,8 @@ msgstr "Impostazioni principali"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
-#, fuzzy
 msgid "Max category level"
-msgstr "Livello categorie massimo"
+msgstr "Livello massimo categoria"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
@@ -255,9 +251,8 @@ msgstr "Opzioni ordinamento"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_count
-#, fuzzy
 msgid "Partner Count"
-msgstr "Conteggio contatti"
+msgstr "Conteggio partner"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_item_pricelist_print
@@ -301,15 +296,13 @@ msgstr "Prezzo prodotto"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.report,name:product_pricelist_direct_print.action_report_product_pricelist
-#, fuzzy
 msgid "Product Price List"
-msgstr "Prodotto listino"
+msgstr "Listino prezzi prodotto"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_product_pricelist_print
-#, fuzzy
 msgid "Product Pricelist Print"
-msgstr "Stampa prodotto listino"
+msgstr "Stampa listino prezzi prodotto"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
@@ -410,6 +403,5 @@ msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
-#, fuzzy
 msgid "{{ object.pricelist_id.name }}"
 msgstr "{{ object.pricelist_id.name }}"
