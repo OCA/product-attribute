@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:51+0000\n"
-"PO-Revision-Date: 2023-03-23 13:23+0000\n"
+"PO-Revision-Date: 2023-10-29 13:26+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Archived"
-msgstr ""
+msgstr "In archivio"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__company_id
@@ -64,7 +64,7 @@ msgstr "ID"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__ref
 msgid "Internal Reference"
-msgstr ""
+msgstr "Riferimento interno"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set____last_update
@@ -93,7 +93,7 @@ msgstr "Nome"
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_id
@@ -108,34 +108,34 @@ msgstr "Prodotto"
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Product set"
-msgstr ""
+msgstr "Set prodotto"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__ref
 msgid "Product set internal reference"
-msgstr ""
+msgstr "Riferimento interno set prodotto"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_line_view
 #: model:ir.model,name:product_set.model_product_set_line
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 msgid "Product set line"
-msgstr ""
+msgstr "Riga set prodotto"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__name
 msgid "Product set name"
-msgstr ""
+msgstr "Nome riga set prodotto"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__set_line_ids
 msgid "Products"
-msgstr ""
+msgstr "Prodotti"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
 msgid "Quantity"
-msgstr ""
+msgstr "Quantità"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
@@ -145,7 +145,7 @@ msgstr "Sequenza"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
 msgid "Set"
-msgstr ""
+msgstr "Set"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
@@ -153,6 +153,8 @@ msgid ""
 "You can attache the set to a specific partner or no one. If you don't "
 "specify one, it's going to be available for all of them."
 msgstr ""
+"Si può collegare un det ad un partner specifico o a nessuno. Ne non viene "
+"specificato, sarà disponibile per tutti."
 
 #~ msgid "Cancel"
 #~ msgstr "Annulla"
