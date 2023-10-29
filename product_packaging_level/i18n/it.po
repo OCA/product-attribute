@@ -6,63 +6,65 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-10-29 15:40+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__barcode_required_for_gtin
 msgid "Barcode Required For Gtin"
-msgstr ""
+msgstr "Codice a barre obbligatorio per GTIN"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__code
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_packaging_level
 #: model:product.packaging.level,name:product_packaging_level.product_packaging_level_default
 msgid "Default Level"
-msgstr ""
+msgstr "Livello predefinito"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__has_gtin
 msgid "Has Gtin"
-msgstr ""
+msgstr "Ha GTIN"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__is_default
 msgid "Is Default"
-msgstr ""
+msgstr "È predefinito"
 
 #. module: product_packaging_level
 #. odoo-python
@@ -72,42 +74,44 @@ msgid ""
 "It is forbidden to have different packagings with the same level for a given"
 " product ({})."
 msgstr ""
+"Non è permesso avere imballaggi differenti con lo stesso livello per un dato "
+"prodotto ({})."
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__level_sequence
 msgid "Level Sequence"
-msgstr ""
+msgstr "Sequenza livello"
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging_level
 msgid "Level management for product.packaging"
-msgstr ""
+msgstr "Gestione livello per product.packaging"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__name_policy
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__name_policy
 msgid "Name Policy"
-msgstr ""
+msgstr "Nome policy"
 
 #. module: product_packaging_level
 #. odoo-python
@@ -115,28 +119,30 @@ msgstr ""
 #, python-format
 msgid "Only one product packaging level can be set as \"Is Default\"."
 msgstr ""
+"Solo un livello imballaggio prodotto può essere impostato come \"È "
+"predefinito\"."
 
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_level
 msgid "Package Level Name"
-msgstr ""
+msgstr "Nome livello collo"
 
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_type
 msgid "Package Type Name"
-msgstr ""
+msgstr "Nome tipo collo"
 
 #. module: product_packaging_level
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.product_packaging_tree_view
 msgid "Packaging"
-msgstr ""
+msgstr "Imballaggio"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__packaging_level_id
 #: model:ir.model.fields,field_description:product_packaging_level.field_stock_package_type__packaging_level_id
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_form
 msgid "Packaging Level"
-msgstr ""
+msgstr "Livello inballaggio"
 
 #. module: product_packaging_level
 #. odoo-python
