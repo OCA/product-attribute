@@ -6,28 +6,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-10-30 15:41+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
 msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Soglie quantità prodotto</span>"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Aziende"
 
 #. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_res_config_settings__stock_state_threshold
@@ -35,6 +37,8 @@ msgid ""
 "Define custom value under which the stock state will pass from 'In Stock' to"
 " 'In Limited Stock' State."
 msgstr ""
+"Definire un valore personalizzato sotto il quale lo stato della giacienza "
+"passerà da stato 'Disponibile' a 'Disponibilità limitata'."
 
 #. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_product_product__stock_state_threshold
@@ -45,16 +49,21 @@ msgid ""
 "the product category. If no value is defined in product category, it will "
 "use the value defined for the company"
 msgstr ""
+"Definire un valore personalizzato sotto il quale lo stato giacenza passerà "
+"da stato ' Disponibile' a 'Disponibilità limitata'. Se non impostato, Odoo "
+"utilizzerà il valore definito nella categoria prodotto. Se non c'è un valore "
+"definito nella categoria prodotto, verrà utilizzato il valore definito per "
+"l'azienda"
 
 #. module: product_stock_state
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__in_limited_stock
 msgid "In Limited Stock"
-msgstr ""
+msgstr "Disponibilità limitata"
 
 #. module: product_stock_state
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__in_stock
 msgid "In Stock"
-msgstr ""
+msgstr "Disponibile"
 
 #. module: product_stock_state
 #: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
