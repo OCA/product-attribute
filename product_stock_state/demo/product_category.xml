@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product.product_category_1" model="product.category">
+        <field name="manual_stock_state_threshold">20</field>
+    </record>
+</odoo>
