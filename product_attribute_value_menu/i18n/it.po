@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 16:37+0000\n"
+"PO-Revision-Date: 2023-10-30 08:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -35,7 +35,7 @@ msgstr "Valori attributo"
 #: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
 #: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
 msgid "Attribute Values Extra Prices"
-msgstr "Prezzi extra valore attributo"
+msgstr "Prezzi extra valori attributo"
 
 #. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_template_attribute_value_inherited_view_tree
@@ -47,7 +47,7 @@ msgstr "Attributi"
 #: model:ir.ui.menu,name:product_attribute_value_menu.sale_menu_product_archived_attribute_action
 #: model:ir.ui.menu,name:product_attribute_value_menu.stock_menu_product_archived_attribute_action
 msgid "Attributes Values"
-msgstr "Valori attributo"
+msgstr "Valori attributi"
 
 #. module: product_attribute_value_menu
 #: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__display_name
