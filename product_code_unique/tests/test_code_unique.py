@@ -5,11 +5,14 @@ import psycopg2
 from odoo.tests.common import TransactionCase
 from odoo.tools.misc import mute_logger
 
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+
 
 class TestCodeUnique(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.product_obj = cls.env["product.product"]
         cls.product1 = cls.product_obj.create(
             {"name": "Test Product 1", "default_code": "TSTP1"}
