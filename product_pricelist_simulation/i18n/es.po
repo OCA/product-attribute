@@ -75,11 +75,6 @@ msgid "Last Updated on"
 msgstr "Últ. actualización el"
 
 #. module: product_pricelist_simulation
-#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
-msgid "Price"
-msgstr "Precio"
-
-#. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_product_pricelist
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__pricelist_id
 msgid "Pricelist"
@@ -123,6 +118,11 @@ msgid "Simulation Lines"
 msgstr "Líneas de simulación"
 
 #. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
+msgid "Unit Price"
+msgstr ""
+
+#. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__variant_count
 msgid "Variants Count"
 msgstr "Variantes"
@@ -136,6 +136,9 @@ msgstr "asistente - Vista previa de la lista de precios"
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist_line
 msgid "wizard - Preview Pricelist Line"
 msgstr "asistente - Vista previa de línea de lista de precios"
+
+#~ msgid "Price"
+#~ msgstr "Precio"
 
 #~ msgid "Show in simulation"
 #~ msgstr "Mostrar en simulación"

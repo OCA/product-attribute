@@ -74,11 +74,6 @@ msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: product_pricelist_simulation
-#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
-msgid "Price"
-msgstr "Prezzo"
-
-#. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_product_pricelist
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__pricelist_id
 msgid "Pricelist"
@@ -122,6 +117,11 @@ msgid "Simulation Lines"
 msgstr "Righe simulazione"
 
 #. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
+msgid "Unit Price"
+msgstr ""
+
+#. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__variant_count
 msgid "Variants Count"
 msgstr "Conteggio varianti"
@@ -135,3 +135,6 @@ msgstr "procedura quidata - anteprima listino"
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist_line
 msgid "wizard - Preview Pricelist Line"
 msgstr "procedura quidata - riga anteprima listino"
+
+#~ msgid "Price"
+#~ msgstr "Prezzo"
