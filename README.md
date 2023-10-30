@@ -47,7 +47,7 @@ addon | version | maintainers | summary
 [product_pricelist_direct_print_xlsx](product_pricelist_direct_print_xlsx/) | 16.0.1.0.0 |  | Print price list in XLSX format
 [product_pricelist_item_list_view](product_pricelist_item_list_view/) | 16.0.1.0.0 | [![LoisRForgeFlow](https://github.com/LoisRForgeFlow.png?size=30px)](https://github.com/LoisRForgeFlow) | View and search the list of pricelist items
 [product_pricelist_revision](product_pricelist_revision/) | 16.0.1.0.1 |  | Product Pricelist Revision
-[product_pricelist_simulation](product_pricelist_simulation/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Simulate the product price for all pricelists
+[product_pricelist_simulation](product_pricelist_simulation/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Simulate the product price for all pricelists
 [product_pricelist_simulation_margin](product_pricelist_simulation_margin/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add margin of product price for all pricelists
 [product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 16.0.1.0.1 | [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Allows to create priceslists based on supplier info
 [product_route_mto](product_route_mto/) | 16.0.1.0.0 |  | This module allows to compute if a product is an 'MTO' one from its configured routes
