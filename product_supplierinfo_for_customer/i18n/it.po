@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 13:07+0000\n"
+"PO-Revision-Date: 2023-10-31 09:39+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -113,7 +113,7 @@ msgstr "Nome prodotto cliente"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__name
 msgid "Customer of this product"
-msgstr "Cliente del prodotto"
+msgstr "Cliente di questo prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_template_form_view
@@ -123,7 +123,7 @@ msgstr "Clienti"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__delay
 msgid "Delivery Lead Time"
-msgstr "Tempo di risposta per consegne"
+msgstr "Tempo di esecuzione spedizione"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__display_name
@@ -143,7 +143,7 @@ msgstr "Data fine"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_end
 msgid "End date for this vendor price"
-msgstr "Data finale per il prezzo fornitore"
+msgstr "Data di fine per questo prezzo fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
@@ -160,14 +160,14 @@ msgstr "ID"
 msgid ""
 "If not set, the vendor price will apply to all variants of this product."
 msgstr ""
-"Se non impostato, il prezzo fornitore viene applicato a tutte le varianti di "
+"Se non è impostato, il prezzo fornitore si applicherà a tutte le varianti di "
 "questo prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:0
 #, python-format
 msgid "Import Template for Customer Pricelists"
-msgstr "Modello di importazione per i listini prezzi dei Clienti"
+msgstr "Modello importazione listino clienti"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo____last_update
@@ -273,7 +273,7 @@ msgstr "Data inizio"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_start
 msgid "Start date for this vendor price"
-msgstr "Data iniziale per il prezzo fornitore"
+msgstr "Data di inizio per il prezzo di questo fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_supplierinfo
@@ -292,9 +292,9 @@ msgid ""
 "expressed in the vendor Product Unit of Measure if not any, in the default "
 "unit of measure of the product otherwise."
 msgstr ""
-"Quantità da acquistare per beneficiare del prezzo, espressa nell'unità di "
-"misura prodotto del fornitore. Altrimenti, se non presente, nell'unità di "
-"misura predefinita del prodotto."
+"La quantità da acquistare da questo fornitore per beneficiare del prezzo, "
+"espresso nell'unità di misura del prodotto del fornitore se non presente, "
+"altrimenti nell'unità di misura del prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
@@ -307,8 +307,8 @@ msgid ""
 "This vendor's product code will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
-"Codice prodotto del fornitore utilizzato nella stampa di una richiesta di "
-"preventivo. Lasciare vuoto per usare quello interno."
+"Il codice prodotto di questo venditore sarà usato quando verrà stampata una "
+"richiesta di preventivo. Lasciare vuoto per usarne uno interno."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__product_name
@@ -316,8 +316,8 @@ msgid ""
 "This vendor's product name will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
-"Nome prodotto del fornitore utilizzato nella stampa di una richiesta di "
-"preventivo. Lasciare vuoto per usare quello interno."
+"Il nome prodotto di questo fornitore sarà usato quando verrà stampata una "
+"richiesta di preventivo. Lasciare vuoto per usarne uno interno."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_uom
@@ -332,13 +332,13 @@ msgstr "Validità"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_variant_count
 msgid "Variant Count"
-msgstr "Numero varianti"
+msgstr "Conteggio varianti"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__variant_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__variant_customer_ids
 msgid "Variant Customer"
-msgstr "Variante Cliente"
+msgstr "Variante cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__name
