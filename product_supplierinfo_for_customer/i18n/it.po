@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 15:40+0000\n"
+"PO-Revision-Date: 2023-10-31 09:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -24,7 +24,7 @@ msgstr "Attiva"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
-msgstr "Assegna la priorità della lista del fornitore del prodotto."
+msgstr "Assegna la priorità all'elenco fornitori del prodotto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_pricelist_item__base
@@ -158,7 +158,7 @@ msgstr ""
 #: code:addons/product_supplierinfo_for_customer/models/product_customerinfo.py:0
 #, python-format
 msgid "Import Template for Customer Pricelists"
-msgstr "Import template per listino prezzi clienti"
+msgstr "Modello importazione listino clienti"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo____last_update
@@ -182,9 +182,9 @@ msgid ""
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
 msgstr ""
-"Tempo di esecuzione in giorni tra la conferma d'acquisto e la ricevuta dei "
-"prodotti nel magazzino. Usato dallo scheduler per il calcolo automatico di "
-"pianifica degli ordini d'acquisto."
+"Tempo di risposta, in giorni, tra la conferma dell'ordine di acquisto e la "
+"ricezione dei prodotti in magazzino. Utilizzato dal pianificatore per il "
+"calcolo automatico della programmazione degli ordini di acquisto."
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
@@ -199,7 +199,7 @@ msgstr "Altre informazioni"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields.selection,name:product_supplierinfo_for_customer.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
-msgstr "Prezzo partner sul form del prodotto"
+msgstr "Prezzi del partner nella scheda prodotto"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__price
@@ -312,13 +312,13 @@ msgstr "Validità"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_variant_count
 msgid "Variant Count"
-msgstr "Conto varianti"
+msgstr "Conteggio varianti"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__variant_customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__variant_customer_ids
 msgid "Variant Customer"
-msgstr "Cliente varianti"
+msgstr "Variante cliente"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
