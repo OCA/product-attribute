@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 12:58+0000\n"
-"PO-Revision-Date: 2023-04-10 12:58+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-10-31 23:48+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
@@ -55,7 +56,7 @@ msgstr "Nome visualizzato"
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
@@ -112,4 +113,4 @@ msgstr "Il nome del tag dev'essere univoco all'interno della stessa Azienda"
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
-msgstr ""
+msgstr "Etichette"
