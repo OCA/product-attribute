@@ -6,189 +6,191 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-10-31 09:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 msgid "<strong>Attribute:</strong>"
-msgstr ""
+msgstr "<strong>Attributo:</strong>"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 msgid "<strong>Category:</strong>"
-msgstr ""
+msgstr "<strong>Categoria:</strong>"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_attribute_id
 msgid "Attribute"
-msgstr ""
+msgstr "Attributo"
 
 #. module: product_sticker
 #: model:ir.model,name:product_sticker.model_product_attribute_value
 msgid "Attribute Value"
-msgstr ""
+msgstr "Valore attributo"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_attribute_value_id
 msgid "Attribute value"
-msgstr ""
+msgstr "Valore attributo"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_category_id
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__company_id
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Cross Attribute"
-msgstr ""
+msgstr "Attributo incrociato"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Cross Category"
-msgstr ""
+msgstr "Categoria incrociata"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Cross Company"
-msgstr ""
+msgstr "Azienda incrociata"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 msgid "Delete"
-msgstr ""
+msgstr "Cancella"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Display Name with the Image"
-msgstr ""
+msgstr "Visualizza nome con immagine"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Menu a tendina"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__show_sticker_note
 msgid "If checked, the note will be displayed with the sticker"
-msgstr ""
+msgstr "Se selezionata, la nota verrà visualizzata con il bollino"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_1920
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_64
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
 msgid "Image"
-msgstr ""
+msgstr "Immagine"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "Immagine 1024"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_128
 msgid "Image 128"
-msgstr ""
+msgstr "Immagine 128"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "Immagine 256"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "Immagine 512"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__name
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: product_sticker
 #: model:ir.model,name:product_sticker.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_sticker
 #: model:ir.model,name:product_sticker.model_product_attribute
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Product Attribute"
-msgstr ""
+msgstr "Attributo prodotto"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Product Attribute Value"
-msgstr ""
+msgstr "Valore attributo prodotto"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria prodotto"
 
 #. module: product_sticker
 #: model:ir.model,name:product_sticker.model_product_sticker
 msgid "Product Sticker"
-msgstr ""
+msgstr "Bollino prodotto"
 
 #. module: product_sticker
 #: model:ir.model,name:product_sticker.model_product_sticker_mixin
 msgid "Product Sticker Mixin"
-msgstr ""
+msgstr "Mixin bollino prodotto"
 
 #. module: product_sticker
 #: model:ir.actions.act_window,name:product_sticker.action_product_sticker
@@ -200,42 +202,42 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Product Stickers"
-msgstr ""
+msgstr "Bollini prodotto"
 
 #. module: product_sticker
 #: model:ir.model,name:product_sticker.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_attribute__sticker_count
 #: model:ir.model.fields,field_description:product_sticker.field_product_attribute_value__sticker_count
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker_mixin__sticker_count
 msgid "Sticker Count"
-msgstr ""
+msgstr "Conteggio bollini"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__show_sticker_note
 msgid "Sticker Note"
-msgstr ""
+msgstr "Nota bollino"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
 msgid "Sticker note that goes below image"
-msgstr ""
+msgstr "Nota bollino che va sotto l'immagine"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_attribute_view_form
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_template_form_view
 msgid "Stickers"
-msgstr ""
+msgstr "Bollini"
 
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__note
 msgid "Used to display a note with the sticker"
-msgstr ""
+msgstr "Utilizzato per visualizzare una nota con il bollinoi"
