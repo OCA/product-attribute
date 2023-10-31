@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "author": "ACSONE SA/NV, Odoo Community Association (OCA), Numigi",
     "website": "https://github.com/OCA/product-attribute",
-    "depends": ["stock"],
+    "depends": ["product"],
     "data": [
         "security/product_template_rule.xml",
         "security/product_template_tag.xml",
