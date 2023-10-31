@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-08 09:10+0000\n"
+"PO-Revision-Date: 2023-10-31 09:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -39,7 +39,7 @@ msgstr "Creato il"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__default
 msgid "Default state"
-msgstr "Stato di default"
+msgstr "Stato predefinito"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
@@ -55,7 +55,7 @@ msgstr "Nome visualizzato"
 #. module: product_state
 #: model:product.state,name:product_state.product_state_end
 msgid "End of Lifecycle"
-msgstr "Fine del ciclo vitale"
+msgstr "Fine ciclo di vita"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
@@ -128,7 +128,7 @@ msgstr "Stati prodotto"
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
-msgstr "Status prodotto"
+msgstr "Stati prodotto"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -183,7 +183,7 @@ msgstr "Il codice di stato prodotto %s non è stato trovato."
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
-msgstr "Ci deve essere un solo stato di default"
+msgstr "Ci deve essere un solo stato predefinito"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
