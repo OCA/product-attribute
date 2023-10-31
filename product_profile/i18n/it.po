@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-27 03:49+0000\n"
-"PO-Revision-Date: 2023-06-26 11:09+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-10-31 14:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -28,16 +28,18 @@ msgid ""
 "An explanation on the selected profile\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Una eccezione nel profilo selezionato\n"
+"(non sincronizzato con i campi product.template)"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: product_profile
 #: model:ir.model.fields.selection,name:product_profile.selection__product_profile__detailed_type__consu
 msgid "Consumable"
-msgstr ""
+msgstr "Consumabile"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__create_uid
@@ -55,11 +57,13 @@ msgid ""
 "Defines the order of the entries of profile_id field\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Definisce l'ordine delle entrate del campo profile_id\n"
+"(non sincronizzato con i campi product.template)"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__detailed_type
 msgid "Detailed Type"
-msgstr ""
+msgstr "Tipo dettagliato"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__display_name
@@ -70,7 +74,7 @@ msgstr "Nome visualizzato"
 #: model:ir.model.fields,field_description:product_profile.field_res_config_settings__group_product_profile
 #: model:res.groups,name:product_profile.group_product_profile_user
 msgid "Display Product Profile fields"
-msgstr ""
+msgstr "Visualizza campi profilo prodotto"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_res_config_settings__group_product_profile
@@ -81,18 +85,23 @@ msgid ""
 "> Products\n"
 "> Product Profiles"
 msgstr ""
+"Visualizza campi calcolati per modulo profilo prodotto.\n"
+"Per ricerca errori vedere il menu\n"
+"Vendite > Configurazione\n"
+"> Prodotti\n"
+"> Profili prodotto"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product__profile_explanation
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__explanation
 #: model:ir.model.fields,field_description:product_profile.field_product_template__profile_explanation
 msgid "Explanation"
-msgstr ""
+msgstr "Spiegazione"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_profile
 #: code:addons/product_profile/models/product_profile.py:0
@@ -101,6 +110,8 @@ msgid ""
 "If you update this profile, all products using this profile could also be "
 "updated. Changes can take a while."
 msgstr ""
+"Se si aggiorna il profilo, tutti i prodotti che usano il profilo devono "
+"essere aggiornati. Le modifiche possono chiedere del tempo."
 
 #. module: product_profile
 #: code:addons/product_profile/models/product_profile.py:0
@@ -120,6 +131,19 @@ msgid ""
 "> Products\n"
 "> Product Profiles"
 msgstr ""
+"Problema\n"
+"------\n"
+"%(error)s\n"
+"Il valore %(value)s non può essere applicato al campo %(field)s.\n"
+"Non c'è un valore corrispondente tra 'Profili prodotto' \n"
+"e modelli %(model)s per questo campo.\n"
+"\n"
+"Soluzione\n"
+"----------\n"
+"Controllare le impostazioni nel modello Profile:\n"
+" Vendite > Consigurazione \n"
+"> Prodotti\n"
+"> Profili prodotto"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile____last_update
@@ -139,12 +163,12 @@ msgstr "Ultimo aggiornamento il"
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile_manager
 msgid "Manage Product Profiles"
-msgstr ""
+msgstr "Gestione profili prodotto"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_product
@@ -154,31 +178,31 @@ msgstr "Prodotto"
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_profile
 msgid "Product Profile"
-msgstr ""
+msgstr "Profilo prodotto"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
 msgid "Product Profile Mixin"
-msgstr ""
+msgstr "Mixin profilo prodotto"
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
 #: model:ir.ui.menu,name:product_profile.menu_product_profile_action
 #: model_terms:ir.ui.view,arch_db:product_profile.view_general_configuration
 msgid "Product Profiles"
-msgstr ""
+msgstr "Profili prodotto"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_product__profile_id
 #: model:ir.model.fields,field_description:product_profile.field_product_template__profile_id
 #: model_terms:ir.ui.view,arch_db:product_profile.product_template_search_view
 msgid "Profile"
-msgstr ""
+msgstr "Profilo"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile__name
@@ -186,18 +210,20 @@ msgid ""
 "Profile name displayed on product template\n"
 "(not synchronized with product.template fields)"
 msgstr ""
+"Nome profilo visualizzato nel modello prodotto\n"
+"(non sincronizzato con i campi product.template)"
 
 #. module: product_profile
 #: model:ir.model.fields,help:product_profile.field_product_profile__detailed_type
 msgid "See 'detailed_type' field in product.template"
-msgstr ""
+msgstr "Vedere il campo 'detailed_type' in product.template"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_profile
 #: model:ir.model.fields.selection,name:product_profile.selection__product_profile__detailed_type__service
 msgid "Service"
-msgstr ""
+msgstr "Servizio"
