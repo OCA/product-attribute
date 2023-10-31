@@ -9,40 +9,41 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2017-05-05 02:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2023-10-31 14:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:0
 #, python-format
 msgid "-copy"
-msgstr ""
+msgstr "-copia"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Aziende"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "Riferimento interno"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr ""
+msgstr "Prefisso per il riferimento interno del prodotto"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
@@ -50,6 +51,8 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
+"Prefisso utilizzato per generare il riferimento interno dei prodotti creati "
+"con questa categoria. Se vuoto, verrà usata la sequenza predefinita."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
@@ -58,20 +61,18 @@ msgstr "Prodotto"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
-#, fuzzy
 msgid "Product Category"
-msgstr "Prodotto"
+msgstr "Categoria prodotto"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
-#, fuzzy
 msgid "Product Sequence"
-msgstr "Prodotto"
+msgstr "Sequenza prodotto"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/ir_sequence.py:0
@@ -81,6 +82,9 @@ msgid ""
 "cannot be changed here:\n"
 "%(categ_names)s"
 msgstr ""
+"La sequenze %(seq_name)s è utilizzata nelle seguenti categorie e il prefisso "
+"non può essere modificato:\n"
+"%(categ_names)s"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
