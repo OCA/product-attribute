@@ -1,0 +1,468 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_expiry_configurable
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_expiry_configurable
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.view_product_form_expiry
+msgid "<span> days</span>"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
+msgid "Alert Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__alert_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__alert_time
+msgid "Alert Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__use_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__use_time
+msgid "Best Before Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_alert_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_alert_time
+msgid "Category Product Alert Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_expiration_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_expiration_time
+msgid "Category Product Expiration Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_removal_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_removal_time
+msgid "Category Product Removal Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_use_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_use_time
+msgid "Category Product Use Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_compute_dates_from
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_compute_dates_from
+msgid "Category compute dates from"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__compute_dates_from
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__compute_dates_from
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__compute_dates_from
+msgid "Compute Dates From"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__compute_dates_from__current_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__parent_compute_dates_from__current_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__specific_compute_dates_from__current_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__compute_dates_from__current_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__specific_compute_dates_from__current_date
+msgid "Current Date"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__compute_dates_from__expiration_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__specific_compute_dates_from__expiration_date
+msgid "Expiration Date"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
+msgid "Expiration Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__expiration_date_reminded
+msgid "Expiration Date Reminded"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__expiration_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__expiration_time
+msgid "Expiration Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__compute_dates_from__expiration_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__parent_compute_dates_from__expiration_date
+#: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__specific_compute_dates_from__expiration_date
+msgid "Expiration Time Date"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:mail.activity.type,name:product_expiry_configurable.mail_activity_type_expiry_date_reached
+msgid "Expiry Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
+msgid "Expiry Dates"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__id
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__id
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__id
+msgid "ID"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__compute_dates_from
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__category_compute_dates_from
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__category_compute_dates_from
+msgid ""
+"If current_date is selected, the dates will be computed taking as reference "
+"the current date when the lot is created.Whereas if expiration_date is "
+"selected, the dates will be computed taking as reference the lot's "
+"expiration_date."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_compute_dates_from
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__specific_compute_dates_from
+msgid ""
+"If current_date is selected, the dates will be computed taking as reference "
+"the current date when the lot is created.Whereas if expiration_time is "
+"selected, the dates will be computed taking as reference the lot's "
+"expiration_date."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__compute_dates_from
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__compute_dates_from
+msgid ""
+"If current_date is selected, the dates will be computed taking as reference "
+"the current date when the lot is created.Whereas if expiration_time is "
+"selected, the dates will be computed taking as reference the lot's "
+"expiration_time."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_compute_dates_from
+msgid "If not provided, the one defined on the parent is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model,name:product_expiry_configurable.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__expiration_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__expiration_time
+msgid ""
+"Number of days after the receipt of the products (from the vendor or in "
+"stock after production) after which the goods may become dangerous and must "
+"not be consumed. It will be computed on the lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__alert_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__parent_alert_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__category_alert_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__category_alert_time
+msgid ""
+"Number of days before an alert should be raised on the lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_alert_time
+msgid ""
+"Number of days before an alert should be raised on the lot/serial number. If"
+" not provided, the one defined on the parent is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_alert_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__specific_alert_time
+msgid ""
+"Number of days before an alert should be raised on the lot/serial number.If "
+"not provided, the one defined on the category is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__alert_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__alert_time
+msgid ""
+"Number of days before the Expiration Date after which an alert should be "
+"raised on the lot/serial number. It will be computed on the lot/serial "
+"number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__removal_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__removal_time
+msgid ""
+"Number of days before the Expiration Date after which the goods should be "
+"removed from the stock. It will be computed on the lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__use_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__use_time
+msgid ""
+"Number of days before the Expiration Date after which the goods starts "
+"deteriorating, without being dangerous yet. It will be computed on the "
+"lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__expiration_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__parent_expiration_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__category_expiration_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__category_expiration_time
+msgid ""
+"Number of days before the goods may become dangerous and must not be "
+"consumed. It will be computed on the lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_expiration_time
+msgid ""
+"Number of days before the goods may become dangerous and must not be "
+"consumed. It will be computed on the lot/serial number. If not provided, the"
+" one defined on the parent is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_expiration_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__specific_expiration_time
+msgid ""
+"Number of days before the goods may become dangerous and must not be "
+"consumed. It will be computed on the lot/serial number.If not provided, the "
+"one defined on the category is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__parent_removal_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__removal_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__category_removal_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__category_removal_time
+msgid ""
+"Number of days before the goods should be removed from the stock. It will be"
+" computed on the lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_removal_time
+msgid ""
+"Number of days before the goods should be removed from the stock. It will be"
+" computed on the lot/serial number. If not provided, the one defined on the "
+"parent is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_removal_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__specific_removal_time
+msgid ""
+"Number of days before the goods should be removed from the stock. It will be"
+" computed on the lot/serial number.If not provided, the one defined on the "
+"category is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__parent_use_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__use_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__category_use_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__category_use_time
+msgid ""
+"Number of days before the goods starts deteriorating, without being "
+"dangerous yet. It will be computed using the lot/serial number."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_use_time
+msgid ""
+"Number of days before the goods starts deteriorating, without being "
+"dangerous yet. It will be computed using the lot/serial number. If not "
+"provided, the one defined on the parent is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_use_time
+#: model:ir.model.fields,help:product_expiry_configurable.field_product_template__specific_use_time
+msgid ""
+"Number of days before the goods starts deteriorating, without being "
+"dangerous yet. It will be computed using the lot/serial number.If not "
+"provided, the one defined on the category is used."
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_compute_dates_from
+msgid "Parent Compute Dates From"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_alert_time
+msgid "Parent Product Alert Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_expiration_time
+msgid "Parent Product Expiration Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_removal_time
+msgid "Parent Product Removal Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_use_time
+msgid "Parent Product Use Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__alert_time
+msgid "Product Alert Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model,name:product_expiry_configurable.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.actions.server,name:product_expiry_configurable.ir_cron_product_expiry_expiration_date_ir_actions_server
+#: model:ir.cron,cron_name:product_expiry_configurable.ir_cron_product_expiry_expiration_date
+#: model:ir.cron,name:product_expiry_configurable.ir_cron_product_expiry_expiration_date
+msgid "Product Expiration Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__expiration_time
+msgid "Product Expiration Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.actions.server,name:product_expiry_configurable.ir_cron_product_expiry_removal_date_ir_actions_server
+#: model:ir.cron,cron_name:product_expiry_configurable.ir_cron_product_expiry_removal_date
+#: model:ir.cron,name:product_expiry_configurable.ir_cron_product_expiry_removal_date
+msgid "Product Removal Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__removal_time
+msgid "Product Removal Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model,name:product_expiry_configurable.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.actions.server,name:product_expiry_configurable.ir_cron_product_expiry_use_date_ir_actions_server
+#: model:ir.cron,cron_name:product_expiry_configurable.ir_cron_product_expiry_use_date
+#: model:ir.cron,name:product_expiry_configurable.ir_cron_product_expiry_use_date
+msgid "Product Use Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__use_time
+msgid "Product Use Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
+msgid "Removal Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__removal_date_reminded
+msgid "Removal Date Reminded"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__removal_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__removal_time
+msgid "Removal Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_compute_dates_from
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_compute_dates_from
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_compute_dates_from
+msgid "Specific Compute Dates From"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_alert_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_alert_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_alert_time
+msgid "Specific Product Alert Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_expiration_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_expiration_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_expiration_time
+msgid "Specific Product Expiration Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_removal_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_removal_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_removal_time
+msgid "Specific Product Removal Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_use_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_use_time
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_use_time
+msgid "Specific Product Use Time"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: code:addons/product_expiry_configurable/models/stock_production_lot.py:0
+#, python-format
+msgid "The %s has been reached for this lot/serial number"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
+msgid "Use Date Reached"
+msgstr ""
+
+#. module: product_expiry_configurable
+#: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__use_date_reminded
+msgid "Use Date Reminded"
+msgstr ""
