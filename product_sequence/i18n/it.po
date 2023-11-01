@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2023-10-31 14:36+0000\n"
+"PO-Revision-Date: 2023-11-01 14:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -91,6 +91,8 @@ msgstr ""
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
+"Impostare a '/' e salvare se si vuole venga proposto un nuovo riferimento "
+"interno."
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_category.py:0
@@ -99,6 +101,8 @@ msgid ""
 "The prefix defined on product category %s does not match the prefix of "
 "linked sequence"
 msgstr ""
+"Il prefisso definito nella categoria prodotto %s non corrisponde al prefisso "
+"della sequenza collegata"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
@@ -106,13 +110,15 @@ msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+"Questo campo contiene le informazioni relative alla numerazione delle "
+"registrazioni contabili di questo registro."
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
 #: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid "Use parent categories to determine the prefix"
-msgstr ""
+msgstr "Usa le categorie padri per determinare il prefisso"
 
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
@@ -120,6 +126,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category\n"
 "                            has no settings for the prefix."
 msgstr ""
+"Usa le categorie padri per determinare il prefisso se la categoria \n"
+"                                non ha impostazioni per il prefisso."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -128,3 +136,5 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
 msgstr ""
+"Usa le categorie padri per determinare il prefisso se la categoria non ha "
+"impostazioni per il prefisso."
