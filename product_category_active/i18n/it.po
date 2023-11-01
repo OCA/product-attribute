@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-27 15:33+0000\n"
-"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
+"PO-Revision-Date: 2023-11-01 12:38+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_category_active
 #: model:ir.model.fields,field_description:product_category_active.field_product_category__active
@@ -29,7 +29,7 @@ msgid ""
 "At least one category that you are trying to archive or one of its children "
 "has one or more product linked to it."
 msgstr ""
-"Almeno una categoria che stai cercando di archiviare oppure una dei suoi "
+"Almeno una categoria che si sta cercando di archiviare oppure una dei suoi "
 "discendenti ha uno o più prodotti associati ad essa."
 
 #. module: product_category_active
@@ -38,7 +38,7 @@ msgid ""
 "If unchecked, it will allow you to hide the product category without "
 "removing it."
 msgstr ""
-"Se non marcato, ti permette di nascondere la categoria dei prodotti senza "
+"Se non selezionato, consente di nascondere la categoria dei prodotti senza "
 "rimuoverla."
 
 #. module: product_category_active
