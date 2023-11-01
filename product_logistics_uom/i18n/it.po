@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 13:26+0000\n"
+"PO-Revision-Date: 2023-11-01 15:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -88,32 +88,32 @@ msgstr "Impostazioni di configurazione"
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_length_uom_id
 msgid "Default Length Unit of Measure"
-msgstr "Lunghezza di default Unità di Misura"
+msgstr "Unità di misura lunghezza predefinita"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default Volume Unit of Measure"
-msgstr "Volume di default Unità di Misura"
+msgstr "Unità di misura volume predefinito"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_weight_uom_id
 msgid "Default Weight Unit of Measure"
-msgstr "Peso di default Unità di Misura"
+msgstr "Unità di misura peso predefinito"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_length_uom_id
 msgid "Default unit of measure to express product length"
-msgstr "Unità di misura di default per esprimere la lunghezza di prodotto"
+msgstr "Unità di misura predefiita per esprimere la lunghezza di prodotto"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default unit of measure to express product volume"
-msgstr "Unità di misura di default per esprimere il volume di prodotto"
+msgstr "Unità di misura predefiita per esprimere il volume di prodotto"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_weight_uom_id
 msgid "Default unit of measure to express product weight"
-msgstr "Unità di misura di default per esprimere il peso di prodotto"
+msgstr "Unità di misura predefinita per esprimere il peso di prodotto"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
