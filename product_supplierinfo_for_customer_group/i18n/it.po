@@ -6,74 +6,78 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-02 12:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,help:product_supplierinfo_for_customer_group.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
-msgstr ""
+msgstr "Assegna la priorità all'elenco fornitori del prodotto."
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model,name:product_supplierinfo_for_customer_group.model_product_customerinfo
 msgid "Customer Pricelist"
-msgstr ""
+msgstr "Listino prezzi cliente"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,help:product_supplierinfo_for_customer_group.field_product_customerinfo__name
 msgid "Customer of this product"
-msgstr ""
+msgstr "Cliente di questo prodotto"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__group_id
 msgid "Group"
-msgstr ""
+msgstr "Gruppo"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,help:product_supplierinfo_for_customer_group.field_product_customerinfo__product_id
 msgid ""
 "If not set, the vendor price will apply to all variants of this product."
 msgstr ""
+"Se non è impostato, il prezzo fornitore si applicherà a tutte le varianti di "
+"questo prodotto."
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__product_tmpl_id
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,help:product_supplierinfo_for_customer_group.field_product_customerinfo__product_code
@@ -81,6 +85,8 @@ msgid ""
 "This vendor's product code will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
+"Il codice prodotto di questo venditore sarà usato quando verrà stampata una "
+"richiesta di preventivo. Lasciare vuoto per usarne uno interno."
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,help:product_supplierinfo_for_customer_group.field_product_customerinfo__product_name
@@ -88,18 +94,20 @@ msgid ""
 "This vendor's product name will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
+"Il nome prodotto di questo fornitore sarà usato quando verrà stampata una "
+"richiesta di preventivo. Lasciare vuoto per usarne uno interno."
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__name
 msgid "Vendor"
-msgstr ""
+msgstr "Fornitore"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__product_code
 msgid "Vendor Product Code"
-msgstr ""
+msgstr "Codice prodotto fornitore"
 
 #. module: product_supplierinfo_for_customer_group
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer_group.field_product_customerinfo__product_name
 msgid "Vendor Product Name"
-msgstr ""
+msgstr "Nome prodotto fornitore"
