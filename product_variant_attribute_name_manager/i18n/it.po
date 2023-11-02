@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 16:37+0000\n"
+"PO-Revision-Date: 2023-11-02 12:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -24,12 +24,12 @@ msgstr "Determina l'ordine di visualizzazione"
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_attribute_name
 msgid "Display Attribute Name/Short Name on Product Variant"
-msgstr ""
+msgstr "Mostra nome attributo/abbreviazione nella variante prodotto"
 
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_attribute_value
 msgid "Display Attribute Value on Product Variant"
-msgstr ""
+msgstr "Mostra valore attributo nella variante prodotto"
 
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_name
@@ -41,7 +41,7 @@ msgstr "Nome visualizzato"
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_no_variant_attribute
 msgid "Display No Variant Attributes on Product Variant"
-msgstr ""
+msgstr "Mostra attributi non della variante nella variante prodotto"
 
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_single_variant_attribute
@@ -63,7 +63,7 @@ msgstr "ID"
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_no_variant_attribute
 msgid "If checked, it will display the no variant attribute."
-msgstr ""
+msgstr "Se selezionata, visualizzerà l'attributo non della variante."
 
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_single_variant_attribute
@@ -83,6 +83,8 @@ msgstr "Se abilitato, mostrerà il nome dell'attributo prima del valore."
 msgid ""
 "If checked, it will display the variant attribute value in the product name."
 msgstr ""
+"Se selezionata, visualizzerà il valore dell'attributo variante nel nome "
+"prodotto."
 
 #. module: product_variant_attribute_name_manager
 #: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute____last_update
