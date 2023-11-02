@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_sale_manufactured_for
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_sale_manufactured_for
+#: model:ir.model.fields,field_description:product_sale_manufactured_for.field_product_product__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_sale_manufactured_for
+#: model:ir.model.fields,field_description:product_sale_manufactured_for.field_product_product__id
+msgid "ID"
+msgstr ""
+
+#. module: product_sale_manufactured_for
+#: model:ir.model.fields,field_description:product_sale_manufactured_for.field_product_product____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_sale_manufactured_for
+#: model:ir.model.fields,field_description:product_sale_manufactured_for.field_product_product__manufactured_for_partner_ids
+#: model_terms:ir.ui.view,arch_db:product_sale_manufactured_for.product_normal_form_view
+msgid "Manufactured for"
+msgstr ""
+
+#. module: product_sale_manufactured_for
+#: model:ir.model,name:product_sale_manufactured_for.model_product_product
+msgid "Product"
+msgstr ""
