@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-01 00:50+0000\n"
+"PO-Revision-Date: 2023-11-02 16:41+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -89,7 +89,7 @@ msgstr ""
 #: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_id
 #: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_id
 msgid "This field contains the information related to the numbering of lots."
-msgstr "Il campo contiene l'informazione relativa al numero di lotti."
+msgstr "Il campo contiene l'informazione relativa alla numerazone dei lotti."
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,help:product_lot_sequence.field_stock_production_lot__name
