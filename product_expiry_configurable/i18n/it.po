@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"PO-Revision-Date: 2023-11-02 08:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -148,6 +148,10 @@ msgid ""
 "selected, the dates will be computed taking as reference the lot's "
 "expiration_date."
 msgstr ""
+"Se è selezionata la data attuale, quando si crea il lotto le date verranno "
+"calcolate prendendo come riferimento la data attuale. Invece qando si "
+"seleziona la data scadenza, le date verranno calcolate prendendo come "
+"riferimento la data scadenza del lotto."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_compute_dates_from
@@ -158,6 +162,10 @@ msgid ""
 "selected, the dates will be computed taking as reference the lot's "
 "expiration_date."
 msgstr ""
+"Se è selezionata la data attuale, quando si crea il lotto le date verranno "
+"calcolate prendendo come riferimento la data attuale. Invece qando si "
+"seleziona la data scadenza, le date verranno calcolate prendendo come "
+"riferimento la data scadenza del lotto."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__compute_dates_from
@@ -168,11 +176,15 @@ msgid ""
 "selected, the dates will be computed taking as reference the lot's "
 "expiration_time."
 msgstr ""
+"Se è selezionata la data attuale, quando si crea il lotto le date verranno "
+"calcolate prendendo come riferimento la data attuale. Invece qando si "
+"seleziona la data scadenza, le date verranno calcolate prendendo come "
+"riferimento la data scadenza del lotto."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_compute_dates_from
 msgid "If not provided, the one defined on the parent is used."
-msgstr ""
+msgstr "Se non fornita, verrà usata quella definita nel padre."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category____last_update
@@ -184,7 +196,7 @@ msgstr "Ultima modifica il"
 #. module: product_expiry_configurable
 #: model:ir.model,name:product_expiry_configurable.model_stock_production_lot
 msgid "Lot/Serial"
-msgstr ""
+msgstr "Lotto/seriale"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__expiration_time
@@ -216,6 +228,8 @@ msgid ""
 "Number of days before an alert should be raised on the lot/serial number. If"
 " not provided, the one defined on the parent is used."
 msgstr ""
+"Numero di giorni prima che venga segnalato un avviso nel numero di lotto/"
+"serie. Se non indicato, verrà usato quello indicato nel padre."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_alert_time
@@ -224,6 +238,8 @@ msgid ""
 "Number of days before an alert should be raised on the lot/serial number.If "
 "not provided, the one defined on the category is used."
 msgstr ""
+"Numero di giorni prima che venga segnalato un avviso nel numero di lotto/"
+"serie. Se non indicato, verrà usato quello indicato nella categoria."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__alert_time
@@ -278,6 +294,9 @@ msgid ""
 "consumed. It will be computed on the lot/serial number. If not provided, the"
 " one defined on the parent is used."
 msgstr ""
+"Numero di giorni prima che la merce diventi pericolosa e non debba essere "
+"consumata. Verrà calcolata sul numero di lotto/serie. Se non fornito, verrà "
+"usato quello definito nel padre."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_expiration_time
@@ -287,6 +306,9 @@ msgid ""
 "consumed. It will be computed on the lot/serial number.If not provided, the "
 "one defined on the category is used."
 msgstr ""
+"Numero di giorni prima che la merce diventi pericolosa e non debba essere "
+"consumata. Verrà calcolata sul numero di lotto/serie. Se non fornito, verrà "
+"usato quello definito nella categoria."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__parent_removal_time
@@ -297,6 +319,8 @@ msgid ""
 "Number of days before the goods should be removed from the stock. It will be"
 " computed on the lot/serial number."
 msgstr ""
+"Numero di giorni prima che la merce debba essere rimossa dal magazzino. "
+"Verrà calcolato sul numero di lotto/serie."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__specific_removal_time
@@ -305,6 +329,9 @@ msgid ""
 " computed on the lot/serial number. If not provided, the one defined on the "
 "parent is used."
 msgstr ""
+"Numero di giorni prima che la merce debba essere rimossa dal magazzino. "
+"Verrà calcolato sul numero di lotto/serie. Se non fornito, verrà usato "
+"quello definito nel padre."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_removal_time
@@ -314,6 +341,9 @@ msgid ""
 " computed on the lot/serial number.If not provided, the one defined on the "
 "category is used."
 msgstr ""
+"Numero di giorni prima che la merce debba essere rimossa dal magazzino. "
+"Verrà calcolato sul numero di lotto/serie. Se non fornito, verrà usato "
+"quello definito nella categoria."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__parent_use_time
@@ -334,6 +364,9 @@ msgid ""
 "dangerous yet. It will be computed using the lot/serial number. If not "
 "provided, the one defined on the parent is used."
 msgstr ""
+"Numero di giorni prima che la merce inizi a deteriorarsi senza diventare "
+"pericolosa. Verrà calcolato sul numero di lotto/serie. Se non fornito, verrà "
+"usato quello definito nel padre."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_use_time
@@ -343,31 +376,34 @@ msgid ""
 "dangerous yet. It will be computed using the lot/serial number.If not "
 "provided, the one defined on the category is used."
 msgstr ""
+"Numero di giorni prima che la merce inizi a deteriorarsi senza diventare "
+"pericolosa. Verrà calcolato sul numero di lotto/serie. Se non fornito, verrà "
+"usato quello definito nella categoria."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_compute_dates_from
 msgid "Parent Compute Dates From"
-msgstr ""
+msgstr "Date calcolo padre dal"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_alert_time
 msgid "Parent Product Alert Time"
-msgstr ""
+msgstr "Ora avviso prodotto padre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_expiration_time
 msgid "Parent Product Expiration Time"
-msgstr ""
+msgstr "Ora scadenza prodotto padre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_removal_time
 msgid "Parent Product Removal Time"
-msgstr ""
+msgstr "Ora rimozione prodotto padre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_use_time
 msgid "Parent Product Use Time"
-msgstr ""
+msgstr "Tempo utilizzo prodotto padre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__alert_time
@@ -434,55 +470,55 @@ msgstr "Data di rimozione notificata"
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__removal_time
 msgid "Removal Time"
-msgstr ""
+msgstr "Ora rimozione"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_compute_dates_from
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_compute_dates_from
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_compute_dates_from
 msgid "Specific Compute Dates From"
-msgstr ""
+msgstr "Date calcolo precise dal"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_alert_time
 msgid "Specific Product Alert Time"
-msgstr ""
+msgstr "Ora avviso prodotto precisa"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_expiration_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_expiration_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_expiration_time
 msgid "Specific Product Expiration Time"
-msgstr ""
+msgstr "Ora scadenza prodotto precisa"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_removal_time
 msgid "Specific Product Removal Time"
-msgstr ""
+msgstr "Ora rimozione prodotto precisa"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_use_time
 msgid "Specific Product Use Time"
-msgstr ""
+msgstr "Ora utilizzo prodotto precisa"
 
 #. module: product_expiry_configurable
 #: code:addons/product_expiry_configurable/models/stock_production_lot.py:0
 #, python-format
 msgid "The %s has been reached for this lot/serial number"
-msgstr ""
+msgstr "È stato raggiunto il %s per questo numero di lotto/seriale"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Use Date Reached"
-msgstr ""
+msgstr "Data di utilizzo raggiunta"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__use_date_reminded
 msgid "Use Date Reminded"
-msgstr ""
+msgstr "Data d'uso notificata"
