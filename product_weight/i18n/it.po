@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-23 02:40+0000\n"
-"PO-Revision-Date: 2023-06-08 09:09+0000\n"
+"PO-Revision-Date: 2023-11-03 13:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -59,12 +59,12 @@ msgstr "Nome visualizzato"
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update____last_update
 msgid "Last Modified on"
-msgstr "Ultima Modifica il"
+msgstr "Ultima modifica il"
 
 #. module: product_weight
 #: model:ir.model.fields,field_description:product_weight.field_product_weight_update__write_uid
