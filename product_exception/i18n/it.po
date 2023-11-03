@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
@@ -59,7 +61,7 @@ msgstr ""
 #. module: product_exception
 #: model:ir.model,name:product_exception.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_exception
 #: model:ir.actions.act_window,name:product_exception.action_product_test_tree
@@ -75,12 +77,12 @@ msgstr ""
 #: model:ir.model,name:product_exception.model_product_template
 #: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_exception
 #: model:ir.model.fields,field_description:product_exception.field_exception_rule__product_tmpl_ids
 msgid "Product Templates"
-msgstr ""
+msgstr "Modelli prodotto"
 
 #. module: product_exception
 #: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_product
