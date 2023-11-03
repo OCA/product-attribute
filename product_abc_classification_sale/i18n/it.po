@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-01 00:50+0000\n"
+"PO-Revision-Date: 2023-11-03 13:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -52,7 +52,7 @@ msgstr "Prodotto"
 #. module: product_abc_classification_sale
 #: model:ir.model,name:product_abc_classification_sale.model_product_template
 msgid "Product Template"
-msgstr "Template prodotto"
+msgstr "Modello prodotto"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__abc_classification_profile__data_source__sale_report
