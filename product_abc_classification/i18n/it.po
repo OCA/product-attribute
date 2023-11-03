@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_normal_form_view
@@ -88,13 +90,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__create_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__create_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__currency_id
@@ -110,7 +112,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__display_name
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__classification_type__fixed
@@ -126,7 +128,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__days_to_ignore
@@ -137,19 +139,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile____last_update
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__write_uid
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__write_date
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile_level__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__level_ids
@@ -186,7 +188,7 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria prodotto"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_count
@@ -196,7 +198,7 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_variant_ids
