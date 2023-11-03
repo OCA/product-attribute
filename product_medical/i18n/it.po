@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_medical_class_ids
@@ -103,7 +105,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__create_uid
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__create_date
@@ -111,7 +113,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__create_date
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__conformity_declaration_ids
@@ -130,7 +132,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__display_name
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_medical
 #: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
@@ -159,7 +161,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__id
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_medical
 #: model:ir.actions.act_window,name:product_medical.in_vitro_diagnostic_action
@@ -205,7 +207,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category____last_update
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__write_uid
@@ -213,7 +215,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__write_uid
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__write_date
@@ -221,7 +223,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__write_date
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__doc_lot_related
@@ -303,7 +305,7 @@ msgstr ""
 #. module: product_medical
 #: model:ir.model,name:product_medical.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_product_product__doc_validity_date
