@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 08:38+0000\n"
+"PO-Revision-Date: 2023-11-04 22:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -43,7 +43,7 @@ msgstr "Da consumarsi preferibilmente entro l'ora"
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_alert_time
 msgid "Category Product Alert Time"
-msgstr "Ora avviso prodotto categiria"
+msgstr "Tempo avviso prodotto categoria"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_expiration_time
@@ -55,13 +55,13 @@ msgstr "Ora scadenza prodotto categoria"
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_removal_time
 msgid "Category Product Removal Time"
-msgstr "Ora rimozione prodotto categoria"
+msgstr "Tempo rimozione prodotto categoria"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_use_time
 msgid "Category Product Use Time"
-msgstr "Ora utilizzo prodotto categoria"
+msgstr "Tempo utilizzo prodotto categoria"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_compute_dates_from
@@ -129,7 +129,7 @@ msgstr "Data di scadenza raggiunta"
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
 msgid "Expiry Dates"
-msgstr "Date di scadenza"
+msgstr "Date scadenza"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__id
@@ -149,7 +149,7 @@ msgid ""
 "expiration_date."
 msgstr ""
 "Se è selezionata la data attuale, quando si crea il lotto le date verranno "
-"calcolate prendendo come riferimento la data attuale. Invece qando si "
+"calcolate prendendo come riferimento la data attuale. Invece quando si "
 "seleziona la data scadenza, le date verranno calcolate prendendo come "
 "riferimento la data scadenza del lotto."
 
@@ -388,7 +388,7 @@ msgstr "Date calcolo padre dal"
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_alert_time
 msgid "Parent Product Alert Time"
-msgstr "Ora avviso prodotto padre"
+msgstr "Tempo avviso prodotto padre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_expiration_time
@@ -398,7 +398,7 @@ msgstr "Ora scadenza prodotto padre"
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_removal_time
 msgid "Parent Product Removal Time"
-msgstr "Ora rimozione prodotto padre"
+msgstr "Tempo rimozione prodotto padre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__parent_use_time
@@ -484,7 +484,7 @@ msgstr "Date calcolo precise dal"
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_alert_time
 msgid "Specific Product Alert Time"
-msgstr "Ora avviso prodotto precisa"
+msgstr "Tempo preciso avviso prodotto"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_expiration_time
@@ -498,14 +498,14 @@ msgstr "Ora scadenza prodotto precisa"
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_removal_time
 msgid "Specific Product Removal Time"
-msgstr "Ora rimozione prodotto precisa"
+msgstr "Tempo preciso rimozione prodotto"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__specific_use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__specific_use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__specific_use_time
 msgid "Specific Product Use Time"
-msgstr "Ora utilizzo prodotto precisa"
+msgstr "Tempo preciso utilizzo prodotto"
 
 #. module: product_expiry_configurable
 #: code:addons/product_expiry_configurable/models/stock_production_lot.py:0
