@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 09:36+0000\n"
+"PO-Revision-Date: 2023-11-04 22:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -62,7 +62,7 @@ msgstr "Data di scadenza raggiunta"
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
 msgid "Expiry Dates"
-msgstr "Date di scadenza"
+msgstr "Date scadenza"
 
 #. module: product_expiry_configurable
 #: model:ir.model,name:product_expiry_configurable.model_stock_lot
