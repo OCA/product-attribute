@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 13:07+0000\n"
+"PO-Revision-Date: 2023-11-04 22:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -206,27 +206,27 @@ msgstr "Applica aggiornamento assortimento"
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Max. Margin"
-msgstr "Margine max."
+msgstr "Margine massimo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_max_margin
 msgid "Max. Price Margin"
-msgstr "Margine max. prezzo"
+msgstr "Margine massimo prezzo"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Min. Margin"
-msgstr "Margine min."
+msgstr "Margine minimo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_min_margin
 msgid "Min. Price Margin"
-msgstr "Margine min. prezzo"
+msgstr "Margine minimo prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__min_quantity
 msgid "Min. Quantity"
-msgstr "Quantità min."
+msgstr "Quantità minima"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__name
@@ -297,7 +297,7 @@ msgstr "Assortimento listino - applica aggiornamento"
 #. module: product_pricelist_assortment
 #: model:ir.actions.act_window,name:product_pricelist_assortment.product_pricelist_assortment_item_action
 msgid "Pricelist Assortment Items"
-msgstr "Oggetti assortimento listino prezzi"
+msgstr "Elementi assortimento listino prezzi"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__pricelist_item_ids
@@ -332,7 +332,7 @@ msgstr "Categoria prodotto"
 #. module: product_pricelist_assortment
 #: model:ir.model,name:product_pricelist_assortment.model_product_pricelist_assortment_item
 msgid "Product Pricelist Assortment Item"
-msgstr "Oggetto assortimento listino prodotto"
+msgstr "Elemento assortimento listino prodotto"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_id
@@ -351,9 +351,9 @@ msgid ""
 "Rounding is applied after the discount and before the surcharge.\n"
 "To have prices that end in 9.99, set rounding 10, surcharge -0.01"
 msgstr ""
-"Imposta il prezzo in modo che sia un multiplo di questo valore.\n"
-"L'arrotondamento viene applicato dopo lo sconto e prima della "
-"maggiorazione.\n"
+"Impostare il prezzo in modo che sia un multiplo di questo valore.\n"
+"L'arrotondamento viene applicato dopo lo sconto e prima della maggiorazione."
+"\n"
 "Per avere prezzi che terminano con 9,99, impostare arrotondamento a 10 e "
 "maggiorazione a -0,01"
 
@@ -363,9 +363,9 @@ msgid ""
 "Specify a product category if this rule only applies to products belonging "
 "to this category or its children categories. Keep empty otherwise."
 msgstr ""
-"Specifica una categoria prodotto se questa regola si applica solo ai "
+"Specificare una categoria prodotto se questa regola si applica solo ai "
 "prodotti appartenenti a questa categoria o alle sue categorie figlie, "
-"altrimenti lascia vuoto."
+"altrimenti lasciare vuoto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__product_id
@@ -373,8 +373,8 @@ msgid ""
 "Specify a product if this rule only applies to one product. Keep empty "
 "otherwise."
 msgstr ""
-"Specifica un prodotto se questa regola si applica solo ad un prodotto, "
-"altrimenti lascia vuoto."
+"Specificare un prodotto se questa regola si applica solo ad un prodotto, "
+"altrimenti lasciare vuoto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__product_tmpl_id
@@ -382,8 +382,8 @@ msgid ""
 "Specify a template if this rule only applies to one product template. Keep "
 "empty otherwise."
 msgstr ""
-"Specifica un modello prodotto se questa regola si applica solo ad un modello "
-"prodotto, altrimenti lascia vuoto."
+"Specificare un modello prodotto se questa regola si applica solo ad un "
+"modello prodotto, altrimenti lasciare vuoto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
