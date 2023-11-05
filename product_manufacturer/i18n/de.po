@@ -9,32 +9,33 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:43+0000\n"
-"PO-Revision-Date: 2017-05-05 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2023-11-05 16:36+0000\n"
+"Last-Translator: Peter Schubert <psc@saco.info>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__id
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
