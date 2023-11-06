@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-06 06:38+0000\n"
+"PO-Revision-Date: 2023-11-06 09:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -95,7 +95,7 @@ msgstr "Filtri"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__is_assortment
 msgid "Is Assortment"
-msgstr "E' assortimento"
+msgstr "È assortimento"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
@@ -125,7 +125,7 @@ msgstr "Prodotto"
 #. module: product_assortment
 #: model:ir.ui.menu,name:product_assortment.menu_product_assortments
 msgid "Product Assortment"
-msgstr "Assortimento Prodotto"
+msgstr "Assortimento prodotto"
 
 #. module: product_assortment
 #: model:ir.actions.act_window,name:product_assortment.actions_product_assortment_view
@@ -142,12 +142,12 @@ msgstr "Prodotti"
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
-msgstr "Prodotto da escludere"
+msgstr "Prodotti da escludere"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to include"
-msgstr "Prodotto da includere"
+msgstr "Prodotti da includere"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
