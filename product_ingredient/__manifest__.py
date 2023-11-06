@@ -11,6 +11,7 @@
     "maintainers": ["sergio-teruel"],
     "license": "AGPL-3",
     "depends": ["product", "stock"],
+    "external_dependencies": {"python": ["openupgradelib"]},
     "data": [
         "security/ir.model.access.csv",
         "data/product_allergen_data.xml",
@@ -19,6 +20,7 @@
         "views/product_views.xml",
         "views/stock_production_lot_view.xml",
     ],
+    "pre_init_hook": "pre_init_hook",
     "application": False,
     "installable": True,
 }
