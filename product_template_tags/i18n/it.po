@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-03 02:14+0000\n"
-"PO-Revision-Date: 2023-11-06 09:36+0000\n"
+"PO-Revision-Date: 2023-11-06 15:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -23,7 +23,7 @@ msgstr ""
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
-msgstr "# di Prodotti"
+msgstr "N° prodotti"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
@@ -86,7 +86,7 @@ msgstr "Etichetta prodotto"
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 #: model:ir.ui.menu,name:product_template_tags.product_template_tag_config_menu
 msgid "Product Tags"
-msgstr "Tag Prodotto"
+msgstr "Etichette prodotto"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
@@ -96,7 +96,7 @@ msgstr "Modello prodotto"
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
 msgid "Product Template Tag"
-msgstr "Tag Modello Prodotto"
+msgstr "Etichetta modello prodotto"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
