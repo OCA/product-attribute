@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 12:58+0000\n"
-"PO-Revision-Date: 2023-11-06 09:38+0000\n"
+"PO-Revision-Date: 2023-11-06 16:39+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
-msgstr "# di prodotti"
+msgstr "N° prodotti"
 
 #. module: product_template_tags
 #: model_terms:ir.actions.act_window,help:product_template_tags.product_template_tag_act_window
 msgid "Add tags"
-msgstr "Aggiungi tags"
+msgstr "Aggiungi etichette"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
@@ -91,7 +91,7 @@ msgstr "Etichetta prodotto"
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
 msgid "Product Template Tag"
-msgstr "Tag Modello Prodotto"
+msgstr "Etichetta modello prodotto"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
