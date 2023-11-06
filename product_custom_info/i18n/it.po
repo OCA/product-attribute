@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-09 07:53+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-11-06 15:40+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Informazioni personalizzate"
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_template_id
 #: model:ir.model.fields,field_description:product_custom_info.field_product_template__custom_info_template_id
 msgid "Custom Information Template"
-msgstr "Template informazioni personalizzate"
+msgstr "Modello informazioni personalizzate"
 
 #. module: product_custom_info
 #: model:ir.model.fields,field_description:product_custom_info.field_product_product__custom_info_ids
