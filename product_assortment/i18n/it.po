@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-10 13:09+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-11-06 08:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "ID"
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__is_assortment
 msgid "Is Assortment"
-msgstr "E' assortimento"
+msgstr "È assortimento"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters____last_update
@@ -104,7 +104,7 @@ msgstr "Prodotto"
 #. module: product_assortment
 #: model:ir.ui.menu,name:product_assortment.menu_product_assortments
 msgid "Product Assortment"
-msgstr "Assortimento Prodotto"
+msgstr "Assortimento prodotto"
 
 #. module: product_assortment
 #: model:ir.actions.act_window,name:product_assortment.actions_product_assortment_view
