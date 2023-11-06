@@ -6,28 +6,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-06 14:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_dimension_volumetric_weight
 #: model:ir.model,name:product_dimension_volumetric_weight.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_dimension_volumetric_weight
 #: model:ir.model,name:product_dimension_volumetric_weight.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_dimension_volumetric_weight
 #: model:ir.model,name:product_dimension_volumetric_weight.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unità di misura del prodotto"
 
 #. module: product_dimension_volumetric_weight
 #: model:ir.model.fields,help:product_dimension_volumetric_weight.field_uom_uom__volumetric_weight_ratio
@@ -35,14 +37,16 @@ msgid ""
 "Used as variable for the volumetric weight calculation using the formula. "
 "(Volume * Ratio) = Kg"
 msgstr ""
+"Utilizzata come variabile per il calcolo del peso volumetrico utilizzando la "
+"formula. (Volume * coefficente) = Kg"
 
 #. module: product_dimension_volumetric_weight
 #: model:ir.model.fields,field_description:product_dimension_volumetric_weight.field_uom_uom__volumetric_weight_ratio
 msgid "Volumetric Weight Ratio (Kg/m3)"
-msgstr ""
+msgstr "Coefficiente peso volumetrico (Kg/m3)"
 
 #. module: product_dimension_volumetric_weight
 #: model:ir.model.fields,field_description:product_dimension_volumetric_weight.field_product_product__volumetric_weight
 #: model:ir.model.fields,field_description:product_dimension_volumetric_weight.field_product_template__volumetric_weight
 msgid "Volumetric weight"
-msgstr ""
+msgstr "Peso volumetrico"
