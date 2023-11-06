@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-03 09:38+0000\n"
+"PO-Revision-Date: 2023-11-06 08:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -41,27 +41,27 @@ msgstr "Classe III CE"
 #. module: product_medical
 #: model:medical.class,name:product_medical.medical_class_5
 msgid "CE Class IIa"
-msgstr "Classe CE IIa"
+msgstr "Classe IIa CE"
 
 #. module: product_medical
 #: model:medical.class,name:product_medical.medical_class_6
 msgid "CE Class IIb"
-msgstr "Classe CE IIb"
+msgstr "Classe IIb CE"
 
 #. module: product_medical
 #: model:medical.class,name:product_medical.medical_class_2
 msgid "CE Class Im"
-msgstr "Classe CE Im"
+msgstr "Classe Im CE"
 
 #. module: product_medical
 #: model:medical.class,name:product_medical.medical_class_4
 msgid "CE Class Ir"
-msgstr "Lacce CE Ir"
+msgstr "Classe Ir CE"
 
 #. module: product_medical
 #: model:medical.class,name:product_medical.medical_class_3
 msgid "CE Class Is"
-msgstr "Classe CE Is"
+msgstr "Classe Is CE"
 
 #. module: product_medical
 #: model_terms:ir.ui.view,arch_db:product_medical.product_template_only_form_view
