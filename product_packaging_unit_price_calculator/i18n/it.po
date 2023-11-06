@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"PO-Revision-Date: 2023-11-06 09:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: product_packaging_unit_price_calculator
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.view_product_package_price_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__create_uid
@@ -34,7 +34,7 @@ msgstr "Creato il"
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__current_unit_price
 msgid "Current Unit Price"
-msgstr ""
+msgstr "Prezzo unitario attuale"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__display_name
@@ -64,7 +64,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__packaging_price
 msgid "Package Price"
-msgstr ""
+msgstr "Prezzo collo"
 
 #. module: product_packaging_unit_price_calculator
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.product_pricelist_item_form_view
@@ -72,22 +72,22 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.product_supplierinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.product_template_form_view
 msgid "Packaging Prices"
-msgstr ""
+msgstr "Prezzi imballaggio"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_packaging__packaging_wizard_price
 msgid "Packaging Wizard Price"
-msgstr ""
+msgstr "Procedura guidata prezzo imballaggio"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,help:product_packaging_unit_price_calculator.field_product_packaging__unit_price
 msgid "Price at which the product is sold to customers."
-msgstr ""
+msgstr "Prezzo di vendita del prodotto al cliente."
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model,name:product_packaging_unit_price_calculator.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Regola listino prezzi"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model,name:product_packaging_unit_price_calculator.model_product_product
@@ -98,32 +98,32 @@ msgstr "Prodotto"
 #. module: product_packaging_unit_price_calculator
 #: model:ir.actions.act_window,name:product_packaging_unit_price_calculator.action_unit_price_wizard
 msgid "Product Package Price"
-msgstr ""
+msgstr "Prezzo collo prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__packaging_ids
 msgid "Product Packages"
-msgstr ""
+msgstr "Colli prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model,name:product_packaging_unit_price_calculator.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Imballaggio prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.view_product_package_price_form
 msgid "Product Packaging Price"
-msgstr ""
+msgstr "Prezzo imballaggio prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__product_pricelist_item_id
 msgid "Product Pricelist Item"
-msgstr ""
+msgstr "Elemento listino prezzi prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__product_supplierinfo_id
 msgid "Product Supplierinfo"
-msgstr ""
+msgstr "Informazioni fornitore prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model,name:product_packaging_unit_price_calculator.model_product_template
@@ -133,52 +133,52 @@ msgstr "Modello prodotto"
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__product_tmpl_id
 msgid "Product Tmpl"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__product_variant_ids
 msgid "Products"
-msgstr ""
+msgstr "Prodotti"
 
 #. module: product_packaging_unit_price_calculator
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.view_product_package_price_form
 msgid "Reset unit price"
-msgstr ""
+msgstr "Resetta prezzo unitario"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_packaging__sale_price
 msgid "Sale Price"
-msgstr ""
+msgstr "Prezzo di vendita"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_packaging__unit_price
 msgid "Sales Price"
-msgstr ""
+msgstr "Prezzo di vendita"
 
 #. module: product_packaging_unit_price_calculator
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.view_product_package_price_form
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__selected_packaging_id
 msgid "Selected Packaging"
-msgstr ""
+msgstr "Imballaggio selezionato"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model,name:product_packaging_unit_price_calculator.model_product_supplierinfo
 msgid "Supplier Pricelist"
-msgstr ""
+msgstr "Listino prezzi fornitore"
 
 #. module: product_packaging_unit_price_calculator
 #: model_terms:ir.ui.view,arch_db:product_packaging_unit_price_calculator.view_product_package_price_form
 msgid "Total Price"
-msgstr ""
+msgstr "Prezzo totale"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__unit_price
 msgid "Unit Price"
-msgstr ""
+msgstr "Prezzo unitario"
 
 #. module: product_packaging_unit_price_calculator
 #: code:addons/product_packaging_unit_price_calculator/wizards/product_package_price.py:0
@@ -188,13 +188,16 @@ msgid ""
 "Unit price cannot be computed because the selectedpackaging has no quantity "
 "set."
 msgstr ""
+"Il prezzo unitario non può essere calcolato perché l'imballaggio selezionato "
+"non ha la quantità impostata."
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model.fields,field_description:product_packaging_unit_price_calculator.field_product_package_price_wizard__warning_message
 msgid "Warning Message"
-msgstr ""
+msgstr "Messaggio di avviso"
 
 #. module: product_packaging_unit_price_calculator
 #: model:ir.model,name:product_packaging_unit_price_calculator.model_product_package_price_wizard
 msgid "Wizard to compute unit price from packaging price"
 msgstr ""
+"Procedura guidata per calcolare il prezzo unitario dal prezzo imballaggio"
