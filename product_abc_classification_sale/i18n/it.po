@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"PO-Revision-Date: 2023-11-07 09:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,30 +19,30 @@ msgstr ""
 #. module: product_abc_classification_sale
 #: model:ir.model,name:product_abc_classification_sale.model_abc_classification_profile
 msgid "ABC Classification Profile"
-msgstr ""
+msgstr "Profilo classificazione ABC"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields,field_description:product_abc_classification_sale.field_abc_classification_profile__data_source
 msgid "Data Source"
-msgstr ""
+msgstr "Origine dati"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_product__seasonality_classification__high
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_template__seasonality_classification__high
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_product__seasonality_classification__low
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_template__seasonality_classification__low
 msgid "Low"
-msgstr ""
+msgstr "Bassa"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_product__seasonality_classification__medium
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_template__seasonality_classification__medium
 msgid "Medium"
-msgstr ""
+msgstr "Media"
 
 #. module: product_abc_classification_sale
 #: model:ir.model,name:product_abc_classification_sale.model_product_product
@@ -57,33 +57,33 @@ msgstr "Modello prodotto"
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__abc_classification_profile__data_source__sale_report
 msgid "Sales Report"
-msgstr ""
+msgstr "Resoconto vendite"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields,field_description:product_abc_classification_sale.field_product_template__seasonality_classification
 msgid "Seasonality Classification"
-msgstr ""
+msgstr "Classificazione stagionalità"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields,field_description:product_abc_classification_sale.field_product_product__seasonality_classification
 msgid "Seasonility"
-msgstr ""
+msgstr "Stagionalità"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__abc_classification_profile__value_criteria__sold_delivered_value
 msgid "Sold Delivered Value"
-msgstr ""
+msgstr "Valore venduto consegnato"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields,field_description:product_abc_classification_sale.field_abc_classification_profile__value_criteria
 msgid "Value"
-msgstr ""
+msgstr "Valore"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_product__seasonality_classification__very_high
 #: model:ir.model.fields.selection,name:product_abc_classification_sale.selection__product_template__seasonality_classification__very_high
 msgid "Very high"
-msgstr ""
+msgstr "Molto alta"
 
 #. module: product_abc_classification_sale
 #: model:ir.model.fields,help:product_abc_classification_sale.field_product_product__seasonality_classification
@@ -91,3 +91,5 @@ msgid ""
 "Whether this product is selled during very short periods of time or steadily"
 " across the whole year"
 msgstr ""
+"Se questo prodotto è venduto durante un breve periodo di tempo o stabilmente "
+"per tutto l'anno"
