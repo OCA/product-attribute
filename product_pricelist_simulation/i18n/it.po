@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"PO-Revision-Date: 2023-11-07 15:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: product_pricelist_simulation
 #: model_terms:ir.ui.view,arch_db:product_pricelist_simulation.view_pricelist_simulation_view_form
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__create_uid
@@ -36,12 +36,12 @@ msgstr "Creato il"
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__price_date
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__display_name
@@ -76,13 +76,13 @@ msgstr "Ultimo aggiornamento il"
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
 msgid "Price"
-msgstr ""
+msgstr "Prezzo"
 
 #. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_product_pricelist
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__pricelist_id
 msgid "Pricelist"
-msgstr ""
+msgstr "Listino prezzi"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__template_id
@@ -93,45 +93,45 @@ msgstr "Modello prodotto"
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__product_id
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__product_qty
 msgid "Quantity"
-msgstr ""
+msgstr "Quantità"
 
 #. module: product_pricelist_simulation
 #: model:ir.actions.act_window,name:product_pricelist_simulation.pricelist_simulation_action
 #: model_terms:ir.ui.view,arch_db:product_pricelist_simulation.product_template_form_view_pricelist_simulation
 msgid "See Price per Pricelist"
-msgstr ""
+msgstr "Vedi prezzo per listino"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_product_pricelist__show_in_simulation
 msgid "Show in simulation"
-msgstr ""
+msgstr "Visualizza nella simulazione"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__simulation_id
 msgid "Simulation"
-msgstr ""
+msgstr "Simulazione"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__line_ids
 msgid "Simulation Lines"
-msgstr ""
+msgstr "Righe simulazione"
 
 #. module: product_pricelist_simulation
 #: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__variant_count
 msgid "Variants Count"
-msgstr ""
+msgstr "Conteggio varianti"
 
 #. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist
 msgid "wizard - Preview Pricelist"
-msgstr ""
+msgstr "procedura quidata - anteprima listino"
 
 #. module: product_pricelist_simulation
 #: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist_line
 msgid "wizard - Preview Pricelist Line"
-msgstr ""
+msgstr "procedura quidata - riga anteprima listino"
