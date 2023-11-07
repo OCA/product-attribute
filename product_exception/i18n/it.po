@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-03 13:36+0000\n"
+"PO-Revision-Date: 2023-11-07 15:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,44 +19,44 @@ msgstr ""
 #. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
 msgid "<strong>There are exceptions for this Product:</strong>"
-msgstr ""
+msgstr "<strong>Ci sno eccezini per questo prodotto:</strong>"
 
 #. module: product_exception
 #: model:ir.model.fields,field_description:product_exception.field_exception_rule__model
 msgid "Apply on"
-msgstr ""
+msgstr "Applica a"
 
 #. module: product_exception
 #: model:ir.actions.server,name:product_exception.check_product_template_exception_ir_actions_server
 #: model:ir.cron,cron_name:product_exception.check_product_template_exception
 #: model:ir.cron,name:product_exception.check_product_template_exception
 msgid "Check Product Template Exceptions"
-msgstr ""
+msgstr "Controllare eccezioni modello prodotto"
 
 #. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
 msgid "Click here to ignore the current exceptions for this product."
-msgstr ""
+msgstr "Fare clic qui per ignorare le eccezioni attuali per questo prodotto."
 
 #. module: product_exception
 #: model:ir.model,name:product_exception.model_exception_rule
 msgid "Exception Rule"
-msgstr ""
+msgstr "Regola eccezione"
 
 #. module: product_exception
 #: model:ir.model.fields,field_description:product_exception.field_product_product__exception_ids
 msgid "Exceptions"
-msgstr ""
+msgstr "Eccezioni"
 
 #. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
 msgid "Ignore Exceptions"
-msgstr ""
+msgstr "Ignora eccezioni"
 
 #. module: product_exception
 #: model:exception.rule,name:product_exception.excep_no_dump
 msgid "No dumping"
-msgstr ""
+msgstr "Non gettare"
 
 #. module: product_exception
 #: model:ir.model,name:product_exception.model_product_product
@@ -66,12 +66,12 @@ msgstr "Prodotto"
 #. module: product_exception
 #: model:ir.actions.act_window,name:product_exception.action_product_test_tree
 msgid "Product Exception Rules"
-msgstr ""
+msgstr "Regole eccezioni prdotto"
 
 #. module: product_exception
 #: model:ir.ui.menu,name:product_exception.menu_product_test_parent
 msgid "Product Exceptions Rules"
-msgstr ""
+msgstr "Regole eccezioni prdotto"
 
 #. module: product_exception
 #: model:ir.model,name:product_exception.model_product_template
@@ -87,19 +87,19 @@ msgstr "Modelli prodotto"
 #. module: product_exception
 #: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: product_exception
 #: model:exception.rule,description:product_exception.excep_no_dump
 msgid "Public price should be greather than purchase price"
-msgstr ""
+msgstr "Il prezzo al pubblico deve essere superiore al prezzo di acquIsto"
 
 #. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
 msgid "Test button"
-msgstr ""
+msgstr "Pulsante test"
 
 #. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_search_view
 msgid "With exception"
-msgstr ""
+msgstr "Con eccezine"
