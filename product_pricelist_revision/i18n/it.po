@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 13:04+0000\n"
+"PO-Revision-Date: 2023-11-08 09:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -59,7 +59,7 @@ msgstr "Creato il"
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Current"
-msgstr ""
+msgstr "Attuale"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
@@ -84,7 +84,7 @@ msgstr "Duplica elemento"
 #. module: product_pricelist_revision
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Explicit rule name for this pricelist line."
-msgstr ""
+msgstr "Nome esplicito della regola per questa riga listino."
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
@@ -94,7 +94,7 @@ msgstr "Raggruppa per"
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
@@ -104,17 +104,17 @@ msgstr "Elemento"
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
@@ -124,7 +124,7 @@ msgstr "Nome"
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
 msgid "Percent"
-msgstr ""
+msgstr "Percentuale"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
@@ -196,6 +196,12 @@ msgid ""
 "                    <br/>\n"
 "                    <br/>"
 msgstr ""
+"Imposta nuova data inizio e percentuale variazione da duplicare.\n"
+"                    Questo processo imposta il giorno precedente la data "
+"inizio come data fine del \n"
+"                    record origine.\n"
+"                    <br/>\n"
+"                    <br/>"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
@@ -206,7 +212,7 @@ msgstr "Variazione %"
 #. module: product_pricelist_revision
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
 msgid "Wizard Product Pricelist Item Duplicate"
-msgstr ""
+msgstr "Procedura guidata duplicazione elemento listino prodotto"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
