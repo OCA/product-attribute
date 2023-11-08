@@ -6,95 +6,99 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-08 13:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_barrel
 msgid "Barrel - 159L (Unit only for purchases)"
-msgstr ""
+msgstr "Botte - 159L (unità solo per acquisto)"
 
 #. module: product_uom_use_type
 #: model:product.template,name:product_uom_use_type.product_bier_faucheuse
 msgid "Bier - La Faucheuse"
-msgstr ""
+msgstr "Birra - La Faucheuse"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_id
 msgid "Default unit of measure used for all stock operations."
-msgstr ""
+msgstr "Unità di misura predefinita per tutte le operazioni di magazzino."
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_po_id
 msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
 msgstr ""
+"Unità di misura predefinita utilizzata per ordini di acquisto. Deve essere "
+"della stessa categoria dell'unità di misura predefinita."
 
 #. module: product_uom_use_type
 #: model:product.template,uom_name:product_uom_use_type.product_bier_faucheuse
 #: model:product.template,volume_uom_name:product_uom_use_type.product_bier_faucheuse
 msgid "Liter(s)"
-msgstr ""
+msgstr "Litro(i)"
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_pint
 msgid "Pint US - 0,55L (Unit only for sales)"
-msgstr ""
+msgstr "Pinta USA - 0,55L (unità solo per le vendite)"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unità di misura del prodotto"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
 msgid "Purchase Unit of Measure"
-msgstr ""
+msgstr "Unità di misura acquisto"
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for purchases"
-msgstr ""
+msgstr "Unità disponibile per gli acquisti"
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for sales"
-msgstr ""
+msgstr "Unità disponibile per le vendite"
 
 #. module: product_uom_use_type
 #: selection:uom.uom,use_type:0
 msgid "Unit available for sales and purchases"
-msgstr ""
+msgstr "Unità disponibile per vendite e acquisti"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_id
 #: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_id
 msgid "Unit of Measure"
-msgstr ""
+msgstr "Unità di misura"
 
 #. module: product_uom_use_type
 #: model:ir.model.fields,field_description:product_uom_use_type.field_uom_uom__use_type
 msgid "Use Type"
-msgstr ""
+msgstr "Usare tipo"
 
 #. module: product_uom_use_type
 #: model:product.template,weight_uom_name:product_uom_use_type.product_bier_faucheuse
 msgid "kg"
-msgstr ""
+msgstr "kg"
