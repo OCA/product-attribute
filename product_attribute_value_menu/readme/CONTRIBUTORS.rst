@@ -5,3 +5,7 @@
 * `ForgeFlow <http://www.forgeflow.com>`_:
 
   * Guillem Casassas <guillem.casassas@forgeflow.com>
+
+* `Tecnativa <https://www.tecnativa.com>`__:
+
+  * Carolina Fernandez

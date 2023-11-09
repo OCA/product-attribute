@@ -1,7 +1,8 @@
+# Copyright 2023 Tecnativa - Carolina Fernandez
 {
     "name": "Product Attribute Value Menu",
     "summary": """Product attributes values tree and form. Import attribute values.""",
-    "version": "15.0.1.1.1",
+    "version": "16.0.1.0.0",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Ilyas, Ooops404, Odoo Community Association (OCA)",
     "license": "LGPL-3",

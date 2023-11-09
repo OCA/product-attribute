@@ -18,6 +18,7 @@
                 />
                 <button
                     type="object"
+                    title="Open products"
                     name="action_view_product"
                     class="btn btn-link text-left"
                     icon="fa-wrench"
