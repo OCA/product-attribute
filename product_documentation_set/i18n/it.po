@@ -6,50 +6,52 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-09 09:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__active
 msgid "Active?"
-msgstr ""
+msgstr "Attivo?"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__category_ids
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__country_ids
 msgid "Countries"
-msgstr ""
+msgstr "Nazioni"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_category__doc_set_ids
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_product__doc_set_ids
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_template__doc_set_ids
 msgid "Documentation Sets"
-msgstr ""
+msgstr "Gruppi dpcumentazione"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__attachment_ids
@@ -57,69 +59,69 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_documentation_set.product_doc_set_form_view
 #: model_terms:ir.ui.view,arch_db:product_documentation_set.product_template_form_view
 msgid "Documents"
-msgstr ""
+msgstr "Documenti"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_documentation_set
 #: selection:product.doc.set,usage:0
 msgid "Internal Reference"
-msgstr ""
+msgstr "Riferimento interno"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__lang
 msgid "Language"
-msgstr ""
+msgstr "Lingua"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__notes
 #: model_terms:ir.ui.view,arch_db:product_documentation_set.product_doc_set_form_view
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__product_ids
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_documentation_set
 #: model:ir.model,name:product_documentation_set.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria prodotto"
 
 #. module: product_documentation_set
 #: model:ir.actions.act_window,name:product_documentation_set.product_doc_set_act_window
 #: model:ir.model,name:product_documentation_set.model_product_doc_set
 msgid "Product Documentation Set"
-msgstr ""
+msgstr "Impostazione gruppo documentazione"
 
 #. module: product_documentation_set
 #: model:ir.model,name:product_documentation_set.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_documentation_set
 #: model:ir.model.fields,help:product_documentation_set.field_product_category__doc_set_ids
@@ -127,13 +129,15 @@ msgstr ""
 #: model:ir.model.fields,help:product_documentation_set.field_product_template__doc_set_ids
 msgid "Sets of product documentation, to use for several purposes. Specific sets may be defined by country or language."
 msgstr ""
+"Gruppi di docmentazione prodtto, da usare per scopi divrsi. Gruppi specifici "
+"possono essere definiti per nazione e lingua."
 
 #. module: product_documentation_set
 #: model:ir.model.fields,help:product_documentation_set.field_product_doc_set__usage
 msgid "The purpose for this list of documents."
-msgstr ""
+msgstr "Lo scopo di questo elenco di documenti."
 
 #. module: product_documentation_set
 #: model:ir.model.fields,field_description:product_documentation_set.field_product_doc_set__usage
 msgid "Usage"
-msgstr ""
+msgstr "Uilizzo"
