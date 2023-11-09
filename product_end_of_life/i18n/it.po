@@ -6,119 +6,121 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-09 09:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_end_of_life
 #: model:ir.model.fields,field_description:product_end_of_life.field_res_config_settings__product_eol_approaching_type
 msgid "Approaching Interval Unit"
-msgstr ""
+msgstr "Unità intervallo avvicinamento"
 
 #. module: product_end_of_life
 #: model:ir.model.fields,help:product_end_of_life.field_res_config_settings__product_eol_approaching_number
 msgid "Close to X unit(s) to Eol."
-msgstr ""
+msgstr "Vicino a X unità al fine vita."
 
 #. module: product_end_of_life
 #: model:ir.model,name:product_end_of_life.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: product_end_of_life
 #: selection:res.config.settings,product_eol_approaching_type:0
 msgid "Days"
-msgstr ""
+msgstr "Giorni"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Define the window of the product EoL notifications"
-msgstr ""
+msgstr "Definire l'intervallo notifica fine vita prodotto"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Define the window value"
-msgstr ""
+msgstr "Definire il valore intervallo"
 
 #. module: product_end_of_life
 #: model:ir.model.fields,field_description:product_end_of_life.field_product_product__eol_date
 #: model:ir.model.fields,field_description:product_end_of_life.field_product_template__eol_date
 msgid "End of Life Date"
-msgstr ""
+msgstr "Data di fine vita"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.message_product_eol
 msgid "End-of-Life Date"
-msgstr ""
+msgstr "Data di fine vita"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Interval"
-msgstr ""
+msgstr "Intervallo"
 
 #. module: product_end_of_life
 #: selection:res.config.settings,product_eol_approaching_type:0
 msgid "Months"
-msgstr ""
+msgstr "Mesi"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Notification Window"
-msgstr ""
+msgstr "Intervallo notifiche"
 
 #. module: product_end_of_life
 #: model:ir.model,name:product_end_of_life.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Product End of Life"
-msgstr ""
+msgstr "Fine vita prodotto"
 
 #. module: product_end_of_life
 #: model:mail.channel,name:product_end_of_life.channel_product_eol
 msgid "Product End-Of-Life Channel"
-msgstr ""
+msgstr "Canale fine vita prodotto"
 
 #. module: product_end_of_life
 #: code:addons/product_end_of_life/models/product.py:45
 #, python-format
 msgid "Product End-Of-Life Notification"
-msgstr ""
+msgstr "Notifica fine vita prodotto"
 
 #. module: product_end_of_life
 #: model:ir.model.fields,field_description:product_end_of_life.field_res_config_settings__product_eol_approaching_number
 msgid "Product Eol Approaching Number"
-msgstr ""
+msgstr "Numero avvicinamento fine vita prodotto"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.message_product_eol
 msgid "Product Name"
-msgstr ""
+msgstr "Nome prodotto"
 
 #. module: product_end_of_life
 #: model:ir.model,name:product_end_of_life.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: product_end_of_life
 #: model:ir.actions.server,name:product_end_of_life.ir_cron_notify_product_eol_ir_actions_server
 #: model:ir.cron,cron_name:product_end_of_life.ir_cron_notify_product_eol
 #: model:ir.cron,name:product_end_of_life.ir_cron_notify_product_eol
 msgid "Product: End-Of-Life Notification"
-msgstr ""
+msgstr "Prodotto: notifica fine vita"
 
 #. module: product_end_of_life
 #: model_terms:ir.ui.view,arch_db:product_end_of_life.res_config_settings_view_form
 msgid "Unit"
-msgstr ""
+msgstr "Unità"
 
 #. module: product_end_of_life
 #: selection:res.config.settings,product_eol_approaching_type:0
 msgid "Weeks"
-msgstr ""
+msgstr "Settimane"
