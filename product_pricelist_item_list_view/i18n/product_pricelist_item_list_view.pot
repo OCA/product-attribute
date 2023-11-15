@@ -19,6 +19,21 @@ msgid "End Date"
 msgstr ""
 
 #. module: product_pricelist_item_list_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_view_search
+msgid "Expired Price"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_view_search
+msgid "Future Price"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_view_search
+msgid "Ongoing Price"
+msgstr ""
+
+#. module: product_pricelist_item_list_view
 #: model:ir.ui.menu,name:product_pricelist_item_list_view.product_pricelist_items_action_menu
 msgid "Price Rules"
 msgstr ""
