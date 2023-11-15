@@ -6,45 +6,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-15 20:38+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_pricelist_fixed_currency_rate
 #. odoo-python
 #: code:addons/product_pricelist_fixed_currency_rate/models/product_pricelist_item.py:0
 #, python-format
 msgid "({curr_from} to {curr_to} rates)"
-msgstr ""
+msgstr "({curr_from} to {curr_to} rates)"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__actual_currency_rate
 msgid "Actual Currency Rate"
-msgstr ""
+msgstr "Tipo de Cambio Real"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model,name:product_pricelist_fixed_currency_rate.model_res_currency
 msgid "Currency"
-msgstr ""
+msgstr "Divisa"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__currency_rate_tooltip
 msgid "Currency Rate Tooltip"
-msgstr ""
+msgstr "Información sobre el Tipo de Cambio"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__do_inverse_currency_rate
 msgid "Do Inverse Currency Rate"
-msgstr ""
+msgstr "Invertir el Tipo de Cambio"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__fixed_currency_rate
 msgid "Fixed Currency Rate"
-msgstr ""
+msgstr "Tipo de Cambio Fijo"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,help:product_pricelist_fixed_currency_rate.field_product_pricelist_item__fixed_currency_rate
@@ -53,28 +55,30 @@ msgid ""
 "If set (different to 0.0), the currency conversion will ignore the actual "
 "currency rate and always use the fixed currency rate."
 msgstr ""
+"Si se establece (diferente a 0.0), la conversión de moneda ignorará el tipo "
+"de moneda actual y utilizará siempre el tipo de moneda fijo."
 
 #. module: product_pricelist_fixed_currency_rate
 #: model_terms:ir.ui.view,arch_db:product_pricelist_fixed_currency_rate.product_pricelist_item_form_view
 msgid "Inverse"
-msgstr ""
+msgstr "Inverso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__inverse_actual_currency_rate
 msgid "Inverse Actual Currency Rate"
-msgstr ""
+msgstr "Tipo de Divisa Real Inverso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__inverse_fixed_currency_rate
 msgid "Inverse Fixed Currency Rate"
-msgstr ""
+msgstr "Tipo de Cambio Fijo Inverso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__is_fixed_currency_rate_applicable
 msgid "Is Fixed Currency Rate Applicable"
-msgstr ""
+msgstr "Es aplicable el tipo de cambio fijo"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model,name:product_pricelist_fixed_currency_rate.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Regla de la lista de precios"
