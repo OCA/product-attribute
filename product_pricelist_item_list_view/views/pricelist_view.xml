@@ -30,6 +30,21 @@
             <filter name="Variant Rule" position="after">
                 <filter name="date_start" string="Start Date" date="date_start" />
                 <filter name="date_end" string="End Date" date="date_end" />
+                <filter
+                    name="ongoing_price"
+                    string="Ongoing Price"
+                    domain="[('date_start', '&lt;=', context_today().strftime('%Y-%m-%d')), ('date_end', '&gt;=', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    name="expired_price"
+                    string="Expired Price"
+                    domain="[('date_end', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    name="future_price"
+                    string="Future Price"
+                    domain="[('date_start', '&gt;', context_today().strftime('%Y-%m-%d'))]"
+                />
             </filter>
         </field>
     </record>
