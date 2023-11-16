@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="stock_package_type_form_container_deposit">
+        <field name="name">stock.package.type.form.container.deposit</field>
+        <field name="model">stock.package.type</field>
+        <field name="inherit_id" ref="stock.stock_package_type_form" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="container_deposit_product_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
