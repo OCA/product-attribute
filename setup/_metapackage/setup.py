@@ -26,6 +26,7 @@ setuptools.setup(
         'odoo-addon-product_manufacturer>=16.0dev,<16.1dev',
         'odoo-addon-product_multi_category>=16.0dev,<16.1dev',
         'odoo-addon-product_net_weight>=16.0dev,<16.1dev',
+        'odoo-addon-product_packaging_container_deposit>=16.0dev,<16.1dev',
         'odoo-addon-product_packaging_dimension>=16.0dev,<16.1dev',
         'odoo-addon-product_packaging_level>=16.0dev,<16.1dev',
         'odoo-addon-product_packaging_level_salable>=16.0dev,<16.1dev',
