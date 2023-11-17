@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-17 21:34+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: none\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product.py:0
@@ -21,47 +23,49 @@ msgid ""
 "A product (or multiple products) in the category have different type than "
 "the selected restricted product type"
 msgstr ""
+"Un article (ou plusieurs articles) dans la catégorie a un type différent du "
+"type d'article restreint sélectionné"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__display_name
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__id
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_product__id
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category____last_update
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Variante d'article"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Catégorie d'article"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Article"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__restricted_product_type
 msgid "Restricted Product Type"
-msgstr ""
+msgstr "Type d'article restreint"
 
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product_template.py:0
@@ -70,3 +74,5 @@ msgid ""
 "The product type must be equal to the restricted product type defined in the"
 " product category"
 msgstr ""
+"Le type d'article doit être égal au type d'article restreint défini dans la "
+"catégorie d'article"
