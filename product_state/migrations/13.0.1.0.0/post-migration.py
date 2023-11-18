@@ -2,6 +2,7 @@
 
 from openupgradelib import openupgrade  # pylint: disable=W7936
 
+# pylint: disable=odoo-addons-relative-import
 from odoo.addons.product_state import post_init_hook
 
 
