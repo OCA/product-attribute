@@ -28,4 +28,9 @@
         <field name="product_id" ref="product.product_product_1" />
         <field name="quantity">1</field>
     </record>
+    <record id="product_set_line_services_3" model="product.set.line">
+        <field name="product_set_id" ref="product_set_services" />
+        <field name="display_type">line_section</field>
+        <field name="name">Section</field>
+    </record>
 </odoo>
