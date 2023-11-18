@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2017-05-05 02:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2023-11-18 19:35+0000\n"
+"Last-Translator: Gil Arasa Verge <gilarasaverge@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_sequence
 #: code:addons/product_sequence/models/product_product.py:0
@@ -55,7 +56,7 @@ msgstr ""
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "Referencia interna"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_ir_sequence____last_update
@@ -69,7 +70,7 @@ msgstr ""
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr ""
+msgstr "Prefijo para referencia interna del producto"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
@@ -77,6 +78,9 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
+"Prefijo utilizado para generar la referencia interna de los productos "
+"creados con esta categoría. Si está en blanco, se utilizará la secuencia "
+"predeterminada."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
@@ -85,26 +89,26 @@ msgstr "Producto"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
-#, fuzzy
 msgid "Product Category"
-msgstr "Producto"
+msgstr "Categoría de producto"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
-#, fuzzy
 msgid "Product Sequence"
-msgstr "Producto"
+msgstr "Secuencia producto"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Secuencia"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
+"Configúrelo en '/' y guárdelo si desea que se proponga una nueva referencia "
+"interna."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
@@ -112,13 +116,15 @@ msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
 msgstr ""
+"Este campo contiene la información relacionada con la numeración de los "
+"asientos de este diario."
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
 #: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid "Use parent categories to determine the prefix"
-msgstr ""
+msgstr "Utilice categorías padre para determinar el prefijo"
 
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
@@ -126,6 +132,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category\n"
 "                            has no settings for the prefix."
 msgstr ""
+"Utilice categorías principales para determinar el prefijo si la categoría\n"
+"                             no tiene configuraciones para el prefijo."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -134,6 +142,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
 msgstr ""
+"Utilice categorías padre para determinar el prefijo si la categoría no tiene "
+"configuraciones para el prefijo."
 
 #~ msgid "The reference must be unique"
 #~ msgstr "La referencia debe ser única"
