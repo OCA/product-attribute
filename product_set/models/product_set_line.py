@@ -10,11 +10,18 @@ class ProductSetLine(models.Model):
     _rec_name = "product_id"
     _order = "product_set_id, sequence, product_id"
 
+    display_type = fields.Selection(
+        [
+            ("line_section", "Section"),
+            ("line_note", "Note"),
+        ]
+    )
+
     product_id = fields.Many2one(
         comodel_name="product.product",
         domain=[("sale_ok", "=", True)],
         string="Product",
-        required=True,
+        required=False,
     )
     quantity = fields.Float(
         digits="Product Unit of Measure", required=True, default=1.0
@@ -27,3 +34,4 @@ class ProductSetLine(models.Model):
     company_id = fields.Many2one(
         "res.company", related="product_set_id.company_id", store=True, readonly=True
     )
+    name = fields.Char()
