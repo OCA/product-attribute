@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 {
     "name": "Product Packaging level purchasable",
-    "summary": "",
+    "summary": "Control purchase of products via packaging settings.",
     "version": "16.0.1.0.0",
     "development_status": "Alpha",
     "category": "Product",
