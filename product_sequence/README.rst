@@ -90,6 +90,7 @@ Contributors
 -  Sergio Teruel <sergio.teruel@tecnativa.com>
 -  Watthanun Khorchai <watthanun_t@hotmail.com>
 -  Marie Lejeune <marie.lejeune@acsone.eu>
+-  Nils Coenen <nils.coenen@nico-solutions.de>
 
 Maintainers
 -----------

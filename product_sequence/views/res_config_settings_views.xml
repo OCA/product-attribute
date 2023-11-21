@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2018 Eficent Business and IT Consulting Services S.L.
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
@@ -7,29 +6,17 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="product.res_config_settings_view_form" />
         <field name="arch" type="xml">
-             <div id="product_general_settings" position="after">
-                <h2>Product Sequences</h2>
-                <div
-                    class="row mt16 o_settings_container"
-                    id="product_sequence_general_settings"
-                >
-                    <div class="col-12 col-lg-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                            <field name="use_parent_categories_to_determine_prefix" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label
-                                for="use_parent_categories_to_determine_prefix"
-                                string="Use parent categories to determine the prefix"
-                            />
-                            <div class="text-muted">
-                                Use parent categories to determine the prefix if the category
-                                has no settings for the prefix.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <xpath expr="//block[@id='product_general_settings']" position="after">
+                <block title="Product Sequences" id="product_sequence_general_settings">
+                    <setting
+                        id="parent_categories_prefix"
+                        string="Use parent categories to determine the prefix"
+                        help="Use parent categories to determine the prefix if the category has no settings for the prefix"
+                    >
+                        <field name="use_parent_categories_to_determine_prefix" />
+                    </setting>
+                </block>
+            </xpath>
         </field>
     </record>
 </odoo>

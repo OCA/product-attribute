@@ -14,7 +14,7 @@ class TestProductSequence(TransactionCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestProductSequence, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.product_product = cls.env["product.product"]
         cls.product_category = cls.env["product.category"]
@@ -52,7 +52,7 @@ class TestProductSequence(TransactionCase):
         )
         product_3.invalidate_recordset()
         self.assertEqual(product_3.default_code, "/")
-        pre_init_hook(self.cr)
+        pre_init_hook(self.env)
         product_3.invalidate_recordset()
         self.assertEqual(product_3.default_code, f"!!mig!!{product_3.id}")
 
