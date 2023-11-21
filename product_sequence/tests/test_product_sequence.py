@@ -54,7 +54,7 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(product_3.default_code, "/")
         pre_init_hook(self.cr)
         product_3.invalidate_recordset()
-        self.assertEqual(product_3.default_code, "!!mig!!{}".format(product_3.id))
+        self.assertEqual(product_3.default_code, f"!!mig!!{product_3.id}")
 
     def test_product_category_sequence(self):
         categ_grocery = self.product_category.create(
