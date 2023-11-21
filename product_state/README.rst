@@ -84,6 +84,7 @@ Contributors
 -  Andrii Skrypka <andrijskrypa@ukr.net>
 -  Denis Roussel <denis.roussel@acsone.eu>
 -  Riccardo Fresco <riccardo.fresco@bt-group.com>
+-  Nils Coenen <nils.coenen@nico-solutions.de>
 
 Maintainers
 -----------
