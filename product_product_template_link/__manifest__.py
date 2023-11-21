@@ -1,7 +1,7 @@
 # Copyright 2019 Alexandre Díaz - Tecnativa
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
-    "name": "Product Template Navigation",
+    "name": "Product Template Link",
     "summary": "Adds a button in product to view the template",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",

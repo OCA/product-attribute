@@ -6,3 +6,5 @@
 * `Cetmix <https://www.cetmix.com>`__:
 
   * Dessan Hemrayev
+
+* PyTech SRL <info@pytech.it>
