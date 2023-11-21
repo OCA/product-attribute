@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 16:41+0000\n"
+"PO-Revision-Date: 2023-11-21 19:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -36,7 +36,7 @@ msgstr "Lotto/seriale"
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_stock_production_lot__name
 msgid "Lot/Serial Number"
-msgstr "Lotto/numero di serie"
+msgstr "Numero di lotto/serie"
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_number_next
