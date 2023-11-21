@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record model="ir.ui.view" id="product_state_search_form_view">
         <field name="name">product.state.search.form</field>
