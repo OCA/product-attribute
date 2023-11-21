@@ -2,8 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 {
     "name": "Product Packaging level purchasable",
-    "summary": "",
-    "version": "16.0.1.0.0",
+    "summary": "Control purchase of products via packaging settings.",
+    "version": "16.0.1.1.0",
     "development_status": "Alpha",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
