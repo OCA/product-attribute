@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record model="ir.actions.act_window" id="action_open_state_products">
         <field name="name">State Products</field>
@@ -6,7 +5,7 @@
         <field name="res_model">product.template</field>
         <field name="view_mode">kanban,form,tree</field>
         <field name="context">{}</field>
-        <field name="domain">[('product_state_id', '=', active_id)]</field>
+        <field name="domain">[('product_state_id', '=', id)]</field>
     </record>
     <record id="view_product_template_search_state" model="ir.ui.view">
         <field name="name">product.template.search.state</field>
