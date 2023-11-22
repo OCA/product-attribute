@@ -33,10 +33,10 @@ A module that adds manufacturers and attributes on the product form.
 You can now define the following for a product
 ----------------------------------------------
 
--  Manufacturer
--  Manufacturer Product Name
--  Manufacturer Product Code
--  Manufacturer Product URL
+- Manufacturer
+- Manufacturer Product Name
+- Manufacturer Product Code
+- Manufacturer Product URL
 
 **Table of contents**
 
@@ -64,14 +64,15 @@ Authors
 Contributors
 ------------
 
--  Odoo S.A.
--  Acysos SL <info@acysos.com>
--  Ray Carnes <ray.carnes@bistasolutions.com>
--  Miquel Raïch <miquel.raich@forgeflow.com>
--  Lois Rilo <lois.rilo@forgeflow.com>
--  Guewen Baconnier <guewen.baconnier@camptocamp.com>
--  Héctor Villarreal <hector.villarreal@forgeflow.com>
--  Mantas Šniukas <mantas@vialaurea.lt>
+- Odoo S.A.
+- Acysos SL <info@acysos.com>
+- Ray Carnes <ray.carnes@bistasolutions.com>
+- Miquel Raïch <miquel.raich@forgeflow.com>
+- Lois Rilo <lois.rilo@forgeflow.com>
+- Guewen Baconnier <guewen.baconnier@camptocamp.com>
+- Héctor Villarreal <hector.villarreal@forgeflow.com>
+- Mantas Šniukas <mantas@vialaurea.lt>
+- Nils Coenen <nils.coenen@nico-solutions.de>
 
 Maintainers
 -----------
