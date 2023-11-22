@@ -6,4 +6,3 @@
 - Guewen Baconnier \<<guewen.baconnier@camptocamp.com>\>
 - Héctor Villarreal \<<hector.villarreal@forgeflow.com>\>
 - Mantas Šniukas \<<mantas@vialaurea.lt>\>
-- Nils Coenen \<<nils.coenen@nico-solutions.de>\>
