@@ -1,14 +1,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductManufacturer(TransactionCase):
+class TestProductManufacturer(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.manufacturer_a = cls.env["res.partner"].create({"name": "Manufacturer A"})
         cls.manufacturer_b = cls.env["res.partner"].create({"name": "Manufacturer B"})
         cls.attr1 = cls.env["product.attribute"].create({"name": "color"})

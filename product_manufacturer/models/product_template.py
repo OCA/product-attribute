@@ -44,30 +44,34 @@ class ProductTemplate(models.Model):
             lambda template: len(template.product_variant_ids) == 1
         )
         for template in unique_variants:
-            template.manufacturer_id = template.product_variant_ids.manufacturer_id
-            template.manufacturer_pname = (
-                template.product_variant_ids.manufacturer_pname
+            product_variant = template.product_variant_ids
+            template.update(
+                {
+                    "manufacturer_id": product_variant.manufacturer_id.id,
+                    "manufacturer_pname": product_variant.manufacturer_pname,
+                    "manufacturer_pref": product_variant.manufacturer_pref,
+                    "manufacturer_purl": product_variant.manufacturer_purl,
+                }
             )
-            template.manufacturer_pref = template.product_variant_ids.manufacturer_pref
-            template.manufacturer_purl = template.product_variant_ids.manufacturer_purl
-        for template in self - unique_variants:
-            template.manufacturer_id = False
-            template.manufacturer_pname = False
-            template.manufacturer_pref = False
-            template.manufacturer_purl = False
+        (self - unique_variants).update(
+            {
+                "manufacturer_id": False,
+                "manufacturer_pname": False,
+                "manufacturer_pref": False,
+                "manufacturer_purl": False,
+            }
+        )
 
     def _inverse_manufacturer_info(self):
         for template in self:
             if len(template.product_variant_ids) == 1:
-                template.product_variant_ids.manufacturer_id = template.manufacturer_id
-                template.product_variant_ids.manufacturer_pname = (
-                    template.manufacturer_pname
-                )
-                template.product_variant_ids.manufacturer_pref = (
-                    template.manufacturer_pref
-                )
-                template.product_variant_ids.manufacturer_purl = (
-                    template.manufacturer_purl
+                template.product_variant_ids.update(
+                    {
+                        "manufacturer_id": template.manufacturer_id,
+                        "manufacturer_pname": template.manufacturer_pname,
+                        "manufacturer_pref": template.manufacturer_pref,
+                        "manufacturer_purl": template.manufacturer_purl,
+                    }
                 )
 
     def _get_related_fields_variant_template(self):
