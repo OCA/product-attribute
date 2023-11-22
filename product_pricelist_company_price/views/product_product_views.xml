@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2023 Simone Rubino - Aion Tech
+  ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+  -->
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">Add company pricelist fields to variant form view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <field name="lst_price" position="attributes">
+                <attribute name="attrs">
+                    {
+                        "readonly": [
+                            ("is_in_products_pricelist", "=", True),
+                        ],
+                    }
+                </attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
