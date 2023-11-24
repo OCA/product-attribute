@@ -72,6 +72,7 @@ addon | version | maintainers | summary
 [product_uom_measure_type](product_uom_measure_type/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Product - UoM Measure Type
 [product_uom_po_domain](product_uom_po_domain/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Product - Domain on Purchase UoM
 [product_uom_updatable](product_uom_updatable/) | 16.0.1.0.0 |  | allows products uom to be modified after be used in a stock picking if the product uom is of the same category
+[product_variant_attribute_name_manager](product_variant_attribute_name_manager/) | 16.0.1.0.0 | [![oriolvforgeflow](https://github.com/oriolvforgeflow.png?size=30px)](https://github.com/oriolvforgeflow) | Manage how to display the attributes on the product variant name.
 [sale_product_template_tags](sale_product_template_tags/) | 16.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Sale app
 [stock_production_lot_expired_date](stock_production_lot_expired_date/) | 16.0.1.0.1 |  | Stock production lot expired date
 [uom_category_active](uom_category_active/) | 16.0.1.0.0 |  | Add option to archive UoM categories
