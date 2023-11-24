@@ -15,7 +15,8 @@ odoo_test_flavor: Both
 odoo_version: 14.0
 org_name: Odoo Community Association (OCA)
 org_slug: OCA
-rebel_module_groups: []
+rebel_module_groups:
+- product_internal_reference_generator
 repo_description: 'TODO: add repo description.'
 repo_name: product-attribute
 repo_slug: product-attribute
