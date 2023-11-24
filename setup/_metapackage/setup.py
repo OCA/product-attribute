@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo-addon-product_code_unique>=16.0dev,<16.1dev',
         'odoo-addon-product_company_default>=16.0dev,<16.1dev',
         'odoo-addon-product_cost_security>=16.0dev,<16.1dev',
+        'odoo-addon-product_country_restriction>=16.0dev,<16.1dev',
         'odoo-addon-product_dimension>=16.0dev,<16.1dev',
         'odoo-addon-product_expiry_configurable>=16.0dev,<16.1dev',
         'odoo-addon-product_logistics_uom>=16.0dev,<16.1dev',
