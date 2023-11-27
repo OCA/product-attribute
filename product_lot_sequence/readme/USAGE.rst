@@ -6,3 +6,8 @@ To use this module:
 * Go to Inventory > Lot/Serial Numbers
 * Create new Lot/Serial number
 * Select the product and the next number of the product sequence will be automatically proposed
+  
+For default settings:
+
+* Go to "General settings > Inventory > Defaul lot sequence"
+* Select defaul lot sequence
