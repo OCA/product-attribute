@@ -41,6 +41,7 @@ class OrderMixin(models.AbstractModel):
             deposit_container_qties = (
                 lines_to_comp_deposit._get_order_lines_container_deposit_quantities()
             )
+            values_lst = []
             for line in self[self._get_order_line_field()]:
                 if not line.is_container_deposit:
                     continue
@@ -49,21 +50,27 @@ class OrderMixin(models.AbstractModel):
                 )
                 if not qty:
                     if order.state == "draft":
-                        line.unlink()
+                        values_lst.append(Command.delete(line.id))
                     else:
-                        line.write(
-                            {
-                                line._get_product_qty_field(): 0,
-                            }
+                        values_lst.append(
+                            Command.update(
+                                line.id,
+                                {
+                                    line._get_product_qty_field(): 0,
+                                },
+                            )
                         )
+
                 else:
-                    line.write(
-                        {
-                            line._get_product_qty_field(): qty,
-                            line._get_product_qty_delivered_received_field(): qty_dlvd_rcvd,
-                        }
+                    values_lst.append(
+                        Command.update(
+                            line.id,
+                            {
+                                line._get_product_qty_field(): qty,
+                                line._get_product_qty_delivered_received_field(): qty_dlvd_rcvd,
+                            },
+                        )
                     )
-            values_lst = []
             for product in deposit_container_qties:
                 if deposit_container_qties[product][0] > 0:
                     values = order.prepare_deposit_container_line(
