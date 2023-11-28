@@ -89,7 +89,13 @@ class ProductPricelistXlsx(models.AbstractModel):
             if book.breakage_per_category:
                 sheet.write(row, 0, group["group_name"], bold_format)
                 row += 1
-            for product in group["products"]:
+            for product_data in group["products"]:
+                # Get product directly from product_data or inside as a dictionary
+                product = (
+                    product_data["product"]
+                    if isinstance(product_data, dict)
+                    else product_data
+                )
                 next_col = 0
                 sheet.write(row, next_col, product.display_name)
                 next_col = self._add_extra_info(
