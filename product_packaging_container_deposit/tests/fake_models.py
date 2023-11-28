@@ -11,6 +11,7 @@ class ContainerDepositOrderTest(models.Model):
     name = fields.Char()
     partner_id = fields.Many2one("res.partner")
     company_id = fields.Many2one("res.company")
+    state = fields.Char()
     order_line = fields.One2many(
         "container.deposit.order.line.test", inverse_name="order_id"
     )

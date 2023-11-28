@@ -29,6 +29,7 @@ class TestProductPackagingContainerDepositMixin(Common):
             {
                 "company_id": self.env.company.id,
                 "partner_id": self.env.ref("base.res_partner_12").id,
+                "state": "draft",
             }
         )
 
@@ -236,3 +237,20 @@ class TestProductPackagingContainerDepositMixin(Common):
         self.order.order_line[0].qty_delivered = 200
         self.assertEqual(pallet_line.qty_delivered, 0)
         self.assertEqual(box_line.qty_delivered, 8)
+
+    def test_confirmed_sale_product_packaging_container_deposit_quantities6(self):
+        """Test deposit line is added deleted after reduce product_a quantity"""
+        order_line = self.env["container.deposit.order.line.test"].create(
+            {
+                "order_id": self.order.id,
+                "name": self.product_a.name,
+                "product_id": self.product_a.id,
+                "product_qty": 240,
+            },
+        )
+        order_line.write({"product_qty": 10})
+
+        pallet_line = self.order.order_line.filtered(
+            lambda ol: ol.product_id == self.pallet
+        )
+        self.assertFalse(pallet_line)
