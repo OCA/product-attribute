@@ -21,7 +21,7 @@ class TestComputeVolumeOnProduct(TransactionCase):
         self.assertAlmostEqual(120, self.product.volume)
 
     def setUp(self):
-        super(TestComputeVolumeOnProduct, self).setUp()
+        super().setUp()
 
         self.product = self.env["product.product"].new()
         self.uom_m = self.env["uom.uom"].search([("name", "=", "m")])
@@ -46,7 +46,7 @@ class TestComputeVolumeOnTemplate(TransactionCase):
         self.assertAlmostEqual(120, self.template.volume)
 
     def setUp(self):
-        super(TestComputeVolumeOnTemplate, self).setUp()
+        super().setUp()
 
         self.template = self.env["product.template"].new()
         self.uom_m = self.env["uom.uom"].search([("name", "=", "m")])
