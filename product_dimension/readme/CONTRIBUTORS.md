@@ -5,3 +5,5 @@
 - [C2i Change 2 improve](http://www.c2i.es):
   - Eduardo Magdalena \<<emagdalena@c2i.es>\>
 - Carlos Lopez \<<celm1990@gmail.com>\>
+- [Trobz](https://trobz.com):  
+  - Thao Le \<<thaolt@trobz.com>\>
