@@ -22,26 +22,25 @@ class TestProductPackagingContainerDepositMixin(Common):
                 ContainerDepositOrderLineTest,
             )
         )
-
-    def setUp(self):
-        super().setUp()
-        self.order = self.env["container.deposit.order.test"].create(
+        cls.order_model = cls.env[ContainerDepositOrderTest._name]
+        cls.line_model = cls.env[ContainerDepositOrderLineTest._name]
+        cls.order = cls.order_model.create(
             {
-                "company_id": self.env.company.id,
-                "partner_id": self.env.ref("base.res_partner_12").id,
+                "company_id": cls.env.company.id,
+                "partner_id": cls.env.ref("base.res_partner_12").id,
                 "state": "draft",
             }
         )
 
     def test_implemented_get_order_line_field(self):
         self.assertEqual(
-            self.env["container.deposit.order.test"]._get_order_line_field(),
+            self.order_model._get_order_line_field(),
             "order_line",
         )
 
     def test_implemented_get_product_qty_field(self):
         self.assertEqual(
-            self.env["container.deposit.order.line.test"]._get_product_qty_field(),
+            self.line_model._get_product_qty_field(),
             "product_qty",
         )
 
@@ -50,7 +49,7 @@ class TestProductPackagingContainerDepositMixin(Common):
             self.order.order_line._get_order_lines_container_deposit_quantities()
         )
         self.assertEqual(deposit_product_qties, {})
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -72,7 +71,7 @@ class TestProductPackagingContainerDepositMixin(Common):
         )
 
     def test_product_container_deposit_order(self):
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -94,7 +93,7 @@ class TestProductPackagingContainerDepositMixin(Common):
                 280 // 240 = 1 => add order line for 1 Pallet
                 280 // 24 (biggest PACK) => add order line for 11 boxes of 24
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             [
                 {
                     "order_id": self.order.id,
@@ -124,7 +123,7 @@ class TestProductPackagingContainerDepositMixin(Common):
             280 // 240 = 1 => add order line for 1 Pallet
             280 // 12 (forced packaging for Boxes) => add order line for 23 boxes of 12
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -143,7 +142,7 @@ class TestProductPackagingContainerDepositMixin(Common):
         Case 3: Product A & Product B. Both have a deposit of 1 box of 24. Result:
                 Only one line for 2 boxes of 24
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             [
                 {
                     "order_id": self.order.id,
@@ -172,7 +171,7 @@ class TestProductPackagingContainerDepositMixin(Common):
                 1 order line with 2 boxes of 24 (System added)
                 + 1 order line with 1 box (manually added)
         """
-        order_line = self.env["container.deposit.order.line.test"].create(
+        order_line = self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -191,7 +190,7 @@ class TestProductPackagingContainerDepositMixin(Common):
         self.assertEqual(deposit_line.product_qty, 2.0)
 
         # Add manually 1 box
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.package_type_box.container_deposit_product_id.name,
@@ -215,7 +214,7 @@ class TestProductPackagingContainerDepositMixin(Common):
                 Received 200 // 280 = 0 Pallet
                 Received 200 // 24 = 5 Boxes
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             [
                 {
                     "order_id": self.order.id,
@@ -240,7 +239,7 @@ class TestProductPackagingContainerDepositMixin(Common):
 
     def test_confirmed_sale_product_packaging_container_deposit_quantities6(self):
         """Test deposit line is added deleted after reduce product_a quantity"""
-        order_line = self.env["container.deposit.order.line.test"].create(
+        order_line = self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
