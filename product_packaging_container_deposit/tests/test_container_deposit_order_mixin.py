@@ -1,6 +1,10 @@
 # Copyright 2023 Camptocamp (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from unittest import mock
+
 from odoo_test_helper import FakeModelLoader
+
+from odoo.tests.common import Form
 
 from .common import Common
 
@@ -247,9 +251,42 @@ class TestProductPackagingContainerDepositMixin(Common):
                 "product_qty": 240,
             },
         )
-        order_line.write({"product_qty": 10})
-
-        pallet_line = self.order.order_line.filtered(
-            lambda ol: ol.product_id == self.pallet
+        lines_to_delete = self.order.order_line.filtered(
+            lambda ol: ol.product_id == self.pallet or ol.product_id == self.box
         )
-        self.assertFalse(pallet_line)
+        with self._check_delete_after_commit(lines_to_delete):
+            order_line.write({"product_qty": 10})
+
+    def test_form(self):
+        """Test add and delete container deposit lines on the fly"""
+        order_form = Form(self.order_model)
+        with order_form.order_line.new() as line:
+            line.product_id = self.product_a
+            line.product_qty = 280
+        order = order_form.save()
+        order.state = "draft"
+        with order_form.order_line.edit(0) as line:
+            line.product_qty = 10
+        lines_to_delete = order.order_line.filtered(
+            lambda ol: ol.product_id == self.pallet or ol.product_id == self.box
+        )
+        with self._check_delete_after_commit(lines_to_delete):
+            order_form.save()
+
+    def test_order_container_deposit_delete_lines_after_commit(self):
+        line = self.line_model.create(
+            {
+                "order_id": self.order.id,
+                "name": self.product_a.name,
+                "product_id": self.product_a.id,
+                "product_qty": 280,
+                "product_packaging_id": self.packaging[0].id,
+            },
+        )
+        # ensure that the post commit hook deletes lines
+        # however to preserve test isolation
+        # we have to prevent the explicit commit to take place
+        with mock.patch.object(type(self.env.cr), "commit") as mocked:
+            self.order._order_container_deposit_delete_lines_after_commit(line.ids)
+            self.assertFalse(line.exists())
+            mocked.assert_called()
