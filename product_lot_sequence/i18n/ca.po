@@ -17,6 +17,31 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" groups="
+"\"base.group_multi_company\"/>"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid ""
+"Default number of digits to be set on products for product lot/serial "
+"sequence generation."
+msgstr ""
+
+#. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__display_lot_sequence_fields
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__display_lot_sequence_fields
 msgid "Display Lot Sequence Fields"
@@ -29,12 +54,12 @@ msgid "Entry Sequence"
 msgstr "Seqüència d’entrada"
 
 #. module: product_lot_sequence
-#: model:ir.model,name:product_lot_sequence.model_stock_production_lot
+#: model:ir.model,name:product_lot_sequence.model_stock_lot
 msgid "Lot/Serial"
 msgstr "Lot/Sèrie"
 
 #. module: product_lot_sequence
-#: model:ir.model.fields,field_description:product_lot_sequence.field_stock_production_lot__name
+#: model:ir.model.fields,field_description:product_lot_sequence.field_stock_lot__name
 msgid "Lot/Serial Number"
 msgstr ""
 
@@ -46,12 +71,14 @@ msgstr "Següent Número"
 
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producte"
+msgid "Product"
+msgstr ""
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_padding
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_padding
+#: model:ir.model.fields,field_description:product_lot_sequence.field_res_company__lot_sequence_padding
+#: model:ir.model.fields,field_description:product_lot_sequence.field_res_config_settings__lot_sequence_padding
 msgid "Sequence Number of Digits"
 msgstr "Seqüència Nombre de dígits"
 
@@ -86,6 +113,14 @@ msgid "This field contains the information related to the numbering of lots."
 msgstr "Aquest camp conté la informació relacionada amb la numeració de lots."
 
 #. module: product_lot_sequence
-#: model:ir.model.fields,help:product_lot_sequence.field_stock_production_lot__name
+#: model:ir.model.fields,help:product_lot_sequence.field_stock_lot__name
 msgid "Unique Lot/Serial Number"
 msgstr ""
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid "digits"
+msgstr ""
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producte"
