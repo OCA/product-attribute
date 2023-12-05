@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2023 Simone Rubino - Aion Tech
+  ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+  -->
+<odoo>
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">Add Pricelist Rule UoM fields to Pricelist form view</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='item_ids']/tree[@editable='bottom']/field[@name='min_quantity']"
+                position="attributes"
+            >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='item_ids']/tree[@editable='bottom']/field[@name='min_quantity']"
+                position="after"
+            >
+                <field name="uom_min_quantity" string="Min. Quantity" />
+                <field name="uom_id" />
+            </xpath>
+            <xpath
+                expr="//field[@name='item_ids']/tree[not(@editable)]/field[@name='min_quantity']"
+                position="attributes"
+            >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='item_ids']/tree[not(@editable)]/field[@name='min_quantity']"
+                position="after"
+            >
+                <field name="uom_min_quantity" string="Min. Quantity" />
+                <field name="uom_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
