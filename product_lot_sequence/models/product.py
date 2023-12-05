@@ -1,3 +1,4 @@
+# Copyright (C) 2023 Cetmix OÜ
 # Copyright 2020 ForgeFlow S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -12,6 +13,7 @@ class ProductTemplate(models.Model):
         string="Entry Sequence",
         help="This field contains the information related to the numbering of lots.",
         copy=False,
+        default=lambda self: self.env.company.lot_sequence_id,
     )
     lot_sequence_prefix = fields.Char(
         string="Sequence Prefix",
