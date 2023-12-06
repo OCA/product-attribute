@@ -101,7 +101,7 @@
         parent="stock.menu_stock_config_settings"
         sequence="99"
         action="action_internal_reference_template"
-        groups="base.group_system"
+        groups="stock.group_stock_manager"
     />
 
     <record id="product_normal_form_view" model="ir.ui.view">
