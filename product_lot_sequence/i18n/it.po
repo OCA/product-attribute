@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 16:40+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-12-06 12:34+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -19,23 +19,23 @@ msgstr ""
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Aziende"
 
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
 msgid "Defaul lot sequence"
-msgstr ""
+msgstr "Sequenza lotti predefinita"
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_res_config_settings__lot_sequence_id
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
 msgid "Default lot sequence"
-msgstr ""
+msgstr "Sequenza lotti predefinita"
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__display_name
@@ -70,7 +70,7 @@ msgstr "Ultima modifica il"
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_res_company__lot_sequence_id
 msgid "Lot Sequence"
-msgstr ""
+msgstr "Sequenza lotti"
 
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_stock_production_lot
