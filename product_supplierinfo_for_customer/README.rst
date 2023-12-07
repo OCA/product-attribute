@@ -93,6 +93,8 @@ Contributors
    -  Pedro M. Baeza
    -  Sergio Teruel
 
+-  Vang Nguyen Phu <https://komit-consulting.com/>
+
 Maintainers
 -----------
 
