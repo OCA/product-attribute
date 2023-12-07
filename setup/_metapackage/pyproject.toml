@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-product-attribute"
+version = "17.0.20231207.0"
+dependencies = [
+    "odoo-addon-product_dimension>=17.0dev,<17.1dev",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 17.0",
+]
