@@ -57,6 +57,39 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
             }
         )
 
+    def test_partner_customer_and_seller(self):
+        product = self.env["product.product"].create(
+            {"name": "Product Name", "default_code": "Product Code"}
+        )
+        custseller = self.env["res.partner"].create({"name": "Custseller"})
+        self.env["product.supplierinfo"].create(
+            {
+                "product_id": product.id,
+                "product_tmpl_id": product.product_tmpl_id.id,
+                "partner_id": custseller.id,
+                "product_code": "seller code",
+                "product_name": "seller name",
+            }
+        )
+        self.env["product.customerinfo"].create(
+            {
+                "product_id": product.id,
+                "product_tmpl_id": product.product_tmpl_id.id,
+                "partner_id": custseller.id,
+                "product_code": "customer code",
+                "product_name": "customer name",
+            }
+        )
+        self.assertEqual(product.display_name, "[Product Code] Product Name")
+        product.invalidate_cache(["display_name"])
+        self.assertEqual(
+            product.with_context(partner_id=custseller.id).display_name,
+            "[seller code] seller name",
+        )
+        product.invalidate_cache(["display_name"])
+        product = product.with_context(partner_id=custseller.id, customerinfo=True)
+        self.assertEqual(product.display_name, "[customer code] customer name")
+
     def test_default_get(self):
         """checking values returned by default_get()"""
         fields = ["name"]
