@@ -1,7 +1,7 @@
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests.common import Form, SavepointCase
 
 
-class TestProductCustomInfo(TransactionCase):
+class TestProductCustomInfo(SavepointCase):
     def test_open_product_template(self):
         form = Form(self.env["product.product"])
         form.name = "Prod A"
