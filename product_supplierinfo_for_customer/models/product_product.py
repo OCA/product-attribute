@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import datetime
 
-from odoo import api, models
+from odoo import models
 
 
 class ProductProduct(models.Model):
@@ -13,23 +13,30 @@ class ProductProduct(models.Model):
     def name_get(self):
         if not self.env.context.get("customerinfo"):
             return super().name_get()
-    
+
         # Copied from Odoo with following changes:
         # s/supplier/customer
         # s/seller/buyer
         def _name_get(d):
-            name = d.get('name', '')
-            code = self._context.get('display_default_code', True) and d.get('default_code', False) or False
+            name = d.get("name", "")
+            code = (
+                self._context.get("display_default_code", True)
+                and d.get("default_code", False)
+                or False
+            )
             if code:
-                name = '[%s] %s' % (code,name)
-            return (d['id'], name)
+                name = "[%s] %s" % (code, name)
+            return (d["id"], name)
 
-        partner_id = self._context.get('partner_id')
+        partner_id = self._context.get("partner_id")
         if partner_id:
-            partner_ids = [partner_id, self.env['res.partner'].browse(partner_id).commercial_partner_id.id]
+            partner_ids = [
+                partner_id,
+                self.env["res.partner"].browse(partner_id).commercial_partner_id.id,
+            ]
         else:
             partner_ids = []
-        company_id = self.env.context.get('company_id')
+        company_id = self.env.context.get("company_id")
 
         # all user don't have access to seller and partner
         # check access and use superuser
@@ -40,54 +47,85 @@ class ProductProduct(models.Model):
 
         # Prefetch the fields used by the `name_get`, so `browse` doesn't fetch other fields
         # Use `load=False` to not call `name_get` for the `product_tmpl_id`
-        self.sudo().read(['name', 'default_code', 'product_tmpl_id'], load=False)
-        product_template_ids = self.sudo().mapped('product_tmpl_id').ids
+        self.sudo().read(["name", "default_code", "product_tmpl_id"], load=False)
+        product_template_ids = self.sudo().mapped("product_tmpl_id").ids
 
         if partner_ids:
-            customer_info = self.env['product.customerinfo'].sudo().search([
-                ('product_tmpl_id', 'in', product_template_ids),
-                ('partner_id', 'in', partner_ids),
-            ])
+            customer_info = (
+                self.env["product.customerinfo"]
+                .sudo()
+                .search(
+                    [
+                        ("product_tmpl_id", "in", product_template_ids),
+                        ("partner_id", "in", partner_ids),
+                    ]
+                )
+            )
             # Prefetch the fields used by the `name_get`, so `browse` doesn't fetch other fields
             # Use `load=False` to not call `name_get` for the `product_tmpl_id` and `product_id`
-            customer_info.sudo().read(['product_tmpl_id', 'product_id', 'product_name', 'product_code'], load=False)
+            customer_info.sudo().read(
+                ["product_tmpl_id", "product_id", "product_name", "product_code"],
+                load=False,
+            )
             customer_info_by_template = {}
             for r in customer_info:
                 customer_info_by_template.setdefault(r.product_tmpl_id, []).append(r)
         for product in self.sudo():
-            variant = product.product_template_attribute_value_ids._get_combination_name()
+            variant = (
+                product.product_template_attribute_value_ids._get_combination_name()
+            )
 
             name = variant and "%s (%s)" % (product.name, variant) or product.name
-            buyers = self.env['product.customerinfo'].sudo().browse(self.env.context.get('buyer_id')) or []
+            buyers = (
+                self.env["product.customerinfo"]
+                .sudo()
+                .browse(self.env.context.get("buyer_id"))
+                or []
+            )
             if not buyers and partner_ids:
-                product_customer_info = customer_info_by_template.get(product.product_tmpl_id, [])
-                buyers = [x for x in product_customer_info if x.product_id and x.product_id == product]
+                product_customer_info = customer_info_by_template.get(
+                    product.product_tmpl_id, []
+                )
+                buyers = [
+                    x
+                    for x in product_customer_info
+                    if x.product_id and x.product_id == product
+                ]
                 if not buyers:
                     buyers = [x for x in product_customer_info if not x.product_id]
-                # Filter out sellers based on the company. This is done afterwards for a better
-                # code readability. At this point, only a few sellers should remain, so it should
-                # not be a performance issue.
+                # Filter out sellers based on the company.
+                # This is done afterwards for a better code readability.
+                # At this point, only a few sellers should remain,
+                # so it should not be a performance issue.
                 if company_id:
-                    buyers = [x for x in buyers if x.company_id.id in [company_id, False]]
+                    buyers = [
+                        x for x in buyers if x.company_id.id in [company_id, False]
+                    ]
             if buyers:
                 for s in buyers:
-                    buyer_variant = s.product_name and (
-                        variant and "%s (%s)" % (s.product_name, variant) or s.product_name
-                        ) or False
+                    buyer_variant = (
+                        s.product_name
+                        and (
+                            variant
+                            and "%s (%s)" % (s.product_name, variant)
+                            or s.product_name
+                        )
+                        or False
+                    )
                     mydict = {
-                              'id': product.id,
-                              'name': buyer_variant or name,
-                              'default_code': s.product_code or product.default_code,
-                              }
+                        "id": product.id,
+                        "name": buyer_variant or name,
+                        "default_code": s.product_code or product.default_code,
+                    }
                     temp = _name_get(mydict)
                     if temp not in result:
                         result.append(temp)
             else:
                 mydict = {
-                          'id': product.id,
-                          'name': name,
-                          'default_code': product.default_code,
-                          }
+                    "id": product.id,
+                    "name": name,
+                    "default_code": product.default_code,
+                }
                 result.append(_name_get(mydict))
         return result
 
