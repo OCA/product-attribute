@@ -58,7 +58,7 @@ class ProductPrintCategoryMixin(models.AbstractModel):
             category = ProductPrintCategory.browse(
                 product_group["print_category_id"][0]
             )
-            triggering_fields = category.field_ids.mapped("name")
+            triggering_fields = category.field_ids.sudo().mapped("name")
             if len(list(set(vals.keys()) & set(triggering_fields))):
                 # Value present in the label changed
                 products_to_update |= ProductProduct.search(product_group["__domain"])
