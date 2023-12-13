@@ -38,11 +38,16 @@ Internal Reference Prefix + progressive number for variant, eg: â€œMain0001001â€
 
 "001" the variant identifier.
 
-
 Every time a new variant is created, a new internal reference is automatically assigned with progressive variant code.
 
+A general setting allows to set the default Internal Reference Template for new products.
 
-A specific access rights allows specific users to change internal reference template for a product template once an internal reference has been generated, as well as editing existing ones.
+Two specific access rights allow specific users to:
+
+- generate an internal reference in product
+
+- create internal reference templates, change internal reference template for a product template once an internal reference has been generated, as well as editing existing internal references.
+
 
 **Table of contents**
 
@@ -52,7 +57,7 @@ A specific access rights allows specific users to change internal reference temp
 Usage
 =====
 
-Go to inventory > Configuration > Internal Reference Templates and set:
+Go to Inventory > Configuration > Internal Reference Templates and set:
 
 the sequence to be used for Internal Reference Prefix generation
 
@@ -61,6 +66,14 @@ the number of digits to be used for variants code (standard is 3)
 Now go to product template, select an Internal Reference Template and generate an Internal Reference Prefix. Internal reference field is now read-only.
 
 Each time a new variant is created for this product template, an internal reference is automatically assigned.
+
+In settings > inventory > Default Internal Reference Template, select which template will be loaded automatically each time a new product template is created.
+
+In user, enable extra rights:
+
+- "Generate internal reference" to display "Generate" button in product template.
+
+- "Internal reference template manager" to manage Internal Reference Templates in inventory > configuration menu and edit internal reference templates already assigned to a product template.
 
 Known issues / Roadmap
 ======================

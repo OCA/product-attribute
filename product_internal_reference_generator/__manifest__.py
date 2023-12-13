@@ -12,6 +12,7 @@
         "security/groups.xml",
         "security/ir.model.access.csv",
         "views/product.xml",
+        "views/res_config_settings.xml",
     ],
     "demo": ["demo/product_code_seq_demo.xml"],
     "installable": True,

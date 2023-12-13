@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="group_int_ref_template_always_visible" model="res.groups">
-        <field name="name">Internal reference template always visible</field>
+        <field name="name">Internal reference template manager</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+    <record id="group_int_ref_generate" model="res.groups">
+        <field name="name">Generate internal reference</field>
         <field name="category_id" ref="base.module_category_hidden" />
     </record>
 </odoo>
