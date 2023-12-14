@@ -27,7 +27,7 @@ class ProductProduct(models.Model):
             )
 
         pack_qties = {}
-        if qty > 0:
+        if qty:
             # Sort by forced_packaging, fitting packagings, biggest packaging
             packagings = self.packaging_ids.sorted(key=get_sort_key)
             for plevel, packs in groupby(packagings, lambda p: p.packaging_level_id):
@@ -38,6 +38,6 @@ class ProductProduct(models.Model):
                     continue
                 pack_qties[plevel] = (
                     container_deposit,
-                    qty // packs[0].qty,
+                    qty * (abs(qty) // packs[0].qty) / abs(qty),
                 )
         return pack_qties
