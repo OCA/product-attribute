@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:51+0000\n"
-"PO-Revision-Date: 2023-10-29 13:26+0000\n"
+"PO-Revision-Date: 2023-12-19 16:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -24,6 +24,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__active
 msgid "Active"
 msgstr "Attivo"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+msgid "Add a line"
+msgstr "Aggiungi una riga"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+msgid "Add a note"
+msgstr "Aggiungi nota"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+msgid "Add a section"
+msgstr "Aggiungi una sezione"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
@@ -56,6 +71,11 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
+msgid "Display Type"
+msgstr "Tipo visualizzazione"
+
+#. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__id
 msgid "ID"
@@ -86,8 +106,14 @@ msgstr "Ultimo aggiornamento il"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__name
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__name
 msgid "Name"
 msgstr "Nome"
+
+#. module: product_set
+#: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
+msgid "Note"
+msgstr "Nota"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
@@ -136,6 +162,11 @@ msgstr "Prodotti"
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
 msgid "Quantity"
 msgstr "Quantità"
+
+#. module: product_set
+#: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
+msgid "Section"
+msgstr "Sezione"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
