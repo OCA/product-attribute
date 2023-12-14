@@ -42,3 +42,10 @@ msgstr ""
 #: model:ir.model,name:product_packaging_container_deposit.model_stock_package_type
 msgid "Stock package type"
 msgstr ""
+
+#. module: product_packaging_container_deposit
+#. odoo-python
+#: code:addons/product_packaging_container_deposit/models/container_deposit_order_mixin.py:0
+#, python-format
+msgid "[DEL] %(name)s"
+msgstr ""
