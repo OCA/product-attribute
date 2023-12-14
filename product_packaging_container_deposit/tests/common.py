@@ -1,5 +1,8 @@
 # Copyright 2023 Camptocamp (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from contextlib import contextmanager
+from unittest import mock
+
 from odoo.tests import common
 
 from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
@@ -84,3 +87,30 @@ class Common(common.TransactionCase):
         )
         cls.pallet = cls.package_type_pallet.container_deposit_product_id
         cls.box = cls.package_type_box.container_deposit_product_id
+
+    @contextmanager
+    def _check_delete_after_commit(self, lines):
+        """Ensure lines are scheduled for deletion in post commit hook.
+
+        The method ``update_order_container_deposit_quantity``
+        will not delete lines immediately to avoid caching issues.
+
+        Hence, you can use this ctx manager as following:
+
+            with self._check_delete_after_commit(lines_to_delete):
+                order_line.write({"product_qty": 10})
+
+        to test that ``lines_to_delete`` records are marked as to be deleted
+        in the after commit hook.
+        """
+        with mock.patch.object(type(self.env.cr.postcommit), "add") as mocked:
+            yield
+            for line in lines:
+                self.assertTrue(line.name.startswith("[DEL]"))
+                self.assertEqual(line[line._get_product_qty_field()], 0)
+            partial_func = mocked.call_args[0][0]
+            self.assertEqual(partial_func.args, (sorted(lines.ids),))
+            self.assertEqual(
+                partial_func.func.__name__,
+                "_order_container_deposit_delete_lines_after_commit",
+            )

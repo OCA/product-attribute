@@ -1,6 +1,10 @@
 # Copyright 2023 Camptocamp (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from unittest import mock
+
 from odoo_test_helper import FakeModelLoader
+
+from odoo.tests.common import Form
 
 from .common import Common
 
@@ -22,25 +26,25 @@ class TestProductPackagingContainerDepositMixin(Common):
                 ContainerDepositOrderLineTest,
             )
         )
-
-    def setUp(self):
-        super().setUp()
-        self.order = self.env["container.deposit.order.test"].create(
+        cls.order_model = cls.env[ContainerDepositOrderTest._name]
+        cls.line_model = cls.env[ContainerDepositOrderLineTest._name]
+        cls.order = cls.order_model.create(
             {
-                "company_id": self.env.company.id,
-                "partner_id": self.env.ref("base.res_partner_12").id,
+                "company_id": cls.env.company.id,
+                "partner_id": cls.env.ref("base.res_partner_12").id,
+                "state": "draft",
             }
         )
 
     def test_implemented_get_order_line_field(self):
         self.assertEqual(
-            self.env["container.deposit.order.test"]._get_order_line_field(),
+            self.order_model._get_order_line_field(),
             "order_line",
         )
 
     def test_implemented_get_product_qty_field(self):
         self.assertEqual(
-            self.env["container.deposit.order.line.test"]._get_product_qty_field(),
+            self.line_model._get_product_qty_field(),
             "product_qty",
         )
 
@@ -49,7 +53,7 @@ class TestProductPackagingContainerDepositMixin(Common):
             self.order.order_line._get_order_lines_container_deposit_quantities()
         )
         self.assertEqual(deposit_product_qties, {})
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -71,7 +75,7 @@ class TestProductPackagingContainerDepositMixin(Common):
         )
 
     def test_product_container_deposit_order(self):
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -93,7 +97,7 @@ class TestProductPackagingContainerDepositMixin(Common):
                 280 // 240 = 1 => add order line for 1 Pallet
                 280 // 24 (biggest PACK) => add order line for 11 boxes of 24
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             [
                 {
                     "order_id": self.order.id,
@@ -123,7 +127,7 @@ class TestProductPackagingContainerDepositMixin(Common):
             280 // 240 = 1 => add order line for 1 Pallet
             280 // 12 (forced packaging for Boxes) => add order line for 23 boxes of 12
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -142,7 +146,7 @@ class TestProductPackagingContainerDepositMixin(Common):
         Case 3: Product A & Product B. Both have a deposit of 1 box of 24. Result:
                 Only one line for 2 boxes of 24
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             [
                 {
                     "order_id": self.order.id,
@@ -171,7 +175,7 @@ class TestProductPackagingContainerDepositMixin(Common):
                 1 order line with 2 boxes of 24 (System added)
                 + 1 order line with 1 box (manually added)
         """
-        order_line = self.env["container.deposit.order.line.test"].create(
+        order_line = self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.product_a.name,
@@ -190,7 +194,7 @@ class TestProductPackagingContainerDepositMixin(Common):
         self.assertEqual(deposit_line.product_qty, 2.0)
 
         # Add manually 1 box
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             {
                 "order_id": self.order.id,
                 "name": self.package_type_box.container_deposit_product_id.name,
@@ -214,7 +218,7 @@ class TestProductPackagingContainerDepositMixin(Common):
                 Received 200 // 280 = 0 Pallet
                 Received 200 // 24 = 5 Boxes
         """
-        self.env["container.deposit.order.line.test"].create(
+        self.line_model.create(
             [
                 {
                     "order_id": self.order.id,
@@ -236,3 +240,53 @@ class TestProductPackagingContainerDepositMixin(Common):
         self.order.order_line[0].qty_delivered = 200
         self.assertEqual(pallet_line.qty_delivered, 0)
         self.assertEqual(box_line.qty_delivered, 8)
+
+    def test_confirmed_sale_product_packaging_container_deposit_quantities6(self):
+        """Test deposit line is added deleted after reduce product_a quantity"""
+        order_line = self.line_model.create(
+            {
+                "order_id": self.order.id,
+                "name": self.product_a.name,
+                "product_id": self.product_a.id,
+                "product_qty": 240,
+            },
+        )
+        lines_to_delete = self.order.order_line.filtered(
+            lambda ol: ol.product_id == self.pallet or ol.product_id == self.box
+        )
+        with self._check_delete_after_commit(lines_to_delete):
+            order_line.write({"product_qty": 10})
+
+    def test_form(self):
+        """Test add and delete container deposit lines on the fly"""
+        order_form = Form(self.order_model)
+        with order_form.order_line.new() as line:
+            line.product_id = self.product_a
+            line.product_qty = 280
+        order = order_form.save()
+        order.state = "draft"
+        with order_form.order_line.edit(0) as line:
+            line.product_qty = 10
+        lines_to_delete = order.order_line.filtered(
+            lambda ol: ol.product_id == self.pallet or ol.product_id == self.box
+        )
+        with self._check_delete_after_commit(lines_to_delete):
+            order_form.save()
+
+    def test_order_container_deposit_delete_lines_after_commit(self):
+        line = self.line_model.create(
+            {
+                "order_id": self.order.id,
+                "name": self.product_a.name,
+                "product_id": self.product_a.id,
+                "product_qty": 280,
+                "product_packaging_id": self.packaging[0].id,
+            },
+        )
+        # ensure that the post commit hook deletes lines
+        # however to preserve test isolation
+        # we have to prevent the explicit commit to take place
+        with mock.patch.object(type(self.env.cr), "commit") as mocked:
+            self.order._order_container_deposit_delete_lines_after_commit(line.ids)
+            self.assertFalse(line.exists())
+            mocked.assert_called()
