@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-05 15:14+0000\n"
-"PO-Revision-Date: 2023-09-22 11:37+0000\n"
+"PO-Revision-Date: 2023-12-15 18:35+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -38,7 +38,7 @@ msgstr "Raggruppa per"
 #: model_terms:ir.ui.view,arch_db:product_price_history.view_product_normal_form_view_price_history
 #: model_terms:ir.ui.view,arch_db:product_price_history.view_product_template_only_form_price_history
 msgid "Price History"
-msgstr "Storia del costo medio"
+msgstr "Storico prezzo"
 
 #. module: product_price_history
 #: model:ir.model.fields,field_description:product_price_history.field_product_product__price_history_count
