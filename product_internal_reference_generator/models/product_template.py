@@ -37,7 +37,10 @@ class ProductTemplate(models.Model):
         self.update_variants_default_code()
 
     def update_variants_default_code(self):
-        for pp in self.product_variant_ids.filtered(lambda p: not p.default_code):
+        for pp in self.product_variant_ids.filtered(
+            lambda p: not p.default_code
+            or not p.default_code.startswith(self.variants_prefix)
+        ):
             pp.default_code = self.get_variant_next_default_code()
 
     def get_variant_next_default_code(self):

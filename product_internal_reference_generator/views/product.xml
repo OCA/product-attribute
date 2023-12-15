@@ -22,10 +22,7 @@
                         type="object"
                         string="Generate"
                         attrs="{'invisible': [('int_ref_template_id', '=', False)]}"
-                        confirm="Are you sure want to generate a new reference prefix?
-                        If variants already exist for this product, the new internal
-                        reference will be assigned only to those variants that
-                        do not already have an internal reference set."
+                        confirm="Are you sure want to generate a new reference prefix? If variants already exist for this product, the new internal reference will be assigned only to those variants that do not already have an internal reference set."
                     />
                 </div>
                 <field
@@ -41,12 +38,11 @@
                 />
             </field>
             <field name="default_code" position="attributes">
-                <attribute name="attrs" operation="python_dict" key="readonly">
-                    [('default_code', '!=', False)]
+                <attribute name="attrs" operation="update">
+                    {'readonly': [('default_code', '!=', False)]}
                 </attribute>
-                <attribute
-                    name="groups"
-                >!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
+                <attribute name="groups">
+                    !product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
             </field>
             <field name="barcode" position="after">
                 <field
@@ -115,8 +111,8 @@
                 />
             </field>
             <field name="default_code" position="attributes">
-                <attribute name="attrs" operation="python_dict" key="readonly">
-                    [('default_code', '!=', False)]
+                <attribute name="attrs" operation="update">
+                    {'readonly': [('default_code', '!=', False)]}
                 </attribute>
                 <attribute
                     name="groups"
@@ -136,8 +132,8 @@
                 />
             </field>
             <field name="default_code" position="attributes">
-                <attribute name="attrs" operation="python_dict" key="readonly">
-                    [('default_code', '!=', False)]
+                <attribute name="attrs" operation="update">
+                    {'readonly': [('default_code', '!=', False)]}
                 </attribute>
                 <attribute
                     name="groups"
