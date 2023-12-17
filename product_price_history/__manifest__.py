@@ -4,7 +4,7 @@
 {
     "name": "Product Cost Price History Views",
     "summary": "Handle standard price history records",
-    "version": "12.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Product",
     "author": "GRAP,"
     " Pordenone Linux User Group (PNLUG),"

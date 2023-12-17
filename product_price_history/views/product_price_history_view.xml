@@ -54,7 +54,6 @@
         <record id="action_product_price_history_view" model="ir.actions.act_window">
             <field name="name">Price History</field>
             <field name="res_model">product.price.history</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,graph</field>
             <field name="search_view_id" ref="view_product_price_history_filter" />
         </record>
@@ -79,7 +78,6 @@
         >[('product_tmpl_id', '=', default_product_tmpl_id)]</field>
             <field name="name">Price History</field>
             <field name="res_model">product.price.history</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree</field>
         </record>
 
