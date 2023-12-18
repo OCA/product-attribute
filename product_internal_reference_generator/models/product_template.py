@@ -7,12 +7,13 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     int_ref_template_id = fields.Many2one(
-        "product.code.sequence", "Internal Reference Template"
+        "product.code.sequence", "Internal Reference Template", copy=True
     )
-    variants_sequence_id = fields.Many2one("ir.sequence")
+    variants_sequence_id = fields.Many2one("ir.sequence", copy=False)
     variants_prefix = fields.Char(
-        "Internal Reference Prefix", readonly=True, tracking=True
+        "Internal Reference Prefix", readonly=True, tracking=True, copy=False
     )
+    default_code = fields.Char(copy=False)
 
     @api.onchange("int_ref_template_id")
     def onchange_int_ref_template_id(self):
@@ -21,11 +22,15 @@ class ProductTemplate(models.Model):
     def btn_generate_sequence(self):
         self.ensure_one()
         int_ref_next_val = self.int_ref_template_id.sequence_id.next_by_id()
-        var_seq = self.env["ir.sequence"].create(
-            {
-                "name": "variants " + int_ref_next_val,
-                "padding": self.int_ref_template_id.variant_reference_numbers,
-            }
+        var_seq = (
+            self.env["ir.sequence"]
+            .sudo()
+            .create(
+                {
+                    "name": "variants " + int_ref_next_val,
+                    "padding": self.int_ref_template_id.variant_reference_numbers,
+                }
+            )
         )
         self.write(
             {

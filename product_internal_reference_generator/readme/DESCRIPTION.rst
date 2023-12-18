@@ -8,8 +8,13 @@ Internal Reference Prefix + progressive number for variant, eg: â€œMain0001001â€
 
 "001" the variant identifier.
 
-
 Every time a new variant is created, a new internal reference is automatically assigned with progressive variant code.
 
+A general setting allows to set the default Internal Reference Template for new products.
 
-A specific access rights allows specific users to change internal reference template for a product template once an internal reference has been generated, as well as editing existing ones.
+Two specific access rights allow specific users to:
+
+- generate an internal reference in product
+
+- create internal reference templates, change internal reference template for a product template once an internal reference has been generated, as well as editing existing internal references.
+

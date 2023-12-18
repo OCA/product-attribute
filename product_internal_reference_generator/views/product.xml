@@ -22,6 +22,7 @@
                         type="object"
                         string="Generate"
                         attrs="{'invisible': [('int_ref_template_id', '=', False)]}"
+                        groups="product_internal_reference_generator.group_int_ref_generate"
                         confirm="Are you sure want to generate a new reference prefix?
                         If variants already exist for this product, the new internal
                         reference will be assigned only to those variants that
@@ -64,8 +65,15 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
                     <group>
                         <group>
+                            <field name="active" invisible="1" />
                             <field name="name" />
                             <field name="sequence_id" />
                             <field name="variant_reference_numbers" />

@@ -1,5 +1,6 @@
 # Copyright 2023 Ooops - Ilyas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from odoo import exceptions
 from odoo.tests import Form, SavepointCase
 
 
@@ -59,6 +60,16 @@ class TestProductInternalReferenceGenerator(SavepointCase):
             self._check_default_code("006", 3, self.pt_car)
             # no code if no sequence template
             self.assertFalse(self.pt_plane.get_variant_next_default_code())
+
+    def test_unlink(self):
+        self.pt_bicycle.write({"int_ref_template_id": self.pt_seq.id})
+        with self.assertRaises(exception=exceptions.ValidationError):
+            self.pt_seq.unlink()
+        products = self.env["product.template"].search(
+            [("int_ref_template_id", "=", self.pt_seq.id)]
+        )
+        products.write({"int_ref_template_id": False})
+        self.pt_seq.unlink()
 
     def _check_default_code(self, sequence_str, ind, pt):
         self.assertIn(
