@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 01:19+0000\n"
-"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"PO-Revision-Date: 2023-12-18 20:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -28,17 +28,17 @@ msgstr "Activo"
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a line"
-msgstr ""
+msgstr "Añadir una línea"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a note"
-msgstr ""
+msgstr "Añadir Una Nota"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a section"
-msgstr ""
+msgstr "Añadir Una Sección"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
@@ -73,7 +73,7 @@ msgstr "Nombre mostrado"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Mostrar Tipo"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
@@ -113,7 +113,7 @@ msgstr "Nombre"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
@@ -166,7 +166,7 @@ msgstr "Cantidad"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
 msgid "Section"
-msgstr ""
+msgstr "Sección"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
