@@ -43,7 +43,7 @@ addon | version | maintainers | summary
 [product_dimension](product_dimension/) | 14.0.1.0.0 |  | Product Dimension
 [product_expiry_configurable](product_expiry_configurable/) | 14.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
 [product_form_pricelist](product_form_pricelist/) | 14.0.1.0.1 |  | Show/edit pricelist in product form
-[product_internal_reference_generator](product_internal_reference_generator/) | 14.0.1.0.1 | [![ilyasProgrammer](https://github.com/ilyasProgrammer.png?size=30px)](https://github.com/ilyasProgrammer) | Product template and variant reference based on sequence
+[product_internal_reference_generator](product_internal_reference_generator/) | 14.0.1.1.0 | [![ilyasProgrammer](https://github.com/ilyasProgrammer.png?size=30px)](https://github.com/ilyasProgrammer) | Product template and variant reference based on sequence
 [product_logistics_uom](product_logistics_uom/) | 14.0.1.0.2 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
 [product_lot_sequence](product_lot_sequence/) | 14.0.1.1.0 |  | Adds ability to define a lot sequence from the product
 [product_main_supplierinfo](product_main_supplierinfo/) | 14.0.1.0.1 | [![sebalix](https://github.com/sebalix.png?size=30px)](https://github.com/sebalix) | Display the main vendor of a product.
