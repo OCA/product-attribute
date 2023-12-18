@@ -14,6 +14,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__active
+msgid "Active"
+msgstr ""
+
+#. module: product_internal_reference_generator
+#: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.internal_reference_template_form_view
+msgid "Archived"
+msgstr ""
+
+#. module: product_internal_reference_generator
 #: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.product_template_form_view_inherit
 msgid ""
 "Are you sure want to generate a new reference prefix?"
@@ -21,6 +31,16 @@ msgid ""
 " internal                         reference will be assigned only to those "
 "variants that                         do not already have an internal "
 "reference set."
+msgstr ""
+
+#. module: product_internal_reference_generator
+#: model:ir.model,name:product_internal_reference_generator.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: product_internal_reference_generator
+#: model:ir.model,name:product_internal_reference_generator.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: product_internal_reference_generator
@@ -34,6 +54,12 @@ msgid "Created on"
 msgstr ""
 
 #. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_company__default_int_ref_template_id
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_config_settings__default_int_ref_template_id
+msgid "Default Internal Reference Template"
+msgstr ""
+
+#. module: product_internal_reference_generator
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__variant_reference_numbers
 msgid "Digits"
 msgstr ""
@@ -42,6 +68,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__display_name
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -51,9 +79,16 @@ msgid "Generate"
 msgstr ""
 
 #. module: product_internal_reference_generator
+#: model:res.groups,name:product_internal_reference_generator.group_int_ref_generate
+msgid "Generate internal reference"
+msgstr ""
+
+#. module: product_internal_reference_generator
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__id
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product__id
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__id
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_company__id
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_config_settings__id
 msgid "ID"
 msgstr ""
 
@@ -65,6 +100,11 @@ msgstr ""
 #. module: product_internal_reference_generator
 #: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.product_template_form_view_inherit
 msgid "Int. Ref. Template"
+msgstr ""
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__default_code
+msgid "Internal Reference"
 msgstr ""
 
 #. module: product_internal_reference_generator
@@ -88,13 +128,15 @@ msgstr ""
 
 #. module: product_internal_reference_generator
 #: model:res.groups,name:product_internal_reference_generator.group_int_ref_template_always_visible
-msgid "Internal reference template always visible"
+msgid "Internal reference template manager"
 msgstr ""
 
 #. module: product_internal_reference_generator
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence____last_update
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_res_config_settings____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -132,4 +174,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product__variants_sequence_id
 #: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__variants_sequence_id
 msgid "Variants Sequence"
+msgstr ""
+
+#. module: product_internal_reference_generator
+#: code:addons/product_internal_reference_generator/models/product_code_sequence.py:0
+#, python-format
+msgid ""
+"You can't delete %s template because there are products related to it. You can archive it instead.\n"
+"Products: '%s'"
 msgstr ""
