@@ -17,26 +17,27 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_product_template_link
-#: model:ir.model.fields,field_description:product_product_template_link.field_product_product__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: product_product_template_link
-#: model:ir.model.fields,field_description:product_product_template_link.field_product_product__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_product_template_link
-#: model:ir.model.fields,field_description:product_product_template_link.field_product_product____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
+#: model_terms:ir.ui.view,arch_db:product_product_template_link.product_template_form_view
+msgid ""
+"<span>\n"
+"                            View Template\n"
+"                        </span>"
+msgstr ""
 
 #. module: product_product_template_link
 #: model:ir.model,name:product_product_template_link.model_product_product
-msgid "Product"
+#, fuzzy
+msgid "Product Variant"
 msgstr "Prodotto"
 
-#. module: product_product_template_link
-#: model_terms:ir.ui.view,arch_db:product_product_template_link.product_template_form_view
-msgid "View Template"
-msgstr "Visualizza modello"
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "View Template"
+#~ msgstr "Visualizza modello"
