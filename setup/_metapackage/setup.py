@@ -45,6 +45,7 @@ setuptools.setup(
         'odoo-addon-product_pricelist_simulation_margin>=16.0dev,<16.1dev',
         'odoo-addon-product_pricelist_supplierinfo>=16.0dev,<16.1dev',
         'odoo-addon-product_print_category>=16.0dev,<16.1dev',
+        'odoo-addon-product_product_template_link>=16.0dev,<16.1dev',
         'odoo-addon-product_profile>=16.0dev,<16.1dev',
         'odoo-addon-product_route_mto>=16.0dev,<16.1dev',
         'odoo-addon-product_sale_description>=16.0dev,<16.1dev',
