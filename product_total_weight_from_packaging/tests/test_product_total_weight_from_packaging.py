@@ -1,9 +1,9 @@
 # Copyright 2020 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
-from odoo.tests import common
+from odoo.tests import TransactionCase
 
 
-class TestProductTotalWeightFromPackaging(common.TransactionCase):
+class TestProductTotalWeightFromPackaging(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
