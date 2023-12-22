@@ -56,6 +56,7 @@ setuptools.setup(
         'odoo14-addon-product_profile',
         'odoo14-addon-product_restricted_type',
         'odoo14-addon-product_sale_manufactured_for',
+        'odoo14-addon-product_search_by_display_name',
         'odoo14-addon-product_seasonality',
         'odoo14-addon-product_secondary_unit',
         'odoo14-addon-product_sequence',
