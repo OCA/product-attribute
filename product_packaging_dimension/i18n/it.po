@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 09:36+0000\n"
+"PO-Revision-Date: 2023-12-26 17:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -54,7 +54,7 @@ msgstr "Etichetta unità di misura lunghezza"
 #. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume_uom_id
 msgid "Packaging volume unit of measure"
-msgstr "Unità di misura per la lunghezza dell'imballaggio"
+msgstr "Unità di misura per il volume dell'imballaggio"
 
 #. module: product_packaging_dimension
 #: model:ir.model,name:product_packaging_dimension.model_product_packaging
