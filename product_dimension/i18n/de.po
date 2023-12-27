@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 10:11+0000\n"
-"PO-Revision-Date: 2023-11-05 16:36+0000\n"
+"PO-Revision-Date: 2023-12-27 21:35+0000\n"
 "Last-Translator: Peter Schubert <psc@saco.info>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -45,13 +45,13 @@ msgstr "Höhe"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__id
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_dimension.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
