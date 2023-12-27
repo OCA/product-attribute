@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:44+0000\n"
-"PO-Revision-Date: 2023-11-05 16:36+0000\n"
+"PO-Revision-Date: 2023-12-27 21:35+0000\n"
 "Last-Translator: Peter Schubert <psc@saco.info>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -65,7 +65,7 @@ msgstr "Interne Referenz"
 #: model:ir.model.fields,field_description:product_sequence.field_res_company____last_update
 #: model:ir.model.fields,field_description:product_sequence.field_res_config_settings____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
@@ -100,7 +100,7 @@ msgstr "Produktsequenz"
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Reihenfolge"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
@@ -143,6 +143,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
 msgstr ""
+"Verwenden Sie übergeordnete Kategorien, um das Präfix zu bestimmen, wenn die "
+"Kategorie keine Einstellungen für das Präfix hat."
 
 #~ msgid "The reference must be unique"
 #~ msgstr "Die Referenz muss eindeutig sein"
