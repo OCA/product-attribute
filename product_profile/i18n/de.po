@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2023-11-05 16:36+0000\n"
+"PO-Revision-Date: 2023-12-27 21:35+0000\n"
 "Last-Translator: Peter Schubert <psc@saco.info>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -166,9 +166,8 @@ msgstr "Zuletzt aktualisiert am"
 
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile_manager
-#, fuzzy
 msgid "Manage Product Profiles"
-msgstr "Produktprofile"
+msgstr "Produktprofile verwalten"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__name
@@ -187,9 +186,8 @@ msgstr "Produktprofil"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
-#, fuzzy
 msgid "Product Profile Mixin"
-msgstr "Produktprofil"
+msgstr "Produktprofil Mixin"
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
