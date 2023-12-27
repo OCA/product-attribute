@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-29 08:49+0000\n"
-"PO-Revision-Date: 2023-11-05 16:36+0000\n"
+"PO-Revision-Date: 2023-12-27 21:35+0000\n"
 "Last-Translator: Peter Schubert <psc@saco.info>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -113,13 +113,13 @@ msgstr "Sequenz"
 #. module: product_template_tags
 #: model:ir.model.constraint,message:product_template_tags.constraint_product_template_tag_name_uniq
 msgid "Tag name must be unique inside a company"
-msgstr ""
+msgstr "Der Tag-Name muss innerhalb eines Unternehmens eindeutig sein"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #~ msgid "Product Tags"
 #~ msgstr "Produkt Tags"
