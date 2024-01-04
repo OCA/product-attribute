@@ -20,8 +20,10 @@ class StockLot(models.Model):
 
     def _apply_onchange_interval_date(self, from_field):
         self.ensure_one()
-        base_date = self.env["ir.config_parameter"].get_param(
-            "stock_production_lot_expired_date.production_lot_base_date"
+        base_date = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("stock_production_lot_expired_date.production_lot_base_date")
         )
         if self.product_id and base_date == from_field:
             if getattr(self, from_field + "_date"):
