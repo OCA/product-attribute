@@ -37,6 +37,7 @@ addon | version | maintainers | summary
 [product_country_restriction](product_country_restriction/) | 16.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define product restrictions country based
 [product_dimension](product_dimension/) | 16.0.1.1.0 |  | Product Dimension
 [product_expiry_configurable](product_expiry_configurable/) | 16.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
+[product_get_price_helper](product_get_price_helper/) | 16.0.1.0.0 |  | This module provides a helper function to compute product prices.
 [product_logistics_uom](product_logistics_uom/) | 16.0.3.0.0 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
 [product_lot_sequence](product_lot_sequence/) | 16.0.1.0.0 |  | Adds ability to define a lot sequence from the product
 [product_manufacturer](product_manufacturer/) | 16.0.1.0.1 |  | Adds manufacturers and attributes on the product view.
