@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-01-05 02:12+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: none\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_category_type
 #: model:ir.model.fields,help:product_category_type.field_product_category__type
@@ -20,59 +22,61 @@ msgid ""
 "A category of the view type is a virtual category that can be used as the "
 "parent of another category to create a hierarchical structure."
 msgstr ""
+"Une catégorie de type vue est une catégorie virtuelle qui peut être utilisée "
+"comme parent d'une autre catégorie pour créer une structure hiérarchique."
 
 #. module: product_category_type
 #: model:ir.model.fields,field_description:product_category_type.field_product_category__type
 msgid "Category Type"
-msgstr ""
+msgstr "Type de catégorie"
 
 #. module: product_category_type
 #: model:ir.model.fields,field_description:product_category_type.field_product_category__display_name
 #: model:ir.model.fields,field_description:product_category_type.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: product_category_type
 #: model:ir.model.fields,field_description:product_category_type.field_product_category__id
 #: model:ir.model.fields,field_description:product_category_type.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_category_type
 #: model:ir.model.fields,field_description:product_category_type.field_product_category____last_update
 #: model:ir.model.fields,field_description:product_category_type.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: product_category_type
 #: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__normal
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #. module: product_category_type
 #: model:ir.model.fields,field_description:product_category_type.field_product_category__parent_id
 msgid "Parent Category"
-msgstr ""
+msgstr "Catégorie parente"
 
 #. module: product_category_type
 #: model:ir.model,name:product_category_type.model_product_category
 #: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
 #: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
 msgid "Product Category"
-msgstr ""
+msgstr "Catégorie d'articles"
 
 #. module: product_category_type
 #: model:ir.model,name:product_category_type.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Article"
 
 #. module: product_category_type
 #: model:ir.model.fields,help:product_category_type.field_product_product__categ_id
 #: model:ir.model.fields,help:product_category_type.field_product_template__categ_id
 msgid "Select category for the current product"
-msgstr ""
+msgstr "Sélectionnez la catégorie pour cet article"
 
 #. module: product_category_type
 #: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__view
 msgid "View"
-msgstr ""
+msgstr "Vue"
