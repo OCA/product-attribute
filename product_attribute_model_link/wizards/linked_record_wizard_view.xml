@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_linked_record_wizard_form" model="ir.ui.view">
+        <field name="name">linked.record.wizard.form</field>
+        <field name="model">linked.record.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Change Linked Record">
+                <group>
+                    <field name="linked_record_ref" required="1" />
+                </group>
+                <footer>
+                    <button
+                        string="Save"
+                        type="object"
+                        class="btn-primary"
+                        name="action_save_linked_record"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
