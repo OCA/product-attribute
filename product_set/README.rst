@@ -79,6 +79,7 @@ Contributors
 -  Adria Gil Sorribes <adria.gil@forgeflow.com>
 -  Phuc (Tran Thanh) <phuc@trobz.com>
 -  Manuel Regidor <manuel.regidor@sygel.es>
+-  Nils Coenen <nils.coenen@nico-solutions.de>
 
 Other credits
 -------------
