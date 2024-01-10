@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_template_view_form_inherit_optional_qty" model="ir.ui.view">
+        <field name="name">product.template.view.form.inherit.optional.qty</field>
+        <field name="model">product.template</field>
+        <field
+            name="inherit_id"
+            ref="sale_product_configurator.product_template_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="optional_product_ids" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="optional_product_ids" position="after">
+                <field name="product_optional_line_ids">
+                    <tree editable="top">
+                        <field name="company_id" invisible="1" />
+                        <field name="product_tmpl_id" invisible="1" />
+                        <field name="optional_product_tmpl_id" />
+                        <field
+                            name="quantity"
+                            groups="product_optional_product_quantity.group_product_optional_quantity"
+                        />
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+
+</odoo>
