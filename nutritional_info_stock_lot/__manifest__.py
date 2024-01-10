@@ -14,6 +14,7 @@
     "data": [
         "security/ir.model.access.csv",
         "report/report_nutritional_info.xml",
+        "views/stock_menu_views.xml",
         "views/stock_production_lot_view.xml",
     ],
     "application": False,
