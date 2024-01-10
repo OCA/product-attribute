@@ -27,3 +27,19 @@ class TestProductPackagingContainerDeposit(Common):
                 ),
             },
         )
+
+    def test_product_container_deposit_negative_quantity(self):
+        packaging_qties = self.product_a.get_product_container_deposit_quantities(-280)
+        self.assertEqual(
+            packaging_qties,
+            {
+                self.product_packaging_level_box: (
+                    self.package_type_box.container_deposit_product_id,
+                    -11,
+                ),
+                self.product_packaging_level_pallet: (
+                    self.package_type_pallet.container_deposit_product_id,
+                    -1,
+                ),
+            },
+        )
