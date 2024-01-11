@@ -28,7 +28,7 @@ class ProductProduct(models.Model):
     )
 
     @api.constrains("country_id", "state_id")
-    def _chekc_country_id_state_id(self):
+    def _check_country_id_state_id(self):
         for product in self.filtered(lambda x: x.state_id and x.country_id):
             if product.country_id != product.state_id.country_id:
                 raise ValidationError(
