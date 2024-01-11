@@ -25,6 +25,12 @@ class ProductTemplate(models.Model):
         store=True,
     )
 
+    state_id_domain = fields.Binary(
+        compute="_compute_state_id_domain",
+        help="Technical field, used to compute dynamically state domain"
+        "depending on the country.",
+    )
+
     @api.depends("product_variant_ids", "product_variant_ids.country_id")
     def _compute_country_id(self):
         for template in self:
@@ -45,6 +51,13 @@ class ProductTemplate(models.Model):
                 template.state_id = template.product_variant_ids.state_id
             else:
                 template.state_id = False
+
+    @api.depends("country_id")
+    def _compute_state_id_domain(self):
+        for template in self.filtered(lambda x: x.country_id):
+            template.state_id_domain = [("country_id", "=", template.country_id.id)]
+        for template in self.filtered(lambda x: not x.country_id):
+            template.state_id_domain = []
 
     def _inverse_state_id(self):
         for template in self:

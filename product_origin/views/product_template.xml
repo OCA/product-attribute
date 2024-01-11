@@ -10,11 +10,8 @@
             <xpath expr="//group[@name='group_lots_and_weight']" position="after">
                 <group string="Origin" name="group_origin">
                     <field name="country_id" />
-                    <field
-                        name="state_id"
-                        attrs="{'invisible': [('country_id', '=', False)]}"
-                        domain="[('country_id', '=', country_id)]"
-                    />
+                    <field name="state_id_domain" invisible="1" />
+                    <field name="state_id" domain="state_id_domain" />
                 </group>
             </xpath>
         </field>
