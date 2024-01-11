@@ -21,6 +21,12 @@ class ProductProduct(models.Model):
         ondelete="restrict",
     )
 
+    state_id_domain = fields.Binary(
+        compute="_compute_state_id_domain",
+        help="Technical field, used to compute dynamically state domain"
+        "depending on the country.",
+    )
+
     @api.constrains("country_id", "state_id")
     def _chekc_country_id_state_id(self):
         for product in self.filtered(lambda x: x.state_id and x.country_id):
@@ -36,3 +42,10 @@ class ProductProduct(models.Model):
     def onchange_country_id(self):
         if self.state_id and self.state_id.country_id != self.country_id:
             self.state_id = False
+
+    @api.depends("country_id")
+    def _compute_state_id_domain(self):
+        for product in self.filtered(lambda x: x.country_id):
+            product.state_id_domain = [("country_id", "=", product.country_id.id)]
+        for product in self.filtered(lambda x: not x.country_id):
+            product.state_id_domain = []
