@@ -28,7 +28,7 @@ class ProductTemplate(models.Model):
     state_id_domain = fields.Binary(
         compute="_compute_state_id_domain",
         help="Technical field, used to compute dynamically state domain"
-        "depending on the country.",
+        " depending on the country.",
     )
 
     @api.constrains("country_id", "state_id")
@@ -37,8 +37,10 @@ class ProductTemplate(models.Model):
             if template.country_id != template.state_id.country_id:
                 raise ValidationError(
                     _(
-                        f"The state '{template.state_id.name}' doesn't belong to"
-                        f" the country '{template.country_id.name}'"
+                        "The state '%(state_name)s' doesn't belong to"
+                        " the country '%(country_name)s'",
+                        state_name=template.state_id.name,
+                        country_name=template.country_id.name,
                     )
                 )
 
