@@ -2,11 +2,11 @@
 # Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     country_id = fields.Many2one(
@@ -30,6 +30,17 @@ class ProductTemplate(models.Model):
         help="Technical field, used to compute dynamically state domain"
         "depending on the country.",
     )
+
+    @api.constrains("country_id", "state_id")
+    def _check_country_id_state_id(self):
+        for template in self.filtered(lambda x: x.state_id and x.country_id):
+            if template.country_id != template.state_id.country_id:
+                raise ValidationError(
+                    _(
+                        f"The state '{template.state_id.name}' doesn't belong to"
+                        f" the country '{template.country_id.name}'"
+                    )
+                )
 
     @api.depends("product_variant_ids", "product_variant_ids.country_id")
     def _compute_country_id(self):
