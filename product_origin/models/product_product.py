@@ -45,6 +45,11 @@ class ProductProduct(models.Model):
         if self.state_id and self.state_id.country_id != self.country_id:
             self.state_id = False
 
+    @api.onchange("state_id")
+    def onchange_state_id(self):
+        if self.state_id:
+            self.country_id = self.state_id.country_id
+
     @api.depends("country_id")
     def _compute_state_id_domain(self):
         for product in self.filtered(lambda x: x.country_id):
