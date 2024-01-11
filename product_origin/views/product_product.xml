@@ -13,11 +13,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <xpath expr="//group[@name='weight']" position="after">
                 <group string="Origin" name="group_origin">
                     <field name="country_id" />
-                    <field
-                        name="state_id"
-                        attrs="{'invisible': [('country_id', '=', False)]}"
-                        domain="[('country_id', '=', country_id)]"
-                    />
+                    <field name="state_id_domain" invisible="1" />
+                    <field name="state_id" domain="state_id_domain" />
                 </group>
             </xpath>
         </field>
