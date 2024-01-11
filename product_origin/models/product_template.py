@@ -31,6 +31,11 @@ class ProductTemplate(models.Model):
         " depending on the country.",
     )
 
+    @api.onchange("country_id")
+    def onchange_country_id(self):
+        if self.state_id and self.state_id.country_id != self.country_id:
+            self.state_id = False
+
     @api.constrains("country_id", "state_id")
     def _check_country_id_state_id(self):
         for template in self.filtered(lambda x: x.state_id and x.country_id):
