@@ -6,73 +6,75 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-01-13 20:33+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.view_product_form_expiry
 msgid "<span> days</span>"
-msgstr ""
+msgstr "<span> días</span>"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Alert Date Reached"
-msgstr ""
+msgstr "Fecha de Alerta Alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__alert_time
 msgid "Alert Time"
-msgstr ""
+msgstr "Hora de Alerta"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__use_time
 msgid "Best Before Time"
-msgstr ""
+msgstr "Mejor Antes de Tiempo"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_alert_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_alert_time
 msgid "Category Product Alert Time"
-msgstr ""
+msgstr "Categoría Producto Hora de Alerta"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_expiration_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_expiration_time
 msgid "Category Product Expiration Time"
-msgstr ""
+msgstr "Categoría Producto Fecha de Caducidad"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_removal_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_removal_time
 msgid "Category Product Removal Time"
-msgstr ""
+msgstr "Categoría Producto Tiempo de Retirada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_use_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_use_time
 msgid "Category Product Use Time"
-msgstr ""
+msgstr "Categoría Producto Tiempo de Uso"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__category_compute_dates_from
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__category_compute_dates_from
 msgid "Category compute dates from"
-msgstr ""
+msgstr "Categoría calcular fechas a partir de"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__compute_dates_from
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__compute_dates_from
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__compute_dates_from
 msgid "Compute Dates From"
-msgstr ""
+msgstr "Calcular Fechas Desde"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__compute_dates_from__current_date
@@ -81,60 +83,60 @@ msgstr ""
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__compute_dates_from__current_date
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__specific_compute_dates_from__current_date
 msgid "Current Date"
-msgstr ""
+msgstr "Fecha Actual"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__display_name
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__display_name
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__compute_dates_from__expiration_date
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_template__specific_compute_dates_from__expiration_date
 msgid "Expiration Date"
-msgstr ""
+msgstr "Fecha de Expiración"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.search_product_lot_filter_inherit_product_expiry
 msgid "Expiration Date Reached"
-msgstr ""
+msgstr "Fecha de Expiración Alcanzada"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__expiration_date_reminded
 msgid "Expiration Date Reminded"
-msgstr ""
+msgstr "Recordatorio de la Fecha de Expiración"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_product__expiration_time
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__expiration_time
 msgid "Expiration Time"
-msgstr ""
+msgstr "Hora de Expiración"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__compute_dates_from__expiration_date
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__parent_compute_dates_from__expiration_date
 #: model:ir.model.fields.selection,name:product_expiry_configurable.selection__product_category__specific_compute_dates_from__expiration_date
 msgid "Expiration Time Date"
-msgstr ""
+msgstr "Hora de Expiración Fecha"
 
 #. module: product_expiry_configurable
 #: model:mail.activity.type,name:product_expiry_configurable.mail_activity_type_expiry_date_reached
 msgid "Expiry Date Reached"
-msgstr ""
+msgstr "Fecha de Expiración Alcanzada"
 
 #. module: product_expiry_configurable
 #: model_terms:ir.ui.view,arch_db:product_expiry_configurable.product_category_form_view_inherit
 msgid "Expiry Dates"
-msgstr ""
+msgstr "Fechas de Caducidad"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_category__id
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_product_template__id
 #: model:ir.model.fields,field_description:product_expiry_configurable.field_stock_production_lot__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_category__compute_dates_from
@@ -146,6 +148,10 @@ msgid ""
 "selected, the dates will be computed taking as reference the lot's "
 "expiration_date."
 msgstr ""
+"Si se selecciona fecha_actual, las fechas se calcularán tomando como "
+"referencia la fecha actual de creación del lote, mientras que si se "
+"selecciona fecha_de_vencimiento, las fechas se calcularán tomando como "
+"referencia la fecha de vencimiento del lote."
 
 #. module: product_expiry_configurable
 #: model:ir.model.fields,help:product_expiry_configurable.field_product_product__specific_compute_dates_from
