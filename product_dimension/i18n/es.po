@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: product-attribute (9.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-02 03:39+0000\n"
-"PO-Revision-Date: 2024-01-15 14:33+0000\n"
+"PO-Revision-Date: 2024-01-15 16:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/"
 "OCA-product-attribute-9-0/language/es/)\n"
@@ -53,7 +53,7 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:product_dimension.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_dimension.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
@@ -86,20 +86,17 @@ msgstr "Ancho"
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_height
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_height
-#, fuzzy
 msgid "height"
-msgstr "Alto"
+msgstr "Altura"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_length
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_length
-#, fuzzy
 msgid "length"
-msgstr "Largo"
+msgstr "longitud"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_width
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_width
-#, fuzzy
 msgid "width"
-msgstr "Ancho"
+msgstr "Anchura"
