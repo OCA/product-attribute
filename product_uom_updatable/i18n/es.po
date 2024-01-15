@@ -6,33 +6,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-01-15 14:33+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_uom_updatable
 #: model:ir.model.fields,field_description:product_uom_updatable.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: product_uom_updatable
 #: model:ir.model.fields,field_description:product_uom_updatable.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_uom_updatable
 #: model:ir.model.fields,field_description:product_uom_updatable.field_product_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: product_uom_updatable
 #: model:ir.model,name:product_uom_updatable.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de Producto"
 
 #. module: product_uom_updatable
 #: code:addons/product_uom_updatable/models/product_template.py:0
@@ -41,3 +43,5 @@ msgid ""
 "You can not change the unit of measure of a product to a new unit that "
 "doesn't have the same category and factor"
 msgstr ""
+"No puede cambiar la unidad de medida de un producto a una nueva unidad que "
+"no tenga la misma categoría y factor"
