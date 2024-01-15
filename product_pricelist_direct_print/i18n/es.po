@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-21 15:22+0000\n"
-"PO-Revision-Date: 2022-01-21 16:26+0100\n"
-"Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
+"PO-Revision-Date: 2024-01-15 19:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -95,7 +95,7 @@ msgstr "<strong>Descripción</strong>"
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Image</strong>"
-msgstr ""
+msgstr "<strong>Imagen</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -145,7 +145,7 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
 msgid "Context Active Model"
-msgstr ""
+msgstr "Modelo Activo de Contexto"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
@@ -250,12 +250,12 @@ msgstr ""
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "Img"
-msgstr ""
+msgstr "Img"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
@@ -424,7 +424,7 @@ msgstr "Mostrar categorías internas"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_images
 msgid "Show product images"
-msgstr ""
+msgstr "Mostrar imágenes de productos"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
