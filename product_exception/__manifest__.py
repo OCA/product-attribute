@@ -12,5 +12,9 @@
     "installable": True,
     "depends": ["stock", "base_exception"],
     "demo": ["demo/product_exception.xml"],
-    "data": ["data/data.xml", "views/product.xml"],
+    "data": [
+        "data/data.xml",
+        "views/exception_rule_views.xml",
+        "views/product_template_views.xml",
+    ],
 }
