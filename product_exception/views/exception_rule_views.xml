@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- ACTION AND MENU ITEM -->
+    <record id="action_product_exception_rule" model="ir.actions.act_window">
+        <field name="name">Product Exception Rules</field>
+        <field name="res_model">exception.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="base_exception.view_exception_rule_tree" />
+        <field
+            name="domain"
+        >[('model', 'in', ['product.template', 'product.product'])]</field>
+        <field
+            name="context"
+        >{'active_test': False, 'default_model' : 'product.template'}</field>
+    </record>
+    <menuitem
+        id="menu_product_exception_rule"
+        name="Product Exceptions Rules"
+        action="action_product_exception_rule"
+        sequence="90"
+        parent="stock.menu_product_in_config_stock"
+        groups="base_exception.group_exception_rule_manager"
+    />
+</odoo>
