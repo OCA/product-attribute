@@ -37,6 +37,10 @@
                             name="last_ordered_products"
                             attrs="{'invisible':[('partner_count','=',0)]}"
                         />
+                        <field
+                            name="product_selling_date_threshold"
+                            attrs="{'invisible':[('partner_count','=',0)]}"
+                        />
                     </group>
                     <group
                         attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}"
