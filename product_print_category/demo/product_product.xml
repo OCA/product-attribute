@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2018-Today: GRAP (<http://www.grap.coop>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record model="product.product" id="demo_product_1">
+        <field name="name">Demo Product With Print category 1</field>
+        <field name="print_category_id" ref="demo_category_1" />
+    </record>
+
+    <record model="product.product" id="demo_product_2">
+        <field name="name">Demo Product With Print category 2</field>
+        <field name="print_category_id" ref="demo_category_2" />
+    </record>
+
+</odoo>

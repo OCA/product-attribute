@@ -1,0 +1,42 @@
+<odoo>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='variants']/field[@name='attribute_line_ids']/tree/field[@name='attribute_id']"
+                position="before"
+            >
+                <field name="sequence" widget="handle" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="name">product.attribute.form</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+              <field name="short_name" />
+            </xpath>
+            <group name="main_fields" position="after">
+                <group name="product_variant_name" class="o_label_nowrap">
+                    <field name="display_attribute_value" />
+                    <field
+                        name="display_attribute_name"
+                        attrs="{'invisible': [('display_attribute_value','=',False)]}"
+                    />
+                    <field
+                        name="display_no_variant_attribute"
+                        attrs="{'invisible': [('create_variant','!=','no_variant')]}"
+                    />
+                    <field name="display_single_variant_attribute" />
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

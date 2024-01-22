@@ -4,11 +4,14 @@
 from odoo.exceptions import ValidationError
 from odoo.tests import TransactionCase
 
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+
 
 class TestProductCategoryActive(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         categ_obj = cls.env["product.category"]
         product_obj = cls.env["product.template"]
         cls.parent_categ = categ_obj.create({"name": "Parent category"})

@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_packaging_container_deposit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-12-29 11:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_packaging_container_deposit
+#: model:ir.model,name:product_packaging_container_deposit.model_container_deposit_order_line_mixin
+msgid "Container Deposit Order Line Mixin"
+msgstr "Línea de Orden de Depósito de Contenedores Mixtos"
+
+#. module: product_packaging_container_deposit
+#: model:ir.model,name:product_packaging_container_deposit.model_container_deposit_order_mixin
+msgid "Container Deposit Order Mixin"
+msgstr "Orden de Depósito de Contenedores Mixtos"
+
+#. module: product_packaging_container_deposit
+#: model:ir.model.fields,field_description:product_packaging_container_deposit.field_stock_package_type__container_deposit_product_id
+msgid "Container Deposit Product"
+msgstr "Depósito de Envases Producto"
+
+#. module: product_packaging_container_deposit
+#: model:ir.model.fields,field_description:product_packaging_container_deposit.field_container_deposit_order_line_mixin__is_container_deposit
+msgid "Is Container Deposit"
+msgstr "Es Depósito de Contenedores"
+
+#. module: product_packaging_container_deposit
+#: model:ir.model,name:product_packaging_container_deposit.model_product_product
+msgid "Product Variant"
+msgstr "Variante de Producto"
+
+#. module: product_packaging_container_deposit
+#: model:ir.model,name:product_packaging_container_deposit.model_stock_package_type
+msgid "Stock package type"
+msgstr "Tipo de empaquetado de existencias"
+
+#. module: product_packaging_container_deposit
+#. odoo-python
+#: code:addons/product_packaging_container_deposit/models/container_deposit_order_mixin.py:0
+#, python-format
+msgid "[DEL] %(name)s"
+msgstr "[DEL] %(name)s"

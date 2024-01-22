@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
+msgid "Active"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Assigns the priority to the list of product vendor."
 msgstr ""
@@ -149,6 +154,11 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__last_purchase_date
+msgid "Last Purchase"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -164,6 +174,11 @@ msgid ""
 "Lead time in days between the confirmation of the purchase order and the "
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -216,8 +231,18 @@ msgid "Quantity"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
+msgid "Sale Margin"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Sequence"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__show_set_supplier_button
+msgid "Show Set Supplier Button"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer

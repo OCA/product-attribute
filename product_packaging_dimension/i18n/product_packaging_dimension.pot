@@ -34,6 +34,11 @@ msgid "Height must be positive"
 msgstr ""
 
 #. module: product_packaging_dimension
+#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
+msgid "Length"
+msgstr ""
+
+#. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_length
 msgid "Length must be positive"
 msgstr ""
@@ -41,21 +46,6 @@ msgstr ""
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__length_uom_name
 msgid "Length unit of measure label"
-msgstr ""
-
-#. module: product_packaging_dimension
-#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_max_weight
-msgid "Max Weight must be positive"
-msgstr ""
-
-#. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__max_weight
-msgid "Maximum Weight"
-msgstr ""
-
-#. module: product_packaging_dimension
-#: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
-msgid "Packaging Length"
 msgstr ""
 
 #. module: product_packaging_dimension
@@ -112,6 +102,11 @@ msgstr ""
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_id
 msgid "Weight Units of Measure"
+msgstr ""
+
+#. module: product_packaging_dimension
+#: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_weight
+msgid "Weight must be positive"
 msgstr ""
 
 #. module: product_packaging_dimension
