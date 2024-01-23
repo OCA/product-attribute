@@ -6,7 +6,7 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Sale",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.1.1",
     "depends": ["stock", "base_view_inheritance_extension"],
     "data": [
         "security/groups.xml",
