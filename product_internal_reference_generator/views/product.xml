@@ -40,10 +40,11 @@
                     attrs="{'invisible': [('int_ref_template_id', '=', False)]}"
                     string="Int. Ref. Prefix"
                 />
+                <field name="variants_sequence_id" invisible="1" />
             </field>
             <field name="default_code" position="attributes">
                 <attribute name="attrs" operation="python_dict" key="readonly">
-                    [('default_code', '!=', False)]
+                    [('variants_sequence_id', '!=', False)]
                 </attribute>
                 <attribute
                     name="groups"
@@ -121,10 +122,11 @@
                     name="default_code"
                     groups="product_internal_reference_generator.group_int_ref_template_always_visible"
                 />
+                <field name="variants_sequence_id" invisible="1" />
             </field>
             <field name="default_code" position="attributes">
                 <attribute name="attrs" operation="python_dict" key="readonly">
-                    [('default_code', '!=', False)]
+                   [('variants_sequence_id', '!=', False)]
                 </attribute>
                 <attribute
                     name="groups"
@@ -142,10 +144,11 @@
                     name="default_code"
                     groups="product_internal_reference_generator.group_int_ref_template_always_visible"
                 />
+                <field name="variants_sequence_id" invisible="1" />
             </field>
             <field name="default_code" position="attributes">
                 <attribute name="attrs" operation="python_dict" key="readonly">
-                    [('default_code', '!=', False)]
+                    [('variants_sequence_id', '!=', False)]
                 </attribute>
                 <attribute
                     name="groups"
