@@ -1,6 +1,7 @@
 # Copyright 2023 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class ProductTemplate(models.Model):
@@ -60,3 +61,13 @@ class ProductTemplate(models.Model):
             if template.product_variant_count == 1:
                 variant = template.product_variant_ids
                 variant.nutritional_reference_qty = template.nutritional_reference_qty
+
+    @api.constrains("nutritional_value_ids", "nutritional_value_ids.type_id")
+    def _check_nutritional_type_not_repeated(self):
+        for prod in self:
+            if prod.nutritional_value_ids and len(prod.nutritional_value_ids) != len(
+                prod.nutritional_value_ids.type_id
+            ):
+                raise UserError(
+                    _("Repeating types of nutritional values is not allowed.")
+                )
