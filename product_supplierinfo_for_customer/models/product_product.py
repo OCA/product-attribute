@@ -131,7 +131,7 @@ class ProductProduct(models.Model):
             .search(domain)
             .sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
         )
-        res_1 = res.sorted("product_tmpl_id")[:1]
+        res_1 = res.sorted("product_id", reverse=True)[:1]
         if res_1 or not partner.parent_id:
             return res_1
         else:
