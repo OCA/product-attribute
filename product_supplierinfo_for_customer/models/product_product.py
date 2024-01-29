@@ -4,7 +4,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import datetime
 
-from odoo import api, models
+from odoo import api, fields, models
+from odoo.osv import expression
+from odoo.tools import float_compare
 
 
 class ProductProduct(models.Model):
@@ -107,30 +109,88 @@ class ProductProduct(models.Model):
             price_type, uom, currency, company
         )
 
+    def _prepare_customers(self, params=False):
+        return self.env["product.customerinfo"].search(
+            params.get("domain", []),
+            order="sequence, min_qty desc, price, id",
+        )
+
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
-        partner_id = params.get("partner_id")
-        return [
-            ("name", "=", partner_id),
+        date = fields.Date.to_string(
+            params.get("date") or fields.Date.context_today(self)
+        )
+        domain = [
+            "|",
+            ("company_id", "=", False),
+            ("company_id", "=", self.env.company.id),
             "|",
             ("product_id", "=", self.id),
             "&",
             ("product_tmpl_id", "=", self.product_tmpl_id.id),
             ("product_id", "=", False),
+            "|",
+            ("date_start", "=", False),
+            ("date_start", "<=", date),
+            "|",
+            ("date_end", "=", False),
+            ("date_end", ">=", date),
         ]
+        partner_id = params.get("partner_id")
+        if partner_id:
+            domain = expression.AND(
+                [domain, [("name", "in", (partner_id + partner_id.parent_id).ids)]]
+            )
+        return domain
+
+    def _customers_filter_by_quantity(self, customers, quantity, uom_id, precision):
+        res = self.env["product.customerinfo"]
+        # Set quantity in UoM of customer
+        if quantity:
+            if uom_id and self.uom_id and uom_id != self.uom_id:
+                quantity = uom_id._compute_quantity(quantity, self.uom_id)
+        for customer in customers:
+            if quantity:
+                if (
+                    float_compare(
+                        quantity,
+                        customer.min_qty,
+                        precision_digits=precision,
+                    )
+                    == -1
+                ):
+                    continue
+            else:
+                if customer.min_qty:
+                    continue
+            res |= customer
+        return res
 
     def _select_customerinfo(
-        self, partner=False, _quantity=0.0, _date=None, _uom_id=False, params=False
+        self, partner=False, quantity=0.0, date=None, uom_id=False, params=False
     ):
         """Customer version of the standard `_select_seller`."""
-        # TODO: For now it is just the function name with same arguments, but
-        #  can be changed in future migrations to be more in line Odoo
-        #  standard way to select supplierinfo's.
+        self.ensure_one()
         if not params:
-            params = dict()
-        params.update({"partner_id": partner.id})
+            params = {}
+        params.update({"date": date, "partner_id": partner})
         domain = self._prepare_domain_customerinfo(params)
-        res = self.env["product.customerinfo"].search(
-            domain, order="product_id, sequence", limit=1
+        params["domain"] = domain
+
+        customers = self._prepare_customers(params)
+        precision = self.env["decimal.precision"].precision_get(
+            "Product Unit of Measure"
         )
-        return res
+        res = self._customers_filter_by_quantity(
+            customers, quantity=quantity, uom_id=uom_id, precision=precision
+        )
+        if res:
+            customer_name = res[0].name
+            res = res.filtered(lambda x, name=customer_name: x.name == name)
+
+        # Prefer matching specific variants over templates if possible
+        variant_res = res.filtered(lambda x: x.product_id)
+        if variant_res:
+            res = variant_res
+
+        return res.sorted("price")[:1]

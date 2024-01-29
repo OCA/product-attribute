@@ -3,6 +3,8 @@
 # Copyright 2015 Tecnativa
 # Copyright 2018 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+from datetime import datetime, timedelta
+
 from odoo.tests.common import SavepointCase
 
 
@@ -35,6 +37,7 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
                 "product_tmpl_id": cls.product.product_tmpl_id.id,
             }
         )
+        cls.now = datetime.now()
 
     @classmethod
     def _create_customer(cls, name):
@@ -44,13 +47,23 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
         )
 
     @classmethod
-    def _create_partnerinfo(cls, supplierinfo_type, partner, product):
+    def _create_partnerinfo(
+        cls,
+        supplierinfo_type,
+        partner,
+        product,
+        date_start=False,
+        date_end=False,
+        price=100.0,
+    ):
         return cls.env["product." + supplierinfo_type + "info"].create(
             {
                 "name": partner.id,
                 "product_id": product.id,
                 "product_code": "00001",
-                "price": 100.0,
+                "price": price,
+                "date_start": date_start,
+                "date_end": date_end,
             }
         )
 
@@ -173,3 +186,113 @@ class TestProductSupplierinfoForCustomer(SavepointCase):
             "partner", product_1.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(res[product_1.id], 10.0)
+
+    def test_select_customerinfo_dates(self):
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, self.customerinfo)
+
+        # 2 customer info objects are valid
+        # New info is selected because of the lower price
+        new_info = self._create_partnerinfo(
+            "customer",
+            partner=self.customer,
+            product=self.product,
+            date_start=self.now - timedelta(days=1),
+            date_end=self.now + timedelta(days=1),
+            price=75,
+        )
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, new_info)
+
+        # select customerinfo with lower price
+        new_info.price = 200
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, self.customerinfo)
+
+        # still valid with date_start not set
+        new_info.price = 75
+        new_info.date_start = False
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, new_info)
+
+        # still valid with date_end not set
+        new_info.date_end = False
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, new_info)
+
+        # not valid with date_start in the future
+        new_info.date_start = self.now + timedelta(days=1)
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, self.customerinfo)
+
+        # unless I specify the date
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, date=self.now + timedelta(days=2)
+        )
+        self.assertEqual(found_info, new_info)
+
+        new_info.date_start = False
+        # not valid with date_end in the past
+        new_info.date_end = self.now - timedelta(days=1)
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, self.customerinfo)
+
+        # unless I specify the date
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, date=self.now - timedelta(days=2)
+        )
+        self.assertEqual(found_info, new_info)
+
+    def test_select_customerinfo_quantity(self):
+        """Test selecting by min quantity"""
+        qty_info = self.env["product.customerinfo"].create(
+            {
+                "name": self.customer.id,
+                "product_id": self.product.id,
+                "product_code": "9999",
+                "price": 50,
+                "min_qty": 5,
+                "product_uom": self.env.ref("uom.product_uom_unit").id,
+            }
+        )
+
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, quantity=5
+        )
+        self.assertEqual(found_info, qty_info)
+
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, quantity=10
+        )
+        self.assertEqual(found_info, qty_info)
+
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, quantity=1
+        )
+        self.assertEqual(found_info, self.customerinfo)
+
+        # without quantity, only finds lines with no `min_qty` set
+        found_info = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(found_info, self.customerinfo)
+
+        # test UoM conversion
+        dozen = self.env.ref("uom.product_uom_dozen")
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, quantity=0.5, uom_id=dozen
+        )
+        self.assertEqual(found_info, qty_info)
+
+        found_info = self.product._select_customerinfo(
+            partner=self.customer, quantity=0.25, uom_id=dozen
+        )
+        self.assertEqual(found_info, self.customerinfo)
+
+    def test_select_customerinfo_parent_partner(self):
+        child_customer = self._create_customer("child_customer")
+
+        found_info = self.product._select_customerinfo(partner=child_customer)
+        self.assertFalse(found_info)
+
+        child_customer.parent_id = self.customer
+        found_info = self.product._select_customerinfo(partner=child_customer)
+        self.assertEqual(found_info, self.customerinfo)

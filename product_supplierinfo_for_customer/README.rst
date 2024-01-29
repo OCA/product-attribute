@@ -40,26 +40,35 @@ allowing to define prices per customer and product.
 Configuration
 =============
 
-For these prices to be used in sale prices calculations, you will have
-to create a pricelist with a rule with option "Based on" with the value
-"Partner Prices: Take the price from the customer info on the 'product form')".
+There's a new section in the *Sales* tab of the product form called "Customers",
+where you can define pricelist-like records for customers with the same
+structure as the suppliers:
+
+- custom price for a specific customer
+- minimum quantity to purchase for this price to apply
+- when the price is valid (start and end)
+- custom product name and code for a specific customer
+
+There's a new option on pricelist items that allows to get the prices from the
+supplierinfo at the product form. These prices will only apply through a pricelist using such rule.
 
 Usage
 =====
 
-There's a new section on *Sales* tab of the product form called "Customers",
-where you can define records for customers with the same structure of the
-suppliers.
+#. Navigate to a product page. In the *Sales* tab, add a new line to the table labelled "Customers" to add a specify a custom price for a given customer
+#. Create a new pricelist, and a pricelist item that applies to the product. In the "price computation" section, choose "Formula" and then for "Based on" pick "Partner Prices on Product form"
+#. Create a Sales Order for the customer you chose, and use the pricelist you chose. Add a line with the product: the price will reflect the one added in the product form. Additionally, if they were added, the custom product name and code will also be used in the description of the Sales Order Line.
 
-There's a new option on pricelist items that allows to get the prices from the
-supplierinfo at the product form.
+Note: the customer price defined on the product form will only be used if the correct pricelist is used.
 
 Known issues / Roadmap
 ======================
 
 * Product prices through this method are only guaranteed on the standard sale
-  order workflow. Other custom flows maybe don't reflect the price.
-* The minimum quantity will neither apply on sale orders.
+  order workflow. Other custom flows may not reflect the price.
+  * Additionally, only custom product prices with no minimum quantity set will be used on the Sales Order
+* Custom name and description will be used on Sales Order Lines regardless of pricelist.
+
 
 Bug Tracker
 ===========
@@ -88,6 +97,7 @@ Contributors
 * Aaron Henriquez <ahenriquez@forgeflow.com>
 * Miquel Raïch <miquel.raich@forgeflow.com>
 * Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+* PyTech SRL - Alessandro Uffreduzzi <alessandro.uffreduzzi@pytech.it>
 
 Maintainers
 ~~~~~~~~~~~
@@ -101,6 +111,20 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-aleuffre| image:: https://github.com/aleuffre.png?size=40px
+    :target: https://github.com/aleuffre
+    :alt: aleuffre
+.. |maintainer-renda-dev| image:: https://github.com/renda-dev.png?size=40px
+    :target: https://github.com/renda-dev
+    :alt: renda-dev
+.. |maintainer-PicchiSeba| image:: https://github.com/PicchiSeba.png?size=40px
+    :target: https://github.com/PicchiSeba
+    :alt: PicchiSeba
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-aleuffre| |maintainer-renda-dev| |maintainer-PicchiSeba| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/14.0/product_supplierinfo_for_customer>`_ project on GitHub.
 

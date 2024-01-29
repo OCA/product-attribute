@@ -12,6 +12,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "category": "Sales Management",
     "license": "AGPL-3",
+    "maintainers": ["aleuffre", "renda-dev", "PicchiSeba"],
     "depends": ["product", "sales_team"],
     "data": [
         "security/ir.model.access.csv",
