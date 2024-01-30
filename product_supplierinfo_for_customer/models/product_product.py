@@ -180,22 +180,24 @@ class ProductProduct(models.Model):
         domain = self._prepare_domain_customerinfo(params)
         params["domain"] = domain
 
-        customers = self._prepare_customers(params)
+        customerinfos = self._prepare_customers(params)
         precision = self.env["decimal.precision"].precision_get(
             "Product Unit of Measure"
         )
 
         if quantity is not None:
-            customers = self._customers_filter_by_quantity(
-                customers, quantity=quantity, uom_id=uom_id, precision=precision
+            customerinfos = self._customers_filter_by_quantity(
+                customerinfos, quantity=quantity, uom_id=uom_id, precision=precision
             )
-        if customers:
-            customer_name = customers[0].name
-            customers = customers.filtered(lambda x, name=customer_name: x.name == name)
+        if customerinfos:
+            customer = customerinfos[0].name
+            customerinfos = customerinfos.filtered(
+                lambda x, name=customer: x.name == name
+            )
 
         # Prefer matching specific variants over templates if possible
-        variant_res = customers.filtered(lambda x: x.product_id)
+        variant_res = customerinfos.filtered(lambda x: x.product_id)
         if variant_res:
-            customers = variant_res
+            customerinfos = variant_res
 
-        return customers.sorted("price")[:1]
+        return customerinfos.sorted("price")[:1]
