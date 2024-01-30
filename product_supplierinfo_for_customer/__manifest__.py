@@ -6,7 +6,7 @@
 {
     "name": "Product Supplierinfo for Customers",
     "summary": "Allows to define prices for customers in the products",
-    "version": "14.0.2.0.0",
+    "version": "14.0.2.0.1",
     "development_status": "Production/Stable",
     "author": "AvanzOSC, " "Tecnativa, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
