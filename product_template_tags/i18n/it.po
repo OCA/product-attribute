@@ -31,6 +31,11 @@ msgid "Add tags"
 msgstr "Aggiungi etichette"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__child_ids
+msgid "Child"
+msgstr ""
+
+#. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
 msgstr "Indice colore"
@@ -82,6 +87,16 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
 msgstr "Etichetta prodotto"
@@ -117,3 +132,9 @@ msgstr "Il nome del tag dev'essere univoco all'interno della stessa Azienda"
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
 msgstr "Etichette"
+
+#. module: product_template_tags
+#: code:addons/product_template_tags/models/product_template_tag.py:0
+#, python-format
+msgid "Tags cannot be recursive."
+msgstr ""

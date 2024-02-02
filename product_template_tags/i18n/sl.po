@@ -30,6 +30,11 @@ msgid "Add tags"
 msgstr ""
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__child_ids
+msgid "Child"
+msgstr ""
+
+#. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
 msgstr ""
@@ -81,6 +86,16 @@ msgid "Name"
 msgstr "Naziv"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
 msgstr ""
@@ -115,4 +130,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
+msgstr ""
+
+#. module: product_template_tags
+#: code:addons/product_template_tags/models/product_template_tag.py:0
+#, python-format
+msgid "Tags cannot be recursive."
 msgstr ""
