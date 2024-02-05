@@ -120,6 +120,7 @@ profile, changing profile will not influence default values
 .. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_profile/static/img/list.png
 .. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_profile/static/img/create.png
 
+
 Usage
 =====
 

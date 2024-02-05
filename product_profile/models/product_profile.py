@@ -98,8 +98,16 @@ class ProductProfile(models.Model):
 
     def _refresh_products_vals(self):
         """Reapply profile values on products"""
+        by_profile = dict(
+            self.env["product.product"]._read_group(
+                [("profile_id", "in", self.ids)],
+                groupby=["profile_id"],
+                aggregates=["id:recordset"],
+            )
+        )
+
         for rec in self:
-            products = self.env["product.product"].search([("profile_id", "=", rec.id)])
+            products = by_profile.get(rec)
             if products:
                 _logger.info(
                     " >>> {} Products updating after updated '{}' pro"
