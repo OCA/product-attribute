@@ -102,8 +102,8 @@ class ProductProfile(models.Model):
             products = self.env["product.product"].search([("profile_id", "=", rec.id)])
             if products:
                 _logger.info(
-                    " >>> %s Products updating after updated '%s' pro"
-                    "duct profile" % (len(products), rec.name)
+                    " >>> {} Products updating after updated '{}' pro"
+                    "duct profile".format(len(products), rec.name)
                 )
                 data = products._get_vals_from_profile(
                     {"profile_id": rec.id}, ignore_defaults=True

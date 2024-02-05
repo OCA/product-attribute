@@ -17,36 +17,42 @@ Product Profile
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_profile
+    :target: https://github.com/OCA/product-attribute/tree/17.0/product_profile
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_profile
+    :target: https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_profile
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module provides easier products configuration (in one click).
-It allows to configure a product template with only one field.
+This module provides easier products configuration (in one click). It
+allows to configure a product template with only one field.
 
- .. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_profile/static/img/field.png
-   :alt: profile field on product
-   :width: 600 px
+   |image1|
 
-**Main use case**: a lot of modules are installed (mrp, purchase, sale, pos)
-and products configuration becomes harder for end users: too many fields to take care of.
+**Main use case**: a lot of modules are installed (mrp, purchase, sale,
+pos) and products configuration becomes harder for end users: too many
+fields to take care of.
 
-You are concerned that at any time a product might be not configured correctly: this module is your friend.
+You are concerned that at any time a product might be not configured
+correctly: this module is your friend.
 
-Thanks to this module, a lot of complexity becomes hidden (default behavior) to the end user and usability is optimal.
+Thanks to this module, a lot of complexity becomes hidden (default
+behavior) to the end user and usability is optimal.
 
-It eases as well the data migration by only specifying the profile field instead of all fields which depend on it.
+It eases as well the data migration by only specifying the profile field
+instead of all fields which depend on it.
 
-Note: This module is meant to be used by skilled people in database fields creation within the ERP framework.
+Note: This module is meant to be used by skilled people in database
+fields creation within the ERP framework.
 
-Additional feature: a default value can be attached to a profile (see § Configuration, part 3)
+Additional feature: a default value can be attached to a profile (see §
+Configuration, part 3)
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_profile/static/img/field.png
 
 **Table of contents**
 
@@ -56,78 +62,84 @@ Additional feature: a default value can be attached to a profile (see § Configu
 Configuration
 =============
 
-1. Create your own profile here:
-   Sales > Configuration > Product > Product Profiles
+1. Create your own profile here: Sales > Configuration > Product >
+   Product Profiles
 
-   .. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_profile/static/img/list.png
-     :alt: profile list
-     :width: 600 px
+   |image2|
 
-   .. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_profile/static/img/create.png
-     :alt: profile create
-     :width: 600 px
+   |image3|
 
-2. Extend "product.profile" model to add fields from product.template, either in normal mode or default mode (see note section below). These fields should be identical to their original fields **(especially "required" field attribute)**.
+2. Extend "product.profile" model to add fields from product.template,
+   either in normal mode or default mode (see note section below). These
+   fields should be identical to their original fields **(especially
+   "required" field attribute)**.
 
-   .. code-block:: python
+   .. code:: python
 
-    class ProductProfile(models.Model):
-      """ Require dependency on sale, purchase and point_of_sale modules
-      """
+      class ProductProfile(models.Model):
+        """ Require dependency on sale, purchase and point_of_sale modules
+        """
 
-      _inherit = "product.profile"
+        _inherit = "product.profile"
 
-      def _get_types(self):
-          return [("product", "Stockable Product"),
-                  ("consu", 'Consumable'),
-                  ("service", "Service")]
+        def _get_types(self):
+            return [("product", "Stockable Product"),
+                    ("consu", 'Consumable'),
+                    ("service", "Service")]
 
-      sale_ok = fields.Boolean(
-          string="Can be Sold",
-          help="Specify if the product can be selected in a sales order line.")
-      purchase_ok = fields.Boolean(
-          string="Can be Purchased")
-      available_in_pos = fields.Boolean()
+        sale_ok = fields.Boolean(
+            string="Can be Sold",
+            help="Specify if the product can be selected in a sales order line.")
+        purchase_ok = fields.Boolean(
+            string="Can be Purchased")
+        available_in_pos = fields.Boolean()
 
-3. Insert data (xml or csv) and define values for each field defined above
-   for each configuration scenario
+3. Insert data (xml or csv) and define values for each field defined
+   above for each configuration scenario
 
-Note :
-You might want to declare profile fields as defaults. To do this, just prefix the field with "profile_default".
+Note : You might want to declare profile fields as defaults. To do this,
+just prefix the field with "profile_default".
 
-   .. code-block:: python
+   .. code:: python
 
-    class ProductProfile(models.Model):
-      profile_default_categ_id = fields.Many2one(
-          "product.category",
-          string="Default category",
-        )
-      profile_default_tag_ids = fields.Many2many(
-          comodel_name="product.template.tag",
-          string="Tags",
-        )
+      class ProductProfile(models.Model):
+        profile_default_categ_id = fields.Many2one(
+            "product.category",
+            string="Default category",
+          )
+        profile_default_tag_ids = fields.Many2many(
+            comodel_name="product.template.tag",
+            string="Tags",
+          )
 
-Default fields only influence the records the first time they are set.
-- if the profile is modified, changes are not propagated to all the records that have this profile
-- if the record previously had another profile, changing profile will not influence default values
+Default fields only influence the records the first time they are set. -
+if the profile is modified, changes are not propagated to all the
+records that have this profile - if the record previously had another
+profile, changing profile will not influence default values
+
+.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_profile/static/img/list.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_profile/static/img/create.png
 
 Usage
 =====
 
-Assign a value to the profile field in the product template form.
-Then, all fields which depend on this profile will be set to the right value at once.
+Assign a value to the profile field in the product template form. Then,
+all fields which depend on this profile will be set to the right value
+at once.
 
-If you deselect the profile value, all these fields keep the same value and you can change them manually
-(back to standard behavior).
+If you deselect the profile value, all these fields keep the same value
+and you can change them manually (back to standard behavior).
 
 Profiles are also defined as search filter and group.
 
 Known issues / Roadmap
 ======================
 
-- Streamlined behaviour of default/nondefault fields in every situation
-- More robust/less error-prone functionality for required fields or fields implicated in workflows
-- More flexible/configurable behaviour for profile fields (instead of only default/nondefault fields)
+-  Streamlined behaviour of default/nondefault fields in every situation
+-  More robust/less error-prone functionality for required fields or
+   fields implicated in workflows
+-  More flexible/configurable behaviour for profile fields (instead of
+   only default/nondefault fields)
 
 Bug Tracker
 ===========
@@ -135,7 +147,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_profile%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_profile%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -143,20 +155,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* David BEAL <david.beal@akretion.com>
-* Sébastien BEAU <sebastien.beau@akretion.com>
-* Abdessamad HILALI <abdessamad.hilali@akretion.com>
-* Kevin Khao <kevin.khao@akretion.com>
+-  David BEAL <david.beal@akretion.com>
+-  Sébastien BEAU <sebastien.beau@akretion.com>
+-  Abdessamad HILALI <abdessamad.hilali@akretion.com>
+-  Kevin Khao <kevin.khao@akretion.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -182,6 +194,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-bealdav| |maintainer-sebastienbeau| |maintainer-kevinkhao| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_profile>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_profile>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
