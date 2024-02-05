@@ -1,9 +1,9 @@
 1.  Create your own profile here: Sales \> Configuration \> Product \>
     Product Profiles
 
-    ![](static/img/list.png)
+    ![Product Profile List View](static/img/list.png)
 
-    ![](static/img/create.png)
+    ![New Product Profile](static/img/create.png)
 
 2.  Extend "product.profile" model to add fields from product.template,
     either in normal mode or default mode (see note section below).
