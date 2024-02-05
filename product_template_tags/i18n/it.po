@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-03 02:14+0000\n"
-"PO-Revision-Date: 2023-11-06 15:40+0000\n"
+"PO-Revision-Date: 2024-02-05 08:35+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -33,7 +33,7 @@ msgstr "Aggiungi etichette"
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__child_ids
 msgid "Child"
-msgstr ""
+msgstr "Figlio"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
@@ -89,12 +89,12 @@ msgstr "Nome"
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_id
 msgid "Parent"
-msgstr ""
+msgstr "Padre"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Percorso padre"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
@@ -137,4 +137,4 @@ msgstr "Etichette"
 #: code:addons/product_template_tags/models/product_template_tag.py:0
 #, python-format
 msgid "Tags cannot be recursive."
-msgstr ""
+msgstr "Le etichette non possono essere ricorsive."
