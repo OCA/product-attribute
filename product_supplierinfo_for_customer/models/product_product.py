@@ -69,7 +69,7 @@ class ProductProduct(models.Model):
         if not partner_id:
             return 0.0
         partner = self.env["res.partner"].browse(partner_id)
-        customerinfo = self._select_customerinfo(partner=partner)
+        customerinfo = self._select_customerinfo(partner=partner, quantity=None)
         if customerinfo:
             return customerinfo.price
         return 0.0
