@@ -159,3 +159,19 @@ class ProductTemplate(models.Model):
             )
         for template in self - unique_variants:
             template.show_weight_uom_warning = False
+
+    def _prepare_variant_values(self, combination):
+        res = super()._prepare_variant_values(combination)
+        if self.product_volume:
+            res.update(
+                {
+                    "product_volume": self.product_volume,
+                }
+            )
+        if self.product_weight:
+            res.update(
+                {
+                    "product_weight": self.product_weight,
+                }
+            )
+        return res
