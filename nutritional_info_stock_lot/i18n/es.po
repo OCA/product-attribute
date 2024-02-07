@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nutritional_info_stock_lot
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-24 16:02+0000\n"
+"PO-Revision-Date: 2024-01-24 17:03+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__id
+msgid "ID"
+msgstr "ID"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__lot_id
+msgid "Lot"
+msgstr "Lote"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model,name:nutritional_info_stock_lot.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lote/Número de serie"
+
+#. module: nutritional_info_stock_lot
+#: model_terms:ir.ui.view,arch_db:nutritional_info_stock_lot.product_normal_form_view
+msgid "Nutrition"
+msgstr "Nutrición"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.actions.report,name:nutritional_info_stock_lot.action_nutritional_info_template_report
+msgid "Nutritional Info"
+msgstr "Información nutricional"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_stock_production_lot__nutritional_value_ids
+msgid "Nutritional Value"
+msgstr "Valor nutricional"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.ui.menu,name:nutritional_info_stock_lot.nutritional_value_menu
+msgid "Nutritional Values"
+msgstr "Valores nutricionales"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model,name:nutritional_info_stock_lot.model_nutritional_value_lot
+msgid "Nutritional values for a given lot"
+msgstr "Valores nutricionales de un lote determinado"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: nutritional_info_stock_lot
+#: code:addons/nutritional_info_stock_lot/models/stock_production_lot.py:0
+#, python-format
+msgid "Repeating types of nutritional values is not allowed."
+msgstr "No está permitido repetir los tipos de los valores nutricionales."
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__type_id
+msgid "Type"
+msgstr "Tipo"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.ui.menu,name:nutritional_info_stock_lot.nutritional_value_type_menu
+msgid "Types"
+msgstr "Tipos"
+
+#. module: nutritional_info_stock_lot
+#: model:ir.model.fields,field_description:nutritional_info_stock_lot.field_nutritional_value_lot__value
+msgid "Value"
+msgstr "Valor"

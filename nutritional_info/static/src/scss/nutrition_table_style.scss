@@ -1,0 +1,25 @@
+.nutrition-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid;
+
+    th {
+        border: 1px solid;
+        background-color: #d3d3d3;
+        text-align: center;
+    }
+
+    td {
+        border: 1px solid;
+        padding-left: 5px;
+        padding-right: 5px;
+
+        &.col-left {
+            width: 60%;
+        }
+
+        &.col-right {
+            width: 30%;
+        }
+    }
+}
