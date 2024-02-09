@@ -19,12 +19,12 @@ class ProductProduct(models.Model):
         "for this product or update the existing one.",
     )
     quick_uom_category_id = fields.Many2one(
-        "uom.category", related="quick_uom_id.category_id"
+        "uom.category", compute="_compute_quick_uom_info"
     )
     quick_uom_id = fields.Many2one(
         "uom.uom",
         domain="[('category_id', '=', quick_uom_category_id)]",
-        compute="_compute_quick_uom_id",
+        compute="_compute_quick_uom_info",
         inverse="_inverse_set_process_qty",
     )
 
@@ -85,15 +85,18 @@ class ProductProduct(models.Model):
     def _default_quick_uom_id(self):
         raise NotImplementedError
 
-    def _compute_quick_uom_id(self):
+    def _compute_quick_uom_info(self):
         parent = self.pma_parent
-        if parent:
-            for rec in self:
-                quick_line = parent._get_quick_line(rec)
-                if quick_line:
-                    rec.quick_uom_id = quick_line.product_uom
-                else:
-                    rec.quick_uom_id = rec._default_quick_uom_id()
+        if not parent:
+            return
+
+        for product in self:
+            quick_line = parent._get_quick_line(product)
+            if quick_line:
+                product.quick_uom_id = quick_line.product_uom
+            else:
+                product.quick_uom_id = product._default_quick_uom_id()
+            product.quick_uom_category_id = product.quick_uom_id.category_id
 
     def _compute_process_qty(self):
         if not self.pma_parent:
