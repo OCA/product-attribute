@@ -212,11 +212,12 @@ class ProductMixinProfile(models.AbstractModel):
                 except Exception as e:
                     raise UserError(format_except_message(e, field, self)) from e
 
-    @api.model
-    def create(self, vals):
-        if vals.get("profile_id"):
-            vals.update(self._get_vals_from_profile(vals, ignore_defaults=False))
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("profile_id"):
+                vals.update(self._get_vals_from_profile(vals, ignore_defaults=False))
+        return super().create(vals_list)
 
     def write(self, vals):
         profile_changed = vals.get("profile_id")
