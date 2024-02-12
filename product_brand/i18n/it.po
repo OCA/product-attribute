@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-29 02:55+0000\n"
-"PO-Revision-Date: 2023-06-08 09:10+0000\n"
+"PO-Revision-Date: 2024-02-12 10:35+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -69,7 +69,7 @@ msgstr ""
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand___last_update
 msgid "Last Modified on"
-msgstr "Ultima Modifica il"
+msgstr "Ultima modifica il"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_write_uid
