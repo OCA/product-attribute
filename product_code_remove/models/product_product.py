@@ -1,13 +1,12 @@
 # Copyright 2019 Therp BV <https://therp.nl>.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 # pylint: disable=missing-docstring
-from odoo import api, models
+from odoo import models
 
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    @api.multi
     def name_get(self):
         result = []
         for this in self:
