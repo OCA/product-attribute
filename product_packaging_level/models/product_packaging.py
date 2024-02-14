@@ -8,8 +8,8 @@ from odoo.exceptions import ValidationError
 
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
-    _order = "product_id, level_sequence"
 
+    sequence = fields.Integer(compute="_compute_sequence", store=True)
     packaging_level_id = fields.Many2one(
         "product.packaging.level",
         required=True,
@@ -18,12 +18,6 @@ class ProductPackaging(models.Model):
     )
     barcode_required_for_gtin = fields.Boolean(
         readonly=True, compute="_compute_barcode_required_for_gtin"
-    )
-    level_sequence = fields.Integer(
-        string="Level Sequence",
-        related="packaging_level_id.sequence",
-        readonly=True,
-        store=True,
     )
     qty_per_level = fields.Char(
         compute="_compute_qty_per_level", string="Qty per package level"
@@ -60,6 +54,11 @@ class ProductPackaging(models.Model):
                         "with the same level for a given product ({})."
                     ).format(product.display_name)
                 )
+
+    @api.depends("packaging_level_id")
+    def _compute_sequence(self):
+        for packaging in self:
+            packaging.sequence = packaging.packaging_level_id.sequence
 
     @api.depends("packaging_level_id", "packaging_level_id.has_gtin", "qty")
     def _compute_barcode_required_for_gtin(self):
