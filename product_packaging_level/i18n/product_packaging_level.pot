@@ -88,11 +88,6 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_packaging_level
-#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__level_sequence
-msgid "Level Sequence"
-msgstr ""
-
-#. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging_level
 msgid "Level management for product.packaging"
 msgstr ""
@@ -165,6 +160,7 @@ msgid "Qty per package level"
 msgstr ""
 
 #. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__sequence
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__sequence
 msgid "Sequence"
 msgstr ""
@@ -172,6 +168,11 @@ msgstr ""
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_stock_package_type
 msgid "Stock package type"
+msgstr ""
+
+#. module: product_packaging_level
+#: model:ir.model.fields,help:product_packaging_level.field_product_packaging__sequence
+msgid "The first in the sequence is the default one."
 msgstr ""
 
 #. module: product_packaging_level
