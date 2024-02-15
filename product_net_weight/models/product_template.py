@@ -35,7 +35,7 @@ class ProductTemplate(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        templates = super(ProductTemplate, self).create(vals_list)
+        templates = super().create(vals_list)
         # This is needed to set given values to first variant after creation
         for template, vals in zip(templates, vals_list):
             if vals.get("net_weight"):
