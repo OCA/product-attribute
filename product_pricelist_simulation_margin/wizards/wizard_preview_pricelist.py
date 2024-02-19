@@ -76,7 +76,6 @@ class PricelistSimulationLine(models.TransientModel):
 
     margin = fields.Monetary(
         store=True,
-        digits="Price",
         readonly=True,
     )
 
