@@ -4,6 +4,7 @@
 from psycopg2 import IntegrityError
 
 from odoo.exceptions import ValidationError
+from odoo.tools import mute_logger
 
 from .common import ABCClassificationLevelCase
 
@@ -137,6 +138,7 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
         self.assertEqual(self.product_level.level_id, self.classification_level_a)
         self.assertFalse(self.product_level.flag)
 
+    @mute_logger("odoo.sql_db")
     def test_03(self):
         """
         Data:
