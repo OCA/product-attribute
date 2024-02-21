@@ -128,10 +128,8 @@ class AbcClassificationProfile(models.Model):
                 },
             )
             level_ids.extend(r[0] for r in self.env.cr.fetchall())
-        self.env["abc.classification.product.level"].invalidate_cache(
-            ["manual_level_id"], level_ids
-        )
         modified_levels = self.env["abc.classification.product.level"].browse(level_ids)
+        modified_levels.invalidate_recordset(fnames=["manual_level_id"])
         # mark field as modified and trigger recompute of dependent fields.
         modified_levels.modified(["manual_level_id"])
         modified_levels._recompute_recordset()
