@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_create","perm_write","perm_unlink"
+product_template_tag_create_user,"product.template.tag.create",product_template_tags.model_product_template_tag,product_template_tag_create_group,1,1,1,1,

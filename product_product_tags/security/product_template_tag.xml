@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="res.groups" id="product_template_tag_create_group">
+        <field name="name">Product.template.tag.create</field>
+    </record>
+</odoo>
