@@ -31,6 +31,12 @@
         <field name="model">product.packaging</field>
         <field name="inherit_id" ref="stock.product_packaging_form_view" />
         <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="display_name" string="Packaging" />
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
             <xpath expr="//field[@name='product_id']" position="before">
                 <field name="name_policy" invisible="1" />
             </xpath>

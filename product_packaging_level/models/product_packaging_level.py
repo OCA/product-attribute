@@ -9,12 +9,24 @@ class ProductPackagingLevel(models.Model):
     _description = "Level management for product.packaging"
     _order = "sequence, code"
 
+    def _default_language(self):
+        lang_code = self.env["ir.default"].get("res.partner", "lang")
+        def_lang_id = self.env["res.lang"]._lang_get_id(lang_code)
+        return def_lang_id or self._active_languages()[0]
+
     name = fields.Char(required=True, translate=True)
     code = fields.Char(required=True)
     sequence = fields.Integer(required=True)
     has_gtin = fields.Boolean()
     active = fields.Boolean(default=True)
     is_default = fields.Boolean()
+    default_lang_id = fields.Many2one(
+        "res.lang",
+        string="Default Language",
+        default=lambda self: self._default_language(),
+        required=True,
+    )
+
     name_policy = fields.Selection(
         selection=[
             ("by_package_level", "Package Level Name"),
