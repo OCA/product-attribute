@@ -30,6 +30,10 @@
                             <field name="code" />
                             <field name="has_gtin" />
                             <field name="name_policy" />
+                            <field
+                                name="default_lang_id"
+                                help="Language option for packaging names used in case policy names is packaging by levels"
+                            />
                         </group>
                         <group name="misc">
                             <field name="sequence" />

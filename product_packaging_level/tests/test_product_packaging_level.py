@@ -8,6 +8,8 @@ class TestProductPackagingLevel(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env.ref("base.lang_fr").active = True
+
         cls.default_level = cls.env.ref(
             "product_packaging_level.product_packaging_level_default"
         )
@@ -18,13 +20,29 @@ class TestProductPackagingLevel(common.TransactionCase):
                 "sequence": 2,
             }
         )
+
+        cls.level_fr = cls.env["product.packaging.level"].create(
+            {
+                "name": "Packaging Level Test",
+                "code": "TEST3",
+                "sequence": 2,
+                "default_lang_id": cls.env.ref("base.lang_fr").id,
+            }
+        )
+        cls.level_fr.with_context(lang="fr_FR").name = "Packaging Level Test France"
         cls.packaging_default = cls.env["product.packaging"].create(
             {"name": "Packaging Default", "qty": 1.0}
         )
         cls.packaging = cls.env["product.packaging"].create(
             {"name": "Packaging Test", "packaging_level_id": cls.level.id, "qty": 1.0}
         )
-
+        cls.packaging_fr = cls.env["product.packaging"].create(
+            {
+                "name": "Packaging Test",
+                "packaging_level_id": cls.level_fr.id,
+                "qty": 1.0,
+            }
+        )
         cls.product = cls.env["product.template"].create(
             {"name": "Product Test", "packaging_ids": [(6, 0, cls.packaging.ids)]}
         )
@@ -39,7 +57,13 @@ class TestProductPackagingLevel(common.TransactionCase):
 
     def test_name_by_level(self):
         self.packaging.name_policy = "by_package_level"
-        self.assertEqual(self.packaging.name, "Packaging Test")
+        self.assertEqual(self.packaging.name, "Packaging Level Test (TEST2)")
+        self.assertEqual(self.packaging.display_name, "Packaging Level Test (TEST2)")
+        self.packaging_fr.name_policy = "by_package_level"
+        self.assertEqual(self.packaging_fr.name, "Packaging Level Test France (TEST3)")
+        self.assertEqual(
+            self.packaging_fr.display_name, "Packaging Level Test France (TEST3)"
+        )
 
     def test_name_by_package_type(self):
         # Required for `package_type_id` to be visible in the view
@@ -48,7 +72,6 @@ class TestProductPackagingLevel(common.TransactionCase):
         )
         self.packaging.name_policy = "by_package_type"
         self.packaging.package_type_id = self.package_type_box
-        self.packaging._onchange_name()
         self.assertEqual(self.packaging.name, "Box")
 
     def test_name_by_user_defined(self):
@@ -61,12 +84,10 @@ class TestProductPackagingLevel(common.TransactionCase):
         self.packaging.name = packaging_name
         # try to change package_type_id
         self.packaging.package_type_id = self.package_type_box
-        self.packaging._onchange_name()
         self.assertEqual(self.packaging.name, packaging_name)
 
         # try to change packaging level
         self.packaging.packaging_level_id = self.level
-        self.packaging._onchange_name()
         self.assertEqual(self.packaging.name, packaging_name)
 
     def test_name_by_package_type_without_group_tracking_lot(self):
