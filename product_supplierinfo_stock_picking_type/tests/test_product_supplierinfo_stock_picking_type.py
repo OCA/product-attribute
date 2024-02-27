@@ -1,13 +1,15 @@
-# Copyright 2022 Tecnativa - Víctor Martínez
+# Copyright 2022-2024 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests import Form, common
+from odoo.tests import Form, new_test_user
+from odoo.tests.common import users
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductSupplierinfoStockPickingType(common.SavepointCase):
+class TestProductSupplierinfoStockPickingType(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.buy_route = cls.env.ref("purchase_stock.route_warehouse0_buy")
         cls.warehouse = cls.env.ref("stock.warehouse0")
         cls.supplier = cls.env["res.partner"].create({"name": "Supplier"})
         cls.picking_in_a = cls.env["stock.picking.type"].create(
@@ -43,7 +45,7 @@ class TestProductSupplierinfoStockPickingType(common.SavepointCase):
                         0,
                         0,
                         {
-                            "name": cls.supplier.id,
+                            "partner_id": cls.supplier.id,
                             "min_qty": 1,
                             "price": 5,
                             "picking_type_id": cls.picking_in_a.id,
@@ -53,7 +55,7 @@ class TestProductSupplierinfoStockPickingType(common.SavepointCase):
                         0,
                         0,
                         {
-                            "name": cls.supplier.id,
+                            "partner_id": cls.supplier.id,
                             "min_qty": 1,
                             "price": 10,
                             "picking_type_id": cls.picking_in_b.id,
@@ -63,13 +65,18 @@ class TestProductSupplierinfoStockPickingType(common.SavepointCase):
                         0,
                         0,
                         {
-                            "name": cls.supplier.id,
+                            "partner_id": cls.supplier.id,
                             "min_qty": 1,
                             "price": 20,
                         },
                     ),
                 ],
             }
+        )
+        new_test_user(
+            cls.env,
+            login="test_purchase_user",
+            groups="purchase.group_purchase_user,stock.group_stock_multi_locations",
         )
 
     def _create_purchase_order(self, picking_type_id):
@@ -80,14 +87,17 @@ class TestProductSupplierinfoStockPickingType(common.SavepointCase):
             line_form.product_id = self.product
         return order_form.save()
 
+    @users("test_purchase_user")
     def test_product_picking_type_a(self):
         po = self._create_purchase_order(self.picking_in_a)
         self.assertEqual(po.order_line.price_unit, 5)
 
+    @users("test_purchase_user")
     def test_product_picking_type_b(self):
         po = self._create_purchase_order(self.picking_in_b)
         self.assertEqual(po.order_line.price_unit, 10)
 
+    @users("test_purchase_user")
     def test_product_picking_type_c(self):
         po = self._create_purchase_order(self.picking_in_c)
         self.assertEqual(po.order_line.price_unit, 20)
