@@ -58,6 +58,7 @@ setuptools.setup(
         'odoo-addon-product_supplierinfo_archive>=16.0dev,<16.1dev',
         'odoo-addon-product_supplierinfo_for_customer>=16.0dev,<16.1dev',
         'odoo-addon-product_supplierinfo_revision>=16.0dev,<16.1dev',
+        'odoo-addon-product_supplierinfo_stock_picking_type>=16.0dev,<16.1dev',
         'odoo-addon-product_template_has_one_variant>=16.0dev,<16.1dev',
         'odoo-addon-product_template_tags>=16.0dev,<16.1dev',
         'odoo-addon-product_total_weight_from_packaging>=16.0dev,<16.1dev',
