@@ -54,6 +54,7 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
                 "product_id": product.id,
                 "product_code": "00001",
                 "price": 100.0,
+                "sequence": 10,
             }
         )
 
@@ -166,6 +167,7 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
                 "partner_id": self.customer.id,
                 "product_tmpl_id": template.id,
                 "price": 30.0,
+                "sequence": 20,
             }
         )
         res = product.with_context(partner_id=self.customer.id).price_compute(
