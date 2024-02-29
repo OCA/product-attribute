@@ -130,10 +130,20 @@ class ProductProduct(models.Model):
             params = dict()
         params.update({"partner_id": partner.id})
         domain = self._prepare_domain_customerinfo(params)
-        res = (
-            self.env["product.customerinfo"]
-            .search(domain)
-            .sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
+        # Search for customerinfo records based on the domain
+        any_match = self.env["product.customerinfo"].search(
+            domain, order="sequence,min_qty,price,id"
         )
-        res_1 = res.sorted("product_tmpl_id")[:1]
-        return res_1
+        first_template_match = None
+        # return the first customer_info matching the variant
+        # otherwise the first one matching the template
+        for customer_info in any_match:
+            if customer_info.product_id == self:
+                return customer_info
+            if (
+                not customer_info.product_id
+                and not first_template_match
+                and customer_info.product_tmpl_id == self.product_tmpl_id
+            ):
+                first_template_match = customer_info
+        return first_template_match
