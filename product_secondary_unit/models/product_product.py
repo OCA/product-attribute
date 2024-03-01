@@ -21,7 +21,7 @@ class ProductProduct(models.Model):
         for variant in self:
             variant.secondary_uom_ids = (
                 variant.product_tmpl_id.secondary_uom_ids.filtered(
-                    lambda s: s.product_id == variant or not s.product_id
+                    lambda s, v=variant: s.product_id == v or not s.product_id
                 )
             )
 
@@ -29,7 +29,7 @@ class ProductProduct(models.Model):
         for variant in self:
             variant.product_tmpl_id.secondary_uom_ids = (
                 variant.product_tmpl_id.secondary_uom_ids.filtered(
-                    lambda s: s.product_id != variant
+                    lambda s, v=variant: s.product_id != v
                 )
                 + variant.secondary_uom_ids
             )

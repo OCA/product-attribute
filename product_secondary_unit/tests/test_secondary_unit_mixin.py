@@ -60,7 +60,7 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
     @classmethod
     def tearDownClass(cls):
         cls.loader.restore_registry()
-        return super(TestProductSecondaryUnitMixin, cls).tearDownClass()
+        return super().tearDownClass()
 
     def test_product_secondary_unit_mixin(self):
         fake_model = self.secondary_unit_fake
@@ -82,7 +82,7 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model.write(
             {"secondary_uom_qty": 1, "secondary_uom_id": self.secondary_unit_box_10.id}
         )
-        fake_model.flush()
+        fake_model.env.cr.flush()
         fake_model.product_uom_id = self.product_uom_dozen
         fake_model._onchange_helper_product_uom_for_secondary()
         self.assertEqual(fake_model.secondary_uom_qty, 12)

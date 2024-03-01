@@ -19,13 +19,13 @@
                     <field name="secondary_uom_ids" colspan="4" nolabel="1">
                         <tree editable="bottom" decoration-muted="(not active)">
                             <field name="active" widget="boolean_toggle" />
-                            <field name="product_tmpl_id" invisible="1" />
+                            <field name="product_tmpl_id" column_invisible="1" />
                             <field
                                 name="product_id"
                                 domain="[('product_tmpl_id', '=', parent.id)]"
                                 groups="product.group_product_variant"
                                 options="{'no_create': True}"
-                                attrs="{'column_invisible': [('parent.product_variant_count', '&lt;=', 1)]}"
+                                column_invisible="parent.product_variant_count &lt;= 1"
                             />
                             <field name="code" />
                             <field name="name" />
