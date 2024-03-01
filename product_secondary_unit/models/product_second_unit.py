@@ -59,7 +59,7 @@ class ProductSecondaryUnit(models.Model):
             args = []
         units = self.search([("code", "=", name)] + args, limit=1)
         if not units:
-            return super(ProductSecondaryUnit, self).name_search(
+            return super().name_search(
                 name=name, args=args, operator=operator, limit=limit
             )
         return units.name_get()

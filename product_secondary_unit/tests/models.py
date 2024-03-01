@@ -15,7 +15,7 @@ class SecondaryUnitFake(models.Model):
     name = fields.Char()
     product_id = fields.Many2one("product.product", "Product", readonly=True)
     product_uom_qty = fields.Float(
-        store=True, readonly=False, compute="_compute_product_uom_qty"
+        store=True, readonly=False, compute="_compute_product_uom_qty", precompute=True
     )
     product_uom_id = fields.Many2one("uom.uom", string="Product Unit of Measure")
 
