@@ -73,19 +73,14 @@ msgid ""
 msgstr ""
 "Se il tipo dipendenza è 'dipendente' il fattore è utilizzato per calcolare "
 "la quantità nell'unità principale, altrimenti l'unità principale e "
-"secondaria sono indipendenti. Per esempio se si vende un servizio per collo ("
-"una unità per esempio) e si vuole inserire il tempo reale (es.: 4 ore) per "
+"secondaria sono indipendenti. Per esempio se si vende un servizio per collo "
+"(una unità per esempio) e si vuole inserire il tempo reale (es.: 4 ore) per "
 "consentire la schedulazione dipendente"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
 msgid "Independent"
 msgstr "Indipendente"
-
-#. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
@@ -150,3 +145,6 @@ msgstr "Fattore unità secondaria"
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
 msgstr "Unità di misura secondaria"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"

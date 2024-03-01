@@ -78,11 +78,6 @@ msgid "Independent"
 msgstr ""
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
-msgid "Last Modified on"
-msgstr "最后修改于"
-
-#. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
 msgid "Last Updated by"
 msgstr "最后更新者"
@@ -145,6 +140,9 @@ msgstr "转换率"
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
 msgstr "辅助计量单位"
+
+#~ msgid "Last Modified on"
+#~ msgstr "最后修改于"
 
 #~ msgid "secondary Unit"
 #~ msgstr "辅助计量单位"

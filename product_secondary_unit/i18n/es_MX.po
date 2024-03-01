@@ -78,11 +78,6 @@ msgid "Independent"
 msgstr ""
 
 #. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
-msgid "Last Modified on"
-msgstr "Última Actualización en"
-
-#. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
 msgid "Last Updated by"
 msgstr "Última Actualización por"
@@ -145,6 +140,9 @@ msgstr "Factor de Unidad Secundaria"
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
 msgstr "Unidad de Medida Secundaria"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Actualización en"
 
 #~ msgid "secondary Unit"
 #~ msgstr "Unidad Secundaria"
