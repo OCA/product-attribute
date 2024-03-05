@@ -35,7 +35,7 @@ addon | version | maintainers | summary
 [product_company_default](product_company_default/) | 16.0.1.0.0 |  | Product Company Default
 [product_cost_security](product_cost_security/) | 16.0.1.0.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Product cost security restriction view
 [product_country_restriction](product_country_restriction/) | 16.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define product restrictions country based
-[product_dimension](product_dimension/) | 16.0.1.1.0 |  | Product Dimension
+[product_dimension](product_dimension/) | 16.0.1.1.1 |  | Product Dimension
 [product_expiry_configurable](product_expiry_configurable/) | 16.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
 [product_get_price_helper](product_get_price_helper/) | 16.0.1.0.0 |  | This module provides a helper function to compute product prices.
 [product_logistics_uom](product_logistics_uom/) | 16.0.3.0.0 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Configure product weights and volume UoM
