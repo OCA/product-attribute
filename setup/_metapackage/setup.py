@@ -46,6 +46,7 @@ setuptools.setup(
         'odoo14-addon-product_packaging_type',
         'odoo14-addon-product_packaging_type_pallet',
         'odoo14-addon-product_packaging_type_required',
+        'odoo14-addon-product_packaging_type_vendor',
         'odoo14-addon-product_packaging_unit_price_calculator',
         'odoo14-addon-product_pricelist_assortment',
         'odoo14-addon-product_pricelist_button_box',

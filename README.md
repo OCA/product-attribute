@@ -59,6 +59,7 @@ addon | version | maintainers | summary
 [product_packaging_type](product_packaging_type/) | 14.0.0.2.0 |  | Product Packaging Type
 [product_packaging_type_pallet](product_packaging_type_pallet/) | 14.0.1.0.1 |  | Manage packaging of pallet type
 [product_packaging_type_required](product_packaging_type_required/) | 14.0.1.1.0 | [![simahawk](https://github.com/simahawk.png?size=30px)](https://github.com/simahawk) [![dcrier](https://github.com/dcrier.png?size=30px)](https://github.com/dcrier) | Product Packaging Type Required
+[product_packaging_type_vendor](product_packaging_type_vendor/) | 14.0.1.0.0 |  | Allows to mark a packaging type as vendor specific
 [product_packaging_unit_price_calculator](product_packaging_unit_price_calculator/) | 14.0.1.1.1 |  | Wizard to calculate a unit price from a packaging price
 [product_pricelist_assortment](product_pricelist_assortment/) | 14.0.2.2.0 |  | Product assortment and pricelist
 [product_pricelist_button_box](product_pricelist_button_box/) | 14.0.1.0.1 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a button_box section on pricelist form
