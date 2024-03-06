@@ -4,9 +4,6 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@name='standard_price_uom']" position="inside">
-                <field name="user_can_update_cost" invisible="1" />
-            </xpath>
             <xpath expr="//div[@name='standard_price_uom']" position="attributes">
                 <attribute
                     name="groups"
@@ -14,30 +11,6 @@
                     add="product_cost_security.group_product_cost"
                 />
             </xpath>
-            <xpath
-                expr="//div[@name='standard_price_uom']//field[@name='standard_price']"
-                position="attributes"
-            >
-                <attribute
-                    name="attrs"
-                >{'readonly': [('user_can_update_cost', '=', False)]}</attribute>
-            </xpath>
-        </field>
-    </record>
-
-    <!-- Variants view -->
-    <record id="product_variant_easy_edit_view" model="ir.ui.view">
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
-        <field name="arch" type="xml">
-            <field name="standard_price" position="before">
-                <field name="user_can_update_cost" invisible="1" />
-            </field>
-            <field name="standard_price" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'readonly': [('user_can_update_cost', '=', False)]}</attribute>
-            </field>
         </field>
     </record>
 </odoo>
