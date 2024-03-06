@@ -134,7 +134,7 @@ class ProductProduct(models.Model):
         any_match = self.env["product.customerinfo"].search(
             domain, order="sequence,min_qty,price,id"
         )
-        first_template_match = None
+        first_template_match = self.env["product.customerinfo"].browse()
         # return the first customer_info matching the variant
         # otherwise the first one matching the template
         for customer_info in any_match:
