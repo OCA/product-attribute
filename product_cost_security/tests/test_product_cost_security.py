@@ -1,7 +1,8 @@
 # Copyright 2023 Onestein (<https://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import Form, TransactionCase
+from odoo.exceptions import AccessError
+from odoo.tests.common import Form, TransactionCase, new_test_user
 
 
 class TestProductCostSecurity(TransactionCase):
@@ -76,3 +77,59 @@ class TestProductCostSecurity(TransactionCase):
         sheet_form.standard_price = 5.0  # It would not raise any error now as the user
         # has the required group to modify the costs
         self.assertEqual(sheet_form.standard_price, 5.0)
+
+    def test_api_modification(self):
+        """Test that a direct API call respects the security groups."""
+        # Using base.group_system because it's the only group in this module's
+        # dependency graph with CRUD access to products
+        editor = new_test_user(
+            self.env,
+            "editor",
+            groups="base.group_system,product_cost_security.group_product_edit_cost",
+        )
+        reader = new_test_user(
+            self.env,
+            "reader",
+            groups="base.group_system,product_cost_security.group_product_cost",
+        )
+        user = new_test_user(self.env, "user", groups="base.group_system")
+        # Editor can write and read
+        product = (
+            self.env["product.product"]
+            .with_user(editor)
+            .create(
+                {
+                    "name": "Test product",
+                    "standard_price": 10.0,
+                }
+            )
+        )
+        self.assertEqual(
+            product.read(["standard_price"]),
+            [{"id": product.id, "standard_price": 10.0}],
+        )
+        product.standard_price = 20.0
+        self.assertEqual(
+            product.read(["standard_price"]),
+            [{"id": product.id, "standard_price": 20.0}],
+        )
+        # Reader can read but not write
+        product = product.with_user(reader)
+        with self.assertRaises(AccessError):
+            product.standard_price = 30.0
+        self.assertEqual(
+            product.read(["standard_price"]),
+            [{"id": product.id, "standard_price": 20.0}],
+        )
+        # User can't read or write (standard Odoo when setting field groups)
+        product = product.with_user(user)
+        with self.assertRaises(AccessError):
+            product.standard_price = 30.0
+        with self.assertRaises(AccessError):
+            product.read(["standard_price"])
+        # Sudo still works
+        product.sudo().standard_price = 30.0
+        self.assertEqual(
+            product.sudo().read(["standard_price"]),
+            [{"id": product.id, "standard_price": 30.0}],
+        )
