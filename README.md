@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [product_dimension](product_dimension/) | 17.0.1.0.0 |  | Product Dimension
-
+[product_dimension](product_supplierinfo_for_customer/) | 17.0.1.0.0 |  | Product SupplierInfo for Customer
 [//]: # (end addons)
 
 <!-- prettier-ignore-end -->
