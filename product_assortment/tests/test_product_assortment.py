@@ -8,7 +8,7 @@ from odoo.tools.misc import mute_logger
 
 class TestProductAssortment(TransactionCase):
     def setUp(self):
-        super(TestProductAssortment, self).setUp()
+        super().setUp()
         self.filter_obj = self.env["ir.filters"]
         self.product_obj = self.env["product.product"]
         self.assortment = self.filter_obj.create(

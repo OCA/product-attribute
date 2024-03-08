@@ -39,14 +39,10 @@
                                     <span class="o_stat_value">
                                         <field name="record_count" />
                                     </span>
-                                    <span
-                                    invisible="record_count &lt;= 1"
-                                >
+                                    <span invisible="record_count &lt;= 1">
                                         Products
                                     </span>
-                                    <span
-                                    invisible="record_count &gt;= 1"
-                                >
+                                    <span invisible="record_count &gt;= 1">
                                         Product
                                     </span>
                                </div>
