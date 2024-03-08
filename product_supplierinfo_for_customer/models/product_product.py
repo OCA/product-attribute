@@ -15,11 +15,9 @@ class ProductProduct(models.Model):
         return res
 
     @api.model
-    def _name_search(
-        self, name="", args=None, operator="ilike", limit=100, name_get_uid=None
-    ):
-        res = super(ProductProduct, self)._name_search(
-            name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
+    def _name_search(self, name, domain=None, operator="ilike", limit=None, order=None):
+        res = super()._name_search(
+            name, operator=operator, limit=limit, order=order, domain=domain
         )
         res_ids = list(res)
         res_ids_len = len(res_ids)
@@ -41,7 +39,6 @@ class ProductProduct(models.Model):
                 ("product_name", operator, name),
             ],
             limit=limit,
-            access_rights_uid=name_get_uid,
         )
         if not customerinfo_ids:
             return res_ids
@@ -56,7 +53,6 @@ class ProductProduct(models.Model):
             self._search(
                 [("product_tmpl_id", "in", product_tmpls.ids)],
                 limit=limit,
-                access_rights_uid=name_get_uid,
             )
         )
         res_ids.extend(product_ids)
@@ -81,7 +77,7 @@ class ProductProduct(models.Model):
             ) or self.env.context.get("partner", False)
             if partner_id and isinstance(partner_id, models.BaseModel):
                 partner_id = partner_id.id
-            prices = super(ProductProduct, self)._price_compute(
+            prices = super()._price_compute(
                 "list_price", uom, currency, company, date=date
             )
             for product in self:
@@ -105,9 +101,7 @@ class ProductProduct(models.Model):
                         prices[product.id], currency, company, date
                     )
             return prices
-        return super(ProductProduct, self)._price_compute(
-            price_type, uom, currency, company, date=date
-        )
+        return super()._price_compute(price_type, uom, currency, company, date=date)
 
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
