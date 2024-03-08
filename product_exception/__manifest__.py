@@ -1,7 +1,7 @@
 {
     "name": "Product Exception",
     "summary": "Ensure products are valid against a set of rules",
-    "version": "13.0.1.0.1",
+    "version": "13.0.2.0.0",
     "development_status": "Beta",
     "category": "Quality",
     "website": "https://github.com/OCA/product-attribute",
