@@ -7,5 +7,7 @@ It is useful when you don't want to add every product line possible to your obje
 From the product grid you only have to set the quantity for each product.
 
 Example implementations:
- - purchase_quick
- - stock_picking_quick
+
+ - ``sale_quick`` (https://github.com/OCA/sale-workflow)
+ - ``purchase_quick`` (https://github.com/OCA/purchase-workflow)
+ - ``stock_picking_quick`` (https://github.com/OCA/stock-logistics-workflow)
