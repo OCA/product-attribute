@@ -39,6 +39,11 @@ msgid "Click here to ignore the current exceptions for this product."
 msgstr "Fare clic qui per ignorare le eccezioni attuali per questo prodotto."
 
 #. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Detect Exceptions"
+msgstr ""
+
+#. module: product_exception
 #: model:ir.model,name:product_exception.model_exception_rule
 msgid "Exception Rule"
 msgstr "Regola eccezione"
@@ -64,12 +69,12 @@ msgid "Product"
 msgstr "Prodotto"
 
 #. module: product_exception
-#: model:ir.actions.act_window,name:product_exception.action_product_test_tree
+#: model:ir.actions.act_window,name:product_exception.action_product_exception_rule
 msgid "Product Exception Rules"
 msgstr "Regole eccezioni prdotto"
 
 #. module: product_exception
-#: model:ir.ui.menu,name:product_exception.menu_product_test_parent
+#: model:ir.ui.menu,name:product_exception.menu_product_exception_rule
 msgid "Product Exceptions Rules"
 msgstr "Regole eccezioni prdotto"
 
@@ -95,11 +100,12 @@ msgid "Public price should be greather than purchase price"
 msgstr "Il prezzo al pubblico deve essere superiore al prezzo di acquIsto"
 
 #. module: product_exception
-#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
-msgid "Test button"
-msgstr "Pulsante test"
-
-#. module: product_exception
 #: model_terms:ir.ui.view,arch_db:product_exception.product_template_search_view
-msgid "With exception"
-msgstr "Con eccezione"
+msgid "With Exception"
+msgstr ""
+
+#~ msgid "Test button"
+#~ msgstr "Pulsante test"
+
+#~ msgid "With exception"
+#~ msgstr "Con eccezione"
