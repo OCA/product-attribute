@@ -1,1 +1,1 @@
-odoo-test-helper
+odoo-addon-web_widget_model_viewer@ git+https://github.com/oca/web@refs/pull/2346/head#subdirectory=setup/web_widget_model_viewer

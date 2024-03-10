@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_model_viewer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_model_viewer
+#: model_terms:ir.ui.view,arch_db:product_model_viewer.product_template_form_view_3d
+msgid "3D"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_product__gltf_3d_model
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_template__gltf_3d_model
+msgid "3D model"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,help:product_model_viewer.field_product_product__gltf_3d_model
+msgid "3D model of the product variant."
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_product__id
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,help:product_model_viewer.field_product_template__gltf_3d_model
+msgid "Load a model in GLTF 2.0 format"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model,name:product_model_viewer.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model,name:product_model_viewer.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,help:product_model_viewer.field_product_product__gltf_3d_model_variant
+msgid "This field holds the 3D model used for the product variant."
+msgstr ""
+
+#. module: product_model_viewer
+#: model:ir.model.fields,field_description:product_model_viewer.field_product_product__gltf_3d_model_variant
+msgid "Variant 3D model"
+msgstr ""
