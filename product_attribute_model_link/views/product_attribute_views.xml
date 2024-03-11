@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_attribute_model_link_form" model="ir.ui.view">
+        <field name="name">product.attribute.model.link.form</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="before">
+                <div
+                    class="alert alert-warning alert-dismissible fade show text-center"
+                    role="alert"
+                    colspan="2"
+                    name="caption"
+                    attrs="{'invisible': [('linked_field_id', '=', False)]}"
+                >
+                    Changing or removing <b>Linked Model</b> or <b>Linked Field</b><br
+                    />
+                    will not affect existing attribute values!
+                </div>
+            </xpath>
+            <xpath expr="//group[@name='main_fields']" position="after">
+                <group>
+                    <group name="model_link_fields">
+                        <field name="linked_model_id" />
+                        <field
+                            name="linked_field_id"
+                            attrs="{'required': [('linked_model_id', '!=', False)]}"
+                        />
+                        <field name="res_model_name" invisible="1" />
+                        <field
+                            name="domain"
+                            widget="domain"
+                            options="{'model': 'res_model_name'}"
+                        />
+                        <field name="apply_to_products_on_create" />
+                        <field name="create_from_attribute_values" />
+                        <field
+                            name="modify_from_attribute_values"
+                            attrs="{'invisible': [('create_from_attribute_values', '=', False)]}"
+                        />
+                        <field
+                            name="delete_when_attribute_value_is_deleted"
+                            attrs="{'invisible': [('create_from_attribute_values', '=', False)]}"
+                        />
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='model_link_fields']" position="before">
+                <xpath expr="//group[@name='main_fields']" position="move" />
+            </xpath>
+            <xpath expr="//field[@name='value_ids']" position="before">
+                <button
+                    type="object"
+                    title="Add attribute value from linked record"
+                    string="Add attribute value from linked record"
+                    class="oe_highlight"
+                    name="add_attribute_value_from_linked_record"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='value_ids']/tree/field[@name='name']"
+                position="after"
+            >
+                <field name="linked_record_ref" readonly="1" />
+                <button
+                    type="object"
+                    title="Change Linked Record"
+                    class="oe_highlight"
+                    name="action_open_linked_record_wizard"
+                    icon="fa-pencil"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
