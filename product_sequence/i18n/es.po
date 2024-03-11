@@ -108,11 +108,9 @@ msgstr "Utilizar las categorías superiores para determinar el prefijo"
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
-"Use parent categories to determine the prefix if the category\n"
-"                                has no settings for the prefix."
+"Use parent categories to determine the prefix if the category has no "
+"settings for the prefix"
 msgstr ""
-"Utilice categorías principales para determinar el prefijo si la categoría\n"
-"                                no tiene configuraciones para el prefijo."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -123,6 +121,14 @@ msgid ""
 msgstr ""
 "Utilice categorías principales para determinar el prefijo si la categoría no "
 "tiene configuraciones para el prefijo."
+
+#~ msgid ""
+#~ "Use parent categories to determine the prefix if the category\n"
+#~ "                                has no settings for the prefix."
+#~ msgstr ""
+#~ "Utilice categorías principales para determinar el prefijo si la "
+#~ "categoría\n"
+#~ "                                no tiene configuraciones para el prefijo."
 
 #~ msgid "Product"
 #~ msgstr "Producto"

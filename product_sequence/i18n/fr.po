@@ -107,8 +107,8 @@ msgstr ""
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
-"Use parent categories to determine the prefix if the category\n"
-"                                has no settings for the prefix."
+"Use parent categories to determine the prefix if the category has no "
+"settings for the prefix"
 msgstr ""
 
 #. module: product_sequence
