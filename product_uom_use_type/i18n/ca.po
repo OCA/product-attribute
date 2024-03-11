@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_uom_use_type
+# 	* product_uom_use_type
 #
 msgid ""
 msgstr ""
@@ -37,16 +37,12 @@ msgstr ""
 #. module: product_uom_use_type
 #: model:ir.model.fields,help:product_uom_use_type.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product_uom_use_type.field_product_template__uom_po_id
-msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
+msgid ""
+"Default unit of measure used for purchase orders. It must be in the same "
+"category as the default unit of measure."
 msgstr ""
 "Unitat de mesura predeterminada que s’utilitza per a les comandes de compra. "
 "Ha de ser de la mateixa categoria que la unitat de mesura per defecte."
-
-#. module: product_uom_use_type
-#: model:product.template,uom_name:product_uom_use_type.product_bier_faucheuse
-#: model:product.template,volume_uom_name:product_uom_use_type.product_bier_faucheuse
-msgid "Liter(s)"
-msgstr "Litre(s)"
 
 #. module: product_uom_use_type
 #: model:uom.uom,name:product_uom_use_type.product_uom_pint
@@ -54,14 +50,9 @@ msgid "Pint US - 0,55L (Unit only for sales)"
 msgstr "Pint US - 0,55L (Unitat només per a vendes)"
 
 #. module: product_uom_use_type
-#: model:ir.model,name:product_uom_use_type.model_product_product
+#: model:ir.model,name:product_uom_use_type.model_product_template
 msgid "Product"
 msgstr "Producte"
-
-#. module: product_uom_use_type
-#: model:ir.model,name:product_uom_use_type.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producte"
 
 #. module: product_uom_use_type
 #: model:ir.model,name:product_uom_use_type.model_uom_uom
@@ -69,23 +60,28 @@ msgid "Product Unit of Measure"
 msgstr "Unitat de mesura del producte"
 
 #. module: product_uom_use_type
-#: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
-#: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
-msgid "Purchase Unit of Measure"
-msgstr "Unitat de mesura de compres"
+#: model:ir.model,name:product_uom_use_type.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields,field_description:product_uom_use_type.field_product_product__uom_po_id
+#: model:ir.model.fields,field_description:product_uom_use_type.field_product_template__uom_po_id
+msgid "Purchase UoM"
+msgstr ""
+
+#. module: product_uom_use_type
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__purchase
 msgid "Unit available for purchases"
 msgstr "Unitat disponible per compres"
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__sale
 msgid "Unit available for sales"
 msgstr "Unitat disponible per vendes"
 
 #. module: product_uom_use_type
-#: selection:uom.uom,use_type:0
+#: model:ir.model.fields.selection,name:product_uom_use_type.selection__uom_uom__use_type__both
 msgid "Unit available for sales and purchases"
 msgstr "Unitat disponible per vendes i compres"
 
@@ -101,6 +97,27 @@ msgid "Use Type"
 msgstr "Tipus d'ús"
 
 #. module: product_uom_use_type
-#: model:product.template,weight_uom_name:product_uom_use_type.product_bier_faucheuse
-msgid "kg"
-msgstr "kg"
+#. odoo-python
+#: code:addons/product_uom_use_type/models/product_template.py:0
+#, python-format
+msgid "you can not set a 'Purchase' UoM as the main product UoM."
+msgstr ""
+
+#. module: product_uom_use_type
+#. odoo-python
+#: code:addons/product_uom_use_type/models/product_template.py:0
+#, python-format
+msgid "you can not set a 'Sale' UoM as the product Purchase UoM."
+msgstr ""
+
+#~ msgid "Liter(s)"
+#~ msgstr "Litre(s)"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producte"
+
+#~ msgid "Purchase Unit of Measure"
+#~ msgstr "Unitat de mesura de compres"
+
+#~ msgid "kg"
+#~ msgstr "kg"
