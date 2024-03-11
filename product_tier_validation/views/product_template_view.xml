@@ -15,5 +15,25 @@
             </filter>
         </field>
     </record>
+    <record model="ir.actions.server" id="action_reject_product_validations">
+        <field name="name">Reject Validations</field>
+        <field name="model_id" ref="product.model_product_template" />
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="state">code</field>
+        <field name="code">
+            for rec in records:
+                rec.reject_tier()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="action_accept_product_validations">
+        <field name="name">Accept Validations</field>
+        <field name="model_id" ref="product.model_product_template" />
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="state">code</field>
+        <field name="code">
+            for rec in records:
+                rec.validate_tier()
+        </field>
+    </record>
 
 </odoo>
