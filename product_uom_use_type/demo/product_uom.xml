@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author: Quentin DUPONT
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record model="uom.uom" id="product_uom_barrel">
+        <field name="name">Barrel - 159L (Unit only for purchases)</field>
+        <field name="category_id" ref="uom.product_uom_categ_vol" />
+        <field name="use_type">purchase</field>
+        <field name="factor_inv" eval="159.0" />
+        <field name="rounding">0.2</field>
+        <field name="uom_type">bigger</field>
+    </record>
+
+    <record model="uom.uom" id="product_uom_pint">
+        <field name="name">Pint US - 0,55L (Unit only for sales)</field>
+        <field name="category_id" ref="uom.product_uom_categ_vol" />
+        <field name="use_type">sale</field>
+        <field name="factor" eval="0.55" />
+        <field name="rounding" eval="0.001" />
+        <field name="uom_type">smaller</field>
+    </record>
+
+</odoo>
