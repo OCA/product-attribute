@@ -1,0 +1,262 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_model_link
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attribute_model_link
+#: model_terms:ir.ui.view,arch_db:product_attribute_model_link.product_attribute_model_link_form
+msgid "Add attribute value from linked record"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__apply_to_products_on_create
+msgid "Apply To Products On Create"
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#, python-format
+msgid "Attention!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model,name:product_attribute_model_link.model_product_attribute_value
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model_terms:ir.ui.view,arch_db:product_attribute_model_link.view_linked_record_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model_terms:ir.ui.view,arch_db:product_attribute_model_link.product_attribute_model_link_form
+#: model_terms:ir.ui.view,arch_db:product_attribute_model_link.view_linked_record_wizard_form
+msgid "Change Linked Record"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model_terms:ir.ui.view,arch_db:product_attribute_model_link.product_attribute_model_link_form
+msgid ""
+"Changing or removing <b>Linked Model</b> or <b>Linked Field</b><br/>\n"
+"                    will not affect existing attribute values!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#, python-format
+msgid ""
+"Conversion failed for field 'name' on creation of product.attribute.value. "
+"Please check the data."
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__create_from_attribute_values
+msgid "Create From Attribute Values"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__delete_when_attribute_value_is_deleted
+msgid "Delete When Attribute Value Is Deleted"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__domain
+msgid "Domain (optional)"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__linked_field_id
+msgid ""
+"Field of the selected model that will be used for the attribute value names."
+" Can be any field except for related or computed non-stored ones. Digital "
+"field values will be converted to Char automatically. Warning: changing or "
+"removing existing value will not affect existing attribute values!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__domain
+msgid ""
+"If configured only records matching the domain will be used for attribute "
+"value creation. Warning: updating domain will not affect existing attribute "
+"values!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__create_from_attribute_values
+msgid ""
+"If enabled when a new attribute value is added to the attribute a new record"
+" will be created in the linked model. Attention! The only value passed "
+"explicitly on creation will be the linked field containing the new attribute"
+" value name. You must ensure that this would be enough for new record "
+"creation. Otherwise an exception will be raised. If a digital field is used "
+"a conversion attempt will be done. If conversion fails an exception might be"
+" raised."
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__apply_to_products_on_create
+msgid ""
+"If enabled when a new attribute value is created it will be automatically "
+"added to all existing products that use this attribute. Attention! You must "
+"completely understand possible consequences and use this option with care!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__modify_from_attribute_values
+msgid ""
+"If enabled when an attribute value is renamed linked field value in the "
+"linked model will be updated accordingly. If a digital field is used a "
+"conversion attempt will be done. If conversion fails an exception might be "
+"raised. This option is available only if 'Create from Attribute Values' "
+"option is enabled."
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__linked_record_ref
+msgid "Linked Record"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model,name:product_attribute_model_link.model_linked_record_wizard
+msgid "Linked Record Wizard"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__linked_field_id
+msgid "Linked field"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__linked_model_id
+msgid "Linked model"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute_value__linked_record_ref
+msgid "Linked record"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__res_model_name
+msgid "Model"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__linked_model_id
+msgid ""
+"Model which records will be used for the attribute values. Cannot be a "
+"transient model. Warning: changing or removing existing value will not "
+"affect existing attribute values!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__modify_from_attribute_values
+msgid "Modify From Attribute Values"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model,name:product_attribute_model_link.model_product_attribute
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model_terms:ir.ui.view,arch_db:product_attribute_model_link.view_linked_record_wizard_form
+msgid "Save"
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#, python-format
+msgid ""
+"The only value passed explicitly on creation will be the linked field "
+"containing the new attribute value name. "
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#, python-format
+msgid "Updating domain will not affect existing attribute values!"
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute_value.py:0
+#: code:addons/product_attribute_model_link/models/product_attribute_value.py:0
+#, python-format
+msgid "Validation Error: "
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#, python-format
+msgid "Warning"
+msgstr ""
+
+#. module: product_attribute_model_link
+#: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__delete_when_attribute_value_is_deleted
+msgid ""
+"When enabled if an attribute value is deleted linked record will be deleted "
+"too. Use with extreme care! This option is available only if 'Create from "
+"Attribute Values' option is enabled."
+msgstr ""
+
+#. module: product_attribute_model_link
+#. odoo-python
+#: code:addons/product_attribute_model_link/models/product_attribute.py:0
+#, python-format
+msgid ""
+"You must completely understand possible consequences and use this option "
+"with care!"
+msgstr ""
