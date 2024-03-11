@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_product_mass_addition
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-11-01 14:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: base_product_mass_addition
+#: model:ir.model.fields,field_description:base_product_mass_addition.field_product_product__quick_uom_category_id
+msgid "Category"
+msgstr "Categoria"
+
+#. module: base_product_mass_addition
+#: model:ir.model.fields,help:base_product_mass_addition.field_product_product__quick_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+"Le conversioni tra unità di misura possono avvenire solo se appartengono "
+"alla stessa categoria. La conversione verrà effettuata in base alle "
+"proporzioni."
+
+#. module: base_product_mass_addition
+#: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_search_form_view
+msgid "Filter products in current parent"
+msgstr "Filtra prodotti con padre attuale"
+
+#. module: base_product_mass_addition
+#: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_search_form_view
+msgid "In current parent"
+msgstr "Nel padre attuale"
+
+#. module: base_product_mass_addition
+#: model_terms:ir.ui.view,arch_db:base_product_mass_addition.product_product_tree_view
+msgid "Open"
+msgstr "Apri"
+
+#. module: base_product_mass_addition
+#: model:ir.model,name:base_product_mass_addition.model_product_product
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: base_product_mass_addition
+#: model:ir.model.fields,field_description:base_product_mass_addition.field_product_product__qty_to_process
+msgid "Qty To Process"
+msgstr "Q.tà da gestire"
+
+#. module: base_product_mass_addition
+#: model:ir.model.fields,field_description:base_product_mass_addition.field_product_product__quick_uom_id
+msgid "Quick Uom"
+msgstr "UdM rapida"
+
+#. module: base_product_mass_addition
+#: model:ir.model.fields,help:base_product_mass_addition.field_product_product__qty_to_process
+msgid ""
+"Set this quantity to create a new line for this product or update the "
+"existing one."
+msgstr ""
+"Imposta questa quantità per creare una nuova riga per questo prodotto o "
+"aggiornare quella esistente."
+
+#. module: base_product_mass_addition
+#: model:ir.model,name:base_product_mass_addition.model_product_mass_addition
+msgid ""
+"inherit this to add a mass product addition function                    to "
+"your model"
+msgstr ""
+"eredita questo per aggiungere la funzione aggiunta massiva "
+"prodotti                    al tuo modello"
