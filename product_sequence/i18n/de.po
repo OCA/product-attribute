@@ -108,12 +108,9 @@ msgstr "Übergeordnete Produktkategorie für Präfix verwenden"
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid ""
-"Use parent categories to determine the prefix if the category\n"
-"                                has no settings for the prefix."
+"Use parent categories to determine the prefix if the category has no "
+"settings for the prefix"
 msgstr ""
-"Es kann die übergeordnete Produktkategorie verwendet werden, um den Präfix "
-"für die interne Referenz von Produkten zu bestimmen, wenn für die aktuelle "
-"Produktkategorie selbst keinen Präfix eingetragen ist."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -125,6 +122,14 @@ msgstr ""
 "Es kann die übergeordnete Produktkategorie verwendet werden, um den Präfix "
 "für die interne Referenz von Produkten zu bestimmen, wenn für die aktuelle "
 "Produktkategorie selbst keinen Präfix eingetragen ist."
+
+#~ msgid ""
+#~ "Use parent categories to determine the prefix if the category\n"
+#~ "                                has no settings for the prefix."
+#~ msgstr ""
+#~ "Es kann die übergeordnete Produktkategorie verwendet werden, um den "
+#~ "Präfix für die interne Referenz von Produkten zu bestimmen, wenn für die "
+#~ "aktuelle Produktkategorie selbst keinen Präfix eingetragen ist."
 
 #~ msgid "Product"
 #~ msgstr "Produkt"
