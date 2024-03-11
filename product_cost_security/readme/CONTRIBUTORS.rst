@@ -8,3 +8,5 @@
 * `Onestein <https://www.onestein.eu>`_:
 
   * Anjeel Haria
+
+* Jairo Llopis (`Moduon <https://www.moduon.team>`__)
