@@ -33,7 +33,10 @@ class OrderMixin(models.AbstractModel):
     def update_order_container_deposit_quantity(self):
         if self.env.context.get("skip_update_container_deposit"):
             return
-        self = self.with_context(skip_update_container_deposit=True)
+        self = self.with_context(
+            skip_update_container_deposit=True,
+            update_order_container_deposit_quantity=True,
+        )
         line_ids_to_delete = []
         for order in self:
             # Lines to compute container deposit
