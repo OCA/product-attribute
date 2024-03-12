@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-03 14:34+0000\n"
+"PO-Revision-Date: 2024-03-12 13:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
@@ -65,12 +65,12 @@ msgstr "Variante prodotto"
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_cost_security_mixin
 msgid "Product cost access control mixin"
-msgstr ""
+msgstr "Mixin controllo accesso costo prodotto"
 
 #. module: product_cost_security
 #: model:ir.module.category,name:product_cost_security.module_category
 msgid "Product costs"
-msgstr ""
+msgstr "Costi prodotto"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
@@ -90,3 +90,8 @@ msgid ""
 "\n"
 "(Operation: %(operation)s)"
 msgstr ""
+"Non si possiedono sufficienti diritti per accedere ai campi \"%(fields)s\" "
+"in %(document_kind)s (%(document_model)s). Contattare l'amministratore di "
+"sistema.\n"
+"\n"
+"(Operazione: %(operation)s)"
