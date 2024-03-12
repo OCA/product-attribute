@@ -117,6 +117,7 @@ msgstr ""
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__partner_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Partner"
 msgstr "Partenaire"
@@ -130,6 +131,7 @@ msgstr "Article"
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
 #: model:ir.model,name:product_set.model_product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
@@ -149,6 +151,11 @@ msgid "Product set line"
 msgstr "ligne du Set"
 
 #. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_line_ids
+msgid "Product set lines"
+msgstr "Lignes du Set"
+
+#. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__name
 msgid "Product set name"
 msgstr "Nom du Set"
@@ -160,6 +167,7 @@ msgstr "Produits"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__quantity
 msgid "Quantity"
 msgstr "Quantité"
 
@@ -177,6 +185,18 @@ msgstr "Séquence"
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
 msgid "Set"
 msgstr "Set"
+
+#. module: product_set
+#. odoo-python
+#: code:addons/product_set/tests/models.py:0
+#, python-format
+msgid "This set of products is restricted for this user."
+msgstr ""
+
+#. module: product_set
+#: model:ir.model,name:product_set.model_product_set_wizard
+msgid "Transient base model to define custom wizards"
+msgstr ""
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
@@ -211,9 +231,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Activez cette option pour ne pas ajouter de nouvelles lignes pour les "
 #~ "produits déjà inclus dans les lignes de commande."
-
-#~ msgid "Product set lines"
-#~ msgstr "Lignes du Set"
 
 #~ msgid "Sale Order"
 #~ msgstr "Commande"
