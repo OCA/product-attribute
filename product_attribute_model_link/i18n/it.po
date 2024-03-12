@@ -6,23 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-03-12 13:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_attribute_model_link
 #: model_terms:ir.ui.view,arch_db:product_attribute_model_link.product_attribute_model_link_form
 msgid "Add attribute value from linked record"
-msgstr ""
+msgstr "Aggiungi valore attributo da record collegato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__apply_to_products_on_create
 msgid "Apply To Products On Create"
-msgstr ""
+msgstr "Applica al prodotto alla creazione"
 
 #. module: product_attribute_model_link
 #. odoo-python
@@ -30,23 +32,23 @@ msgstr ""
 #: code:addons/product_attribute_model_link/models/product_attribute.py:0
 #, python-format
 msgid "Attention!"
-msgstr ""
+msgstr "Attenzione!"
 
 #. module: product_attribute_model_link
 #: model:ir.model,name:product_attribute_model_link.model_product_attribute_value
 msgid "Attribute Value"
-msgstr ""
+msgstr "Valore attributo"
 
 #. module: product_attribute_model_link
 #: model_terms:ir.ui.view,arch_db:product_attribute_model_link.view_linked_record_wizard_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: product_attribute_model_link
 #: model_terms:ir.ui.view,arch_db:product_attribute_model_link.product_attribute_model_link_form
 #: model_terms:ir.ui.view,arch_db:product_attribute_model_link.view_linked_record_wizard_form
 msgid "Change Linked Record"
-msgstr ""
+msgstr "Modifica record collegato"
 
 #. module: product_attribute_model_link
 #: model_terms:ir.ui.view,arch_db:product_attribute_model_link.product_attribute_model_link_form
@@ -54,6 +56,9 @@ msgid ""
 "Changing or removing <b>Linked Model</b> or <b>Linked Field</b><br/>\n"
 "                    will not affect existing attribute values!"
 msgstr ""
+"La modifica o la rimozione del <b>modello collegato</b> o del <b>Cmapo "
+"collegato</b><br/>\n"
+"                    non influirà i valori degli attributi esistenti!"
 
 #. module: product_attribute_model_link
 #. odoo-python
@@ -63,36 +68,38 @@ msgid ""
 "Conversion failed for field 'name' on creation of product.attribute.value. "
 "Please check the data."
 msgstr ""
+"Conversione fallita per il campo 'name' nella creazione di "
+"product.attribute.value. Controllare i dati."
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__create_from_attribute_values
 msgid "Create From Attribute Values"
-msgstr ""
+msgstr "Crea da valori attributo"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__delete_when_attribute_value_is_deleted
 msgid "Delete When Attribute Value Is Deleted"
-msgstr ""
+msgstr "Cancella quanto il valore attributo viene cancellato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__domain
 msgid "Domain (optional)"
-msgstr ""
+msgstr "Dominio (opzionale)"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__linked_field_id
@@ -102,11 +109,16 @@ msgid ""
 "field values will be converted to Char automatically. Warning: changing or "
 "removing existing value will not affect existing attribute values!"
 msgstr ""
+"Campo del modello selezionato che verrà utilizzato per i nomi del valore "
+"attributo. Può essere qualsiasi campo tranne che per i related o computed "
+"non salvati. I valori dei campi digitali verranno convertiti automaticamente "
+"a Char. Attenzione: modificare o rimuovere valori esistenti non avrà effetto "
+"sui valori attributo esistenti!"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__domain
@@ -115,6 +127,9 @@ msgid ""
 "value creation. Warning: updating domain will not affect existing attribute "
 "values!"
 msgstr ""
+"Se configurata solo i record che corrispondono al dominio verranno "
+"utilizzati per la creazione del valore dell'attributo. Attenzione: "
+"l'aggiornamento del dominio non avrà effetto sui valori attributo esistenti!"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__create_from_attribute_values
@@ -127,6 +142,14 @@ msgid ""
 "a conversion attempt will be done. If conversion fails an exception might be"
 " raised."
 msgstr ""
+"Se abilitato, quando un nuovo valore di attributo viene aggiunto "
+"all'attributo, verrà creato un nuovo record nel modello collegato. "
+"Attenzione! L'unico valore passato esplicitamente al momento della creazione "
+"sarà il campo collegato contenente il nome del nuovo valore dell'attributo. "
+"È necessario assicurarsi che ciò sia sufficiente per la creazione di un "
+"nuovo record. In caso contrario verrà sollevata un'eccezione. Se viene "
+"utilizzato un campo digitale verrà effettuato un tentativo di conversione. "
+"Se la conversione fallisce, potrebbe essere sollevata un'eccezione."
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__apply_to_products_on_create
@@ -135,6 +158,10 @@ msgid ""
 "added to all existing products that use this attribute. Attention! You must "
 "completely understand possible consequences and use this option with care!"
 msgstr ""
+"Se abilitato quando viene creato un nuovo valore di attributo, verrà "
+"automaticamente aggiunto a tutti i prodotti esistenti che utilizzano questo "
+"attributo. Attenzione! È necessario comprendere appieno le possibili "
+"conseguenze e utilizzare questa opzione con cautela!"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__modify_from_attribute_values
@@ -145,51 +172,57 @@ msgid ""
 "raised. This option is available only if 'Create from Attribute Values' "
 "option is enabled."
 msgstr ""
+"Se abilitato quando il valore di un attributo viene rinominato, il valore "
+"del campo collegato nel modello collegato verrà aggiornato di conseguenza. "
+"Se viene utilizzato un campo digitale verrà effettuato un tentativo di "
+"conversione. Se la conversione fallisce, potrebbe essere sollevata "
+"un'eccezione. Questa opzione è disponibile solo se l'opzione \"Crea da "
+"valori attributo\" è abilitata."
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_linked_record_wizard__linked_record_ref
 msgid "Linked Record"
-msgstr ""
+msgstr "Record collegato"
 
 #. module: product_attribute_model_link
 #: model:ir.model,name:product_attribute_model_link.model_linked_record_wizard
 msgid "Linked Record Wizard"
-msgstr ""
+msgstr "Procedura guidata record collegato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__linked_field_id
 msgid "Linked field"
-msgstr ""
+msgstr "Campo collegato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__linked_model_id
 msgid "Linked model"
-msgstr ""
+msgstr "Modeloi collegato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute_value__linked_record_ref
 msgid "Linked record"
-msgstr ""
+msgstr "Record collegato"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__res_model_name
 msgid "Model"
-msgstr ""
+msgstr "Modello"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__linked_model_id
@@ -198,21 +231,24 @@ msgid ""
 "transient model. Warning: changing or removing existing value will not "
 "affect existing attribute values!"
 msgstr ""
+"Modello i cui record verranno utilizzati per i valori degli attributi. Non "
+"può essere un modello temporaneo. Attenzione: la modifica o la rimozione del "
+"valore esistente non influirà sui valori degli attributi esistenti!"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,field_description:product_attribute_model_link.field_product_attribute__modify_from_attribute_values
 msgid "Modify From Attribute Values"
-msgstr ""
+msgstr "Modifica da valori attributo"
 
 #. module: product_attribute_model_link
 #: model:ir.model,name:product_attribute_model_link.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Attributo prodotto"
 
 #. module: product_attribute_model_link
 #: model_terms:ir.ui.view,arch_db:product_attribute_model_link.view_linked_record_wizard_form
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #. module: product_attribute_model_link
 #. odoo-python
@@ -222,6 +258,8 @@ msgid ""
 "The only value passed explicitly on creation will be the linked field "
 "containing the new attribute value name. "
 msgstr ""
+"L'unico valore passato esplicitamente al momento della creazione sarà il "
+"campo collegato contenente il nome del nuovo valore dell'attributo. "
 
 #. module: product_attribute_model_link
 #. odoo-python
@@ -229,6 +267,7 @@ msgstr ""
 #, python-format
 msgid "Updating domain will not affect existing attribute values!"
 msgstr ""
+"L'aggiornamento del dominio non toccherà i valori degli attributi esistenti!"
 
 #. module: product_attribute_model_link
 #. odoo-python
@@ -236,14 +275,14 @@ msgstr ""
 #: code:addons/product_attribute_model_link/models/product_attribute_value.py:0
 #, python-format
 msgid "Validation Error: "
-msgstr ""
+msgstr "Errore validazione: "
 
 #. module: product_attribute_model_link
 #. odoo-python
 #: code:addons/product_attribute_model_link/models/product_attribute.py:0
 #, python-format
 msgid "Warning"
-msgstr ""
+msgstr "Attenzione"
 
 #. module: product_attribute_model_link
 #: model:ir.model.fields,help:product_attribute_model_link.field_product_attribute__delete_when_attribute_value_is_deleted
@@ -252,6 +291,9 @@ msgid ""
 "too. Use with extreme care! This option is available only if 'Create from "
 "Attribute Values' option is enabled."
 msgstr ""
+"Se abilitato, se un valore di attributo viene eliminato, verrà eliminato "
+"anche il record collegato. Utilizzare con estrema cautela! Questa opzione è "
+"disponibile solo se l'opzione \"Crea da valori attributo\" è abilitata."
 
 #. module: product_attribute_model_link
 #. odoo-python
@@ -261,3 +303,5 @@ msgid ""
 "You must completely understand possible consequences and use this option "
 "with care!"
 msgstr ""
+"È necessario comprendere appieno le possibili conseguenze e utilizzare "
+"questa opzione con cautela!"
