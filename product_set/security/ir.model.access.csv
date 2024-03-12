@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-product_set_salesperson,Read access on product.set to users,model_product_set,base.group_user,1,0,0,0
-product_set_line_user,Read access on product.set to users,model_product_set_line,base.group_user,1,0,0,0
+product_set.access_product_set,access_product_set,product_set.model_product_set,base.group_user,1,0,0,0
+product_set.access_product_set_line,access_product_set_line,product_set.model_product_set_line,base.group_user,1,0,0,0
+product_set.access_product_set_wizard,access_product_set_wizard,product_set.model_product_set_wizard,base.group_user,1,0,0,0
