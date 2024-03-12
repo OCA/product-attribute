@@ -3,7 +3,7 @@
 {
     "name": "Product Attribute Model Link",
     "summary": "Use any model records as product attribute values",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Cetmix, Odoo Community Association (OCA)",
