@@ -117,6 +117,7 @@ msgstr ""
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__partner_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Partner"
 msgstr ""
@@ -130,6 +131,7 @@ msgstr "Proizvod"
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
 #: model:ir.model,name:product_set.model_product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
@@ -150,6 +152,11 @@ msgid "Product set line"
 msgstr "Stavka seta proizvoda"
 
 #. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_line_ids
+msgid "Product set lines"
+msgstr "Stavke seta proizvoda"
+
+#. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__name
 msgid "Product set name"
 msgstr "Naziv seta proizvoda"
@@ -161,6 +168,7 @@ msgstr "Proizvodi"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__quantity
 msgid "Quantity"
 msgstr "Količina"
 
@@ -180,6 +188,18 @@ msgid "Set"
 msgstr "Set"
 
 #. module: product_set
+#. odoo-python
+#: code:addons/product_set/tests/models.py:0
+#, python-format
+msgid "This set of products is restricted for this user."
+msgstr ""
+
+#. module: product_set
+#: model:ir.model,name:product_set.model_product_set_wizard
+msgid "Transient base model to define custom wizards"
+msgstr ""
+
+#. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
 msgid ""
 "You can attache the set to a specific partner or no one. If you don't "
@@ -197,9 +217,6 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "Otkaži"
-
-#~ msgid "Product set lines"
-#~ msgstr "Stavke seta proizvoda"
 
 #~ msgid "Wizard model to add product set into a quotation"
 #~ msgstr "Model čarobnjaka za dodavanje setova u ponudu"
