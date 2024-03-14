@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="product_product_tax_included" model="product.product">
+        <field name="name">Product With Sale Tax (Tax Included)</field>
+        <field name="standard_price">1000</field>
+        <field name="list_price">2400</field>
+        <field name="taxes_id" eval="[(4, ref('account_tax_tax_included'))]" />
+        <field name="categ_id" ref="product.product_category_all" />
+    </record>
+
+    <record id="product_product_tax_excluded" model="product.product">
+        <field name="name">Product With Sale Tax (Tax Excluded)</field>
+        <field name="standard_price">100</field>
+        <field name="list_price">200</field>
+        <field name="taxes_id" eval="[(4, ref('account_tax_tax_excluded'))]" />
+        <field name="categ_id" ref="product.product_category_all" />
+    </record>
+
+</odoo>
