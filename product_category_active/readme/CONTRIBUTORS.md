@@ -3,3 +3,4 @@
   - Pedro M. Baeza
   - Carlos Roca
 - Denis Roussel \<<denis.roussel@acsone.eu>\>
+- Vang Nguyen \<<vang-np@komit-consulting.com>\>
