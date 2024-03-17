@@ -99,7 +99,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         for rec in self:
             if not rec.secondary_uom_id:
                 rec[rec._secondary_unit_fields["qty_field"]] = (
-                    rec._origin[rec._secondary_unit_fields["qty_field"]]
+                    rec[rec._secondary_unit_fields["qty_field"]]
                     or default_qty_field_value
                 )
                 continue
