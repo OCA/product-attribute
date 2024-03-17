@@ -16,7 +16,7 @@ class ProductPricelistPrint(models.TransientModel):
     def get_products_domain(self):
         domain = super().get_products_domain()
         if self.public_categ_ids:
-            domain.append(("public_categ_ids", "in", self.public_categ_ids.ids))
+            domain.append(("public_categ_ids", "child_of", self.public_categ_ids.ids))
         return domain
 
     def get_group_key(self, product):
