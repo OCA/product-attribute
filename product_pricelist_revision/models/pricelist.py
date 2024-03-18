@@ -9,6 +9,7 @@ class ProductPricelistItem(models.Model):
     _rec_names_search = ["name"]  # Initialize here to be able to extend
 
     name = fields.Char(store=True)
+    price = fields.Char(compute_sudo=True)
 
     previous_item_id = fields.Many2one(
         comodel_name="product.pricelist.item",
