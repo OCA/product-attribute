@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-16 11:20+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2024-03-18 09:33+0000\n"
+"Last-Translator: Davide Corio <enlightx@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Prezzo in corso"
 #. module: product_pricelist_item_list_view
 #: model:ir.ui.menu,name:product_pricelist_item_list_view.product_pricelist_items_action_menu
 msgid "Price Rules"
-msgstr "Recole prezzi"
+msgstr "Regole prezzi"
 
 #. module: product_pricelist_item_list_view
 #: model_terms:ir.ui.view,arch_db:product_pricelist_item_list_view.product_pricelist_item_view_search
