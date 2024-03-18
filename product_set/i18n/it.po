@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:51+0000\n"
-"PO-Revision-Date: 2023-12-19 16:33+0000\n"
+"PO-Revision-Date: 2024-03-18 09:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -153,7 +153,7 @@ msgstr "Riga set prodotto"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_line_ids
 msgid "Product set lines"
-msgstr ""
+msgstr "Righe set prodotto"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__name
@@ -191,12 +191,12 @@ msgstr "Set"
 #: code:addons/product_set/tests/models.py:0
 #, python-format
 msgid "This set of products is restricted for this user."
-msgstr ""
+msgstr "Questo set di prodotti è limitato per questo utente."
 
 #. module: product_set
 #: model:ir.model,name:product_set.model_product_set_wizard
 msgid "Transient base model to define custom wizards"
-msgstr ""
+msgstr "Modello transient base per definire procedure guidate personalizzate"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
