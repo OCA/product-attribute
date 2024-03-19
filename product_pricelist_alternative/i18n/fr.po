@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_alternative
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-19 09:06+0000\n"
+"PO-Revision-Date: 2024-03-19 09:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist_item__alternative_pricelist_policy
+msgid "Alternative Pricelist Policy"
+msgstr "Politique de prix alternatifs"
+
+#. module: product_pricelist_alternative
+#: model_terms:ir.ui.view,arch_db:product_pricelist_alternative.product_pricelist_view
+msgid "Alternative Pricelists"
+msgstr "Listes de prix alternatives"
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__alternative_pricelist_ids
+msgid "Alternative pricelists"
+msgstr "Listes de prix alternatives"
+
+#. module: product_pricelist_alternative
+#: model_terms:ir.ui.view,arch_db:product_pricelist_alternative.product_pricelist_view
+msgid "Alternative to Pricelist"
+msgstr "Alternative à la liste de prix"
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__ignore
+msgid "Ignore alternatives"
+msgstr "Ignorer les alternatives"
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__use_lower_price
+msgid "Use lower price"
+msgstr "Utiliser le prix le plus bas"

@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_alternative
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist_item__alternative_pricelist_policy
+msgid "Alternative Pricelist Policy"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model_terms:ir.ui.view,arch_db:product_pricelist_alternative.product_pricelist_view
+msgid "Alternative Pricelists"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__alternative_pricelist_ids
+msgid "Alternative pricelists"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model_terms:ir.ui.view,arch_db:product_pricelist_alternative.product_pricelist_view
+msgid "Alternative to Pricelist"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__ignore
+msgid "Ignore alternatives"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_count
+msgid "Is Alternative To Pricelist Count"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#. odoo-python
+#: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
+#, python-format
+msgid "Is Alternative to Pricelist"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_ids
+msgid "Is alternative to pricelists"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model,name:product_pricelist_alternative.model_product_pricelist
+msgid "Pricelist"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model,name:product_pricelist_alternative.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__use_lower_price
+msgid "Use lower price"
+msgstr ""
