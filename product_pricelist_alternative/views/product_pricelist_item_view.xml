@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_pricelist_item_view_form" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fixed_price']" position="after">
+                <field name="alternative_pricelist_policy" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_view_tree" model="ir.ui.view">
+        <field name="name">product.pricelist.item.tree</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price']" position="after">
+                <field name="alternative_pricelist_policy" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_tree_view_from_product" model="ir.ui.view">
+        <field name="name">product.pricelist.item.tree</field>
+        <field name="model">product.pricelist.item</field>
+        <field
+            name="inherit_id"
+            ref="product.product_pricelist_item_tree_view_from_product"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_end']" position="after">
+                <field name="alternative_pricelist_policy" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
