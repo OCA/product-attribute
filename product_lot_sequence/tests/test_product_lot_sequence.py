@@ -104,6 +104,9 @@ class TestProductLotSequence(TransactionCase):
         self.assertEqual(lot.name, next_sequence_number)
 
     def test_open_detailed_operations(self):
+        # Required for `product_uom` to be visible in the view
+        self.env.user.groups_id += self.env.ref("uom.group_uom")
+
         self.env["ir.config_parameter"].set_param(
             "product_lot_sequence.policy", "global"
         )
@@ -115,7 +118,7 @@ class TestProductLotSequence(TransactionCase):
         delivery_picking = self._create_picking(
             self.delivery_type, [{"product_id": product}]
         )
-        delivery_move = delivery_picking.move_lines
+        delivery_move = delivery_picking.move_ids
         self.assertFalse(delivery_move.next_serial)
         delivery_move.action_show_details()
         self.assertFalse(delivery_move.next_serial)
@@ -125,7 +128,7 @@ class TestProductLotSequence(TransactionCase):
         receipt_picking = self._create_picking(
             self.receipt_type, [{"product_id": product}]
         )
-        receipt_move = receipt_picking.move_lines
+        receipt_move = receipt_picking.move_ids
         self.assertFalse(receipt_move.next_serial)
         receipt_move.action_show_details()
         self.assertEqual(receipt_move.next_serial, first_next_sequence_number)
