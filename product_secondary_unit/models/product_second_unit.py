@@ -48,9 +48,7 @@ class ProductSecondaryUnit(models.Model):
             result.append(
                 (
                     unit.id,
-                    "{unit_name}-{factor}".format(
-                        unit_name=unit.name, factor=unit.factor
-                    ),
+                    f"{unit.name}-{unit.factor}",
                 )
             )
         return result
