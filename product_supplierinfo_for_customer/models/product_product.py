@@ -10,15 +10,18 @@ from odoo import api, models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    def name_get(self):
-        res = super(ProductProduct, self.with_context(customerinfo=True)).name_get()
+    @api.depends("variant_customer_ids", "customer_ids")
+    def _compute_display_name(self):
+        res = super(
+            ProductProduct, self.with_context(customerinfo=True)
+        )._compute_display_name()
         return res
 
     @api.model
     def _name_search(
         self, name="", args=None, operator="ilike", limit=100, name_get_uid=None
     ):
-        res = super(ProductProduct, self)._name_search(
+        res = super()._name_search(
             name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
         )
         res_ids = list(res)
