@@ -12,6 +12,7 @@ class ResPartner(models.Model):
         relation="ir_filter_all_partner_rel",
         column1="partner_id",
         column2="filter_id",
+        copy=False,
     )
 
     def action_define_product_assortment(self):
@@ -37,20 +38,18 @@ class ResPartner(models.Model):
         # Using sudo to contemplate evaluation of domains with restricted fields
         self = self.sudo()
         assortments = self.env["ir.filters"].search([("is_assortment", "=", True)])
+        domain_dic = {a: a._get_eval_partner_domain() for a in assortments}
         for partner in self:
-            # Use ids instead of record to improve performance (Remove in next versions)
-            partner_assortment_ids = []
-            for assortment in assortments:
-                if partner in assortment.partner_ids or partner.filtered_domain(
-                    assortment._get_eval_partner_domain()
-                ):
-                    partner_assortment_ids.append(assortment.id)
-            partner.applied_assortment_ids = assortments.browse(partner_assortment_ids)
+            partner.applied_assortment_ids = assortments.filtered(
+                lambda a: partner in a.partner_ids
+                or domain_dic[a]
+                and partner.filtered_domain(domain_dic[a])
+            )
 
     @api.model_create_multi
     def create(self, vals_list):
         partners = super().create(vals_list)
-        self._update_partner_assortments()
+        partners._update_partner_assortments()
         return partners
 
     def write(self, vals):
