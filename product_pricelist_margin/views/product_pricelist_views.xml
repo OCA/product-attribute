@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="product_pricelist_view_inherit" model="ir.ui.view">
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='item_ids']/tree[1]/field[@name='fixed_price']"
+                position="after"
+            >
+                <field name="cost" invisible="1" />
+                <field
+                    name="margin"
+                    optional="show"
+                    attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
+                />
+                <field
+                    name="margin_percent"
+                    optional="show"
+                    attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='item_ids']/tree[2]/field[@name='price']"
+                position="after"
+            >
+                <field name="cost" invisible="1" />
+                <field
+                    name="margin"
+                    optional="show"
+                    attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
+                />
+                <field
+                    name="margin_percent"
+                    optional="show"
+                    attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
