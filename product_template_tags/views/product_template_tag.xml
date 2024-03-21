@@ -18,9 +18,22 @@
                             context="{'search_default_tag_ids': active_id}"
                         >
                             <field
-                                name="products_count"
+                                name="product_tmpl_count"
                                 widget="statinfo"
                                 string="Products"
+                            />
+                        </button>
+                        <button
+                            name="%(product.product_normal_action)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-tags"
+                            context="{'search_default_tag_ids': active_id}"
+                        >
+                            <field
+                                name="product_prod_count"
+                                widget="statinfo"
+                                string="Variants"
                             />
                         </button>
                     </div>
