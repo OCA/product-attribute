@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_tier_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-02-05 06:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__can_review
+msgid "Can Review"
+msgstr "Può revisionare"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_tier_validation.field_tier_definition__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__has_comment
+msgid "Has Comment"
+msgstr "Ha commenti"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__id
+#: model:ir.model.fields,field_description:product_tier_validation.field_tier_definition__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_tier_validation.field_tier_definition____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__need_validation
+msgid "Need Validation"
+msgstr "Richiede conferma"
+
+#. module: product_tier_validation
+#: model_terms:ir.ui.view,arch_db:product_tier_validation.product_form_tier_filter
+msgid "Needs an Approval"
+msgstr "Richiede approvazione"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__next_review
+msgid "Next Review"
+msgstr "Prossima revisione"
+
+#. module: product_tier_validation
+#: model:ir.model,name:product_tier_validation.model_product_template
+msgid "Product Template"
+msgstr "Modello prodotto"
+
+#. module: product_tier_validation
+#: model:tier.definition,name:product_tier_validation.product_tier_definition
+msgid "Product Validation"
+msgstr "Verifica prodotto"
+
+#. module: product_tier_validation
+#: model_terms:ir.ui.view,arch_db:product_tier_validation.product_form_tier_filter
+msgid "Product(s) to Approve"
+msgstr "Prodotto(i) da verificare"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__rejected
+msgid "Rejected"
+msgstr "Respinto"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__rejected_message
+msgid "Rejected Message"
+msgstr "Messaggio di rifiuto"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__reviewer_ids
+msgid "Reviewers"
+msgstr "Revisori"
+
+#. module: product_tier_validation
+#: model:ir.model,name:product_tier_validation.model_tier_definition
+msgid "Tier Definition"
+msgstr "Definizione livello"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__tier_validation_before_write
+msgid "Tier Validation Before Write"
+msgstr "Validazione livello prima della scrittura"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__to_validate_message
+msgid "To Validate Message"
+msgstr "Messaggio per 'Da validare'"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__validated
+msgid "Validated"
+msgstr "Validato"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__validated_message
+msgid "Validated Message"
+msgstr "Messaggio per 'Validata'"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__validation_status
+msgid "Validation Status"
+msgstr "Stato validazione"
+
+#. module: product_tier_validation
+#: model:ir.model.fields,field_description:product_tier_validation.field_product_template__review_ids
+msgid "Validations"
+msgstr "Validazioni"
