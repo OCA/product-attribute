@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-01-13 23:56+0000\n"
+"PO-Revision-Date: 2024-03-23 10:35+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: product_tier_validation
 #: model:ir.actions.server,name:product_tier_validation.action_accept_product_validations
 msgid "Accept Validations"
-msgstr ""
+msgstr "Aceptar Validaciones"
 
 #. module: product_tier_validation
 #: model:ir.model.fields,field_description:product_tier_validation.field_product_template__can_review
@@ -82,7 +82,7 @@ msgstr "Producto(s) a Aprobar"
 #. module: product_tier_validation
 #: model:ir.actions.server,name:product_tier_validation.action_reject_product_validations
 msgid "Reject Validations"
-msgstr ""
+msgstr "Rechazar Validaciones"
 
 #. module: product_tier_validation
 #: model:ir.model.fields,field_description:product_tier_validation.field_product_template__rejected
@@ -107,7 +107,7 @@ msgstr "Definición del Nivel"
 #. module: product_tier_validation
 #: model:ir.model.fields,field_description:product_tier_validation.field_product_template__tier_validation_before_write
 msgid "Tier Validation Before Write"
-msgstr ""
+msgstr "Validación de Niveles Antes de la Escritura"
 
 #. module: product_tier_validation
 #: model:ir.model.fields,field_description:product_tier_validation.field_product_template__to_validate_message
