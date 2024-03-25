@@ -18,13 +18,20 @@ class TestProductSet(common.TransactionCase):
         # no ref
         product_set.name = "Foo"
         product_set.ref = ""
-        self.assertEqual(product_set.name_get(), [(product_set.id, "Foo")])
+        self.assertEqual(
+            product_set.read(["display_name"]),
+            [{"id": product_set.id, "display_name": "Foo"}],
+        )
         # with ref
         product_set.ref = "123"
-        self.assertEqual(product_set.name_get(), [(product_set.id, "[123] Foo")])
+        self.assertEqual(
+            product_set.read(["display_name"]),
+            [{"id": product_set.id, "display_name": "[123] Foo"}],
+        )
         # with partner
         partner = self.env.ref("base.res_partner_1")
         product_set.partner_id = partner
         self.assertEqual(
-            product_set.name_get(), [(product_set.id, "[123] Foo @ %s" % partner.name)]
+            product_set.read(["display_name"]),
+            [{"id": product_set.id, "display_name": "[123] Foo @ %s" % partner.name}],
         )
