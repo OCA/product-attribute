@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This file is preloaded with pre_init_hook. Use other file if is needed -->
+<odoo noupdate="1">
+    <record id="product_allergen_attribute" model="product.attribute">
+        <field name="name">Allergens</field>
+        <field name="create_variant">no_variant</field>
+        <field name="display_type">select</field>
+    </record>
+</odoo>
