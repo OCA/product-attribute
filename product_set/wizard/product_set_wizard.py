@@ -34,8 +34,7 @@ class ProductSetWizard(models.AbstractModel):
 
     def _get_lines(self):
         # hook here to take control on used lines
-        for set_line in self.product_set_line_ids:
-            yield set_line
+        yield from self.product_set_line_ids
 
     def _check_partner(self):
         """This method may be extended in other modules that use product_set as a base."""

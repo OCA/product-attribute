@@ -1,14 +1,14 @@
 # Copyright 2015 Anybox S.A.S
 # Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProductSet(models.Model):
     _name = "product.set"
     _description = "Product set"
 
-    name = fields.Char(help="Product set name", required=True)
+    name = fields.Char(help="Product set name", required=True, translate=True)
     active = fields.Boolean(default=True)
     ref = fields.Char(
         string="Internal Reference", help="Product set internal reference", copy=False
@@ -32,14 +32,18 @@ class ProductSet(models.Model):
         "it's going to be available for all of them.",
     )
 
-    def name_get(self):
-        return [(rec.id, rec._name_get()) for rec in self]
+    display_name = fields.Char(
+        compute="_compute_display_name",
+        string="Display Name",
+    )
 
-    def _name_get(self):
-        parts = []
-        if self.ref:
-            parts.append("[%s]" % self.ref)
-        parts.append(self.name)
-        if self.partner_id:
-            parts.append("@ %s" % self.partner_id.name)
-        return " ".join(parts)
+    @api.depends("name", "ref", "partner_id.name")
+    def _compute_display_name(self):
+        for rec in self:
+            parts = []
+            if rec.ref:
+                parts.append("[%s]" % rec.ref)
+            parts.append(rec.name or "")
+            if rec.partner_id and rec.partner_id.name:
+                parts.append("@ %s" % rec.partner_id.name)
+            rec.display_name = " ".join(map(str, parts))
