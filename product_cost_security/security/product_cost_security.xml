@@ -10,7 +10,7 @@
     add fields to views with this group defined as field attribute.
     -->
     <record model="res.groups" id="group_product_cost">
-        <field name="name">Access to product costs</field>
+        <field name="name">Read</field>
         <field name="category_id" ref="module_category" />
         <field name="users" eval="[(4, ref('base.user_root'))]" />
     </record>
@@ -18,7 +18,7 @@
     Only users within this group can edit costs.
     -->
     <record model="res.groups" id="group_product_edit_cost">
-        <field name="name">Modify product costs</field>
+        <field name="name">Edit</field>
         <field name="category_id" ref="module_category" />
         <field
             name="implied_ids"
