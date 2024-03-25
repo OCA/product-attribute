@@ -24,7 +24,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_button_box" name="button_box" />
                     <group name="main">
@@ -48,10 +48,7 @@
                         >
                             <tree editable="top">
                                 <field name="sequence" widget="handle" />
-                                <field
-                                    name="product_id"
-                                    attrs="{'required': [('display_type', '=', False)]}"
-                                />
+                                <field name="product_id" required="not display_type" />
                                 <field name="quantity" />
                                 <field name="display_type" invisible="1" />
                                 <field name="name" widget="section_and_note_text" />
