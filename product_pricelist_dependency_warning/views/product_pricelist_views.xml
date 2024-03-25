@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2023 Simone Rubino - Aion Tech
+  ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+  -->
+<odoo>
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">Add Dependency warning fields to pricelist form view</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <group name="pricelist_settings" position="before">
+                <field name="is_base_price_changed" invisible="True" />
+                <div
+                    class="alert alert-warning mb-0"
+                    role="alert"
+                    attrs="{
+                        'invisible': [
+                            ('is_base_price_changed', '!=', True),
+                        ],
+                    }"
+                >
+                    The base price of some Price Rules is changed,
+                    please review them and uncheck the "Base price changed" flag
+                    to remove this warning
+                </div>
+            </group>
+            <xpath
+                expr="//field[@name='item_ids']/tree[@groups='product.group_sale_pricelist']"
+            >
+                <field name="is_base_price_changed" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_view_search" model="ir.ui.view">
+        <field
+            name="name"
+        >Add Dependency warning fields to pricelist search view</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view_search" />
+        <field name="arch" type="xml">
+            <search>
+                <filter
+                    string="Base price changed"
+                    name="is_base_price_changed"
+                    domain="[
+                        ('is_base_price_changed', '=', True),
+                    ]"
+                />
+            </search>
+        </field>
+    </record>
+</odoo>
