@@ -3,7 +3,7 @@
 {
     "name": "Product Secondary Unit",
     "summary": "Set a secondary unit per product",
-    "version": "16.0.1.0.2",
+    "version": "16.0.1.0.3",
     "development_status": "Production/Stable",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
