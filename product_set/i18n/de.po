@@ -87,12 +87,6 @@ msgid "Internal Reference"
 msgstr "Interne Referenz"
 
 #. module: product_set
-#: model:ir.model.fields,field_description:product_set.field_product_set____last_update
-#: model:ir.model.fields,field_description:product_set.field_product_set_line____last_update
-msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
-
-#. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__write_uid
 msgid "Last Updated by"
@@ -183,6 +177,11 @@ msgid "Sequence"
 msgstr "Sequenz"
 
 #. module: product_set
+#: model:product.set,name:product_set.product_set_services
+msgid "Services"
+msgstr ""
+
+#. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
 msgid "Set"
 msgstr "Produktset"
@@ -207,6 +206,14 @@ msgid ""
 msgstr ""
 "Das Produktset kann einem Partner oder niemandem zugeordnet werden. Wenn "
 "kein Partner definiert wird, ist das Produktset für alle verwendbar."
+
+#. module: product_set
+#: model:product.set,name:product_set.product_set_i5_computer
+msgid "i5 computer offer"
+msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zuletzt geändert am"
 
 #~ msgid "Add set"
 #~ msgstr "Produktset hinzufügen"
