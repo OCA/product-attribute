@@ -71,8 +71,8 @@ msgstr "È predefinito"
 #: code:addons/product_packaging_level/models/product_packaging.py:0
 #, python-format
 msgid ""
-"It is forbidden to have different packagings with the same level for a given"
-" product ({})."
+"It is forbidden to have different packagings with the same level for a given "
+"product ({})."
 msgstr ""
 "Non è permesso avere imballaggi differenti con lo stesso livello per un dato "
 "prodotto ({})."
@@ -91,11 +91,6 @@ msgstr "Ultimo aggiornamento di"
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
-
-#. module: product_packaging_level
-#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__level_sequence
-msgid "Level Sequence"
-msgstr "Sequenza livello"
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging_level
@@ -175,6 +170,7 @@ msgid "Qty per package level"
 msgstr "Q.tà per livello collo"
 
 #. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__sequence
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__sequence
 msgid "Sequence"
 msgstr "Sequenza"
@@ -185,13 +181,18 @@ msgid "Stock package type"
 msgstr "Tipo collo magazzino"
 
 #. module: product_packaging_level
+#: model:ir.model.fields,help:product_packaging_level.field_product_packaging__sequence
+msgid "The first in the sequence is the default one."
+msgstr ""
+
+#. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging_level.py:0
 #, python-format
 msgid "There must be one product packaging level set as \"Is Default\"."
 msgstr ""
-"Deve esserci un livello imballaggio prodotto impostato come \"È predefinito\""
-"."
+"Deve esserci un livello imballaggio prodotto impostato come \"È predefinito"
+"\"."
 
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__user_defined
@@ -203,9 +204,12 @@ msgstr "Definito dall'utente"
 #: model:ir.model.fields,help:product_packaging_level.field_product_packaging_level__name_policy
 msgid ""
 "config to set name of product packaging. Three options:- The package level "
-"name (default)- The package type name (if "
-"groups='stock.group_tracking_lot')- user defined: free text value defined"
+"name (default)- The package type name (if groups='stock."
+"group_tracking_lot')- user defined: free text value defined"
 msgstr ""
 "Configurare per impostare il nome dell'imballo prodotto. Tre opzioni: - Il "
 "nome livello collo (predefinito) - Il nome tipo collo (se gruppi='stock."
 "group_tracking_lot') - definito dall'utente: testo libero"
+
+#~ msgid "Level Sequence"
+#~ msgstr "Sequenza livello"
