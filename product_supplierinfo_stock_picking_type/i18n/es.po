@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-01 16:08+0000\n"
-"PO-Revision-Date: 2024-01-15 16:36+0000\n"
+"PO-Revision-Date: 2024-03-26 22:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -26,7 +26,7 @@ msgstr "Tipo de albarán"
 #. module: product_supplierinfo_stock_picking_type
 #: model:ir.model,name:product_supplierinfo_stock_picking_type.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante del Producto"
 
 #. module: product_supplierinfo_stock_picking_type
 #: model:ir.model,name:product_supplierinfo_stock_picking_type.model_purchase_order
