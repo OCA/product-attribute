@@ -7,27 +7,24 @@ from odoo.addons.product_template_tags.tests.test_product_template_tags import (
 
 
 class TestProductTemplateTag(TestProductTemplateTagBase):
-    def test_product_template_tag(self):
-        product_tmpl_tag = self.env["product.template.tag"].create(
-            {"name": "Test Tag", "product_tmpl_ids": [(6, 0, [self.product_tmpl.id])]}
-        )
-        self.assertEqual(product_tmpl_tag.code, "test-tag")
+    def test_00_product_template_tag(self):
+        self.assertEqual(self.tag.code, "test-tag")
 
-    def test_product_template_tag_writable(self):
-        product_tmpl_tag = self.env["product.template.tag"].create(
+    def test_01_product_template_tag_writable(self):
+        self.tag.write(
             {
                 "name": "Test Tag",
                 "code": "foo tag !!",
                 "product_tmpl_ids": [(6, 0, [self.product_tmpl.id])],
             }
         )
-        self.assertEqual(product_tmpl_tag.code, "foo-tag")
-        product_tmpl_tag.write({"code": "test tag writable"})
-        self.assertEqual(product_tmpl_tag.code, "test-tag-writable")
-        product_tmpl_tag.write({"name": "test tag name 2"})
-        self.assertEqual(product_tmpl_tag.code, "test-tag-name-2")
+        self.assertEqual(self.tag.code, "foo-tag")
+        self.tag.write({"code": "test tag writable"})
+        self.assertEqual(self.tag.code, "test-tag-writable")
+        self.tag.write({"name": "test tag name 2"})
+        self.assertEqual(self.tag.code, "test-tag-name-2")
 
-    def test_product_template_multi_tags(self):
+    def test_02_product_template_multi_tags(self):
         prods_data = []
         for x in range(3):
             prods_data.append(

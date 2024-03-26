@@ -5,6 +5,21 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 -->
 <odoo>
+    <record id="product_normal_form_view_inherit" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <group name="group_general" position="inside">
+                <field name="tag_propagation" invisible="1" />
+                <field
+                    name="tag_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
+                    attrs="{'readonly': [('tag_propagation', '!=', 'prod2tmpl')]}"
+                />
+            </group>
+        </field>
+    </record>
 
     <record id="product_kanban_view" model="ir.ui.view">
         <field name="model">product.product</field>
@@ -18,6 +33,16 @@
                         options="{'color_field': 'color'}"
                     />
                 </span>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_search_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_search_form_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="tag_ids" />
             </field>
         </field>
     </record>
