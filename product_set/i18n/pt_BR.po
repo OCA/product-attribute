@@ -88,12 +88,6 @@ msgid "Internal Reference"
 msgstr "Referência Interna"
 
 #. module: product_set
-#: model:ir.model.fields,field_description:product_set.field_product_set____last_update
-#: model:ir.model.fields,field_description:product_set.field_product_set_line____last_update
-msgid "Last Modified on"
-msgstr "Última atualização em"
-
-#. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__write_uid
 msgid "Last Updated by"
@@ -183,6 +177,11 @@ msgid "Sequence"
 msgstr "Sequência"
 
 #. module: product_set
+#: model:product.set,name:product_set.product_set_services
+msgid "Services"
+msgstr ""
+
+#. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
 msgid "Set"
 msgstr "Conjunto"
@@ -207,6 +206,14 @@ msgid ""
 msgstr ""
 "Você pode anexar o conjunto a um parceiro específico ou não. Se você não "
 "especificar um, ele estará disponível para todos."
+
+#. module: product_set
+#: model:product.set,name:product_set.product_set_i5_computer
+msgid "i5 computer offer"
+msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última atualização em"
 
 #~ msgid "Add set"
 #~ msgstr "Adicionar conjunto"
