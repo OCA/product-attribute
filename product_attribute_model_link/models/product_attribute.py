@@ -47,7 +47,8 @@ def make_create():
                 ).create(
                     {
                         "name": name_value,
-                        "linked_record_ref": f"{record._name},{record.id}",
+                        "model": record._name,
+                        "res_id": record.id,
                         "attribute_id": product_attribute.id,
                     }
                 )
@@ -63,7 +64,7 @@ def make_write():
     def write(self, vals, **kw):
         # Retrieve connected product attribute values for all records in the set
         product_attribute_values = self.env["product.attribute.value"].search(
-            [("linked_record_ref", "in", [f"{rec._name},{rec.id}" for rec in self])]
+            [("model", "=", self._name), ("res_id", "in", self.ids)]
         )
         # Call original method
         write.origin(self, vals, **kw)
@@ -97,7 +98,7 @@ def make_unlink():
         if not self.env.context.get("operation_from_attribute_value"):
             # Retrieve connected product attribute values for all records in the set
             product_attribute_values = self.env["product.attribute.value"].search(
-                [("linked_record_ref", "in", [f"{rec._name},{rec.id}" for rec in self])]
+                [("model", "=", self._name), ("res_id", "in", self.ids)]
             )
             for product_attribute_value in product_attribute_values:
                 linked_products = (

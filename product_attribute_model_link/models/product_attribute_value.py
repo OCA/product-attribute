@@ -8,9 +8,24 @@ from odoo.exceptions import ValidationError
 class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
 
+    model = fields.Char("Related Record Model")
+    res_id = fields.Many2oneReference("Related Record ID", model_field="model")
     linked_record_ref = fields.Reference(
-        selection="_selection_target_model", string="Linked record"
+        selection="_selection_target_model",
+        string="Linked record",
+        compute="_compute_record_ref",
     )
+
+    @api.depends("model", "res_id")
+    def _compute_record_ref(self):
+        for rec in self:
+            if rec.model and rec.res_id:
+                res = self.env[rec.model].browse(rec.res_id)
+                can_read = res.check_access_rights("read", raise_exception=False)
+                if can_read:
+                    rec.linked_record_ref = res
+                    continue
+            rec.linked_record_ref = False
 
     @api.model
     def _selection_target_model(self):
@@ -68,8 +83,9 @@ class ProductAttributeValue(models.Model):
                             }
                         )
                     )
-                    # Update linked_record_ref with the created record
-                    vals["linked_record_ref"] = f"{new_record._name},{new_record.id}"
+                    # Update res_id and model with the created record
+                    vals["res_id"] = new_record.id
+                    vals["model"] = new_record._name
                 except Exception as e:
                     # If conversion fails, raise a ValidationError with details
                     field_name = product_attribute.linked_field_id.name
@@ -118,10 +134,11 @@ class ProductAttributeValue(models.Model):
         res = super().write(vals)
         # Modify linked record if modify_from_attribute_values is True
         if not self.env.context.get("operation_from_record") and (
-            vals.get("name") and not vals.get("linked_record_ref")
+            vals.get("name") and not vals.get("model") and not vals.get("res_id")
         ):
             for product_attribute_value in self.filtered(
-                lambda x: x.linked_record_ref
+                lambda x: x.model
+                and x.res_id
                 and x.attribute_id.create_from_attribute_values
                 and x.attribute_id.modify_from_attribute_values
             ):
@@ -174,9 +191,7 @@ class ProductAttributeValue(models.Model):
         self.ensure_one()
         context = {
             "default_linked_record_ref": (
-                f"{self.linked_record_ref._name},{self.linked_record_ref.id}"
-                if self.linked_record_ref
-                else False
+                f"{self.model},{self.res_id}" if self.model and self.res_id else False
             ),
             "default_linked_model": self.attribute_id.linked_model_id.model
             if self.attribute_id.linked_model_id
