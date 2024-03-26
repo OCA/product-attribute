@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-16 15:34+0000\n"
-"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"PO-Revision-Date: 2024-03-26 22:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -66,12 +66,12 @@ msgstr "Variante del producto"
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_cost_security_mixin
 msgid "Product cost access control mixin"
-msgstr ""
+msgstr "Mixin de control de acceso al coste del producto"
 
 #. module: product_cost_security
 #: model:ir.module.category,name:product_cost_security.module_category
 msgid "Product costs"
-msgstr ""
+msgstr "Costes del Producto"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
@@ -91,6 +91,11 @@ msgid ""
 "\n"
 "(Operation: %(operation)s)"
 msgstr ""
+"No tiene suficientes derechos para acceder a los campos \"%(fields)s\" en "
+"%(document_kind)s (%(document_model)s). Póngase en contacto con el "
+"administrador del sistema.\n"
+"\n"
+"(Operación: %(operation)s)"
 
 #~ msgid "Product Template"
 #~ msgstr "Plantilla de producto"
