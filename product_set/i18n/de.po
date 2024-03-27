@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:51+0000\n"
-"PO-Revision-Date: 2021-07-09 15:48+0000\n"
-"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
+"PO-Revision-Date: 2024-03-27 18:36+0000\n"
+"Last-Translator: Nils Coenen <nils.coenen@nico-solutions.de>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
@@ -28,23 +28,23 @@ msgstr "Aktiv"
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a line"
-msgstr ""
+msgstr "Zeile hinzufügen"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a note"
-msgstr ""
+msgstr "Notiz hinzufügen"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a section"
-msgstr ""
+msgstr "Abschnitt hinzufügen"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Archived"
-msgstr ""
+msgstr "Archiviert"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__company_id
@@ -73,7 +73,7 @@ msgstr "Anzeigename"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Anzeigetyp"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
@@ -107,7 +107,7 @@ msgstr "Bezeichnung"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
 msgid "Note"
-msgstr ""
+msgstr "Notiz"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
@@ -169,7 +169,7 @@ msgstr "Menge"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
 msgid "Section"
-msgstr ""
+msgstr "Abschnitt"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
@@ -179,7 +179,7 @@ msgstr "Sequenz"
 #. module: product_set
 #: model:product.set,name:product_set.product_set_services
 msgid "Services"
-msgstr ""
+msgstr "Dienstleistungen"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
@@ -191,12 +191,13 @@ msgstr "Produktset"
 #: code:addons/product_set/tests/models.py:0
 #, python-format
 msgid "This set of products is restricted for this user."
-msgstr ""
+msgstr "Dieses Produktset ist für diesen Benutzer eingeschränkt."
 
 #. module: product_set
 #: model:ir.model,name:product_set.model_product_set_wizard
 msgid "Transient base model to define custom wizards"
 msgstr ""
+"Transientes Basismodell zur Definition des benutzerdefinierter Assistenten"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
@@ -210,7 +211,7 @@ msgstr ""
 #. module: product_set
 #: model:product.set,name:product_set.product_set_i5_computer
 msgid "i5 computer offer"
-msgstr ""
+msgstr "i5 Computer-Angebot"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Zuletzt geändert am"
