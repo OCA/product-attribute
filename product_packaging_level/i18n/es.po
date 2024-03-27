@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-03-26 22:36+0000\n"
+"PO-Revision-Date: 2024-03-27 15:35+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -45,7 +45,7 @@ msgstr "Creado el"
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__default_lang_id
 msgid "Default Language"
-msgstr ""
+msgstr "Idioma por Defecto"
 
 #. module: product_packaging_level
 #: model:product.packaging.level,name:product_packaging_level.product_packaging_level_default
@@ -89,6 +89,8 @@ msgid ""
 "Language option for packaging names used in case policy names is packaging "
 "by levels"
 msgstr ""
+"Opción de idioma para los nombres de embalaje utilizados en caso de que los "
+"nombres de política sea el embalaje por niveles"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level____last_update
