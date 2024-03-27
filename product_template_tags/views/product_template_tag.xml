@@ -34,6 +34,7 @@
                         <group>
                             <field name="sequence" groups="base.group_no_one" />
                             <field name="color" widget="color_picker" />
+                            <field name="parent_id" />
                         </group>
                         <group>
                             <field
@@ -80,6 +81,7 @@
                     widget="selection"
                     groups="base.group_multi_company"
                 />
+                <field name="parent_id" optional="hide" />
                 <field name="color" widget="color_picker" />
             </tree>
         </field>
