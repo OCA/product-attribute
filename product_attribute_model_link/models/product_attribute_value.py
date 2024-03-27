@@ -21,8 +21,8 @@ class ProductAttributeValue(models.Model):
         for rec in self:
             if rec.model and rec.res_id:
                 res = self.env[rec.model].browse(rec.res_id)
-                result = res.check_access_rights("read", raise_exception=False)
-                if result:
+                can_read = res.check_access_rights("read", raise_exception=False)
+                if can_read:
                     rec.linked_record_ref = res
                     continue
             rec.linked_record_ref = False
