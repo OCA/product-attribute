@@ -9,6 +9,7 @@ from odoo.exceptions import ValidationError
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
 
+    name = fields.Char(compute="_compute_name", store=True, readonly=False)
     packaging_level_id = fields.Many2one(
         "product.packaging.level",
         required=True,
@@ -125,11 +126,30 @@ class ProductPackaging(models.Model):
         if package_type_level_id:
             self.packaging_level_id = package_type_level_id
 
-    @api.onchange("packaging_level_id", "package_type_id", "name", "name_policy")
-    def _onchange_name(self):
+    @api.depends(
+        "package_type_id",
+        "name_policy",
+        "packaging_level_id",
+    )
+    def _compute_name(self):
+        for rec in self:
+            rec.name = rec._get_name_from_policy()
+
+    # Keep this method to respect translations on level name
+    @api.depends("product_id", "packaging_level_id", "name_policy")
+    def _compute_display_name(self):
+        for record in self:
+            if record.product_id and record.packaging_level_id:
+                record.display_name = record._get_name_from_policy(lang=self.env.lang)
+            else:
+                return super()._compute_display_name()
+
+    def _get_name_from_policy(self, lang=None):
         new_name = self.name
         if self.name_policy == "by_package_level":
+            lang = lang or self.packaging_level_id.default_lang_id.code
+            self = self.with_context(lang=lang)
             new_name = self.packaging_level_id.display_name
         elif self.name_policy == "by_package_type":
             new_name = self.package_type_id.name
-        self.name = new_name
+        return new_name
