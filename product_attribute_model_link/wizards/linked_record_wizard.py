@@ -34,7 +34,8 @@ class LinkedRecordWizard(models.TransientModel):
             self.env["product.attribute.value"].create(
                 [
                     {
-                        "linked_record_ref": f"{record_ref._name},{record_ref.id}",
+                        "model": record_ref._name,
+                        "res_id": record_ref.id,
                         "name": record_ref[product_attribute.linked_field_id.name],
                         "attribute_id": product_attribute.id,
                     }
@@ -46,7 +47,8 @@ class LinkedRecordWizard(models.TransientModel):
             )
             product_attribute_value.write(
                 {
-                    "linked_record_ref": self.linked_record_ref,
+                    "model": self.linked_record_ref._name,
+                    "res_id": self.linked_record_ref.id,
                     "name": self.linked_record_ref[
                         product_attribute_value.attribute_id.linked_field_id.name
                     ],
