@@ -43,6 +43,11 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: product_packaging_level
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__default_lang_id
+msgid "Default Language"
+msgstr ""
+
+#. module: product_packaging_level
 #: model:product.packaging.level,name:product_packaging_level.product_packaging_level_default
 msgid "Default Level"
 msgstr "Tipo predeterminado"
@@ -77,6 +82,13 @@ msgid ""
 msgstr ""
 "Está prohibido tener diferentes embalajes con el mismo tipo para un producto "
 "determinado ({})."
+
+#. module: product_packaging_level
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_level_form
+msgid ""
+"Language option for packaging names used in case policy names is packaging "
+"by levels"
+msgstr ""
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level____last_update
@@ -130,6 +142,7 @@ msgstr "Tipo de paquete Nombre"
 
 #. module: product_packaging_level
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.product_packaging_tree_view
+#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_add_type_form
 msgid "Packaging"
 msgstr "Empaquetado"
 
@@ -153,6 +166,7 @@ msgstr ""
 
 #. module: product_packaging_level
 #: model:ir.model,name:product_packaging_level.model_product_packaging
+#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging__name
 msgid "Product Packaging"
 msgstr "Empaquetado de producto"
 
