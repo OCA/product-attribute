@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_company_price
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-23 11:42+0000\n"
+"PO-Revision-Date: 2023-11-23 11:42+0000\n"
+"Last-Translator: Simone Rubino <simone.rubino@aion-tech.it>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_pricelist_company_price
+#: model:ir.model,name:product_pricelist_company_price.model_res_company
+msgid "Companies"
+msgstr "Aziende"
+
+#. module: product_pricelist_company_price
+#: model:ir.model,name:product_pricelist_company_price.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni di configurazione"
+
+#. module: product_pricelist_company_price
+#: model:ir.model,name:product_pricelist_company_price.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regola listino prezzi"
+
+#. module: product_pricelist_company_price
+#: model:ir.model.fields,help:product_pricelist_company_price.field_res_company__products_price_pricelist_id
+#: model:ir.model.fields,help:product_pricelist_company_price.field_res_config_settings__products_price_pricelist_id
+#: model_terms:ir.ui.view,arch_db:product_pricelist_company_price.res_config_settings_view_form
+msgid ""
+"Prices set for individual products in this pricelist propagate to the sales "
+"price of the products it affects."
+msgstr ""
+"I prezzi impostato per i singoli prodotti in questo listino saranno riportati "
+"sui prezzi di vendita dei prodotti interessati."
+
+#. module: product_pricelist_company_price
+#: model:ir.model,name:product_pricelist_company_price.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_pricelist_company_price
+#: model:ir.model,name:product_pricelist_company_price.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_pricelist_company_price
+#: model:ir.model.fields,field_description:product_pricelist_company_price.field_res_company__products_price_pricelist_id
+#: model:ir.model.fields,field_description:product_pricelist_company_price.field_res_config_settings__products_price_pricelist_id
+#: model_terms:ir.ui.view,arch_db:product_pricelist_company_price.res_config_settings_view_form
+msgid "Products Pricelist"
+msgstr "Listino prodotti"

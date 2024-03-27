@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2023 Simone Rubino - Aion Tech
+  ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+  -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">Add company pricelist fields to product settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="product.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='product_general_settings']" position="inside">
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    id="manage_products_price_pricelist_id"
+                    groups="product.group_sale_pricelist"
+                >
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="products_price_pricelist_id"
+                            string="Products Pricelist"
+                        />
+                        <div class="text-muted">
+                            Prices set for individual products in this pricelist propagate to the sales price of the products it affects.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="products_price_pricelist_id" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
