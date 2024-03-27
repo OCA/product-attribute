@@ -111,3 +111,14 @@ class TestProductLogisticsUom(TransactionCase):
         self.assertEqual(template.weight, 10.0)
         self.assertEqual(template.product_volume, 10.0)
         self.assertEqual(template.product_weight, 10.0)
+
+    def test_template_create(self):
+        template = self.env["product.template"].create(
+            {
+                "name": "Template",
+                "product_volume": 10,
+                "product_weight": 10,
+            }
+        )
+        self.assertEqual(template.product_volume, 10)
+        self.assertEqual(template.product_weight, 10)
