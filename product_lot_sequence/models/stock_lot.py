@@ -56,6 +56,8 @@ class StockLot(models.Model):
 
     @api.model
     def _get_next_serial(self, company, product):
+        if "force_next_serial" in self.env.context:
+            return self.env.context.get("force_next_serial")
         seq_policy = self._get_sequence_policy()
         if seq_policy == "product":
             seq = product.product_tmpl_id.lot_sequence_id
