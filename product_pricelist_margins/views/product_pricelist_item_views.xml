@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="product_pricelist_item_tree_view_inherit" model="ir.ui.view">
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
+        <field name="arch" type="xml">
+            <field name="price" position="after">
+                <field name="cost" />
+                <field name="margin" />
+                <field name="margin_percent" />
+            </field>
+        </field>
+    </record>
+    <record
+        id="product_pricelist_item_tree_view_from_product_inherit"
+        model="ir.ui.view"
+    >
+        <field name="model">product.pricelist.item</field>
+        <field
+            name="inherit_id"
+            ref="product.product_pricelist_item_tree_view_from_product"
+        />
+        <field name="arch" type="xml">
+            <field name="fixed_price" position="after">
+                <field name="cost" />
+                <field name="margin" />
+                <field name="margin_percent" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_form_view_inerhit" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="model">product.pricelist.item</field>
+        <field name="arch" type="xml">
+            <field name="fixed_price" position="after">
+                <field name="cost" />
+                <field name="margin" />
+                <field name="margin_percent" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
