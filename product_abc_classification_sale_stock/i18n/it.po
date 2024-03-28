@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 18:37+0000\n"
+"PO-Revision-Date: 2024-03-29 00:41+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -107,7 +107,7 @@ msgstr "Raggruppa per"
 #. module: product_abc_classification_sale_stock
 #: model_terms:ir.ui.view,arch_db:product_abc_classification_sale_stock.abc_classification_product_level_form_view
 msgid "History"
-msgstr "Storico"
+msgstr "Cronologia"
 
 #. module: product_abc_classification_sale_stock
 #: model:ir.model.fields,field_description:product_abc_classification_sale_stock.field_abc_sale_stock_level_history__id
