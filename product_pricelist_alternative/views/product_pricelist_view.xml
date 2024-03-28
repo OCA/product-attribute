@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">product.pricelist.form</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <widget name="web_ribbon" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button
+                        class="oe_stat_button"
+                        type="object"
+                        name="action_view_is_alternative_to_pricelist"
+                        icon="fa-list"
+                    >
+                        <field
+                            string="Alternative to Pricelist"
+                            name="is_alternative_to_pricelist_count"
+                            widget="statinfo"
+                        />
+                    </button>
+                </div>
+            </widget>
+
+            <group name="pricelist_settings" position="after">
+                <group string="Alternative Pricelists">
+                    <field
+                        name="alternative_pricelist_ids"
+                        nolabel="1"
+                        colspan="2"
+                        widget="many2many_tags"
+                        options="{'no_create': True}"
+                    />
+                </group>
+            </group>
+            <xpath
+                expr="//page[@name='pricelist_rules']/field[@name='item_ids']/tree/field[@name='product_id']"
+                position="after"
+            >
+                <field name="alternative_pricelist_policy" />
+            </xpath>
+            <xpath
+                expr="//page[@name='pricelist_rules']/field[@name='item_ids']/tree[@groups='product.group_sale_pricelist']/field[@name='name']"
+                position="after"
+            >
+                <field name="alternative_pricelist_policy" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
