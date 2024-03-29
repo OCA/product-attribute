@@ -2,8 +2,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-def pre_init_product_code(cr):
-    cr.execute(
+def pre_init_product_code(env):
+    env.cr.execute(
         """UPDATE product_product
         SET default_code = 'DEFAULT' || nextval('ir_default_id_seq')
         WHERE id in (SELECT distinct(pp.id)
