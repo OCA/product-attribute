@@ -13,7 +13,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="report_name">product_print_category.report_pricetag</field>
         <field name="report_file">product_print_category.report_pricetag</field>
         <field name="paperformat_id" ref="product_print_category.paper_format" />
-        <field name="print_report_name">Products Labels</field>
+        <field name="print_report_name">'Products Labels'</field>
         <field name="binding_model_id" eval="False" />
         <field name="binding_type">report</field>
     </record>
