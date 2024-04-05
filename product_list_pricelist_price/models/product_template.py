@@ -18,8 +18,9 @@ class ProductTemplate(models.Model):
         pricelists = self.env["product.pricelist"].search(
             [("display_pricelist_price", "=", True)]
         )
-        result = pricelists.price_rule_get_multi(
-            [(product, 1.0, False) for product in self]
+
+        result = pricelists._compute_price_rule_multi(
+            self, 1.0, False
         )
         for product in self:
             for pricelist in pricelists:
@@ -32,45 +33,31 @@ class ProductTemplate(models.Model):
                 )
 
     @api.model
-    def fields_view_get(
-        self, view_id=None, view_type="form", toolbar=False, submenu=False
+    def get_view(
+        self, view_id=None, view_type="form", **options
     ):
-        result = super(ProductTemplate, self).fields_view_get(
+        result = super(ProductTemplate, self).get_view(
             view_id,
             view_type,
-            toolbar=toolbar,
-            submenu=submenu,
+            **options,
         )
 
         doc = etree.XML(result["arch"])
-        name = result.get("name", False)
-        if name == "product.template.pricelist.price":
-            for placeholder in doc.xpath("//field[@name='type']"):
-                for pricelist in self.env["product.pricelist"].search(
-                    [("display_pricelist_price", "=", True)]
-                ):
-                    field_name = "product_tmpl_price_pricelist_%s" % (pricelist.id)
-                    tag_name = "Sales Price (%s)" % (pricelist.name)
-                    elem = etree.Element(
-                        "field",
-                        {"name": field_name, "readonly": "True", "optional": "hide"},
-                    )
-                    modifiers = {}
-                    transfer_node_to_modifiers(elem, modifiers)
-                    transfer_modifiers_to_node(elem, modifiers)
-                    placeholder.addnext(elem)
-                    result["fields"].update(
-                        {
-                            field_name: {
-                                "domain": [],
-                                "context": {},
-                                "string": tag_name,
-                                "type": "float",
-                            }
-                        }
-                    )
+        for placeholder in doc.xpath("//field[@name='type']"):
+            for pricelist in self.env["product.pricelist"].search(
+                [("display_pricelist_price", "=", True)]
+            ):
+                field_name = "product_tmpl_price_pricelist_%s" % (pricelist.id)
+                elem = etree.Element(
+                    "field",
+                    {"name": field_name, "readonly": "True", "optional": "hide"},
+                )
+                modifiers = {}
+                transfer_node_to_modifiers(elem, modifiers)
+                transfer_modifiers_to_node(elem, modifiers)
+                placeholder.addnext(elem)
 
-                result["arch"] = etree.tostring(doc)
+            result["arch"] = etree.tostring(doc)
         return result
 
     @api.model
