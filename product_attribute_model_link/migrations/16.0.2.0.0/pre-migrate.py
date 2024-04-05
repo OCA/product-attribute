@@ -11,23 +11,14 @@ def migrate(cr, version):
         ADD COLUMN IF NOT EXISTS res_id INTEGER
     """
     )
-    # Extract and store model name and res ID from the linked_record_ref field
+    # Update the product_attribute_value table by splitting the linked_record_ref field
+    # into model and res_id based on a comma delimiter for non-null references.
     cr.execute(
         """
-        SELECT id, linked_record_ref
-        FROM product_attribute_value
-        WHERE linked_record_ref IS NOT NULL
+        UPDATE product_attribute_value
+        SET
+            model = split_part(linked_record_ref, ',', 1),
+            res_id = CAST(split_part(linked_record_ref, ',', 2) AS INTEGER)
+        WHERE linked_record_ref IS NOT NULL;
     """
     )
-    for rec_id, linked_ref in cr.fetchall():
-        if linked_ref:
-            model_name, res_id = linked_ref.split(",")
-            # Update the new columns with extracted data
-            cr.execute(
-                """
-                UPDATE product_attribute_value
-                SET model = %s, res_id = %s
-                WHERE id = %s
-            """,
-                (model_name, res_id, rec_id),
-            )
