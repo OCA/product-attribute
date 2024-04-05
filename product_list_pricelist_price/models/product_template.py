@@ -19,9 +19,7 @@ class ProductTemplate(models.Model):
             [("display_pricelist_price", "=", True)]
         )
 
-        result = pricelists._compute_price_rule_multi(
-            self, 1.0, False
-        )
+        result = pricelists._compute_price_rule_multi(self, 1.0, False)
         for product in self:
             for pricelist in pricelists:
                 field_name = "product_tmpl_price_pricelist_%s" % (pricelist.id)
@@ -33,9 +31,7 @@ class ProductTemplate(models.Model):
                 )
 
     @api.model
-    def get_view(
-        self, view_id=None, view_type="form", **options
-    ):
+    def get_view(self, view_id=None, view_type="form", **options):
         result = super(ProductTemplate, self).get_view(
             view_id,
             view_type,
