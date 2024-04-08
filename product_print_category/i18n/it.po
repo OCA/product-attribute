@@ -275,7 +275,7 @@ msgstr "Prodotti"
 
 #. module: product_print_category
 #: model:ir.actions.report,print_report_name:product_print_category.pricetag
-msgid "Products Labels"
+msgid "'Products Labels'"
 msgstr "'Etichette prodotti'"
 
 #. module: product_print_category
