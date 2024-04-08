@@ -9,7 +9,7 @@ from odoo import api, fields, models
 MAPPING_MATCH_GROUP = {
     "company_id": "company_id",
     "product_tmpl_id": "product_tmpl_id",
-    "name": "partner_id",
+    "partner_id": "partner_id",
     "product_id": "product_id",
     "product_name": "product_name",
     "product_code": "product_code",
@@ -28,7 +28,9 @@ class ProductSupplierinfo(models.Model):
     )
     company_id = fields.Many2one(related="group_id.company_id", store=True)
     product_tmpl_id = fields.Many2one(related="group_id.product_tmpl_id", store=True)
-    name = fields.Many2one(related="group_id.partner_id", store=True, required=False)
+    partner_id = fields.Many2one(
+        related="group_id.partner_id", store=True, required=False
+    )
     product_id = fields.Many2one(related="group_id.product_id", store=True)
     product_name = fields.Char(related="group_id.product_name", store=True)
     product_code = fields.Char(related="group_id.product_code", store=True)

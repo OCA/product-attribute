@@ -3,10 +3,9 @@
 
 from copy import deepcopy
 
-from odoo.tests import common
+from odoo.tests.common import TransactionCase
 
-
-class TestProductSupplierinfoGroup(common.SavepointCase):
+class TestProductSupplierinfoGroup(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -16,7 +15,7 @@ class TestProductSupplierinfoGroup(common.SavepointCase):
     @property
     def supplierinfo_vals(self):
         return {
-            "name": self.vendor_gemini.id,
+            "partner_id": self.vendor_gemini.id,
             "product_tmpl_id": self.product_sofa.id,
             "product_name": "aProductName",
             "product_code": "aProductCode",

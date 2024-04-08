@@ -40,7 +40,6 @@ class ProductSupplierinfoGroup(models.Model):
         "a request for quotation. Keep empty to use the internal one.",
     )
     sequence = fields.Integer(
-        "Sequence",
         default=1,
         help="Assigns the priority to the list of product vendor.",
     )

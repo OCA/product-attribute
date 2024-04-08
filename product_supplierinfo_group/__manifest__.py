@@ -3,7 +3,7 @@
 
 {
     "name": "Product Supplierinfo Group",
-    "version": "14.0.2.0.3",
+    "version": "16.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Akretion, Odoo Community Association (OCA)",
@@ -14,9 +14,13 @@
         "views/product.xml",
         "views/supplierinfo_group.xml",
         "views/templates.xml",
-        "views/assets.xml",
         "security/ir.model.access.csv",
         "security/supplierinfo_group_security.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "product_supplierinfo_group/static/src/css/*",
+        ],
+    },
     "pre_init_hook": "fill_required_group_id_column",
 }

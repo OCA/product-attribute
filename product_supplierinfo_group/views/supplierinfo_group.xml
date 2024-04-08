@@ -31,17 +31,15 @@
                             <field name="product_code" />
                         </group>
                     </group>
-                    <group>
-                        <field name="supplierinfo_ids" nolabel="1">
-                            <tree editable="bottom">
-                                <field name="min_qty" />
-                                <field name="price" />
-                                <field name="date_start" />
-                                <field name="date_end" />
-                                <field name="delay" />
-                            </tree>
-                        </field>
-                    </group>
+                    <field name="supplierinfo_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="min_qty" />
+                            <field name="price" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="delay" />
+                        </tree>
+                    </field>
                 </sheet>
             </form>
         </field>
