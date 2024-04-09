@@ -4,10 +4,11 @@ from odoo.tests.common import TransactionCase
 
 
 class TestProductCode(TransactionCase):
-    def setUp(self):
-        super(TestProductCode, self).setUp()
-        self.product_model = self.env["product.product"]
-        self.product = self.product_model.create({"name": "Test Product Code"})
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product_model = cls.env["product.product"]
+        cls.product = cls.product_model.create({"name": "Test Product Code"})
 
     def test_product_code(self):
         """Check Product Code"""
