@@ -18,15 +18,15 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_cost_security
-#: model:res.groups,name:product_cost_security.group_product_cost
-msgid "Access to product costs"
-msgstr "Acceso a ver el coste de productos"
-
-#. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
 msgstr "Coste"
+
+#. module: product_cost_security
+#: model:res.groups,name:product_cost_security.group_product_edit_cost
+msgid "Edit"
+msgstr ""
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -49,11 +49,6 @@ msgstr ""
 "        Se utiliza para calcular los márgenes de los pedidos de venta."
 
 #. module: product_cost_security
-#: model:res.groups,name:product_cost_security.group_product_edit_cost
-msgid "Modify product costs"
-msgstr "Modificar los costes de los productos"
-
-#. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
 msgstr "Producto"
@@ -72,6 +67,11 @@ msgstr "Mixin de control de acceso al coste del producto"
 #: model:ir.module.category,name:product_cost_security.module_category
 msgid "Product costs"
 msgstr "Costes del Producto"
+
+#. module: product_cost_security
+#: model:res.groups,name:product_cost_security.group_product_cost
+msgid "Read"
+msgstr ""
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
@@ -96,6 +96,12 @@ msgstr ""
 "administrador del sistema.\n"
 "\n"
 "(Operación: %(operation)s)"
+
+#~ msgid "Access to product costs"
+#~ msgstr "Acceso a ver el coste de productos"
+
+#~ msgid "Modify product costs"
+#~ msgstr "Modificar los costes de los productos"
 
 #~ msgid "Product Template"
 #~ msgstr "Plantilla de producto"
