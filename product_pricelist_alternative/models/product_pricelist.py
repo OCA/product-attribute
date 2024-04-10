@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class Pricelist(models.Model):
@@ -80,3 +81,18 @@ class Pricelist(models.Model):
                     if alternative_price_rule[product.id][0] < res[product.id][0]:
                         res[product.id] = alternative_price_rule[product.id]
         return res
+
+    @api.constrains("alternative_pricelist_ids")
+    def _check_pricelist_alternative_items_based_on_other_pricelist(self):
+        """Alternative pricelists can not contain items based on other pricelist"""
+        for pricelist in self:
+            if pricelist.alternative_pricelist_ids.item_ids.filtered(
+                lambda item: item.compute_price == "formula"
+                and item.base == "pricelist"
+            ):
+                raise ValidationError(
+                    _(
+                        "Formulas based on another pricelist are not allowed "
+                        "on alternative pricelists."
+                    )
+                )
