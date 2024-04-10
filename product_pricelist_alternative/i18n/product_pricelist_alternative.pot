@@ -34,6 +34,15 @@ msgid "Alternative to Pricelist"
 msgstr ""
 
 #. module: product_pricelist_alternative
+#. odoo-python
+#: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
+#, python-format
+msgid ""
+"Formulas based on another pricelist are not allowed on alternative "
+"pricelists."
+msgstr ""
+
+#. module: product_pricelist_alternative
 #: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__ignore
 msgid "Ignore alternatives"
 msgstr ""
@@ -53,6 +62,16 @@ msgstr ""
 #. module: product_pricelist_alternative
 #: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_ids
 msgid "Is alternative to pricelists"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#. odoo-python
+#: code:addons/product_pricelist_alternative/models/product_pricelist_item.py:0
+#, python-format
+msgid ""
+"It is not possible to encode this price rule. Formulas based on another "
+"pricelist are not allowed on alternative pricelists. Please change to "
+"another type of price computation."
 msgstr ""
 
 #. module: product_pricelist_alternative
