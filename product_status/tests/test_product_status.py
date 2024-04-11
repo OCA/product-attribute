@@ -162,7 +162,7 @@ class TestProductStatusCase(TestProductCommon):
         self.product.end_of_life_date = "2020-09-15"
         # compute the value and put it in cache so it's not recomputed
         # automatically afterwards
-        self.product.state  # pylint: disable=pointless-statement
+        self.product.state  # pylint: disable=pointless-statement # noqa: B018
         # starting point, the product hasn't passed its end of life date
         with freeze_time("2020-09-15"):
             self.product.product_tmpl_id._check_dates_of_states(self.product)
@@ -178,7 +178,7 @@ class TestProductStatusCase(TestProductCommon):
         self.product.discontinued_until = "2020-09-15"
         # compute the value and put it in cache so it's not recomputed
         # automatically afterwards
-        self.product.state  # pylint: disable=pointless-statement
+        self.product.state  # pylint: disable=pointless-statement # noqa: B018
         # starting point, the product is flagged as 'discontinued'
         with freeze_time("2020-09-15"):
             self.product.product_tmpl_id._check_dates_of_states(self.product)
@@ -194,7 +194,7 @@ class TestProductStatusCase(TestProductCommon):
         self.product.new_until = "2020-09-15"
         # compute the value and put it in cache so it's not recomputed
         # automatically afterwards
-        self.product.state  # pylint: disable=pointless-statement
+        self.product.state  # pylint: disable=pointless-statement # noqa: B018
         # starting point, the product is flagged as 'new'
         with freeze_time("2020-09-15"):
             self.product.product_tmpl_id._check_dates_of_states(self.product)

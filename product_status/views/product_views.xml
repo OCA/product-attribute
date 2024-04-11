@@ -43,18 +43,9 @@
             <field name="new_until" />
             <field name="discontinued_until" />
             <field name="end_of_life_date" />
-            <field
-                            name="tmpl_new_until"
-                            attrs="{'invisible':[('has_status_date','=',True)]}"
-                        />
-            <field
-                            name="tmpl_discontinued_until"
-                            attrs="{'invisible':[('has_status_date','=',True)]}"
-                        />
-            <field
-                            name="tmpl_end_of_life_date"
-                            attrs="{'invisible':[('has_status_date','=',True)]}"
-                        />
+            <field name="tmpl_new_until" invisible="has_status_date" />
+            <field name="tmpl_discontinued_until" invisible="has_status_date" />
+            <field name="tmpl_end_of_life_date" invisible="has_status_date" />
             <field name="state" />
           </group>
           <div class="alert alert-info" role="alert" colspan="2">

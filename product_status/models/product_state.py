@@ -20,7 +20,7 @@ class ProductState(models.Model):
         return super().unlink()
 
     def _check_module_data(self):
-        if self.env.user.id == 1:
+        if self.env.user._is_superuser():
             return True
         default_data = [st.code for st in self._get_module_data()]
         msg = _("Cannot delete/modified state installed by module, state name: %s")
