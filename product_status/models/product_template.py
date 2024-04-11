@@ -10,7 +10,6 @@ other_date_fields = {
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     end_of_life_date = fields.Date(
