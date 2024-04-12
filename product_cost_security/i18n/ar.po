@@ -18,15 +18,15 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_cost_security
-#: model:res.groups,name:product_cost_security.group_product_cost
-msgid "Access to product costs"
-msgstr "الاطلاع على تكلفة المنتجات"
-
-#. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
 msgstr "التكلفة"
+
+#. module: product_cost_security
+#: model:res.groups,name:product_cost_security.group_product_edit_cost
+msgid "Edit"
+msgstr ""
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -39,11 +39,6 @@ msgid ""
 "        Used to value the product when the purchase cost is not known (e.g. "
 "inventory adjustment).\n"
 "        Used to compute margins on sale orders."
-msgstr ""
-
-#. module: product_cost_security
-#: model:res.groups,name:product_cost_security.group_product_edit_cost
-msgid "Modify product costs"
 msgstr ""
 
 #. module: product_cost_security
@@ -67,6 +62,11 @@ msgid "Product costs"
 msgstr ""
 
 #. module: product_cost_security
+#: model:res.groups,name:product_cost_security.group_product_cost
+msgid "Read"
+msgstr ""
+
+#. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
@@ -84,6 +84,9 @@ msgid ""
 "\n"
 "(Operation: %(operation)s)"
 msgstr ""
+
+#~ msgid "Access to product costs"
+#~ msgstr "الاطلاع على تكلفة المنتجات"
 
 #~ msgid "Product Template"
 #~ msgstr "قالب المنتج"
