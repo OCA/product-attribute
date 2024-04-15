@@ -26,7 +26,6 @@ msgstr "Descargar adjuntos"
 #. module: product_attachment_zipped_download
 #: model:ir.model,name:product_attachment_zipped_download.model_product_product
 #, fuzzy
-#| msgid "Product Template"
 msgid "Product"
 msgstr "Producto"
 
