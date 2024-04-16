@@ -9,7 +9,7 @@ from odoo.tests.common import TransactionCase
 class TestStockLotExpirationDates(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestStockLotExpirationDates, cls).setUpClass()
+        super().setUpClass()
         cls.product_model = cls.env["product.product"]
         cls.production_lot_model = cls.env["stock.lot"]
         cls.category = cls.env.ref("product.product_category_all")
