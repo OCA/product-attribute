@@ -1,25 +1,17 @@
-# Copyright 2018-2024 ForgeFlow S.L.
+# Copyright 2024 ForgeFlow S.L.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
-class ProductTemplate(models.Model):
-    _inherit = "product.template"
+class ProductProduct(models.Model):
+    _inherit = "product.product"
 
     allowed_categ_ids = fields.Many2many(
         "product.category",
         compute="_compute_allowed_categ_ids",
         string="Allowed Categories",
     )
-
-    @api.onchange("categ_id")
-    def _onchange_categ_id(self):
-        # When creating a new Product, assign first the type based on the
-        # default category. After that, the assignation is restricted
-        # with the `allowed_categ_ids`
-        if self.categ_id and self.categ_id.restricted_product_type:
-            self.detailed_type = self.categ_id.restricted_product_type
 
     @api.depends("type")
     def _compute_allowed_categ_ids(self):

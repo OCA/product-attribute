@@ -29,10 +29,10 @@ Product Restricted Type
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module adds 'restricted_product_type' to product_category model.
-With this optional selection field 'restricted_product_type' should have
-the same values as in the product.template, 'type' field.
+With this optional selection field, 'restricted_product_type' should
+have the same values as in the product.template, 'type' field.
 
-A constrain is also established in the product so that when the 'type'
+A constraint is also established in the product so that when the 'type'
 defined in the product does not match with the 'restricted_product_type'
 defined in the product category it raises a Validation Error.
 
@@ -49,7 +49,14 @@ value.
 Usage
 =====
 
+To use this module, you need to go to Inventory -> Configuration ->
+Product Categories and set a Restricted Product Type.
 
+When a Restricted Product Type is assigned to a Product Category, if we
+then set a Product Type on a Product Template, the list of available
+Product Categories in the dropdown will be filtered with only the ones
+that have the same Restricted Product Type as the one set on the Product
+Template or have no Restricted Product Type set.
 
 Bug Tracker
 ===========
@@ -73,6 +80,7 @@ Contributors
 ------------
 
 -  Adria Gil Sorribes <adria.gil@forgeflow.com>
+-  Guillem Casassas guillem.casassas@forgeflow.com
 
 Maintainers
 -----------
