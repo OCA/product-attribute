@@ -39,14 +39,10 @@
                                     <span class="o_stat_value">
                                         <field name="record_count" />
                                     </span>
-                                    <span
-                                    attrs="{'invisible': [('record_count', '&lt;=', 1)]}"
-                                >
+                                    <span invisible="record_count &lt;= 1">
                                         Products
                                     </span>
-                                    <span
-                                    attrs="{'invisible': [('record_count', '&gt;', 1)]}"
-                                >
+                                    <span invisible="record_count > 1">
                                         Product
                                     </span>
                                </div>
@@ -56,7 +52,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <label for="name" string="Assortment Name" />
@@ -83,7 +79,7 @@
                     </group>
                     <group
                         string="Restricted product domain"
-                        attrs="{'invisible': [('apply_black_list_product_domain', '=', False)]}"
+                        invisible="not apply_black_list_product_domain"
                     >
                         <field
                             name="black_list_product_domain"
