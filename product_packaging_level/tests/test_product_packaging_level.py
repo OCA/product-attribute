@@ -1,7 +1,7 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.exceptions import ValidationError
-from odoo.tests import common
+from odoo.tests import Form, common
 
 
 class TestProductPackagingLevel(common.TransactionCase):
@@ -184,3 +184,27 @@ class TestProductPackagingLevel(common.TransactionCase):
         self.assertEqual(self.packaging_10.qty_per_level, "6.0 TEST2; 2.0 TEST3")
         # Base packaging has no qty per level
         self.assertEqual(self.packaging.qty_per_level, "")
+
+    def test_packaging_qty_per_level_form(self):
+        """ """
+        self.level_3 = self.env["product.packaging.level"].create(
+            {
+                "name": "Packaging Level 3 Test",
+                "code": "TEST3",
+                "sequence": 3,
+            }
+        )
+        self.packaging_3 = self.env["product.packaging"].create(
+            {
+                "name": "Packaging Test",
+                "packaging_level_id": self.level_3.id,
+                "qty": 3.0,
+                "product_id": self.product.product_variant_ids.id,
+            }
+        )
+        self.assertEqual(self.packaging_3.qty_per_level, "3.0 TEST2")
+        with Form(self.packaging_3) as pack_form:
+            pack_form.qty = 9.0
+            self.assertEqual(pack_form.qty_per_level, "9.0 TEST2")
+        self.packaging_3.invalidate_recordset()
+        self.assertEqual(self.packaging_3.qty_per_level, "9.0 TEST2")
