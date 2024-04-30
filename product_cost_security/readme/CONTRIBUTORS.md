@@ -6,3 +6,5 @@
 - [Onestein](https://www.onestein.eu):
   - Anjeel Haria
 - Jairo Llopis ([Moduon](https://www.moduon.team))
+- [Binhex](https://www.binhex.cloud):
+  - Mario Luis \<<m.luis@binhex.cloud>\>

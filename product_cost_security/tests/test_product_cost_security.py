@@ -32,8 +32,9 @@ class TestProductCostSecurity(TransactionCase):
         sheet_form.name = "Test Product"
         sheet_form.save()
         with self.assertRaises(AssertionError):
-            # It would raise an AssertionError as the field would not be found in the view
-            # as the user does not have the group- Access to product costs
+            # It would raise an AssertionError as the field would not be found
+            # in the view as the user does not have the group- Access to
+            # product costs
             standard_price = sheet_form.standard_price
             self.assertEqual(standard_price, 0.0)
 

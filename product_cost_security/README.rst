@@ -97,6 +97,9 @@ Contributors
    -  Anjeel Haria
 
 -  Jairo Llopis (`Moduon <https://www.moduon.team>`__)
+-  `Binhex <https://www.binhex.cloud>`__:
+
+   -  Mario Luis <m.luis@binhex.cloud>
 
 Maintainers
 -----------
