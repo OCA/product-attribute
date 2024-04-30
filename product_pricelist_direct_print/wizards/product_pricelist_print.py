@@ -59,6 +59,9 @@ class ProductPricelistPrint(models.TransientModel):
         help="If this field is not 0, products are grouped at max level "
         "of category tree.",
     )
+    last_categ_level_to_print = fields.Integer(
+        help="If this field is not 0, print last n category path",
+    )
     # Excel export options
     breakage_per_category = fields.Boolean(default=True)
     show_internal_category = fields.Boolean(string="Show internal categories")
@@ -359,3 +362,9 @@ class ProductPricelistPrint(models.TransientModel):
         return self.env.ref(
             "product_pricelist_direct_print.product_pricelist_xlsx"
         ).report_action(self)
+
+    def get_group_name(self, group_name):
+        if self.last_categ_level_to_print and group_name:
+            return "/".join(group_name.split("/")[-self.last_categ_level_to_print :])
+        else:
+            return group_name

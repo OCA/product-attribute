@@ -32,6 +32,7 @@
                             attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
                         />
                         <field name="max_categ_level" />
+                        <field name="last_categ_level_to_print" />
                         <field name="summary" />
                         <field
                             name="last_ordered_products"

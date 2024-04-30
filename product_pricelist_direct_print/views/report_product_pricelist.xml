@@ -76,7 +76,9 @@
                                     t-value="category_group['products']"
                                 />
                                 <td colspan="100" t-if="o.breakage_per_category">
-                                    <strong t-esc="category_group['group_name']" />
+                                    <strong
+                                        t-esc="o.get_group_name(category_group['group_name'])"
+                                    />
                                 </td>
                                 <tr t-foreach="category_products" t-as="product">
                                     <td>

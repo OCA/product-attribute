@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-30 11:48+0000\n"
+"PO-Revision-Date: 2024-04-30 11:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -192,6 +194,11 @@ msgid "ID"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
 msgid ""
 "If this field is not 0, products are grouped at max level of category tree."
@@ -224,6 +231,11 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
 msgid "Language"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
 msgstr ""
 
 #. module: product_pricelist_direct_print
