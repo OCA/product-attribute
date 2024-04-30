@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 09:24+0000\n"
-"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"POT-Creation-Date: 2024-04-30 11:48+0000\n"
+"PO-Revision-Date: 2025-03-07 08:56+0100\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -34,30 +34,12 @@ msgid ""
 "\n"
 "    <p style=\"color:#888888;\">\n"
 "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
-"            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+"            <span t-out=\"object.write_uid.signature or ''\"></span>\n"
 "        </t>\n"
 "    </p>\n"
 "</div>\n"
 "        "
 msgstr ""
-"<div style=\"margin: 0px; padding: 0px;\">\n"
-"    <p>Estimado/a <span t-out=\"object.partner_id and object.partner_id.name "
-"or 'customer'\"></span>,</p>\n"
-"    <p>\n"
-"    El archivo adjunto es un documento PDF que contiene la\n"
-"    <strong t-out=\"object.pricelist_id.name\"></strong> lista de precios\n"
-"    </p>\n"
-"    <p>Puede contestar a este correo electrónico si tiene alguna pregunta.</"
-"p>\n"
-"    <p>Gracias,</p>\n"
-"\n"
-"    <p style=\"color:#888888;\">\n"
-"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
-"            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
-"        </t>\n"
-"    </p>\n"
-"</div>\n"
-"        "
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -103,6 +85,12 @@ msgstr "<strong>Precio ficha</strong>"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>UoM</strong>"
 msgstr "<strong>UDM</strong>"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
+#, fuzzy
+msgid "Breakage Per Category"
+msgstr "Rotura por categoría"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -166,6 +154,11 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Filter only the products ordered since this date"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
 msgid "Group Field"
 msgstr "Campo de grupo"
@@ -174,6 +167,13 @@ msgstr "Campo de grupo"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
 msgstr "ID (identificación)"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
+msgstr ""
+"Si este campo no es 0, se imprimirán los n últimos nodos del nombre completo "
+"de la categoría."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
@@ -207,6 +207,11 @@ msgstr "Dejar vacío para mostrar todos los productos"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
 msgid "Language"
 msgstr "Idioma"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
+msgstr "Último nivel de categoría a imprimir"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
@@ -319,10 +324,18 @@ msgid "Product Templates"
 msgstr "Productos"
 
 #. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+#, python-format
 msgid "Products"
 msgstr "Productos"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Selling date threshold"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -416,6 +429,45 @@ msgstr "{{ object.pricelist_id.name }}"
 #~ msgid ""
 #~ "<div style=\"margin: 0px; padding: 0px;\">\n"
 #~ "    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
+#~ "'customer'\"></span>,</p>\n"
+#~ "    <p>\n"
+#~ "    The attached file is a PDF document containg the\n"
+#~ "    <strong t-out=\"object.pricelist_id.name\"></strong> pricelist.\n"
+#~ "    </p>\n"
+#~ "    <p>You can reply to this email if you have any questions.</p>\n"
+#~ "    <p>Thank you,</p>\n"
+#~ "\n"
+#~ "    <p style=\"color:#888888;\">\n"
+#~ "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+#~ "            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+#~ "        </t>\n"
+#~ "    </p>\n"
+#~ "</div>\n"
+#~ "        "
+#~ msgstr ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "    <p>Estimado/a <span t-out=\"object.partner_id and object.partner_id."
+#~ "name or 'customer'\"></span>,</p>\n"
+#~ "    <p>\n"
+#~ "    El archivo adjunto es un documento PDF que contiene la\n"
+#~ "    <strong t-out=\"object.pricelist_id.name\"></strong> lista de "
+#~ "precios\n"
+#~ "    </p>\n"
+#~ "    <p>Puede contestar a este correo electrónico si tiene alguna pregunta."
+#~ "</p>\n"
+#~ "    <p>Gracias,</p>\n"
+#~ "\n"
+#~ "    <p style=\"color:#888888;\">\n"
+#~ "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+#~ "            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+#~ "        </t>\n"
+#~ "    </p>\n"
+#~ "</div>\n"
+#~ "        "
+
+#~ msgid ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
 #~ "'customer'\"/>,</p>\n"
 #~ "    <p>\n"
 #~ "    The attached file is a PDF document containg the\n"
@@ -453,10 +505,6 @@ msgstr "{{ object.pricelist_id.name }}"
 
 #~ msgid "Abstract model to export as xlsx the product pricelist"
 #~ msgstr "Modelo abstracto para exportar los productos de tarifa a xlsx"
-
-#, fuzzy
-#~ msgid "Breakage Per Category"
-#~ msgstr "Rotura por categoría"
 
 #, python-format
 #~ msgid "Cost Price"
