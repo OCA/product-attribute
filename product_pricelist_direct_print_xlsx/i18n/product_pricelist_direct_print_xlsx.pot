@@ -19,11 +19,6 @@ msgid "Abstract model to export as xlsx the product pricelist"
 msgstr ""
 
 #. module: product_pricelist_direct_print_xlsx
-#: model:ir.model.fields,field_description:product_pricelist_direct_print_xlsx.field_product_pricelist_print__breakage_per_category
-msgid "Breakage Per Category"
-msgstr ""
-
-#. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 #, python-format
