@@ -90,6 +90,10 @@ Contributors
    -  Ernesto Tejeda
    -  Carlos Roca
 
+-  `Binhex <https://binhex.cloud/>`__:
+
+   -  Mario Luis
+
 Maintainers
 -----------
 
