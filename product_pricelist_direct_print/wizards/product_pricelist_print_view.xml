@@ -50,6 +50,7 @@
                             name="show_variants"
                             attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
                         />
+                        <field name="last_categ_level_to_print" />
                         <field
                             name="last_ordered_products"
                             attrs="{'invisible':[('partner_count','=',0)]}"
