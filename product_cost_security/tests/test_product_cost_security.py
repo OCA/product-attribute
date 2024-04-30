@@ -2,23 +2,27 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo.exceptions import AccessError
-from odoo.tests.common import Form, TransactionCase, new_test_user
+from odoo.tests.common import Form, new_test_user
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductCostSecurity(TransactionCase):
+class TestProductCostSecurity(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        # Prevent errors when the stock module is installed
+        # and attempting to change standard_price
+        # Without this flag in the context,
+        # the system tries to access stock.move, which the user may not have permission.
+        cls.env = cls.env(context=dict(cls.env.context, disable_auto_svl=True))
         cls.product_edit_cost_group_id = cls.env.ref(
             "product_cost_security.group_product_edit_cost"
         ).id
         cls.product_cost_group_id = cls.env.ref(
             "product_cost_security.group_product_cost"
         ).id
-        cls.product_template_model = cls.env["product.template"].with_context(
-            tracking_disable=True
-        )
+        cls.product_template_model = cls.env["product.template"]
         cls.env.user.write(
             {
                 "groups_id": [
@@ -32,8 +36,9 @@ class TestProductCostSecurity(TransactionCase):
         sheet_form.name = "Test Product"
         sheet_form.save()
         with self.assertRaises(AssertionError):
-            # It would raise an AssertionError as the field would not be found in the view
-            # as the user does not have the group- Access to product costs
+            # It would raise an AssertionError as the field would not be found
+            # in the view as the user does not have the group- Access to
+            # product costs
             standard_price = sheet_form.standard_price
             self.assertEqual(standard_price, 0.0)
 
