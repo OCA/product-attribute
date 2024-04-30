@@ -72,6 +72,9 @@ class ProductPricelistPrint(models.TransientModel):
         help="If this field is not 0, products are grouped at max level "
         "of category tree.",
     )
+    last_categ_level_to_print = fields.Integer(
+        help="If this field is not 0, print last n category path",
+    )
     breakage_per_category = fields.Boolean(default=True)
     lang = fields.Selection(
         _lang_get, string="Language", default=lambda self: self.env.user.lang
@@ -407,3 +410,9 @@ class ProductPricelistPrint(models.TransientModel):
                 }
             )
         return group_list
+
+    def get_group_name(self, group_name):
+        if self.last_categ_level_to_print and group_name:
+            return "/".join(group_name.split("/")[-self.last_categ_level_to_print :])
+        else:
+            return group_name
