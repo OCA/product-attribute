@@ -22,11 +22,6 @@ msgid "Abstract model to export as xlsx the product pricelist"
 msgstr "Modello astratto per esportazione xlsx listino prezzi prodotto"
 
 #. module: product_pricelist_direct_print_xlsx
-#: model:ir.model.fields,field_description:product_pricelist_direct_print_xlsx.field_product_pricelist_print__breakage_per_category
-msgid "Breakage Per Category"
-msgstr "Suddivisione per categoria"
-
-#. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 #, python-format
@@ -134,3 +129,6 @@ msgstr "UdM"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print_xlsx.view_product_pricelist_print
 msgid "XLSX Export Options"
 msgstr "Opzioni esportazione XLSX"
+
+#~ msgid "Breakage Per Category"
+#~ msgstr "Suddivisione per categoria"
