@@ -33,7 +33,7 @@ msgid ""
 "\n"
 "    <p style=\"color:#888888;\">\n"
 "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
-"            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+"            <span t-out=\"object.write_uid.signature or ''\"></span>\n"
 "        </t>\n"
 "    </p>\n"
 "</div>\n"
@@ -84,6 +84,11 @@ msgstr "<strong>Prix de vente</strong>"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>UoM</strong>"
 msgstr "<strong>UdM</strong>"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
+msgid "Breakage Per Category"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -144,6 +149,11 @@ msgid "Display Name"
 msgstr "Nom d'affichage"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Filter only the products ordered since this date"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
 msgid "Group Field"
 msgstr "Regrouper par"
@@ -151,6 +161,11 @@ msgstr "Regrouper par"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
 msgstr ""
 
 #. module: product_pricelist_direct_print
@@ -185,6 +200,11 @@ msgstr "Laisser libre pour afficher tous les articles"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
 msgid "Language"
 msgstr "Langue"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
@@ -297,10 +317,18 @@ msgid "Product Templates"
 msgstr "Articles"
 
 #. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+#, python-format
 msgid "Products"
 msgstr "Articles"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Selling date threshold"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
