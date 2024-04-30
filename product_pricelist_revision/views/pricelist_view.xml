@@ -12,9 +12,7 @@
             </tree>
             <field name="pricelist_id" position="attributes">
                 <attribute name="optional">show</attribute>
-                <attribute
-                    name="attrs"
-                >{'readonly': [('pricelist_id', '!=', False)]}</attribute>
+                <attribute name="readonly">pricelist_id != False</attribute>
             </field>
             <field name="name" position="attributes">
                 <attribute name="optional">show</attribute>
@@ -29,13 +27,13 @@
                 <field name="compute_price" readonly="1" optional="hide" />
                 <field
                     name="fixed_price"
-                    attrs="{'invisible': [('compute_price', '!=', 'fixed')]}"
+                    invisible="compute_price != 'fixed'"
                     optional="show"
                 />
                 <field
                     name="percent_price"
                     string="Percent"
-                    attrs="{'invisible': [('compute_price', '!=', 'percentage')]}"
+                    invisible="compute_price != 'percentage'"
                     optional="show"
                 />
                 <field name="variation_percent" optional="show" />
