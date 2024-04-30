@@ -31,30 +31,12 @@ msgid ""
 "\n"
 "    <p style=\"color:#888888;\">\n"
 "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
-"            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+"            <span t-out=\"object.write_uid.signature or ''\"></span>\n"
 "        </t>\n"
 "    </p>\n"
 "</div>\n"
 "        "
 msgstr ""
-"<div style=\"margin: 0px; padding: 0px;\">\n"
-"    <p>Spett.le <span t-out=\"object.partner_id and object.partner_id.name "
-"or 'customer'\"></span>,</p>\n"
-"    <p>\n"
-"    il file in allegato è un PDF contenente il listino\n"
-"    <strong t-out=\"object.pricelist_id.name\"></strong>.\n"
-"    </p>\n"
-"    <p>Potete rispondere a questa email in caso di necessità di ulteriori "
-"informazioni.</p>\n"
-"    <p>Grazie,</p>\n"
-"\n"
-"    <p style=\"color:#888888;\">\n"
-"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
-"            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
-"        </t>\n"
-"    </p>\n"
-"</div>\n"
-"        "
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -100,6 +82,11 @@ msgstr "<strong>Prezzo di vendita</strong>"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>UoM</strong>"
 msgstr "<strong>U.M.</strong>"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
+msgid "Breakage Per Category"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -162,6 +149,11 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Filter only the products ordered since this date"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
 msgid "Group Field"
 msgstr "Campo gruppo"
@@ -170,6 +162,11 @@ msgstr "Campo gruppo"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
 msgstr "ID"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
@@ -203,6 +200,11 @@ msgstr "Lasciare vuoto per tutti i prodotti"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
 msgid "Language"
 msgstr "Lingua"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
@@ -315,10 +317,18 @@ msgid "Product Templates"
 msgstr "Modelli prodotto"
 
 #. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+#, python-format
 msgid "Products"
 msgstr "Prodotti"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Selling date threshold"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -410,3 +420,41 @@ msgstr ""
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "{{ object.pricelist_id.name }}"
 msgstr "{{ object.pricelist_id.name }}"
+
+#~ msgid ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
+#~ "'customer'\"></span>,</p>\n"
+#~ "    <p>\n"
+#~ "    The attached file is a PDF document containg the\n"
+#~ "    <strong t-out=\"object.pricelist_id.name\"></strong> pricelist.\n"
+#~ "    </p>\n"
+#~ "    <p>You can reply to this email if you have any questions.</p>\n"
+#~ "    <p>Thank you,</p>\n"
+#~ "\n"
+#~ "    <p style=\"color:#888888;\">\n"
+#~ "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+#~ "            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+#~ "        </t>\n"
+#~ "    </p>\n"
+#~ "</div>\n"
+#~ "        "
+#~ msgstr ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "    <p>Spett.le <span t-out=\"object.partner_id and object.partner_id."
+#~ "name or 'customer'\"></span>,</p>\n"
+#~ "    <p>\n"
+#~ "    il file in allegato è un PDF contenente il listino\n"
+#~ "    <strong t-out=\"object.pricelist_id.name\"></strong>.\n"
+#~ "    </p>\n"
+#~ "    <p>Potete rispondere a questa email in caso di necessità di ulteriori "
+#~ "informazioni.</p>\n"
+#~ "    <p>Grazie,</p>\n"
+#~ "\n"
+#~ "    <p style=\"color:#888888;\">\n"
+#~ "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+#~ "            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+#~ "        </t>\n"
+#~ "    </p>\n"
+#~ "</div>\n"
+#~ "        "
