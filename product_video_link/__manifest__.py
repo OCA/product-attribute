@@ -5,7 +5,7 @@
 {
     "name": "Product Video",
     "summary": "Link Video on product and category",
-    "version": "14.0.1.0.2",
+    "version": "15.0.1.0.0",
     "category": "Product",
     "development_status": "Alpha",
     "website": "https://github.com/OCA/product-attribute",
@@ -20,6 +20,7 @@
     "depends": [
         "product",
         "base_video_link",
+        "sales_team",
     ],
     "data": [
         "views/product_category_view.xml",
