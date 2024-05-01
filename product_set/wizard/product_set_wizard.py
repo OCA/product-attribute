@@ -37,10 +37,14 @@ class ProductSetWizard(models.AbstractModel):
         yield from self.product_set_line_ids
 
     def _check_partner(self):
-        """This method may be extended in other modules that use product_set as a base."""
+        """This method may be extended in other modules that use product_set as a
+        base.
+        """
         if not self.product_set_id.partner_id:
             return
 
     def add_set(self):
-        """This method may be extended in other modules that use product_set as a base."""
+        """This method may be extended in other modules that use product_set as a
+        base.
+        """
         self._check_partner()

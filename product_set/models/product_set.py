@@ -32,10 +32,7 @@ class ProductSet(models.Model):
         "it's going to be available for all of them.",
     )
 
-    display_name = fields.Char(
-        compute="_compute_display_name",
-        string="Display Name",
-    )
+    display_name = fields.Char(compute="_compute_display_name")
 
     @api.depends("name", "ref", "partner_id.name")
     def _compute_display_name(self):
