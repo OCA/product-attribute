@@ -28,7 +28,7 @@ uom_extra_data
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module add mm, ml, week, work_week uom to system.
+This module add ml, week, work_week uom to system.
 
 **Table of contents**
 
