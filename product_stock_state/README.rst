@@ -92,6 +92,9 @@ Contributors
 -  Kevin Khao <kevin.khao@akretion.com>
 -  Simone Orsi <simahawk@gmail.com>
 -  Watthanun Khorchai <watthanun_t@hotmail.com>
+-  `Binhex Systems Solutions <https://binhex.cloud/>`__:
+
+   -  Deriman Alonso <d.alonso@binhex.cloud>
 
 Other credits
 -------------
