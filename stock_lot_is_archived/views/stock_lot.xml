@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="stock_lot_form_view">
+        <field name="name">stock.lot.form (in stock_lot_is_archived)</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form" />
+        <field name="arch" type="xml">
+            <field name="ref" position="after">
+                <field name="is_archived_editable" invisible="1" />
+                <field
+                    name="is_archived"
+                    attrs="{'readonly': [('is_archived_editable', '=', True)]}"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="stock_lot_search_view">
+        <field name="name">stock.lot.search (in stock_lot_is_archived)</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.search_product_lot_filter" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <separator />
+                <filter
+                    string="Is Archived"
+                    name="is_archived"
+                    domain="[('is_archived','=',True)]"
+                    help="Archived Lots"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="stock_lot_tree_view">
+        <field name="name">stock.lot.tree (in stock_lot_is_archived)</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree" />
+        <field name="arch" type="xml">
+            <field name="ref" position="after">
+                <field name="is_archived" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

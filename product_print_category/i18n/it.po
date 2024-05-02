@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_print_category
+#: model:ir.actions.report,print_report_name:product_print_category.pricetag
+msgid "'Products Labels'"
+msgstr "'Etichette prodotti'"
+
+#. module: product_print_category
 #: model_terms:ir.ui.view,arch_db:product_print_category.view_product_print_category_form_2
 msgid "<span class=\"o_stat_text\">Products</span>"
 msgstr "<span class=\"o_stat_text\">Prodotti</span>"
@@ -274,11 +279,6 @@ msgid "Products"
 msgstr "Prodotti"
 
 #. module: product_print_category
-#: model:ir.actions.report,print_report_name:product_print_category.pricetag
-msgid "Products Labels"
-msgstr "Etichette prodotti"
-
-#. module: product_print_category
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category__product_to_print_qty
 msgid "Products To Print"
 msgstr "Prodotti da stampare"
@@ -330,6 +330,5 @@ msgstr "Riga procedura guidata per stampare prodotti"
 
 #. module: product_print_category
 #: model_terms:ir.ui.view,arch_db:product_print_category.view_product_print_wizard_form
-msgid ""
-"⚠️ If you change Print Category here, it will be changed in the product."
+msgid "⚠️ If you change Print Category here, it will be changed in the product."
 msgstr "⚠️ Se si cambia qui la categoria stampa, verrà cambiata nel prodotto."

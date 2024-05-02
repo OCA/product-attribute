@@ -17,6 +17,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_print_category
+#: model:ir.actions.report,print_report_name:product_print_category.pricetag
+msgid "'Products Labels'"
+msgstr "'Etiquettes d\\'articles'"
+
+#. module: product_print_category
 #: model_terms:ir.ui.view,arch_db:product_print_category.view_product_print_category_form_2
 msgid "<span class=\"o_stat_text\">Products</span>"
 msgstr "<span class=\"o_stat_text\">Articles</span>"
@@ -274,11 +279,6 @@ msgstr "Variante de produit"
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category__product_qty
 msgid "Products"
 msgstr "Articles"
-
-#. module: product_print_category
-#: model:ir.actions.report,print_report_name:product_print_category.pricetag
-msgid "Products Labels"
-msgstr "Etiquettes d'articles"
 
 #. module: product_print_category
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category__product_to_print_qty
