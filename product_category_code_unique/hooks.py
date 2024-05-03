@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-def pre_init_hook(cr):  # pragma: no cover
+def pre_init_hook(env):  # pragma: no cover
     """
     Updates existing codes matching the default '/' or
     empty. Primarily this ensures installation does not
@@ -10,7 +10,7 @@ def pre_init_hook(cr):  # pragma: no cover
     :param cr: database cursor
     :return: void
     """
-    cr.execute(
+    env.cr.execute(
         "UPDATE product_category "
         "SET code = name || '-' || id "
         "WHERE code IS NULL OR code = '/';"

@@ -15,11 +15,12 @@ class ProductCategory(models.Model):
     def _get_next_code(self):
         return self.env["ir.sequence"].next_by_code("product.category")
 
-    @api.model
-    def create(self, vals):
-        if "code" not in vals or vals["code"] == "/":
-            vals["code"] = self._get_next_code()
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if "code" not in vals or vals["code"] == "/":
+                vals["code"] = self._get_next_code()
+        return super().create(vals_list)
 
     def write(self, vals):
         for category in self:
@@ -27,5 +28,5 @@ class ProductCategory(models.Model):
             code = value.setdefault("code", category.code)
             if code in [False, "/"]:
                 value["code"] = self._get_next_code()
-            super().write(value)
+            super(ProductCategory, category).write(value)
         return True
