@@ -5,7 +5,6 @@ from odoo import api, models
 
 
 class ProductCategory(models.Model):
-
     _inherit = "product.category"
 
     _sql_constraints = [
