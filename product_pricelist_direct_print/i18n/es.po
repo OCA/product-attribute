@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 09:24+0000\n"
-"PO-Revision-Date: 2024-01-30 17:36+0000\n"
-"Last-Translator: Carlos Roca Zaragoza <carlos.roca@tecnativa.com>\n"
+"POT-Creation-Date: 2024-04-30 11:48+0000\n"
+"PO-Revision-Date: 2024-04-30 13:52+0200\n"
+"Last-Translator: Sergio Teruel <sergio.teruel@tecnativa.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -220,6 +220,13 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
+msgstr ""
+"Si este campo no es 0, se imprimirán los n últimos nodos del nombre completo "
+"de la categoría."
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
 msgid ""
 "If this field is not 0, products are grouped at max level of category tree."
@@ -257,6 +264,11 @@ msgstr "Dejar vacío para mostrar todos los productos"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
 msgid "Language"
 msgstr "Idioma"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
+msgstr "Último nivel de categoría a imprimir"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update

@@ -87,7 +87,9 @@ class ProductPricelistXlsx(models.AbstractModel):
         }
         for group in book.get_groups_to_print():
             if book.breakage_per_category:
-                sheet.write(row, 0, group["group_name"], bold_format)
+                sheet.write(
+                    row, 0, book.get_group_name(group["group_name"]), bold_format
+                )
                 row += 1
             for product_data in group["products"]:
                 # Get product directly from product_data or inside as a dictionary
