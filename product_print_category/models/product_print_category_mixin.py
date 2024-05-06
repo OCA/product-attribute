@@ -54,7 +54,6 @@ class ProductPrintCategoryMixin(models.AbstractModel):
         )
         products_to_update = ProductProduct
         for product_group in product_groups:
-
             category = ProductPrintCategory.browse(
                 product_group["print_category_id"][0]
             )
