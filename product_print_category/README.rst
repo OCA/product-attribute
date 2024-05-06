@@ -17,25 +17,26 @@ Product - Print Categories
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_print_category
+    :target: https://github.com/OCA/product-attribute/tree/17.0/product_print_category
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_print_category
+    :target: https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_print_category
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module is designed to extend product printing features. It allows
-user to create new print categories of products depending of the data that are
-on the labels of the products variants.
+user to create new print categories of products depending of the data
+that are on the labels of the products variants.
 
-When a field has changed, the product will be set as 'To print' automatically.
+When a field has changed, the product will be set as 'To print'
+automatically.
 
-This module requires to install custom modules to have pricetags templates,
-or alternatively to create pricetag reports templates by UI.
+This module requires to install custom modules to have pricetags
+templates, or alternatively to create pricetag reports templates by UI.
 
 **Table of contents**
 
@@ -47,53 +48,60 @@ Configuration
 
 **Group setting**
 
-* Add yourself to the 'Print Category Manager' group in the 'Pricetags' category.
-
+-  Add yourself to the 'Print Category Manager' group in the 'Pricetags'
+   category.
 
 **Create Print Categories**
 
-* Go to 'Sales' > 'Products' > 'Print Categories'
+-  Go to 'Sales' > 'Products' > 'Print Categories'
 
-* Find or create new print categories of products
-    * Set the fields that will trigger to print again the product label (e.g : name, sale price etc.)
-    * Set the qweb view that will be used for this category
+-  Find or create new print categories of products
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_print_category/static/description/product_print_category_form.png
+   -  Set the fields that will trigger to print again the product label
+      (e.g : name, sale price etc.)
+   -  Set the qweb view that will be used for this category
 
-Alternatively, you can create product print categories and qweb in a custom module.
+|image1|
 
+Alternatively, you can create product print categories and qweb in a
+custom module.
 
 **Affect products to the categories**
 
-* Go to "Sales" > "Products" > "Product variants" (or "Products" if
-  variants are not activated).
-* Go to your product in General Information tab
-* Set a print category
+-  Go to "Sales" > "Products" > "Product variants" (or "Products" if
+   variants are not activated).
+-  Go to your product in General Information tab
+-  Set a print category
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_print_category/static/description/product_product_form.png
-
+|image2|
 
 **Create Print Category Rules**
 
-* Go to 'Sales' > 'Products' > 'Print Category Rules'
+-  Go to 'Sales' > 'Products' > 'Print Category Rules'
 
 Create various ordered rules depending on product category and company.
 
-This system allow to automatically set / remove print category to a product,
-when changing its company or its category.
+This system allow to automatically set / remove print category to a
+product, when changing its company or its category.
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_print_category/static/description/product_print_category_rule_tree.png
+|image3|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_print_category/static/description/product_print_category_form.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_print_category/static/description/product_product_form.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_print_category/static/description/product_print_category_rule_tree.png
 
 Usage
 =====
 
-* Go to "Sales" > "Products" > "Print Categories"
-* Choose between "Print Obsolete Products" or "Print All Products"
+-  Go to "Sales" > "Products" > "Print Categories"
+-  Choose between "Print Obsolete Products" or "Print All Products"
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/16.0/product_print_category/static/description/product_print_wizard_form.png
+|image1|
 
-* Alternatively you can select product in product or variants list view and click
-  on "Action" > "Print Products"
+-  Alternatively you can select product in product or variants list view
+   and click on "Action" > "Print Products"
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_print_category/static/description/product_print_wizard_form.png
 
 Bug Tracker
 ===========
@@ -101,7 +109,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_print_category%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_print_category%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -109,20 +117,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * GRAP
 * La Louve
 * Coop IT Easy SC
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sylvain LE GAL <https://twitter.com/legalsylvain>
-* Quentin DUPONT <https://twitter.com/pondupont>
+-  Sylvain LE GAL <https://twitter.com/legalsylvain>
+-  Quentin DUPONT <https://twitter.com/pondupont>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -142,6 +150,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_print_category>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_print_category>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
