@@ -8,23 +8,23 @@ from odoo.tools import sql
 _logger = logging.getLogger(__name__)
 
 
-def pre_init_hook(cr):  # pragma: nocover
+def pre_init_hook(env):  # pragma: nocover
     """Recompute the volume and weight column on product and template
     by converting the value from the uom defined on the product to the default uom
     """
-    if sql.column_exists(cr, "product_template", "volume_uom_id"):
+    if sql.column_exists(env.cr, "product_template", "volume_uom_id"):
         _logger.info("Recompute volume on product.product")
         # get default m3 uom
-        cr.execute(
+        env.cr.execute(
             """
             SELECT res_id
             FROM ir_model_data
             WHERE module = 'uom' AND name = 'product_uom_cubic_meter'
             """
         )
-        m3_uom_id = cr.fetchone()[0]
+        m3_uom_id = env.cr.fetchone()[0]
         # get uom factor
-        cr.execute(
+        env.cr.execute(
             """
             SELECT factor
             FROM uom_uom
@@ -32,9 +32,9 @@ def pre_init_hook(cr):  # pragma: nocover
             """,
             (m3_uom_id,),
         )
-        m3_uom_factor = cr.fetchone()[0]
+        m3_uom_factor = env.cr.fetchone()[0]
         # update volume where volume_uom_id is not null and not m3
-        cr.execute(
+        env.cr.execute(
             """
             UPDATE product_product
             SET volume = product_product.volume / product_uom.factor  * %s
@@ -46,9 +46,9 @@ def pre_init_hook(cr):  # pragma: nocover
             """,
             (m3_uom_factor, m3_uom_id),
         )
-        _logger.info(f"{cr.rowcount} product_product rows updated")
+        _logger.info(f"{env.cr.rowcount} product_product rows updated")
         # update product_template with 1 product_product
-        cr.execute(
+        env.cr.execute(
             """
             UPDATE product_template
             SET Volume = unique_product.volume
@@ -64,20 +64,20 @@ def pre_init_hook(cr):  # pragma: nocover
             """,
             (m3_uom_id,),
         )
-        _logger.info(f"{cr.rowcount} product_template rows updated")
-    if sql.column_exists(cr, "product_template", "weight_uom_id"):
+        _logger.info(f"{env.cr.rowcount} product_template rows updated")
+    if sql.column_exists(env.cr, "product_template", "weight_uom_id"):
         _logger.info("Recompute weight on product.product")
         # get default kg uom
-        cr.execute(
+        env.cr.execute(
             """
             SELECT res_id
             FROM ir_model_data
             WHERE module = 'uom' AND name = 'product_uom_kgm'
             """
         )
-        kg_uom_id = cr.fetchone()[0]
+        kg_uom_id = env.cr.fetchone()[0]
         # get uom factor
-        cr.execute(
+        env.cr.execute(
             """
             SELECT factor
             FROM uom_uom
@@ -85,9 +85,9 @@ def pre_init_hook(cr):  # pragma: nocover
             """,
             (kg_uom_id,),
         )
-        kg_uom_factor = cr.fetchone()[0]
+        kg_uom_factor = env.cr.fetchone()[0]
         # update weight where weight_uom_id is not null and not kg
-        cr.execute(
+        env.cr.execute(
             """
             UPDATE product_product
             SET weight = product_product.weight / product_uom.factor  * %s
@@ -98,9 +98,9 @@ def pre_init_hook(cr):  # pragma: nocover
             """,
             (kg_uom_factor, kg_uom_id),
         )
-        _logger.info(f"{cr.rowcount} product_product rows updated")
+        _logger.info(f"{env.cr.rowcount} product_product rows updated")
         # update product_template with 1 product_product
-        cr.execute(
+        env.cr.execute(
             """
             UPDATE product_template
             SET weight = unique_product.weight
@@ -116,4 +116,4 @@ def pre_init_hook(cr):  # pragma: nocover
             """,
             (kg_uom_id,),
         )
-        _logger.info(f"{cr.rowcount} product_template rows updated")
+        _logger.info(f"{env.cr.rowcount} product_template rows updated")
