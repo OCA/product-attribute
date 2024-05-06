@@ -15,14 +15,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <xpath expr="//group[@name='group_general']" position="inside">
                 <field
                     name="print_category_id"
-                    attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"
+                    invisible="product_variant_count &gt; 1"
                 />
-                <field
-                    name="to_print"
-                    attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"
-                />
+                <field name="to_print" invisible="product_variant_count &gt; 1" />
                 <p
-                    attrs="{'invisible': [('product_variant_count', '&lt;=', 1)]}"
+                    invisible="product_variant_count &lt;= 1"
                     class="fst-italic text-muted"
                     colspan="2"
                 >Print options should be configured on Product Variants</p>

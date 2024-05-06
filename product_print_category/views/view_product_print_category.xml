@@ -26,7 +26,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <button
                         name="%(product_print_category.action_product_product_2_product_print_wizard)d"
                         type="action"
-                        attrs="{'invisible': [('product_to_print_qty', '=', 0)]}"
+                        invisible="product_to_print_qty == 0"
                         string="Print Obsolete Products"
                         class="oe_highlight"
                         icon="fa-print"
@@ -34,7 +34,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <button
                         name="%(product_print_category.action_product_product_2_product_print_wizard)d"
                         type="action"
-                        attrs="{'invisible': [('product_qty', '=', 0)]}"
+                        invisible="product_qty == 0"
                         string="Print All Products"
                         context="{'all_products': True}"
                         icon="fa-print"
@@ -49,7 +49,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             type="object"
                             icon="fa-print"
                             context="{'to_print': True}"
-                            attrs="{'invisible': [('product_to_print_qty', '=', 0)]}"
+                            invisible="product_to_print_qty == 0"
                         >
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">
@@ -65,7 +65,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             type="object"
                             icon="fa-list"
                             context="{'to_print': False}"
-                            attrs="{'invisible': [('product_qty', '=', 0)]}"
+                            invisible="product_qty == 0"
                         >
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">

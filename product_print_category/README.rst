@@ -96,12 +96,12 @@ Usage
 -  Go to "Sales" > "Products" > "Print Categories"
 -  Choose between "Print Obsolete Products" or "Print All Products"
 
-|image1|
+|image4|
 
 -  Alternatively you can select product in product or variants list view
    and click on "Action" > "Print Products"
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_print_category/static/description/product_print_wizard_form.png
+.. |image4| image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_print_category/static/description/product_print_wizard_form.png
 
 Bug Tracker
 ===========
@@ -128,6 +128,9 @@ Contributors
 
 -  Sylvain LE GAL <https://twitter.com/legalsylvain>
 -  Quentin DUPONT <https://twitter.com/pondupont>
+-  `Binhex <https://binhex.cloud/>`__:
+
+   -  Mario Luis <m.luis@binhex.cloud>
 
 Maintainers
 -----------
