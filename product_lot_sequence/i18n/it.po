@@ -20,8 +20,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
 msgid ""
 "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\"/>"
+"specific.\" aria-label=\"Values set here are company-specific.\" groups="
+"\"base.group_multi_company\"/>"
 msgstr ""
 "<span class=\"fa fa-lg fa-building-o\" title=\"I valori qui impostati sono "
 "specifici per azienda.\" aria-label=\"I valori qui impostati sono specifici "
@@ -92,6 +92,11 @@ msgstr "Numero cifre sequenza"
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_template__lot_sequence_prefix
 msgid "Sequence Prefix"
 msgstr "Prefisso sequenza"
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_stock_move
+msgid "Stock Move"
+msgstr ""
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_prefix
