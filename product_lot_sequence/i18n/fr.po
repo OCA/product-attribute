@@ -89,6 +89,11 @@ msgid "Sequence Prefix"
 msgstr "Préfixe de séquence"
 
 #. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: product_lot_sequence
 #: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_prefix
 #: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_prefix
 msgid "The lot's sequence will be created using this prefix."
