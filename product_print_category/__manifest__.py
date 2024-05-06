@@ -9,7 +9,7 @@
     "name": "Product - Print Categories",
     "summary": "Define print categories for products"
     " and automate products print, when data has changed",
-    "version": "16.0.1.0.4",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",

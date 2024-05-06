@@ -8,14 +8,15 @@ from odoo.tests.common import TransactionCase
 class TestProductPrintCategory(TransactionCase):
     """Tests for 'Product Print Category' Module"""
 
-    def setUp(self):
-        super().setUp()
-        self.ProductPrintWizard = self.env["product.print.wizard"]
-        self.ProductProduct = self.env["product.product"]
-        self.ProductTemplate = self.env["product.template"]
-        self.CustomReport = self.env["report.product_print_category.report_pricetag"]
-        self.print_category_1 = self.env.ref("product_print_category.demo_category_1")
-        self.print_category_2 = self.env.ref("product_print_category.demo_category_2")
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.ProductPrintWizard = cls.env["product.print.wizard"]
+        cls.ProductProduct = cls.env["product.product"]
+        cls.ProductTemplate = cls.env["product.template"]
+        cls.CustomReport = cls.env["report.product_print_category.report_pricetag"]
+        cls.print_category_1 = cls.env.ref("product_print_category.demo_category_1")
+        cls.print_category_2 = cls.env.ref("product_print_category.demo_category_2")
 
     # Test Section
     def test_01_product_product_to_print_value(self):
