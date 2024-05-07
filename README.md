@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [product_category_code](product_category_code/) | 16.0.1.0.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Allows to define a code on product categories
 [product_category_hr_department](product_category_hr_department/) | 16.0.1.0.0 | [![smaciaosi](https://github.com/smaciaosi.png?size=30px)](https://github.com/smaciaosi) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Link product categories to hr departments
 [product_category_type](product_category_type/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add Type field on Product Categories to distinguish between parent and final categories
+[product_code_mixin](product_code_mixin/) | 16.0.1.0.0 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) | Make product code available for any inherited model
 [product_code_unique](product_code_unique/) | 16.0.1.0.1 |  | Set Product Internal Reference as Unique
 [product_company_default](product_company_default/) | 16.0.1.0.0 |  | Product Company Default
 [product_cost_security](product_cost_security/) | 16.0.1.2.0 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) [![rafaelbn](https://github.com/rafaelbn.png?size=30px)](https://github.com/rafaelbn) [![yajo](https://github.com/yajo.png?size=30px)](https://github.com/yajo) | Product cost security restriction view
