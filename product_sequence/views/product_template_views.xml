@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-  <record id="product_template_only_form_view_inherit_product_sequence" model="ir.ui.view">
+  <record
+        id="product_template_only_form_view_inherit_product_sequence"
+        model="ir.ui.view"
+    >
     <field name="name">product.template.form.inherit.product.sequence</field>
     <field name="model">product.template</field>
     <field name="inherit_id" ref="product.product_template_only_form_view" />
@@ -8,13 +11,13 @@
       <xpath expr="//field[@name='default_code']" position="after">
         <div groups="stock.group_stock_manager" />
         <button
-          string="Apply new ref"
-          invisible="product_variant_count &gt; 1"
-          class="btn btn-primary"
-          groups="stock.group_stock_manager"
-          name="action_apply_new_code"
-          type="object"
-        />
+                    string="Apply new ref"
+                    invisible="product_variant_count &gt; 1"
+                    class="btn btn-primary"
+                    groups="stock.group_stock_manager"
+                    name="action_apply_new_code"
+                    type="object"
+                />
       </xpath>
     </field>
   </record>

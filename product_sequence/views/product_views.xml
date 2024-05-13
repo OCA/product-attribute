@@ -8,12 +8,12 @@
       <xpath expr="//field[@name='default_code']" position="after">
         <div groups="stock.group_stock_manager" />
         <button
-          string="Apply new ref"
-          class="btn btn-primary"
-          groups="stock.group_stock_manager"
-          name="action_apply_new_code"
-          type="object"
-        />
+                    string="Apply new ref"
+                    class="btn btn-primary"
+                    groups="stock.group_stock_manager"
+                    name="action_apply_new_code"
+                    type="object"
+                />
       </xpath>
     </field>
   </record>
