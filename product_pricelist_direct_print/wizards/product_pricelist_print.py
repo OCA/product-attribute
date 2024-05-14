@@ -104,11 +104,6 @@ class ProductPricelistPrint(models.TransientModel):
         if not self.partner_count:
             self.last_ordered_products = False
 
-    @api.onchange("show_variants")
-    def _onchange_show_variants(self):
-        if not self.show_variants:
-            self.show_attribute_values = False
-
     @api.model
     def default_get(self, fields):
         res = super().default_get(fields)

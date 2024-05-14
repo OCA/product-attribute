@@ -123,6 +123,10 @@ Contributors
   
   * Juan Carlos Bonilla
 
+* `Trobz <https://trobz.com/>`_:
+  
+  * Tris Doan
+
 Maintainers
 ~~~~~~~~~~~
 
