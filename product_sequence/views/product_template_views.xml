@@ -9,9 +9,12 @@
     <field name="inherit_id" ref="product.product_template_only_form_view" />
     <field name="arch" type="xml">
       <xpath expr="//field[@name='default_code']" position="after">
-        <div groups="stock.group_stock_manager" />
+        <div
+                    invisible="product_variant_count &gt; 1"
+                    groups="stock.group_stock_manager"
+                />
         <button
-                    string="Apply new ref"
+                    string="Apply new Reference"
                     invisible="product_variant_count &gt; 1"
                     class="btn btn-primary"
                     groups="stock.group_stock_manager"

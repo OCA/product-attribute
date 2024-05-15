@@ -66,11 +66,3 @@ class ProductProduct(models.Model):
         if self.default_code and "default_code" not in default:
             default.update({"default_code": self.default_code + _("-copy")})
         return super().copy(default)
-
-    def action_apply_new_code(self):
-        categ_id = self.categ_id
-        sequence = self.env["ir.sequence"].get_category_sequence_id(categ_id)
-        is_seq_curr_categ = self.default_code.startswith(sequence.prefix)
-        if not is_seq_curr_categ:
-            ref = sequence.next_by_id()
-            self.default_code = ref

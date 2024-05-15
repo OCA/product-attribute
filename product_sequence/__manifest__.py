@@ -19,7 +19,6 @@
         "data/product_sequence.xml",
         "views/product_category.xml",
         "views/res_config_settings_views.xml",
-        "views/product_views.xml",
         "views/product_template_views.xml",
     ],
     "pre_init_hook": "pre_init_hook",
