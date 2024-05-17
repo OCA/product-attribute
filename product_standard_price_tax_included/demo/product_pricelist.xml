@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="pricelist_price_tax_included" model="product.pricelist">
+        <field name="name">Sale Price List based on Cost Price Tax Included</field>
+        <field name="currency_id" ref="base.USD" />
+    </record>
+
+    <record id="pricelist_item_price_tax_included" model="product.pricelist.item">
+        <field name="pricelist_id" ref="pricelist_price_tax_included" />
+        <field name="applied_on">3_global</field>
+        <field name="compute_price">formula</field>
+        <field name="base">standard_price_tax_included</field>
+    </record>
+
+    <record id="pricelist_price_tax_excluded" model="product.pricelist">
+        <field name="name">Sale Price List based on Cost Price</field>
+        <field name="currency_id" ref="base.USD" />
+    </record>
+
+    <record id="pricelist_item_price_tax_excluded" model="product.pricelist.item">
+        <field name="pricelist_id" ref="pricelist_price_tax_excluded" />
+        <field name="applied_on">3_global</field>
+        <field name="compute_price">formula</field>
+        <field name="base">standard_price</field>
+    </record>
+
+</odoo>
