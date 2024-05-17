@@ -60,6 +60,7 @@ setuptools.setup(
         'odoo-addon-product_secondary_unit>=16.0dev,<16.1dev',
         'odoo-addon-product_sequence>=16.0dev,<16.1dev',
         'odoo-addon-product_set>=16.0dev,<16.1dev',
+        'odoo-addon-product_standard_price_tax_included>=16.0dev,<16.1dev',
         'odoo-addon-product_state>=16.0dev,<16.1dev',
         'odoo-addon-product_stock_state>=16.0dev,<16.1dev',
         'odoo-addon-product_supplierinfo_archive>=16.0dev,<16.1dev',
