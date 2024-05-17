@@ -24,7 +24,7 @@ msgstr ""
 #: model:ir.model.fields,help:product_standard_price_tax_included.field_product_pricelist_item__base
 msgid ""
 "Base price for computation.\n"
-"Public Price: The base price will be the Sale/public Price.\n"
+"Sales Price: The base price will be the Sales Price.\n"
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
@@ -35,18 +35,15 @@ msgid "Based on"
 msgstr ""
 
 #. module: product_standard_price_tax_included
-#: selection:product.pricelist.item,base:0
-msgid "Cost"
-msgstr ""
-
-#. module: product_standard_price_tax_included
 #: model:ir.model.fields,field_description:product_standard_price_tax_included.field_product_product__standard_price_tax_included
-#: selection:product.pricelist.item,base:0
+#: model:ir.model.fields,field_description:product_standard_price_tax_included.field_product_template__standard_price_tax_included
+#: model:ir.model.fields.selection,name:product_standard_price_tax_included.selection__product_pricelist_item__base__standard_price_tax_included
 msgid "Cost Price Tax Included"
 msgstr "Davek vključen v nabavni ceni"
 
 #. module: product_standard_price_tax_included
 #: model:ir.model.fields,help:product_standard_price_tax_included.field_product_product__standard_price_tax_included
+#: model:ir.model.fields,help:product_standard_price_tax_included.field_product_template__standard_price_tax_included
 msgid ""
 "Cost Price of the product, All Tax Included:\n"
 "This field will be computed with the 'Cost Price', taking into account Sale "
@@ -57,74 +54,40 @@ msgstr ""
 "prodajnih davkov."
 
 #. module: product_standard_price_tax_included
-#: model:product.product,volume_uom_name:product_standard_price_tax_included.product_product
-#: model:product.template,volume_uom_name:product_standard_price_tax_included.product_product_product_template
-msgid "Liter(s)"
-msgstr ""
-
-#. module: product_standard_price_tax_included
-#: selection:product.pricelist.item,base:0
-msgid "Other Price"
-msgstr ""
-
-#. module: product_standard_price_tax_included
-#: selection:product.pricelist.item,base:0
-msgid "Other Pricelist"
-msgstr ""
-
-#. module: product_standard_price_tax_included
-#: selection:product.pricelist.item,base:0
-msgid "Partner Prices on the product form"
-msgstr ""
-
-#. module: product_standard_price_tax_included
 #: model:ir.model,name:product_standard_price_tax_included.model_product_pricelist_item
-msgid "Pricelist Item"
+msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_standard_price_tax_included
-#: selection:product.pricelist.item,base:0
-msgid "Prices based on supplier info"
-msgstr ""
-
-#. module: product_standard_price_tax_included
-#: model:ir.model,name:product_standard_price_tax_included.model_product_product
+#: model:ir.model,name:product_standard_price_tax_included.model_product_template
 #, fuzzy
 msgid "Product"
 msgstr "Predloga proizvoda"
 
 #. module: product_standard_price_tax_included
-#: model:product.product,name:product_standard_price_tax_included.product_product
-#: model:product.template,name:product_standard_price_tax_included.product_product_product_template
+#: model:ir.model,name:product_standard_price_tax_included.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: product_standard_price_tax_included
+#: model:product.template,name:product_standard_price_tax_included.product_product_tax_excluded_product_template
+msgid "Product With Sale Tax (Tax Excluded)"
+msgstr ""
+
+#. module: product_standard_price_tax_included
+#: model:product.template,name:product_standard_price_tax_included.product_product_tax_included_product_template
 msgid "Product With Sale Tax (Tax Included)"
 msgstr "Proizvod z (vključenim) prodajnim davkom"
 
 #. module: product_standard_price_tax_included
-#: selection:product.pricelist.item,base:0
-msgid "Public Price"
+#: model:product.pricelist,name:product_standard_price_tax_included.pricelist_price_tax_excluded
+msgid "Sale Price List based on Cost Price"
 msgstr ""
 
 #. module: product_standard_price_tax_included
 #: model:product.pricelist,name:product_standard_price_tax_included.pricelist_price_tax_included
 msgid "Sale Price List based on Cost Price Tax Included"
 msgstr "Prodajni cenik glede na lastno ceno vključno z davkom"
-
-#. module: product_standard_price_tax_included
-#: model:ir.model,name:product_standard_price_tax_included.model_account_tax
-msgid "Tax"
-msgstr ""
-
-#. module: product_standard_price_tax_included
-#: model:product.product,uom_name:product_standard_price_tax_included.product_product
-#: model:product.template,uom_name:product_standard_price_tax_included.product_product_product_template
-msgid "Unit(s)"
-msgstr ""
-
-#. module: product_standard_price_tax_included
-#: model:product.product,weight_uom_name:product_standard_price_tax_included.product_product
-#: model:product.template,weight_uom_name:product_standard_price_tax_included.product_product_product_template
-msgid "kg"
-msgstr ""
 
 #~ msgid "Sale Price List Version based on Cost Price Tax Included"
 #~ msgstr "Verzija prodajnega cenika glede na lastno ceno vključno z davkom"
