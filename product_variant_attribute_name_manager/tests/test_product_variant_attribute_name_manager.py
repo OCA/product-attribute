@@ -6,7 +6,7 @@ from odoo.tests.common import TransactionCase
 @tagged("post_install", "-at_install")
 class TestProductTemplateAttributeValue(TransactionCase):
     def setUp(self):
-        super(TestProductTemplateAttributeValue, self).setUp()
+        super().setUp()
 
         self.product_attr_value_obj = self.env["product.attribute.value"]
         self.product_attr_obj = self.env["product.attribute"]

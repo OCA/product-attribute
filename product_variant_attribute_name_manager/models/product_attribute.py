@@ -8,7 +8,8 @@ class ProductAttribute(models.Model):
     display_attribute_value = fields.Boolean(
         "Display Attribute Value on Product Variant",
         default=True,
-        help="If checked, it will display the variant attribute value in the product name.",
+        help="If checked, it will display the variant "
+        "attribute value in the product name.",
     )
     display_attribute_name = fields.Boolean(
         "Display Attribute Name/Short Name on Product Variant",
