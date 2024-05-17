@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_product_product_form" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_lots_and_weight']" position="after">
+                <group string="Origin" name="group_origin">
+                    <field name="country_id" />
+                    <field name="state_id_domain" invisible="1" />
+                    <field name="state_id" domain="state_id_domain" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_product_product_form_variant" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='weight']" position="after">
+                <group string="Origin" name="group_origin">
+                    <field name="country_id" />
+                    <field name="state_id_domain" invisible="1" />
+                    <field name="state_id" domain="state_id_domain" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
