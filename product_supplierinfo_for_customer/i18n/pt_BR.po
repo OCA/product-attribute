@@ -6,8 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-09 02:46+0000\n"
-"Last-Translator: Adriano Prado <adrianojprado@gmail.com>\n"
+"PO-Revision-Date: 2024-05-21 02:26+0000\n"
+"Last-Translator: Rodrigo Macedo <sottomaiormacedotec@users.noreply."
+"translation.odoo-community.org>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -168,7 +169,7 @@ msgstr "Última Modificação em"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__last_purchase_date
 msgid "Last Purchase"
-msgstr ""
+msgstr "Última Compra"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_uid
@@ -258,7 +259,7 @@ msgstr "Sequencia"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__show_set_supplier_button
 msgid "Show Set Supplier Button"
-msgstr ""
+msgstr "Mostrar botão Definir fornecedor"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_start
