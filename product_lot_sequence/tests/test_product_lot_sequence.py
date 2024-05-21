@@ -138,3 +138,45 @@ class TestProductLotSequence(TransactionCase):
         self.assertEqual(
             new_next_sequence_number, seq.get_next_char(seq.number_next_actual)
         )
+
+    def test_write_multiple_products(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "global"
+        )
+        product_template_model = self.env["product.template"]
+        pdt_serial = product_template_model.create(
+            {
+                "name": "Test Product Serial 1",
+                "type": "product",
+                "tracking": "serial",
+            }
+        )
+        self.assertFalse(pdt_serial.lot_sequence_id)
+        pdt_simple = product_template_model.create(
+            {
+                "name": "Test Product 2",
+                "type": "product",
+                "tracking": "none",
+            }
+        )
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        pdt_service = product_template_model.create(
+            {
+                "name": "Test service 3",
+                "type": "service",
+                "tracking": "none",
+            }
+        )
+        self.assertFalse(pdt_service.lot_sequence_id)
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "product"
+        )
+        pdt_ids = pdt_serial + pdt_simple + pdt_service
+        pdt_ids.write(
+            {
+                "description_picking": "note for picking",
+            }
+        )
+        self.assertTrue(pdt_serial.lot_sequence_id)
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        self.assertFalse(pdt_service.lot_sequence_id)
