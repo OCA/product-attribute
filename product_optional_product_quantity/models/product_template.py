@@ -7,7 +7,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     product_optional_line_ids = fields.One2many(
-        string="Optional Products",
+        string="Optional Products Line",
         comodel_name="product.optional.line",
         inverse_name="product_tmpl_id",
     )
