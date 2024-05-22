@@ -42,7 +42,7 @@ class TestProductLotSequence(TransactionCase):
             )
         )
         next_serial = self.env["stock.lot"]._get_next_serial(self.env.company, product)
-        self.assertRegexpMatches(next_serial, r"foo/\d{5}/bar")
+        self.assertRegex(next_serial, r"foo/\d{5}/bar")
 
     def test_lot_onchange_product_id(self):
         self.assertEqual(self.stock_production_lot._get_sequence_policy(), "product")
@@ -55,7 +55,7 @@ class TestProductLotSequence(TransactionCase):
         lot_form.product_id = product
         lot_form.company_id = self.env.company
         lot = lot_form.save()
-        self.assertRegexpMatches(lot.name, r"shiba/\d{4}$")
+        self.assertRegex(lot.name, r"shiba/\d{4}$")
 
     def test_global_sequence(self):
         self.env["ir.config_parameter"].set_param(
