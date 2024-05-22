@@ -73,11 +73,15 @@ msgstr "Producto Opcional"
 
 #. module: product_optional_product_quantity
 #: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_product__optional_product_ids
-#: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_product__product_optional_line_ids
 #: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_template__optional_product_ids
-#: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_template__product_optional_line_ids
 msgid "Optional Products"
 msgstr "Productos Opcionales"
+
+#. module: product_optional_product_quantity
+#: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_product__product_optional_line_ids
+#: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_template__product_optional_line_ids
+msgid "Optional Products Line"
+msgstr "Línea Productos Opcionales"
 
 #. module: product_optional_product_quantity
 #: model:ir.model.fields,field_description:product_optional_product_quantity.field_res_config_settings__group_product_optional_quantity
