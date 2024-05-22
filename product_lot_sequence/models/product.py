@@ -86,10 +86,21 @@ class ProductTemplate(models.Model):
 
     def write(self, vals):
         seq_policy = self.env["stock.lot"]._get_sequence_policy()
-        if seq_policy == "product":
-            for template in self:
+        if seq_policy == "global":
+            return super().write(vals)
+        else:
+            serial_templates = (
+                self.filtered(lambda pdt: pdt.tracking in ["lot", "serial"])
+                if (
+                    not vals.get("tracking", False)
+                    or vals.get("tracking", False) == "none"
+                )
+                else self
+            )
+            super(ProductTemplate, self - serial_templates).write(vals)
+            for template in serial_templates:
                 tracking = vals.get("tracking", False) or template.tracking
-                if tracking in ["lot", "serial"]:
+                if tracking in ["lot", "serial"] or vals.get("lot_sequence_id", False):
                     if (
                         not vals.get("lot_sequence_id", False)
                         and not template.lot_sequence_id
@@ -103,7 +114,7 @@ class ProductTemplate(models.Model):
                         )
                         vals["lot_sequence_prefix"] = lot_sequence_id.prefix
                         vals["lot_sequence_padding"] = lot_sequence_id.padding
-        return super().write(vals)
+            return super(ProductTemplate, serial_templates).write(vals)
 
     @api.model_create_multi
     def create(self, vals_list):

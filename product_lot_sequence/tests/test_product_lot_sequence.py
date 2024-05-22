@@ -180,3 +180,51 @@ class TestProductLotSequence(TransactionCase):
         self.assertTrue(pdt_serial.lot_sequence_id)
         self.assertFalse(pdt_simple.lot_sequence_id)
         self.assertFalse(pdt_service.lot_sequence_id)
+        self.assertTrue(
+            all(
+                [
+                    "note for picking" == desc
+                    for desc in pdt_ids.mapped("description_picking")
+                ]
+            )
+        )
+
+    def test_write_tracking(self):
+        product_template_model = self.env["product.template"]
+        pdt_simple = product_template_model.create(
+            {
+                "name": "Test Product 2",
+                "type": "product",
+            }
+        )
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        pdt_simple.write(
+            {
+                "tracking": "lot",
+            }
+        )
+        self.assertTrue(pdt_simple.lot_sequence_id)
+        self.assertEqual(pdt_simple.name, pdt_simple.lot_sequence_id.name)
+
+    def test_write_sequence(self):
+        product_template_model = self.env["product.template"]
+        pdt_simple = product_template_model.create(
+            {
+                "name": "Test Product 2",
+                "type": "product",
+            }
+        )
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        sequence = pdt_simple.sudo()._create_lot_sequence(
+            {
+                "name": "Test Sequence",
+            }
+        )
+        pdt_simple.write(
+            {
+                "lot_sequence_id": sequence.id,
+            }
+        )
+        self.assertTrue(pdt_simple.lot_sequence_id)
+        self.assertTrue(pdt_simple.lot_sequence_padding)
+        self.assertNotEqual(pdt_simple.name, pdt_simple.lot_sequence_id.name)
