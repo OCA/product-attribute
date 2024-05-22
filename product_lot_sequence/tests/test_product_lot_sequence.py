@@ -151,7 +151,6 @@ class TestProductLotSequence(TransactionCase):
                 "tracking": "serial",
             }
         )
-        self.assertFalse(pdt_serial.lot_sequence_id)
         pdt_simple = product_template_model.create(
             {
                 "name": "Test Product 2",
@@ -159,7 +158,6 @@ class TestProductLotSequence(TransactionCase):
                 "tracking": "none",
             }
         )
-        self.assertFalse(pdt_simple.lot_sequence_id)
         pdt_service = product_template_model.create(
             {
                 "name": "Test service 3",
@@ -167,11 +165,19 @@ class TestProductLotSequence(TransactionCase):
                 "tracking": "none",
             }
         )
+        pdt_ids = pdt_serial + pdt_simple + pdt_service
+        pdt_ids.write(
+            {
+                "description_picking": "test note",
+            }
+        )
+        self.assertFalse(pdt_serial.lot_sequence_id)
+        self.assertFalse(pdt_simple.lot_sequence_id)
         self.assertFalse(pdt_service.lot_sequence_id)
+
         self.env["ir.config_parameter"].set_param(
             "product_lot_sequence.policy", "product"
         )
-        pdt_ids = pdt_serial + pdt_simple + pdt_service
         pdt_ids.write(
             {
                 "description_picking": "note for picking",
