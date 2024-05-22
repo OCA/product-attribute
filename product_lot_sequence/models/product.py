@@ -1,4 +1,5 @@
 # Copyright 2020 ForgeFlow S.L.
+# Copyright 2024 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
@@ -104,16 +105,20 @@ class ProductTemplate(models.Model):
                         vals["lot_sequence_padding"] = lot_sequence_id.padding
         return super().write(vals)
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         seq_policy = self.env["stock.lot"]._get_sequence_policy()
-        if seq_policy == "product" and vals.get("tracking", False) in ["lot", "serial"]:
-            if not vals.get("lot_sequence_id", False):
-                vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
-            else:
-                lot_sequence_id = self.env["ir.sequence"].browse(
-                    vals["lot_sequence_id"]
-                )
-                vals["lot_sequence_prefix"] = lot_sequence_id.prefix
-                vals["lot_sequence_padding"] = lot_sequence_id.padding
-        return super().create(vals)
+        for vals in vals_list:
+            if seq_policy == "product" and vals.get("tracking", False) in [
+                "lot",
+                "serial",
+            ]:
+                if not vals.get("lot_sequence_id", False):
+                    vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
+                else:
+                    lot_sequence_id = self.env["ir.sequence"].browse(
+                        vals["lot_sequence_id"]
+                    )
+                    vals["lot_sequence_prefix"] = lot_sequence_id.prefix
+                    vals["lot_sequence_padding"] = lot_sequence_id.padding
+        return super().create(vals_list)
