@@ -9,10 +9,11 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 01:19+0000\n"
-"PO-Revision-Date: 2023-10-09 02:46+0000\n"
-"Last-Translator: Adriano Prado <adrianojprado@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/"
-"teams/23907/pt_BR/)\n"
+"PO-Revision-Date: 2024-05-23 01:21+0000\n"
+"Last-Translator: Rodrigo Macedo <sottomaiormacedotec@users.noreply."
+"translation.odoo-community.org>\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/"
+"23907/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,17 +30,17 @@ msgstr "Ativo"
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a line"
-msgstr ""
+msgstr "Adicionar uma linha"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a note"
-msgstr ""
+msgstr "Adicionar uma nota"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a section"
-msgstr ""
+msgstr "Adicionar uma sessão"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
@@ -74,7 +75,7 @@ msgstr "Nome de Exibição"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Exibir Tipo"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
@@ -114,7 +115,7 @@ msgstr "Nome"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
@@ -175,7 +176,7 @@ msgstr "Quantidade"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
 msgid "Section"
-msgstr ""
+msgstr "Sessão"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
@@ -192,12 +193,12 @@ msgstr "Conjunto"
 #: code:addons/product_set/tests/models.py:0
 #, python-format
 msgid "This set of products is restricted for this user."
-msgstr ""
+msgstr "Este conjunto de produtos é restrito a este usuário."
 
 #. module: product_set
 #: model:ir.model,name:product_set.model_product_set_wizard
 msgid "Transient base model to define custom wizards"
-msgstr ""
+msgstr "Modelo base transitório para definir assistentes personalizados"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
