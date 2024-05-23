@@ -4,3 +4,5 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Pedro M. Baeza
   - Sergio Teruel
+- [Komit](https://komit-consulting.com):
+  - Vang Nguyen Phu

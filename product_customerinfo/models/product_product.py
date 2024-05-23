@@ -10,16 +10,17 @@ from odoo import api, models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    def name_get(self):
-        res = super(ProductProduct, self.with_context(customerinfo=True)).name_get()
-        return res
+    def _compute_display_name(self):
+        return super(
+            ProductProduct, self.with_context(customerinfo=True)
+        )._compute_display_name()
 
     @api.model
     def _name_search(
-        self, name="", args=None, operator="ilike", limit=100, name_get_uid=None
+        self, name="", domain=None, operator="ilike", limit=100, order=None
     ):
-        res = super(ProductProduct, self)._name_search(
-            name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
+        res = super()._name_search(
+            name, domain=domain, operator=operator, limit=limit, order=order
         )
         res_ids = list(res)
         res_ids_len = len(res_ids)
@@ -41,7 +42,6 @@ class ProductProduct(models.Model):
                 ("product_name", operator, name),
             ],
             limit=limit,
-            access_rights_uid=name_get_uid,
         )
         if not customerinfo_ids:
             return res_ids
@@ -56,7 +56,6 @@ class ProductProduct(models.Model):
             self._search(
                 [("product_tmpl_id", "in", product_tmpls.ids)],
                 limit=limit,
-                access_rights_uid=name_get_uid,
             )
         )
         res_ids.extend(product_ids)
@@ -72,7 +71,7 @@ class ProductProduct(models.Model):
             return customerinfo.price
         return 0.0
 
-    def price_compute(
+    def _price_compute(
         self, price_type, uom=False, currency=False, company=None, date=False
     ):
         if price_type == "partner":
@@ -81,7 +80,7 @@ class ProductProduct(models.Model):
             ) or self.env.context.get("partner", False)
             if partner_id and isinstance(partner_id, models.BaseModel):
                 partner_id = partner_id.id
-            prices = super().price_compute(
+            prices = super()._price_compute(
                 "list_price", uom, currency, company, date=date
             )
             for product in self:
@@ -105,7 +104,7 @@ class ProductProduct(models.Model):
                         prices[product.id], currency, company, date
                     )
             return prices
-        return super().price_compute(price_type, uom, currency, company, date=date)
+        return super()._price_compute(price_type, uom, currency, company, date=date)
 
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
