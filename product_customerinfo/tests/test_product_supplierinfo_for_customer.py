@@ -54,6 +54,7 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
                 "product_id": product.id,
                 "product_code": "00001",
                 "price": 100.0,
+                "sequence": 10,
             }
         )
 
@@ -88,13 +89,13 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
             price, 100.0, "Error: Price not found for product and customer"
         )
         self.product.company_id = self.company
-        res = self.product.with_context(partner_id=self.customer.id).price_compute(
+        res = self.product.with_context(partner_id=self.customer.id)._price_compute(
             "partner", self.product.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(
             res[self.product.id], 100.0, "Error: Wrong price for product and customer"
         )
-        res = self.product.with_context(partner_id=self.unknown.id).price_compute(
+        res = self.product.with_context(partner_id=self.unknown.id)._price_compute(
             "partner", self.product.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(
@@ -166,20 +167,21 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
                 "partner_id": self.customer.id,
                 "product_tmpl_id": template.id,
                 "price": 30.0,
+                "sequence": 20,
             }
         )
-        res = product.with_context(partner_id=self.customer.id).price_compute(
+        res = product.with_context(partner_id=self.customer.id)._price_compute(
             "partner", product.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(res[product.id], 100.0)
-        res = product_1.with_context(partner_id=self.customer.id).price_compute(
+        res = product_1.with_context(partner_id=self.customer.id)._price_compute(
             "partner", product_1.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(res[product_1.id], 30.0)
         # Remove template specific price, the price must be the template
         # list_price
         price_by_template.unlink()
-        res = product_1.with_context(partner_id=self.customer.id).price_compute(
+        res = product_1.with_context(partner_id=self.customer.id)._price_compute(
             "partner", product_1.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(res[product_1.id], 10.0)
