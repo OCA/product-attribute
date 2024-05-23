@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[base_product_mass_addition](base_product_mass_addition/) | 15.0.1.0.0 |  | Base Product Mass Addition
+[base_product_mass_addition](base_product_mass_addition/) | 15.0.1.0.1 |  | Base Product Mass Addition
 [nutritional_info](nutritional_info/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Nutritional information.
 [nutritional_info_stock_lot](nutritional_info_stock_lot/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Nutritional information for lots.
 [product_abc_classification](product_abc_classification/) | 15.0.1.0.1 | [![MiquelRForgeFlow](https://github.com/MiquelRForgeFlow.png?size=30px)](https://github.com/MiquelRForgeFlow) | Includes ABC classification for inventory management
