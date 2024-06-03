@@ -1,6 +1,8 @@
 {
     "name": "Product Variant Attribute Name Manager",
-    "summary": "Manage how to display the attributes on the product variant name in back-office.",
+    "summary": """
+        Manage how to display the attributes on the product variant name 
+        in back-office.""",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Product",
