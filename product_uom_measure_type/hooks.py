@@ -30,7 +30,7 @@ def pre_init_hook(cr):
         ("product_uom_categ_vol", "volume"),
     ]
 
-    for (name, measure_type) in uom_datas:
+    for name, measure_type in uom_datas:
         cr.execute(
             """
             UPDATE uom_category
