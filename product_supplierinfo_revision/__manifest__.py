@@ -4,7 +4,7 @@
 
 {
     "name": "Product Supplierinfo Revision",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",
