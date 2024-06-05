@@ -14,13 +14,11 @@ class ProductAttributeIsFavoriteMixin(models.AbstractModel):
         help="If checked, this record can be linked to a product template.",
     )
 
-    def _name_search(
-        self, name, args=None, operator="ilike", limit=100, name_get_uid=None
-    ):
-        args = list(args or [])
-        args += [("is_favorite", "=", True)]
+    def _name_search(self, name, domain=None, operator="ilike", limit=100, order=None):
+        domain = list(domain or [])
+        domain += [("is_favorite", "=", True)]
         return super()._name_search(
-            name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
+            name, domain=domain, operator=operator, limit=limit, order=order
         )
 
     @api.model_create_multi

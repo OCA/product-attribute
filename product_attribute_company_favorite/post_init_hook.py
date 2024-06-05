@@ -1,12 +1,9 @@
 import logging
 
-from odoo import SUPERUSER_ID, api
-
 _logger = logging.getLogger(__name__)
 
 
-def initialize_attribute_is_favorite_field(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
+def initialize_attribute_is_favorite_field(env):
     for company in env["res.company"].with_context(active_test=False).search([]):
         _logger.info("Configure is_favorite field for the company %s" % (company.name))
         product_attributes = (
