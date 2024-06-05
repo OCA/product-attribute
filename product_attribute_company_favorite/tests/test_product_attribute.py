@@ -40,7 +40,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
     ######################
 
     def test_new_attribute_is_favorite_for_current_company(self):
-
         attribute_list1 = (
             self.env["product.attribute"]
             .with_user(self.user1.id)
@@ -49,7 +48,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
         self.assertEqual(len(attribute_list1), 1)
 
     def test_new_attribute_is_not_favorite_for_other_company(self):
-
         attribute_list1 = (
             self.env["product.attribute"]
             .with_user(self.user2.id)
@@ -58,7 +56,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
         self.assertEqual(len(attribute_list1), 0)
 
     def test_not_favorite_attribute_in_name_search_for_current_company(self):
-
         attribute_list1 = (
             self.env["product.attribute"]
             .with_user(self.user1.id)
@@ -67,7 +64,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
         self.assertEqual(len(attribute_list1), 1)
 
     def test_not_favorite_attribute_not_in_name_search_for_other_company(self):
-
         attribute_list1 = (
             self.env["product.attribute"]
             .with_user(self.user2.id)
@@ -100,7 +96,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
     ############################
 
     def test_new_attribute_value_is_favorite_for_current_company(self):
-
         attribute_value_list = (
             self.env["product.attribute.value"]
             .with_user(self.user1.id)
@@ -111,7 +106,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
         self.assertEqual(len(attribute_value_list), 1)
 
     def test_new_attribute_value_is_not_favorite_for_other_company(self):
-
         attribute_value_list = (
             self.env["product.attribute.value"]
             .with_user(self.user2.id)
@@ -122,7 +116,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
         self.assertEqual(len(attribute_value_list), 0)
 
     def test_not_favorite_attrib_value_not_in_name_search_for_current_company(self):
-
         attribute_value_list = (
             self.env["product.attribute.value"]
             .with_user(self.user1.id)
@@ -131,7 +124,6 @@ class TestProductAttributeMultiCompany(TransactionCase):
         self.assertEqual(len(attribute_value_list), 1)
 
     def test_not_favorite_attribute_value_not_in_name_search_for_other_company(self):
-
         attribute_value_list = (
             self.env["product.attribute.value"]
             .with_user(self.user2.id)
