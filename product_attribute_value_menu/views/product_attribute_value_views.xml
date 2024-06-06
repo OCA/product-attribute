@@ -19,6 +19,7 @@
                 <button
                     type="object"
                     name="action_view_product"
+                    title="Products"
                     class="btn btn-link text-left"
                     icon="fa-wrench"
                     attrs="{'invisible': [('product_count', '=', 0)]}"
