@@ -4,7 +4,6 @@ from odoo import models
 
 
 class ProductProduct(models.Model):
-
     _inherit = "product.product"
 
     def get_total_weight_from_packaging(self, qty):
