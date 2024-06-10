@@ -8,7 +8,7 @@ from odoo.tests.common import TransactionCase
 class TestProductLogisticsUom(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductLogisticsUom, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env["product.product"].create(
             {
@@ -32,7 +32,7 @@ class TestProductLogisticsUom(TransactionCase):
         self.product.volume_uom_id = self.volume_uom_m3
         self.assertEqual(self.product.product_volume, self.product.volume)
 
-    def test_product_show_product_uom_warning(self):
+    def test_product_show_product_volume_uom_warning(self):
         self.product.volume_uom_id = self.volume_uom_m3
         self.product.volume = 0.0001
         self.assertTrue(self.product.show_volume_uom_warning)
@@ -48,7 +48,7 @@ class TestProductLogisticsUom(TransactionCase):
         self.product.weight_uom_id = self.weigh_uom_kg
         self.assertEqual(self.product.product_weight, self.product.weight)
 
-    def test_product_show_product_weight_warning(self):
+    def test_product_show_product_weight_uom_warning(self):
         self.product.weight_uom_id = self.weigh_uom_kg
         self.product.weight = 0.0001
         self.assertTrue(self.product.show_weight_uom_warning)
@@ -101,7 +101,7 @@ class TestProductLogisticsUom(TransactionCase):
         self.product.product_volume = 10
         self.product.product_weight = 10
         self.assertEqual(template.volume, 0.0)
-        self.assertEqual(template.volume, 0.0)
+        self.assertEqual(template.weight, 0.0)
         self.assertEqual(template.product_volume, 0.0)
         self.assertEqual(template.product_weight, 0.0)
         self.assertFalse(template.show_volume_uom_warning)  # for coverage

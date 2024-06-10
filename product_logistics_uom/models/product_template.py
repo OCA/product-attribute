@@ -13,12 +13,13 @@ class ProductTemplate(models.Model):
         compute="_compute_product_volume",
         inverse="_inverse_product_volume",
         digits="Volume",
+        store=True,
     )
     product_weight = fields.Float(
         "Weight in product UOM",
         compute="_compute_product_weight",
-        digits="Stock Weight",
         inverse="_inverse_product_weight",
+        digits="Stock Weight",
         store=True,
     )
 
@@ -41,7 +42,6 @@ class ProductTemplate(models.Model):
     volume_uom_name = fields.Char(
         string="Volume unit of measure label",
         related="volume_uom_id.name",
-        readonly=True,
     )
 
     weight_uom_id = fields.Many2one(
@@ -57,7 +57,6 @@ class ProductTemplate(models.Model):
     weight_uom_name = fields.Char(
         string="Weight unit of measure label",
         related="weight_uom_id.name",
-        readonly=True,
     )
 
     show_volume_uom_warning = fields.Boolean(
@@ -116,12 +115,25 @@ class ProductTemplate(models.Model):
         for template in self - unique_variants:
             template.product_volume = 0.0
 
+    @api.depends("product_variant_ids.volume")
+    def _compute_volume(self):
+        for template in self:
+            if len(template.product_variant_ids) == 1:
+                template.volume = template.product_variant_ids.volume
+            else:
+                template.volume = 0.0
+
     def _inverse_product_volume(self):
         for template in self:
             if len(template.product_variant_ids) == 1:
                 template.product_variant_ids.product_volume = template.product_volume
 
-    @api.depends("weight", "weight_uom_id")
+    @api.depends(
+        "product_variant_ids",
+        "product_variant_ids.product_weight",
+        "weight",
+        "weight_uom_id",
+    )
     def _compute_product_weight(self):
         unique_variants = self.filtered(
             lambda template: len(template.product_variant_ids) == 1
