@@ -47,6 +47,7 @@ class TestStockPickingProductLotSequence(TransactionCase):
         )
 
     def test_stock_picking_product_lot_sequence(self):
+        self.picking.picking_type_id.auto_create_lot = True
         self.assertTrue(self.product.lot_sequence_id)
         next_serial = self.env["stock.lot"]._get_next_serial(
             self.env.company, self.product
