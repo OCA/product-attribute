@@ -3,7 +3,7 @@
 
 {
     "name": "Product Category Hr Department Link",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "summary": "Link product categories to hr departments",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
