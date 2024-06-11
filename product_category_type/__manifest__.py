@@ -6,7 +6,7 @@
     "summary": """
         Add Type field on Product Categories
         to distinguish between parent and final categories""",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "license": "AGPL-3",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
