@@ -9,47 +9,48 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 01:19+0000\n"
-"PO-Revision-Date: 2017-05-13 01:19+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2024-06-11 13:37+0000\n"
+"Last-Translator: jakobkrabbe <jakob@syscare.se>\n"
 "Language-Team: Swedish (https://www.transifex.com/oca/teams/23907/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__active
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a line"
-msgstr ""
+msgstr "Lägg till en rad"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a note"
-msgstr ""
+msgstr "Lägg till en anteckning"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a section"
-msgstr ""
+msgstr "Lägg till en sektion"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Archived"
-msgstr ""
+msgstr "Arkiverad"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__company_id
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__company_id
 msgid "Company"
-msgstr ""
+msgstr "Företag"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__create_uid
@@ -72,7 +73,7 @@ msgstr "Visa namn"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Typ av display"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
@@ -83,7 +84,7 @@ msgstr "ID"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__ref
 msgid "Internal Reference"
-msgstr ""
+msgstr "Intern referens"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
@@ -106,20 +107,20 @@ msgstr "Namn"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
 msgid "Note"
-msgstr ""
+msgstr "Notera"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__partner_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
@@ -129,72 +130,72 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Product set"
-msgstr ""
+msgstr "Produktuppsättning"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__ref
 msgid "Product set internal reference"
-msgstr ""
+msgstr "Intern referens för produktinställning"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_line_view
 #: model:ir.model,name:product_set.model_product_set_line
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 msgid "Product set line"
-msgstr ""
+msgstr "Produktuppsättning"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_line_ids
 msgid "Product set lines"
-msgstr ""
+msgstr "Produktlinjer"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__name
 msgid "Product set name"
-msgstr ""
+msgstr "Namn på produktuppsättning"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__set_line_ids
 msgid "Products"
-msgstr ""
+msgstr "Produkter"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__quantity
 msgid "Quantity"
-msgstr ""
+msgstr "Kvantitet"
 
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
 msgid "Section"
-msgstr ""
+msgstr "Sektion"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sekvens"
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_services
 msgid "Services"
-msgstr ""
+msgstr "Tjänster"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
 msgid "Set"
-msgstr ""
+msgstr "Set"
 
 #. module: product_set
 #. odoo-python
 #: code:addons/product_set/tests/models.py:0
 #, python-format
 msgid "This set of products is restricted for this user."
-msgstr ""
+msgstr "Den här uppsättningen produkter är begränsad för den här användaren."
 
 #. module: product_set
 #: model:ir.model,name:product_set.model_product_set_wizard
 msgid "Transient base model to define custom wizards"
-msgstr ""
+msgstr "Transient basmodell för att definiera anpassade guider"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
@@ -202,11 +203,13 @@ msgid ""
 "You can attache the set to a specific partner or no one. If you don't "
 "specify one, it's going to be available for all of them."
 msgstr ""
+"Du kan knyta setet till en specifik partner eller ingen. Om du inte anger "
+"någon kommer den att vara tillgänglig för alla."
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_i5_computer
 msgid "i5 computer offer"
-msgstr ""
+msgstr "i5 dator erbjudande"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Senast redigerad"
