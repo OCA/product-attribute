@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Stock Picking Auto Create Product Lot Sequence",
+    "name": "Stock Picking Auto Create Lot Sequence",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Quartile Limited, Odoo Community Association (OCA)",

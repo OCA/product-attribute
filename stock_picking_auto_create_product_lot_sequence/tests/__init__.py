@@ -1,1 +1,0 @@
-from . import test_stock_picking_auto_create_product_lot_sequence

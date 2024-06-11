@@ -1,14 +1,14 @@
 # Copyright 2024 Quartile Limited
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, models
+from odoo import models
 
 
 class StockMoveLine(models.Model):
     _inherit = "stock.move.line"
 
-    @api.model
     def _get_lot_sequence(self):
+        self.ensure_one()
         seq_policy = self.env["stock.lot"]._get_sequence_policy()
         if (
             seq_policy == "product"
