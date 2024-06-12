@@ -17,19 +17,19 @@ Product Code Mandatory
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/15.0/product_code_mandatory
+    :target: https://github.com/OCA/product-attribute/tree/17.0/product_code_mandatory
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_code_mandatory
+    :target: https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_code_mandatory
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module sets the field internal reference (default_code) of the product
-as required.
+This module sets the field internal reference (default_code) of the
+product as required.
 
 **Table of contents**
 
@@ -39,14 +39,16 @@ as required.
 Usage
 =====
 
-* Unable to save a product with an empty or blank internal reference.
-* When creating more than one product variant from the template, a variant will be created
-  with a default value for default_code field.
-* A pre_init_hook process is initiated when there exist records without an internal reference(default_code).
-  A default value is generated to populate empty field as a temporary value.
+-  Unable to save a product with an empty or blank internal reference.
+-  When creating more than one product variant from the template, a
+   variant will be created with a default value for default_code field.
+-  A pre_init_hook process is initiated when there exist records without
+   an internal reference(default_code). A default value is generated to
+   populate empty field as a temporary value.
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
+|Try me on Runbot|
+
+.. |Try me on Runbot| image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :target: https://runbot.odoo-community.org/runbot/135/12.0
 
 Bug Tracker
@@ -55,7 +57,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_code_mandatory%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_code_mandatory%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -63,20 +65,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Open Source Integrators
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Antonio Yamuta <ayamuta@opensourceintegrators.com>
-* Sudhir Arya <sudhir@erpharbor.com>
-* Watthanun Khorchai <watthanun_t@hotmail.com>
-* Nedas Žilinskas <nedas.zilinskas@web-veistamo.fi>
+-  Antonio Yamuta <ayamuta@opensourceintegrators.com>
+-  Sudhir Arya <sudhir@erpharbor.com>
+-  Watthanun Khorchai <watthanun_t@hotmail.com>
+-  Nedas Žilinskas <nedas.zilinskas@web-veistamo.fi>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -88,6 +90,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_code_mandatory>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_code_mandatory>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
