@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-12 16:35+0000\n"
+"PO-Revision-Date: 2024-06-12 16:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,11 +22,5 @@ msgstr ""
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
-msgid "Product"
-msgstr ""
-
-#. module: product_code_mandatory
-#: model:ir.model.fields,help:product_code_mandatory.field_product_product__default_code
-msgid ""
-"Set to '/' and save if you want a new internal reference to be proposed."
+msgid "Product Variant"
 msgstr ""
