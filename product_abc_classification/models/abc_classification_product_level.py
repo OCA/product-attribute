@@ -169,7 +169,7 @@ class AbcClassificationProductLevel(models.Model):
                 # if it has auto_apply_computed_value True and modify only
                 # those ones
                 auto_applied_profiles_levels = self.filtered(
-                    lambda l: l.profile_id.auto_apply_computed_value
+                    lambda level: level.profile_id.auto_apply_computed_value
                 )
                 new_self = self - auto_applied_profiles_levels
                 super(

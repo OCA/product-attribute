@@ -40,8 +40,8 @@ class AbcClassificationProfile(models.Model):
 
     auto_apply_computed_value = fields.Boolean(
         default=False,
-        help="Check this if you want to apply the computed level on each product that has this "
-        "profile.",
+        help="Check this if you want to apply the computed level on each product that  "
+        "has this profile.",
     )
 
     _sql_constraints = [("name_uniq", "UNIQUE(name)", _("Profile name must be unique"))]
@@ -105,7 +105,7 @@ class AbcClassificationProfile(models.Model):
         self.search([])._compute_abc_classification()
 
     def write(self, vals):
-        res = super(AbcClassificationProfile, self).write(vals)
+        res = super().write(vals)
         if "auto_apply_computed_value" in vals and vals["auto_apply_computed_value"]:
             self._auto_apply_computed_value_for_product_levels()
         return res
