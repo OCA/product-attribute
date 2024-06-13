@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_assortment_view_form" model="ir.ui.view">
+        <field name="model">ir.filters</field>
+        <field
+            name="inherit_id"
+            ref="product_assortment.product_assortment_view_form"
+        />
+        <field name="arch" type="xml">
+            <div name="buttons" position="inside">
+                <button
+                    class="oe_stat_button"
+                    name="button_display_endpoints"
+                    icon="fa-star"
+                    type="object"
+                    attrs="{'invisible': [('endpoint_count', '=', 0)]}"
+                >
+                    <div class="o_stat_info">
+                        <field name="endpoint_count" class="o_stat_value" />
+                        <span class="o_stat_text">Endpoints</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+
+</odoo>

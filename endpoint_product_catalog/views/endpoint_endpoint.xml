@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="endpoint_endpoint_form_view" model="ir.ui.view">
+        <field name="model">endpoint.endpoint</field>
+        <field name="inherit_id" ref="endpoint.endpoint_endpoint_form_view" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="catalog" string="Catalog">
+                    <group>
+                        <group name="catalog_base_info">
+                            <field
+                                name="product_assortment_id"
+                                context="{'form_view_ref': 'product_assortment.product_assortment_view_form'}"
+                            />
+                            <field
+                                name="include_prices"
+                                attrs="{'invisible': [('product_assortment_id', '=', False)]}"
+                            />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="endpoint_endpoint_search_view" model="ir.ui.view">
+        <field name="model">endpoint.endpoint</field>
+        <field name="inherit_id" ref="endpoint.endpoint_endpoint_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[last()]" position="after">
+                <separator />
+                <filter
+                    string="Catalogs"
+                    name="catalog"
+                    domain="[('product_assortment_id', '!=', False)]"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
