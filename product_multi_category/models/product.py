@@ -14,3 +14,17 @@ class ProductTemplate(models.Model):
         column2="categ_id",
         string="Extra Categories",
     )
+
+
+class ProductCategory(models.Model):
+    _inherit = "product.category"
+
+    def _compute_product_count(self):
+        for categ in self:
+            categ.product_count = self.env["product.template"].search_count(
+                [
+                    "|",
+                    ("categ_ids", "child_of", categ.id),
+                    ("categ_id", "child_of", categ.id),
+                ]
+            )
