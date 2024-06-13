@@ -17,6 +17,7 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_multi_category
+#: model:ir.model.fields,field_description:product_multi_category.field_product_category__display_name
 #: model:ir.model.fields,field_description:product_multi_category.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
@@ -28,14 +29,21 @@ msgid "Extra Categories"
 msgstr "Categorie extra"
 
 #. module: product_multi_category
+#: model:ir.model.fields,field_description:product_multi_category.field_product_category__id
 #: model:ir.model.fields,field_description:product_multi_category.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_multi_category
+#: model:ir.model.fields,field_description:product_multi_category.field_product_category____last_update
 #: model:ir.model.fields,field_description:product_multi_category.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
+
+#. module: product_multi_category
+#: model:ir.model,name:product_multi_category.model_product_category
+msgid "Product Category"
+msgstr ""
 
 #. module: product_multi_category
 #: model:ir.model,name:product_multi_category.model_product_template
