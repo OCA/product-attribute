@@ -7,7 +7,7 @@
     "version": "13.0.1.0.2",
     "development_status": "Production/Stable",
     "category": "Product",
-    "author": "brain-tec AG, ADHOC SA, Camptocamp SA, "
+    "author": "brain-tec AG, ADHOC SA, Camptocamp, "
     "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
