@@ -7,7 +7,7 @@
     "summary": "Show product tags menu in Sale app",
     "version": "14.0.1.1.0",
     "license": "AGPL-3",
-    "author": "Camptocamp SA, Odoo Community Association (OCA)",
+    "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product_template_tags", "sale"],
     "data": ["views/product_template_tag.xml"],
