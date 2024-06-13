@@ -6,7 +6,7 @@
     'name': 'Product Dimension',
     'version': '12.0.3.0.0',
     'category': 'Product',
-    'author': 'brain-tec AG, ADHOC SA, Camptocamp SA, '
+    'author': 'brain-tec AG, ADHOC SA, Camptocamp, '
               'Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'website': 'https://github.com/OCA/product-attribute',
