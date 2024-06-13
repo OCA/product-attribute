@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo14-addon-product_assortment_description',
         'odoo14-addon-product_attribute_archive',
         'odoo14-addon-product_attribute_value_menu',
+        'odoo14-addon-product_attribute_variant_rules',
         'odoo14-addon-product_barcode_required',
         'odoo14-addon-product_bom_revision',
         'odoo14-addon-product_categ_image',
