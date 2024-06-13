@@ -51,7 +51,7 @@ addon | version | maintainers | summary
 [product_manufacturer](product_manufacturer/) | 14.0.1.0.2 |  | Adds manufacturers and attributes on the product view.
 [product_medical](product_medical/) | 14.0.1.0.1 |  | Base structure to handle medical products
 [product_model_viewer](product_model_viewer/) | 14.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | 3D model viewer for products
-[product_multi_category](product_multi_category/) | 14.0.1.0.0 |  | Product - Many Categories
+[product_multi_category](product_multi_category/) | 14.0.1.0.1 |  | Product - Many Categories
 [product_multi_image](product_multi_image/) | 14.0.1.0.1 |  | Multiple Images in Products
 [product_net_weight](product_net_weight/) | 14.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add 'Net Weight' on product models
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | [![WR-96](https://github.com/WR-96.png?size=30px)](https://github.com/WR-96) [![moylop260](https://github.com/moylop260.png?size=30px)](https://github.com/moylop260) [![luisg123v](https://github.com/luisg123v.png?size=30px)](https://github.com/luisg123v) | Speedup product retrieve
