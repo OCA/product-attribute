@@ -5,9 +5,9 @@
 {
     "name": "Inventory Product Template Tags",
     "summary": "Show product tags menu in Inventory app",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "license": "AGPL-3",
-    "author": "Camptocamp SA, Odoo Community Association (OCA)",
+    "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product_template_tags", "stock"],
     "data": ["views/product_template_tag.xml"],
