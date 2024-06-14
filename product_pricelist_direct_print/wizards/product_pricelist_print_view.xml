@@ -31,11 +31,7 @@
                     </group>
                     <group string="Order Options">
                         <field name="order_field" />
-                        <field
-                            name="group_field_id"
-                            nocreate="1"
-                            groups="base.group_erp_manager"
-                        />
+                        <field name="group_field" />
                         <field name="max_categ_level" />
                     </group>
                     <group string="Product Options">

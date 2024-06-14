@@ -138,7 +138,7 @@ msgid "Display Name"
 msgstr ""
 
 #. module: product_pricelist_direct_print
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field_id
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
 msgid "Group Field"
 msgstr ""
 
