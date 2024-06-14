@@ -13,7 +13,7 @@
                     <field
                         name="product_id"
                         options="{'no_create': True}"
-                        attrs="{'invisible': [('variant_count', '=', 1)]}"
+                        invisible="variant_count == 1"
                     />
                     <field name="product_qty" />
                     <field name="price_date" />
@@ -24,7 +24,7 @@
                             <group>
                                 <field
                                     name="product_id"
-                                    attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
+                                    column_invisible="parent.variant_count == 1"
                                 />
                                 <field name="pricelist_id" />
                             </group>
@@ -44,11 +44,11 @@
                     <tree>
                         <field
                             name="product_id"
-                            attrs="{'column_invisible': [('parent.variant_count', '=', 1)]}"
+                            column_invisible="parent.variant_count == 1"
                         />
                         <field name="pricelist_id" />
                         <field name="price" />
-                        <field name="currency_id" invisible="1" />
+                        <field name="currency_id" column_invisible="1" />
                     </tree>
                 </field>
                 <footer>
