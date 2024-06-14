@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-06-06 11:38+0000\n"
-"Last-Translator: ahmedtrigui <trigui43@gmail.com>\n"
+"PO-Revision-Date: 2024-06-14 14:44+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -23,15 +23,15 @@ msgid ""
 "A product (or multiple products) in the category have different type than "
 "the selected restricted product type"
 msgstr ""
-"Un produit (ou plusieurs produits) dans la catégorie a un type différent du "
-"celui de produit restreint sélectionné"
+"Un article (ou plusieurs articles) de la catégorie a un type différent du "
+"type d'article restreint sélectionné"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__display_name
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_template__display_name
 msgid "Display Name"
-msgstr "Non affiché"
+msgstr "Non d'affichage"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__id
