@@ -86,8 +86,8 @@ class TestProductPricelistSimulation(common.TransactionCase):
                 active_model="product.template", active_id=self.template_1.id
             )
         )
-        self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 50.0)
-        self.assertAlmostEqual(wizard_form.line_ids._records[1]["price"], 80.0)
+        self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 80.0)
+        self.assertAlmostEqual(wizard_form.line_ids._records[1]["price"], 50.0)
         # # Template 2
         wizard_form = Form(
             self.env["wizard.preview.pricelist"].with_context(
@@ -96,7 +96,7 @@ class TestProductPricelistSimulation(common.TransactionCase):
             ),
         )
         prices = [r["price"] for r in wizard_form.line_ids._records]
-        self.assertAlmostEqual(prices, [500.0, 80.0, 500.0, 80.0])
+        self.assertEqual(prices, [80.0, 500.0, 80.0, 500.0])
 
     def test_pricelist_simulation_product_variant(self):
         wizard_form = Form(
@@ -105,5 +105,5 @@ class TestProductPricelistSimulation(common.TransactionCase):
                 active_id=self.template_1.product_variant_ids.id,
             ),
         )
-        self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 50.0)
-        self.assertAlmostEqual(wizard_form.line_ids._records[1]["price"], 80.0)
+        self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 80.0)
+        self.assertAlmostEqual(wizard_form.line_ids._records[1]["price"], 50.0)
