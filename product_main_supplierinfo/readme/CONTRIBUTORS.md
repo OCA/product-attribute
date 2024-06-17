@@ -1,0 +1,2 @@
+- [Camptocamp](https://www.camptocamp.com)
+  - Sébastien Alix \<<sebastien.alix@camptocamp.com>\>
