@@ -65,6 +65,7 @@ class Pricelist(models.Model):
             if (
                 reference_pricelist_item.alternative_pricelist_policy
                 == "use_lower_price"
+                and not self.env.context.get("skip_alternative", False)
             ):
                 for alternative_pricelist in self.alternative_pricelist_ids:
                     alternative_price_rule = alternative_pricelist._compute_price_rule(
