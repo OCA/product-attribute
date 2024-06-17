@@ -174,3 +174,14 @@ class TestPricelistAlternative(common.TransactionCase):
         self.assertEqual(
             result[self.usb_adapter.id][1], self.pricelist02.item_ids[0].id
         )
+
+    def test_skip_alternative_pricelist(self):
+        """Test product price computation with skip alternative pricelist"""
+        self.assertEqual(self.pricelist01._get_product_price(self.usb_adapter, 1.0), 70)
+        # Set the context to skip alternative pricelist
+        self.assertEqual(
+            self.pricelist01.with_context(
+                skip_alternative_pricelist=True
+            )._get_product_price(self.usb_adapter, 1.0),
+            95,
+        )
