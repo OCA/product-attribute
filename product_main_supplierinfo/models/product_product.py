@@ -29,15 +29,9 @@ class ProductProduct(models.Model):
             product.main_seller_id = fields.first(
                 product._get_filtered_sellers(quantity=None).sorted("price")
             )
-
-    def _get_filtered_sellers(
-        self, partner_id=False, quantity=0.0, date=None, uom_id=False, params=False
-    ):
-        res = super()._get_filtered_sellers(partner_id, quantity, date, uom_id, params)
-        if not res and self.env.context.get("compute_main_seller"):
-            sellers_filtered = self._prepare_sellers(params)
-            sellers_filtered = sellers_filtered.filtered(
-                lambda s: not s.company_id or s.company_id.id == self.env.company.id
-            )
-            res = sellers_filtered.filtered(lambda s: s.product_id == self)
-        return res
+        )
+        if not sellers:
+            sellers = all_sellers.filtered(lambda s: (s.product_id == self))
+            if not sellers:
+                sellers = all_sellers.filtered(lambda s: not s.product_id)
+        return sellers.sorted("price")
