@@ -58,6 +58,12 @@ class Pricelist(models.Model):
 
     def _compute_price_rule(self, products, qty, uom=None, date=False, **kwargs):
         res = super()._compute_price_rule(products, qty, uom=uom, date=date, **kwargs)
+
+        # In some contexts we want to ignore alternative pricelists
+        # and return the original price
+        if self.env.context.get("skip_alternative_pricelist", False):
+            return res
+
         for product in products:
             reference_pricelist_item = self.env["product.pricelist.item"].browse(
                 res[product.id][1]
