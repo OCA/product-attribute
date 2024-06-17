@@ -8,7 +8,7 @@ from odoo.tests.common import TransactionCase
 class TestProductMainSupplierInfo(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductMainSupplierInfo, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env.ref("product.product_product_6")
         cls.seller_1 = cls.env.ref("product.product_supplierinfo_1")
