@@ -10,7 +10,7 @@ class ProductPackagingLevel(models.Model):
     _order = "sequence, code"
 
     def _default_language(self):
-        lang_code = self.env["ir.default"].get("res.partner", "lang")
+        lang_code = self.env["ir.default"]._get("res.partner", "lang")
         def_lang_id = self.env["res.lang"]._lang_get_id(lang_code)
         return def_lang_id or self._active_languages()[0]
 
@@ -66,8 +66,8 @@ class ProductPackagingLevel(models.Model):
         if msg:
             raise ValidationError(msg)
 
-    def name_get(self):
-        result = []
-        for record in self:
-            result.append((record.id, f"{record.name} ({record.code})"))
-        return result
+    @api.depends("name", "code")
+    def _compute_display_name(self):
+        for product_packaging_level in self:
+            name = f"{product_packaging_level.name} ({product_packaging_level.code})"
+            product_packaging_level.display_name = name

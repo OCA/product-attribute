@@ -15,12 +15,10 @@
                 <field name="barcode_required_for_gtin" invisible="1" />
             </field>
             <xpath expr="//field[@name='barcode']" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'required': [('barcode_required_for_gtin', '=', True)]}</attribute>
+                <attribute name="required">barcode_required_for_gtin</attribute>
             </xpath>
             <field name="name" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="column_invisible">1</attribute>
             </field>
 
         </field>
@@ -46,15 +44,11 @@
                 <field name="barcode_required_for_gtin" invisible="1" />
             </xpath>
             <xpath expr="//field[@name='barcode']" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'required': [('barcode_required_for_gtin', '=', True)]}</attribute>
+                <attribute name="required">barcode_required_for_gtin</attribute>
             </xpath>
             <field name="name" position="attributes">
                 <attribute name="force_save">1</attribute>
-                <attribute
-                    name="attrs"
-                >{'readonly': [('name_policy', '!=', 'user_defined')]}</attribute>
+                <attribute name="readonly">name_policy != 'user_defined'</attribute>
             </field>
 
         </field>
