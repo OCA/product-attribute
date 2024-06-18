@@ -42,11 +42,6 @@ msgid ""
 msgstr ""
 
 #. module: product_cost_security
-#: model:ir.model.fields,field_description:product_cost_security.field_product_supplierinfo__price
-msgid "Price"
-msgstr ""
-
-#. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
 msgstr "المنتج"
@@ -72,19 +67,8 @@ msgid "Read"
 msgstr ""
 
 #. module: product_cost_security
-#: model:ir.model,name:product_cost_security.model_product_supplierinfo
-msgid "Supplier Pricelist"
-msgstr ""
-
-#. module: product_cost_security
-#: model:ir.model.fields,help:product_cost_security.field_product_supplierinfo__price
-msgid "The price to purchase a product"
-msgstr ""
-
-#. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
-#: model:ir.model.fields,field_description:product_cost_security.field_product_supplierinfo__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
 msgid "User Can Update Cost"
 msgstr ""
