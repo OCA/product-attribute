@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Moduon Team S.L.
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
+<data>
+    <record id="product_supplierinfo_tree_view" model="ir.ui.view">
+        <field name="name">Reduce visibility of costs</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+        <field name="arch" type="xml">
+            <!-- Display editable for cost editors -->
+            <field name="price" position="attributes">
+                <attribute
+                    name="groups"
+                    separator=","
+                    add="product_cost_security.group_product_edit_cost"
+                />
+            </field>
+            <!-- Display readonly for cost readers -->
+            <field name="price" position="after">
+                <field
+                    name="price"
+                    readonly="1"
+                    groups="product_cost_security.group_product_cost,!product_cost_security.group_product_edit_cost"
+                />
+            </field>
+        </field>
+    </record>
+</data>

@@ -13,5 +13,9 @@
     "application": False,
     "installable": True,
     "depends": ["product"],
-    "data": ["security/product_cost_security.xml", "views/product_views.xml"],
+    "data": [
+        "security/product_cost_security.xml",
+        "views/product_supplierinfo_views.xml",
+        "views/product_views.xml",
+    ],
 }
