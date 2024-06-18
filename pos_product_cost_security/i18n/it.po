@@ -17,21 +17,23 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_product_cost_security
-#: model:ir.model.fields,field_description:pos_product_cost_security.field_product_product__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_product_cost_security
-#: model:ir.model.fields,field_description:pos_product_cost_security.field_product_product__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_product_cost_security
-#: model:ir.model.fields,field_description:pos_product_cost_security.field_product_product____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
+#: model:ir.model,name:pos_product_cost_security.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
 
 #. module: pos_product_cost_security
 #: model:ir.model,name:pos_product_cost_security.model_product_product
-msgid "Product"
-msgstr "Prodotto"
+msgid "Product Variant"
+msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Product"
+#~ msgstr "Prodotto"
