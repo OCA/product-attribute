@@ -317,11 +317,6 @@ msgid "Unit of Measure"
 msgstr "Unidad de medida"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__user_can_update_cost
-msgid "User Can Update Cost"
-msgstr ""
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "Validity"
 msgstr "Validez"
