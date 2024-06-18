@@ -69,5 +69,5 @@ class ProductPackagingLevel(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            result.append((record.id, "{} ({})".format(record.name, record.code)))
+            result.append((record.id, f"{record.name} ({record.code})"))
         return result
