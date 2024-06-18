@@ -31,16 +31,26 @@ class TestProductPackagingLevel(common.TransactionCase):
         )
         cls.level_fr.with_context(lang="fr_FR").name = "Packaging Level Test France"
         cls.packaging_default = cls.env["product.packaging"].create(
-            {"name": "Packaging Default", "qty": 1.0}
+            {
+                "name": "Packaging Default",
+                "qty": 1.0,
+                "product_id": cls.env.ref("product.product_product_5").id,
+            }
         )
         cls.packaging = cls.env["product.packaging"].create(
-            {"name": "Packaging Test", "packaging_level_id": cls.level.id, "qty": 1.0}
+            {
+                "name": "Packaging Test",
+                "packaging_level_id": cls.level.id,
+                "qty": 1.0,
+                "product_id": cls.env.ref("product.product_product_5").id,
+            }
         )
         cls.packaging_fr = cls.env["product.packaging"].create(
             {
                 "name": "Packaging Test",
                 "packaging_level_id": cls.level_fr.id,
                 "qty": 1.0,
+                "product_id": cls.env.ref("product.product_product_5").id,
             }
         )
         cls.product = cls.env["product.template"].create(
