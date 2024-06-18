@@ -102,7 +102,7 @@ class ProductPackaging(models.Model):
         )
         res = []
         for code, qty in qty_per_level:
-            res.append("{} {}".format(qty, code))
+            res.append(f"{qty} {code}")
         return "; ".join(res)
 
     def _make_qty_per_level(self, qty_per_level_mapping, format_pattern=None):
