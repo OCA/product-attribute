@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-base_product_mass_addition>=16.0dev,<16.1dev',
+        'odoo-addon-pos_product_cost_security>=16.0dev,<16.1dev',
         'odoo-addon-product_abc_classification>=16.0dev,<16.1dev',
         'odoo-addon-product_abc_classification_sale_stock>=16.0dev,<16.1dev',
         'odoo-addon-product_assortment>=16.0dev,<16.1dev',
