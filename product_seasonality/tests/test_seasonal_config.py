@@ -20,7 +20,9 @@ class TestSeasonalityCase(CommonCaseWithLines):
         line = self.seasonal_conf.config_for_product(self.prod1)
         self.assertEqual(
             line.display_name,
-            f"[{self.seasonal_conf.display_name}] {self.prod1.display_name} ({line.id})",
+            f"[{self.seasonal_conf.display_name}] "
+            f"{self.prod1.display_name} "
+            f"({line.id})",
         )
 
     def test_display_name_with_template_only(self):

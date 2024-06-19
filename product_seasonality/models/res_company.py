@@ -18,14 +18,20 @@ class ResCompany(models.Model):
         self.ensure_one()
         if not self.default_seasonal_config_id:
             self.default_seasonal_config_id = self.env["seasonal.config"].create(
-                {"name": _("Default product seasonal configuration: %s") % self.name}
+                {
+                    "name": _(
+                        "Default product seasonal configuration: %(name)s",
+                        name=self.name,
+                    )
+                }
             )
 
-    @api.model
-    def create(self, vals):
-        company = super().create(vals)
-        company._create_default_seasonal_conf()
-        return company
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        for company in res:
+            company._create_default_seasonal_conf()
+        return res
 
     def write(self, vals):
         if "default_seasonal_config_id" in vals and not vals.get(
@@ -33,7 +39,8 @@ class ResCompany(models.Model):
         ):
             raise ValidationError(
                 _(
-                    "Default product seasonal configuration is required: you can't remove it."
+                    "Default product seasonal configuration is required: "
+                    "you can't remove it."
                 )
             )
         return super().write(vals)
