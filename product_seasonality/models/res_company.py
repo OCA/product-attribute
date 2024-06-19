@@ -8,7 +8,6 @@ from odoo.exceptions import ValidationError
 
 
 class ResCompany(models.Model):
-
     _inherit = "res.company"
 
     default_seasonal_config_id = fields.Many2one(

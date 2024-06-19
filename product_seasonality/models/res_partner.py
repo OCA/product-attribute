@@ -7,7 +7,6 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
-
     _inherit = "res.partner"
 
     seasonal_config_id = fields.Many2one(
