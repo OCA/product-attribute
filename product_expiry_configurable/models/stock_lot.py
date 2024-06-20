@@ -43,9 +43,9 @@ class StockLot(models.Model):
 
     @api.model
     def _expiry_date_exceeded(self, date_field=False):
-        """Log an activity on internally stored lots whose "date" field has been reached.
-        No further activity will be generated on lots whose "date"
-        has already been reached (even if the "date" is changed).
+        """Log an activity on internally stored lots whose "date" field has
+        been reached. No further activity will be generated on lots whose
+        "date" has already been reached (even if the "date" is changed).
         """
         date_reminded_field = "%s_reminded" % date_field
         expiry_lots = self.env["stock.lot"].search(

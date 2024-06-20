@@ -23,8 +23,8 @@ class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
               and expiration_time are set to 2 each of them.
               Create product lot.
         Expected result:
-             The expected values of lot alert_date, use_date, removal_date and expiration_date
-              are 2 days after current_date.
+             The expected values of lot alert_date, use_date, removal_date and
+             expiration_date are 2 days after current_date.
         """
 
         def _get_times():
@@ -65,8 +65,8 @@ class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
               Product alert_time, use_time and removal_time are set to 2 each of them.
               Create product lot with expiration_date.
         Expected result:
-             The expected values of lot alert_date, use_date, removal_date and expiration_date
-              are 2 days before expiration_date.
+             The expected values of lot alert_date, use_date, removal_date and
+             expiration_date are 2 days before expiration_date.
         """
 
         def _get_times():
@@ -99,8 +99,8 @@ class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
         Test case:
               Create a product without tracking.
         Expected result:
-             The expected values of lot alert_date, use_date, removal_date and expiration_date
-              are False
+             The expected values of lot alert_date, use_date, removal_date and
+             expiration_date are False
         """
         product = self.ProductProduct.create(
             {
@@ -132,8 +132,8 @@ class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
 
         Expected result:
              First dates are expected to be False.
-             After adding the expiration_date, the fields alert_date, use_date and removal_date
-             should be computed according to 'expiration_date'.
+             After adding the expiration_date, the fields alert_date, use_date and
+             removal_date should be computed according to 'expiration_date'.
         """
 
         def _get_times():
