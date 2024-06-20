@@ -7,7 +7,6 @@ from odoo import SUPERUSER_ID, _, api, fields, models
 
 
 class StockLot(models.Model):
-
     _inherit = "stock.lot"
 
     use_date_reminded = fields.Boolean(default=False)

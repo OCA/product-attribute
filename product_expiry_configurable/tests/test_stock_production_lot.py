@@ -81,7 +81,6 @@ class TestProductCategory(ProductExpiryCategoryCommon, TransactionCase):
             setattr(self.product, "%s" % time, 2)
 
         with freezegun.freeze_time("2022-02-12 10:00:00"):
-
             lot = self.StockProductionLot.create(
                 {
                     "name": "lot1",

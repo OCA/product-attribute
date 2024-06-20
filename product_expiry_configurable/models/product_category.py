@@ -4,7 +4,6 @@ from odoo import api, fields, models
 
 
 class ProductCategory(models.Model):
-
     _inherit = "product.category"
 
     # This is the // as Odoo core field in product model
