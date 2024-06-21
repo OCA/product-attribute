@@ -1,0 +1,1 @@
+This module forces the display of the weight on the product template and recovers the weight of the template when the product variant is equal to 0 on the pickings
