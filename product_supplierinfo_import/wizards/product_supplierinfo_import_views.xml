@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_supplierinfo_import_form" model="ir.ui.view">
+        <field name="model">product.supplierinfo.import</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="supplierinfo_file" filename="supplierinfo_filename" />
+                <field name="supplierinfo_filename" invisible="1" />
+                <field name="template_id" invisible="1" />
+                <group>
+                    <field name="supplier_id" />
+                    <field name="date_start" />
+                    <field name="delay" />
+                </group>
+                <group>
+                    <field name="create_new_products" />
+                </group>
+                <footer>
+                    <button
+                        type="object"
+                        name="action_import_file"
+                        string="Import and View"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="product_supplierinfo_import_action" model="ir.actions.act_window">
+        <field name="name">Import vendor pricelists</field>
+        <field name="res_model">product.supplierinfo.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        id="product_supplierinfo_import_menu"
+        name="Import vendor pricelists"
+        parent="purchase.menu_purchase_config"
+        action="product_supplierinfo_import_by_barcode.product_supplierinfo_import_action"
+        groups="base.group_user"
+    />
+</odoo>
