@@ -82,7 +82,7 @@ class ProductTemplate(models.Model):
                 price = min(price, price_limit + price_max_margin)
         return price
 
-    def price_compute(
+    def _price_compute(
         self, price_type, uom=None, currency=None, company=False, date=False
     ):
         """Return dummy not falsy prices when computation is done from supplier
@@ -91,6 +91,6 @@ class ProductTemplate(models.Model):
         """
         if price_type == "supplierinfo":
             return dict.fromkeys(self.ids, 1.0)
-        return super().price_compute(
+        return super()._price_compute(
             price_type, uom=uom, currency=currency, company=company, date=date
         )
