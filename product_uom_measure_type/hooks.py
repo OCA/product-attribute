@@ -7,14 +7,14 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-def pre_init_hook(cr):
+def pre_init_hook(env):
     """Quick populate new product.template field 'uom_measure_type'
     to avoid slowness if this is done by the ORM, in the case of
     installation of this module on a large database.
     """
 
     _logger.info("Initialize 'measure_type' field on 'uom_category' table")
-    cr.execute(
+    env.cr.execute(
         """
         ALTER TABLE uom_category
         ADD column measure_type character varying;
@@ -31,7 +31,7 @@ def pre_init_hook(cr):
     ]
 
     for name, measure_type in uom_datas:
-        cr.execute(
+        env.cr.execute(
             """
             UPDATE uom_category
             SET measure_type = %s
@@ -47,14 +47,14 @@ def pre_init_hook(cr):
         )
 
     _logger.info("Initialize 'measure_type' field on 'uom_uom' table")
-    cr.execute(
+    env.cr.execute(
         """
         ALTER TABLE uom_uom
         ADD column measure_type character varying;
         """
     )
 
-    cr.execute(
+    env.cr.execute(
         """
         UPDATE uom_uom
         SET measure_type = uom_category.measure_type
@@ -64,14 +64,14 @@ def pre_init_hook(cr):
     )
 
     _logger.info("Initialize 'uom_measure_type' field on 'product_template' table")
-    cr.execute(
+    env.cr.execute(
         """
         ALTER TABLE product_template
         ADD column uom_measure_type character varying;
         """
     )
 
-    cr.execute(
+    env.cr.execute(
         """
         UPDATE product_template
         SET uom_measure_type = uom_uom.measure_type
