@@ -21,8 +21,8 @@ msgstr ""
 msgid ""
 "Base price for computation.\n"
 "Sales Price: The base price will be the Sales Price.\n"
-"Cost Price : The base price will be the cost price.\n"
-"Other Pricelist : Computation of the base price based on another Pricelist."
+"Cost Price: The base price will be the cost price.\n"
+"Other Pricelist: Computation of the base price based on another Pricelist."
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
