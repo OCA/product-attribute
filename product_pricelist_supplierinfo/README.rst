@@ -17,23 +17,24 @@ Supplier info prices in sales pricelists
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_supplierinfo
+    :target: https://github.com/OCA/product-attribute/tree/17.0/product_pricelist_supplierinfo
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_pricelist_supplierinfo
+    :target: https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_pricelist_supplierinfo
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows you to create a sales pricelist based on product
-supplierinfo prices. If you want, you can bypass minimum quantity in pricelist
-item.
+supplierinfo prices. If you want, you can bypass minimum quantity in
+pricelist item.
 
-We can also define sale marging applied on purchase price directly on supplier info.
-For this, you must add users to "Show sale margin on Product Supplierinfo" group.
+We can also define sale marging applied on purchase price directly on
+supplier info. For this, you must add users to "Show sale margin on
+Product Supplierinfo" group.
 
 **Table of contents**
 
@@ -43,55 +44,57 @@ For this, you must add users to "Show sale margin on Product Supplierinfo" group
 Installation
 ============
 
-Although this module doesn't depend technically on **Sales Management**, you
-must install it for configuring and seeing the effects of it.
+Although this module doesn't depend technically on **Sales Management**,
+you must install it for configuring and seeing the effects of it.
 
 Configuration
 =============
 
-To configure pricelists with the new feature of this module, you need to:
+To configure pricelists with the new feature of this module, you need
+to:
 
-#. Go to *Sales > Configuration > Settings* and check
-   "Pricelists" option and "Advanced price rules (discounts, formulas)"
-   after that. You must have correct permissions and you must install
-   **Sales Management** app (sale) and **Purchase** app to see these settings.
-#. Create or edit a Sales Pricelist at *Sales > Products > Pricelists*.
-#. Add or edit a pricelist item and check "Formula" option in
-   "Price Computation" section.
-#. You will see the new option "Prices based on supplier info".
-#. If you want to bypass the "Min.Quantity" field of the supplier info and
-   always select the lowest quantity price, check the option
-   "Ignore Supplier Info Min. Quantity".
+1. Go to *Sales > Configuration > Settings* and check "Pricelists"
+   option and "Advanced price rules (discounts, formulas)" after that.
+   You must have correct permissions and you must install **Sales
+   Management** app (sale) and **Purchase** app to see these settings.
+2. Create or edit a Sales Pricelist at *Sales > Products > Pricelists*.
+3. Add or edit a pricelist item and check "Formula" option in "Price
+   Computation" section.
+4. You will see the new option "Prices based on supplier info".
+5. If you want to bypass the "Min.Quantity" field of the supplier info
+   and always select the lowest quantity price, check the option "Ignore
+   Supplier Info Min. Quantity".
 
 Usage
 =====
 
 For adding supplier info:
 
-#. Go to *Sales > Products > Products*
-#. Open or create a product.
-#. Go to "Purchase" page.
-#. On "Vendors" section, add the supplier and prices.
-#. You can drag and drop for reordering these lines.
+1. Go to *Sales > Products > Products*
+2. Open or create a product.
+3. Go to "Purchase" page.
+4. On "Vendors" section, add the supplier and prices.
+5. You can drag and drop for reordering these lines.
 
 Check the remark in known issues about the supplier info line selection.
 
-For checking pricelists in action, you can (with `sale` module installed):
+For checking pricelists in action, you can (with sale module installed):
 
-#. Go to *Sales > Orders > Quotations*
-#. Create or edit a quotation.
-#. Add a line.
-#. Select a product with the criteria to match the pricelist from supplier
-   info.
-#. See the proper price appears in the line.
+1. Go to *Sales > Orders > Quotations*
+2. Create or edit a quotation.
+3. Add a line.
+4. Select a product with the criteria to match the pricelist from
+   supplier info.
+5. See the proper price appears in the line.
 
 Known issues / Roadmap
 ======================
 
-* First line that matches by minimum quantity criteria, independently from the
-  supplier, will be the one that provides the price for the pricelist.
-* There's no mechanism for selecting the supplier from possible sources like
-  sales orders.
+-  First line that matches by minimum quantity criteria, independently
+   from the supplier, will be the one that provides the price for the
+   pricelist.
+-  There's no mechanism for selecting the supplier from possible sources
+   like sales orders.
 
 Bug Tracker
 ===========
@@ -99,7 +102,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_supplierinfo%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_supplierinfo%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -107,30 +110,29 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 * Vauxoo
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com/>`_:
+-  `Tecnativa <https://www.tecnativa.com/>`__:
 
-  * Vicent Cubells
-  * Pedro M. Baeza
-  * Carlos Roca
+   -  Vicent Cubells
+   -  Pedro M. Baeza
+   -  Carlos Roca
 
-* Nikul Chaudhary <nikulchaudhary2112@gmail.com>
+-  Nikul Chaudhary <nikulchaudhary2112@gmail.com>
+-  `TAKOBI <https://takobi.online/>`__:
 
-* `TAKOBI <https://takobi.online/>`_:
+   -  Lorenzo Battistini
 
-  * Lorenzo Battistini
-
-* Andrea Gidalti <andreag@vauxoo.com>
+-  Andrea Gidalti <andreag@vauxoo.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -150,6 +152,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-luisg123v| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_supplierinfo>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_pricelist_supplierinfo>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

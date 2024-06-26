@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -275,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -301,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -369,12 +369,13 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:e6539df59b27f0932ee4afb66ee75503be8c81c9ec41fd11623a5abcfca59e9c
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_supplierinfo"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_pricelist_supplierinfo"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/17.0/product_pricelist_supplierinfo"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_pricelist_supplierinfo"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module allows you to create a sales pricelist based on product
-supplierinfo prices. If you want, you can bypass minimum quantity in pricelist
-item.</p>
-<p>We can also define sale marging applied on purchase price directly on supplier info.
-For this, you must add users to “Show sale margin on Product Supplierinfo” group.</p>
+supplierinfo prices. If you want, you can bypass minimum quantity in
+pricelist item.</p>
+<p>We can also define sale marging applied on purchase price directly on
+supplier info. For this, you must add users to “Show sale margin on
+Product Supplierinfo” group.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -393,24 +394,25 @@ For this, you must add users to “Show sale margin on Product Supplierinfo” g
 </div>
 <div class="section" id="installation">
 <h1><a class="toc-backref" href="#toc-entry-1">Installation</a></h1>
-<p>Although this module doesn’t depend technically on <strong>Sales Management</strong>, you
-must install it for configuring and seeing the effects of it.</p>
+<p>Although this module doesn’t depend technically on <strong>Sales Management</strong>,
+you must install it for configuring and seeing the effects of it.</p>
 </div>
 <div class="section" id="configuration">
 <h1><a class="toc-backref" href="#toc-entry-2">Configuration</a></h1>
-<p>To configure pricelists with the new feature of this module, you need to:</p>
+<p>To configure pricelists with the new feature of this module, you need
+to:</p>
 <ol class="arabic simple">
-<li>Go to <em>Sales &gt; Configuration &gt; Settings</em> and check
-“Pricelists” option and “Advanced price rules (discounts, formulas)”
-after that. You must have correct permissions and you must install
-<strong>Sales Management</strong> app (sale) and <strong>Purchase</strong> app to see these settings.</li>
+<li>Go to <em>Sales &gt; Configuration &gt; Settings</em> and check “Pricelists”
+option and “Advanced price rules (discounts, formulas)” after that.
+You must have correct permissions and you must install <strong>Sales
+Management</strong> app (sale) and <strong>Purchase</strong> app to see these settings.</li>
 <li>Create or edit a Sales Pricelist at <em>Sales &gt; Products &gt; Pricelists</em>.</li>
-<li>Add or edit a pricelist item and check “Formula” option in
-“Price Computation” section.</li>
+<li>Add or edit a pricelist item and check “Formula” option in “Price
+Computation” section.</li>
 <li>You will see the new option “Prices based on supplier info”.</li>
-<li>If you want to bypass the “Min.Quantity” field of the supplier info and
-always select the lowest quantity price, check the option
-“Ignore Supplier Info Min. Quantity”.</li>
+<li>If you want to bypass the “Min.Quantity” field of the supplier info
+and always select the lowest quantity price, check the option “Ignore
+Supplier Info Min. Quantity”.</li>
 </ol>
 </div>
 <div class="section" id="usage">
@@ -424,23 +426,24 @@ always select the lowest quantity price, check the option
 <li>You can drag and drop for reordering these lines.</li>
 </ol>
 <p>Check the remark in known issues about the supplier info line selection.</p>
-<p>For checking pricelists in action, you can (with <cite>sale</cite> module installed):</p>
+<p>For checking pricelists in action, you can (with sale module installed):</p>
 <ol class="arabic simple">
 <li>Go to <em>Sales &gt; Orders &gt; Quotations</em></li>
 <li>Create or edit a quotation.</li>
 <li>Add a line.</li>
-<li>Select a product with the criteria to match the pricelist from supplier
-info.</li>
+<li>Select a product with the criteria to match the pricelist from
+supplier info.</li>
 <li>See the proper price appears in the line.</li>
 </ol>
 </div>
 <div class="section" id="known-issues-roadmap">
 <h1><a class="toc-backref" href="#toc-entry-4">Known issues / Roadmap</a></h1>
 <ul class="simple">
-<li>First line that matches by minimum quantity criteria, independently from the
-supplier, will be the one that provides the price for the pricelist.</li>
-<li>There’s no mechanism for selecting the supplier from possible sources like
-sales orders.</li>
+<li>First line that matches by minimum quantity criteria, independently
+from the supplier, will be the one that provides the price for the
+pricelist.</li>
+<li>There’s no mechanism for selecting the supplier from possible sources
+like sales orders.</li>
 </ul>
 </div>
 <div class="section" id="bug-tracker">
@@ -448,7 +451,7 @@ sales orders.</li>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_supplierinfo%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_supplierinfo%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -480,13 +483,15 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-9">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/luisg123v"><img alt="luisg123v" src="https://github.com/luisg123v.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_supplierinfo">OCA/product-attribute</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/17.0/product_pricelist_supplierinfo">OCA/product-attribute</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
