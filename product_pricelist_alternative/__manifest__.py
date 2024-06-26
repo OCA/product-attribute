@@ -3,7 +3,7 @@
 
 {
     "name": "Product Pricelist Alternative",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "development_status": "Beta",
     "category": "Product",
     "summary": "Calculate product price based on alternative pricelists",
