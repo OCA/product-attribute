@@ -15,12 +15,12 @@ class IrFilters(models.Model):
         for rec in self:
             rec.endpoint_count = len(rec.endpoint_ids)
 
-    def button_display_endpoints(self):
+    def action_view_endpoints(self):
         self.ensure_one()
         xmlid = "endpoint.endpoint_endpoint_act_window"
         return dict(
             self.env["ir.actions.act_window"]._for_xml_id(xmlid),
             name=_("Endpoints"),
             domain=[("product_assortment_id", "=", self.id)],
-            context=dict(self._context, default_product_assortment_id=self.id),
+            context=dict(self.env.context, default_product_assortment_id=self.id),
         )

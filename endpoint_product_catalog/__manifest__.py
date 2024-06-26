@@ -6,7 +6,7 @@
     "version": "14.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "category": "Product",
-    "maintainers": ["SilvioC2C"],
+    "maintainers": ["SilvioC2C", "simahawk"],
     "website": "https://github.com/OCA/product-attribute",
     "summary": "Handle endpoints for product catalogs",
     "depends": ["endpoint", "product_assortment"],

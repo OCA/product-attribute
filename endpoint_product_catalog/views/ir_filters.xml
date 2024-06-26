@@ -11,10 +11,10 @@
             <div name="buttons" position="inside">
                 <button
                     class="oe_stat_button"
-                    name="button_display_endpoints"
+                    name="action_view_endpoints"
                     icon="fa-star"
                     type="object"
-                    attrs="{'invisible': [('endpoint_count', '=', 0)]}"
+                    attrs="{'invisible': ['|', ('is_assortment', '=', False), ('endpoint_count', '=', 0)]}"
                 >
                     <div class="o_stat_info">
                         <field name="endpoint_count" class="o_stat_value" />
