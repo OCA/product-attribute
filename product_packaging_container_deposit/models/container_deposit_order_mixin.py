@@ -1,4 +1,5 @@
 # Copyright 2023 Camptocamp (<https://www.camptocamp.com>).
+# Copyright 2024 Jacques-Etienne Baudoux (BCIM) <je@bcim.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import logging
 from functools import partial
@@ -111,3 +112,11 @@ class OrderMixin(models.AbstractModel):
         return super(
             OrderMixin, self.with_context(skip_update_container_deposit=True)
         ).copy(default=default)
+
+    def write(self, vals):
+        # When an order is modified, don't recompute container deposit for each line
+        res = super(
+            OrderMixin, self.with_context(skip_update_container_deposit=True)
+        ).write(vals)
+        self.update_order_container_deposit_quantity()
+        return res
