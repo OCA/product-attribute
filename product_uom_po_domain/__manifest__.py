@@ -4,7 +4,7 @@
 
 {
     "name": "Product - Domain on Purchase UoM",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "maintainers": ["legalsylvain"],
     "author": "GRAP, Odoo Community Association (OCA)",
