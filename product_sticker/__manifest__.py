@@ -3,7 +3,7 @@
 
 {
     "name": "Product Sticker",
-    "version": "15.0.1.1.0",
+    "version": "16.0.1.0.0",
     "author": "Moduon, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
@@ -18,6 +18,6 @@
         "views/product_template_views.xml",
         "data/menus.xml",
     ],
-    "maintainers": ["Shide"],
+    "maintainers": ["Shide", "rafaelbn"],
     "installable": True,
 }
