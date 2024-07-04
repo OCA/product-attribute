@@ -74,6 +74,10 @@ Contributors
 
   * Sylvain LE GAL <https://twitter.com/legalsylvain>
 
+* `Trobz <https://trobz.com/>`_:
+
+  * Chau Le
+
 Maintainers
 ~~~~~~~~~~~
 

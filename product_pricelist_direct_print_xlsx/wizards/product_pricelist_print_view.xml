@@ -16,6 +16,7 @@
                     <group>
                         <field name="breakage_per_category" />
                         <field name="show_internal_category" />
+                        <field name="print_child_categories" />
                     </group>
                 </page>
             </notebook>
