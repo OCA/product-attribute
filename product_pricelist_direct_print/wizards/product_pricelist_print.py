@@ -66,6 +66,7 @@ class ProductPricelistPrint(models.TransientModel):
         " the last X ordered products will be obtained for the report."
     )
     summary = fields.Text()
+    print_child_categories = fields.Boolean()
     max_categ_level = fields.Integer(
         string="Max category level",
         help="If this field is not 0, products are grouped at max level "
@@ -76,6 +77,10 @@ class ProductPricelistPrint(models.TransientModel):
     )
 
     product_price = fields.Float(compute="_compute_product_price")
+
+    @api.onchange("categ_ids")
+    def _onchange_categ_ids(self):
+        self.print_child_categories = len(self.categ_ids) > 0
 
     @api.depends_context("product")
     def _compute_product_price(self):
@@ -331,7 +336,11 @@ class ProductPricelistPrint(models.TransientModel):
                         ]
                     )
             domain = expression.AND([domain, aux_domain])
-        if self.categ_ids:
+        if self.print_child_categories:
+            domain = expression.AND(
+                [domain, [("categ_id", "child_of", self.categ_ids.ids)]]
+            )
+        elif self.categ_ids:
             domain = expression.AND([domain, [("categ_id", "in", self.categ_ids.ids)]])
         return domain
 

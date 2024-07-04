@@ -40,6 +40,10 @@
                             widget="many2many_tags"
                             attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}"
                         />
+                        <field
+                            name="print_child_categories"
+                            attrs="{'invisible':[('categ_ids','=',[])]}"
+                        />
                         <field name="show_only_defined_products" />
                         <field
                             name="show_variants"
