@@ -61,6 +61,12 @@ msgid "Allowed products"
 msgstr "Erlaubte Produkte"
 
 #. module: product_assortment
+#: model:ir.model.fields,field_description:product_assortment.field_res_partner__applied_assortment_ids
+#: model:ir.model.fields,field_description:product_assortment.field_res_users__applied_assortment_ids
+msgid "Applied Assortment"
+msgstr ""
+
+#. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
 msgid "Apply restricted product domain"
 msgstr "Domäne zum Beschränken der Produkte anwenden"
@@ -131,6 +137,12 @@ msgstr "Produkt-Sortiment"
 #: model:ir.actions.act_window,name:product_assortment.actions_product_assortment_view
 msgid "Product assortment"
 msgstr "Produkt-Sortiment"
+
+#. module: product_assortment
+#: model:ir.actions.server,name:product_assortment.action_product_assortment_recompute_all_partners
+#: model:ir.cron,cron_name:product_assortment.ir_cron_product_assortment_recompute_all_partners
+msgid "Product assortment recompute all partbers"
+msgstr ""
 
 #. module: product_assortment
 #. odoo-python
