@@ -12,12 +12,9 @@
                         <div class="text-muted">Set stock state threshold</div>
                         <div class="content-group">
                             <div class="row">
-                        <label
-                            string="Stock threshold"
-                            for="stock_state_threshold"
-                            class="col-lg-3 o_light_label"
-                        />
-                        <field name="stock_state_threshold"/>
+                                <label string="Stock threshold" for="stock_state_threshold"
+                                       class="col-lg-3 o_light_label"/>
+                                <field name="stock_state_threshold"/>
                             </div>
                         </div>
 
