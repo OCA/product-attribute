@@ -117,3 +117,11 @@ class TestWeightStockPicking(TransactionCase):
         self.sale_order_id.action_confirm()
         picking_id = self.sale_order_id.picking_ids
         self.assertEqual(picking_id.weight, 300)
+
+    def test_weight_template_from_variant(self):
+        product_id = self.env.ref("product.product_product_4_product_template")
+        product_id.weight = 10
+        self.assertEqual(product_id.weight, 10)
+        product_variant_id = self.env.ref("product.product_product_4")
+        product_variant_id.write({"weight": 20})
+        self.assertEqual(product_id.weight, 10)

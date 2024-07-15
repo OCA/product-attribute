@@ -13,6 +13,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["stock", "delivery"],
     "data": [
+        "views/product_product_views.xml",
         "views/product_template_views.xml",
     ],
     "installable": True,
