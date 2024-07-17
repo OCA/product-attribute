@@ -18,8 +18,19 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 msgid "Active"
 msgstr "Attiva"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Active Products"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Archived"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -75,6 +86,7 @@ msgstr "Valuta"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__customer_ids
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer"
 msgstr "Cliente"
@@ -90,12 +102,14 @@ msgid "Customer Pricelist"
 msgstr "Listino prezzi cliente"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Product Code"
 msgstr "Codice prodotto cliente"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Product Name"
@@ -149,6 +163,11 @@ msgstr "Data finale"
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_end
 msgid "End date for this vendor price"
 msgstr "Data di fine per questo prezzo fornitore"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Group By"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
@@ -225,6 +244,7 @@ msgstr "Regola listino prezzi"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Product"
 msgstr "Prodotto"
@@ -326,19 +346,15 @@ msgid "Variant Customer"
 msgstr "Variante cliente"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
-msgid "Vendor Product Code"
-msgstr "Codice prodotto fornitore"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
-msgid "Vendor Product Name"
-msgstr "Nome prodotto fornitore"
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr "a"
+
+#~ msgid "Vendor Product Code"
+#~ msgstr "Codice prodotto fornitore"
+
+#~ msgid "Vendor Product Name"
+#~ msgstr "Nome prodotto fornitore"
 
 #~ msgid ""
 #~ "Base price for computation.\n"

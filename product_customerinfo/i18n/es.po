@@ -21,8 +21,19 @@ msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 msgid "Active"
 msgstr "Activo"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Active Products"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Archived"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__sequence
@@ -73,6 +84,7 @@ msgstr "Moneda"
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__customer_ids
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer"
 msgstr "Cliente"
@@ -88,12 +100,14 @@ msgid "Customer Pricelist"
 msgstr "Tarifa de cliente"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Product Code"
 msgstr "Código de producto para la empresa"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer Product Name"
@@ -147,6 +161,11 @@ msgstr "Fecha final"
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_end
 msgid "End date for this vendor price"
 msgstr "Fecha final para este precio de proveedor"
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Group By"
+msgstr "Agrupar por"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
@@ -223,6 +242,7 @@ msgstr "Elemento de tarifa"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Product"
 msgstr "Producto"
@@ -324,19 +344,15 @@ msgid "Variant Customer"
 msgstr "Variante de cliente"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
-msgid "Vendor Product Code"
-msgstr "Código de producto del proveedor"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
-msgid "Vendor Product Name"
-msgstr "Nombre del producto del proveedor"
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr "para"
+
+#~ msgid "Vendor Product Code"
+#~ msgstr "Código de producto del proveedor"
+
+#~ msgid "Vendor Product Name"
+#~ msgstr "Nombre del producto del proveedor"
 
 #~ msgid ""
 #~ "Base price for computation.\n"
@@ -385,9 +401,6 @@ msgstr "para"
 #~ "<p class=\"oe_view_nocontent_create\">\n"
 #~ "Pulse para definir una nueva definición de producto-empresa.\n"
 #~ "</p>\n"
-
-#~ msgid "Group By"
-#~ msgstr "Agrupar por"
 
 #~ msgid "Partner"
 #~ msgstr "Empresa"
