@@ -109,10 +109,7 @@ class AbcClassificationProductLevel(models.Model):
     @api.depends("level_id", "profile_id")
     def _compute_display_name(self):
         for record in self:
-            record.display_name = "{profile_name}: {level_name}".format(
-                profile_name=record.profile_id.name,
-                level_name=record.level_id.name,
-            )
+            record.display_name = f"{record.profile_id.name}: {record.level_id.name}"
 
     @api.depends("manual_level_id", "computed_level_id")
     def _compute_level_id(self):
