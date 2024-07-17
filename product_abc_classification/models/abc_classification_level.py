@@ -7,7 +7,6 @@ from odoo.exceptions import ValidationError
 
 
 class AbcClassificationLevel(models.Model):
-
     _name = "abc.classification.level"
     _description = "ABC Classification Level"
     _order = "percentage desc, id desc"

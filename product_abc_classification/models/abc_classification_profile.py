@@ -9,7 +9,6 @@ from odoo.exceptions import ValidationError
 
 
 class AbcClassificationProfile(models.Model):
-
     _name = "abc.classification.profile"
     _description = "Abc Classification Profile"
     _rec_name = "name"
