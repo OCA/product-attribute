@@ -13,7 +13,7 @@
             <div
                         class="alert alert-danger"
                         role="alert"
-                        attrs="{'invisible': [('flag','=',False)]}"
+                        invisible="not flag"
                     >Computed level differs from the specified level</div>
           <group name="main_info">
             <field name="display_name" />
@@ -45,11 +45,11 @@
     <field name="model">abc.classification.product.level</field>
     <field name="arch" type="xml">
       <tree decoration-danger="flag == True" editable="bottom">
-        <field name="profile_id" invisible="1" />
+        <field name="profile_id" column_invisible="1" />
         <field name="product_id" />
         <field name="manual_level_id" />
         <field name="computed_level_id" />
-        <field name="flag" invisible="1" />
+        <field name="flag" column_invisible="1" />
       </tree>
     </field>
   </record>
