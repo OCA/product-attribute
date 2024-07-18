@@ -167,9 +167,9 @@ class AbcClassificationProductLevel(models.Model):
             else:
                 # If profile is not modified, filter levels per profile
                 # if it has auto_apply_computed_value True and modify only
-                # those ones
+                # those
                 auto_applied_profiles_levels = self.filtered(
-                    lambda l: l.profile_id.auto_apply_computed_value
+                    lambda level: level.profile_id.auto_apply_computed_value
                 )
                 new_self = self - auto_applied_profiles_levels
                 super(
