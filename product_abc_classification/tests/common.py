@@ -50,8 +50,8 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         )
 
         levels = cls.classification_profile.level_ids
-        cls.classification_level_a = levels.filtered(lambda l: l.name == "a")
-        cls.classification_level_b = levels.filtered(lambda l: l.name == "b")
+        cls.classification_level_a = levels.filtered(lambda level: level.name == "a")
+        cls.classification_level_b = levels.filtered(lambda level: level.name == "b")
         cls.classification_profile_bis = cls.ABCClassificationProfile.create(
             {
                 "name": "Profile test bis",
@@ -79,11 +79,15 @@ class ABCClassificationLevelCase(ABCClassificationCase):
             }
         )
         levels = cls.classification_profile_bis.level_ids
-        cls.classification_level_bis_a = levels.filtered(lambda l: l.name == "a")
+        cls.classification_level_bis_a = levels.filtered(
+            lambda level: level.name == "a"
+        )
 
-        cls.classification_level_bis_b = levels.filtered(lambda l: l.name == "b")
+        cls.classification_level_bis_b = levels.filtered(
+            lambda level: level.name == "b"
+        )
         # create a template with one variant adn declare attributes to create
-        # an other variant on demand
+        # another variant on demand
         cls.size_attr = cls.env["product.attribute"].create(
             {
                 "name": "Size",
