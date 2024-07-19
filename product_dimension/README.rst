@@ -95,7 +95,7 @@ Authors
 
 * brain-tec AG
 * ADHOC SA
-* Camptocamp SA
+* Camptocamp
 
 Contributors
 ------------
