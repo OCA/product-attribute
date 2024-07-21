@@ -6,3 +6,4 @@
 - Guewen Baconnier \<<guewen.baconnier@camptocamp.com>\>
 - Héctor Villarreal \<<hector.villarreal@forgeflow.com>\>
 - Mantas Šniukas \<<mantas@vialaurea.lt>\>
+- Jose M Monsalve Diaz \<<josemonsalve2@gmail.com>\>
