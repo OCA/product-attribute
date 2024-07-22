@@ -5,7 +5,7 @@
         <field name="model">product.packaging</field>
         <field name="inherit_id" ref="product.product_packaging_form_view" />
         <field name="arch" type="xml">
-            <group name="qty" position="after">
+            <sheet position="inside">
                 <group name="dimensions" string="Dimensions">
                     <group id="group_volume">
                         <label for="volume" />
@@ -46,11 +46,15 @@
                     </group>
                 </group>
                 <group string="Units of Measure">
-                    <field name="volume_uom_id" />
-                    <field name="length_uom_id" />
-                    <field name="weight_uom_id" />
+                    <group>
+                        <field name="volume_uom_id" />
+                        <field name="length_uom_id" />
+                    </group>
+                    <group>
+                        <field name="weight_uom_id" />
+                    </group>
                 </group>
-            </group>
+            </sheet>
         </field>
     </record>
 </odoo>

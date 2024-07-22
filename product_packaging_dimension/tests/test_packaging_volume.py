@@ -5,8 +5,9 @@ from odoo.tests.common import TransactionCase
 
 
 class TestPackagingVolumeCompute(TransactionCase):
-    def setUp(self):
-        super(TestPackagingVolumeCompute, self).setUp()
+    @classmethod
+    def setUpClass(self):
+        super().setUpClass()
 
         self.packaging = self.env["product.packaging"].new()
         self.packaging2 = self.env["product.packaging"].new()
