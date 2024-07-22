@@ -36,11 +36,6 @@ and volume of product packagings.
 .. contents::
    :local:
 
-Known issues / Roadmap
-======================
-
--  Resolve conflict with delivery module
-
 Bug Tracker
 ===========
 
