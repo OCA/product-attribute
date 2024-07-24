@@ -30,14 +30,13 @@ Product Variant Attribute Name Manager
 
 Manage how to display the attributes on the product variant name.
 
--  Choose if you want to display the name of the attribute before its
-   value.
--  Choose if you want to display the attribute value in the product
-   name.
--  Set a short name to be displayed as the attribute's name.
--  Set the order of the attributes for each product.
--  Choose if you want to display attribute value name for Single Variant
-   Attribute
+- Choose if you want to display the name of the attribute before its
+  value.
+- Choose if you want to display the attribute value in the product name.
+- Set a short name to be displayed as the attribute's name.
+- Set the order of the attributes for each product.
+- Choose if you want to display attribute value name for Single Variant
+  Attribute
 
 **Table of contents**
 
@@ -65,11 +64,11 @@ Authors
 Contributors
 ------------
 
--  Oriol Villamayor <oriol.villamayor@forgeflow.com>
--  Daniel Reis <dreis@opensourceintegrators.com>
--  Nikul Chaudhary <nchaudhary@opensourceintegrators.com>
--  Jordi Masvidal <jordi.masvidal@forgeflow.com>
--  John Herholz <j.longneck@gmail.com>
+- Oriol Villamayor <oriol.villamayor@forgeflow.com>
+- Daniel Reis <dreis@opensourceintegrators.com>
+- Nikul Chaudhary <nchaudhary@opensourceintegrators.com>
+- Jordi Masvidal <jordi.masvidal@forgeflow.com>
+- John Herholz <j.longneck@gmail.com>
 
 Maintainers
 -----------
