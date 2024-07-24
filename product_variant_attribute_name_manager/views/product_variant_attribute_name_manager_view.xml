@@ -31,9 +31,11 @@
                     />
                     <field
                         name="display_no_variant_attribute"
+                        groups="base.group_no_one"
                         invisible="create_variant != 'no_variant'"
                     />
                     <field name="display_single_variant_attribute" />
+                    <field name="single_variant_attribute" />
                 </group>
             </group>
         </field>

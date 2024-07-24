@@ -26,6 +26,12 @@ class ProductAttribute(models.Model):
         help="If checked, it will display the single variant attribute.",
     )
 
+    single_variant_attribute = fields.Boolean(
+        "Display the attribute value of the variant when the variant "
+        "has only one value",
+        help="If checked, it will display variants that have only one variant.",
+    )
+
 
 class ProductTemplateAttributeLine(models.Model):
     _inherit = "product.template.attribute.line"
