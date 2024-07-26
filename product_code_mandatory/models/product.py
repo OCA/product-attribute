@@ -11,5 +11,5 @@ class ProductProduct(models.Model):
         return self.env["ir.sequence"].next_by_code("product.default.code")
 
     default_code = fields.Char(
-        "Internal Reference", index=True, default=_get_default_code
+        "Internal Reference", index=True, default=lambda self: self._get_default_code()
     )
