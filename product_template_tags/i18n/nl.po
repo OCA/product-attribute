@@ -27,6 +27,11 @@ msgid "Add tags"
 msgstr "Voeg tag toe"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__child_ids
+msgid "Child"
+msgstr ""
+
+#. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
 msgstr "Kleur index"
@@ -78,6 +83,16 @@ msgid "Name"
 msgstr "Naam"
 
 #. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
 msgid "Product"
 msgstr ""
@@ -112,4 +127,11 @@ msgstr "Tag naam moet uniek zijn binnen een bedrijf"
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
+msgstr ""
+
+#. module: product_template_tags
+#. odoo-python
+#: code:addons/product_template_tags/models/product_template_tag.py:0
+#, python-format
+msgid "Tags can't be recursive."
 msgstr ""
