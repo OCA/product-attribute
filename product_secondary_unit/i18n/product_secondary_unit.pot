@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -72,11 +72,6 @@ msgstr ""
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
 msgid "Independent"
-msgstr ""
-
-#. module: product_secondary_unit
-#: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: product_secondary_unit
