@@ -62,11 +62,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -132,3 +127,6 @@ msgstr "Prezzo di acquisto di un prodotto"
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__variation_percent
 msgid "Variation %"
 msgstr "Variazione %"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
