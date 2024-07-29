@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2018 Tecnativa - Sergio Teruel
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">Product template Secondary Unit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='general_information']/group[last()]"
+                position="after"
+            >
+                <group
+                    string="Secondary Unit of Measure"
+                    col="4"
+                    groups="uom.group_uom"
+                >
+                    <field name="secondary_uom_ids" colspan="4" nolabel="1">
+                        <tree editable="bottom" decoration-muted="(not active)">
+                            <field name="active" widget="boolean_toggle" />
+                            <field name="product_tmpl_id" column_invisible="1" />
+                            <field
+                                name="product_id"
+                                domain="[('product_tmpl_id', '=', parent.id)]"
+                                groups="product.group_product_variant"
+                                options="{'no_create': True}"
+                                column_invisible="parent.product_variant_count &lt;= 1"
+                            />
+                            <field name="code" />
+                            <field name="name" />
+                            <field name="uom_id" />
+                            <field name="factor" />
+                            <field name="dependency_type" />
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">Product Secondary Unit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='secondary_uom_ids']/tree/field[@name='product_id']"
+                position="attributes"
+            >
+                <attribute name="domain">[('id', '=', parent.id)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
