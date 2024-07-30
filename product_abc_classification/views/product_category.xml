@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 ForgeFlow
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="view_product_category_form">
+        <field name="name">product.category.form - product_abc_classification</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="/form//group[@name='first']" position="after">
+                <group col="2" string="ABC Classification">
+                    <field
+                        name="abc_classification_profile_ids"
+                        widget="many2many_tags"
+                    />
+                    <button
+                        name="update_product_abc_classification_profile"
+                        class="oe_link"
+                        type="object"
+                        string="-> Apply to Products"
+                        confirm="This will apply to all products in the category"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
