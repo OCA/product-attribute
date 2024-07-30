@@ -6,10 +6,8 @@
         <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
             <field name="default_code" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('product_variant_count', '&gt;', 1)],
-                    'required': [('product_variant_count', '=', 1)]}</attribute>
+                <attribute name="invisible">product_variant_count &gt; 1</attribute>
+                <attribute name="required">product_variant_count == 1</attribute>
             </field>
         </field>
     </record>
