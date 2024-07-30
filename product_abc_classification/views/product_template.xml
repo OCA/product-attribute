@@ -13,20 +13,23 @@
                     name="abc_classification"
                     invisible="type != 'product'"
                 >
-          <group>
-            <group>
-              <field
+                    <group>
+                        <group>
+                            <field
+                                name="abc_classification_profile_ids"
+                                widget="many2many_tags"
+                            />
+                            <field
                                 name="abc_classification_product_level_ids"
                                 widget="many2many_tags"
                                 context="{'default_product_tmpl_id': id, 'default_profile_id': abc_classification_profile_ids and abc_classification_profile_ids[0] or False}"
                                 readonly="product_variant_count &gt; 1"
                                 domain="[('product_tmpl_id', '=', id)]"
                             />
-              <field name="abc_classification_profile_ids" widget="many2many_tags" />
-            </group>
-          </group>
-        </page>
-      </xpath>
-    </field>
-  </record>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
 </odoo>
