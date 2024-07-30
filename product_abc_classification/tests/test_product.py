@@ -137,3 +137,43 @@ class TestProduct(ABCClassificationLevelCase):
             action["domain"],
             [("id", "in", self.product_template.product_variant_ids.ids)],
         )
+
+    def test_06(self):
+        """
+        Data:
+            A product template with one variant
+        Test Case:
+            Associate a classification profile to the category
+        Expected result:
+            The variant is associated to the classification profile
+        """
+        self.product_template.categ_id.abc_classification_profile_ids = (
+            self.classification_profile
+        )
+        self.product_product._onchange_categ_id_abc_classification()
+        self.assertEqual(
+            self.product_product.abc_classification_profile_ids,
+            self.classification_profile,
+        )
+
+    def test_07(self):
+        """
+        Data:
+            A product template with one variant
+        Test Case:
+            1 Create new category
+            2 Associate a classification profile to the category
+            3 Create new product
+        Expected result:
+            The product is associated to the classification profile
+        """
+        new_category = self.env["product.category"].create(
+            {"name": "Test Category ABC"}
+        )
+        new_category.abc_classification_profile_ids = self.classification_profile_bis
+        new_template = self.env["product.template"].create(
+            {"name": "Test Template ABC", "categ_id": new_category.id}
+        )
+        self.assertEqual(
+            new_template.abc_classification_profile_ids, self.classification_profile_bis
+        )

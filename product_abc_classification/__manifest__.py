@@ -16,6 +16,7 @@
         "views/abc_classification_profile.xml",
         "views/product_template.xml",
         "views/product_product.xml",
+        "views/product_category.xml",
         "security/ir.model.access.csv",
         "data/ir_cron.xml",
     ],
