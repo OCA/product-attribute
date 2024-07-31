@@ -73,6 +73,48 @@ class AbcClassificationProfile(models.Model):
         )
         return {r[0] for r in self.env.cr.fetchall()}
 
+    def _get_sale_stock_data_query(self, from_date, customer_location_ids):
+        query = """
+            SELECT
+                sol.product_id product_id,
+                COUNT(sol.id) number_so_lines
+            FROM
+                sale_order so
+            JOIN
+                sale_order_line sol ON
+                sol.order_id = so.id
+            JOIN
+                abc_classification_profile_product_rel rel
+                ON rel.product_id = sol.product_id
+            JOIN
+                product_product pp
+                ON pp.id = sol.product_id
+            WHERE sol.qty_delivered > 0
+                AND pp.active
+                AND rel.profile_id = %(profile_id)s
+                AND so.warehouse_id = %(current_warehouse_id)s
+            AND EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        stock_move sm
+                    WHERE
+                        sm.date > %(start_date)s
+                        AND sm.location_dest_id in %(customer_loc_ids)s
+                        AND sm.sale_line_id = sol.id
+                )
+
+            GROUP BY sol.product_id
+            ORDER BY number_so_lines DESC
+        """
+        params = {
+            "start_date": from_date,
+            "current_warehouse_id": self.warehouse_id.id,
+            "profile_id": self.id,
+            "customer_loc_ids": tuple(customer_location_ids),
+        }
+        return query, params
+
     def _get_data(self, from_date=None):
         """Get a list of statics info from the DB ordered by number of lines desc"""
         self.ensure_one()
@@ -94,47 +136,10 @@ class AbcClassificationProfile(models.Model):
         # Count the number of delivered order line by product linked to a
         # stock_move with a customer location as destination and a date later
         # than the given date
-        self.env.cr.execute(
-            """ SELECT
-                        sol.product_id product_id,
-                        COUNT(sol.id) number_so_lines
-                    FROM
-                        sale_order so
-                    JOIN
-                        sale_order_line sol ON
-                        sol.order_id = so.id
-                    JOIN
-                        abc_classification_profile_product_rel rel
-                        ON rel.product_id = sol.product_id
-                    JOIN
-                        product_product pp
-                        ON pp.id = sol.product_id
-                    WHERE sol.qty_delivered > 0
-                        AND pp.active
-                        AND rel.profile_id = %(profile_id)s
-                        AND so.warehouse_id = %(current_warehouse_id)s
-                    AND EXISTS (
-                            SELECT
-                                1
-                            FROM
-                                stock_move sm
-                            WHERE
-                                sm.date > %(start_date)s
-                                AND sm.location_dest_id in %(customer_loc_ids)s
-                                AND sm.sale_line_id = sol.id
-                        )
-
-                    GROUP BY sol.product_id
-                    ORDER BY number_so_lines DESC
-        """,
-            {
-                "start_date": from_date,
-                "current_warehouse_id": self.warehouse_id.id,
-                "profile_id": self.id,
-                "customer_loc_ids": tuple(customer_location_ids),
-            },
+        query, params = self._get_sale_stock_data_query(
+            from_date, customer_location_ids
         )
-
+        self.env.cr.execute(query, params)
         result = self.env.cr.fetchall()
 
         total = 0
