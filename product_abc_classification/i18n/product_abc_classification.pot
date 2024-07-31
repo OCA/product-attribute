@@ -24,7 +24,13 @@ msgid "% Products"
 msgstr ""
 
 #. module: product_abc_classification
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.view_product_category_form
+msgid "-> Apply to Products"
+msgstr ""
+
+#. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.view_product_category_form
 msgid "ABC Classification"
 msgstr ""
 
@@ -59,9 +65,15 @@ msgstr ""
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_abc_classification_profile
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__allowed_profile_ids
+#: model:ir.model.fields,field_description:product_abc_classification.field_product_category__abc_classification_profile_ids
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_profile_ids
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_template__abc_classification_profile_ids
 msgid "Abc Classification Profile"
+msgstr ""
+
+#. module: product_abc_classification
+#: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_profile_updatable_from_category
+msgid "Abc Classification Profile Updatable From Category"
 msgstr ""
 
 #. module: product_abc_classification
@@ -333,6 +345,11 @@ msgid "Product"
 msgstr ""
 
 #. module: product_abc_classification
+#: model:ir.model,name:product_abc_classification.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_count
 msgid "Product Count"
 msgstr ""
@@ -426,6 +443,11 @@ msgstr ""
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 #, python-format
 msgid "The sum of the products percentages of the levels should be 100."
+msgstr ""
+
+#. module: product_abc_classification
+#: model_terms:ir.ui.view,arch_db:product_abc_classification.view_product_category_form
+msgid "This will apply to all products in the category"
 msgstr ""
 
 #. module: product_abc_classification
