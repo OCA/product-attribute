@@ -23,8 +23,8 @@ msgstr "Référence interne"
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
-msgid "Product"
-msgstr "Article"
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,help:product_code_mandatory.field_product_product__default_code
@@ -33,6 +33,9 @@ msgid ""
 msgstr ""
 "Mettez '/' et sauvegardez si vous voulez qu'une nouvelle référence vous soit "
 "proposée."
+
+#~ msgid "Product"
+#~ msgstr "Article"
 
 #~ msgid "Display Name"
 #~ msgstr "Nom affiché"
