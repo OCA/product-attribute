@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [product_category_level](product_category_level/) | 16.0.1.0.0 | [![PierrickBrun](https://github.com/PierrickBrun.png?size=30px)](https://github.com/PierrickBrun) | Add Level field on Product Categories to show the recursion level on the category
 [product_category_product_qty](product_category_product_qty/) | 16.0.1.0.0 |  | Product Category - Product Quantity
 [product_category_type](product_category_type/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add Type field on Product Categories to distinguish between parent and final categories
+[product_code_mandatory](product_code_mandatory/) | 16.0.1.0.0 |  | Set Product Internal Reference as a required field
 [product_code_mixin](product_code_mixin/) | 16.0.1.0.0 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) | Make product code available for any inherited model
 [product_code_unique](product_code_unique/) | 16.0.1.0.1 |  | Set Product Internal Reference as Unique
 [product_company_default](product_company_default/) | 16.0.1.0.0 |  | Product Company Default
