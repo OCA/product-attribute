@@ -31,7 +31,9 @@ class ProductProduct(models.Model):
             )
             product.image_ids = [(6, 0, images.ids)]
             if product.image_ids:
-                product.image_1920 = product.image_ids[0].image_main
+                product.image_1920 = (
+                    product.with_context(bin_size=False).image_ids[0].image_1920
+                )
 
     def _inverse_image_ids(self):
         for product in self:
@@ -66,7 +68,7 @@ class ProductProduct(models.Model):
                     # Leave the images for the rest of the variants
                     image.product_variant_ids = [(6, 0, variants.ids)]
             product.image_1920 = (
-                False if len(product.image_ids) < 1 else product.image_ids[0].image_main
+                False if len(product.image_ids) < 1 else product.image_ids[0].image_1920
             )
 
     def unlink(self):
