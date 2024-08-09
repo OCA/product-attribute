@@ -54,9 +54,8 @@ class TestProductMultiImage(common.TransactionCase):
                         0,
                         0,
                         {
-                            "storage": "db",
                             "name": "Image 1",
-                            "file_db_store": self.transparent_image,
+                            "image_1920": self.transparent_image,
                             "owner_model": "product.template",
                         },
                     ),
@@ -64,9 +63,8 @@ class TestProductMultiImage(common.TransactionCase):
                         0,
                         0,
                         {
-                            "storage": "db",
                             "name": "Image 2",
-                            "file_db_store": self.black_image,
+                            "image_1920": self.black_image,
                             "owner_model": "product.template",
                         },
                     ),
@@ -92,7 +90,11 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_add_image_variant(self):
         self.product_1.image_ids = [
-            (0, 0, {"storage": "db", "file_db_store": self.grey_image})
+            (
+                0,
+                0,
+                {"image_1920": self.grey_image},
+            )
         ]
         self.product_template.refresh()
         self.assertEqual(len(self.product_template.image_ids), 3)
@@ -132,9 +134,8 @@ class TestProductMultiImage(common.TransactionCase):
                         0,
                         0,
                         {
-                            "storage": "db",
                             "name": "Image 1",
-                            "file_db_store": self.transparent_image,
+                            "image_1920": self.transparent_image,
                             "owner_model": "product.template",
                         },
                     )
