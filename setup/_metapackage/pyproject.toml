@@ -1,11 +1,12 @@
 [project]
 name = "odoo-addons-oca-product-attribute"
-version = "17.0.20240804.0"
+version = "17.0.20240809.0"
 dependencies = [
     "odoo-addon-product_code_mandatory>=17.0dev,<17.1dev",
     "odoo-addon-product_code_unique>=17.0dev,<17.1dev",
     "odoo-addon-product_dimension>=17.0dev,<17.1dev",
     "odoo-addon-product_logistics_uom>=17.0dev,<17.1dev",
+    "odoo-addon-product_packaging_dimension>=17.0dev,<17.1dev",
     "odoo-addon-product_pricelist_supplierinfo>=17.0dev,<17.1dev",
     "odoo-addon-product_secondary_unit>=17.0dev,<17.1dev",
     "odoo-addon-product_sequence>=17.0dev,<17.1dev",
