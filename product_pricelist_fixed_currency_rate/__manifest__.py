@@ -4,11 +4,11 @@
 {
     "name": "Product Pricelist Fixed Currency Rate",
     "summary": "Set a fixed currency rate between pricelists",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
-    "maintainers": ["LoisRForgeFlow"],
+    "maintainers": ["LoisRForgeFlow", "kobros-tech"],
     "license": "AGPL-3",
     "application": False,
     "installable": True,
