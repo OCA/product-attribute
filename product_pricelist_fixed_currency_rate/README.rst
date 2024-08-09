@@ -17,19 +17,20 @@ Product Pricelist Fixed Currency Rate
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_fixed_currency_rate
+    :target: https://github.com/OCA/product-attribute/tree/17.0/product_pricelist_fixed_currency_rate
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_pricelist_fixed_currency_rate
+    :target: https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_pricelist_fixed_currency_rate
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the product pricelists feature to allow to set a fixed
-currency rate to convert from a pricelist with a different currency.
+This module extends the product pricelists feature to allow to set a
+fixed currency rate to convert from a pricelist with a different
+currency.
 
 **Table of contents**
 
@@ -41,10 +42,10 @@ Usage
 
 When using advanced price rules:
 
-#. Go to a pricelist and create a pricelist with a given currency.
-#. Create a new pricelist rule with computation formula.
-#. Make it based on other pricelist that uses a different currency.
-#. *Fixed Currency Rate* will show up, set a value.
+1. Go to a pricelist and create a pricelist with a given currency.
+2. Create a new pricelist rule with computation formula.
+3. Make it based on other pricelist that uses a different currency.
+4. *Fixed Currency Rate* will show up, set a value.
 
 This will force the currency conversion to always use the specified
 *Fixed Currency Rate* rate when using this pricelist.
@@ -55,7 +56,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_fixed_currency_rate%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_fixed_currency_rate%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -63,17 +64,18 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * ForgeFlow
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Lois Rilo <lois.rilo@forgeflow.com>
+-  Lois Rilo <lois.rilo@forgeflow.com>
+-  Mohamed Alkobrosli <mohamed@kobros-tech.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -88,11 +90,14 @@ promote its widespread use.
 .. |maintainer-LoisRForgeFlow| image:: https://github.com/LoisRForgeFlow.png?size=40px
     :target: https://github.com/LoisRForgeFlow
     :alt: LoisRForgeFlow
+.. |maintainer-kobros-tech| image:: https://github.com/kobros-tech.png?size=40px
+    :target: https://github.com/kobros-tech
+    :alt: kobros-tech
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-LoisRForgeFlow| 
+|maintainer-LoisRForgeFlow| |maintainer-kobros-tech| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_fixed_currency_rate>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_pricelist_fixed_currency_rate>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
