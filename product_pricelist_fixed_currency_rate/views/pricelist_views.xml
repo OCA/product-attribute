@@ -13,36 +13,30 @@
                 <field
                     name="currency_rate_tooltip"
                     nolabel="1"
-                    attrs="{
-                    'invisible': [('is_fixed_currency_rate_applicable', '=', False)]}"
+                    invisible="is_fixed_currency_rate_applicable == False"
                 />
                 <button
                     icon="fa-exchange"
                     type="object"
                     name="toggle_do_inverse_currency_rate"
                     class="oe_inline"
-                    attrs="{
-                    'invisible': [('is_fixed_currency_rate_applicable', '=', False)]}"
+                    invisible="is_fixed_currency_rate_applicable == False"
                 >Inverse</button>
                 <field
                     name="actual_currency_rate"
-                    attrs="{
-                    'invisible': ['|', ('is_fixed_currency_rate_applicable', '=', False), ('do_inverse_currency_rate', '=', True)]}"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == True"
                 />
                 <field
                     name="inverse_actual_currency_rate"
-                    attrs="{
-                    'invisible': ['|', ('is_fixed_currency_rate_applicable', '=', False), ('do_inverse_currency_rate', '=', False)]}"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == False"
                 />
                 <field
                     name="fixed_currency_rate"
-                    attrs="{
-                    'invisible': ['|', ('is_fixed_currency_rate_applicable', '=', False), ('do_inverse_currency_rate', '=', True)]}"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == True"
                 />
                 <field
                     name="inverse_fixed_currency_rate"
-                    attrs="{
-                    'invisible': ['|', ('is_fixed_currency_rate_applicable', '=', False), ('do_inverse_currency_rate', '=', False)]}"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == False"
                 />
             </field>
         </field>

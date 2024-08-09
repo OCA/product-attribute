@@ -137,3 +137,54 @@ class TestProductPricelistFixedCurrencyRate(common.TransactionCase):
         item = self.pricelist_usd_fixed_rate.item_ids
         self.assertTrue(item.is_fixed_currency_rate_applicable)
         self.assertEqual(item.actual_currency_rate, 1.5)
+
+    def test_03_currency_rate_tooltip(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+
+        # Case 1
+        item.do_inverse_currency_rate = True
+        curr_from = item.pricelist_id.currency_id
+        curr_to = item.base_pricelist_id.currency_id
+        currency_rate_tooltip = f"({curr_from.name} to {curr_to.name} rates)"
+        self.assertEqual(item.currency_rate_tooltip, currency_rate_tooltip)
+
+        # Case 2
+        item.do_inverse_currency_rate = False
+        curr_from = item.base_pricelist_id.currency_id
+        curr_to = item.pricelist_id.currency_id
+        currency_rate_tooltip = f"({curr_from.name} to {curr_to.name} rates)"
+        self.assertEqual(item.currency_rate_tooltip, currency_rate_tooltip)
+
+    def test_04_inverse_fixed_currency_rate(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+        inverse_fixed_currency_rate = (
+            1 / item.fixed_currency_rate if item.fixed_currency_rate else 0.0
+        )
+        self.assertEqual(item.inverse_fixed_currency_rate, inverse_fixed_currency_rate)
+
+    def test_05_fixed_currency_rate(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+
+        # Case 1
+        item.fixed_currency_rate = 0.5
+        fixed_currency_rate = (
+            1 / item.inverse_fixed_currency_rate
+            if item.inverse_fixed_currency_rate
+            else 0.0
+        )
+        self.assertEqual(item.fixed_currency_rate, fixed_currency_rate)
+
+        # Case 2
+        item.fixed_currency_rate = 1
+        fixed_currency_rate = (
+            1 / item.inverse_fixed_currency_rate
+            if item.inverse_fixed_currency_rate
+            else 0.0
+        )
+        self.assertEqual(item.fixed_currency_rate, fixed_currency_rate)
+
+    def test_06_do_inverse_currency_rate(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+        do_inverse_currency_rate = not item.do_inverse_currency_rate
+        item.toggle_do_inverse_currency_rate()
+        self.assertEqual(item.do_inverse_currency_rate, do_inverse_currency_rate)
