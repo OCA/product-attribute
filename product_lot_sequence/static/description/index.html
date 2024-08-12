@@ -8,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -274,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -300,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -368,8 +369,9 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:c7d3bbb8df78fdcebb50d639bc04f7e6672298712d63116547a9bd08dcfff441
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/16.0/product_lot_sequence"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_lot_sequence"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>Adds ability to define a lot sequence from the product which will be proposed upon creating new lots.</p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/17.0/product_lot_sequence"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_lot_sequence"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>Adds ability to define a lot sequence from the product which will be
+proposed upon creating new lots.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -393,23 +395,26 @@ ul.auto-toc {
 <h1><a class="toc-backref" href="#toc-entry-1">Configuration</a></h1>
 <div class="section" id="lot-sequence-policy">
 <h2><a class="toc-backref" href="#toc-entry-2">Lot Sequence policy</a></h2>
-<p>There are two ways you can configure this module through the use of System Parameter
-<cite>product_lot_sequence.policy</cite>:</p>
+<p>There are two ways you can configure this module through the use of
+System Parameter `product_lot_sequence.policy`:</p>
 <ul class="simple">
-<li>“product”: This is the default behaviour once you install this module. It’s the
-same than in previous Odoo versions with this module installed, i.e. it allows
-to define a dedicated sequence on each product.</li>
-<li>“global”: This was the default behaviour from previous Odoo versions when this
-module was not installed, i.e it will always use the same global sequence for every product.</li>
+<li>“product”: This is the default behaviour once you install this
+module. It’s the same than in previous Odoo versions with this module
+installed, i.e. it allows to define a dedicated sequence on each
+product.</li>
+<li>“global”: This was the default behaviour from previous Odoo versions
+when this module was not installed, i.e it will always use the same
+global sequence for every product.</li>
 </ul>
-<p>If any other value is used for this System Parameter, then you will get the default
-behaviour from odoo 15.0 which will look for the last lot number for each product and
-will increment it.</p>
+<p>If any other value is used for this System Parameter, then you will get
+the default behaviour from odoo 15.0 which will look for the last lot
+number for each product and will increment it.</p>
 </div>
 <div class="section" id="default-number-of-digits-for-product-sequence-generation">
 <h2><a class="toc-backref" href="#toc-entry-3">Default Number of Digits for Product Sequence Generation</a></h2>
-<p>The default is 7 digits.  To change that to something else, go to the inventory
-configuration, find “Sequence Number of Digits” and change the number.</p>
+<p>The default is 7 digits. To change that to something else, go to the
+inventory configuration, find “Sequence Number of Digits” and change the
+number.</p>
 </div>
 </div>
 <div class="section" id="usage">
@@ -417,25 +422,29 @@ configuration, find “Sequence Number of Digits” and change the number.</p>
 <p>To use this module:</p>
 <ul class="simple">
 <li>Go to Inventory &gt; Products</li>
-<li>Under the inventory tab when tracking set to lots 4 new fields will be displayed</li>
-<li>If a sequence is not selected, a new one using the prefix, padding and next number fields, will be created</li>
+<li>Under the inventory tab when tracking set to lots 4 new fields will
+be displayed</li>
+<li>If a sequence is not selected, a new one using the prefix, padding
+and next number fields, will be created</li>
 <li>Go to Inventory &gt; Lot/Serial Numbers</li>
 <li>Create new Lot/Serial number</li>
-<li>Select the product and the next number of the product sequence will be automatically proposed</li>
+<li>Select the product and the next number of the product sequence will
+be automatically proposed</li>
 </ul>
 </div>
 <div class="section" id="known-issues-roadmap">
 <h1><a class="toc-backref" href="#toc-entry-5">Known issues / Roadmap</a></h1>
 <ul class="simple">
-<li>There is an issue with the use of ir.sequence with the newer version of Odoo.</li>
+<li>There is an issue with the use of ir.sequence with the newer version
+of Odoo.</li>
 </ul>
-<p>Mostly, when opening the detailed operations of an assigned picking for a product
-tracked by serial numbers, Odoo systematically calls <cite>_get_next_serial</cite> even
-if there is not any serial number to generate.
-Moreover, the widget allowing to generate the serial numbers will not call
-the sequence but only increment the number according to the next serial,
-potentially leading to a sequence that is not in sync anymore with the created
-serial numbers.</p>
+<p>Mostly, when opening the detailed operations of an assigned picking for
+a product tracked by serial numbers, Odoo systematically calls
+_get_next_serial even if there is not any serial number to generate.
+Moreover, the widget allowing to generate the serial numbers will not
+call the sequence but only increment the number according to the next
+serial, potentially leading to a sequence that is not in sync anymore
+with the created serial numbers.</p>
 <p>cf <a class="reference external" href="https://github.com/OCA/product-attribute/issues/1326">https://github.com/OCA/product-attribute/issues/1326</a></p>
 </div>
 <div class="section" id="bug-tracker">
@@ -443,7 +452,7 @@ serial numbers.</p>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_lot_sequence%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_lot_sequence%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -473,11 +482,13 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-10">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/16.0/product_lot_sequence">OCA/product-attribute</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/17.0/product_lot_sequence">OCA/product-attribute</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>

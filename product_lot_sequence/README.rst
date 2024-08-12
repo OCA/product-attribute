@@ -17,18 +17,19 @@ Product Lot Sequence
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_lot_sequence
+    :target: https://github.com/OCA/product-attribute/tree/17.0/product_lot_sequence
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_lot_sequence
+    :target: https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_lot_sequence
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Adds ability to define a lot sequence from the product which will be proposed upon creating new lots.
+Adds ability to define a lot sequence from the product which will be
+proposed upon creating new lots.
 
 **Table of contents**
 
@@ -39,52 +40,58 @@ Configuration
 =============
 
 Lot Sequence policy
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
-There are two ways you can configure this module through the use of System Parameter
-`product_lot_sequence.policy`:
+There are two ways you can configure this module through the use of
+System Parameter \`product_lot_sequence.policy\`:
 
-- "product": This is the default behaviour once you install this module. It's the
-  same than in previous Odoo versions with this module installed, i.e. it allows
-  to define a dedicated sequence on each product.
+-  "product": This is the default behaviour once you install this
+   module. It's the same than in previous Odoo versions with this module
+   installed, i.e. it allows to define a dedicated sequence on each
+   product.
+-  "global": This was the default behaviour from previous Odoo versions
+   when this module was not installed, i.e it will always use the same
+   global sequence for every product.
 
-- "global": This was the default behaviour from previous Odoo versions when this
-  module was not installed, i.e it will always use the same global sequence for every product.
-
-If any other value is used for this System Parameter, then you will get the default
-behaviour from odoo 15.0 which will look for the last lot number for each product and
-will increment it.
+If any other value is used for this System Parameter, then you will get
+the default behaviour from odoo 15.0 which will look for the last lot
+number for each product and will increment it.
 
 Default Number of Digits for Product Sequence Generation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------
 
-The default is 7 digits.  To change that to something else, go to the inventory
-configuration, find "Sequence Number of Digits" and change the number.
+The default is 7 digits. To change that to something else, go to the
+inventory configuration, find "Sequence Number of Digits" and change the
+number.
 
 Usage
 =====
 
 To use this module:
 
-* Go to Inventory > Products
-* Under the inventory tab when tracking set to lots 4 new fields will be displayed
-* If a sequence is not selected, a new one using the prefix, padding and next number fields, will be created
-* Go to Inventory > Lot/Serial Numbers
-* Create new Lot/Serial number
-* Select the product and the next number of the product sequence will be automatically proposed
+-  Go to Inventory > Products
+-  Under the inventory tab when tracking set to lots 4 new fields will
+   be displayed
+-  If a sequence is not selected, a new one using the prefix, padding
+   and next number fields, will be created
+-  Go to Inventory > Lot/Serial Numbers
+-  Create new Lot/Serial number
+-  Select the product and the next number of the product sequence will
+   be automatically proposed
 
 Known issues / Roadmap
 ======================
 
-* There is an issue with the use of ir.sequence with the newer version of Odoo.
+-  There is an issue with the use of ir.sequence with the newer version
+   of Odoo.
 
-Mostly, when opening the detailed operations of an assigned picking for a product
-tracked by serial numbers, Odoo systematically calls `_get_next_serial` even
-if there is not any serial number to generate.
-Moreover, the widget allowing to generate the serial numbers will not call
-the sequence but only increment the number according to the next serial,
-potentially leading to a sequence that is not in sync anymore with the created
-serial numbers.
+Mostly, when opening the detailed operations of an assigned picking for
+a product tracked by serial numbers, Odoo systematically calls
+\_get_next_serial even if there is not any serial number to generate.
+Moreover, the widget allowing to generate the serial numbers will not
+call the sequence but only increment the number according to the next
+serial, potentially leading to a sequence that is not in sync anymore
+with the created serial numbers.
 
 cf https://github.com/OCA/product-attribute/issues/1326
 
@@ -94,7 +101,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_lot_sequence%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_lot_sequence%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -102,27 +109,26 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * ForgeFlow S.L.
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Adria Gil Sorribes <adria.gil@forgeflow.com>
-* Domantas Girdžiūnas <domantas@vialaurea.lt>
+-  Adria Gil Sorribes <adria.gil@forgeflow.com>
+-  Domantas Girdžiūnas <domantas@vialaurea.lt>
+-  `Camptocamp <https://www.camptocamp.com>`__:
 
-* `Camptocamp <https://www.camptocamp.com>`__:
+   -  Akim Juillerat <akim.juillerat@camptocamp.com>
+   -  Vincent Van Rossem <vincent.vanrossem@camptocamp.com>
 
-  * Akim Juillerat <akim.juillerat@camptocamp.com>
-  * Vincent Van Rossem <vincent.vanrossem@camptocamp.com>
+-  `Quartile <https://www.quartile.co>`__:
 
-* `Quartile <https://www.quartile.co>`__:
-
-  * Yoshi Tashiro
+   -  Yoshi Tashiro
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -134,6 +140,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_lot_sequence>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_lot_sequence>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
