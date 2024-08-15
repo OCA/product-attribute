@@ -5,7 +5,7 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
-            <xpath expr="//button[hasclass('oe_stat_button')]" position="before">
+            <button name="open_pricelist_rules" position="before">
                 <button
                     class="oe_stat_button"
                     name="action_open_product_template"
@@ -18,7 +18,7 @@
                         </span>
                    </div>
                 </button>
-            </xpath>
+            </button>
         </field>
     </record>
 </odoo>
