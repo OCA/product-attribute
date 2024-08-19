@@ -50,6 +50,7 @@ setuptools.setup(
         'odoo13-addon-product_pricelist_simulation',
         'odoo13-addon-product_pricelist_supplierinfo',
         'odoo13-addon-product_product_template_navigation',
+        'odoo13-addon-product_readonly_security',
         'odoo13-addon-product_restricted_type',
         'odoo13-addon-product_secondary_unit',
         'odoo13-addon-product_sequence',
