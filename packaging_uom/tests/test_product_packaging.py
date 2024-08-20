@@ -1,15 +1,16 @@
 # Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-import odoo.tests.common as common
 from odoo.exceptions import ValidationError
+from odoo.tests.common import TransactionCase
 
 
-class TestProductPackaging(common.SavepointCase):
+class TestProductPackaging(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestProductPackaging, cls).setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.packaging_obj = cls.env["product.packaging"]
+        cls.uom_obj = cls.env["uom.uom"]
         cls.uom_unit = cls.env.ref("uom.product_uom_unit")
         cls.uom_dozen = cls.env.ref("uom.product_uom_dozen")
         cls.product_dozen = cls.env["product.product"].create(
@@ -77,7 +78,7 @@ class TestProductPackaging(common.SavepointCase):
         self.assertAlmostEqual(product_packaging_dozen.qty, 0.5)
         product_packaging_unit.uom_id = product_uom_24
         self.assertAlmostEqual(product_packaging_unit.qty, 24)
-        product_uom_6 = self.env["uom.uom"].create(
+        product_uom_6 = self.uom_obj.create(
             {
                 "category_id": self.env.ref("uom.product_uom_categ_unit").id,
                 "name": "Demi Dozens",
@@ -93,11 +94,12 @@ class TestProductPackaging(common.SavepointCase):
         product_packaging_dozen.qty = 1
         self.assertEqual(self.uom_unit, product_packaging_dozen.uom_id)
         # Try to set null on uom
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(ValidationError) as ex:
             product_packaging_dozen.uom_id = None
+        self.assertIn("The field Unit of Measure is required", ex.exception.args[0])
 
         # Define a new packaging unit
-        uom_524 = self.env["uom.uom"].search(
+        uom_524 = self.uom_obj.search(
             [
                 (
                     "category_id",
@@ -117,7 +119,7 @@ class TestProductPackaging(common.SavepointCase):
         )
         self.assertEqual(0, len(uom_524))
         product_packaging_dozen.qty = 524
-        uom_524 = self.env["uom.uom"].search(
+        uom_524 = self.uom_obj.search(
             [
                 (
                     "category_id",
@@ -147,4 +149,4 @@ class TestProductPackaging(common.SavepointCase):
             {"name": "PACKAGING TEST", "product_id": self.product_dozen.id}
         )
         product_packaging_dozen.qty = 0.0
-        self.assertEquals(self.uom_unit, product_packaging_dozen.uom_id)
+        self.assertEqual(self.uom_unit, product_packaging_dozen.uom_id)

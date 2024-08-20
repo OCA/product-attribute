@@ -7,22 +7,6 @@ from odoo.exceptions import ValidationError
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
 
-    @api.model
-    def _default_uom_categ_domain_id(self):
-        """
-        Taking value from context depending from which form it was called
-        :return:
-        """
-        product_id = self.env.context.get("default_product_id")
-        categ_id = self.env.context.get("get_uom_categ_from_uom")
-        if not product_id and not categ_id:
-            return self.env["uom.category"]
-        if categ_id:
-            uom = self.env["uom.uom"].browse(categ_id)
-        if product_id:
-            uom = self.env["product.product"].browse(product_id).uom_id
-        return uom.category_id.id
-
     uom_id = fields.Many2one(
         "uom.uom",
         "Packaging Unit of Measure",
@@ -34,8 +18,16 @@ class ProductPackaging(models.Model):
         comodel_name="uom.category",
     )
     qty = fields.Float(
-        compute="_compute_qty", inverse="_inverse_qty", store=True, readonly=False
+        compute="_compute_qty",
+        inverse="_inverse_qty",
+        store=True,
+        readonly=False,
+        default=None,
     )
+
+    _sql_constraints = [
+        ("positive_qty", "CHECK(qty >= 0)", "Contained Quantity should be positive."),
+    ]
 
     @api.depends("uom_id", "product_id", "product_id.uom_id")
     def _compute_qty(self):
@@ -53,6 +45,22 @@ class ProductPackaging(models.Model):
     @api.onchange("product_id")
     def onchange_product_id(self):
         self.uom_categ_domain_id = self.product_id.uom_id.category_id.id
+
+    @api.model
+    def _default_uom_categ_domain_id(self):
+        """
+        Taking value from context depending from which form it was called
+        :return:
+        """
+        product_id = self.env.context.get("default_product_id")
+        categ_id = self.env.context.get("get_uom_categ_from_uom")
+        if not product_id and not categ_id:
+            return self.env["uom.category"]
+        if categ_id:
+            uom = self.env["uom.uom"].browse(categ_id)
+        if product_id:
+            uom = self.env["product.product"].browse(product_id).uom_id
+        return uom.category_id.id
 
     def _inverse_qty(self):
         """
