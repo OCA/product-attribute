@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2017 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
@@ -15,7 +15,7 @@
                             type="action"
                             class="oe_stat_button"
                             icon="fa-tags"
-                            context="{'search_default_tag_ids': active_id}"
+                            context="{'search_default_tag_ids': id}"
                         >
                             <field
                                 name="products_count"
@@ -39,7 +39,7 @@
                         <group>
                             <field
                                 name="company_id"
-                                option="{no_create_edit: True}"
+                                options="{'no_create_edit': True}"
                                 groups="base.group_multi_company"
                             />
                         </group>
