@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-03-04 10:39+0000\n"
+"PO-Revision-Date: 2024-08-22 10:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,13 +14,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: product_supplierinfo_stock_picking_type
 #: model:ir.model.fields,field_description:product_supplierinfo_stock_picking_type.field_product_customerinfo__picking_type_id
 #: model:ir.model.fields,field_description:product_supplierinfo_stock_picking_type.field_product_supplierinfo__picking_type_id
 msgid "Picking Type"
-msgstr "Tipologia prelievo"
+msgstr "Tipo prelievo"
 
 #. module: product_supplierinfo_stock_picking_type
 #: model:ir.model,name:product_supplierinfo_stock_picking_type.model_product_product
