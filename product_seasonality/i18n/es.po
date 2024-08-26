@@ -1,0 +1,226 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_seasonality
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-01-15 14:33+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_seasonality
+#: model:ir.model,name:product_seasonality.model_res_company
+msgid "Companies"
+msgstr "Compañía"
+
+#. module: product_seasonality
+#: model:ir.model,name:product_seasonality.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__create_uid
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__create_uid
+msgid "Created by"
+msgstr "Creado Por"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__create_date
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__date_end
+msgid "Date End"
+msgstr "Fecha Fin"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__date_start
+msgid "Date Start"
+msgstr "Fecha Inicio"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_res_company__default_seasonal_config_id
+msgid "Default product seasonal configuration"
+msgstr "Configuración estacional del producto por defecto"
+
+#. module: product_seasonality
+#: code:addons/product_seasonality/models/res_company.py:0
+#, python-format
+msgid ""
+"Default product seasonal configuration is required: you can't remove it."
+msgstr ""
+"La configuración estacional del producto por defecto es obligatoria: no se "
+"puede eliminar."
+
+#. module: product_seasonality
+#: code:addons/product_seasonality/models/res_company.py:0
+#, python-format
+msgid "Default product seasonal configuration: %s"
+msgstr "Configuración estacional del producto por defecto: %s"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_seasonality.field_res_partner__display_name
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__display_name
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__friday
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_res_company__id
+#: model:ir.model.fields,field_description:product_seasonality.field_res_partner__id
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__id
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_seasonality.field_res_partner____last_update
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config____last_update
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__write_uid
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__write_date
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__line_ids
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__monday
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_form
+msgid "Product Seasonal Line"
+msgstr "Línea de Productos de Temporada"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_tree
+msgid "Product Seasonal Lines"
+msgstr "Líneas de Productos de Temporada"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__product_template_id
+msgid "Product Template"
+msgstr "Plantilla de Producto"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.view_seasonal_config_view_form
+msgid "Product seasonal"
+msgstr "Producto de temporada"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.view_partner_form
+msgid "Product seasonal availability is managed on"
+msgstr "La disponibilidad estacional de los productos se gestiona en"
+
+#. module: product_seasonality
+#: model:ir.actions.act_window,name:product_seasonality.seasonal_config_line_act_window
+msgid "Product seasonal config line"
+msgstr "Línea de configuración estacional del producto"
+
+#. module: product_seasonality
+#: model:ir.actions.act_window,name:product_seasonality.seasonal_config_act_window
+#: model:ir.model,name:product_seasonality.model_seasonal_config
+#: model:ir.model.fields,field_description:product_seasonality.field_res_partner__seasonal_config_id
+#: model:ir.model.fields,field_description:product_seasonality.field_res_users__seasonal_config_id
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__seasonal_config_id
+msgid "Product seasonal configuration"
+msgstr "Configuración estacional del producto"
+
+#. module: product_seasonality
+#: model:ir.model,name:product_seasonality.model_seasonal_config_line
+msgid "Product seasonal configuration Line"
+msgstr "Línea de configuración estacional de producto"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_search
+msgid "Product templates"
+msgstr "Plantillas de producto"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_search
+msgid "Products"
+msgstr "Productos"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__saturday
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_line_view_search
+#: model_terms:ir.ui.view,arch_db:product_seasonality.seasonal_config_view_tree
+msgid "Seasonal products configuration"
+msgstr "Configuración de productos estacionales"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__sunday
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: product_seasonality
+#: code:addons/product_seasonality/models/seasonal_config_line.py:0
+#, python-format
+msgid "The end date cannot be earlier than the start date."
+msgstr "La fecha final no puede ser anterior a la fecha de inicio."
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__thursday
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__tuesday
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: product_seasonality
+#: model:ir.model.fields,field_description:product_seasonality.field_seasonal_config_line__wednesday
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: product_seasonality
+#: model_terms:ir.ui.view,arch_db:product_seasonality.view_partner_form
+msgid "the parent company"
+msgstr "la compañía parental"

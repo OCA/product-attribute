@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+
+            <group name="sale" position="inside">
+                <field
+                    name="seasonal_config_id"
+                    invisible="not is_company and parent_id"
+                />
+                <div colspan="2" invisible="is_company or not parent_id">
+                    <p>Product seasonal availability is managed on <button
+                            name="open_commercial_entity"
+                            type="object"
+                            string="the parent company"
+                            class="oe_link"
+                        /></p>
+                </div>
+            </group>
+
+        </field>
+    </record>
+
+</odoo>
