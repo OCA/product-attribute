@@ -76,6 +76,7 @@ addon | version | maintainers | summary
 [product_secondary_unit](product_secondary_unit/) | 16.0.1.0.3 | [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) | Set a secondary unit per product
 [product_sequence](product_sequence/) | 16.0.2.0.1 |  | Product Sequence
 [product_set](product_set/) | 16.0.3.0.0 |  | Product set
+[product_simple_seasonality](product_simple_seasonality/) | 16.0.1.0.0 | [![bealdav](https://github.com/bealdav.png?size=30px)](https://github.com/bealdav) [![kevinkhao](https://github.com/kevinkhao.png?size=30px)](https://github.com/kevinkhao) | Product seasonality
 [product_standard_price_tax_included](product_standard_price_tax_included/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Brings a Cost Price Field Tax Included on Product Model
 [product_state](product_state/) | 16.0.1.2.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_sticker](product_sticker/) | 16.0.1.0.0 | [![Shide](https://github.com/Shide.png?size=30px)](https://github.com/Shide) [![rafaelbn](https://github.com/rafaelbn.png?size=30px)](https://github.com/rafaelbn) | Product Sticker
