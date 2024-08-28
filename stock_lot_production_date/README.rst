@@ -88,6 +88,14 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
+.. |maintainer-atchuthan| image:: https://github.com/atchuthan.png?size=40px
+    :target: https://github.com/atchuthan
+    :alt: atchuthan
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-atchuthan|
+
 This module is part of the `OCA/stock-logistics-workflow <https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_lot_production_date>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
