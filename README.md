@@ -33,7 +33,7 @@ addon | version | maintainers | summary
 [product_state](product_state/) | 17.0.1.0.0 | [![emagdalenaC2i](https://github.com/emagdalenaC2i.png?size=30px)](https://github.com/emagdalenaC2i) | Module introducing a state field on product template
 [product_status](product_status/) | 17.0.1.0.0 |  | Product Status Computed From Fields
 [product_supplierinfo_archive](product_supplierinfo_archive/) | 17.0.1.0.0 | [![GuillemCForgeFlow](https://github.com/GuillemCForgeFlow.png?size=30px)](https://github.com/GuillemCForgeFlow) [![AlvaroTForgeFlow](https://github.com/AlvaroTForgeFlow.png?size=30px)](https://github.com/AlvaroTForgeFlow) [![OriolVForgeFlow](https://github.com/OriolVForgeFlow.png?size=30px)](https://github.com/OriolVForgeFlow) | Add the active field to the product supplier info
-[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 17.0.1.0.1 |  | Allows to define prices for customers in the products
+[product_supplierinfo_for_customer](product_supplierinfo_for_customer/) | 17.0.1.1.0 |  | Allows to define prices for customers in the products
 [product_supplierinfo_revision](product_supplierinfo_revision/) | 17.0.1.0.0 |  | Product Supplierinfo Revision
 [sale_product_template_tags](sale_product_template_tags/) | 17.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Show product tags menu in Sale app
 [uom_category_active](uom_category_active/) | 17.0.1.0.0 |  | Add option to archive UoM categories
