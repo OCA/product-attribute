@@ -17,12 +17,23 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__active
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 msgid "Active"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Active Products"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Archived"
 msgstr ""
 
 #. module: product_supplierinfo_for_customer
@@ -74,6 +85,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_product__customer_ids
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_template__customer_ids
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 msgid "Customer"
 msgstr "Kupec"
@@ -90,6 +102,7 @@ msgid "Customer Pricelist"
 msgstr "Partnerjeva koda proizvoda"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
@@ -97,6 +110,7 @@ msgid "Customer Product Code"
 msgstr "Partnerjeva koda proizvoda"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
@@ -150,6 +164,11 @@ msgstr ""
 #: model:ir.model.fields,help:product_supplierinfo_for_customer.field_product_customerinfo__date_end
 msgid "End date for this vendor price"
 msgstr ""
+
+#. module: product_supplierinfo_for_customer
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
+msgid "Group By"
+msgstr "Združi po"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__id
@@ -224,6 +243,7 @@ msgstr "Cenik"
 #. module: product_supplierinfo_for_customer
 #: model:ir.model,name:product_supplierinfo_for_customer.model_product_template
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_tree_view
 #, fuzzy
 msgid "Product"
@@ -323,21 +343,17 @@ msgid "Variant Customer"
 msgstr "Kupec"
 
 #. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_code
-#, fuzzy
-msgid "Vendor Product Code"
-msgstr "Partnerjeva koda proizvoda"
-
-#. module: product_supplierinfo_for_customer
-#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__product_name
-#, fuzzy
-msgid "Vendor Product Name"
-msgstr "Partnerjev naziv proizvoda"
-
-#. module: product_supplierinfo_for_customer
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Vendor Product Code"
+#~ msgstr "Partnerjeva koda proizvoda"
+
+#, fuzzy
+#~ msgid "Vendor Product Name"
+#~ msgstr "Partnerjev naziv proizvoda"
 
 #, fuzzy
 #~ msgid "Other Pricelist"
@@ -363,9 +379,6 @@ msgstr ""
 #~ "                    Kliknite za nov product.supplierinfo.\n"
 #~ "                </p>\n"
 #~ "            "
-
-#~ msgid "Group By"
-#~ msgstr "Združi po"
 
 #~ msgid "Information about a product (customer)"
 #~ msgstr "Podatki o proizvodu (kupec)"
