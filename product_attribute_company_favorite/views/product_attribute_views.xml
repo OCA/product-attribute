@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="product_attribute_view_search" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter
+                    name="is_favorite"
+                    string="Favorites"
+                    domain="[('is_favorite','=',True)]"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="attribute_tree_view" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.attribute_tree_view" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="is_favorite" widget="boolean_favorite" nolabel="1" />
+            </field>
+            <tree position="attributes">
+                <attribute name="decoration-bf">is_favorite == True</attribute>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="is_favorite" widget="boolean_favorite" />
+            </field>
+            <xpath
+                expr="//field[@name='value_ids']//field[@name='name']"
+                position="before"
+            >
+                    <field name="is_favorite" widget="boolean_favorite" nolabel="1" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product.attribute_action" model="ir.actions.act_window">
+        <field name="context">{"search_default_is_favorite":1}</field>
+    </record>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product_template_form_view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='attribute_id']" position="before">
+                    <field name="is_favorite" widget="boolean_favorite" nolabel="1" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
