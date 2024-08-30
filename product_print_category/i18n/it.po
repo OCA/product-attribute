@@ -122,14 +122,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: product_print_category
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_category____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_category_rule____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard_line____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: product_print_category
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category__write_uid
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category_rule__write_uid
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard__write_uid
@@ -332,3 +324,6 @@ msgstr "Riga procedura guidata per stampare prodotti"
 #: model_terms:ir.ui.view,arch_db:product_print_category.view_product_print_wizard_form
 msgid "⚠️ If you change Print Category here, it will be changed in the product."
 msgstr "⚠️ Se si cambia qui la categoria stampa, verrà cambiata nel prodotto."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"

@@ -122,14 +122,6 @@ msgid "ID"
 msgstr ""
 
 #. module: product_print_category
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_category____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_category_rule____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard_line____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
-
-#. module: product_print_category
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category__write_uid
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category_rule__write_uid
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard__write_uid
@@ -336,6 +328,9 @@ msgid "⚠️ If you change Print Category here, it will be changed in the produ
 msgstr ""
 "⚠️ Si vous changez une catégorie d'impression ici, elle sera changée dans la "
 "fiche article."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
 
 #~ msgid "Print Category User"
 #~ msgstr "Utilisateur·rice de catégorie d'impression"
