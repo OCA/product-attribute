@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="paper_format" model="report.paperformat">
+        <field name="name">Products Print Format</field>
+        <field name="format">A4</field>
+        <field name="dpi">96</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_right">5</field>
+        <field name="margin_left">5</field>
+        <field name="header_spacing">0</field>
+        <field name="disable_shrinking" eval="True" />
+    </record>
+
+</odoo>
