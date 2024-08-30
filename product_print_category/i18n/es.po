@@ -122,14 +122,6 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_print_category
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_category____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_category_rule____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard____last_update
-#: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard_line____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
-
-#. module: product_print_category
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category__write_uid
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_category_rule__write_uid
 #: model:ir.model.fields,field_description:product_print_category.field_product_print_wizard__write_uid
@@ -334,3 +326,6 @@ msgstr "Asistente de línea para la impresión de productos"
 msgid "⚠️ If you change Print Category here, it will be changed in the product."
 msgstr ""
 "⚠️ Si cambia la Categoría de Impresión aquí, se cambiará en el producto."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
