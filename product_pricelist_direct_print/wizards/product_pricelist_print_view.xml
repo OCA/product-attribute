@@ -13,10 +13,8 @@
                         <field
                             name="pricelist_id"
                             options="{'no_create': True, 'no_create_edit': True}"
-                            attrs="{
-                                'invisible' : [('partner_count', '!=', 0)],
-                                'required' : [('partner_count', '=', 0)],
-                            }"
+                            invisible='partner_count != 0'
+                            required='partner_count == 0'
                         />
                         <field name="date" />
                         <field name="lang" />
@@ -38,41 +36,38 @@
                         <field
                             name="categ_ids"
                             widget="many2many_tags"
-                            attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}"
+                            invisible="product_tmpl_ids or product_ids"
                         />
                         <field
                             name="print_child_categories"
-                            attrs="{'invisible':[('categ_ids','=',[])]}"
+                            invisible="not categ_ids"
                         />
                         <field name="show_only_defined_products" />
                         <field
                             name="show_variants"
-                            attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
+                            invisible='last_ordered_products != 0'
                         />
                         <field
                             name="last_ordered_products"
-                            attrs="{'invisible':[('partner_count','=',0)]}"
+                            invisible='partner_count == 0'
                         />
                     </group>
                 </group>
                 <notebook>
                     <page
                         string="Products"
-                        attrs="{'invisible':['|', '|', ('categ_ids','!=',[]), ('last_ordered_products', '!=', 0), ('context_active_model', 'in', ['product.template','product.product'])]}"
+                        invisible="categ_ids or last_ordered_products != 0 or context_active_model in ['product.template','product.product']"
                     >
                         <field
                             name="product_tmpl_ids"
                             nolabel="1"
-                            attrs="{'invisible':[('show_variants','=',True)]}"
+                            invisible='show_variants'
                         >
                             <tree>
                                 <field name="name" />
                             </tree>
                         </field>
-                        <field
-                            name="product_ids"
-                            attrs="{'invisible':[('show_variants','=',False)]}"
-                        >
+                        <field name="product_ids" invisible='not show_variants'>
                             <tree>
                                 <field name="name" />
                             </tree>
@@ -80,7 +75,7 @@
                     </page>
                     <page
                         string="Customers"
-                        attrs="{'invisible':['|', ('pricelist_id', '!=', False), ('context_active_model', '=', 'res.partner')]}"
+                        invisible="pricelist_id or context_active_model == 'res.partner'"
                     >
                         <field name="partner_ids" />
                         <field name="partner_count" invisible="1" />
@@ -95,14 +90,14 @@
                         string="Print"
                         type="object"
                         class="btn-primary"
-                        attrs="{'invisible':[('partner_count', '>', 1)]}"
+                        invisible='partner_count >  1'
                     />
                     <button
                         name="action_pricelist_send"
                         string="Send by email"
                         type="object"
                         class="btn-primary"
-                        attrs="{'invisible':[('pricelist_id','=',False), ('partner_count','=',0)]}"
+                        invisible='not pricelist_id and partner_count == 0'
                     />
                     <button string="Cancel" class="btn-default" special="cancel" />
                 </footer>
@@ -134,7 +129,7 @@
         <field name="target">new</field>
     </record>
     <record id="action_partner_pricelist_print" model="ir.actions.act_window">
-        <field name="name">Send customer pricelist by EMail</field>
+        <field name="name">Send customer pricelist by Email</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="base.model_res_partner" />
         <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />

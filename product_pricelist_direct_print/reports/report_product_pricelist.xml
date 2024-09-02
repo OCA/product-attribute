@@ -9,6 +9,12 @@
             <t t-set="company" t-value="pricelist.company_id or env.company" />
             <t t-call="web.external_layout">
                 <div class="page">
+                    <style>
+                        tr{
+                            page-break-inside: avoid;
+                            page-break-after: auto;
+                        }
+                    </style>
                     <h2>Price List</h2>
                     <div class="row mt32 mb32">
                         <div class="col-7">
