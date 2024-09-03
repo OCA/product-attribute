@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_code_regex_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_code_regex_validation
+#: model:ir.model,name:product_code_regex_validation.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_code_regex_validation
+#: model:ir.model,name:product_code_regex_validation.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_code_regex_validation
+#. odoo-python
+#: code:addons/product_code_regex_validation/models/product.py:0
+#: code:addons/product_code_regex_validation/models/product_category.py:0
+#, python-format
+msgid "Product Code %s does not match the Product Category format."
+msgstr ""
+
+#. module: product_code_regex_validation
+#: model:ir.model.fields,field_description:product_code_regex_validation.field_product_category__product_code_regex_validation
+msgid "Product Code RegEx Validation"
+msgstr ""
+
+#. module: product_code_regex_validation
+#: model:ir.model,name:product_code_regex_validation.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: product_code_regex_validation
+#. odoo-python
+#: code:addons/product_code_regex_validation/models/product_category.py:0
+#, python-format
+msgid "The following regular expression is not valid: %s"
+msgstr ""
