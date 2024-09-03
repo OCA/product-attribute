@@ -25,6 +25,7 @@ setuptools.setup(
         'odoo-addon-product_category_type>=16.0dev,<16.1dev',
         'odoo-addon-product_code_mandatory>=16.0dev,<16.1dev',
         'odoo-addon-product_code_mixin>=16.0dev,<16.1dev',
+        'odoo-addon-product_code_regex_validation>=16.0dev,<16.1dev',
         'odoo-addon-product_code_unique>=16.0dev,<16.1dev',
         'odoo-addon-product_company_default>=16.0dev,<16.1dev',
         'odoo-addon-product_cost_security>=16.0dev,<16.1dev',
