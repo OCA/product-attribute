@@ -75,7 +75,7 @@ class IrFilters(models.Model):
     def _get_eval_domain(self):
         res = super()._get_eval_domain()
 
-        if self.whitelist_product_ids:
+        if self.whitelist_product_ids and res:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
             res = expression.OR([result_domain, res])
 

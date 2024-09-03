@@ -91,7 +91,11 @@ class TestProductAssortment(TransactionCase):
         included_product = self.env.ref("product.product_product_7")
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
+        domain = res["domain"]
+        self.assertNotEqual(domain, [("id", "in", [included_product.id])])
+        self.assertIn(
+            included_product, self.env[self.assortment.model_id].search(domain)
+        )
 
     def test_record_count(self):
         products = self.product_obj.search([])
