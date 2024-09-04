@@ -43,9 +43,10 @@ class ResCountry(models.Model):
 
     def action_view_country_restrictions(self):
         self.ensure_one()
-        ref = "product_country_restriction." "product_country_restrictionact_window"
+        action_dict = self.env["ir.actions.act_window"]._for_xml_id(
+            "product_country_restriction.product_country_restriction_act_window"
+        )
         country_id = self.id
-        action_dict = self.env.ref(ref).read()[0]
         action_dict["domain"] = [
             "|",
             ("country_group_ids.country_ids", "in", [country_id]),
