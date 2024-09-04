@@ -43,7 +43,7 @@ class ResCountry(models.Model):
 
     def action_view_country_restrictions(self):
         self.ensure_one()
-        ref = "product_country_restriction." "product_country_restrictionact_window"
+        ref = "product_country_restriction." "product_country_restriction_act_window"
         country_id = self.id
         action_dict = self.env.ref(ref).read()[0]
         action_dict["domain"] = [
