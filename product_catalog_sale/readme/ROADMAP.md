@@ -1,0 +1,1 @@
+- This is a backport of a core 17.0 feature so this module's lifespan is limited to v16
