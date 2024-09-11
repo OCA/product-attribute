@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.product.normal.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <button name="open_pricelist_rules" position="before">
+                <button
+                    class="oe_stat_button"
+                    name="action_open_product_template"
+                    icon="fa-sitemap"
+                    type="object"
+                >
+                   <div class="o_field_widget">
+                        <span>
+                            View Template
+                        </span>
+                   </div>
+                </button>
+            </button>
+        </field>
+    </record>
+</odoo>
