@@ -29,8 +29,7 @@ class ProductTemplateTag(models.Model):
         string="Company",
         default=lambda self: self.env.company,
     )
-    parent_id = fields.Many2one(
-        "product.template.tag", index=True, ondelete="cascade")
+    parent_id = fields.Many2one("product.template.tag", index=True, ondelete="cascade")
     child_ids = fields.One2many("product.template.tag", "parent_id")
     parent_path = fields.Char(index=True, unaccent=False)
 
@@ -69,12 +68,9 @@ class ProductTemplateTag(models.Model):
         return res
 
     @api.model
-    def _name_search(
-        self, name="", args=None, operator="ilike", limit=100, order=None
-    ):
+    def _name_search(self, name="", args=None, operator="ilike", limit=100, order=None):
         if name:
-            args = [("name", operator, name.split(" / ")[-1])] + \
-                list(args or [])
+            args = [("name", operator, name.split(" / ")[-1])] + list(args or [])
         return super()._name_search(
             name=name,
             operator=operator,
