@@ -1,1 +1,2 @@
 odoo_test_helper
+odoo-addon-stock_route_mto @ git+https://github.com/OCA/stock-logistics-warehouse.git@refs/pull/2062/head#subdirectory=stock_route_mto
