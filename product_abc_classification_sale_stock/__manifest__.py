@@ -6,7 +6,7 @@
     "summary": """
         Compute ABC classification from the number of delivered sale order
         line by product""",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
     "maintainers": ["rousseldenis", "lmignon", "lmarion-source"],
