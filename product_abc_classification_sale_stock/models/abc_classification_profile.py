@@ -59,15 +59,15 @@ class AbcClassificationProfile(models.Model):
         self.env.cr.execute(
             """
             SELECT
-                product_id
+                abc_rel.product_id
             FROM
-                abc_classification_profile_product_rel
+                abc_classification_profile_product_rel abc_rel
             JOIN
                 product_product pp
-                ON pp.id = product_id
+                ON pp.id = abc_rel.product_id
             WHERE
                 pp.active
-                AND profile_id = %(profile_id)s
+                AND abc_rel.profile_id = %(profile_id)s
         """,
             {"profile_id": self.id},
         )
