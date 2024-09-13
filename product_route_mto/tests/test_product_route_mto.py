@@ -1,10 +1,10 @@
 # Copyright 2022 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 
 
-class TestProductRouteMto(TransactionCase):
+class TestProductRouteMto(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
