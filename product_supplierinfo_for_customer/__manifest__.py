@@ -12,6 +12,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "category": "Sales Management",
     "license": "AGPL-3",
+    "maintainers": ["luisg123v"],
     "depends": ["product"],
     "data": [
         "security/ir.model.access.csv",
