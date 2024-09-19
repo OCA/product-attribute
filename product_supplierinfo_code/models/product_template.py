@@ -5,7 +5,6 @@ from odoo.fields import first
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     supplier_product_code = fields.Char(
