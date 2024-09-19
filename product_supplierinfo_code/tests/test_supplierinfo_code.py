@@ -1,9 +1,9 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestSupplierinfoCode(SavepointCase):
+class TestSupplierinfoCode(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -19,7 +19,7 @@ class TestSupplierinfoCode(SavepointCase):
         # Set sequence on supplierinfos
         cls.product.seller_ids.write({"sequence": 10})
         cls.product_supplierinfo.sequence = 1
-        cls.product.invalidate_cache()
+        cls.product._invalidate_cache()
 
     def test_supplierinfo_code(self):
         """
