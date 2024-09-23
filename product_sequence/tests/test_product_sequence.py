@@ -136,3 +136,22 @@ class TestProductSequence(TransactionCase):
             {"default_code": "product test sequence"}
         )
         self.assertEqual(copy_product_2.default_code, "product test sequence")
+
+    def test_apply_new_ref(self):
+        product = self.product_product.create(
+            dict(
+                name="Apple",
+            )
+        )
+        categ_grocery = self.product_category.create(
+            dict(
+                name="Grocery",
+                code_prefix="GRO/",
+            )
+        )
+        product.categ_id = categ_grocery
+        product.product_tmpl_id.action_apply_new_code()
+        self.assertEqual(product.default_code, "GRO/00001")
+        # try to generate new ref without changing the category
+        product.product_tmpl_id.action_apply_new_code()
+        self.assertEqual(product.default_code, "GRO/00001")

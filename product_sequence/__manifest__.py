@@ -11,11 +11,15 @@
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
-    "depends": ["product"],
+    "depends": [
+        "product",
+        "stock",
+    ],
     "data": [
         "data/product_sequence.xml",
         "views/product_category.xml",
         "views/res_config_settings_views.xml",
+        "views/product_template_views.xml",
     ],
     "pre_init_hook": "pre_init_hook",
     "installable": True,
