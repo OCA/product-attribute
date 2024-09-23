@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProductAttribute(models.Model):
@@ -12,18 +12,43 @@ class ProductAttribute(models.Model):
     )
     display_attribute_name = fields.Boolean(
         "Display Attribute Name/Short Name on Product Variant",
+        default=lambda x: x._get_display_attribute_name_from_ir_config_parameter(),
         help="If checked, it will display the variant attribute name before its value.",
     )
 
     display_no_variant_attribute = fields.Boolean(
         "Display No Variant Attributes on Product Variant",
+        default=lambda x: x._get_display_no_variant_attribute_from_ir_config_parameter(),
         help="If checked, it will display the no variant attribute.",
     )
 
     display_single_variant_attribute = fields.Boolean(
         "Display Single Variant Attributes on Product Variant",
+        default=lambda x: x._get_display_single_variant_attribute_from_ir_config_parameter(),
         help="If checked, it will display the single variant attribute.",
     )
+
+    @api.model
+    def _get_display_attribute_name_from_ir_config_parameter(self):
+        return (
+            self.env["ir.config_parameter"].sudo().get_param("display_attribute_name")
+        )
+
+    @api.model
+    def _get_display_no_variant_attribute_from_ir_config_parameter(self):
+        return (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("display_no_variant_attribute")
+        )
+
+    @api.model
+    def _get_display_single_variant_attribute_from_ir_config_parameter(self):
+        return (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("display_single_variant_attribute")
+        )
 
 
 class ProductTemplateAttributeLine(models.Model):
