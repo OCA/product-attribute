@@ -39,6 +39,7 @@ setuptools.setup(
         'odoo-addon-product_pricelist_direct_print>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_direct_print_company_group>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_direct_print_website_sale>=15.0dev,<15.1dev',
+        'odoo-addon-product_pricelist_item_list_view>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_revision>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_simulation>=15.0dev,<15.1dev',
         'odoo-addon-product_pricelist_supplierinfo>=15.0dev,<15.1dev',
