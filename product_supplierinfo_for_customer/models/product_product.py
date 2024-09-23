@@ -16,9 +16,7 @@ class ProductProduct(models.Model):
         )._compute_display_name()
 
     @api.model
-    def _name_search(
-        self, name="", domain=None, operator="ilike", limit=100, order=None
-    ):
+    def _name_search(self, name, domain=None, operator="ilike", limit=None, order=None):
         res = super()._name_search(
             name, domain=domain, operator=operator, limit=limit, order=order
         )
