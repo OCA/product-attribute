@@ -1,1 +1,2 @@
 odoo-test-helper
+odoo-addon-base_video_link @ git+https://github.com/OCA/server-tools.git@refs/pull/2930/head#subdirectory=setup/base_video_link
