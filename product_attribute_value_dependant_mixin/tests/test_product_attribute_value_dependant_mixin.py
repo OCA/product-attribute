@@ -37,4 +37,4 @@ class TestProductAttributeValueDependantMixin(SavepointCase, FakeModelLoader):
 
     def test_product_attribute_value_dependant_mixin(self):
         fake_model = self.product_supplierinfo_fake
-        self.assertTrue(fake_model.available_attribute_value_ids)
+        self.assertTrue(fake_model.available_attribute_value_domain)
