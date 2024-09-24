@@ -60,6 +60,17 @@ class ProductSupplierinfoGroup(models.Model):
         )
     ]
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("product_tmpl_id") and vals.get("product_id"):
+                vals["product_tmpl_id"] = (
+                    self.env["product.product"]
+                    .browse(vals["product_id"])
+                    .product_tmpl_id.id
+                )
+        return super().create(vals_list)
+
     @api.depends("product_tmpl_id")
     def _compute_has_variants(self):
         for rec in self:
