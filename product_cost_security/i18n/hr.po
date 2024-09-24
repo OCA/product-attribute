@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-09-24 14:06+0000\n"
+"Last-Translator: uvid-gordana <gordana@uvid.hr>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,17 +15,18 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
-msgstr ""
+msgstr "Trošak"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_edit_cost
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -35,16 +37,23 @@ msgid ""
 "        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
 "        Used to compute margins on sale orders."
 msgstr ""
+"U standardnoj cijeni i AVCO (prosječnoj cijeni): vrijednost proizvoda ("
+"automatski izračunata u AVCO).\n"
+"        U FIFO: vrijednost sljedeće jedinice koja će napustiti skladište ("
+"automatski izračunato).\n"
+"        Koristi se za vrednovanje proizvoda kada nabavna cijena nije poznata "
+"(npr. prilagodba inventara).\n"
+"        Koristi se za izračun marži na narudžbama."
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Varijanta proizvoda"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_cost_security_mixin
@@ -54,19 +63,19 @@ msgstr ""
 #. module: product_cost_security
 #: model:ir.module.category,name:product_cost_security.module_category
 msgid "Product costs"
-msgstr ""
+msgstr "Troškovi proizvoda"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
 msgid "Read"
-msgstr ""
+msgstr "Pročitaj"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
 msgid "User Can Update Cost"
-msgstr ""
+msgstr "Korisnik može ažurirati trošak"
 
 #. module: product_cost_security
 #. odoo-python
@@ -77,3 +86,7 @@ msgid ""
 "\n"
 "(Operation: %(operation)s)"
 msgstr ""
+"Nemate dovoljno prava za pristup poljima \"%(fields)s\" na %(document_kind)s "
+"(%(document_model)s). Molimo kontaktirajte svog administratora.\n"
+"\n"
+"(Operacija: %(operation)s)"
