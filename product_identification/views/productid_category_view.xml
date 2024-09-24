@@ -1,0 +1,48 @@
+<odoo>
+	<record id="view_product_id_category_tree" model="ir.ui.view">
+	    <field name="name">product.id.category.tree</field>
+	    <field name="model">product.product.id_category</field>
+	    <field name="arch" type="xml">
+	        <tree>
+	            <field name="name" />
+	        </tree>
+	    </field>
+	</record>
+
+	<record id="view_product_id_category_form" model="ir.ui.view">
+	    <field name="name">product.id.category.form</field>
+	    <field name="model">product.product.id_category</field>
+	    <field name="arch" type="xml">
+	        <form>
+	            <sheet>
+	                <group>
+	                	<group>
+	                    	<field name="name" />
+	                    </group>
+	                </group>
+	            </sheet>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="action_product_id_category" model="ir.actions.act_window">
+	    <field name="name">Product Identification Category</field>
+	    <field name="res_model">product.product.id_category</field>
+	    <field name="view_mode">tree,form</field>
+	    <field name="view_id" ref="view_product_id_category_tree" />
+	    <field name="help" type="html">
+	        <p class="o_view_nocontent_smiling_face">
+	            Create your first Product Identification Category
+	        </p>
+	    </field>
+	</record>
+
+
+	<menuitem
+        id="menu_product_identification_category"
+        name="Product Identification Category"
+        parent="stock.menu_product_in_config_stock"
+        action="action_product_id_category"
+    />
+
+</odoo>
