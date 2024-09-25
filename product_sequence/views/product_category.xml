@@ -1,4 +1,5 @@
 <!-- Copyright 2018 ForgeFlow S.L.
+     Copyright 2024 OERP Canada <https://www.oerp.ca>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="product_category_form_view" model="ir.ui.view">

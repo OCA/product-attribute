@@ -2,9 +2,25 @@
 # Copyright 2016 Sodexis
 # Copyright 2018 ForgeFlow S.L.
 #   (http://www.forgeflow.com)
+# Copyright 2024 OERP Canada <https://www.oerp.ca>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
+
+
+def update_null_and_slash_codes(cr):  # pragma: no cover
+    """
+    Updates existing codes matching the default '/' or
+    empty. Primarily this ensures installation does not
+    fail for demo data.
+    :param cr: database cursor
+    :return: void
+    """
+    cr.execute(
+        "UPDATE product_product "
+        "SET default_code = '!!mig!!' || id "
+        "WHERE default_code IS NULL OR default_code = '/';"
+    )
 
 
 class ProductProduct(models.Model):

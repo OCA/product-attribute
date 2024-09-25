@@ -2,12 +2,13 @@
 # Copyright 2016 Sodexis
 # Copyright 2018 ForgeFlow S.L.
 #   (http://www.forgeflow.com)
+# Copyright 2024 OERP Canada <https://www.oerp.ca>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     "name": "Product Sequence",
     "version": "17.0.1.0.0",
-    "author": "Zikzakmedia SL, Sodexis, Odoo Community Association (OCA)",
+    "author": "Zikzakmedia SL, Sodexis, OERP Canada, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",

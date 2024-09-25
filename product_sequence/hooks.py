@@ -1,5 +1,6 @@
 # Copyright 2004 Tiny SPRL
 # Copyright 2016 Sodexis
+# Copyright 2024 OERP Canada <https://www.oerp.ca>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
