@@ -1,8 +1,8 @@
 from odoo import fields, models
 
 
-class ProductIdCategory(models.Model):
-    _name = "product.product.id_category"
+class ProductIdentificationCategory(models.Model):
+    _name = "product.identification.category"
     _description = "Product Identification Category"
 
     name = fields.Char(required=True)

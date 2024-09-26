@@ -2,7 +2,7 @@
 <odoo>
     <record id="ir_cron_product_registration_expiry" model="ir.cron">
         <field name="name">Product Registration Expiry Notification</field>
-        <field name="model_id" ref="model_product_product_id_number" />
+        <field name="model_id" ref="model_product_identification" />
         <field name="state">code</field>
         <field name="code">model._cron_send_product_regi_expiry_notification()</field>
         <field name="interval_number">1</field>

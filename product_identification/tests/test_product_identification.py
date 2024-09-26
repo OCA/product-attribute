@@ -8,7 +8,7 @@ from odoo.tests import TransactionCase
 class TestProductIdCategory(TransactionCase):
     def test_create_id_category(self):
         """Test creation of product identification category"""
-        category = self.env["product.product.id_category"].create(
+        category = self.env["product.identification.category"].create(
             {"name": "Regulatory ID"}
         )
         self.assertTrue(category.id, "Product ID Category creation failed")
@@ -22,13 +22,13 @@ class TestProductIdNumber(TransactionCase):
         super().setUp()
         self.partner = self.env["res.partner"].create({"name": "Test Issuer"})
         self.product = self.env["product.product"].create({"name": "Test Product"})
-        self.category = self.env["product.product.id_category"].create(
+        self.category = self.env["product.identification.category"].create(
             {"name": "Batch Number"}
         )
 
     def test_create_id_number(self):
         """Test creation of product identification number"""
-        id_number = self.env["product.product.id_number"].create(
+        id_number = self.env["product.identification"].create(
             {
                 "name": "ID123456",
                 "category_id": self.category.id,
@@ -56,13 +56,13 @@ class TestProductIdNumberCase(TransactionCase):
         super().setUp()
         self.partner = self.env["res.partner"].create({"name": "Test Issuer"})
         self.product = self.env["product.product"].create({"name": "Test Product"})
-        self.category = self.env["product.product.id_category"].create(
+        self.category = self.env["product.identification.category"].create(
             {"name": "Batch Number"}
         )
 
     def test_create_id_number(self):
         """Test creation of product identification number"""
-        id_number = self.env["product.product.id_number"].create(
+        id_number = self.env["product.identification"].create(
             {
                 "name": "ID123456",
                 "category_id": self.category.id,
@@ -102,14 +102,14 @@ class TestProductIdExpiryNotification(TransactionCase):
                 .id,
             }
         )
-        self.category = self.env["product.product.id_category"].create(
+        self.category = self.env["product.identification.category"].create(
             {"name": "Regulatory ID"}
         )
 
     def test_cron_expiry_notification(self):
         """Test if the cron job sends expiry notification"""
         # Create an ID number that is expiring today
-        self.env["product.product.id_number"].create(
+        self.env["product.identification"].create(
             {
                 "name": "ID123456",
                 "category_id": self.category.id,
@@ -119,9 +119,7 @@ class TestProductIdExpiryNotification(TransactionCase):
         )
 
         # Run the cron manually
-        self.env[
-            "product.product.id_number"
-        ]._cron_send_product_regi_expiry_notification()
+        self.env["product.identification"]._cron_send_product_regi_expiry_notification()
 
         # Check if a mail was created
         mail = self.env["mail.mail"].search(
@@ -138,14 +136,14 @@ class TestProductIdExpiryNotification(TransactionCase):
 class TestProductIdNumberDateValidation(TransactionCase):
     def setUp(self):
         super().setUp()
-        self.category = self.env["product.product.id_category"].create(
+        self.category = self.env["product.identification.category"].create(
             {"name": "Regulatory ID"}
         )
         self.product = self.env["product.product"].create({"name": "Test Product"})
 
     def test_valid_dates(self):
         """Test valid date_issued and expiry_date"""
-        id_number = self.env["product.product.id_number"].create(
+        id_number = self.env["product.identification"].create(
             {
                 "name": "ID123456",
                 "category_id": self.category.id,
@@ -164,7 +162,7 @@ class TestProductIdNumberDateValidation(TransactionCase):
             ValidationError,
             msg="ValidationError should be raised for invalid date range",
         ):
-            self.env["product.product.id_number"].create(
+            self.env["product.identification"].create(
                 {
                     "name": "ID123457",
                     "category_id": self.category.id,

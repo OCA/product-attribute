@@ -1,7 +1,7 @@
 <odoo>
-	<record id="view_product_id_number_tree" model="ir.ui.view">
+	<record id="view_product_identification_tree" model="ir.ui.view">
 	    <field name="name">product.id.number.tree</field>
-	    <field name="model">product.product.id_number</field>
+	    <field name="model">product.identification</field>
 	    <field name="arch" type="xml">
 	        <tree>
 	            <field name="name" />
@@ -14,9 +14,9 @@
 	    </field>
 	</record>
 
-	<record id="view_product_id_number_form" model="ir.ui.view">
+	<record id="view_product_identification_form" model="ir.ui.view">
 	    <field name="name">product.id.number.form</field>
-	    <field name="model">product.product.id_number</field>
+	    <field name="model">product.identification</field>
 	    <field name="arch" type="xml">
 	        <form>
 	            <sheet>
@@ -38,11 +38,11 @@
 	    </field>
 	</record>
 
-	<record id="action_product_id_number" model="ir.actions.act_window">
+	<record id="action_product_identification" model="ir.actions.act_window">
 	    <field name="name">Product Identification</field>
-	    <field name="res_model">product.product.id_number</field>
+	    <field name="res_model">product.identification</field>
 	    <field name="view_mode">tree,form</field>
-	    <field name="view_id" ref="view_product_id_number_tree" />
+	    <field name="view_id" ref="view_product_identification_tree" />
 	    <field name="help" type="html">
 	        <p class="o_view_nocontent_smiling_face">
 	            Create your first Product Identification Record
@@ -55,7 +55,7 @@
         id="menu_product_identification"
         name="Product Identification"
         parent="stock.menu_product_in_config_stock"
-        action="action_product_id_number"
+        action="action_product_identification"
     />
 
 

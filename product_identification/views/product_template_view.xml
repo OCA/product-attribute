@@ -9,7 +9,7 @@
 	    <field name="arch" type="xml">
 	        <notebook position="inside">
 	            <page string="Product Identification">
-	                <field name="id_numbers">
+	                <field name="id_numbers_ids">
 	                    <tree>
 	                        <field name="name" />
 	                        <field name="category_id" />
