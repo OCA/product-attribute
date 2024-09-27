@@ -73,7 +73,8 @@ class ProductSupplierinfo(models.Model):
         if not self.env.context.get("skip_group_specific"):
             for vals in list_vals:
                 if not vals.get("group_id"):
-                    vals["group_id"] = self._get_or_create_group(vals).id
+                    with_default_vals = self._add_missing_default_values(vals)
+                    vals["group_id"] = self._get_or_create_group(with_default_vals).id
                     # remove useless related fields
                     for field_name in self._none_writable_related_fields():
                         vals.pop(field_name, None)

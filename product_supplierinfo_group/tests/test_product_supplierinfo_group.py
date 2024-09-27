@@ -90,3 +90,9 @@ class TestProductSupplierinfoGroup(common.SavepointCase):
             '<td class="table_price_note_cell">6.0</td>',
             group.unit_price_note,
         )
+
+    def test_default_company(self):
+        """Creating a product supplierinfo without passing the company_id should
+        use the default value"""
+        supplierinfo = self.env["product.supplierinfo"].create(self.supplierinfo_vals)
+        self.assertTrue(supplierinfo.company_id)
