@@ -65,7 +65,7 @@ class ProductSupplierinfoGroup(models.Model):
         for rec in self:
             rec.has_multiple_variants = len(rec.product_tmpl_id.product_variant_ids) > 1
 
-    @api.depends("supplierinfo_ids")
+    @api.depends("supplierinfo_ids.min_qty", "supplierinfo_ids.price")
     def _compute_unit_price_note(self):
         for rec in self:
             if len(rec.supplierinfo_ids) == 0:

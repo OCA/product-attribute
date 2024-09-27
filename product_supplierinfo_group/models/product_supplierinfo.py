@@ -27,12 +27,22 @@ class ProductSupplierinfo(models.Model):
         ondelete="cascade",
     )
     company_id = fields.Many2one(related="group_id.company_id", store=True)
-    product_tmpl_id = fields.Many2one(related="group_id.product_tmpl_id", store=True)
-    name = fields.Many2one(related="group_id.partner_id", store=True, required=False)
-    product_id = fields.Many2one(related="group_id.product_id", store=True)
-    product_name = fields.Char(related="group_id.product_name", store=True)
-    product_code = fields.Char(related="group_id.product_code", store=True)
-    sequence = fields.Integer(related="group_id.sequence", store=True)
+    product_tmpl_id = fields.Many2one(
+        related="group_id.product_tmpl_id", store=True, readonly=False
+    )
+    name = fields.Many2one(
+        related="group_id.partner_id", store=True, required=False, readonly=False
+    )
+    product_id = fields.Many2one(
+        related="group_id.product_id", store=True, readonly=False
+    )
+    product_name = fields.Char(
+        related="group_id.product_name", store=True, readonly=False
+    )
+    product_code = fields.Char(
+        related="group_id.product_code", store=True, readonly=False
+    )
+    sequence = fields.Integer(related="group_id.sequence", store=True, readonly=False)
 
     _sql_constraints = [
         (
