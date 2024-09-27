@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2023 Simone Rubino - Aion Tech
+  ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+  -->
+<odoo>
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >Add Pricelist Rule UoM fields to Pricelist Rule form view</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='min_quantity']" position="after">
+                <label
+                    for="uom_min_quantity"
+                    attrs="{
+                        'invisible': [
+                            ('applied_on', 'not in', [
+                                '1_product',
+                                '0_product_variant',
+                            ]),
+                        ],
+                    }"
+                />
+                <div
+                    class="o_row"
+                    attrs="{
+                        'invisible': [
+                            ('applied_on', 'not in', [
+                                '1_product',
+                                '0_product_variant',
+                            ]),
+                        ],
+                    }"
+                >
+                    <field name="uom_min_quantity" />
+                    <field name="uom_id" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
