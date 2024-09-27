@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_value_price_formula
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-29 14:19+0000\n"
+"PO-Revision-Date: 2024-02-29 14:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model,name:product_attribute_value_price_formula.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Valore attributo"
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model.fields,help:product_attribute_value_price_formula.field_product_product__ptav_formula_extra_price
+msgid "Extra price computed from formula of attribute values."
+msgstr "Prezzo extra calcolato dalla formula dei valori attributo."
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model.fields,field_description:product_attribute_value_price_formula.field_product_product__ptav_formula_extra_price
+msgid "Formula Price Extra"
+msgstr "Prezzo extra da formula"
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model.fields,field_description:product_attribute_value_price_formula.field_product_attribute_value__extra_price_formula
+#: model:ir.model.fields,field_description:product_attribute_value_price_formula.field_product_template_attribute_value__extra_price_formula
+msgid "Formula for extra price"
+msgstr "Formula per prezzo extra"
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model,name:product_attribute_value_price_formula.model_product_template_attribute_value
+msgid "Product Template Attribute Value"
+msgstr "Valore attributo del modello prodotto"
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model,name:product_attribute_value_price_formula.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model.fields,help:product_attribute_value_price_formula.field_product_attribute_value__extra_price_formula
+msgid ""
+"The price computed by this formula is added to the 'Extra price'.\n"
+"Formula evaluated when computing a dynamic extra price of this attribute value.\n"
+"The following variables are available:\n"
+"- product: the product this attribute value is applied to,\n"
+"- ptav: the template attribute value corresponding to this value.\n"
+"The computed price must be assigned to the `price` variable."
+msgstr ""
+"Il prezzo calcolato da questa formula viene aggiunto al 'Prezzo extra'.\n"
+"Formula valutata durante il calcolo del prezzo extra dinamico di questo valore attributo.\n"
+"Sono disponibili le seguenti variabili:\n"
+"- product: il prodotto a cui viene applicato questo valore di attributo,\n"
+"- ptav: il valore dell'attributo del modello corrispondente a questo valore.\n"
+"Il prezzo calcolato deve essere assegnato alla variabile `price`."
+
+#. module: product_attribute_value_price_formula
+#: model:ir.model.fields,help:product_attribute_value_price_formula.field_product_template_attribute_value__extra_price_formula
+msgid ""
+"The price computed by this formula is added to the 'Extra price'.\n"
+"Formula evaluated when computing a dynamic extra price of this product template attribute value.\n"
+"The following variables are available:\n"
+"- product: the product this attribute value is applied to,\n"
+"- ptav: this product template attribute value.\n"
+"The computed price must be assigned to the `price` variable."
+msgstr ""
+"Il prezzo calcolato da questa formula viene aggiunto al 'Prezzo extra'.\n"
+"Formula valutata durante il calcolo del prezzo extra dinamico per il valore attributo di questo modello prodotto.\n"
+"Sono disponibili le seguenti variabili:\n"
+"- product: il prodotto a cui viene applicato questo valore attributo,\n"
+"- ptav: questo valore attributo del modello prodotto.\n"
+"Il prezzo calcolato deve essere assegnato alla variabile `price`."
