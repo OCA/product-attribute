@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="product_pricelist_overcharge_item_tree_view" model="ir.ui.view">
+            <field name="name">product.pricelist.overcharge.item.tree</field>
+            <field name="model">product.pricelist.overcharge.item</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <tree string="Overcharge Rules">
+                    <field name="sequence" widget="handle" />
+                    <field name="applied_on" />
+                    <field name="overcharge_discount" string="Discount" />
+                    <field name="overcharge_surcharge" string="Surcharge" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_pricelist_overcharge_item_form_view" model="ir.ui.view">
+            <field name="name">product.pricelist.overcharge.item.form</field>
+            <field name="model">product.pricelist.overcharge.item</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form string="Overcharge Items">
+                    <sheet>
+                        <group col="6" name="overcharge_target">
+                            <field name="applied_on" widget="radio" />
+                            <field
+                                name="min_price"
+                                attrs="{
+                                'invisible':[('applied_on', 'not in', ['equal','bigger','between'])],
+                                'required':[('applied_on', 'in', ['equal','bigger','between'])]}"
+                            />
+                            <field
+                                name="max_price"
+                                attrs="{
+                                'invisible':[('applied_on', 'not in', ['smaller','between'])],
+                                'required':[('applied_on', 'in', ['smaller','between'])]}"
+                            />
+
+                        </group>
+                        <group col="6" name="overcharge_values">
+                            <label for="overcharge_discount" />
+                            <div class="o_row">
+                                <field name="overcharge_discount" />
+                                <span>%%</span>
+                            </div>
+                            <label string=" + " for="overcharge_surcharge" />
+                            <field name="overcharge_surcharge" nolabel="1" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_pricelist_item_form_view" model="ir.ui.view">
+            <field name="name">product.pricelist.item.form</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='pricelist_rule_advanced']" position="after">
+                    <group
+                        name="pricelist_overcharge"
+                        col="6"
+                        groups="product.group_sale_pricelist"
+                    >
+                        <field name="overcharge" />
+                        <field
+                            name="overcharge_item_ids"
+                            attrs="{'invisible':[('overcharge', '!=', True)]}"
+                            nolabel="1"
+                        />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_pricelist_item_tree_view" model="ir.ui.view">
+            <field name="name">product.pricelist.item.tree</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="overcharge" optional="show" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_pricelist_view_inherit" model="ir.ui.view">
+            <field name="name">product.pricelist.form</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view_inherit" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='compute_price']" position="after">
+                    <field name="overcharge" optional="show" string="Overcharge" />
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
