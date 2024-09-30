@@ -11,6 +11,7 @@
                     name="action_define_product_assortment"
                     icon="fa-pencil"
                     type="object"
+                    groups="product_assortment.group_product_assortment_manager"
                 >
                     <span class="o_stat_text">Product Assortments</span>
                 </button>
