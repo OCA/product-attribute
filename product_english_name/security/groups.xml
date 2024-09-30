@@ -1,0 +1,8 @@
+<odoo>
+
+    <record id="show_english_name" model="res.groups">
+        <field name="name">Show English name</field>
+        <field name="category_id" ref="base.module_category_extra" />
+    </record>
+
+</odoo>
