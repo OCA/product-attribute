@@ -4,7 +4,7 @@
 {
     "name": "Product Pricelist Direct Print (XLSX)",
     "summary": "Print price list in XLSX format",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, GRAP, Odoo Community Association (OCA)",

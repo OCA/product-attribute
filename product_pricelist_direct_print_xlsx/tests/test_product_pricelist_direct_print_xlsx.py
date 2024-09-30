@@ -10,7 +10,7 @@ class TestProductPricelistDirectPrintXLSX(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
 
-        # # Set report layout to void to wizard selection layout crashes the test
+        # Set report layout to void to wizard selection layout crashes the test
         # report_layout = cls.env.ref("web.report_layout_standard")
         # main_company = cls.env.ref("base.main_company")
         # main_company.external_report_layout_id = report_layout.view_id.id
@@ -44,3 +44,23 @@ class TestProductPricelistDirectPrintXLSX(TransactionCase):
         )
         self.assertGreaterEqual(len(report_xlsx[0]), 1)
         self.assertEqual(report_xlsx[1], "xlsx")
+
+    def test_pricelist_print_fields(self):
+        """Test the creation of wizard with new fields and the export_xlsx method."""
+        wiz = self.wiz_obj.with_context(
+            active_model="product.pricelist",
+            active_id=self.pricelist.id,
+        ).create(
+            {
+                "breakage_per_category": True,
+                "show_internal_category": True,
+            }
+        )
+
+        # Test the export_xlsx method
+        action = wiz.export_xlsx()
+        self.assertEqual(
+            action["type"],
+            "ir.actions.act_window",
+            "The action type returned by 'export_xlsx' is not 'ir.actions.act_window'.",
+        )

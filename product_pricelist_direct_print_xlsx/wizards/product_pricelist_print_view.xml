@@ -25,7 +25,7 @@
                     string="Export"
                     type="object"
                     class="btn-primary"
-                    attrs="{'invisible':[('partner_count', '>', 1)]}"
+                    invisible="partner_count > 1"
                     icon="fa-file-excel-o"
                 />
             </button>
