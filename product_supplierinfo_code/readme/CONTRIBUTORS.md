@@ -1,0 +1,3 @@
+- Denis Roussel \<<denis.roussel@acsone.eu>\>
+- [360ERP](https://www.360erp.com):
+  - Andrea Stirpe
