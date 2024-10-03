@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-03-12 13:34+0000\n"
+"PO-Revision-Date: 2024-10-03 18:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: product_optional_product_quantity
 #: model:ir.model.fields,field_description:product_optional_product_quantity.field_product_optional_line__company_id
@@ -95,8 +95,8 @@ msgid ""
 "Optional Products are suggested whenever the customer hits *Add to Cart* "
 "(cross-sell strategy, e.g. for computers: warranty, software, etc.)."
 msgstr ""
-"I prodotti opzionali sono suggeriti qando il cliente fa clic si \"Aggiungi "
-"al carrello\" (strategia crss-selling, es. per computer: garanzia, "
+"I prodotti opzionali sono suggeriti quando il cliente fa clic su \"Aggiungi "
+"al carrello\" (strategia cross-selling, es. per computer: garanzia, "
 "programmi, ecc.)."
 
 #. module: product_optional_product_quantity
