@@ -9,7 +9,7 @@
 
 # product-attribute
 
-TODO: add repo description.
+Various addons related to attribute management for products.
 
 <!-- /!\ do not modify below this line -->
 
