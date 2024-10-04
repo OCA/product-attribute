@@ -11,6 +11,13 @@
                     add="product_cost_security.group_product_cost"
                 />
             </xpath>
+            <xpath expr="//label[@for='standard_price']" position="attributes">
+                <attribute
+                    name="groups"
+                    separator=","
+                    add="product_cost_security.group_product_cost"
+                />
+            </xpath>
         </field>
     </record>
 </odoo>
