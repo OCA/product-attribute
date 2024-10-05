@@ -14,7 +14,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <label for="net_weight" />
                 <div class="o_row">
                     <field name="net_weight" />
-                    <span><field name="weight_uom_name" /></span>
+                    <field name="weight_uom_name" />
                 </div>
             </xpath>
         </field>
@@ -27,7 +27,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <label for="net_weight" />
                 <div class="o_row">
                     <field name="net_weight" class="oe_inline" />
-                    <span><field name="weight_uom_name" /></span>
+                    <field name="weight_uom_name" />
                 </div>
             </xpath>
         </field>
