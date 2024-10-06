@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="group_stock_state_by_product" model="res.groups">
+        <field name="name">Stock State Threshold by Product</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+    <record id="group_stock_state_by_category" model="res.groups">
+        <field name="name">Stock State Threshold by Category</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+</odoo>
