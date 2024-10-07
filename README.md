@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [nutritional_info_stock_lot](nutritional_info_stock_lot/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Nutritional information for lots.
 [product_abc_classification](product_abc_classification/) | 15.0.1.0.1 | [![MiquelRForgeFlow](https://github.com/MiquelRForgeFlow.png?size=30px)](https://github.com/MiquelRForgeFlow) | Includes ABC classification for inventory management
 [product_abc_classification_sale](product_abc_classification_sale/) | 15.0.1.0.1 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Includes ABC classification for inventory management
-[product_assortment](product_assortment/) | 15.0.2.0.1 |  | Adds the ability to manage products assortment
+[product_assortment](product_assortment/) | 15.0.2.1.0 |  | Adds the ability to manage products assortment
 [product_attachment_zipped_download](product_attachment_zipped_download/) | 15.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Product Attachment Zipped Download
 [product_attribute_archive](product_attribute_archive/) | 15.0.1.0.1 |  | Add an active field on product attributes
 [product_attribute_value_menu](product_attribute_value_menu/) | 15.0.1.1.1 |  | Product attributes values tree and form. Import attribute values.
