@@ -14,6 +14,7 @@
     "depends": ["base", "product"],
     "data": [
         "data/ir_cron.xml",
+        "security/product_assortment_security.xml",
         "views/product_assortment.xml",
         "views/res_partner_view.xml",
     ],

@@ -122,6 +122,7 @@
         name="Product Assortment"
         id="menu_product_assortments"
         action="actions_product_assortment_view"
+        groups="product_assortment.group_product_assortment_manager"
         sequence="5"
         web_icon="product_assortment,static/description/icon.png"
     />
