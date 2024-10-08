@@ -5,8 +5,9 @@ from odoo.tests.common import TransactionCase
 class TestProductLotSequence(TransactionCase):
     """Test product lot sequence."""
 
-    def setUp(self):
-        super(TestProductLotSequence, self).setUp()
+    @classmethod
+    def setUpClass(self):
+        super().setUpClass()
         self.product_product = self.env["product.product"]
         self.stock_production_lot = self.env["stock.lot"]
         self.receipt_type = self.env.ref("stock.picking_type_in")

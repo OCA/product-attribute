@@ -127,6 +127,10 @@ Contributors
 
    -  Yoshi Tashiro
 
+-  `Apik <https://www.apik.cloud>`__:
+
+   -  Frederic Grall
+
 Maintainers
 -----------
 
