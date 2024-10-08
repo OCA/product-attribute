@@ -52,7 +52,7 @@ class StockLot(models.Model):
                         lot_vals["name"] = self.env["ir.sequence"].next_by_code(
                             "stock.lot.serial"
                         )
-        return super(StockLot, self).create(vals_list)
+        return super().create(vals_list)
 
     @api.model
     def _get_next_serial(self, company, product):

@@ -1,12 +1,16 @@
+import logging
+
 from odoo.tests import Form
 from odoo.tests.common import TransactionCase
+
+_logger = logging.getLogger(__name__)
 
 
 class TestProductLotSequence(TransactionCase):
     """Test product lot sequence."""
 
     def setUp(self):
-        super(TestProductLotSequence, self).setUp()
+        super().setUp()
         self.product_product = self.env["product.product"]
         self.stock_production_lot = self.env["stock.lot"]
         self.receipt_type = self.env.ref("stock.picking_type_in")
