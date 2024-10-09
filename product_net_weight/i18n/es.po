@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_net_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-02 08:36+0000\n"
+"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__weight
+msgid "Gross Weight"
+msgstr "Peso bruto"
+
+#. module: product_net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_product__net_weight
+#: model:ir.model.fields,field_description:product_net_weight.field_product_template__net_weight
+msgid "Net Weight"
+msgstr "Peso neto"
+
+#. module: product_net_weight
+#: model:ir.model.fields,help:product_net_weight.field_product_product__net_weight
+#: model:ir.model.fields,help:product_net_weight.field_product_template__net_weight
+msgid "Net Weight of the product, container excluded."
+msgstr "Peso neto del producto, contenedor excluido."
+
+#. module: product_net_weight
+#: model:ir.model,name:product_net_weight.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_net_weight
+#: model:ir.model,name:product_net_weight.model_product_product
+msgid "Product Variant"
+msgstr "Variantes de producto"
+
+#. module: product_net_weight
+#: model:product.template,name:product_net_weight.product_strawberry_jam_product_template
+msgid "Strawberry Jam (Jar of 250 grams)"
+msgstr "Mermelada de fresa (tarro de 250 gramos)"
+
+#. module: product_net_weight
+#. odoo-python
+#: code:addons/product_net_weight/models/product_product.py:0
+#, python-format
+msgid "The net weight of product must be lower than gross weight."
+msgstr "El peso neto tiene que ser menor que el peso bruto."
