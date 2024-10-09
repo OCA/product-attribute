@@ -26,9 +26,9 @@ msgid ""
 "                </span>"
 msgstr ""
 "<span invisible=\"not show_volume_uom_warning\" groups=\"!uom.group_uom\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
-"\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM diversa "
-"per visualizzare il valore.\"/>\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" "
+"title=\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM "
+"diversa per visualizzare il valore.\"/>\n"
 "                </span>"
 
 #. module: product_logistics_uom
@@ -41,9 +41,9 @@ msgid ""
 "                </span>"
 msgstr ""
 "<span invisible=\"not show_volume_uom_warning\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
-"\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM diversa "
-"per visualizzare il valore.\"/>\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" "
+"title=\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM "
+"diversa per visualizzare il valore.\"/>\n"
 "                </span>"
 
 #. module: product_logistics_uom
@@ -56,9 +56,9 @@ msgid ""
 "                </span>"
 msgstr ""
 "<span invisible=\"not show_weight_uom_warning\" groups=\"!uom.group_uom\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
-"\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM diversa "
-"per visualizzare il valore.\"/>\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" "
+"title=\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM "
+"diversa per visualizzare il valore.\"/>\n"
 "                </span>"
 
 #. module: product_logistics_uom
@@ -71,9 +71,9 @@ msgid ""
 "                </span>"
 msgstr ""
 "<span invisible=\"not show_weight_uom_warning\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title="
-"\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM diversa "
-"per visualizzare il valore.\"/>\n"
+"                    <i class=\"fa fa-fw fa-warning text-warning\" "
+"title=\"Valore troppo piccolo per l'UdM selezionata. Selezionare una UdM "
+"diversa per visualizzare il valore.\"/>\n"
 "                </span>"
 
 #. module: product_logistics_uom
@@ -115,6 +115,12 @@ msgstr "Unità di misura predefinita per esprimere il peso di prodotto"
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
 msgid "Define your length unit of measure"
 msgstr "Definire l'unità di misura della lunghezza"
+
+#. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
+msgid "Gross Weight"
+msgstr "Peso lordo"
 
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
@@ -200,8 +206,6 @@ msgid "Volume unit of measure label"
 msgstr "Etichetta unità di misura volume"
 
 #. module: product_logistics_uom
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid "Weight"
 msgstr "Peso"
@@ -279,9 +283,6 @@ msgstr "Etichetta unità di misura peso"
 #~ "title=\"Valore troppo piccolo per l'UdM selezionata. Selezionare un'altra "
 #~ "UdM per visualizzare il valore.\"/>\n"
 #~ "                </span>"
-
-#~ msgid "Gross Weight"
-#~ msgstr "Peso lordo"
 
 #~ msgid "Product Uom Readonly"
 #~ msgstr "Prodotto Udm sola lettura"
