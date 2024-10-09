@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Tecnativa - Carlos Dauden
+     Copyright 2020 Tecnativa - João Marques
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+    <record id="view_product_pricelist_print" model="ir.ui.view">
+        <field name="model">product.pricelist.print</field>
+        <field
+            name="inherit_id"
+            ref="product_pricelist_direct_print.view_product_pricelist_print"
+        />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="XLSX Export Options">
+                    <group>
+                        <field name="breakage_per_category" />
+                        <field name="show_internal_category" />
+                    </group>
+                </page>
+            </notebook>
+            <button name="print_report" position="after">
+                <button
+                    name="export_xlsx"
+                    string="Export"
+                    type="object"
+                    class="btn-primary"
+                    invisible="partner_count > 1"
+                    icon="fa-file-excel-o"
+                />
+            </button>
+        </field>
+    </record>
+
+</odoo>
