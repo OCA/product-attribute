@@ -29,16 +29,21 @@ class StockProductionLot(models.Model):
 
     @api.depends("product_id")
     def _compute_ingredient_values(self):
-        self.ingredient_ids = False
         for lot in self:
+            ingredient_list = [(5, 0, 0)]
             for ingredient_line in lot.product_id.ingredient_ids:
-                lot.ingredient_ids += self.env["production.lot.ingredient.value"].new(
-                    {
-                        "sequence": ingredient_line.sequence,
-                        "ingredient_id": ingredient_line.ingredient_id.id,
-                        "percentage": ingredient_line.percentage,
-                    }
+                ingredient_list.append(
+                    (
+                        0,
+                        0,
+                        {
+                            "sequence": ingredient_line.sequence,
+                            "ingredient_id": ingredient_line.ingredient_id.id,
+                            "percentage": ingredient_line.percentage,
+                        },
+                    )
                 )
+            lot.ingredient_ids = ingredient_list
             lot.ingredient_allergen_trace_ids = (
                 lot.product_id.ingredient_allergen_trace_ids
             )
