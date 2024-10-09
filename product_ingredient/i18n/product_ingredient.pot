@@ -1,0 +1,188 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_ingredient
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__allergen_id
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__allergen_id
+#: model:ir.model.fields,field_description:product_ingredient.field_product_product__allergen_id
+#: model:ir.model.fields,field_description:product_ingredient.field_product_template__allergen_id
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__allergen_id
+msgid "Allergen"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_product__ingredient_allergen_trace_ids
+#: model:ir.model.fields,field_description:product_ingredient.field_product_template__ingredient_allergen_trace_ids
+msgid "Allergen traces"
+msgstr ""
+
+#. module: product_ingredient
+#: model:product.attribute,name:product_ingredient.product_allergen_attribute
+msgid "Allergens"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_product_attribute_value
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__create_uid
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__create_uid
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__create_date
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__create_date
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__display_name
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__display_name
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__id
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__id
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__id
+msgid "ID"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__ingredient_id
+#: model:ir.model.fields,field_description:product_ingredient.field_product_product__ingredient_ids
+#: model:ir.model.fields,field_description:product_ingredient.field_product_template__ingredient_ids
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__ingredient_id
+#: model:ir.model.fields,field_description:product_ingredient.field_stock_production_lot__ingredient_ids
+msgid "Ingredient"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_product__ingredient_additional_info
+#: model:ir.model.fields,field_description:product_ingredient.field_product_template__ingredient_additional_info
+#: model:ir.model.fields,field_description:product_ingredient.field_stock_production_lot__ingredient_additional_info
+msgid "Ingredient Additional Info"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_stock_production_lot__ingredient_allergen_trace_ids
+msgid "Ingredient Allergen Trace"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_production_lot_ingredient_value
+msgid "Ingredient values for a product lots."
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_product_ingredient_value
+msgid "Ingredient values for a product."
+msgstr ""
+
+#. module: product_ingredient
+#: model_terms:ir.ui.view,arch_db:product_ingredient.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_ingredient.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product_ingredient.view_production_lot_form
+msgid "Ingredients"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_product_ingredient
+msgid "Ingredients of a product."
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__is_allergen
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__is_allergen
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__is_allergen
+msgid "Is Allergen"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient____last_update
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value____last_update
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__write_uid
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__write_uid
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__write_date
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__write_date
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__lot_id
+msgid "Lot"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__name
+msgid "Name"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__percentage
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__percentage
+msgid "Percentage"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_product_product
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__product_id
+msgid "Product"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_product_attribute
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model,name:product_ingredient.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__scientific_name
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__scientific_name
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__scientific_name
+msgid "Scientific Name"
+msgstr ""
+
+#. module: product_ingredient
+#: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__sequence
+#: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__sequence
+msgid "Sequence"
+msgstr ""
