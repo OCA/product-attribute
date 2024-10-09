@@ -1,0 +1,10 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Sergio Teruel
+  - David vidal
+- Watthanun Khorchai \<<watthanun_t@hotmail.com>\>
+- Carlos Lopez \<<celm1990@gmail.com>\>
+- [Onestein](https://www.onestein.eu):
+  - Anjeel Haria
+- Jairo Llopis ([Moduon](https://www.moduon.team))
+- [Binhex](https://www.binhex.cloud):
+  - Mario Luis \<<m.luis@binhex.cloud>\>
