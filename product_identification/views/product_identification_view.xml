@@ -1,0 +1,62 @@
+<odoo>
+	<record id="view_product_identification_tree" model="ir.ui.view">
+	    <field name="name">product.id.number.tree</field>
+	    <field name="model">product.identification</field>
+	    <field name="arch" type="xml">
+	        <tree>
+	            <field name="name" />
+	            <field name="category_id" />
+	            <field name="date_issued" />
+	            <field name="expiry_date" />
+	            <field name="place_of_issue" />
+	            <field name="product_id" />
+	        </tree>
+	    </field>
+	</record>
+
+	<record id="view_product_identification_form" model="ir.ui.view">
+	    <field name="name">product.id.number.form</field>
+	    <field name="model">product.identification</field>
+	    <field name="arch" type="xml">
+	        <form>
+	            <sheet>
+	                <group>
+	                	<group>
+		                    <field name="name" />
+		                    <field name="category_id" />
+		                    <field name="issued_by" />
+		                    <field name="date_issued" />
+		                </group>
+		                <group>
+		                    <field name="expiry_date" />
+		                    <field name="place_of_issue" />
+		                    <field name="product_id" />
+		                </group>
+	                </group>
+	            </sheet>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="action_product_identification" model="ir.actions.act_window">
+	    <field name="name">Product Identification</field>
+	    <field name="res_model">product.identification</field>
+	    <field name="view_mode">tree,form</field>
+	    <field name="view_id" ref="view_product_identification_tree" />
+	    <field name="help" type="html">
+	        <p class="o_view_nocontent_smiling_face">
+	            Create your first Product Identification Record
+	        </p>
+	    </field>
+	</record>
+
+
+	<menuitem
+        id="menu_product_identification"
+        name="Product Identification"
+        parent="stock.menu_product_in_config_stock"
+        action="action_product_identification"
+    />
+
+
+</odoo>

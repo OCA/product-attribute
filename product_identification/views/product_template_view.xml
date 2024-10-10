@@ -1,0 +1,24 @@
+<odoo>
+	<record
+        id="product_template_form_view_inherited_product_identification"
+        model="ir.ui.view"
+    >
+	    <field name="name">product.template.form.inherit</field>
+	    <field name="model">product.template</field>
+	    <field name="inherit_id" ref="product.product_template_form_view" />
+	    <field name="arch" type="xml">
+	        <notebook position="inside">
+	            <page string="Product Identification">
+	                <field name="id_numbers_ids">
+	                    <tree>
+	                        <field name="name" />
+	                        <field name="category_id" />
+	                        <field name="expiry_date" />
+	                    </tree>
+	                </field>
+	            </page>
+	        </notebook>
+	    </field>
+	</record>
+
+</odoo>

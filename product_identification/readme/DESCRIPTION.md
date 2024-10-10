@@ -1,0 +1,1 @@
+Product Identification Categories and Product Identification Numbers. It allows companies to store, categorize, and track various forms of product identification data, such as ID numbers, issuance details, and expiry dates.
