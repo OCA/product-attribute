@@ -71,7 +71,7 @@
         <field name="name">product.customerinfo.tree.view</field>
         <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="partner_id" string="Customer" />
                 <field
@@ -96,7 +96,7 @@
                 <field name="price" string="Price" />
                 <field name="date_start" optional="hide" />
                 <field name="date_end" optional="hide" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="product_template_form_view" model="ir.ui.view">
