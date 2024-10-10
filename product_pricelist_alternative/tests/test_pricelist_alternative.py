@@ -56,6 +56,11 @@ class TestPricelistAlternative(
             result[self.usb_adapter.id][1], self.pricelist02.item_ids[0].id
         )
 
+    def test_product_price_formula_based_on_other_price(self):
+        """Test that pricelists with formula based on other pricelist
+        does not take alternative pricelists into account"""
+        self.assertEqual(self.pricelist03._get_product_price(self.usb_adapter, 1.0), 95)
+
     def test_product_price_ignore_alternative_pricelist(self):
         """Test that the product price ignore alternative pricelist"""
 
