@@ -3,16 +3,14 @@
 # Copyright 2015 Tecnativa
 # Copyright 2018 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo.tests.common import TransactionCase
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductSupplierinfoForCustomer(TransactionCase):
+class TestProductSupplierinfoForCustomer(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.supplierinfo_model = cls.env["product.supplierinfo"]
         cls.customerinfo_model = cls.env["product.customerinfo"]
         cls.pricelist_item_model = cls.env["product.pricelist.item"]
@@ -64,7 +62,7 @@ class TestProductSupplierinfoForCustomer(TransactionCase):
         values = self.customer.with_context(select_type=True).default_get(fields)
         self.assertEqual(values["customer"], False, "Incorrect default")
 
-    def test_product_supplierinfo_for_customer(self):
+    def test_product_customerinfo(self):
         cond = [("partner_id", "=", self.customer.id)]
         supplierinfos = self.supplierinfo_model.search(cond)
         self.assertEqual(len(supplierinfos), 0, "Error: Supplier found in Supplierinfo")
