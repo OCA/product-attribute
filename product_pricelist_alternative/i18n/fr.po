@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2024-03-19 09:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -26,17 +27,6 @@ msgid "Alternative Pricelists"
 msgstr "Listes de prix alternatives"
 
 #. module: product_pricelist_alternative
-#. odoo-python
-#: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
-#, python-format
-msgid ""
-"Formulas based on another pricelist are not allowed on alternative "
-"pricelists."
-msgstr ""
-"Les formules basées sur un autre liste de prix ne sont pas autorisées sur les listes de prix alternatives "
-"alternatifs."
-
-#. module: product_pricelist_alternative
 #: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__alternative_pricelist_ids
 msgid "Alternative pricelists"
 msgstr "Listes de prix alternatives"
@@ -47,14 +37,37 @@ msgid "Alternative to Pricelist"
 msgstr "Alternative à la liste de prix"
 
 #. module: product_pricelist_alternative
+#. odoo-python
+#: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
+#, python-format
+msgid ""
+"Formulas based on another pricelist are not allowed on alternative "
+"pricelists."
+msgstr ""
+"Les formules basées sur un autre liste de prix ne sont pas autorisées sur "
+"les listes de prix alternatives alternatifs."
+
+#. module: product_pricelist_alternative
 #: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__ignore
 msgid "Ignore alternatives"
 msgstr "Ignorer les alternatives"
 
 #. module: product_pricelist_alternative
-#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__use_lower_price
-msgid "Use lower price"
-msgstr "Utiliser le prix le plus bas"
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_count
+msgid "Is Alternative To Pricelist Count"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#. odoo-python
+#: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
+#, python-format
+msgid "Is Alternative to Pricelist"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_ids
+msgid "Is alternative to pricelists"
+msgstr ""
 
 #. module: product_pricelist_alternative
 #. odoo-python
@@ -65,6 +78,21 @@ msgid ""
 "pricelist are not allowed on alternative pricelists. Please change to "
 "another type of price computation."
 msgstr ""
-"Il n'est pas possible d'encoder cette règle de prix. Les formules basées sur une autre "
-"ne sont pas autorisées dans les listes de prix alternatives. Veuillez passer à "
-"un autre type de calcul de prix."
+"Il n'est pas possible d'encoder cette règle de prix. Les formules basées sur "
+"une autre ne sont pas autorisées dans les listes de prix alternatives. "
+"Veuillez passer à un autre type de calcul de prix."
+
+#. module: product_pricelist_alternative
+#: model:ir.model,name:product_pricelist_alternative.model_product_pricelist
+msgid "Pricelist"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model,name:product_pricelist_alternative.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__use_lower_price
+msgid "Use lower price"
+msgstr "Utiliser le prix le plus bas"
