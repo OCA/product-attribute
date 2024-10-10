@@ -123,6 +123,7 @@ Contributors
 * `Greenice <https://www.greenice.com>`_:
 
   * Fernando La Chica <fernandolachica@gmail.com>
+* Ugnė Sinkevičienė <ugne@versada.eu>
 
 Other credits
 ~~~~~~~~~~~~~

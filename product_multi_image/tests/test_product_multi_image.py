@@ -139,8 +139,8 @@ class TestProductMultiImage(common.TransactionCase):
         self.assertEqual(
             len(template.image_ids),
             1,
-            "Product template did not start with singleton image_ids. "
-            "Got %s" % (template.image_ids,),
+            f"Product template did not start with singleton image_ids. "
+            f"Got {template.image_ids}",
         )
         template.write(
             {
@@ -159,15 +159,15 @@ class TestProductMultiImage(common.TransactionCase):
         self.assertEqual(
             len(template.image_ids),
             1,
-            "Product template did not retain the singleton image_ids. "
-            "Got %s" % (template.image_ids,),
+            f"Product template did not retain the singleton image_ids. "
+            f"Got {template.image_ids}",
         )
         for variant in template.product_variant_ids:
             self.assertEqual(
                 len(variant.image_ids),
                 1,
-                "Product variant did not receive the image_ids. Got %s"
-                % (variant.image_ids,),
+                f"Product variant did not receive the image_ids. "
+                f"Got {variant.image_ids}",
             )
 
     def test_08_remove_variant_with_image(self):

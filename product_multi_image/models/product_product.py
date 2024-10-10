@@ -26,7 +26,7 @@ class ProductProduct(models.Model):
         for product in self:
             images = product.product_tmpl_id.image_ids.filtered(
                 lambda x: (
-                    not x.product_variant_ids or product.id in x.product_variant_ids.ids
+                    not x.product_variant_ids or product.id in x.product_variant_ids.ids  # noqa: B023
                 )
             )
             product.image_ids = [(6, 0, images.ids)]
@@ -40,7 +40,7 @@ class ProductProduct(models.Model):
             # Remember the list of images that were before changes
             previous_images = product.product_tmpl_id.image_ids.filtered(
                 lambda x: (
-                    not x.product_variant_ids or product.id in x.product_variant_ids.ids
+                    not x.product_variant_ids or product.id in x.product_variant_ids.ids  # noqa: B023
                 )
             )
             for image in product.image_ids:
@@ -77,7 +77,7 @@ class ProductProduct(models.Model):
         for product in self:
             images2remove = product.image_ids.filtered(
                 lambda image: (
-                    product in image.product_variant_ids
+                    product in image.product_variant_ids  # noqa: B023
                     and len(image.product_variant_ids) == 1
                 )
             )
