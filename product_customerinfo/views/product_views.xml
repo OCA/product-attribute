@@ -8,7 +8,7 @@
         <field name="name">product.customerinfo.form.view</field>
         <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
-            <form string="Customer Information">
+            <form>
                 <group>
                     <group string="Customer">
                         <field name="company_id" invisible="1" />
@@ -52,9 +52,9 @@
                         </div>
                         <label for="date_start" string="Validity" />
                         <div><field name="date_start" class="oe_inline" /> to <field
-                                name="date_end"
-                                class="oe_inline"
-                            /></div>
+                            name="date_end"
+                            class="oe_inline"
+                        /></div>
                     </group>
                     <group string="Other Information" groups="base.group_multi_company">
                         <field
@@ -71,7 +71,7 @@
         <field name="name">product.customerinfo.tree.view</field>
         <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="partner_id" string="Customer" />
                 <field
@@ -96,7 +96,7 @@
                 <field name="price" string="Price" />
                 <field name="date_start" optional="hide" />
                 <field name="date_end" optional="hide" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="product_template_form_view" model="ir.ui.view">
@@ -130,7 +130,7 @@
         <field name="name">product.customerinfo.search.view</field>
         <field name="model">product.customerinfo</field>
         <field name="arch" type="xml">
-            <search string="Customer">
+            <search>
                 <field name="partner_id" />
                 <field name="product_tmpl_id" />
                 <field name="product_name" />
