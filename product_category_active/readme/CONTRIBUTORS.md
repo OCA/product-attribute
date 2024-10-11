@@ -1,0 +1,6 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Ernesto Tejeda
+  - Pedro M. Baeza
+  - Carlos Roca
+- Denis Roussel \<<denis.roussel@acsone.eu>\>
+- Luis Brose \<<l.brose@intero-technologies.de>\>
