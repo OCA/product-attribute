@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * packaging_uom
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-30 03:52+0000\n"
+"PO-Revision-Date: 2023-11-02 12:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__qty
+msgid "Contained Quantity"
+msgstr "Quantità contenuta"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__id
+msgid "ID"
+msgstr "ID"
+
+#. module: packaging_uom
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__uom_id
+msgid "It must be in the same category than the default unit of measure."
+msgstr "Deve essere nella stessa categoria dell'unità di misura."
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_id
+msgid "Packaging Unit of Measure"
+msgstr "Unità di misura imballaggio"
+
+#. module: packaging_uom
+#: model:ir.model,name:packaging_uom.model_product_packaging
+msgid "Product Packaging"
+msgstr "Imballaggio prodotto"
+
+#. module: packaging_uom
+#: model:ir.model.fields,help:packaging_uom.field_product_packaging__qty
+msgid "Quantity of products contained in the packaging."
+msgstr "Quantità dei prodotti contenuti nell'imballaggio."
+
+#. module: packaging_uom
+#: code:addons/packaging_uom/models/product_packaging.py:0
+#, python-format
+msgid "The field Unit of Measure is required"
+msgstr "È richiesto il campo unità di misura"
+
+#. module: packaging_uom
+#: model:ir.model.fields,field_description:packaging_uom.field_product_packaging__uom_categ_domain_id
+msgid "Uom Categ Domain"
+msgstr "Dominio categoria UdM"
