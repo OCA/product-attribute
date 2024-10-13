@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >product.pricelist.item.form - product_pricelist_fixed_currency_rate</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <field name="base_pricelist_id" position="after">
+                <field name="is_fixed_currency_rate_applicable" invisible="1" />
+                <field name="do_inverse_currency_rate" invisible="1" />
+                <field
+                    name="currency_rate_tooltip"
+                    nolabel="1"
+                    invisible="is_fixed_currency_rate_applicable == False"
+                />
+                <button
+                    icon="fa-exchange"
+                    type="object"
+                    name="toggle_do_inverse_currency_rate"
+                    class="oe_inline"
+                    invisible="is_fixed_currency_rate_applicable == False"
+                >Inverse</button>
+                <field
+                    name="actual_currency_rate"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == True"
+                />
+                <field
+                    name="inverse_actual_currency_rate"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == False"
+                />
+                <field
+                    name="fixed_currency_rate"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == True"
+                />
+                <field
+                    name="inverse_fixed_currency_rate"
+                    invisible="is_fixed_currency_rate_applicable == False or do_inverse_currency_rate == False"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
