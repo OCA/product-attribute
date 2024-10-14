@@ -1,0 +1,1 @@
+- Be able to filter just the added products.
