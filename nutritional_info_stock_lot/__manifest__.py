@@ -3,7 +3,7 @@
 {
     "name": "Nutritional Info Stock Lot",
     "summary": "Nutritional information for lots.",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.1.0",
     "development_status": "Production/Stable",
     "category": "Technical Settings",
     "website": "https://github.com/OCA/product-attribute",
