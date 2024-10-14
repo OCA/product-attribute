@@ -1,5 +1,4 @@
 <odoo>
-
     <record model="ir.ui.view" id="product_template_form_view">
         <field name="model">product.template</field>
         <field name="priority">20</field>
@@ -12,5 +11,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>

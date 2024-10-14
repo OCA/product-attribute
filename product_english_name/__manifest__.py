@@ -3,7 +3,7 @@
     "name": "Product English Name",
     "summary": """Display the product name in English besides the product name
      in the users language.""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "development_status": "Alpha",
     "category": "Product",
