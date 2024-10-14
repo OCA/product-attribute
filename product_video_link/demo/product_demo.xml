@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="product.product_order_01_product_template" model="product.template">
+        <field
+            name="video_ids"
+            eval="[(6, 0, [ref('base_video_link.video_video_1')])]"
+        />
+    </record>
+
+</odoo>
