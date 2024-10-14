@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_ingredient_form_view" model="ir.ui.view">
+        <field name="name">product.ingredient.form.view</field>
+        <field name="model">product.ingredient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="scientific_name" />
+                        <field name="allergen_id" />
+                        <field name="is_allergen" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
