@@ -1,0 +1,137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_simulation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-11 08:37+0000\n"
+"Last-Translator: Ömer KÜLAK <omer.kulak@kitayazilim.com>\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_pricelist_simulation
+#: model_terms:ir.ui.view,arch_db:product_pricelist_simulation.view_pricelist_simulation_view_form
+msgid "Close"
+msgstr "Kapat"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__create_uid
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__create_uid
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__create_date
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__create_date
+msgid "Created on"
+msgstr "Oluşturulma"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__currency_id
+msgid "Currency"
+msgstr "Para Birimi"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__price_date
+msgid "Date"
+msgstr "Tarih"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__display_name
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__display_name
+msgid "Display Name"
+msgstr "Görünen Ad"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__id
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist____last_update
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line____last_update
+msgid "Last Modified on"
+msgstr "Son Değiştirilme"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__write_uid
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__write_uid
+msgid "Last Updated by"
+msgstr "Son Güncelleyen"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__write_date
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__write_date
+msgid "Last Updated on"
+msgstr "Son Güncelleme"
+
+#. module: product_pricelist_simulation
+#: model:ir.model,name:product_pricelist_simulation.model_product_pricelist
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__pricelist_id
+msgid "Pricelist"
+msgstr "Fiyat Listesi"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__template_id
+msgid "Product Template"
+msgstr "Ürün"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__product_id
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__product_id
+msgid "Product Variant"
+msgstr "Ürün Varyantı"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__product_qty
+msgid "Quantity"
+msgstr "Adet"
+
+#. module: product_pricelist_simulation
+#: model:ir.actions.act_window,name:product_pricelist_simulation.pricelist_simulation_action
+#: model_terms:ir.ui.view,arch_db:product_pricelist_simulation.product_template_form_view_pricelist_simulation
+msgid "See Price per Pricelist"
+msgstr "Fiyat Listelerinde Gör"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_product_pricelist__show_in_simulation
+msgid "Show In Simulation"
+msgstr "Simülasyonda Göster"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__simulation_id
+msgid "Simulation"
+msgstr "Simülasyon"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__line_ids
+msgid "Simulation Lines"
+msgstr "Simülasyon Satırları"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist_line__price
+msgid "Unit Price"
+msgstr "Birim Fiyat"
+
+#. module: product_pricelist_simulation
+#: model:ir.model.fields,field_description:product_pricelist_simulation.field_wizard_preview_pricelist__variant_count
+msgid "Variants Count"
+msgstr "Varyant Sayısı"
+
+#. module: product_pricelist_simulation
+#: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist
+msgid "wizard - Preview Pricelist"
+msgstr "Fiyat Listesini İncele"
+
+#. module: product_pricelist_simulation
+#: model:ir.model,name:product_pricelist_simulation.model_wizard_preview_pricelist_line
+msgid "wizard - Preview Pricelist Line"
+msgstr "Fiyat Listesi Satırlarını İncele"
