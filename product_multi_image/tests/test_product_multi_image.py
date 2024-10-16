@@ -8,8 +8,9 @@ from .. import hooks
 
 
 class TestProductMultiImage(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
+    @classmethod
+    def setUpClass(self):
+        super().setUpClass()
         self.transparent_image = (  # 1x1 Transparent GIF
             b"R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         )
