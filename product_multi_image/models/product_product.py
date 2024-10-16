@@ -15,7 +15,6 @@ class ProductProduct(models.Model):
         inverse="_inverse_image_ids",
     )
 
-    # image, image_medium, image_small fields are not available since 13.0
 
     @api.depends(
         "product_tmpl_id",
