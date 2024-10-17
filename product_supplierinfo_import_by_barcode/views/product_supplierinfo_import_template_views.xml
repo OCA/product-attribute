@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_supplierinfo_import_template_form" model="ir.ui.view">
+        <field name="model">product.supplierinfo.import.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="header_offset" />
+                        <field name="barcode_header_name" />
+                        <field name="template_line_ids">
+                            <tree editable="top">
+                                <field name="header_name" />
+                                <field name="field_id" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_supplierinfo_import_template_tree" model="ir.ui.view">
+        <field name="model">product.supplierinfo.import.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record
+        id="product_supplierinfo_import_template_action"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Vendor pricelists import templates</field>
+        <field name="res_model">product.supplierinfo.import.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+    <menuitem
+        id="product_supplierinfo_import_template_menu"
+        name="Vendor pricelists import template"
+        parent="purchase.menu_purchase_config"
+        action="product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_action"
+        groups="base.group_user"
+    />
+</odoo>
