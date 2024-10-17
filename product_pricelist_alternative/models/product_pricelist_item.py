@@ -33,3 +33,8 @@ class PricelistItem(models.Model):
                         " Please change to another type of price computation."
                     )
                 )
+
+    def _compute_price(self, product, quantity, uom, date, currency=None):
+        if self.compute_price == "formula" and self.base == "pricelist":
+            self = self.with_context(based_on_other_pricelist=True)
+        return super()._compute_price(product, quantity, uom, date, currency)

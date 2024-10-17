@@ -62,7 +62,9 @@ class Pricelist(models.Model):
 
         # In some contexts we want to ignore alternative pricelists
         # and return the original price
-        if self.env.context.get("skip_alternative_pricelist", False):
+        if self.env.context.get(
+            "skip_alternative_pricelist", False
+        ) or self.env.context.get("based_on_other_pricelist", False):
             return res
 
         for product in products:
