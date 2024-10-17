@@ -19,7 +19,7 @@ class AbcClassificationProfile(models.Model):
         comodel_name="abc.classification.level", inverse_name="profile_id"
     )
     profile_type = fields.Selection(
-        selection=[],
+        selection=[("manual", "Manual")],
         string="Type of ABC classification",
         index=True,
         required=True,
@@ -71,7 +71,26 @@ class AbcClassificationProfile(models.Model):
                 )
 
     def _compute_abc_classification(self):
-        raise NotImplementedError()
+        ProductClassification = self.env["abc.classification.product.level"]
+        for profile in self:
+            default_level = profile.level_ids[0]
+            profile_products = profile.product_variant_ids
+            classified_products = ProductClassification.search(
+                [("profile_id", "=", profile.id)]
+            ).mapped("product_id")
+            missing_classification = profile_products - classified_products
+            vals_list = []
+            for product in missing_classification:
+                vals_list.append(
+                    {
+                        "product_id": product.id,
+                        "profile_id": profile.id,
+                        "manual_level_id": default_level.id,
+                    }
+                )
+            if vals_list:
+                ProductClassification.create(vals_list)
+        return True
 
     @api.depends("product_variant_ids")
     def _compute_product_count(self):
