@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "author": "Camptocamp SA, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
-    "depends": ["sale"],
+    "depends": ["sale", "product"],
     "data": ["views/product_template_tag.xml"],
     "maintainers": ["ivantodorovich"],
     "auto_install": True,
