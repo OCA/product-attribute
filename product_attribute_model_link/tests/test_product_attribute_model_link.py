@@ -65,7 +65,7 @@ class TestProductAttributeModelLink(TransactionCase):
         self.assertTrue(material_attribute_value, "Linked attribute value not created")
         self.assertEqual(
             material_record.id,
-            material_attribute_value.linked_record_ref.id,
+            material_attribute_value.res_id,
             "Linked record ref is wrong!",
         )
 
@@ -213,7 +213,7 @@ class TestProductAttributeModelLink(TransactionCase):
         self.assertTrue(linked_model_record, "Linked model record not created!")
         self.assertEqual(
             linked_model_record.id,
-            product_attribute_value.linked_record_ref.id,
+            product_attribute_value.res_id,
             "Linked record ref is wrong!",
         )
 
@@ -234,7 +234,7 @@ class TestProductAttributeModelLink(TransactionCase):
         linked_model_record = self.env["x_material_model"].search(
             [
                 ("x_description", "=", "Cashmere"),
-                ("id", "=", material_attribute_value.linked_record_ref.id),
+                ("id", "=", material_attribute_value.res_id),
             ]
         )
         self.assertTrue(linked_model_record, "Linked model record not updated")
