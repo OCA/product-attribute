@@ -1,0 +1,3 @@
+- Raphaël Reverdy \<<raphael.reverdy@akretion.com>\>
+- [Binhex Systems Solutions](https://binhex.cloud/):
+  - Deriman Alonso \<<d.alonso@binhex.cloud>\>
