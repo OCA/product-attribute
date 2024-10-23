@@ -71,6 +71,7 @@ class ProductPackaging(models.Model):
     @api.depends(
         "product_id",
         "product_id.packaging_ids",
+        "qty",
         "packaging_level_id",
         "packaging_level_id.code",
     )
@@ -88,7 +89,7 @@ class ProductPackaging(models.Model):
         :return: mapping {level.code: qty}
         """
         smaller_product_packagings = self.product_id.packaging_ids.filtered(
-            lambda p: p.id != self.id and self.qty > p.qty > 0.0
+            lambda p: p.ids != self.ids and self.qty > p.qty > 0.0
         )
         res = OrderedDict()
         for p_pack in smaller_product_packagings.sorted(lambda p: p.qty):
