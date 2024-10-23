@@ -1,0 +1,196 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_stock_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-05-09 16:47+0000\n"
+"Last-Translator: Bosd <c5e2fd43-d292-4c90-9d1f-74ff3436329a@anonaddy.me>\n"
+"Language-Team: none\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
+msgstr "<span class=\"o_form_label\">Product voorraad drempels</span>"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_res_company
+msgid "Companies"
+msgstr "Bedrijven"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_res_config_settings__stock_state_threshold
+msgid ""
+"Define custom value under which the stock state will pass from 'In Stock' to"
+" 'In Limited Stock' State."
+msgstr ""
+"Defieneer een aangepaste drempelwaarde waaronder de voorraad status zal "
+"wijzigen van 'In voorraad' naar 'Beperkte voorraad' status."
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_product__stock_state_threshold
+#: model:ir.model.fields,help:product_stock_state.field_product_template__stock_state_threshold
+msgid ""
+"Define custom value under which the stock state will pass from 'In Stock' to"
+" 'In Limited Stock' State. If not set, Odoo will use the value defined in "
+"the product category. If no value is defined in product category, it will "
+"use the value defined for the company"
+msgstr ""
+"Defieneer een aangepast niveau waaronder de voorraad status zal wijzigen van "
+"'In voorraad' naar 'Beperkte voorraad' status. Wanneer geen waarde is "
+"opgegeven dan zal de standaard waarde zal worden gebruikt zoals opgegeven in "
+"de product categorie. Wanneer er geen waarde is opgegeven in de product "
+"categorie, dan wordt standaard waarde gebruikt uit de bedrijfsinstellingen"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__id
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__id
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__id
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__id
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
+msgid "Manual Stock State Threshold"
+msgstr "Handmatig voorraad niveau drempelwaarde"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_product
+msgid "Product"
+msgstr "Product"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_category
+msgid "Product Category"
+msgstr "Product Categorie"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_template
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: product_stock_state
+#: model:product.product,name:product_stock_state.product_setting_by_company
+#: model:product.template,name:product_stock_state.product_setting_by_company_product_template
+msgid "Product with threshold set on the company"
+msgstr ""
+
+#. module: product_stock_state
+#: model:product.product,name:product_stock_state.product_setting_by_product
+#: model:product.template,name:product_stock_state.product_setting_by_product_product_template
+msgid "Product with threshold set on the product"
+msgstr "Product met drempelwaarde bepaald op het product"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Set stock state threshold"
+msgstr "Stel vooraad niveeau dremeplwaarde in"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state
+msgid "Stock State"
+msgstr "Voorraad status"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__stock_state_threshold
+msgid "Stock State Threshold"
+msgstr "voorraadniveau drempelwaarde"
+
+#. module: product_stock_state
+#: model:res.groups,name:product_stock_state.group_stock_state_by_category
+msgid "Stock State Threshold by Category"
+msgstr "voorraadniveau drempelwaarde op categorie"
+
+#. module: product_stock_state
+#: model:res.groups,name:product_stock_state.group_stock_state_by_product
+msgid "Stock State Threshold by Product"
+msgstr "voorraadniveau drempelwaarde op product"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_category_form
+msgid "Stock Threshold"
+msgstr "voorraad drempelwaarde"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_company_view_form_threshold
+msgid "Stock parameters"
+msgstr "voorraad parameters"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Stock threshold"
+msgstr "voorraad drempelwaarde"
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
+msgid ""
+"The custom value under which the stock state of the products of this "
+"category will pass from 'In Stock' to 'In Limited Stock' State. If not set, "
+"Odoo will use the threshold defined at the company level."
+msgstr ""
+"Defieneer een aangepaste drempelwaarde waaronder de voorraad status zal "
+"wijzigen van 'In voorraad' naar 'Beperkte voorraad' status. Wanneer niet "
+"opgegeven, dan zal de drempelwaarde op het bedrijfsniveau worden gebruikt."
+
+#. module: product_stock_state
+#: model:product.product,uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,uom_name:product_stock_state.product_setting_by_product_product_template
+msgid "Units"
+msgstr "Eenheden"
+
+#. module: product_stock_state
+#: model:product.product,weight_uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,weight_uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,weight_uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,weight_uom_name:product_stock_state.product_setting_by_product_product_template
+msgid "kg"
+msgstr "kg"
+
+#. module: product_stock_state
+#: model:product.product,volume_uom_name:product_stock_state.product_setting_by_company
+#: model:product.product,volume_uom_name:product_stock_state.product_setting_by_product
+#: model:product.template,volume_uom_name:product_stock_state.product_setting_by_company_product_template
+#: model:product.template,volume_uom_name:product_stock_state.product_setting_by_product_product_template
+msgid "m³"
+msgstr "m³"
