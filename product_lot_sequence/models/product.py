@@ -86,24 +86,46 @@ class ProductTemplate(models.Model):
 
     def write(self, vals):
         seq_policy = self.env["stock.lot"]._get_sequence_policy()
-        if seq_policy == "product":
-            for template in self:
+        if seq_policy == "global":
+            return super().write(vals)
+        else:
+            serial_templates = (
+                self.filtered(lambda pdt: pdt.tracking in ["lot", "serial"])
+                if (
+                    not vals.get("tracking", False)
+                    or vals.get("tracking", False) == "none"
+                )
+                else self
+            )
+            super(ProductTemplate, self - serial_templates).write(vals)
+            # templates with sequence
+            serial_tmpl_seq = serial_templates.filtered("lot_sequence_id")
+            serial_tmpl_wo_seq = serial_templates - serial_tmpl_seq
+            new_sequence = self.env["ir.sequence"]
+            if len(serial_tmpl_wo_seq) and not vals.get("lot_sequence_id", False):
+                new_sequence = serial_tmpl_wo_seq[0].sudo()._create_lot_sequence(vals)
+            elif vals.get("lot_sequence_id", False):
+                new_sequence = self.env["ir.sequence"].browse(vals["lot_sequence_id"])
+            # template with sequence and update it
+            for template in serial_tmpl_seq:
                 tracking = vals.get("tracking", False) or template.tracking
                 if tracking in ["lot", "serial"]:
-                    if (
-                        not vals.get("lot_sequence_id", False)
-                        and not template.lot_sequence_id
-                    ):
-                        vals["lot_sequence_id"] = (
-                            template.sudo()._create_lot_sequence(vals).id
-                        )
-                    elif vals.get("lot_sequence_id", False):
+                    if vals.get("lot_sequence_id", False):
                         lot_sequence_id = self.env["ir.sequence"].browse(
                             vals["lot_sequence_id"]
                         )
                         vals["lot_sequence_prefix"] = lot_sequence_id.prefix
                         vals["lot_sequence_padding"] = lot_sequence_id.padding
-        return super().write(vals)
+            super(ProductTemplate, serial_tmpl_seq).write(vals)
+            # template without sequence, set new sequence, prefix and padding
+            for template in serial_tmpl_wo_seq:
+                tracking = vals.get("tracking", False) or template.tracking
+                if tracking in ["lot", "serial"] or vals.get("lot_sequence_id", False):
+                    if new_sequence:
+                        vals["lot_sequence_id"] = new_sequence.id
+                        vals["lot_sequence_prefix"] = new_sequence.prefix
+                        vals["lot_sequence_padding"] = new_sequence.padding
+            return super(ProductTemplate, serial_tmpl_wo_seq).write(vals)
 
     @api.model_create_multi
     def create(self, vals_list):

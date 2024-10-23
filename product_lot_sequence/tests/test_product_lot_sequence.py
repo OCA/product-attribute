@@ -138,3 +138,145 @@ class TestProductLotSequence(TransactionCase):
         self.assertEqual(
             new_next_sequence_number, seq.get_next_char(seq.number_next_actual)
         )
+
+    def test_write_multiple_products(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "global"
+        )
+        product_template_model = self.env["product.template"]
+        pdt_serial = product_template_model.create(
+            {
+                "name": "Test Product Serial 1",
+                "type": "product",
+                "tracking": "serial",
+            }
+        )
+        pdt_simple = product_template_model.create(
+            {
+                "name": "Test Product 2",
+                "type": "product",
+                "tracking": "none",
+            }
+        )
+        pdt_service = product_template_model.create(
+            {
+                "name": "Test service 3",
+                "type": "service",
+                "tracking": "none",
+            }
+        )
+        pdt_ids = pdt_serial + pdt_simple + pdt_service
+        pdt_ids.write(
+            {
+                "description_picking": "test note",
+            }
+        )
+        self.assertFalse(pdt_serial.lot_sequence_id)
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        self.assertFalse(pdt_service.lot_sequence_id)
+
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "product"
+        )
+        pdt_ids.write(
+            {
+                "description_picking": "note for picking",
+            }
+        )
+        self.assertTrue(pdt_serial.lot_sequence_id)
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        self.assertFalse(pdt_service.lot_sequence_id)
+        self.assertTrue(
+            all(
+                [
+                    "note for picking" == desc
+                    for desc in pdt_ids.mapped("description_picking")
+                ]
+            )
+        )
+
+    def test_write_multiple_serial_products(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "global"
+        )
+        product_template_model = self.env["product.template"]
+        sequence = product_template_model.sudo()._create_lot_sequence(
+            {
+                "name": "Test Sequence",
+            }
+        )
+        pdt_serial = product_template_model.create(
+            {
+                "name": "Test Product Serial 1",
+                "type": "product",
+                "tracking": "serial",
+            }
+        )
+        pdt_serial_lot = product_template_model.create(
+            {
+                "name": "Test Product Serial 2",
+                "type": "product",
+                "tracking": "serial",
+                "lot_sequence_id": sequence.id,
+            }
+        )
+        pdt_ids = pdt_serial + pdt_serial_lot
+        pdt_ids.write(
+            {
+                "description_picking": "test note",
+            }
+        )
+        self.assertFalse(pdt_serial.lot_sequence_id)
+        self.assertTrue(pdt_serial_lot.lot_sequence_id)
+
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.policy", "product"
+        )
+        pdt_ids.write(
+            {
+                "description_picking": "note for picking",
+            }
+        )
+        self.assertTrue(pdt_serial.lot_sequence_id)
+        self.assertNotEqual(pdt_serial.lot_sequence_id, sequence)
+        self.assertEqual(pdt_serial_lot.lot_sequence_id, sequence)
+
+    def test_write_tracking(self):
+        product_template_model = self.env["product.template"]
+        pdt_simple = product_template_model.create(
+            {
+                "name": "Test Product 2",
+                "type": "product",
+            }
+        )
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        pdt_simple.write(
+            {
+                "tracking": "lot",
+            }
+        )
+        self.assertTrue(pdt_simple.lot_sequence_id)
+        self.assertEqual(pdt_simple.name, pdt_simple.lot_sequence_id.name)
+
+    def test_write_sequence(self):
+        product_template_model = self.env["product.template"]
+        pdt_simple = product_template_model.create(
+            {
+                "name": "Test Product 2",
+                "type": "product",
+            }
+        )
+        self.assertFalse(pdt_simple.lot_sequence_id)
+        sequence = pdt_simple.sudo()._create_lot_sequence(
+            {
+                "name": "Test Sequence",
+            }
+        )
+        pdt_simple.write(
+            {
+                "lot_sequence_id": sequence.id,
+            }
+        )
+        self.assertTrue(pdt_simple.lot_sequence_id)
+        self.assertTrue(pdt_simple.lot_sequence_padding)
+        self.assertNotEqual(pdt_simple.name, pdt_simple.lot_sequence_id.name)
