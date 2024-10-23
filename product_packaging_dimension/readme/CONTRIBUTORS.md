@@ -3,3 +3,4 @@
 - Kévin Roche \<<kevin.roche@akretion.com>\>
 - Fernando La Chica \<<fernandolachica@gmail.com>\>
 - Denis Roussel \<<denis.roussel@acsone.eu>\>
+- Nhan Tran \<<nhant@trobz.com>\>
