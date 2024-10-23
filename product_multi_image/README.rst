@@ -49,9 +49,8 @@ You can manage your images at Product template level:
 #. Go to *Sales > Products > Products* and choose a product template.
 #. Go to the *Images* tab.
 #. Add a new image or edit the existing ones.
-#. You can select for which variants you want to make available the image.
+#. You can select for which variants you want to make the image available.
    Keep it empty for making visible in all.
-#. Refresh the page.
 #. The first image in the collection is the main image for the product
    template.
 
@@ -62,33 +61,16 @@ into account this behaviour:
 #. If you add an image here, the image is actually added to the product
    template, and restricted to this variant.
 #. When editing an existing image, the image is changed generally for all
-   the variants where is enabled, not only for this variant.
+   the variants where it is enabled, not only for this variant.
 #. When removing an image from this form, if the image is only in this variant,
    the image is removed. Otherwise, the image gets restricted to the rest of
-   the variants where is available.
-
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/135/9.0
+   the variants where it is used.
 
 Known issues / Roadmap
 ======================
 
-* When you change the image on the product variant, the preview image of the
-  *Images* tab doesn't get refreshed until you refresh the browser, or if you
-  go to its template, but the image has been actually saved!
-* The field "Available in these variants" appears when opening the image
-  from the product variant.
-* Add logic for handling to add images with the same name that another variant
-  of the same template, renaming the new image to a unique name.
 * Add logic for handling to add the same image in several variants to a
   already in another variant for not duplicating bytes.
-* Provide proper migration scripts from module product_images from 7.0.
-* Migrate to v8 api when https://github.com/odoo/odoo/issues/10799 gets fixed.
-* If you try to sort images before saving the product variant or template, you
-  will get an error similar to ``DataError: invalid input syntax for integer:
-  "one2many_v_id_62"``. This bug has not been fixed yet, but a workaround is to
-  save and edit again to sort images.
 
 Bug Tracker
 ===========
