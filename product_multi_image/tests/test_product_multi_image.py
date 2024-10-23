@@ -205,7 +205,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_12_uninstall_hook_product(self):
         """It should remove ``image_ids`` associated with products."""
-        hooks.uninstall_hook(self.env.cr)
+        hooks.uninstall_hook(self.env)
         images = self.env["base_multi_image.image"].search(
             [("owner_model", "=", "product.product")],
         )
@@ -213,7 +213,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_13_uninstall_hook_template(self):
         """It should remove ``image_ids`` associated with templates."""
-        hooks.uninstall_hook(self.env.cr)
+        hooks.uninstall_hook(self.env)
         images = self.env["base_multi_image.image"].search(
             [("owner_model", "=", "product.template")],
         )
