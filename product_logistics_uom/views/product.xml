@@ -83,7 +83,7 @@
                 </span>
             </field>
             <field name="volume_uom_name" position="attributes">
-                 <attribute name="groups">!uom.group_uom</attribute>
+                <attribute name="groups">!uom.group_uom</attribute>
             </field>
         </field>
     </record>
