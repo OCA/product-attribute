@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pcs1,pcs1,model_product_code_sequence,base.group_user,1,1,0,0
+pcs2,pcs2,model_product_code_sequence,stock.group_stock_manager,1,1,1,1
