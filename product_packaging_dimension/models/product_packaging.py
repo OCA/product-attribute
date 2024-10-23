@@ -37,7 +37,6 @@ class ProductPackaging(models.Model):
     length_uom_name = fields.Char(
         string="Length unit of measure label",
         related="length_uom_id.name",
-        readonly=True,
     )
 
     weight = fields.Float()
@@ -48,7 +47,6 @@ class ProductPackaging(models.Model):
             ("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)
         ],
         help="Weight Unit of Measure",
-        compute=False,
         default=lambda self: self.env[
             "product.template"
         ]._get_weight_uom_id_from_ir_config_parameter(),
@@ -57,14 +55,11 @@ class ProductPackaging(models.Model):
     weight_uom_name = fields.Char(
         string="Weight unit of measure label",
         related="weight_uom_id.name",
-        readonly=True,
     )
 
     volume = fields.Float(
         digits=(8, 4),
         compute="_compute_volume",
-        readonly=True,
-        store=False,
         help="The Packaging volume",
     )
 
@@ -83,7 +78,6 @@ class ProductPackaging(models.Model):
     volume_uom_name = fields.Char(
         string="Volume Unit of Measure label",
         related="volume_uom_id.name",
-        readonly=True,
     )
 
     @api.depends(
