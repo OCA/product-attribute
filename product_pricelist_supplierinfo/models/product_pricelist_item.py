@@ -1,8 +1,13 @@
 # Copyright 2018 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2024 Binhex - Adasat Torres de León
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import logging
+
 from odoo import fields, models
+
+_logger = logging.getLogger(__name__)
 
 
 class ProductPricelistItem(models.Model):
@@ -31,3 +36,27 @@ class ProductPricelistItem(models.Model):
                 quantity=quantity,
             )
         return result
+
+    def _is_applicable_for(self, product, qty_in_product_uom):
+        res = True
+        if self.base == "supplierinfo" and self.applied_on == "2_product_category":
+            if (
+                product.categ_id != self.categ_id
+                and not product.categ_id.parent_path.startswith(
+                    self.categ_id.parent_path
+                )
+            ) or self.filter_supplier_id.id not in product.seller_ids.mapped(
+                "partner_id"
+            ).ids:
+                res = False
+        elif self.base == "pricelist":
+            if self.base_pricelist_id:
+                for item in self.base_pricelist_id.item_ids:
+                    if item._is_applicable_for(product, qty_in_product_uom):
+                        res = True
+                        break
+
+                    res = False
+        else:
+            res = super()._is_applicable_for(product, qty_in_product_uom)
+        return res

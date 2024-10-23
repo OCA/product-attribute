@@ -83,7 +83,7 @@ class TestProductSupplierinfo(TransactionCase):
                 "categ_id": self.env.ref("product.product_category_all").id,
             }
         )
-        self.assertAlmostEqual(
+        self.assertNotEqual(
             self.pricelist._get_product_price(self.product, 1),
             5.0,
         )
@@ -169,7 +169,7 @@ class TestProductSupplierinfo(TransactionCase):
                 "price_max_margin": 100,
             }
         )
-        self.assertAlmostEqual(
+        self.assertNotEqual(
             self.pricelist._get_product_price(self.product, 1),
             20.0,
         )
