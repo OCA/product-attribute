@@ -41,7 +41,9 @@
                         <label for="weight" />
                         <div class="o_row" name="weight">
                             <field name="weight" />
-                            <span><field name="weight_uom_name" /></span>
+                            <span>
+                                <field name="weight_uom_name" />
+                            </span>
                         </div>
                     </group>
                 </group>
