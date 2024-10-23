@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='product_attributes']" position="after">
+                <setting id="new_attribute_favorite_for_all_companies">
+                    <field name="new_attribute_favorite_for_all_companies" />
+                    <div class="text-muted">
+                        When a new attribute is created, set it as favorite for all companies. Otherwise, it is only set as favorite for the user's current company
+                    </div>
+                </setting>
+                <setting id="new_attribute_value_favorite_for_all_companies">
+                    <field name="new_attribute_value_favorite_for_all_companies" />
+                    <div class="text-muted">
+                        When a new attribute value is created, set it as favorite for all companies. Otherwise, it is only set as favorite for the user's current company
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
