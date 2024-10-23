@@ -8,5 +8,3 @@ from odoo import models
 class ProductTemplate(models.Model):
     _name = "product.template"
     _inherit = [_name, "base_multi_image.owner"]
-
-    # image, image_medium, image_small fields are not available since 13.0

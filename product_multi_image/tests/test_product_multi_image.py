@@ -8,8 +8,9 @@ from .. import hooks
 
 
 class TestProductMultiImage(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
+    @classmethod
+    def setUpClass(self):
+        super().setUpClass()
         self.transparent_image = (  # 1x1 Transparent GIF
             b"R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         )
@@ -204,7 +205,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_12_uninstall_hook_product(self):
         """It should remove ``image_ids`` associated with products."""
-        hooks.uninstall_hook(self.env.cr, self.registry)
+        hooks.uninstall_hook(self.env.cr)
         images = self.env["base_multi_image.image"].search(
             [("owner_model", "=", "product.product")],
         )
@@ -212,7 +213,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_13_uninstall_hook_template(self):
         """It should remove ``image_ids`` associated with templates."""
-        hooks.uninstall_hook(self.env.cr, self.registry)
+        hooks.uninstall_hook(self.env.cr)
         images = self.env["base_multi_image.image"].search(
             [("owner_model", "=", "product.template")],
         )
