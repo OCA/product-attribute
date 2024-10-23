@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_supplierinfo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-10-28 21:26+0000\n"
+"Last-Translator: Adriano Prado <adrianojprado@gmail.com>\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
+msgid ""
+"Base price for computation.\n"
+"Sales Price: The base price will be the Sales Price.\n"
+"Cost Price: The base price will be the cost price.\n"
+"Other Pricelist: Computation of the base price based on another Pricelist."
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__base
+msgid "Based on"
+msgstr "Baseado Em"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
+msgid "Ignore Supplier Info Min. Quantity"
+msgstr "Ignorar informações mínimas do fornecedor. Quantidade"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
+msgid "Margin to apply on price to obtain sale price"
+msgstr "Margem a aplicar sobre o preço para obter o preço de venda"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
+msgid "Only match prices from the selected supplier"
+msgstr "Combine apenas os preços do fornecedor selecionado"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regra Lista de Preço"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_item__base__supplierinfo
+msgid "Prices based on supplier info"
+msgstr "Preços baseados em informações do fornecedor"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
+msgid "Product"
+msgstr "Produto"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_product
+msgid "Product Variant"
+msgstr "Variante do produto"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
+msgid "Sale Margin"
+msgstr "Margem de Venda"
+
+#. module: product_pricelist_supplierinfo
+#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
+msgid "Sale margin"
+msgstr "Margem de venda"
+
+#. module: product_pricelist_supplierinfo
+#: model:res.groups,name:product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin
+msgid "Show sale margin on Product Supplierinfo"
+msgstr "Mostrar margem de venda nas informações do fornecedor do produto"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model,name:product_pricelist_supplierinfo.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Lista de Preço Fornecedor"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
+msgid "Supplier filter"
+msgstr "Filtro Fornecedor"
+
+#~ msgid ""
+#~ "Base price for computation.\n"
+#~ "Sales Price: The base price will be the Sales Price.\n"
+#~ "Cost Price : The base price will be the cost price.\n"
+#~ "Other Pricelist : Computation of the base price based on another "
+#~ "Pricelist."
+#~ msgstr ""
+#~ "Preço base para cálculo.\n"
+#~ "Preço de Venda: O preço base será o Preço de Venda.\n"
+#~ "Preço de custo: O preço base será o preço de custo.\n"
+#~ "Outra Lista de Preços: Cálculo do preço base com base em outra Lista de "
+#~ "Preços."
