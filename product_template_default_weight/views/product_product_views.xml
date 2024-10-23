@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='weight']" position="after">
+                <label
+                    for="product_tmpl_weight"
+                    string="Weight of product template"
+                    attrs='{"invisible": [("product_tmpl_weight", "=", 0)]}'
+                />
+                <div
+                    class="o_row"
+                    name="product_tmpl_weight"
+                    attrs='{"invisible": [("product_tmpl_weight", "=", 0)]}'
+                >
+                    <field name="product_tmpl_weight" class="oe_inline" />
+                    <field name="weight_uom_name" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field name="name">product.product.view.form.easy</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <group name="weight" position="inside">
+                <label
+                    for="product_tmpl_weight"
+                    string="Weight of product template"
+                    attrs='{"invisible": [("product_tmpl_weight", "=", 0)]}'
+                />
+                <div
+                    class="o_row"
+                    name="product_tmpl_weight"
+                    attrs='{"invisible": [("product_tmpl_weight", "=", 0)]}'
+                >
+                    <field name="product_tmpl_weight" class="oe_inline" />
+                    <span><field name="weight_uom_name" /></span>
+                </div>
+            </group>
+        </field>
+    </record>
+</odoo>
