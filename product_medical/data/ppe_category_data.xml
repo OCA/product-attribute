@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
-
     <record id="ppe_category_1" model="ppe.category">
         <field name="name">|</field>
     </record>
@@ -10,5 +9,4 @@
     <record id="ppe_category_3" model="ppe.category">
         <field name="name">|||</field>
     </record>
-
 </odoo>

@@ -22,12 +22,10 @@ def migrate(cr, version):
             ]
         ):
             env.cr.execute(
-                """
-                INSERT INTO {}(product_template_id, attachment_id)
+                f"""
+                INSERT INTO {new_table_rel_name}(product_template_id, attachment_id)
                 VALUES(%s, %s);
-                """.format(
-                    new_table_rel_name
-                ),
+                """,
                 (attachment.res_id, attachment.id),
             )
             env.cr.execute(

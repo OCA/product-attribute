@@ -1,0 +1,3 @@
+- Iryna Vyshnevska, Camptocamp
+- [Trobz](https://trobz.com):
+  - Dung Tran \<<dungtd@trobz.com>\>
