@@ -5,7 +5,7 @@ class MedicineCategory(models.Model):
     _name = "medicine.category"
     _description = "Medicine Category"
 
-    name = fields.Char(string="Name", required=True, translate=True)
+    name = fields.Char(required=True, translate=True)
 
     _sql_constraints = [
         (

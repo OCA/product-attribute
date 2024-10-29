@@ -8,7 +8,7 @@ class MedicalClass(models.Model):
     _name = "medical.class"
     _description = "Medical Class"
 
-    name = fields.Char(string="Name", required=True, translate=True)
+    name = fields.Char(required=True, translate=True)
 
     _sql_constraints = [
         (

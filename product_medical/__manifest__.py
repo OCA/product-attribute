@@ -4,7 +4,7 @@
 {
     "name": "Product Medical",
     "summary": "Base structure to handle medical products",
-    "version": "14.0.1.0.1",
+    "version": "18.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
@@ -23,4 +23,9 @@
         "views/ppe_category.xml",
     ],
     "installable": True,
+    "external_dependencies": {
+        "python": [
+            "openupgradelib",
+        ],
+    },
 }
