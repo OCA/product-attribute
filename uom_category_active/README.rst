@@ -30,6 +30,8 @@ UoM Category Active
 
 This module allows you to archive UoM categories.
 
+TEST CI.
+
 **Table of contents**
 
 .. contents::
