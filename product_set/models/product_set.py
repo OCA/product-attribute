@@ -39,8 +39,8 @@ class ProductSet(models.Model):
         for rec in self:
             parts = []
             if rec.ref:
-                parts.append("[%s]" % rec.ref)
+                parts.append(f"[{rec.ref}]")
             parts.append(rec.name or "")
             if rec.partner_id and rec.partner_id.name:
-                parts.append("@ %s" % rec.partner_id.name)
+                parts.append(f"@ {rec.partner_id.name}")
             rec.display_name = " ".join(map(str, parts))

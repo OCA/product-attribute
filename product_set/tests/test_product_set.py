@@ -33,5 +33,5 @@ class TestProductSet(common.TransactionCase):
         product_set.partner_id = partner
         self.assertEqual(
             product_set.read(["display_name"]),
-            [{"id": product_set.id, "display_name": "[123] Foo @ %s" % partner.name}],
+            [{"id": product_set.id, "display_name": f"[123] Foo @ {partner.name}"}],
         )
