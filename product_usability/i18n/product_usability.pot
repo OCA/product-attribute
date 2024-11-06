@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_usability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_attribute
+msgid "Attributes"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_pricelist
+msgid "Pricelists"
+msgstr ""
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_attribute_creation
+msgid "Product Attribute Creation"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_category
+msgid "Product Categories"
+msgstr ""
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_category_creation
+msgid "Product Category Creation"
+msgstr ""
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_creation
+msgid "Product Creation"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_packaging
+msgid "Product Packagings"
+msgstr ""
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_supplierinfo_creation
+msgid "Product Supplier Pricelist Creation"
+msgstr ""
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_tag_creation
+msgid "Product Tag Creation"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_tag
+msgid "Product Tags"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_product
+msgid "Product Variants"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product
+#: model:ir.ui.menu,name:product_usability.menu_product_main
+#: model:ir.ui.menu,name:product_usability.menu_product_template
+msgid "Products"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_uom_uom
+msgid "Units of Measure"
+msgstr ""
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_uom_category
+msgid "Units of Measure Categories"
+msgstr ""
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_uom_creation
+msgid "Units of Measure Creation"
+msgstr ""
