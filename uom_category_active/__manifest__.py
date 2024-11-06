@@ -4,7 +4,7 @@
 
 {
     "name": "UoM Category Active",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Product",
     "summary": "Add option to archive UoM categories",
     "author": "PESOL, Odoo Community Association (OCA)",
