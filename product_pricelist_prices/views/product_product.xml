@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">ProductNormalFormView</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">   
+                <xpath expr="//field[@name='taxes_id']" position="before">
+                    <field name="pricelists" nolabel="1" colspan="2" context="{'product_id': active_id}">
+                        <tree string="Sale Prices" name="sale_prices" editable="bottom" create="false" delete="false" colors="red:product_price_manual">
+                            <field name="name" readonly="1"/>
+                            <field name="product_price"  readonly="1"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="latest_purchase_price" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
