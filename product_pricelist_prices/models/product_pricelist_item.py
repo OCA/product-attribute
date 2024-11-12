@@ -5,8 +5,8 @@
 import logging
 
 from odoo import models, fields, api, _
-
 _logger = logging.getLogger(__name__)
+
 
 class ProductPricelistItem(models.Model):
     _inherit = 'product.pricelist.item'

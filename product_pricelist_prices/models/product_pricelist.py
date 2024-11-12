@@ -18,13 +18,6 @@ class product_pricelist(models.Model):
             inverse="_set_custom_product_price",
             string="Price"
     )
-    # product_price_manual = fields.Boolean(
-            
-    #         # inverse="_set_price_manual",
-    #         string="Manual Price",
-
-
-    # )
     product_id = fields.Integer(
             #comodel_name="product.product",
             compute="get_custom_product_price",
@@ -49,34 +42,6 @@ class product_pricelist(models.Model):
             product_id = self.env.context.get('product_id')
 
         return product_id
-    
-    # @api.depends("product_price_manual")
-    # def get_price_manual(self):
-    #     for rec in self:
-    #         rec._get_price_manual()
-
-
-    # def _get_price_manual(self):
-    #     product_id = self._get_product_id()
-
-    #     if self._context.get('product_id') and \
-    #             self.env['product.pricelist.item'].search(
-    #                     [
-    #                         ('pricelist_id', '=', self.id),
-    #                         ('product_id', '=', self._context.get('product_id'))
-    #                     ]
-    #             ):
-    #         self.product_price_manual = True
-    #     if self._context.get('product_template_id') and \
-    #             self.env['product.pricelist.item'].search(
-    #                     [
-    #                         ('pricelist_id', '=', self.id),
-    #                         ('product_tmpl_id', '=', self._context.get('product_template_id'))
-    #                     ]
-    #             ):
-    #         self.product_price_manual = True
-    #     else:
-    #         False
 
     def get_custom_product_price(self):
         for rec in self:
@@ -94,7 +59,6 @@ class product_pricelist(models.Model):
         # Real change takes place in price_set after inverse
         # method of pricelists object on product_template
         _logger.debug("Set Price: %s", self.product_price)
-
 
     def remove_price_manual(self):
         for rec in self:
@@ -118,7 +82,6 @@ class product_pricelist(models.Model):
         :return:
         """
         if new_price:
-
             items = self.env['product.pricelist.item'].search(
                     [
                         ('product_tmpl_id','=', product_template.id),
@@ -164,9 +127,7 @@ class product_pricelist(models.Model):
                         ('product_tmpl_id', '=', product_template_id)
                     ]
         )
-        _logger.debug("Items: %s", items)
         for item in items:
-            _logger.debug("Remove Item: %s", item)
             item.unlink()
 
         return True

@@ -24,11 +24,9 @@ class ProductTemplate(models.Model):
 
     def get_pricelists(self):
         for rec in self:
-            _logger.info("--- LOGGER 2: def get_pricelists ---")
             rec._get_pricelists()
 
     def _get_pricelists(self):
-        _logger.info("--- LOGGER 3: def _get_pricelists ---")
         self.pricelists = self.env['product.pricelist'].search(
                 [
                     ('show_on_products', '=', True)
@@ -36,10 +34,8 @@ class ProductTemplate(models.Model):
         )
 
     def _set_pricelists(self):
-        _logger.info("--- LOGGER 4: def _set_pricelists ---")
         for pricelist in self.pricelists:
             if pricelist.product_price:
-                _logger.debug("Updating Price: %s", pricelist.product_price)
                 pricelist.price_set(self, pricelist.product_price)
 
     pricelists = fields.One2many(
@@ -49,6 +45,7 @@ class ProductTemplate(models.Model):
             inverse="_set_pricelists"
     )
 
+
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
@@ -57,14 +54,11 @@ class ProductProduct(models.Model):
 
     @api.depends("latest_purchase_price")
     def latest_purchase_price_compute(self):
-        _logger.info("--- LOGGER 5: class ProductProduct ---")
-        _logger.info("--- LOGGER 5: def latest_purchase_price_compute ---")
         sale = self.env['account.move'].search([('invoice_line_ids.product_id', '=', self.ids),
                                                 ('state', '=', 'posted'), ('move_type', '=', 'in_invoice')],
                                                order='invoice_date desc')
         set_price = False
         for rec in self:
-
             if sale.invoice_line_ids:
                 for sales in sale:
                     if set_price == True:
@@ -75,13 +69,10 @@ class ProductProduct(models.Model):
                                     if line.quantity > 0:
                                         rec.latest_purchase_price = line.price_unit
                                         set_price = True
-
                                     elif line.quantity <= 0 and sales == sale[-1]:
                                         rec.latest_purchase_price = rec.standard_price
                                         set_price = True
-
                                     else:
                                         continue
-
             else:
                 rec.latest_purchase_price = rec.standard_price
