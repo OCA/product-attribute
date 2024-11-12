@@ -105,9 +105,9 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 continue
             if rec.secondary_uom_id.dependency_type == "independent":
                 if rec[rec._secondary_unit_fields["qty_field"]] == 0.0:
-                    rec[
-                        rec._secondary_unit_fields["qty_field"]
-                    ] = default_qty_field_value
+                    rec[rec._secondary_unit_fields["qty_field"]] = (
+                        default_qty_field_value
+                    )
                 continue
             # To avoid recompute secondary_uom_qty field when
             # secondary_uom_id changes.
