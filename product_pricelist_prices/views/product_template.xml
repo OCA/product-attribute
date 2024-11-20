@@ -15,11 +15,19 @@
                         </tree>
                     </field>
                 </field>
-                <xpath expr="//field[@name='type']" position="after">
-                    <field name="latest_purchase_price_id" />
+            </field>
+        </record>
+
+        <record id="product_template_form_view_inherit_pricelist" model="ir.ui.view">
+            <field name="name">product.template.common.form.pricelist</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="after">
+                      <field name="latest_purchase_price_id"/>
                 </xpath>
             </field>
         </record>
-        
+
     </data>
 </odoo>
