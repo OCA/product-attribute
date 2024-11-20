@@ -9,4 +9,4 @@ class PurchaseOrder(models.Model):
     @api.onchange("picking_type_id")
     def onchange_picking_type_id(self):
         for line in self.order_line:
-            line.onchange_product_id()
+            line._compute_price_unit_and_date_planned_and_name()
