@@ -8,3 +8,4 @@
 - Watthanun Khorchai \<<watthanun_t@hotmail.com>\>
 - Marie Lejeune \<<marie.lejeune@acsone.eu>\>
 - Nils Coenen \<<nils.coenen@nico-solutions.de>\>
+- Chris Bergman \<<chris.bergman@codeforward.nl>\>
