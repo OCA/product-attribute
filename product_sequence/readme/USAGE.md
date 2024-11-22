@@ -10,5 +10,3 @@ follows:
     Sequences), you can specify whether the prefix of the parent
     category should be used if no prefix has been specified for the
     category.
-
-[![Try me on Runbot](https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas)](https://runbot.odoo-community.org/runbot/135/12.0)
