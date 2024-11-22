@@ -50,9 +50,8 @@ class product_pricelist(models.Model):
     def _get_custom_product_price(self):
         product_id = self._get_product_id()
         if product_id:
-            self.product_price = self.price_get(
-                    product_id, 1).get(self.id, 0.0
-            )
+            product = self.env['product.product'].browse([product_id])
+            self.product_price = self._price_get(product, 1).get(self.id, 0.0)
             self.product_id = product_id
 
     def _set_custom_product_price(self):
