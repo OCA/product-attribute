@@ -2,58 +2,13 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase, tagged
+from odoo.tests.common import tagged
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from .common import Common
 
 
 @tagged("post_install", "-at_install")
-class TestProductPricelistDirectPrint(TransactionCase):
-    @classmethod
-    def setUpClass(cls):
-        super(TestProductPricelistDirectPrint, cls).setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
-        # Set report layout to void to wizard selection layout crashes the test
-        report_layout = cls.env.ref("web.report_layout_standard")
-        main_company = cls.env.ref("base.main_company")
-        main_company.external_report_layout_id = report_layout.view_id.id
-
-        cls.pricelist = cls.env["product.pricelist"].create(
-            {
-                "name": "Pricelist for test",
-                "item_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "applied_on": "3_global",
-                            "percent_price": 5.00,
-                            "compute_price": "percentage",
-                        },
-                    )
-                ],
-            }
-        )
-        cls.category = cls.env["product.category"].create({"name": "Test category"})
-        cls.category_child = cls.env["product.category"].create(
-            {"name": "Test category child", "parent_id": cls.category.id}
-        )
-        cls.product = cls.env["product.product"].create(
-            {
-                "name": "Product for test",
-                "categ_id": cls.category.id,
-                "default_code": "TESTPROD01",
-            }
-        )
-        cls.partner = cls.env["res.partner"].create(
-            {
-                "name": "Partner for test",
-                "property_product_pricelist": cls.pricelist.id,
-                "email": "test@test.com",
-            }
-        )
-        cls.wiz_obj = cls.env["product.pricelist.print"]
-
+class TestProductPricelistDirectPrint(Common):
     def test_defaults(self):
         wiz = self.wiz_obj.new()
         res = wiz.with_context(
