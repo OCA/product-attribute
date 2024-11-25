@@ -46,33 +46,77 @@ class ProductPricelistXlsx(models.AbstractModel):
         sheet.write("D1", _("Date:"), title_format)
         sheet.write("D2", book.date, date_format)
         # Header construction
-        if book.partner_id:
-            sheet.write(4, 0, book.partner_id.name, header_format)
-        elif book.partner_ids:
-            sheet.write(4, 0, book.partner_ids[0].name, header_format)
-        next_col = 0
-        sheet.write(5, next_col, _("Description"), header_format)
-        next_col = self._add_extra_header(sheet, book, next_col, header_format)
-        if book.show_internal_category:
-            next_col += 1
-            sheet.write(5, next_col, _("Internal Category"), header_format)
-        if book.show_standard_price:
-            next_col += 1
-            sheet.write(5, next_col, _("Cost Price"), header_format)
-        if book.show_sale_price:
-            next_col += 1
-            sheet.write(5, next_col, _("Sale Price"), header_format)
-        next_col += 1
-        sheet.write(5, next_col, _("List Price"), header_format)
-        if book.show_product_uom:
-            next_col += 1
-            sheet.write(5, next_col, _("UoM"), header_format)
+        header_values = self._get_header_values(book)
+        for column, value in enumerate(header_values):
+            sheet.write(5, column, value, header_format)
         return sheet
 
-    def _add_extra_header(self, sheet, book, next_col, header_format):
-        return next_col
+    def _get_price_headers(self, book):
+        # Defaults to `List Price`
+        return [
+            _("List Price"),
+        ]
 
-    def _fill_data(self, workbook, sheet, book, pricelist):
+    def _get_price_values(self, book, product, formats):
+        pricelist = book.get_pricelist_to_print()
+        decimal_bold_format = formats.get("decimal_format")
+        return [
+            (
+                book.get_price_for_pricelist(pricelist, product),
+                decimal_bold_format,
+            )
+        ]
+
+    def _add_extra_header(self, book):
+        # Add extra columns right after product's column
+        return []
+
+    def _add_extra_info(self, book, product, **kw):
+        # Add extra values right after product's name
+        return []
+
+    def _get_header_values(self, book):
+        res = []
+        if book.partner_id:
+            res.append(book.partner_id.name)
+        elif book.partner_ids:
+            res.append(book.partner_ids[0].name)
+        res.append(_("Description"))
+        res.extend(self._add_extra_header(book))
+        if book.show_internal_category:
+            res.append(_("Internal Category"))
+        if book.show_standard_price:
+            res.append(_("Cost Price"))
+        if book.show_sale_price:
+            res.append(_("Sale Price"))
+        res.extend(self._get_price_headers(book))
+        if book.show_product_uom:
+            res.append(_("UoM"))
+        return res
+
+    def _get_row_values(self, book, product, formats):
+        # Returns a list of values, with an optional format which must be set to
+        # [(value, format/None)]
+        bold_format = formats.get("bold_format")
+        decimal_format = formats.get("decimal_format")
+        formats.get("decimal_format")
+        default_format = formats.get("default_format")
+        values = [
+            (product.display_name, default_format),
+        ]
+        values.extend(self._add_extra_info(book, product, **formats))
+        if book.show_internal_category:
+            values.append((product.categ_id.display_name, default_format))
+        if book.show_standard_price:
+            values.append((product.standard_price, decimal_format))
+        if book.show_sale_price:
+            values.append((product.list_price, decimal_format))
+        values.extend(self._get_price_values(book, product, formats))
+        if book.show_product_uom:
+            values.append((product.uom_id.name, bold_format))
+        return values
+
+    def _fill_data(self, workbook, sheet, book):
         bold_format = workbook.add_format({"bold": 1})
         decimal_format = workbook.add_format({"num_format": "0.00"})
         decimal_bold_format = workbook.add_format({"num_format": "0.00", "bold": 1})
@@ -88,45 +132,15 @@ class ProductPricelistXlsx(models.AbstractModel):
                     row, 0, book.get_group_name(group["group_name"]), bold_format
                 )
                 row += 1
-            for product_data in group["products"]:
-                # Get product directly from product_data or inside as a dictionary
-                product = (
-                    product_data["product"]
-                    if isinstance(product_data, dict)
-                    else product_data
-                )
-                next_col = 0
-                sheet.write(row, next_col, product.display_name)
-                next_col = self._add_extra_info(
-                    sheet, book, product, row, next_col, **formats
-                )
-                if book.show_internal_category:
-                    next_col += 1
-                    sheet.write(row, next_col, product.categ_id.display_name)
-                if book.show_standard_price:
-                    next_col += 1
-                    sheet.write(row, next_col, product.standard_price, decimal_format)
-                if book.show_sale_price:
-                    next_col += 1
-                    sheet.write(row, next_col, product.list_price, decimal_format)
-                next_col += 1
-                sheet.write(
-                    row,
-                    next_col,
-                    book.with_context(product=product).product_price,
-                    decimal_bold_format,
-                )
-                if book.show_product_uom:
-                    next_col += 1
-                    sheet.write(row, next_col, product.uom_id.name, bold_format)
+            for product in group["products"]:
+                row_values = self._get_row_values(book, product, formats)
+                for column, (value, _format) in enumerate(row_values):
+                    sheet.write(row, column, value, _format)
                 row += 1
         if book.summary:
             sheet.write(row, 0, _("Summary:"), bold_format)
             sheet.write(row + 1, 0, book.summary)
         return sheet
-
-    def _add_extra_info(self, sheet, book, product, row, next_col, **kw):
-        return next_col
 
     def generate_xlsx_report(self, workbook, data, objects):
         book = objects[0].with_context(
@@ -138,4 +152,4 @@ class ProductPricelistXlsx(models.AbstractModel):
         )
         pricelist = book.get_pricelist_to_print()
         sheet = self._create_product_pricelist_sheet(workbook, book, pricelist)
-        sheet = self._fill_data(workbook, sheet, book, pricelist)
+        sheet = self._fill_data(workbook, sheet, book)
