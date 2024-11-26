@@ -22,3 +22,7 @@
   
   * Tris Doan
   * Chau Le
+
+* `Apik <https://apik.cloud/>`_:
+  
+  * Thomas Herbin
