@@ -1,6 +1,5 @@
-# Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import fields, models, tools
+from odoo import api, fields, models, tools
 
 
 class ProductProduct(models.Model):
@@ -10,6 +9,7 @@ class ProductProduct(models.Model):
         comodel_name="product.multi.price",
         inverse_name="product_id",
         string="Other Prices",
+        index=True,
     )
 
     def _convert_to_price_uom(self, price):
@@ -53,7 +53,9 @@ class ProductProduct(models.Model):
                 price = min(price, price_limit + price_max_margin)
         return price
 
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
+    def price_compute(
+        self, price_type, uom=None, currency=None, company=None, date=False
+    ):
         """Return temporary prices when computation is done for multi price for
         avoiding error on super method. We will later fill these with the
         correct values.
@@ -61,5 +63,11 @@ class ProductProduct(models.Model):
         if price_type == "multi_price":
             return dict.fromkeys(self.ids, 1.0)
         return super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
+            price_type, uom=uom, currency=currency, company=company, date=date
         )
+
+    @api.model
+    def get_views(self, views, options=None):
+        if self.user_has_groups("product_multi_price.group_show_multi_prices"):
+            self = self.with_context(group_show_multi_prices=True)
+        return super(ProductProduct, self).get_views(views, options)

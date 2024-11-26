@@ -3,27 +3,6 @@
 from odoo import fields, models
 
 
-class ProductPricelist(models.Model):
-    _inherit = "product.pricelist"
-
-    def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
-        """Recompute price after calling the atomic super method for
-        getting proper prices when based on multi price.
-        """
-        rule_obj = self.env["product.pricelist.item"]
-        result = super()._compute_price_rule(products_qty_partner, date, uom_id)
-        # Make sure all rule records are fetched at once and put in cache
-        rule_obj.browse(x[1] for x in result.values()).mapped("price_discount")
-        for product, _qty, _partner in products_qty_partner:
-            rule = rule_obj.browse(result[product.id][1])
-            if rule.compute_price == "formula" and rule.base == "multi_price":
-                result[product.id] = (
-                    product._get_multiprice_pricelist_price(rule),
-                    rule.id,
-                )
-        return result
-
-
 class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
@@ -35,3 +14,14 @@ class ProductPricelistItem(models.Model):
         comodel_name="product.multi.price.name",
         string="Other Price Name",
     )
+
+    def _compute_price(self, product, quantity, uom, date, currency=None):
+        result = super()._compute_price(product, quantity, uom, date, currency)
+        is_reprice = self.env.context.get("is_reprice", False)
+        if (
+            self.compute_price == "formula"
+            and self.base == "multi_price"
+            and not is_reprice
+        ):
+            result = product.sudo()._get_multiprice_pricelist_price(self)
+        return result

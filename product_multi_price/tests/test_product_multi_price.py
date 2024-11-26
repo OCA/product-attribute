@@ -16,11 +16,7 @@ class TestProductMultiPrice(TransactionCase):
                 "name": "Test Product Template",
                 "price_ids": [
                     (0, 0, {"name": cls.price_field_1.id, "price": 5.5}),
-                    (
-                        0,
-                        0,
-                        {"name": cls.price_field_2.id, "price": 20.0},
-                    ),
+                    (0, 0, {"name": cls.price_field_2.id, "price": 20.0}),
                 ],
             }
         )
@@ -87,9 +83,15 @@ class TestProductMultiPrice(TransactionCase):
 
     def test_product_multi_price_pricelist(self):
         """Pricelists based on multi prices for templates or variants"""
-        price = self.prod_1.with_context(pricelist=self.pricelist.id).price
-        self.assertAlmostEqual(price, 4.95)
-        price = self.prod_prod_2_1.with_context(pricelist=self.pricelist.id).price
-        self.assertAlmostEqual(price, 5.94)
-        price = self.prod_prod_2_2.with_context(pricelist=self.pricelist.id).price
-        self.assertAlmostEqual(price, 7.92)
+        price = self.pricelist.with_context(
+            pricelist=self.pricelist.id
+        )._get_products_price(self.prod_1, 1)
+        self.assertAlmostEqual(price.get(self.prod_1.id), 4.95)
+        price = self.pricelist.with_context(
+            pricelist=self.pricelist.id
+        )._get_products_price(self.prod_prod_2_1, 1)
+        self.assertAlmostEqual(price.get(self.prod_prod_2_1.id), 5.94)
+        price = self.pricelist.with_context(
+            pricelist=self.pricelist.id
+        )._get_products_price(self.prod_prod_2_2, 1)
+        self.assertAlmostEqual(price.get(self.prod_prod_2_2.id), 7.92)

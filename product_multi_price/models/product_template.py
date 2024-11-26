@@ -41,7 +41,9 @@ class ProductTemplate(models.Model):
             template.write({"price_ids": vals.get("price_ids")})
         return template
 
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
+    def price_compute(
+        self, price_type, uom=None, currency=None, company=None, date=False
+    ):
         """Return temporary prices when computation is done for multi price for
         avoiding error on super method. We will later fill these with the
         correct values.
@@ -49,5 +51,11 @@ class ProductTemplate(models.Model):
         if price_type == "multi_price":
             return dict.fromkeys(self.ids, 1.0)
         return super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
+            price_type, uom=uom, currency=currency, company=company, date=date
         )
+
+    @api.model
+    def get_views(self, views, options=None):
+        if self.user_has_groups("product_multi_price.group_show_multi_prices"):
+            self = self.with_context(group_show_multi_prices=True)
+        return super(ProductTemplate, self).get_views(views, options)

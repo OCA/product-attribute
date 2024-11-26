@@ -1,7 +1,7 @@
 # Copyright 2020 Tecnativa - Ernesto Tejeda
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import SUPERUSER_ID, api
+from odoo import SUPERUSER_ID, Command, api
 
 
 def post_init_hook(cr, registry):
@@ -11,4 +11,4 @@ def post_init_hook(cr, registry):
     user = (
         env["res.users"].with_context(active_test=False).search([("share", "=", False)])
     )
-    (user - default_user).write({"groups_id": [(4, group_id, None)]})
+    (user - default_user).write({"groups_id": [Command.link(group_id)]})

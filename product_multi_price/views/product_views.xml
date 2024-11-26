@@ -3,10 +3,6 @@
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
-        <field
-            name="groups_id"
-            eval="[(4, ref('product_multi_price.group_show_multi_prices'))]"
-        />
         <field name="arch" type="xml">
             <xpath expr="//div[@name='standard_price_uom']" position="after">
                 <field
@@ -14,6 +10,7 @@
                     widget="one2many_list"
                     context="{'default_product_id': product_variant_id,'tree_view_ref':'product_multi_price.product_multi_price_tree_view2', 'form_view_ref':'product_multi_price.product_multi_price_form_view'}"
                     attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"
+                    invisible="not context.get('group_show_multi_prices')"
                 />
             </xpath>
         </field>
@@ -21,16 +18,13 @@
     <record id="product_variant_easy_edit_view" model="ir.ui.view">
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
-        <field
-            name="groups_id"
-            eval="[(4, ref('product_multi_price.group_show_multi_prices'))]"
-        />
         <field name="arch" type="xml">
             <field name="standard_price" position="after">
                 <field
                     name="price_ids"
                     widget="one2many_list"
                     context="{'default_product_id': id,'tree_view_ref':'product_multi_price.product_multi_price_tree_view2', 'form_view_ref':'product_multi_price.product_multi_price_form_view'}"
+                    invisible="not context.get('group_show_multi_prices')"
                 />
             </field>
         </field>
