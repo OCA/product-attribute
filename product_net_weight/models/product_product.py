@@ -4,6 +4,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tools import float_compare, float_is_zero
 
 
 class ProductProduct(models.Model):
@@ -11,16 +12,27 @@ class ProductProduct(models.Model):
 
     net_weight = fields.Float(
         digits="Stock Weight",
-        help="Net Weight of the product, container excluded.",
+        help="Weight of the product without container nor packaging.",
     )
 
     # Explicit field, renaming it
-    weight = fields.Float(string="Gross Weight")
+    weight = fields.Float(
+        string="Gross Weight",
+        help="Weight of the product with its container and packaging.",
+    )
 
     @api.constrains("net_weight", "weight")
     def _check_net_weight(self):
+        prec = self.env["decimal.precision"].precision_get("Stock Weight")
         for product in self:
-            if product.weight and product.net_weight > product.weight:
+            if (
+                not float_is_zero(product.weight, precision_digits=prec)
+                and float_compare(
+                    product.net_weight, product.weight, precision_digits=prec
+                )
+                > 0
+            ):
                 raise ValidationError(
-                    _("The net weight of product must be lower than gross weight.")
+                    _("The net weight of product '%s' must be lower than gross weight.")
+                    % product.display_name
                 )
