@@ -87,8 +87,8 @@
                                         type="action"
                                     >
                                         <t
-                                            t-esc="record.products_count.value"
-                                        /> Products
+                                        t-esc="record.products_count.value"
+                                    /> Products
 
                                     </a>
                                 </div>
