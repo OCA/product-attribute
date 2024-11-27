@@ -5,7 +5,6 @@ Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
 deLicense AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="product_strawberry_jam" model="product.product">
         <field name="name">Strawberry Jam (Jar of 250 grams)</field>
         <field name="uom_id" ref="uom.product_uom_unit" />
@@ -15,5 +14,4 @@ deLicense AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="standard_price">1.97</field>
         <field name="list_price">2.70</field>
     </record>
-
 </odoo>
