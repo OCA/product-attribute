@@ -12,7 +12,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <xpath expr="//label[@for='weight']" position="before">
                 <label for="net_weight" />
                 <div class="o_row">
-                    <field name="net_weight" />
+                    <field name="net_weight" class="oe_inline" />
                     <field name="weight_uom_name" />
                 </div>
             </xpath>
