@@ -1,13 +1,12 @@
 # Copyright 2020 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
-from odoo.tests import TransactionCase
+from odoo.addons.product.tests.common import TestProductCommon
 
 
-class TestProductTotalWeightFromPackaging(TransactionCase):
+class TestProductTotalWeightFromPackaging(TestProductCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env.ref("product.product_product_20")
         cls.product.weight = 5
         cls.pair_packaging = cls.env["product.packaging"].create(
