@@ -60,9 +60,11 @@ Contributors
 
 -  Anna Janiszewska <anna.janiszewska@camptocamp.com>
 
-Trobz
+-  [Trobz] (https://trobz.com/):
 
--  Dung Tran <dungtd@trobz.com>
+   -  Dung Tran <dungtd@trobz.com>
+   -  Khoi (Kien Kim) <khoikk@trobz.com>
+
 -  Hughes Damry <hughes.damry@acsone.eu>
 
 Other credits
@@ -71,6 +73,9 @@ Other credits
 The development of this module has been financially supported by:
 
 -  Camptocamp
+
+The migration of this module from 17.0 to 18.0 was financially supported
+by Camptocamp.
 
 Maintainers
 -----------

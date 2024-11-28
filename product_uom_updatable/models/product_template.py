@@ -4,10 +4,9 @@
 
 from itertools import groupby
 
-from psycopg2 import sql
-
-from odoo import _, models
+from odoo import models
 from odoo.exceptions import UserError
+from odoo.tools import SQL
 
 
 class ProductTemplate(models.Model):
@@ -25,24 +24,34 @@ class ProductTemplate(models.Model):
 
     def _update_uom(self, uom_id, field_name):
         uom_obj = self.env["uom.uom"]
+        new_uom = uom_obj.browse(uom_id)
         sorted_items = sorted(self, key=lambda r: r[field_name])
+
         for key, products_group in groupby(sorted_items, key=lambda r: r[field_name]):
             product_ids = [p.id for p in products_group]
-            new_uom = uom_obj.browse(uom_id)
+
             if (
                 key.category_id == new_uom.category_id
                 and key.factor_inv == new_uom.factor_inv
             ):
                 # pylint: disable=sql-injection
-                query = sql.SQL(
-                    "UPDATE product_template SET {field} = %s WHERE id in %s"
-                ).format(field=sql.Identifier(field_name))
-                self.env.cr.execute(query, (new_uom.id, tuple(product_ids)))
+                self.env.cr.execute(
+                    SQL(
+                        """
+                    UPDATE product_template
+                    SET %(field)s = %(new_uom)s
+                    WHERE id IN %(product_ids)s
+                    """,
+                        field=SQL.identifier(field_name),
+                        new_uom=new_uom.id,
+                        product_ids=tuple(product_ids),
+                    )
+                )
                 products = self.env["product.template"].browse(product_ids)
                 products.invalidate_recordset(fnames=[field_name])
             else:
                 raise UserError(
-                    _(
+                    self.env._(
                         "You cannot change the unit of measure of a product "
                         "to a new unit that doesn't have the same category "
                         "and factor"
