@@ -1,7 +1,7 @@
 # Copyright 2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -46,4 +46,4 @@ class ProductState(models.Model):
     @api.constrains("default")
     def _check_default(self):
         if self.search_count([("default", "=", True)]) > 1:
-            raise ValidationError(_("There should be only one default state"))
+            raise ValidationError(self.env._("There should be only one default state"))
