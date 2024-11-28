@@ -79,8 +79,8 @@ class TestProductState(TransactionCase):
             self.env["product.state"].create(
                 {"name": "Default State 2", "code": "df2", "default": True}
             )
-            wn_expect = cm.exception.args[0]
-            self.assertEqual("There should be only one default state", wn_expect)
+        wn_expect = cm.exception.args[0]
+        self.assertEqual("There should be only one default state", wn_expect)
 
     def test_04_invalid_state(self):
         self._create_product()

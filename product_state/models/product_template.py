@@ -1,7 +1,7 @@
 # Copyright 2017-2021 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -55,10 +55,13 @@ class ProductTemplate(models.Model):
         ProductState = record.env["product.state"]
         product_state = ProductState.search([("code", "=", record.state)], limit=1)
         if record.state and not product_state:
-            msg = _("The product state code %s could not be found.")
-            raise UserError(msg % record.state)
+            msg = self.env._(
+                "The product state code %(product_state)s could not be found.",
+                product_state=record.state,
+            )
+            raise UserError(msg)
         record.product_state_id = product_state.id
 
     @api.model
-    def _read_group_state_id(self, states, domain, order):
+    def _read_group_state_id(self, states, domain):
         return states.search([])
