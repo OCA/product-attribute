@@ -7,56 +7,58 @@ from odoo.tests.common import TransactionCase
 
 
 class TestProductUomUpdate(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.env = self.env(context=dict(self.env.context, tracking_disable=True))
-        self.uom_unit = self.env.ref("uom.product_uom_unit")
-        self.uom_day = self.env.ref("uom.product_uom_day")
-        self.product = self.env.ref("product.product_delivery_01")
-        self.product_tmpl_id = self.env.ref(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.uom_unit = cls.env.ref("uom.product_uom_unit")
+        cls.uom_day = cls.env.ref("uom.product_uom_day")
+        cls.product = cls.env.ref("product.product_delivery_01")
+        cls.product_tmpl_id = cls.env.ref(
             "product.product_delivery_01_product_template"
         )
-        self.partner_id = self.ref("base.res_partner_4")
-        self.picking_type_id = self.ref("stock.picking_type_in")
-        self.location_id = self.ref("stock.stock_location_suppliers")
-        self.location_dest_id = self.ref("stock.stock_location_stock")
-
-    def test_update_uom(self):
-        self.picking_in = self.env["stock.picking"].create(
+        cls.partner_id = cls.env.ref("base.res_partner_4")
+        cls.picking_type_id = cls.env.ref("stock.picking_type_in")
+        cls.location_id = cls.env.ref("stock.stock_location_suppliers")
+        cls.location_dest_id = cls.env.ref("stock.stock_location_stock")
+        cls.picking_in = cls.env["stock.picking"].create(
             {
-                "picking_type_id": self.picking_type_id,
-                "partner_id": self.partner_id,
-                "location_id": self.location_id,
-                "location_dest_id": self.location_dest_id,
+                "picking_type_id": cls.picking_type_id.id,
+                "partner_id": cls.partner_id.id,
+                "location_id": cls.location_id.id,
+                "location_dest_id": cls.location_dest_id.id,
             }
         )
 
-        self.env["stock.move"].create(
+        cls.env["stock.move"].create(
             {
-                "name": self.product.name,
-                "product_id": self.product.id,
+                "name": cls.product.name,
+                "product_id": cls.product.id,
                 "product_uom_qty": 2,
-                "product_uom": self.product.uom_id.id,
-                "picking_id": self.picking_in.id,
-                "location_id": self.location_id,
-                "location_dest_id": self.location_dest_id,
+                "product_uom": cls.product.uom_id.id,
+                "picking_id": cls.picking_in.id,
+                "location_id": cls.location_id.id,
+                "location_dest_id": cls.location_dest_id.id,
             }
         )
-        self.new_uom = self.env["uom.uom"].create(
+        cls.new_uom = cls.env["uom.uom"].create(
             {
                 "name": "new unit",
-                "category_id": self.uom_unit.category_id.id,
+                "category_id": cls.uom_unit.category_id.id,
                 "uom_type": "smaller",
             }
         )
 
-        self.new_uom_other_category = self.env["uom.uom"].create(
+        cls.new_uom_other_category = cls.env["uom.uom"].create(
             {
                 "name": "new unit 2",
-                "category_id": self.uom_day.category_id.id,
+                "category_id": cls.uom_day.category_id.id,
                 "uom_type": "smaller",
             }
         )
+
+    def test_update_uom(self):
         # verify that the product has stock_moves
         self.assertTrue(self.product.stock_move_ids)
         self.assertEqual(self.product.uom_id, self.uom_unit)
