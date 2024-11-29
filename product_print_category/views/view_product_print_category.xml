@@ -8,12 +8,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record model="ir.ui.view" id="view_product_print_category_tree">
         <field name="model">product.print.category</field>
         <field name="arch" type="xml">
-            <tree decoration-danger="product_to_print_qty != 0">
+            <list decoration-danger="product_to_print_qty != 0">
                 <field name="name" />
                 <field name="product_to_print_qty" />
                 <field name="product_qty" />
                 <field name="company_id" groups="base.group_multi_company" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -111,7 +111,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record id="action_product_print_category" model="ir.actions.act_window">
         <field name="name">Print Categories</field>
         <field name="res_model">product.print.category</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem

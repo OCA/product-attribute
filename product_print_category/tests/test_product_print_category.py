@@ -21,17 +21,21 @@ class TestProductPrintCategory(TransactionCase):
     # Test Section
     def test_01_product_product_to_print_value(self):
         product = self.ProductProduct.create(
-            {
-                "name": "Demo Product Product Name",
-                "print_category_id": self.print_category_1.id,
-            }
+            [
+                {
+                    "name": "Demo Product Product Name",
+                    "print_category_id": self.print_category_1.id,
+                }
+            ]
         )
         self.assertEqual(product.to_print, True)
 
         product = self.ProductProduct.create(
-            {
-                "name": "Demo Product Product Name",
-            }
+            [
+                {
+                    "name": "Demo Product Product Name",
+                }
+            ]
         )
         self.assertEqual(product.to_print, False)
 
@@ -44,17 +48,21 @@ class TestProductPrintCategory(TransactionCase):
 
     def test_02_product_template_to_print_value(self):
         template = self.ProductTemplate.create(
-            {
-                "name": "Demo Product Product Name",
-                "print_category_id": self.print_category_1.id,
-            }
+            [
+                {
+                    "name": "Demo Product Product Name",
+                    "print_category_id": self.print_category_1.id,
+                }
+            ]
         )
         self.assertEqual(template.to_print, True)
 
         template = self.ProductTemplate.create(
-            {
-                "name": "Demo Product Template Name",
-            }
+            [
+                {
+                    "name": "Demo Product Template Name",
+                }
+            ]
         )
         self.assertEqual(template.to_print, False)
 
@@ -76,7 +84,7 @@ class TestProductPrintCategory(TransactionCase):
         wizard = self.ProductPrintWizard.with_context(
             active_model="product.print.category",
             active_ids=[self.print_category_1.id],
-        ).create({})
+        ).create([{}])
         self.assertEqual(
             len(wizard.line_ids),
             len(products),
@@ -117,9 +125,11 @@ class TestProductPrintCategory(TransactionCase):
 
     def test_21_onchange(self):
         product = self.ProductProduct.create(
-            {
-                "name": "Demo Product Product Name",
-            }
+            [
+                {
+                    "name": "Demo Product Product Name",
+                }
+            ]
         )
         self.assertEqual(product.print_category_id.id, False)
 

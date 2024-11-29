@@ -2,3 +2,4 @@
 - Quentin DUPONT \<<https://twitter.com/pondupont>\>
 - [Binhex](https://binhex.cloud/):
   - Mario Luis \<<m.luis@binhex.cloud>\>
+- Heliconia Solutions Pvt. Ltd. \<<https://www.heliconia.io>\>
