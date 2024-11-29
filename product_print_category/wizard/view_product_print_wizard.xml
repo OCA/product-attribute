@@ -14,11 +14,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     ⚠️ If you change Print Category here, it will be changed in the product.
                 </p>
                 <field name="line_ids" nolabel="1">
-                    <tree editable="bottom">
+                    <list editable="bottom">
                         <field name="product_id" />
                         <field name="quantity" />
                         <field name="print_category_id" attrs="{'required': True}" />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button
