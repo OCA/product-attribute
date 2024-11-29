@@ -4,7 +4,6 @@ Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
  -->
 <odoo>
-
     <record id="rule_product_print_category" model="ir.rule">
         <field name="name">Product Print Category Rule</field>
         <field name="model_id" ref="model_product_print_category" />

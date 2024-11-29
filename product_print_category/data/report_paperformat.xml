@@ -5,7 +5,6 @@ Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="paper_format" model="report.paperformat">
         <field name="name">Products Print Format</field>
         <field name="format">A4</field>
@@ -18,5 +17,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="header_spacing">0</field>
         <field name="disable_shrinking" eval="True" />
     </record>
-
 </odoo>

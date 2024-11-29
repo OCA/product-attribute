@@ -5,7 +5,6 @@ Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="pricetag" model="ir.actions.report">
         <field name="name">Pricetags</field>
         <field name="model">product.print.wizard.line</field>
@@ -17,5 +16,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="binding_model_id" eval="False" />
         <field name="binding_type">report</field>
     </record>
-
 </odoo>

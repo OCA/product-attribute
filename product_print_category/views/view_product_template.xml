@@ -7,7 +7,6 @@ Copyright (C) 2022-Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="view_product_template_only_form" model="ir.ui.view">
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view" />
@@ -26,5 +25,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             </xpath>
         </field>
     </record>
-
 </odoo>

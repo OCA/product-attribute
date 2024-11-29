@@ -5,7 +5,6 @@ Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record model="product.print.category" id="demo_category_1">
         <field name="name">Demo Category 1</field>
         <field name="company_id" eval="False" />
@@ -30,5 +29,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             eval="[(4, ref('product.field_product_product__name')),(4, ref('product.field_product_product__list_price'))]"
         />
     </record>
-
 </odoo>
