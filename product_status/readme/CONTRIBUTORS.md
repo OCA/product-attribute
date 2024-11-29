@@ -4,3 +4,4 @@
 
 - [Trobz](https://trobz.com):  
   - Son Ho \<<sonhd@trobz.com>\>
+  - Tuan Nguyen \<<tuanna@trobz.com>\>

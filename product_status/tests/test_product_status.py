@@ -13,7 +13,6 @@ class TestProductStatusCase(TestProductCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env.ref("product.product_product_4")
         cls.product2 = cls.env.ref("product.product_product_4b")
         cls.product_tmpl = cls.product.product_tmpl_id
@@ -104,6 +103,10 @@ class TestProductStatusCase(TestProductCommon):
 
     @freeze_time("2020-09-15")
     def test_template_state_dates(self):
+        group_product_state_manager = self.env.ref(
+            "product_state.group_product_state_manager"
+        )
+        self.env.user.write({"groups_id": [(4, group_product_state_manager.id)]})
         product = self.product
         with Form(product.product_tmpl_id) as form:
             form.new_until = "2020-09-16"
@@ -121,7 +124,9 @@ class TestProductStatusCase(TestProductCommon):
     def test_modified_default_data(self):
         st_env = self.env["product.state"]
         demo_user = self.env.ref("base.user_demo")
-        demo_user.groups_id = [(4, self.env.ref("sales_team.group_sale_manager").id)]
+        demo_user.groups_id = [
+            (4, self.env.ref("product_state.group_product_state_manager").id)
+        ]
         default_state = st_env._get_module_data()
         vals = {
             "name": "State change",
@@ -135,16 +140,16 @@ class TestProductStatusCase(TestProductCommon):
                 st_env.browse(ds_id.id).with_user(demo_user.id).write(vals)
             wn_expect = cm.exception.args[0]
             self.assertEqual(
-                "Cannot delete/modified state installed by module, state name: %s"
-                % (ds_id.name),
+                f"Cannot delete/modified state installed by module, "
+                f"state name: {ds_id.name}",
                 wn_expect,
             )
             with self.assertRaises(ValidationError) as cm:
                 st_env.browse(ds_id.id).with_user(demo_user.id).unlink()
             wn_expect = cm.exception.args[0]
             self.assertEqual(
-                "Cannot delete/modified state installed by module, state name: %s"
-                % (ds_id.name),
+                f"Cannot delete/modified state installed by module, "
+                f"state name: {ds_id.name}",
                 wn_expect,
             )
         # Allow update default value
