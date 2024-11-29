@@ -5,7 +5,6 @@ Copyright (C) 2023-Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record model="ir.ui.view" id="view_product_print_category_rule_tree">
         <field name="model">product.print.category.rule</field>
         <field name="arch" type="xml">
@@ -30,5 +29,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         sequence="115"
         action="action_product_print_category_rule"
     />
-
 </odoo>

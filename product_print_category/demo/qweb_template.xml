@@ -5,16 +5,16 @@ Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <template id="qweb_template_demo_1">
         <t t-foreach="category_data['lines']" t-as="line">
-
             <t t-foreach="line.quantity" t-as="q">
                 <div
                     style="border: 1px solid; background-color:#eee; display: inline-block; width: 200px; height: 100px; margin: 1em;"
                 >
                     <div>
-                        <b><span t-field="line.product_id.name" /></b>
+                        <b>
+                            <span t-field="line.product_id.name" />
+                        </b>
                     </div>
                     <div>
                         <t t-if="line.product_id.code">
@@ -34,13 +34,14 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <template id="qweb_template_demo_2">
         <t t-foreach="category_data['lines']" t-as="line">
-
             <t t-foreach="line.quantity" t-as="q">
                 <div
                     style="border: 1px solid; background-color:#ee2; display: inline-block; width: 200px; height: 100px; margin: 1em;"
                 >
                     <div>
-                        <b><span t-field="line.product_id.name" /></b>
+                        <b>
+                            <span t-field="line.product_id.name" />
+                        </b>
                     </div>
                     <div>
                         <t t-if="line.product_id.code">
@@ -57,5 +58,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             </t>
         </t>
     </template>
-
 </odoo>
