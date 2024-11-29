@@ -1,7 +1,7 @@
 # Copyright 2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.osv import expression
 
@@ -23,7 +23,9 @@ class ProductState(models.Model):
         if self.env.user._is_superuser():
             return True
         default_data = [st.code for st in self._get_module_data()]
-        msg = _("Cannot delete/modified state installed by module, state name: %s")
+        msg = self.env._(
+            "Cannot delete/modified state installed by module, state name: %s"
+        )
         for rec in self:
             if rec.code in default_data:
                 raise ValidationError(msg % rec.name)
