@@ -9,7 +9,7 @@
     "name": "Product Stock State",
     "summary": "Compute the state of a product's stock"
     "the stock level and sale_ok field",
-    "version": "16.0.1.0.1",
+    "version": "18.0.1.0.0",
     "website": "https://github.com/OCA/product-attribute",
     "author": " Akretion, GRAP, Odoo Community Association (OCA)",
     "license": "AGPL-3",

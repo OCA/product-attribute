@@ -88,10 +88,18 @@ Contributors
 ------------
 
 - Sebastien Beau <sebastien.beau@akretion.com>
+
 - Sylvain LE GAL <https://www.twitter.com/legalsylvain>
+
 - Kevin Khao <kevin.khao@akretion.com>
+
 - Simone Orsi <simahawk@gmail.com>
+
 - Watthanun Khorchai <watthanun_t@hotmail.com>
+
+- `Trobz <https://trobz.com>`__:
+
+  - Tuan Nguyen <tuanna@trobz.com>
 
 Other credits
 -------------
@@ -102,6 +110,9 @@ The development of this module has been financially supported by:
 - Adaptoo
 - GRAP, Groupement Régional Alimentaire de Proximité
   <http://www.grap.coop>
+
+The migration of this module from 16.0 to 18.0 was financially supported
+by Camptocamp.
 
 Maintainers
 -----------
