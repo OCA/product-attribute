@@ -7,7 +7,7 @@
         <field name="model">product.pricelist.item</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
-            <field name="base_pricelist_id" position="after">
+            <field name="min_quantity" position="after">
                 <field name="is_fixed_currency_rate_applicable" invisible="1" />
                 <field name="do_inverse_currency_rate" invisible="1" />
                 <field
