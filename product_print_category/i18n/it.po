@@ -156,7 +156,6 @@ msgstr "Nome"
 #. module: product_print_category
 #. odoo-python
 #: code:addons/product_print_category/wizard/product_print_wizard.py:0
-#, python-format
 msgid ""
 "Please set a print category for the following lines \n"
 "\n"
