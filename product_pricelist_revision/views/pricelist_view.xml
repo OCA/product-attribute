@@ -7,9 +7,9 @@
         <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute name="editable">bottom</attribute>
-            </tree>
+            </list>
             <field name="pricelist_id" position="attributes">
                 <attribute name="optional">show</attribute>
                 <attribute name="readonly">pricelist_id != False</attribute>
@@ -84,13 +84,13 @@
         <field name="name">Pricelist Items</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.pricelist.item</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field
             name="view_ids"
             eval="
             [
                 (5, 0, 0),
-                (0, 0, {'view_mode': 'tree', 'view_id': ref('product_pricelist_item_revision_tree_view')}),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('product_pricelist_item_revision_tree_view')}),
                 (0, 0, {'view_mode': 'form'}),
             ]
         "
@@ -102,6 +102,6 @@
         id="menu_product_pricelist_item_action"
         parent="sale.product_menu_catalog"
         sequence="35"
-        groups="product.group_sale_pricelist"
+        groups="product.group_product_pricelist"
     />
 </odoo>

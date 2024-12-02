@@ -31,6 +31,7 @@ class ProductPricelistItemDuplicateWizard(models.TransientModel):
 
         xmlid = "product_pricelist_revision.product_pricelist_item_action"
         action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
+        action["context"] = {}
         if len(new_items) > 0:
             action["domain"] = [("id", "in", new_items.ids)]
         else:

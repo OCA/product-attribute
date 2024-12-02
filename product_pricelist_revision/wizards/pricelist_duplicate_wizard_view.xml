@@ -13,6 +13,11 @@
                     origin record.
                     <br />
                     <br />
+                    <strong>Note:</strong>
+                    Only works with fixed price items. The variation %
+                    will be applied to calculate the new price.
+                    <br />
+                    <br />
                 </div>
                 <group>
                     <group>

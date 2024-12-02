@@ -4,7 +4,7 @@
 {
     "name": "Product Pricelist Revision",
     "summary": "Product Pricelist Revision",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",

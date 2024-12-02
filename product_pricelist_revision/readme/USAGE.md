@@ -1,8 +1,8 @@
 To use this module, you need to:
 
 1.  Go to *Sales \> Products \> Pricelists* and create a new Price List.
-2.  Add a Pricelist Items to that Price List. Set 'Fix Price' value on
-    the field 'Compute Price' and set a fixed price.
+2.  Add a Pricelist Items to that Price List. Set 'Fixed Price' value on
+    the field 'Price type' and set a fixed price.
 3.  Go to the new menu *Sales \> Products \> Pricelist Items*, select
     the previously created item and click on *Action \> Duplicate Item*.
 4.  In the wizard set 'Date Start', set 'Date End' and set 'Variation %'
