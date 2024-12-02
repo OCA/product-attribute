@@ -1,7 +1,7 @@
 # Copyright 2020 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -53,7 +53,6 @@ class ProductPackagePrice(models.TransientModel):
     packaging_price = fields.Float("Package Price", default=0.0, digits="Product Price")
     unit_price = fields.Float(
         compute="_compute_unit_price",
-        readonly=True,
         digits="Product Price",
     )
     current_unit_price = fields.Float(
@@ -72,7 +71,7 @@ class ProductPackagePrice(models.TransientModel):
             self.unit_price = self.current_unit_price
         elif not self.selected_packaging_id.qty:
             self.unit_price = self.current_unit_price
-            self.warning_message = _(
+            self.warning_message = self.env._(
                 "Unit price cannot be computed because the selected"
                 "packaging has no quantity set."
             )
@@ -111,7 +110,7 @@ class ProductPackagePrice(models.TransientModel):
             return
         if not self.selected_packaging_id.qty:
             raise UserError(
-                _(
+                self.env._(
                     "Unit price cannot be computed because the selected"
                     "packaging has no quantity set."
                 )

@@ -8,7 +8,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
             <group name="pricelist_rule_base" position="inside">
-                <div attrs="{'invisible':[('compute_price', '!=', 'fixed')]}">
+                <div invisible="compute_price != 'fixed'">
                     <button
                         name="open_packaging_price"
                         icon="fa-calculator"
@@ -20,7 +20,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
         </field>
     </record>
     <record id="product_pricelist_item_tree__view_from_product" model="ir.ui.view">
-        <field name="name">product.pricelist.item.tree.inherit</field>
+        <field name="name">product.pricelist.item.list.inherit</field>
         <field name="model">product.pricelist.item</field>
         <field
             name="inherit_id"

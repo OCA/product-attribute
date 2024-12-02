@@ -1,5 +1,5 @@
 from odoo.exceptions import UserError
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests import Form, TransactionCase
 
 
 class TestProductPricePackagingQty(TransactionCase):
@@ -31,7 +31,7 @@ class TestProductPricePackagingQty(TransactionCase):
         cls.supplier_info = cls.env["product.supplierinfo"].create(
             {
                 "product_tmpl_id": cls.product.product_tmpl_id.id,
-                "name": cls.supplier.id,
+                "partner_id": cls.supplier.id,
                 "price": 333,
             }
         )

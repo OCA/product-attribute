@@ -5,8 +5,6 @@
         <field name="model">product.package.price.wizard</field>
         <field name="arch" type="xml">
             <form string="Product Packaging Price">
-                <field name="product_tmpl_id" invisible="1" />
-                <field name="product_variant_ids" invisible="1" />
                 <group name="main">
                     <group name="package_price_group">
                         <field name="packaging_price" />
@@ -27,7 +25,7 @@
                     <field name="warning_message" />
                 </div>
                 <field name="packaging_ids">
-                    <tree>
+                    <list>
                         <field name="display_name" />
                         <field name="qty" />
                         <field
@@ -39,7 +37,7 @@
                             name="product_uom_id"
                             options="{'no_open': True, 'no_create': True}"
                         />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button
