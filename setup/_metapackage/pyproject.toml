@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-product-attribute"
-version = "18.0.20241023.0"
+version = "18.0.20241202.0"
 dependencies = [
     "odoo-addon-product_dimension==18.0.*",
+    "odoo-addon-product_print_category==18.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
