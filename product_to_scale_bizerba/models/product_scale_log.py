@@ -9,8 +9,9 @@ import os
 from datetime import datetime
 import socket
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from odoo import tools
+from odoo.exceptions import ValidationError
 from odoo.tools import image_resize_image
 
 _logger = logging.getLogger(__name__)
@@ -209,7 +210,7 @@ class ProductScaleLog(models.Model):
     last_send_date = fields.Datetime('Last Send Date')
 
     @api.multi
-    def ftp_connection_open(self, scale_system):
+    def ftp_connection_open(self, scale_system, raise_error=False):
         """Return a new FTP connection with found parameters."""
         _logger.info("Trying to connect to ftp://%s@%s:%d" % (
             scale_system.ftp_login, scale_system.ftp_host,
@@ -224,18 +225,27 @@ class ProductScaleLog(models.Model):
             else:
                 ftp.login()
             return ftp
-        except Exception:
+        except Exception as e:
             _logger.error("Connection to ftp://%s@%s:%d failed." % (
                 scale_system.ftp_login, scale_system.ftp_host,
                 scale_system.ftp_port))
+            _logger.error(
+                _("Error when opening FTP connection:\n %s") % tools.ustr(e)
+            )
+            if raise_error:
+                raise ValidationError(
+                    _("Error when opening FTP connection:\n %s") % tools.ustr(e)
+                )
             return False
 
     @api.multi
     def ftp_connection_close(self, ftp):
         try:
             ftp.quit()
-        except Exception:
-            pass
+        except Exception as e:
+            _logger.error(
+                _("Error when closing FTP connection:\n %s") % tools.ustr(e)
+            )
 
     def ftp_connection_push_text_file(
             self, ftp, distant_folder_path, local_folder_path,

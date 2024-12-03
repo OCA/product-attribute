@@ -94,3 +94,11 @@ class ProductScaleSystem(models.Model):
                 ids = self.field_ids.ids
                 ids.append(line.field_id.id)
                 self.field_ids = [(6, 0, ids)]
+
+    @api.multi
+    def test_button(self):
+        for rec in self:
+            ftp_ret = self.env["product.scale.log"].ftp_connection_open(
+                rec, raise_error=True
+            )
+            self.env["product.scale.log"].ftp_connection_close(ftp_ret)
