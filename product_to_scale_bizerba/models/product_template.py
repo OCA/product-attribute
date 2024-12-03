@@ -55,10 +55,10 @@ class ProductTemplate(models.Model):
                         and 'scale_group_id' not in list(vals.keys())
                     if not ignore:
                         is_continue = False
-                        if not product.available_in_pos and\
-                                'available_in_pos' not in vals:
+                        if 'active' in vals and not vals.get("active"):
+                            # Unlink when deactivate
                             is_continue = True
-                        if product.available_in_pos and \
+                        elif product.available_in_pos and\
                                 'available_in_pos' in vals and\
                                 not vals.get('available_in_pos'):
                             is_continue = True
@@ -67,9 +67,11 @@ class ProductTemplate(models.Model):
                             defered[product.id] = 'unlink'
                             continue
 
-                        if not product.scale_group_id:
+                        if not product.scale_group_id or vals.get("active"):
                             # (the product is new on this group)
                             defered[product.id] = 'create'
+                        elif not product.active:
+                            continue
                         else:
                             if vals.get('scale_group_id', False) and (
                                     vals.get('scale_group_id', False) !=
@@ -79,11 +81,12 @@ class ProductTemplate(models.Model):
                                 product_obj._send_to_scale_bizerba('unlink', product)
                                 # Create in the new group
                                 defered[product.id] = 'create'
-                            elif product_obj._check_vals_scale_bizerba(vals, product):
-                                # Data related to the scale
-                                defered[product.id] = 'write'
                             elif vals.get('available_in_pos'):
                                 defered[product.id] = 'create'
+                            elif product.available_in_pos and product_obj._check_vals_scale_bizerba(vals, product):
+                                # Data related to the scale
+                                defered[product.id] = 'write'
+                            
         ctx['bizerba_off'] = True
         res = super(ProductTemplate, self).write(vals)
 

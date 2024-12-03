@@ -12,7 +12,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="model">product.scale.system</field>
         <field name="arch" type="xml">
             <form string="Scale System" version="7.0">
-                <header />
+                <header>
+                    <button name="test_button" string="Test" type="object" class="oe_highlight" groups="base.group_user"/>
+                </header>
                 <sheet>
                     <group>
                         <div class="oe_title">
