@@ -63,11 +63,13 @@ Contributors
 - Thierry Ducrest <thierry.ducrest@camptocamp.com>
 - Carlos Serra-Toro <carlos.serra@camptocamp.com>
 - Simone Orsi <simone.orsi@camptocamp.com>
+- Nhan Tran <nhant@trobz.com>
 
 Other credits
 -------------
 
-The development of this module was financially supported by Camptocamp
+The migration of this module from 14.0 to 18.0 was financially supported
+by Camptocamp
 
 Maintainers
 -----------
