@@ -14,7 +14,7 @@
                     name="product_count"
                     class="text-right"
                     string="Products"
-                    attrs="{'invisible': [('product_count', '=', 0)]}"
+                    invisible="product_count == 0"
                 />
                 <button
                     type="object"
@@ -22,7 +22,7 @@
                     title="Products"
                     class="btn btn-link text-left"
                     icon="fa-wrench"
-                    attrs="{'invisible': [('product_count', '=', 0)]}"
+                    invisible="product_count == 0"
                 />
             </tree>
         </field>
