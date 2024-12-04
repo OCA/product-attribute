@@ -1,0 +1,1 @@
+This module adds a field in different views associated to product to see how many kilograms (or pounds) are depending of the weight field thats appears on inventory tab of product form.

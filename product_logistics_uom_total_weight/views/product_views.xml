@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_template_tree_view_inherit">
+        <field name="name">product.template.product.tree.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_available']" position="after">
+                <field name="total_weight" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_product_stock_tree_inherit">
+        <field name="name">product.product.stock.tree.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_product_stock_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_available']" position="after">
+                <field name="total_weight" sum="Total Weight" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_kanban_view_inherit">
+        <field name="name">product.template.product.kanban.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//div[@t-if='record.show_on_hand_qty_status_button.raw_value']"
+                position="inside"
+            >
+                <br />
+                Total Weight: <field name="total_weight" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
