@@ -9,6 +9,9 @@ class ProductPackagingLevel(models.Model):
     _description = "Level management for product.packaging"
     _order = "sequence, code"
 
+    def _active_languages(self):
+        return self.env["res.lang"].search([]).ids
+
     def _default_language(self):
         lang_code = self.env["ir.default"]._get("res.partner", "lang")
         def_lang_id = self.env["res.lang"]._get_data(code=lang_code).id

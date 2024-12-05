@@ -134,12 +134,11 @@ class ProductPackaging(models.Model):
 
     # Keep this method to respect translations on level name
     @api.depends("product_id", "packaging_level_id", "name_policy")
-    def _compute_display_name(self):
+    def _compute_display_name(self):  # pylint: disable=W8110
+        super()._compute_display_name()
         for record in self:
             if record.product_id and record.packaging_level_id:
                 record.display_name = record._get_name_from_policy(lang=self.env.lang)
-            else:
-                return super()._compute_display_name()
 
     def _get_name_from_policy(self, lang=None):
         new_name = self.name
