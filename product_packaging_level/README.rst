@@ -86,6 +86,7 @@ Contributors
    -  Damien Crier <damien.crier@camptocamp.com>
    -  Hiep (Nguyen Hoang) <hiepnh@trobz.com>
    -  Hoang Diep <hoang@trobz.com>
+   -  Tris Doan <tridm@trobz.com>
 
 -  Christopher Ormaza <chris.ormaza@forgeflow.com>
 -  Denis Roussel <denis.roussel@acsone.eu>
@@ -93,7 +94,8 @@ Contributors
 Other credits
 -------------
 
-The development of this module has been financially supported by:
+The development and migration of this module has been financially
+supported by:
 
 -  Camptocamp
 

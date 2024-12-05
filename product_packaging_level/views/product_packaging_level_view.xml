@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="view_product_packaging_level_tree" model="ir.ui.view">
-        <field name="name">product.packaging.level.tree</field>
+    <record id="view_product_packaging_level_list" model="ir.ui.view">
+        <field name="name">product.packaging.level.list</field>
         <field name="model">product.packaging.level</field>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="code" />
                 <field name="has_gtin" />
                 <field name="active" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="view_product_packaging_level_form" model="ir.ui.view">
@@ -59,7 +59,7 @@
         <field name="name">Product Packaging Level</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.packaging.level</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_product_packaging_level_search" />
     </record>
     <menuitem

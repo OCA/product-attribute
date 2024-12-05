@@ -1,6 +1,6 @@
 # Copyright 2019-2020 Camptocamp (<https://www.camptocamp.com>).
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html)
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -11,7 +11,7 @@ class ProductPackagingLevel(models.Model):
 
     def _default_language(self):
         lang_code = self.env["ir.default"]._get("res.partner", "lang")
-        def_lang_id = self.env["res.lang"]._lang_get_id(lang_code)
+        def_lang_id = self.env["res.lang"]._get_data(code=lang_code).id
         return def_lang_id or self._active_languages()[0]
 
     name = fields.Char(required=True, translate=True)
@@ -48,7 +48,7 @@ class ProductPackagingLevel(models.Model):
             activated_packages = self.env.user.has_group("stock.group_tracking_lot")
             if packaging.name_policy == "by_package_type" and not activated_packages:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Packaging name based on package type is only allowed"
                         " after activating the option Packages in Inventory >"
                         " Configuration > Settings !"
@@ -60,9 +60,13 @@ class ProductPackagingLevel(models.Model):
         msg = False
         default_count = self.search_count([("is_default", "=", True)])
         if default_count == 0:
-            msg = _('There must be one product packaging level set as "Is Default".')
+            msg = self.env._(
+                'There must be one product packaging level set as "Is Default".'
+            )
         elif default_count > 1:
-            msg = _('Only one product packaging level can be set as "Is Default".')
+            msg = self.env._(
+                'Only one product packaging level can be set as "Is Default".'
+            )
         if msg:
             raise ValidationError(msg)
 

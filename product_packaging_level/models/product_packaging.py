@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html)
 from collections import OrderedDict
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -50,7 +50,7 @@ class ProductPackaging(models.Model):
             ]
             if len(set(packaging_level_ids)) != len(packaging_level_ids):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "It is forbidden to have different packagings "
                         "with the same level for a given product ({})."
                     ).format(product.display_name)
@@ -76,9 +76,6 @@ class ProductPackaging(models.Model):
     )
     def _compute_qty_per_level(self):
         for packaging in self:
-            if not packaging.product_id:
-                packaging.qty_per_level = ""
-                continue
             mapping = packaging._get_qty_per_level_mapping()
             packaging.qty_per_level = packaging._format_qty_per_level(mapping)
 
