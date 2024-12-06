@@ -65,17 +65,17 @@
                             nolabel="1"
                             attrs="{'invisible':[('show_variants','=',True)]}"
                         >
-                            <tree>
+                            <!--                             <tree>
                                 <field name="name" />
-                            </tree>
+                            </tree> -->
                         </field>
                         <field
                             name="product_ids"
                             attrs="{'invisible':[('show_variants','=',False)]}"
                         >
-                            <tree>
+                            <!--                             <tree>
                                 <field name="name" />
-                            </tree>
+                            </tree> -->
                         </field>
                     </page>
                     <page

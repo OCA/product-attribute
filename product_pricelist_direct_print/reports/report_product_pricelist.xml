@@ -14,11 +14,11 @@
                         <div class="col-7">
                         <strong>Price List Name</strong>:<br />
                         <t t-if="o.show_pricelist_name">
-                                <span t-field="pricelist.name" />
-                            </t>
+                            <span t-field="pricelist.name" />
+                        </t>
                         <t t-else="">
-                                <span>Special Pricelist</span>
-                            </t>
+                            <span>Special Pricelist</span>
+                        </t>
                     </div>
                         <div class="col-2">
                         <strong>Currency</strong>:<br />
