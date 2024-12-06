@@ -15,7 +15,7 @@
     "data": [
         "security/ir.model.access.csv",
         "reports/report_product_pricelist.xml",
-        # "data/mail_template_data.xml",
+        "data/mail_template_data.xml",
         "wizards/product_pricelist_print_view.xml",
     ],
 }

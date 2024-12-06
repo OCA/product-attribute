@@ -4,7 +4,7 @@
 -->
 <odoo noupdate="1">
     <!--Email template -->
-    <!--
+
     <record id="email_template_edi_pricelist" model="mail.template">
         <field name="name">Pricelist - Send by Email</field>
         <field
@@ -21,8 +21,10 @@
             ref="product_pricelist_direct_print.model_product_pricelist_print"
         />
         <field name="auto_delete" eval="True" />
-        <field name="report_template" ref="action_report_product_pricelist" />
-        <field name="report_name">{{ object.pricelist_id.name }}</field>
+        <field
+            name="report_template_ids"
+            eval="[ref('action_report_product_pricelist')]"
+        />
         <field
             name="lang"
         >{{ object.partner_id and object.partner_id.lang or object.write_uid.partner_id.lang }}</field>
@@ -46,5 +48,4 @@
             </div>
         </field>
     </record>
- -->
 </odoo>
