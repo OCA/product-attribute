@@ -25,31 +25,19 @@ class ProductProduct(models.Model):
     )
     @api.depends_context("company")
     def _compute_main_seller_id(self):
-        for product in self:
-            sellers = product._get_sellers()
-            product.main_seller_id = fields.first(sellers)
-
-    def _get_sellers(self):
-        """Returns all available sellers of a product based on some constraints.
-
-        They are ordered and filtered like it is done in the standard 'product' addon.
-        """
-        self.ensure_one()
-        all_sellers = self._prepare_sellers(False).filtered(
-            lambda s: not s.company_id or s.company_id.id == self.env.company.id
-        )
-        today = fields.Date.context_today(self)
-        sellers = all_sellers.filtered(
-            lambda s: (
-                (s.product_id == self or not s.product_id)
-                and (
-                    (s.date_start <= today if s.date_start else True)
-                    and (s.date_end >= today if s.date_end else True)
-                )
+        for product in self.with_context(compute_main_seller=True):
+            product.main_seller_id = fields.first(
+                product._get_filtered_sellers(quantity=None).sorted("price")
             )
-        )
-        if not sellers:
-            sellers = all_sellers.filtered(lambda s: (s.product_id == self))
-            if not sellers:
-                sellers = all_sellers.filtered(lambda s: not s.product_id)
-        return sellers.sorted("price")
+
+    def _get_filtered_sellers(
+        self, partner_id=False, quantity=0.0, date=None, uom_id=False, params=False
+    ):
+        res = super()._get_filtered_sellers(partner_id, quantity, date, uom_id, params)
+        if not res and self.env.context.get("compute_main_seller"):
+            sellers_filtered = self._prepare_sellers(params)
+            sellers_filtered = sellers_filtered.filtered(
+                lambda s: not s.company_id or s.company_id.id == self.env.company.id
+            )
+            res = sellers_filtered.filtered(lambda s: s.product_id == self)
+        return res
