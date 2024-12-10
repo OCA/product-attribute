@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 {
     "name": "Product Main Vendor",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "summary": "Display the main vendor of a product.",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Camptocamp, Odoo Community Association (OCA)",
