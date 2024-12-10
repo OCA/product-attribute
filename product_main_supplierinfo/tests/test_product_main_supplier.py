@@ -2,14 +2,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 from odoo import fields
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductMainSupplierInfo(TransactionCase):
+class TestProductMainSupplierInfo(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env.ref("product.product_product_6")
         cls.seller_1 = cls.env.ref("product.product_supplierinfo_1")
         cls.seller_1.sequence = 1

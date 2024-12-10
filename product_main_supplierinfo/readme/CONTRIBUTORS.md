@@ -1,2 +1,4 @@
 - [Camptocamp](https://www.camptocamp.com)
   - Sébastien Alix \<<sebastien.alix@camptocamp.com>\>
+- [Trobz](https://www.trobz.com)
+  - Do Anh Duy \<<duyda@trobz.com>\>
