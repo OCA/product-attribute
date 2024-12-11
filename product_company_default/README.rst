@@ -54,6 +54,14 @@ Authors
 
 * Quartile Limited
 
+Contributors
+------------
+
+-  Aung Ko Ko Lin (Quartile)
+-  `APSL-Nagarro <https://apsl.tech>`__:
+
+   -  Antoni Marroig <amarroig@apsl.net>
+
 Maintainers
 -----------
 
@@ -66,6 +74,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-AungKoKoLin1997| image:: https://github.com/AungKoKoLin1997.png?size=40px
+    :target: https://github.com/AungKoKoLin1997
+    :alt: AungKoKoLin1997
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-AungKoKoLin1997| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/17.0/product_company_default>`_ project on GitHub.
 
