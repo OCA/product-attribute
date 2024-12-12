@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,8 +112,8 @@ msgid "Product State Code must be unique."
 msgstr ""
 
 #. module: product_state
-#: model:ir.ui.menu,name:product_state.menu_product_state
-msgid "Product States"
+#: model:res.groups,name:product_state.group_product_state_manager
+msgid "Product State Manager"
 msgstr ""
 
 #. module: product_state
@@ -166,14 +166,12 @@ msgstr ""
 #. module: product_state
 #. odoo-python
 #: code:addons/product_state/models/product_template.py:0
-#, python-format
-msgid "The product state code %s could not be found."
+msgid "The product state code %(product_state)s could not be found."
 msgstr ""
 
 #. module: product_state
 #. odoo-python
 #: code:addons/product_state/models/product_state.py:0
-#, python-format
 msgid "There should be only one default state"
 msgstr ""
 
