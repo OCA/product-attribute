@@ -1,0 +1,8 @@
+<odoo>
+    <record id="sales_team.group_sale_manager" model="res.groups">
+        <field
+            name="implied_ids"
+            eval="[(4, ref('product_state.group_product_state_manager'))]"
+        />
+    </record>
+</odoo>
