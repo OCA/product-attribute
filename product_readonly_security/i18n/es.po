@@ -18,17 +18,23 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 #. module: product_readonly_security
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_product__display_name
 #: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin__display_name
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: product_readonly_security
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_product__id
 #: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin__id
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
 #. module: product_readonly_security
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_product____last_update
 #: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin____last_update
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Última Modificación el"
 
