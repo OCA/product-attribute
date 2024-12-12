@@ -44,11 +44,6 @@ simple product life cycle:
 Usage
 =====
 
-To create a new state:
-
-1. Go to *Sales > Configuration > Products > Product States*.
-2. You can set its name and a description.
-
 To add a product to a state:
 
 1. Go to the product itself and edit.
@@ -80,7 +75,7 @@ Contributors
 -  Alexandre Saunier <alexandre.saunier@camptocamp.com>
 -  Nikul Chaudhary <nikulchaudhary2112@gmail.com>
 -  Eduardo Magdalena <emagdalena@c2i.es> (C2i Change 2 improve
-   http://www.c2i.es)
+   `http://www.c2i.es <http://www.c2i.es>`__)
 -  Andrii Skrypka <andrijskrypa@ukr.net>
 -  Denis Roussel <denis.roussel@acsone.eu>
 -  Riccardo Fresco <riccardo.fresco@bt-group.com>
