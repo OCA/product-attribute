@@ -4,7 +4,7 @@
     "name": "Product Readonly Security",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "depends": ["product"],
     "license": "AGPL-3",
     "category": "Product",
