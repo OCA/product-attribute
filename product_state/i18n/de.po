@@ -71,11 +71,6 @@ msgid "In Development"
 msgstr "In Entwicklung"
 
 #. module: product_state
-#: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-msgid "Last Modified on"
-msgstr "Letzte Änderung am"
-
-#. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
 msgstr "Letzte Änderung durch"
@@ -123,9 +118,9 @@ msgid "Product State Code must be unique."
 msgstr "Produkt Zustandscode muss eindeutig sein."
 
 #. module: product_state
-#: model:ir.ui.menu,name:product_state.menu_product_state
-msgid "Product States"
-msgstr "Produkt-Zustände"
+#: model:res.groups,name:product_state.group_product_state_manager
+msgid "Product State Manager"
+msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
@@ -177,14 +172,12 @@ msgstr "Produkte Zustand"
 #. module: product_state
 #. odoo-python
 #: code:addons/product_state/models/product_template.py:0
-#, python-format
-msgid "The product state code %s could not be found."
+msgid "The product state code %(product_state)s could not be found."
 msgstr ""
 
 #. module: product_state
 #. odoo-python
 #: code:addons/product_state/models/product_state.py:0
-#, python-format
 msgid "There should be only one default state"
 msgstr ""
 
@@ -192,6 +185,12 @@ msgstr ""
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
 msgstr "Dient zu Sortierung der Zustände"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Letzte Änderung am"
+
+#~ msgid "Product States"
+#~ msgstr "Produkt-Zustände"
 
 #~ msgid "Product Template"
 #~ msgstr "Produktvorlage"
