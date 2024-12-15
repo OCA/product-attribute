@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_readonly_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_readonly_security
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin__display_name
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_readonly_security
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_product__id
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin__id
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_readonly_security
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin____last_update
+#: model:ir.model.fields,field_description:product_readonly_security.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_readonly_security
+#: model:ir.model,name:product_readonly_security.model_product_readonly_security_mixin
+msgid "Mixin to use Product Readonly Security"
+msgstr ""
+
+#. module: product_readonly_security
+#: model:ir.model,name:product_readonly_security.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_readonly_security
+#: model:ir.model,name:product_readonly_security.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_readonly_security
+#: model:res.groups,name:product_readonly_security.group_product_edition
+msgid "Product edition"
+msgstr ""
+
+#. module: product_readonly_security
+#: code:addons/product_readonly_security/models/product_readonly_security_mixin.py:0
+#, python-format
+msgid ""
+"Sorry, you are not allowed to create/edit products. Please contact your "
+"administrator for further information."
+msgstr ""
