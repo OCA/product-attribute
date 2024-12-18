@@ -29,5 +29,4 @@
             eval="(DateTime.now().replace(hour=3, minute=0, second=0) + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"
         />
     </record>
-
 </odoo>
