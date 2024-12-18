@@ -26,9 +26,8 @@ class ProductProduct(models.Model):
             limit = (limit - res_ids_len) if limit else False
         if (
             not name
-            and limit
             or not self._context.get("partner_id")
-            or res_ids_len >= limit
+            or (limit and res_ids_len >= limit)
         ):
             return res_ids
         limit -= res_ids_len
