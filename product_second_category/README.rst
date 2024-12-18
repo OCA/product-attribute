@@ -38,6 +38,10 @@ occurrences.
 The secondary category can extend the catalog description with more
 descriptive words
 
+|image1|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_second_category/static/description/secondary.png
+
 **Table of contents**
 
 .. contents::

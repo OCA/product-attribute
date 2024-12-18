@@ -6,3 +6,5 @@ The main category can be defined considering prices with
 few occurrences.
 
 The secondary category can extend the catalog description with more descriptive words
+
+![](../static/description/secondary.png)
