@@ -1,0 +1,14 @@
+<odoo>
+    <record id="product_category_list_view" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//list[1]" position="attributes">
+                <attribute name="multi_edit">1</attribute>
+            </xpath>
+            <field name="display_name" position="after">
+                <field name="usage" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>
