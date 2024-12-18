@@ -24,12 +24,15 @@ msgid "Download attachments"
 msgstr "Descargar adjuntos"
 
 #. module: product_attachment_zipped_download
-#: model:ir.model,name:product_attachment_zipped_download.model_product_product
+#: model:ir.model,name:product_attachment_zipped_download.model_product_template
 #, fuzzy
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_attachment_zipped_download
-#: model:ir.model,name:product_attachment_zipped_download.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+#: model:ir.model,name:product_attachment_zipped_download.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
