@@ -8,7 +8,7 @@ from odoo.tools.misc import mute_logger
 
 class TestProductAssortment(TransactionCase):
     def setUp(self):
-        super(TestProductAssortment, self).setUp()
+        super().setUp()
         self.filter_obj = self.env["ir.filters"]
         self.product_obj = self.env["product.product"]
         self.assortment = self.filter_obj.create(
@@ -91,7 +91,24 @@ class TestProductAssortment(TransactionCase):
         included_product = self.env.ref("product.product_product_7")
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
+        # 1=1 is the default open domain for any search result
+        self.assertEqual(res["domain"], [(1, "=", 1)])
+
+    def test_product_assortment_filter_combination(self):
+        """Combine a whitelisted and a blacklisted product in order
+        to validate the combination of both filters. The result should be a
+        simple domain with the excluded product.
+        """
+        # Add a default no product filter to the assortment
+        included_product = self.env.ref("product.product_product_7")
+        self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        excluded_product = self.env.ref("product.product_product_2")
+        self.assortment.write({"blacklist_product_ids": [(4, excluded_product.id)]})
+        res = self.assortment.show_products()
+        self.assertEqual(
+            res["domain"],
+            [("id", "not in", [excluded_product.id])],
+        )
 
     def test_record_count(self):
         products = self.product_obj.search([])
@@ -111,7 +128,7 @@ class TestProductAssortment(TransactionCase):
         assortment = self.filter_obj.with_context(product_assortment=True).create(
             {
                 "name": "Test Assortment Partner domain",
-                "partner_domain": "[('id', '=', %s)]" % self.partner.id,
+                "partner_domain": f"[('id', '=', {self.partner.id})]",
                 "partner_ids": [(4, self.partner2.id)],
             }
         )

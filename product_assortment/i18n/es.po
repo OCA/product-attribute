@@ -125,7 +125,7 @@ msgid "Partners to apply"
 msgstr "Contactos a los que aplica"
 
 #. module: product_assortment
-#: model_terms:ir.ui.view,arch_db:product_assortment.product_product_view_tree
+#: model_terms:ir.ui.view,arch_db:product_assortment.product_product_view_list
 msgid "Product"
 msgstr "Producto"
 

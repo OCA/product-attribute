@@ -12,12 +12,12 @@
             </search>
         </field>
     </record>
-    <record id="product_assortment_view_tree" model="ir.ui.view">
+    <record id="product_assortment_view_list" model="ir.ui.view">
         <field name="model">ir.filters</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -39,16 +39,12 @@
                                 <span class="o_stat_value">
                                     <field name="record_count" />
                                 </span>
-                                <span
-                                    attrs="{'invisible': [('record_count', '&lt;=', 1)]}"
-                                >
-                                        Products
-                                    </span>
-                                <span
-                                    attrs="{'invisible': [('record_count', '&gt;', 1)]}"
-                                >
-                                        Product
-                                    </span>
+                                <span invisible="record_count == 1">
+                                    Products
+                                </span>
+                                <span invisible="record_count != 1">
+                                    Product
+                                </span>
                             </div>
                         </button>
                     </div>
@@ -56,7 +52,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <label for="name" string="Assortment Name" />
@@ -85,7 +81,7 @@
                     </group>
                     <group
                         string="Restricted product domain"
-                        attrs="{'invisible': [('apply_black_list_product_domain', '=', False)]}"
+                        invisible="not apply_black_list_product_domain"
                     >
                         <field
                             name="black_list_product_domain"
@@ -110,7 +106,7 @@
                                 name="whitelist_product_ids"
                                 nolabel="1"
                                 colspan="2"
-                                context="{'tree_view_ref': 'product_assortment.product_product_view_tree'}"
+                                context="{'list_view_ref': 'product_assortment.product_product_view_list'}"
                             />
                         </group>
                         <group name="to_exclude" string="Products to exclude">
@@ -118,9 +114,8 @@
                                 name="blacklist_product_ids"
                                 nolabel="1"
                                 colspan="2"
-                                context="{'tree_view_ref': 'product_assortment.product_product_view_tree'}"
-                            >>
-                            </field>
+                                context="{'list_view_ref': 'product_assortment.product_product_view_list'}"
+                            />
                         </group>
                     </group>
                     <group
@@ -133,12 +128,12 @@
             </form>
         </field>
     </record>
-    <record id="product_product_view_tree" model="ir.ui.view">
+    <record id="product_product_view_list" model="ir.ui.view">
         <field name="model">product.product</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="display_name" string="Product" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="actions_product_assortment_view" model="ir.actions.act_window">
@@ -151,7 +146,7 @@
         <field
             name="view_ids"
             eval="[(5, 0, 0),
-                          (0, 0, {'view_mode': 'tree', 'view_id': ref('product_assortment_view_tree')}),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('product_assortment_view_list')}),
                           (0, 0, {'view_mode': 'form', 'view_id': ref('product_assortment_view_form')})]"
         />
     </record>
