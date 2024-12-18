@@ -1,0 +1,247 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_supplierinfo_import_by_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-12-19 11:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: product_supplierinfo_import_by_barcode
+#. odoo-python
+#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid "%(barcode)s (product imported)"
+msgstr "%(barcode)s (prodotto importato)"
+
+#. module: product_supplierinfo_import_by_barcode
+#. odoo-python
+#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid ""
+"<p class=\"o_view_nocontent\">\n"
+"                No vendor pricelists were created or updated.\n"
+"            </p>"
+msgstr ""
+"<p class=\"o_view_nocontent\">\n"
+"                Nessun listino acquisti è stato creato o aggiornato.\n"
+"            </p>"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__barcode_header_name
+msgid "Barcode Header Name"
+msgstr "Nome intestazione codice a barre"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_import_by_barcode.product_supplierinfo_import_form
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__header_name
+msgid "Copy it directly from the origin cell so it matches right"
+msgstr "Copia dalla cella origine per una corrispondenza corretta"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__create_new_products
+msgid "Create New Products"
+msgstr "Crea nuovi prodotti"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_product__created_from_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_template__created_from_supplierinfo_import
+msgid "Created From Supplierinfo Import"
+msgstr "Creato da maschera importazione informazioni fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__create_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__create_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_supplierinfo_import_by_barcode
+#. odoo-python
+#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid "Created form vendor pricelist import"
+msgstr "Creato da importazione listino fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__create_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__create_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__delay
+msgid "Delay"
+msgstr "Ritardo"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__field_id
+msgid "Field"
+msgstr "Campo"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__header_name
+msgid "Header Name"
+msgstr "Nome intestazione"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__header_offset
+msgid "Header Offset"
+msgstr "Offset intestazione"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__template_line_ids
+msgid "Headers mapping"
+msgstr "Mappatura intestazioni"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__id
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__id
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__create_new_products
+msgid ""
+"If a product isn't found by its barcode, it will be created with the "
+"provided data"
+msgstr ""
+"Se un prodotto non viene individuato dal proprio codice a barre, verrà "
+"creato con i dati forniti"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_import_by_barcode.product_supplierinfo_import_form
+msgid "Import and View"
+msgstr "Importa e visualizza"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model,name:product_supplierinfo_import_by_barcode.model_product_supplierinfo_import
+msgid "Import supplier info records"
+msgstr "Importa record informazioni fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.actions.act_window,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_action
+#: model:ir.ui.menu,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_menu
+msgid "Import vendor pricelists"
+msgstr "Importa listino fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__write_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__write_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__write_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__write_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model,name:product_supplierinfo_import_by_barcode.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__supplier_id
+msgid "Supplier"
+msgstr "Fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__supplierinfo_file
+msgid "Supplierinfo File"
+msgstr "File informazioni fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__supplierinfo_filename
+msgid "Supplierinfo Filename"
+msgstr "Nome file informazioni fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__template_id
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__template_id
+msgid "Template"
+msgstr "Modello"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model,name:product_supplierinfo_import_by_barcode.model_product_supplierinfo_import_template
+msgid "Templates to be detected when importing vendor pricelist"
+msgstr "Modelli da rilevare quando si importa il listino fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#. odoo-python
+#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid "The row format seems to be incorrect %(row)s"
+msgstr "Il formato della riga sembra errato %(row)s"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_product__created_from_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_template__created_from_supplierinfo_import
+msgid "This product was created with the vendor import wizard"
+msgstr ""
+"Questo prodotto è stato creato con la procedura guidata importazione "
+"fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__date_start
+msgid "Validity"
+msgstr "Validità"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model,name:product_supplierinfo_import_by_barcode.model_product_supplierinfo_import_template_line
+msgid "Vendor import columns and fields"
+msgstr "Campi e colonne importazione fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.ui.menu,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_menu
+msgid "Vendor pricelists import template"
+msgstr "Modello importazione listini fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.actions.act_window,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_action
+msgid "Vendor pricelists import templates"
+msgstr "Modelli importazione listini fornitore"
+
+#. module: product_supplierinfo_import_by_barcode
+#. odoo-python
+#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid "We couldn't find a suitable template for your file"
+msgstr "Non è possibile trovare un modello adatto per il file"
