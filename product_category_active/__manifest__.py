@@ -3,7 +3,7 @@
 
 {
     "name": "Product Category Active",
-    "version": "16.0.1.0.2",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "summary": "Add option to archive product categories",
     "author": "Tecnativa, Odoo Community Association (OCA)",
