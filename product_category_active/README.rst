@@ -51,15 +51,6 @@ children categories, an error will be raised and it won't be archived.
 Note 2: Children category are not archived/unarchived when the parent
 category does.
 
-Known issues / Roadmap
-======================
-
--  when you try to deactivate a category from the tree view by clicking
-   on the boolean_toggle widget, if a validation error pop-up appears
-   indicating that the element cannot be deactivated, then the element
-   is NOT deactivated, although the corresponding line turns gray as if
-   it had been disabled, until that tree view is refreshed.
-
 Bug Tracker
 ===========
 
