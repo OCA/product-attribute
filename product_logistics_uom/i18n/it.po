@@ -117,12 +117,6 @@ msgid "Define your length unit of measure"
 msgstr "Definire l'unità di misura della lunghezza"
 
 #. module: product_logistics_uom
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
-msgid "Gross Weight"
-msgstr "Peso lordo"
-
-#. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
 msgid "Length"
 msgstr "Lunghezza"
@@ -206,6 +200,8 @@ msgid "Volume unit of measure label"
 msgstr "Etichetta unità di misura volume"
 
 #. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid "Weight"
 msgstr "Peso"
@@ -227,6 +223,9 @@ msgstr "Peso nell'UdM del prodotto"
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_name
 msgid "Weight unit of measure label"
 msgstr "Etichetta unità di misura peso"
+
+#~ msgid "Gross Weight"
+#~ msgstr "Peso lordo"
 
 #~ msgid ""
 #~ "<span attrs=\"{'invisible':[('show_volume_uom_warning', '=', False)]}\" "
