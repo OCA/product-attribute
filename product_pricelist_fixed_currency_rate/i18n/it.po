@@ -19,7 +19,6 @@ msgstr ""
 #. module: product_pricelist_fixed_currency_rate
 #. odoo-python
 #: code:addons/product_pricelist_fixed_currency_rate/models/product_pricelist_item.py:0
-#, python-format
 msgid "({curr_from} to {curr_to} rates)"
 msgstr "(tasso da {curr_from} a {curr_to})"
 
