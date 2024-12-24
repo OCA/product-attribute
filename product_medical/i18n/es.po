@@ -17,8 +17,8 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_medical_class_ids
-#: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_medical_class_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_ce_certificate_class_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_ce_certificate_class_ids
 msgid "CE Certificate"
 msgstr "Certificado CE"
 
@@ -69,8 +69,8 @@ msgid "Categories"
 msgstr "Categorías"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__ce_certificate_validity_date
-#: model:ir.model.fields,field_description:product_medical.field_product_template__ce_certificate_validity_date
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_ce_certificate_validity_date
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_ce_certificate_validity_date
 msgid "Certificate Validity Date"
 msgstr "Fecha de validez del certificado"
 
@@ -116,8 +116,8 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__conformity_declaration_ids
-#: model:ir.model.fields,field_description:product_medical.field_product_template__conformity_declaration_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_conformity_declaration_ids
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_conformity_declaration_ids
 msgid "Declaration of Conformity"
 msgstr "Declaración de conformidad"
 
@@ -131,7 +131,6 @@ msgstr "El tipo de diagnóstico ya existe"
 #: model:ir.model.fields,field_description:product_medical.field_medical_class__display_name
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__display_name
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__display_name
-#: model:ir.model.fields,field_description:product_medical.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nombre visible"
 
@@ -161,7 +160,6 @@ msgstr "Droga-E"
 #: model:ir.model.fields,field_description:product_medical.field_medical_class__id
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__id
 #: model:ir.model.fields,field_description:product_medical.field_ppe_category__id
-#: model:ir.model.fields,field_description:product_medical.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
@@ -172,8 +170,8 @@ msgstr "Diagnóstico in Vitro"
 
 #. module: product_medical
 #: model:ir.model,name:product_medical.model_in_vitro_diagnostic
-#: model:ir.model.fields,field_description:product_medical.field_product_product__in_vitro_diagnostic
-#: model:ir.model.fields,field_description:product_medical.field_product_template__in_vitro_diagnostic
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_in_vitro_diagnostic
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_in_vitro_diagnostic
 msgid "In vitro diagnostics"
 msgstr "Diagnóstico in vitro"
 
@@ -204,15 +202,6 @@ msgid "Is Medical"
 msgstr "Es medica"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic____last_update
-#: model:ir.model.fields,field_description:product_medical.field_medical_class____last_update
-#: model:ir.model.fields,field_description:product_medical.field_medicine_category____last_update
-#: model:ir.model.fields,field_description:product_medical.field_ppe_category____last_update
-#: model:ir.model.fields,field_description:product_medical.field_product_template____last_update
-msgid "Last Modified on"
-msgstr "última modificación el"
-
-#. module: product_medical
 #: model:ir.model.fields,field_description:product_medical.field_in_vitro_diagnostic__write_uid
 #: model:ir.model.fields,field_description:product_medical.field_medical_class__write_uid
 #: model:ir.model.fields,field_description:product_medical.field_medicine_category__write_uid
@@ -229,8 +218,8 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__doc_lot_related
-#: model:ir.model.fields,field_description:product_medical.field_product_template__doc_lot_related
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_doc_lot_related
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_doc_lot_related
 msgid "Lot Related"
 msgstr "Lote relacionado"
 
@@ -279,8 +268,8 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__notified_body_id
-#: model:ir.model.fields,field_description:product_medical.field_product_template__notified_body_id
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_notified_body_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_notified_body_id
 msgid "Notified Body"
 msgstr "Cuerpo notificado"
 
@@ -290,8 +279,8 @@ msgid "PPE Categories"
 msgstr "Categorías de EPP"
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__ppe_category_id
-#: model:ir.model.fields,field_description:product_medical.field_product_template__ppe_category_id
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_ppe_category_id
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_ppe_category_id
 msgid "PPE Category"
 msgstr "Categoría PPE"
 
@@ -307,14 +296,20 @@ msgstr "Categoria PPE ya existe"
 
 #. module: product_medical
 #: model:ir.model,name:product_medical.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+msgid "Product"
+msgstr ""
 
 #. module: product_medical
-#: model:ir.model.fields,field_description:product_medical.field_product_product__doc_validity_date
-#: model:ir.model.fields,field_description:product_medical.field_product_template__doc_validity_date
+#: model:ir.model.fields,field_description:product_medical.field_product_product__medical_doc_validity_date
+#: model:ir.model.fields,field_description:product_medical.field_product_template__medical_doc_validity_date
 msgid "Validity Date"
 msgstr "Fecha de validez"
+
+#~ msgid "Last Modified on"
+#~ msgstr "última modificación el"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
 
 #~ msgid "CE Certificate Medical class"
 #~ msgstr "Certificado CE Clase médica"
