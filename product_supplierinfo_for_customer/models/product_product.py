@@ -30,7 +30,8 @@ class ProductProduct(models.Model):
             or (limit and res_ids_len >= limit)
         ):
             return res_ids
-        limit -= res_ids_len
+        if limit:
+            limit -= res_ids_len
         customerinfo_ids = self.env["product.customerinfo"]._search(
             [
                 ("partner_id", "=", self._context.get("partner_id")),
