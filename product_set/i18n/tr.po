@@ -187,7 +187,6 @@ msgstr ""
 #. module: product_set
 #. odoo-python
 #: code:addons/product_set/tests/models.py:0
-#, python-format
 msgid "This set of products is restricted for this user."
 msgstr ""
 

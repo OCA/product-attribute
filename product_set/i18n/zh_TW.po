@@ -189,7 +189,6 @@ msgstr "集合"
 #. module: product_set
 #. odoo-python
 #: code:addons/product_set/tests/models.py:0
-#, python-format
 msgid "This set of products is restricted for this user."
 msgstr "這個產品集僅限於此使用者。"
 
