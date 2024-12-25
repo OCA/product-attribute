@@ -2,3 +2,4 @@
 - Álvaro Trius Béjar \<<alvaro.trius@forgeflow.com>\>
 - Oriol Villamayor \<<oriol.villamayor@forgeflow.com>\>
 - Dhara Solanki \<<dhara.solanki@initos.com>\>
+- Khoi (Kien Kim) \<<khoikk@trobz.com>\>
