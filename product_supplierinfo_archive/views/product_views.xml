@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="product_supplierinfo_tree_view" model="ir.ui.view">
-        <field
-            name="name"
-        >product.supplierinfo.tree.view - product_supplierinfo_archive</field>
-        <field name="model">product.supplierinfo</field>
-        <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
-        <field name="arch" type="xml">
-            <field name="price" position="after">
-                <field name="active" invisible="1" />
-            </field>
-        </field>
-    </record>
-
     <record id="product_supplierinfo_form_view" model="ir.ui.view">
         <field
             name="name"
