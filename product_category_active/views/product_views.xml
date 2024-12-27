@@ -2,7 +2,6 @@
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record id="product_category_search_view" model="ir.ui.view">
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_search_view" />
@@ -21,7 +20,6 @@
             </field>
         </field>
     </record>
-
     <record id="product_category_form_view" model="ir.ui.view">
         <field name="name">product.category.form.inherit</field>
         <field name="model">product.category</field>
@@ -43,13 +41,12 @@
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_list_view" />
         <field name="arch" type="xml">
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute name="decoration-info">not active</attribute>
-            </tree>
-            <tree position="inside">
+            </list>
+            <list position="inside">
                 <field name="active" widget="boolean_toggle" />
-            </tree>
+            </list>
         </field>
     </record>
-
 </odoo>
