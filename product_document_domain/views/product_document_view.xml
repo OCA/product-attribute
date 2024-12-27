@@ -2,7 +2,6 @@
 <!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record id="product_document_search_inherit" model="ir.ui.view">
         <field name="name">product.document.search.inherit</field>
         <field name="model">product.document</field>
@@ -22,5 +21,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>
