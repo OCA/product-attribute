@@ -1,7 +1,7 @@
 # Copyright 2020 Tecnativa - Ernesto Tejeda
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -23,7 +23,7 @@ class ProductCategory(models.Model):
             .search([("categ_id", "child_of", to_archive.ids)])
         ):
             raise ValidationError(
-                _(
+                self.env._(
                     "At least one category that you are trying to archive or one "
                     "of its children has one or more product linked to it."
                 )
