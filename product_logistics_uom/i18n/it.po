@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-07-22 06:40+0000\n"
+"PO-Revision-Date: 2024-12-28 14:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -226,7 +226,7 @@ msgstr "Peso nell'UdM del prodotto"
 #: model:ir.model.fields,help:product_logistics_uom.field_product_product__weight
 #: model:ir.model.fields,help:product_logistics_uom.field_product_template__weight
 msgid "Weight of the product with its container and packaging."
-msgstr ""
+msgstr "Peso del prodotto con il suo contenitore e imballaggio."
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_name
