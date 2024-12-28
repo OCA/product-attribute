@@ -97,6 +97,12 @@ msgid "Define your length unit of measure"
 msgstr ""
 
 #. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
+msgid "Gross Weight"
+msgstr ""
+
+#. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.res_config_settings_view_form
 msgid "Length"
 msgstr ""
@@ -175,8 +181,6 @@ msgid "Volume unit of measure label"
 msgstr ""
 
 #. module: product_logistics_uom
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
-#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid "Weight"
 msgstr ""
@@ -191,6 +195,12 @@ msgstr "Gewicht-ME"
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__product_weight
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__product_weight
 msgid "Weight in product UOM"
+msgstr ""
+
+#. module: product_logistics_uom
+#: model:ir.model.fields,help:product_logistics_uom.field_product_product__weight
+#: model:ir.model.fields,help:product_logistics_uom.field_product_template__weight
+msgid "Weight of the product with its container and packaging."
 msgstr ""
 
 #. module: product_logistics_uom
