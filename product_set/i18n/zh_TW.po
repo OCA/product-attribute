@@ -124,6 +124,16 @@ msgid "Product"
 msgstr "產品"
 
 #. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_id
+msgid "Product Packaging"
+msgstr ""
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_qty
+msgid "Product Packaging Qty"
+msgstr ""
+
+#. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
 #: model:ir.model,name:product_set.model_product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_id
@@ -203,6 +213,12 @@ msgid ""
 "You can attache the set to a specific partner or no one. If you don't "
 "specify one, it's going to be available for all of them."
 msgstr "你可以將此集合連接給特定的合作夥伴，若是留空，此集合將會揭露給所有人。"
+
+#. module: product_set
+#. odoo-python
+#: code:addons/product_set/models/product_set_line.py:0
+msgid "You must define a package before setting a quantity of said package."
+msgstr ""
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_i5_computer
