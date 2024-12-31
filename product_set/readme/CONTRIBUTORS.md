@@ -9,3 +9,6 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Pilar Vargas
 - Nils Coenen \<<nils.coenen@nico-solutions.de>\>
+- Akim Juillerat \<<akim.juillerat@camptocamp.com>\>
+- Son (Ho Dac) \<<hodacson.6491@gmail.com>\>
+- Tris Doan \<<tridm@trobz.com>\>

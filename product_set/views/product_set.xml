@@ -49,6 +49,15 @@
                             <list editable="top">
                                 <field name="sequence" widget="handle" />
                                 <field name="product_id" required="not display_type" />
+                                <field
+                                    name="product_packaging_id"
+                                    context="{'default_product_id': product_id}"
+                                    groups="product.group_stock_packaging"
+                                />
+                                <field
+                                    name="product_packaging_qty"
+                                    groups="product.group_stock_packaging"
+                                />
                                 <field name="quantity" />
                                 <field name="display_type" invisible="1" />
                                 <field name="name" widget="section_and_note_text" />
