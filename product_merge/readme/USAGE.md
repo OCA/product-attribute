@@ -1,0 +1,3 @@
+- In the product template tree view, select multiple products.
+- Chose "Merge products" action
+- At least two products must be selected, and each should have at most one variant.
