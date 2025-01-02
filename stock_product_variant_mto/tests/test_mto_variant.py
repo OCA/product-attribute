@@ -6,7 +6,6 @@ from .common import TestMTOVariantCommon
 
 
 class TestMTOVariant(TestMTOVariantCommon):
-
     def test_variants_mto(self):
         # instanciate variables
         pen_template = self.template_pen

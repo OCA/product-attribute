@@ -14,17 +14,16 @@ class TestMTOVariantCommon(SavepointCase):
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.setUpClassProduct()
 
-
     @classmethod
     def setUpClassProduct(cls):
-        cls.color = cls.env['product.attribute'].create({'name': 'Color'})
-        value_model = cls.env['product.attribute.value']
+        cls.color = cls.env["product.attribute"].create({"name": "Color"})
+        value_model = cls.env["product.attribute.value"]
         cls.values = value_model.create(
             [
-                {'name': 'red', 'attribute_id': cls.color.id},
-                {'name': 'blue', 'attribute_id': cls.color.id},
-                {'name': 'black', 'attribute_id': cls.color.id},
-                {'name': 'green', 'attribute_id': cls.color.id},
+                {"name": "red", "attribute_id": cls.color.id},
+                {"name": "blue", "attribute_id": cls.color.id},
+                {"name": "black", "attribute_id": cls.color.id},
+                {"name": "green", "attribute_id": cls.color.id},
             ]
         )
         cls.value_red = cls.values.filtered(lambda v: v.name == "red")
@@ -34,19 +33,31 @@ class TestMTOVariantCommon(SavepointCase):
         cls.template_pen = cls.env["product.template"].create(
             {
                 "name": "pen",
-                'attribute_line_ids': [
-                    (0, 0, {
-                        'attribute_id': cls.color.id,
-                        'value_ids': [(6, 0, cls.values.ids)],
-                    })
-                ]
+                "attribute_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "attribute_id": cls.color.id,
+                            "value_ids": [(6, 0, cls.values.ids)],
+                        },
+                    )
+                ],
             }
         )
         cls.variants_pen = cls.template_pen.product_variant_ids
-        cls.black_pen = cls.variants_pen.filtered(lambda v: v.product_template_attribute_value_ids.name == "black")
-        cls.green_pen = cls.variants_pen.filtered(lambda v: v.product_template_attribute_value_ids.name == "green")
-        cls.red_pen = cls.variants_pen.filtered(lambda v: v.product_template_attribute_value_ids.name == "red")
-        cls.blue_pen = cls.variants_pen.filtered(lambda v: v.product_template_attribute_value_ids.name == "blue")
+        cls.black_pen = cls.variants_pen.filtered(
+            lambda v: v.product_template_attribute_value_ids.name == "black"
+        )
+        cls.green_pen = cls.variants_pen.filtered(
+            lambda v: v.product_template_attribute_value_ids.name == "green"
+        )
+        cls.red_pen = cls.variants_pen.filtered(
+            lambda v: v.product_template_attribute_value_ids.name == "red"
+        )
+        cls.blue_pen = cls.variants_pen.filtered(
+            lambda v: v.product_template_attribute_value_ids.name == "blue"
+        )
         cls.mto_route = cls.env.ref("stock.route_warehouse0_mto")
         cls.mto_route.active = True
 
