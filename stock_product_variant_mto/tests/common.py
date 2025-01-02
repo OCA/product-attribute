@@ -1,17 +1,16 @@
 # Copyright 2023 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from odoo.tests.common import Form, SavepointCase
+from odoo.tests import Form, tagged
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestMTOVariantCommon(SavepointCase):
-    at_install = False
-    post_install = True
-
+@tagged("post_install", "-at_install")
+class TestMTOVariantCommon(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.setUpClassProduct()
 
     @classmethod
@@ -79,13 +78,13 @@ class TestMTOVariantCommon(SavepointCase):
             record.is_mto = not record.is_mto
 
     def assertVariantsMTO(self, records):
-        records.invalidate_cache(["is_mto"])
+        records.invalidate_recordset(["is_mto"])
         self.assertTrue(all([record.is_mto for record in records]))
         for rec in records:
             self.assertIn(self.mto_route, rec.route_ids)
 
     def assertVariantsNotMTO(self, records):
-        records.invalidate_cache(["is_mto"])
+        records.invalidate_recordset(["is_mto"])
         self.assertFalse(any([record.is_mto for record in records]))
         for rec in records:
             self.assertNotIn(self.mto_route, rec.route_ids)

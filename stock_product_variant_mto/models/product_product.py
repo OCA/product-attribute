@@ -23,30 +23,50 @@ class ProductProduct(models.Model):
     )
 
     route_ids = fields.Many2many(
-        "stock.location.route",
+        "stock.route",
         compute="_compute_route_ids",
-        domain="[('product_selectable', '=', True)]",
         store=False,
+        domain="[('product_selectable', '=', True)]",
+        search="_search_route_ids",
     )
 
     def _compute_is_mto(self):
         mto_route = self.env.ref("stock.route_warehouse0_mto", raise_if_not_found=False)
+        if not mto_route:
+            self.update({"is_mto": False})
+            return
+
         for product in self:
-            if not mto_route:
-                product.is_mto = False
-                continue
             product.is_mto = mto_route in product.product_tmpl_id.route_ids
 
     @api.depends("is_mto", "product_tmpl_id.route_ids")
     def _compute_route_ids(self):
         mto_route = self.env.ref("stock.route_warehouse0_mto", raise_if_not_found=False)
         for product in self:
-            if mto_route and mto_route in product.product_tmpl_id.route_ids:
-                if not product.is_mto:
-                    product.route_ids = product.product_tmpl_id.route_ids - mto_route
-                    continue
-            else:
-                if mto_route and product.is_mto:
-                    product.route_ids = product.product_tmpl_id.route_ids + mto_route
-                    continue
-            product.route_ids = product.product_tmpl_id.route_ids
+            template_routes = product.product_tmpl_id.route_ids
+
+            if mto_route:
+                if product.is_mto and mto_route not in template_routes:
+                    template_routes += mto_route
+                elif not product.is_mto and mto_route in template_routes:
+                    template_routes -= mto_route
+
+            product.route_ids = template_routes
+
+    def _search_route_ids(self, operator, value):
+        mto_route = self.env.ref("stock.route_warehouse0_mto", raise_if_not_found=False)
+        if not mto_route:
+            return [(0, "=", 1)] if operator in ("=", "in") else [(0, "=", 0)]
+
+        if (operator, value) in [("=", mto_route.id), ("in", [mto_route.id])]:
+            return [
+                ("product_tmpl_id.route_ids", operator, value),
+                ("is_mto", "=", True),
+            ]
+        elif operator in ("!=", "not in") and mto_route.id in value:
+            return [
+                "|",
+                ("product_tmpl_id.route_ids", operator, value),
+                ("is_mto", "=", False),
+            ]
+        return [("product_tmpl_id.route_ids", operator, value)]

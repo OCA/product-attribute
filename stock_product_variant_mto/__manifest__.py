@@ -4,7 +4,7 @@
 {
     "name": "Stock Product Variant MTO",
     "summary": "Allow to individually set variants as MTO",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Alpha",
     "category": "Inventory",
     "website": "https://github.com/OCA/stock-logistics-workflow",

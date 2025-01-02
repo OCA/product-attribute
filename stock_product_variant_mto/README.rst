@@ -31,6 +31,8 @@ Stock Product Variant MTO
 This module allows to define if a product variant can use the Make To
 Order route without any dependency on its template routes settings.
 
+The routes are moved from product template to product product.
+
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
    Only for development or testing purpose, do not use in production.
@@ -64,6 +66,15 @@ Contributors
 
 -  Matthieu Méquignon <matthieu.mequignon@camptocamp.com>
 -  Akim Juillerat <akim.juillerat@camptocamp.com>
+-  Chau Le <chaulb@trobz.com>
+
+Other credits
+-------------
+
+The development and migration of this module has been financially
+supported by:
+
+-  Camptocamp
 
 Maintainers
 -----------
