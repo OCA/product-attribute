@@ -2,6 +2,26 @@
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
+
+    <record id="product_category_search_view" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view" />
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <filter
+                    name="inactive"
+                    string="Archived"
+                    domain="[('active','=',False)]"
+                />
+                <filter
+                    name="active_and_inactive"
+                    string="Archived or Active"
+                    context="{'active_test': False}"
+                />
+            </field>
+        </field>
+    </record>
+
     <record id="product_category_form_view" model="ir.ui.view">
         <field name="name">product.category.form.inherit</field>
         <field name="model">product.category</field>
@@ -31,7 +51,5 @@
             </tree>
         </field>
     </record>
-    <record id="product.product_category_action_form" model="ir.actions.act_window">
-        <field name="context">{"active_test": False}</field>
-    </record>
+
 </odoo>
