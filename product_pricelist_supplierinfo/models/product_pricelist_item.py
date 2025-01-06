@@ -20,6 +20,13 @@ class ProductPricelistItem(models.Model):
         string="Supplier filter",
         help="Only match prices from the selected supplier",
     )
+    no_supplierinfo_discount = fields.Boolean(
+        string="Ignore Supplier Info Discount",
+        help=(
+            "If checked, the discount set on the supplier info "
+            "will be ignored in price calculation."
+        ),
+    )
 
     def _compute_price(self, product, quantity, uom, date, currency=None):
         result = super()._compute_price(product, quantity, uom, date, currency)

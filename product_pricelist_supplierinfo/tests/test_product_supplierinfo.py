@@ -311,3 +311,19 @@ class TestProductSupplierinfo(TransactionCase):
         # And the price with the pricelist and the uom of Units (Instead of Dozen)
         # will be 100, plus the 20% the total will be 120 per Unit
         self.assertEqual(product_pricelist_price_unit, 120)
+
+    def test_pricelist_exclude_supplier_info_discount(self):
+        """Test the scenario where the product supplier info includes a discount, to
+        verify the functionality of the option to exclude this discount from the price
+        calculation.
+        """
+        self.product.seller_ids[1].discount = 10
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            9,
+        )
+        self.pricelist.item_ids[0].no_supplierinfo_discount = True
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            10,
+        )
