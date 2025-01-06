@@ -10,6 +10,7 @@ class ProductSupplierinfo(models.Model):
     sale_margin = fields.Float(
         default=0,
         digits=(16, 2),
+        string="Sale Margin (%)",
         help="Margin to apply on price to obtain sale price",
     )
 

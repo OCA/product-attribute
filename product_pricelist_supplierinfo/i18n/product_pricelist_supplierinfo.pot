@@ -64,12 +64,7 @@ msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
-msgid "Sale Margin"
-msgstr ""
-
-#. module: product_pricelist_supplierinfo
-#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
-msgid "Sale margin"
+msgid "Sale Margin (%)"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
