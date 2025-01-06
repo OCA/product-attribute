@@ -6,7 +6,7 @@
     "version": "17.0.1.0.0",
     "category": "Product",
     "summary": "Add option to archive product categories",
-    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "author": "Tecnativa, GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "depends": ["product"],
