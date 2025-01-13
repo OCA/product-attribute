@@ -75,7 +75,6 @@ msgstr "Es predeterminado"
 #. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging.py:0
-#, python-format
 msgid ""
 "It is forbidden to have different packagings with the same level for a given "
 "product ({})."
@@ -91,11 +90,6 @@ msgid ""
 msgstr ""
 "Opción de idioma para los nombres de embalaje utilizados en caso de que los "
 "nombres de política sea el embalaje por niveles"
-
-#. module: product_packaging_level
-#: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
 
 #. module: product_packaging_level
 #: model:ir.model.fields,field_description:product_packaging_level.field_product_packaging_level__write_uid
@@ -126,11 +120,10 @@ msgstr "Política de nombres"
 #. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging_level.py:0
-#, python-format
 msgid "Only one product packaging level can be set as \"Is Default\"."
 msgstr ""
-"Solo se puede establecer un tipo de empaque de producto como \"Predeterminado"
-"\"."
+"Solo se puede establecer un tipo de empaque de producto como "
+"\"Predeterminado\"."
 
 #. module: product_packaging_level
 #: model:ir.model.fields.selection,name:product_packaging_level.selection__product_packaging_level__name_policy__by_package_level
@@ -144,7 +137,6 @@ msgstr "Tipo de paquete Nombre"
 
 #. module: product_packaging_level
 #: model_terms:ir.ui.view,arch_db:product_packaging_level.product_packaging_tree_view
-#: model_terms:ir.ui.view,arch_db:product_packaging_level.view_product_packaging_add_type_form
 msgid "Packaging"
 msgstr "Empaquetado"
 
@@ -158,7 +150,6 @@ msgstr "Tipo de empaquetado"
 #. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging_level.py:0
-#, python-format
 msgid ""
 "Packaging name based on package type is only allowed after activating the "
 "option Packages in Inventory > Configuration > Settings !"
@@ -204,7 +195,6 @@ msgstr "El primero de la secuencia es el predeterminado."
 #. module: product_packaging_level
 #. odoo-python
 #: code:addons/product_packaging_level/models/product_packaging_level.py:0
-#, python-format
 msgid "There must be one product packaging level set as \"Is Default\"."
 msgstr ""
 "Debe haber un tipo de empaque de producto establecido como \"Es "
@@ -227,6 +217,9 @@ msgstr ""
 "El nombre de nivel de paquete (por defecto)- El nombre de tipo de paquete "
 "(si groups='stock.group_tracking_lot')- definido por el usuario: valor de "
 "texto libre definido"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
 
 #~ msgid "Level Sequence"
 #~ msgstr "Secuencia de niveles"
