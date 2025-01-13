@@ -5,11 +5,13 @@
 from datetime import date
 
 from odoo import Command
-from odoo.tests import TransactionCase, tagged
+from odoo.tests import tagged
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @tagged("product_supplier_info")
-class TestProductSupplierinfo(TransactionCase):
+class TestProductSupplierinfo(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -58,22 +60,6 @@ class TestProductSupplierinfo(TransactionCase):
                 ],
             }
         )
-
-    @classmethod
-    def _update_rate(cls, currency_id, rate):
-        currency_rate = cls.currency_rate_obj.search(
-            [("name", "=", date.today()), ("currency_id", "=", currency_id.id)], limit=1
-        )
-        if not currency_rate:
-            cls.currency_rate_obj.create(
-                {
-                    "currency_id": currency_id.id,
-                    "rate": rate,
-                    "name": date.today(),
-                }
-            )
-        else:
-            currency_rate.write({"rate": rate})
 
     def test_pricelist_based_on_product_category(self):
         self.pricelist.item_ids[0].write(
@@ -257,10 +243,8 @@ class TestProductSupplierinfo(TransactionCase):
         """
         # Setting the currencies and rates for the test, so we can have a supplierinfo
         # and pricelist with different currencies
-        currency_usd = self.env.ref("base.USD")
-        currency_mxn = self.env.ref("base.MXN")
-        self._update_rate(currency_usd, 1)
-        self._update_rate(currency_mxn, 20)
+        currency_usd = self.setup_other_currency("USD", rates=[(date.today(), 1)])
+        currency_mxn = self.setup_other_currency("MXN", rates=[(date.today(), 20)])
 
         # Setting the item with the product
         self.pricelist.item_ids[0].write(
@@ -327,3 +311,24 @@ class TestProductSupplierinfo(TransactionCase):
             self.pricelist._get_product_price(self.product, 1),
             10,
         )
+
+    def test_pricelist_price_not_based_on_supplierinfo(self):
+        """Test the scenario where the pricelist is not based on the supplier info,
+        so the price should be calculated as expected natively.
+        """
+        self.pricelist.item_ids[0].base = "list_price"
+        product_template = self.product.product_tmpl_id
+        expected_price = product_template._price_compute("list_price")
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            expected_price[product_template.id],
+        )
+
+    def test_pricelist_price_no_sellers(self):
+        """Test scenario where there are no sellers linked to the product."""
+        product_template = self.product.product_tmpl_id
+        self.product.seller_ids = False
+        price = product_template._get_supplierinfo_pricelist_price(
+            self.pricelist.item_ids[0]
+        )
+        self.assertAlmostEqual(price, 0)

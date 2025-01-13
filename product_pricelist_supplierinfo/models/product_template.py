@@ -27,7 +27,7 @@ class ProductTemplate(models.Model):
         # The product_variant_id returns empty recordset if template is not
         # active, so we must ensure variant exists or _select_seller fails.
         if product:
-            if type(date) == datetime:
+            if isinstance(date, datetime):
                 date = date.date()
             seller = product.with_context(
                 override_min_qty=rule.no_supplierinfo_min_quantity
