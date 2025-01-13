@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductCategory(models.Model):
-
     _inherit = "product.category"
 
-    description = fields.Char(string="Description", default="", copy=False)
+    description = fields.Char(default="", copy=False)
