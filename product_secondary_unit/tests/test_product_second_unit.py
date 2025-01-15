@@ -1,6 +1,11 @@
 # Copyright 2018 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+import logging
+
+from odoo.fields import Command
 from odoo.tests import TransactionCase, tagged
+
+_logger = logging.getLogger(__name__)
 
 
 @tagged("post_install", "-at_install")
@@ -39,8 +44,68 @@ class TestProductSecondaryUnit(TransactionCase):
                 ],
             }
         )
+        cls.woods = cls.env["product.template"].create(
+            {
+                "name": "Piece of woods",
+                "list_price": 2000,
+                "uom_id": cls.product_uom_kg.id,
+                "uom_po_id": cls.product_uom_kg.id,
+                "secondary_uom_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "code": "A",
+                            "name": "unit-700",
+                            "uom_id": cls.product_uom_unit.id,
+                            "factor": 0.7,
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "code": "B",
+                            "name": "unit-900",
+                            "uom_id": cls.product_uom_unit.id,
+                            "factor": 0.9,
+                        },
+                    ),
+                ],
+            }
+        )
         cls.secondary_unit = cls.env["product.secondary.unit"].search(
             [("product_tmpl_id", "=", cls.product.id)], limit=1
+        )
+        cls.densitiy = cls.env["product.attribute"].create(
+            [
+                {
+                    "name": "Density",
+                    "sequence": 1,
+                    "value_ids": [
+                        Command.create(
+                            {
+                                "name": "Low",
+                                "sequence": 1,
+                            }
+                        ),
+                        Command.create(
+                            {
+                                "name": "Heavy",
+                                "sequence": 2,
+                            }
+                        ),
+                    ],
+                }
+            ]
+        )
+        cls.low, cls.heavy = cls.densitiy.value_ids
+        cls.density_attribute_lines = cls.env["product.template.attribute.line"].create(
+            {
+                "product_tmpl_id": cls.woods.id,
+                "attribute_id": cls.densitiy.id,
+                "value_ids": [Command.set([cls.low.id, cls.heavy.id])],
+            }
         )
 
     def test_product_secondary_unit_name(self):
@@ -58,3 +123,36 @@ class TestProductSecondaryUnit(TransactionCase):
         self.assertEqual(len(name_get), 1)
         name_get = self.env["product.secondary.unit"].name_search(name="X", args=args)
         self.assertEqual(len(name_get), 0)
+
+    def test_multi_variant_product_secondary_unit(self):
+        first_variant = self.woods.product_variant_ids[0]
+        second_variant = self.woods.product_variant_ids[1]
+        self.assertEqual(len(self.woods.secondary_uom_ids), 2)
+        self.assertEqual(first_variant.secondary_uom_ids, self.woods.secondary_uom_ids)
+
+        first_variant.write(
+            {
+                "secondary_uom_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "code": "C",
+                            "name": "unit-1000",
+                            "product_id": first_variant.id,
+                            "uom_id": self.product_uom_unit.id,
+                            "factor": 0.1,
+                        },
+                    ),
+                ]
+            }
+        )
+        _logger.info(
+            f"Template 2Uoms: {self.woods.secondary_uom_ids.mapped('name')}"
+            f" -- Product var1 2Uoms: {first_variant.secondary_uom_ids.mapped('name')}"
+            f" -- Product var2 2Uoms: {second_variant.secondary_uom_ids.mapped('name')}"
+        )
+        first_variant.invalidate_recordset()
+        self.assertEqual(len(self.woods.secondary_uom_ids), 3)
+        self.assertEqual(len(first_variant.secondary_uom_ids), 3)
+        self.assertEqual(len(second_variant.secondary_uom_ids), 2)
