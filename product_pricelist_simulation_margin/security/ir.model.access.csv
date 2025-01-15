@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+product_pricelist_simulation_margin.access_wizard_preview_pricelist_line,access_wizard_preview_pricelist_line,product_pricelist_simulation_margin.model_wizard_preview_pricelist_line,base.group_user,1,1,1,1
