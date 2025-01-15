@@ -22,21 +22,15 @@ msgid "Description"
 msgstr "Descrizione"
 
 #. module: product_category_description
-#: model:ir.model.fields,field_description:product_category_description.field_product_category__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: product_category_description
-#: model:ir.model.fields,field_description:product_category_description.field_product_category__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_category_description
-#: model:ir.model.fields,field_description:product_category_description.field_product_category____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: product_category_description
 #: model:ir.model,name:product_category_description.model_product_category
 msgid "Product Category"
 msgstr "Categoria prodotto"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
