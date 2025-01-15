@@ -79,6 +79,15 @@ Contributors
 
 -  Sylvain LE GAL <https://twitter.com/legalsylvain>
 -  Hugo Córdoba - FactorLibre <https://www.factorlibre.com>
+-  Khoi (Kien Kim) <khoikk@trobz.com>
+
+Other credits
+-------------
+
+The migration of this module from 16.0 to 17.0 was financially supported
+by:
+
+-  Camptocamp
 
 Maintainers
 -----------
