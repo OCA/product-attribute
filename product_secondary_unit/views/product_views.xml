@@ -17,9 +17,8 @@
                     groups="uom.group_uom"
                 >
                     <field name="secondary_uom_ids" colspan="4" nolabel="1">
-                        <tree editable="bottom" decoration-muted="(not active)">
+                        <list editable="bottom" decoration-muted="(not active)">
                             <field name="active" widget="boolean_toggle" />
-                            <field name="product_tmpl_id" column_invisible="1" />
                             <field
                                 name="product_id"
                                 domain="[('product_tmpl_id', '=', parent.id)]"
@@ -32,7 +31,7 @@
                             <field name="uom_id" />
                             <field name="factor" />
                             <field name="dependency_type" />
-                        </tree>
+                        </list>
                     </field>
                 </group>
             </xpath>
@@ -45,7 +44,7 @@
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
             <xpath
-                expr="//field[@name='secondary_uom_ids']/tree/field[@name='product_id']"
+                expr="//field[@name='secondary_uom_ids']/list/field[@name='product_id']"
                 position="attributes"
             >
                 <attribute name="domain">[('id', '=', parent.id)]</attribute>
