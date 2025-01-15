@@ -74,6 +74,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
 
     @api.depends(lambda x: x._get_secondary_uom_qty_depends())
     def _compute_secondary_uom_qty(self):
+        """Compute the secondary qty field defined based on uom qty_field"""
         for line in self:
             if not line.secondary_uom_id:
                 line.secondary_uom_qty = 0.0
@@ -87,6 +88,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 precision_rounding=line.secondary_uom_id.uom_id.rounding,
             )
             line.secondary_uom_qty = qty
+        # To avoid recompute uom qty_field when secondary_uom_qty changes.
+        self.env.remove_to_compute(
+            field=self._fields[self._secondary_unit_fields["qty_field"]], records=self
+        )
 
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
