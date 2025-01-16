@@ -69,7 +69,7 @@ class ProductPackaging(models.Model):
             if not uom_id:
                 uom_id = packaging.uom_id.create(
                     {
-                        "name": "{} {}".format(category_id.name, qty),
+                        "name": f"{category_id.name} {qty}",
                         "category_id": category_id.id,
                         "rounding": packaging.product_id.uom_id.rounding,
                         "uom_type": "bigger",

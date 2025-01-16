@@ -147,4 +147,4 @@ class TestProductPackaging(common.SavepointCase):
             {"name": "PACKAGING TEST", "product_id": self.product_dozen.id}
         )
         product_packaging_dozen.qty = 0.0
-        self.assertEquals(self.uom_unit, product_packaging_dozen.uom_id)
+        self.assertEqual(self.uom_unit, product_packaging_dozen.uom_id)
