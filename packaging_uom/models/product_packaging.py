@@ -43,12 +43,12 @@ class ProductPackaging(models.Model):
         Compute the quantity by package based on uom
         """
         for packaging in self:
+            qty = 1.0
             if packaging.uom_id and packaging.product_id:
-                packaging.qty = packaging.uom_id._compute_quantity(
+                qty = packaging.uom_id._compute_quantity(
                     1, to_unit=packaging.product_id.uom_id
                 )
-            else:
-                packaging.qty = 1.0
+            packaging.qty = qty
 
     @api.onchange("product_id")
     def onchange_product_id(self):
@@ -64,7 +64,14 @@ class ProductPackaging(models.Model):
             category_id = packaging.product_id.uom_id.category_id
             qty = packaging.qty if packaging.qty else 1.0
             uom_id = packaging.uom_id.search(
-                [("factor", "=", 1.0 / qty), ("category_id", "=", category_id.id)]
+                [
+                    (
+                        "factor",
+                        "=",
+                        1.0 / ((1 / packaging.product_id.uom_id.factor) * qty),
+                    ),
+                    ("category_id", "=", category_id.id),
+                ]
             )
             if not uom_id:
                 uom_id = packaging.uom_id.create(
