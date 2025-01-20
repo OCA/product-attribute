@@ -1,0 +1,1 @@
+Due to odoo's behavior in handling internal reference for variants (see for example https://github.com/odoo/odoo/issues/140356 ), removing all attributes from a product template with variants will generate a new internal reference for product template.

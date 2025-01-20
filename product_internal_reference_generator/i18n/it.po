@@ -1,0 +1,150 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_internal_reference_generator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-12-02 11:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: product_internal_reference_generator
+#: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.product_template_form_view_inherit
+msgid ""
+"Are you sure want to generate a new reference prefix? If variants already "
+"exist for this product, the new internal reference will be assigned only to "
+"those variants that do not already have an internal reference set."
+msgstr ""
+"Si è sicuri di voler generare un nuovo prefisso riferimento interno? Se "
+"esistono già varianti per questo prodotto, il nuovo riferimento interno sarà "
+"assegnato solo alle varianti che non hanno già un riferimento interno "
+"impostato."
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__variant_reference_numbers
+msgid "Digits"
+msgstr "Cifre"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_internal_reference_generator
+#: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.product_template_form_view_inherit
+msgid "Generate"
+msgstr "Genera"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_internal_reference_generator
+#: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.product_template_form_view_inherit
+msgid "Int. Ref. Prefix"
+msgstr "Prefisso rif. int."
+
+#. module: product_internal_reference_generator
+#: model_terms:ir.ui.view,arch_db:product_internal_reference_generator.product_template_form_view_inherit
+msgid "Int. Ref. Template"
+msgstr "Modello rif. int."
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product__variants_prefix
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__variants_prefix
+msgid "Internal Reference Prefix"
+msgstr "Prefisso riferimento interno"
+
+#. module: product_internal_reference_generator
+#: model:ir.model,name:product_internal_reference_generator.model_product_code_sequence
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product__int_ref_template_id
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__int_ref_template_id
+msgid "Internal Reference Template"
+msgstr "Modello riferimento interno"
+
+#. module: product_internal_reference_generator
+#: model:ir.actions.act_window,name:product_internal_reference_generator.action_internal_reference_template
+#: model:ir.ui.menu,name:product_internal_reference_generator.menu_internal_reference_template
+msgid "Internal Reference Templates"
+msgstr "Modelli riferimento interno"
+
+#. module: product_internal_reference_generator
+#: model:res.groups,name:product_internal_reference_generator.group_int_ref_template_always_visible
+msgid "Internal reference template always visible"
+msgstr "Modello riferimento interno sempre visibile"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: product_internal_reference_generator
+#: model:ir.model,name:product_internal_reference_generator.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_internal_reference_generator
+#: model:ir.model,name:product_internal_reference_generator.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_code_sequence__sequence_id
+msgid "Sequence"
+msgstr "Sequenza"
+
+#. module: product_internal_reference_generator
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_product__variants_sequence_id
+#: model:ir.model.fields,field_description:product_internal_reference_generator.field_product_template__variants_sequence_id
+msgid "Variants Sequence"
+msgstr "Sequenza varianti"
+
+#~ msgid ""
+#~ "Are you sure want to generate a new reference "
+#~ "prefix?                         If variants already exist for this "
+#~ "product, the new internal                         reference will be "
+#~ "assigned only to those variants that                         do not "
+#~ "already have an internal reference set."
+#~ msgstr ""
+#~ "Sei sicuro di voler generare un nuovo prefisso riferimento "
+#~ "interno?                         Se esistono già varianti per questo "
+#~ "prodotto, il nuovo riferimento                         interno sarà "
+#~ "assegnato solo alle varianti che                         non hanno già un "
+#~ "riferimento interno impostato."
+
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
