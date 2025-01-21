@@ -8,41 +8,39 @@
                 <label
                     for="int_ref_template_id"
                     class="o_form_label"
-                    attrs="{'invisible': [('variants_prefix', '!=', False)]}"
+                    invisible="variants_prefix"
                     string="Int. Ref. Template"
                 />
                 <div
                     class="o_row"
                     name="sequence"
-                    attrs="{'invisible': [('variants_prefix', '!=', False)]}"
+                    invisible="variants_prefix"
                 >
                     <field name="int_ref_template_id" />
                     <button
                         name="btn_generate_sequence"
                         type="object"
                         string="Generate"
-                        attrs="{'invisible': [('int_ref_template_id', '=', False)]}"
+                        invisible="not int_ref_template_id"
                         confirm="Are you sure want to generate a new reference prefix? If variants already exist for this product, the new internal reference will be assigned only to those variants that do not already have an internal reference set."
                     />
                 </div>
                 <field
                     name="int_ref_template_id"
                     string="Int. Ref. Template"
-                    attrs="{'invisible': [('variants_prefix', '=', False)]}"
+                    invisible="not variants_prefix"
                     groups="product_internal_reference_generator.group_int_ref_template_always_visible"
                 />
                 <field
                     name="variants_prefix"
-                    attrs="{'invisible': [('int_ref_template_id', '=', False)]}"
+                    readonly="True"
+                    invisible="not int_ref_template_id"
                     string="Int. Ref. Prefix"
                 />
             </field>
             <field name="default_code" position="attributes">
-                <attribute name="attrs" operation="update">
-                    {'readonly': [('default_code', '!=', False)]}
-                </attribute>
-                <attribute name="groups">
-                    !product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
+                <attribute name="readonly">default_code</attribute>
+                <attribute name="groups">!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
             </field>
             <field name="barcode" position="after">
                 <field
@@ -111,13 +109,10 @@
                 />
             </field>
             <field name="default_code" position="attributes">
-                <attribute name="attrs" operation="update">
-                    {'readonly': [('default_code', '!=', False)]}
-                </attribute>
-                <attribute
-                    name="groups"
-                >!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
+                <attribute name="readonly">default_code</attribute>
+                <attribute name="groups">!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
             </field>
+
         </field>
     </record>
 
@@ -132,12 +127,8 @@
                 />
             </field>
             <field name="default_code" position="attributes">
-                <attribute name="attrs" operation="update">
-                    {'readonly': [('default_code', '!=', False)]}
-                </attribute>
-                <attribute
-                    name="groups"
-                >!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
+                <attribute name="readonly">default_code</attribute>
+                <attribute name="groups">!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
             </field>
         </field>
     </record>

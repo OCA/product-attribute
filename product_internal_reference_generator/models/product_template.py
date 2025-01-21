@@ -11,7 +11,7 @@ class ProductTemplate(models.Model):
     )
     variants_sequence_id = fields.Many2one("ir.sequence")
     variants_prefix = fields.Char(
-        "Internal Reference Prefix", readonly=True, tracking=True
+        "Internal Reference Prefix", tracking=True
     )
 
     @api.onchange("int_ref_template_id")

@@ -6,7 +6,7 @@ from odoo.tests import Form, TransactionCase
 class TestProductInternalReferenceGenerator(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductInternalReferenceGenerator, cls).setUpClass()
+        super().setUpClass()
         attr_model = cls.env["product.attribute"]
         val_model = cls.env["product.attribute.value"]
         pt_model = cls.env["product.template"]
