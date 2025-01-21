@@ -14,8 +14,6 @@
         <field name="state">code</field>
         <field name="interval_number">10</field>
         <field name="interval_type">minutes</field>
-        <field name="numbercall">-1</field>
-        <field name="doall" eval="0" />
         <field name="code">model.cron_assortment_update()</field>
         <field name="nextcall" eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')" />
     </record>
