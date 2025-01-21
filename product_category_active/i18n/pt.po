@@ -23,9 +23,18 @@ msgid "Active"
 msgstr "Ativo"
 
 #. module: product_category_active
+#: model_terms:ir.ui.view,arch_db:product_category_active.product_category_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: product_category_active
+#: model_terms:ir.ui.view,arch_db:product_category_active.product_category_search_view
+msgid "Archived or Active"
+msgstr ""
+
+#. module: product_category_active
 #. odoo-python
 #: code:addons/product_category_active/models/product_category.py:0
-#, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
 "has one or more product linked to it."
