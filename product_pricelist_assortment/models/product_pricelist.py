@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductPricelist(models.Model):
-
     _inherit = "product.pricelist"
 
     item_assortment_ids = fields.One2many(

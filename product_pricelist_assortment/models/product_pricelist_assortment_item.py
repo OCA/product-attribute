@@ -9,7 +9,6 @@ _logger = logging.getLogger(__name__)
 
 
 class ProductPricelistAssortmentItem(models.Model):
-
     _name = "product.pricelist.assortment.item"
     _description = "Product Pricelist Assortment Item"
     _inherit = "product.pricelist.item"

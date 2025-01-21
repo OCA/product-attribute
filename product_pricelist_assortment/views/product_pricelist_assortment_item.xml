@@ -48,10 +48,10 @@
                                 attrs="{'invisible':[('compute_price', '!=', 'percentage')]}"
                             >
                                 <field
-                                    name="percent_price"
-                                    nolabel="1"
-                                    class="oe_inline"
-                                />%%
+                                name="percent_price"
+                                nolabel="1"
+                                class="oe_inline"
+                            />%%
                             </div>
                         </div>
                     </group>
