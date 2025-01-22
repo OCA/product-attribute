@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-01 12:38+0000\n"
+"PO-Revision-Date: 2025-01-22 12:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: product_category_active
 #: model:ir.model.fields,field_description:product_category_active.field_product_category__active
@@ -24,12 +24,12 @@ msgstr "Attivo"
 #. module: product_category_active
 #: model_terms:ir.ui.view,arch_db:product_category_active.product_category_search_view
 msgid "Archived"
-msgstr ""
+msgstr "In archivio"
 
 #. module: product_category_active
 #: model_terms:ir.ui.view,arch_db:product_category_active.product_category_search_view
 msgid "Archived or Active"
-msgstr ""
+msgstr "Archiviata o attiva"
 
 #. module: product_category_active
 #. odoo-python
