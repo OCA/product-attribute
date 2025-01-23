@@ -78,6 +78,10 @@
                                 <tr t-foreach="category_products" t-as="product">
                                     <td>
                                         <span t-field="product.display_name" />
+                                        <span t-if="o.show_description_sale">
+                                            <br />
+                                            <span t-out="product.description_sale" />
+                                        </span>
                                     </td>
                                     <td t-if="o.show_standard_price" class="text-right">
                                         <span
@@ -127,5 +131,8 @@
         <field
             name="report_file"
         >product_pricelist_direct_print.report_product_pricelist</field>
+        <field
+            name="print_report_name"
+        >'Pricelist- %s' % (object.pricelist_id.name or '')</field>
     </record>
 </odoo>
