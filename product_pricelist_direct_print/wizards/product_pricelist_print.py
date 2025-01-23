@@ -27,7 +27,7 @@ class ProductPricelistPrint(models.TransientModel):
     partner_ids = fields.Many2many(comodel_name="res.partner", string="Customers")
     categ_ids = fields.Many2many(comodel_name="product.category", string="Categories")
     show_only_defined_products = fields.Boolean(
-        string="Show the products defined on pricelist",
+        string="Show only the products defined on pricelist",
         help="Check this field to print only the products defined in the pricelist. "
         "The entries in the list referring to all products will not be displayed.",
     )
@@ -52,6 +52,7 @@ class ProductPricelistPrint(models.TransientModel):
     show_standard_price = fields.Boolean(string="Show Cost Price")
     show_sale_price = fields.Boolean()
     show_pricelist_name = fields.Boolean(default=True)
+    show_description_sale = fields.Boolean(string="Show Sales Description")
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
     )
@@ -321,28 +322,28 @@ class ProductPricelistPrint(models.TransientModel):
                 if item.applied_on == "2_product_category" and item.categ_id.parent_id:
                     items_dic["categ_ids"].append(item.categ_id.id)
             if items_dic["categ_ids"]:
-                aux_domain = expression.OR(
+                aux_domain = expression.AND(
                     [aux_domain, [("categ_id", "in", items_dic["categ_ids"])]]
                 )
             if items_dic["product_ids"]:
                 if self.show_variants:
-                    aux_domain = expression.OR(
+                    aux_domain = expression.AND(
                         [
                             aux_domain,
                             [("product_tmpl_id", "in", items_dic["product_ids"])],
                         ]
                     )
                 else:
-                    aux_domain = expression.OR(
+                    aux_domain = expression.AND(
                         [aux_domain, [("id", "in", items_dic["product_ids"])]]
                     )
             if items_dic["variant_ids"]:
                 if self.show_variants:
-                    aux_domain = expression.OR(
+                    aux_domain = expression.AND(
                         [aux_domain, [("id", "in", items_dic["variant_ids"])]]
                     )
                 else:
-                    aux_domain = expression.OR(
+                    aux_domain = expression.AND(
                         [
                             aux_domain,
                             [("product_variant_ids", "in", items_dic["variant_ids"])],
