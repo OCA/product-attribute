@@ -72,10 +72,7 @@
                                 <field name="name" />
                             </tree>
                         </field>
-                        <field
-                            name="product_ids"
-                            invisible="not show_variants"
-                        >
+                        <field name="product_ids" invisible="not show_variants">
                             <tree>
                                 <field name="name" />
                             </tree>
