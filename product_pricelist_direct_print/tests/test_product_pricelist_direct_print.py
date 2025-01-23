@@ -11,7 +11,7 @@ from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 class TestProductPricelistDirectPrint(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProductPricelistDirectPrint, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         # Set report layout to void to wizard selection layout crashes the test
         report_layout = cls.env.ref("web.report_layout_standard")

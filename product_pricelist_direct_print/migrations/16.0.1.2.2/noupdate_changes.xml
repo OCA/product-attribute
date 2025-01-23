@@ -15,23 +15,23 @@
             name="lang"
         >{{ object.partner_id and object.partner_id.lang or object.write_uid.partner_id.lang }}</field>
         <field name="body_html" type="html">
-<div style="margin: 0px; padding: 0px;">
-    <p>Dear <span
-                        t-out="object.partner_id and object.partner_id.name or 'customer'"
-                    />,</p>
-    <p>
+            <div style="margin: 0px; padding: 0px;">
+                <p>Dear <span
+                    t-out="object.partner_id and object.partner_id.name or 'customer'"
+                />,</p>
+                <p>
     The attached file is a PDF document containg the
     <strong t-out="object.pricelist_id.name" /> pricelist.
     </p>
-    <p>You can reply to this email if you have any questions.</p>
-    <p>Thank you,</p>
+                <p>You can reply to this email if you have any questions.</p>
+                <p>Thank you,</p>
 
-    <p style="color:#888888;">
-        <t t-if="object.write_uid and object.write_uid.signature">
-            <span t-out="object.write_uid.signature or ''" />
-        </t>
-    </p>
-</div>
+                <p style="color:#888888;">
+                    <t t-if="object.write_uid and object.write_uid.signature">
+                        <span t-out="object.write_uid.signature or ''" />
+                    </t>
+                </p>
+            </div>
         </field>
     </record>
 </odoo>
