@@ -11,11 +11,7 @@
                     invisible="variants_prefix"
                     string="Int. Ref. Template"
                 />
-                <div
-                    class="o_row"
-                    name="sequence"
-                    invisible="variants_prefix"
-                >
+                <div class="o_row" name="sequence" invisible="variants_prefix">
                     <field name="int_ref_template_id" />
                     <button
                         name="btn_generate_sequence"
@@ -40,8 +36,9 @@
             </field>
             <field name="default_code" position="attributes">
                 <attribute name="readonly">default_code</attribute>
-                <attribute name="groups">!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
-            </field>
+                <attribute
+                    name="groups"
+                >!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>            </field>
             <field name="barcode" position="after">
                 <field
                     name="default_code"
@@ -110,7 +107,9 @@
             </field>
             <field name="default_code" position="attributes">
                 <attribute name="readonly">default_code</attribute>
-                <attribute name="groups">!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
+                <attribute
+                    name="groups"
+                >!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
             </field>
 
         </field>
@@ -128,7 +127,9 @@
             </field>
             <field name="default_code" position="attributes">
                 <attribute name="readonly">default_code</attribute>
-                <attribute name="groups">!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
+                <attribute
+                    name="groups"
+                >!product_internal_reference_generator.group_int_ref_template_always_visible</attribute>
             </field>
         </field>
     </record>

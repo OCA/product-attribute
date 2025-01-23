@@ -10,9 +10,7 @@ class ProductTemplate(models.Model):
         "product.code.sequence", "Internal Reference Template"
     )
     variants_sequence_id = fields.Many2one("ir.sequence")
-    variants_prefix = fields.Char(
-        "Internal Reference Prefix", tracking=True
-    )
+    variants_prefix = fields.Char("Internal Reference Prefix", tracking=True)
 
     @api.onchange("int_ref_template_id")
     def onchange_int_ref_template_id(self):
