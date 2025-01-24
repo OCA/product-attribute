@@ -3,31 +3,27 @@
 
 
 from odoo.exceptions import AccessError
-from odoo.tests import common, new_test_user
+from odoo.tests import new_test_user
 from odoo.tests.common import users
 from odoo.tools import mute_logger
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestProductReadonlySecurity(common.SavepointCase):
+
+class TestProductReadonlySecurity(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.env = cls.env(
-            context=dict(
-                cls.env.context,
-                mail_create_nolog=True,
-                mail_create_nosubscribe=True,
-                mail_notrack=True,
-                no_reset_password=True,
-                tracking_disable=True,
-                test_product_readonly_security=True,
-            )
+            context=dict(cls.env.context, test_product_readonly_security=True)
         )
         cls.user_admin = new_test_user(
             cls.env,
             login="test_user_admin",
-            groups="base.group_user,base.group_system,%s"
-            % ("product_readonly_security.group_product_edition"),
+            groups="""
+                base.group_user,base.group_system,
+                product_readonly_security.group_product_edition
+            """,
         )
         cls.user_readonly = new_test_user(
             cls.env,
