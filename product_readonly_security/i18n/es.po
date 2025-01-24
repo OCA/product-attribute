@@ -18,40 +18,19 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 #. module: product_readonly_security
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_product__display_name
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin__display_name
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_template__display_name
-msgid "Display Name"
-msgstr "Nombre mostrado"
-
-#. module: product_readonly_security
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_product__id
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin__id
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_template__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_readonly_security
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_product____last_update
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_readonly_security_mixin____last_update
-#: model:ir.model.fields,field_description:product_readonly_security.field_product_template____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
-
-#. module: product_readonly_security
 #: model:ir.model,name:product_readonly_security.model_product_readonly_security_mixin
 msgid "Mixin to use Product Readonly Security"
 msgstr ""
 
 #. module: product_readonly_security
-#: model:ir.model,name:product_readonly_security.model_product_product
+#: model:ir.model,name:product_readonly_security.model_product_template
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_readonly_security
-#: model:ir.model,name:product_readonly_security.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+#: model:ir.model,name:product_readonly_security.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_readonly_security
 #: model:res.groups,name:product_readonly_security.group_product_edition
@@ -59,6 +38,7 @@ msgid "Product edition"
 msgstr "Edición de productos"
 
 #. module: product_readonly_security
+#. odoo-python
 #: code:addons/product_readonly_security/models/product_readonly_security_mixin.py:0
 #, python-format
 msgid ""
@@ -67,3 +47,15 @@ msgid ""
 msgstr ""
 "Lo sentimos, no tiene permiso para crear/editar productos. Para más "
 "información, póngase en contacto con su administrador."
+
+#~ msgid "Display Name"
+#~ msgstr "Nombre mostrado"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
