@@ -33,6 +33,12 @@ msgid "Attribute Value"
 msgstr "Valore attributo"
 
 #. module: product_attribute_archive
+#: model:ir.model.fields,help:product_attribute_archive.field_product_attribute__active
+msgid ""
+"If unchecked, it will allow you to hide the attribute without removing it."
+msgstr ""
+
+#. module: product_attribute_archive
 #: model:ir.model,name:product_attribute_archive.model_product_attribute
 msgid "Product Attribute"
 msgstr "Attributo prodotto"
