@@ -1,14 +1,10 @@
-# Copyright 2024 Tecnativa - Víctor Martínez
+# Copyright 2024-2025 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import TransactionCase
-
-from odoo.addons.attachment_zipped_download.tests.test_attachment_zipped_download import (
-    TestAttachmentZippedDownloadBase,
-)
+from odoo.addons.attachment_zipped_download.tests import test_attachment_zipped_download
 
 
 class TestProductAttachmentZippedDownload(
-    TransactionCase, TestAttachmentZippedDownloadBase
+    test_attachment_zipped_download.TestAttachmentZippedDownloadBase
 ):
     @classmethod
     def setUpClass(cls):
@@ -17,21 +13,18 @@ class TestProductAttachmentZippedDownload(
         cls.product_b = cls.env["product.product"].create({"name": "Test product B"})
         cls.product_c = cls.env["product.product"].create({"name": "Test product C"})
         cls.attachment_a = cls._create_attachment(
-            cls.env,
             cls.env.uid,
             "product-a.txt",
             model=cls.product_a._name,
             res_id=cls.product_a.id,
         )
         cls.attachment_b = cls._create_attachment(
-            cls.env,
             cls.env.uid,
             "product-b.txt",
             model=cls.product_b._name,
             res_id=cls.product_b.id,
         )
         cls.attachment_b_extra = cls._create_attachment(
-            cls.env,
             cls.env.uid,
             "product-template-b.txt",
             model=cls.product_b.product_tmpl_id._name,
@@ -51,13 +44,13 @@ class TestProductAttachmentZippedDownload(
         self.assertEqual(action["type"], "ir.actions.act_url")
         self.assertEqual(action["target"], "self")
         self.assertEqual(
-            action["url"], "/web/content/%s?download=1" % self.attachment_a.id
+            action["url"], f"/web/content/{self.attachment_a.id}?download=1"
         )
         action = self.product_a.action_download_attachments()
         self.assertEqual(action["type"], "ir.actions.act_url")
         self.assertEqual(action["target"], "self")
         self.assertEqual(
-            action["url"], "/web/content/%s?download=1" % self.attachment_a.id
+            action["url"], f"/web/content/{self.attachment_a.id}?download=1"
         )
 
     def test_action_download_attachments_one_attachment_2(self):

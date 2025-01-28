@@ -33,6 +33,3 @@ msgstr "Producto"
 #: model:ir.model,name:product_attachment_zipped_download.model_product_product
 msgid "Product Variant"
 msgstr ""
-
-#~ msgid "Product Template"
-#~ msgstr "Plantilla de producto"
