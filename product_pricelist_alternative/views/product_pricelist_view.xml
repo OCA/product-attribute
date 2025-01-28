@@ -34,13 +34,7 @@
                 </group>
             </group>
             <xpath
-                expr="//page[@name='pricelist_rules']/field[@name='item_ids']/tree/field[@name='product_id']"
-                position="after"
-            >
-                <field name="alternative_pricelist_policy" />
-            </xpath>
-            <xpath
-                expr="//page[@name='pricelist_rules']/field[@name='item_ids']/tree[@groups='product.group_sale_pricelist']/field[@name='name']"
+                expr="//page[@name='pricelist_rules']/field[@name='item_ids']/list/field[@name='product_tmpl_id']"
                 position="after"
             >
                 <field name="alternative_pricelist_policy" />
