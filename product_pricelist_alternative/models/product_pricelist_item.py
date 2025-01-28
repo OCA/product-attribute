@@ -28,8 +28,9 @@ class PricelistItem(models.Model):
             ):
                 raise ValidationError(
                     _(
-                        "It is not possible to encode this price rule. Formulas based "
-                        "on another pricelist are not allowed on alternative pricelists."
-                        " Please change to another type of price computation."
+                        "It is not possible to encode this price rule. "
+                        "Formulas based on another pricelist "
+                        "are not allowed on alternative pricelists. "
+                        "Please change to another type of price computation."
                     )
                 )
