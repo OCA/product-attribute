@@ -1,7 +1,7 @@
 # Copyright 2024 Camptocamp (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -45,9 +45,9 @@ class Pricelist(models.Model):
         self.ensure_one()
         action = {
             "type": "ir.actions.act_window",
-            "name": _("Is Alternative to Pricelist"),
+            "name": self.env._("Is Alternative to Pricelist"),
             "res_model": "product.pricelist",
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
             "domain": [("id", "in", self.is_alternative_to_pricelist_ids.ids)],
             "context": dict(self.env.context, create=False),
         }
@@ -57,8 +57,25 @@ class Pricelist(models.Model):
             )
         return action
 
-    def _compute_price_rule(self, products, qty, uom=None, date=False, **kwargs):
-        res = super()._compute_price_rule(products, qty, uom=uom, date=date, **kwargs)
+    def _compute_price_rule(
+        self,
+        products,
+        quantity,
+        currency=None,
+        uom=None,
+        date=False,
+        compute_price=True,
+        **kwargs,
+    ):
+        res = super()._compute_price_rule(
+            products,
+            quantity,
+            currency=currency,
+            uom=uom,
+            date=date,
+            compute_price=compute_price,
+            **kwargs,
+        )
 
         # In some contexts we want to ignore alternative pricelists
         # and return the original price
@@ -75,7 +92,13 @@ class Pricelist(models.Model):
             ):
                 for alternative_pricelist in self.alternative_pricelist_ids:
                     alternative_price_rule = alternative_pricelist._compute_price_rule(
-                        product, qty, uom=uom, date=date, **kwargs
+                        product,
+                        quantity,
+                        currency=currency,
+                        uom=uom,
+                        date=date,
+                        compute_price=compute_price,
+                        **kwargs,
                     )
                     # use alternative price if lower
                     if alternative_price_rule[product.id][0] < res[product.id][0]:
@@ -91,7 +114,7 @@ class Pricelist(models.Model):
                 and item.base == "pricelist"
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Formulas based on another pricelist are not allowed "
                         "on alternative pricelists."
                     )

@@ -1,7 +1,7 @@
 # Copyright 2024 Camptocamp (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -27,7 +27,7 @@ class PricelistItem(models.Model):
                 and item.pricelist_id.is_alternative_to_pricelist_count
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "It is not possible to encode this price rule. "
                         "Formulas based on another pricelist "
                         "are not allowed on alternative pricelists. "

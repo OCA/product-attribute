@@ -1,15 +1,13 @@
 # Copyright 2024 Camptocamp (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo.exceptions import ValidationError
-from odoo.tests import common, tagged
+from odoo.tests import tagged
 
 from .common import CommonProductPricelistAlternative
 
 
 @tagged("post_install", "-at_install")
-class TestPricelistAlternative(
-    CommonProductPricelistAlternative, common.TransactionCase
-):
+class TestPricelistAlternative(CommonProductPricelistAlternative):
     def test_is_alternative_to_pricelist_count(self):
         """Test that the is_alternative_to_pricelist_count is correctly computed"""
 
@@ -22,7 +20,7 @@ class TestPricelistAlternative(
 
     def test_action_view_is_alternative_to_pricelist(self):
         action = self.alternative_pricelist_01.action_view_is_alternative_to_pricelist()
-        self.assertEqual(action["view_mode"], "tree,form")
+        self.assertEqual(action["view_mode"], "list,form")
         self.assertEqual(
             action["domain"][0][2],
             self.alternative_pricelist_01.is_alternative_to_pricelist_ids.ids,

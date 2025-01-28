@@ -2,17 +2,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.fields import Command
-from odoo.tests import common, tagged
+from odoo.tests import tagged
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @tagged("post_install", "-at_install")
-class CommonProductPricelistAlternative(common.TransactionCase):
+class CommonProductPricelistAlternative(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env["base"].with_context(**DISABLED_MAIL_CONTEXT).env
         cls.datacard = cls.env["product.product"].create(
             {"name": "Data card", "list_price": 100}
         )
