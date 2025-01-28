@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -69,13 +69,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "Previous Price"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Previous info"
 msgstr ""
@@ -86,7 +84,6 @@ msgid "Product Supplier Duplicate Wizard"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Relation with previous info when duplicate line"
 msgstr ""
@@ -107,13 +104,11 @@ msgid "Supplier Pricelist"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "The price to purchase a product"
 msgstr ""
 
 #. module: product_supplierinfo_revision
-#: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__variation_percent
 msgid "Variation %"
