@@ -18,8 +18,15 @@
                         name="update_product_abc_classification_profile"
                         class="oe_link"
                         type="object"
-                        string="-> Apply to Products"
+                        string="-> Apply to Products for this Category"
                         confirm="This will apply to all products in the category"
+                    />
+                    <button
+                        name="update_product_abc_classification_profile_children"
+                        class="oe_link"
+                        type="object"
+                        string="-> Apply to Products for this Category and Subcategories"
+                        confirm="This will apply to all products in the category and its subcategories"
                     />
                 </group>
             </xpath>

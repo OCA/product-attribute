@@ -16,10 +16,16 @@ class ProductCategory(models.Model):
     )
 
     def update_product_abc_classification_profile(self):
+        self._update_product_abc_classification_profile(categ_id_operator="=")
+
+    def update_product_abc_classification_profile_children(self):
+        self._update_product_abc_classification_profile(categ_id_operator="child_of")
+
+    def _update_product_abc_classification_profile(self, categ_id_operator):
         for categ in self:
             products = self.env["product.product"].search(
                 [
-                    ("categ_id", "=", categ.id),
+                    ("categ_id", categ_id_operator, categ.id),
                     ("abc_classification_profile_updatable_from_category", "=", True),
                 ]
             )
