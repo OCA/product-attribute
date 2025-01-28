@@ -102,5 +102,8 @@ class TestPricelistAlternative(
                     "base_pricelist_id": self.alternative_pricelist_02.id,
                 }
             )
-        msg = "Formulas based on another pricelist are not allowed on alternative pricelists."
+        msg = (
+            "Formulas based on another pricelist "
+            "are not allowed on alternative pricelists."
+        )
         self.assertIn(msg, e.exception.args[0])
