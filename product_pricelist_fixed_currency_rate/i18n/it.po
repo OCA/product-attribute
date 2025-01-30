@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-13 16:38+0000\n"
+"PO-Revision-Date: 2025-01-30 15:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: product_pricelist_fixed_currency_rate
 #. odoo-python
@@ -25,7 +25,7 @@ msgstr "(tasso da {curr_from} a {curr_to})"
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__actual_currency_rate
 msgid "Actual Currency Rate"
-msgstr "Tasso valuta attuale"
+msgstr "Tasso di cambio attuale"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model,name:product_pricelist_fixed_currency_rate.model_res_currency
@@ -35,17 +35,17 @@ msgstr "Valuta"
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__currency_rate_tooltip
 msgid "Currency Rate Tooltip"
-msgstr "Nota tasso valuta"
+msgstr "Nota tasso di cambio"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__do_inverse_currency_rate
 msgid "Do Inverse Currency Rate"
-msgstr "Inverti tasso valuta"
+msgstr "Inverti tasso di cambio"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__fixed_currency_rate
 msgid "Fixed Currency Rate"
-msgstr "Tasso valuta fisso"
+msgstr "Tasso di cambio fisso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,help:product_pricelist_fixed_currency_rate.field_product_pricelist_item__fixed_currency_rate
@@ -54,8 +54,8 @@ msgid ""
 "If set (different to 0.0), the currency conversion will ignore the actual "
 "currency rate and always use the fixed currency rate."
 msgstr ""
-"Se impostata (diversa da 0,0), la vonversione di valuta ignorerà il tasso "
-"valuta attuale e userà sempre il tasso valuta fisso."
+"Se impostata (diversa da 0,0), la conversione di valuta ignorerà il tasso di "
+"cambio attuale e userà sempre il tasso di cambio fisso."
 
 #. module: product_pricelist_fixed_currency_rate
 #: model_terms:ir.ui.view,arch_db:product_pricelist_fixed_currency_rate.product_pricelist_item_form_view
@@ -65,17 +65,17 @@ msgstr "Inverso"
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__inverse_actual_currency_rate
 msgid "Inverse Actual Currency Rate"
-msgstr "Inverso tasso valuta attuale"
+msgstr "Inverso tasso di cambio attuale"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__inverse_fixed_currency_rate
 msgid "Inverse Fixed Currency Rate"
-msgstr "Inverso tasso valuta fisso"
+msgstr "Inverso tasso di cambio fisso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__is_fixed_currency_rate_applicable
 msgid "Is Fixed Currency Rate Applicable"
-msgstr "È applicabile il tasso valuta fisso"
+msgstr "È applicabile il tasso di cambio fisso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model,name:product_pricelist_fixed_currency_rate.model_product_pricelist_item
