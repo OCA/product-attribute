@@ -49,6 +49,7 @@ msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignorar cantidad mínima de la info de proveedor"
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_customerinfo__sale_margin
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
 msgid "Margin to apply on price to obtain sale price"
 msgstr "Margen a aplicar sobre el precio para obtener precio de venta"
@@ -79,6 +80,7 @@ msgid "Product Variant"
 msgstr "Variante del producto"
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_customerinfo__sale_margin
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
 msgid "Sale Margin (%)"
 msgstr "Margen de venta (%)"
