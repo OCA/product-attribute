@@ -9,7 +9,6 @@
             <field name="price" position="after">
                 <field
                     name="sale_margin"
-                    string="Sale margin"
                     groups="product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin"
                 />
             </field>

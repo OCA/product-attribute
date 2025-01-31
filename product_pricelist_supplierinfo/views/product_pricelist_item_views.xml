@@ -11,6 +11,10 @@
                     name="no_supplierinfo_min_quantity"
                     invisible="base != 'supplierinfo'"
                 />
+                <field
+                    name="no_supplierinfo_discount"
+                    invisible="base != 'supplierinfo'"
+                />
                 <field name="filter_supplier_id" invisible="base != 'supplierinfo'" />
             </xpath>
         </field>

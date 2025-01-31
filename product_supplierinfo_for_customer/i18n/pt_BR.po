@@ -185,6 +185,11 @@ msgid "Import Template for Customer Pricelists"
 msgstr "Modelo de importação para listas de preços do cliente"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__last_purchase_date
+msgid "Last Purchase"
+msgstr ""
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_uid
 msgid "Last Updated by"
 msgstr "Última Atualização por"
@@ -262,13 +267,18 @@ msgstr "Quantidade"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Sale Margin"
-msgstr "Margem Venda"
+msgid "Sale Margin (%)"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Sequence"
 msgstr "Sequencia"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__show_set_supplier_button
+msgid "Show Set Supplier Button"
+msgstr ""
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_start
@@ -344,6 +354,9 @@ msgstr "Variação Cliente"
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_for_customer.product_customerinfo_form_view
 msgid "to"
 msgstr "para"
+
+#~ msgid "Sale Margin"
+#~ msgstr "Margem Venda"
 
 #~ msgid "Vendor Product Code"
 #~ msgstr "Código Produto no Fornecedor"

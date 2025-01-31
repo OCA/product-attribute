@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="product_document_search_inherit" model="ir.ui.view">
+        <field name="name">product.document.search.inherit</field>
+        <field name="model">product.document</field>
+        <field name="inherit_id" ref="product.product_document_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='context_variant']" position="after">
+                <filter
+                    string="Documents of this template"
+                    name="context_template"
+                    domain="[('res_model', '=', 'product.template'), ('res_id', '=', context.get('default_res_id'))]"
+                />
+                <filter
+                    string="Documents of variant and product"
+                    name="context_variant_template"
+                    domain="['|', '&amp;', ('res_model', '=', 'product.product'), ('res_id', '=', context.get('default_res_id')), '&amp;', ('res_model', '=', 'product.template'), ('res_id', '=', context.get('default_parent_res_id'))]"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

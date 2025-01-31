@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-08-30 14:06+0000\n"
+"PO-Revision-Date: 2025-01-08 10:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -190,6 +190,11 @@ msgid "Import Template for Customer Pricelists"
 msgstr "Modello importazione listino clienti"
 
 #. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__last_purchase_date
+msgid "Last Purchase"
+msgstr "Ultimo acquisto"
+
+#. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -267,13 +272,18 @@ msgstr "Quantità"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sale_margin
-msgid "Sale Margin"
-msgstr "Margine di vendita"
+msgid "Sale Margin (%)"
+msgstr "Margine di vendita (%)"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__sequence
 msgid "Sequence"
 msgstr "Sequenza"
+
+#. module: product_supplierinfo_for_customer
+#: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__show_set_supplier_button
+msgid "Show Set Supplier Button"
+msgstr "Visualizza pulsante imposta fornitore"
 
 #. module: product_supplierinfo_for_customer
 #: model:ir.model.fields,field_description:product_supplierinfo_for_customer.field_product_customerinfo__date_start
@@ -350,6 +360,9 @@ msgstr "Variante cliente"
 msgid "to"
 msgstr "a"
 
+#~ msgid "Sale Margin"
+#~ msgstr "Margine di vendita"
+
 #~ msgid "Vendor Product Code"
 #~ msgstr "Codice prodotto fornitore"
 
@@ -371,9 +384,3 @@ msgstr "a"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Ultima modifica il"
-
-#~ msgid "Last Purchase"
-#~ msgstr "Ultimo acquisto"
-
-#~ msgid "Show Set Supplier Button"
-#~ msgstr "Visualizza pulsante imposta fornitore"

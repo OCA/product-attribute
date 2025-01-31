@@ -41,7 +41,9 @@ class ProductTemplate(models.Model):
                 date=date,
             )
             if seller:
-                price = seller._get_supplierinfo_pricelist_price()
+                price = seller._get_supplierinfo_pricelist_price(
+                    rule.no_supplierinfo_discount
+                )
         if price:
             # We need to convert the price if the pricelist and seller have
             # different currencies so the price have the pricelist currency

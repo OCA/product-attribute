@@ -1,0 +1,99 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_usability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-11-08 11:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_attribute
+msgid "Attributes"
+msgstr "Attributi"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_configuration
+msgid "Configuration"
+msgstr "Configurazione"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_pricelist
+msgid "Pricelists"
+msgstr "Listini"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_attribute_creation
+msgid "Product Attribute Creation"
+msgstr "Creazione attributo prodotto"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_category
+msgid "Product Categories"
+msgstr "Categorie prodotto"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_category_creation
+msgid "Product Category Creation"
+msgstr "Creazione categoria prodotto"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_creation
+msgid "Product Creation"
+msgstr "Creazione prodotto"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_packaging
+msgid "Product Packagings"
+msgstr "Imballaggi prodotto"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_supplierinfo_creation
+msgid "Product Supplier Pricelist Creation"
+msgstr "Creazione listino fornitore prodotto"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_tag_creation
+msgid "Product Tag Creation"
+msgstr "Creazione etichetta prodotto"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_tag
+msgid "Product Tags"
+msgstr "Etichette prodotto"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_product
+msgid "Product Variants"
+msgstr "Varianti prodotto"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product
+#: model:ir.ui.menu,name:product_usability.menu_product_main
+#: model:ir.ui.menu,name:product_usability.menu_product_template
+msgid "Products"
+msgstr "Prodotti"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_uom_uom
+msgid "Units of Measure"
+msgstr "Unità di misura"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_uom_category
+msgid "Units of Measure Categories"
+msgstr "Categorie unità di misura"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_uom_creation
+msgid "Units of Measure Creation"
+msgstr "Creazione unità di misura"

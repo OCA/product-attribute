@@ -31,6 +31,18 @@ msgid "Based on"
 msgstr "Basat en"
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_discount
+msgid ""
+"If checked, the discount set on the supplier info will be ignored in price "
+"calculation."
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_discount
+msgid "Ignore Supplier Info Discount"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignora la informació del proveïdor Min. Quantitat"
@@ -67,13 +79,8 @@ msgstr ""
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
-msgid "Sale Margin"
-msgstr "Marge de vendes"
-
-#. module: product_pricelist_supplierinfo
-#: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
-msgid "Sale margin"
-msgstr "Marge de venda"
+msgid "Sale Margin (%)"
+msgstr "Marge de venda (%)"
 
 #. module: product_pricelist_supplierinfo
 #: model:res.groups,name:product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin
