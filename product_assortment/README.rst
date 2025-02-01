@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ==================
 Product Assortment
 ==================
@@ -17,7 +13,7 @@ Product Assortment
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -49,7 +45,7 @@ Usage
 
 To use this module, you need to:
 
-1. Enter the menu through Product Assortment Icon
+1. Enter the menu through the Product Assortment Icon
 2. Create a new filter where you can define your domain and add allowed
    and restricted products
 
@@ -59,22 +55,33 @@ Changelog
 10.0.1.0.0 (2018-08-27)
 -----------------------
 
-- [10.0][ADD] productassortment
+-  [10.0][ADD] productassortment
 
 12.0.1.0.0 (2019-06-03)
 -----------------------
 
-- [12.0][MIG] productassortment
+-  [12.0][MIG] productassortment
 
 14.0.1.0.0 (2019-06-03)
 -----------------------
 
-- [14.0][MIG] productassortment
+-  [14.0][MIG] productassortment
 
 16.0.1.0.0 (2022-09-15)
 -----------------------
 
-- [16.0][MIG] productassortment
+-  [16.0][MIG] product_assortment
+
+18.0.1.0.0 (2025-03-06)
+-----------------------
+
+-  [18.0][MIG] product_assortment
+-  Forward port demo data
+-  Forward port Only Show assortments to managers
+-  Forward port Fix All assortments are applied to original partner when
+   partner is duplicated
+-  Adjust test code to new API behavior, for info: odoo/odoo@450f5c9
+-  added test for combined black list and whitelisted product
 
 Bug Tracker
 ===========
@@ -97,13 +104,13 @@ Authors
 Contributors
 ------------
 
-- Denis Roussel <denis.roussel@acsone.eu>
-- Cédric Pigeon <cedric.pigeon@acsone.eu>
-- Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  Denis Roussel <denis.roussel@acsone.eu>
+-  Cédric Pigeon <cedric.pigeon@acsone.eu>
+-  Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Carlos Roca
-  - Sergio Teruel
+   -  Carlos Roca
+   -  Sergio Teruel
 
 Maintainers
 -----------
