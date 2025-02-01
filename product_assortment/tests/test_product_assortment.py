@@ -115,6 +115,21 @@ class TestProductAssortment(TransactionCase):
         res = self.assortment.show_products()
         self.assertEqual(res["domain"], [("id", "not in", excluded_product.ids)])
 
+    def test_product_assortment_filter_combination(self):
+        """Combine a whitelisted and a blacklisted product in order
+        to validate the combination of both filters. The result should be a
+        simple domain with the excluded product.
+        """
+        # Add a default no product filter to the assortment
+        self.assortment.write({"domain": [("id", "=", 0)]})
+        included_product = self.env.ref("product.product_product_7")
+        self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        excluded_product = self.env.ref("product.product_product_2")
+        self.assortment.write({"blacklist_product_ids": [(4, excluded_product.id)]})
+        res = self.assortment.show_products()
+        self.assertIn(("id", "not in", [excluded_product.id]), res["domain"])
+        self.assertIn(("id", "in", [included_product.id]), res["domain"])
+
     def test_record_count(self):
         products = self.product_obj.search([])
         self.assertEqual(self.assortment.record_count, len(products))
