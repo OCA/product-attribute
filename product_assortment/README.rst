@@ -82,6 +82,9 @@ Changelog
    partner is duplicated
 -  Adjust test code to new API behavior, for info: odoo/odoo@450f5c9
 -  added test for combined black list and whitelisted product
+-  Fix: Navigating to the product assortment using the smartbutton on
+   the partner does not show all applicable assortments. (The
+   assortments with the partner defined as a domain where missing.)
 
 Bug Tracker
 ===========
