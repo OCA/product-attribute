@@ -20,7 +20,7 @@ class ResPartner(models.Model):
         xmlid = "product_assortment.actions_product_assortment_view"
         action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         action["domain"] = [
-            ("partner_ids", "in", self.ids),
+            ("all_partner_ids", "in", self.ids),
             ("is_assortment", "=", True),
         ]
         ctx = self.env.context.copy()

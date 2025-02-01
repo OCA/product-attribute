@@ -84,7 +84,10 @@ class TestProductAssortment(TransactionCase):
         search_domain = self.partner.action_define_product_assortment()["domain"]
         self.assertEqual(
             search_domain,
-            [("partner_ids", "in", [self.partner.id]), ("is_assortment", "=", True)],
+            [
+                ("all_partner_ids", "in", [self.partner.id]),
+                ("is_assortment", "=", True),
+            ],
         )
 
     def test_product_assortment_view(self):
