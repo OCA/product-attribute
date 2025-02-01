@@ -2,7 +2,7 @@
 # Copyright 2023 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.osv import expression
 from odoo.tools import ormcache
 from odoo.tools.safe_eval import datetime, safe_eval
@@ -52,9 +52,7 @@ class IrFilters(models.Model):
 
     @api.model
     def _get_default_is_assortment(self):
-        if self.env.context.get("product_assortment", False):
-            return True
-        return False
+        return self.env.context.get("product_assortment", False)
 
     @api.model
     def _update_assortment_default_values(self, vals_list):
@@ -90,10 +88,10 @@ class IrFilters(models.Model):
     @api.depends("partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
         """Summarize selected partners and partners from partner domain field"""
-        for ir_filter in self:
+        for ir_filter in self.sudo():
             if not ir_filter.is_assortment:
                 ir_filter.all_partner_ids = False
-            elif ir_filter.partner_domain != "[]":
+            if ir_filter.partner_domain != []:
                 ir_filter.all_partner_ids = (
                     self.env["res.partner"].search(ir_filter._get_eval_partner_domain())
                     + ir_filter.partner_ids
@@ -169,7 +167,7 @@ class IrFilters(models.Model):
         action.update(
             {
                 "domain": self._get_eval_domain(),
-                "name": _("Products"),
+                "name": self.env._("Products"),
                 "context": self.env.context,
                 "target": "current",
             }
