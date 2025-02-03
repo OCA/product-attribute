@@ -76,24 +76,24 @@ class ProductPricelistPrint(models.TransientModel):
         _lang_get, string="Language", default=lambda self: self.env.user.lang
     )
 
-    # product_price = fields.Float(compute="_compute_product_price")
+    product_price = fields.Float(compute="_compute_product_price")
 
     @api.onchange("categ_ids")
     def _onchange_categ_ids(self):
         self.print_child_categories = len(self.categ_ids) > 0
 
-    # @api.depends_context("product")
-    # def _compute_product_price(self):
-    #     product = self.env.context.get("product")
-    #     price = self.get_pricelist_to_print()._get_product_price(
-    #         product, 1, date=self.date
-    #     )
-    #     if self.vat_mode == "vat_excl":
-    #         self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
-    #     elif self.vat_mode == "vat_incl":
-    #         self.product_price = product.taxes_id.compute_all(price)["total_included"]
-    #     else:
-    #         self.product_price = price
+    @api.depends_context("product")
+    def _compute_product_price(self):
+        product = self.env.context.get("product")
+        price = self.get_pricelist_to_print()._get_product_price(
+            product, 1, date=self.date
+        )
+        if self.vat_mode == "vat_excl":
+            self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
+        elif self.vat_mode == "vat_incl":
+            self.product_price = product.taxes_id.compute_all(price)["total_included"]
+        else:
+            self.product_price = price
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
