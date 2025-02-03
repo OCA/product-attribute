@@ -77,4 +77,6 @@ class ProductTemplate(models.Model):
             res.update({"product_height": self.product_height})
         if self.product_width:
             res.update({"product_width": self.product_width})
+        if self.dimensional_uom_id:
+            res.update({"dimensional_uom_id": self.dimensional_uom_id})
         return res
