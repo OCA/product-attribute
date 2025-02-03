@@ -58,7 +58,7 @@ class PricelistSimulation(models.TransientModel):
 
     def _prepare_simulation_lines_vals(self, variant, pricelist):
         pricelist_id = pricelist.id
-        price = pricelist._price_get(variant, self.product_qty)
+        price = pricelist._price_get(variant, self.product_qty, date=self.price_date)
         price = price[pricelist_id]
         return {
             "product_id": variant.id,
