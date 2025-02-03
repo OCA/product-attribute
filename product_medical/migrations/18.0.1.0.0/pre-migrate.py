@@ -3,6 +3,8 @@
 
 from openupgradelib import openupgrade
 
+from odoo import SUPERUSER_ID, api
+
 MODEL_TO_RENAMED_FIELDS = {
     "product.template": [
         ("ppe_category_id", "medical_ppe_category_id"),
@@ -21,7 +23,8 @@ MODEL_TO_RENAMED_FIELDS = {
 }
 
 
-def _rename_fields(env):
+def _rename_fields(cr):
+    env = api.Environment(cr, SUPERUSER_ID, {})
     openupgrade.rename_fields(
         env,
         [
@@ -37,6 +40,5 @@ def _rename_fields(env):
     )
 
 
-@openupgrade.migrate()
-def migrate(env, version):
-    _rename_fields(env)
+def migrate(cr, version):
+    _rename_fields(cr)
