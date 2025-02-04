@@ -17,11 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_stock_state
-#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
-msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
-msgstr "<span class=\"o_form_label\">Umbrales de stock de productos</span>"
-
-#. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_company
 msgid "Companies"
 msgstr "Compañías"
@@ -93,6 +88,11 @@ msgid "Product Variant"
 msgstr "Variante del Producto"
 
 #. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Product stock thresholds"
+msgstr ""
+
+#. module: product_stock_state
 #: model:product.template,name:product_stock_state.product_setting_by_company_product_template
 msgid "Product with threshold set on the company"
 msgstr "Producto con umbral establecido en la compañía"
@@ -148,11 +148,6 @@ msgid "Stock parameters"
 msgstr "Parámetros de existencias"
 
 #. module: product_stock_state
-#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
-msgid "Stock threshold"
-msgstr "Umbral de existencias"
-
-#. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
 msgid ""
 "The custom value under which the stock state of the products of this "
@@ -162,3 +157,9 @@ msgstr ""
 "El valor personalizado bajo el cual el estado de stock de los productos de "
 "esta categoría pasará de 'En Stock' a 'En Existencias Limitadas'. Si no se "
 "establece, Odoo utilizará el umbral definido a nivel de empresa."
+
+#~ msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
+#~ msgstr "<span class=\"o_form_label\">Umbrales de stock de productos</span>"
+
+#~ msgid "Stock threshold"
+#~ msgstr "Umbral de existencias"

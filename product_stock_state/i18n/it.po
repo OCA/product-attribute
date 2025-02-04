@@ -17,11 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_stock_state
-#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
-msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
-msgstr "<span class=\"o_form_label\">Soglie quantità prodotto</span>"
-
-#. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_company
 msgid "Companies"
 msgstr "Aziende"
@@ -93,6 +88,11 @@ msgid "Product Variant"
 msgstr "Variante prodotto"
 
 #. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Product stock thresholds"
+msgstr ""
+
+#. module: product_stock_state
 #: model:product.template,name:product_stock_state.product_setting_by_company_product_template
 msgid "Product with threshold set on the company"
 msgstr "Prodotto con soglia impostata nell'azienda"
@@ -148,11 +148,6 @@ msgid "Stock parameters"
 msgstr "Parametri giacenza"
 
 #. module: product_stock_state
-#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
-msgid "Stock threshold"
-msgstr "Soglia giacenza"
-
-#. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
 msgid ""
 "The custom value under which the stock state of the products of this "
@@ -162,3 +157,9 @@ msgstr ""
 "Il valore personalizzato sotto il quale lo stato giacenza del prodotto di "
 "questa categoria passerà da stato 'Disponibile' a 'Disponibilità limitata'. "
 "Se non impostato, Odoo utilizzerà la soglia definita a livello azienda."
+
+#~ msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
+#~ msgstr "<span class=\"o_form_label\">Soglie quantità prodotto</span>"
+
+#~ msgid "Stock threshold"
+#~ msgstr "Soglia giacenza"
