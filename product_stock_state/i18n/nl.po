@@ -17,11 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_stock_state
-#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
-msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
-msgstr "<span class=\"o_form_label\">Product voorraad drempels</span>"
-
-#. module: product_stock_state
 #: model:ir.model,name:product_stock_state.model_res_company
 msgid "Companies"
 msgstr "Bedrijven"
@@ -93,6 +88,11 @@ msgid "Product Variant"
 msgstr ""
 
 #. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Product stock thresholds"
+msgstr ""
+
+#. module: product_stock_state
 #: model:product.template,name:product_stock_state.product_setting_by_company_product_template
 msgid "Product with threshold set on the company"
 msgstr ""
@@ -148,11 +148,6 @@ msgid "Stock parameters"
 msgstr "voorraad parameters"
 
 #. module: product_stock_state
-#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
-msgid "Stock threshold"
-msgstr "voorraad drempelwaarde"
-
-#. module: product_stock_state
 #: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
 msgid ""
 "The custom value under which the stock state of the products of this "
@@ -162,6 +157,12 @@ msgstr ""
 "Defieneer een aangepaste drempelwaarde waaronder de voorraad status zal "
 "wijzigen van 'In voorraad' naar 'Beperkte voorraad' status. Wanneer niet "
 "opgegeven, dan zal de drempelwaarde op het bedrijfsniveau worden gebruikt."
+
+#~ msgid "<span class=\"o_form_label\">Product stock thresholds</span>"
+#~ msgstr "<span class=\"o_form_label\">Product voorraad drempels</span>"
+
+#~ msgid "Stock threshold"
+#~ msgstr "voorraad drempelwaarde"
 
 #~ msgid "Display Name"
 #~ msgstr "Weergavenaam"
