@@ -5,3 +5,4 @@
   - Ernesto Tejeda
   - Pedro M. Baeza
   - Hugo Córdoba
+- Khoi (Kien Kim) \<<khoikk@trobz.com>\>
