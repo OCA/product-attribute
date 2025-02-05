@@ -85,6 +85,16 @@ Contributors
    -  Pedro M. Baeza
    -  Hugo Córdoba
 
+-  Khoi (Kien Kim) <khoikk@trobz.com>
+
+Other credits
+-------------
+
+The migration of this module from 17.0 to 18.0 was financially supported
+by:
+
+-  Camptocamp.
+
 Maintainers
 -----------
 
