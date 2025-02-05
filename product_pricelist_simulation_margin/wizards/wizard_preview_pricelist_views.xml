@@ -17,13 +17,13 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <field name="standard_price" readonly="1" />
             </xpath>
             <xpath
-                expr="//field[@name='line_ids']/tree/field[@name='price']"
+                expr="//field[@name='line_ids']/list/field[@name='price']"
                 position="attributes"
             >
                 <attribute name="column_invisible">1</attribute>
             </xpath>
             <xpath
-                expr="//field[@name='line_ids']/tree/field[@name='price']"
+                expr="//field[@name='line_ids']/list/field[@name='price']"
                 position="after"
             >
                 <field name="price_vat_excl" />
