@@ -28,20 +28,31 @@ Product Pricelist Simulation
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the product pricelists feature to allow show price
-for all pricelists from a product form view.
+This module extends the product pricelists feature to allow showing
+prices for all pricelists from the product's form view.
 
 **Table of contents**
 
 .. contents::
    :local:
 
+Configuration
+=============
+
+To configure this module, you need to:
+
+-  If it hasn't been done before, install a module to be able to access
+   and configure product pricelists, for example: Sales
+   (sale_management)
+-  Go to Sales / Configuration / Settings. Activate the "Pricelists"
+   option.
+
 Usage
 =====
 
 To use this module, you need to:
 
-1. Go to product form view.
+1. Go to the product form view.
 2. Click *See Price per Pricelist* button.
 3. A new dialog will appear showing the prices for the current date and
    quantity=1 for the current product.
@@ -84,6 +95,19 @@ Contributors
    -  Ernesto Tejeda
    -  Pedro M. Baeza
    -  Hugo Córdoba
+
+-  Khoi (Kien Kim) <khoikk@trobz.com>
+-  `Sygel <https://www.sygel.es>`__:
+
+   -  Alberto Martínez
+
+Other credits
+-------------
+
+The migration of this module from 17.0 to 18.0 was financially supported
+by:
+
+-  Camptocamp.
 
 Maintainers
 -----------

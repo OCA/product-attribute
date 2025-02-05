@@ -1,9 +1,8 @@
 To use this module, you need to:
 
-1.  Go to product form view.
+1.  Go to the product form view.
 2.  Click *See Price per Pricelist* button.
-3.  A new dialog will appear showing the prices for the current date and
-    quantity=1 for the current product.
+3.  A new dialog will appear showing the prices for the current date and quantity=1 for the current product.
 4.  You can modify the date to see the prices on that date (if you have
     pricelists with specific intervals of time), or for other quantity
     (if you have pricelists depending on the number).
