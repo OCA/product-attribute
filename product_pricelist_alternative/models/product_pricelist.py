@@ -67,6 +67,12 @@ class Pricelist(models.Model):
         compute_price=True,
         **kwargs,
     ):
+        # This context key is used in `sale.order::_recompute_prices()`,
+        # triggered by `action_update_prices()` button that recomputes
+        # the unit price of all products based on the new pricelist.
+        if self.env.context.get("force_price_recomputation"):
+            compute_price = True
+
         res = super()._compute_price_rule(
             products,
             quantity,
@@ -76,7 +82,6 @@ class Pricelist(models.Model):
             compute_price=compute_price,
             **kwargs,
         )
-
         # In some contexts we want to ignore alternative pricelists
         # and return the original price
         if self.env.context.get("skip_alternative_pricelist", False):
