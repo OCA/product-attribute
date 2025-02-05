@@ -4,7 +4,7 @@
 {
     "name": "Product Pricelist Simulation Margin",
     "summary": "Add margin of product price for all pricelists",
-    "version": "17.0.1.0.1",
+    "version": "18.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Odoo Community Association (OCA), FactorLibre",
@@ -17,7 +17,6 @@
         "product_pricelist_simulation",
     ],
     "data": [
-        "security/ir.model.access.csv",
         "wizards/wizard_preview_pricelist_views.xml",
     ],
 }
