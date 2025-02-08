@@ -17,6 +17,7 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_supplierinfo_archive
+#: model:ir.model.fields,field_description:product_supplierinfo_archive.field_product_customerinfo__active
 #: model:ir.model.fields,field_description:product_supplierinfo_archive.field_product_supplierinfo__active
 msgid "Active"
 msgstr "Attive"
