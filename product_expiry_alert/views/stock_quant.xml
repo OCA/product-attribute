@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+
+    <record id="quant_search_view_inherit_product_expiry" model="ir.ui.view">
+        <field name="name">stock.quant.search.inherit</field>
+        <field name="model">stock.quant</field>
+        <field
+            name="inherit_id"
+            ref="product_expiry.quant_search_view_inherit_product_expiry"
+        />
+        <field name="arch" type="xml">
+            <filter name="expiration_alerts" position="after">
+                <filter
+                    string="Removal Alerts"
+                    name="removal_alerts"
+                    domain="[('lot_id.product_removal_date_expiry_alert', '=', True)]"
+                />
+                <filter
+                    string="Use Date Alerts"
+                    name="use_date_alerts"
+                    domain="[('lot_id.product_use_date_expiry_alert', '=', True)]"
+                />
+            </filter>
+
+        </field>
+    </record>
+</odoo>

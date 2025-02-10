@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="stock_lot_form_view">
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="product_expiry.view_move_form_expiry" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                <field name="product_use_date_expiry_alert" invisible="1" />
+                <field name="product_removal_date_expiry_alert" invisible="1" />
+                <field name="product_alert_date_expiry_alert" invisible="1" />
+                <span
+                    class="badge text-bg-warning"
+                    attrs="{'invisible': [('product_alert_date_expiry_alert', '=', False)]}"
+                >Alert Date Alert</span>
+                <span
+                    class="badge text-bg-warning"
+                    attrs="{'invisible': [('product_removal_date_expiry_alert', '=', False)]}"
+                >Removal Alert</span>
+                <span
+                    class="badge text-bg-danger"
+                    attrs="{'invisible': [('product_use_date_expiry_alert', '=', False)]}"
+                >Use Date Alert</span>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="stock_lot_search_view">
+        <field name="model">stock.lot</field>
+        <field
+            name="inherit_id"
+            ref="product_expiry.search_product_lot_filter_inherit_product_expiry"
+        />
+        <field name="arch" type="xml">
+            <filter name="expiration_alerts" position="after">
+                <filter
+                    string="Removal Alerts"
+                    name="removal_alerts"
+                    domain="[('product_removal_date_expiry_alert', '=', True)]"
+                />
+                <filter
+                    string="Use Date Alerts"
+                    name="use_date_alerts"
+                    domain="[('product_use_date_expiry_alert', '=', True)]"
+                />
+            </filter>
+
+        </field>
+    </record>
+
+    <record id="view_production_lot_view_tree" model="ir.ui.view">
+        <field name="name">stock.production.lot.tree.inherit.product.expiry</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="product_expiry.view_production_lot_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='expiration_date']" position="after">
+               <field name="product_expiry_alert" invisible="1" />
+               <field name="product_removal_date_expiry_alert" invisible="1" />
+               <field name="product_use_date_expiry_alert" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
