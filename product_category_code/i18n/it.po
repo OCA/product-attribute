@@ -19,7 +19,6 @@ msgstr ""
 #. module: product_category_code
 #. odoo-python
 #: code:addons/product_category_code/models/product_category.py:0
-#, python-format
 msgid "-copy"
 msgstr "-copia"
 
