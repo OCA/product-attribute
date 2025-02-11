@@ -1,6 +1,6 @@
 # Copyright 2018 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
-# Copyright 2019 Tecnativa - Carlos Dauden
+# Copyright 2019-2025 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import datetime
@@ -42,7 +42,8 @@ class ProductTemplate(models.Model):
             )
             if seller:
                 price = seller._get_supplierinfo_pricelist_price(
-                    rule.no_supplierinfo_discount
+                    rule.no_supplierinfo_discount,
+                    ignore_margin=rule.ignore_supplierinfo_margin,
                 )
         if price:
             # We need to convert the price if the pricelist and seller have

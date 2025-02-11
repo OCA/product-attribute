@@ -1,5 +1,6 @@
 # Copyright 2018 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2025 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Supplier info prices in sales pricelists",

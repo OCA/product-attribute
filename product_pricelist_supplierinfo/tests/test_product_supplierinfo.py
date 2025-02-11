@@ -1,5 +1,6 @@
 # Copyright 2018 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2025 Tecnativa - Carlos Dauden
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from datetime import date
@@ -176,6 +177,25 @@ class TestProductSupplierinfo(BaseCommon):
         self.assertAlmostEqual(
             self.pricelist._get_product_price(self.product, 6),
             75.0,
+        )
+
+    def test_pricelist_based_on_supplierinfo_wo_sale_margin(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "1_product",
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+                "ignore_supplierinfo_margin": True,
+            }
+        )
+        seller = self.product.seller_ids[0]
+        seller.sale_margin = 20
+        self.assertAlmostEqual(
+            seller._get_supplierinfo_pricelist_price(ignore_margin=True),
+            50.0,
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 6),
+            50.0,
         )
 
     def test_supplierinfo_per_variant(self):

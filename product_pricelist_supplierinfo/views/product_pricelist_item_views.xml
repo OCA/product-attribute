@@ -14,6 +14,10 @@
                     name="no_supplierinfo_discount"
                     invisible="base != 'supplierinfo'"
                 />
+                <field
+                    name="ignore_supplierinfo_margin"
+                    invisible="base != 'supplierinfo'"
+                />
                 <field name="filter_supplier_id" invisible="base != 'supplierinfo'" />
             </xpath>
         </field>
