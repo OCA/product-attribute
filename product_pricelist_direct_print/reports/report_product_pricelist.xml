@@ -78,14 +78,21 @@
                                         <span t-field="product.display_name" />
                                     </td>
                                     <td t-if="o.show_standard_price" class="text-right">
-                                        <span t-field="product.standard_price" />
+                                        <span
+                                            t-field="product.standard_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
                                     </td>
                                     <td t-if="o.show_sale_price" class="text-right">
-                                        <span t-field="product.list_price" />
+                                        <span
+                                            t-field="product.list_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
                                     </td>
                                     <td t-if="pricelist" class="text-right">
                                         <strong
                                             t-field="o.with_context(product=product).product_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
                                         />
                                     </td>
                                     <td t-if="o.show_product_uom" class="text-right">
