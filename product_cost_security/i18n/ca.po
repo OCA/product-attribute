@@ -28,27 +28,6 @@ msgid "Edit"
 msgstr ""
 
 #. module: product_cost_security
-#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
-#: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
-#, fuzzy
-msgid ""
-"In Standard Price & AVCO: value of the product (automatically computed in "
-"AVCO).\n"
-"        In FIFO: value of the next unit that will leave the stock "
-"(automatically computed).\n"
-"        Used to value the product when the purchase cost is not known (e.g. "
-"inventory adjustment).\n"
-"        Used to compute margins on sale orders."
-msgstr ""
-"A Preu estàndard i AVCO: valor del producte (calculat automàticament en "
-"AVCO).\n"
-"         En FIFO: valor de la propera unitat que sortirà de l'estoc "
-"(calculat automàticament).\n"
-"         S'utilitza per valorar el producte quan no es coneix el cost de "
-"compra (p. ex., ajust d'inventari).\n"
-"         S'utilitza per calcular els marges de les comandes de venda."
-
-#. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
 msgstr "Producte"
@@ -81,6 +60,16 @@ msgid "User Can Update Cost"
 msgstr ""
 
 #. module: product_cost_security
+#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
+#: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
+msgid ""
+"Value of the product (automatically computed in AVCO).\n"
+"        Used to value the product when the purchase cost is not known (e.g. "
+"inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+
+#. module: product_cost_security
 #. odoo-python
 #: code:addons/product_cost_security/models/product_cost_security_mixin.py:0
 #, python-format
@@ -91,6 +80,24 @@ msgid ""
 "\n"
 "(Operation: %(operation)s)"
 msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "In Standard Price & AVCO: value of the product (automatically computed in "
+#~ "AVCO).\n"
+#~ "        In FIFO: value of the next unit that will leave the stock "
+#~ "(automatically computed).\n"
+#~ "        Used to value the product when the purchase cost is not known (e."
+#~ "g. inventory adjustment).\n"
+#~ "        Used to compute margins on sale orders."
+#~ msgstr ""
+#~ "A Preu estàndard i AVCO: valor del producte (calculat automàticament en "
+#~ "AVCO).\n"
+#~ "         En FIFO: valor de la propera unitat que sortirà de l'estoc "
+#~ "(calculat automàticament).\n"
+#~ "         S'utilitza per valorar el producte quan no es coneix el cost de "
+#~ "compra (p. ex., ajust d'inventari).\n"
+#~ "         S'utilitza per calcular els marges de les comandes de venda."
 
 #~ msgid "Access to product costs"
 #~ msgstr "Accés als costos del producte"

@@ -28,26 +28,6 @@ msgid "Edit"
 msgstr "Modifica"
 
 #. module: product_cost_security
-#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
-#: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
-msgid ""
-"In Standard Price & AVCO: value of the product (automatically computed in "
-"AVCO).\n"
-"        In FIFO: value of the next unit that will leave the stock "
-"(automatically computed).\n"
-"        Used to value the product when the purchase cost is not known (e.g. "
-"inventory adjustment).\n"
-"        Used to compute margins on sale orders."
-msgstr ""
-"Nei prezzi standard & costi medi: valore del prodotto (calcolato "
-"automaticamente nei costi medi).\n"
-"        In FIFO: valore dell'unità successiva che lascerà il magazzino "
-"(calcolato automaticamente).\n"
-"        Utilizzato per valutare il prodotto quando il costo di acquisto non "
-"è noto (es. rettifiche di inventario).\n"
-"        Utilizzato per calcolare i margini negli ordini di vendita."
-
-#. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
 msgstr "Prodotto"
@@ -80,6 +60,16 @@ msgid "User Can Update Cost"
 msgstr "L'utente può aggiornare il costo"
 
 #. module: product_cost_security
+#: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
+#: model:ir.model.fields,help:product_cost_security.field_product_template__standard_price
+msgid ""
+"Value of the product (automatically computed in AVCO).\n"
+"        Used to value the product when the purchase cost is not known (e.g. "
+"inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+
+#. module: product_cost_security
 #. odoo-python
 #: code:addons/product_cost_security/models/product_cost_security_mixin.py:0
 #, python-format
@@ -95,6 +85,23 @@ msgstr ""
 "sistema.\n"
 "\n"
 "(Operazione: %(operation)s)"
+
+#~ msgid ""
+#~ "In Standard Price & AVCO: value of the product (automatically computed in "
+#~ "AVCO).\n"
+#~ "        In FIFO: value of the next unit that will leave the stock "
+#~ "(automatically computed).\n"
+#~ "        Used to value the product when the purchase cost is not known (e."
+#~ "g. inventory adjustment).\n"
+#~ "        Used to compute margins on sale orders."
+#~ msgstr ""
+#~ "Nei prezzi standard & costi medi: valore del prodotto (calcolato "
+#~ "automaticamente nei costi medi).\n"
+#~ "        In FIFO: valore dell'unità successiva che lascerà il magazzino "
+#~ "(calcolato automaticamente).\n"
+#~ "        Utilizzato per valutare il prodotto quando il costo di acquisto "
+#~ "non è noto (es. rettifiche di inventario).\n"
+#~ "        Utilizzato per calcolare i margini negli ordini di vendita."
 
 #~ msgid "Access to product costs"
 #~ msgstr "Accesso ai costi prodotto"
