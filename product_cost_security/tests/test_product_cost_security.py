@@ -1,8 +1,10 @@
 # Copyright 2023 Onestein (<https://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from odoo import Command
 from odoo.exceptions import AccessError
-from odoo.tests.common import Form, new_test_user
+from odoo.tests import Form
+from odoo.tests.common import new_test_user
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -16,6 +18,7 @@ class TestProductCostSecurity(BaseCommon):
         # Without this flag in the context,
         # the system tries to access stock.move, which the user may not have permission.
         cls.env = cls.env(context=dict(cls.env.context, disable_auto_svl=True))
+        cls.base_group_user_id = cls.env.ref("base.group_user").id
         cls.product_edit_cost_group_id = cls.env.ref(
             "product_cost_security.group_product_edit_cost"
         ).id
@@ -24,11 +27,7 @@ class TestProductCostSecurity(BaseCommon):
         ).id
         cls.product_template_model = cls.env["product.template"]
         cls.env.user.write(
-            {
-                "groups_id": [
-                    (6, 0, cls.env.ref("base.group_system").ids),
-                ],
-            }
+            {"groups_id": [Command.set(cls.env.ref("base.group_system").ids)]}
         )
 
     def test_without_access_to_product_costs_group(self):
@@ -44,11 +43,7 @@ class TestProductCostSecurity(BaseCommon):
 
     def test_with_access_to_product_costs_group(self):
         self.env.user.groups_id = [
-            (
-                6,
-                0,
-                [self.product_cost_group_id],
-            )
+            Command.set([self.product_cost_group_id, self.base_group_user_id])
         ]
         sheet_form = Form(self.product_template_model.with_user(self.env.user))
         sheet_form.name = "Test Product"
@@ -64,17 +59,13 @@ class TestProductCostSecurity(BaseCommon):
         sheet_form.name = "Test Product"
         sheet_form.save()
         with self.assertRaises(AssertionError):
-            # It would raise an AssertionError as the field is readonlyin the view
+            # It would raise an AssertionError as the field is readonly in the view
             # as the user does not have the group- Modify product costs
             sheet_form.standard_price = 5.0
 
     def test_with_access_to_modify_product_costs_group(self):
         self.env.user.groups_id = [
-            (
-                6,
-                0,
-                [self.product_edit_cost_group_id],
-            )
+            Command.set([self.product_edit_cost_group_id, self.base_group_user_id])
         ]
         sheet_form = Form(self.product_template_model.with_user(self.env.user))
         sheet_form.name = "Test Product"
