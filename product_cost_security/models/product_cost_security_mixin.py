@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0)
 from contextlib import suppress
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import AccessError
 
 
@@ -73,7 +73,7 @@ class ProductCostSecurityMixin(models.AbstractModel):
         ):
             description = self.env["ir.model"]._get(self._name).name
             raise AccessError(
-                _(
+                self.env._(
                     'You do not have enough rights to access the fields "%(fields)s"'
                     " on %(document_kind)s (%(document_model)s). "
                     "Please contact your system administrator."
