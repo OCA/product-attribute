@@ -73,7 +73,6 @@ msgstr ""
 #. module: product_cost_security
 #. odoo-python
 #: code:addons/product_cost_security/models/product_cost_security_mixin.py:0
-#, python-format
 msgid ""
 "You do not have enough rights to access the fields \"%(fields)s\" on "
 "%(document_kind)s (%(document_model)s). Please contact your system "
