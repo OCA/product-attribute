@@ -106,6 +106,7 @@ Contributors
 
   * Fernando La Chica <fernandolachica@gmail.com>
 * Ugnė Sinkevičienė <ugne@versada.eu>
+* Andrius Laukavičius <andrius.laukavicius@versada.eu>
 
 Other credits
 ~~~~~~~~~~~~~
