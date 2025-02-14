@@ -1,11 +1,11 @@
 # Copyright 2021 Open Source Integrators
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests import common, tagged
+from odoo.tests.common import TransactionCase, tagged
 
 
 @tagged("-at_install", "post_install")
-class TestProductTierValidation(common.SavepointCase):
+class TestProductTierValidation(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

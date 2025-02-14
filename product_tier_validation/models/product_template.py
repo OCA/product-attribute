@@ -8,6 +8,7 @@ class ProductTemplate(models.Model):
     _name = "product.template"
     _inherit = ["product.template", "tier.validation"]
     _tier_validation_manual_config = False
+    _state_to = ["sellable"]
 
     def write(self, vals):
         # Tier Validation does not work with Stages, only States :-(
