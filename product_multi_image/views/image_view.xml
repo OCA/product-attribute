@@ -2,7 +2,6 @@
 <!-- © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
 <odoo>
-
     <record id="image_form_view" model="ir.ui.view">
         <field name="name">Multi image form</field>
         <field name="model">base_multi_image.image</field>
@@ -38,13 +37,12 @@
                         </span>
                         <span t-if="record.product_variant_count.value != 0">
                             <i>Visible in <field
-                                    name="product_variant_count"
-                                /> variant(s)</i>
+                                name="product_variant_count"
+                            /> variant(s)</i>
                         </span>
                     </td>
                 </tr>
             </table>
         </field>
     </record>
-
 </odoo>
