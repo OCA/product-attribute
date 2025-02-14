@@ -1,5 +1,4 @@
 <odoo>
-
     <record id="product_form_tier_filter" model="ir.ui.view">
         <field name="name">product.form.tier.filter</field>
         <field name="model">product.template</field>
@@ -35,5 +34,4 @@
                 rec.validate_tier()
         </field>
     </record>
-
 </odoo>
