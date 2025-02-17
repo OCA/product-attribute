@@ -7,10 +7,9 @@
         <field name="inherit_id" ref="product.view_partner_property_form" />
         <field name="arch" type="xml">
             <field name="property_product_pricelist" position="attributes">
-                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible" />
             </field>
             <div name="parent_pricelists" position="attributes">
-                <attribute name="attrs">{}</attribute>
                 <attribute name="invisible">1</attribute>
             </div>
         </field>
