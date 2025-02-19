@@ -39,6 +39,12 @@ msgid "Attribute value"
 msgstr ""
 
 #. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__available_model_ids
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Available Models"
+msgstr ""
+
+#. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_category_id
 msgid "Category"
 msgstr ""
@@ -145,6 +151,11 @@ msgstr ""
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields,help:product_sticker.field_product_sticker__available_model_ids
+msgid "Models where this sticker is available. Empty means all models."
 msgstr ""
 
 #. module: product_sticker

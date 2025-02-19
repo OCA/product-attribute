@@ -22,6 +22,11 @@ class ProductSticker(models.Model):
         max_height=64,
         store=True,
     )
+    available_model_ids = fields.Many2many(
+        comodel_name="ir.model",
+        string="Available Models",
+        help="Models where this sticker is available. Empty means all models.",
+    )
     product_category_id = fields.Many2one(
         comodel_name="product.category",
         string="Category",
@@ -160,24 +165,30 @@ class ProductSticker(models.Model):
             )
         return attribute_domain
 
-    def _get_sticker_domains(
-        self, categories=None, attributes=None, attribute_values=None
+    def _get_product_sticker_domain(
+        self,
+        categories=None,
+        attributes=None,
+        attribute_values=None,
     ):
         company_domain = self._build_sticker_domain_company()
         category_domain = self._build_sticker_domain_category(categories)
         attribute_domain = self._build_sticker_domain_attributes(
             attributes, attribute_values
         )
-        return [company_domain, category_domain, attribute_domain]
+        return expression.AND([company_domain, category_domain, attribute_domain])
 
     @api.model
-    def _get_stickers(self, categories=None, attributes=None, attribute_values=None):
-        """Get stickers for given categories, attributes and attribute values"""
-        sticker_domain = expression.AND(
-            self._get_sticker_domains(
-                categories=categories,
-                attributes=attributes,
-                attribute_values=attribute_values,
-            )
+    def _get_stickers(self, products, extra_domain=None):
+        """Get stickers for given categories, attributes, attribute values and models"""
+        product_templates = products.product_tmpl_id
+        no_variant_attribute_lines = product_templates.attribute_line_ids.filtered(
+            lambda al: al.attribute_id.create_variant == "no_variant"
         )
-        return self.sudo().search(sticker_domain)
+        pp_pavs = products.product_template_variant_value_ids.product_attribute_value_id
+        product_sticker_domain = self._get_product_sticker_domain(
+            categories=products.categ_id,
+            attributes=no_variant_attribute_lines.attribute_id | pp_pavs.attribute_id,
+            attribute_values=no_variant_attribute_lines.value_ids | pp_pavs,
+        )
+        return self.search(expression.AND([product_sticker_domain, extra_domain]))
