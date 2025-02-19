@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-31 09:37+0000\n"
+"PO-Revision-Date: 2025-02-21 18:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
@@ -40,6 +40,12 @@ msgstr "Valore attributo"
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_attribute_value_id
 msgid "Attribute value"
 msgstr "Valore attributo"
+
+#. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__available_model_ids
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
+msgid "Available Models"
+msgstr "Modelli disponibili"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__product_category_id
@@ -151,6 +157,12 @@ msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: product_sticker
+#: model:ir.model.fields,help:product_sticker.field_product_sticker__available_model_ids
+msgid "Models where this sticker is available. Empty means all models."
+msgstr ""
+"Modelli dove questi bollini sono disponibili. Vuoto significa nessun modello."
+
+#. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__name
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
 msgid "Name"
@@ -162,7 +174,7 @@ msgid "Note"
 msgstr "Nota"
 
 #. module: product_sticker
-#: model:ir.model,name:product_sticker.model_product_product
+#: model:ir.model,name:product_sticker.model_product_template
 msgid "Product"
 msgstr "Prodotto"
 
@@ -205,9 +217,9 @@ msgid "Product Stickers"
 msgstr "Bollini prodotto"
 
 #. module: product_sticker
-#: model:ir.model,name:product_sticker.model_product_template
-msgid "Product Template"
-msgstr "Modello prodotto"
+#: model:ir.model,name:product_sticker.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__sequence
@@ -241,3 +253,6 @@ msgstr "Bollini"
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__note
 msgid "Used to display a note with the sticker"
 msgstr "Utilizzato per visualizzare una nota con il bollinoi"
+
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
