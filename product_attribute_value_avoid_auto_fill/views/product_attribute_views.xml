@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_attribute_form_view">
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <field name="create_variant" position="after">
+                <field
+                    name="avoid_fill_all_values"
+                    invisible="create_variant != 'no_variant'"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
