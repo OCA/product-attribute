@@ -1,1 +1,3 @@
 - Denis Roussel \<<denis.roussel@acsone.eu>\>
+- [Tecnativa](https://www.tecnativa.com):
+  - Juan Carlos Oñate
