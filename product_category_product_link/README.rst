@@ -58,6 +58,9 @@ Contributors
 ------------
 
 - Denis Roussel <denis.roussel@acsone.eu>
+- `Tecnativa <https://www.tecnativa.com>`__:
+
+  - Juan Carlos Oñate
 
 Maintainers
 -----------
