@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_category_product_link
+#: model:ir.model,name:product_category_product_link.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_category_product_link
 #: model:ir.model,name:product_category_product_link.model_product_category
 #: model:ir.model.fields,field_description:product_category_product_link.field_product_product__categ_id
 #: model:ir.model.fields,field_description:product_category_product_link.field_product_template__categ_id
@@ -24,17 +29,12 @@ msgid "Product Category"
 msgstr "Categoria prodotto"
 
 #. module: product_category_product_link
-#: model:ir.model,name:product_category_product_link.model_product_template
-msgid "Product Template"
-msgstr "Modello prodotto"
-
-#. module: product_category_product_link
 #: model:ir.model.fields,field_description:product_category_product_link.field_product_category__product_template_ids
 msgid "Products Templates"
 msgstr "Modelli prodotto"
 
-#. module: product_category_product_link
-#: model:ir.model.fields,help:product_category_product_link.field_product_product__categ_id
-#: model:ir.model.fields,help:product_category_product_link.field_product_template__categ_id
-msgid "Select category for the current product"
-msgstr "Selezionare una categoria per il prodotto corrente"
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
+
+#~ msgid "Select category for the current product"
+#~ msgstr "Selezionare una categoria per il prodotto corrente"
