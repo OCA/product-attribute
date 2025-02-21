@@ -31,7 +31,7 @@ class ProductTemplateTag(models.Model):
     )
     parent_id = fields.Many2one("product.template.tag", index=True, ondelete="cascade")
     child_ids = fields.One2many("product.template.tag", "parent_id")
-    parent_path = fields.Char(index=True, unaccent=False)
+    parent_path = fields.Char(index=True)
 
     _sql_constraints = [
         (
