@@ -160,7 +160,9 @@ msgstr "Última Actualización el"
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__available_model_ids
 msgid "Models where this sticker is available. Empty means all models."
-msgstr "Modelos en los que esta pegatina está disponible. Vacío significa todos los modelos."
+msgstr ""
+"Modelos en los que esta pegatina está disponible. Vacío significa todos los "
+"modelos."
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__name
