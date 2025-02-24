@@ -5,6 +5,7 @@
 import datetime
 
 from odoo import api, models
+from odoo.osv import expression
 
 
 class ProductProduct(models.Model):
@@ -16,48 +17,28 @@ class ProductProduct(models.Model):
         )._compute_display_name()
 
     @api.model
-    def _name_search(self, name, domain=None, operator="ilike", limit=None, order=None):
-        res = super()._name_search(
-            name, domain=domain, operator=operator, limit=limit, order=order
-        )
-        res_ids = list(res)
-        res_ids_len = len(res_ids)
-        if not limit or res_ids_len >= limit:
-            limit = (limit - res_ids_len) if limit else False
+    def name_search(self, name, args=None, operator="ilike", limit=100):
+        res = super().name_search(name, args=args, operator=operator, limit=limit)
+        res_ids_len = len(res)
         if (
             not name
             and limit
             or not self._context.get("partner_id")
             or res_ids_len >= limit
         ):
-            return res_ids
+            return res
         limit -= res_ids_len
-        customerinfo_ids = self.env["product.customerinfo"]._search(
-            [
-                ("partner_id", "=", self._context.get("partner_id")),
-                "|",
-                ("product_code", operator, name),
-                ("product_name", operator, name),
-            ],
-            limit=limit,
+        supplier_domain = [
+            ("partner_id", "=", self._context.get("partner_id")),
+            "|",
+            ("product_code", operator, name),
+            ("product_name", operator, name),
+        ]
+        match_domain = [("product_tmpl_id.customer_ids", "any", supplier_domain)]
+        products = self.search_fetch(
+            expression.AND([args or [], match_domain]), ["display_name"], limit=limit
         )
-        if not customerinfo_ids:
-            return res_ids
-        res_templates = self.browse(res_ids).mapped("product_tmpl_id")
-        product_tmpls = (
-            self.env["product.customerinfo"]
-            .browse(customerinfo_ids)
-            .mapped("product_tmpl_id")
-            - res_templates
-        )
-        product_ids = list(
-            self._search(
-                [("product_tmpl_id", "in", product_tmpls.ids)],
-                limit=limit,
-            )
-        )
-        res_ids.extend(product_ids)
-        return res_ids
+        return res + [(product.id, product.display_name) for product in products.sudo()]
 
     def _get_price_from_customerinfo(self, partner_id):
         self.ensure_one()
