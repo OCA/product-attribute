@@ -5,7 +5,6 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 -->
 <odoo>
-
     <menuitem
         id="menu_product_template_tag"
         name="Tags"
@@ -13,5 +12,4 @@
         action="product.product_tag_action"
         sequence="10"
     />
-
 </odoo>
