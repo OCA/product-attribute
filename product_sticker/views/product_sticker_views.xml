@@ -47,6 +47,7 @@
                                 options="{'no_create': True}"
                                 groups="product.group_product_variant"
                             />
+                            <field name="image_size" />
                             <field name="show_sticker_note" widget="boolean_toggle" />
                             <field
                                 name="note"
@@ -88,6 +89,7 @@
                     name="product_attribute_value_id"
                     groups="product.group_product_variant"
                 />
+                <field name="image_size" optional="hide" />
                 <field
                     name="company_id"
                     groups="base.group_multi_company"
@@ -224,6 +226,7 @@
                 <field name="name" />
                 <field name="available_model_ids" />
                 <field name="product_category_id" />
+                <field name="image_size" />
                 <field
                     name="product_attribute_id"
                     groups="product.group_product_variant"
@@ -289,4 +292,29 @@
             </search>
         </field>
     </record>
+
+    <template id="report_sticker_template">
+        <!-- Required parameters: stickers, position, extra_classes -->
+        <t t-if="stickers">
+            <div t-attf-class="col-12 #{extra_classes}">
+                <t t-foreach="stickers" t-as="sticker">
+                    <div
+                        class="col-auto d-inline-block text-center align-top p-0 mt-3 mr-1"
+                    >
+                        <img
+                            t-att-src="image_data_uri(sticker.get_image())"
+                            t-att-alt="sticker.name"
+                            class="m-auto d-block"
+                        />
+                        <span
+                            t-if="sticker.show_sticker_note and sticker.note"
+                            t-esc="sticker.note"
+                            class="text-muted small"
+                            style="white-space: pre;"
+                        />
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
 </odoo>

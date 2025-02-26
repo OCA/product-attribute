@@ -97,6 +97,7 @@ class ProductStickerCommon(common.TransactionCase):
                 "name": "global_sticker",
                 "image_1920": f_img_b64,
                 "company_id": False,
+                "image_size": "64",
             }
         )
         cls.ps_att_cc = ps_model.create(
@@ -108,6 +109,7 @@ class ProductStickerCommon(common.TransactionCase):
                 "product_attribute_id": cls.att_platform.id,
                 "product_attribute_value_id": False,
                 "show_sticker_note": False,
+                "image_size": "64",
             }
         )
         cls.ps_attv_cc = ps_model.create(
@@ -119,5 +121,6 @@ class ProductStickerCommon(common.TransactionCase):
                 "product_attribute_id": cls.att_license.id,
                 "product_attribute_value_id": cls.att_license_freemium.id,
                 "show_sticker_note": True,
+                "image_size": "64",
             }
         )
