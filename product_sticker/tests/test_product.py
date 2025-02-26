@@ -61,3 +61,14 @@ class TestStickersOnProducts(ProductStickerCommon):
         )
         # Test models
         self._test_model_availability(self.product_as400.product_variant_ids[0])
+
+    def test_image_sizes(self):
+        stickers = self.product_as400.product_variant_ids.get_product_stickers()
+        for sticker in stickers:
+            with self.subTest(sticker=sticker):
+                self.assertEqual(sticker.image_64, sticker.get_image())
+
+        stickers.write({"image_size": "128"})
+        for sticker in stickers:
+            with self.subTest(sticker=sticker):
+                self.assertEqual(sticker.image_128, sticker.get_image())
