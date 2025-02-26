@@ -22,6 +22,19 @@ class ProductSticker(models.Model):
         max_height=64,
         store=True,
     )
+    image_size = fields.Selection(
+        selection=[
+            ("64", "64x64 px"),
+            ("128", "128x128 px"),
+            ("256", "256x256 px"),
+            ("512", "512x512 px"),
+            ("1024", "1024x1024 px"),
+            ("1920", "1920x1920 px"),
+        ],
+        required=True,
+        default="64",
+        help="Max size of the Sticker. Max Width x Max Height",
+    )
     available_model_ids = fields.Many2many(
         comodel_name="ir.model",
         string="Available Models",
@@ -53,6 +66,11 @@ class ProductSticker(models.Model):
         translate=True,
         help="Used to display a note with the sticker",
     )
+
+    def get_image(self):
+        """Get the image of the sticker"""
+        self.ensure_one()
+        return getattr(self, f"image_{self.image_size}", self.image_64)
 
     @api.onchange("product_attribute_id")
     def _onchange_product_attribute_id(self):
