@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo_test_helper import FakeModelLoader
 
+from odoo.fields import Command
 from odoo.tests import TransactionCase
 
 
@@ -23,36 +24,30 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
                 "uom_id": cls.product_uom_kg.id,
                 "uom_po_id": cls.product_uom_kg.id,
                 "secondary_uom_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "C5",
                             "name": "box 5",
                             "uom_id": cls.product_uom_unit.id,
                             "factor": 5,
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "C10",
                             "name": "box 10",
                             "uom_id": cls.product_uom_unit.id,
                             "factor": 10,
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "C20",
                             "name": "box 20",
                             "dependency_type": "independent",
                             "uom_id": cls.product_uom_unit.id,
                             "factor": 20,
-                        },
+                        }
                     ),
                 ],
             }
