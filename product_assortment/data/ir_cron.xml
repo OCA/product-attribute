@@ -6,7 +6,7 @@
         id="action_product_assortment_recompute_all_partners"
         model="ir.actions.server"
     >
-        <field name="name">Product assortment recompute all partbers</field>
+        <field name="name">Product assortment recompute all partners</field>
         <field name="model_id" ref="model_ir_filters" />
         <field name="binding_model_id" ref="model_ir_filters" />
         <field name="state">code</field>
@@ -21,8 +21,6 @@
         />
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
-        <field name="numbercall">-1</field>
-        <field name="doall" eval="False" />
         <field name="active" eval="False" />
         <field
             name="nextcall"

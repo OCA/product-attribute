@@ -6,7 +6,7 @@
     "name": "Product Assortment",
     "summary": """
         Adds the ability to manage products assortment""",
-    "version": "16.0.2.0.1",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "development_status": "Production/Stable",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
@@ -14,6 +14,7 @@
     "depends": ["base", "product"],
     "data": [
         "data/ir_cron.xml",
+        "security/product_assortment_security.xml",
         "views/product_assortment.xml",
         "views/res_partner_view.xml",
     ],
