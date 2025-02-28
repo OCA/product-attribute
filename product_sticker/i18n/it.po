@@ -17,6 +17,36 @@ msgstr ""
 "X-Generator: Weblate 5.6.2\n"
 
 #. module: product_sticker
+#: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__1024
+msgid "1024x1024 px"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__128
+msgid "128x128 px"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__1920
+msgid "1920x1920 px"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__256
+msgid "256x256 px"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__512
+msgid "512x512 px"
+msgstr ""
+
+#. module: product_sticker
+#: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__64
+msgid "64x64 px"
+msgstr ""
+
+#. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 msgid "<strong>Attribute:</strong>"
 msgstr "<strong>Attributo:</strong>"
@@ -142,6 +172,11 @@ msgid "Image 512"
 msgstr "Immagine 512"
 
 #. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_size
+msgid "Image Size"
+msgstr ""
+
+#. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
@@ -155,6 +190,11 @@ msgstr "Ultimo aggiornamento di"
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
+
+#. module: product_sticker
+#: model:ir.model.fields,help:product_sticker.field_product_sticker__image_size
+msgid "Max size of the Sticker. Max Width x Max Height"
+msgstr ""
 
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__available_model_ids
