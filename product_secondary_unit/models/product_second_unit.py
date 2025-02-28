@@ -42,16 +42,10 @@ class ProductSecondaryUnit(models.Model):
     factor = fields.Float(string="Secondary Unit Factor", default=1.0, required=True)
     active = fields.Boolean(default=True)
 
-    def name_get(self):
-        result = []
+    @api.depends("name", "factor")
+    def _compute_display_name(self):
         for unit in self:
-            result.append(
-                (
-                    unit.id,
-                    f"{unit.name}-{unit.factor}",
-                )
-            )
-        return result
+            unit.display_name = f"{unit.name}-{unit.factor}"
 
     @api.model
     def name_search(self, name="", args=None, operator="ilike", limit=100):
@@ -62,4 +56,4 @@ class ProductSecondaryUnit(models.Model):
             return super().name_search(
                 name=name, args=args, operator=operator, limit=limit
             )
-        return units.name_get()
+        return [(unit.id, unit.sudo().display_name) for unit in units]

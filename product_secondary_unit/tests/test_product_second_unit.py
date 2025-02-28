@@ -21,9 +21,7 @@ class TestProductSecondaryUnit(TransactionCase):
                 "uom_id": cls.product_uom_kg.id,
                 "uom_po_id": cls.product_uom_kg.id,
                 "secondary_uom_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "A",
                             "name": "unit-700",
@@ -31,9 +29,7 @@ class TestProductSecondaryUnit(TransactionCase):
                             "factor": 0.7,
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "B",
                             "name": "unit-900",
@@ -51,9 +47,7 @@ class TestProductSecondaryUnit(TransactionCase):
                 "uom_id": cls.product_uom_kg.id,
                 "uom_po_id": cls.product_uom_kg.id,
                 "secondary_uom_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "A",
                             "name": "unit-700",
@@ -61,9 +55,7 @@ class TestProductSecondaryUnit(TransactionCase):
                             "factor": 0.7,
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "B",
                             "name": "unit-900",
@@ -109,7 +101,7 @@ class TestProductSecondaryUnit(TransactionCase):
         )
 
     def test_product_secondary_unit_name(self):
-        self.assertEqual(self.secondary_unit.name_get()[0][1], "unit-700-0.7")
+        self.assertEqual(self.secondary_unit.sudo().display_name, "unit-700-0.7")
 
     def test_product_secondary_unit_search(self):
         args = [
@@ -119,38 +111,37 @@ class TestProductSecondaryUnit(TransactionCase):
                 self.product.product_variant_ids.ids,
             )
         ]
-        name_get = self.env["product.secondary.unit"].name_search(name="A", args=args)
-        self.assertEqual(len(name_get), 1)
-        name_get = self.env["product.secondary.unit"].name_search(name="X", args=args)
-        self.assertEqual(len(name_get), 0)
+        results = self.env["product.secondary.unit"].name_search(name="A", args=args)
+        self.assertEqual(len(results), 1)
+        self.assertEqual(
+            results[0][1],
+            self.env["product.secondary.unit"]
+            .browse(results[0][0])
+            .sudo()
+            .display_name,
+        )
+        results = self.env["product.secondary.unit"].name_search(name="X", args=args)
+        self.assertEqual(len(results), 0)
 
     def test_multi_variant_product_secondary_unit(self):
         first_variant = self.woods.product_variant_ids[0]
         second_variant = self.woods.product_variant_ids[1]
         self.assertEqual(len(self.woods.secondary_uom_ids), 2)
         self.assertEqual(first_variant.secondary_uom_ids, self.woods.secondary_uom_ids)
-
         first_variant.write(
             {
                 "secondary_uom_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "code": "C",
                             "name": "unit-1000",
                             "product_id": first_variant.id,
                             "uom_id": self.product_uom_unit.id,
                             "factor": 0.1,
-                        },
-                    ),
+                        }
+                    )
                 ]
             }
-        )
-        _logger.info(
-            f"Template 2Uoms: {self.woods.secondary_uom_ids.mapped('name')}"
-            f" -- Product var1 2Uoms: {first_variant.secondary_uom_ids.mapped('name')}"
-            f" -- Product var2 2Uoms: {second_variant.secondary_uom_ids.mapped('name')}"
         )
         first_variant.invalidate_recordset()
         self.assertEqual(len(self.woods.secondary_uom_ids), 3)
