@@ -91,7 +91,29 @@ class TestProductAssortment(TransactionCase):
         included_product = self.env.ref("product.product_product_7")
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
+        self.assertEqual(res["domain"], [(1, "=", 1)])
+
+    def test_product_assortment_view_with_black_list(self):
+        excluded_product = self.env.ref("product.product_product_7")
+        self.assortment.write(
+            {
+                "blacklist_product_ids": [(4, excluded_product.id)],
+            }
+        )
+        res = self.assortment.show_products()
+        self.assertEqual(res["domain"], [("id", "not in", excluded_product.ids)])
+
+    def test_product_assortment_mixed_view(self):
+        included_product = self.env.ref("product.product_product_7")
+        excluded_product = self.env.ref("product.product_product_2")
+        self.assortment.write(
+            {
+                "whitelist_product_ids": [(4, included_product.id)],
+                "blacklist_product_ids": [(4, excluded_product.id)],
+            }
+        )
+        res = self.assortment.show_products()
+        self.assertEqual(res["domain"], [("id", "not in", excluded_product.ids)])
 
     def test_record_count(self):
         products = self.product_obj.search([])
@@ -111,7 +133,7 @@ class TestProductAssortment(TransactionCase):
         assortment = self.filter_obj.with_context(product_assortment=True).create(
             {
                 "name": "Test Assortment Partner domain",
-                "partner_domain": "[('id', '=', %s)]" % self.partner.id,
+                "partner_domain": f"[('id', '=', '{self.partner.id}')]",
                 "partner_ids": [(4, self.partner2.id)],
             }
         )

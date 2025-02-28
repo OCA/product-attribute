@@ -83,7 +83,7 @@ class IrFilters(models.Model):
         for ir_filter in self.sudo().search([("is_assortment", "=", True)]):
             domain = ir_filter._get_eval_partner_domain()
             for item in domain:
-                if isinstance(item, (list, tuple)) and isinstance(item[0], str):
+                if isinstance(item, list | tuple) and isinstance(item[0], str):
                     field_set.add(item[0].split(".")[0])
         return field_set
 
@@ -104,30 +104,27 @@ class IrFilters(models.Model):
     def _get_eval_domain(self):
         res = super()._get_eval_domain()
         if self.apply_black_list_product_domain:
-            black_list_domain = safe_eval(
-                self.black_list_product_domain,
-                {"datetime": datetime, "context_today": datetime.datetime.now},
-            )
+            black_list_domain = self._get_eval_black_list_domain()
             res = expression.AND(
                 [expression.distribute_not(["!"] + black_list_domain), res]
             )
+
         if self.whitelist_product_ids:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
             res = expression.OR([result_domain, res])
+
         if self.blacklist_product_ids:
             result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
             res = expression.AND([result_domain, res])
+
         return res
 
     def _get_eval_black_list_domain(self):
-        res = safe_eval(
+        self.ensure_one()
+        return safe_eval(
             self.black_list_product_domain,
             {"datetime": datetime, "context_today": datetime.datetime.now},
         )
-        if self.blacklist_product_ids:
-            result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
-            res = expression.AND([result_domain, res])
-        return res
 
     def _get_eval_partner_domain(self):
         self.ensure_one()
@@ -138,18 +135,23 @@ class IrFilters(models.Model):
 
     def _compute_record_count(self):
         for record in self:
-            if record.model_id not in self.env:
-                # invalid model
+            if not record.is_assortment:
                 record.record_count = 0
                 continue
             domain = record._get_eval_domain()
             record.record_count = self.env[record.model_id].search_count(domain)
 
     @api.model
-    def _get_action_domain(self, action_id=None):
+    def _get_action_domain(
+        self, action_id=None, embedded_action_id=None, embedded_parent_res_id=None
+    ):
         # tricky way to act on get_filter method to prevent returning
         # assortment in search view filters
-        domain = super()._get_action_domain(action_id=action_id)
+        domain = super()._get_action_domain(
+            action_id=action_id,
+            embedded_action_id=embedded_action_id,
+            embedded_parent_res_id=embedded_parent_res_id,
+        )
         domain = expression.AND([[("is_assortment", "=", False)], domain])
 
         return domain
@@ -157,7 +159,7 @@ class IrFilters(models.Model):
     def write(self, vals):
         res = super().write(vals)
         if "partner_ids" in vals or "partner_domain" in vals:
-            self.clear_caches()
+            self.env.registry.clear_cache()
         return res
 
     def show_products(self):
