@@ -2,20 +2,12 @@
 # @author Simone Orsi <simahawk@gmail.com>
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl)
 from odoo import exceptions
-from odoo.tests import Form, SavepointCase
+from odoo.tests import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestBarcodeBase(SavepointCase):
-    at_install = False
-    post_install = True
-
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
-
-
-class TestBarcodeDefault(TestBarcodeBase):
+class TestBarcodeDefault(BaseCommon):
     def test_barcode_is_not_required(self):
         self.assertFalse(self.env["product.template"]._is_barcode_required_enabled())
         self.assertFalse(self.env["product.product"]._is_barcode_required_enabled())
@@ -39,11 +31,26 @@ class TestBarcodeDefault(TestBarcodeBase):
         self.assertFalse(record.barcode)
 
 
-class TestBarcodeTemplateRequired(TestBarcodeBase):
+class TestBarcodeTemplateRequired(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.env.company.product_variant_barcode_required = True
+        cls.product_attribute = cls.env["product.attribute"].create(
+            {"name": "Test Attribute"}
+        )
+        cls.product_attribute_value_1 = cls.env["product.attribute.value"].create(
+            {
+                "name": "Value 1",
+                "attribute_id": cls.product_attribute.id,
+            }
+        )
+        cls.product_attribute_value_2 = cls.env["product.attribute.value"].create(
+            {
+                "name": "Value 2",
+                "attribute_id": cls.product_attribute.id,
+            }
+        )
 
     def test_barcode_is_required(self):
         self.assertTrue(self.env["product.template"]._is_barcode_required_enabled())
@@ -62,7 +69,7 @@ class TestBarcodeTemplateRequired(TestBarcodeBase):
         """Requirement enabled, template needs it only if 1 variant is there."""
         tmpl = self.env["product.template"].create({"name": "Foo"})
         self.assertTrue(tmpl.is_barcode_required)
-        # Add a variantc
+        # Add a variant
         self.env["product.product"].create(
             {
                 "name": "another test variant",
@@ -89,11 +96,11 @@ class TestBarcodeTemplateRequired(TestBarcodeBase):
                 [{"name": "Variant A"}, {"name": "Variant B"}, {"name": "Variant C"}]
             )
         self.assertEqual(
-            err.exception.name,
+            err.exception.args[0],
             "These products have no barcode:"
             "\n\n  * Variant A\n  * Variant B\n  * Variant C",
         )
-        # Defaults to default_code if not passed explicitely
+        # Defaults to default_code if not passed explicitly
         prod1 = self.env["product.product"].create(
             {"name": "Variant A", "default_code": "VAR-A"}
         )
@@ -117,7 +124,37 @@ class TestBarcodeTemplateRequired(TestBarcodeBase):
             prod.write({"default_code": False, "barcode": False})
 
         self.assertEqual(
-            err.exception.name, "These products have no barcode:\n\n  * Variant A"
+            err.exception.args[0], "These products have no barcode:\n\n  * Variant A"
         )
 
-    # TODO: test variant create from template
+    def test_create_variant_from_template(self):
+        """Barcode does not propagate from template to variants."""
+        with Form(self.env["product.template"]) as template_form:
+            template_form.name = "Test Product"
+            self.assertTrue(template_form.is_barcode_required)
+            template_form.default_code = "TEST-PRODUCT"
+            with template_form.attribute_line_ids.new() as line:
+                line.attribute_id = self.product_attribute
+                line.value_ids.add(self.product_attribute_value_1)
+                line.value_ids.add(self.product_attribute_value_2)
+
+        product_template = template_form.save()
+
+        self.assertFalse(product_template.is_barcode_required)
+        self.assertEqual(len(product_template.product_variant_ids), 2)
+
+        for variant in product_template.product_variant_ids:
+            self.assertEqual(len(variant.product_template_attribute_value_ids), 1)
+            self.assertIn(
+                variant.product_template_attribute_value_ids.product_attribute_value_id,
+                [self.product_attribute_value_1, self.product_attribute_value_2],
+            )
+            self.assertFalse(variant.barcode)
+            self.assertTrue(variant.is_barcode_required)
+
+    def test_create_variant_from_template_barcode_error(self):
+        """Variant created from template should have barcode set to default_code. ?"""
+        with self.assertRaises(AssertionError):
+            with Form(self.env["product.template"]) as template_form:
+                template_form.name = "Test Product Raise Error"
+                self.assertTrue(template_form.is_barcode_required)

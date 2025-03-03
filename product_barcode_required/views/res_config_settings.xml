@@ -4,7 +4,7 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="product.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='multi_company']" position="before">
+            <xpath expr="//div[@id='companies']" position="after">
                 <!-- From v14 the "Products" section has been renamed to "Units of measure :/ -->
                 <h2>Products barcode</h2>
                 <div

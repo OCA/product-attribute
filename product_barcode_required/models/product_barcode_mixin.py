@@ -2,7 +2,7 @@
 # @author Simone Orsi <simahawk@gmail.com>
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl)
 
-from odoo import _, api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class BarcodeRequiredMixin(models.AbstractModel):
@@ -36,10 +36,15 @@ class BarcodeRequiredMixin(models.AbstractModel):
         """Check if barcode required, to be used in your own constraint."""
         if self.env.context.get("_bypass_barcode_required_check"):
             return
+
         # Make error nicer up to 30 records.
-        failing = [x.display_name for x in self[:30] if x.is_barcode_required]
+        failing = [
+            x.display_name
+            for x in self[:30]
+            if x.is_barcode_required and x.display_name
+        ]
         if failing:
             failed_list = "\n  * " + "\n  * ".join(failing)
             raise exceptions.ValidationError(
-                _("These products have no barcode:\n{}").format(failed_list)
+                self.env._("These products have no barcode:\n{}").format(failed_list)
             )
