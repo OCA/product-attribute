@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-02-21 18:06+0000\n"
+"PO-Revision-Date: 2025-03-03 10:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,37 +14,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.2\n"
 
 #. module: product_sticker
 #: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__1024
 msgid "1024x1024 px"
-msgstr ""
+msgstr "1024x1024 px"
 
 #. module: product_sticker
 #: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__128
 msgid "128x128 px"
-msgstr ""
+msgstr "128x128 px"
 
 #. module: product_sticker
 #: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__1920
 msgid "1920x1920 px"
-msgstr ""
+msgstr "1920x1920 px"
 
 #. module: product_sticker
 #: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__256
 msgid "256x256 px"
-msgstr ""
+msgstr "256x256 px"
 
 #. module: product_sticker
 #: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__512
 msgid "512x512 px"
-msgstr ""
+msgstr "512x512 px"
 
 #. module: product_sticker
 #: model:ir.model.fields.selection,name:product_sticker.selection__product_sticker__image_size__64
 msgid "64x64 px"
-msgstr ""
+msgstr "64x64 px"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
@@ -174,7 +174,7 @@ msgstr "Immagine 512"
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_size
 msgid "Image Size"
-msgstr ""
+msgstr "Dimensione immagine"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker____last_update
@@ -194,7 +194,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__image_size
 msgid "Max size of the Sticker. Max Width x Max Height"
-msgstr ""
+msgstr "Dimensione massima del bollino. Massimo larghezza x massimo altezza"
 
 #. module: product_sticker
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__available_model_ids
