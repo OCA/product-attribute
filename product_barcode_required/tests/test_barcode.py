@@ -6,7 +6,6 @@ from odoo.tests import Form, SavepointCase
 
 
 class TestBarcodeBase(SavepointCase):
-
     at_install = False
     post_install = True
 
