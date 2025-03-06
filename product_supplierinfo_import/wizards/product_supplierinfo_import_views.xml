@@ -8,7 +8,7 @@
                 <field name="supplierinfo_filename" invisible="1" />
                 <field name="template_id" invisible="1" />
                 <group>
-                    <field name="supplier_id" />
+                    <field name="supplier_id" required="1" />
                     <field name="date_start" />
                     <field name="delay" />
                 </group>

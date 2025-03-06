@@ -7,8 +7,13 @@
                 <sheet>
                     <group>
                         <field name="name" />
+                        <field name="supplier_id" />
                         <field name="header_offset" />
-                        <field name="barcode_header_name" />
+                        <field name="sheet_number" />
+                        <field name="search_header_name" />
+                        <field name="import_criteria_field_id" required="1" />
+                        <field name="only_update_existing" widget="boolean_toggle" />
+                        <field name="show_not_updated_rates" widget="boolean_toggle" />
                         <field name="template_line_ids">
                             <tree editable="top">
                                 <field name="header_name" />
@@ -39,9 +44,9 @@
     </record>
     <menuitem
         id="product_supplierinfo_import_template_menu"
-        name="Vendor pricelists import template"
+        name="Vendor pricelists import templates"
         parent="purchase.menu_purchase_config"
-        action="product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_action"
-        groups="base.group_user"
+        action="product_supplierinfo_import_template_action"
+        groups="base.group_system"
     />
 </odoo>
