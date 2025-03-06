@@ -1,2 +1,3 @@
 - [Tecnativa](https://tecnativa.com)
     - David Vidal
+    - Juan Carlos Oñate

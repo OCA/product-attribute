@@ -11,15 +11,27 @@ from odoo.tests.common import TransactionCase
 from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 
 
-class TestProductSupplierinfoImportByBarcodeCommon(TransactionCase):
+class TestProductSupplierinfoImportCommon(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
+        cls.supplier_1 = cls.env["res.partner"].create(
+            {
+                "name": "Spanish Drinks S.A.",
+                "supplier_rank": 1,
+            }
+        )
+        cls.supplier_2 = cls.env["res.partner"].create(
+            {
+                "name": "Olé Drinks S.A.",
+                "supplier_rank": 1,
+            }
+        )
         cls.import_template_1 = cls.env["product.supplierinfo.import.template"].create(
             {
                 "name": "Spanish Drinks S.A.",
-                "barcode_header_name": "bar code",
+                "search_header_name": "bar code",
                 "template_line_ids": [
                     Command.create(
                         {
@@ -56,7 +68,7 @@ class TestProductSupplierinfoImportByBarcodeCommon(TransactionCase):
         cls.import_template_2 = cls.env["product.supplierinfo.import.template"].create(
             {
                 "name": "Olé Drinks S.A.",
-                "barcode_header_name": "EAN",
+                "search_header_name": "EAN",
                 "header_offset": 1,
                 "template_line_ids": [
                     Command.create(
@@ -80,18 +92,6 @@ class TestProductSupplierinfoImportByBarcodeCommon(TransactionCase):
                         }
                     ),
                 ],
-            }
-        )
-        cls.supplier_1 = cls.env["res.partner"].create(
-            {
-                "name": "Spanish Drinks S.A.",
-                "supplier_rank": 1,
-            }
-        )
-        cls.supplier_2 = cls.env["res.partner"].create(
-            {
-                "name": "Olé Drinks S.A.",
-                "supplier_rank": 1,
             }
         )
         cls.prod_horchata = cls.env["product.product"].create(
@@ -153,9 +153,7 @@ class TestProductSupplierinfoImportByBarcodeCommon(TransactionCase):
                     self.assertEqual(supplierinfo[field], value)
 
 
-class TestProductSupplierinfoImportByBarcode(
-    TestProductSupplierinfoImportByBarcodeCommon
-):
+class TestProductSupplierinfoImportByBarcode(TestProductSupplierinfoImportCommon):
     @freeze_time("2024-07-01")
     def test_simple_import(self):
         # 1. Import the test case file
@@ -265,3 +263,70 @@ class TestProductSupplierinfoImportByBarcode(
                 },
             }
         )
+
+    @freeze_time("2026-03-01")
+    def test_complex_file_import_updated(self):
+        self.import_template_2.only_update_existing = True
+        self._import_supplierinfo_file(
+            "test_supplier_drinks_complex_sheet_updated.xlsx",
+            self.supplier_2,
+            fields.Date.today(),
+        ).action_import_file()
+        # Check that the vendor pricelists are correctly updated
+        self._check_supplierinfo_values(
+            {
+                self.prod_horchata.seller_ids: {
+                    "product_name": "Horchata Chufi",
+                    "price": 13.04,
+                    "date_start": fields.Date.from_string("2026-03-01"),
+                    "date_end": False,
+                },
+            }
+        )
+        self.assertEqual(len(self.prod_horchata.seller_ids), 1)
+
+    @freeze_time("2025-08-24")
+    def test_complex_import_product_code(self):
+        self.import_template_2.import_criteria_field_id = self.env.ref(
+            "product.field_product_supplierinfo__product_code"
+        ).id
+        self.import_template_2.supplier_id = self.supplier_2
+        # 1. Import the test case file
+        self._import_supplierinfo_file(
+            "test_supplier_drinks_complex_sheet.xlsx",
+            self.import_template_2.supplier_id,
+            fields.Date.today(),
+        ).action_import_file()
+        product_gazpacho = self.env["product.product"].search(
+            [("product_code", "=", "000002")]
+        )
+        self._check_supplierinfo_values(
+            {
+                product_gazpacho.seller_ids: {
+                    "product_code": "000002",
+                    "price": 15.29,
+                    "date_start": fields.Date.from_string("2025-08-24"),
+                }
+            }
+        )
+        self.assertFalse(product_gazpacho.barcode)
+        self.import_template_2.only_update_existing = True
+        self._import_supplierinfo_file(
+            "test_supplier_drinks_complex_sheet_updated.xlsx",
+            self.import_template_2.supplier_id,
+            fields.Date.today(),
+        ).action_import_file()
+        # Check that the vendor pricelists are correctly updated
+        product_gazpacho = self.env["product.product"].search(
+            [("product_code", "=", "000002")]
+        )
+        self._check_supplierinfo_values(
+            {
+                product_gazpacho.seller_ids: {
+                    "product_code": "000002",
+                    "price": 20,
+                    "date_start": fields.Date.from_string("2025-08-24"),
+                }
+            }
+        )
+        self.assertEqual(len(product_gazpacho.seller_ids), 1)
