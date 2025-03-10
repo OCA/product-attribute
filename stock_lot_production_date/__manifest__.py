@@ -3,9 +3,9 @@
 {
     "name": "Stock Lot Production Date",
     "Summary": "Set a production date on lot.",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
-    "maintainers": ["atchuthan"],
+    "maintainers": ["atchuthan", "sebalix"],
     "website": "https://github.com/OCA/product-attribute",
     "category": "Warehouse Management",
     "depends": ["stock"],
