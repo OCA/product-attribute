@@ -28,13 +28,10 @@ class ProductProduct(models.Model):
         ):
             return res
         limit -= res_ids_len
-        supplier_domain = [
-            ("partner_id", "=", self._context.get("partner_id")),
-            "|",
-            ("product_code", operator, name),
-            ("product_name", operator, name),
-        ]
-        match_domain = [("product_tmpl_id.customer_ids", "any", supplier_domain)]
+        customer_domain = self.env["product.customerinfo"]._get_name_search_domain(
+            self._context.get("partner_id"), operator, name
+        )
+        match_domain = [("product_tmpl_id.customer_ids", "any", customer_domain)]
         products = self.search_fetch(
             expression.AND([args or [], match_domain]), ["display_name"], limit=limit
         )
