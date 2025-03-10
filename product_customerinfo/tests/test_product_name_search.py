@@ -43,6 +43,14 @@ class TestProductNameSearch(BaseCommon):
         self.assertEqual(len(product_names), 1)
         self.assertEqual(self.product.id, product_names[0][0])
         self.assertEqual("[code_test] Name_test", product_names[0][1])
+        # search by product template
+        product_template = self.product.product_tmpl_id.with_context(
+            partner_id=self.customer.id
+        )
+        product_names = product_template.name_search(name="code_test")
+        self.assertEqual(len(product_names), 1)
+        self.assertEqual(product_template.id, product_names[0][0])
+        self.assertEqual("[code_test] Name_test", product_names[0][1])
 
         # Search by product default code with the customer used in
         # configuration customer

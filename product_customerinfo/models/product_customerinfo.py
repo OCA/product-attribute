@@ -22,3 +22,12 @@ class ProductCustomerInfo(models.Model):
                 "product_customerinfo.xls",
             }
         ]
+
+    @api.model
+    def _get_name_search_domain(self, partner_id, operator, name):
+        return [
+            ("partner_id", "=", partner_id),
+            "|",
+            ("product_code", operator, name),
+            ("product_name", operator, name),
+        ]
