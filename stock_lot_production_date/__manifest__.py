@@ -6,7 +6,7 @@
     "version": "17.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "maintainers": ["atchuthan"],
-    "website": "https://github.com/OCA/stock-logistics-workflow",
+    "website": "https://github.com/OCA/product-attribute",
     "category": "Warehouse Management",
     "depends": ["stock"],
     "data": [
