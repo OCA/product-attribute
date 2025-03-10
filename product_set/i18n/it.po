@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:51+0000\n"
-"PO-Revision-Date: 2024-08-20 09:58+0000\n"
+"PO-Revision-Date: 2025-03-10 13:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.2\n"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
@@ -125,12 +125,12 @@ msgstr "Prodotto"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_id
 msgid "Product Packaging"
-msgstr ""
+msgstr "Imballaggio prodotto"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_qty
 msgid "Product Packaging Qty"
-msgstr ""
+msgstr "Q.tà imballaggio prodotto"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
@@ -220,6 +220,7 @@ msgstr ""
 #: code:addons/product_set/models/product_set_line.py:0
 msgid "You must define a package before setting a quantity of said package."
 msgstr ""
+"Devi definire un imballaggio prima di impostare una quantità per lo stesso."
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_i5_computer
