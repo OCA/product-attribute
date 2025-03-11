@@ -43,9 +43,9 @@ def pre_init_hook(env):  # pragma: nocover
             SET volume = product_product.volume / product_uom.factor  * %s
             FROM uom_uom product_uom,
             product_template pt
-            WHERE product_uom.id = volume_uom_id
+            WHERE product_uom.id = pt.volume_uom_id
                 AND pt.id = product_product.product_tmpl_id
-                AND volume_uom_id IS NOT NULL AND pt.volume_uom_id != %s
+                AND pt.volume_uom_id IS NOT NULL AND pt.volume_uom_id != %s
             """,
                 m3_uom_factor,
                 m3_uom_id,
@@ -102,9 +102,9 @@ def pre_init_hook(env):  # pragma: nocover
             UPDATE product_product
             SET weight = product_product.weight / product_uom.factor  * %s
             FROM uom_uom product_uom, product_template pt
-            WHERE product_uom.id = weight_uom_id
+            WHERE product_uom.id = pt.weight_uom_id
                 AND pt.id = product_product.product_tmpl_id
-                AND weight_uom_id IS NOT NULL AND pt.weight_uom_id != %s
+                AND pt.weight_uom_id IS NOT NULL AND pt.weight_uom_id != %s
             """,
                 kg_uom_factor,
                 kg_uom_id,
