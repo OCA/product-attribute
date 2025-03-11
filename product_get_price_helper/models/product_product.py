@@ -69,12 +69,20 @@ class ProductProduct(models.Model):
             "original_value": price_unit,
             "discount": 0.0,
         }
-        # Handle pricelists.discount_policy == "without_discount"
-        if pricelist and pricelist.discount_policy == "without_discount":
+        if pricelist:
+            rule_id = pricelist._get_product_rule(product, qty, date=date)
+            pl_item = self.env["product.pricelist.item"].browse(rule_id)
+            if not pl_item.exists():
+                return res
+            original_price_unit = product.lst_price
+            if not pl_item._show_discount():
+                # If the pricelist does not show the discount, we return the price as is
+                if float_is_zero(original_price_unit, precision_digits=price_dp):
+                    res["original_value"] = 0.0
+                return res
             # Get the price rule
             price_unit, _ = pricelist._get_product_price_rule(product, qty, date=date)
             # Get the price before applying the pricelist
-            original_price_unit = product.lst_price
             price_dp = self.env["decimal.precision"].precision_get("Product Price")
             # Compute discount
             if not float_is_zero(

@@ -23,7 +23,7 @@
     <record id="pricelist_1" model="product.pricelist">
         <field
             name="item_ids"
-            eval="[(6, 0, [ref('product_get_price_helper.item_1')])]"
+            eval="[Command.set(ref('product_get_price_helper.item_1'))]"
         />
     </record>
 </odoo>
