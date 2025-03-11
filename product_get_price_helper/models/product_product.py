@@ -11,7 +11,6 @@ from ..utils import float_round
 
 
 class ProductProduct(models.Model):
-
     _inherit = "product.product"
 
     def _get_price(

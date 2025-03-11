@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- pylint:disable=xml-duplicate-record-id -->
 <odoo>
-
     <record id="pricelist_1" model="product.pricelist">
         <field name="name">Business Pricelist</field>
         <field name="currency_id" ref="base.USD" />
@@ -27,5 +26,4 @@
             eval="[(6, 0, [ref('product_get_price_helper.item_1')])]"
         />
     </record>
-
 </odoo>
