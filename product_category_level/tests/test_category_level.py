@@ -2,19 +2,20 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductCategoryLevel(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.print_category_parent = self.env.ref(
+class TestProductCategoryLevel(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.print_category_parent = cls.env.ref(
             "product_category_level.demo_category_parent"
         )
-        self.print_category_child_1 = self.env.ref(
+        cls.print_category_child_1 = cls.env.ref(
             "product_category_level.demo_category_child_1"
         )
-        self.print_category_child_2 = self.env.ref(
+        cls.print_category_child_2 = cls.env.ref(
             "product_category_level.demo_category_child_2"
         )
 
