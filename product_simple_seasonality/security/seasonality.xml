@@ -2,7 +2,6 @@
 <!-- Copyright 2024 Akretion
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.model.access" id="campaign_seasonality_access_settings">
         <field name="name">Seasonality config</field>
         <field name="model_id" ref="model_seasonality" />
@@ -22,5 +21,4 @@
         <field name="perm_write" eval="0" />
         <field name="perm_unlink" eval="0" />
     </record>
-
 </odoo>

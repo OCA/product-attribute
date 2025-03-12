@@ -2,7 +2,6 @@
 <!-- Copyright 2024 Akretion
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="seasonality_form_view">
         <field name="name">seasonality.form (in product_simple_seasonality)</field>
         <field name="model">seasonality</field>
@@ -59,5 +58,4 @@
         <field name="parent_id" ref="seasonality_submenu" />
         <field name="action" ref="seasonality_act_window" />
     </record>
-
 </odoo>
