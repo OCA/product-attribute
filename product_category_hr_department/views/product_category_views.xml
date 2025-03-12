@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <odoo>
-
     <record id="product_category_form_add_hr_department" model="ir.ui.view">
         <field name="name">product.category.view.form.add.hr.department</field>
         <field name="model">product.category</field>
@@ -11,5 +10,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
