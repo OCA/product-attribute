@@ -13,7 +13,7 @@ class Common(TransactionCase):
 
     @classmethod
     def setUpClass(cls):
-        super(Common, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.setUpClassPartner()
         cls.setUpClassProduct()
