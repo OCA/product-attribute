@@ -32,17 +32,17 @@
         <field name="name">seasonality.tree (in product_simple_seasonality)</field>
         <field name="model">seasonality</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="company_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="seasonality_act_window">
         <field name="name">Seasonality</field>
         <field name="res_model">seasonality</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
