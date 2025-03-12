@@ -2,7 +2,7 @@
 # Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -46,7 +46,7 @@ class ProductTemplate(models.Model):
         for template in self.filtered(lambda x: x.state_id and x.country_id):
             if template.country_id != template.state_id.country_id:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The state '%(state_name)s' doesn't belong to"
                         " the country '%(country_name)s'",
                         state_name=template.state_id.name,

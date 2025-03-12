@@ -10,7 +10,7 @@
                 <group
                     string="Origin"
                     name="group_origin"
-                    attrs="{'invisible': [('product_variant_count', '>', 1)]}"
+                    invisible="product_variant_count > 1"
                 >
                     <field name="country_id" />
                     <field name="state_id_domain" invisible="1" />

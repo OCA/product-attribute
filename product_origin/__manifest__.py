@@ -4,7 +4,7 @@
 {
     "name": "Product Origin",
     "summary": """Adds the origin of the product""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "development_status": "Beta",
     "author": "ACSONE SA/NV,GRAP,Odoo Community Association (OCA)",
