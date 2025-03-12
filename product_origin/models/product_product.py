@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -32,7 +32,7 @@ class ProductProduct(models.Model):
         for product in self.filtered(lambda x: x.state_id and x.country_id):
             if product.country_id != product.state_id.country_id:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The state '%(state_name)s' doesn't belong to"
                         " the country '%(country_name)s'",
                         state_name=product.state_id.name,
