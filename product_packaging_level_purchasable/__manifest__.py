@@ -3,7 +3,7 @@
 {
     "name": "Product Packaging level purchasable",
     "summary": "Control purchase of products via packaging settings.",
-    "version": "16.0.1.1.0",
+    "version": "18.0.1.0.0",
     "development_status": "Alpha",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",

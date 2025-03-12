@@ -18,7 +18,7 @@
         <field name="model">product.packaging.level</field>
         <field
             name="inherit_id"
-            ref="product_packaging_level.view_product_packaging_level_tree"
+            ref="product_packaging_level.view_product_packaging_level_list"
         />
         <field name="arch" type="xml">
             <field name="code" position="after">

@@ -1,7 +1,7 @@
 # Copyright 2023 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.exceptions import ValidationError
 
 
@@ -20,7 +20,7 @@ class PurchaseOrderLine(models.Model):
         for line in self:
             if line._can_be_purchased_error_condition():
                 errors.append(
-                    _(
+                    self.env._(
                         "Packaging %(packaging)s on product %(product)s must be"
                         " set as 'Can be purchased' in order to be used "
                         "on a purchase order."
@@ -38,8 +38,8 @@ class PurchaseOrderLine(models.Model):
         if self._can_be_purchased_error_condition():
             return {
                 "warning": {
-                    "title": _("Warning"),
-                    "message": _(
+                    "title": self.env._("Warning"),
+                    "message": self.env._(
                         "This product packaging must be set as 'Can be purchased' in"
                         " order to be used on a purchase order."
                     ),
