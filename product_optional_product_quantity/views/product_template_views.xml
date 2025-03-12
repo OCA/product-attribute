@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="product_template_view_form_inherit_optional_qty" model="ir.ui.view">
         <field name="name">product.template.view.form.inherit.optional.qty</field>
         <field name="model">product.template</field>
@@ -27,5 +26,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
