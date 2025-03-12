@@ -1,6 +1,6 @@
 # Copyright 2024 Cetmix OÜ
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class ProductOptionalLine(models.Model):
@@ -16,10 +16,10 @@ class ProductOptionalLine(models.Model):
     company_id = fields.Many2one(related="product_tmpl_id.company_id")
     optional_product_tmpl_id = fields.Many2one(
         comodel_name="product.template",
-        domain=[
-            ("company_id", "in", [company_id, False]),
-            ("id", "!=", product_tmpl_id),
-        ],
+        domain="["
+        "('company_id', 'in', [company_id, False]), "
+        "('id', '!=', product_tmpl_id)"
+        "]",
         string="Product",
         required=True,
     )
@@ -39,7 +39,9 @@ class ProductOptionalLine(models.Model):
                 and r.product_tmpl_id == r.optional_product_tmpl_id
             ):
                 raise models.ValidationError(
-                    _("You can't add product this line is related to as optional.")
+                    self.env._(
+                        "You can't add product this line is related to as optional."
+                    )
                 )
 
     @api.constrains("product_tmpl_id", "optional_product_tmpl_id")
@@ -56,5 +58,5 @@ class ProductOptionalLine(models.Model):
                 ]
             ):
                 raise models.ValidationError(
-                    _("You can't add two same products as optional.")
+                    self.env._("You can't add two same products as optional.")
                 )

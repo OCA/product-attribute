@@ -1,32 +1,35 @@
 # Copyright 2024 Cetmix OÜ
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import exceptions
-from odoo.tests.common import TransactionCase, tagged
+from odoo.tests import Form
+from odoo.tests.common import tagged
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @tagged("post_install", "-at_install")
-class TestOptionalProductQuantity(TransactionCase):
+class TestOptionalProductQuantity(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.product_template_1 = cls.env["product.template"].create(
             {
                 "name": "Product 1",
-                "type": "product",
+                "type": "consu",
                 "categ_id": cls.env.ref("product.product_category_all").id,
             }
         )
         cls.product_template_2 = cls.env["product.template"].create(
             {
                 "name": "Product 2",
-                "type": "product",
+                "type": "consu",
                 "categ_id": cls.env.ref("product.product_category_all").id,
             }
         )
         cls.product_template_3 = cls.env["product.template"].create(
             {
                 "name": "Product 3",
-                "type": "product",
+                "type": "consu",
                 "categ_id": cls.env.ref("product.product_category_all").id,
             }
         )
@@ -87,4 +90,14 @@ class TestOptionalProductQuantity(TransactionCase):
             and self.product_template_1.optional_product_ids[1].name == "Product 3",
             msg="optional_product_ids of product.template has "
             "been computed incorrectly",
+        )
+
+    def test_product_optional_line_form_domain(self):
+        """Test creating optional product lines via Form to exercise view domain."""
+        form = Form(self.product_template_1)
+        with form.product_optional_line_ids.new() as line:
+            line.optional_product_tmpl_id = self.product_template_2
+        form.save()
+        self.assertIn(
+            self.product_template_2, self.product_template_1.optional_product_ids
         )

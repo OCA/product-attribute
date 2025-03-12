@@ -2,14 +2,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Optional Product Quantity",
-    "version": "16.0.1.1.0",
+    "version": "18.0.1.0.0",
     "category": "Product",
     "summary": "Specify optional products quantity for product",
     "author": "Cetmix, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "depends": [
-        "sale_product_configurator",
+        "sale",
     ],
     "data": [
         "security/res_groups.xml",
