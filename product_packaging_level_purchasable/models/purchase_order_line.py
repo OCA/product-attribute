@@ -22,7 +22,8 @@ class PurchaseOrderLine(models.Model):
                 errors.append(
                     _(
                         "Packaging %(packaging)s on product %(product)s must be"
-                        " set as 'Can be purchased' in order to be used on a purchase order."
+                        " set as 'Can be purchased' in order to be "
+                        "used on a purchase order."
                     )
                     % {
                         "packaging": line.product_packaging_id.name,

@@ -24,7 +24,8 @@ class TestPackagingLevelCanBePurchased(Common):
             self.assertIn("warning", onchange_res)
 
     def test_product_packaging_can_be_purchased(self):
-        """Check that a product.packaging can be independently set as can be purchased."""
+        """Check that a product.packaging can be
+        independently set as can be purchased."""
         exception_msg = (
             "Packaging Test packaging cannot be purchased on product {} must be set "
             "as 'Can be purchased' in order to be used on a purchase order."
@@ -45,6 +46,7 @@ class TestPackagingLevelCanBePurchased(Common):
             self.packaging_level_cannot_be_purchased
         )
         self.assertEqual(self.packaging_cannot_be_purchased.can_be_purchased, False)
-        # Changing the can_be_purchased on the packaging_level does not update the packaging
+        # Changing the can_be_purchased on the packaging_level
+        # does not update the packaging
         self.packaging_level_cannot_be_purchased.can_be_purchased = True
         self.assertEqual(self.packaging_cannot_be_purchased.can_be_purchased, False)
