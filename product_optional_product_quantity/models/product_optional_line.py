@@ -16,7 +16,10 @@ class ProductOptionalLine(models.Model):
     company_id = fields.Many2one(related="product_tmpl_id.company_id")
     optional_product_tmpl_id = fields.Many2one(
         comodel_name="product.template",
-        domain="[('company_id', 'in', [company_id, False]), ('id', '!=', product_tmpl_id)]",
+        domain=[
+            ("company_id", "in", [company_id, False]),
+            ("id", "!=", product_tmpl_id),
+        ],
         string="Product",
         required=True,
     )

@@ -64,11 +64,13 @@ class TestOptionalProductQuantity(TransactionCase):
                 "optional_product_tmpl_id": self.product_template_2.id,
             }
         )
-        # optional_product_ids of Product 1 should contain 1 record with name 'Product 2'
+        # optional_product_ids of Product 1 should contain 1
+        # record with name 'Product 2'
         self.assertTrue(
             len(self.product_template_1.optional_product_ids) == 1
             and self.product_template_1.optional_product_ids[0].name == "Product 2",
-            msg="optional_product_ids of product.template has been computed incorrectly",
+            msg="optional_product_ids of product.template "
+            "has been computed incorrectly",
         )
         # Create second optional product for Product 1
         self.env["product.optional.line"].create(
@@ -83,5 +85,6 @@ class TestOptionalProductQuantity(TransactionCase):
             len(self.product_template_1.optional_product_ids) == 2
             and self.product_template_1.optional_product_ids[0].name == "Product 2"
             and self.product_template_1.optional_product_ids[1].name == "Product 3",
-            msg="optional_product_ids of product.template has been computed incorrectly",
+            msg="optional_product_ids of product.template has "
+            "been computed incorrectly",
         )
