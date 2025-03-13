@@ -1,11 +1,13 @@
 # Copyright 2024 Cetmix OÜ
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import exceptions
-from odoo.tests.common import TransactionCase, tagged
+from odoo.tests.common import tagged
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @tagged("post_install", "-at_install")
-class TestOptionalProductQuantity(TransactionCase):
+class TestOptionalProductQuantity(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
