@@ -50,3 +50,48 @@ class TestPackagingLevelCanBePurchased(Common):
         # does not update the packaging
         self.packaging_level_cannot_be_purchased.can_be_purchased = True
         self.assertEqual(self.packaging_cannot_be_purchased.can_be_purchased, False)
+
+    def test_onchange_product_packaging_valid(self):
+        """Test the onchange method with a valid packaging."""
+        # Ensure packaging is valid for purchase
+        self.packaging_tu.can_be_purchased = True
+        self.order_line.product_packaging_id = self.packaging_tu.id
+        # This should return a result from super() method,
+        # but not the 'cannot be purchased' warning
+        onchange_res = self.order_line._onchange_product_packaging_id()
+        # Check that we got a warning (from super) but not our specific warning
+        self.assertIn("warning", onchange_res)
+        # Make sure it's not our specific warning about "Can be purchased"
+        self.assertNotIn(
+            "Can be purchased", onchange_res.get("warning", {}).get("message", "")
+        )
+
+    def test_compute_product_packaging_id(self):
+        """Test that the compute method removes non-purchasable packaging."""
+        # Create a new order line to avoid constraints during setup
+        new_line = self.env["purchase.order.line"].new(
+            {
+                "order_id": self.order.id,
+                "product_id": self.product.id,
+                "product_uom": self.product.uom_id.id,
+            }
+        )
+
+        # Test non-purchasable packaging
+        self.packaging_cannot_be_purchased.can_be_purchased = False
+        # Bypass the constraints by using new() and setting the attribute directly
+        new_line.product_packaging_id = self.packaging_cannot_be_purchased
+
+        # Force compute method
+        new_line._compute_product_packaging_id()
+
+        # Check that the packaging was removed
+        self.assertFalse(new_line.product_packaging_id)
+
+        # Now test with a purchasable packaging
+        self.packaging_tu.can_be_purchased = True
+        new_line.product_packaging_id = self.packaging_tu
+        new_line._compute_product_packaging_id()
+
+        # The purchasable packaging should remain
+        self.assertEqual(new_line.product_packaging_id, self.packaging_tu)
