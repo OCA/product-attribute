@@ -31,7 +31,9 @@ class TestSale(BaseCommon):
 
         glass_product_template_form = Form(cls.env["product.template"])
         glass_product_template_form.name = "Glass"
-        with glass_product_template_form.attribute_line_ids.new() as length_attribute_line:
+        with (
+            glass_product_template_form.attribute_line_ids.new() as length_attribute_line
+        ):
             length_attribute_line.attribute_id = cls.length_attribute
             for value in cls.length_attribute.value_ids:
                 length_attribute_line.value_ids.add(value)

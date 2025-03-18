@@ -11,7 +11,6 @@ class SaleOrderLine(models.Model):
         """Create new variants and assign them to the `self`."""
         custom_values_to_unlink = self.env["product.attribute.custom.value"].browse()
         for line in self:
-
             # Create new attribute values for each "Create custom variant" custom value
             new_attribute_values = self.env["product.attribute.value"].browse()
             for custom_attribute_value in line.product_custom_attribute_value_ids:
@@ -55,9 +54,7 @@ class SaleOrderLine(models.Model):
                 for attribute_line in attribute_lines:
                     attribute_line.with_context(
                         no_remove_custom_variants=new_variant.ids,
-                    ).value_ids -= (
-                        attribute_line.value_ids & new_attribute_values
-                    )
+                    ).value_ids -= attribute_line.value_ids & new_attribute_values
 
         if custom_values_to_unlink:
             custom_values_to_unlink.unlink()

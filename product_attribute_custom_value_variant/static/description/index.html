@@ -369,9 +369,10 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:cd9b2a07b3d2aa2243eed929758b4c9b4c69c058aa5772d09cb411de2d0ca13d
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/16.0/product_attribute_custom_value_variant"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_attribute_custom_value_variant"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/18.0/product_attribute_custom_value_variant"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_attribute_custom_value_variant"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>Create variants when configured custom attributes are used.</p>
-<p>The created variants are useful to retrieve the stock quantity or for purchase.</p>
+<p>The created variants are useful to retrieve the stock quantity or for
+purchase.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -387,20 +388,24 @@ ul.auto-toc {
 </div>
 <div class="section" id="configuration">
 <h1><a class="toc-backref" href="#toc-entry-1">Configuration</a></h1>
-<p>In any custom attribute value, enable <cite>Create custom variant</cite>.</p>
+<p>In any custom attribute value, enable Create custom variant.</p>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-2">Usage</a></h1>
-<p>When a product template is added to a sale order line, the configured custom values become real attribute values.
-Here is an example:</p>
+<p>When a product template is added to a sale order line, the configured
+custom values become real attribute values. Here is an example:</p>
 <ol class="arabic simple">
 <li>Create an attribute “Length (cm)”</li>
-<li>Add some values to the attribute:
-- 5
-- 10
-- Custom</li>
-<li>For the “Custom” value, enable <cite>custom</cite> and <cite>Create custom variant</cite> (added by this module)</li>
-<li>Create a product template “Glass” having the created attribute and all its values</li>
+<li>Add some values to the attribute:<ul>
+<li>5</li>
+<li>10</li>
+<li>Custom</li>
+</ul>
+</li>
+<li>For the “Custom” value, enable custom and Create custom variant
+(added by this module)</li>
+<li>Create a product template “Glass” having the created attribute and
+all its values</li>
 <li>Create a sale order that includes the product template</li>
 <li>Set the value 42 for the attribute “Length (cm)”</li>
 </ol>
@@ -408,20 +413,22 @@ Here is an example:</p>
 <ul>
 <li><div class="first line-block">
 <div class="line">A new attribute value “42” for the attribute “Length (cm)”</div>
-<div class="line">This attribute value is not linked to the product template, so it does not appear as a choice when the template is sold.</div>
+<div class="line">This attribute value is not linked to the product template, so it
+does not appear as a choice when the template is sold.</div>
 </div>
 </li>
 <li><p class="first">A variant for the template, linked to the created attribute value</p>
 </li>
 </ul>
-<p>The created variant can then be used to retrieve its stock quantity or to purchase that exact product variant that had been sold.</p>
+<p>The created variant can then be used to retrieve its stock quantity or
+to purchase that exact product variant that had been sold.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_attribute_custom_value_variant%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_attribute_custom_value_variant%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -441,7 +448,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/16.0/product_attribute_custom_value_variant">OCA/product-attribute</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/18.0/product_attribute_custom_value_variant">OCA/product-attribute</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
