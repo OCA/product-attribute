@@ -4,7 +4,7 @@
 {
     "name": "Create product variant from custom value",
     "summary": "When a custom value is assigned, create a variant instead.",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Aion Tech, Odoo Community Association (OCA)",
     "license": "AGPL-3",
