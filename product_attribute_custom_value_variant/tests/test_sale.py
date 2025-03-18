@@ -1,6 +1,7 @@
 # Copyright 2025 Simone Rubino - Aion Tech
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from odoo.exceptions import ValidationError
 from odoo.fields import Command
 from odoo.tests import Form
 
@@ -31,17 +32,17 @@ class TestSale(BaseCommon):
 
         glass_product_template_form = Form(cls.env["product.template"])
         glass_product_template_form.name = "Glass"
-        with (
-            glass_product_template_form.attribute_line_ids.new() as length_attribute_line
-        ):
+        lines = glass_product_template_form.attribute_line_ids
+        with lines.new() as length_attribute_line:
             length_attribute_line.attribute_id = cls.length_attribute
             for value in cls.length_attribute.value_ids:
                 length_attribute_line.value_ids.add(value)
         cls.glass_product_template = glass_product_template_form.save()
 
     def test_sale(self):
-        """When a product template is sold with a "Create custom variant" attribute value,
-        a new attribute value is created and assigned to the new sold variant."""
+        """When a product template is sold with a "Create custom variant"
+        attribute value, a new attribute value is created and assigned to
+         the new sold variant."""
         customer = self.customer
         product_template = self.glass_product_template
         attribute = self.length_attribute
@@ -69,18 +70,15 @@ class TestSale(BaseCommon):
                 }
             ),
         ]
+        line_values = {
+            "name": "Test line",
+            "product_id": custom_product_variant.id,
+            "product_custom_attribute_value_ids": custom_values_commands,
+        }
         sale_order = self.env["sale.order"].create(
             {
                 "partner_id": customer.id,
-                "order_line": [
-                    Command.create(
-                        {
-                            "name": "Test line",
-                            "product_id": custom_product_variant.id,
-                            "product_custom_attribute_value_ids": custom_values_commands,
-                        }
-                    )
-                ],
+                "order_line": [Command.create(line_values)],
             }
         )
 
@@ -96,3 +94,13 @@ class TestSale(BaseCommon):
         self.assertIn(new_attribute_value, sold_variant_attribute_values)
         self.assertNotIn(attribute_value, sold_variant_attribute_values)
         self.assertNotIn(new_attribute_value, sold_variant.attribute_line_ids.value_ids)
+
+    def test_custom_value_error(self):
+        length_attribute_form = Form(self.env["product.attribute"])
+        length_attribute_form.name = "Test custom option attribute"
+        with length_attribute_form.value_ids.new() as value:
+            value.name = "Custom"
+            value.is_custom = False
+            value.create_custom_variant = True
+        with self.assertRaises(ValidationError):
+            self.length_attribute = length_attribute_form.save()
