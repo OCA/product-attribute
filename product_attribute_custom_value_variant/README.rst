@@ -92,6 +92,12 @@ Authors
 
 * Aion Tech
 
+Contributors
+------------
+
+- Simone Rubino - Aion Tech
+- Denis Roussel denis.roussel@acsone.eu
+
 Maintainers
 -----------
 

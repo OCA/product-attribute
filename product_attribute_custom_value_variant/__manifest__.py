@@ -11,7 +11,6 @@
     "category": "Sales/Sales",
     "depends": [
         "product",
-        "sale",
     ],
     "data": [
         "views/product_attribute_value_views.xml",
