@@ -17,11 +17,31 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_get_price_helper
+#: model:account.fiscal.position,name:product_get_price_helper.fiscal_position_1
+msgid "Business"
+msgstr ""
+
+#. module: product_get_price_helper
 #: model:product.pricelist,name:product_get_price_helper.pricelist_1
 msgid "Business Pricelist"
 msgstr "Listino commerciale"
 
 #. module: product_get_price_helper
+#: model:account.fiscal.position,name:product_get_price_helper.fiscal_position_0
+msgid "Default"
+msgstr ""
+
+#. module: product_get_price_helper
 #: model:ir.model,name:product_get_price_helper.model_product_product
 msgid "Product Variant"
 msgstr "Variante prodotto"
+
+#. module: product_get_price_helper
+#: model:account.tax,name:product_get_price_helper.tax_2
+msgid "Tax exc demo"
+msgstr ""
+
+#. module: product_get_price_helper
+#: model:account.tax,name:product_get_price_helper.tax_1
+msgid "Tax inc demo"
+msgstr ""
