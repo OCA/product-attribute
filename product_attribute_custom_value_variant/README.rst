@@ -56,8 +56,8 @@ custom values become real attribute values. Here is an example:
    - 10
    - Custom
 
-3. For the "Custom" value, enable custom and Create custom variant
-   (added by this module)
+3. For the "Custom" value, enable "Free text" and "Create custom
+   variant" (added by this module)
 4. Create a product template "Glass" having the created attribute and
    all its values
 5. Create a sale order that includes the product template
