@@ -17,28 +17,27 @@ Product Attribute Value Menu
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_attribute_value_menu
+    :target: https://github.com/OCA/product-attribute/tree/18.0/product_attribute_value_menu
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_attribute_value_menu
+    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_attribute_value_menu
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module adds:
 
-- A menu item in Sales > Configuration called *Attribute Values Extra Prices*
-  where user can see/edit all extra prices set for each attribute value in each
-  product template. It also allows extra prices to be imported via standard
-  csv/xlsx import.
-
-- A menu item in Sales and Inventory Applications called *Attribute Values*,
-  located under the *Attributes*' one. The new menu item contains all the
-  Attribute Values on a tree view, having the attribute associated with a link
-  and the value.
+-  A menu item in Sales > Configuration called *Attribute Values Extra
+   Prices* where user can see/edit all extra prices set for each
+   attribute value in each product template. It also allows extra prices
+   to be imported via standard csv/xlsx import.
+-  A menu item in Sales and Inventory Applications called *Attribute
+   Values*, located under the *Attributes*' one. The new menu item
+   contains all the Attribute Values on a tree view, having the
+   attribute associated with a link and the value.
 
 **Table of contents**
 
@@ -53,14 +52,20 @@ Configuration is not required.
 Usage
 =====
 
-- Got to: Sales -> Configuration -> Product Variant Values to manage extra price lines.
-- You can edit *Extra Price* right in the list view.
+-  Got to: Sales -> Configuration -> Product Variant Values to manage
+   extra price lines.
+-  You can edit *Extra Price* right in the list view.
 
 To update values through spreadsheet, it is recommended to:
- - export records' external ID and relevant fields necessary to work on the spreadsheet (product template, attribute, attribute value, value price extra).
- - re-import records using only columns External ID and Value price extra.
 
-To acces the attribute value view, simply go to Sales/Inventory > Configuration > Attribute Values.
+-  export records' external ID and relevant fields necessary to work on
+   the spreadsheet (product template, attribute, attribute value, value
+   price extra).
+-  re-import records using only columns External ID and Value price
+   extra.
+
+To acces the attribute value view, simply go to Sales/Inventory >
+Configuration > Attribute Values.
 
 Bug Tracker
 ===========
@@ -68,7 +73,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_attribute_value_menu%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_attribute_value_menu%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -76,24 +81,24 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Ilyas
 * Ooops404
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Ooops404 <https://www.ooops404.com>`_:
+-  `Ooops404 <https://www.ooops404.com>`__:
 
-  * Ilyas <irazor147@gmail.com>
+   -  Ilyas <irazor147@gmail.com>
 
-* `ForgeFlow <http://www.forgeflow.com>`_:
+-  `ForgeFlow <http://www.forgeflow.com>`__:
 
-  * Guillem Casassas <guillem.casassas@forgeflow.com>
+   -  Guillem Casassas <guillem.casassas@forgeflow.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -105,6 +110,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_attribute_value_menu>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_attribute_value_menu>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
