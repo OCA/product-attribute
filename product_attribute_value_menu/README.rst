@@ -44,16 +44,11 @@ This module adds:
 .. contents::
    :local:
 
-Configuration
-=============
-
-Configuration is not required.
-
 Usage
 =====
 
--  Got to: Sales -> Configuration -> Product Variant Values to manage
-   extra price lines.
+-  Got to: Sales -> Configuration -> Attribute Values Extra Prices to
+   manage extra price lines.
 -  You can edit *Extra Price* right in the list view.
 
 To update values through spreadsheet, it is recommended to:

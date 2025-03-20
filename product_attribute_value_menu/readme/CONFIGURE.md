@@ -1,1 +1,0 @@
-Configuration is not required.
