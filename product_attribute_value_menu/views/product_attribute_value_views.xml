@@ -67,5 +67,4 @@
         sequence="4"
         groups="product.group_product_variant"
     />
-
 </odoo>
