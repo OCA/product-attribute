@@ -83,6 +83,3 @@ msgstr "Attributo prodotto"
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
 msgid "Products"
 msgstr "Prodotti"
-
-#~ msgid "Product Variant Values"
-#~ msgstr "Prezzi extra valori attributo"

@@ -1,8 +1,8 @@
-- Got to: Sales -\> Configuration -\> Product Variant Values to manage
+- Got to: Sales -\> Configuration -\> Attribute Values Extra Prices to manage
   extra price lines.
 - You can edit *Extra Price* right in the list view.
 
-To update values through spreadsheet, it is recommended to:  
+To update values through spreadsheet, it is recommended to:
 - export records' external ID and relevant fields necessary to work on
   the spreadsheet (product template, attribute, attribute value, value
   price extra).
