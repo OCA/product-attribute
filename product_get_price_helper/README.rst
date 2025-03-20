@@ -28,19 +28,19 @@ Product Get Price Helper
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Adds a helper function `_get_price()` on `product.product` to compute the product
-price based on pricelist, fiscal position, company and date.
+Adds a helper function \_get_price() on product.product to compute the
+product price based on pricelist, fiscal position, company and date.
 
 The method returns a dict such as:
 
-.. code-block:: python
+.. code:: python
 
-    {
-        "value": 600.0,
-        "tax_included": True,
-        "discount": 20.0,
-        "original_value": 750.0,
-    }
+   {
+       "value": 600.0,
+       "tax_included": True,
+       "discount": 20.0,
+       "original_value": 750.0,
+   }
 
 **Table of contents**
 
@@ -61,19 +61,19 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * ACSONE SA/NV
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sébastien BEAU <sebastien.beau@akretion.com>
-* Simone Orsi <simahawk@gmail.com>
-* Quentin Groulard <quentin.groulard@acsone.eu>
+-  Sébastien BEAU <sebastien.beau@akretion.com>
+-  Simone Orsi <simahawk@gmail.com>
+-  Quentin Groulard <quentin.groulard@acsone.eu>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
