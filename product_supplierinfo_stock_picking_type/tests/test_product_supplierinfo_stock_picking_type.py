@@ -39,7 +39,7 @@ class TestProductSupplierinfoStockPickingType(BaseCommon):
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Test product",
-                "type": "product",
+                "is_storable": True,
                 "seller_ids": [
                     (
                         0,

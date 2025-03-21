@@ -13,10 +13,8 @@ Next steps:
 
 Purchase order flow A: \#. Go to *Purchase \> Orders \> Requests for
 Quotation* and create a new order as follows: \#. Vendor: Azure
-Interior; Product: Test product; Deliver To: Incoming A (under 'Other
-information' tab) \#. The unit price of the product will be 5.
+Interior; Product: Test product; Deliver To: Incoming A (add the user to the Manage Multiple Stock Locations permission group to see this field.) \#. The unit price of the product will be 5.
 
 Purchase order flow B: \#. Go to *Purchase \> Orders \> Requests for
 Quotation* and create a new order as follows: \#. Vendor: Azure
-Interior; Product: Test product; Deliver To: Incoming B (under 'Other
-information' tab) \#. The unit price of the product will be 10.
+Interior; Product: Test product; Deliver To: Incoming B (add the user to the Manage Multiple Stock Locations permission group to see this field.) \#. The unit price of the product will be 10.
