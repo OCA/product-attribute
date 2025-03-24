@@ -27,20 +27,10 @@ msgid "Attribute Value"
 msgstr "Valore attributo"
 
 #. module: product_attribute_value_menu
-#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
-msgid "Attribute Values"
-msgstr "Valori attributo"
-
-#. module: product_attribute_value_menu
 #: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
 #: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
 msgid "Attribute Values Extra Prices"
 msgstr "Prezzi extra valori attributo"
-
-#. module: product_attribute_value_menu
-#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_template_attribute_value_inherited_view_tree
-msgid "Attributes"
-msgstr "Attributi"
 
 #. module: product_attribute_value_menu
 #: model:ir.actions.act_window,name:product_attribute_value_menu.attribute_value_action
@@ -50,24 +40,9 @@ msgid "Attributes Values"
 msgstr "Valori attributo"
 
 #. module: product_attribute_value_menu
-#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
 msgid "Group By"
 msgstr "Raggruppa per"
-
-#. module: product_attribute_value_menu
-#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_attribute_value_menu
-#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: product_attribute_value_menu
 #: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__product_count
@@ -83,3 +58,18 @@ msgstr "Attributo prodotto"
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
 msgid "Products"
 msgstr "Prodotti"
+
+#~ msgid "Attribute Values"
+#~ msgstr "Valori attributo"
+
+#~ msgid "Attributes"
+#~ msgstr "Attributi"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
