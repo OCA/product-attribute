@@ -12,4 +12,18 @@
             </table>
         </div>
     </template>
+    <template id="table_date_note">
+        <div>
+            <table class="table_date_note">
+                <t t-foreach="supinfos" t-as="rec">
+                    <tr class="table_date_note_row">
+                        <td class="table_date_note_cell"><t
+                                t-esc="rec.date_start"
+                            /></td>
+                        <td class="table_date_note_cell"><t t-esc="rec.date_end" /></td>
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </template>
 </odoo>

@@ -61,6 +61,7 @@
                 <field name="product_code" />
                 <field name="company_id" />
                 <field name="unit_price_note" />
+                <field name="date_start_end_note" />
             </tree>
         </field>
     </record>

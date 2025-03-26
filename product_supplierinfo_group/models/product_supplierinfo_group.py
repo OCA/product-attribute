@@ -47,6 +47,9 @@ class ProductSupplierinfoGroup(models.Model):
     unit_price_note = fields.Html(
         compute="_compute_unit_price_note", string="Unit Prices (Min. Qty / Price)"
     )
+    date_start_end_note = fields.Html(
+        compute="_compute_unit_price_note", string="Start Date - End Date"
+    )
     company_id = fields.Many2one(
         "res.company", "Company", default=lambda self: self.env.company.id, index=1
     )
@@ -65,14 +68,23 @@ class ProductSupplierinfoGroup(models.Model):
         for rec in self:
             rec.has_multiple_variants = len(rec.product_tmpl_id.product_variant_ids) > 1
 
-    @api.depends("supplierinfo_ids")
+    @api.depends(
+        "supplierinfo_ids.min_qty",
+        "supplierinfo_ids.price",
+        "supplierinfo_ids.date_start",
+        "supplierinfo_ids.date_end",
+    )
     def _compute_unit_price_note(self):
         for rec in self:
             if len(rec.supplierinfo_ids) == 0:
                 rec.unit_price_note = "-"
+                rec.date_start_end_note = "-"
             else:
                 sorted_supinfos = rec.supplierinfo_ids.sorted(key=lambda r: r.min_qty)
                 vals = {"supinfos": [rec for rec in sorted_supinfos]}
                 rec.unit_price_note = self.env["ir.qweb"]._render(
                     "product_supplierinfo_group.table_price_note", vals
+                )
+                rec.date_start_end_note = self.env["ir.qweb"]._render(
+                    "product_supplierinfo_group.table_date_note", vals
                 )

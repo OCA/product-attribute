@@ -129,6 +129,11 @@ msgid "Sequence"
 msgstr "Séquence"
 
 #. module: product_supplierinfo_group
+#: model:ir.model.fields,field_description:product_supplierinfo_group.field_product_supplierinfo_group__date_start_end_note
+msgid "Start Date - End Date"
+msgstr "Date début - Date Fin"
+
+#. module: product_supplierinfo_group
 #: model:ir.model,name:product_supplierinfo_group.model_product_supplierinfo
 msgid "Supplier Pricelist"
 msgstr "Liste prix fournisseur"

@@ -9,7 +9,7 @@ Whereas most of the time you just want to enter the minimum quantities, price, d
 
 With this module, price lines look to their parent (product.supplierinfo.group) in order to get the values from these repetitive fields.
 
-In addition, it adds a computed field that summarizes all price/quantities deals.
+In addition, it adds a computed field that summarizes all price/quantities deals and start and end date.
 
 Here are some screenshots for before/after comparison.
 
