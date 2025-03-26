@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="uom_category_form" model="ir.ui.view">
+        <field name="name">uom.category.form</field>
+        <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.product_uom_categ_form_view" />
+        <field name="arch" type="xml">
+            <field name="rounding" position="after">
+                <field
+                    name="alias_ids"
+                    widget="many2many_tags"
+                    context="{'default_uom_id': active_id}"
+                    domain="['|', ('uom_id', '=', active_id), ('uom_id', '=', False)]"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
