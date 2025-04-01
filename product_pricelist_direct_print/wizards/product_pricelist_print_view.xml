@@ -13,10 +13,8 @@
                         <field
                             name="pricelist_id"
                             options="{'no_create': True, 'no_create_edit': True}"
-                            attrs="{
-                                'invisible' : [('partner_count', '!=', 0)],
-                                'required' : [('partner_count', '=', 0)],
-                            }"
+                            invisible="partner_count != 0"
+                            required="partner_count == 0"
                         />
                         <field name="date" />
                         <field name="lang" />
@@ -39,54 +37,51 @@
                         <field
                             name="categ_ids"
                             widget="many2many_tags"
-                            attrs="{'invisible':['|',('product_tmpl_ids','!=',[]), ('product_ids','!=',[])]}"
+                            invisible="product_tmpl_ids != [] or product_ids != []"
                         />
                         <field
                             name="print_child_categories"
-                            attrs="{'invisible':[('categ_ids','=',[])]}"
+                            invisible="categ_ids == []"
                         />
                         <field name="show_only_defined_products" />
                         <field
                             name="show_variants"
-                            attrs="{'invisible':[('last_ordered_products', '!=', 0)]}"
+                            invisible="last_ordered_products != 0"
                         />
                         <field name="last_categ_level_to_print" />
                         <field
                             name="last_ordered_products"
-                            attrs="{'invisible':[('partner_count','=',0)]}"
+                            invisible="partner_count == 0"
                         />
                         <field
                             name="product_selling_date_threshold"
-                            attrs="{'invisible':[('partner_count','=',0)]}"
+                            invisible="partner_count == 0"
                         />
                     </group>
                 </group>
                 <notebook>
                     <page
                         string="Products"
-                        attrs="{'invisible':['|', '|', ('categ_ids','!=',[]), ('last_ordered_products', '!=', 0), ('context_active_model', 'in', ['product.template','product.product'])]}"
+                        invisible="categ_ids != [] or last_ordered_products != 0 or context_active_model in ['product.template','product.product']"
                     >
                         <field
                             name="product_tmpl_ids"
                             nolabel="1"
-                            attrs="{'invisible':[('show_variants','=',True)]}"
+                            invisible="show_variants"
                         >
-                            <tree>
+                            <list>
                                 <field name="name" />
-                            </tree>
+                            </list>
                         </field>
-                        <field
-                            name="product_ids"
-                            attrs="{'invisible':[('show_variants','=',False)]}"
-                        >
-                            <tree>
+                        <field name="product_ids" invisible="not show_variants">
+                            <list>
                                 <field name="name" />
-                            </tree>
+                            </list>
                         </field>
                     </page>
                     <page
                         string="Customers"
-                        attrs="{'invisible':['|', ('pricelist_id', '!=', False), ('context_active_model', '=', 'res.partner')]}"
+                        invisible="pricelist_id or context_active_model == 'res.partner'"
                     >
                         <field name="partner_ids" />
                         <field name="partner_count" invisible="1" />
@@ -101,14 +96,14 @@
                         string="Print"
                         type="object"
                         class="btn-primary"
-                        attrs="{'invisible':[('partner_count', '>', 1)]}"
+                        invisible="partner_count > 1"
                     />
                     <button
                         name="action_pricelist_send"
                         string="Send by email"
                         type="object"
                         class="btn-primary"
-                        attrs="{'invisible':[('pricelist_id','=',False), ('partner_count','=',0)]}"
+                        invisible="not pricelist_id and partner_count == 0"
                     />
                     <button string="Cancel" class="btn-default" special="cancel" />
                 </footer>
@@ -119,7 +114,7 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_template" />
-        <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -127,7 +122,7 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_product" />
-        <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -135,7 +130,7 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_pricelist" />
-        <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -143,14 +138,14 @@
         <field name="name">Send customer pricelist by EMail</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="base.model_res_partner" />
-        <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
     <record id="action_pricelist_print" model="ir.actions.act_window">
         <field name="name">Print Price List</field>
         <field name="res_model">product.pricelist.print</field>
-        <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -158,7 +153,7 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_pricelist_item" />
-        <field name="groups_id" eval="[(4, ref('product.group_sale_pricelist'))]" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -167,6 +162,6 @@
         id="menu_product_pricelist_print"
         parent="sale.product_menu_catalog"
         sequence="200"
-        groups="product.group_sale_pricelist"
+        groups="product.group_product_pricelist"
     />
 </odoo>

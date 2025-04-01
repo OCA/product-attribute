@@ -200,7 +200,7 @@ class ProductPricelistPrint(models.TransientModel):
                 )
             )
         return self.env.ref(
-            "product_pricelist_direct_print." "action_report_product_pricelist"
+            "product_pricelist_direct_print.action_report_product_pricelist"
         ).report_action(self)
 
     def action_pricelist_send(self):
@@ -227,7 +227,7 @@ class ProductPricelistPrint(models.TransientModel):
         compose_form_id = self.env.ref("mail.email_compose_message_wizard_form").id
         ctx = {
             "default_composition_mode": "comment",
-            "default_res_id": self.id,
+            "default_res_ids": self.ids,
             "default_model": "product.pricelist.print",
             "default_use_template": bool(template_id),
             "default_template_id": template_id,
@@ -261,17 +261,13 @@ class ProductPricelistPrint(models.TransientModel):
             .with_context(
                 default_composition_mode="mass_mail",
                 default_notify=True,
-                default_res_id=self.id,
+                default_res_ids=self.ids,
                 default_model="product.pricelist.print",
                 default_template_id=template_id,
                 active_ids=self.ids,
             )
             .create({})
         )
-        values = composer._onchange_template_id(
-            template_id, "mass_mail", "product.pricelist.print", self.id
-        )["value"]
-        composer.write(values)
         composer.action_send_mail()
 
     @api.model
@@ -314,14 +310,14 @@ class ProductPricelistPrint(models.TransientModel):
     def get_products_domain(self):
         domain = [("sale_ok", "=", True)]
         if self.show_only_defined_products:
-            aux_domain = []
+            aux_domain = [(0, "=", 1)]
             items_dic = {"categ_ids": [], "product_ids": [], "variant_ids": []}
             for item in self.pricelist_id.item_ids:
                 if item.applied_on == "0_product_variant":
                     items_dic["variant_ids"].append(item.product_id.id)
                 if item.applied_on == "1_product":
                     items_dic["product_ids"].append(item.product_tmpl_id.id)
-                if item.applied_on == "2_product_category" and item.categ_id.parent_id:
+                if item.applied_on == "2_product_category":
                     items_dic["categ_ids"].append(item.categ_id.id)
             if items_dic["categ_ids"]:
                 aux_domain = expression.OR(
