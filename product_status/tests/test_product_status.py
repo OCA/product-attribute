@@ -121,7 +121,10 @@ class TestProductStatusCase(TestProductCommon):
     def test_modified_default_data(self):
         st_env = self.env["product.state"]
         demo_user = self.env.ref("base.user_demo")
-        demo_user.groups_id = [(4, self.env.ref("sales_team.group_sale_manager").id)]
+        demo_user.groups_id = [
+            (4, self.env.ref("sales_team.group_sale_manager").id),
+            (4, self.env.ref("product_state.group_product_state_manager").id),
+        ]
         default_state = st_env._get_module_data()
         vals = {
             "name": "State change",
