@@ -7,6 +7,7 @@ from collections import defaultdict
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.osv import expression
+from odoo.tools import float_round
 
 
 @api.model
@@ -96,12 +97,17 @@ class ProductPricelistPrint(models.TransientModel):
         price = self.get_pricelist_to_print()._get_product_price(
             product, 1, date=self.date
         )
+        precision = self.env["decimal.precision"].precision_get("Product Price")
         if self.vat_mode == "vat_excl":
-            self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
+            self.product_price = float_round(
+                product.taxes_id.compute_all(price)["total_excluded"], precision
+            )
         elif self.vat_mode == "vat_incl":
-            self.product_price = product.taxes_id.compute_all(price)["total_included"]
+            self.product_price = float_round(
+                product.taxes_id.compute_all(price)["total_included"], precision
+            )
         else:
-            self.product_price = price
+            self.product_price = float_round(price, precision)
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
