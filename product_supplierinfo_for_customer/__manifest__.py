@@ -13,7 +13,7 @@
     "category": "Sales Management",
     "license": "AGPL-3",
     "maintainers": ["luisg123v"],
-    "depends": ["product"],
+    "depends": ["sale"],
     "data": [
         "security/ir.model.access.csv",
         "views/product_views.xml",
