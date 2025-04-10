@@ -14,7 +14,13 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     def _get_price(
-        self, qty=1.0, pricelist=None, fposition=None, company=None, date=None
+        self,
+        qty=1.0,
+        pricelist=None,
+        fposition=None,
+        company=None,
+        date=None,
+        price_unit=None,
     ):
         """Computes the product prices
 
@@ -52,11 +58,12 @@ class ProductProduct(models.Model):
         )
         product = product.with_context(**product_context)
         pricelist = pricelist.with_context(**product_context) if pricelist else None
-        price_unit = (
-            pricelist._get_product_price(product, qty, date=date)
-            if pricelist
-            else product.lst_price
-        )
+        if price_unit is None:
+            price_unit = (
+                pricelist._get_product_price(product, qty, date=date)
+                if pricelist
+                else product.lst_price
+            )
         price_unit = AccountTax._fix_tax_included_price_company(
             price_unit, product.taxes_id, taxes, company
         )
