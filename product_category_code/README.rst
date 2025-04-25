@@ -28,7 +28,7 @@ Product Category Code
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds a field 'code' on product category level. 
+This module adds a field 'code' on product internal category level. 
 Curently this field can't be used to quickly find the category (it is not a shortcut).
 
 **Table of contents**
