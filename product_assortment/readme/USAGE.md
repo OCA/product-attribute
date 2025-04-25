@@ -1,5 +1,5 @@
 To use this module, you need to:
 
-1.  Enter the menu through Product Assortment Icon
-2.  Create a new filter where you can define your domain and add allowed
-    and restricted products
+1.  Enter the new application Product Assortment
+2.  Create new filters where you can define your product and partner domains on. Then add allowed
+    and restricted products. You can also add allowed partners.
