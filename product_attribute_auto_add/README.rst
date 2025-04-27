@@ -30,13 +30,7 @@ Product Attribute Auto Add
 
 This module saves time by automatically managing product attribute
 values. When you add a new value to an attribute, it will also be
-automatically added in all products that have this attribute.
-
-How it works:
-
-1. You add a new value to an existing attribute
-2. The system automatically Adds this value to all products using this
-   attribute
+automatically added in all product templates that have this attribute.
 
 **Table of contents**
 
@@ -51,7 +45,8 @@ To enable Auto-Create Product Variants
 
 - Go to Settings -> Products -> Variants -> Attributes
 - Select an attribute record or create a new one
-- On the Attribute form view, enable the "Auto-Create Variants" checkbox
+- On the Attribute form view, enable the "Auto-Add Value to Product
+  Templates" checkbox
 
 Usage
 =====

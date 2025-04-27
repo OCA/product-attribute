@@ -9,9 +9,9 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     attribute_line_auto_add = fields.Boolean(
-        string="Auto-Create Variants",
+        string="Auto-Add Value to Product Templates",
         help="When enabled new attribute values "
         "will be automatically added to "
-        "attribute line in all products "
+        "attribute line in all products templates "
         "that have this attribute.",
     )

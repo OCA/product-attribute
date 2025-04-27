@@ -30,12 +30,32 @@ class ProductAttributeValue(models.Model):
         for record in results.filtered("attribute_id.attribute_line_auto_add"):
             auto_add_map[record.attribute_id] |= record
 
+        # Collect all attribute_id and product_tmpl_id
+        attribute_ids = [attr.id for attr in auto_add_map]
+        product_tmpl_ids = []
+        for attr in auto_add_map:
+            product_tmpl_ids.extend(attr.product_tmpl_ids.ids)
+
+        # Global search for all needed lines
+        lines = attribute_line_obj.search(
+            [
+                ("attribute_id", "in", attribute_ids),
+                ("product_tmpl_id", "in", product_tmpl_ids),
+            ]
+        )
+
+        # Group lines by attribute_id
+        lines_by_attr = {}
+        for line in lines:
+            lines_by_attr.setdefault(line.attribute_id.id, []).append(line)
+
+        # In the loop, filter and update only the needed lines
         for attribute, values in auto_add_map.items():
-            lines = attribute_line_obj.search(
-                [
-                    ("product_tmpl_id", "in", attribute.product_tmpl_ids.ids),
-                    ("attribute_id", "=", attribute.id),
-                ]
-            )
-            lines.write({"value_ids": [(4, v.id) for v in values]})
+            relevant_lines = [
+                line
+                for line in lines_by_attr.get(attribute.id, [])
+                if line.product_tmpl_id in attribute.product_tmpl_ids
+            ]
+            for line in relevant_lines:
+                line.write({"value_ids": [(4, v.id) for v in values]})
         return results
