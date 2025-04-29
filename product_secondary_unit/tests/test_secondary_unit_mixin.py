@@ -102,6 +102,23 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model._onchange_helper_product_uom_for_secondary()
         self.assertEqual(fake_model.secondary_uom_qty, 0)
 
+    def test_product_secondary_unit_mixin_remove_sec_uom(self):
+        fake_model = self.secondary_unit_fake
+        fake_model.write(
+            {"secondary_uom_qty": 5, "secondary_uom_id": self.secondary_unit_box_5.id}
+        )
+        fake_model.secondary_uom_id = False
+        self.assertEqual(fake_model.product_uom_qty, 0)
+        self.assertFalse(fake_model.secondary_uom_id)
+        self.assertEqual(fake_model.secondary_uom_qty, 0)
+
+    def test_product_secondary_unit_mixin_wo_sec_uom(self):
+        fake_model = self.secondary_unit_fake
+        fake_model.write({"product_uom_qty": 5})
+        self.assertEqual(fake_model.product_uom_qty, 5)
+        self.assertFalse(fake_model.secondary_uom_id)
+        self.assertEqual(fake_model.secondary_uom_qty, 0)
+
     def test_chained_compute_field(self):
         """Secondary_uom_qty has not been computed when secondary_uom_id changes"""
         fake_model = self.secondary_unit_fake

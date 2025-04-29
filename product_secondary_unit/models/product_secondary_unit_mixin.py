@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.tools.float_utils import float_round
+from odoo.tools.float_utils import float_is_zero, float_round
 
 
 class ProductSecondaryUnitMixin(models.AbstractModel):
@@ -76,7 +76,11 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _compute_secondary_uom_qty(self):
         for line in self:
             if not line.secondary_uom_id:
-                line.secondary_uom_qty = 0.0
+                if not float_is_zero(
+                    line.secondary_uom_qty, precision_digits=line._get_uom_precision()
+                ):
+                    # Only set to 0.0 if it's not already 0.0
+                    self.secondary_uom_qty = 0.0
                 continue
             elif line.secondary_uom_id.dependency_type == "independent":
                 continue
@@ -87,6 +91,9 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 precision_rounding=line.secondary_uom_id.uom_id.rounding,
             )
             line.secondary_uom_qty = qty
+
+    def _get_uom_precision(self):
+        return self.env["decimal.precision"].precision_get("Product Unit of Measure")
 
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
@@ -126,7 +133,11 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         target model.
         """
         if not self.secondary_uom_id:
-            self.secondary_uom_qty = 0.0
+            if not float_is_zero(
+                self.secondary_uom_qty, precision_digits=self._get_uom_precision()
+            ):
+                # Only set to 0.0 if it's not already 0.0
+                self.secondary_uom_qty = 0.0
             return
         elif self.secondary_uom_id.dependency_type == "independent":
             return
