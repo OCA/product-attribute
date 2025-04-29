@@ -45,17 +45,18 @@ class ProductAttributeValue(models.Model):
         )
 
         # Group lines by attribute_id
-        lines_by_attr = {}
+        lines_by_attr = defaultdict(attribute_line_obj.browse)
         for line in lines:
-            lines_by_attr.setdefault(line.attribute_id.id, []).append(line)
+            lines_by_attr[line.attribute_id.id] |= line
 
         # In the loop, filter and update only the needed lines
         for attribute, values in auto_add_map.items():
-            relevant_lines = [
-                line
-                for line in lines_by_attr.get(attribute.id, [])
-                if line.product_tmpl_id in attribute.product_tmpl_ids
-            ]
-            for line in relevant_lines:
-                line.write({"value_ids": [(4, v.id) for v in values]})
+            attr_lines = lines_by_attr.get(attribute.id)
+            if not attr_lines:
+                continue
+            valid_lines = attr_lines.filtered(
+                lambda line_, attr=attribute: line_.product_tmpl_id
+                in attr.product_tmpl_ids
+            )
+            valid_lines.write({"value_ids": [(4, v.id) for v in values]})
         return results
