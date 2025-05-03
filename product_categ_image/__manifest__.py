@@ -5,14 +5,15 @@
 
 {
     "name": "Product Category Image",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Sales",
     "license": "AGPL-3",
     "summary": "Add image on product category",
     "author": "Akretion,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
+    "maintainers": ["cubells"],
     "depends": ["product"],
     "excludes": ["product_default_image"],
-    "data": ["views/product_view.xml"],
+    "data": ["views/product_category_views.xml"],
     "installable": True,
 }
