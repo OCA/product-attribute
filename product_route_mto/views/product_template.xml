@@ -2,7 +2,6 @@
 <!-- Copyright 2022 ACSONE SA/NV
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="product_template_form_view">
         <field name="name">product.template.form (in product_route_mto)</field>
         <field name="model">product.template</field>
@@ -12,7 +11,7 @@
                 <label for="is_mto" />
                 <div class="o_row" name="is_mto">
                     <field name="is_mto" class="oe_inline" />
-                    </div>
+                </div>
             </group>
         </field>
     </record>
@@ -47,5 +46,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
