@@ -1,0 +1,4 @@
+- [agilebg](https://www.agilebg.com/)
+  - Lorenzo Battistini \<<lorenzo.battistini@agilebg.com>\>
+- [Studio73](https://www.studio73.es)
+  - Carlos Reyes \<<carlos@studio73.es>\>
