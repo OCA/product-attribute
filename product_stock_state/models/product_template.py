@@ -19,11 +19,15 @@ class ProductTemplate(models.Model):
         " 'In Stock' to 'In Limited Stock' State. If not set, Odoo will"
         " use the value defined in the product category. If"
         " no value is defined in product category, it will use the value"
-        " defined for the company",
+        " defined for the company. If on_demand is checked, stock state will pass to"
+        " 'On Demand' regardless stock state threshold and stock quantity",
         digits="Stock Threshold",
     )
 
     manual_stock_state_threshold = fields.Float(digits="Stock Threshold")
+    on_demand = fields.Boolean(
+        help="This field allows you to force the stock state to the on-demand value"
+    )
 
     @api.depends("categ_id.stock_state_threshold", "manual_stock_state_threshold")
     def _compute_stock_state_threshold(self):
