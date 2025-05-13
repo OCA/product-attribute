@@ -24,6 +24,9 @@ class ProductTemplate(models.Model):
     )
 
     manual_stock_state_threshold = fields.Float(digits="Stock Threshold")
+    on_demand = fields.Boolean(
+        help="This field allows you to force the stock state to the on-demand value"
+    )
 
     @api.depends("categ_id.stock_state_threshold", "manual_stock_state_threshold")
     def _compute_stock_state_threshold(self):

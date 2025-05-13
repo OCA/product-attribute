@@ -16,6 +16,7 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     _STOCK_STATE_SELECTION = [
+        ("on_demand", "On Demand"),
         ("in_stock", "In Stock"),
         ("in_limited_stock", "In Limited Stock"),
         ("resupplying", "Resupplying"),
@@ -57,6 +58,9 @@ class ProductProduct(models.Model):
     def _stock_state_check_out_of_stock(self, qty, precision):
         return True
 
+    def _stock_state_check_on_demand(self, qty, precision):
+        return self.on_demand
+
     def _available_states(self):
         return [x[0] for x in self._selection_stock_state()]
 
@@ -65,6 +69,7 @@ class ProductProduct(models.Model):
         "incoming_qty",
         "stock_state_threshold",
         "company_id.stock_state_threshold",
+        "on_demand",
     )
     def _compute_stock_state(self):
         precision = self.env["decimal.precision"].precision_get("Stock Threshold")
