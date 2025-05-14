@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-01-08 10:06+0000\n"
+"PO-Revision-Date: 2025-05-15 10:24+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
@@ -36,6 +36,11 @@ msgid "Based on"
 msgstr "Basato su"
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__ignore_supplierinfo_margin
+msgid "Based on supplierinfo price without sale margin applied"
+msgstr "In base al prezzo fornitore senza il margine vendite applicato"
+
+#. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_discount
 msgid ""
 "If checked, the discount set on the supplier info will be ignored in price "
@@ -53,6 +58,11 @@ msgstr "Ignora sconto informazioni fornitore"
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
 msgstr "Ignorare la quantità min del listino fornitore"
+
+#. module: product_pricelist_supplierinfo
+#: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__ignore_supplierinfo_margin
+msgid "Ignore Supplierinfo Margin"
+msgstr "Ignora il margine informazioni fornitore"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_customerinfo__sale_margin
