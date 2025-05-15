@@ -9,7 +9,7 @@ from odoo.tests.common import SavepointCase
 class TestPricelistAssortment(SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestPricelistAssortment, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.Pricelist = cls.env["product.pricelist"]
         cls.PricelistItem = cls.env["product.pricelist.assortment.item"]
