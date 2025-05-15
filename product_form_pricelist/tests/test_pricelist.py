@@ -3,19 +3,21 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 
-from odoo.tests import SavepointCase
+from odoo.tests import TransactionCase
 
 
-class TestPricelist(SavepointCase):
+class TestPricelist(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.tmpl = cls.env["product.template"].create({"name": "Foo"})
         cls.variant = cls.tmpl.product_variant_ids
+        cls.pricelist = cls.env["product.pricelist"].create({"name": "Pricelist Test"})
 
     def test_write_pricelist_item(self):
         price = self.env["product.pricelist.item"].create(
             {
+                "pricelist_id": self.pricelist.id,
                 "product_tmpl_id": self.tmpl.id,
                 "fixed_price": 100,
                 "applied_on": "1_product",
@@ -28,6 +30,7 @@ class TestPricelist(SavepointCase):
         tmpl = self.env["product.template"].create({"name": "Foo"})
         price = self.env["product.pricelist.item"].create(
             {
+                "pricelist_id": self.pricelist.id,
                 "product_tmpl_id": tmpl.id,
                 "fixed_price": 100,
             }
@@ -37,6 +40,7 @@ class TestPricelist(SavepointCase):
     def test_create_variant_pricelist_item(self):
         price = self.env["product.pricelist.item"].create(
             {
+                "pricelist_id": self.pricelist.id,
                 "product_id": self.variant.id,
                 "fixed_price": 100,
             }
@@ -47,6 +51,7 @@ class TestPricelist(SavepointCase):
     def test_write_variant_pricelist_item(self):
         price = self.env["product.pricelist.item"].create(
             {
+                "pricelist_id": self.pricelist.id,
                 "product_id": self.variant.id,
                 "fixed_price": 100,
             }
@@ -56,3 +61,14 @@ class TestPricelist(SavepointCase):
         price.product_id = variant
         self.assertEqual(price.applied_on, "0_product_variant")
         self.assertEqual(price.product_tmpl_id, tmpl)
+
+    def test_compute_applied_on_and_tmpl(self):
+        price = self.env["product.pricelist.item"].create(
+            {
+                "pricelist_id": self.pricelist.id,
+                "product_tmpl_id": self.tmpl.id,
+                "fixed_price": 100,
+            }
+        )
+        self.assertEqual(price.applied_on, "1_product")
+        self.assertFalse(price.product_id)
