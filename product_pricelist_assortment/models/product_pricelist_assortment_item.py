@@ -26,11 +26,12 @@ class ProductPricelistAssortmentItem(models.Model):
         help="Pricelist items created automatically",
     )
 
-    def _get_pricelist_item_name_price(self):
-        super()._get_pricelist_item_name_price()
+    def _compute_name_and_price(self):
+        super()._compute_name_and_price()
         for rec in self:
             if rec.assortment_filter_id:
                 rec.name = rec.assortment_filter_id.name
+        return
 
     def _get_pricelist_item_values(self):
         """
@@ -41,7 +42,7 @@ class ProductPricelistAssortmentItem(models.Model):
         products = self._get_product_from_assortment()
         list_values = []
         # fields to ignore to create pricelist item
-        blacklist = models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD]
+        blacklist = models.MAGIC_COLUMNS + ["__last_update"]
         blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
         default_values = {
             k: self._fields.get(k).convert_to_write(self[k], self)

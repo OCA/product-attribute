@@ -11,7 +11,12 @@
         <field name="priority" eval="90" />
         <field name="arch" type="xml">
             <field name="product_id" position="after">
-                <field name="assortment_item_id" groups="base.group_no_one" />
+                <field name="assortment_item_id" invisible="1" />
+                <field
+                    name="assortment_item_id"
+                    groups="base.group_no_one"
+                    readonly="1"
+                />
             </field>
         </field>
     </record>

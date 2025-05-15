@@ -14,6 +14,7 @@
                 </h1>
                 <group>
                     <group>
+                        <field name="company_id" invisible="1" />
                         <field name="company_id" groups="base.group_multi_company" />
                         <field
                             name="pricelist_id"
@@ -34,9 +35,7 @@
                         <div>
                             <field name="compute_price" widget="radio" />
                             <field name="currency_id" invisible="1" />
-                            <div
-                                attrs="{'invisible':[('compute_price', '!=', 'fixed')]}"
-                            >
+                            <div invisible="compute_price != 'fixed'">
                                 <field
                                     name="fixed_price"
                                     nolabel="1"
@@ -44,9 +43,7 @@
                                     options="{'currency_field': 'currency_id'}"
                                 />
                             </div>
-                            <div
-                                attrs="{'invisible':[('compute_price', '!=', 'percentage')]}"
-                            >
+                            <div invisible="compute_price != 'percentage'">
                                 <field
                                     name="percent_price"
                                     nolabel="1"
@@ -56,16 +53,12 @@
                         </div>
                     </group>
                     <group>
-                        <field
-                            name="base"
-                            attrs="{'invisible':[('compute_price', '!=', 'formula')]}"
-                        />
+                        <field name="base" invisible="compute_price != 'formula'" />
                         <field
                             name="base_pricelist_id"
-                            attrs="{
-                                'invisible': ['|', ('compute_price', '!=', 'formula'), ('base', '!=', 'pricelist')],
-                                'required': [('compute_price', '=', 'formula'), ('base', '=', 'pricelist')],
-                                'readonly': [('base', '!=', 'pricelist')]}"
+                            invisible="compute_price != 'formula' or base != 'pricelist'"
+                            required="compute_price == 'formula' and base == 'pricelist'"
+                            readonly="base != 'pricelist'"
                         />
                     </group>
                 </group>
@@ -73,20 +66,13 @@
                     <p
                     >The computed price is expressed in the default Unit of Measure of the product.</p>
                 </div>
-                <group
-                    col="6"
-                    attrs="{'invisible':[('compute_price', '!=', 'formula')]}"
-                >
+                <group col="6" invisible="compute_price != 'formula'">
                       <label for="base" string="New Price = " />
                       <div>
-                          <span
-                            attrs="{'invisible':[('base', '!=', 'list_price')]}"
-                        >Sales Price  -  </span>
-                          <span
-                            attrs="{'invisible':[('base', '!=', 'standard_price')]}"
-                        >Cost  -  </span>
-                          <span
-                            attrs="{'invisible':[('base', '!=', 'pricelist')]}"
+                        <span invisible="base != 'list_price'">Sales Price  -  </span>
+                        <span invisible="base != 'standard_price'">Cost  -  </span>
+                        <span
+                            invisible="base != 'pricelist'"
                         >Other Pricelist  -  </span>
                       </div>
                       <label for="price_discount" />
@@ -117,9 +103,9 @@
                 <field name="date_start" />
                 <field name="date_end" />
                 <field name="price" string="Price" />
-                <field name="base" invisible="1" />
-                <field name="price_discount" invisible="1" />
-                <field name="compute_price" invisible="1" />
+                <field name="base" column_invisible="1" />
+                <field name="price_discount" column_invisible="1" />
+                <field name="compute_price" column_invisible="1" />
             </tree>
         </field>
     </record>

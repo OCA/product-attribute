@@ -3,10 +3,10 @@
 
 from uuid import uuid4
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestPricelistAssortment(SavepointCase):
+class TestPricelistAssortment(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -123,15 +123,13 @@ class TestPricelistAssortment(SavepointCase):
         )
         self.assertTrue(bool(products_assortment))
         for product in products_assortment:
-            self.assertAlmostEqual(
-                product.price, self.assortment_price, places=self.precision
-            )
+            price = pricelist._get_product_price(product, 1.0)
+            self.assertAlmostEqual(price, self.assortment_price, places=self.precision)
         normal_product = self.Product.search(
             [("id", "not in", self.products_assortment.ids)], limit=1
         ).with_context(pricelist=pricelist.id)
-        self.assertAlmostEqual(
-            normal_product.price, self.normal_price, places=self.precision
-        )
+        normal_price = pricelist._get_product_price(normal_product, 1.0)
+        self.assertAlmostEqual(normal_price, self.normal_price, places=self.precision)
 
     def test_pricelist_assortment(self):
         """
@@ -158,7 +156,7 @@ class TestPricelistAssortment(SavepointCase):
         pricelist_values = self._get_pricelist_values()
         pricelist = self.Pricelist.create(pricelist_values)
         self._add_assortment_item_fixed_price(pricelist)
-        pricelist.flush()
+        pricelist.flush_model()
         self.env["product.pricelist"].cron_assortment_update()
         self._test_values(pricelist)
 
@@ -176,6 +174,6 @@ class TestPricelistAssortment(SavepointCase):
         pricelist_values = self._get_pricelist_values()
         pricelist = self.Pricelist.create(pricelist_values)
         self._add_assortment_item_fixed_price(pricelist)
-        pricelist.flush()
+        pricelist.flush_model()
         self.env["product.pricelist"].with_user(self.user_cmp2).cron_assortment_update()
         self._test_values(pricelist)

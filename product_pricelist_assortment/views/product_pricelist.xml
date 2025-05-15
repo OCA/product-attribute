@@ -22,7 +22,7 @@
                 expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']/tree"
                 position="inside"
             >
-                <field name="assortment_item_id" invisible="1" />
+                <field name="assortment_item_id" invisible="1" readonly="1" />
             </xpath>
             <xpath expr="//notebook/page[@name='pricelist_rules']" position="after">
                 <page name="assortment_page" string="Assortment Items">

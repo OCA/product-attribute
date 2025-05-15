@@ -10,6 +10,5 @@ class ProductPricelistItem(models.Model):
     assortment_item_id = fields.Many2one(
         comodel_name="product.pricelist.assortment.item",
         string="Assortment item",
-        readonly=True,
         ondelete="cascade",
     )
