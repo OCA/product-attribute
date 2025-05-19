@@ -16,6 +16,8 @@ msgstr ""
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__active
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Active"
 msgstr ""
 
@@ -35,7 +37,14 @@ msgid "Add a section"
 msgstr ""
 
 #. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "All"
+msgstr ""
+
+#. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Archived"
 msgstr ""
