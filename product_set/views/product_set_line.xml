@@ -26,6 +26,24 @@
             <search string="Product set line">
                 <field name="product_set_id" />
                 <field name="product_id" />
+                <field name="active" />
+                <separator />
+                <filter
+                    string="All"
+                    name="all"
+                    domain="['|', ('active', '=', False), ('active', '=', True)]"
+                />
+                <filter
+                    string="Active"
+                    name="active"
+                    domain="[('active', '=', True)]"
+                />
+                <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active', '=', False)]"
+                />
+                <separator />
                 <filter
                     name="group_by_product_set_id"
                     string="Product set"
@@ -48,6 +66,6 @@
         <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_product_set_line_search" />
         <field name="domain">[]</field>
-        <field name="context">{}</field>
+        <field name="context">{'search_default_all': 1}</field>
     </record>
 </odoo>
