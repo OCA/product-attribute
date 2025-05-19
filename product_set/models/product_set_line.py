@@ -30,7 +30,10 @@ class ProductSetLine(models.Model):
     )
     product_set_id = fields.Many2one("product.set", string="Set", ondelete="cascade")
     active = fields.Boolean(
-        string="Active", related="product_set_id.active", store=True, readonly=True
+        compute="_compute_active",
+        readonly=False,
+        store=True,
+        default=True,
     )
     sequence = fields.Integer(required=True, default=0)
     company_id = fields.Many2one(
@@ -45,6 +48,14 @@ class ProductSetLine(models.Model):
         inverse="_inverse_product_packaging_qty",
         digits="Product Unit of Measure",
     )
+
+    def _compute_active(self):
+        """Compute the active field based on the product_set_id by default."""
+        for line in self:
+            if line.product_set_id:
+                line.active = line.product_set_id.active
+            else:
+                line.active = True
 
     @api.depends(
         "quantity",
