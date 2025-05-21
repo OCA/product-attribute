@@ -46,7 +46,7 @@ To configure an alias in a UoM, you can access Inventory > Settings >
 UoM Categories. When editing a UoM you can add one or more alias in
 column UoM Alias.
 
-![image](../static/img/screenshot-1.png)
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/uom_alias/static/img/screenshot-1.png
 
 Usage
 =====
@@ -54,7 +54,7 @@ Usage
 When you search for a UoM in a document, you can search by the name of
 the UoM or by one of its alias.
 
-![image](../static/img/screenshot-2.png)
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/17.0/uom_alias/static/img/screenshot-2.png
 
 Known issues / Roadmap
 ======================
