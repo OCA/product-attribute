@@ -137,3 +137,23 @@ class TestProductLotSequence(TransactionCase):
         self.assertEqual(
             new_next_sequence_number, seq.get_next_char(seq.number_next_actual)
         )
+
+    def test_lot_sequence_padding(self):
+        product = self.product_product.create(dict(name="Test", tracking="lot"))
+        product.lot_sequence_id.write(
+            dict(prefix="test/", number_increment=1, number_next_actual=1)
+        )
+        lot_form = Form(self.stock_production_lot)
+        lot_form.product_id = product
+        lot = lot_form.save()
+        self.assertRegexpMatches(lot.name, r"test/\d{7}$")
+
+        self.env.company.lot_sequence_padding = 4
+        product = self.product_product.create(dict(name="Test", tracking="lot"))
+        product.lot_sequence_id.write(
+            dict(prefix="test/", number_increment=1, number_next_actual=1)
+        )
+        lot_form = Form(self.stock_production_lot)
+        lot_form.product_id = product
+        lot = lot_form.save()
+        self.assertRegexpMatches(lot.name, r"test/\d{4}$")
