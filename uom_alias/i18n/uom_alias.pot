@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* uom_alias
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__code
+msgid "Code"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__id
+msgid "ID"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model,name:uom_alias.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model,name:uom_alias.model_uom_alias
+msgid "UOM Alias"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__uom_id
+msgid "Uom"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_uom__alias_ids
+msgid "Uom Alias"
+msgstr ""
+
+#. module: uom_alias
+#: model:ir.model.constraint,message:uom_alias.constraint_uom_alias_uom_alias_unique
+msgid "You cannot repeat the alias name"
+msgstr ""
