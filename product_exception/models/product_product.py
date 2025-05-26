@@ -44,7 +44,7 @@ class ProductProduct(models.Model):
         Upon creation, check if the Product Variant has any Exception, if so,
         raise a Validation Error
         """
-        record = super(ProductProduct, self).create(vals)
+        record = super().create(vals)
         check_exceptions = any(
             field in vals for field in self._fields_trigger_check_exception()
         )
@@ -57,7 +57,7 @@ class ProductProduct(models.Model):
         When changing one of the trigger fields, check if the Product Variant
         has any Exception, if so, raise a Validation Error
         """
-        result = super(ProductProduct, self).write(vals)
+        result = super().write(vals)
         check_exceptions = any(
             field in vals for field in self._fields_trigger_check_exception()
         )

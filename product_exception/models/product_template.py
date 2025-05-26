@@ -25,7 +25,7 @@ class ProductTemplate(models.Model):
         return "product_tmpl_ids"
 
     def detect_exceptions(self):
-        all_exceptions = super(ProductTemplate, self).detect_exceptions()
+        all_exceptions = super().detect_exceptions()
         products = self.mapped("product_variant_ids")
         all_exceptions += products.detect_exceptions()
         return all_exceptions
@@ -44,7 +44,7 @@ class ProductTemplate(models.Model):
         Upon creation, check if the Product Template has any Exception, if so,
         raise a Validation Error
         """
-        record = super(ProductTemplate, self).create(vals)
+        record = super().create(vals)
         check_exceptions = any(
             field in vals for field in self._fields_trigger_check_exception()
         )
@@ -57,7 +57,7 @@ class ProductTemplate(models.Model):
         When changing one of the trigger fields, check if the Product Template
         has any Exception, if so, raise a Validation Error
         """
-        result = super(ProductTemplate, self).write(vals)
+        result = super().write(vals)
         check_exceptions = any(
             field in vals for field in self._fields_trigger_check_exception()
         )
