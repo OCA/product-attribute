@@ -29,7 +29,7 @@
                     <button
                         name="action_launch_assortment_update"
                         type="object"
-                        class="btn-primary oe_right"
+                        class="btn-primary oe_right mb-2"
                         icon="fa-play"
                         string="Launch assortment update"
                     />

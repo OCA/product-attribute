@@ -27,11 +27,10 @@ class ProductPricelistAssortmentItem(models.Model):
     )
 
     def _compute_name_and_price(self):
-        super()._compute_name_and_price()
+        result = super()._compute_name_and_price()
         for rec in self:
-            if rec.assortment_filter_id:
-                rec.name = rec.assortment_filter_id.name
-        return
+            rec.name = rec.assortment_filter_id.name
+        return result
 
     def _get_pricelist_item_values(self):
         """
@@ -42,8 +41,11 @@ class ProductPricelistAssortmentItem(models.Model):
         products = self._get_product_from_assortment()
         list_values = []
         # fields to ignore to create pricelist item
-        blacklist = models.MAGIC_COLUMNS + ["__last_update"]
-        blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
+        blacklist = models.MAGIC_COLUMNS + [
+            "__last_update",
+            "assortment_filter_id",
+            "pricelist_item_ids",
+        ]
         default_values = {
             k: self._fields.get(k).convert_to_write(self[k], self)
             for k in self._fields.keys()

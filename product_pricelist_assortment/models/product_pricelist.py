@@ -18,7 +18,7 @@ class ProductPricelist(models.Model):
         Action to execute update of assortment items
         :return: dict
         """
-        for item_assortment in self.mapped("item_assortment_ids"):
+        for item_assortment in self.item_assortment_ids:
             item_assortment._update_assortment_items()
         return True
 
