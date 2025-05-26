@@ -8,7 +8,7 @@
         >Public price should be greather than purchase price</field>
         <field name="sequence">50</field>
         <field name="model">product.template</field>
-        <field name="code">failed = obj.lst_price &lt; obj.standard_price</field>
+        <field name="code">failed = obj.list_price &lt; obj.standard_price</field>
         <field name="active" eval="False" />
     </record>
 

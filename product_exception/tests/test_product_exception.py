@@ -8,8 +8,8 @@ class TestProductException(TransactionCase):
         exception.active = True
         p_succ = self.env.ref("product.product_product_7").product_tmpl_id
         p_fail = self.env.ref("product.product_product_6").product_tmpl_id
-        self.assertTrue(p_succ.lst_price > p_succ.standard_price)
-        self.assertFalse(p_fail.lst_price > p_fail.standard_price)
+        self.assertTrue(p_succ.list_price > p_succ.standard_price)
+        self.assertFalse(p_fail.list_price > p_fail.standard_price)
 
         self.assertTrue(len(p_succ.exception_ids) == 0)
         self.assertTrue(len(p_fail.exception_ids) == 0)
@@ -37,7 +37,7 @@ class TestProductException(TransactionCase):
                 {
                     "name": "Test Product",
                     "type": "product",
-                    "lst_price": 5,
+                    "list_price": 5,
                     "standard_price": 10,
                     "ignore_exception": False,
                 }
