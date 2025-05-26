@@ -37,7 +37,18 @@ class TestMargin(BaseCommon):
         )
         cls.env.ref("product.group_sale_pricelist").users |= cls.env.user
 
-    def test_margin_computation_compute_price(self):
+    def test_margin_with_fixed_price_computation(self):
         self.assertEqual(self.line.cost, 20.0)
         self.assertEqual(self.line.margin, (35 - 20))
-        self.assertEqual(self.line.margin_percent, ((35 - 20) / 35) * 100)
+        self.assertEqual(self.line.margin_percent, 42.86)
+
+        # Copy production and test that margin is computed based on current item
+        # => self.line should not impact margin of new_line
+        new_line = self.line.copy()
+        new_line.fixed_price = 40
+        self.assertEqual(new_line.margin, (40 - 20))
+        self.assertEqual(new_line.margin_percent, 50.00)
+
+    def test_margin_with_discount_computation(self):
+        self.line.write({"compute_price": "percentage", "percent_price": 0.5})
+        self.assertAlmostEqual(self.line.margin_percent, 49.75)

@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.tools.float_utils import float_is_zero
+from odoo.tools.float_utils import float_is_zero, float_round
 
 
 class ProductPricelistItem(models.Model):
@@ -37,16 +37,20 @@ class ProductPricelistItem(models.Model):
     )
     def _compute_margin(self):
         for item in self:
-            if item.applied_on not in ("1_product", "0_product_variant"):
+            if (
+                item.applied_on not in ("1_product", "0_product_variant")
+                or not item.product_tmpl_id
+            ):
                 item.margin = 0
                 item.margin_percent = 0
                 continue
 
-            price_rule = item.pricelist_id._compute_price_rule(
-                item.product_tmpl_id, item.min_quantity
+            price = item._compute_price(
+                item.product_tmpl_id,
+                item.min_quantity,
+                item.product_tmpl_id.uom_id,
+                fields.Datetime.now(),
             )
-
-            price = price_rule.get(item.product_tmpl_id.id, [0])[0]
 
             if float_is_zero(price, precision_digits=item.currency_id.rounding):
                 item.margin = 0
@@ -70,6 +74,7 @@ class ProductPricelistItem(models.Model):
             )
 
             item.margin = price_vat_excl - cost
-            item.margin_percent = (
-                price_vat_excl and (item.margin / price_vat_excl) * 100
+            item.margin_percent = float_round(
+                price_vat_excl and (item.margin / price_vat_excl) * 100,
+                self.env["decimal.precision"].precision_get("Product Unit of Measure"),
             )

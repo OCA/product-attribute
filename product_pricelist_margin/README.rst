@@ -29,6 +29,8 @@ Product Pricelist Margin
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module shows the product's cost and margin from the pricelists.
+The margin is calculated as the difference between the price and the cost, expressed as a percentage of the price.
+The price is based on the computation applied from the current pricelist item. This allows the user to make price simulations while editing the pricelist item. 
 
 **Table of contents**
 
@@ -67,6 +69,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Nguyen Minh Chien <chien@trobz.com>
+* Telmo Santos <telmo.santos@camptocamp.com>
 
 Maintainers
 ~~~~~~~~~~~
