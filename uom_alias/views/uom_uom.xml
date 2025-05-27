@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="uom_uom_tree" model="ir.ui.view">
         <field name="name">uom.uom.tree</field>
         <field name="model">uom.uom</field>
@@ -31,5 +30,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
