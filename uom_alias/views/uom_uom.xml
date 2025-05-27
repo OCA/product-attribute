@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="uom_uom_tree" model="ir.ui.view">
-        <field name="name">uom.uom.tree</field>
+        <field name="name">uom.uom.list</field>
         <field name="model">uom.uom</field>
         <field name="inherit_id" ref="uom.product_uom_tree_view" />
         <field name="arch" type="xml">
@@ -9,7 +9,7 @@
                 <field
                     name="alias_ids"
                     widget="many2many_tags"
-                    domain="['|', ('uom_id', '=', active_id), ('uom_id', '=', False)]"
+                    domain="['|', ('uom_id', '=', id), ('uom_id', '=', False)]"
                 />
             </field>
         </field>
@@ -24,8 +24,8 @@
                 <field
                     name="alias_ids"
                     widget="many2many_tags"
-                    context="{'default_uom_id': active_id}"
-                    domain="['|', ('uom_id', '=', active_id), ('uom_id', '=', False)]"
+                    context="{'default_uom_id': id}"
+                    domain="['|', ('uom_id', '=', id), ('uom_id', '=', False)]"
                 />
             </field>
         </field>
