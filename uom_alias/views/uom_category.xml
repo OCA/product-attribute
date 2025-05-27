@@ -9,8 +9,8 @@
                 <field
                     name="alias_ids"
                     widget="many2many_tags"
-                    context="{'default_uom_id': active_id}"
-                    domain="['|', ('uom_id', '=', active_id), ('uom_id', '=', False)]"
+                    context="{'default_uom_id': id}"
+                    domain="['|', ('uom_id', '=', id), ('uom_id', '=', False)]"
                 />
             </field>
         </field>
