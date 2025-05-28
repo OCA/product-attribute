@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+    <t
+        t-name="sale_product_matrix_secondary_unit.matrix"
+        t-extend="product_matrix.matrix"
+    >
+        <!-- Add selector with the secondary units available-->
+        <t t-jquery="table" t-operation="before">
+            <div class="input-group mb-3" t-if="secondary_units">
+                <div class="input-group-prepend">
+                    <label
+                        class="input-group-text"
+                        for="secondary_unit"
+                    >Secondary Unit</label>
+                </div>
+                <select
+                    class="custom-select o_matrix_secondary_unit"
+                    id="secondary_unit"
+                >
+                    <option
+                        value=""
+                        t-att-selected="!secondary_unit_id ? 'selected' : undefined"
+                        placeholder="Secondary unit"
+                        class="font-italic"
+                    ><t t-esc="uom_name" /> (main unit of measure)
+                    </option>
+                    <option
+                        t-foreach="secondary_units"
+                        t-as="unit"
+                        t-att-value="unit.id"
+                        t-att-selected="secondary_unit_id == unit.id ? 'selected' : undefined"
+                    >
+                        <t t-esc="unit.name" />
+                    </option>
+                </select>
+            </div>
+        </t>
+    </t>
+</templates>
