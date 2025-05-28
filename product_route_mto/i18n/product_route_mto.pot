@@ -14,7 +14,17 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_route_mto
-#: model:ir.model.fields,field_description:product_route_mto.field_product_product__is_mto
+#: model:ir.model.fields,help:product_route_mto.field_product_product__is_mto
+msgid ""
+"\n"
+"    Check or Uncheck this field to enable the Make To Order on the variant,\n"
+"    independantly from its template configuration.\n"
+"\n"
+"    Please note that activating or deactivating Make To Order on the template,\n"
+"    will reset this setting on its variants.\n"
+msgstr ""
+
+#. module: product_route_mto
 #: model:ir.model.fields,field_description:product_route_mto.field_product_template__is_mto
 msgid "Is Mto"
 msgstr ""
@@ -32,4 +42,9 @@ msgstr ""
 #. module: product_route_mto
 #: model:ir.model,name:product_route_mto.model_product_template
 msgid "Product"
+msgstr ""
+
+#. module: product_route_mto
+#: model:ir.model.fields,field_description:product_route_mto.field_product_product__is_mto
+msgid "Variant is MTO"
 msgstr ""
