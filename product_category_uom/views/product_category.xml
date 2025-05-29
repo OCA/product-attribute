@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form - product_category_uom</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <group name="first" position="inside">
+                <field name="uom_id" />
+                <button
+                    name="update_product_uom"
+                    class="oe_link"
+                    type="object"
+                    string="-> Apply to Products"
+                    confirm="This will apply to all products in the category"
+                />
+            </group>
+        </field>
+    </record>
+</odoo>
