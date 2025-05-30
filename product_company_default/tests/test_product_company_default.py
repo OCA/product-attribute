@@ -1,7 +1,7 @@
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductCompanyDefault(TransactionCase):
+class TestProductCompanyDefault(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
