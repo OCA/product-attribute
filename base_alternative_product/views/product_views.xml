@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="alternative_products" string="Alternative Products">
+                    <div id="not_alternative_products_warn" invisible="0"><p
+                        >Alternative products are managed at product variant level</p></div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='alternative_products']" position="inside">
+                <group>
+                    <field
+                        name="alternative_product_ids"
+                        widget="many2many_tags"
+                        readonly="1"
+                        groups="!base_alternative_product.group_manage_alternative_products"
+                    />
+                    <field
+                        name="alternative_product_ids"
+                        widget="many2many_tags"
+                        groups="base_alternative_product.group_manage_alternative_products"
+                    />
+                </group>
+            </xpath>
+            <xpath
+                expr="//div[@id='not_alternative_products_warn']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

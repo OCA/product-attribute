@@ -1,0 +1,22 @@
+<odoo>
+
+    <record id="res_config_settings_view_form_inherit_magento" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.magento</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="after">
+                <block title="Alternative Products" id="alternative_products_block">
+                    <setting
+                        string="Symetrical Alternative Products"
+                        help="Automatically set the inverse alternative products. Ej.: X as an alt. of Y when Y is an X alt."
+                        id="symetrical_alternative_products"
+                    >
+                        <field name="symetrical_alternative_products" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

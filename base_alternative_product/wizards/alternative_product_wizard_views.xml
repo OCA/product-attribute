@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="alternative_product_wizard_form" model="ir.ui.view">
+        <field name="name">Alternative Product Wizard Form</field>
+        <field name="model">alternative.product.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Alternative Products">
+                <group name="selected_product" string="Selected Product">
+                    <field name="order_line" invisible="1" />
+                    <field name="product_id" invisible="1" />
+                    <field name="name" />
+                    <field name="default_code" />
+                    <field name="price_unit" />
+                    <field name="qty" />
+                </group>
+                <group name="alternative_products" string="Alternative Products">
+                    <field name="wizard_line_ids" nolabel="1" colspan="2">
+                        <tree>
+                            <field name="default_code" />
+                            <field name="name" />
+                            <field name="price_unit" />
+                        </tree>
+                    </field>
+                </group>
+                <footer />
+            </form>
+        </field>
+    </record>
+
+</odoo>
