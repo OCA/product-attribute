@@ -3,7 +3,7 @@
 {
     "name": "Product Pricelist Margin",
     "summary": "This module shows the product's cost and margin from the pricelists.",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Camptocamp, Odoo Community Association (OCA)",
