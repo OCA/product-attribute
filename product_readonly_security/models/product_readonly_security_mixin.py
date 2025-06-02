@@ -1,7 +1,7 @@
 # Copyright 2024 Tecnativa - Víctor Martínez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.exceptions import AccessError
 from odoo.tools import config
 
@@ -11,7 +11,7 @@ class ProductReadonlySecurityMixin(models.AbstractModel):
     _description = "Mixin to use Product Readonly Security"
 
     @api.model
-    def check_access_rights(self, operation, raise_exception=True):
+    def check_access(self, operation):
         # Override security returning False/AccessError if not belonging to
         # the new security group. This makest that the create, edit and delete
         # buttons are not displayed.
@@ -27,14 +27,10 @@ class ProductReadonlySecurityMixin(models.AbstractModel):
             and not self.env.su
             and not user.has_group(group)
         ):
-            if raise_exception:
-                raise AccessError(
-                    _(
-                        "Sorry, you are not allowed to create/edit products. Please "
-                        "contact your administrator for further information."
-                    )
+            raise AccessError(
+                self.env._(
+                    "Sorry, you are not allowed to create/edit products. Please "
+                    "contact your administrator for further information."
                 )
-            return False
-        return super().check_access_rights(
-            operation=operation, raise_exception=raise_exception
-        )
+            )
+        return super().check_access(operation=operation)
