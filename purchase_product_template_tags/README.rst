@@ -28,7 +28,7 @@ Purchase Product Template Tags
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Shows the Product Tags menu in Inventory app
+Shows the Product Tags menu in Purchase app
 
 **Table of contents**
 
