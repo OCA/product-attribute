@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-01 00:50+0000\n"
+"PO-Revision-Date: 2025-06-04 10:26+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_multi_image
 #: model:ir.model,name:product_multi_image.model_base_multi_image_image
@@ -75,7 +75,7 @@ msgstr "Modello prodotto"
 #. module: product_multi_image
 #: model:ir.model.fields,field_description:product_multi_image.field_base_multi_image_image__product_variant_count
 msgid "Product Variant Count"
-msgstr "Coneggio varianti prodotto"
+msgstr "Conteggio varianti prodotto"
 
 #. module: product_multi_image
 #: model:ir.model.fields,field_description:product_multi_image.field_product_product__image_main_small
