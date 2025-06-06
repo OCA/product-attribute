@@ -87,6 +87,14 @@ class AbcSaleStockLevelHistory(models.Model):
         digits=(7, 4),
         group_operator="SUM",
     )
+
+    # Add this field at the beginning of your model
+    profile_type = fields.Selection(
+        related="profile_id.profile_type",
+        string="Profile Type",
+        readonly=True,
+        store=True,
+    )
     cumulated_percentage = fields.Float(
         required=True,
         readonly=True,
@@ -125,3 +133,18 @@ class AbcSaleStockLevelHistory(models.Model):
     )
     from_date = fields.Date(readonly=True)
     to_date = fields.Date(readonly=True)
+
+    # Add these fields to the AbcSaleStockLevelHistory class
+    product_cost = fields.Float(
+        "Product Cost",
+        readonly=True,
+        digits='Product Price',
+        group_operator="avg",
+    )
+
+    total_cost = fields.Float(
+        "Total Cost",
+        readonly=True,
+        digits='Product Price',
+        group_operator="sum",
+    )

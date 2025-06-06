@@ -38,18 +38,26 @@
         <field name="model">abc.sale_stock.level.history</field>
         <field name="arch" type="xml">
             <tree default_order="ranking ASC, to_date DESC">
-                <field name="from_date" />
-                <field name="to_date" />
-                <field name="product_id" />
-                 <field name="computed_level_id" />
-                 <field name="ranking" />
-                 <field name="number_so_lines" />
-                 <field name="total_so_lines" />
-                 <field name="percentage" />
-                 <field name="cumulated_percentage" />
-                 <field name="cumulated_percentage_products" />
-                 <field name="sum_cumulated_percentages" />
-                <field name="profile_id" />
+                <field name="product_id"/>
+                <field name="profile_id"/>
+                <field name="profile_type" invisible="1"/>
+                <field name="computed_level_id"/>
+                <field name="ranking"/>
+                <field name="percentage"/>
+                <field name="cumulated_percentage"/>
+                <field name="sum_cumulated_percentages"/>
+                
+                <!-- Sale Stock Fields -->
+                <field name="number_so_lines" attrs="{'invisible': [('profile_type', '!=', 'sale_stock')]}"/>
+                <field name="total_so_lines" attrs="{'invisible': [('profile_type', '!=', 'sale_stock')]}"/>
+                
+                <!-- Product Cost Fields -->
+                <field name="product_cost" attrs="{'invisible': [('profile_type', '!=', 'product_cost')]}"/>
+                <field name="total_cost" attrs="{'invisible': [('profile_type', '!=', 'product_cost')]}"/>
+                
+                <field name="from_date"/>
+                <field name="to_date"/>
+                <field name="warehouse_id"/>
             </tree>
         </field>
     </record>
