@@ -68,11 +68,6 @@ msgid "In Development"
 msgstr "En Desenvolupament"
 
 #. module: product_state
-#: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-msgid "Last Modified on"
-msgstr "Última modificació el"
-
-#. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
 msgstr "Última actualització per"
@@ -120,9 +115,9 @@ msgid "Product State Code must be unique."
 msgstr "El codi d'estat del producte ha de ser únic."
 
 #. module: product_state
-#: model:ir.ui.menu,name:product_state.menu_product_state
-msgid "Product States"
-msgstr "Estats del producte"
+#: model:res.groups,name:product_state.group_product_state_manager
+msgid "Product State Manager"
+msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
@@ -190,6 +185,12 @@ msgstr "Només hi hauria d'haver un estat per defecte"
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
 msgstr "S'utilitza per ordenar els Estats"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificació el"
+
+#~ msgid "Product States"
+#~ msgstr "Estats del producte"
 
 #~ msgid "Product Template"
 #~ msgstr "Plantilla de producte"

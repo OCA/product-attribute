@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__active
@@ -71,11 +71,6 @@ msgid "In Development"
 msgstr ""
 
 #. module: product_state
-#: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -124,10 +119,9 @@ msgid "Product State Code must be unique."
 msgstr ""
 
 #. module: product_state
-#: model:ir.ui.menu,name:product_state.menu_product_state
-#, fuzzy
-msgid "Product States"
-msgstr "Predloga proizvoda"
+#: model:res.groups,name:product_state.group_product_state_manager
+msgid "Product State Manager"
+msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
@@ -195,6 +189,10 @@ msgstr ""
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Product States"
+#~ msgstr "Predloga proizvoda"
 
 #~ msgid "Product Template"
 #~ msgstr "Predloga proizvoda"

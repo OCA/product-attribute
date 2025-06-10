@@ -68,11 +68,6 @@ msgid "In Development"
 msgstr "Em Desenvolvimento"
 
 #. module: product_state
-#: model:ir.model.fields,field_description:product_state.field_product_state____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -121,10 +116,9 @@ msgid "Product State Code must be unique."
 msgstr ""
 
 #. module: product_state
-#: model:ir.ui.menu,name:product_state.menu_product_state
-#, fuzzy
-msgid "Product States"
-msgstr "Modelo de Produto"
+#: model:res.groups,name:product_state.group_product_state_manager
+msgid "Product State Manager"
+msgstr ""
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
@@ -194,6 +188,10 @@ msgstr ""
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Product States"
+#~ msgstr "Modelo de Produto"
 
 #~ msgid "Product Template"
 #~ msgstr "Modelo de Produto"
