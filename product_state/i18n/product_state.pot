@@ -112,8 +112,8 @@ msgid "Product State Code must be unique."
 msgstr ""
 
 #. module: product_state
-#: model:ir.ui.menu,name:product_state.menu_product_state
-msgid "Product States"
+#: model:res.groups,name:product_state.group_product_state_manager
+msgid "Product State Manager"
 msgstr ""
 
 #. module: product_state
