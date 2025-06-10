@@ -7,7 +7,7 @@
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Product",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "license": "AGPL-3",
     "depends": ["product_state", "stock"],
     "data": ["security/security.xml", "views/product_state_views.xml"],
