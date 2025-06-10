@@ -69,6 +69,7 @@ msgid "Duplicate Item"
 msgstr "Duplicar elemento"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Explicit rule name for this pricelist line."
 msgstr "Nombre de regla explícito para esta línea de lista de precios."
@@ -84,11 +85,6 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard____last_update
-msgid "Last Modified on"
-msgstr "Última modificación en"
-
-#. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
@@ -99,6 +95,7 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Name"
 msgstr "Nombre"
@@ -109,11 +106,13 @@ msgid "Percent"
 msgstr "Porcentaje"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_price
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
 msgid "Previous Fixed Price"
 msgstr "Precio fijo anterior"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Previous Item"
 msgstr "Elemento previo"
@@ -145,6 +144,7 @@ msgid "Product Variant"
 msgstr "Variantes de producto"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Relation with previous item when duplicate line"
 msgstr "Relacion con elemento previo cuando se duplica la linea"
@@ -166,6 +166,7 @@ msgstr ""
 "                    <br/>"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
 msgid "Variation %"
@@ -175,6 +176,9 @@ msgstr "Variación %"
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
 msgid "Wizard Product Pricelist Item Duplicate"
 msgstr "Asistente para duplicar elementos de tarifa"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación en"
 
 #~ msgid "or"
 #~ msgstr "o"
