@@ -6,56 +6,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-06-11 09:26+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
 "Language-Team: none\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
-msgstr ""
+msgstr "Maliyet"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_edit_cost
 msgid "Edit"
-msgstr ""
+msgstr "Düzenle"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Ürün"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Ürün Varyantı"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_cost_security_mixin
 msgid "Product cost access control mixin"
-msgstr ""
+msgstr "Ürün maliyeti erişim kontrolü karışımı"
 
 #. module: product_cost_security
 #: model:ir.module.category,name:product_cost_security.module_category
 msgid "Product costs"
-msgstr ""
+msgstr "Ürün maliyetleri"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
 msgid "Read"
-msgstr ""
+msgstr "Okuma"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
 msgid "User Can Update Cost"
-msgstr ""
+msgstr "Kullanıcı Maliyeti Güncelleyebilir"
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -65,6 +67,10 @@ msgid ""
 "        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
 "        Used to compute margins on sale orders."
 msgstr ""
+"Ürünün değeri (AVCO'da otomatik olarak hesaplanır).\n"
+"        Satın alma maliyeti bilinmediğinde (örneğin stok düzeltmesi) ürünü "
+"değerlemek için kullanılır.\n"
+"        Satış siparişlerindeki marjları hesaplamak için kullanılır."
 
 #. module: product_cost_security
 #. odoo-python
