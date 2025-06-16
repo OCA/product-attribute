@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2025 Akretion (<http://www.akretion.com>).
+@author Kévin Roche <kevin.roche@akretion.com>
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+
+<record id="product_pricelist_item_form_view" model="ir.ui.view">
+    <field name="model">product.pricelist.item</field>
+    <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+    <field name="arch" type="xml">
+        <xpath expr="//sheet[not(notebook)]" position="inside">
+            <notebook />
+        </xpath>
+        <xpath expr="//notebook" position="inside">
+            <page
+                    string="Attribute Value"
+                    name="attribute_value_page"
+                    attrs="{'invisible': [('applied_on', '!=', '1_product')]}"
+                >
+                <field name="applied_on" invisible="1" />
+                <field
+                        name="pricelist_item_attribute_value_ids"
+                        string="Attribute Values"
+                        nolabel="1"
+                    >
+                    <tree editable="bottom">
+                        <field name="available_attribute_value_domain" invisible="1" />
+                        <field
+                                name="attribute_value_ids"
+                                domain="available_attribute_value_domain"
+                                widget="many2many_tags"
+                            />
+
+                        <field name="additional_price" />
+                    </tree>
+                </field>
+            </page>
+        </xpath>
+    </field>
+</record>
+</odoo>
