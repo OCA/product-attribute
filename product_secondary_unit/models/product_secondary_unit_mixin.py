@@ -119,6 +119,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 rec.secondary_uom_qty * factor,
                 precision_rounding=rec._get_uom_line().rounding,
             )
+            # To avoid resetting the primary quantity to 0.0
+            if not rec.secondary_uom_qty:
+                # Don't modify the primary quantity - preserve it
+                continue
             rec[rec._secondary_unit_fields["qty_field"]] = qty
 
     def _onchange_helper_product_uom_for_secondary(self):

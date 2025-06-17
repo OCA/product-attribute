@@ -129,3 +129,23 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model.write({"secondary_uom_qty": 4})
         self.assertEqual(fake_model.product_uom_qty, 17)
         self.assertEqual(fake_model.secondary_uom_qty, 4)
+
+    def test_independent_type_with_existing_qty(self):
+        """Test assigning secondary_uom_id to a record with existing qty.
+
+        This should not reset product_uom_qty to 0.0,
+        then switching to independent type, the original qty should be preserved.
+        """
+        fake_model = self.secondary_unit_fake
+        fake_model.product_uom_qty = 10.0
+        fake_model.secondary_uom_id = self.secondary_unit_box_5
+        fake_model.secondary_uom_id.write({"dependency_type": "independent"})
+
+        self.assertFalse(fake_model.secondary_uom_qty)
+        previous_product_uom_qty = fake_model.product_uom_qty
+
+        self.assertEqual(previous_product_uom_qty, 10.0)
+        fake_model.write({"secondary_uom_qty": 2})
+
+        self.assertEqual(fake_model.product_uom_qty, previous_product_uom_qty)
+        self.assertEqual(fake_model.secondary_uom_qty, 2)
