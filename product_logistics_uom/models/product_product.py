@@ -46,7 +46,7 @@ class ProductProduct(models.Model):
         compute="_compute_show_weight_uom_warning",
     )
 
-    @api.depends("product_volume", "product_tmpl_id.volume_uom_id")
+    @api.depends("volume", "product_tmpl_id.volume_uom_id")
     def _compute_product_volume(self):
         odoo_volume_uom = (
             self.product_tmpl_id._get_volume_uom_id_from_ir_config_parameter()

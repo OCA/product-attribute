@@ -41,6 +41,15 @@ class ProductTemplate(models.Model):
             width_m = self.convert_to_meters(product_width, uom_id)
             volume = length_m * height_m * width_m
 
+        uom_cubic_meters = self.env.ref("uom.product_uom_cubic_meter")
+        to_unit = self._get_volume_uom_id_from_ir_config_parameter()
+
+        volume = uom_cubic_meters._compute_quantity(
+            qty=volume,
+            to_unit=to_unit,
+            round=False,
+        )
+
         return volume
 
     @api.depends(
