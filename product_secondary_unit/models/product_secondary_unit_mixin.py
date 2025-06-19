@@ -126,7 +126,13 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         target model.
         """
         if not self.secondary_uom_id:
-            self.secondary_uom_qty = 0.0
+            # Don't premptively initialize this field (which is already 0 at initialization time),
+            # to prevent an avalange of recalculation-logic in the salesorderline, eventually leading to 
+            # the situation wherby a salesorder-wide discount is evalutated to a line.price_subtotal of 0, breaking 
+            # salesorder discount. 
+            # This is due to the fact that salesorder discount in Odoo is implemented using a separate discount orderline.
+            
+            # self.secondary_uom_qty = 0.0
             return
         elif self.secondary_uom_id.dependency_type == "independent":
             return
