@@ -1,11 +1,11 @@
 {
     "name": "Product ABC Classification Finance",
     "summary": "Financial ABC analysis for products (cost, sale price, margin)",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.2",
     "category": "Inventory/Inventory",
-    "author": "AJamal13",
+    "author": "AJamal13,Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "website": "https://github.com/AJamal13",
+    "website": "https://github.com/OCA/product-attribute",
     "depends": ["product_abc_classification_sale_stock","sale_margin"],
     "data": [
         "security/ir.model.access.csv",
