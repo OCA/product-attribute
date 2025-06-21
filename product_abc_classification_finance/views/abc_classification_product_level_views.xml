@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_abc_classification_product_level_tree" model="ir.ui.view">
+        <field name="name">abc.classification.product.level.tree</field>
+        <field name="model">abc.classification.product.level</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="profile_id"/>
+                <field name="computed_level_id"/>
+                <field name="finance_sale_level_history_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_abc_classification_product_level_form" model="ir.ui.view">
+        <field name="name">abc.classification.product.level.form</field>
+        <field name="model">abc.classification.product.level</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="profile_id"/>
+                        <field name="computed_level_id"/>
+                        <field name="finance_sale_level_history_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
