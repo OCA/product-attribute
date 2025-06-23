@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Demo data for product_abc_classification_finance -->
+<odoo>
+  <!-- Classification Levels (copy from sale_stock for consistency) -->
+  <record id="abc_classification_level_a_fin" model="abc.classification.level">
+    <field name="name">A</field>
+    <field name="percentage">80</field>
+    <field name="percentage_products">20</field>
+  </record>
+  <record id="abc_classification_level_b_fin" model="abc.classification.level">
+    <field name="name">B</field>
+    <field name="percentage">15</field>
+    <field name="percentage_products">30</field>
+  </record>
+  <record id="abc_classification_level_c_fin" model="abc.classification.level">
+    <field name="name">C</field>
+    <field name="percentage">5</field>
+    <field name="percentage_products">50</field>
+  </record>
+
+  <!-- Finance Profile (cost-based, demo warehouse) -->
+  <record id="abc_classification_profile_finance_cost" model="abc.classification.profile">
+    <field name="name">Finance Cost Profile</field>
+    <field name="profile_type">cost</field>
+    <field name="warehouse_id" ref="stock.warehouse0"/>
+    <field name="period">365</field>
+    <field name="level_ids" eval="[(6,0,[ref('abc_classification_level_a_fin'), ref('abc_classification_level_b_fin'), ref('abc_classification_level_c_fin')])]"/>
+  </record>
+</odoo>
