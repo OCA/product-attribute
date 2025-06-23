@@ -6,41 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-08 06:41+0000\n"
-"PO-Revision-Date: 2024-08-08 08:50+0200\n"
+"POT-Creation-Date: 2025-06-19 08:58+0000\n"
+"PO-Revision-Date: 2025-06-19 08:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
-
-#. module: product_supplierinfo_import_by_barcode
-#. odoo-python
-#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
-#, python-format
-msgid "%(barcode)s (product imported)"
-msgstr "%(barcode)s (product importado)"
-
-#. module: product_supplierinfo_import_by_barcode
-#. odoo-python
-#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
-#, python-format
-msgid ""
-"<p class=\"o_view_nocontent\">\n"
-"                No vendor pricelists were created or updated.\n"
-"            </p>"
-msgstr ""
-"<p class=\"o_view_nocontent\">\n"
-"                No se ha creado ni actualizado ninguna tarifa de proveedor.\n"
-"            </p>"
-
-#. module: product_supplierinfo_import_by_barcode
-#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__barcode_header_name
-msgid "Barcode Header Name"
-msgstr "Nombre de cabecera de código de barras"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: product_supplierinfo_import_by_barcode
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_import_by_barcode.product_supplierinfo_import_form
@@ -70,13 +44,6 @@ msgstr "Creado desde importación de tarifa de proveedor"
 #: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template_line__create_uid
 msgid "Created by"
 msgstr "Creado por"
-
-#. module: product_supplierinfo_import_by_barcode
-#. odoo-python
-#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
-#, python-format
-msgid "Created form vendor pricelist import"
-msgstr "Creado desde importación de tarifa de proveedor"
 
 #. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__create_date
@@ -127,11 +94,40 @@ msgstr "ID (identificación)"
 #. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__create_new_products
 msgid ""
-"If a product isn't found by its barcode, it will be created with the "
+"If a product isn't found by its Search Field, it will be created with the "
 "provided data"
 msgstr ""
-"Si un producto no se encuentra por su código de barras, se creará con la "
-"información proporcionada"
+"Si un producto no se encuentra por su campo de búsqueda, se creará con los "
+"datos proporcionados."
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__show_not_updated_rates
+msgid ""
+"If checked, at the end of the import, it will display the supplier's rate "
+"records that were not updated."
+msgstr ""
+"Si está marcado, al finalizar la importación se mostrarán los registros de "
+"tarifas del proveedor que no fueron actualizados."
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__only_update_existing
+msgid ""
+"If enabled, only existing supplierinfo records will be updated. New ones "
+"will not be created."
+msgstr ""
+"Si está habilitado, solo se actualizarán los registros existentes del "
+"proveedor. No se crearán nuevos."
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__import_criteria_field_id
+msgid "Import Criteria Field"
+msgstr "Campo de criterio de importación"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_customerinfo__import_status
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo__import_status
+msgid "Import Status"
+msgstr "Estado de importación"
 
 #. module: product_supplierinfo_import_by_barcode
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_import_by_barcode.product_supplierinfo_import_form
@@ -147,7 +143,7 @@ msgstr "Importar registros de tarifa de proveedor"
 #: model:ir.actions.act_window,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_action
 #: model:ir.ui.menu,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_menu
 msgid "Import vendor pricelists"
-msgstr "Importar tarifas de proveedor"
+msgstr "Importar listas de precios de proveedor"
 
 #. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import____last_update
@@ -176,14 +172,59 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields.selection,name:product_supplierinfo_import_by_barcode.selection__product_customerinfo__import_status__new_or_updated
+#: model:ir.model.fields.selection,name:product_supplierinfo_import_by_barcode.selection__product_supplierinfo__import_status__new_or_updated
+msgid "New or Updated"
+msgstr "Nuevo o actualizado"
+
+#. module: product_supplierinfo_import_by_barcode
+#. odoo-python
+#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid "Only .xlsx files are supported."
+msgstr "Solo se admiten archivos .xlsx."
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__only_update_existing
+msgid "Only Update Existing"
+msgstr "Solo actualizar existentes"
+
+#. module: product_supplierinfo_import_by_barcode
 #: model:ir.model,name:product_supplierinfo_import_by_barcode.model_product_template
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_product__product_code
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_template__product_code
+msgid "Product Code"
+msgstr "Código de producto"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__search_header_name
+msgid "Search Header Name"
+msgstr "Nombre del encabezado de búsqueda"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__sheet_number
+msgid "Sheet Number"
+msgstr "Número de hoja"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__show_not_updated_rates
+msgid "Show Not Updated Rates"
+msgstr "Mostrar tarifas no actualizadas"
+
+#. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__supplier_id
+#: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__supplier_id
 msgid "Supplier"
 msgstr "Proveedor"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model,name:product_supplierinfo_import_by_barcode.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Lista de precios de proveedor"
 
 #. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__supplierinfo_file
@@ -209,16 +250,43 @@ msgstr ""
 
 #. module: product_supplierinfo_import_by_barcode
 #. odoo-python
-#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
+#: code:addons/product_supplierinfo_import_by_barcode/models/product_supplierinfo_import_template.py:0
 #, python-format
-msgid "The row format seems to be incorrect %(row)s"
-msgstr "El formato de la fila parece incorrecto %(row)s"
+msgid "The Sheet Number cannot be less than 1."
+msgstr "El número de hoja no puede ser menor que 1."
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__import_criteria_field_id
+msgid ""
+"The field that will be used to match the productsfrom the excel file with "
+"the ones in the Odoo database"
+msgstr ""
+"El campo que se usará para hacer coincidir los productos del archivo de "
+"Excel con los de la base de datos de Odoo."
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import_template__sheet_number
+msgid "The number of the sheet page in the spreadsheet where the pricelist are"
+msgstr ""
+"El número de la hoja en la hoja de cálculo donde se encuentran las tarifas"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_product__product_code
+#: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_template__product_code
+msgid "This is the supplier product code from Main Supplier."
+msgstr "Este es el código de producto del proveedor principal."
 
 #. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_product__created_from_supplierinfo_import
 #: model:ir.model.fields,help:product_supplierinfo_import_by_barcode.field_product_template__created_from_supplierinfo_import
 msgid "This product was created with the vendor import wizard"
 msgstr "Este producto se ha creado con el importador de tarifas de proveedor"
+
+#. module: product_supplierinfo_import_by_barcode
+#: model:ir.model.fields.selection,name:product_supplierinfo_import_by_barcode.selection__product_customerinfo__import_status__unchanged
+#: model:ir.model.fields.selection,name:product_supplierinfo_import_by_barcode.selection__product_supplierinfo__import_status__unchanged
+msgid "Unchanged"
+msgstr "Sin cambios"
 
 #. module: product_supplierinfo_import_by_barcode
 #: model:ir.model.fields,field_description:product_supplierinfo_import_by_barcode.field_product_supplierinfo_import__date_start
@@ -231,18 +299,7 @@ msgid "Vendor import columns and fields"
 msgstr "Columnas y campos para importación de tarifa de proveedor"
 
 #. module: product_supplierinfo_import_by_barcode
-#: model:ir.ui.menu,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_menu
-msgid "Vendor pricelists import template"
-msgstr "Plantilla de importación de tarifas de proveedor"
-
-#. module: product_supplierinfo_import_by_barcode
 #: model:ir.actions.act_window,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_action
+#: model:ir.ui.menu,name:product_supplierinfo_import_by_barcode.product_supplierinfo_import_template_menu
 msgid "Vendor pricelists import templates"
-msgstr "Plantillas para importación de tarifas de proveedor"
-
-#. module: product_supplierinfo_import_by_barcode
-#. odoo-python
-#: code:addons/product_supplierinfo_import_by_barcode/wizards/product_supplierinfo_import.py:0
-#, python-format
-msgid "We couldn't find a suitable template for your file"
-msgstr "No se ha encontrado una plantilla de importación para su fichero"
+msgstr "Plantillas de importación de listas de precios de proveedor"

@@ -1,2 +1,1 @@
-This module allows to import vendor price lists from excel files matching the products
-from their barcode.
+This module allows importing vendor price lists from Excel files, matching products using any product template char field.

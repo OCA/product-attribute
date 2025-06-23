@@ -1,9 +1,9 @@
 # Copyright 2024 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "Import supplier pricelists by barcode",
-    "summary": "Import supplier pricelists by barcode",
-    "version": "16.0.1.0.0",
+    "name": "Import supplier pricelists",
+    "summary": "Import supplier pricelists",
+    "version": "16.0.3.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",

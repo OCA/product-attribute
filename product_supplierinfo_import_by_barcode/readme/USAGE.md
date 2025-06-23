@@ -6,5 +6,5 @@ To use this module, you need to:
    days.
 4. Click on import and view.
 
-I a template for that file is configured, it will match the headers with the column
+If a template for that file is configured, it will match the headers with the column
 values and create or update the vendor pricelists accordingly.

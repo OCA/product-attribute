@@ -1,0 +1,1 @@
+Rename the module in future migrations to product_supplierinfo_import.
