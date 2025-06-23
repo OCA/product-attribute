@@ -5,14 +5,14 @@
     <field name="name">abc.classification.profile.form (finance inherit)</field>
     <field name="model">abc.classification.profile</field>
     <field
-      name="inherit_id"
-      ref="product_abc_classification_sale_stock.abc_classification_profile_form_view"
-    />
+            name="inherit_id"
+            ref="product_abc_classification_sale_stock.abc_classification_profile_form_view"
+        />
     <field name="arch" type="xml">
       <xpath expr="//field[@name='warehouse_id']" position="attributes">
         <attribute
-          name="attrs"
-        >{'required': [('profile_type', 'in', ['sale_stock', 'cost', 'sale_price', 'margin'])], 'invisible': []}</attribute>
+                    name="attrs"
+                >{'required': [('profile_type', 'in', ['sale_stock', 'cost', 'sale_price', 'margin'])], 'invisible': []}</attribute>
       </xpath>
     </field>
   </record>

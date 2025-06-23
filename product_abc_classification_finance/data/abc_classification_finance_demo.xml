@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Demo data for product_abc_classification_finance -->
 <odoo>
   <!-- Classification Levels (copy from sale_stock for consistency) -->
@@ -19,11 +19,17 @@
   </record>
 
   <!-- Finance Profile (cost-based, demo warehouse) -->
-  <record id="abc_classification_profile_finance_cost" model="abc.classification.profile">
+  <record
+        id="abc_classification_profile_finance_cost"
+        model="abc.classification.profile"
+    >
     <field name="name">Finance Cost Profile</field>
     <field name="profile_type">cost</field>
-    <field name="warehouse_id" ref="stock.warehouse0"/>
+    <field name="warehouse_id" ref="stock.warehouse0" />
     <field name="period">365</field>
-    <field name="level_ids" eval="[(6,0,[ref('abc_classification_level_a_fin'), ref('abc_classification_level_b_fin'), ref('abc_classification_level_c_fin')])]"/>
+    <field
+            name="level_ids"
+            eval="[(6,0,[ref('abc_classification_level_a_fin'), ref('abc_classification_level_b_fin'), ref('abc_classification_level_c_fin')])]"
+        />
   </record>
 </odoo>

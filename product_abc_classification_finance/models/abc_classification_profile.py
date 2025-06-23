@@ -119,9 +119,7 @@ class AbcClassificationProfile(models.Model):
             self.env["stock.location"].search([("usage", "=", "customer")]).ids
         )
         all_product_ids = self._get_all_product_ids()
-        query, params = self._get_finance_data_query(
-            from_date, customer_location_ids
-        )
+        query, params = self._get_finance_data_query(from_date, customer_location_ids)
         self.env.cr.execute(query, params)
         result = self.env.cr.fetchall()
         total = 0
@@ -153,7 +151,7 @@ class AbcClassificationProfile(models.Model):
             # Always set purchase_price (standard cost) from product.template
             tmpl = finance_data.product.product_tmpl_id
             finance_data.purchase_price = float(
-                getattr(tmpl, 'standard_price', 0.0) or 0.0
+                getattr(tmpl, "standard_price", 0.0) or 0.0
             )
             finance_data.ranking = ranking
             finance_data.from_date = from_date
@@ -170,7 +168,8 @@ class AbcClassificationProfile(models.Model):
             finance_data = self._finance_init_collected_data_instance()
             finance_data.product = ProductProduct.browse(product_id)
             finance_data.purchase_price = float(
-                getattr(finance_data.product.product_tmpl_id, 'standard_price', 0.0) or 0.0
+                getattr(finance_data.product.product_tmpl_id, "standard_price", 0.0)
+                or 0.0
             )
             finance_data.total_cost = 0.0
             finance_data.total_sales = 0.0
@@ -267,9 +266,12 @@ class AbcClassificationProfile(models.Model):
                         value,
                         total_value,
                     )
-                    raise UserError(_("Cumulative percentage greater than 100 (actual: %.4f)." 
-                    % finance_data.cumulated_percentage)
-                )
+                    raise UserError(
+                        _(
+                            "Cumulative percentage greater than 100 (actual: %.4f)."
+                            % finance_data.cumulated_percentage
+                        )
+                    )
                 finance_data.sum_cumulated_percentages = (
                     finance_data.cumulated_percentage
                     + finance_data.cumulated_percentage_products
@@ -317,7 +319,7 @@ class AbcClassificationProfile(models.Model):
         buf.seek(0)
         cr.copy_from(buf, table, columns=columns, sep=";")
         # Ensure ORM sees the new records for tests
-        self.env['abc.finance.sale.level.history'].flush()
+        self.env["abc.finance.sale.level.history"].flush()
 
 class FinanceSaleData(object):
     """Finance ABC classification data
