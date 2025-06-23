@@ -4,10 +4,10 @@
         <field name="model">abc.classification.product.level</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="product_id" />
-                <field name="profile_id" />
-                <field name="computed_level_id" />
-                <field name="finance_sale_level_history_ids" />
+                <field name="product_id"/>
+                <field name="profile_id"/>
+                <field name="computed_level_id"/>
+                <field name="finance_sale_level_history_ids"/>
             </tree>
         </field>
     </record>
@@ -18,10 +18,10 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="product_id" />
-                        <field name="profile_id" />
-                        <field name="computed_level_id" />
-                        <field name="finance_sale_level_history_ids" />
+                        <field name="product_id"/>
+                        <field name="profile_id"/>
+                        <field name="computed_level_id"/>
+                        <field name="finance_sale_level_history_ids"/>
                     </group>
                 </sheet>
             </form>

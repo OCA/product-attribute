@@ -4,25 +4,25 @@
         <field name="model">abc.finance.sale.level.history</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="product_id" />
-                <field name="product_tmpl_id" />
-                <field name="profile_id" />
-                <field name="computed_level_id" />
-                <field name="warehouse_id" />
-                <field name="ranking" />
-                <field name="percentage" />
-                <field name="cumulated_percentage" />
-                <field name="standard_cost" />
-                <field name="total_cost" />
-                <field name="total_sales" />
-                <field name="margin" />
-                <field name="product_level_id" />
-                <field name="from_date" />
-                <field name="to_date" />
-                <field name="total_products" />
-                <field name="percentage_products" />
-                <field name="cumulated_percentage_products" />
-                <field name="sum_cumulated_percentages" />
+                <field name="product_id"/>
+                <field name="product_tmpl_id"/>
+                <field name="profile_id"/>
+                <field name="computed_level_id"/>
+                <field name="warehouse_id"/>
+                <field name="ranking"/>
+                <field name="percentage"/>
+                <field name="cumulated_percentage"/>
+                <field name="standard_cost"/>
+                <field name="total_cost"/>
+                <field name="total_sales"/>
+                <field name="margin"/>
+                <field name="product_level_id"/>
+                <field name="from_date"/>
+                <field name="to_date"/>
+                <field name="total_products"/>
+                <field name="percentage_products"/>
+                <field name="cumulated_percentage_products"/>
+                <field name="sum_cumulated_percentages"/>
             </tree>
         </field>
     </record>
@@ -34,25 +34,25 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="product_id" />
-                        <field name="product_tmpl_id" />
-                        <field name="profile_id" />
-                        <field name="computed_level_id" />
-                        <field name="warehouse_id" />
-                        <field name="ranking" />
-                        <field name="percentage" />
-                        <field name="cumulated_percentage" />
-                        <field name="standard_cost" />
-                        <field name="total_cost" />
-                        <field name="total_sales" />
-                        <field name="margin" />
-                        <field name="product_level_id" />
-                        <field name="from_date" />
-                        <field name="to_date" />
-                        <field name="total_products" />
-                        <field name="percentage_products" />
-                        <field name="cumulated_percentage_products" />
-                        <field name="sum_cumulated_percentages" />
+                        <field name="product_id"/>
+                        <field name="product_tmpl_id"/>
+                        <field name="profile_id"/>
+                        <field name="computed_level_id"/>
+                        <field name="warehouse_id"/>
+                        <field name="ranking"/>
+                        <field name="percentage"/>
+                        <field name="cumulated_percentage"/>
+                        <field name="standard_cost"/>
+                        <field name="total_cost"/>
+                        <field name="total_sales"/>
+                        <field name="margin"/>
+                        <field name="product_level_id"/>
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                        <field name="total_products"/>
+                        <field name="percentage_products"/>
+                        <field name="cumulated_percentage_products"/>
+                        <field name="sum_cumulated_percentages"/>
                     </group>
                 </sheet>
             </form>
