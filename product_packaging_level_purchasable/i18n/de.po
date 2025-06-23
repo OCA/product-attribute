@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_packaging_level_purchasable
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-05-13 13:23+0000\n"
+"Last-Translator: davidbeckercbl <becker@cbl-computer.de>\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model.fields,field_description:product_packaging_level_purchasable.field_product_packaging__can_be_purchased
+msgid "Can Be Purchased"
+msgstr "Kann eingekauft werden"
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model.fields,field_description:product_packaging_level_purchasable.field_product_packaging_level__can_be_purchased
+msgid "Can be purchased"
+msgstr "Kann eingekauft werden"
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model.fields,help:product_packaging_level_purchasable.field_product_packaging__can_be_purchased
+msgid "If true, the packaging can be used for purchase orders"
+msgstr ""
+"Wenn aktiviert, kann die Verpackung für Beschaffungsaufträge verwendet werden"
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model,name:product_packaging_level_purchasable.model_product_packaging_level
+msgid "Level management for product.packaging"
+msgstr "Levelverwaltung für Produktverpackungen"
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model.fields,field_description:product_packaging_level_purchasable.field_product_packaging_level__packaging_ids
+msgid "Packaging"
+msgstr "Verpackung"
+
+#. module: product_packaging_level_purchasable
+#. odoo-python
+#: code:addons/product_packaging_level_purchasable/models/purchase_order_line.py:0
+#, python-format
+msgid ""
+"Packaging %(packaging)s on product %(product)s must be set as 'Can be "
+"purchased' in order to be used on a purchase order."
+msgstr ""
+"Verpackung %(packaging)s auf Produkt %(product)s muss als 'kann eingekauft "
+"werden' gesetzt sein, um in einem Beschaffungsauftrag verwendet werden zu "
+"können."
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model,name:product_packaging_level_purchasable.model_product_packaging
+msgid "Product Packaging"
+msgstr "Produktverpackung"
+
+#. module: product_packaging_level_purchasable
+#: model:ir.model,name:product_packaging_level_purchasable.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Bestellposition"
+
+#. module: product_packaging_level_purchasable
+#. odoo-python
+#: code:addons/product_packaging_level_purchasable/models/purchase_order_line.py:0
+#, python-format
+msgid ""
+"This product packaging must be set as 'Can be purchased' in order to be used"
+" on a purchase order."
+msgstr ""
+"Diese Produktverpackung muss als 'Kann eingekauft werden' gesetzt sein, um "
+"in einem Beschaffungsauftrag verwendet werden zu können."
+
+#. module: product_packaging_level_purchasable
+#. odoo-python
+#: code:addons/product_packaging_level_purchasable/models/purchase_order_line.py:0
+#, python-format
+msgid "Warning"
+msgstr "Warnung"
