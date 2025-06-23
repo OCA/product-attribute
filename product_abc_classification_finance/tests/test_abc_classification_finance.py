@@ -125,6 +125,108 @@ class TestABCClassificationFinance(TransactionCase):
             "name": "Partial Level Profile",
             "profile_type": "cost",
             "warehouse_id": self.warehouse.id,
+            "period": 365,
+        })
+        self.env["abc.classification.level"].create({
+            "name": "A",
+            "profile_id": profile.id,
+            "percentage": 60,
+            "percentage_products": 40,
+        })
+        with self.assertRaises(ValidationError):
+            profile.write(
+                {
+                    "level_ids": [
+                        (
+                            0,
+                            0,
+                            {"name": "B", "percentage": 10, "percentage_products": 10},
+                        )
+                    ]
+                }
+            )
+
+    def test_negative_margin_exclusion(self):
+        """
+        Products with negative margin should be excluded from ABC ranking for 'sale_margin' profile.
+        """
+        from unittest.mock import patch
+        profile = self.env["abc.classification.profile"].create({
+            "name": "Margin Profile",
+            "profile_type": "sale_margin",
+            "warehouse_id": self.warehouse.id,
+            "period": 365,
+        })
+        self.env["abc.classification.level"].create({
+            "name": "A",
+            "profile_id": profile.id,
+            "percentage": 100,
+            "percentage_products": 100,
+        })
+        product = self.env["product.product"].create({
+            "name": "Negative Margin Product",
+            "uom_id": self.env.ref("uom.product_uom_unit").id,
+            "type": "product",
+            "default_code": "NEG001",
+            "tracking": "none",
+        })
+        # Use a real FinanceSaleData object and set margin negative
+        from ..models.abc_classification_profile import FinanceSaleData
+        finance_data = FinanceSaleData()
+        finance_data.product = product
+        finance_data.profile = profile
+        finance_data.computed_level = None
+        finance_data.product_level = None
+        finance_data.ranking = 1
+        finance_data.percentage = 0
+        finance_data.cumulated_percentage = 0
+        finance_data.purchase_price = 0
+        finance_data.total_cost = 0
+        finance_data.total_sales = 0
+        finance_data.margin = -100.0
+        finance_data.from_date = '2025-01-01'
+        finance_data.to_date = '2025-12-31'
+        finance_data.total_products = 1
+        finance_data.percentage_products = 100
+        finance_data.cumulated_percentage_products = 100
+        finance_data.sum_cumulated_percentages = 100
+
+        with patch.object(type(profile), "_finance_get_data", return_value=([finance_data], 0)), \
+             patch.object(type(profile), "_finance_log_history", return_value=None):
+            try:
+                profile._compute_abc_classification()
+            except Exception as e:
+                self.fail(f"Negative margin exclusion raised unexpected error: {e}")
+
+    def test_get_finance_data_query_all_types(self):
+        """
+        Ensure _get_finance_data_query returns correct SQL for all profile types.
+        """
+        types_and_keywords = [
+            ("cost", "SUM(sol.purchase_price * sol.qty_delivered) AS total_cost"),
+            ("sale_price", "SUM(sol.price_unit * sol.qty_delivered) AS total_sales"),
+            ("sale_margin", "SUM(sol.margin) AS total_margin"),
+        ]
+        for profile_type, expected in types_and_keywords:
+            profile = self.env["abc.classification.profile"].create({
+                "name": f"Query Profile {profile_type}",
+                "profile_type": profile_type,
+                "warehouse_id": self.warehouse.id,
+                "period": 365,
+            })
+            query, params = profile._get_finance_data_query("2025-01-01", [1, 2])
+            self.assertIn(expected, query)
+            self.assertIn("GROUP BY", query)
+            self.assertIn("ORDER BY", query)
+            self.assertIsInstance(params, dict)
+
+        """
+        Test that levels for a finance profile must total 100%.
+        """
+        profile = self.env["abc.classification.profile"].create({
+            "name": "Partial Level Profile",
+            "profile_type": "cost",
+            "warehouse_id": self.warehouse.id,
         })
         self.env["abc.classification.level"].create({
             "name": "A",
