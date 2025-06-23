@@ -1,9 +1,5 @@
-import csv
 import logging
 from datetime import datetime, timedelta
-from io import StringIO
-from operator import attrgetter
-
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_round
@@ -35,7 +31,10 @@ class AbcClassificationProfile(models.Model):
     @api.constrains("profile_type", "warehouse_id")
     def _check_warehouse_id(self):
         for rec in self:
-            if rec.profile_type in ["sale_stock", "cost", "sale_price", "sale_margin"] and not rec.warehouse_id:
+            if (
+                rec.profile_type in ["sale_stock", "cost", "sale_price", "sale_margin"]
+                and not rec.warehouse_id
+            ):
                 raise ValidationError(
                     _("You must specify a warehouse for {profile_name}").format(
                         profile_name=rec.name
@@ -59,15 +58,15 @@ class AbcClassificationProfile(models.Model):
         - sale_price: SUM(sol.price_unit * sol.qty_delivered) as total_sales
         - margin: SUM(sol.margin) as total_margin (already line-level total)
         """
-        if self.profile_type == 'cost':
-            select_col = 'SUM(sol.purchase_price * sol.qty_delivered) AS total_cost'
-            order_col = 'total_cost'
-        elif self.profile_type == 'sale_price':
-            select_col = 'SUM(sol.price_unit * sol.qty_delivered) AS total_sales'
-            order_col = 'total_sales'
-        elif self.profile_type == 'sale_margin':
-            select_col = 'SUM(sol.margin) AS total_margin'
-            order_col = 'total_margin'
+        if self.profile_type == "cost":
+            select_col = "SUM(sol.purchase_price * sol.qty_delivered) AS total_cost"
+            order_col = "total_cost"
+        elif self.profile_type == "sale_price":
+            select_col = "SUM(sol.price_unit * sol.qty_delivered) AS total_sales"
+            order_col = "total_sales"
+        elif self.profile_type == "sale_margin":
+            select_col = "SUM(sol.margin) AS total_margin"
+            order_col = "total_margin"
 
         query = f"""
             SELECT
@@ -108,17 +107,19 @@ class AbcClassificationProfile(models.Model):
         self.ensure_one()
         if self.profile_type not in ("cost", "sale_price", "sale_margin"):
             raise UserError(_("Profile type must be cost, sale_price or sale_margin"))
-        from_date = from_date if from_date else fields.Datetime.to_string(
-            datetime.today() - timedelta(days=self.period)
+        from_date = (
+            from_date
+            if from_date
+            else fields.Datetime.to_string(
+                datetime.today() - timedelta(days=self.period)
+            )
         )
         to_date = datetime.today()
         customer_location_ids = (
             self.env["stock.location"].search([("usage", "=", "customer")]).ids
         )
         all_product_ids = self._get_all_product_ids()
-        query, params = self._get_finance_data_query(
-            from_date, customer_location_ids
-        )
+        query, params = self._get_finance_data_query(from_date, customer_location_ids)
         self.env.cr.execute(query, params)
         result = self.env.cr.fetchall()
         total = 0
@@ -149,7 +150,9 @@ class AbcClassificationProfile(models.Model):
                     exclude_from_abc = True
             # Always set purchase_price (standard cost) from product.template
             tmpl = finance_data.product.product_tmpl_id
-            finance_data.purchase_price = float(getattr(tmpl, 'standard_price', 0.0) or 0.0)
+            finance_data.purchase_price = float(
+                getattr(tmpl, "standard_price", 0.0) or 0.0
+            )
             finance_data.ranking = ranking
             finance_data.from_date = from_date
             finance_data.to_date = to_date
@@ -159,13 +162,15 @@ class AbcClassificationProfile(models.Model):
                 finance_data_list.append(finance_data)
             all_product_ids.remove(product_id)
 
-        # Optionally, handle negative-margin products separately here (e.g., assign to a special class or report them)            
-            
+        # Optionally, handle negative-margin products separately here (e.g., assign to a special class or report them)
         # Add all products not sold or not delivered into this timelapse
         for product_id in all_product_ids:
             finance_data = self._finance_init_collected_data_instance()
             finance_data.product = ProductProduct.browse(product_id)
-            finance_data.purchase_price = float(getattr(finance_data.product.product_tmpl_id, 'standard_price', 0.0) or 0.0)
+            finance_data.purchase_price = float(
+                getattr(finance_data.product.product_tmpl_id, "standard_price", 0.0)
+                or 0.0
+            )
             finance_data.total_cost = 0.0
             finance_data.total_sales = 0.0
             finance_data.margin = 0.0
@@ -218,7 +223,9 @@ class AbcClassificationProfile(models.Model):
             elif profile.profile_type == "sale_margin":
                 value_field = "margin"
             else:
-                raise UserError(_(f"Unknown finance profile_type: {profile.profile_type}"))
+                raise UserError(
+                    _(f"Unknown finance profile_type: {profile.profile_type}")
+                )
 
             for i, finance_data in enumerate(finance_data_list):
                 finance_data.total_products = total_products
@@ -239,9 +246,7 @@ class AbcClassificationProfile(models.Model):
                 finance_data.cumulated_percentage = (
                     finance_data.percentage
                     if i == 0
-                    else (
-                        finance_data.percentage + previous_data.cumulated_percentage
-                    )
+                    else (finance_data.percentage + previous_data.cumulated_percentage)
                 )
                 # Debug logging for cumulative percentage
                 _logger.info(
@@ -261,7 +266,12 @@ class AbcClassificationProfile(models.Model):
                         value,
                         total_value,
                     )
-                    raise UserError(_("Cumulative percentage greater than 100 (actual: %.4f)." % finance_data.cumulated_percentage))
+                    raise UserError(
+                        _(
+                            "Cumulative percentage greater than 100 (actual: %.4f)."
+                            % finance_data.cumulated_percentage
+                        )
+                    )
                 finance_data.sum_cumulated_percentages = (
                     finance_data.cumulated_percentage
                     + finance_data.cumulated_percentage_products
@@ -283,14 +293,10 @@ class AbcClassificationProfile(models.Model):
                     # The line is still significant...
                     existing_level_ids_to_remove.remove(product_abc_classification.id)
                     if product_abc_classification.level_id != level:
-                        vals = profile._finance_data_to_vals(
-                            finance_data, create=False
-                        )
+                        vals = profile._finance_data_to_vals(finance_data, create=False)
                         product_abc_classification.write(vals)
                 else:
-                    vals = profile._finance_data_to_vals(
-                        finance_data, create=True
-                    )
+                    vals = profile._finance_data_to_vals(finance_data, create=True)
                     product_abc_classification = ProductClassification.create(vals)
                 finance_data.product_level = product_abc_classification
                 previous_data = finance_data
@@ -304,14 +310,16 @@ class AbcClassificationProfile(models.Model):
         import csv
         import io
         cr = self.env.cr
-        table = 'abc_finance_sale_level_history'
+        table = "abc_finance_sale_level_history"
         columns = FinanceSaleData._get_col_names()
         buf = io.StringIO()
-        writer = csv.writer(buf, delimiter=';', lineterminator='\n')
+        writer = csv.writer(buf, delimiter=";", lineterminator="\n")
         for finance_data in finance_data_list:
             writer.writerow(finance_data._to_csv_line())
         buf.seek(0)
-        cr.copy_from(buf, table, columns=columns, sep=';')
+        cr.copy_from(buf, table, columns=columns, sep=";")
+        # Ensure ORM sees the new records for tests
+        self.env["abc.finance.sale.level.history"].flush()
 
 class FinanceSaleData(object):
     """Finance ABC classification data
@@ -328,10 +336,10 @@ class FinanceSaleData(object):
         "ranking",
         "percentage",
         "cumulated_percentage",
-        "purchase_price", 
-        "total_cost",     
-        "total_sales",    
-        "margin",         
+        "purchase_price",
+        "total_cost",
+        "total_sales",
+        "margin",
         "product_level",
         "from_date",
         "to_date",
@@ -349,20 +357,20 @@ class FinanceSaleData(object):
             self.profile.id,
             self.computed_level.id if self.computed_level else None,
             self.profile.warehouse_id.id if self.profile.warehouse_id else None,
-            self.ranking or 0,  
-            self.percentage or 0.0, 
-            self.cumulated_percentage or 0.0, 
-            float(self.purchase_price or 0.0), 
-            float(self.total_cost or 0.0),     
-            float(self.total_sales or 0.0),     
-            float(self.margin or 0.0), 
+            self.ranking or 0,
+            self.percentage or 0.0,
+            self.cumulated_percentage or 0.0,
+            float(self.purchase_price or 0.0),
+            float(self.total_cost or 0.0),
+            float(self.total_sales or 0.0),
+            float(self.margin or 0.0),
             self.product_level.id if self.product_level else None,
-            self.from_date or fields.Date.today(), 
-            self.to_date or fields.Date.today(),     
-            self.total_products or 0,  
-            self.percentage_products or 0.0,  
-            self.cumulated_percentage_products or 0.0,  
-            self.sum_cumulated_percentages or 0.0,  
+            self.from_date or fields.Date.today(),
+            self.to_date or fields.Date.today(),
+            self.total_products or 0,
+            self.percentage_products or 0.0,
+            self.cumulated_percentage_products or 0.0,
+            self.sum_cumulated_percentages or 0.0,
         ]
 
     @classmethod
@@ -377,10 +385,10 @@ class FinanceSaleData(object):
             "ranking",
             "percentage",
             "cumulated_percentage",
-            "purchase_price",      
-            "total_cost",         
-            "total_sales",         
-            "margin",         
+            "purchase_price",
+            "total_cost",
+            "total_sales",
+            "margin",
             "product_level_id",
             "from_date",
             "to_date",
