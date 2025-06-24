@@ -45,9 +45,9 @@ class StockLot(models.Model):
                             lot_vals["product_id"]
                         )
                         if product and product.product_tmpl_id.lot_sequence_id:
-                            lot_vals[
-                                "name"
-                            ] = product.product_tmpl_id.lot_sequence_id._next()
+                            lot_vals["name"] = (
+                                product.product_tmpl_id.lot_sequence_id._next()
+                            )
                     else:
                         lot_vals["name"] = self.env["ir.sequence"].next_by_code(
                             "stock.lot.serial"

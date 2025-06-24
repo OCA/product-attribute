@@ -20,9 +20,9 @@
                     <div class="content-group">
                         <div class="mt16">
                             <span><field
-                                    name="lot_sequence_padding"
-                                    class="oe_inline"
-                                /> digits</span>
+                                name="lot_sequence_padding"
+                                class="oe_inline"
+                            /> digits</span>
                         </div>
                     </div>
                 </div>
