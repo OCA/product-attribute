@@ -7,3 +7,5 @@
   - Yoshi Tashiro
 - [Apik](https://www.apik.cloud):
   - Frederic Grall
+- [Trobz](https://trobz.com):
+  - Khoi (Kien Kim) \<<khoikk@trobz.com>\>

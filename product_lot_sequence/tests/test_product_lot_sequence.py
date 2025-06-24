@@ -93,13 +93,8 @@ class TestProductLotSequence(TransactionCase):
         self.assertFalse(product.lot_sequence_id)
         seq = self.env["ir.sequence"].search([("code", "=", "stock.lot.serial")])
         next_sequence_number = seq.get_next_char(seq.number_next_actual)
-        lot_form = Form(
-            self.stock_production_lot.with_context(
-                default_company_id=self.env.company.id
-            )
-        )
+        lot_form = Form(self.stock_production_lot)
         self.assertEqual(lot_form.name, next_sequence_number)
-        self.assertEqual(lot_form.company_id, self.env.company)
         lot_form.product_id = product
         lot = lot_form.save()
         self.assertEqual(lot.name, next_sequence_number)

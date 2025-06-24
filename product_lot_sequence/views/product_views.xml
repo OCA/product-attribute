@@ -6,7 +6,7 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="stock.view_template_property_form" />
         <field name="arch" type="xml">
-            <field name="tracking" position="after">
+            <xpath expr="//field[@name='tracking']/ancestor::div[1]" position="after">
                 <field name="display_lot_sequence_fields" invisible="1" />
                 <field
                     name="lot_sequence_prefix"
@@ -25,7 +25,7 @@
                     name="lot_sequence_id"
                     invisible="tracking not in ['lot', 'serial'] or not display_lot_sequence_fields"
                 />
-            </field>
+            </xpath>
         </field>
     </record>
 </odoo>
