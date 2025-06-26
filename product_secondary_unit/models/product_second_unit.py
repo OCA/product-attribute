@@ -6,6 +6,7 @@ from odoo import api, fields, models
 class ProductSecondaryUnit(models.Model):
     _name = "product.secondary.unit"
     _description = "Product Secondary Unit"
+    _rec_names_search = ["name", "code"]
 
     name = fields.Char(required=True, translate=True)
     code = fields.Char()
@@ -46,14 +47,3 @@ class ProductSecondaryUnit(models.Model):
     def _compute_display_name(self):
         for unit in self:
             unit.display_name = f"{unit.name}-{unit.factor}"
-
-    @api.model
-    def name_search(self, name="", args=None, operator="ilike", limit=100):
-        if args is None:
-            args = []
-        units = self.search([("code", "=", name)] + args, limit=1)
-        if not units:
-            return super().name_search(
-                name=name, args=args, operator=operator, limit=limit
-            )
-        return [(unit.id, unit.sudo().display_name) for unit in units]
