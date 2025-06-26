@@ -1,6 +1,6 @@
 {
     "name": "Product ABC Classification Finance",
-    "summary": "Financial ABC analysis for products (cost, sale price, margin)",
+    "summary": "Financial ABC analysis for products (cost, sale price)",
     "version": "16.0.1.0.2",
     "category": "Inventory/Inventory",
     "author": "AJamal13,Odoo Community Association (OCA)",
@@ -16,6 +16,7 @@
     "demo": [
         "data/abc_classification_finance_demo.xml",
     ],
+    "maintainers": ["AJamal13"],
     "installable": True,
     "application": False,
 }

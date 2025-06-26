@@ -18,7 +18,6 @@
     <field name="percentage_products">50</field>
   </record>
 
-  <!-- Finance Profile (cost-based, demo warehouse) -->
   <record
         id="abc_classification_profile_finance_cost"
         model="abc.classification.profile"

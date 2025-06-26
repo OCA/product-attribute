@@ -12,7 +12,7 @@
       <xpath expr="//field[@name='warehouse_id']" position="attributes">
         <attribute
                     name="attrs"
-                >{'required': [('profile_type', 'in', ['sale_stock', 'cost', 'sale_price', 'margin'])], 'invisible': []}</attribute>
+                >{'required': [('profile_type', 'in', ['sale_stock', 'cost', 'sale_price'])], 'invisible': []}</attribute>
       </xpath>
     </field>
   </record>

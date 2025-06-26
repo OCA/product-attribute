@@ -1,5 +1,6 @@
 from odoo import fields, models
 
+
 class AbcClassificationProductLevel(models.Model):
     _inherit = "abc.classification.product.level"
 

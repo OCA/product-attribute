@@ -1,7 +1,9 @@
 from odoo import fields, models
 
+
 class AbcFinanceSaleLevelHistory(models.Model):
     """Finance ABC Classification Product Level History"""
+
     _name = "abc.finance.sale.level.history"
     _description = "Abc Finance Sale Level History"
 
@@ -31,11 +33,6 @@ class AbcFinanceSaleLevelHistory(models.Model):
         required=True,
         readonly=True,
     )
-    margin = fields.Float(
-        "Margin",
-        required=True,
-        readonly=True,
-    )
     total_cost = fields.Float(
         "Total cost",
         required=True,
@@ -59,13 +56,16 @@ class AbcFinanceSaleLevelHistory(models.Model):
         readonly=True,
         ondelete="cascade",
     )
-    ranking = fields.Integer("Ranking", readonly=True)
-    percentage = fields.Float("Percentage", readonly=True)
-    cumulated_percentage = fields.Float("Cumulated Percentage", readonly=True)
-    standard_cost = fields.Float("Standard Cost", readonly=True)
-    total_cost = fields.Float("Total Cost", readonly=True)
-    total_sales = fields.Float("Total Sales", readonly=True)
-    margin = fields.Float("Margin", readonly=True)
+    profile_type = fields.Selection(
+        related="profile_id.profile_type",
+        readonly=True,
+    )
+    ranking = fields.Integer(readonly=True)
+    percentage = fields.Float(readonly=True)
+    cumulated_percentage = fields.Float(readonly=True)
+    standard_cost = fields.Float(readonly=True, related="product_id.standard_price")
+    total_cost = fields.Float(readonly=True)
+    total_sales = fields.Float(readonly=True)
     product_level_id = fields.Many2one(
         "abc.classification.product.level",
         string="Product Level",
