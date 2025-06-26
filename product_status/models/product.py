@@ -90,7 +90,7 @@ class ProductProduct(models.Model):
         """
 
     @api.model
-    def _read_group_state_id(self, states, domain, order):
+    def _read_group_state_id(self, states, domain):
         return states.search([])
 
     def _compute_has_status_date(self):
