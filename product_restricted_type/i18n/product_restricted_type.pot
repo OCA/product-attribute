@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,11 +14,23 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_restricted_type
-#: code:addons/product_restricted_type/models/product.py:0
+#. odoo-python
+#: code:addons/product_restricted_type/models/product_category.py:0
 #, python-format
 msgid ""
 "A product (or multiple products) in the category have different type than "
 "the selected restricted product type"
+msgstr ""
+
+#. module: product_restricted_type
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_product__allowed_categ_ids
+#: model:ir.model.fields,field_description:product_restricted_type.field_product_template__allowed_categ_ids
+msgid "Allowed Categories"
+msgstr ""
+
+#. module: product_restricted_type
+#: model:ir.model,name:product_restricted_type.model_product_template
+msgid "Product"
 msgstr ""
 
 #. module: product_restricted_type
@@ -27,8 +39,8 @@ msgid "Product Category"
 msgstr ""
 
 #. module: product_restricted_type
-#: model:ir.model,name:product_restricted_type.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:product_restricted_type.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_restricted_type
@@ -37,9 +49,11 @@ msgid "Restricted Product Type "
 msgstr ""
 
 #. module: product_restricted_type
+#. odoo-python
+#: code:addons/product_restricted_type/models/product_product.py:0
 #: code:addons/product_restricted_type/models/product_template.py:0
 #, python-format
 msgid ""
-"The product type must be equal to the restricted product type defined in the"
-" product category"
+"The Product Type (%(product_type)s) must be equal to the Restricted Product "
+"Type defined in the Product Category (%(product_categ_restricted_type)s)."
 msgstr ""
