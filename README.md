@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [product_print_category](product_print_category/) | 17.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Define print categories for products and automate products print, when data has changed
 [product_product_template_link](product_product_template_link/) | 17.0.1.0.0 |  | Adds a button in product to view the template
 [product_readonly_security](product_readonly_security/) | 17.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Product Readonly Security
+[product_restricted_type](product_restricted_type/) | 17.0.1.0.0 |  | Product Restricted Type
 [product_secondary_unit](product_secondary_unit/) | 17.0.1.0.0 | <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Set a secondary unit per product
 [product_sequence](product_sequence/) | 17.0.1.0.0 |  | Product Sequence
 [product_set](product_set/) | 17.0.1.0.1 |  | Product set
