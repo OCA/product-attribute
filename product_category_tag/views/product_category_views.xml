@@ -1,0 +1,58 @@
+<odoo>
+    <!-- Copyright 2025 Patryk Pyczko (APSL-Nagarro)<ppyczko@apsl.net>
+       License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+    <record id="product_category_list_view" model="ir.ui.view">
+        <field name="name">product.category.list.inherit.tags</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field
+                    name="tag_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
+                    optional="show"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form.inherit.tags</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='account_property']" position="inside">
+                <group name="category_tags" string="Category Tags" class="o_half_form">
+                    <field
+                        name="tag_ids"
+                        widget="many2many_tags"
+                        options="{'color_field': 'color'}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_category_search_view" model="ir.ui.view">
+        <field name="name">product.category.search.inherit.tags</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field
+                    name="tag_ids"
+                    string="Tags"
+                    filter_domain="[['tag_ids','ilike',self]]"
+                />
+                <filter
+                    string="Tags"
+                    name="by_tag_ids"
+                    domain="[]"
+                    context="{'group_by': 'tag_ids'}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
