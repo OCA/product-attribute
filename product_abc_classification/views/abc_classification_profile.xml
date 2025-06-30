@@ -37,7 +37,6 @@
                             <field name="period" />
                             <field name="auto_apply_computed_value" />
                         </group>
-
                     </group>
                     <notebook>
                         <page name="levels" string="Levels">
