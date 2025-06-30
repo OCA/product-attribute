@@ -133,3 +133,9 @@ class AbcClassificationProfile(models.Model):
         # mark field as modified and trigger recompute of dependent fields.
         modified_levels.modified(["manual_level_id"])
         modified_levels._recompute_recordset()
+
+    @api.returns("self", lambda value: value.id)
+    def copy(self, default=None):
+        default = default or {}
+        default.setdefault("name", self.name + _("-copy"))
+        return super().copy(default)
