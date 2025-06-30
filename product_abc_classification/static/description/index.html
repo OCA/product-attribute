@@ -8,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -274,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -300,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -368,16 +369,17 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:209970214efa683a12df028e3d3383e7755db563920eb48184380087a6b3e5c9
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/16.0/product_abc_classification"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_abc_classification"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>This modules provides the bases to build ABC analysis (or ABC classification)
-addons. These classification are used by inventory management teams to help
-identify the most important products in their portfolio and ensure they
-prioritize managing them above those less valuable.</p>
-<p>Managers will create a profile with several levels (percentages) and then the
-profiled products will automatically get a corresponding level using the
-ABC classification.</p>
-<p>The addon <em>product_abc_classification_sale_stock</em> defines a computation profile
-based on the number of sale order line delivered by product.</p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/17.0/product_abc_classification"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_abc_classification"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>This modules provides the bases to build ABC analysis (or ABC
+classification) addons. These classification are used by inventory
+management teams to help identify the most important products in their
+portfolio and ensure they prioritize managing them above those less
+valuable.</p>
+<p>Managers will create a profile with several levels (percentages) and
+then the profiled products will automatically get a corresponding level
+using the ABC classification.</p>
+<p>The addon <em>product_abc_classification_sale_stock</em> defines a computation
+profile based on the number of sale order line delivered by product.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -394,11 +396,13 @@ based on the number of sale order line delivered by product.</p>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-1">Usage</a></h1>
 <p>To use this module, you need to:</p>
-<p>#. Go to Sales or Inventory menu, then to Configuration/Products/ABC Classification Profile
-and create a profile with levels, knowing that the sum of all levels in the profile
-should sum 100 and all the levels should be different.</p>
-<p>#. Later you should go to product categories or product variants, and assign them a profile.
-Then the cron classification will proceed to assign to these products one of the profile’s levels.</p>
+<p>#. Go to Sales or Inventory menu, then to Configuration/Products/ABC
+Classification Profile and create a profile with levels, knowing that
+the sum of all levels in the profile should sum 100 and all the levels
+should be different.</p>
+<p>#. Later you should go to product categories or product variants, and
+assign them a profile. Then the cron classification will proceed to
+assign to these products one of the profile’s levels.</p>
 <p>NOTE: If you profile (or unprofile) a product category, then all its
 child categories and products will be profiled (or unprofiled).</p>
 </div>
@@ -407,7 +411,7 @@ child categories and products will be profiled (or unprofiled).</p>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_abc_classification%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_abc_classification%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -431,11 +435,13 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-6">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/16.0/product_abc_classification">OCA/product-attribute</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/17.0/product_abc_classification">OCA/product-attribute</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
