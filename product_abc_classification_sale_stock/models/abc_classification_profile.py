@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from io import StringIO
 from operator import attrgetter
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_round
 
@@ -37,8 +37,9 @@ class AbcClassificationProfile(models.Model):
         for rec in self:
             if rec.profile_type == "sale_stock" and not rec.warehouse_id:
                 raise ValidationError(
-                    _("You must specify a warehouse for {profile_name}").forman(
-                        profile_name=rec.name
+                    self.env._(
+                        "You must specify a warehouse for {profile_name}",
+                        profile_name=rec.name,
                     )
                 )
 
@@ -275,7 +276,9 @@ class AbcClassificationProfile(models.Model):
                     )
                 )
                 if float_round(sale_stock_data.cumulated_percentage, 0) > 100:
-                    raise UserError(_("Cumulative percentage greater than 100."))
+                    raise UserError(
+                        self.env._("Cumulative percentage greater than 100.")
+                    )
 
                 sale_stock_data.sum_cumulated_percentages = (
                     sale_stock_data.cumulated_percentage

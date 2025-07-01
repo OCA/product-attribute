@@ -44,7 +44,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "Product1",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "987654321",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -55,7 +55,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "Product2",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "123456789",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -66,7 +66,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "Product3",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "67548309",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -77,7 +77,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "Product4",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "123409876",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -88,7 +88,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "Product5",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "0987540321",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -99,7 +99,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "Product6",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "345789732",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -110,7 +110,7 @@ class TestABCClassificationProfile(TransactionCase):
             {
                 "name": "product_new",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
-                "type": "product",
+                "is_storable": True,
                 "default_code": "345789733",
                 "tracking": "none",
                 "abc_classification_profile_ids": [(4, cls.stock_profile.id)],
@@ -258,10 +258,12 @@ class TestABCClassificationProfile(TransactionCase):
         self.product1.flush_recordset()
         self.stock_profile._compute_abc_classification()
         self.assertFalse(self.product1.abc_classification_product_level_ids)
+
         self.product1.active = True
         self.product1.flush_recordset()
         self.stock_profile._compute_abc_classification()
         self.assertTrue(self.product1.abc_classification_product_level_ids)
+
         self.product1.active = False
         self.product1.flush_recordset()
         self.stock_profile._compute_abc_classification()

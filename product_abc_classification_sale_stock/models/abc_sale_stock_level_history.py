@@ -85,20 +85,20 @@ class AbcSaleStockLevelHistory(models.Model):
         readonly=True,
         help="Percentage of total sale order lines",
         digits=(7, 4),
-        group_operator="SUM",
+        aggregator="sum",
     )
     cumulated_percentage = fields.Float(
         required=True,
         readonly=True,
         help="Cumulated percentage of all the products with a better ranking",
         digits=(7, 4),
-        group_operator=None,
+        aggregator=None,
     )
     total_products = fields.Integer(
         "Total products analysed",
         required=True,
         readonly=True,
-        group_operator=None,
+        aggregator=None,
     )
     percentage_products = fields.Float(
         "Percentage of products",
@@ -106,7 +106,7 @@ class AbcSaleStockLevelHistory(models.Model):
         readonly=True,
         help="Percentage of total products analyzed",
         digits=(7, 4),
-        group_operator="SUM",
+        aggregator="sum",
     )
     cumulated_percentage_products = fields.Float(
         "Cumulated percentage of products",
@@ -114,14 +114,14 @@ class AbcSaleStockLevelHistory(models.Model):
         readonly=True,
         help="Cumulated percentage of total products analyzed with a " "better ranking",
         digits=(7, 4),
-        group_operator=None,
+        aggregator=None,
     )
     sum_cumulated_percentages = fields.Float(
         "Sum of cummulated percentages",
         required=True,
         readonly=True,
         help="Sum cumulated % so lines and cumulated % products",
-        group_operator=None,
+        aggregator=None,
     )
     from_date = fields.Date(readonly=True)
     to_date = fields.Date(readonly=True)
