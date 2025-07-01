@@ -19,7 +19,7 @@
                     invisible="profile_type != 'sale_stock'"
                 />
                 <field name="sale_stock_level_history_ids" nolabel="1">
-                    <tree default_order="to_date DESC">
+                    <list default_order="to_date DESC">
                         <field name="from_date" />
                         <field name="to_date" />
                         <field name="computed_level_id" />
@@ -28,7 +28,7 @@
                         <field name="total_so_lines" />
                         <field name="percentage" />
                         <field name="cumulated_percentage" />
-                    </tree>
+                    </list>
                 </field>
             </group>
         </field>

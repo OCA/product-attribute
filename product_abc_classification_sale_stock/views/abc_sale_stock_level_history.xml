@@ -36,7 +36,7 @@
         >abc.sale_stock.level.history.tree (in product_abc_classification_sale_stock)</field>
         <field name="model">abc.sale_stock.level.history</field>
         <field name="arch" type="xml">
-            <tree default_order="ranking ASC, to_date DESC">
+            <list default_order="ranking ASC, to_date DESC">
                 <field name="from_date" />
                 <field name="to_date" />
                 <field name="product_id" />
@@ -49,14 +49,14 @@
                 <field name="cumulated_percentage_products" />
                 <field name="sum_cumulated_percentages" />
                 <field name="profile_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="abc_sale_stock_level_history_act_window">
         <field name="name">Abc Sale_stock Level History</field>
         <field name="res_model">abc.sale_stock.level.history</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{'search_default_thisyear': 1}</field>
     </record>

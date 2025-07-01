@@ -1,6 +1,6 @@
 To use this module, you need to:
 
-#\. Go to Sales or Inventory menu, then to Configuration/Products/ABC
+#\. Go to Inventory menu, then to Configuration/Products/ABC
 Classification Profile and create a profile with levels, knowing that
 the sum of all levels in the profile should sum 100 and all the levels
 should be different.

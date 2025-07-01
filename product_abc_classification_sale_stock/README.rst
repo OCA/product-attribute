@@ -41,7 +41,7 @@ Usage
 
 To use this module, you need to:
 
-#. Go to Sales or Inventory menu, then to Configuration/Products/ABC
+#. Go to Inventory menu, then to Configuration/Products/ABC
 Classification Profile and create a profile with levels, knowing that
 the sum of all levels in the profile should sum 100 and all the levels
 should be different.
@@ -71,10 +71,17 @@ Authors
 Contributors
 ------------
 
-* Lindsay Marion <lindsay.marion@acsone.eu>
-* Laurent Mignon <laurent.mignon@acsone.eu>
-* Denis Roussel <denis.roussel@acsone.eu>
-* Mohamed Alkobrosli <malkobrosly@kencove.com>
+- Lindsay Marion <lindsay.marion@acsone.eu>
+- Laurent Mignon <laurent.mignon@acsone.eu>
+- Denis Roussel <denis.roussel@acsone.eu>
+- Mohamed Alkobrosli <malkobrosly@kencove.com>
+- Hoang <hoang@trobz.com>
+
+Other credits
+-------------
+
+The migration of this module from 17.0 to 18.0 was financially supported
+by Camptocamp
 
 Maintainers
 -----------
