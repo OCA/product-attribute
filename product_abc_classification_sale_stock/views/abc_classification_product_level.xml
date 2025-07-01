@@ -12,7 +12,7 @@
             ref="product_abc_classification.abc_classification_product_level_form_view"
         />
         <field name="arch" type="xml">
-             <group name="main_info" position="after">
+            <group name="main_info" position="after">
                 <group
                     name="sale_stock_history"
                     string="History"
