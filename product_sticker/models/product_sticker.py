@@ -21,6 +21,7 @@ class ProductSticker(models.Model):
         max_width=64,
         max_height=64,
         store=True,
+        string="Small Image",
     )
     image_size = fields.Selection(
         selection=[
@@ -91,7 +92,9 @@ class ProductSticker(models.Model):
         if self.product_attribute_value_id:
             return {
                 "value": {
-                    "product_attribute_id": self.product_attribute_value_id.attribute_id.id
+                    "product_attribute_id": (
+                        self.product_attribute_value_id.attribute_id.id
+                    ),
                 },
             }
         return {}
@@ -209,4 +212,4 @@ class ProductSticker(models.Model):
             attributes=no_variant_attribute_lines.attribute_id | pp_pavs.attribute_id,
             attribute_values=no_variant_attribute_lines.value_ids | pp_pavs,
         )
-        return self.search(expression.AND([product_sticker_domain, extra_domain]))
+        return self.search(expression.AND([product_sticker_domain, extra_domain or []]))

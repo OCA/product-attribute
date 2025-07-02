@@ -16,7 +16,7 @@
                     <field name="sticker_count" widget="statinfo" string="Stickers" />
                 </button>
             </xpath>
-            <xpath expr="//field[@name='value_ids']/tree" position="inside">
+            <xpath expr="//field[@name='value_ids']/list" position="inside">
                 <field name="sticker_count" string="Stickers" />
             </xpath>
         </field>

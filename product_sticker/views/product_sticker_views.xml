@@ -3,7 +3,7 @@
     <record id="action_product_sticker" model="ir.actions.act_window">
         <field name="name">Product Stickers</field>
         <field name="res_model">product.sticker</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
     </record>
 
     <record id="product_sticker_form_view" model="ir.ui.view">
@@ -53,7 +53,7 @@
                                 name="note"
                                 colspan="2"
                                 nolabel="1"
-                                attrs="{'invisible': [('show_sticker_note', '=', False)]}"
+                                invisible="not show_sticker_note"
                                 placeholder="Sticker note that goes below image"
                             />
                         </group>
@@ -72,11 +72,11 @@
         </field>
     </record>
 
-    <record id="product_sticker_tree_view" model="ir.ui.view">
-        <field name="name">product.sticker.form.view</field>
+    <record id="product_sticker_list_view" model="ir.ui.view">
+        <field name="name">product.sticker.list.view</field>
         <field name="model">product.sticker</field>
         <field name="arch" type="xml">
-            <tree multi_edit="1">
+            <list multi_edit="1">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="available_model_ids" widget="many2many_tags" />
@@ -96,7 +96,7 @@
                     optional="hide"
                 />
                 <field name="show_sticker_note" optional="hide" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -120,7 +120,7 @@
                 <field name="company_id" />
                 <field name="show_sticker_note" />
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div
                             class="oe_kanban_global_area oe_kanban_global_click o_kanban_attachment"
                         >
