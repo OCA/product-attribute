@@ -1,9 +1,9 @@
 from odoo.tools import float_compare
 
-from odoo.addons.base.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestPricelistGlobal(TransactionCase):
+class TestPricelistGlobal(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
