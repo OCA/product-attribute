@@ -17,18 +17,19 @@ Compute product sales price from a pricelist
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_list_price_from_pricelist
+    :target: https://github.com/OCA/product-attribute/tree/18.0/product_list_price_from_pricelist
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_list_price_from_pricelist
+    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_list_price_from_pricelist
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module enables the automatic computation of a product's sale price based on the configuration of a pricelist.
+This module enables the automatic computation of a product's sale price
+based on the configuration of a pricelist.
 
 **Table of contents**
 
@@ -38,20 +39,26 @@ This module enables the automatic computation of a product's sale price based on
 Configuration
 =============
 
-- Go to `Sales` -> `Products` -> `Pricelists`.
+- Go to Sales -> Products -> Pricelists.
 - Create a new pricelist and add at least one rule.
 - Specify the product template or category for the rule.
-- Set the `computation mode` and save
+- Set the computation mode and save
 
-**Note**: Ensure the minimum quantity is not great than 1 for the rule to apply effectively.
+**Note**: Ensure the minimum quantity is not great than 1 for the rule
+to apply effectively.
 
-- Go to `Sales` -> `Configuration` -> `Settings`.
-- In the `Pricing` section, select the `Pricelist to compute sale price` created in the previous step.
-- Optionally and only with a multi-company environment enabled, set the `Main company for compute sale price` to restrict the computation to a specific company.
+- Go to Sales -> Configuration -> Settings.
+- In the Pricing section, select the Pricelist to compute sale price
+  created in the previous step.
+- Optionally and only with a multi-company environment enabled, set the
+  Main company for compute sale price to restrict the computation to a
+  specific company.
 - Save the configuration
 
-The module creates a cron job to update the product list price every day. The cron job is disabled by default. 
-To enable it, go to `Settings` -> `Technical` -> `Automation` -> `Scheduled Actions` and search for `Product sale price: Update price from pricelist`.
+The module creates a cron job to update the product list price every
+day. The cron job is disabled by default. To enable it, go to Settings
+-> Technical -> Automation -> Scheduled Actions and search for Product
+sale price: Update price from pricelist.
 
 Usage
 =====
@@ -59,13 +66,17 @@ Usage
 **To update product prices according to the pricelist rules**
 
 - Stay in the settings configuration with the selected Pricelist.
-- Click the **Update Product Prices** button to apply the rules and update the sale prices of all products.
+- Click the **Update Product Prices** button to apply the rules and
+  update the sale prices of all products.
 
 Known issues / Roadmap
 ======================
 
-The `list_price` field is not `company-dependent`, meaning that if a product is shared across multiple companies, the same list price will apply to all of them.
-To minimize errors, you can set a primary company to take precedence. This can be configured in the settings under the field `Main company for computing sale price`.
+The list_price field is not company-dependent, meaning that if a product
+is shared across multiple companies, the same list price will apply to
+all of them. To minimize errors, you can set a primary company to take
+precedence. This can be configured in the settings under the field Main
+company for computing sale price.
 
 Bug Tracker
 ===========
@@ -73,7 +84,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_list_price_from_pricelist%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_list_price_from_pricelist%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -81,20 +92,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_
+- `Tecnativa <https://www.tecnativa.com>`__
 
-  * Pedro M. Baeza
-  * Carlos López
+  - Pedro M. Baeza
+  - Carlos López
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -114,6 +125,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-carlos-lopez-tecnativa| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_list_price_from_pricelist>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_list_price_from_pricelist>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
