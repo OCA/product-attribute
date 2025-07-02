@@ -200,8 +200,7 @@
                                         </div>
                                     </div>
                                     <div class="o_kanban_record_bottom">
-                                        <div class="oe_kanban_bottom_left">
-                                        </div>
+                                        <div class="oe_kanban_bottom_left" />
                                         <div class="oe_kanban_bottom_right">
                                             <field
                                                 name="create_uid"
