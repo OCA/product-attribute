@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="name">product.attribute.sticker.form</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="%(action_product_sticker)d"
+                    type="action"
+                    class="oe_stat_button oe_read_only"
+                    icon="fa-picture-o"
+                    context="{'search_default_product_attribute_id': id, 'default_product_attribute_id': id, 'search_default_grp_product_attribute_value': 1}"
+                >
+                    <field name="sticker_count" widget="statinfo" string="Stickers" />
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='value_ids']/list" position="inside">
+                <field name="sticker_count" string="Stickers" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
