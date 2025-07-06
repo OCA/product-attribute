@@ -71,6 +71,15 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             return []
         return [self._secondary_unit_fields["qty_field"]]
 
+    def _get_secondary_uom_qty_from_uom_qty(self):
+        self.ensure_one()
+        factor = self._get_factor_line()
+        qty_line = self._get_quantity_from_line()
+        return float_round(
+            qty_line / (factor or 1.0),
+            precision_rounding=self.secondary_uom_id.uom_id.rounding or 0.01,
+        )
+
     @api.depends(lambda x: x._get_secondary_uom_qty_depends())
     def _compute_secondary_uom_qty(self):
         """Compute the secondary qty field defined based on uom qty_field"""
@@ -80,13 +89,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 continue
             elif line.secondary_uom_id.dependency_type == "independent":
                 continue
-            factor = line._get_factor_line()
-            qty_line = line._get_quantity_from_line()
-            qty = float_round(
-                qty_line / (factor or 1.0),
-                precision_rounding=line.secondary_uom_id.uom_id.rounding,
-            )
-            line.secondary_uom_qty = qty
+            line.secondary_uom_qty = line._get_secondary_uom_qty_from_uom_qty()
         # To avoid recompute uom qty_field when secondary_uom_qty changes.
         self.env.remove_to_compute(
             field=self._fields[self._secondary_unit_fields["qty_field"]], records=self
@@ -95,6 +98,14 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
             self._secondary_unit_fields["qty_field"]
+        )
+
+    def _get_uom_qty_from_secondary_uom_qty(self):
+        self.ensure_one()
+        factor = self._get_factor_line()
+        return float_round(
+            self.secondary_uom_qty * factor,
+            precision_rounding=self._get_uom_line().rounding,
         )
 
     def _compute_helper_target_field_qty(self):
@@ -112,12 +123,9 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             rec.env.remove_to_compute(
                 field=rec._fields["secondary_uom_qty"], records=rec
             )
-            factor = rec._get_factor_line()
-            qty = float_round(
-                rec.secondary_uom_qty * factor,
-                precision_rounding=rec._get_uom_line().rounding,
-            )
-            rec[rec._secondary_unit_fields["qty_field"]] = qty
+            rec[
+                rec._secondary_unit_fields["qty_field"]
+            ] = rec._get_uom_qty_from_secondary_uom_qty()
 
     def _onchange_helper_product_uom_for_secondary(self):
         """Helper method to be called from onchange method of uom field in
@@ -128,13 +136,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             return
         elif self.secondary_uom_id.dependency_type == "independent":
             return
-        factor = self._get_factor_line()
-        line_qty = self._get_quantity_from_line()
-        qty = float_round(
-            line_qty / (factor or 1.0),
-            precision_rounding=self.secondary_uom_id.uom_id.rounding,
-        )
-        self.secondary_uom_qty = qty
+        self.secondary_uom_qty = self._get_secondary_uom_qty_from_uom_qty()
 
     @api.model
     def default_get(self, fields_list):
