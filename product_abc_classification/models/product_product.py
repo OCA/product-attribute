@@ -18,3 +18,4 @@ class ProductProduct(models.Model):
         column2="profile_id",
         index=True,
     )
+    abc_classification_profile_updatable_from_category = fields.Boolean(default=True)
