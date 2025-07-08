@@ -6,7 +6,7 @@ import logging
 import xlrd
 from dateutil.relativedelta import relativedelta
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import parse_version
 
@@ -27,8 +27,8 @@ class ProductSupplierInfoImport(models.TransientModel):
     date_start = fields.Date(string="Validity", required=True)
     delay = fields.Integer()
     create_new_products = fields.Boolean(
-        help="If a product isn't found by its Search Field, it will be created with the "
-        "provided data",
+        help="If a product isn't found by its Search Field, it will be created with "
+        "the provided data",
         default=True,
     )
     supplierinfo_file = fields.Binary(required=True)
@@ -53,7 +53,7 @@ class ProductSupplierInfoImport(models.TransientModel):
                 if parse_version(xlrd.__version__) >= parse_version(
                     "2.0"
                 ) or not filename.lower().endswith(".xlsx"):
-                    raise UserError(_("Only .xlsx files are supported."))
+                    raise UserError(self.env._("Only .xlsx files are supported."))
                 data = base64.b64decode(record.supplierinfo_file)
                 workbook = xlrd.open_workbook(file_contents=data)
                 record._detect_template(workbook)
@@ -73,7 +73,7 @@ class ProductSupplierInfoImport(models.TransientModel):
         for template, header in template_headers:
             if template.sheet_number - 1 >= workbook.nsheets:
                 raise UserError(
-                    _(
+                    self.env._(
                         f"Sheet number {template.sheet_number} is out of range. "
                         f"The workbook only has {workbook.nsheets} sheets."
                     )
@@ -85,7 +85,7 @@ class ProductSupplierInfoImport(models.TransientModel):
                 return header_values
         if not self.template_id:
             raise UserError(
-                _(
+                self.env._(
                     f"No matching template for these header columns.\n"
                     f"Total header columns: {', '.join(header_values)}"
                 )
@@ -204,20 +204,19 @@ class ProductSupplierInfoImport(models.TransientModel):
         ).header_name
         vendor_product_name = row_data.get(
             vendor_product_name_header,
-            _("%(code)s (product imported)", code=search_value),
+            self.env._("%(code)s (product imported)", code=search_value),
         )
         product_data = {
             "created_from_supplierinfo_import": True,
             "name": vendor_product_name,
-            "purchase_ok": False,
+            "purchase_ok": True,
             "sale_ok": False,
             search_field: search_value,
         }
         try:
             product = self.env["product.template"].create(product_data)
             product.message_post(
-                body=_("Created from supplier price list import"),
-                type="note",
+                body=self.env._("Created from supplier price list import"),
             )
             return product
         except ValidationError:
@@ -236,7 +235,8 @@ class ProductSupplierInfoImport(models.TransientModel):
     def _create_new_supplierinfo(
         self, previous_supplierinfo, product, row_data, search_field, search_value
     ):
-        """Creates a new supplier price list record, updating the previous one if needed."""
+        """Creates a new supplier price list record, updating the previous one if
+        needed."""
         values = self._prepare_supplierinfo_values(row_data)
         if not values:
             return self.env["product.supplierinfo"]
@@ -276,11 +276,11 @@ class ProductSupplierInfoImport(models.TransientModel):
         return {
             "name": "Imported supplier infos",
             "type": "ir.actions.act_window",
-            "view_mode": "tree",
+            "view_mode": "list",
             "res_model": "product.supplierinfo",
             "domain": domain,
             "context": context,
-            "help": _(
+            "help": self.env._(
                 """<p class="o_view_nocontent">
                 No vendor pricelists were created or updated.
             </p>"""

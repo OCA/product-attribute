@@ -1,1 +1,1 @@
-from . import test_product_supplierinfo_import_by_barcode
+from . import test_product_supplierinfo_import

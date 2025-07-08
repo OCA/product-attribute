@@ -1,6 +1,6 @@
 # Copyright 2024 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -55,7 +55,9 @@ class ProductSupplierInfoImportTemplate(models.Model):
     def _check_integer_value(self):
         for record in self:
             if record.sheet_number < 1:
-                raise ValidationError(_("The Sheet Number cannot be less than 1."))
+                raise ValidationError(
+                    self.env._("The Sheet Number cannot be less than 1.")
+                )
 
 
 class ProductSupplierInfoImportTemplateLine(models.Model):
@@ -64,8 +66,9 @@ class ProductSupplierInfoImportTemplateLine(models.Model):
 
     template_id = fields.Many2one(comodel_name="product.supplierinfo.import.template")
     header_name = fields.Text(
-        help="Copy it directly from the origin cell so it matches right"
+        required=True, help="Copy it directly from the origin cell so it matches right"
     )
     field_id = fields.Many2one(
-        comodel_name="ir.model.fields", domain=[("model", "=", "product.supplierinfo")]
+        comodel_name="ir.model.fields",
+        domain=[("model", "=", "product.supplierinfo"), ("store", "=", True)],
     )
