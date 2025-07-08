@@ -19,6 +19,7 @@ class ProductTemplate(models.Model):
         readonly=True,
     )
 
+    @api.depends("seller_ids", "seller_ids.product_code")
     def _compute_product_code(self):
         for prod in self:
             seller = first(prod.seller_ids)

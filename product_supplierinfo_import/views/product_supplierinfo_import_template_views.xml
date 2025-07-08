@@ -15,10 +15,10 @@
                         <field name="only_update_existing" widget="boolean_toggle" />
                         <field name="show_not_updated_rates" widget="boolean_toggle" />
                         <field name="template_line_ids">
-                            <tree editable="top">
+                            <list editable="top">
                                 <field name="header_name" />
                                 <field name="field_id" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </sheet>
@@ -28,9 +28,9 @@
     <record id="product_supplierinfo_import_template_tree" model="ir.ui.view">
         <field name="model">product.supplierinfo.import.template</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
     <record
@@ -39,7 +39,7 @@
     >
         <field name="name">Vendor pricelists import templates</field>
         <field name="res_model">product.supplierinfo.import.template</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="target">current</field>
     </record>
     <menuitem

@@ -6,7 +6,6 @@
             <form>
                 <field name="supplierinfo_file" filename="supplierinfo_filename" />
                 <field name="supplierinfo_filename" invisible="1" />
-                <field name="template_id" invisible="1" />
                 <group>
                     <field name="supplier_id" required="1" />
                     <field name="date_start" />
@@ -37,7 +36,7 @@
         id="product_supplierinfo_import_menu"
         name="Import vendor pricelists"
         parent="purchase.menu_purchase_config"
-        action="product_supplierinfo_import_by_barcode.product_supplierinfo_import_action"
+        action="product_supplierinfo_import.product_supplierinfo_import_action"
         groups="base.group_user"
     />
 </odoo>
