@@ -10,7 +10,6 @@ class ProductMultiPrice(models.Model):
     name = fields.Many2one(
         comodel_name="product.multi.price.name",
         required=True,
-        translate=True,
     )
     product_id = fields.Many2one(
         comodel_name="product.product",
@@ -45,7 +44,7 @@ class ProductMultiPriceName(models.Model):
     def _get_company(self):
         return self._context.get("company_id", self.env.company)
 
-    name = fields.Char(required=True, string="Price Field Name", ondelete="restrict")
+    name = fields.Char(required=True, string="Price Field Name")
     company_id = fields.Many2one(
         comodel_name="res.company",
         required=True,
