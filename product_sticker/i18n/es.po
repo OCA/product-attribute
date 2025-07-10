@@ -110,7 +110,6 @@ msgid "Cross Category"
 msgstr "Categoría Cruzada"
 
 #. module: product_sticker
-#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Cross Company"
 msgstr "Compañía Cruzada"
@@ -131,11 +130,6 @@ msgid "Display Name with the Image"
 msgstr "Mostrar Nombre con la Imagen"
 
 #. module: product_sticker
-#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
-msgid "Dropdown menu"
-msgstr "Menú Desplegable"
-
-#. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__id
 msgid "ID"
 msgstr "ID (identificación)"
@@ -147,7 +141,6 @@ msgstr "Si está marcada, la nota se mostrará con la pegatina"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_1920
-#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_64
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_form_view
 msgid "Image"
 msgstr "Imagen"
@@ -176,11 +169,6 @@ msgstr "Imagen 512"
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_size
 msgid "Image Size"
 msgstr ""
-
-#. module: product_sticker
-#: model:ir.model.fields,field_description:product_sticker.field_product_sticker____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
 
 #. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker__write_uid
@@ -269,6 +257,11 @@ msgid "Sequence"
 msgstr "Secuencias"
 
 #. module: product_sticker
+#: model:ir.model.fields,field_description:product_sticker.field_product_sticker__image_64
+msgid "Small Image"
+msgstr ""
+
+#. module: product_sticker
 #: model:ir.model.fields,field_description:product_sticker.field_product_attribute__sticker_count
 #: model:ir.model.fields,field_description:product_sticker.field_product_attribute_value__sticker_count
 #: model:ir.model.fields,field_description:product_sticker.field_product_sticker_mixin__sticker_count
@@ -295,3 +288,9 @@ msgstr "Pegatinas"
 #: model:ir.model.fields,help:product_sticker.field_product_sticker__note
 msgid "Used to display a note with the sticker"
 msgstr "Se utiliza para mostrar una nota con la pegatina"
+
+#~ msgid "Dropdown menu"
+#~ msgstr "Menú Desplegable"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
