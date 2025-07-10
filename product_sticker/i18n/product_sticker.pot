@@ -106,7 +106,6 @@ msgid "Cross Category"
 msgstr ""
 
 #. module: product_sticker
-#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Cross Company"
 msgstr ""
@@ -124,11 +123,6 @@ msgstr ""
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_search_view
 msgid "Display Name with the Image"
-msgstr ""
-
-#. module: product_sticker
-#: model_terms:ir.ui.view,arch_db:product_sticker.product_sticker_kanban_view
-msgid "Dropdown menu"
 msgstr ""
 
 #. module: product_sticker
