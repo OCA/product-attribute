@@ -236,6 +236,11 @@ msgid "Only match prices from the selected supplier"
 msgstr ""
 
 #. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__multi_price_name
+msgid "Other Price Name"
+msgstr "Nom de l'altre preu"
+
+#. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base_pricelist_id
 msgid "Other Pricelist"
 msgstr "Altra tarifa"
@@ -434,9 +439,6 @@ msgstr ""
 
 #~ msgid "Ending valid for the pricelist item validation"
 #~ msgstr "Finalització vàlida per a la validació de l'element de preus"
-
-#~ msgid "Other Price Name"
-#~ msgstr "Nom de l'altre preu"
 
 #~ msgid ""
 #~ "Specify the fixed amount to add or substract(if negative) to the amount "

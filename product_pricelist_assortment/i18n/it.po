@@ -244,6 +244,11 @@ msgid "Only match prices from the selected supplier"
 msgstr "Solo prezzi corrispondenti dal fornitore selezionato"
 
 #. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__multi_price_name
+msgid "Other Price Name"
+msgstr ""
+
+#. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base_pricelist_id
 msgid "Other Pricelist"
 msgstr "Altro listino"
@@ -352,8 +357,8 @@ msgid ""
 "To have prices that end in 9.99, set rounding 10, surcharge -0.01"
 msgstr ""
 "Impostare il prezzo in modo che sia un multiplo di questo valore.\n"
-"L'arrotondamento viene applicato dopo lo sconto e prima della maggiorazione."
-"\n"
+"L'arrotondamento viene applicato dopo lo sconto e prima della "
+"maggiorazione.\n"
 "Per avere prezzi che terminano con 9,99, impostare arrotondamento a 10 e "
 "maggiorazione a -0,01"
 
