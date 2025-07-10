@@ -54,6 +54,7 @@ addon | version | maintainers | summary
 [product_model_viewer](product_model_viewer/) | 14.0.1.0.1 | <a href='https://github.com/eLBati'><img src='https://github.com/eLBati.png' width='32' height='32' style='border-radius:50%;' alt='eLBati'/></a> | 3D model viewer for products
 [product_multi_category](product_multi_category/) | 14.0.1.0.1 |  | Product - Many Categories
 [product_multi_image](product_multi_image/) | 14.0.1.0.1 |  | Multiple Images in Products
+[product_multi_price](product_multi_price/) | 14.0.1.0.0 |  | Product Multi Price
 [product_net_weight](product_net_weight/) | 14.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Add 'Net Weight' on product models
 [product_order_noname](product_order_noname/) | 14.0.2.0.0 | <a href='https://github.com/WR-96'><img src='https://github.com/WR-96.png' width='32' height='32' style='border-radius:50%;' alt='WR-96'/></a> <a href='https://github.com/moylop260'><img src='https://github.com/moylop260.png' width='32' height='32' style='border-radius:50%;' alt='moylop260'/></a> <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Speedup product retrieve
 [product_packaging_dimension](product_packaging_dimension/) | 14.0.1.0.2 |  | Manage packaging dimensions and weight

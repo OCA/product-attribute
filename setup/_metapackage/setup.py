@@ -41,6 +41,7 @@ setuptools.setup(
         'odoo14-addon-product_model_viewer',
         'odoo14-addon-product_multi_category',
         'odoo14-addon-product_multi_image',
+        'odoo14-addon-product_multi_price',
         'odoo14-addon-product_net_weight',
         'odoo14-addon-product_order_noname',
         'odoo14-addon-product_packaging_dimension',
