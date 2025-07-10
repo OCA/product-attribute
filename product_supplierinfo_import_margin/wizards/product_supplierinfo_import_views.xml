@@ -4,7 +4,7 @@
         <field name="model">product.supplierinfo.import</field>
         <field
             name="inherit_id"
-            ref="product_supplierinfo_import_by_barcode.product_supplierinfo_import_form"
+            ref="product_supplierinfo_import.product_supplierinfo_import_form"
         />
         <field name="arch" type="xml">
             <field name="delay" position="after">

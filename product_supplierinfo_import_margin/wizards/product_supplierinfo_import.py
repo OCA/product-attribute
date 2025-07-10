@@ -6,7 +6,7 @@ from odoo import fields, models
 class ProductSupplierInfoImport(models.TransientModel):
     _inherit = "product.supplierinfo.import"
 
-    sale_margin = fields.Float(required=True)
+    sale_margin = fields.Float()
 
     def _prepare_supplierinfo_values(self, row_data):
         values = super()._prepare_supplierinfo_values(row_data)
