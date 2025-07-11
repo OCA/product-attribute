@@ -72,3 +72,35 @@ class TestStickersOnProducts(ProductStickerCommon):
         for sticker in stickers:
             with self.subTest(sticker=sticker):
                 self.assertEqual(sticker.image_128, sticker.get_image())
+
+    def test_product_one_attribute(self):
+        """Test that a product with only one attribute and one value that
+        creates variants can have a sticker.
+
+        Having only one value will not create variants with attribute values."""
+        new_sticker = self.ps_att_cc.copy()
+        new_sticker.write(
+            {
+                "name": "New Attribute",
+                "product_attribute_id": self.att_platform.id,
+                "product_attribute_value_id": self.att_platform_linux.id,
+            }
+        )
+        # Create a product with only one attribute
+        product = self.env["product.template"].create(
+            {
+                "name": "Single Attribute Product Create Variants",
+                "attribute_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "attribute_id": self.att_platform.id,
+                            "value_ids": [(6, 0, [self.att_platform_linux.id])],
+                        },
+                    )
+                ],
+            }
+        )
+        stickers = product.product_variant_ids.get_product_stickers()
+        self.assertIn(new_sticker, stickers, "New sticker must be present")

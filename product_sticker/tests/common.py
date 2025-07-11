@@ -15,7 +15,7 @@ class ProductStickerCommon(common.TransactionCase):
         pav_model = cls.env["product.attribute.value"]
         ps_model = cls.env["product.sticker"]
         pt_model = cls.env["product.template"]
-        # No Variant Attribute
+        # Create Variant Attribute
         cls.att_platform = pa_model.create(
             {"name": "Platform", "create_variant": "always"}
         )
@@ -25,7 +25,7 @@ class ProductStickerCommon(common.TransactionCase):
         cls.att_platform_windows = pav_model.create(
             {"attribute_id": cls.att_platform.id, "name": "Windows"}
         )
-        # Create Variant Attribute
+        # No Variant Attribute
         cls.att_license = pa_model.create(
             {"name": "License", "create_variant": "no_variant"}
         )
