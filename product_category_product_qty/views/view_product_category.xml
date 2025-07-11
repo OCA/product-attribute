@@ -28,7 +28,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     name="%(product.product_normal_action)d"
                     icon="fa-th-list"
                     type="action"
-                    context="{'search_default_categ_id': active_id}"
+                    context="{'search_default_categ_id': id}"
                 >
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_value"><field

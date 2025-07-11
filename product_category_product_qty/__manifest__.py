@@ -5,7 +5,7 @@
 
 {
     "name": "Product Category - Product Quantity",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Product",
     "author": "GRAP, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
