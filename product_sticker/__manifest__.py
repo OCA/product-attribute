@@ -16,6 +16,7 @@
         "views/product_sticker_views.xml",
         "views/product_attribute_views.xml",
         "views/product_template_views.xml",
+        "views/product_product_views.xml",
         "data/menus.xml",
     ],
     "maintainers": ["Shide", "rafaelbn"],

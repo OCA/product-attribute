@@ -206,7 +206,13 @@ class ProductSticker(models.Model):
         no_variant_attribute_lines = product_templates.attribute_line_ids.filtered(
             lambda al: al.attribute_id.create_variant == "no_variant"
         )
-        pp_pavs = products.product_template_variant_value_ids.product_attribute_value_id
+        pp_pavs = self.env["product.attribute.value"].browse()
+        for product in products:
+            if product.product_template_variant_value_ids:
+                # Has more than one variant
+                pp_pavs |= product.product_template_variant_value_ids.product_attribute_value_id  # noqa: E501
+            else:
+                pp_pavs |= product.product_template_attribute_value_ids.attribute_line_id.value_ids  # noqa: E501
         product_sticker_domain = self._get_product_sticker_domain(
             categories=products.categ_id,
             attributes=no_variant_attribute_lines.attribute_id | pp_pavs.attribute_id,
