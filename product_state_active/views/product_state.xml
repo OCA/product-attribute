@@ -2,7 +2,6 @@
 <!-- Copyright 2021 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="product_state_form_view">
         <field name="name">product.state.form (in product_state_active)</field>
         <field name="model">product.state</field>
@@ -14,5 +13,4 @@
             </field>
         </field>
     </record>
-
 </odoo>

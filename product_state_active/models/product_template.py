@@ -5,7 +5,6 @@ from odoo import models
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     def _inverse_product_state_id(self):
