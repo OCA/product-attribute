@@ -2,7 +2,6 @@
 <!-- Copyright 2021 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="abc_sale_stock_level_history_search_view">
         <field
             name="name"
@@ -41,14 +40,14 @@
                 <field name="from_date" />
                 <field name="to_date" />
                 <field name="product_id" />
-                 <field name="computed_level_id" />
-                 <field name="ranking" />
-                 <field name="number_so_lines" />
-                 <field name="total_so_lines" />
-                 <field name="percentage" />
-                 <field name="cumulated_percentage" />
-                 <field name="cumulated_percentage_products" />
-                 <field name="sum_cumulated_percentages" />
+                <field name="computed_level_id" />
+                <field name="ranking" />
+                <field name="number_so_lines" />
+                <field name="total_so_lines" />
+                <field name="percentage" />
+                <field name="cumulated_percentage" />
+                <field name="cumulated_percentage_products" />
+                <field name="sum_cumulated_percentages" />
                 <field name="profile_id" />
             </tree>
         </field>
@@ -67,7 +66,5 @@
         <field name="parent_id" ref="stock.menu_warehouse_report" />
         <field name="action" ref="abc_sale_stock_level_history_act_window" />
         <field name="sequence" eval="99" />
-
     </record>
-
 </odoo>

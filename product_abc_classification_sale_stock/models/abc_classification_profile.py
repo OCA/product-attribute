@@ -12,7 +12,6 @@ from odoo.tools import float_round
 
 
 class AbcClassificationProfile(models.Model):
-
     _inherit = "abc.classification.profile"
 
     profile_type = fields.Selection(
@@ -190,7 +189,7 @@ class AbcClassificationProfile(models.Model):
                 cum_percentages.append(percentage_to_append)
             previous_percentage = percentage_to_append
 
-        return list(zip(levels, cum_percentages))
+        return list(zip(levels, cum_percentages, strict=False))
 
     def _get_existing_level_ids(self):
         self.ensure_one()
@@ -344,7 +343,7 @@ class AbcClassificationProfile(models.Model):
         )
 
 
-class SaleStockData(object):
+class SaleStockData:
     """Sale stock collected data
 
     This class is used to store all the data collectd and computed for
