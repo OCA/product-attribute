@@ -219,8 +219,8 @@ class TestABCClassificationProfile(TransactionCase):
         pick = so.mapped("picking_ids")
         pick.action_confirm()
         pick.action_assign()
-        for move_line in pick.move_line_ids:
-            move_line.qty_done = move_line.reserved_qty
+        for line in so.order_line:
+            line.qty_delivered = line.product_uom_qty
         pick._action_done()
 
     def _assertLevelIs(self, product, level_name):

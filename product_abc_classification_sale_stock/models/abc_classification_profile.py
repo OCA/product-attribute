@@ -189,7 +189,7 @@ class AbcClassificationProfile(models.Model):
                 cum_percentages.append(percentage_to_append)
             previous_percentage = percentage_to_append
 
-        return list(zip(levels, cum_percentages, strict=False))
+        return list(zip(levels, cum_percentages, strict=True))
 
     def _get_existing_level_ids(self):
         self.ensure_one()
