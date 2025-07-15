@@ -228,13 +228,13 @@ class TestABCClassificationProfile(TransactionCase):
         self.assertEqual(
             levels.computed_level_id.name,
             level_name,
-            "{} should be classified as {}".format(product.name, level_name),
+            f"{product.name} should be classified as {level_name}",
         )
         levels = product.product_tmpl_id.abc_classification_product_level_ids
         self.assertEqual(
             levels.computed_level_id.name,
             level_name,
-            "{} template should be classified as {}".format(product.name, level_name),
+            f"{product.name} template should be classified as {level_name}",
         )
 
     @freeze_time("2021-01-01 07:10:00")
