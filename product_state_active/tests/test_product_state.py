@@ -1,10 +1,10 @@
 # Copyright 2021 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo.exceptions import ValidationError
-from odoo.tests.common import SavepointCase
+from odoo.tests import TransactionCase
 
 
-class TestProductStateActive(SavepointCase):
+class TestProductStateActive(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

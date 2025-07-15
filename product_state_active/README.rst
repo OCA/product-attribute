@@ -74,6 +74,9 @@ Contributors
 ------------
 
 - Denis Roussel <denis.roussel@acsone.eu>
+- `Komit <https://komit-consulting.com>`__:
+
+  - Cai Hoang Huynh
 
 Maintainers
 -----------
