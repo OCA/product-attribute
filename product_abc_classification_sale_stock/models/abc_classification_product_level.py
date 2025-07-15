@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class AbcClassificationProductLevel(models.Model):
-
     _inherit = "abc.classification.product.level"
 
     sale_stock_level_history_ids = fields.One2many(
