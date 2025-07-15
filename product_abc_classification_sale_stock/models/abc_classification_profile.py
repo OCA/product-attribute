@@ -189,7 +189,7 @@ class AbcClassificationProfile(models.Model):
                 cum_percentages.append(percentage_to_append)
             previous_percentage = percentage_to_append
 
-        return list(zip(levels, cum_percentages))
+        return list(zip(levels, cum_percentages, strict=True))
 
     def _get_existing_level_ids(self):
         self.ensure_one()
@@ -332,8 +332,14 @@ class AbcClassificationProfile(models.Model):
         table = self.env["abc.sale_stock.level.history"]._table
         columns = sale_stock_data._get_col_names()
         self.env.cr.copy_from(vals, table, columns=columns, sep=";")
-        self.env["abc.classification.product.level"].invalidate_cache(
+        self.env["abc.classification.product.level"].invalidate_model(
             ["sale_stock_level_history_ids"]
+        )
+        self.env["product.template"].invalidate_model(
+            ["abc_classification_product_level_ids"]
+        )
+        self.env["product.product"].invalidate_model(
+            ["abc_classification_product_level_ids"]
         )
 
 

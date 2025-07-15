@@ -14,10 +14,10 @@
         />
         <field name="arch" type="xml">
              <group name="main_info" position="after">
-                 <group
+                <group
                     name="sale_stock_history"
                     string="History"
-                    attrs="{'invisible': [('profile_type', '!=', 'sale_stock')]}"
+                    invisible="profile_type != 'sale_stock'"
                 />
                  <field name="sale_stock_level_history_ids" nolabel="1">
                      <tree default_order="to_date DESC">

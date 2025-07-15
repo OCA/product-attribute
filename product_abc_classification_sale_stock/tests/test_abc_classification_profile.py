@@ -219,8 +219,8 @@ class TestABCClassificationProfile(TransactionCase):
         pick = so.mapped("picking_ids")
         pick.action_confirm()
         pick.action_assign()
-        for move_line in pick.move_line_ids:
-            move_line.qty_done = move_line.reserved_qty
+        for line in so.order_line:
+            line.qty_delivered = line.product_uom_qty
         pick._action_done()
 
     def _assertLevelIs(self, product, level_name):
@@ -255,15 +255,15 @@ class TestABCClassificationProfile(TransactionCase):
         # test computed classification and check that inactive products are
         # not taken into account
         self.product1.active = False
-        self.product1.refresh()
+        self.product1.flush_recordset()
         self.stock_profile._compute_abc_classification()
         self.assertFalse(self.product1.abc_classification_product_level_ids)
         self.product1.active = True
-        self.product1.refresh()
+        self.product1.flush_recordset()
         self.stock_profile._compute_abc_classification()
         self.assertTrue(self.product1.abc_classification_product_level_ids)
         self.product1.active = False
-        self.product1.refresh()
+        self.product1.flush_recordset()
         self.stock_profile._compute_abc_classification()
         self.assertFalse(self.product1.abc_classification_product_level_ids)
 

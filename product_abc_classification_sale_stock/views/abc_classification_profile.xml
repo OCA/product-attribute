@@ -15,7 +15,8 @@
       <field name="profile_type" position="after">
           <field
                     name="warehouse_id"
-                    attrs="{'invisible': [('profile_type', '!=', 'sale_stock')], 'required': [('profile_type', '=', 'sale_stock')]}"
+                    invisible="profile_type != 'sale_stock'"
+                    required="profile_type == 'sale_stock'"
                 />
       </field>
     </field>
