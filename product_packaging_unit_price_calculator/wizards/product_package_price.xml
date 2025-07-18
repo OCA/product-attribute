@@ -5,6 +5,8 @@
         <field name="model">product.package.price.wizard</field>
         <field name="arch" type="xml">
             <form string="Product Packaging Price">
+                <!-- Used for default product_tmpl_id when pop-up wizard -->
+                <field name="product_tmpl_id" invisible="1" />
                 <group name="main">
                     <group name="package_price_group">
                         <field name="packaging_price" />
