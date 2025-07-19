@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:51+0000\n"
-"PO-Revision-Date: 2017-11-23 01:51+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2025-07-21 22:25+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
 "Language-Team: Turkish (https://www.transifex.com/oca/teams/23907/tr/)\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
@@ -24,41 +25,41 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a line"
-msgstr ""
+msgstr "Satır Ekle"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a note"
-msgstr ""
+msgstr "Not Ekle"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a section"
-msgstr ""
+msgstr "Bölüm Ekle"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "All"
-msgstr ""
+msgstr "Tümü"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Archived"
-msgstr ""
+msgstr "Arşivlendi"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__company_id
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__company_id
 msgid "Company"
-msgstr ""
+msgstr "Şirket"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__create_uid
@@ -81,7 +82,7 @@ msgstr "Görünen İsim"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Görünüm Türü"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
@@ -92,7 +93,7 @@ msgstr "ID"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__ref
 msgid "Internal Reference"
-msgstr ""
+msgstr "İç Referans"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
@@ -115,30 +116,30 @@ msgstr "Adı"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
 msgid "Note"
-msgstr ""
+msgstr "Not"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__partner_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Partner"
-msgstr ""
+msgstr "İş Ortağı"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 msgid "Product"
-msgstr ""
+msgstr "Ürün"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_id
 msgid "Product Packaging"
-msgstr ""
+msgstr "Ürün Paketleme"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_qty
 msgid "Product Packaging Qty"
-msgstr ""
+msgstr "Ürün Paketleme Miktarı"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
@@ -148,55 +149,55 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Product set"
-msgstr ""
+msgstr "Ürün seti"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__ref
 msgid "Product set internal reference"
-msgstr ""
+msgstr "Ürün seti iç referansı"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_line_view
 #: model:ir.model,name:product_set.model_product_set_line
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 msgid "Product set line"
-msgstr ""
+msgstr "Ürün set satırı"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_line_ids
 msgid "Product set lines"
-msgstr ""
+msgstr "Ürün set satırları"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__name
 msgid "Product set name"
-msgstr ""
+msgstr "Ürün set adı"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__set_line_ids
 msgid "Products"
-msgstr ""
+msgstr "Ürünler"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__quantity
 msgid "Quantity"
-msgstr ""
+msgstr "Miktar"
 
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
 msgid "Section"
-msgstr ""
+msgstr "Bölüm"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sıralama"
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_services
 msgid "Services"
-msgstr ""
+msgstr "Hizmetler"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
@@ -207,12 +208,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/product_set/tests/models.py:0
 msgid "This set of products is restricted for this user."
-msgstr ""
+msgstr "Bu ürün seti bu kullanıcı için sınırlıdır."
 
 #. module: product_set
 #: model:ir.model,name:product_set.model_product_set_wizard
 msgid "Transient base model to define custom wizards"
-msgstr ""
+msgstr "Özel sihirbazları tanımlamak için geçici temel model"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
@@ -220,12 +221,15 @@ msgid ""
 "You can attache the set to a specific partner or no one. If you don't "
 "specify one, it's going to be available for all of them."
 msgstr ""
+"Seti belirli bir partnere bağlayabilir veya hiç kimseye bağlamayabilirsiniz. "
+"Birini belirtmezseniz, hepsi için kullanılabilir olacaktır."
 
 #. module: product_set
 #. odoo-python
 #: code:addons/product_set/models/product_set_line.py:0
 msgid "You must define a package before setting a quantity of said package."
 msgstr ""
+"Söz konusu paketin miktarını ayarlamadan önce paketi tanımlamanız gerekir."
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_i5_computer
