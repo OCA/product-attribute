@@ -16,7 +16,7 @@
                 expr="//field[@name='order_line']/tree//field[@name='secondary_uom_id']"
                 position="before"
             >
-                <field name="force_product_configurator" invisible="1" />
+                <field name="force_product_configurator" column_invisible="1" />
             </xpath>
             <xpath
                 expr="//field[@name='order_line']/kanban//field[@name='secondary_uom_id']"

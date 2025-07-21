@@ -10,7 +10,8 @@ class SaleOrder(models.Model):
 
     def _get_matrix(self, product_template):
         order_lines = self.order_line.filtered(
-            lambda line: line.product_template_id == product_template
+            lambda line: line.product_id
+            and line.product_template_id == product_template
         )
         # Check if the secondary_uom_id is the same across all the order lines
         is_same_secondary_uom = all(
@@ -45,17 +46,40 @@ class SaleOrder(models.Model):
         if "secondary_unit" not in grid:
             return super()._apply_grid()
         # In case that only the secondary unit is changed we need to set it manually
+        secondary_unit = self.env["product.secondary.unit"].browse(
+            grid["secondary_unit"]
+        )
         if not grid.get("changed"):
             lines = self.order_line.filtered(
                 lambda x, grid_template=self.grid_product_tmpl_id: grid_template
                 == x.product_template_id
             )
-            lines.secondary_uom_id = self.env["product.secondary.unit"].browse(
-                grid["secondary_unit"]
+            lines.secondary_uom_id = secondary_unit
+        res = super()._apply_grid()
+        Attrib = self.env["product.template.attribute.value"]
+        dirty_cells = grid["changes"]
+        product_template = self.env["product.template"].browse(
+            grid["product_template_id"]
+        )
+        for cell in dirty_cells:
+            combination = Attrib.browse(cell["ptav_ids"])
+            no_variant_attr_values = (
+                combination - combination._without_no_variant_attributes()
             )
-        return super(
-            SaleOrder, self.with_context(grid_secondary_unit_id=grid["secondary_unit"])
-        )._apply_grid()
+            # create or find product variant from combination
+            product = product_template._create_product_variant(combination)
+            order_lines = self.order_line.filtered(
+                lambda line,
+                product=product,
+                no_variant_attr_values=no_variant_attr_values: line.product_id.id
+                == product.id
+                and line.product_no_variant_attribute_value_ids.ids
+                == no_variant_attr_values.ids
+            )
+            order_lines.secondary_uom_id = secondary_unit
+            order_lines.secondary_uom_qty = cell["qty"]
+            order_lines._compute_helper_target_field_qty()
+        return res
 
 
 class SaleOrderLine(models.Model):
@@ -76,34 +100,14 @@ class SaleOrderLine(models.Model):
             )
             for product_template in product_templates:
                 order_lines = order.order_line.filtered(
-                    lambda x: x.product_template_id == product_template
+                    lambda x, product_template=product_template: x.product_template_id
+                    == product_template
                 )
                 if not all(
                     x.secondary_uom_id == order_lines[0].secondary_uom_id
                     for x in order_lines
                 ):
                     self.force_product_configurator = True
-
-    @api.onchange("product_id")
-    def product_id_change(self):
-        if "grid_secondary_unit_id" not in self.env.context:
-            return super().product_id_change()
-        secondary_uom_id = self.env.context.get("grid_secondary_unit_id")
-        product_uom_qty = self.product_uom_qty
-        if not secondary_uom_id:
-            self.secondary_uom_qty = False
-        res = super(
-            SaleOrderLine, self.with_context(skip_secondary_uom_default=True)
-        ).product_id_change()
-        self.secondary_uom_id = self.env["product.secondary.unit"].browse(
-            secondary_uom_id
-        )
-        if self.secondary_uom_id:
-            self.secondary_uom_qty = product_uom_qty
-            self.onchange_product_uom_for_secondary()
-        else:
-            self.product_uom_qty = product_uom_qty
-        return res
 
     def mapped(self, func):
         # HACK: Use secondary_uom_qty when needed to avoid reparsing the matrix

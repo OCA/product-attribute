@@ -1,3 +1,4 @@
+from odoo import Command
 from odoo.tests import Form, RecordCapturer, tagged
 from odoo.tests.common import HttpCase
 
@@ -38,17 +39,13 @@ class TestSaleProductMatrixSecondaryUnit(HttpCase):
                 "uom_po_id": cls.uom_unit.id,
                 "product_add_mode": "matrix",
                 "attribute_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": cls.attribute1.id,
                             "value_ids": [(6, 0, cls.attribute1.value_ids.ids)],
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": cls.attribute2.id,
                             "value_ids": [(6, 0, cls.attribute2.value_ids.ids)],
@@ -87,7 +84,7 @@ class TestSaleProductMatrixSecondaryUnit(HttpCase):
         self.assertEqual(new_sale.order_line[3].secondary_uom_qty, 1)
         self.assertEqual(new_sale.order_line[3].product_uom_qty, 12)
 
-    def atest_sale_matrix_without_secondary_unit(self):
+    def test_sale_matrix_without_secondary_unit(self):
         with RecordCapturer(self.env["sale.order"], []) as capture:
             self.start_tour("/web", "sale_matrix_without_secondary_unit", login="admin")
         new_sale = capture.records
