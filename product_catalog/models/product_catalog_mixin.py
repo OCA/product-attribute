@@ -1,6 +1,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, fields, models
+from odoo import _, models
 
 
 class ProductCatalogMixin(models.AbstractModel):
@@ -13,13 +13,6 @@ class ProductCatalogMixin(models.AbstractModel):
 
     _name = "product.catalog.mixin"
     _description = "Product Catalog Mixin"
-
-    catalog_button_text = fields.Text(compute="_compute_catalog_button_text")
-
-    def _compute_catalog_button_text(self):
-        quotations = self.filtered(lambda x: x.state in {"draft", "sent"})
-        quotations.catalog_button_text = _("Back to Quotation")
-        (self - quotations).catalog_button_text = _("Back to Order")
 
     def action_add_from_catalog(self):
         kanban_view_id = self.env.ref("product_catalog.product_view_kanban_catalog").id

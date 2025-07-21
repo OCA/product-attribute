@@ -8,16 +8,22 @@
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
-    "depends": ["product"],
+    "depends": [
+        "web",
+        "product",
+        "sale",
+    ],
     "data": [
+        "views/sale_order_views.xml",
         "views/product_views.xml",
     ],
     "demo": [],
     "assets": {
         "web.assets_backend": [
-            "product_catalog/static/src/product_catalog/**/*.js",
-            "product_catalog/static/src/product_catalog/**/*.xml",
-            "product_catalog/static/src/product_catalog/**/*.scss",
+            "product_catalog/static/src/product_catalog/search/search_panel.xml",
+            "product_catalog/static/src/product_catalog/search/search_panel.js",
+            "product_catalog/static/src/product_catalog/kanban_model.js",
+            "product_catalog/static/src/product_catalog/kanban_view.js",
         ],
     },
 }
