@@ -21,9 +21,13 @@
     "assets": {
         "web.assets_backend": [
             "product_catalog/static/src/product_catalog/search/search_panel.xml",
-            "product_catalog/static/src/product_catalog/search/search_panel.js",
-            "product_catalog/static/src/product_catalog/kanban_model.js",
-            "product_catalog/static/src/product_catalog/kanban_view.js",
+            "product_catalog/static/src/product_catalog/search/search_panel.esm.js",
+            "product_catalog/static/src/product_catalog/kanban_model.esm.js",
+            "product_catalog/static/src/product_catalog/order_line/order_line.esm.js",
+            "product_catalog/static/src/product_catalog/kanban_record.esm.js",
+            "product_catalog/static/src/product_catalog/kanban_renderer.esm.js",
+            "product_catalog/static/src/product_catalog/kanban_controller.esm.js",
+            "product_catalog/static/src/product_catalog/kanban_view.esm.js",
         ],
     },
 }
