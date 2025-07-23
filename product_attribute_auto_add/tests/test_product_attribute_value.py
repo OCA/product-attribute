@@ -129,3 +129,44 @@ class TestProductAttribute(TransactionCase):
         )
         self.assertIn(attribute_value_2002, wine_attr_line.value_ids)
         self.assertIn(attribute_value_2002, whiskey_attr_line.value_ids)
+
+    def test_create_new_attribute_value_respects_disable_autoupdate(self):
+        """
+        Test that a product with 'Disable Attribute Autoupdate' enabled
+        does NOT get the new attribute value when auto-add is on.
+        """
+
+        # Enable auto-add on the attribute
+        self.product_attribute_year.write({"attribute_line_auto_add": True})
+
+        # Enable disable_attribute_autoupdate on Wine
+        self.product_wine.disable_attribute_autoupdate = True
+
+        # Create a new attribute value
+        attribute_value_2003 = self.product_attribute_value.create(
+            {
+                "name": "2003",
+                "attribute_id": self.product_attribute_year.id,
+            }
+        )
+
+        wine_attr_line = self.product_wine.attribute_line_ids.filtered(
+            lambda line: line.attribute_id == self.product_attribute_year
+        )
+        whiskey_attr_line = self.product_whiskey.attribute_line_ids.filtered(
+            lambda line: line.attribute_id == self.product_attribute_year
+        )
+
+        # Wine should NOT get the new value because it's opted out
+        self.assertNotIn(
+            attribute_value_2003,
+            wine_attr_line.value_ids,
+            "Wine attribute line should NOT have the new value",
+        )
+
+        # Whiskey should get the new value
+        self.assertIn(
+            attribute_value_2003,
+            whiskey_attr_line.value_ids,
+            "Whiskey attribute line should have the new value",
+        )

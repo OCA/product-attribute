@@ -32,6 +32,10 @@ This module saves time by automatically managing product attribute
 values. When you add a new value to an attribute, it will also be
 automatically added in all product templates that have this attribute.
 
+You can exclude specific product templates from this automatic update by
+enabling the **"Disable Attribute Autoupdate"** checkbox on the product
+template form.
+
 **Table of contents**
 
 .. contents::
@@ -48,6 +52,13 @@ To enable Auto-Create Product Variants
 - On the Attribute form view, enable the "Auto-Add Value to Product
   Templates" checkbox
 
+To exclude products from automatic attribute value updates
+----------------------------------------------------------
+
+- Go to **Products → Products**
+- Open the product template you want to exclude
+- Enable the **"Disable Attribute Autoupdate"** checkbox
+
 Usage
 =====
 
@@ -57,8 +68,9 @@ To add a new attribute variant to products
 - Go to Settings -> Products -> Variants -> Attributes
 - Select an attribute record or create a new one
 - Add new Value on the Attribute Values notebook tab
-- When a new attribute value is added, it will also be automatically
-  added in all products that have this attribute.
+- When a new attribute value is added, it will automatically be added to
+  all products that have this attribute
+  (except those where **"Disable Attribute Autoupdate"** is enabled).
 
 |image1|
 

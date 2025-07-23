@@ -373,26 +373,30 @@ ul.auto-toc {
 <p>This module saves time by automatically managing product attribute
 values. When you add a new value to an attribute, it will also be
 automatically added in all product templates that have this attribute.</p>
+<p>You can exclude specific product templates from this automatic update by
+enabling the <strong>“Disable Attribute Autoupdate”</strong> checkbox on the product
+template form.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#configuration" id="toc-entry-1">Configuration</a><ul>
 <li><a class="reference internal" href="#to-enable-auto-create-product-variants" id="toc-entry-2">To enable Auto-Create Product Variants</a></li>
+<li><a class="reference internal" href="#to-exclude-products-from-automatic-attribute-value-updates" id="toc-entry-3">To exclude products from automatic attribute value updates</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#usage" id="toc-entry-3">Usage</a><ul>
-<li><a class="reference internal" href="#to-add-a-new-attribute-variant-to-products" id="toc-entry-4">To add a new attribute variant to products</a></li>
+<li><a class="reference internal" href="#usage" id="toc-entry-4">Usage</a><ul>
+<li><a class="reference internal" href="#to-add-a-new-attribute-variant-to-products" id="toc-entry-5">To add a new attribute variant to products</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#changelog" id="toc-entry-5">Changelog</a><ul>
-<li><a class="reference internal" href="#section-1" id="toc-entry-6">17.0.1.0.0 (2025-03-21)</a></li>
+<li><a class="reference internal" href="#changelog" id="toc-entry-6">Changelog</a><ul>
+<li><a class="reference internal" href="#section-1" id="toc-entry-7">17.0.1.0.0 (2025-03-21)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#bug-tracker" id="toc-entry-7">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="toc-entry-8">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="toc-entry-9">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="toc-entry-10">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="toc-entry-11">Maintainers</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-8">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-9">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-10">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-11">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-12">Maintainers</a></li>
 </ul>
 </li>
 </ul>
@@ -408,30 +412,39 @@ automatically added in all product templates that have this attribute.</p>
 Templates” checkbox</li>
 </ul>
 </div>
+<div class="section" id="to-exclude-products-from-automatic-attribute-value-updates">
+<h2><a class="toc-backref" href="#toc-entry-3">To exclude products from automatic attribute value updates</a></h2>
+<ul class="simple">
+<li>Go to <strong>Products → Products</strong></li>
+<li>Open the product template you want to exclude</li>
+<li>Enable the <strong>“Disable Attribute Autoupdate”</strong> checkbox</li>
+</ul>
+</div>
 </div>
 <div class="section" id="usage">
-<h1><a class="toc-backref" href="#toc-entry-3">Usage</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-4">Usage</a></h1>
 <div class="section" id="to-add-a-new-attribute-variant-to-products">
-<h2><a class="toc-backref" href="#toc-entry-4">To add a new attribute variant to products</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-5">To add a new attribute variant to products</a></h2>
 <ul class="simple">
 <li>Go to Settings -&gt; Products -&gt; Variants -&gt; Attributes</li>
 <li>Select an attribute record or create a new one</li>
 <li>Add new Value on the Attribute Values notebook tab</li>
-<li>When a new attribute value is added, it will also be automatically
-added in all products that have this attribute.</li>
+<li>When a new attribute value is added, it will automatically be added to
+all products that have this attribute
+(except those where <strong>“Disable Attribute Autoupdate”</strong> is enabled).</li>
 </ul>
 <p><img alt="image1" src="https://raw.githubusercontent.com/OCA/product-attribute/17.0/product_attribute_auto_add/static/img/usage.PNG" /></p>
 </div>
 </div>
 <div class="section" id="changelog">
-<h1><a class="toc-backref" href="#toc-entry-5">Changelog</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-6">Changelog</a></h1>
 <div class="section" id="section-1">
-<h2><a class="toc-backref" href="#toc-entry-6">17.0.1.0.0 (2025-03-21)</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-7">17.0.1.0.0 (2025-03-21)</a></h2>
 <p>-[ADD] Initial release</p>
 </div>
 </div>
 <div class="section" id="bug-tracker">
-<h1><a class="toc-backref" href="#toc-entry-7">Bug Tracker</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-8">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
@@ -439,19 +452,19 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h1><a class="toc-backref" href="#toc-entry-8">Credits</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-9">Credits</a></h1>
 <div class="section" id="authors">
-<h2><a class="toc-backref" href="#toc-entry-9">Authors</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-10">Authors</a></h2>
 <ul class="simple">
 <li>Cetmix</li>
 </ul>
 </div>
 <div class="section" id="contributors">
-<h2><a class="toc-backref" href="#toc-entry-10">Contributors</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-11">Contributors</a></h2>
 <p>Mikhail Lapin <a class="reference external" href="mailto:lapin.mike&#64;yahoo.com">lapin.mike&#64;yahoo.com</a> (<a class="reference external" href="https://www.cetmix.com">https://www.cetmix.com</a>)</p>
 </div>
 <div class="section" id="maintainers">
-<h2><a class="toc-backref" href="#toc-entry-11">Maintainers</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-12">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org">
 <img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />

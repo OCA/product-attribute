@@ -8,5 +8,5 @@
     "license": "LGPL-3",
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product"],
-    "data": ["views/product_attribute_views.xml"],
+    "data": ["views/product_attribute_views.xml", "views/product_template_views.xml"],
 }

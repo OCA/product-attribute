@@ -34,7 +34,10 @@ class ProductAttributeValue(models.Model):
         attribute_ids = [attr.id for attr in auto_add_map]
         product_tmpl_ids = []
         for attr in auto_add_map:
-            product_tmpl_ids.extend(attr.product_tmpl_ids.ids)
+            templates = attr.product_tmpl_ids.filtered(
+                lambda tmpl: not tmpl.disable_attribute_autoupdate
+            )
+            product_tmpl_ids.extend(templates.ids)
 
         # Global search for all needed lines
         lines = attribute_line_obj.search(
