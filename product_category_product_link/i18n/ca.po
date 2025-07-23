@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_product_link
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-04-22 10:05+0000\n"
+"Last-Translator: pablontura <pablo.ruiz@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: product_category_product_link
+#: model:ir.model,name:product_category_product_link.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_category_product_link
+#: model:ir.model,name:product_category_product_link.model_product_category
+#: model:ir.model.fields,field_description:product_category_product_link.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_category_product_link.field_product_template__categ_id
+msgid "Product Category"
+msgstr "Categoria del Producte"
+
+#. module: product_category_product_link
+#: model:ir.model.fields,field_description:product_category_product_link.field_product_category__product_template_ids
+msgid "Products Templates"
+msgstr "Plantilles de productes"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producte"
+
+#~ msgid "Select category for the current product"
+#~ msgstr "Seleccioneu la categoria del producte actual"
