@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,31 +14,10 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sale_product_matrix_secondary_unit
-#. openerp-web
+#. odoo-javascript
 #: code:addons/sale_product_matrix_secondary_unit/static/src/xml/product_matrix.xml:0
 #, python-format
 msgid "(main unit of measure)"
-msgstr ""
-
-#. module: sale_product_matrix_secondary_unit
-#. openerp-web
-#: code:addons/sale_product_matrix_secondary_unit/static/src/js/section_and_note_widget.js:0
-#, python-format
-msgid "Choose Product Variants"
-msgstr ""
-
-#. module: sale_product_matrix_secondary_unit
-#. openerp-web
-#: code:addons/sale_product_matrix_secondary_unit/static/src/js/section_and_note_widget.js:0
-#, python-format
-msgid "Close"
-msgstr ""
-
-#. module: sale_product_matrix_secondary_unit
-#. openerp-web
-#: code:addons/sale_product_matrix_secondary_unit/static/src/js/section_and_note_widget.js:0
-#, python-format
-msgid "Confirm"
 msgstr ""
 
 #. module: sale_product_matrix_secondary_unit
@@ -48,7 +27,7 @@ msgstr ""
 
 #. module: sale_product_matrix_secondary_unit
 #: model:ir.model,name:sale_product_matrix_secondary_unit.model_product_template
-msgid "Product Template"
+msgid "Product"
 msgstr ""
 
 #. module: sale_product_matrix_secondary_unit
@@ -62,14 +41,14 @@ msgid "Sales Order Line"
 msgstr ""
 
 #. module: sale_product_matrix_secondary_unit
-#. openerp-web
+#. odoo-javascript
 #: code:addons/sale_product_matrix_secondary_unit/static/src/xml/product_matrix.xml:0
 #, python-format
 msgid "Secondary Unit"
 msgstr ""
 
 #. module: sale_product_matrix_secondary_unit
-#. openerp-web
+#. odoo-javascript
 #: code:addons/sale_product_matrix_secondary_unit/static/src/xml/product_matrix.xml:0
 #, python-format
 msgid "Secondary unit"
