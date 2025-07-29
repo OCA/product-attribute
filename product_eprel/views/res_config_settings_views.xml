@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.eprel.api</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='recaptcha']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="eprel_integration">
+                    <div class="o_setting_right_pane" id="eprel_settings">
+                        <a
+                            href="https://webgate.ec.europa.eu/fpfis/wikis/x/PYbLJ"
+                            title="Documentation"
+                            class="o_doc_link"
+                            target="_blank"
+                        />
+                        <div class="text-muted">
+                Authentication key for accessing EPREL product data via API
+                        </div>
+                        <div class="content-group mt16">
+                            <label for="eprel_api_key" class="o_light_label" />
+                            <field name="eprel_api_key" password="True" />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

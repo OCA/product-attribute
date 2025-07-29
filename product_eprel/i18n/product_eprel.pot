@@ -1,0 +1,205 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_eprel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_res_company__eprel_api_key
+#: model:ir.model.fields,field_description:product_eprel.field_res_config_settings__eprel_api_key
+msgid "API Key"
+msgstr ""
+
+#. module: product_eprel
+#: model_terms:ir.ui.view,arch_db:product_eprel.res_config_settings_view_form
+msgid "Authentication key for accessing EPREL product data via API"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__code
+msgid "Code"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model,name:product_eprel.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model,name:product_eprel.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__display_name
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_eprel.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_eprel.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_eprel
+#: model_terms:ir.ui.view,arch_db:product_eprel.res_config_settings_view_form
+msgid "Documentation"
+msgstr ""
+
+#. module: product_eprel
+#: code:addons/product_eprel/models/product_template.py:0
+#, python-format
+msgid "EPREL API Key is not configured."
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category__eprel_category_id
+msgid "EPREL Category"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_enabled
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_enabled
+msgid "EPREL Enabled"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model,name:product_eprel.model_product_category_eprel
+msgid "EPREL Product Category"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_registration_number
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_registration_number
+msgid "EPREL Registration Number"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.actions.server,name:product_eprel.ir_cron_eprel_sync_products_ir_actions_server
+#: model:ir.cron,cron_name:product_eprel.ir_cron_eprel_sync_products
+#: model:ir.cron,name:product_eprel.ir_cron_eprel_sync_products
+msgid "EPREL: Sync Product Data"
+msgstr ""
+
+#. module: product_eprel
+#: model:product.template,name:product_eprel.product_template_edge_60_pro
+msgid "Edge 60 Pro"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_energy_class_image
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_energy_class_image
+msgid "Energy Class Image"
+msgstr ""
+
+#. module: product_eprel
+#: code:addons/product_eprel/models/product_template.py:0
+#, python-format
+msgid "Failed to fetch EPREL data: %s"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__fiche_url
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__fiche_url
+msgid "Fiche URL"
+msgstr ""
+
+#. module: product_eprel
+#: model_terms:ir.ui.view,arch_db:product_eprel.view_product_template_form_eprel
+msgid "Get EPREL data"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category__id
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__id
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__id
+#: model:ir.model.fields,field_description:product_eprel.field_res_company__id
+#: model:ir.model.fields,field_description:product_eprel.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__label_arrow_url
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__label_arrow_url
+msgid "Label Arrow URL"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__label_url
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__label_url
+msgid "Label URL"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category____last_update
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel____last_update
+#: model:ir.model.fields,field_description:product_eprel.field_product_template____last_update
+#: model:ir.model.fields,field_description:product_eprel.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_eprel.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_model_identifier
+#: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_model_identifier
+msgid "Model Identifier"
+msgstr ""
+
+#. module: product_eprel
+#: code:addons/product_eprel/models/product_template.py:0
+#, python-format
+msgid "Model Identifier and EPREL Category must be set."
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model,name:product_eprel.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model,name:product_eprel.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__name
+msgid "Product group"
+msgstr ""
+
+#. module: product_eprel
+#: model:ir.model.fields,help:product_eprel.field_product_product__eprel_registration_number
+#: model:ir.model.fields,help:product_eprel.field_product_template__eprel_registration_number
+msgid "The EPREL registration number fetched from the API."
+msgstr ""
+
+#. module: product_eprel
+#: model:product.template,uom_name:product_eprel.product_template_edge_60_pro
+msgid "Units"
+msgstr ""
