@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record
+        id="eprel_category_smartphonestablets20231669"
+        model="product.category.eprel"
+    >
+        <field name="name">Smartphones and slate tablets</field>
+        <field name="code">smartphonestablets20231669</field>
+    </record>
+    <record id="product_category_smartphones" model="product.category">
+        <field name="name">Smartphones</field>
+        <field
+            name="eprel_category_id"
+            ref="eprel_category_smartphonestablets20231669"
+        />
+    </record>
+    <record id="product_template_edge_60_pro" model="product.template">
+        <field name="name">Edge 60 Pro</field>
+        <field name="categ_id" ref="product_category_smartphones" />
+        <field name="eprel_model_identifier">edge 60 pro (XT2507-1)</field>
+    </record>
+</odoo>
