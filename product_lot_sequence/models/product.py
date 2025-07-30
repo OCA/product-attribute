@@ -1,12 +1,7 @@
-# Copyright 2020 ForgeFlow S.L.
-# Copyright 2024 Tecnativa - Carolina Fernandez
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo import api, fields, models
 
-
 class ProductTemplate(models.Model):
-    _inherit = "product.template"
+    _inherit = 'product.template'
 
     lot_sequence_id = fields.Many2one(
         "ir.sequence",
@@ -32,6 +27,30 @@ class ProductTemplate(models.Model):
     display_lot_sequence_fields = fields.Boolean(
         compute="_compute_display_lot_sequence_fields"
     )
+
+    # do not depend on 'lot_sequence_id.date_range_ids', because
+    # lot_sequence_id._get_current_sequence() may invalidate it!
+    @api.depends("lot_sequence_id.use_date_range", "lot_sequence_id.number_next_actual")
+    def _compute_lot_seq_number_next(self):
+        """
+        Compute 'lot_sequence_number_next' according to the current sequence in use, an
+        ir.sequence or an ir.sequence.date_range.
+        """
+        for template in self:
+            if template.lot_sequence_id:
+                sequence = template.lot_sequence_id._get_current_sequence()
+                template.lot_sequence_number_next = sequence.number_next_actual
+            else:
+                template.lot_sequence_number_next = 1
+
+    def _inverse_lot_seq_number_next(self):
+        """
+        Inverse 'lot_sequence_number_next' to edit the current sequence next number
+        """
+        for template in self:
+            if template.lot_sequence_id and template.lot_sequence_number_next:
+                sequence = template.lot_sequence_id._get_current_sequence()
+                sequence.sudo().number_next = template.lot_sequence_number_next
 
     @api.depends("tracking")  # For products being created (before saved).
     def _compute_display_lot_sequence_fields(self):
@@ -59,30 +78,6 @@ class ProductTemplate(models.Model):
             "lot_sequence_number_next", 1
         )
         return seq
-
-    # do not depend on 'lot_sequence_id.date_range_ids', because
-    # lot_sequence_id._get_current_sequence() may invalidate it!
-    @api.depends("lot_sequence_id.use_date_range", "lot_sequence_id.number_next_actual")
-    def _compute_lot_seq_number_next(self):
-        """
-        Compute 'lot_sequence_number_next' according to the current sequence in use, an
-        ir.sequence or an ir.sequence.date_range.
-        """
-        for template in self:
-            if template.lot_sequence_id:
-                sequence = template.lot_sequence_id._get_current_sequence()
-                template.lot_sequence_number_next = sequence.number_next_actual
-            else:
-                template.lot_sequence_number_next = 1
-
-    def _inverse_lot_seq_number_next(self):
-        """
-        Inverse 'lot_sequence_number_next' to edit the current sequence next number
-        """
-        for template in self:
-            if template.lot_sequence_id and template.lot_sequence_number_next:
-                sequence = template.lot_sequence_id._get_current_sequence()
-                sequence.sudo().number_next = template.lot_sequence_number_next
 
     def write(self, vals):
         seq_policy = self.env["stock.lot"]._get_sequence_policy()

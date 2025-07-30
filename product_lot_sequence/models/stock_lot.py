@@ -10,14 +10,6 @@ class StockLot(models.Model):
     name = fields.Char(default=lambda self: self._default_name())
 
     @api.model
-    def _get_sequence_policy(self):
-        return (
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("product_lot_sequence.policy")
-        )
-
-    @api.model
     def _default_name(self):
         seq_policy = self._get_sequence_policy()
         if seq_policy != "product":
@@ -66,3 +58,11 @@ class StockLot(models.Model):
         elif seq_policy == "global":
             return self.env["ir.sequence"].next_by_code("stock.lot.serial")
         return super()._get_next_serial(company, product)
+
+    @api.model
+    def _get_sequence_policy(self):
+        return (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("product_lot_sequence.policy")
+        )

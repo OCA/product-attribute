@@ -5,28 +5,12 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="stock.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//block[@id='production_lot_info']" position="inside">
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <label for="lot_sequence_padding" />
-                    <span
-                        class="fa fa-lg fa-building-o"
-                        title="Values set here are company-specific."
-                        aria-label="Values set here are company-specific."
-                        groups="base.group_multi_company"
-                    />
-                    <div class="text-muted">
-                        Default number of digits to be set on products for product lot/serial sequence generation.
-                    </div>
-                    <div class="content-group">
-                        <div class="mt16">
-                            <span><field
-                                    name="lot_sequence_padding"
-                                    class="oe_inline"
-                                /> digits</span>
-                        </div>
-                    </div>
-                </div>
-            </xpath>
+            <block id="production_lot_info" position="inside">
+                <setting id="lot_sequence_padding" help="Default number of digits to be set on products for product lot/serial sequence generation">
+                    <field name="lot_sequence_padding" style="width: 3rem;"/>
+                    <div class="d-inline-block">digits</div>
+                </setting>
+            </block>
         </field>
     </record>
 </odoo>

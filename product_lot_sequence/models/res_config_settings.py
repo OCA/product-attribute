@@ -5,6 +5,7 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
+    """ Inherit res.config.settings to add lot_sequence_padding field. """
     _inherit = "res.config.settings"
 
     lot_sequence_padding = fields.Integer(
