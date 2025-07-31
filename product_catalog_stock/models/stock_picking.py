@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from collections import defaultdict
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.osv import expression
 
 
@@ -10,18 +10,17 @@ class StockPicking(models.Model):
     _name = "stock.picking"
     _inherit = ["stock.picking", "product.catalog.mixin"]
 
-    def _compute_catalog_button_text(self):
-        self.catalog_button_text = _("Back to picking")
-
     def _get_action_add_from_catalog_extra_context(self):
         return {
             **super()._get_action_add_from_catalog_extra_context(),
             "order_id": self.id,
         }
 
-    def _default_order_line_values(self):
-        default_data = super()._default_order_line_values()
-        new_default_data = self.env["stock.move"]._get_product_catalog_lines_data()
+    def _default_order_line_values(self, child_field=False):
+        default_data = super()._default_order_line_values(child_field)
+        new_default_data = self.env["stock.move"]._get_product_catalog_lines_data(
+            parent_record=self
+        )
         return {**default_data, **new_default_data}
 
     def _get_product_catalog_domain(self):
@@ -32,13 +31,17 @@ class StockPicking(models.Model):
             ]
         )
 
-    def _get_product_catalog_record_lines(self, product_ids):
+    def _get_product_catalog_record_lines(self, product_ids, **kwargs):
         grouped_moves = defaultdict(lambda: self.env["stock.move"])
         for move in self.move_ids:
             if move.product_id.id not in product_ids:
                 continue
             grouped_moves[move.product_id] |= move
         return grouped_moves
+
+    def _get_product_price_and_data(self, product):
+        self.ensure_one()
+        return {"price": product.list_price}
 
     @api.model
     def _prepare_stock_move_vals_from_catalog(self, product_id, quantity):
@@ -74,14 +77,13 @@ class StockPicking(models.Model):
                 move.product_uom_qty = quantity
             elif self.state == "draft":
                 move.unlink()
-                return None
             else:
                 move.product_uom_qty = 0
         elif quantity > 0:
             move = self.env["stock.move"].create(
                 self._prepare_stock_move_vals_from_catalog(product_id, quantity)
             )
-        return None
+        return self.env["product.product"].browse(product_id).list_price
 
     def _is_readonly(self):
         """Return Whether the sale order is read-only or not based on the state or the
@@ -100,53 +102,12 @@ class StockPicking(models.Model):
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    def _get_product_catalog_lines_data(self, **kwargs):
-        """Return information about sale order lines in `self`.
-
-        If `self` is empty, this method returns only the default value(s) needed for
-        the product catalog. In this case, the quantity that equals 0.
-
-        Otherwise, it returns a quantity and a price based on the product of the SOL(s)
-        and whether the product is read-only or not.
-
-        A product is considered read-only if the picking is cancelled or done.
-
-        Note: This method cannot be called with multiple records that have different
-        products linked.
-
-        :raise odoo.exceptions.ValueError: ``len(self.product_id) != 1``
-        :rtype: dict
-        :return: A dict with the following structure:
-            {
-                'quantity': float,
-                'readOnly': bool,
-            }
-        """
-        if len(self) == 1:
-            res = {
-                "quantity": self.product_uom_qty,
-                "readOnly": self.picking_id.state in ["cancel", "done"],
-            }
-            return res
-        elif self:
-            self.product_id.ensure_one()
-            res = {
-                "readOnly": True,
-                "quantity": sum(
-                    self.mapped(
-                        lambda move: move.product_uom._compute_quantity(
-                            qty=move.product_uom_qty,
-                            to_unit=move.product_id.uom_id,
-                        )
-                    )
-                ),
-            }
-            return res
-        else:
-            return {
-                "quantity": 0,
-            }
-
-    def action_add_from_catalog(self):
+    def action_add_from_catalog_picking(self):
         picking = self.env["stock.picking"].browse(self.env.context.get("order_id"))
         return picking.action_add_from_catalog()
+
+    def _get_product_catalog_lines_data(self, parent_record=False, **kwargs):
+        data = super()._get_product_catalog_lines_data(parent_record, **kwargs)
+        if "readOnly" in data:
+            data["readOnly"] = self.picking_id._is_readonly()
+        return data

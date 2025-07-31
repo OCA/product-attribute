@@ -4,16 +4,22 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_form" />
         <field name="arch" type="xml">
-            <div class="oe_button_box" position="inside">
-                <button
-                    name="action_add_from_catalog"
-                    string="Catalog"
-                    type="object"
-                    class="oe_stat_button"
-                    icon="fa-th"
-                    states="draft"
-                />
-            </div>
+            <xpath
+                expr="//field[@name='move_ids_without_package']//list"
+                position="inside"
+            >
+                <control>
+                    <create string="Add a line" />
+                    <button
+                        invisible="parent.state == 'draft'"
+                        name="action_add_from_catalog_picking"
+                        string="Catalog"
+                        type="object"
+                        class="px-4 btn-link"
+                        context="{'order_id': parent.id}"
+                    />
+                </control>
+            </xpath>
         </field>
     </record>
 </odoo>

@@ -3,14 +3,19 @@
 {
     "name": "Stock Product Catalog",
     "summary": "Use the product catalog on stock pickings",
-    "version": "16.0.1.0.0",
-    "author": "Odoo SA, Tecnativa, Odoo Community Association (OCA)",
+    "version": "18.0.1.0.0",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "category": "Product",
-    "depends": ["stock", "product_catalog"],
+    "depends": ["stock"],
     "data": [
         "views/stock_picking_views.xml",
         "views/stock_picking_type_views.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "product_catalog_stock/static/src/**/*",
+        ],
+    },
 }
