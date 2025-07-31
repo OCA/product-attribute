@@ -4,14 +4,14 @@
         <field name="model">stock.picking.type</field>
         <field name="inherit_id" ref="stock.stock_picking_type_kanban" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('o_kanban_manage_new')]" position="inside">
+            <div name="kanban_menu_section" position="inside">
                 <div role="menuitem">
                     <a
                         name="action_new_draft_picking_from_catalog"
                         type="object"
                     >Planned transfer from catalog</a>
                 </div>
-            </xpath>
+            </div>
         </field>
     </record>
 </odoo>
