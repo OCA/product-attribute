@@ -64,3 +64,38 @@ class TestProductLotSequence(SavepointCase):
                 sequence=self.sequence.id
             ),
         )
+
+    def test_copy_lot_sequence(self):
+        """Check if copying a product copies the lot sequence of the copied product"""
+
+        # Create a sequence for testing
+        test_sequence = self.env["ir.sequence"].create(
+            {
+                "name": "Test Lot Sequence",
+                "implementation": "no_gap",
+                "prefix": "test/",
+                "padding": 6,
+                "number_increment": 1,
+                "use_date_range": False,
+            }
+        )
+
+        # Create a product with lot tracking and assign the test sequence
+        original_product = self.product_product.create(
+            {
+                "name": "Original Product",
+                "tracking": "lot",
+                "lot_sequence_id": test_sequence.id,
+            }
+        )
+
+        # Duplicate the product
+        copied_product = original_product.product_tmpl_id.copy()
+
+        # Check if the copied product retains the same sequence
+        self.assertEqual(
+            copied_product.lot_sequence_id.id,
+            original_product.lot_sequence_id.id,
+            msg="The copied product should retain the same"
+            " lot sequence as the original product.",
+        )

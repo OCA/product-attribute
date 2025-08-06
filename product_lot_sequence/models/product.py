@@ -95,6 +95,15 @@ class ProductTemplate(models.Model):
                     vals["lot_sequence_padding"] = lot_sequence_id.padding
         return super().write(vals)
 
+    def copy(self, default=None):
+        self.ensure_one()
+        default = dict(default or {})
+
+        if self.lot_sequence_id:
+            default["lot_sequence_id"] = self.lot_sequence_id.id
+
+        return super().copy(default)
+
     @api.model
     def create(self, vals):
         if vals.get("tracking", False) in ["lot", "serial"]:
