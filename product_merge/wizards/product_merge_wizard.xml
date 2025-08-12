@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_merge_wizard_form_view">
+        <field name="model">product.merge.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Merge Products">
+                <sheet>
+                    <group>
+                        <field
+                            name="product_ids"
+                            widget="many2many_tags"
+                            options="{'no_create_edit': True, 'no_create': True}"
+                        />
+                        <field
+                            name="product_tmpl_id"
+                            options="{'no_create_edit': True, 'no_open': True, 'no_create': True}"
+                        />
+                    </group>
+                    <separator string="Attributes" />
+                    <field name="attribute_ids" />
+                    <separator string="Attribute Mapping" />
+                    <field
+                        name="line_ids"
+                        options="{'no_create_edit': True, 'no_create': True}"
+                    >
+                        <tree editable="bottom">
+                            <field name="product_id" />
+                            <field
+                                name="attribute_value_ids"
+                                widget="many2many_tags"
+                                options="{'no_create_edit': True, 'no_create': True}"
+                            />
+                            <field name="attribute_value_domain" invisible="True" />
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_merge_products"
+                        type="object"
+                        string="Merge"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_merge_wizard_act_window">
+        <field name="name">Merge products</field>
+        <field name="res_model">product.merge.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_template" />
+    </record>
+</odoo>
