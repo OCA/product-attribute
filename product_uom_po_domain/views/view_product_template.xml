@@ -13,6 +13,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <field name="uom_po_id" position="after">
                 <field name="uom_category_id" invisible="1" />
             </field>
+            <field name="uom_po_id" position="attributes">
+                <attribute
+                    name="domain"
+                >[('category_id', '=', uom_category_id)]</attribute>
+            </field>
         </field>
     </record>
 
