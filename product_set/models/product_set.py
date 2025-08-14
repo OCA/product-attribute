@@ -32,7 +32,9 @@ class ProductSet(models.Model):
         "it's going to be available for all of them.",
     )
 
-    display_name = fields.Char(compute="_compute_display_name")
+    display_name = fields.Char(
+        compute="_compute_display_name", search="_search_display_name"
+    )
 
     def _inverse_active(self):
         """Set the active field on the set lines."""
@@ -52,3 +54,13 @@ class ProductSet(models.Model):
             if rec.partner_id and rec.partner_id.name:
                 parts.append(f"@ {rec.partner_id.name}")
             rec.display_name = " ".join(map(str, parts))
+
+    @api.model
+    def _search_display_name(self, operator, value):
+        return [
+            "|",
+            "|",
+            ("name", operator, value),
+            ("ref", operator, value),
+            ("partner_id.name", operator, value),
+        ]
