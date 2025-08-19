@@ -278,7 +278,9 @@ msgstr "Nota bollino che va sotto l'immagine"
 
 #. module: product_sticker
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_attribute_view_form
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_sticker.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_sticker.product_variant_easy_edit_view
 msgid "Stickers"
 msgstr "Bollini"
 
