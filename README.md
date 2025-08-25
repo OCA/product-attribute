@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [product_document_domain](product_document_domain/) | 17.0.1.0.0 | <a href='https://github.com/tisho99'><img src='https://github.com/tisho99.png' width='32' height='32' style='border-radius:50%;' alt='tisho99'/></a> | More user friendly domain and new filters for product documents
 [product_form_pricelist](product_form_pricelist/) | 17.0.1.0.0 |  | Show/edit pricelist in product form
 [product_logistics_uom](product_logistics_uom/) | 17.0.1.0.0 | <a href='https://github.com/hparfr'><img src='https://github.com/hparfr.png' width='32' height='32' style='border-radius:50%;' alt='hparfr'/></a> | Configure product weights and volume UoM
+[product_logistics_uom_total_weight](product_logistics_uom_total_weight/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | View the product weight in differents views
 [product_lot_sequence](product_lot_sequence/) | 17.0.1.0.0 |  | Adds ability to define a lot sequence from the product
 [product_main_supplierinfo](product_main_supplierinfo/) | 17.0.1.0.1 | <a href='https://github.com/sebalix'><img src='https://github.com/sebalix.png' width='32' height='32' style='border-radius:50%;' alt='sebalix'/></a> | Display the main vendor of a product.
 [product_manufacturer](product_manufacturer/) | 17.0.1.0.0 |  | Adds manufacturers and attributes on the product view.
