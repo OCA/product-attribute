@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record model="ir.cron" id="cron_update_product_purchase_price_average">
+        <field name="name">Product templates: update average purchase price</field>
+        <field name="active" eval="0" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="model_id" ref="product.model_product_template" />
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="code">model.update_average_purchase_price(model.search([]))</field>
+        <field name="nextcall" eval="(DateTime.now()).strftime('%Y-%m-%d 22:00:00')" />
+    </record>
+</odoo>
