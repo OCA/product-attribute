@@ -16,9 +16,9 @@
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_list_view" />
         <field name="arch" type="xml">
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute name="decoration-info">type == 'view'</attribute>
-            </tree>
+            </list>
             <field name="display_name" position="after">
                 <field name="type" invisible="1" />
             </field>
