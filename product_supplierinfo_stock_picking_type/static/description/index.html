@@ -369,7 +369,7 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:7359c60087d4601a063d194cab23b85e13c272a7c92e387031057be61cc6a11b
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/16.0/product_supplierinfo_stock_picking_type"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_supplierinfo_stock_picking_type"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/17.0/product_supplierinfo_stock_picking_type"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-17-0/product-attribute-17-0-product_supplierinfo_stock_picking_type"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module allows to set picking types in ‘Vendors’ of ‘Purchase’ tab.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
@@ -395,31 +395,33 @@ ul.auto-toc {
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-2">Usage</a></h1>
 <ol class="arabic simple">
-<li>Go to <em>Inventory &gt; Configuration &gt; Operations types</em> and create two records
-named ‘Incoming A’ and ‘Incoming B’ with ‘Type of Operation’ equal to
-‘Receipt’.</li>
+<li>Go to <em>Inventory &gt; Configuration &gt; Operations types</em> and create two
+records named ‘Incoming A’ and ‘Incoming B’ with ‘Type of Operation’
+equal to ‘Receipt’.</li>
 <li>Go to <em>Inventory &gt; Products &gt; Products</em>, then create a product named
 ‘Test product’ and set ‘Purchase’ tab as follows:</li>
-<li>[Vendor line 1] Vendor: Azure Interior, Picking type: Incoming A, Price: 5.</li>
-<li>[Vendor line 2] Vendor: Azure Interior, Picking type: Incoming B, Price: 10.</li>
+<li>[Vendor line 1] Vendor: Azure Interior, Picking type: Incoming A,
+Price: 5.</li>
+<li>[Vendor line 2] Vendor: Azure Interior, Picking type: Incoming B,
+Price: 10.</li>
 <li>Then click on ‘Save’.</li>
 </ol>
 <p>Next steps:</p>
-<p>Purchase order flow A:
-#. Go to <em>Purchase &gt; Orders &gt; Requests for Quotation</em> and create a new order as follows:
-#. Vendor: Azure Interior; Product: Test product; Deliver To: Incoming A (under ‘Other information’ tab)
-#. The unit price of the product will be 5.</p>
-<p>Purchase order flow B:
-#. Go to <em>Purchase &gt; Orders &gt; Requests for Quotation</em> and create a new order as follows:
-#. Vendor: Azure Interior; Product: Test product; Deliver To: Incoming B (under ‘Other information’ tab)
-#. The unit price of the product will be 10.</p>
+<p>Purchase order flow A: #. Go to <em>Purchase &gt; Orders &gt; Requests for
+Quotation</em> and create a new order as follows: #. Vendor: Azure Interior;
+Product: Test product; Deliver To: Incoming A (under ‘Other information’
+tab) #. The unit price of the product will be 5.</p>
+<p>Purchase order flow B: #. Go to <em>Purchase &gt; Orders &gt; Requests for
+Quotation</em> and create a new order as follows: #. Vendor: Azure Interior;
+Product: Test product; Deliver To: Incoming B (under ‘Other information’
+tab) #. The unit price of the product will be 10.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_supplierinfo_stock_picking_type%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_supplierinfo_stock_picking_type%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -451,7 +453,7 @@ mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/victoralmau"><img alt="victoralmau" src="https://github.com/victoralmau.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/16.0/product_supplierinfo_stock_picking_type">OCA/product-attribute</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/17.0/product_supplierinfo_stock_picking_type">OCA/product-attribute</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
