@@ -2,7 +2,6 @@
 <!-- Copyright 2021 Sylvain LE GAL (https://twitter.com/legalsylvain)
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="product.category" id="category_view">
         <field name="name">Demo Parent Category (Type View)</field>
         <field name="type">view</field>
@@ -19,5 +18,4 @@
         <field name="type">normal</field>
         <field name="parent_id" ref="category_view" />
     </record>
-
 </odoo>

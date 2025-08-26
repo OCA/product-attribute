@@ -2,7 +2,6 @@
 <!-- Copyright 2021 Sylvain LE GAL (https://twitter.com/legalsylvain)
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="view_product_category_search">
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_search_view" />
@@ -35,5 +34,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
