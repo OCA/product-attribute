@@ -24,6 +24,6 @@ class ProductProduct(models.Model):
             fields=["standard_price"], load=load
         )
         # No we zip both results altogether to feed the PoS data load
-        for res_item, std_price_res_item in zip(result, std_price_result):
+        for res_item, std_price_res_item in zip(result, std_price_result, strict=True):
             res_item["standard_price"] = std_price_res_item["standard_price"]
         return result
