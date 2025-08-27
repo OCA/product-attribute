@@ -5,6 +5,7 @@
 import datetime
 
 from odoo import api, models
+from odoo.osv import expression
 
 
 class ProductProduct(models.Model):
@@ -107,14 +108,32 @@ class ProductProduct(models.Model):
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
         partner_id = params.get("partner_id")
-        return [
-            ("partner_id", "=", partner_id),
+        domain = [
             "|",
             ("product_id", "=", self.id),
             "&",
             ("product_tmpl_id", "=", self.product_tmpl_id.id),
             ("product_id", "=", False),
         ]
+        if partner_id:
+            partner = self.env["res.partner"].browse(partner_id)
+            domain = expression.AND(
+                [
+                    domain,
+                    [
+                        (
+                            "partner_id",
+                            "in",
+                            (
+                                partner
+                                + partner.parent_id
+                                + partner.commercial_partner_id
+                            ).ids,
+                        )
+                    ],
+                ]
+            )
+        return domain
 
     def _select_customerinfo(
         self, partner=False, _quantity=0.0, _date=None, _uom_id=False, params=False
