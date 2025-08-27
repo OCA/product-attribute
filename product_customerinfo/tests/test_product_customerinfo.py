@@ -183,3 +183,33 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
             "partner", product_1.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(res[product_1.id], 10.0)
+
+    def test_child_customer_pricing(self):
+        """Test pricing for child contact of a parent customer"""
+        # Create child contact
+        child_customer = self._create_customer("child_customer")
+        child_customer.parent_id = self.customer.id
+        child_customer.is_company = False
+
+        # Create customerinfo for parent
+        self._create_partnerinfo("customer", self.customer, self.product)
+
+        # Test that child inherits pricing from parent
+        price = self.product._get_price_from_customerinfo(partner_id=child_customer.id)
+        self.assertEqual(
+            price, 100.0, "Error: Child customer should inherit price from parent"
+        )
+
+        # Test price computation with child customer context
+        res = self.product.with_context(partner_id=child_customer.id)._price_compute(
+            "partner", self.product.uom_id, self.company.currency_id, self.company
+        )
+        self.assertEqual(
+            res[self.product.id], 100.0, "Error: Wrong price for child customer"
+        )
+
+        # Test pricelist with child customer
+        price, rule_id = self.pricelist._get_product_price_rule(
+            self.product, 1, partner=child_customer
+        )
+        self.assertEqual(price, 100.0, "Error: Price not found for child customer")
