@@ -1,0 +1,458 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_direct_print
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-11 08:37+0000\n"
+"Last-Translator: Ömer KÜLAK <omer.kulak@kitayazilim.com>\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
+"'customer'\"></span>,</p>\n"
+"    <p>\n"
+"    The attached file is a PDF document containg the\n"
+"    <strong t-out=\"object.pricelist_id.name\"></strong> pricelist.\n"
+"    </p>\n"
+"    <p>You can reply to this email if you have any questions.</p>\n"
+"    <p>Thank you,</p>\n"
+"\n"
+"    <p style=\"color:#888888;\">\n"
+"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"            <span t-out=\"object.write_uid.signature or ''\"></span>\n"
+"        </t>\n"
+"    </p>\n"
+"</div>\n"
+"        "
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<span>Special Pricelist</span>"
+msgstr "<span>Özel Fiyat Listesi</span>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Cost Price</strong>"
+msgstr "<strong>Maliyet</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Currency</strong>:<br/>"
+msgstr "<strong>Para Birimi</strong>:<br/>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Date</strong>:<br/>"
+msgstr "<strong>Tarih</strong>:<br/>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Açıklama</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>List Price</strong>"
+msgstr "<strong>Liste Fiyatı</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Price List Name</strong>:<br/>"
+msgstr "<strong>Fiyat Listesi Adı</strong>:<br/>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Sale Price</strong>"
+msgstr "<strong>Satış Fiyatı</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>UoM</strong>"
+msgstr "<strong>Birim</strong>"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
+msgid "Breakage Per Category"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Cancel"
+msgstr "İptal"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__categ_ids
+msgid "Categories"
+msgstr "Kategoriler"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid ""
+"Check this field to print only the products defined in the pricelist. The "
+"entries in the list referring to all products will not be displayed."
+msgstr ""
+"Yalnızca fiyat listesinde tanımlanan ürünleri yazdırmak için bu alanı "
+"işaretleyin. Listedeki tüm ürünlere ilişkin girişler görüntülenmez."
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Column Options"
+msgstr "Sütun Seçenekleri"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
+msgid "Context Active Model"
+msgstr "Context Aktif Model"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_uid
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_date
+msgid "Created on"
+msgstr "Oluşturulma"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_id
+msgid "Customer"
+msgstr "Müşteri"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_ids
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Customers"
+msgstr "Müşteriler"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__date
+msgid "Date"
+msgstr "Tarih"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
+msgid "Display Name"
+msgstr "Görünen Adı"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Filter only the products ordered since this date"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
+msgid "Group Field"
+msgstr "Alana Göre Grupla"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid ""
+"If this field is not 0, products are grouped at max level of category tree."
+msgstr ""
+"Bu alan 0 değilse ürünler kategori ağacının maksimum seviyesinde gruplanır."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
+msgid ""
+"If you enter an X number here, then, for each selected customer, the last X "
+"ordered products will be obtained for the report."
+msgstr ""
+"Her seçilen müşteri için, buraya gireceğiniz adet kadar sipariş edilen son "
+"ürün rapor için baz alınacak."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
+msgid "Internal Reference"
+msgstr "İç Referans"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_ids
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
+msgid "Keep empty for all products"
+msgstr "Bütün ürünler için boş bırak"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
+msgid "Language"
+msgstr "Dil"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
+msgid "Last Modified on"
+msgstr "Son Değiştirilme"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
+msgid "Last Ordered Products"
+msgstr "Son Sipariş Edilenler"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_uid
+msgid "Last Updated by"
+msgstr "Son Güncelleyen"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_date
+msgid "Last Updated on"
+msgstr "Son Güncelleme"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Main Settings"
+msgstr "Genel Ayarlar"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid "Max category level"
+msgstr "Max Kategori Seviyesi"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
+msgid "Name"
+msgstr "Adı"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__order_field
+msgid "Order"
+msgstr "Sıralama"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Order Options"
+msgstr "Sıralama Seçenekleri"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_count
+msgid "Partner Count"
+msgstr "İş Ortağı Adedi"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_item_pricelist_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_pricelist_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "Price List"
+msgstr "Fiyat Listesi"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__pricelist_id
+msgid "Pricelist"
+msgstr "Fiyat Listesi"
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "Pricelist - Send by Email"
+msgstr "Fiyat Listesi - E-Mail ile Gönder"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Print"
+msgstr "Yazdır"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__print_child_categories
+msgid "Print Child Categories"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_pricelist_print
+#: model:ir.ui.menu,name:product_pricelist_direct_print.menu_product_pricelist_print
+msgid "Print Price List"
+msgstr "Fiyat Listesini Yazdır"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Product Options"
+msgstr "Ürün Seçenekleri"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_price
+msgid "Product Price"
+msgstr "Ürün Fiyatı"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.report,name:product_pricelist_direct_print.action_report_product_pricelist
+msgid "Product Price List"
+msgstr "Ürün Fiyat Listesi"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model,name:product_pricelist_direct_print.model_product_pricelist_print
+msgid "Product Pricelist Print"
+msgstr "Ürün Fiyat Listesini Yazdır"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
+msgid "Product Templates"
+msgstr "Ürün"
+
+#. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+#, python-format
+msgid "Products"
+msgstr "Ürünler"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Selling date threshold"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Send by email"
+msgstr "E-Mail ile Gönder"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
+msgid "Send customer pricelist by EMail"
+msgstr "Müşteri fiyat listesini e-mail ile gönder"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_standard_price
+msgid "Show Cost Price"
+msgstr "Maliyeti Göster"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_pricelist_name
+msgid "Show Pricelist Name"
+msgstr "Liste Adını Göster"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_uom
+msgid "Show Product UoM"
+msgstr "Ürün Birimini Göster"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_sale_price
+msgid "Show Sale Price"
+msgstr "Satış Fiyatını Göster"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants
+msgid "Show Variants"
+msgstr "Varyantları Göster"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid "Show the products defined on pricelist"
+msgstr "Yalnızca Listedekiler"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Summary"
+msgstr "Özet"
+
+#. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
+#, python-format
+msgid "Undefined"
+msgstr "Tanımsız"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__vat_mode__vat_excl
+msgid "Vat Excluded"
+msgstr "Vergi Hariç"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__vat_mode__vat_incl
+msgid "Vat Included"
+msgstr "Vergi Dahil"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__vat_mode
+msgid "Vat Mode"
+msgstr "Vergi Modu"
+
+#. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
+#, python-format
+msgid "You must set price list or any customer or any show price option."
+msgstr ""
+"Fiyat listesi, müşteri veya fiyatı göster seçeneğinden birini ayarlamanız "
+"gerekiyor."
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+msgstr ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Fiyat Listesi (Referans {{ object.pricelist_id.name or 'n/a' }})"
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "{{ object.pricelist_id.name }}"
+msgstr "{{ object.pricelist_id.name }}"
+
+#~ msgid ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
+#~ "'customer'\"></span>,</p>\n"
+#~ "    <p>\n"
+#~ "    The attached file is a PDF document containg the\n"
+#~ "    <strong t-out=\"object.pricelist_id.name\"></strong> pricelist.\n"
+#~ "    </p>\n"
+#~ "    <p>You can reply to this email if you have any questions.</p>\n"
+#~ "    <p>Thank you,</p>\n"
+#~ "\n"
+#~ "    <p style=\"color:#888888;\">\n"
+#~ "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+#~ "            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+#~ "        </t>\n"
+#~ "    </p>\n"
+#~ "</div>\n"
+#~ "        "
+#~ msgstr ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "    <p>Sayın <span t-out=\"object.partner_id and object.partner_id.name "
+#~ "or 'customer'\"></span>,</p>\n"
+#~ "    <p>\n"
+#~ "    Ekli dosya, aşağıdakileri içeren bir PDF belgesidir:\n"
+#~ "    <strong t-out=\"object.pricelist_id.name\"></strong> fiyat listesi.\n"
+#~ "    </p>\n"
+#~ "    <p>Herhangi bir sorunuz varsa bu emaili cevaplayabilirsiniz.</p>\n"
+#~ "    <p>Teşekkürler,</p>\n"
+#~ "\n"
+#~ "    <p style=\"color:#888888;\">\n"
+#~ "        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+#~ "            <span t-out=\"object.write_uid.signature or 'safe'\"></span>\n"
+#~ "        </t>\n"
+#~ "    </p>\n"
+#~ "</div>\n"
+#~ "        "
