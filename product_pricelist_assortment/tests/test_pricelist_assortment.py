@@ -181,51 +181,49 @@ class TestPricelistAssortment(BaseCommon):
         self.env["product.pricelist"].with_user(self.user_cmp2).cron_assortment_update()
         self._test_values(pricelist)
 
-
-class TestPricelistAssortmentRemove(BaseCommon):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
-        cls.Pricelist = cls.env["product.pricelist"]
-        cls.PricelistItem = cls.env["product.pricelist.assortment.item"]
-        cls.Product = cls.env["product.product"]
-        cls.Assortment = cls.env["ir.filters"]
-        cls.default_codes = [str(uuid4()) for x in range(0, 10)]
-        cls.precision = 2
-        cls.assortment = TestPricelistAssortment._create_assortment(cls)
-        cls.products_assortment = TestPricelistAssortment._create_products_assortment(
-            cls
-        )
-        cls.normal_price = 1.0
-        cls.assortment_price = 1.0
-
-    def test_remove_assortment_item(self):
+    def test_update_pricelist_assortment(self):
         """
-        - Create a pricelist with an assortment
-        - Update it
-        - Remove the assortment item
-        - Update the pricelist
-        - Check if assortment's rules are removed
+        Check if prices are correctly updated for a product into an
+        assortment.
+        - An item is modified manually -> do not update it
+        - An item is removed from the assortment -> Remove it
+        - An item is added to the assortment -> Add it
+        :return:
         """
-        pricelist_values = TestPricelistAssortment._get_pricelist_values(self)
+        self._define_prices(normal_price=111.111, assortment_price=526.369)
+        pricelist_values = self._get_pricelist_values()
         pricelist = self.Pricelist.create(pricelist_values)
-        TestPricelistAssortment._add_assortment_item_fixed_price(self, pricelist)
-        pricelist.action_launch_assortment_update()
-        assortment_item = pricelist.item_assortment_ids
-        self.assertTrue(assortment_item)
-        assortment_item.unlink()
-        self.assertFalse(pricelist.item_assortment_ids)
-        pricelist.action_launch_assortment_update()
-        products_assortment = self.products_assortment.with_context(
-            pricelist=pricelist.id
+        self._add_assortment_item_fixed_price(pricelist)
+        self._update_assortment(pricelist)
+        self._test_values(pricelist)
+        # 1. Manual edition of an item
+        items = pricelist.item_ids.filtered(
+            lambda i: i.product_id and i.assortment_item_id
         )
-        self.assertTrue(bool(products_assortment))
-        for product in products_assortment:
-            price = pricelist._get_product_price(product, 1.0)
-            self.assertAlmostEqual(price, self.normal_price, places=self.precision)
-        normal_product = self.Product.search(
-            [("id", "not in", self.products_assortment.ids)], limit=1
+        manual_item = items[0]
+        manual_item.fixed_price = 999.99
+        # 2. Add a new product into the assortment
+        new_product = self.Product.create(
+            {
+                "name": str(uuid4()),
+                "default_code": "NEW",
+            }
         )
-        price = pricelist._get_product_price(normal_product, 1.0)
-        self.assertAlmostEqual(price, self.normal_price, places=self.precision)
+        self.default_codes.append("NEW")
+        # 3. Remove a product from the assortment
+        product_to_remove = self.products_assortment[0]
+        self.default_codes.remove(product_to_remove.default_code)
+
+        self.assortment.domain = [("default_code", "in", self.default_codes)]
+        self._update_assortment(pricelist)
+        items = pricelist.item_ids.filtered(
+            lambda i: i.product_id and i.assortment_item_id
+        )
+        # Check if the manually modified item is still there with the correct
+        # price
+        self.assertIn(manual_item, items)
+        self.assertAlmostEqual(manual_item.fixed_price, 999.99, places=self.precision)
+        # Check if the new product has been added
+        self.assertIn(new_product, items.mapped("product_id"))
+        # Check if the old product has been removed
+        self.assertNotIn(product_to_remove, items.mapped("product_id"))

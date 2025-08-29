@@ -42,8 +42,8 @@ class ProductPricelistAssortmentItem(models.Model):
         products = self._get_product_from_assortment()
         list_values = []
         # fields to ignore to create pricelist item
-        blacklist = list(models.MAGIC_COLUMNS)
-        blacklist.extend(["assortment_filter_id", "pricelist_item_ids", "display_name"])
+        blacklist = models.MAGIC_COLUMNS
+        blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
         default_values = {
             k: self._fields.get(k).convert_to_write(self[k], self)
             for k in self._fields.keys()
@@ -57,7 +57,6 @@ class ProductPricelistAssortmentItem(models.Model):
                     "assortment_item_id": self.id,
                     "applied_on": "0_product_variant",
                     "product_id": product.id,
-                    "product_tmpl_id": product.product_tmpl_id.id,
                 }
             )
             list_values.append(values)
@@ -90,8 +89,20 @@ class ProductPricelistAssortmentItem(models.Model):
             return False
         item_obj = self.env["product.pricelist.item"]
         items_values = self._get_pricelist_item_values()
+        new_product_ids = {item["product_id"] for item in items_values}
         old_items = self._get_related_items()
-        old_items.unlink()
+        old_product_ids = set(old_items.mapped("product_id").ids)
+        # Products to add
+        products_to_add_ids = new_product_ids - old_product_ids
+        # Products to remove
+        products_to_remove_ids = old_product_ids - new_product_ids
+        # Find the items to remove
+        items_to_remove = old_items.filtered(
+            lambda item: item.product_id.id in products_to_remove_ids
+        )
+        items_to_remove.unlink()
+        # Create new items
         for item_value in items_values:
-            item_obj.create(item_value)
+            if item_value["product_id"] in products_to_add_ids:
+                item_obj.create(item_value)
         return True
