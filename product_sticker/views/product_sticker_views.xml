@@ -53,7 +53,7 @@
                                 name="note"
                                 colspan="2"
                                 nolabel="1"
-                                attrs="{'invisible': [('show_sticker_note', '=', False)]}"
+                                invisible="not show_sticker_note"
                                 placeholder="Sticker note that goes below image"
                             />
                         </group>

@@ -91,7 +91,9 @@ class ProductSticker(models.Model):
         if self.product_attribute_value_id:
             return {
                 "value": {
-                    "product_attribute_id": self.product_attribute_value_id.attribute_id.id
+                    "product_attribute_id": (
+                        self.product_attribute_value_id.attribute_id.id
+                    )
                 },
             }
         return {}
