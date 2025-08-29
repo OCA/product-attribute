@@ -102,7 +102,11 @@ class ProductPricelistAssortmentItem(models.Model):
         )
         items_to_remove.unlink()
         # Create new items
-        for item_value in items_values:
-            if item_value["product_id"] in products_to_add_ids:
-                item_obj.create(item_value)
+        items_to_create = [
+            item_value
+            for item_value in items_values
+            if item_value["product_id"] in products_to_add_ids
+        ]
+        if items_to_create:
+            item_obj.create(items_to_create)
         return True
