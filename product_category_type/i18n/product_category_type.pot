@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,6 +23,21 @@ msgstr ""
 #. module: product_category_type
 #: model:ir.model.fields,field_description:product_category_type.field_product_category__type
 msgid "Category Type"
+msgstr ""
+
+#. module: product_category_type
+#: model:product.category,name:product_category_type.category_normal_1
+msgid "Demo Category 1 (Type Normal)"
+msgstr ""
+
+#. module: product_category_type
+#: model:product.category,name:product_category_type.category_normal_2
+msgid "Demo Category 2 (Type Normal)"
+msgstr ""
+
+#. module: product_category_type
+#: model:product.category,name:product_category_type.category_view
+msgid "Demo Parent Category (Type View)"
 msgstr ""
 
 #. module: product_category_type
