@@ -352,3 +352,9 @@ class TestProductSupplierinfo(BaseCommon):
             self.pricelist.item_ids[0]
         )
         self.assertAlmostEqual(price, 0)
+
+    def test_pricelist_item_label(self):
+        """Test if the pricelist label shows correct information on base price"""
+        self.assertEqual(
+            self.pricelist.item_ids.price, "0 % discount on supplier's price "
+        )
