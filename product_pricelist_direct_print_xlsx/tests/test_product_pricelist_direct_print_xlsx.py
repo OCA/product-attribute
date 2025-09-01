@@ -1,20 +1,15 @@
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+from odoo.tests.common import tagged
 
-from odoo.tests.common import TransactionCase, tagged
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @tagged("post_install", "-at_install")
-class TestProductPricelistDirectPrintXLSX(TransactionCase):
+class TestProductPricelistDirectPrintXLSX(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-
-        # # Set report layout to void to wizard selection layout crashes the test
-        # report_layout = cls.env.ref("web.report_layout_standard")
-        # main_company = cls.env.ref("base.main_company")
-        # main_company.external_report_layout_id = report_layout.view_id.id
-
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Pricelist for test",
@@ -31,7 +26,6 @@ class TestProductPricelistDirectPrintXLSX(TransactionCase):
                 ],
             }
         )
-
         cls.wiz_obj = cls.env["product.pricelist.print"]
 
     def test_report(self):
