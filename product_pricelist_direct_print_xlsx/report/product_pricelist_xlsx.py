@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, models
+from odoo import models
 
 
 class ProductPricelistXlsx(models.AbstractModel):
@@ -32,18 +32,18 @@ class ProductPricelistXlsx(models.AbstractModel):
         date_format = date_format.replace("%Y", "YYYY")
         date_format = date_format.replace("/", "-")
         date_format = workbook.add_format({"num_format": date_format})
-        sheet = workbook.add_worksheet(_("PRODUCTS"))
+        sheet = workbook.add_worksheet(self.env._("PRODUCTS"))
         sheet.set_column("A:A", 45)
         sheet.set_column("B:H", 15)
         # Title construction
-        sheet.write("A1", _("Price List Name:"), title_format)
+        sheet.write("A1", self.env._("Price List Name:"), title_format)
         if book.show_pricelist_name:
             sheet.write("A2", pricelist.name)
         else:
-            sheet.write("A2", _("Special Pricelist"))
-        sheet.write("B1", _("Currency:"), title_format)
+            sheet.write("A2", self.env._("Special Pricelist"))
+        sheet.write("B1", self.env._("Currency:"), title_format)
         sheet.write("B2", pricelist.currency_id.name)
-        sheet.write("D1", _("Date:"), title_format)
+        sheet.write("D1", self.env._("Date:"), title_format)
         sheet.write("D2", book.date, date_format)
         # Header construction
         if book.partner_id:
@@ -51,22 +51,22 @@ class ProductPricelistXlsx(models.AbstractModel):
         elif book.partner_ids:
             sheet.write(4, 0, book.partner_ids[0].name, header_format)
         next_col = 0
-        sheet.write(5, next_col, _("Description"), header_format)
+        sheet.write(5, next_col, self.env._("Description"), header_format)
         next_col = self._add_extra_header(sheet, book, next_col, header_format)
         if book.show_internal_category:
             next_col += 1
-            sheet.write(5, next_col, _("Internal Category"), header_format)
+            sheet.write(5, next_col, self.env._("Internal Category"), header_format)
         if book.show_standard_price:
             next_col += 1
-            sheet.write(5, next_col, _("Cost Price"), header_format)
+            sheet.write(5, next_col, self.env._("Cost Price"), header_format)
         if book.show_sale_price:
             next_col += 1
-            sheet.write(5, next_col, _("Sale Price"), header_format)
+            sheet.write(5, next_col, self.env._("Sale Price"), header_format)
         next_col += 1
-        sheet.write(5, next_col, _("List Price"), header_format)
+        sheet.write(5, next_col, self.env._("List Price"), header_format)
         if book.show_product_uom:
             next_col += 1
-            sheet.write(5, next_col, _("UoM"), header_format)
+            sheet.write(5, next_col, self.env._("UoM"), header_format)
         return sheet
 
     def _add_extra_header(self, sheet, book, next_col, header_format):
@@ -121,7 +121,7 @@ class ProductPricelistXlsx(models.AbstractModel):
                     sheet.write(row, next_col, product.uom_id.name, bold_format)
                 row += 1
         if book.summary:
-            sheet.write(row, 0, _("Summary:"), bold_format)
+            sheet.write(row, 0, self.env._("Summary:"), bold_format)
             sheet.write(row + 1, 0, book.summary)
         return sheet
 
