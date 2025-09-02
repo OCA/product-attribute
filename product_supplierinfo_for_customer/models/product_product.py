@@ -33,9 +33,16 @@ class ProductProduct(models.Model):
         ):
             return res_ids
         limit -= res_ids_len
+
+        # NOTE: Ideally we could use child_of operator here instead
+        # of building top level commercial partner + parent + current contact
+        partner_id = self._context.get("partner_id")
+        partner = self.env["res.partner"].browse(partner_id)
+        partner_ids = (partner + partner.parent_id + partner.commercial_partner_id).ids
+
         customerinfo_ids = self.env["product.customerinfo"]._search(
             [
-                ("partner_id", "=", self._context.get("partner_id")),
+                ("partner_id", "in", partner_ids),
                 "|",
                 ("product_code", operator, name),
                 ("product_name", operator, name),
