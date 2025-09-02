@@ -1,6 +1,6 @@
 # Copyright 2022 Tecnativa - Carlos Roca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, models
+from odoo import models
 
 
 class ProductPricelistXlsx(models.AbstractModel):
@@ -10,7 +10,7 @@ class ProductPricelistXlsx(models.AbstractModel):
         next_col = super()._add_extra_header(sheet, book, next_col, header_format)
         if book.show_public_category:
             next_col += 1
-            sheet.write(5, next_col, _("Public Category"), header_format)
+            sheet.write(5, next_col, self.env._("Public Category"), header_format)
         return next_col
 
     def _add_extra_info(self, sheet, book, product, row, next_col, **kw):
