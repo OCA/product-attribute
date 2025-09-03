@@ -11,6 +11,11 @@
                 <field name="code" />
                 <field name="has_gtin" />
                 <field name="active" />
+                <button
+                    class="badge rounded-pill text-bg-info float-end fs-6 border-0"
+                    invisible="not is_default"
+                    string="Default"
+                />
             </list>
         </field>
     </record>
@@ -30,6 +35,7 @@
                             <field name="code" />
                             <field name="has_gtin" />
                             <field name="name_policy" />
+                            <field name="is_default" readonly="1" />
                             <field
                                 name="default_lang_id"
                                 help="Language option for packaging names used in case policy names is packaging by levels"
@@ -52,6 +58,11 @@
             <search string="Product Packaging Level">
                 <field name="name" />
                 <field name="code" />
+                <filter
+                    name="is_default"
+                    domain="[('is_default', '=', True)]"
+                    string="Is Default"
+                />
             </search>
         </field>
     </record>
