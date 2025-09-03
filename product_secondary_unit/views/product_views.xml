@@ -28,7 +28,7 @@
                             />
                             <field name="code" />
                             <field name="name" />
-                            <field name="uom_id" />
+                            <field name="uom_id" context="{'active_test': True}" />
                             <field name="factor" />
                             <field name="dependency_type" />
                         </list>
