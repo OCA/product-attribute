@@ -17,6 +17,7 @@
         "views/product_packaging_level_view.xml",
         "views/product_packaging_view.xml",
         "views/stock_package_type_view.xml",
+        "views/product_template.xml",
     ],
     "installable": True,
     "auto_install": False,
