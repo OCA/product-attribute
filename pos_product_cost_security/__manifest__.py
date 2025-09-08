@@ -3,7 +3,7 @@
 {
     "name": "PoS Product Cost Security",
     "summary": "Compatibility between Point of Sale and Product Cost Security",
-    "version": "14.0.1.0.2",
+    "version": "15.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -12,7 +12,10 @@
     "installable": True,
     "auto_install": True,
     "depends": ["product_cost_security", "point_of_sale"],
-    "data": [
-        "views/assets.xml",
-    ],
+    "assets": {
+        "point_of_sale.assets": ["/pos_product_cost_security/static/src/js/models.js"],
+        "web.assets_tests": [
+            "pos_product_cost_security/static/tests/tours/tour_pos_product_cost.js",
+        ],
+    },
 }

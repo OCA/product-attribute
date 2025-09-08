@@ -18,11 +18,14 @@ odoo.define("pos_product_cost_security.models", function (require) {
     product_model.context = function () {
         return extended_context;
     };
+
     models.PosModel = models.PosModel.extend({
         async _loadMissingProducts() {
-            this.session.user_context.pos_override_cost_security = true;
-            const result = pos_super._loadMissingProducts.apply(this, arguments);
-            return result;
+            this.session.user_context = {
+                ...this.session.user_context,
+                pos_override_cost_security: true,
+            };
+            pos_super._loadMissingProducts.apply(this, arguments);
         },
     });
 });
