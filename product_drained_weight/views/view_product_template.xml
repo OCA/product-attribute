@@ -7,12 +7,12 @@
             <xpath expr="//label[@for='weight']" position="before">
                 <label
                     for="drained_weight"
-                    attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"
+                    invisible="product_variant_count > 1 and not is_product_variant"
                 />
                 <div
                     class="o_row"
                     name="drained_weight"
-                    attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"
+                    invisible="product_variant_count > 1 and not is_product_variant"
                 >
                     <field name="drained_weight" />
                     <span>
