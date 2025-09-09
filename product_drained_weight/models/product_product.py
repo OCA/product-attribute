@@ -1,7 +1,7 @@
 # Copyright 2022 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -18,5 +18,7 @@ class ProductProduct(models.Model):
         for product in self:
             if product.net_weight and product.drained_weight > product.net_weight:
                 raise ValidationError(
-                    _("The drained weight of product must be lower than net_weight.")
+                    self.env._(
+                        "The drained weight of product must be lower than net_weight."
+                    )
                 )
