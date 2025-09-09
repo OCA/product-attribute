@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-29 02:55+0000\n"
-"PO-Revision-Date: 2025-08-14 10:25+0000\n"
+"PO-Revision-Date: 2025-09-09 11:48+0000\n"
 "Last-Translator: David Beal <david.beal@akretion.com>\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "Language: fr\n"
@@ -43,7 +43,7 @@ msgstr "Créé le"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__default
 msgid "Default state"
-msgstr ""
+msgstr "Etat par défaut"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
