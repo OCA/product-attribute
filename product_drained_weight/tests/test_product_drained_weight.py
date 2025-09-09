@@ -1,10 +1,14 @@
 # Copyright 2022 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo import Command
 from odoo.exceptions import ValidationError
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductDrainedWeight(TransactionCase):
+class TestProductDrainedWeight(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -25,23 +29,17 @@ class TestProductDrainedWeight(TransactionCase):
         product.write(
             {
                 "attribute_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": self.attribute.id,
                             "value_ids": [
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "attribute_id": self.attribute.id,
                                         "name": "test value 1",
                                     },
                                 ),
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "attribute_id": self.attribute.id,
                                         "name": "test value 2",
