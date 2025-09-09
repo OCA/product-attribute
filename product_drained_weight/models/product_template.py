@@ -30,9 +30,9 @@ class ProductTemplate(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        templates = super(ProductTemplate, self).create(vals_list)
+        templates = super().create(vals_list)
         # This is needed to set given values to first variant after creation
-        for template, vals in zip(templates, vals_list):
+        for template, vals in zip(templates, vals_list, strict=False):
             related_vals = {}
             if vals.get("drained_weight"):
                 related_vals["drained_weight"] = vals["drained_weight"]
