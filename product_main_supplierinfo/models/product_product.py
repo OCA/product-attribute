@@ -11,6 +11,7 @@ class ProductProduct(models.Model):
         comodel_name="product.supplierinfo",
         string="Main Vendor",
         compute="_compute_main_seller_id",
+        search="_search_main_seller_id",
     )
 
     @api.depends(
@@ -28,6 +29,15 @@ class ProductProduct(models.Model):
         for product in self:
             sellers = product._get_sellers()
             product.main_seller_id = fields.first(sellers)
+
+    def _search_main_seller_id(self, operator, value):
+        seller_obj = self.env["product.supplierinfo"]
+        # Search all sellers matching the partner criteria
+        sellers = seller_obj.search([("partner_id", operator, value)])
+        # Get all products having one of these sellers as main seller
+        products = sellers.product_tmpl_id.product_variant_id
+        products = products.filtered(lambda p: p.main_seller_id in sellers)
+        return [("id", "in", products.ids)]
 
     def _get_sellers(self):
         """Returns all available sellers of a product based on some constraints.

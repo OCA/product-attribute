@@ -115,3 +115,12 @@ class TestProductMainSupplierInfo(SavepointCase):
         """Case 4: No valid supplier so select one related to the variant."""
         self.assertEqual(self.product_1.main_seller_id, self.product_1_supply)
         self.assertEqual(self.product_2.main_seller_id, self.product_2_supply)
+
+    def test_main_seller_search(self):
+        """Case 5: Search for products by main seller."""
+        seller_1_products = self.env["product.product"].search(
+            [("main_seller_id", "like", "Wood Corner")]
+        )
+        self.assertIn(
+            seller_1_products.main_seller_id.partner_id, self.seller_1.partner_id
+        )
