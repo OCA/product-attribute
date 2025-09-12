@@ -10,7 +10,7 @@
             <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
                 <separator string="Fixed Price" />
                 <field name="fixed_pricelist_item_ids" nolabel="1">
-                    <tree editable="bottom">
+                    <list editable="bottom">
                         <field name="pricelist_id" />
                         <field
                             name="product_id"
@@ -22,7 +22,7 @@
                         <field name="date_start" />
                         <field name="date_end" />
                         <field name="company_id" invisible="True" />
-                    </tree>
+                    </list>
                 </field>
             </xpath>
         </field>
@@ -32,7 +32,7 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <div name="pricing" position="attributes">
+            <div name="list_price_uom" position="attributes">
                 <attribute
                     name="groups"
                 >!product_form_pricelist.group_no_list_price</attribute>
@@ -49,11 +49,12 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_kanban_view" />
         <field name="arch" type="xml">
-            <div name="product_lst_price" position="attributes">
+            <!-- In Odoo 18.0, we need to find the appropriate element to hide the price -->
+            <xpath expr="//field[@name='list_price']/../.." position="attributes">
                 <attribute
                     name="groups"
                 >!product_form_pricelist.group_no_list_price</attribute>
-            </div>
+            </xpath>
         </field>
     </record>
 
