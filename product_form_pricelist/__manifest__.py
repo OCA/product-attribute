@@ -2,9 +2,9 @@
 # @author Sébastien BEAU <sebastien.beau@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "product_form_pricelist",
+    "name": "Product Form Pricelist",
     "summary": "Show/edit pricelist in product form",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": " Akretion,Odoo Community Association (OCA)",
@@ -25,5 +25,4 @@
         "views/res_config_settings_view.xml",
     ],
     "demo": [],
-    "qweb": [],
 }
