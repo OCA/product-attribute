@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_multi_code
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__id
+msgid "ID"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__name
+#: model:ir.model.fields,field_description:product_multi_code.field_product_product__default_code
+#: model_terms:ir.ui.view,arch_db:product_multi_code.product_search_form_view_multi_default_code
+msgid "Internal Reference"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_product__default_code_ids
+#: model:ir.model.fields,field_description:product_multi_code.field_product_template__default_code_ids
+msgid "Internal References"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model,name:product_multi_code.model_product_default_code
+msgid "Internal reference entry for a product"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model,name:product_multi_code.model_product_template
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__product_id
+msgid "Product"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__product_tmpl_id
+msgid "Product Tmpl"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model,name:product_multi_code.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_multi_code
+#: model:ir.model.fields,help:product_multi_code.field_product_product__default_code
+msgid ""
+"Set to '/' and save if you want a new internal reference to be proposed."
+msgstr ""
