@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_direct_print_website_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-11 08:37+0000\n"
+"Last-Translator: Ömer KÜLAK <omer.kulak@kitayazilim.com>\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model,name:product_pricelist_direct_print_website_sale.model_report_product_pricelist_direct_print_xlsx_report
+msgid "Abstract model to export as xlsx the product pricelist"
+msgstr "Ürün fiyat listesini xlsx olarak dışa aktaracak model"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model.fields,field_description:product_pricelist_direct_print_website_sale.field_product_pricelist_print__is_public_categ
+msgid "Filter/Group by public categories"
+msgstr "Web Kategorileriyle Filitrele/Grupla"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model,name:product_pricelist_direct_print_website_sale.model_product_pricelist_print
+msgid "Product Pricelist Print"
+msgstr "Ürün Fiyat Listesiniz Yazdır"
+
+#. module: product_pricelist_direct_print_website_sale
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_website_sale/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Public Category"
+msgstr "Web Kategorisi"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model.fields,field_description:product_pricelist_direct_print_website_sale.field_product_pricelist_print__show_public_category
+msgid "Show public categories"
+msgstr "Web kategorisi göster"
+
+#. module: product_pricelist_direct_print_website_sale
+#: model:ir.model.fields,field_description:product_pricelist_direct_print_website_sale.field_product_pricelist_print__public_categ_ids
+msgid "Website Product Category"
+msgstr "Web Ürün Kategorileri"
