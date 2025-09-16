@@ -23,16 +23,19 @@ msgstr ""
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
-"                <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or 'customer'\"/>,</p>\n"
+"                <p>Dear <span t-out=\"object.partner_id and object."
+"partner_id.name or 'customer'\"/>,</p>\n"
 "                <p>\n"
 "    The attached file is a PDF document containg the\n"
 "    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
 "    </p>\n"
-"                <p>You can reply to this email if you have any questions.</p>\n"
+"                <p>You can reply to this email if you have any questions.</"
+"p>\n"
 "                <p>Thank you,</p>\n"
 "\n"
 "                <p style=\"color:#888888;\">\n"
-"                    <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"                    <t t-if=\"object.write_uid and object.write_uid."
+"signature\">\n"
 "                        <span t-out=\"object.write_uid.signature or ''\"/>\n"
 "                    </t>\n"
 "                </p>\n"
@@ -444,6 +447,11 @@ msgid "Products"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_user_id
 msgid "Responsible User"
 msgstr ""
@@ -558,6 +566,6 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
-"{{ object.pricelist_id.company_id.name or object.write_uid.company_id.name "
-"}} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
 msgstr ""

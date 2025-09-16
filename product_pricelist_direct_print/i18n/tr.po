@@ -17,24 +17,31 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: product_pricelist_direct_print
+#: model:ir.actions.report,print_report_name:product_pricelist_direct_print.action_report_product_pricelist
+msgid "'Pricelist- %s' % (object.pricelist_id.name or '')"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
-"    <p>Dear <span t-out=\"object.partner_id and object.partner_id.name or "
-"'customer'\"></span>,</p>\n"
-"    <p>\n"
+"                <p>Dear <span t-out=\"object.partner_id and object."
+"partner_id.name or 'customer'\"/>,</p>\n"
+"                <p>\n"
 "    The attached file is a PDF document containg the\n"
-"    <strong t-out=\"object.pricelist_id.name\"></strong> pricelist.\n"
+"    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
 "    </p>\n"
-"    <p>You can reply to this email if you have any questions.</p>\n"
-"    <p>Thank you,</p>\n"
+"                <p>You can reply to this email if you have any questions.</"
+"p>\n"
+"                <p>Thank you,</p>\n"
 "\n"
-"    <p style=\"color:#888888;\">\n"
-"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
-"            <span t-out=\"object.write_uid.signature or ''\"></span>\n"
-"        </t>\n"
-"    </p>\n"
-"</div>\n"
+"                <p style=\"color:#888888;\">\n"
+"                    <t t-if=\"object.write_uid and object.write_uid."
+"signature\">\n"
+"                        <span t-out=\"object.write_uid.signature or ''\"/>\n"
+"                    </t>\n"
+"                </p>\n"
+"            </div>\n"
 "        "
 msgstr ""
 
@@ -82,6 +89,41 @@ msgstr "<strong>Satış Fiyatı</strong>"
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>UoM</strong>"
 msgstr "<strong>Birim</strong>"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.product_pricelist_form_view_inherited
+msgid "Advanced Print"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
@@ -154,14 +196,54 @@ msgid "Filter only the products ordered since this date"
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
 msgid "Group Field"
 msgstr "Alana Göre Grupla"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
 msgstr "ID"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
@@ -190,6 +272,11 @@ msgid "Internal Reference"
 msgstr "İç Referans"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Keep empty for all products"
@@ -204,11 +291,6 @@ msgstr "Dil"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
 msgid "Last Categ Level To Print"
 msgstr ""
-
-#. module: product_pricelist_direct_print
-#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
-msgid "Last Modified on"
-msgstr "Son Değiştirilme"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
@@ -236,9 +318,59 @@ msgid "Max category level"
 msgstr "Max Kategori Seviyesi"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
 msgid "Name"
 msgstr "Adı"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__order_field
@@ -316,13 +448,20 @@ msgid "Product Templates"
 msgstr "Ürün"
 
 #. module: product_pricelist_direct_print
-#. odoo-python
-#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
-#, python-format
 msgid "Products"
 msgstr "Ürünler"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_user_id
+msgid "Responsible User"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
@@ -336,8 +475,8 @@ msgstr "E-Mail ile Gönder"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
-msgid "Send customer pricelist by EMail"
-msgstr "Müşteri fiyat listesini e-mail ile gönder"
+msgid "Send customer pricelist by E-mail"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_standard_price
@@ -360,14 +499,28 @@ msgid "Show Sale Price"
 msgstr "Satış Fiyatını Göster"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_description_sale
+msgid "Show Sales Description"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants
 msgid "Show Variants"
 msgstr "Varyantları Göster"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
-msgid "Show the products defined on pricelist"
-msgstr "Yalnızca Listedekiler"
+msgid "Show only the products defined on pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
@@ -376,9 +529,13 @@ msgid "Summary"
 msgstr "Özet"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #. odoo-python
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
-#, python-format
 msgid "Undefined"
 msgstr "Tanımsız"
 
@@ -398,9 +555,18 @@ msgid "Vat Mode"
 msgstr "Vergi Modu"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #. odoo-python
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
-#, python-format
 msgid "You must set price list or any customer or any show price option."
 msgstr ""
 "Fiyat listesi, müşteri veya fiyatı göster seçeneğinden birini ayarlamanız "
@@ -415,10 +581,17 @@ msgstr ""
 "{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
 "name }} Fiyat Listesi (Referans {{ object.pricelist_id.name or 'n/a' }})"
 
-#. module: product_pricelist_direct_print
-#: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
-msgid "{{ object.pricelist_id.name }}"
-msgstr "{{ object.pricelist_id.name }}"
+#~ msgid "Last Modified on"
+#~ msgstr "Son Değiştirilme"
+
+#~ msgid "Send customer pricelist by EMail"
+#~ msgstr "Müşteri fiyat listesini e-mail ile gönder"
+
+#~ msgid "Show the products defined on pricelist"
+#~ msgstr "Yalnızca Listedekiler"
+
+#~ msgid "{{ object.pricelist_id.name }}"
+#~ msgstr "{{ object.pricelist_id.name }}"
 
 #~ msgid ""
 #~ "<div style=\"margin: 0px; padding: 0px;\">\n"
