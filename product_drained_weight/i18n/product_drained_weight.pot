@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,17 +26,17 @@ msgid "Drained Weight of the product, fluid excluded."
 msgstr ""
 
 #. module: product_drained_weight
-#: model:ir.model,name:product_drained_weight.model_product_product
+#: model:ir.model,name:product_drained_weight.model_product_template
 msgid "Product"
 msgstr ""
 
 #. module: product_drained_weight
-#: model:ir.model,name:product_drained_weight.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:product_drained_weight.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_drained_weight
+#. odoo-python
 #: code:addons/product_drained_weight/models/product_product.py:0
-#, python-format
 msgid "The drained weight of product must be lower than net_weight."
 msgstr ""
