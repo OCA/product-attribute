@@ -9,5 +9,8 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     fixed_pricelist_item_ids = fields.One2many(
-        "product.pricelist.item", "product_tmpl_id", "Fixed Pricelist Items"
+        "product.pricelist.item",
+        "product_tmpl_id",
+        "Fixed Pricelist Items",
+        context={"active_test": False},
     )
