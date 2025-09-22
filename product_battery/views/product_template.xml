@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.battery.form</field>
+        <field name="model">product.template</field>
+        <field name="priority">90</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Battery" name="battery_information">
+                    <field name="battery_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="battery_type" optional="show" />
+                            <field name="battery_chemistry" optional="show" />
+                            <field name="battery_form" optional="show" />
+                            <field
+                                name="battery_weight"
+                                string="Battery Weight (g)"
+                                optional="show"
+                            />
+                            <field
+                                name="battery_capacity"
+                                optional="show"
+                                string="Battery Capacity (mWh)"
+                            />
+                            <field
+                                name="battery_charge_capacity"
+                                string="Battery Charge Capacity (mAh)"
+                                optional="show"
+                            />
+                            <field
+                                name="battery_voltage"
+                                string="Battery Voltage (V)"
+                                optional="hide"
+                            />
+                            <field name="battery_removable" optional="show" />
+                            <field name="battery_manufacture" optional="hide" />
+                            <field name="battery_qty" optional="show" />
+                            <field
+                                name="reference_to_battery_product"
+                                optional="show"
+                            />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
