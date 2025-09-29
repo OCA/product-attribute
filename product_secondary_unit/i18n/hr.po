@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-09-29 08:08+0000\n"
+"Last-Translator: vladimiruvid <vladimir@uvid.hr>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,53 +15,54 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__code
 msgid "Code"
-msgstr ""
+msgstr "Šifra"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,help:product_secondary_unit.field_product_product__secondary_uom_ids
 #: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,help:product_secondary_unit.field_product_template__secondary_uom_ids
 msgid "Default Secondary Unit of Measure."
-msgstr ""
+msgstr "Zadana sekundarna mjerna jedinica."
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__dependency_type
 msgid "Dependency Type"
-msgstr ""
+msgstr "Vrsta ovisnosti"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__dependent
 msgid "Dependent"
-msgstr ""
+msgstr "Ovisno"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__dependency_type
@@ -70,67 +72,71 @@ msgid ""
 "example if you sell serviceby package (1 unit for example) and you want to "
 "put the real time (ex : 4 hours) to allows employee scheduling"
 msgstr ""
+"Ako je vrsta ovisnosti 'ovisna', faktor se koristi za izračun količine u "
+"primarnoj jedinici, inače su primarna i sekundarna jedinica neovisne. Na "
+"primjer, ako prodajete uslugu po paketu (npr. 1 jedinica) i želite postaviti "
+"stvarno vrijeme (npr. 4 sata) kako biste omogućili raspoređivanje zaposlenika"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
 msgid "Independent"
-msgstr ""
+msgstr "Neovisno"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnje ažurirao"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnje ažurirano"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_secondary_unit
 msgid "Product Secondary Unit"
-msgstr ""
+msgstr "Sekundarna jedinica proizvoda"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_secondary_unit_mixin
 msgid "Product Secondary Unit Mixin"
-msgstr ""
+msgstr "Miješana sekundarna jedinica proizvoda"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
-msgstr ""
+msgstr "Predložak proizvoda"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_product
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Varijanta proizvoda"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_id
 msgid "Second unit"
-msgstr ""
+msgstr "Alt. jedinica"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_qty
 msgid "Secondary Qty"
-msgstr ""
+msgstr "Alt. količina"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
 msgid "Secondary Unit Factor"
-msgstr ""
+msgstr "Alt. omjer"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
@@ -138,4 +144,4 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
-msgstr ""
+msgstr "Alt. JM"
