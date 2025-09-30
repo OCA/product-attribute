@@ -5,7 +5,7 @@
     "name": "Product Attribute Archive",
     "summary": """
         Add an active field on product attributes""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Akretion,Odoo Community Association (OCA)",
     "depends": ["product"],

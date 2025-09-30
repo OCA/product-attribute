@@ -7,15 +7,6 @@
         <field name="model">product.attribute</field>
         <field name="inherit_id" ref="product.product_attribute_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='main_fields']" position="before">
-                <field name="active" invisible="1" />
-                <widget
-                    name="web_ribbon"
-                    title="Archived"
-                    bg_color="bg-danger"
-                    invisible="active"
-                />
-            </xpath>
             <field name="html_color" position="after">
                 <field name="active" optional="hide" />
             </field>
@@ -23,7 +14,7 @@
     </record>
 
     <record id="product_attribute_tree_view" model="ir.ui.view">
-        <field name="name">product.attribute.tree</field>
+        <field name="name">product.attribute.list</field>
         <field name="model">product.attribute</field>
         <field name="inherit_id" ref="product.attribute_tree_view" />
         <field name="arch" type="xml">
