@@ -1,0 +1,137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_value_group
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-30 08:59+0000\n"
+"PO-Revision-Date: 2025-09-30 08:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attribute_value_group
+#. odoo-python
+#: code:addons/product_attribute_value_group/models/product_attribute_value_group.py:0
+#, python-format
+msgid "All values in the group must belong to the selected attribute."
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__attribute_id
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_search
+msgid "Attribute"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model,name:product_attribute_value_group.model_product_attribute_value_group
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_form
+msgid "Attribute Value Group"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.actions.act_window,name:product_attribute_value_group.product_attribute_value_group_action
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_tree
+msgid "Attribute Value Groups"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model_terms:ir.actions.act_window,help:product_attribute_value_group.product_attribute_value_group_action
+msgid "Create a new attribute value group"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__name
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_search
+msgid "Group Name"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__id
+msgid "ID"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model,name:product_attribute_value_group.model_product_template_attribute_line
+msgid "Product Template Attribute Line"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_search
+msgid "Search Attribute Value Groups"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,help:product_attribute_value_group.field_product_template_attribute_line__value_group_id
+msgid ""
+"Select a predefined group of values. This will overwrite the current values."
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_template_attribute_line__value_group_id
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_template_form_view_inherit_value_group
+msgid "Value Group"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.ui.menu,name:product_attribute_value_group.menu_product_attribute_value_group
+msgid "Value Groups"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model_terms:ir.actions.act_window,help:product_attribute_value_group.product_attribute_value_group_action
+msgid ""
+"Value groups help you quickly select a predefined list of values when "
+"configuring product variants."
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model:ir.model.fields,field_description:product_attribute_value_group.field_product_attribute_value_group__value_ids
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_form
+msgid "Values"
+msgstr ""
+
+#. module: product_attribute_value_group
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_group.product_attribute_value_group_view_form
+msgid "e.g. EU Men's Sizes"
+msgstr ""
