@@ -6,7 +6,7 @@
     "author": "Galvintec, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "category": "Stock",
-    "depends": ["sale_stock"],
+    "depends": ["stock"],
     "data": [
         "security/ir.model.access.csv",
         "views/product_attribute_value_group_views.xml",

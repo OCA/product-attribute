@@ -30,5 +30,5 @@ class ProductTemplateAttributeLine(models.Model):
             group_value_ids = set(self.value_group_id.value_ids.ids)
             current_value_ids = set(self.value_ids.ids)
             if group_value_ids != current_value_ids:
-                if self.origin.value_group_id:
+                if self.value_group_id:
                     self.value_group_id = False
