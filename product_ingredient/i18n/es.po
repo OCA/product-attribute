@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-09-30 12:42+0000\n"
+"Last-Translator: Carlos Roca Zaragoza <carlos.roca@tecnativa.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__allergen_id
@@ -21,51 +23,51 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_ingredient.field_product_template__allergen_id
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__allergen_id
 msgid "Allergen"
-msgstr ""
+msgstr "Alérgeno"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_product__ingredient_allergen_trace_ids
 #: model:ir.model.fields,field_description:product_ingredient.field_product_template__ingredient_allergen_trace_ids
 msgid "Allergen traces"
-msgstr ""
+msgstr "Trazas alérgenas"
 
 #. module: product_ingredient
 #: model:product.attribute,name:product_ingredient.product_allergen_attribute
 msgid "Allergens"
-msgstr ""
+msgstr "Alérgenos"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_product_attribute_value
 msgid "Attribute Value"
-msgstr ""
+msgstr "Valor del Atributo"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__create_uid
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__create_uid
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__create_date
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__create_date
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__display_name
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__display_name
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__id
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__id
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__ingredient_id
@@ -74,116 +76,116 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__ingredient_id
 #: model:ir.model.fields,field_description:product_ingredient.field_stock_production_lot__ingredient_ids
 msgid "Ingredient"
-msgstr ""
+msgstr "Ingrediente"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_product__ingredient_additional_info
 #: model:ir.model.fields,field_description:product_ingredient.field_product_template__ingredient_additional_info
 #: model:ir.model.fields,field_description:product_ingredient.field_stock_production_lot__ingredient_additional_info
 msgid "Ingredient Additional Info"
-msgstr ""
+msgstr "Información adicional del ingrediente"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_stock_production_lot__ingredient_allergen_trace_ids
 msgid "Ingredient Allergen Trace"
-msgstr ""
+msgstr "Traza alérgena del ingrediente"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_production_lot_ingredient_value
 msgid "Ingredient values for a product lots."
-msgstr ""
+msgstr "Valores de los ingredientes de un lote de producto."
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_product_ingredient_value
 msgid "Ingredient values for a product."
-msgstr ""
+msgstr "Valores de los ingredientes de un producto."
 
 #. module: product_ingredient
 #: model_terms:ir.ui.view,arch_db:product_ingredient.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_ingredient.product_template_only_form_view
 #: model_terms:ir.ui.view,arch_db:product_ingredient.view_production_lot_form
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredientes"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_product_ingredient
 msgid "Ingredients of a product."
-msgstr ""
+msgstr "Ingredientes para un producto."
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__is_allergen
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__is_allergen
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__is_allergen
 msgid "Is Allergen"
-msgstr ""
+msgstr "Es alérgeno"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient____last_update
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value____last_update
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación el"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__write_uid
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__write_uid
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__write_date
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__write_date
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__lot_id
 msgid "Lot"
-msgstr ""
+msgstr "Lote"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_stock_production_lot
 msgid "Lot/Serial"
-msgstr ""
+msgstr "Lote/Número de serie"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__percentage
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__percentage
 msgid "Percentage"
-msgstr ""
+msgstr "Porcentaje"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_product_product
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__product_id
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Atributo de producto"
 
 #. module: product_ingredient
 #: model:ir.model,name:product_ingredient.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de producto"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient__scientific_name
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__scientific_name
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__scientific_name
 msgid "Scientific Name"
-msgstr ""
+msgstr "Nombre científico"
 
 #. module: product_ingredient
 #: model:ir.model.fields,field_description:product_ingredient.field_product_ingredient_value__sequence
 #: model:ir.model.fields,field_description:product_ingredient.field_production_lot_ingredient_value__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Secuencia"
