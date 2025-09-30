@@ -46,6 +46,9 @@ class TestProductAttributeValueAutoFillOption(TransactionCase):
         # But when avoid_fill_all_values is selected, ValidationError
         # should be raised when trying to save without selecting
         # any value. If it is selected, the values should be set
+        self.env.user.write(
+            {"group_ids": [(4, self.env.ref("product.group_product_variant").id)]}
+        )
         with self.assertRaises(ValidationError):
             product_form = Form(self.product)
             with product_form.attribute_line_ids.new() as ptal_form:
