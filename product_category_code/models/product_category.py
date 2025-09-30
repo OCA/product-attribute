@@ -1,7 +1,7 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import fields, models
 
 
 class ProductCategory(models.Model):
@@ -12,8 +12,7 @@ class ProductCategory(models.Model):
         index=True,
     )
 
-    @api.returns("self", lambda value: value.id)
     def copy(self, default=None):
         default = default or {}
-        default.setdefault("code", self.code + _("-copy"))
+        default.setdefault("code", self.code + self.env._("-copy"))
         return super().copy(default)
