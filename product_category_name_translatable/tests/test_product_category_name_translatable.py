@@ -11,9 +11,9 @@ class TestProductCategoryNameTranslatable(BaseCommon):
         super().setUpClass()
         categ_obj = cls.env["product.category"]
         cls.parent_categ = categ_obj.create({"name": "Test Category"})
-        lang_es = cls.env.ref("base.lang_es")
+        lang_es = cls.quick_ref("base.lang_es")
         if not lang_es.active:
-            lang_es.toggle_active()
+            lang_es.action_unarchive()
 
     def test_product_category_name_translatable(self):
         # Update translated name

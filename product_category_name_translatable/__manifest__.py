@@ -3,7 +3,7 @@
 
 {
     "name": "Product Category Name Translatable",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "summary": "Translate Product Category Names",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
