@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_delete
+access_product_attribute_value_set_user,product.attribute.value.set user,model_product_attribute_value_set,base.group_user,1,1,1,1
