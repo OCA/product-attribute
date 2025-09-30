@@ -3,7 +3,7 @@
 
 {
     "name": "Product Category Tag",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Add tags to product categories",
     "website": "https://github.com/OCA/product-attribute",
     "author": "APSL-Nagarro, Odoo Community Association (OCA)",

@@ -17,6 +17,7 @@ class ProductCategoryTag(models.Model):
 
     color = fields.Integer(default=lambda self: self._get_default_color())
 
-    _sql_constraints = [
-        ("category_tag_name_uniq", "unique (name)", "Tag name already exists!"),
-    ]
+    _category_tag_name_uniq = models.Constraint(
+        "unique (name)",
+        "Tag name already exists!",
+    )
