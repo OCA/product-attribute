@@ -39,7 +39,7 @@ class TestProductSupplierinfoStockPickingType(BaseCommon):
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Test product",
-                "type": "product",
+                "is_storable": True,
                 "seller_ids": [
                     (
                         0,
@@ -102,5 +102,22 @@ class TestProductSupplierinfoStockPickingType(BaseCommon):
         po = self._create_purchase_order(self.picking_in_c)
         self.assertEqual(po.order_line.price_unit, 20)
         po.picking_type_id = self.picking_in_a
-        po.onchange_picking_type_id()
+        po._onchange_picking_type_id()
         self.assertEqual(po.order_line.price_unit, 5)
+
+    @users("test_purchase_user")
+    def test_product_form_purchase_tab_picking_type(self):
+        """The picking type can be selected in the Purchase tab of the product."""
+        template = self.product.product_tmpl_id
+        sellers = template.seller_ids
+        with Form(template) as form:
+            with form.seller_ids.new() as seller_form:
+                seller_form.partner_id = self.supplier
+                seller_form.price = 7
+                seller_form.picking_type_id = self.picking_in_b
+        new_seller = template.seller_ids - sellers
+        self.assertEqual(new_seller.picking_type_id, self.picking_in_b)
+        with Form(template) as form:
+            with form.seller_ids.edit(0) as seller_form:
+                seller_form.picking_type_id = self.picking_in_c
+        self.assertIn(self.picking_in_c, template.seller_ids.picking_type_id)
