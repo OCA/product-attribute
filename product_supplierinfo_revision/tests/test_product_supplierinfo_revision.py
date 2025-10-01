@@ -6,18 +6,30 @@ from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
-from odoo.tests import common, tagged
+from odoo.tests import tagged
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @tagged("post_install", "-at_install")
-class TestProductSupplierinfoRevision(common.TransactionCase):
+class TestProductSupplierinfoRevision(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.vendor = cls.env["res.partner"].create({"name": "Suplier test"})
         cls.today = datetime.today()
+        cls.product_template = cls.env["product.template"].create(
+            {
+                "name": "Test Product",
+                "standard_price": 50.0,
+            }
+        )
         cls.supplierinfo = cls.env["product.supplierinfo"].create(
-            {"partner_id": cls.vendor.id, "price": 100.0}
+            {
+                "partner_id": cls.vendor.id,
+                "price": 100.0,
+                "product_tmpl_id": cls.product_template.id,
+            }
         )
 
     def test_product_supplierinfo_revision(self):

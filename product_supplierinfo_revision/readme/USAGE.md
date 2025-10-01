@@ -1,7 +1,6 @@
 To use this module:
 
-1.  If you are a purchase manager, and you have checked "Advanced
-    Pricelists" in the technical settings of your user, go to *Purchases
+1.  If you are a purchase manager, go to *Purchases
     \> Configuration \> Vendor Pricelists* and select one or more
     supplier pricelist.
 2.  Click on Action button and execute the wizard **Duplicate Supplier
