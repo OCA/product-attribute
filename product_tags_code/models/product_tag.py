@@ -14,13 +14,10 @@ class ProductTag(models.Model):
         store=True,
     )
 
-    _sql_constraints = [
-        (
-            "code_uniq",
-            "unique(code)",
-            "Product template tag code already exists",
-        )
-    ]
+    _code_uniq = models.Constraint(
+        "unique (code)",
+        "Product template tag code already exists",
+    )
 
     @api.depends("name", "code")
     def _compute_code(self):

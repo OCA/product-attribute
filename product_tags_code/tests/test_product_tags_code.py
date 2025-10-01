@@ -1,6 +1,8 @@
 # Copyright 2020 Camptocamp
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import Command
+
 from odoo.addons.base.tests.common import BaseCommon
 
 
@@ -14,7 +16,7 @@ class TestProductTagsCode(BaseCommon):
         product_tag = self.env["product.tag"].create(
             {
                 "name": "Test Tag",
-                "product_template_ids": [(6, 0, [self.product_tmpl.id])],
+                "product_template_ids": [Command.set([self.product_tmpl.id])],
             }
         )
         self.assertEqual(product_tag.code, "test-tag")
@@ -24,7 +26,7 @@ class TestProductTagsCode(BaseCommon):
             {
                 "name": "Test Tag",
                 "code": "foo tag !!",
-                "product_template_ids": [(6, 0, [self.product_tmpl.id])],
+                "product_template_ids": [Command.set([self.product_tmpl.id])],
             }
         )
         self.assertEqual(product_tag.code, "foo-tag")
@@ -39,7 +41,7 @@ class TestProductTagsCode(BaseCommon):
             prods_data.append(
                 {
                     "name": f"YO{x}",
-                    "product_template_ids": [(6, 0, [self.product_tmpl.id])],
+                    "product_template_ids": [Command.set([self.product_tmpl.id])],
                 }
             )
         prods = self.env["product.tag"].create(prods_data)

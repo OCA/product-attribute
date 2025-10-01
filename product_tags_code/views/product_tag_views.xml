@@ -6,7 +6,7 @@
         <field name="model">product.tag</field>
         <field name="inherit_id" ref="product.product_tag_form_view" />
         <field name="arch" type="xml">
-            <field name="name" position="after">
+            <field name="visible_to_customers" position="before">
                 <field name="code" />
             </field>
         </field>

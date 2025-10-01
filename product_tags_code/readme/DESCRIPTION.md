@@ -1,1 +1,1 @@
-Allows to reference tag records trough a unique code.
+Allows to reference tag records through a unique code.
