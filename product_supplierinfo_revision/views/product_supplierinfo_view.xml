@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
         <field name="arch" type="xml">
             <field name="price" position="after">
-                <field name="variation_percent" />
+                <field name="variation_percent" optional="show" />
             </field>
         </field>
     </record>
