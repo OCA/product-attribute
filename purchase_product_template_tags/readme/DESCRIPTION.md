@@ -1,1 +1,1 @@
-Shows the Product Tags menu in Inventory app
+Shows the Product Tags menu in Purchase app
