@@ -102,5 +102,5 @@ class TestProductSupplierinfoStockPickingType(BaseCommon):
         po = self._create_purchase_order(self.picking_in_c)
         self.assertEqual(po.order_line.price_unit, 20)
         po.picking_type_id = self.picking_in_a
-        po.onchange_picking_type_id()
+        po._onchange_picking_type_id()
         self.assertEqual(po.order_line.price_unit, 5)

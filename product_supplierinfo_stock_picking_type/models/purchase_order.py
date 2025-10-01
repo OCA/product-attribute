@@ -7,6 +7,6 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     @api.onchange("picking_type_id")
-    def onchange_picking_type_id(self):
+    def _onchange_picking_type_id(self):
         for line in self.order_line:
             line.onchange_product_id()
