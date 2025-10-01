@@ -13,7 +13,10 @@ class ProductTemplate(models.Model):
     dimensional_uom_id = fields.Many2one(
         "uom.uom",
         "Dimensional UoM",
-        related="product_variant_ids.dimensional_uom_id",
+        default=lambda self: self.env.ref("uom.product_uom_meter"),
+        compute="_compute_dimensional_uom_id",
+        inverse="_inverse_dimensional_uom_id",
+        store=True,
         help="UoM for length, height, width",
         readonly=False,
     )
@@ -42,6 +45,13 @@ class ProductTemplate(models.Model):
             volume = length_m * height_m * width_m
 
         return volume
+
+    @api.depends("product_variant_ids.dimensional_uom_id")
+    def _compute_dimensional_uom_id(self):
+        self._compute_template_field_from_variant_field("dimensional_uom_id")
+
+    def _inverse_dimensional_uom_id(self):
+        self._set_product_variant_field("dimensional_uom_id")
 
     @api.depends(
         "product_length", "product_height", "product_width", "dimensional_uom_id"
@@ -77,4 +87,6 @@ class ProductTemplate(models.Model):
             res.update({"product_height": self.product_height})
         if self.product_width:
             res.update({"product_width": self.product_width})
+        if self.dimensional_uom_id:
+            res.update({"dimensional_uom_id": self.dimensional_uom_id.id})
         return res
