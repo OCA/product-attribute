@@ -13,6 +13,9 @@ class ProductPricelistItemDuplicateWizard(models.TransientModel):
     date_start = fields.Datetime(required=True)
     date_end = fields.Datetime()
     variation_percent = fields.Float(digits="Product Price", string="Variation %")
+    rounding_digits = fields.Integer(
+        default=lambda self: self.env.ref("product.decimal_price").digits
+    )
 
     def action_apply(self):
         PricelistItem = self.env["product.pricelist.item"]
@@ -23,8 +26,10 @@ class ProductPricelistItemDuplicateWizard(models.TransientModel):
                     "date_start": self.date_start,
                     "date_end": self.date_end,
                     "previous_item_id": item.id,
-                    "fixed_price": item.fixed_price
-                    * (1.0 + self.variation_percent / 100.0),
+                    "fixed_price": round(
+                        item.fixed_price * (1.0 + self.variation_percent / 100.0),
+                        self.rounding_digits,
+                    ),
                 }
             )
             item.date_end = self.date_start - relativedelta(seconds=1)
