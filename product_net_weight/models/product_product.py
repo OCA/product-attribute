@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.tools import float_compare, float_is_zero
 
@@ -33,6 +33,9 @@ class ProductProduct(models.Model):
                 > 0
             ):
                 raise ValidationError(
-                    _("The net weight of product '%s' must be lower than gross weight.")
-                    % product.display_name
+                    self.env._(
+                        "The net weight of product '%s' must be lower than "
+                        "gross weight.",
+                        product.display_name,
+                    )
                 )
