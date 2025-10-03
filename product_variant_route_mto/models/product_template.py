@@ -2,7 +2,7 @@
 # Copyright 2025 Jacques-Etienne Baudoux (BCIM) <je@bcim.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from odoo import api, models
+from odoo import _, api, models
 
 
 class ProductTemplate(models.Model):
@@ -51,8 +51,8 @@ class ProductTemplate(models.Model):
             # Return warning activating MTO route
             return {
                 "warning": {
-                    "title": self.env._("Warning"),
-                    "message": self.env._(
+                    "title": _("Warning"),
+                    "message": _(
                         "Activating MTO route will reset `Variant is MTO` "
                         "setting on the variants."
                     ),
@@ -64,8 +64,8 @@ class ProductTemplate(models.Model):
             # Return warning deactivating MTO route
             return {
                 "warning": {
-                    "title": self.env._("Warning"),
-                    "message": self.env._(
+                    "title": _("Warning"),
+                    "message": _(
                         "Deactivating MTO route will reset `Variant is MTO` "
                         "setting on the variants."
                     ),

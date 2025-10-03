@@ -111,3 +111,12 @@ class TestMTOVariant(TestMTOVariantCommon):
             _logger.info("No warning raised")
         self.assertVariantsMTO(black_pen)
         self.assertVariantsNotMTO(blue_pen | green_pen | red_pen)
+
+    def test_search_route_ids(self):
+        route = self.env["stock.route"].search([("is_mto", "=", False)], limit=1)
+        search = self.env["product.product"]._search_route_ids("=", route)
+        self.assertIn("product_tmpl_id.route_ids", search[0][0])
+
+    def test_search_route_ids_mtp(self):
+        search = self.env["product.product"]._search_route_ids("=", self.mto_route)
+        self.assertIn("is_mto", search[0][0])

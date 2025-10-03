@@ -2,7 +2,7 @@
 # Copyright 2025 Jacques-Etienne Baudoux (BCIM) <je@bcim.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 IS_MTO_HELP = """
@@ -64,7 +64,5 @@ class ProductProduct(models.Model):
         for product in self:
             if not product.is_mto and product.product_tmpl_id.is_mto:
                 raise ValidationError(
-                    self.env._(
-                        "You cannot mark a variant as non MTO when the product is MTO"
-                    )
+                    _("You cannot mark a variant as non MTO when the product is MTO")
                 )
