@@ -2,7 +2,7 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class Uom(models.Model):
@@ -19,7 +19,7 @@ class Uom(models.Model):
         return list(set(super()._rec_names_search or [] + ["alias_ids.code"]))
 
     @api.model
-    def search(self, domain, *args, **kwargs):
+    def search_fetch(self, domain, *args, **kwargs):
         for dom in list(filter(lambda x: x[0] == "name", domain)):
-            domain = expression.OR([domain, [("alias_ids.code", dom[1], dom[2])]])
-        return super().search(domain, *args, **kwargs)
+            domain = Domain(domain) | Domain("alias_ids.code", dom[1], dom[2])
+        return super().search_fetch(domain, *args, **kwargs)
