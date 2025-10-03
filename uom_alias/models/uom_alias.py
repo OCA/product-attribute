@@ -13,10 +13,7 @@ class UomAlias(models.Model):
 
     uom_id = fields.Many2one(comodel_name="uom.uom")
 
-    _sql_constraints = [
-        (
-            "uom_alias_unique",
-            "UNIQUE(code)",
-            "You cannot repeat the alias name",
-        )
-    ]
+    _uom_alias_unique = models.Constraint(
+        "unique(code)",
+        "You cannot repeat the alias name",
+    )

@@ -5,7 +5,7 @@
         <field name="model">uom.uom</field>
         <field name="inherit_id" ref="uom.product_uom_tree_view" />
         <field name="arch" type="xml">
-            <field name="uom_type" position="after">
+            <field name="name" position="after">
                 <field
                     name="alias_ids"
                     widget="many2many_tags"
@@ -20,14 +20,16 @@
         <field name="model">uom.uom</field>
         <field name="inherit_id" ref="uom.product_uom_form_view" />
         <field name="arch" type="xml">
-            <field name="rounding" position="after">
-                <field
-                    name="alias_ids"
-                    widget="many2many_tags"
-                    context="{'default_uom_id': id}"
-                    domain="['|', ('uom_id', '=', id), ('uom_id', '=', False)]"
-                />
-            </field>
+            <xpath expr="//group[@name='uom_details']" position="after">
+                <group>
+                    <field
+                        name="alias_ids"
+                        widget="many2many_tags"
+                        context="{'default_uom_id': id}"
+                        domain="['|', ('uom_id', '=', id), ('uom_id', '=', False)]"
+                    />
+                </group>
+            </xpath>
         </field>
     </record>
 </odoo>
