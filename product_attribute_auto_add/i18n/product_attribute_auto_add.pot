@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_auto_add
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attribute_auto_add
+#: model:ir.model,name:product_attribute_auto_add.model_product_attribute_value
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product_attribute_auto_add
+#: model:ir.model.fields,field_description:product_attribute_auto_add.field_product_attribute__attribute_line_auto_add
+msgid "Auto-Add Value to Product Templates"
+msgstr ""
+
+#. module: product_attribute_auto_add
+#: model:ir.model.fields,field_description:product_attribute_auto_add.field_product_product__disable_attribute_autoupdate
+#: model:ir.model.fields,field_description:product_attribute_auto_add.field_product_template__disable_attribute_autoupdate
+msgid "Disable Attribute Autoupdate"
+msgstr ""
+
+#. module: product_attribute_auto_add
+#: model:ir.model.fields,help:product_attribute_auto_add.field_product_product__disable_attribute_autoupdate
+#: model:ir.model.fields,help:product_attribute_auto_add.field_product_template__disable_attribute_autoupdate
+msgid "Exclude this product from automatic addition of new attribute values."
+msgstr ""
+
+#. module: product_attribute_auto_add
+#: model:ir.model,name:product_attribute_auto_add.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_attribute_auto_add
+#: model:ir.model,name:product_attribute_auto_add.model_product_attribute
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_attribute_auto_add
+#: model:ir.model.fields,help:product_attribute_auto_add.field_product_attribute__attribute_line_auto_add
+msgid ""
+"When enabled new attribute values will be automatically added to attribute "
+"line in all products templates that have this attribute."
+msgstr ""
