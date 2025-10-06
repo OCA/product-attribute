@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_route_mto
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-12-29 17:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_route_mto
+#: model:ir.model.fields,field_description:product_route_mto.field_product_product__is_mto
+#: model:ir.model.fields,field_description:product_route_mto.field_product_template__is_mto
+msgid "Is Mto"
+msgstr "Es el Mto"
+
+#. module: product_route_mto
+#: model_terms:ir.ui.view,arch_db:product_route_mto.product_template_search_view
+msgid "Is not MTO"
+msgstr "No es MTO"
+
+#. module: product_route_mto
+#: model_terms:ir.ui.view,arch_db:product_route_mto.product_template_search_view
+msgid "MTO"
+msgstr "MTO"
+
+#. module: product_route_mto
+#: model:ir.model,name:product_route_mto.model_product_template
+msgid "Product"
+msgstr "Producto"
