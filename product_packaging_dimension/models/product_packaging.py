@@ -1,4 +1,5 @@
 # Copyright 2019-2021 Camptocamp SA
+# Copyright 2024 Raumschmiede GmbH
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 from odoo import api, fields, models
 
@@ -65,8 +66,8 @@ class ProductPackaging(models.Model):
         "Volume",
         digits=(8, 4),
         compute="_compute_volume",
-        readonly=True,
-        store=False,
+        readonly=False,
+        store=True,
         help="The Packaging volume",
     )
 
