@@ -110,16 +110,14 @@ msgid "Customer of this product"
 msgstr "Client d’aquest producte"
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
+msgid "Customer specific unit of measure."
+msgstr ""
+
+#. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
 msgid "Customers"
 msgstr "Clients"
-
-#. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
-msgid ""
-"Default unit of measure used for purchase orders. It must be in the same "
-"category as the default unit of measure."
-msgstr ""
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__delay
@@ -148,8 +146,8 @@ msgstr "Data final"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
-msgid "End date for this vendor price"
-msgstr "Data de finalització d’aquest preu de venda"
+msgid "End date for this customer price"
+msgstr ""
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
@@ -223,6 +221,11 @@ msgid "Price List"
 msgstr "Llista de preu"
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
+msgid "Price at which the product is sold to this customer."
+msgstr ""
+
+#. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Regla de tarifa"
@@ -268,8 +271,8 @@ msgstr "Data d'inici"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
-msgid "Start date for this vendor price"
-msgstr "Data d'inici d'aquest preu de venda"
+msgid "Start date for this customer price"
+msgstr ""
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_supplierinfo
@@ -277,20 +280,12 @@ msgid "Supplier Pricelist"
 msgstr "Llista de preus del proveïdor"
 
 #. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
-msgid "The price to purchase a product"
-msgstr "El preu per comprar un producte"
-
-#. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
 msgid ""
-"The quantity to purchase from this vendor to benefit from the price, "
-"expressed in the vendor Product Unit of Measure if not any, in the default "
-"unit of measure of the product otherwise."
+"The minimum quantity to purchase for this customer to benefit from the "
+"price. Expressed in the customer's Product Unit of Measure if set, otherwise "
+"in the default Product Unit of Measure."
 msgstr ""
-"La quantitat que s'ha de comprar a aquest proveïdor per beneficiar-se del "
-"preu, expressada en la unitat de mesura del producte del proveïdor, si no, a "
-"la unitat de mesura per defecte del producte."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_code
@@ -335,6 +330,24 @@ msgstr "Client variant"
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 msgid "to"
 msgstr "a"
+
+#~ msgid "End date for this vendor price"
+#~ msgstr "Data de finalització d’aquest preu de venda"
+
+#~ msgid "Start date for this vendor price"
+#~ msgstr "Data d'inici d'aquest preu de venda"
+
+#~ msgid "The price to purchase a product"
+#~ msgstr "El preu per comprar un producte"
+
+#~ msgid ""
+#~ "The quantity to purchase from this vendor to benefit from the price, "
+#~ "expressed in the vendor Product Unit of Measure if not any, in the "
+#~ "default unit of measure of the product otherwise."
+#~ msgstr ""
+#~ "La quantitat que s'ha de comprar a aquest proveïdor per beneficiar-se del "
+#~ "preu, expressada en la unitat de mesura del producte del proveïdor, si "
+#~ "no, a la unitat de mesura per defecte del producte."
 
 #~ msgid "Customer Information"
 #~ msgstr "Informació de client"
