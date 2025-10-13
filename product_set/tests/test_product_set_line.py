@@ -10,9 +10,13 @@ class TestProductSetLine(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.line = cls.env.ref("product_set.product_set_line_computer_3")
-        cls.packaging = cls.env["product.packaging"].create(
-            {"name": "Box", "product_id": cls.line.product_id.id, "qty": 10}
+        cls.packaging = cls.env["uom.uom"].create(
+            {"name": "Box", "relative_factor": 10}
         )
+        # Link the packaging UoM to the product template
+        cls.line.product_id.product_tmpl_id.write({
+            "uom_ids": [(4, cls.packaging.id)]
+        })
 
     def test_with_packaging(self):
         line = self.line
@@ -39,18 +43,19 @@ class TestProductSetLine(TransactionCase):
 
         # set packaging qty and check product.set.line quantity is correctly updated
         line.product_packaging_qty = 2
-        self.assertEqual(self.packaging.qty, 10)
+        self.assertEqual(self.packaging.factor, 10)
         # qty on line is 20: 2 packages of 10 units each
         self.assertEqual(line.quantity, 20)
 
         # change qty on packaging
         # and check product.set.line quantity is correctly updated
-        self.packaging.qty = 5
+        self.packaging.write({
+            "relative_factor": 5.0
+        })
         self.line.product_packaging_qty = 2
 
-        self.assertEqual(self.packaging.qty, 5)
-        self.assertEqual(line.product_id.packaging_ids.qty, 5)
-        self.assertEqual(line.product_id.product_tmpl_id.packaging_ids.qty, 5)
+        self.assertEqual(self.packaging.factor, 5)
+        self.assertIn(self.packaging, line.product_id.product_tmpl_id.uom_ids)
 
         # qty on line is 10: 2 packages of 5 units each
         self.assertEqual(line.quantity, 10)
