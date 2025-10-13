@@ -32,9 +32,19 @@ Product Supplierinfo for Customers
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to use supplier info structure, available in
-*Purchase* tab of the product form, also for defining customer
-information, allowing to define prices per customer and product.
+This module allows you to define a customer-specific product data
+structure (patterned after the standard supplier/vendor info) on the
+product form.
+
+This structure enables defining customized information for each customer
+and product, including:
+
+::
+
+   - Custom Price (Price-list price)
+   - Customer Product Name
+   - Customer Product Code
+   - Minimum Order Quantity (MOQ)
 
 **Table of contents**
 
@@ -62,9 +72,10 @@ from the supplierinfo at the product form.
 Known issues / Roadmap
 ======================
 
-- Product prices through this method are only guaranteed on the standard
-  sale order workflow. Other custom flows maybe don't reflect the price.
-- The minimum quantity will neither apply on sale orders.
+-  Product prices through this method are only guaranteed on the
+   standard sale order workflow. Other custom flows maybe don't reflect
+   the price.
+-  The minimum quantity will neither apply on sale orders.
 
 Bug Tracker
 ===========
@@ -88,18 +99,18 @@ Authors
 Contributors
 ------------
 
-- Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
-- Aaron Henriquez <ahenriquez@forgeflow.com>
-- Miquel Raïch <miquel.raich@forgeflow.com>
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
+-  Aaron Henriquez <ahenriquez@forgeflow.com>
+-  Miquel Raïch <miquel.raich@forgeflow.com>
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pedro M. Baeza
-  - Sergio Teruel
-  - Carlos Lopez
+   -  Pedro M. Baeza
+   -  Sergio Teruel
+   -  Carlos Lopez
 
-- `Komit <https://komit-consulting.com>`__:
+-  `Komit <https://komit-consulting.com>`__:
 
-  - Vang Nguyen Phu
+   -  Vang Nguyen Phu
 
 Maintainers
 -----------
