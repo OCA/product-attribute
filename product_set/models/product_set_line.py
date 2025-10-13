@@ -41,7 +41,10 @@ class ProductSetLine(models.Model):
     )
     name = fields.Char()
     product_packaging_id = fields.Many2one(
-        "product.packaging", domain="[('product_id', '=', product_id)]"
+        "uom.uom",
+        domain="[('id', 'in', product_id.product_tmpl_id.uom_ids)]",
+        string="Product Packaging",
+        help="Select one of the packaging units defined on the product template.",
     )
     product_packaging_qty = fields.Float(
         compute="_compute_product_packaging_qty",
@@ -60,8 +63,8 @@ class ProductSetLine(models.Model):
     @api.depends(
         "quantity",
         "product_packaging_id",
-        "product_packaging_id.qty",
-        "product_id.packaging_ids",
+        "product_packaging_id.factor",
+        "product_id.product_tmpl_id.uom_ids",
     )
     def _compute_product_packaging_qty(self):
         for line in self:
@@ -71,7 +74,9 @@ class ProductSetLine(models.Model):
             ):
                 line.product_packaging_qty = 0
                 continue
-            line.product_packaging_qty = line.quantity / line.product_packaging_id.qty
+            line.product_packaging_qty = (
+                line.quantity / line.product_packaging_id.factor
+            )
             line.update(line._prepare_product_packaging_qty_values())
 
     def _inverse_product_packaging_qty(self):
@@ -89,5 +94,5 @@ class ProductSetLine(models.Model):
     def _prepare_product_packaging_qty_values(self):
         self.ensure_one()
         return {
-            "quantity": self.product_packaging_id.qty * self.product_packaging_qty,
+            "quantity": self.product_packaging_id.factor * self.product_packaging_qty,
         }
