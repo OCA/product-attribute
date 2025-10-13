@@ -115,18 +115,14 @@ msgid "Customer of this product"
 msgstr "Klant van dit product"
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
+msgid "Customer specific unit of measure."
+msgstr ""
+
+#. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
 msgid "Customers"
 msgstr "Klanten"
-
-#. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
-msgid ""
-"Default unit of measure used for purchase orders. It must be in the same "
-"category as the default unit of measure."
-msgstr ""
-"Standaard meeteenheid die gebruikt wordt voor aankooporders. Deze moet in "
-"dezelfde categorie vallen als de standaard meeteenheid."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__delay
@@ -155,8 +151,8 @@ msgstr "Einddatum"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
-msgid "End date for this vendor price"
-msgstr "Einddatum voor deze leveranciersprijs"
+msgid "End date for this customer price"
+msgstr ""
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
@@ -230,6 +226,11 @@ msgid "Price List"
 msgstr "Prijslijst"
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
+msgid "Price at which the product is sold to this customer."
+msgstr ""
+
+#. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Prijslijstregel"
@@ -275,8 +276,8 @@ msgstr "Startdatum"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
-msgid "Start date for this vendor price"
-msgstr "Startdatum voor deze leveranciersprijs"
+msgid "Start date for this customer price"
+msgstr ""
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_supplierinfo
@@ -284,20 +285,12 @@ msgid "Supplier Pricelist"
 msgstr "Leveranciersprijslijst"
 
 #. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
-msgid "The price to purchase a product"
-msgstr "De prijs om een product aan te schaffen"
-
-#. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
 msgid ""
-"The quantity to purchase from this vendor to benefit from the price, "
-"expressed in the vendor Product Unit of Measure if not any, in the default "
-"unit of measure of the product otherwise."
+"The minimum quantity to purchase for this customer to benefit from the "
+"price. Expressed in the customer's Product Unit of Measure if set, otherwise "
+"in the default Product Unit of Measure."
 msgstr ""
-"De hoeveelheid om van deze leverancier te kopen om van de prijs te "
-"profiteren, uitgedrukt in de meeteenheid van het product van de leverancier, "
-"of anders in de standaard meeteenheid van het product."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_code
@@ -342,3 +335,28 @@ msgstr "Variant Klant"
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 msgid "to"
 msgstr "tot"
+
+#~ msgid ""
+#~ "Default unit of measure used for purchase orders. It must be in the same "
+#~ "category as the default unit of measure."
+#~ msgstr ""
+#~ "Standaard meeteenheid die gebruikt wordt voor aankooporders. Deze moet in "
+#~ "dezelfde categorie vallen als de standaard meeteenheid."
+
+#~ msgid "End date for this vendor price"
+#~ msgstr "Einddatum voor deze leveranciersprijs"
+
+#~ msgid "Start date for this vendor price"
+#~ msgstr "Startdatum voor deze leveranciersprijs"
+
+#~ msgid "The price to purchase a product"
+#~ msgstr "De prijs om een product aan te schaffen"
+
+#~ msgid ""
+#~ "The quantity to purchase from this vendor to benefit from the price, "
+#~ "expressed in the vendor Product Unit of Measure if not any, in the "
+#~ "default unit of measure of the product otherwise."
+#~ msgstr ""
+#~ "De hoeveelheid om van deze leverancier te kopen om van de prijs te "
+#~ "profiteren, uitgedrukt in de meeteenheid van het product van de "
+#~ "leverancier, of anders in de standaard meeteenheid van het product."

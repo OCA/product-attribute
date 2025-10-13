@@ -110,18 +110,14 @@ msgid "Customer of this product"
 msgstr "Cliente deste Produto"
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
+msgid "Customer specific unit of measure."
+msgstr ""
+
+#. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
 msgid "Customers"
 msgstr "Clientes"
-
-#. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
-msgid ""
-"Default unit of measure used for purchase orders. It must be in the same "
-"category as the default unit of measure."
-msgstr ""
-"Unidade de medida padrão usada para ordens de compra. Ele deve estar na "
-"mesma categoria que a unidade de medida padrão."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__delay
@@ -150,8 +146,8 @@ msgstr "Data Final"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
-msgid "End date for this vendor price"
-msgstr "Data final para preço do fornecedor"
+msgid "End date for this customer price"
+msgstr ""
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
@@ -225,6 +221,11 @@ msgid "Price List"
 msgstr "Lista de Preços"
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
+msgid "Price at which the product is sold to this customer."
+msgstr ""
+
+#. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Regra Lista de Preços"
@@ -270,8 +271,8 @@ msgstr "Data Inicio"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
-msgid "Start date for this vendor price"
-msgstr "Data de início para este preço de fornecedor"
+msgid "Start date for this customer price"
+msgstr ""
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_supplierinfo
@@ -279,20 +280,12 @@ msgid "Supplier Pricelist"
 msgstr "Lista Preço Fornecedor"
 
 #. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
-msgid "The price to purchase a product"
-msgstr "O preço para comprar um produto"
-
-#. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
 msgid ""
-"The quantity to purchase from this vendor to benefit from the price, "
-"expressed in the vendor Product Unit of Measure if not any, in the default "
-"unit of measure of the product otherwise."
+"The minimum quantity to purchase for this customer to benefit from the "
+"price. Expressed in the customer's Product Unit of Measure if set, otherwise "
+"in the default Product Unit of Measure."
 msgstr ""
-"A quantidade a comprar deste fornecedor para se beneficiar do preço, "
-"expressa na unidade de medida do produto do fornecedor, se não houver, na "
-"unidade de medida padrão do produto, caso contrário."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_code
@@ -337,6 +330,31 @@ msgstr "Variação Cliente"
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 msgid "to"
 msgstr "para"
+
+#~ msgid ""
+#~ "Default unit of measure used for purchase orders. It must be in the same "
+#~ "category as the default unit of measure."
+#~ msgstr ""
+#~ "Unidade de medida padrão usada para ordens de compra. Ele deve estar na "
+#~ "mesma categoria que a unidade de medida padrão."
+
+#~ msgid "End date for this vendor price"
+#~ msgstr "Data final para preço do fornecedor"
+
+#~ msgid "Start date for this vendor price"
+#~ msgstr "Data de início para este preço de fornecedor"
+
+#~ msgid "The price to purchase a product"
+#~ msgstr "O preço para comprar um produto"
+
+#~ msgid ""
+#~ "The quantity to purchase from this vendor to benefit from the price, "
+#~ "expressed in the vendor Product Unit of Measure if not any, in the "
+#~ "default unit of measure of the product otherwise."
+#~ msgstr ""
+#~ "A quantidade a comprar deste fornecedor para se beneficiar do preço, "
+#~ "expressa na unidade de medida do produto do fornecedor, se não houver, na "
+#~ "unidade de medida padrão do produto, caso contrário."
 
 #~ msgid "Customer Information"
 #~ msgstr "Informação do Cliente"

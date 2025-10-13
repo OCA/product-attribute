@@ -108,15 +108,13 @@ msgid "Customer of this product"
 msgstr ""
 
 #. module: product_customerinfo
-#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
-msgid "Customers"
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
+msgid "Customer specific unit of measure."
 msgstr ""
 
 #. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
-msgid ""
-"Default unit of measure used for purchase orders. It must be in the same "
-"category as the default unit of measure."
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
+msgid "Customers"
 msgstr ""
 
 #. module: product_customerinfo
@@ -146,7 +144,7 @@ msgstr ""
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
-msgid "End date for this vendor price"
+msgid "End date for this customer price"
 msgstr ""
 
 #. module: product_customerinfo
@@ -216,6 +214,11 @@ msgid "Price List"
 msgstr ""
 
 #. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
+msgid "Price at which the product is sold to this customer."
+msgstr ""
+
+#. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr ""
@@ -261,7 +264,7 @@ msgstr ""
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
-msgid "Start date for this vendor price"
+msgid "Start date for this customer price"
 msgstr ""
 
 #. module: product_customerinfo
@@ -270,16 +273,11 @@ msgid "Supplier Pricelist"
 msgstr ""
 
 #. module: product_customerinfo
-#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
-msgid "The price to purchase a product"
-msgstr ""
-
-#. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
 msgid ""
-"The quantity to purchase from this vendor to benefit from the price, "
-"expressed in the vendor Product Unit of Measure if not any, in the default "
-"unit of measure of the product otherwise."
+"The minimum quantity to purchase for this customer to benefit from the "
+"price. Expressed in the customer's Product Unit of Measure if set, otherwise "
+"in the default Product Unit of Measure."
 msgstr ""
 
 #. module: product_customerinfo
