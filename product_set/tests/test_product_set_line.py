@@ -16,6 +16,22 @@ class TestProductSetLine(TransactionCase):
         # Link the packaging UoM to the product template
         cls.line.product_id.product_tmpl_id.write({"uom_ids": [(4, cls.packaging.id)]})
 
+    def test_allowed_uom_ids_with_product(self):
+        """Test that allowed_uom_ids is computed correctly when product is set"""
+        line = self.line
+        # Verify the packaging UoM is in the allowed UoMs
+        self.assertIn(self.packaging, line.allowed_uom_ids)
+        self.assertTrue(len(line.allowed_uom_ids) >= 1)
+
+    def test_allowed_uom_ids_without_product(self):
+        """Test that allowed_uom_ids is empty when no product is set"""
+        line = self.env["product.set.line"].create({
+            "product_set_id": self.line.product_set_id.id,
+            "sequence": 10,
+        })
+        # Verify allowed_uom_ids is False/empty when no product
+        self.assertFalse(line.allowed_uom_ids)
+
     def test_with_packaging(self):
         line = self.line
         line.quantity = 50
@@ -51,7 +67,7 @@ class TestProductSetLine(TransactionCase):
         self.line.product_packaging_qty = 2
 
         self.assertEqual(self.packaging.factor, 5)
-        self.assertIn(self.packaging, line.product_id.product_tmpl_id.uom_ids)
+        self.assertIn(self.packaging, line.allowed_uom_ids)
 
         # qty on line is 10: 2 packages of 5 units each
         self.assertEqual(line.quantity, 10)

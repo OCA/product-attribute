@@ -40,9 +40,14 @@ class ProductSetLine(models.Model):
         "res.company", related="product_set_id.company_id", store=True, readonly=True
     )
     name = fields.Char()
+    # Many2many compute field with the packaging allowed
+    allowed_uom_ids = fields.Many2many(
+        "uom.uom",
+        compute='_compute_allowed_uom_ids'
+    )
     product_packaging_id = fields.Many2one(
         "uom.uom",
-        domain="[('id', 'in', product_id.product_tmpl_id.uom_ids)]",
+        domain="[('id', 'in', allowed_uom_ids)]",
         string="Product Packaging",
         help="Select one of the packaging units defined on the product template.",
     )
@@ -51,6 +56,14 @@ class ProductSetLine(models.Model):
         inverse="_inverse_product_packaging_qty",
         digits="Product Unit of Measure",
     )
+
+    @api.depends('product_id', 'product_id.product_tmpl_id', 'product_id.product_tmpl_id.uom_ids')
+    def _compute_allowed_uom_ids(self):
+        for line in self:
+            if line.product_id and line.product_id.product_tmpl_id:
+                line.allowed_uom_ids = line.product_id.product_tmpl_id.uom_ids
+            else:
+                line.allowed_uom_ids = False
 
     def _compute_active(self):
         """Compute the active field based on the product_set_id by default."""
