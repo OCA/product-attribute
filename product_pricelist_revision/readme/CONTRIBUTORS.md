@@ -6,4 +6,5 @@
 - [Binhex](https://binhex.cloud/):
   - Mario Luis
 
-- Heliconia Solutions Pvt. Ltd. \<<https://www.heliconia.io>\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
