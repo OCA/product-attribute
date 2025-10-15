@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="base_multi_image.image_form_view" />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <field name="load_from" position="after">
+            <field name="extension" position="after">
                 <field
                     name="product_variant_ids"
                     widget="many2many_tags"
