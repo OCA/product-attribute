@@ -3,7 +3,7 @@
     <record id="product_multi_price_tree_view" model="ir.ui.view">
         <field name="model">product.multi.price</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="product_id" />
                 <field name="name" options="{'no_open': True, 'no_create': True}" />
                 <field name="price" />
@@ -12,7 +12,7 @@
                     groups="base.group_multi_company"
                     readonly="1"
                 />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="product_multi_price_form_view" model="ir.ui.view">
@@ -44,18 +44,18 @@
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="replace" />
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute name="editable">bottom</attribute>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="product_multi_price_name_tree_view" model="ir.ui.view">
         <field name="model">product.multi.price.name</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="name" />
                 <field name="company_id" groups="base.group_multi_company" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="action_multi_price_name_config" model="ir.actions.act_window">
