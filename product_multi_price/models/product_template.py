@@ -31,23 +31,26 @@ class ProductTemplate(models.Model):
             return self.product_variant_ids._get_multiprice_pricelist_price(rule)
         return 0
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """Overwrite creation for rewriting the prices (if set and having only
         one variant), after the variant creation, that is performed in super.
         """
-        template = super().create(vals)
-        if vals.get("price_ids"):
-            template.write({"price_ids": vals.get("price_ids")})
-        return template
+        templates = super().create(vals_list)
+        for template, vals in zip(templates, vals_list, strict=False):
+            if vals.get("price_ids"):
+                template.write({"price_ids": vals.get("price_ids")})
+        return templates
 
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
+    def _price_compute(
+        self, price_type, uom=None, currency=None, company=None, date=False
+    ):
         """Return temporary prices when computation is done for multi price for
         avoiding error on super method. We will later fill these with the
         correct values.
         """
         if price_type == "multi_price":
             return dict.fromkeys(self.ids, 1.0)
-        return super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
+        return super()._price_compute(
+            price_type, uom=uom, currency=currency, company=company, date=date
         )

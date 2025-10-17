@@ -6,15 +6,32 @@ from odoo import fields, models
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 
-    def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
+    def _compute_price_rule(
+        self,
+        products,
+        quantity,
+        currency=None,
+        uom=None,
+        date=False,
+        compute_price=True,
+        **kwargs,
+    ):
         """Recompute price after calling the atomic super method for
         getting proper prices when based on multi price.
         """
         rule_obj = self.env["product.pricelist.item"]
-        result = super()._compute_price_rule(products_qty_partner, date, uom_id)
+        result = super()._compute_price_rule(
+            products=products,
+            quantity=quantity,
+            currency=currency,
+            uom=uom,
+            date=date,
+            compute_price=compute_price,
+            **kwargs,
+        )
         # Make sure all rule records are fetched at once and put in cache
         rule_obj.browse(x[1] for x in result.values()).mapped("price_discount")
-        for product, _qty, _partner in products_qty_partner:
+        for product in products:
             rule = rule_obj.browse(result[product.id][1])
             if rule.compute_price == "formula" and rule.base == "multi_price":
                 result[product.id] = (
