@@ -1,0 +1,1 @@
+- The feature of translating the product category name was removed from Odoo core due to limitations on the complete name compute when the name is translatable: https://github.com/odoo/odoo/pull/36717. Be aware that the complete name can then show half translated.
