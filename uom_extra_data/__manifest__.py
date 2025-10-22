@@ -3,7 +3,7 @@
 {
     "name": "uom_extra_data",
     "summary": "Have mm, ml, week, work_week uom",
-    "version": "14.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Product",
     "author": "Camptocamp, Trobz, Odoo Community Association (OCA)",
     "license": "AGPL-3",
@@ -14,5 +14,4 @@
     "data": [
         "data/uom.xml",
     ],
-    "installable": True,
 }
