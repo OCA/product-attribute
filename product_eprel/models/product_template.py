@@ -4,7 +4,7 @@ import time
 
 import requests
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 API_URL = "https://eprel.ec.europa.eu/"
@@ -34,6 +34,11 @@ class ProductTemplate(models.Model):
         string="EPREL Registration Number",
         copy=False,
         help="The EPREL registration number fetched from the API.",
+    )
+    eprel_energy_class = fields.Char(
+        string="Energy Class",
+        copy=False,
+        help="Energy class label fetched from EPREL (e.g. A, B, C).",
     )
 
     def _compute_eprel_enabled(self):
@@ -71,7 +76,7 @@ class ProductTemplate(models.Model):
 
     def action_get_eprel_registration_number(self):
         if not self.env.company.eprel_api_key:
-            raise UserError(_("EPREL API Key is not configured."))
+            raise UserError(self.env._("EPREL API Key is not configured."))
         min_interval = 0.25
         last_request_time = 0.0
         for product in self:
@@ -84,7 +89,9 @@ class ProductTemplate(models.Model):
                 not product.eprel_model_identifier
                 or not product.categ_id.eprel_category_id
             ):
-                raise UserError(_("Model Identifier and EPREL Category must be set."))
+                raise UserError(
+                    self.env._("Model Identifier and EPREL Category must be set.")
+                )
             identifier = product.eprel_model_identifier
             category_code = product.categ_id.eprel_category_id.code
             data = self._request_eprel_data(identifier, category_code)
@@ -96,6 +103,7 @@ class ProductTemplate(models.Model):
                 product.eprel_energy_class_image = data.get("hits")[0].get(
                     "energyClassImage"
                 )
+                product.eprel_energy_class = data.get("hits")[0].get("energyClass")
 
     @api.model
     def _get_eprel_registration_number(self):
@@ -118,4 +126,4 @@ class ProductTemplate(models.Model):
             response.raise_for_status()
             return response.json()
         except Exception as e:
-            raise UserError(_("Failed to fetch EPREL data: %s") % str(e))
+            raise UserError(self.env._(f"Failed to fetch EPREL data: {str(e)}")) from e

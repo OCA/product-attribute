@@ -1,29 +1,30 @@
 from unittest.mock import patch
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductModelIdentifier(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.env.company.eprel_api_key = "FAKE_KEY"
-        eprel_category = self.env["product.category.eprel"].create(
+class TestProductModelIdentifier(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env.company.eprel_api_key = "FAKE_KEY"
+        eprel_category = cls.env["product.category.eprel"].create(
             {
                 "name": "Smartphones and slate tablets",
                 "code": "smartphonestablets20231669",
             }
         )
-        self.category = self.env["product.category"].create(
+        cls.category = cls.env["product.category"].create(
             {
                 "name": "Smartphones",
                 "eprel_category_id": eprel_category.id,
             }
         )
-        self.product = self.env["product.template"].create(
+        cls.product = cls.env["product.template"].create(
             {
                 "name": "Edge 60 Pro",
                 "eprel_model_identifier": "edge 60 pro (XT2507-1)",
-                "categ_id": self.category.id,
+                "categ_id": cls.category.id,
             }
         )
 

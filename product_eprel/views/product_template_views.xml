@@ -6,18 +6,19 @@
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <field name="eprel_enabled" />
+                <field name="eprel_enabled" invisible="1" />
                 <button
                     name="action_get_eprel_registration_number"
                     type="object"
                     string="Get EPREL data"
-                    attrs="{'invisible': [('eprel_enabled', '=', False)]}"
+                    invisible="not eprel_enabled"
                 />
             </xpath>
             <xpath expr="//notebook" position="inside">
-                <page string="EPREL">
-                    <group attrs="{'invisible': [('eprel_enabled', '=', False)]}">
+                <page string="EPREL" invisible="not eprel_enabled">
+                    <group>
                         <field name="eprel_model_identifier" />
+                        <field name="eprel_energy_class" readonly="1" />
                         <field name="fiche_url" widget="url" />
                         <field name="label_url" widget="url" />
                         <field name="label_arrow_url" widget="url" />

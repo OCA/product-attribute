@@ -8,4 +8,4 @@ class ProductCategoryEprel(models.Model):
     _description = "EPREL Product Category"
 
     name = fields.Char(string="Product group", required=True)
-    code = fields.Char(string="Code", required=True)
+    code = fields.Char(required=True)
