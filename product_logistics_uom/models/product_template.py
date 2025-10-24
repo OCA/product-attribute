@@ -33,9 +33,6 @@ class ProductTemplate(models.Model):
     volume_uom_id = fields.Many2one(
         "uom.uom",
         string="Volume Unit of Measure",
-        domain=lambda self: [
-            ("category_id", "=", self.env.ref("uom.product_uom_categ_vol").id)
-        ],
         default=lambda self: self._get_volume_uom_id_from_ir_config_parameter(),
     )
     volume_uom_name = fields.Char(
@@ -46,9 +43,6 @@ class ProductTemplate(models.Model):
     weight_uom_id = fields.Many2one(
         "uom.uom",
         string="Weight Unit of Measure",
-        domain=lambda self: [
-            ("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)
-        ],
         default=lambda self: self._get_weight_uom_id_from_ir_config_parameter(),
     )
 
@@ -77,8 +71,7 @@ class ProductTemplate(models.Model):
         default_uom = get_param("product_default_volume_uom_id")
         if default_uom:
             return self.env["uom.uom"].browse(int(default_uom))
-        else:
-            return super()._get_volume_uom_id_from_ir_config_parameter()
+        return super()._get_volume_uom_id_from_ir_config_parameter()
 
     @api.model
     def _get_weight_uom_id_from_ir_config_parameter(self):
@@ -86,8 +79,7 @@ class ProductTemplate(models.Model):
         default_uom = get_param("product_default_weight_uom_id")
         if default_uom:
             return self.env["uom.uom"].browse(int(default_uom))
-        else:
-            return super()._get_weight_uom_id_from_ir_config_parameter()
+        return super()._get_weight_uom_id_from_ir_config_parameter()
 
     @api.model
     def _get_length_uom_id_from_ir_config_parameter(self):
@@ -95,8 +87,7 @@ class ProductTemplate(models.Model):
         default_uom = get_param("product_default_length_uom_id")
         if default_uom:
             return self.env["uom.uom"].browse(int(default_uom))
-        else:
-            return super()._get_length_uom_id_from_ir_config_parameter()
+        return super()._get_length_uom_id_from_ir_config_parameter()
 
     @api.depends(
         "product_variant_ids",
