@@ -4,14 +4,13 @@
 
 from unittest.mock import patch
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductLogisticsUom(TransactionCase):
+class TestProductLogisticsUom(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Test Product",
@@ -24,6 +23,13 @@ class TestProductLogisticsUom(TransactionCase):
         # set volume in m3 and weight in kg
         cls.env["ir.config_parameter"].set_param("product.weight_in_lbs", "0")
         cls.env["ir.config_parameter"].set_param("product.volume_in_cubic_feet", "0")
+        cls.length_uom = cls.env["uom.uom"].create({"name": "Meter"})
+        cls.env["ir.config_parameter"].set_param(
+            "product_default_length_uom_id", str(cls.length_uom.id)
+        )
+        cls.product_template = cls.env["product.template"].create(
+            {"name": "Test Product Template"}
+        )
 
     def test_product_volume(self):
         self.product.volume_uom_id = self.volume_uom_l
@@ -128,3 +134,28 @@ class TestProductLogisticsUom(TransactionCase):
         self.assertEqual(template.weight, 10.0)
         self.assertEqual(template.product_volume, 10.0)
         self.assertEqual(template.product_weight, 10.0)
+
+    def test_get_length_uom_id_from_ir_config_parameter(self):
+        uom = self.product_template._get_length_uom_id_from_ir_config_parameter()
+        self.assertEqual(uom.id, self.length_uom.id)
+
+    def test_compute_product_volume_single_variant(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_default_volume_uom_id", str(self.volume_uom_l.id)
+        )
+        product_template = self.product_template
+        product_template.product_variant_ids.write(
+            {"volume": 7.5, "volume_uom_id": self.volume_uom_l.id}
+        )
+        self.assertEqual(product_template.product_volume, 7.5)
+
+    def test_inverse_product_volume_single_variant(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_default_weight_uom_id", str(self.weigh_uom_kg.id)
+        )
+        product_template = self.product_template
+        product_template.product_variant_ids.write(
+            {"weight": 5.0, "volume_uom_id": self.weigh_uom_kg.id}
+        )
+        product_template.write({"weight": 12.0, "volume_uom_id": self.weigh_uom_kg.id})
+        self.assertEqual(product_template.product_variant_ids.product_weight, 12.0)

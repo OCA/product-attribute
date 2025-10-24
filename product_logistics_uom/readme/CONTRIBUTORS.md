@@ -2,3 +2,5 @@
 - Fernando La Chica \<<fernandolachica@gmail.com>\>
 - Laurent Mignon \<<laurent.mignon@acsone.eu>\>
 - Nhan Tran \<<nhant@trobz.com>\>
+- [Studio73](https://www.studio73.es/):
+  - Eugenio Micó \<<eugenio@studio73.es>\>
