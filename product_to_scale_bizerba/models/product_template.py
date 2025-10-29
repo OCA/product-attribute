@@ -5,50 +5,43 @@
 
 from odoo import api, fields, models
 
-from odoo.addons import decimal_precision as dp
-
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    scale_group_id = fields.Many2one("product.scale.group", string="Scale Group")
-    scale_sequence = fields.Integer("Scale Sequence")
+    scale_group_id = fields.Many2one("product.scale.group")
+    scale_sequence = fields.Integer()
     scale_tare_weight = fields.Float(
-        digits=dp.get_precision("Stock Weight"),
-        string="Scale Tare Weight",
+        digits="Stock Weight",
         help="Set here Constant tare weight"
         " for the given product. This tare will be substracted when"
         " the product is weighted. Usefull only for weightable product.\n"
         "The tare is defined with kg uom.",
     )
 
-    @api.multi
     def send_scale_create(self):
         for product in self:
             product.product_variant_ids.send_scale_create()
         return True
 
-    @api.multi
     def send_scale_write(self):
         for product in self:
             product.product_variant_ids.send_scale_write()
         return True
 
-    @api.multi
     def send_scale_unlink(self):
         for product in self:
             product.product_variant_ids.send_scale_unlink()
         return True
 
-    @api.multi
+    def _condition_bizerba_off(self):
+        return self.env.context.get("bizerba_off", False)
+
     def write(self, vals):
         product_obj = self.env["product.product"]
         context = self.env.context
-        ctx = context.copy()
         defered = {}
-        if not context.get("bizerba_off", False) and not context.get(
-            "create_product_product"
-        ):
+        if not context.get("create_product_product"):
             for template in self:
                 for product in template.product_variant_ids:
                     ignore = (
@@ -79,7 +72,7 @@ class ProductTemplate(models.Model):
                         else:
                             if vals.get("scale_group_id", False) and (
                                 vals.get("scale_group_id", False)
-                                != product.scale_group_id
+                                != product.scale_group_id.id
                             ):
                                 # (the product has moved from a group to another)
                                 # Remove from obsolete group
@@ -95,7 +88,6 @@ class ProductTemplate(models.Model):
                                 # Data related to the scale
                                 defered[product.id] = "write"
 
-        ctx["bizerba_off"] = True
         res = super().write(vals)
 
         for product_id, action in defered.items():
@@ -103,17 +95,16 @@ class ProductTemplate(models.Model):
             product_obj._send_to_scale_bizerba(action, product)
         return res
 
-    @api.model
-    def create(self, vals):
-        send_to_scale = vals.get("scale_group_id", False)
-        res = super().create(vals)
-        if send_to_scale:
-            res.send_scale_create()
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        templates = res.filtered("scale_group_id")
+        if templates and not self._condition_bizerba_off():
+            templates.send_scale_create()
         return res
 
-    @api.multi
     def unlink(self):
-        for product in self:
-            if product.scale_group_id:
-                product.send_scale_unlink()
+        templates = self.filtered("scale_group_id")
+        if templates and not self._condition_bizerba_off():
+            templates.send_scale_unlink()
         return super().unlink()

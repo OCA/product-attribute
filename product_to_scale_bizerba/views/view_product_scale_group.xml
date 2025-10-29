@@ -9,17 +9,17 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record id="view_product_scale_group_tree" model="ir.ui.view">
         <field name="model">product.scale.group</field>
         <field name="arch" type="xml">
-            <tree string="Scale Groups">
+            <list string="Scale Groups">
                 <field name="name" />
                 <field name="product_qty" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="view_product_scale_group_form" model="ir.ui.view">
         <field name="model">product.scale.group</field>
         <field name="arch" type="xml">
-            <form string="Scale Group" version="7.0">
+            <form string="Scale Group">
                 <header />
                 <sheet>
                     <group>
@@ -36,40 +36,37 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             </div>
                         </group>
                         <group>
-                            <group>
-                                <field name="scale_system_id" />
-                                <field
-                                    name="company_id"
-                                    groups="base.group_multi_company"
-                                />
-                                <field name="active" />
-                                <field name="product_qty" />
-                            </group>
+                            <field name="scale_system_id" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field name="active" />
+                            <field name="product_qty" />
                         </group>
                     </group>
                     <notebook>
                         <page string="Products">
-                            <group colspan="4">
-                                <button
-                                    name="send_all_to_scale_create"
-                                    type="object"
-                                    string="Resend Creation All To the Scale System"
-                                />
-                                <button
-                                    name="send_all_to_scale_write"
-                                    type="object"
-                                    string="Resend Update All To the Scale System"
-                                />
-                            </group>
+                            <button
+                                name="send_all_to_scale_create"
+                                type="object"
+                                string="Resend Creation All To the Scale System"
+                                class="btn btn-secondary me-2"
+                            />
+                            <button
+                                name="send_all_to_scale_write"
+                                type="object"
+                                string="Resend Update All To the Scale System"
+                            />
                             <group>
                                 <separator string="Products" colspan="4" />
                                 <field name="product_ids" nolabel="1">
-                                    <tree editable="bottom">
-                                        <field name="scale_sequence" />
+                                    <list editable="bottom">
+                                        <field name="scale_sequence" widget="handle" />
                                         <field name="name" />
                                         <field name="list_price" />
                                         <field name="uom_id" />
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </page>
@@ -83,8 +80,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="name">Scale Groups</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.scale.group</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem

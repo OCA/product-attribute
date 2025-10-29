@@ -3,7 +3,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductScaleGroup(models.Model):
@@ -16,31 +16,30 @@ class ProductScaleGroup(models.Model):
             group.product_qty = len(group.product_ids)
 
     # Column Section
-    name = fields.Char("Name", required=True)
-    active = fields.Boolean("Active", default=True)
+    name = fields.Char(required=True)
+    active = fields.Boolean(default=True)
     external_identity = fields.Char("External ID", required=True)
     company_id = fields.Many2one(
         "res.company",
-        "Company",
         index=True,
-        default=lambda self: self.env["res.company"]._company_default_get(
-            "product.product"
-        ),
+        default=lambda self: self.env.company,
     )
     scale_system_id = fields.Many2one(
-        "product.scale.system", "Scale System", required=True
+        "product.scale.system",
+        required=True,
     )
-    product_ids = fields.One2many("product.product", "scale_group_id", "Products")
+    product_ids = fields.One2many(
+        "product.product",
+        "scale_group_id",
+    )
     product_qty = fields.Integer(
         compute="_compute_product_qty", string="Products Quantity"
     )
 
-    @api.multi
     def send_all_to_scale_create(self):
         for scale_group in self:
             scale_group.product_ids.send_scale_create()
 
-    @api.multi
     def send_all_to_scale_write(self):
         for scale_group in self:
             scale_group.product_ids.send_scale_write()

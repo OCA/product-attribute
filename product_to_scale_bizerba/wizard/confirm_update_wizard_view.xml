@@ -13,10 +13,9 @@
                         class="btn btn-primary o_sale_confirm"
                     />
                     <button
-                        name="button_cancel"
-                        special="cancel"
                         string="Cancel"
-                        class="oe_link"
+                        special="cancel"
+                        class="btn btn-secondary"
                     />
                 </footer>
             </form>
@@ -27,7 +26,6 @@
         <field name="name">Force Update</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">confirm.update.wizard</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
