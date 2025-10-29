@@ -4,24 +4,22 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+
 from odoo.addons import decimal_precision as dp
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
-    scale_group_id = fields.Many2one(
-        'product.scale.group',
-        string='Scale Group'
-    )
-    scale_sequence = fields.Integer('Scale Sequence')
+    scale_group_id = fields.Many2one("product.scale.group", string="Scale Group")
+    scale_sequence = fields.Integer("Scale Sequence")
     scale_tare_weight = fields.Float(
-        digits=dp.get_precision('Stock Weight'),
-        string='Scale Tare Weight',
+        digits=dp.get_precision("Stock Weight"),
+        string="Scale Tare Weight",
         help="Set here Constant tare weight"
         " for the given product. This tare will be substracted when"
         " the product is weighted. Usefull only for weightable product.\n"
-        "The tare is defined with kg uom."
+        "The tare is defined with kg uom.",
     )
 
     @api.multi
@@ -44,51 +42,61 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def write(self, vals):
-        product_obj = self.env['product.product']
+        product_obj = self.env["product.product"]
         context = self.env.context
         ctx = context.copy()
         defered = {}
-        if not context.get('bizerba_off', False) and not context.get('create_product_product'):
+        if not context.get("bizerba_off", False) and not context.get(
+            "create_product_product"
+        ):
             for template in self:
                 for product in template.product_variant_ids:
-                    ignore = not product.scale_group_id\
-                        and 'scale_group_id' not in list(vals.keys())
+                    ignore = (
+                        not product.scale_group_id
+                        and "scale_group_id" not in list(vals.keys())
+                    )
                     if not ignore:
                         is_continue = False
-                        if 'active' in vals and not vals.get("active"):
+                        if "active" in vals and not vals.get("active"):
                             # Unlink when deactivate
                             is_continue = True
-                        elif product.available_in_pos and\
-                                'available_in_pos' in vals and\
-                                not vals.get('available_in_pos'):
+                        elif (
+                            product.available_in_pos
+                            and "available_in_pos" in vals
+                            and not vals.get("available_in_pos")
+                        ):
                             is_continue = True
 
                         if is_continue:
-                            defered[product.id] = 'unlink'
+                            defered[product.id] = "unlink"
                             continue
 
                         if not product.scale_group_id or vals.get("active"):
                             # (the product is new on this group)
-                            defered[product.id] = 'create'
+                            defered[product.id] = "create"
                         elif not product.active:
                             continue
                         else:
-                            if vals.get('scale_group_id', False) and (
-                                    vals.get('scale_group_id', False) !=
-                                    product.scale_group_id):
+                            if vals.get("scale_group_id", False) and (
+                                vals.get("scale_group_id", False)
+                                != product.scale_group_id
+                            ):
                                 # (the product has moved from a group to another)
                                 # Remove from obsolete group
-                                product_obj._send_to_scale_bizerba('unlink', product)
+                                product_obj._send_to_scale_bizerba("unlink", product)
                                 # Create in the new group
-                                defered[product.id] = 'create'
-                            elif vals.get('available_in_pos'):
-                                defered[product.id] = 'create'
-                            elif product.available_in_pos and product_obj._check_vals_scale_bizerba(vals, product):
+                                defered[product.id] = "create"
+                            elif vals.get("available_in_pos"):
+                                defered[product.id] = "create"
+                            elif (
+                                product.available_in_pos
+                                and product_obj._check_vals_scale_bizerba(vals, product)
+                            ):
                                 # Data related to the scale
-                                defered[product.id] = 'write'
-                            
-        ctx['bizerba_off'] = True
-        res = super(ProductTemplate, self).write(vals)
+                                defered[product.id] = "write"
+
+        ctx["bizerba_off"] = True
+        res = super().write(vals)
 
         for product_id, action in defered.items():
             product = product_obj.browse(product_id)
@@ -97,8 +105,8 @@ class ProductTemplate(models.Model):
 
     @api.model
     def create(self, vals):
-        send_to_scale = vals.get('scale_group_id', False)
-        res = super(ProductTemplate, self).create(vals)
+        send_to_scale = vals.get("scale_group_id", False)
+        res = super().create(vals)
         if send_to_scale:
             res.send_scale_create()
         return res
@@ -108,4 +116,4 @@ class ProductTemplate(models.Model):
         for product in self:
             if product.scale_group_id:
                 product.send_scale_unlink()
-        return super(ProductTemplate, self).unlink()
+        return super().unlink()
