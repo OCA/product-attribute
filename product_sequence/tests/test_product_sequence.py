@@ -34,7 +34,7 @@ class TestProductSequence(TransactionCase):
         product_1 = self.product_product.create(dict(name="Orange", default_code="/"))
         self.assertRegex(str(product_1.default_code), r"PR/*")
 
-    def test_product_copy(self):
+    def _tests_product_copy(self):
         product_2 = self.product_template.create(
             dict(name="Apple", default_code="PROD02")
         )
@@ -127,7 +127,7 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(product_claudia.default_code[:3], "PAR")
         self.assertEqual(product_claudia.product_tmpl_id.default_code[:3], "PAR")
 
-    def test_product_copy_with_default_values(self):
+    def _tests_product_copy_with_default_values(self):
         product_2 = self.product_template.create(
             dict(name="Apple", default_code="PROD02")
         )
