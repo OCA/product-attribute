@@ -4,6 +4,8 @@
 # Copyright 2018 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from odoo import fields
+
 from odoo.addons.base.tests.common import BaseCommon
 
 
@@ -98,6 +100,30 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
         )
         self.assertEqual(
             res[self.product.id], 750.0, "Error: price does not match list price"
+        )
+
+    def test_product_supplierinfo_discount(self):
+        self.customerinfo.write({"discount": 10.0})
+        self.pricelist_item.write({"base": "partner", "compute_price": "formula"})
+        price = self.pricelist_item._compute_price(
+            self.product.with_context(partner_id=self.customer.id),
+            1,
+            self.product.uom_id,
+            fields.Datetime.now(),
+            self.company.currency_id,
+        )
+        base_price = self.pricelist_item._compute_base_price(
+            self.product.with_context(partner_id=self.customer.id),
+            1,
+            self.product.uom_id,
+            fields.Datetime.now(),
+            self.company.currency_id,
+        )
+        self.assertEqual(
+            base_price, 100.0, "Error: Wrong base price for product and customer"
+        )
+        self.assertEqual(
+            price, 90.0, "Error: Discount not applied for product and customer"
         )
 
     def test_variant_supplierinfo_price(self):

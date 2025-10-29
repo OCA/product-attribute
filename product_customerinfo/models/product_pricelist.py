@@ -12,3 +12,24 @@ class ProductPricelistItem(models.Model):
         selection_add=[("partner", "Partner Prices on the product form")],
         ondelete={"partner": "set default"},
     )
+
+    def _compute_price(self, product, quantity, uom, date, currency=None):
+        return super()._compute_price(
+            product.with_context(include_customerinfo_discount=True),
+            quantity,
+            uom,
+            date,
+            currency,
+        )
+
+    def _show_discount(self):
+        # Show discount when pricelist item is based on customerinfo price
+        res = super()._show_discount()
+        if (
+            self
+            and self._is_discount_feature_enabled()
+            and self.compute_price == "formula"
+            and self.base == "partner"
+        ):
+            return True
+        return res
