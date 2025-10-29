@@ -51,6 +51,7 @@
                                 groups="base.group_multi_currency"
                             />
                         </div>
+                        <field name="discount" />
                         <label for="date_start" string="Validity" />
                         <div><field name="date_start" class="oe_inline" /> to <field
                             name="date_end"
@@ -97,6 +98,7 @@
                 />
                 <field name="min_qty" />
                 <field name="price" string="Price" />
+                <field name="discount" />
                 <field name="date_start" optional="hide" />
                 <field name="date_end" optional="hide" />
             </list>
