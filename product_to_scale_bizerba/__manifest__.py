@@ -6,23 +6,9 @@
 {
     "name": "Products - Send to Scales",
     "summary": "Synchronize Odoo database with Scales",
-    "version": "12.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Tools",
-    "description": """
-=============================================
-Synchronize Odoo database with Bizerba Scales
-=============================================
-
-Roadmap / Know Issues
----------------------
-
-* It should be great to split this module into many modules, with some generic
-  features in a module named product_to_scale and some specifics features
-  for each scales system. 'product_to_scale_bizerba',
-  'product_to_scale_metler_toledo', etc.
-
-""",
-    "author": "GRAP, Druidoo",
+    "author": "GRAP, Druidoo, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "depends": [

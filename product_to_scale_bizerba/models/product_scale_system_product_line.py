@@ -26,18 +26,15 @@ class ProductScaleSystemProductLine(models.Model):
     # Column Section
     scale_system_id = fields.Many2one(
         "product.scale.system",
-        "Scale System",
         required=True,
         ondelete="cascade",
         index=True,
     )
-    company_id = fields.Many2one(
-        "res.company", string="Company", related="scale_system_id.company_id"
-    )
+    company_id = fields.Many2one("res.company", related="scale_system_id.company_id")
     code = fields.Char("Bizerba Code", required=True)
-    name = fields.Char("Name", required=True)
-    sequence = fields.Integer("Sequence", required=True, default=10)
-    type = fields.Selection(_TYPE_SELECTION, string="Type")
+    name = fields.Char(required=True)
+    sequence = fields.Integer(required=True, default=10)
+    type = fields.Selection(_TYPE_SELECTION)
     field_id = fields.Many2one(
         "ir.model.fields",
         string="Product Field",
@@ -58,7 +55,6 @@ class ProductScaleSystemProductLine(models.Model):
         " for product logos)",
     )
     constant_value = fields.Char(
-        "Constant Value",
         help="Used if type is 'constant'," " to send allways the same value.",
     )
     multiline_length = fields.Integer(
@@ -76,7 +72,6 @@ class ProductScaleSystemProductLine(models.Model):
         default="\n",
     )
     suffix = fields.Char(
-        "Suffix",
         help="Used if type is"
         " 'External Text Field', to indicate how to suffix the field.\n"
         " Make sure to have a uniq value by Scale System, and all with the"
@@ -84,19 +79,18 @@ class ProductScaleSystemProductLine(models.Model):
         " of the file. Exemple : '_01.jpg'.",
     )
     numeric_coefficient = fields.Float(
-        "Numeric Coefficient",
         help="Used if type is"
         " 'Numeric Field', to mention with coefficient numeric"
         " field should be multiplyed.",
         default=1.00,
     )
     numeric_round = fields.Float(
-        "Rounding Method",
         help="Used if type is"
         " 'Numeric Field', to mention how the value should be rounded.\n"
         " Do not Use 0, because it will truncate the value.",
         default=1.00,
     )
     delimiter = fields.Char(
-        "Delimiter Char", help="Used to finish the column", default="#"
+        help="Used to finish the column",
+        default="#",
     )

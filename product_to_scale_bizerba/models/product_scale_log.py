@@ -3,14 +3,14 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import base64
 import logging
 import os
+from base64 import b64decode
 from datetime import datetime
 
-from odoo import _, api, fields, models, tools
+from odoo import api, fields, models, tools
 from odoo.exceptions import ValidationError
-from odoo.tools import image_resize_image
+from odoo.tools import image_process
 
 _logger = logging.getLogger(__name__)
 
@@ -26,6 +26,7 @@ except ImportError:
 class ProductScaleLog(models.Model):
     _name = "product.scale.log"
     _inherit = ["mail.activity.mixin"]
+    _description = "Product Scale Log"
     _order = "log_date desc, id desc"
 
     _EXTERNAL_SIZE_ID_RIGHT = 4
@@ -57,7 +58,6 @@ class ProductScaleLog(models.Model):
     _EXTERNAL_TEXT_DELIMITER = "#"
 
     # Private Section
-    @api.multi
     def _clean_value(self, value, product_line):
         if not value:
             return ""
@@ -76,7 +76,6 @@ class ProductScaleLog(models.Model):
         else:
             return res
 
-    @api.multi
     def _generate_external_text(self, value, product_line, external_id, log):
         external_text_list = [
             self._EXTERNAL_TEXT_ACTION_CODE,  # WALO Code
@@ -87,6 +86,7 @@ class ProductScaleLog(models.Model):
         return self._EXTERNAL_TEXT_DELIMITER.join(external_text_list)
 
     # Compute Section
+    # flake8: noqa: C901
     @api.depends("product_id", "product_id.scale_group_id")
     def _compute_text(self):
         for log in self:
@@ -97,10 +97,18 @@ class ProductScaleLog(models.Model):
             # Set custom fields
             for product_line in group.scale_system_id.product_line_ids:
                 if product_line.field_id:
+                    if not hasattr(log.product_id, product_line.field_id.name):
+                        product_text += ""
+                        if product_line.delimiter:
+                            product_text += product_line.delimiter
+                        continue
                     value = getattr(log.product_id, product_line.field_id.name)
 
                 if product_line.type == "id":
-                    product_text += str(log.product_id.id)
+                    product_ids = log.product_id.ids
+                    if not product_ids:
+                        product_ids = [False]
+                    product_text += str(product_ids[0])
 
                 elif product_line.type == "numeric":
                     value = tools.float_round(
@@ -176,25 +184,16 @@ class ProductScaleLog(models.Model):
             )
 
     # Column Section
-    log_date = fields.Datetime("Log Date", required=True)
-    scale_system_id = fields.Many2one(
-        "product.scale.system", string="Scale System", required=True
-    )
-    product_id = fields.Many2one("product.product", string="Product")
-    product_text = fields.Text(
-        compute="_compute_text", string="Product Text", store=True
-    )
-    external_text = fields.Text(
-        compute="_compute_text", string="External Text", store=True
-    )
-    external_text_display = fields.Text(
-        compute="_compute_text", string="External Text (Display)", store=True
-    )
-    action = fields.Selection(_ACTION_SELECTION, string="Action", required=True)
+    log_date = fields.Datetime(required=True)
+    scale_system_id = fields.Many2one("product.scale.system", required=True)
+    product_id = fields.Many2one("product.product")
+    product_text = fields.Text(compute="_compute_text", store=True)
+    external_text = fields.Text(compute="_compute_text", store=True)
+    external_text_display = fields.Text(compute="_compute_text", store=True)
+    action = fields.Selection(_ACTION_SELECTION, required=True)
     sent = fields.Boolean(string="Is Sent")
-    last_send_date = fields.Datetime("Last Send Date")
+    last_send_date = fields.Datetime()
 
-    @api.multi
     def ftp_connection_open(self, scale_system, raise_error=False):
         """Return a new FTP connection with found parameters."""
         _logger.info(
@@ -214,19 +213,18 @@ class ProductScaleLog(models.Model):
                 "Connection to ftp://%s@%s:%d failed."
                 % (scale_system.ftp_login, scale_system.ftp_host, scale_system.ftp_port)
             )
-            _logger.error(_("Error when opening FTP connection:\n %s") % tools.ustr(e))
+            _logger.error(self.env._("Error when opening FTP connection:\n %s", e))
             if raise_error:
                 raise ValidationError(
-                    _("Error when opening FTP connection:\n %s") % tools.ustr(e)
-                )
+                    self.env._("Error when opening FTP connection:\n %s", e)
+                ) from None
             return False
 
-    @api.multi
     def ftp_connection_close(self, ftp):
         try:
             ftp.quit()
         except Exception as e:
-            _logger.error(_("Error when closing FTP connection:\n %s") % tools.ustr(e))
+            _logger.error(self.env._("Error when closing FTP connection:\n %s") % e)
 
     def ftp_connection_push_text_file(
         self, ftp, distant_folder_path, local_folder_path, pattern, lines, encoding
@@ -246,7 +244,17 @@ class ProductScaleLog(models.Model):
 
             # Send File by FTP
             f = open(local_path, "rb")
-            ftp.storbinary("STOR " + distant_path, f)
+            try:
+                ftp.storbinary("STOR " + distant_path, f)
+            except Exception as err:
+                raise ValidationError(
+                    self.env._(
+                        "Cannot create file: The file name or path you specified is "
+                        "not allowed by the server. Please check that you have the "
+                        "necessary permissions for the destination folder and ensure "
+                        "the target directory exists."
+                    )
+                ) from err
             f.close()
             # Delete temporary file
             os.remove(local_path)
@@ -261,25 +269,31 @@ class ProductScaleLog(models.Model):
             return False
         local_path = os.path.join(local_folder_path, f_name)
         distant_path = os.path.join(distant_folder_path, f_name)
-        image_base64 = getattr(obj, field.name)
+        image_base64 = b64decode(getattr(obj, field.name))
         # Resize and save image
         ext = extension.replace(".", "")
-        image_resize_image(
-            base64_source=image_base64, size=(120, 120), encoding="base64", filetype=ext
-        )
-        image_data = base64.b64decode(image_base64)
+        image_data = image_process(image_base64, size=(120, 120), output_format=ext)
         f = open(local_path, "wb")
         f.write(image_data)
         f.close()
 
         # Send File by FTP
         f = open(local_path, "rb")
-        ftp.storbinary("STOR " + distant_path, f)
+        try:
+            ftp.storbinary("STOR " + distant_path, f)
+        except Exception as err:
+            raise ValidationError(
+                self.env._(
+                    "Cannot create file: The file name or path you specified is "
+                    "not allowed by the server. Please check that you have the "
+                    "necessary permissions for the destination folder and ensure "
+                    "the target directory exists."
+                )
+            ) from err
         f.close()
         # Delete temporary file
         os.remove(local_path)
 
-    @api.multi
     def send_log(self):
         config_obj = self.env["ir.config_parameter"]
         folder_path = config_obj.sudo().get_param("bizerba.local_folder_path")
@@ -347,7 +361,6 @@ class ProductScaleLog(models.Model):
                 log.write({"sent": True, "last_send_date": fields.Datetime.now()})
         return True
 
-    @api.multi
     def cron_send_to_scale(self):
         log_ids = self.search([("sent", "=", False)], order="log_date")
         try:
@@ -357,9 +370,8 @@ class ProductScaleLog(models.Model):
                 "Timed out while sending logs to scale. Will try again at next run."
             )
 
-    @api.multi
     def _generate_image_file_name(self, obj, field, extension):
-        if getattr(obj, field.name):
-            return "%d%s" % (obj.id, extension)
+        if field and getattr(obj, field.name):
+            return f"{obj.id}{extension}"
         else:
             return ""

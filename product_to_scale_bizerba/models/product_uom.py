@@ -10,4 +10,4 @@ class ProductUom(models.Model):
     _inherit = "uom.uom"
 
     # Column Section
-    scale_type = fields.Char("Scale Type")
+    scale_type = fields.Char()

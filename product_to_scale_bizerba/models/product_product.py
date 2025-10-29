@@ -3,11 +3,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from datetime import datetime
-
 from odoo import api, fields, models
-
-from odoo.addons import decimal_precision as dp
 
 
 class ProductProduct(models.Model):
@@ -15,20 +11,17 @@ class ProductProduct(models.Model):
 
     scale_group_id = fields.Many2one(
         "product.scale.group",
-        string="Scale Group",
         related="product_tmpl_id.scale_group_id",
         store=True,
         readonly=False,
     )
     scale_sequence = fields.Integer(
-        "Scale Sequence",
         related="product_tmpl_id.scale_sequence",
         readonly=False,
         store=True,
     )
     scale_tare_weight = fields.Float(
-        digits=dp.get_precision("Stock Weight"),
-        string="Scale Tare Weight",
+        digits="Stock Weight",
         related="product_tmpl_id.scale_tare_weight",
         readonly=False,
         store=True,
@@ -39,59 +32,70 @@ class ProductProduct(models.Model):
     )
 
     # View Section
-    @api.multi
     def send_scale_create(self):
         for product in self:
             self._send_to_scale_bizerba("create", product)
         return True
 
-    @api.multi
     def send_scale_write(self):
         for product in self:
             self._send_to_scale_bizerba("write", product)
         return True
 
-    @api.multi
     def send_scale_unlink(self):
         for product in self:
             self._send_to_scale_bizerba("unlink", product)
         return True
 
     # Custom Section
-    @api.multi
     def _send_to_scale_bizerba(self, action, product):
-        log_obj = self.env["product.scale.log"]
-        log_obj.create(
-            {
-                "log_date": datetime.now(),
-                "scale_system_id": product.scale_group_id.scale_system_id.id,
-                "product_id": product.id,
-                "action": action,
-            }
-        )
+        log_date = fields.Datetime.now()
+        ScaleLog = self.env["product.scale.log"]
+        args = [
+            ("log_date", "=", log_date),
+            ("scale_system_id", "=", product.scale_group_id.scale_system_id.id),
+            ("product_id", "=", product.ids[0]),
+            ("action", "=", action),
+        ]
+        existing_logs = ScaleLog.search(args, limit=1)
+        if not existing_logs:
+            ScaleLog.create(
+                {
+                    "log_date": log_date,
+                    "scale_system_id": product.scale_group_id.scale_system_id.id,
+                    "product_id": product.ids[0],
+                    "action": action,
+                }
+            )
 
-    @api.multi
     def _check_vals_scale_bizerba(self, vals, product):
         system = product.scale_group_id.scale_system_id
         system_fields = [x.name for x in system.field_ids]
         vals_fields = list(vals.keys())
         return set(system_fields).intersection(vals_fields)
 
+    def _condition_bizerba_off(self):
+        return self.env.context.get("bizerba_off", False)
+
+    @api.onchange("lst_price")
+    def _set_product_lst_price(self):
+        return super(
+            ProductProduct, self.with_context(bizerba_off=True)
+        )._set_product_lst_price()
+
     # Overload Section
-    @api.model
-    def create(self, vals):
-        send_to_scale = vals.get("scale_group_id", False)
-        res = super().create(vals)
-        if send_to_scale:
-            self._send_to_scale_bizerba("create", res)
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        products = res.filtered("scale_group_id")
+        if not self._condition_bizerba_off():
+            for product in products:
+                self._send_to_scale_bizerba("create", product)
         return res
 
-    @api.multi
     def write(self, vals):
         defered = {}
-        context = self.env.context
-        ctx = context.copy()
-        if not context.get("bizerba_off", False):
+        if not self._condition_bizerba_off():
             for product in self:
                 ignore = not product.scale_group_id and "scale_group_id" not in list(
                     vals.keys()
@@ -118,7 +122,8 @@ class ProductProduct(models.Model):
                         continue
                     else:
                         if vals.get("scale_group_id", False) and (
-                            vals.get("scale_group_id", False) != product.scale_group_id
+                            vals.get("scale_group_id", False)
+                            != product.scale_group_id.id
                         ):
                             # (the product has moved from a group to another)
                             # Remove from obsolete group
@@ -134,20 +139,19 @@ class ProductProduct(models.Model):
                             # Data related to the scale
                             defered[product.id] = "write"
 
-        ctx["bizerba_off"] = True
         res = super().write(vals)
 
         for product_id, action in defered.items():
-            product = self.filtered(lambda p: p.id == product_id)
+            product = self.filtered(lambda p, pid=product_id: p.id == pid)
             if not product:
                 continue
             self._send_to_scale_bizerba(action, product)
 
         return res
 
-    @api.multi
     def unlink(self):
-        for product in self:
-            if product.scale_group_id:
-                self._send_to_scale_bizerba("unlink", product)
+        if not self._condition_bizerba_off():
+            for product in self:
+                if product.scale_group_id:
+                    self._send_to_scale_bizerba("unlink", product)
         return super().unlink()

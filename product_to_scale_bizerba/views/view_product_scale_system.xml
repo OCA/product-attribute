@@ -9,7 +9,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record id="view_product_scale_system_form" model="ir.ui.view">
         <field name="model">product.scale.system</field>
         <field name="arch" type="xml">
-            <form string="Scale System" version="7.0">
+            <form string="Scale System">
                 <header>
                     <button
                         name="test_button"
@@ -54,49 +54,49 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                         <page string="Line Settings">
                             <group>
                                 <field name="product_line_ids" nolabel="1">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle" />
                                         <field name="code" />
                                         <field name="name" />
                                         <field name="type" />
                                         <field
                                             name="field_id"
-                                            attrs="{'invisible': [('type', 'not in', ['external_text', 'numeric', 'text', 'many2one', 'many2many', 'product_image'])]}"
+                                            readonly="type not in ['external_text', 'numeric', 'text', 'many2one', 'many2many', 'product_image']"
                                         />
                                         <field
                                             name="related_field_id"
-                                            attrs="{'invisible': [('type', 'not in', ['many2many', 'many2one'])]}"
+                                            readonly="type not in ['many2many', 'many2one']"
                                         />
                                         <field
                                             name="x2many_range"
-                                            attrs="{'invisible': [('type', 'not in', ['many2many'])]}"
+                                            readonly="type not in ['many2many']"
                                         />
                                         <field
                                             name="constant_value"
-                                            attrs="{'invisible': [('type', 'not in', ['external_constant', 'constant'])]}"
+                                            readonly="type not in ['external_constant', 'constant']"
                                         />
                                         <field
                                             name="multiline_length"
-                                            attrs="{'invisible': [('type', 'not in', ['external_constant', 'text'])]}"
+                                            readonly="type not in ['external_constant', 'text']"
                                         />
                                         <field
                                             name="multiline_separator"
-                                            attrs="{'invisible': [('type', 'not in', ['text'])]}"
+                                            readonly="type not in ['text']"
                                         />
                                         <field
                                             name="suffix"
-                                            attrs="{'invisible': [('type', 'not in', ['product_image'])]}"
+                                            readonly="type not in ['product_image']"
                                         />
                                         <field
                                             name="numeric_coefficient"
-                                            attrs="{'invisible': [('type', 'not in', ['numeric'])]}"
+                                            readonly="type not in ['numeric']"
                                         />
                                         <field
                                             name="numeric_round"
-                                            attrs="{'invisible': [('type', 'not in', ['numeric'])]}"
+                                            readonly="type not in ['numeric']"
                                         />
                                         <field name="delimiter" />
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </page>
@@ -110,8 +110,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="name">Scale Systems</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.scale.system</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem

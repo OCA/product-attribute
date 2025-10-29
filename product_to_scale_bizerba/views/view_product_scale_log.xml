@@ -9,40 +9,38 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record id="view_product_scale_log_tree" model="ir.ui.view">
         <field name="model">product.scale.log</field>
         <field name="arch" type="xml">
-            <tree string="Scale Log" decoration-muted="sent">
+            <list string="Scale Log" decoration-muted="sent">
                 <field name="log_date" />
                 <field name="sent" />
                 <field name="last_send_date" />
                 <field name="scale_system_id" />
                 <field name="product_id" />
                 <field name="action" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="view_product_scale_log_form" model="ir.ui.view">
         <field name="model">product.scale.log</field>
         <field name="arch" type="xml">
-            <form string="Scale Log" version="7.0">
+            <form string="Scale Log">
                 <header />
                 <sheet>
                     <group>
                         <group>
-                            <group>
-                                <field name="log_date" />
-                                <field name="sent" />
-                                <field name="last_send_date" />
-                                <button
-                                    name="send_log"
-                                    string="Send to FTP Server"
-                                    type="object"
-                                />
-                            </group>
-                            <group>
-                                <field name="scale_system_id" />
-                                <field name="product_id" />
-                                <field name="action" />
-                            </group>
+                            <field name="log_date" />
+                            <field name="sent" />
+                            <field name="last_send_date" />
+                            <button
+                                name="send_log"
+                                string="Send to FTP Server"
+                                type="object"
+                            />
+                        </group>
+                        <group>
+                            <field name="scale_system_id" />
+                            <field name="product_id" />
+                            <field name="action" />
                         </group>
                     </group>
                     <group>
@@ -58,8 +56,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="name">Logs</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.scale.log</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem
