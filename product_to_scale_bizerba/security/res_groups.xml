@@ -1,13 +1,11 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <!--
     Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
     Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
     @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-
 <odoo>
-
     <record model="res.groups" id="group_user">
         <field name="name">Bizerba Scale User</field>
         <field name="category_id" ref="category_bizerba_scale" />
@@ -17,7 +15,6 @@
         <field name="name">Bizerba Scale Manager</field>
         <field name="implied_ids" eval="[(6, False, [ref('group_user')])]" />
         <field name="category_id" ref="category_bizerba_scale" />
-        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
     </record>
-
 </odoo>

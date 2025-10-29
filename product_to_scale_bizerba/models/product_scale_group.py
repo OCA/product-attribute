@@ -7,8 +7,8 @@ from odoo import api, fields, models
 
 
 class ProductScaleGroup(models.Model):
-    _name = 'product.scale.group'
-    _description = 'Product Scale Group'
+    _name = "product.scale.group"
+    _description = "Product Scale Group"
 
     # Compute Section
     def _compute_product_qty(self):
@@ -16,28 +16,23 @@ class ProductScaleGroup(models.Model):
             group.product_qty = len(group.product_ids)
 
     # Column Section
-    name = fields.Char('Name', required=True)
-    active = fields.Boolean('Active', default=True)
-    external_identity = fields.Char('External ID', required=True)
+    name = fields.Char("Name", required=True)
+    active = fields.Boolean("Active", default=True)
+    external_identity = fields.Char("External ID", required=True)
     company_id = fields.Many2one(
-        'res.company', 'Company',
+        "res.company",
+        "Company",
         index=True,
-        default=lambda self:
-        self.env['res.company']._company_default_get('product.product')
+        default=lambda self: self.env["res.company"]._company_default_get(
+            "product.product"
+        ),
     )
     scale_system_id = fields.Many2one(
-        'product.scale.system',
-        'Scale System',
-        required=True
+        "product.scale.system", "Scale System", required=True
     )
-    product_ids = fields.One2many(
-        'product.product',
-        'scale_group_id',
-        'Products'
-    )
+    product_ids = fields.One2many("product.product", "scale_group_id", "Products")
     product_qty = fields.Integer(
-        compute='_compute_product_qty',
-        string='Products Quantity'
+        compute="_compute_product_qty", string="Products Quantity"
     )
 
     @api.multi
