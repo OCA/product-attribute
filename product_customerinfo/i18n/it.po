@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-08-30 14:06+0000\n"
+"PO-Revision-Date: 2025-10-30 11:42+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
@@ -117,7 +117,7 @@ msgstr "Cliente di questo prodotto"
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
 msgid "Customer specific unit of measure."
-msgstr ""
+msgstr "Unità di misura specifica per utente."
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
@@ -152,7 +152,7 @@ msgstr "Data fine"
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
 msgid "End date for this customer price"
-msgstr ""
+msgstr "Data fine per questo prezzo cliente"
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
@@ -228,7 +228,7 @@ msgstr "Listino prezzi"
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
 msgid "Price at which the product is sold to this customer."
-msgstr ""
+msgstr "Prezzo a cui questo prodotto è venduto a questo cliente."
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_pricelist_item
@@ -277,7 +277,7 @@ msgstr "Data inizio"
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
 msgid "Start date for this customer price"
-msgstr ""
+msgstr "Data inizio per questo prezzo cliente"
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_supplierinfo
@@ -291,6 +291,9 @@ msgid ""
 "price. Expressed in the customer's Product Unit of Measure if set, otherwise "
 "in the default Product Unit of Measure."
 msgstr ""
+"Quantità minima da acquistare affinché questo cliente possa beneficiare del "
+"prezzo. Espressa nell'unità di misura del prodotto del cliente, se "
+"impostata, altrimenti nell'unità di misura del prodotto predefinita."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_code
