@@ -20,7 +20,8 @@ class TestStockLotExpirationDates(TransactionCase):
         cls.product = cls.product_model.create(
             {
                 "name": "Unittest product",
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
                 "categ_id": cls.category.id,
                 "use_time": 10,
                 "expiration_time": 11,
@@ -39,7 +40,8 @@ class TestStockLotExpirationDates(TransactionCase):
         cls.product_2 = cls.product_model.create(
             {
                 "name": "Unittest product 2",
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
                 "categ_id": cls.category_2.id,
                 "use_time": -13,
                 "expiration_time": -12,
@@ -58,7 +60,8 @@ class TestStockLotExpirationDates(TransactionCase):
         cls.product_3 = cls.product_model.create(
             {
                 "name": "Unittest product 3",
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
                 "categ_id": cls.category_3.id,
                 "use_time": 0,
                 "expiration_time": 0,
