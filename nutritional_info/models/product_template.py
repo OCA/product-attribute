@@ -62,7 +62,7 @@ class ProductTemplate(models.Model):
                 variant = template.product_variant_ids
                 variant.nutritional_reference_qty = template.nutritional_reference_qty
 
-    @api.constrains("nutritional_value_ids", "nutritional_value_ids.type_id")
+    @api.constrains("nutritional_value_ids")
     def _check_nutritional_type_not_repeated(self):
         for prod in self:
             if prod.nutritional_value_ids and len(prod.nutritional_value_ids) != len(
