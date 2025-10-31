@@ -13,9 +13,9 @@
         </field>
     </record>
     <record id="action_nutritional_type" model="ir.actions.act_window">
-         <field name="name">Nutritional Types</field>
-         <field name="type">ir.actions.act_window</field>
-         <field name="res_model">nutritional.type</field>
-         <field name="view_mode">tree</field>
+        <field name="name">Nutritional Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nutritional.type</field>
+        <field name="view_mode">tree</field>
     </record>
 </odoo>

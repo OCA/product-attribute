@@ -3,9 +3,9 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <template id="nutritional_info_table_title">
-        <span>Nutrition facts (</span><span
-            t-out="str(quantity) + uom.display_name"
-        /><span>)</span>
+        <span>Nutrition facts (</span>
+        <span t-out="str(quantity) + uom.display_name" />
+        <span>)</span>
     </template>
     <template id="nutritional_info_table">
         <!-- Combination of records as it can be called from other sites overriding the
