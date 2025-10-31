@@ -414,6 +414,14 @@ permissions.</li>
 permission, you need to have some other permission that lets you edit
 products, such as <em>Sales / Administrator</em> or <em>Inventory /
 Administrator</em>.</li>
+<li>This module will raise an error in point_of_sale session opening if
+the user does not belong to Product Cost/Read group. The error can be
+fixed by the glue pos_product_cost_security module but we still have
+an incoherent logic : the pos users must have the cost read right to
+be able to see the products in their session which does not cover the
+use case where we do not want some pos users to see the cost
+informations in the backend.
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/556">https://github.com/OCA/product-attribute/issues/556</a></li>
 </ul>
 </div>
 <div class="section" id="bug-tracker">
