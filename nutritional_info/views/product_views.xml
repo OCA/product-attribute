@@ -18,12 +18,16 @@
                         </group>
                     </group>
                     <group>
-                        <field name="nutritional_value_ids" nolabel="1">
-                            <tree editable="bottom" default_order="sequence, id">
+                        <field
+                            name="nutritional_value_ids"
+                            nolabel="1"
+                            options="{'no_create_edit': True}"
+                        >
+                            <list editable="bottom">
+                                <field name="sequence" widget="handle" />
                                 <field name="type_id" />
                                 <field name="value" />
-                                <field name="sequence" invisible="1" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </page>
@@ -36,10 +40,7 @@
         <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
             <page name="inventory" position="after">
-                <page
-                    string="Nutrition"
-                    attrs="{'invisible': [['product_variant_count', '!=', 1]]}"
-                >
+                <page string="Nutrition" invisible="product_variant_count != 1">
                     <group>
                         <group>
                             <label for="nutritional_reference_qty" />
@@ -50,12 +51,16 @@
                         </group>
                     </group>
                     <group>
-                        <field name="nutritional_value_ids" nolabel="1">
-                            <tree editable="bottom" default_order="sequence, id">
+                        <field
+                            name="nutritional_value_ids"
+                            nolabel="1"
+                            options="{'no_create_edit': True}"
+                        >
+                            <list editable="bottom">
+                                <field name="sequence" widget="handle" />
                                 <field name="type_id" />
                                 <field name="value" />
-                                <field name="sequence" invisible="1" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </page>
