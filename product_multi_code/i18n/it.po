@@ -65,6 +65,11 @@ msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: product_multi_code
+#: model:res.groups,name:product_multi_code.group_product_multi_code
+msgid "Manager product multi code"
+msgstr ""
+
+#. module: product_multi_code
 #: model:ir.model,name:product_multi_code.model_product_template
 #: model:ir.model.fields,field_description:product_multi_code.field_product_default_code__product_id
 msgid "Product"
