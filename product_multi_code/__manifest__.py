@@ -12,6 +12,7 @@
     "installable": True,
     "depends": ["product", "stock"],
     "data": [
+        "security/group.xml",
         "security/ir.model.access.csv",
         "views/product_views.xml",
         "views/product_template_views.xml",

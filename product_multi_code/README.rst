@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ==================
 Product Multi Code
 ==================
@@ -17,7 +13,7 @@ Product Multi Code
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -45,9 +41,11 @@ Usage
 
 To use this module:
 
-1. Go to the Products menu.
-2. Open a product.
-3. You will see a new section for Internal References where you can add
+1. Add the administrative users to the "Manager product multi code"
+   group
+2. Go to the Products menu.
+3. Open a product.
+4. You will see a new section for Internal References where you can add
    multiple codes.
 
 The system will automatically link the internal code with the
