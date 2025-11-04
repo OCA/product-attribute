@@ -3,7 +3,7 @@
 {
     "name": "Product Multi Code",
     "summary": "Allow multiple internal references (default_code) per product",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "Product Management",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Sygel, Odoo Community Association (OCA)",
