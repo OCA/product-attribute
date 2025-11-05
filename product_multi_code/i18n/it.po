@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-10-20 14:42+0000\n"
+"PO-Revision-Date: 2025-11-05 09:42+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -67,7 +67,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: product_multi_code
 #: model:res.groups,name:product_multi_code.group_product_multi_code
 msgid "Manager product multi code"
-msgstr ""
+msgstr "Gestione prodotto multi codice"
 
 #. module: product_multi_code
 #: model:ir.model,name:product_multi_code.model_product_template
