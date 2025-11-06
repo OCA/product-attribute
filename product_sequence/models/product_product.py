@@ -13,8 +13,7 @@ class ProductProduct(models.Model):
     default_code = fields.Char(
         default="/",
         tracking=True,
-        help="Set to '/' and save if you want a new internal reference "
-        "to be proposed.",
+        help="Set to '/' and save if you want a new internal reference to be proposed.",
     )
 
     @api.model_create_multi

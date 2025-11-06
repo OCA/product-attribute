@@ -9,3 +9,4 @@
 - Marie Lejeune \<<marie.lejeune@acsone.eu>\>
 - Nils Coenen \<<nils.coenen@nico-solutions.de>\>
 - Chris Bergman \<<chris.bergman@codeforward.nl>\>
+- Foram Darji \<<fd@oerp.ca>\>
