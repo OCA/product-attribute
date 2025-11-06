@@ -14,8 +14,7 @@ class ProductProduct(models.Model):
         required=True,
         default="/",
         tracking=True,
-        help="Set to '/' and save if you want a new internal reference "
-        "to be proposed.",
+        help="Set to '/' and save if you want a new internal reference to be proposed.",
     )
 
     @api.model_create_multi

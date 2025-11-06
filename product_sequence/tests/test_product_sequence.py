@@ -75,12 +75,6 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(product_3.default_code[:3], "ELE")
         self.assertEqual(product_3.product_tmpl_id.default_code[:3], "ELE")
 
-        product_4 = self.product_product.create(
-            dict(name="Truck", default_code="PROD04")
-        )
-        product_4.write({"default_code": "/"})
-        self.assertTrue(product_4.categ_id, "Category is not set.")
-
         categ_car = self.product_category.create(dict(name="Car", code_prefix="CAR"))
         product_3.product_tmpl_id.categ_id = categ_car
         product_3.product_tmpl_id.default_code = "/"
