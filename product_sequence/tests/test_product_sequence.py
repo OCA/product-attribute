@@ -75,11 +75,13 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(product_3.default_code[:3], "ELE")
         self.assertEqual(product_3.product_tmpl_id.default_code[:3], "ELE")
 
+        # Since 19.0 the product category is not mandatory anymore, so a
+        # product without category must fall back on the default sequence.
         product_4 = self.product_product.create(
             dict(name="Truck", default_code="PROD04")
         )
         product_4.write({"default_code": "/"})
-        self.assertTrue(product_4.categ_id, "Category is not set.")
+        self.assertRegex(product_4.default_code, r"^PR/")
 
         categ_car = self.product_category.create(dict(name="Car", code_prefix="CAR"))
         product_3.product_tmpl_id.categ_id = categ_car
