@@ -15,6 +15,10 @@ class ABCClassificationCase(TransactionCase):
         cls.ABCClassificationProfile._fields["profile_type"].selection = [
             ("test_type", "Test Type")
         ]
+        cls.ABCClassificationProfile._fields["profile_type"]._selection = {
+            "test_type",
+            "Test Type",
+        }
         cls.classification_profile = cls.ABCClassificationProfile.create(
             {"name": "Profile test", "profile_type": "test_type"}
         )

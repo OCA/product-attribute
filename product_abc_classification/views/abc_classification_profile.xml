@@ -41,11 +41,11 @@
                     <notebook>
                         <page name="levels" string="Levels">
                             <field name="level_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="name" />
                                     <field name="percentage_products" />
                                     <field name="percentage" />
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page name="additional" string="Additional Information">
@@ -65,15 +65,15 @@
         >abc.classification.profile.tree (in product_abc_classification)</field>
         <field name="model">abc.classification.profile</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="abc_classification_profile_action" model="ir.actions.act_window">
         <field name="name">ABC Classification profiles</field>
         <field name="res_model">abc.classification.profile</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <menuitem
         action="abc_classification_profile_action"

@@ -1,7 +1,7 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -10,8 +10,6 @@ class AbcClassificationProductLevel(models.Model):
     _inherit = "mail.thread"
     _description = "Abc Classification Product Level"
     _rec_name = "level_id"
-
-    display_name = fields.Char(compute="_compute_display_name")
 
     manual_level_id = fields.Many2one(
         "abc.classification.level",
@@ -72,7 +70,7 @@ class AbcClassificationProductLevel(models.Model):
         (
             "product_level_uniq",
             "UNIQUE(profile_id, product_id)",
-            _("Only one level by profile by product allowed"),
+            "Only one level by profile by product allowed",
         )
     ]
 
@@ -80,20 +78,20 @@ class AbcClassificationProductLevel(models.Model):
     def _check_level(self):
         for rec in self:
             if not rec.computed_level_id and not rec.manual_level_id:
-                raise ValidationError(_("Classification level is mandatory"))
+                raise ValidationError(self.env._("Classification level is mandatory"))
             if (
                 rec.computed_level_id
                 and rec.computed_level_id.profile_id != rec.profile_id
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Computed level must be in  the same classifiation "
                         "profile as the one on the product level"
                     )
                 )
             if rec.manual_level_id and rec.manual_level_id.profile_id != rec.profile_id:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Manual level must be in  the same classifiation "
                         "profile as the one on the product level"
                     )
