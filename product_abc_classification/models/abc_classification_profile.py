@@ -4,7 +4,7 @@
 
 from psycopg2.extensions import AsIs
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -45,7 +45,7 @@ class AbcClassificationProfile(models.Model):
         "profile.",
     )
 
-    _sql_constraints = [("name_uniq", "UNIQUE(name)", _("Profile name must be unique"))]
+    _sql_constraints = [("name_uniq", "UNIQUE(name)", "Profile name must be unique")]
 
     @api.constrains("level_ids")
     def _check_levels(self):
@@ -54,17 +54,19 @@ class AbcClassificationProfile(models.Model):
             total = sum(percentages)
             if profile.level_ids and total != 100.0:
                 raise ValidationError(
-                    _("The sum of the percentages of the levels should be " "100.")
+                    self.env._(
+                        "The sum of the percentages of the levels should be 100."
+                    )
                 )
             if profile.level_ids and len({}.fromkeys(percentages)) != len(percentages):
                 raise ValidationError(
-                    _("The percentages of the levels must be unique.")
+                    self.env._("The percentages of the levels must be unique.")
                 )
             percentage_productss = profile.level_ids.mapped("percentage_products")
             total = sum(percentage_productss)
             if profile.level_ids and total != 100.0:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The sum of the products percentages of the levels "
                         "should be 100."
                     )
@@ -134,8 +136,10 @@ class AbcClassificationProfile(models.Model):
         modified_levels.modified(["manual_level_id"])
         modified_levels._recompute_recordset()
 
-    @api.returns("self", lambda value: value.id)
-    def copy(self, default=None):
-        default = default or {}
-        default.setdefault("name", self.name + _("-copy"))
-        return super().copy(default)
+    def copy_data(self, default=None):
+        default = dict(default or {})
+        vals_list = super().copy_data(default=default)
+        for profile, vals in zip(self, vals_list, strict=False):
+            if "name" not in default:
+                vals["name"] = self.env._("%s (copy)", profile.name)
+        return vals_list
