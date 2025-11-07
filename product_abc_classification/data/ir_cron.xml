@@ -5,8 +5,6 @@
         <field name="user_id" ref="base.user_root" />
         <field name="interval_number">1</field>
         <field name="interval_type">months</field>
-        <field name="numbercall">-1</field>
-        <field name="doall" eval="False" />
         <field name="model_id" ref="model_abc_classification_profile" />
         <field name="code">model._cron_compute_abc_classification()</field>
         <field name="state">code</field>

@@ -11,7 +11,7 @@
                 <page
                     string="ABC Classification"
                     name="abc_classification"
-                    invisible="type != 'product'"
+                    invisible="not is_storable"
                 >
                     <group>
                         <group>

@@ -16,18 +16,19 @@ class ProductCategory(models.Model):
     )
 
     def update_product_abc_classification_profile(self):
-        for categ in self:
-            products = self.env["product.product"].search(
-                [
-                    ("categ_id", "=", categ.id),
-                    ("abc_classification_profile_updatable_from_category", "=", True),
-                ]
+        category_products = self.env["product.product"]._read_group(
+            [
+                ("abc_classification_profile_updatable_from_category", "=", True),
+                ("categ_id", "in", self.ids),
+            ],
+            ["categ_id"],
+            ["id:recordset"],
+        )
+        for categ, products in category_products:
+            products.write(
+                {
+                    "abc_classification_profile_ids": [
+                        (6, 0, categ.abc_classification_profile_ids.ids)
+                    ]
+                }
             )
-            if products:
-                products.write(
-                    {
-                        "abc_classification_profile_ids": [
-                            (6, 0, categ.abc_classification_profile_ids.ids)
-                        ]
-                    }
-                )
