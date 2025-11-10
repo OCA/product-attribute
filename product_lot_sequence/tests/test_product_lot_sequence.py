@@ -1,3 +1,5 @@
+from odoo import Command
+from odoo.exceptions import AccessError
 from odoo.tests import Form
 from odoo.tests.common import TransactionCase
 
@@ -138,3 +140,29 @@ class TestProductLotSequence(TransactionCase):
         self.assertEqual(
             new_next_sequence_number, seq.get_next_char(seq.number_next_actual)
         )
+
+    def test_product_sequence_access_right(self):
+        self.assertEqual(self.stock_production_lot._get_sequence_policy(), "product")
+        product = self.product_product.create(dict(name="Test", tracking="serial"))
+        self.assertTrue(product.lot_sequence_id)
+        product.lot_sequence_id.prefix = "Test/"
+        stock_manager_group = self.env.ref("stock.group_stock_manager")
+        test_user = self.env["res.users"].create(
+            {
+                "name": "Stock Manager User",
+                "login": "stock_manager_user",
+                "groups_id": [Command.set([stock_manager_group.id])],
+                "email": "stockmanager@example.com",
+            }
+        )
+        lot_seq_as_user = product.lot_sequence_id.with_user(test_user)
+        with self.assertRaises(AccessError):
+            lot_seq_as_user.prefix = "T/"
+        lot_seq_manager_group = self.env.ref(
+            "product_lot_sequence.group_product_lot_sequence_manager"
+        )
+        test_user.write({"groups_id": [Command.link(lot_seq_manager_group.id)]})
+        # Retry as same user (now with new group)
+        lot_seq_as_user = product.lot_sequence_id.with_user(test_user)
+        lot_seq_as_user.prefix = "T/"
+        self.assertEqual(lot_seq_as_user.prefix, "T/")
