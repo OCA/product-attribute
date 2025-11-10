@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Manufacturer",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Adds manufacturers and attributes on the product view.",
     "website": "https://github.com/OCA/product-attribute",
     "author": "OpenERP SA, Odoo Community Association (OCA)",
