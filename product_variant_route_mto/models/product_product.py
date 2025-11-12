@@ -30,6 +30,7 @@ class ProductProduct(models.Model):
         domain="[('product_selectable', '=', True)]",
         store=False,
         search="_search_route_ids",
+        inverse="_inverse_route_ids",
     )
 
     def _compute_is_mto(self):
@@ -58,6 +59,19 @@ class ProductProduct(models.Model):
         if route_ids:
             domain += [("product_tmpl_id.route_ids", operator, route_ids)]
         return domain
+
+    def _inverse_route_ids(self):
+        mto_routes = self.env["stock.route"].search([("is_mto", "=", True)])
+        for product in self:
+            non_mto_routes = product.route_ids - mto_routes
+            if product.route_ids & mto_routes:
+                if not product.is_mto:
+                    product.is_mto = True
+            else:
+                if product.is_mto:
+                    product.is_mto = False
+            if product.product_tmpl_id.route_ids != non_mto_routes:
+                product.product_tmpl_id.route_ids = non_mto_routes
 
     @api.constrains("is_mto")
     def _check_template_is_mto(self):
