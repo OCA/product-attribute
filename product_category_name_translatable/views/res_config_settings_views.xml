@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.form - product_category_name_translatable</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="product.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='product_general_settings']" position="after">
+                <block
+                    title="Product Category Translations"
+                    id="product_category_name_translatable_general_settings"
+                >
+                    <setting
+                        id="product_category_complete_name_lang"
+                        string="Product Category Complete Name Language"
+                        help="Language to use for displaying the complete name of product categories"
+                    >
+                        <field name="product_category_complete_name_lang_id" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
