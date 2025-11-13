@@ -74,17 +74,18 @@ class TestProductAssortment(TransactionCase):
             )
 
     def test_search_assortment_with_partner(self):
-        self.filter_obj.with_context(product_assortment=True).create(
+        assortment = self.filter_obj.with_context(product_assortment=True).create(
             {
                 "name": "Test Assortment Partner",
                 "domain": [],
                 "partner_ids": [(4, self.partner.id)],
             }
         )
+        self.partner._update_partner_assortments()
         search_domain = self.partner.action_define_product_assortment()["domain"]
         self.assertEqual(
             search_domain,
-            [("partner_ids", "in", [self.partner.id]), ("is_assortment", "=", True)],
+            [("id", "in", [assortment.id])],
         )
 
     def test_product_assortment_view(self):
