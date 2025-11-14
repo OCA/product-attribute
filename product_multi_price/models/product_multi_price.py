@@ -29,8 +29,7 @@ class ProductMultiPrice(models.Model):
         (
             "multi_price_uniq",
             "unique(name, product_id, company_id)",
-            "A field name cannot be assigned to a product twice for the same "
-            "company",
+            "A field name cannot be assigned to a product twice for the same company",
         ),
     ]
 
