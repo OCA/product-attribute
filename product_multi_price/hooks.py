@@ -4,8 +4,9 @@
 
 def post_init_hook(env):
     group_id = env.ref("product_multi_price.group_show_multi_prices").id
-    default_user = env.ref("base.default_user")
     user = (
         env["res.users"].with_context(active_test=False).search([("share", "=", False)])
     )
-    (user - default_user).write({"groups_id": [(4, group_id, None)]})
+    # In Odoo 19, there isn't a specific base.default_user,
+    # so apply to all non-portal users
+    user.write({"group_ids": [(4, group_id, None)]})

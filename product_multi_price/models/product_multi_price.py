@@ -25,13 +25,10 @@ class ProductMultiPrice(models.Model):
         readonly=True,
     )
 
-    _sql_constraints = [
-        (
-            "multi_price_uniq",
-            "unique(name, product_id, company_id)",
-            "A field name cannot be assigned to a product twice for the same company",
-        ),
-    ]
+    _multi_price_uniq = models.Constraint(
+        "unique(name, product_id, company_id)",
+        "A field name cannot be assigned to a product twice for the same company",
+    )
 
 
 class ProductMultiPriceName(models.Model):
@@ -40,7 +37,7 @@ class ProductMultiPriceName(models.Model):
 
     @api.model
     def _get_company(self):
-        return self._context.get("company_id", self.env.company)
+        return self.env.context.get("company_id", self.env.company)
 
     name = fields.Char(required=True, string="Price Field Name")
     company_id = fields.Many2one(
@@ -49,10 +46,7 @@ class ProductMultiPriceName(models.Model):
         default=lambda self: self._get_company(),
     )
 
-    _sql_constraints = [
-        (
-            "multi_price_name_uniq",
-            "unique(name, company_id)",
-            "Prices Names must be unique per company",
-        ),
-    ]
+    _multi_price_name_uniq = models.Constraint(
+        "unique(name, company_id)",
+        "Prices Names must be unique per company",
+    )
