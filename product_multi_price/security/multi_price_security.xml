@@ -3,7 +3,6 @@
     <data>
         <record id="group_show_multi_prices" model="res.groups">
             <field name="name">Show multi prices</field>
-            <field name="category_id" ref="base.module_category_hidden" />
         </record>
     </data>
     <data noupdate="1">

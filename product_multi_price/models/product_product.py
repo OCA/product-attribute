@@ -14,27 +14,33 @@ class ProductProduct(models.Model):
     )
 
     def _convert_to_price_uom(self, price):
-        qty_uom_id = self._context.get("uom") or self.uom_id.id
+        qty_uom_id = self.env.context.get("uom") or self.uom_id.id
         price_uom = self.env["uom.uom"].browse([qty_uom_id])
         return self.uom_id._compute_price(price, price_uom)
 
     def _get_multiprice_pricelist_price(self, rule):
         """Method for getting the price from multi price."""
         self.ensure_one()
-        company = rule.company_id or self.env.user.company_id
-        price = (
+        company = rule.company_id or self.env.company
+        # Search for multi price considering company-specific vs global
+        multi_prices = (
             self.env["product.multi.price"]
             .sudo()
             .search(
                 [
+                    "|",
                     ("company_id", "=", company.id),
+                    ("company_id", "=", False),
                     ("name", "=", rule.multi_price_name.id),
                     ("product_id", "=", self.id),
                 ]
             )
-            .price
-            or 0
         )
+        # Prefer company-specific over global
+        multi_price_record = multi_prices.sorted(lambda r: not r.company_id)[:1]
+
+        price = multi_price_record.price or 0
+
         if price:
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
