@@ -13,7 +13,7 @@ class ProductProduct(models.Model):
     )
 
     def _convert_to_price_uom(self, price):
-        qty_uom_id = self._context.get("uom") or self.uom_id.id
+        qty_uom_id = self.env.context.get("uom") or self.uom_id.id
         price_uom = self.env["uom.uom"].browse([qty_uom_id])
         return self.uom_id._compute_price(price, price_uom)
 
