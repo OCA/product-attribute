@@ -12,7 +12,11 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     def _get_supplierinfo_pricelist_price(
-        self, rule, date=None, quantity=None, product_id=None
+        self,
+        rule,
+        date=None,
+        quantity=None,
+        product_id=None,
     ):
         """Method for getting the price from supplier info."""
         self.ensure_one()
@@ -57,32 +61,18 @@ class ProductTemplate(models.Model):
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
             # Verbatim copy of part of product.pricelist._compute_price_rule.
-            qty_uom_id = self._context.get("uom") or self.uom_id.id
-            price_uom = self.env["uom.uom"].browse([qty_uom_id])
-
-            # We need to convert the price to the uom used on the sale, if the
-            # uom on the seller is a different one that the one used there.
-            if seller and seller.product_uom != price_uom:
-                price = seller.product_uom._compute_price(price, price_uom)
+            # TODO: check if the conversion to uom is needed, so far it seems it is not
+            # because we are giving unit price in the uom of the product
             price_limit = price
             price = (price - (price * (rule.price_discount / 100))) or 0.0
             if rule.price_round:
                 price = tools.float_round(price, precision_rounding=rule.price_round)
             if rule.price_surcharge:
-                price_surcharge = self.uom_id._compute_price(
-                    rule.price_surcharge, price_uom
-                )
-                price += price_surcharge
+                price += rule.price_surcharge
             if rule.price_min_margin:
-                price_min_margin = self.uom_id._compute_price(
-                    rule.price_min_margin, price_uom
-                )
-                price = max(price, price_limit + price_min_margin)
+                price = max(price, price_limit + rule.price_min_margin)
             if rule.price_max_margin:
-                price_max_margin = self.uom_id._compute_price(
-                    rule.price_max_margin, price_uom
-                )
-                price = min(price, price_limit + price_max_margin)
+                price = min(price, price_limit + rule.price_max_margin)
         return price
 
     def _price_compute(

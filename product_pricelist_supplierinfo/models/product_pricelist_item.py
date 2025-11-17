@@ -32,8 +32,10 @@ class ProductPricelistItem(models.Model):
         help="Based on supplierinfo price without sale margin applied"
     )
 
-    def _compute_price(self, product, quantity, uom, date, currency=None):
-        result = super()._compute_price(product, quantity, uom, date, currency)
+    def _compute_price(self, product, quantity, uom, date, currency=None, **kwargs):
+        result = super()._compute_price(
+            product, quantity, uom, date, currency, **kwargs
+        )
         context = self.env.context
         if self.compute_price == "formula" and self.base == "supplierinfo":
             result = product.sudo()._get_supplierinfo_pricelist_price(

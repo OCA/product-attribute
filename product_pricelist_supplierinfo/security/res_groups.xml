@@ -2,6 +2,6 @@
 <odoo>
     <record id="group_supplierinfo_pricelist_sale_margin" model="res.groups">
         <field name="name">Show sale margin on Product Supplierinfo</field>
-        <field name="category_id" ref="base.module_category_hidden" />
+        <field name="privilege_id" ref="product.res_groups_privilege_product" />
     </record>
 </odoo>
