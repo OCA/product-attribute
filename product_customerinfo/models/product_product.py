@@ -4,8 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import datetime
 
-from odoo import api, models
-from odoo.osv import expression
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -17,23 +16,25 @@ class ProductProduct(models.Model):
         )._compute_display_name()
 
     @api.model
-    def name_search(self, name, args=None, operator="ilike", limit=100):
-        res = super().name_search(name, args=args, operator=operator, limit=limit)
+    def name_search(self, name, domain=None, operator="ilike", limit=100):
+        res = super().name_search(name, domain=domain, operator=operator, limit=limit)
         res_ids_len = len(res)
         if (
             not name
             and limit
-            or not self._context.get("partner_id")
+            or not self.env.context.get("partner_id")
             or res_ids_len >= limit
         ):
             return res
         limit -= res_ids_len
         customer_domain = self.env["product.customerinfo"]._get_name_search_domain(
-            self._context.get("partner_id"), operator, name
+            self.env.context.get("partner_id"), operator, name
         )
         match_domain = [("product_tmpl_id.customer_ids", "any", customer_domain)]
         products = self.search_fetch(
-            expression.AND([args or [], match_domain]), ["display_name"], limit=limit
+            fields.Domain.AND([domain or [], match_domain]),
+            ["display_name"],
+            limit=limit,
         )
         return res + [(product.id, product.display_name) for product in products.sudo()]
 
@@ -64,9 +65,9 @@ class ProductProduct(models.Model):
                 if not price:
                     continue
                 prices[product.id] = price
-                if not uom and self._context.get("uom"):
+                if not uom and self.env.context.get("uom"):
                     uom = self.env["uom.uom"].browse(self._context["uom"])
-                if not currency and self._context.get("currency"):
+                if not currency and self.env.context.get("currency"):
                     currency = self.env["res.currency"].browse(
                         self._context["currency"]
                     )
@@ -94,7 +95,7 @@ class ProductProduct(models.Model):
         ]
         if partner_id:
             partner = self.env["res.partner"].browse(partner_id)
-            domain = expression.AND(
+            domain = fields.Domain.AND(
                 [
                     domain,
                     [

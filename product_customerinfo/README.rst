@@ -21,13 +21,13 @@ Product Supplierinfo for Customers
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/18.0/product_customerinfo
+    :target: https://github.com/OCA/product-attribute/tree/19.0/product_customerinfo
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_customerinfo
+    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_customerinfo
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -72,9 +72,10 @@ from the supplierinfo at the product form.
 Known issues / Roadmap
 ======================
 
-- Product prices through this method are only guaranteed on the standard
-  sale order workflow. Other custom flows maybe don't reflect the price.
-- The minimum quantity will neither apply on sale orders.
+-  Product prices through this method are only guaranteed on the
+   standard sale order workflow. Other custom flows maybe don't reflect
+   the price.
+-  The minimum quantity will neither apply on sale orders.
 
 Bug Tracker
 ===========
@@ -82,7 +83,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_customerinfo%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_customerinfo%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -98,18 +99,18 @@ Authors
 Contributors
 ------------
 
-- Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
-- Aaron Henriquez <ahenriquez@forgeflow.com>
-- Miquel Raïch <miquel.raich@forgeflow.com>
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
+-  Aaron Henriquez <ahenriquez@forgeflow.com>
+-  Miquel Raïch <miquel.raich@forgeflow.com>
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pedro M. Baeza
-  - Sergio Teruel
-  - Carlos Lopez
+   -  Pedro M. Baeza
+   -  Sergio Teruel
+   -  Carlos Lopez
 
-- `Komit <https://komit-consulting.com>`__:
+-  `Komit <https://komit-consulting.com>`__:
 
-  - Vang Nguyen Phu
+   -  Vang Nguyen Phu
 
 Maintainers
 -----------
@@ -132,6 +133,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-luisg123v| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_customerinfo>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_customerinfo>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

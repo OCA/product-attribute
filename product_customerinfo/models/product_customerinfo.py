@@ -1,7 +1,7 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # Copyright 2019 ForgeFlow S.L.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class ProductCustomerInfo(models.Model):
@@ -21,13 +21,13 @@ class ProductCustomerInfo(models.Model):
     price = fields.Float(help="Price at which the product is sold to this customer.")
     date_start = fields.Date(help="Start date for this customer price")
     date_end = fields.Date(help="End date for this customer price")
-    product_uom = fields.Many2one(help="Customer specific unit of measure.")
+    product_uom = fields.Many2one("uom.uom", help="Customer specific unit of measure.")
 
     @api.model
     def get_import_templates(self):
         return [
             {
-                "label": _("Import Template for Customer Pricelists"),
+                "label": self.env._("Import Template for Customer Pricelists"),
                 "template": "/product_customerinfo/static/xls/product_customerinfo.xls",
             }
         ]

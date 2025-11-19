@@ -13,8 +13,8 @@ class TestProductNameSearch(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.supplier = cls.env.ref("base.res_partner_1")
-        cls.customer = cls.env.ref("base.res_partner_2")
+        cls.supplier = cls.env["res.partner"].create({"name": "Test Supplier"})
+        cls.customer = cls.env["res.partner"].create({"name": "Test Customer"})
         cls.product = (
             cls.env["product.product"]
             .create({"name": "Name_product", "default_code": "code_product"})

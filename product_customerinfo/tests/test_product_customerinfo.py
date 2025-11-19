@@ -17,7 +17,12 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
         cls.pricelist_model = cls.env["product.pricelist"]
         cls.customer = cls._create_customer("customer1")
         cls.unknown = cls._create_customer("customer2")
-        cls.product = cls.env.ref("product.product_product_4")
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "Test Product",
+                "list_price": 750.0,
+            }
+        )
         cls.customerinfo = cls._create_partnerinfo(
             "customer", cls.customer, cls.product
         )

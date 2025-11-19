@@ -11,7 +11,6 @@
             <form>
                 <group>
                     <group string="Customer">
-                        <field name="company_id" invisible="1" />
                         <field
                             name="product_id"
                             groups="product.group_product_variant"
@@ -27,7 +26,6 @@
                         <field name="product_code" string="Customer Product Code" />
                     </group>
                     <group string="Price List">
-                        <field name="company_id" invisible="1" />
                         <field
                             name="product_tmpl_id"
                             string="Product"
@@ -175,7 +173,7 @@
                     name="archived"
                     domain="[('date_end', '&lt;',  (context_today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"
                 />
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Product"
                         name="groupby_product"
