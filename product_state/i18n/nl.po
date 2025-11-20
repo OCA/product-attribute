@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-05-09 16:47+0000\n"
+"PO-Revision-Date: 2025-11-20 22:18+0000\n"
 "Last-Translator: Bosd <c5e2fd43-d292-4c90-9d1f-74ff3436329a@anonaddy.me>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__active
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -39,7 +39,7 @@ msgstr "Aangemaakt op"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__default
 msgid "Default state"
-msgstr ""
+msgstr "Standaard status"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
@@ -100,14 +100,14 @@ msgstr "Verouderd"
 #. module: product_state
 #: model:ir.model,name:product_state.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Product"
 
 #. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
 msgid "Product State"
-msgstr "Product status"
+msgstr "Product Status"
 
 #. module: product_state
 #: model:ir.model.constraint,message:product_state.constraint_product_state_code_unique
@@ -117,13 +117,13 @@ msgstr "Product Status Code moet uniek zijn."
 #. module: product_state
 #: model:res.groups,name:product_state.group_product_state_manager
 msgid "Product State Manager"
-msgstr ""
+msgstr "Product Status Beheerder"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
-msgstr "Product status"
+msgstr "Product Status"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -135,7 +135,7 @@ msgstr "Producten"
 #: model:ir.model.fields,help:product_state.field_product_product__product_state_id
 #: model:ir.model.fields,help:product_state.field_product_template__product_state_id
 msgid "Select a state for this product"
-msgstr "Selecteer een status voor dir product"
+msgstr "Selecteer een status voor dit product"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__sequence
@@ -153,7 +153,7 @@ msgstr "Status"
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__code
 msgid "State Code"
-msgstr "Status code"
+msgstr "Statuscode"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
@@ -164,24 +164,24 @@ msgstr "Statusnaam"
 #: model:ir.actions.act_window,name:product_state.action_open_state_products
 #: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
 msgid "State Products"
-msgstr "Product status"
+msgstr "Status Producten"
 
 #. module: product_state
 #. odoo-python
 #: code:addons/product_state/models/product_template.py:0
 msgid "The product state code %(product_state)s could not be found."
-msgstr ""
+msgstr "De product status code %(product_state)s kon niet gevonden worden."
 
 #. module: product_state
 #. odoo-python
 #: code:addons/product_state/models/product_state.py:0
 msgid "There should be only one default state"
-msgstr ""
+msgstr "Er mag slechts één standaard status zijn"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
-msgstr ""
+msgstr "Gebruikt om de statussen te ordenen"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Laatst gewijzigd op"
