@@ -25,21 +25,29 @@ class ProductState(models.Model):
         compute="_compute_products_count",
     )
     default = fields.Boolean("Default state")
-    _sql_constraints = [
-        ("code_unique", "UNIQUE(code)", "Product State Code must be unique.")
-    ]
+    _code_unique = models.Constraint(
+        "UNIQUE(code)",
+        "Product State Code must be unique.",
+    )
 
     @api.depends("product_ids")
     def _compute_products_count(self):
-        data = self.env["product.template"].read_group(
-            [("product_state_id", "in", self.ids)],
-            ["product_state_id"],
-            ["product_state_id"],
+        # Using the new _read_group API that replaces read_group
+        domain = [("product_state_id", "in", self.ids)]
+        groupby = ["product_state_id"]
+        count_field = "__count"
+
+        # _read_group returns tuples of (groupby values, aggregated values)
+        data = self.env["product.template"]._read_group(
+            domain,
+            groupby,
+            [count_field],
         )
-        mapped_data = {
-            record["product_state_id"][0]: record["product_state_id_count"]
-            for record in data
-        }
+        mapped_data = {}
+        for state_recordset, count in data:
+            if state_recordset:
+                mapped_data[state_recordset.id] = count
+
         for state in self:
             state.products_count = mapped_data.get(state.id, 0)
 

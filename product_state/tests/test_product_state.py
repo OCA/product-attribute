@@ -15,7 +15,12 @@ class TestProductState(TransactionCase):
         cls.ProductState = cls.env["product.state"]
         cls.state = cls.ProductState.create({"name": "State Name", "code": "Code"})
         cls.product_obj = cls.env["product.template"]
-        cls.product_1 = cls.env.ref("product.product_product_4_product_template")
+        cls.product_1 = cls.product_obj.create(
+            {
+                "name": "Test Product 1",
+                "default_code": "TEST_PROD_1",
+            }
+        )
 
     @classmethod
     def _create_product(cls, state=None):

@@ -29,13 +29,11 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <header position="inside">
-                <field
-                    name="product_state_id"
-                    widget="statusbar"
-                    options="{'clickable': '1'}"
-                />
-            </header>
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <field name="product_state_id" widget="statusbar" />
+                </header>
+            </xpath>
         </field>
     </record>
     <record model="ir.ui.view" id="product_template_view_tree_inherit_product_state_id">

@@ -64,4 +64,7 @@ class ProductTemplate(models.Model):
 
     @api.model
     def _read_group_state_id(self, states, domain):
-        return states.search([])
+        # For group_expand functionality, we return all possible product states
+        # Product states are typically a finite set of predefined values, so limiting
+        # to a reasonable number for performance while ensuring all states are available
+        return self.env["product.state"].search([], limit=200)
