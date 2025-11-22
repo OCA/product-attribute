@@ -42,7 +42,7 @@ class ProductMultiPriceName(models.Model):
     name = fields.Char(required=True, string="Price Field Name")
     company_id = fields.Many2one(
         comodel_name="res.company",
-        required=True,
+        required=False,
         default=lambda self: self._get_company(),
     )
 
