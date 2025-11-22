@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ===================
 Product Multi Price
 ===================
@@ -13,7 +17,7 @@ Product Multi Price
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -72,9 +76,9 @@ To base pricelist rules on that fields, in the pricelist:
 Known issues / Roadmap
 ======================
 
-- Add mechanisms that allow to set multiprices values from external
-  flows. For example: having AVCO, FIFO and Standard prices computed
-  simultaneously in this table.
+-  Add mechanisms that allow to set multiprices values from external
+   flows. For example: having AVCO, FIFO and Standard prices computed
+   simultaneously in this table.
 
 Bug Tracker
 ===========
@@ -97,12 +101,12 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__
+-  `Tecnativa <https://www.tecnativa.com>`__
 
-  - David Vidal
-  - Pedro M. Baeza
-  - Ernesto Tejeda
-  - Sergio Teruel
+   -  David Vidal
+   -  Pedro M. Baeza
+   -  Ernesto Tejeda
+   -  Sergio Teruel
 
 Maintainers
 -----------
