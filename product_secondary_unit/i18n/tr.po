@@ -6,55 +6,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-11-24 12:50+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
 "Language-Team: none\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__active
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__code
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Oluşturan"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Oluşturulma tarihi"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,help:product_secondary_unit.field_product_product__secondary_uom_ids
 #: model:ir.model.fields,help:product_secondary_unit.field_product_secondary_unit__uom_id
 #: model:ir.model.fields,help:product_secondary_unit.field_product_template__secondary_uom_ids
 msgid "Default Secondary Unit of Measure."
-msgstr ""
+msgstr "Varsayılan İkincil Ölçü Birimi."
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__dependency_type
 msgid "Dependency Type"
-msgstr ""
+msgstr "Bağımlılık Türü"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__dependent
 msgid "Dependent"
-msgstr ""
+msgstr "Bağımlı"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "İsim Göster"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__id
@@ -69,67 +71,71 @@ msgid ""
 "example if you sell serviceby package (1 unit for example) and you want to "
 "put the real time (ex : 4 hours) to allows employee scheduling"
 msgstr ""
+"Bağımlılık türü 'bağımlı' ise faktör birincil birimdeki miktarı hesaplamak "
+"için kullanılır, aksi takdirde birincil ve ikincil birim bağımsızdır. "
+"Örneğin, hizmeti paket olarak satıyorsanız (örneğin 1 birim) ve gerçek "
+"zamanı (örneğin: 4 saat) çalışan planlamasına izin vermek istiyorsanız"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
 msgid "Independent"
-msgstr ""
+msgstr "Bağımsız"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Son Güncelleyen"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Son Güncelleme"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__name
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Ürün"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_secondary_unit
 msgid "Product Secondary Unit"
-msgstr ""
+msgstr "Ürün İkincil Birim"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_secondary_unit_mixin
 msgid "Product Secondary Unit Mixin"
-msgstr ""
+msgstr "Ürün İkincil Birim Karışımı"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_tmpl_id
 msgid "Product Template"
-msgstr ""
+msgstr "Ürün Şablonu"
 
 #. module: product_secondary_unit
 #: model:ir.model,name:product_secondary_unit.model_product_product
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Ürün Varyantı"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_id
 msgid "Second unit"
-msgstr ""
+msgstr "İkincil birim"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit_mixin__secondary_uom_qty
 msgid "Secondary Qty"
-msgstr ""
+msgstr "İkincil miktar"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__factor
 msgid "Secondary Unit Factor"
-msgstr ""
+msgstr "İkincil Birim Faktörü"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_product__secondary_uom_ids
@@ -137,4 +143,4 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_template__secondary_uom_ids
 #: model_terms:ir.ui.view,arch_db:product_secondary_unit.product_template_form_view
 msgid "Secondary Unit of Measure"
-msgstr ""
+msgstr "İkincil Ölçü Birimi"
