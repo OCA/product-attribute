@@ -3,7 +3,7 @@
 - Open a product form
 
 - on the button incorporated in the module
-  'product_pricelist_simulation' .. image::
+  .. image::
   ../static/description/product_template_form.png
 
 - Click on the button, and check if the margins are correct
