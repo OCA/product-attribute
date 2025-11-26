@@ -6,80 +6,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-11-26 08:42+0000\n"
+"Last-Translator: Timo Talvitie <timo.j.talvitie@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__dimensional_uom_id
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__dimensional_uom_id
 msgid "Dimensional UoM"
-msgstr ""
+msgstr "Mittojen mittayksikkö"
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
 msgid "Dimensions"
-msgstr ""
+msgstr "Mitat"
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
 msgid "Height"
-msgstr ""
+msgstr "Korkeus"
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
 msgid "Length"
-msgstr ""
+msgstr "Pituus"
 
 #. module: product_dimension
 #: model:ir.model,name:product_dimension.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Tuote"
 
 #. module: product_dimension
 #: model:ir.model,name:product_dimension.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Tuotevariaatio"
 
 #. module: product_dimension
 #: model:ir.model.fields,help:product_dimension.field_product_product__dimensional_uom_id
 #: model:ir.model.fields,help:product_dimension.field_product_template__dimensional_uom_id
 msgid "UoM for length, height, width"
-msgstr ""
+msgstr "Mittayksikkö pituudelle, korkeudelle ja leveydelle"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__volume
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__volume
 msgid "Volume"
-msgstr ""
+msgstr "Tilavuus"
 
 #. module: product_dimension
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_dimension.product_template_only_form_view
 msgid "Width"
-msgstr ""
+msgstr "Leveys"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_height
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_height
 msgid "height"
-msgstr ""
+msgstr "Korkeus"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_length
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_length
 msgid "length"
-msgstr ""
+msgstr "Pituus"
 
 #. module: product_dimension
 #: model:ir.model.fields,field_description:product_dimension.field_product_product__product_width
 #: model:ir.model.fields,field_description:product_dimension.field_product_template__product_width
 msgid "width"
-msgstr ""
+msgstr "Leveys"
