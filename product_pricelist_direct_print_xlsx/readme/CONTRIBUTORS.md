@@ -8,3 +8,5 @@
   - Alexey Pelykh \<alexey.pelykh@corphub.eu\>
 - [GRAP](http://www.grap.coop/):
   - Sylvain LE GAL \<https://twitter.com/legalsylvain\>
+- [Versada](https://versada.eu)
+  - Maciej Wichowski \<maciej@versada.eu\>
