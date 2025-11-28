@@ -39,6 +39,13 @@ class StockPicking(models.Model):
             grouped_moves[move.product_id] |= move
         return grouped_moves
 
+    def _get_product_catalog_order_data(self, products, **kwargs):
+        # Extended to add price avoiding the Component.validateProps check error
+        product_catalog = super()._get_product_catalog_order_data(products, **kwargs)
+        for product in products:
+            product_catalog[product.id] |= self._get_product_price_and_data(product)
+        return product_catalog
+
     def _get_product_price_and_data(self, product):
         self.ensure_one()
         return {"price": product.list_price}
