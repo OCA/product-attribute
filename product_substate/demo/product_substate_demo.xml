@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="substate_draft_new" model="base.substate">
+        <field name="name">New</field>
+        <field name="sequence">10</field>
+        <field name="target_state_value_id" ref="target_state_value_draft" />
+    </record>
+    <record id="substate_sellable_instock" model="base.substate">
+        <field name="name">In Stock</field>
+        <field name="sequence">10</field>
+        <field name="target_state_value_id" ref="target_state_value_sellable" />
+    </record>
+    <record id="substate_sellable_onorder" model="base.substate">
+        <field name="name">On Order</field>
+        <field name="sequence">20</field>
+        <field name="target_state_value_id" ref="target_state_value_sellable" />
+    </record>
+</odoo>
