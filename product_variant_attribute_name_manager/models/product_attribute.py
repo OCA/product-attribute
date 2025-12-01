@@ -58,10 +58,7 @@ class ProductTemplateAttributeValue(models.Model):
                     continue
             if ptav.attribute_id.display_attribute_name:
                 display_ptav_list.append(
-                    "{}: {}".format(
-                        ptav.attribute_id.short_name or ptav.attribute_id.name,
-                        ptav.name,
-                    )
+                    f"{ptav.attribute_id.short_name or ptav.attribute_id.name}: {ptav.name}"
                 )
             else:
                 display_ptav_list.append(ptav.name)
