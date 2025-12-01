@@ -57,9 +57,8 @@ class ProductTemplateAttributeValue(models.Model):
                 if not ptav._without_no_variant_attributes():
                     continue
             if ptav.attribute_id.display_attribute_name:
-                display_ptav_list.append(
-                    f"{ptav.attribute_id.short_name or ptav.attribute_id.name}: {ptav.name}"
-                )
+                attribute_name = ptav.attribute_id.short_name or ptav.attribute_id.name
+                display_ptav_list.append(f"{attribute_name}: {ptav.name}")
             else:
                 display_ptav_list.append(ptav.name)
         return ", ".join(display_ptav_list)

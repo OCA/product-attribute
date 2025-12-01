@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="product.product_template_only_form_view" />
         <field name="arch" type="xml">
             <xpath
-                expr="//page[@name='variants']/field[@name='attribute_line_ids']/tree/field[@name='attribute_id']"
+                expr="//page[@name='variants']/field[@name='attribute_line_ids']/list/field[@name='attribute_id']"
                 position="before"
             >
                 <field name="sequence" widget="handle" />
