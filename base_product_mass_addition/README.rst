@@ -17,30 +17,33 @@ Base Product Mass Addition
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/base_product_mass_addition
+    :target: https://github.com/OCA/product-attribute/tree/18.0/base_product_mass_addition
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-base_product_mass_addition
+    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-base_product_mass_addition
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module is abstract and can't be used as is.
 
-It provides functions in order to show a product grid from another model.
-You can then add products and quantities in batch to the model you are working with.
+It provides functions in order to show a product grid from another
+model. You can then add products and quantities in batch to the model
+you are working with.
 
-It is useful when you don't want to add every product line possible to your object.
-From the product grid you only have to set the quantity for each product.
+It is useful when you don't want to add every product line possible to
+your object. From the product grid you only have to set the quantity for
+each product.
 
 Example implementations:
 
- - ``sale_quick`` (https://github.com/OCA/sale-workflow)
- - ``purchase_quick`` (https://github.com/OCA/purchase-workflow)
- - ``stock_picking_quick`` (https://github.com/OCA/stock-logistics-workflow)
+   -  ``sale_quick`` (https://github.com/OCA/sale-workflow)
+   -  ``purchase_quick`` (https://github.com/OCA/purchase-workflow)
+   -  ``stock_picking_quick``
+      (https://github.com/OCA/stock-logistics-workflow)
 
 **Table of contents**
 
@@ -53,7 +56,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20base_product_mass_addition%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20base_product_mass_addition%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -61,36 +64,36 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 * GRAP
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Akretion
+-  Akretion
 
-  * Sébastien BEAU <sebastien.beau@akretion.com>
-  * Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
-  * Pierrick Brun <pierrick.brun@akretion.com>
-  * David Béal <david.beal@akretion.com>
-  * Kevin Khao <kevin.khao@akretion.com>
+   -  Sébastien BEAU <sebastien.beau@akretion.com>
+   -  Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
+   -  Pierrick Brun <pierrick.brun@akretion.com>
+   -  David Béal <david.beal@akretion.com>
+   -  Kevin Khao <kevin.khao@akretion.com>
 
-* `Camptocamp <https://www.camptocamp.com>`_
+-  `Camptocamp <https://www.camptocamp.com>`__
 
-  * Iván Todorovich <ivan.todorovich@camptocamp.com>
+   -  Iván Todorovich <ivan.todorovich@camptocamp.com>
 
-* `Sygel <https://www.sygel.es>`_:
+-  `Sygel <https://www.sygel.es>`__:
 
-  * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+   -  Ángel García de la Chica Herrera <angel.garcia@sygel.es>
 
-* GRAP
+-  GRAP
 
-  * Sylvain LE GAL (https://twitter.com/legalsylvain)
+   -  Sylvain LE GAL (https://twitter.com/legalsylvain)
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -110,6 +113,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/base_product_mass_addition>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/base_product_mass_addition>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
