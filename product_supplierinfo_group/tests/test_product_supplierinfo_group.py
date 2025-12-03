@@ -3,10 +3,12 @@
 
 from copy import deepcopy
 
+import lxml.etree as etree
+
 from odoo.tests import common
 
 
-class TestProductSupplierinfoGroup(common.SavepointCase):
+class Test(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -16,7 +18,7 @@ class TestProductSupplierinfoGroup(common.SavepointCase):
     @property
     def supplierinfo_vals(self):
         return {
-            "name": self.vendor_gemini.id,
+            "partner_id": self.vendor_gemini.id,
             "product_tmpl_id": self.product_sofa.id,
             "product_name": "aProductName",
             "product_code": "aProductCode",
@@ -61,32 +63,60 @@ class TestProductSupplierinfoGroup(common.SavepointCase):
         group = self.env["product.supplierinfo.group"].search(
             [("id", "not in", group_before.ids)]
         )
-        self.assertIn(
-            '<td class="table_price_note_cell">5.0</td>',
-            group.unit_price_note,
-        )
-        self.assertIn(
-            '<td class="table_price_note_cell">10.0</td>',
-            group.unit_price_note,
-        )
+        # minimal case
+        self.assertIn(pretty_html(group.unit_price_note), PATTERN1)
+        # more complex case
         min_50 = deepcopy(self.supplierinfo_vals)
         min_50.update({"min_qty": 50.0, "price": 8.0})
         min_500 = deepcopy(self.supplierinfo_vals)
         min_500.update({"min_qty": 500.0, "price": 6.0})
         self.env["product.supplierinfo"].create([min_500, min_50])
-        self.assertIn(
-            '<td class="table_price_note_cell">50.0</td>',
-            group.unit_price_note,
-        )
-        self.assertIn(
-            '<td class="table_price_note_cell">8.0</td>',
-            group.unit_price_note,
-        )
-        self.assertIn(
-            '<td class="table_price_note_cell">500.0</td>',
-            group.unit_price_note,
-        )
-        self.assertIn(
-            '<td class="table_price_note_cell">6.0</td>',
-            group.unit_price_note,
-        )
+        self.assertIn(pretty_html(group.unit_price_note), PATTERN2)
+
+
+def pretty_html(html_markup):
+    return etree.tostring(
+        etree.fromstring(html_markup.__str__()),
+        method="html",
+        pretty_print=True,
+        encoding=str,
+    )
+
+
+PATTERN1 = """<table class="table_price_note">
+                    <tr class="table_price_note_row">
+                        <td class="table_price_note_cell">
+                            5.0
+                        </td>
+                        <td class="table_price_note_cell">
+                            10.0
+                        </td>
+                    </tr>
+            </table>\n"""
+
+PATTERN2 = """<table class="table_price_note">
+                    <tr class="table_price_note_row">
+                        <td class="table_price_note_cell">
+                            5.0
+                        </td>
+                        <td class="table_price_note_cell">
+                            10.0
+                        </td>
+                    </tr>
+                    <tr class="table_price_note_row">
+                        <td class="table_price_note_cell">
+                            50.0
+                        </td>
+                        <td class="table_price_note_cell">
+                            8.0
+                        </td>
+                    </tr>
+                    <tr class="table_price_note_row">
+                        <td class="table_price_note_cell">
+                            500.0
+                        </td>
+                        <td class="table_price_note_cell">
+                            6.0
+                        </td>
+                    </tr>
+            </table>\n"""

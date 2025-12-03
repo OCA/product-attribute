@@ -23,7 +23,7 @@ MAPPING_FIELDS_DB = {
 }
 
 
-def fill_required_group_id_column(cr):
+def fill_required_group_id_column(env):
     """
     On installing this module, we have the problem of adding
     on product.supplierinfo:
@@ -45,6 +45,7 @@ def fill_required_group_id_column(cr):
         - Populate the table with the right values
         - Fill the newly required group_id on product_supplierinfo
     """
+    cr = env.cr
     cr.execute(
         "SELECT count(id) FROM %s",
         (AsIs("product_supplierinfo"),),
