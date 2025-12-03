@@ -16,7 +16,7 @@
                     nolabel="1"
                     context="{'from_template': True}"
                 />
-             </field>
+            </field>
         </field>
     </record>
 </odoo>
