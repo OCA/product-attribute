@@ -82,7 +82,7 @@ def fill_required_group_id_column(cr):
     # Assign the right group to supplierinfo's
     conditions = " AND ".join(
         [
-            "p.{} IS NOT DISTINCT FROM g.{}".format(field_supinfo, field_supinfo_group)
+            f"p.{field_supinfo} IS NOT DISTINCT FROM g.{field_supinfo_group}"
             for field_supinfo, field_supinfo_group in MAPPING_MATCH_GROUP.items()
         ]
     )
