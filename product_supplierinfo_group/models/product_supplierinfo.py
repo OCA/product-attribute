@@ -9,7 +9,7 @@ from odoo import api, fields, models
 MAPPING_MATCH_GROUP = {
     "company_id": "company_id",
     "product_tmpl_id": "product_tmpl_id",
-    "name": "partner_id",
+    "partner_id": "partner_id",
     "product_id": "product_id",
     "product_name": "product_name",
     "product_code": "product_code",
@@ -22,17 +22,29 @@ class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
     group_id = fields.Many2one(
-        "product.supplierinfo.group",
+        comodel_name="product.supplierinfo.group",
         required=True,
         ondelete="cascade",
     )
-    company_id = fields.Many2one(related="group_id.company_id", store=True)
-    product_tmpl_id = fields.Many2one(related="group_id.product_tmpl_id", store=True)
-    name = fields.Many2one(related="group_id.partner_id", store=True, required=False)
-    product_id = fields.Many2one(related="group_id.product_id", store=True)
-    product_name = fields.Char(related="group_id.product_name", store=True)
-    product_code = fields.Char(related="group_id.product_code", store=True)
-    sequence = fields.Integer(related="group_id.sequence", store=True)
+    company_id = fields.Many2one(
+        related="group_id.company_id", store=True, default=None
+    )
+    product_tmpl_id = fields.Many2one(
+        related="group_id.product_tmpl_id", store=True, default=None
+    )
+    partner_id = fields.Many2one(
+        related="group_id.partner_id", store=True, required=False, default=None
+    )
+    product_id = fields.Many2one(
+        related="group_id.product_id", store=True, default=None
+    )
+    product_name = fields.Char(
+        related="group_id.product_name", store=True, default=None
+    )
+    product_code = fields.Char(
+        related="group_id.product_code", store=True, default=None
+    )
+    sequence = fields.Integer(related="group_id.sequence", store=True, default=None)
 
     _sql_constraints = [
         (

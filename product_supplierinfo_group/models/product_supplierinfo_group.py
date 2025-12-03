@@ -13,34 +13,31 @@ class ProductSupplierinfoGroup(models.Model):
     _order = "sequence, id"
 
     product_tmpl_id = fields.Many2one(
-        "product.template", required=True, ondelete="cascade"
+        comodel_name="product.template", required=True, ondelete="cascade"
     )
     supplierinfo_ids = fields.One2many("product.supplierinfo", "group_id")
     product_id = fields.Many2one(
-        "product.product",
-        "Product Variant",
+        comodel_name="product.product",
+        string="Variant",
         help="If not set, the vendor price will apply to all "
         "variants of this product.",
     )
     partner_id = fields.Many2one(
-        "res.partner",
-        "Vendor",
+        comodel_name="res.partner",
+        string="Vendor",
         ondelete="cascade",
         required=True,
         help="Vendor of this product",
     )
     product_name = fields.Char(
-        "Vendor Product Name",
         help="This vendor's product name will be used when printing "
         "a request for quotation. Keep empty to use the internal one.",
     )
     product_code = fields.Char(
-        "Vendor Product Code",
         help="This vendor's product code will be used when printing "
         "a request for quotation. Keep empty to use the internal one.",
     )
     sequence = fields.Integer(
-        "Sequence",
         default=1,
         help="Assigns the priority to the list of product vendor.",
     )
@@ -48,7 +45,7 @@ class ProductSupplierinfoGroup(models.Model):
         compute="_compute_unit_price_note", string="Unit Prices (Min. Qty / Price)"
     )
     company_id = fields.Many2one(
-        "res.company", "Company", default=lambda self: self.env.company.id, index=1
+        comodel_name="res.company", default=lambda self: self.env.company.id, index=1
     )
     has_multiple_variants = fields.Boolean(compute="_compute_has_variants")
 
