@@ -11,6 +11,7 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="variant_seller_ids" position="after">
+                <separator string="Vendor data" />
                 <field
                     name="supplierinfo_group_ids"
                     nolabel="1"
