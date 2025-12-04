@@ -5,32 +5,31 @@ Copyright (C) 2024 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
-        <menuitem
+    <menuitem
         id="menu_product_main"
         name="Products"
         sequence="10"
         web_icon="product_usability,static/description/product_menu_icon.png"
     />
 
-        <!-- SECTION: Products -->
-        <menuitem
+    <!-- SECTION: Products -->
+    <menuitem
         id="menu_product"
         name="Products"
         sequence="10"
         parent="menu_product_main"
     />
 
-        <!-- Products -->
-        <menuitem
+    <!-- Products -->
+    <menuitem
         id="menu_product_template"
         sequence="10"
         parent="menu_product"
         action="product.product_template_action_all"
     />
 
-        <!-- Product Variants -->
-        <menuitem
+    <!-- Product Variants -->
+    <menuitem
         id="menu_product_product"
         sequence="20"
         parent="menu_product"
@@ -38,8 +37,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         groups="product.group_product_variant"
     />
 
-        <!-- Product Attributes -->
-        <menuitem
+    <!-- Product Attributes -->
+    <menuitem
         id="menu_product_attribute"
         sequence="30"
         parent="menu_product"
@@ -47,8 +46,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         groups="product.group_product_variant"
     />
 
-        <!-- Pricelists -->
-        <menuitem
+    <!-- Pricelists -->
+    <menuitem
         id="menu_product_pricelist"
         sequence="40"
         parent="menu_product"
@@ -56,8 +55,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         groups="product.group_product_pricelist"
     />
 
-        <!-- Product Packagings -->
-        <menuitem
+    <!-- Product Packagings -->
+    <menuitem
         id="menu_product_packaging"
         sequence="50"
         parent="menu_product"
@@ -65,33 +64,32 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         groups="product.group_stock_packaging"
     />
 
-
-        <!-- SECTION: Configuration -->
-        <menuitem
+    <!-- SECTION: Configuration -->
+    <menuitem
         id="menu_configuration"
         name="Configuration"
         sequence="100"
         parent="menu_product_main"
     />
 
-        <!-- Product Categories -->
-        <menuitem
+    <!-- Product Categories -->
+    <menuitem
         id="menu_product_category"
         sequence="10"
         parent="menu_configuration"
         action="product.product_category_action_form"
     />
 
-        <!-- Product Tags -->
-        <menuitem
+    <!-- Product Tags -->
+    <menuitem
         id="menu_product_tag"
         sequence="20"
         parent="menu_configuration"
         action="product.product_tag_action"
     />
 
-        <!-- Units of Measure -->
-        <menuitem
+    <!-- Units of Measure -->
+    <menuitem
         id="menu_uom_uom"
         sequence="30"
         parent="menu_configuration"
@@ -99,13 +97,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         groups="uom.group_uom"
     />
 
-        <!-- Units of Measure Categories -->
-        <menuitem
+    <!-- Units of Measure Categories -->
+    <menuitem
         id="menu_uom_category"
         sequence="40"
         parent="menu_configuration"
         action="uom.product_uom_categ_form_action"
         groups="uom.group_uom"
     />
-
 </odoo>

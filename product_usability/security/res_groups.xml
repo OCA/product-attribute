@@ -5,7 +5,6 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="group_product_creation" model="res.groups">
         <field name="name">Product Creation</field>
         <field name="category_id" ref="base.module_category_usability" />
@@ -36,5 +35,4 @@
         <field name="category_id" ref="base.module_category_usability" />
         <field name="implied_ids" eval="[Command.link(ref('uom.group_uom'))]" />
     </record>
-
 </odoo>
