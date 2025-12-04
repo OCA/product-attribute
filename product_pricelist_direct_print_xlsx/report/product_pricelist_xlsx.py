@@ -67,8 +67,8 @@ class ProductPricelistXlsx(models.AbstractModel):
                     book, product, formats
                 )
                 for i, cell_with_format in enumerate(row_with_formats):
-                    cell_value, format = cell_with_format
-                    sheet.write(row, i, cell_value, format)
+                    cell_value, format_ = cell_with_format
+                    sheet.write(row, i, cell_value, format_)
                 row += 1
         if book.summary:
             sheet.write(row, 0, self.env._("Summary:"), formats["bold"])
