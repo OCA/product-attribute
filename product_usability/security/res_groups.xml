@@ -35,4 +35,11 @@
         <field name="category_id" ref="base.module_category_usability" />
         <field name="implied_ids" eval="[Command.link(ref('uom.group_uom'))]" />
     </record>
+
+    <record id="product.group_product_manager" model="res.groups">
+        <field
+            name="implied_ids"
+            eval="[(4, ref('group_product_creation')), (4, ref('group_product_attribute_creation')), (4, ref('group_product_tag_creation')), (4, ref('group_product_category_creation')), (4, ref('group_product_supplierinfo_creation')), (4, ref('group_uom_creation'))]"
+        />
+    </record>
 </odoo>
