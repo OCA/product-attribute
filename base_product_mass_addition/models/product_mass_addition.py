@@ -26,7 +26,7 @@ class ProductMassAddition(models.AbstractModel):
                 "parent_id": self.id,
                 "parent_model": self._name,
             },
-            "view_mode": "tree",
+            "view_mode": "list",
         }
 
     def _prepare_quick_line(self, product):

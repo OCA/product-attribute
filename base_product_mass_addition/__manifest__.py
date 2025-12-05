@@ -4,7 +4,7 @@
 
 {
     "name": "Base Product Mass Addition",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "author": "Akretion, GRAP, Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
     "website": "https://github.com/OCA/product-attribute",
