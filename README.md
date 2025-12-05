@@ -63,7 +63,7 @@ addon | version | maintainers | summary
 [product_secondary_unit](product_secondary_unit/) | 17.0.1.0.0 | <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Set a secondary unit per product
 [product_sequence](product_sequence/) | 17.0.1.0.0 |  | Product Sequence
 [product_set](product_set/) | 17.0.1.0.1 |  | Product set
-[product_state](product_state/) | 17.0.1.2.0 | <a href='https://github.com/emagdalenaC2i'><img src='https://github.com/emagdalenaC2i.png' width='32' height='32' style='border-radius:50%;' alt='emagdalenaC2i'/></a> | Module introducing a state field on product template
+[product_state](product_state/) | 17.0.1.2.1 | <a href='https://github.com/emagdalenaC2i'><img src='https://github.com/emagdalenaC2i.png' width='32' height='32' style='border-radius:50%;' alt='emagdalenaC2i'/></a> | Module introducing a state field on product template
 [product_state_sale](product_state_sale/) | 17.0.1.1.0 |  | This module add the use of Product State in Sale
 [product_state_stock_base](product_state_stock_base/) | 17.0.1.1.0 |  | This module add the use of Product State in Stock
 [product_status](product_status/) | 17.0.1.2.0 |  | Product Status Computed From Fields
