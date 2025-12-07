@@ -35,7 +35,6 @@ class TestMargin(BaseCommon):
                 "min_quantity": 1,
             }
         )
-        cls.env.ref("product.group_sale_pricelist").users |= cls.env.user
 
     def test_margin_with_fixed_price_computation(self):
         self.assertEqual(self.line.cost, 20.0)
