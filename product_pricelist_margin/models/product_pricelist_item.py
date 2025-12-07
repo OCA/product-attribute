@@ -36,6 +36,7 @@ class ProductPricelistItem(models.Model):
         "fixed_price",
     )
     def _compute_margin(self):
+        current_company = self.env.company
         for item in self:
             if (
                 item.applied_on not in ("1_product", "0_product_variant")
@@ -52,12 +53,10 @@ class ProductPricelistItem(models.Model):
                 fields.Datetime.now(),
             )
 
-            if float_is_zero(price, precision_digits=item.currency_id.rounding):
+            if float_is_zero(price, precision_rounding=item.currency_id.rounding):
                 item.margin = 0
                 item.margin_percent = 0
                 continue
-
-            current_company = self.env.company
 
             res = item.product_tmpl_id.taxes_id.filtered(
                 lambda t: t.company_id and t.company_id == current_company
@@ -69,7 +68,7 @@ class ProductPricelistItem(models.Model):
 
             price_vat_excl = res["total_excluded"]
 
-            cost = self.env.user.company_id.currency_id.compute(
+            cost = self.env.user.company_id.currency_id._convert(
                 item.cost, item.currency_id
             )
 

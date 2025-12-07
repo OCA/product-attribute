@@ -34,9 +34,7 @@
         <field name="model">product.pricelist.item</field>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='pricelist_rule_base']/div" position="after">
-                <group
-                    attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"
-                >
+                <group invisible="applied_on not in ['1_product', '0_product_variant']">
                     <field name="cost" invisible="1" />
                     <field name="margin" />
                     <field name="margin_percent" />
