@@ -7,7 +7,7 @@
     "development_status": "Beta",
     "category": "Product",
     "summary": "This module binds a product packaging to a packaging level",
-    "author": "Camptocamp, " "Odoo Community Association (OCA)",
+    "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "LGPL-3",
     "depends": ["stock"],
