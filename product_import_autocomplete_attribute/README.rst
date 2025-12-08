@@ -1,5 +1,5 @@
 =====================================
-Product import autocomplete attribute
+Product Import Autocomplete Attribute
 =====================================
 
 .. 
@@ -155,8 +155,10 @@ Authors
 Contributors
 ------------
 
--  Kevin Khao <kevin.khao@akretion.com>
--  Sébastien Beau <sebastien.beau@akretion.com>
+-  Akretion:
+
+   -  Kevin Khao
+   -  Sébastien Beau <sebastien.beau@akretion.com>
 
 Maintainers
 -----------
@@ -170,6 +172,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-bealdav| image:: https://github.com/bealdav.png?size=40px
+    :target: https://github.com/bealdav
+    :alt: bealdav
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-bealdav| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_import_autocomplete_attribute>`_ project on GitHub.
 

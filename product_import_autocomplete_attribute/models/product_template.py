@@ -31,7 +31,7 @@ class ProductTemplate(models.Model):
                 )
         active_variants = self.product_variant_ids
         self.with_context(skip_create_variant=False)._create_variant_ids()
-        self.flush()
+        self.flush_model()
         variant = self._get_existing_variant(values)
         # Inactive all unwanted variant
         (self.product_variant_ids - active_variants - variant).write({"active": False})
