@@ -17,25 +17,29 @@ Product import autocomplete attribute
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/14.0/product_import_autocomplete_attribute
+    :target: https://github.com/OCA/product-attribute/tree/18.0/product_import_autocomplete_attribute
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-14-0/product-attribute-14-0-product_import_autocomplete_attribute
+    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_import_autocomplete_attribute
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=14.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Although product template attribute choices are synced from template to product variant, the reverse is not true.
+Although product template attribute choices are synced from template to
+product variant, the reverse is not true.
 
 In other words,
 
-* Base function product_template.create_variant_ids() uses product template's product.attribute to create variants (tmpl->variant)
-* Inversely, this module uses the product.attribute on variants, to update product.attribute on the product template (variant->tmpl)
+-  Base function product_template.create_variant_ids() uses product
+   template's product.attribute to create variants (tmpl->variant)
+-  Inversely, this module uses the product.attribute on variants, to
+   update product.attribute on the product template (variant->tmpl)
 
-This product.attribute sync is triggered when you do an import of product variants.
+This product.attribute sync is triggered when you do an import of
+product variants.
 
 **Table of contents**
 
@@ -50,75 +54,85 @@ Create some product attributes
 Usage
 =====
 
-In order to better test and illustrate this module, an example CSV file is provided in the example folder (you will need the demo data).
+In order to better test and illustrate this module, an example CSV file
+is provided in the example folder (you will need the demo data).
 
 First, the setup:
 
-* We have a product attribute named "Cut" which has 3 possible values: "Short sleeved", "Long sleeved", "Tanktop"
-
-* We have a product attribute named "Embroidery" which has 3 possible values: "Cheap", "High quality", "Average"
+-  We have a product attribute named "Cut" which has 3 possible values:
+   "Short sleeved", "Long sleeved", "Tanktop"
+-  We have a product attribute named "Embroidery" which has 3 possible
+   values: "Cheap", "High quality", "Average"
 
 Next, for our example:
 
-* Install this module and the purchase or sale module so that you have product menus
+-  Install this module and the purchase or sale module so that you have
+   product menus
 
-* Observe on product template "T-shirt" the attribute lines and possible values. We have:
+-  Observe on product template "T-shirt" the attribute lines and
+   possible values. We have:
 
-    Cut: Short-sleeved, Long-sleeved
+      Cut: Short-sleeved, Long-sleeved
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/14.0/product_import_autocomplete_attribute/static/description/step_1.png
-   :width: 600 px
+|image1|
 
-* Go to product variants page, import the provided CSV file in the "examples" folder
+-  Go to product variants page, import the provided CSV file in the
+   "examples" folder This will create a new T-shirt variant with the
+   attributes:
+   Cut: Tanktop; Embroidery: Cheap
 
-  This will create a new T-shirt variant with the attributes:
-    Cut: Tanktop; Embroidery: Cheap
+|image2|
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/14.0/product_import_autocomplete_attribute/static/description/step_2_variant.png
-   :width: 600 px
+-  Observe on product template "T-shirt" the attribute lines and
+   possible values. Because imported the variant with new attributes, we
+   now have:
 
-* Observe on product template "T-shirt" the attribute lines and possible values.
-  Because imported the variant with new attributes, we now have:
+   Cut: Short-sleeved, Long-sleeved, Tanktop
 
-  Cut: Short-sleeved, Long-sleeved, Tanktop
+   Embroidery: Cheap
 
-  Embroidery: Cheap
+|image3|
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/14.0/product_import_autocomplete_attribute/static/description/step_2_tmpl.png
-   :width: 600 px
-
-Thus we have synced product variant attributes -> product template attributes.
+Thus we have synced product variant attributes -> product template
+attributes.
 
 Let's continue:
 
-* Go to product variants page, import the 2nd provided CSV file in the "examples" folder
+-  Go to product variants page, import the 2nd provided CSV file in the
+   "examples" folder
 
-  This will create 2 new T-shirt variants as follows:
+   This will create 2 new T-shirt variants as follows:
 
-    Cut: Short-sleeved; Embroidery: Average
+      Cut: Short-sleeved; Embroidery: Average
 
-    Cut: Long-sleeved; Embroidery: High quality
+      Cut: Long-sleeved; Embroidery: High quality
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/14.0/product_import_autocomplete_attribute/static/description/step_3_variant.png
-   :width: 600 px
+|image4|
 
-* Observe on product template "T-shirt" the attribute lines and possible values.
-  Because we imported the new attributes, we now have:
+-  Observe on product template "T-shirt" the attribute lines and
+   possible values. Because we imported the new attributes, we now have:
 
-    Cut: Short-sleeved, Long-sleeved, Tanktop
+      Cut: Short-sleeved, Long-sleeved, Tanktop
 
-    Embroidery: Cheap, Average, High Quality
+      Embroidery: Cheap, Average, High Quality
 
-.. figure:: https://raw.githubusercontent.com/OCA/product-attribute/14.0/product_import_autocomplete_attribute/static/description/step_3_tmpl.png
-   :width: 600 px
+|image5|
 
-* Because this module prevents creating all the possible variants to prevent exponential growth of variants, we only have the following variants that we imported according to the following matrix:
+-  Because this module prevents creating all the possible variants to
+   prevent exponential growth of variants, we only have the following
+   variants that we imported according to the following matrix:
 
-| (Attribute combination) | Cheap | High quality | Average |
-| ----------------------- | ----- | ------------ | ------- |
-| Short sleeve | No | No | Yes |
-| Long sleeve | No | Yes | No |
-| Tanktop | Yes | No | No |
+| (Attribute combination) \| Cheap \| High quality \| Average \|
+| ----------------------- \| ----- \| ------------ \| ------- \|
+| Short sleeve \| No \| No \| Yes \|
+| Long sleeve \| No \| Yes \| No \|
+| Tanktop \| Yes \| No \| No \|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_1.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_variant.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_tmpl.png
+.. |image4| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_variant.png
+.. |image5| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_tmpl.png
 
 Bug Tracker
 ===========
@@ -126,7 +140,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_import_autocomplete_attribute%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_import_autocomplete_attribute%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -134,18 +148,18 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Kevin Khao <kevin.khao@akretion.com>
-* Sébastien Beau <sebastien.beau@akretion.com>
+-  Kevin Khao <kevin.khao@akretion.com>
+-  Sébastien Beau <sebastien.beau@akretion.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -157,6 +171,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/14.0/product_import_autocomplete_attribute>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_import_autocomplete_attribute>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

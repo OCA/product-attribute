@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-
         <!-- Attributes -->
         <record id="demo_product_attribute_cut" model="product.attribute">
             <field name="name">Cut</field>
@@ -77,6 +76,5 @@
                 eval="[(6,0,[ref('product_import_autocomplete_attribute.demo_product_attribute_cut_short'), ref('product_import_autocomplete_attribute.demo_product_attribute_cut_long')])]"
             />
         </record>
-
     </data>
 </odoo>
