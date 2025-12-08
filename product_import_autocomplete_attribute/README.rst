@@ -1,5 +1,5 @@
 =====================================
-Product import autocomplete attribute
+Product Import Autocomplete Attribute
 =====================================
 
 .. 
@@ -33,10 +33,10 @@ product variant, the reverse is not true.
 
 In other words,
 
--  Base function product_template.create_variant_ids() uses product
-   template's product.attribute to create variants (tmpl->variant)
--  Inversely, this module uses the product.attribute on variants, to
-   update product.attribute on the product template (variant->tmpl)
+- Base function ``product_template.create_variant_ids()`` uses product
+  template's product.attribute to create variants (tmpl->variant)
+- Inversely, this module uses the product.attribute on variants, to
+  update product.attribute on the product template (variant->tmpl)
 
 This product.attribute sync is triggered when you do an import of
 product variants.
@@ -59,37 +59,36 @@ is provided in the example folder (you will need the demo data).
 
 First, the setup:
 
--  We have a product attribute named "Cut" which has 3 possible values:
-   "Short sleeved", "Long sleeved", "Tanktop"
--  We have a product attribute named "Embroidery" which has 3 possible
-   values: "Cheap", "High quality", "Average"
+- We have a product attribute named "Cut" which has 3 possible values:
+  "Short sleeved", "Long sleeved", "Tanktop"
+- We have a product attribute named "Embroidery" which has 3 possible
+  values: "Cheap", "High quality", "Average"
 
 Next, for our example:
 
--  Install this module and the purchase or sale module so that you have
-   product menus
+- Install this module and the purchase or sale module so that you have
+  product menus
 
--  Observe on product template "T-shirt" the attribute lines and
-   possible values. We have:
+- Observe on product template "T-shirt" the attribute lines and possible
+  values. We have:
 
-      Cut: Short-sleeved, Long-sleeved
+     Cut: Short-sleeved, Long-sleeved
 
 |image1|
 
--  Go to product variants page, import the provided CSV file in the
-   "examples" folder This will create a new T-shirt variant with the
-   attributes:
-   Cut: Tanktop; Embroidery: Cheap
+- Go to product variants page, import the provided CSV file in the
+  "examples" folder This will create a new T-shirt variant with the
+  attributes:
+  Cut: Tanktop; Embroidery: Cheap
 
 |image2|
 
--  Observe on product template "T-shirt" the attribute lines and
-   possible values. Because imported the variant with new attributes, we
-   now have:
+- Observe on product template "T-shirt" the attribute lines and possible
+  values. Because imported the variant with new attributes, we now have:
 
-   Cut: Short-sleeved, Long-sleeved, Tanktop
+  Cut: Short-sleeved, Long-sleeved, Tanktop
 
-   Embroidery: Cheap
+  Embroidery: Cheap
 
 |image3|
 
@@ -98,35 +97,37 @@ attributes.
 
 Let's continue:
 
--  Go to product variants page, import the 2nd provided CSV file in the
-   "examples" folder
+- Go to product variants page, import the 2nd provided CSV file in the
+  "examples" folder
 
-   This will create 2 new T-shirt variants as follows:
+  This will create 2 new T-shirt variants as follows:
 
-      Cut: Short-sleeved; Embroidery: Average
+     Cut: Short-sleeved; Embroidery: Average
 
-      Cut: Long-sleeved; Embroidery: High quality
+     Cut: Long-sleeved; Embroidery: High quality
 
 |image4|
 
--  Observe on product template "T-shirt" the attribute lines and
-   possible values. Because we imported the new attributes, we now have:
+- Observe on product template "T-shirt" the attribute lines and possible
+  values. Because we imported the new attributes, we now have:
 
-      Cut: Short-sleeved, Long-sleeved, Tanktop
+     Cut: Short-sleeved, Long-sleeved, Tanktop
 
-      Embroidery: Cheap, Average, High Quality
+     Embroidery: Cheap, Average, High Quality
 
 |image5|
 
--  Because this module prevents creating all the possible variants to
-   prevent exponential growth of variants, we only have the following
-   variants that we imported according to the following matrix:
+- Because this module prevents creating all the possible variants to
+  prevent exponential growth of variants, we only have the following
+  variants that we imported according to the following matrix:
 
-| (Attribute combination) \| Cheap \| High quality \| Average \|
-| ----------------------- \| ----- \| ------------ \| ------- \|
-| Short sleeve \| No \| No \| Yes \|
-| Long sleeve \| No \| Yes \| No \|
-| Tanktop \| Yes \| No \| No \|
+======================= ===== ============ =======
+(Attribute combination) Cheap High quality Average
+======================= ===== ============ =======
+Short sleeve            No    No           Yes
+Long sleeve             No    Yes          No
+Tanktop                 Yes   No           No
+======================= ===== ============ =======
 
 .. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_1.png
 .. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_variant.png
@@ -155,8 +156,10 @@ Authors
 Contributors
 ------------
 
--  Kevin Khao <kevin.khao@akretion.com>
--  Sébastien Beau <sebastien.beau@akretion.com>
+- Akretion:
+
+  - Kevin Khao
+  - Sébastien Beau <sebastien.beau@akretion.com>
 
 Maintainers
 -----------
@@ -170,6 +173,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-bealdav| image:: https://github.com/bealdav.png?size=40px
+    :target: https://github.com/bealdav
+    :alt: bealdav
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-bealdav| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_import_autocomplete_attribute>`_ project on GitHub.
 

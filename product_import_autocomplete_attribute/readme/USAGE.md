@@ -65,8 +65,8 @@ Let's continue:
   prevent exponential growth of variants, we only have the following
   variants that we imported according to the following matrix:
 
-(Attribute combination) \| Cheap \| High quality \| Average \|  
------------------------ \| ----- \| ------------ \| ------- \|  
-Short sleeve \| No \| No \| Yes \|  
-Long sleeve \| No \| Yes \| No \|  
-Tanktop \| Yes \| No \| No \|
+| (Attribute combination) | Cheap | High quality | Average |
+| --- | --- | --- | --- |
+| Short sleeve | No | No | Yes |
+| Long sleeve | No | Yes | No |
+| Tanktop | Yes | No | No |
