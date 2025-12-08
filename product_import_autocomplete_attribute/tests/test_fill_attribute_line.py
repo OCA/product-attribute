@@ -37,7 +37,7 @@ class TestFillAttributeLine(TransactionCase):
         """
         existing_products = self.tmpl.product_variant_ids
         product = self._create_product([self.attr_cut_long.id])
-        self.tmpl.flush()
+        self.tmpl.flush_model()
         self.assertIn(product, existing_products)
         self.assertEqual(existing_products, self.tmpl.product_variant_ids)
 

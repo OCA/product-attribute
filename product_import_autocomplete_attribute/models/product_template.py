@@ -1,7 +1,7 @@
 # © 2020 Akretion France
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, models
+from odoo import models
 from odoo.exceptions import UserError
 
 
@@ -9,7 +9,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     def _create_variant_ids(self):
-        if not self._context.get("skip_create_variant"):
+        if not self.env.context.get("skip_create_variant"):
             return super()._create_variant_ids()
 
     def update_attribute(self, values):
@@ -31,7 +31,7 @@ class ProductTemplate(models.Model):
                 )
         active_variants = self.product_variant_ids
         self.with_context(skip_create_variant=False)._create_variant_ids()
-        self.flush()
+        self.flush_model()
         variant = self._get_existing_variant(values)
         # Inactive all unwanted variant
         (self.product_variant_ids - active_variants - variant).write({"active": False})
@@ -43,7 +43,7 @@ class ProductTemplate(models.Model):
                 return record
         else:
             raise UserError(
-                _(
+                self.env._(
                     "No matching variant found, maybe the attribute values "
                     "are inconsistent"
                 )

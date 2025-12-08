@@ -21,7 +21,7 @@ class ProductProduct(models.Model):
     @api.model_create_multi
     def create(self, list_vals):
         super_list_vals = []
-        records = self
+        records = self.browse()
         for vals in list_vals:
             if "attribute_value_ids" in vals:
                 tmpl = self.env["product.template"].browse(vals["product_tmpl_id"])
