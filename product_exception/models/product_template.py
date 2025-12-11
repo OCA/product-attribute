@@ -2,8 +2,12 @@
 # @author Raphaël Reverdy <raphael.reverdy@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from contextlib import suppress
+
 from odoo import api, models
 from odoo.tools import config
+
+from odoo.addons.base_exception.exceptions import BaseExceptionError
 
 
 class ProductTemplate(models.Model):
@@ -14,7 +18,10 @@ class ProductTemplate(models.Model):
     def check_product_template_cron(self):
         products = self.env["product.template"].search([])
         for product in products:
-            product.detect_exceptions()
+            # Exceptions are stored in a dedicated cursor before raising, so
+            # one product with exceptions must not stop the cron
+            with suppress(BaseExceptionError):
+                product.detect_exceptions()
 
     @api.model
     def _fields_trigger_check_exception(self):
@@ -25,8 +32,13 @@ class ProductTemplate(models.Model):
         return "product_tmpl_ids"
 
     def detect_exceptions(self):
-        all_exceptions = super().detect_exceptions()
         products = self.mapped("product_variant_ids")
+        try:
+            all_exceptions = super().detect_exceptions()
+        except BaseExceptionError:
+            # Still detect exceptions on variants before raising
+            products.detect_exceptions()
+            raise
         all_exceptions += products.detect_exceptions()
         return all_exceptions
 
@@ -38,19 +50,22 @@ class ProductTemplate(models.Model):
         self.detect_exceptions()
         return {"type": "ir.actions.act_window_close"}
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """
         Upon creation, check if the Product Template has any Exception, if so,
         raise a Validation Error
         """
-        record = super().create(vals)
-        check_exceptions = any(
-            field in vals for field in self._fields_trigger_check_exception()
-        )
+        records = super().create(vals_list)
+        for record, vals in zip(records, vals_list, strict=False):
+            check_exceptions = any(
+                field in vals for field in self._fields_trigger_check_exception()
+            )
+            if check_exceptions:
+                record.product_check_exception()
         if check_exceptions:
-            record.product_check_exception()
-        return record
+            records.product_check_exception()
+        return records
 
     def write(self, vals):
         """

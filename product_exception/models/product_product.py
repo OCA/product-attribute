@@ -38,19 +38,22 @@ class ProductProduct(models.Model):
         self.detect_exceptions()
         return {"type": "ir.actions.act_window_close"}
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """
         Upon creation, check if the Product Variant has any Exception, if so,
         raise a Validation Error
         """
-        record = super().create(vals)
-        check_exceptions = any(
-            field in vals for field in self._fields_trigger_check_exception()
-        )
+        records = super().create(vals_list)
+        for record, vals in zip(records, vals_list, strict=False):
+            check_exceptions = any(
+                field in vals for field in self._fields_trigger_check_exception()
+            )
+            if check_exceptions:
+                record.product_check_exception()
         if check_exceptions:
-            record.product_check_exception()
-        return record
+            records.product_check_exception()
+        return records
 
     def write(self, vals):
         """
