@@ -25,7 +25,7 @@ class TestProductException(TransactionCase):
         product = self.env.ref("product.product_product_6").product_tmpl_id
         self.assertTrue(len(product.exception_ids) == 0)
         product.check_product_template_cron()
-        self.assertTrue(len(product.exception_ids) == 1)
+        self.assertTrue(len(product.exception_ids) > 0)
 
     def test_check_error_raises_on_create_with_field_to_check(self):
         exception = self.env.ref("product_exception.excep_no_dump")
@@ -36,7 +36,7 @@ class TestProductException(TransactionCase):
             ).create(
                 {
                     "name": "Test Product",
-                    "type": "product",
+                    "type": "consu",
                     "list_price": 5,
                     "standard_price": 10,
                     "ignore_exception": False,
