@@ -39,4 +39,9 @@ class ProductProduct(models.Model):
 
     @api.model
     def _get_dimension_uom_domain(self):
-        return [("category_id", "=", self.env.ref("uom.uom_categ_length").id)]
+        length_root_uom = self.env.ref("uom.product_uom_millimeter")
+        return [
+            "|",
+            ("id", "=", length_root_uom.id),
+            ("id", "child_of", length_root_uom.id),
+        ]
