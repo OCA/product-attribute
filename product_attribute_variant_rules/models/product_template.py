@@ -14,7 +14,6 @@ class ProductTemplate(models.Model):
     )
 
     use_attribute_rules = fields.Boolean(
-        string="Use Attribute Rules",
         help="If checked, the product variants will be generated based on the rules "
         "defined below.",
     )
@@ -32,23 +31,28 @@ class ProductTemplate(models.Model):
                 "attribute_line_ids.value_ids"
             )
 
-    def _is_combination_possible_by_config(self, combination, ignore_no_variant=False):
-        rv = super()._is_combination_possible_by_config(
-            combination, ignore_no_variant=ignore_no_variant
-        )
-        if (
-            not rv  # Combination is not possible
-            or not self.use_attribute_rules  # Rules are not enabled
-            or not self.product_attribute_rule_ids  # No rules defined
-        ):
-            return rv
+    def _filter_combinations_impossible_by_config(
+        self, combination_tuples, ignore_no_variant=False
+    ):
+        """Filter out the combinations excluded by the attribute rules.
 
-        # Check if the combination matches the rules
-        return self._is_combination_possible_with_rules(combination)
+        This method is used by ``_create_variant_ids`` to (re)generate the
+        variants, and by ``_is_combination_possible_by_config``.
+        """
+        combinations = super()._filter_combinations_impossible_by_config(
+            combination_tuples, ignore_no_variant=ignore_no_variant
+        )
+        if not self.use_attribute_rules:
+            yield from combinations
+            return
+        for combination in combinations:
+            if self._is_combination_possible_with_rules(combination):
+                yield combination
 
     def _is_combination_possible_with_rules(self, combination):
         """
-        Check if the combination is possible with the rules defined on the product template.
+        Check if the combination is possible with the rules defined
+        on the product template.
         """
         # Rules are ANDed together
         for rule in self.product_attribute_rule_ids:
