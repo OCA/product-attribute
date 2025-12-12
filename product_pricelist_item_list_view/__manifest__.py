@@ -5,7 +5,7 @@
 {
     "name": "Pricelist rules list view",
     "summary": "View and search the list of pricelist items",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Sales Management",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Agile Business Group, ForgeFlow, Odoo Community Association (OCA)",
