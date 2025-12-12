@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version='1.0' encoding='utf-8' ?>
 <odoo>
     <record id="product_template_only_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
@@ -18,9 +18,9 @@
 
                 <field
                     name="product_attribute_rule_ids"
-                    attrs="{'invisible': [('use_attribute_rules', '=', False)]}"
+                    invisible="not use_attribute_rules"
                 >
-                    <tree string="Product Attribute Rules" editable="bottom">
+                    <list editable="bottom">
                         <field
                             name="available_precondition_attribute_ids"
                             invisible="1"
@@ -40,7 +40,7 @@
                             widget="many2many_tags"
                             domain="[('attribute_id', 'in', available_postcondition_attribute_ids), ('id', 'in', parent.product_attribute_value_ids )]"
                         />
-                    </tree>
+                    </list>
                 </field>
             </xpath>
         </field>

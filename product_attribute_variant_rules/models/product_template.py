@@ -14,7 +14,6 @@ class ProductTemplate(models.Model):
     )
 
     use_attribute_rules = fields.Boolean(
-        string="Use Attribute Rules",
         help="If checked, the product variants will be generated based on the rules "
         "defined below.",
     )
@@ -48,7 +47,8 @@ class ProductTemplate(models.Model):
 
     def _is_combination_possible_with_rules(self, combination):
         """
-        Check if the combination is possible with the rules defined on the product template.
+        Check if the combination is possible with the rules defined
+        on the product template.
         """
         # Rules are ANDed together
         for rule in self.product_attribute_rule_ids:

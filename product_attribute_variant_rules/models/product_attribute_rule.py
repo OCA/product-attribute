@@ -131,7 +131,7 @@ class ProductAttributeRule(models.Model):
         ):
             if (
                 combination.filtered(
-                    lambda value: value.attribute_id == attribute
+                    lambda value, attribute=attribute: value.attribute_id == attribute
                 ).product_attribute_value_id
                 not in attribute_values  # The OR between the same attribute values
             ):

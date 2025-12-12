@@ -149,8 +149,10 @@ class TestProductAttributeVariantRules(TestProductAttributeValueCommon):
 
     def test_product_attribute_rule_complex(self):
         self.computer.use_attribute_rules = True
-        # Remove all variants that have (8GB or 32GB RAM and 2To HDD) and not 256GB SSD
-        # Remove all variants that have (16GB RAM) and not ((2To or 4To HDD) and 512GB SSD)
+        # Remove all variants that have (8GB or 32GB RAM and 2To HDD)
+        #   and not 256GB SSD
+        # Remove all variants that have (16GB RAM) and not ((2To or 4To HDD)
+        #   and 512GB SSD)
         self.computer.product_attribute_rule_ids = [
             (
                 0,
