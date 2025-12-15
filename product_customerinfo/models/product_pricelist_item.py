@@ -13,13 +13,14 @@ class ProductPricelistItem(models.Model):
         ondelete={"partner": "set default"},
     )
 
-    def _compute_price(self, product, quantity, uom, date, currency=None):
+    def _compute_price(self, product, quantity, uom, date, currency=None, **kwargs):
         return super()._compute_price(
             product.with_context(include_customerinfo_discount=True),
             quantity,
             uom,
             date,
             currency,
+            **kwargs,
         )
 
     def _show_discount(self):

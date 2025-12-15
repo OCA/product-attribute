@@ -7,3 +7,4 @@
   - Carlos Lopez
 - [Komit](https://komit-consulting.com):
   - Vang Nguyen Phu
+- Maksym Yankin \<<maksym.yankin@camptocamp.com>\>

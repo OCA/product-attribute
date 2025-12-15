@@ -37,7 +37,7 @@
                         <div>
                             <field name="min_qty" class="oe_inline" />
                             <field
-                                name="product_uom"
+                                name="product_uom_id"
                                 class="oe_inline"
                                 groups="uom.group_uom"
                             />
@@ -105,7 +105,6 @@
         </field>
     </record>
     <record id="product_template_form_view" model="ir.ui.view">
-        <field name="name">product.template.common.form</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
@@ -136,7 +135,6 @@
         </field>
     </record>
     <record id="product_product_customer_info_form_view" model="ir.ui.view">
-        <field name="name">product.product.form</field>
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
@@ -177,7 +175,7 @@
                     name="archived"
                     domain="[('date_end', '&lt;',  (context_today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"
                 />
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Product"
                         name="groupby_product"

@@ -4,7 +4,7 @@
 # Copyright 2018 ForgeFlow
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields
+from odoo.fields import Datetime, Domain
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -19,7 +19,7 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
         cls.pricelist_model = cls.env["product.pricelist"]
         cls.customer = cls._create_customer("customer1")
         cls.unknown = cls._create_customer("customer2")
-        cls.product = cls.env.ref("product.product_product_4")
+        cls.product = cls.env["product.product"].create({"name": "Test product"})
         cls.customerinfo = cls._create_partnerinfo(
             "customer", cls.customer, cls.product
         )
@@ -65,10 +65,10 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
         self.assertEqual(values["customer"], False, "Incorrect default")
 
     def test_product_customerinfo(self):
-        cond = [("partner_id", "=", self.customer.id)]
+        cond = Domain("partner_id", "=", self.customer.id)
         supplierinfos = self.supplierinfo_model.search(cond)
         self.assertEqual(len(supplierinfos), 0, "Error: Supplier found in Supplierinfo")
-        cond = [("partner_id", "=", self.customer.id)]
+        cond = Domain("partner_id", "=", self.customer.id)
         customerinfos = self.customerinfo_model.search(cond)
         self.assertNotEqual(
             len(customerinfos), 0, "Error: Customer not found in Supplierinfo"
@@ -99,7 +99,7 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
             "partner", self.product.uom_id, self.company.currency_id, self.company
         )
         self.assertEqual(
-            res[self.product.id], 750.0, "Error: price does not match list price"
+            res[self.product.id], 1.0, "Error: price does not match list price"
         )
 
     def test_product_supplierinfo_discount(self):
@@ -109,14 +109,14 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
             self.product.with_context(partner_id=self.customer.id),
             1,
             self.product.uom_id,
-            fields.Datetime.now(),
+            Datetime.now(),
             self.company.currency_id,
         )
         base_price = self.pricelist_item._compute_base_price(
             self.product.with_context(partner_id=self.customer.id),
             1,
             self.product.uom_id,
-            fields.Datetime.now(),
+            Datetime.now(),
             self.company.currency_id,
         )
         self.assertEqual(
