@@ -28,8 +28,7 @@ class ProductCustomerInfo(models.Model):
         return [
             {
                 "label": _("Import Template for Customer Pricelists"),
-                "template": "/product_customerinfo/static/xls/"
-                "product_customerinfo.xls",
+                "template": "/product_customerinfo/static/xls/product_customerinfo.xls",
             }
         ]
 
