@@ -7,7 +7,7 @@ class ProductSupplierInfo(models.Model):
     _inherit = "product.supplierinfo"
 
     @api.model
-    def search_fetch(self, domain, field_names, offset=0, limit=None, order=None):
+    def search_fetch(self, domain, field_names=None, offset=0, limit=None, order=None):
         res = super().search_fetch(domain, field_names, offset, limit, order)
         if (
             self.env.context.get("customerinfo")

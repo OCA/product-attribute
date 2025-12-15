@@ -1,7 +1,8 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # Copyright 2019 ForgeFlow S.L.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import _, api, fields, models
+from odoo import api, fields, models
+from odoo.fields import Domain
 
 
 class ProductCustomerInfo(models.Model):
@@ -21,27 +22,30 @@ class ProductCustomerInfo(models.Model):
     price = fields.Float(help="Price at which the product is sold to this customer.")
     date_start = fields.Date(help="Start date for this customer price")
     date_end = fields.Date(help="End date for this customer price")
-    product_uom = fields.Many2one(help="Customer specific unit of measure.")
+    product_uom_id = fields.Many2one(help="Customer specific unit of measure.")
 
     @api.model
     def get_import_templates(self):
         return [
             {
-                "label": _("Import Template for Customer Pricelists"),
+                "label": self.env._("Import Template for Customer Pricelists"),
                 "template": "/product_customerinfo/static/xls/product_customerinfo.xls",
             }
         ]
 
     @api.model
     def _get_name_search_domain(self, partner_id, operator, name):
-        # NOTE: Ideally we could use child_of operator here instead
-        # of building top level commercial partner + parent + current contact
         partner = self.env["res.partner"].browse(partner_id)
-        partner_ids = (partner + partner.parent_id + partner.commercial_partner_id).ids
+        root = partner.commercial_partner_id.parent_id or partner.commercial_partner_id
 
-        return [
-            ("partner_id", "in", partner_ids),
-            "|",
-            ("product_code", operator, name),
-            ("product_name", operator, name),
-        ]
+        return Domain.AND(
+            [
+                Domain("partner_id", "child_of", root.id),
+                Domain.OR(
+                    [
+                        Domain("product_code", operator, name),
+                        Domain("product_name", operator, name),
+                    ]
+                ),
+            ]
+        )
