@@ -7,6 +7,7 @@
 
 from odoo import fields, models
 from odoo.models import LOG_ACCESS_COLUMNS
+from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class ProductProduct(models.Model):
@@ -38,28 +39,32 @@ class ProductProduct(models.Model):
                 else:
                     parent._add_quick_line(product, quick_line._name)
 
-    def modified(self, fnames, create=False, before=False):
-        # OVERRIDE to supress LOG_ACCESS_COLUMNS writes if we're only writing on quick
-        # magic fields, as they could lead to concurrency issues.
-        #
-        # Moreover, from a functional perspective, these magic fields aren't really
-        # modifying the product's data so it doesn't make sense to update its metadata.
-        #
-        # Basically, if all we're modifying are quick magic fields, and we don't have
-        # any other column to flush besides the LOG_ACCESS_COLUMNS, clear it.
-        quick_fnames = ("qty_to_process", "quick_uom_id")
-        if (
-            self
-            and fnames
-            and any(quick_fname in fnames for quick_fname in quick_fnames)
-        ):
-            if all(
-                field.name in LOG_ACCESS_COLUMNS
-                for field in self.env.cache.get_dirty_fields()
-            ):
-                for fname in LOG_ACCESS_COLUMNS:
-                    self.env.cache.clear_dirty_field(self._fields[fname])
-        return super().modified(fnames, create=create, before=before)
+    def write(self, vals):
+        original_dates = [(x.write_date, x.id) for x in self]
+        # print("original_dates", original_dates)
+        res = super().write(vals)
+        additional_fields = [
+            x
+            for x in vals.keys()
+            if x not in LOG_ACCESS_COLUMNS + ["qty_to_process", "quick_uom_id"]
+        ]
+        if not additional_fields and self and len(self) == 1:
+            for elm in original_dates:
+                query = (
+                    "UPDATE product_product SET write_date = %(date)s WHERE id = %(id)s"
+                )
+                self.env.cr.execute(
+                    query,
+                    {
+                        "date": elm[0].strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+                        "id": elm[1],
+                    },
+                )
+                # print("sql", self.env.cr.query)
+                # print(
+                #     "new value", self.env["product.product"].browse(elm[1]).write_date
+                # )
+        return res
 
     @property
     def pma_parent(self):

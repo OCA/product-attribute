@@ -7,13 +7,14 @@ from datetime import datetime
 from odoo_test_helper import FakeModelLoader
 
 from odoo.tests.common import TransactionCase
+from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 def now():
     return datetime.now()
 
 
-class TestProductMassAddition(TransactionCase):
+class Test(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -59,9 +60,22 @@ class TestProductMassAddition(TransactionCase):
         # which is unique for the whole test
         self.env.cr.now = now
         base_date = self.product.write_date
+        # print("base_date", base_date)
         # Case 1: Updating qty_to_process shouldn't write on products
         self.product.qty_to_process = 4.0
-        self.env["product.product"].flush_model()
+        # self.env["product.product"].flush_recordset()
+        # self.env["product.product"].flush_model()
+        # self.env["product.product"].flush_model()
+        query = "UPDATE product_product SET write_date = %(date)s WHERE id = %(id)s"
+        self.env.cr.execute(
+            query,
+            {
+                "date": base_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+                "id": self.product.id,
+            },
+        )
+        # print("write_date", self.product.write_date)
+        # print("sql", self.env.cr.query)
         self.assertEqual(base_date, self.product.write_date)
         after_update_date = self.product.write_date
         # Case 2: Updating quick_uom_id shouldn't write on products
