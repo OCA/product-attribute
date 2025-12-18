@@ -3,13 +3,19 @@
 
 {
     "name": "Product Supplierinfo Group",
+    "summary": "Reduce the number of repetitive data for vendor data "
+    "i.e. 'Product Name/Code'",
     "version": "18.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Akretion, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
+    "maintainers": ["bealdav", "sebastienbeau"],
     "depends": ["purchase"],
+    "excludes": [
+        "product_customerinfo",  # this module inherit from "product.supplierinfo"
+    ],
     "data": [
         "views/product.xml",
         "views/supplierinfo_group.xml",

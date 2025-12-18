@@ -33,6 +33,7 @@
                             <list editable="bottom">
                                 <field name="min_qty" optional="show" />
                                 <field name="price" />
+                                <field name="discount" />
                                 <field name="date_start" optional="show" />
                                 <field name="date_end" optional="show" />
                                 <field name="delay" />
