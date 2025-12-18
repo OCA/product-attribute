@@ -42,8 +42,11 @@ class ProductSupplierinfoGroup(models.Model):
         help="Assigns the priority to the list of product vendor.",
     )
     unit_price_note = fields.Html(
-        compute="_compute_unit_price_note", string="Unit Prices (Min. Qty / Price)"
+        compute="_compute_unit_price_note",
+        string="Qty -> Price",
+        help="Qty is minimal quantity, Price is discounted one if any.",
     )
+
     company_id = fields.Many2one(
         comodel_name="res.company", default=lambda self: self.env.company.id, index=1
     )

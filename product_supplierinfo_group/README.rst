@@ -32,7 +32,7 @@ Product price values can be tedious and error-prone to enter one by one
 when you need to repeat the same values:
 
 -  vendor,
--  product name,
+-  product name
 -  variant
 -  product code
 
@@ -48,29 +48,24 @@ price/quantities deals.
 
 Here are some screenshots for before/after comparison.
 
-Before:
+Before: boring and error prone !
 
 |image1|
 
-Boring and error prone !
+After:
 
 |image2|
 
-After:
-
-|image3|
-
 Much better for the user.
 
-|image4|
+|image3|
 
 Note: do verify, when uninstalling this module: data consistency might
 be altered due to some manual creation of tables/fields.
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/before_1.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/before_2.png
-.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/after_1.png
-.. |image4| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/after_2.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/before.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/after_1.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_supplierinfo_group/static/description/after_2.png
 
 **Table of contents**
 
@@ -105,9 +100,11 @@ Authors
 Contributors
 ------------
 
--  Kevin Khao <kevin.khao@akretion.com>
--  Sebastien Beau <sebastien.beau@akretion.com>
--  Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
+-  Akretion
+
+   -  Kevin Khao
+   -  Sebastien Beau <sebastien.beau@akretion.com>
+   -  Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
 
 Maintainers
 -----------
@@ -121,6 +118,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-bealdav| image:: https://github.com/bealdav.png?size=40px
+    :target: https://github.com/bealdav
+    :alt: bealdav
+.. |maintainer-sebastienbeau| image:: https://github.com/sebastienbeau.png?size=40px
+    :target: https://github.com/sebastienbeau
+    :alt: sebastienbeau
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-bealdav| |maintainer-sebastienbeau| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_supplierinfo_group>`_ project on GitHub.
 

@@ -26,25 +26,22 @@ class ProductSupplierinfo(models.Model):
         required=True,
         ondelete="cascade",
     )
-    company_id = fields.Many2one(
-        related="group_id.company_id", store=True, default=None
-    )
-    product_tmpl_id = fields.Many2one(
-        related="group_id.product_tmpl_id", store=True, default=None
-    )
+    company_id = fields.Many2one(related="group_id.company_id", store=True)
+    product_tmpl_id = fields.Many2one(related="group_id.product_tmpl_id", store=True)
     partner_id = fields.Many2one(
-        related="group_id.partner_id", store=True, required=False, default=None
+        related="group_id.partner_id", store=True, required=False
     )
-    product_id = fields.Many2one(
-        related="group_id.product_id", store=True, default=None
+    product_id = fields.Many2one(related="group_id.product_id", store=True)
+    product_name = fields.Char(related="group_id.product_name", store=True)
+    product_code = fields.Char(related="group_id.product_code", store=True)
+    sequence = fields.Integer(related="group_id.sequence", store=True)
+    rounded_discount = fields.Float(
+        "Rounded discount", compute="_compute_rounded_discount"
     )
-    product_name = fields.Char(
-        related="group_id.product_name", store=True, default=None
-    )
-    product_code = fields.Char(
-        related="group_id.product_code", store=True, default=None
-    )
-    sequence = fields.Integer(related="group_id.sequence", store=True, default=None)
+
+    def _compute_rounded_discount(self):
+        for rec in self:
+            rec.rounded_discount = round(rec.price_discounted, 2)
 
     _sql_constraints = [
         (
