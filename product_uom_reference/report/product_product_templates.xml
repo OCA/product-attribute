@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="product_uom_reference.report_productlabel"
+        inherit_id="product.report_productlabel"
+    >
+        <xpath expr="//t[@t-set='table_style']" position="after">
+            <t t-if="product.uom_reference_id">
+                <t
+                    t-if="report_to_call ==  '2x7'"
+                    t-set="table_style"
+                    t-value="'height:48mm;' + table_style"
+                />
+                <t
+                    t-elif="report_to_call ==  '4x7'"
+                    t-set="table_style"
+                    t-value="'height:40mm;' + table_style"
+                />
+                <t
+                    t-elif="report_to_call ==  '4x12'"
+                    t-set="table_style"
+                    t-value="'height:26mm;' + table_style"
+                />
+            </t>
+        </xpath>
+    </template>
+
+    <template id="product_uom_reference.show_uom">
+        <t t-if="not uom_name" t-set="uom_name" t-value="product.uom_id.name" />
+        <span t-att-class="class_show_uom or 'o_label_price_medium'" t-if="uom_name">
+            per <t t-out="uom_name" /></span>
+    </template>
+
+    <template id="product_uom_reference.price_uom_reference">
+        <t
+            t-set="price_uom_reference"
+            t-value="(product.product_variant_id or product)._get_price_uom_reference(product,pricelist)"
+        />
+        <div class="d-flex justify-content-end" t-if="price_uom_reference">
+            <strong
+                t-att-class="class_price_uom_reference or ''"
+                t-out="price_uom_reference"
+                t-options="{'widget': 'monetary', 'display_currency': pricelist.currency_id or product.currency_id, 'label_price': True}"
+            />
+            <t
+                t-set="uom_reference"
+                t-value="product.uom_reference_id.uom_reference_id"
+            />
+            <t t-if="uom_reference">
+                <t t-set="class_show_uom" t-value="'o_label_price_small'" />
+                <t t-set="uom_name" t-value="uom_reference.name" />
+                <t t-call="product_uom_reference.show_uom" />
+            </t>
+        </div>
+    </template>
+
+    <template
+        id="product_uom_reference.report_simple_label2x7"
+        inherit_id="product.report_simple_label2x7"
+    >
+        <xpath expr="//strong[hasclass('o_label_price')]" position="after">
+            <t t-set="class_show_uom" t-value="'o_label_price'" />
+            <t t-call="product_uom_reference.show_uom" />
+            <t t-call="product_uom_reference.price_uom_reference" />
+        </xpath>
+    </template>
+
+    <template
+        id="product_uom_reference.report_simple_label4x7"
+        inherit_id="product.report_simple_label4x7"
+    >
+        <xpath expr="//strong[hasclass('o_label_price_medium')]" position="after">
+            <t t-set="class_show_uom" t-value="'o_label_price_medium'" />
+            <t t-call="product_uom_reference.show_uom" />
+            <t t-call="product_uom_reference.price_uom_reference" />
+        </xpath>
+    </template>
+
+    <template
+        id="product_uom_reference.report_simple_label4x12"
+        inherit_id="product.report_simple_label4x12"
+    >
+        <xpath expr="//div[hasclass('o_label_price_medium')]//strong" position="after">
+            <t t-set="class_show_uom" t-value="'o_label_price_medium'" />
+            <t t-call="product_uom_reference.show_uom" />
+        </xpath>
+        <xpath expr="//div[hasclass('o_label_price_medium')]" position="after">
+            <t t-call="product_uom_reference.price_uom_reference" />
+        </xpath>
+    </template>
+
+    <template
+        id="product_uom_reference.report_simple_label_dymo"
+        inherit_id="product.report_simple_label_dymo"
+    >
+        <xpath expr="//strong[hasclass('o_label_price_small')]" position="after">
+            <t t-set="class_show_uom" t-value="'o_label_price_small'" />
+            <t t-call="product_uom_reference.show_uom" />
+
+            <t t-set="class_price_uom_reference" t-value="'o_label_price_small'" />
+            <t t-call="product_uom_reference.price_uom_reference" />
+        </xpath>
+    </template>
+
+    <template
+        id="product_uom_reference.label_product_product_view"
+        inherit_id="stock.label_product_product_view"
+    >
+        <xpath expr="//t[@t-set='product']" position="after">
+            <t
+                t-set="price_uom_reference"
+                t-value="(product.product_variant_id or product)._get_price_uom_reference(product,pricelist)"
+            />
+            <t
+                t-set="uom_reference"
+                t-value="product.uom_reference_id.uom_reference_id"
+            />
+        </xpath>
+
+        <xpath
+            expr="//t[@t-if='price_included']//t[contains(@t-if, 'after')]//t[contains(@t-esc, 'currency_id.symbol')]"
+            position="after"
+        > per <t t-esc="product.uom_id.name" /><t t-if="price_uom_reference">/ <t
+            t-esc="price_uom_reference"
+            t-options='{"widget": "float", "precision": 2}'
+        /><t t-esc="currency_id.symbol" /> per <t
+            t-esc="uom_reference.name"
+        /></t></xpath>
+        <xpath
+            expr="//t[@t-if='price_included']//t[contains(@t-if, 'before')]//t[contains(@t-esc, 'pricelist._get_product_price')]"
+            position="after"
+        > per <t t-esc="product.uom_id.name" /><t t-if="price_uom_reference"> / <t
+            t-esc="currency_id.symbol"
+        /><t
+            t-esc="price_uom_reference"
+            t-options='{"widget": "float", "precision": 2}'
+        /> per <t t-esc="uom_reference.name" /></t></xpath>
+    </template>
+</odoo>
