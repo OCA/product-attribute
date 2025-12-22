@@ -43,8 +43,8 @@ weight. (container excluded)
 Usage
 =====
 
-- Go to 'Inventory > Master Data > Product' and edit items.
-- Go to 'Inventory' tab, and fill the "Net Weight" value.
+-  Go to 'Inventory > Master Data > Product' and edit items.
+-  Go to 'Inventory' tab, and fill the "Net Weight" value.
 
 |image1|
 
@@ -83,14 +83,14 @@ Authors
 Contributors
 ------------
 
-- Sylvain LE GAL (https://www.twitter.com/legalsylvain)
-- `Greenice <https://www.greenice.com>`__:
+-  Sylvain LE GAL (https://www.twitter.com/legalsylvain)
+-  `Greenice <https://www.greenice.com>`__:
 
-  - Fernando La Chica <fernandolachica@gmail.com>
+   -  Fernando La Chica <fernandolachica@gmail.com>
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Sergio Teruel
+   -  Sergio Teruel
 
 Maintainers
 -----------
