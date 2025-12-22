@@ -22,7 +22,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     name="net_weight"
                     invisible="product_variant_count > 1 and not is_product_variant"
                 >
-                    <field name="net_weight" class="oe_inline" />
+                    <field
+                        name="net_weight"
+                        class="oe_inline"
+                        style="max-width: 7rem;"
+                    />
                     <field name="weight_uom_name" />
                 </div>
             </xpath>
