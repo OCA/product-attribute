@@ -1,0 +1,24 @@
+<odoo>
+    <record id="product_supplierinfo_tree_view_indirect_cost" model="ir.ui.view">
+        <field name="name">product.supplierinfo.list.view.indirect_cost</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='discount']" position="after">
+                <field name="indirect_cost_percent" />
+                <field name="indirect_cost_amount" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+    <record id="product_supplierinfo_form_view_indirect_cost" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view.indirect_cost</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='discount']" position="after">
+                <field name="indirect_cost_percent" />
+                <field name="indirect_cost_amount" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
