@@ -10,16 +10,45 @@ class TestProductMainSupplierInfo(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.product = cls.env.ref("product.product_product_6")
-        cls.seller_1 = cls.env.ref("product.product_supplierinfo_1")
-        cls.seller_1.sequence = 1
-        cls.seller_1.price = 700
-        cls.seller_2 = cls.env.ref("product.product_supplierinfo_2")
-        cls.seller_2.sequence = 2
-        cls.seller_2.price = 720
-        cls.seller_2bis = cls.env.ref("product.product_supplierinfo_2bis")
-        cls.seller_2bis.sequence = 3
-        cls.seller_2bis.price = 740
+
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "Large Cabinet",
+                "type": "consu",
+            }
+        )
+
+        cls.partner_1 = cls.env["res.partner"].create({"name": "Supplier 1"})
+        cls.partner_2 = cls.env["res.partner"].create({"name": "Supplier 2"})
+        cls.partner_2bis = cls.env["res.partner"].create({"name": "Supplier 2 Bis"})
+
+        cls.seller_1 = cls.env["product.supplierinfo"].create(
+            {
+                "partner_id": cls.partner_1.id,
+                "product_tmpl_id": cls.product.product_tmpl_id.id,
+                "sequence": 1,
+                "price": 700,
+            }
+        )
+
+        cls.seller_2 = cls.env["product.supplierinfo"].create(
+            {
+                "partner_id": cls.partner_2.id,
+                "product_tmpl_id": cls.product.product_tmpl_id.id,
+                "sequence": 2,
+                "price": 720,
+            }
+        )
+
+        cls.seller_2bis = cls.env["product.supplierinfo"].create(
+            {
+                "partner_id": cls.partner_2bis.id,
+                "product_tmpl_id": cls.product.product_tmpl_id.id,
+                "sequence": 3,
+                "price": 740,
+            }
+        )
+
         cls.company_2 = cls.env.company.create({"name": "Company2"})
         # For the test case 4
         cls.attribute = cls.env["product.attribute"].create({"name": "Size"})

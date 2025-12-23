@@ -26,9 +26,8 @@ class ProductProduct(models.Model):
     @api.depends_context("company")
     def _compute_main_seller_id(self):
         for product in self.with_context(compute_main_seller=True):
-            product.main_seller_id = fields.first(
-                product._get_filtered_sellers(quantity=None).sorted("price")
-            )
+            sellers = product._get_filtered_sellers(quantity=None).sorted("price")
+            product.main_seller_id = next(iter(sellers), False)
 
     def _get_filtered_sellers(
         self, partner_id=False, quantity=0.0, date=None, uom_id=False, params=False
