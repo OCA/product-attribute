@@ -32,6 +32,10 @@ class ProductPricelistItem(models.Model):
         help="Based on supplierinfo price without sale margin applied"
     )
 
+    def get_supplier_id(self):
+        self.ensure_one()
+        return self.env.context.get("force_filter_supplier_id", self.filter_supplier_id)
+
     def _compute_price(self, product, quantity, uom, date, currency=None):
         result = super()._compute_price(product, quantity, uom, date, currency)
         context = self.env.context
