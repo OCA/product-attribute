@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <record id="group_product_profile_user" model="res.groups">
         <field name="name">Display Product Profile fields</field>
         <field name="category_id" ref="base.module_category_product" />
@@ -14,5 +13,4 @@
             eval="[(4, ref('product_profile.group_product_profile_user'))]"
         />
     </record>
-
 </odoo>

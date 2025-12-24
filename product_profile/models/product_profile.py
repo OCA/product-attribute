@@ -110,8 +110,8 @@ class ProductProfile(models.Model):
             products = by_profile.get(rec)
             if products:
                 _logger.info(
-                    " >>> {} Products updating after updated '{}' pro"
-                    "duct profile".format(len(products), rec.name)
+                    f" >>> {len(products)} Products updating after updated '{rec.name}' pro"
+                    "duct profile"
                 )
                 data = products._get_vals_from_profile(
                     {"profile_id": rec.id}, ignore_defaults=True

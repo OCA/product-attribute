@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//h1" position="after">
                 <group name="profile" col="2">
-                <group>
-                    <field name="profile_id" widget="selection" class="oe_inline" />
-                </group>
+                    <group>
+                        <field name="profile_id" widget="selection" class="oe_inline" />
+                    </group>
                     <field
                         name="profile_explanation"
                         string=""
@@ -60,5 +59,4 @@
         parent="sale.prod_config_main"
         sequence="10"
     />
-
 </odoo>
