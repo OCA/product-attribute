@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="my_own_consumable" model="product.profile">
         <field name="name">My Own Type Consumable</field>
         <field name="explanation">My Own Type, Consumable</field>
@@ -14,5 +13,4 @@
         >Minimal example of service product profile, extend this to your own needs</field>
         <field name="detailed_type">service</field>
     </record>
-
 </odoo>
