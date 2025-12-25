@@ -14,7 +14,7 @@
                     name="product_count"
                     class="text-right"
                     string="Products"
-                    invisible="product_count==0"
+                    column_invisible="product_count==0"
                 />
                 <button
                     type="object"
@@ -22,7 +22,7 @@
                     title="Products"
                     class="btn btn-link text-left"
                     icon="fa-wrench"
-                    invisible="product_count==0"
+                    column_invisible="product_count==0"
                 />
             </list>
         </field>
@@ -35,7 +35,7 @@
             <search>
                 <field name="name" />
                 <field name="attribute_id" />
-                <group expand="1" string="Group By">
+                <group>
                     <filter
                         string="Attribute"
                         name="attribute"
