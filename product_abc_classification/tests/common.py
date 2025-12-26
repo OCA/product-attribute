@@ -102,11 +102,16 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         cls.size_attr_value_s = cls.size_attr.value_ids[0]
         cls.size_attr_value_m = cls.size_attr.value_ids[1]
         cls.uom_unit = cls.env.ref("uom.product_uom_unit")
+        cls.category_all = cls.env["product.category"].create(
+            {
+                "name": "All",
+            }
+        )
         cls.product_template = cls.env["product.template"].create(
             {
                 "name": "Test sized",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
+                "categ_id": cls.category_all.id,
                 "attribute_line_ids": [
                     (
                         0,

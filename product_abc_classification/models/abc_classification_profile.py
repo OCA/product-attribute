@@ -45,7 +45,7 @@ class AbcClassificationProfile(models.Model):
         "profile.",
     )
 
-    _sql_constraints = [("name_uniq", "UNIQUE(name)", "Profile name must be unique")]
+    _name_uniq = models.Constraint("UNIQUE(name)", "Profile name must be unique")
 
     @api.constrains("level_ids")
     def _check_levels(self):
@@ -105,7 +105,7 @@ class AbcClassificationProfile(models.Model):
 
     @api.model
     def _cron_compute_abc_classification(self):
-        self.search([])._compute_abc_classification()
+        self.search([], limit=False)._compute_abc_classification()
 
     def write(self, vals):
         res = super().write(vals)

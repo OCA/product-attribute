@@ -18,13 +18,10 @@ class AbcClassificationLevel(models.Model):
 
     name = fields.Char(help="Classification A, B or C", required=True)
 
-    _sql_constraints = [
-        (
-            "name_uniq",
-            "UNIQUE(profile_id, name)",
-            "Level name must be unique by profile",
-        )
-    ]
+    _name_uniq = models.Constraint(
+        "UNIQUE(profile_id, name)",
+        "Level name must be unique by profile",
+    )
 
     @api.constrains("percentage")
     def _check_percentage(self):

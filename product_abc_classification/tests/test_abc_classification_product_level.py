@@ -17,7 +17,6 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             {
                 "name": "Test 1",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
         cls.product_level = cls.ProductLevel.create(
@@ -34,7 +33,6 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             {
                 "name": "Test 2",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
 
@@ -42,7 +40,6 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             {
                 "name": "Test 3",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
         cls.ProductLevel.create(

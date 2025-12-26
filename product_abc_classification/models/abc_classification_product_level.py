@@ -66,13 +66,10 @@ class AbcClassificationProductLevel(models.Model):
         related="product_id.abc_classification_profile_ids",
     )
 
-    _sql_constraints = [
-        (
-            "product_level_uniq",
-            "UNIQUE(profile_id, product_id)",
-            "Only one level by profile by product allowed",
-        )
-    ]
+    _product_level_uniq = models.Constraint(
+        "UNIQUE(profile_id, product_id)",
+        "Only one level by profile by product allowed",
+    )
 
     @api.constrains("computed_level_id", "manual_level_id", "product_id")
     def _check_level(self):
