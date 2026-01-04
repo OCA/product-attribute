@@ -53,42 +53,28 @@ class ProductCostSecurityMixin(models.AbstractModel):
         }
 
     @api.model
-    def check_field_access_rights(self, operation, fields):
-        """Forbid users from updating product costs if they have no permissions.
-
-        The field's `groups` attribute restricts always R/W access. We apply an
-        extra protection to prevent only editing if the user is not in the
-        `product_cost_security.group_product_edit_cost` group.
-        """
-        valid_fields = super().check_field_access_rights(operation, fields)
+    def _check_field_access(self, field, operation):
+        # Forbid users from updating product costs if they have no permissions.
+        # Odoo 19.0 enforces field access through this method during read/write
+        # operations, so the edit restriction must be applied here too.
+        super()._check_field_access(field, operation)
         if self.env.su:
-            return valid_fields
-        product_cost_fields = self._product_cost_security_fields().intersection(
-            valid_fields
-        )
+            return
         if (
             operation != "read"
-            and product_cost_fields
+            and field.name in self._product_cost_security_fields()
             and not self._user_can_update_cost()
         ):
-            description = self.env["ir.model"]._get(self._name).name
             raise AccessError(
                 self.env._(
-                    'You do not have enough rights to access the fields "%(fields)s"'
-                    " on %(document_kind)s (%(document_model)s). "
+                    "You do not have enough rights to update product costs. "
                     "Please contact your system administrator."
-                    "\n\n(Operation: %(operation)s)",
-                    fields=",".join(sorted(product_cost_fields)),
-                    document_kind=description,
-                    document_model=self._name,
-                    operation=operation,
                 )
             )
-        return valid_fields
 
     @api.model
     def fields_get(self, allfields=None, attributes=None):
-        """Make product cost fields readonly for non-editors."""
+        # Make product cost fields readonly for non-editors.
         result = super().fields_get(allfields, attributes)
         if not self._user_can_update_cost():
             for field_name in self._product_cost_security_fields():
