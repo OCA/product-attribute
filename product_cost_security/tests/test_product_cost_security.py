@@ -27,7 +27,7 @@ class TestProductCostSecurity(BaseCommon):
         ).id
         cls.product_template_model = cls.env["product.template"]
         cls.env.user.write(
-            {"groups_id": [Command.set(cls.env.ref("base.group_system").ids)]}
+            {"group_ids": [Command.set(cls.env.ref("base.group_system").ids)]}
         )
 
     def test_without_access_to_product_costs_group(self):
@@ -42,7 +42,7 @@ class TestProductCostSecurity(BaseCommon):
             self.assertEqual(standard_price, 0.0)
 
     def test_with_access_to_product_costs_group(self):
-        self.env.user.groups_id = [
+        self.env.user.group_ids = [
             Command.set([self.product_cost_group_id, self.base_group_user_id])
         ]
         sheet_form = Form(self.product_template_model.with_user(self.env.user))
@@ -64,7 +64,7 @@ class TestProductCostSecurity(BaseCommon):
             sheet_form.standard_price = 5.0
 
     def test_with_access_to_modify_product_costs_group(self):
-        self.env.user.groups_id = [
+        self.env.user.group_ids = [
             Command.set([self.product_edit_cost_group_id, self.base_group_user_id])
         ]
         sheet_form = Form(self.product_template_model.with_user(self.env.user))

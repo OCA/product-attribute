@@ -8,3 +8,5 @@
 - Jairo Llopis ([Moduon](https://www.moduon.team))
 - [Binhex](https://www.binhex.cloud):
   - Mario Luis \<<m.luis@binhex.cloud>\>
+- [Open Source Integrators](https://www.opensourceintegrators.com)
+  - Daniel Reis \<<dreis@opensourceintegrators.com>\>
