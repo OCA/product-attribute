@@ -15,14 +15,13 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         from .models import SecondaryUnitFake
 
         cls.loader.update_registry((SecondaryUnitFake,))
-        cls.product_uom_kg = cls.env.ref("uom.product_uom_kgm")
         cls.product_uom_unit = cls.env.ref("uom.product_uom_unit")
         cls.product_uom_dozen = cls.env.ref("uom.product_uom_dozen")
         cls.product_template = cls.env["product.template"].create(
             {
                 "name": "test",
-                "uom_id": cls.product_uom_kg.id,
-                "uom_po_id": cls.product_uom_kg.id,
+                "uom_id": cls.product_uom_unit.id,
+                "uom_po_id": cls.product_uom_unit.id,
                 "secondary_uom_ids": [
                     Command.create(
                         {
@@ -151,3 +150,44 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model.write({"secondary_uom_qty": 4})
         self.assertEqual(fake_model.product_uom_qty, 17)
         self.assertEqual(fake_model.secondary_uom_qty, 4)
+
+    def test_secondary_uom_qty_conversion_with_different_line_uom(self):
+        product_uom_litre = self.env.ref("uom.product_uom_litre")
+        volume_category = self.env.ref("uom.product_uom_categ_vol")
+        product_uom_millilitre = self.env["uom.uom"].create(
+            {
+                "name": "mL",
+                "category_id": volume_category.id,
+                "uom_type": "smaller",
+                "factor": 1000.0,
+                "rounding": 0.01,
+            }
+        )
+        product_template = self.env["product.template"].create(
+            {
+                "name": "Test",
+                "uom_id": product_uom_millilitre.id,
+                "uom_po_id": product_uom_millilitre.id,
+                "secondary_uom_ids": [
+                    Command.create(
+                        {
+                            "name": "Bottle",
+                            "uom_id": product_uom_millilitre.id,
+                            "factor": 1200.0,
+                            "dependency_type": "dependent",
+                        }
+                    )
+                ],
+            }
+        )
+        bottle_secondary_uom = product_template.secondary_uom_ids
+        fake_model = self.env["secondary.unit.fake"].create(
+            {
+                "name": "Secondary unit fake (volume)",
+                "product_id": product_template.product_variant_ids.id,
+                "product_uom_id": product_uom_litre.id,
+                "product_uom_qty": 1.2,
+                "secondary_uom_id": bottle_secondary_uom.id,
+            }
+        )
+        self.assertEqual(fake_model.secondary_uom_qty, 1.0)
