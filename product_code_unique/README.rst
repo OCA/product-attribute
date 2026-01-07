@@ -45,14 +45,6 @@ Usage
   an internal reference(default_code). A default value is generated to
   populate empty field as a temporary value.
 
-Known issues / Roadmap
-======================
-
-- Avoid duplicate warnings. Odoo has a warning for duplicate "Internal
-  Reference" of its own (it doesn't block from saving). Now both
-  warnings are displayed when trying to save a duplicate "Internal
-  Reference".
-
 Bug Tracker
 ===========
 
