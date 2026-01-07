@@ -5,10 +5,9 @@
         <field name="model">product.packaging</field>
         <field name="inherit_id" ref="product.product_packaging_form_view" />
         <field name="priority" eval="8" />
-        <field name="arch" type="xml">
+                <field name="arch" type="xml">
             <xpath expr="//field[@name='barcode']" position="before">
                 <field name="qty_per_type" />
-                <field name="packaging_type_id" />
                 <field name="type_has_gtin" />
             </xpath>
             <xpath expr="//field[@name='barcode']" position="attributes">
@@ -20,7 +19,7 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="name" position="after">
-                <field name="packaging_type_id" position="move" />
+                <field name="packaging_type_id" />
             </field>
         </field>
     </record>
@@ -29,7 +28,7 @@
         <field name="model">product.packaging</field>
         <field name="inherit_id" ref="product.product_packaging_tree_view" />
         <field name="arch" type="xml">
-            <field name="product_uom_id" position="after">
+            <field name="qty" position="after">
                 <field name="qty_per_type" />
             </field>
             <field name="name" position="attributes">
