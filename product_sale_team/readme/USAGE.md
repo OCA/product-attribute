@@ -1,0 +1,2 @@
+- Open the product
+- Select a sales team in the corresponding field located in the "General Information" tab
