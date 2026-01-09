@@ -119,11 +119,6 @@ msgid "Price Field Names"
 msgstr ""
 
 #. module: product_multi_price
-#: model:ir.model,name:product_multi_price.model_product_pricelist
-msgid "Pricelist"
-msgstr ""
-
-#. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr ""
