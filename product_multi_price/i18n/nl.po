@@ -18,8 +18,7 @@ msgstr ""
 
 #. module: product_multi_price
 #: model:ir.model.constraint,message:product_multi_price.constraint_product_multi_price_multi_price_uniq
-msgid ""
-"A field name cannot be assigned to a product twice for the same company"
+msgid "A field name cannot be assigned to a product twice for the same company"
 msgstr ""
 "Een veldnaam kan niet tweemaal aan een product worden toegewezen voor "
 "hetzelfde bedrijf"
@@ -129,11 +128,6 @@ msgid "Price Field Names"
 msgstr "Namen prijsvelden"
 
 #. module: product_multi_price
-#: model:ir.model,name:product_multi_price.model_product_pricelist
-msgid "Pricelist"
-msgstr "Prijslijst"
-
-#. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Prijslijstregel"
@@ -168,3 +162,6 @@ msgstr "Productvariant"
 #: model:res.groups,name:product_multi_price.group_show_multi_prices
 msgid "Show multi prices"
 msgstr "Toon multiprijzen"
+
+#~ msgid "Pricelist"
+#~ msgstr "Prijslijst"

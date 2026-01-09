@@ -28,14 +28,9 @@ msgstr ""
 msgid ""
 "Base price for computation.\n"
 "Sales Price: The base price will be the Sales Price.\n"
-"Cost Price : The base price will be the cost price.\n"
-"Other Pricelist : Computation of the base price based on another Pricelist."
+"Cost Price: The base price will be the cost price.\n"
+"Other Pricelist: Computation of the base price based on another Pricelist."
 msgstr ""
-"Preu base de càlcul.\n"
-"Preu de venda: el preu base serà el preu de venda.\n"
-"Preu de cost: el preu base serà el preu de cost.\n"
-"Una altra llista de preus: càlcul del preu base basat en una altra llista de "
-"preus."
 
 #. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_pricelist_item__base
@@ -71,12 +66,6 @@ msgstr "Nom visible"
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name__id
 msgid "ID"
 msgstr "ID"
-
-#. module: product_multi_price
-#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price____last_update
-#: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price_name____last_update
-msgid "Last Modified on"
-msgstr "Darrera modificació el"
 
 #. module: product_multi_price
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__write_uid
@@ -134,11 +123,6 @@ msgid "Price Field Names"
 msgstr "Noms de camps de preus"
 
 #. module: product_multi_price
-#: model:ir.model,name:product_multi_price.model_product_pricelist
-msgid "Pricelist"
-msgstr "Tarifa"
-
-#. module: product_multi_price
 #: model:ir.model,name:product_multi_price.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Regla de tarifa"
@@ -149,7 +133,7 @@ msgid "Prices Names must be unique per company"
 msgstr "Els noms dels preus han de ser únics per empresa"
 
 #. module: product_multi_price
-#: model:ir.model,name:product_multi_price.model_product_product
+#: model:ir.model,name:product_multi_price.model_product_template
 #: model:ir.model.fields,field_description:product_multi_price.field_product_multi_price__product_id
 msgid "Product"
 msgstr "Producte"
@@ -165,14 +149,36 @@ msgid "Product Multiple Prices"
 msgstr "Preus múltiples de productes"
 
 #. module: product_multi_price
-#: model:ir.model,name:product_multi_price.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producte"
+#: model:ir.model,name:product_multi_price.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_multi_price
 #: model:res.groups,name:product_multi_price.group_show_multi_prices
 msgid "Show multi prices"
 msgstr "Mostra preus múltiples"
+
+#~ msgid ""
+#~ "Base price for computation.\n"
+#~ "Sales Price: The base price will be the Sales Price.\n"
+#~ "Cost Price : The base price will be the cost price.\n"
+#~ "Other Pricelist : Computation of the base price based on another "
+#~ "Pricelist."
+#~ msgstr ""
+#~ "Preu base de càlcul.\n"
+#~ "Preu de venda: el preu base serà el preu de venda.\n"
+#~ "Preu de cost: el preu base serà el preu de cost.\n"
+#~ "Una altra llista de preus: càlcul del preu base basat en una altra llista "
+#~ "de preus."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Darrera modificació el"
+
+#~ msgid "Pricelist"
+#~ msgstr "Tarifa"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producte"
 
 #~ msgid "Product Multi Price Field Name"
 #~ msgstr "Nom del camp del preu múltiple del producte"
