@@ -85,14 +85,32 @@ class ProductProduct(models.Model):
     def _prepare_domain_customerinfo(self, params):
         self.ensure_one()
         partner_id = params.get("partner_id")
-        return [
-            ("partner_id", "=", partner_id),
+        domain = [
             "|",
             ("product_id", "=", self.id),
             "&",
             ("product_tmpl_id", "=", self.product_tmpl_id.id),
             ("product_id", "=", False),
         ]
+        if partner_id:
+            partner = self.env["res.partner"].browse(partner_id)
+            domain = expression.AND(
+                [
+                    domain,
+                    [
+                        (
+                            "partner_id",
+                            "in",
+                            (
+                                partner
+                                + partner.parent_id
+                                + partner.commercial_partner_id
+                            ).ids,
+                        )
+                    ],
+                ]
+            )
+        return domain
 
     def _select_customerinfo(
         self, partner=False, _quantity=0.0, _date=None, _uom_id=False, params=False
@@ -105,10 +123,20 @@ class ProductProduct(models.Model):
             params = dict()
         params.update({"partner_id": partner.id})
         domain = self._prepare_domain_customerinfo(params)
-        res = (
-            self.env["product.customerinfo"]
-            .search(domain)
-            .sorted(lambda s: (s.sequence, s.min_qty, s.price, s.id))
+        # Search for customerinfo records based on the domain
+        any_match = self.env["product.customerinfo"].search(
+            domain, order="sequence,min_qty,price,id"
         )
-        res_1 = res.sorted("product_tmpl_id")[:1]
-        return res_1
+        first_template_match = self.env["product.customerinfo"].browse()
+        # return the first customer_info matching the variant
+        # otherwise the first one matching the template
+        for customer_info in any_match:
+            if customer_info.product_id == self:
+                return customer_info
+            if (
+                not customer_info.product_id
+                and not first_template_match
+                and customer_info.product_tmpl_id == self.product_tmpl_id
+            ):
+                first_template_match = customer_info
+        return first_template_match

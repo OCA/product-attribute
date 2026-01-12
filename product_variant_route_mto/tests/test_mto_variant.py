@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 import logging
 
+from odoo import Command
 from odoo.exceptions import ValidationError
 
 from .common import TestMTOVariantCommon
@@ -40,6 +41,14 @@ class TestMTOVariant(TestMTOVariantCommon):
         with self.assertLogs(onchange_logger, level="WARNING"):
             self.remove_route(pen_template, self.mto_route)
         self.assertVariantsNotMTO(pens)
+
+    def test_variants_routes_updated(self):
+        blue_pen = self.blue_pen
+        self.assertVariantsNotMTO(blue_pen)
+        blue_pen.route_ids = [Command.link(self.mto_route.id)]
+        self.assertVariantsMTO(blue_pen)
+        blue_pen.route_ids = [Command.clear()]
+        self.assertVariantsNotMTO(blue_pen)
 
     def test_template_routes_updated(self):
         # instanciate variables
