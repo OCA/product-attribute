@@ -7,11 +7,30 @@ from odoo.tools.misc import mute_logger
 
 
 class TestProductAssortment(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.filter_obj = self.env["ir.filters"]
-        self.product_obj = self.env["product.product"]
-        self.assortment = self.filter_obj.create(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.filter_obj = cls.env["ir.filters"]
+        cls.product_obj = cls.env["product.product"]
+        cls.product_storage_box = cls.product_obj.create(
+            {
+                "name": "Storage Box",
+                "type": "consu",
+                "standard_price": 14.0,
+                "list_price": 15.8,
+                "default_code": "E-COM08",
+            }
+        )
+        cls.product_virtual_home_staging = cls.product_obj.create(
+            {
+                "name": "Virtual Home Staging",
+                "type": "service",
+                "standard_price": 25.5,
+                "list_price": 38.25,
+            }
+        )
+        cls.assortment = cls.filter_obj.create(
             {
                 "name": "Test Assortment",
                 "model_id": "product.product",
@@ -19,8 +38,8 @@ class TestProductAssortment(TransactionCase):
                 "domain": [],
             }
         )
-        self.partner = self.env["res.partner"].create({"name": "Test partner"})
-        self.partner2 = self.env["res.partner"].create({"name": "Test partner 2"})
+        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
+        cls.partner2 = cls.env["res.partner"].create({"name": "Test partner 2"})
 
     def test_assortment(self):
         products = self.product_obj.search([])
@@ -38,14 +57,14 @@ class TestProductAssortment(TransactionCase):
         self.assertEqual(products.ids, products_filtered.ids)
 
         # include one product not in initial filter
-        included_product = self.env.ref("product.product_product_7")
+        included_product = self.product_storage_box
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
         self.assertIn(included_product.id, products_filtered.ids)
 
         # exclude one product not in initial filter
-        excluded_product = self.env.ref("product.product_product_2")
+        excluded_product = self.product_virtual_home_staging
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
         self.assertIn(excluded_product.id, products_filtered.ids)
@@ -91,24 +110,26 @@ class TestProductAssortment(TransactionCase):
         )
 
     def test_product_assortment_view(self):
-        included_product = self.env.ref("product.product_product_7")
+        included_product = self.product_storage_box
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [(1, "=", 1)])
+        domain = [tuple(condition) for condition in res["domain"]]
+        self.assertEqual(domain, [(1, "=", 1)])
 
     def test_product_assortment_view_with_black_list(self):
-        excluded_product = self.env.ref("product.product_product_7")
+        excluded_product = self.product_virtual_home_staging
         self.assortment.write(
             {
                 "blacklist_product_ids": [(4, excluded_product.id)],
             }
         )
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [("id", "not in", excluded_product.ids)])
+        domain = [tuple(condition) for condition in res["domain"]]
+        self.assertEqual(domain, [("id", "not in", excluded_product.ids)])
 
     def test_product_assortment_mixed_view(self):
-        included_product = self.env.ref("product.product_product_7")
-        excluded_product = self.env.ref("product.product_product_2")
+        included_product = self.product_storage_box
+        excluded_product = self.product_virtual_home_staging
         self.assortment.write(
             {
                 "whitelist_product_ids": [(4, included_product.id)],
@@ -116,7 +137,8 @@ class TestProductAssortment(TransactionCase):
             }
         )
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [("id", "not in", excluded_product.ids)])
+        domain = [tuple(condition) for condition in res["domain"]]
+        self.assertEqual(domain, [("id", "not in", excluded_product.ids)])
 
     def test_product_assortment_filter_combination(self):
         """Combine a whitelisted and a blacklisted product in order
@@ -125,9 +147,9 @@ class TestProductAssortment(TransactionCase):
         """
         # Add a default no product filter to the assortment
         self.assortment.write({"domain": [("id", "=", 0)]})
-        included_product = self.env.ref("product.product_product_7")
+        included_product = self.product_storage_box
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
-        excluded_product = self.env.ref("product.product_product_2")
+        excluded_product = self.product_virtual_home_staging
         self.assortment.write({"blacklist_product_ids": [(4, excluded_product.id)]})
         res = self.assortment.show_products()
         self.assertIn(("id", "not in", [excluded_product.id]), res["domain"])
@@ -170,7 +192,7 @@ class TestProductAssortment(TransactionCase):
         self.assertEqual(assortment.all_partner_ids, self.partner + self.partner2)
 
     def test_assortment_with_black_list_product_domain(self):
-        excluded_product = self.env.ref("product.product_product_7")
+        excluded_product = self.product_virtual_home_staging
         assortment = self.filter_obj.with_context(product_assortment=True).create(
             {
                 "name": "Test Assortment black product domain",

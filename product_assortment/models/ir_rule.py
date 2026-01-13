@@ -2,7 +2,7 @@
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, models, tools
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools import config
 
 
@@ -30,7 +30,6 @@ class IrRule(models.Model):
             if not user.has_group(
                 "product_assortment.group_product_assortment_manager"
             ):
-                extra_domain = [("is_assortment", "=", False)]
-                extra_domain = expression.normalize_domain(extra_domain)
-                res = expression.AND([extra_domain] + [res])
+                extra_domain = Domain([("is_assortment", "=", False)])
+                res = Domain.AND([extra_domain] + [res])
         return res
