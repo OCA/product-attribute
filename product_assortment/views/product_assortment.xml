@@ -60,13 +60,6 @@
                             <field class="text-break" name="name" />
                         </h1>
                     </div>
-                    <group name="main">
-                        <group name="left">
-                            <field name="model_id" invisible="1" />
-                            <field name="active" invisible="1" />
-                            <field name="is_assortment" invisible="1" />
-                        </group>
-                    </group>
                     <group string="Allowed product domain">
                         <field
                             name="domain"

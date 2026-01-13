@@ -30,7 +30,7 @@
         <field name="active" eval="True" />
         <field
             name="domain"
-            eval="[('categ_id', 'child_of', ref('product.product_category_3'))]"
+            eval="[('categ_id', 'child_of', ref('product.product_category_furniture'))]"
         />
         <field
             name="partner_domain"

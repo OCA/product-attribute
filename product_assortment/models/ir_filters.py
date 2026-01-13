@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools import ormcache
 from odoo.tools.safe_eval import datetime, safe_eval
 
@@ -85,13 +85,14 @@ class IrFilters(models.Model):
                     field_set.add(item[0].split(".")[0])
         return field_set
 
-    @api.depends("partner_ids", "partner_domain")
+    @api.depends("partner_ids", "partner_domain", "is_assortment")
     def _compute_all_partner_ids(self):
         """Summarize selected partners and partners from partner domain field"""
         for ir_filter in self.sudo():
             if not ir_filter.is_assortment:
                 ir_filter.all_partner_ids = False
-            if ir_filter.partner_domain != []:
+                continue
+            if ir_filter.partner_domain and ir_filter._get_eval_partner_domain():
                 ir_filter.all_partner_ids = (
                     self.env["res.partner"].search(ir_filter._get_eval_partner_domain())
                     + ir_filter.partner_ids
@@ -103,17 +104,15 @@ class IrFilters(models.Model):
         res = super()._get_eval_domain()
         if self.apply_black_list_product_domain:
             black_list_domain = self._get_eval_black_list_domain()
-            res = expression.AND(
-                [expression.distribute_not(["!"] + black_list_domain), res]
-            )
+            res = Domain.AND([~Domain(black_list_domain), Domain(res)])
 
         if self.whitelist_product_ids:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
-            res = expression.OR([result_domain, res])
+            res = Domain.OR([result_domain, Domain(res)])
 
         if self.blacklist_product_ids:
             result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
-            res = expression.AND([result_domain, res])
+            res = Domain.AND([result_domain, Domain(res)])
 
         return res
 
@@ -133,7 +132,8 @@ class IrFilters(models.Model):
 
     def _compute_record_count(self):
         for record in self:
-            if not record.is_assortment:
+            # model_id may be unset on new records, skip count to prevent errors
+            if not record.is_assortment or not record.model_id:
                 record.record_count = 0
                 continue
             domain = record._get_eval_domain()
@@ -150,7 +150,7 @@ class IrFilters(models.Model):
             embedded_action_id=embedded_action_id,
             embedded_parent_res_id=embedded_parent_res_id,
         )
-        domain = expression.AND([[("is_assortment", "=", False)], domain])
+        domain = Domain.AND([Domain([("is_assortment", "=", False)]), Domain(domain)])
 
         return domain
 

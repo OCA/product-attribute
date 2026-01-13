@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ==================
 Product Assortment
 ==================
@@ -13,17 +17,17 @@ Product Assortment
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/18.0/product_assortment
+    :target: https://github.com/OCA/product-attribute/tree/19.0/product_assortment
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_assortment
+    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_assortment
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -55,36 +59,36 @@ Changelog
 10.0.1.0.0 (2018-08-27)
 -----------------------
 
--  [10.0][ADD] productassortment
+- [10.0][ADD] productassortment
 
 12.0.1.0.0 (2019-06-03)
 -----------------------
 
--  [12.0][MIG] productassortment
+- [12.0][MIG] productassortment
 
 14.0.1.0.0 (2019-06-03)
 -----------------------
 
--  [14.0][MIG] productassortment
+- [14.0][MIG] productassortment
 
 16.0.1.0.0 (2022-09-15)
 -----------------------
 
--  [16.0][MIG] product_assortment
+- [16.0][MIG] product_assortment
 
 18.0.1.0.0 (2025-03-06)
 -----------------------
 
--  [18.0][MIG] product_assortment
--  Forward port demo data
--  Forward port Only Show assortments to managers
--  Forward port Fix All assortments are applied to original partner when
-   partner is duplicated
--  Adjust test code to new API behavior, for info: odoo/odoo@450f5c9
--  added test for combined black list and whitelisted product
--  Fix: Navigating to the product assortment using the smartbutton on
-   the partner does not show all applicable assortments. (The
-   assortments with the partner defined as a domain where missing.)
+- [18.0][MIG] product_assortment
+- Forward port demo data
+- Forward port Only Show assortments to managers
+- Forward port Fix All assortments are applied to original partner when
+  partner is duplicated
+- Adjust test code to new API behavior, for info: odoo/odoo@450f5c9
+- added test for combined black list and whitelisted product
+- Fix: Navigating to the product assortment using the smartbutton on the
+  partner does not show all applicable assortments. (The assortments
+  with the partner defined as a domain where missing.)
 
 Bug Tracker
 ===========
@@ -92,7 +96,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_assortment%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_assortment%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -107,13 +111,13 @@ Authors
 Contributors
 ------------
 
--  Denis Roussel <denis.roussel@acsone.eu>
--  Cédric Pigeon <cedric.pigeon@acsone.eu>
--  Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
--  `Tecnativa <https://www.tecnativa.com>`__:
+- Denis Roussel <denis.roussel@acsone.eu>
+- Cédric Pigeon <cedric.pigeon@acsone.eu>
+- Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-   -  Carlos Roca
-   -  Sergio Teruel
+  - Carlos Roca
+  - Sergio Teruel
 
 Maintainers
 -----------
@@ -128,6 +132,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_assortment>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_assortment>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
