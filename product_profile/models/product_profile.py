@@ -1,13 +1,12 @@
 # © 2015 David BEAL @ Akretion
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import json
 import logging
 from copy import deepcopy
 
 from lxml import etree
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 # Prefix name of profile fields setting a default value,
@@ -21,7 +20,7 @@ _logger = logging.getLogger(__name__)
 def format_except_message(error, field, self):
     value = self.profile_id[field]
     model = type(self)._name
-    message = _(
+    message = self.env._(
         "Issue\n------\n"
         "%(error)s\n %(value)s value can't be applied to %(field)s field."
         "\nThere is no matching value between 'Product Profiles' "
@@ -70,7 +69,7 @@ class ProductProfile(models.Model):
         help="An explanation on the selected profile\n"
         "(not synchronized with product.template fields)",
     )
-    detailed_type = fields.Selection(
+    type = fields.Selection(
         selection=[("consu", "Consumable"), ("service", "Service")],
         required=True,
         default="consu",
@@ -91,9 +90,9 @@ class ProductProfile(models.Model):
             )
             if discard_value:
                 values_to_keep.pop(key)
+        res = super().write(vals)
         if values_to_keep:
             self._refresh_products_vals()
-        res = super().write(vals)
         return res
 
     def _refresh_products_vals(self):
@@ -105,13 +104,12 @@ class ProductProfile(models.Model):
                 aggregates=["id:recordset"],
             )
         )
-
         for rec in self:
             products = by_profile.get(rec)
             if products:
                 _logger.info(
-                    f" >>> {len(products)} Products updating after updated '{rec.name}' pro"
-                    "duct profile"
+                    f" >>> {len(products)} Products updating after updated "
+                    "'{rec.name}' product profile",
                 )
                 data = products._get_vals_from_profile(
                     {"profile_id": rec.id}, ignore_defaults=True
@@ -133,29 +131,19 @@ class ProductProfile(models.Model):
         if self._fields[key].type == "many2one":
             comparison_value = self[key].id
         elif self._fields[key].type == "many2many":
-            comparison_value = [
-                (6, False, self[key].ids),
-            ]
+            comparison_value = [fields.Command.set(self[key].ids)]
         return vals[key] == comparison_value
 
     @api.model
-    def fields_view_get(
-        self, view_id=None, view_type="form", toolbar=False, submenu=False
-    ):
-        """Display a warning for end user if edit record"""
-        res = super().fields_view_get(
-            view_id=view_id,
-            view_type=view_type,
-            toolbar=toolbar,
-            submenu=submenu,
-        )
+    def get_view(self, view_id=None, view_type="form", **options):
+        """Add a warning to the form view which is otherwise auto-generated"""
+        res = super().get_view(view_id=view_id, view_type=view_type, **options)
         if view_type == "form":
-            style = "alert alert-warning oe_text_center oe_edit_only"
-            alert = etree.Element("h2", {"class": style})
-            alert.text = _(
-                "If you update this profile, all products "
-                "using this profile could also be updated. "
-                "Changes can take a while."
+            style = "alert alert-warning"
+            alert = etree.Element("div", {"class": style, "role": "alert"})
+            alert.text = self.env._(
+                "If you update this profile, all products using this profile "
+                "will also be updated. This might take a while.",
             )
             doc = etree.XML(res["arch"])
             doc[0].addprevious(alert)
@@ -201,7 +189,7 @@ class ProductMixinProfile(models.AbstractModel):
                 # m2o value is a tuple
                 res[key] = value[0]
             if profile_obj._fields[key].type == "many2many":
-                res[key] = [(6, 0, value)]
+                res[key] = [fields.Command.set(value)]
         return res
 
     @api.onchange("profile_id")
@@ -230,7 +218,9 @@ class ProductMixinProfile(models.AbstractModel):
     def write(self, vals):
         profile_changed = vals.get("profile_id")
         if profile_changed:
-            recs_has_profile = self.filtered(lambda r: r.profile_id)
+            recs_has_profile = self.filtered("profile_id")
+        res = super().write(vals)
+        if profile_changed:
             recs_no_profile = self - recs_has_profile
             recs_has_profile.write(
                 self._get_vals_from_profile(vals, ignore_defaults=True)
@@ -238,7 +228,7 @@ class ProductMixinProfile(models.AbstractModel):
             recs_no_profile.write(
                 self._get_vals_from_profile(vals, ignore_defaults=False)
             )
-        return super().write(vals)
+        return res
 
     @api.model
     def _get_default_profile_fields(self):
@@ -251,16 +241,16 @@ class ProductMixinProfile(models.AbstractModel):
 
     @api.model
     def _customize_view(self, res, view_type, profile_domain=None):
-        profile_group = self.env.ref("product_profile.group_product_profile_user")
-        users_in_profile_group = [user.id for user in profile_group.users]
         default_fields = self._get_default_profile_fields()
         if view_type == "form":
             doc = etree.XML(res["arch"])
             fields = self._get_profile_fields()
-            if self.env.uid not in users_in_profile_group:
-                attrs = {"invisible": [("profile_id", "!=", False)]}
+            if not self.env.user.has_group(
+                "product_profile.group_product_profile_user"
+            ):
+                attrs = {"invisible": "profile_id"}
             else:
-                attrs = {"readonly": [("profile_id", "!=", False)]}
+                attrs = {"readonly": "profile_id"}
             paths = ["//field[@name='%s']", "//label[@for='%s']"]
             for field in fields:
                 if field not in default_fields:
@@ -269,10 +259,10 @@ class ProductMixinProfile(models.AbstractModel):
                         node = doc.xpath(path % field)
                         if node:
                             for current_node in node:
-                                current_node.set("modifiers", json.dumps(attrs))
+                                current_node.attrib.update(attrs)
             res["arch"] = etree.tostring(doc, pretty_print=True)
         elif view_type == "search":
-            # Allow to dynamically create search filters for each profile
+            # Dynamically create search filters for each profile
             filters_to_create = self._get_profiles_to_filter(profile_domain)
             doc = etree.XML(res["arch"])
             node = doc.xpath("//filter[1]")
@@ -287,7 +277,7 @@ class ProductMixinProfile(models.AbstractModel):
         return res
 
     def _get_profiles_to_filter(self, profile_domain=None):
-        """Inherit if you want that some profiles doesn't have a filter"""
+        """Return the profiles for which to add a filter to the search views"""
         if profile_domain is None:
             profile_domain = []
         return [
@@ -298,7 +288,7 @@ class ProductMixinProfile(models.AbstractModel):
     def _customize_profile_filters(self, my_filter):
         """Inherit if you to customize search filter display"""
         return {
-            "string": "%s" % my_filter[1],
+            "string": f"{my_filter[1]}",
             "help": "Filtering by Product Profile",
-            "domain": "[('profile_id','=', %s)]" % my_filter[0],
+            "domain": f"[('profile_id','=', {my_filter[0]})]",
         }

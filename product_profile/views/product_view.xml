@@ -38,19 +38,20 @@
     <record id="product_profile_tree_view" model="ir.ui.view">
         <field name="model">product.profile</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
-                <field name="detailed_type" />
+                <field name="type" />
                 <field name="explanation" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="product_profile_action" model="ir.actions.act_window">
         <field name="name">Product Profiles</field>
+        <field name="path">product-profiles</field>
         <field name="res_model">product.profile</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem
