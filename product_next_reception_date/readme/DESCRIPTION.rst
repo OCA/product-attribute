@@ -1,1 +1,0 @@
-This module displays the next product receipt date
