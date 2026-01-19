@@ -1,1 +1,2 @@
 - Mathieu Delva \<<mathieu.delva@akretion.com>\>
+- David BEAL \<<david.beal@akretion.com>\>
