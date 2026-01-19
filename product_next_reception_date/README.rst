@@ -28,7 +28,12 @@ Products - Next Reception Date
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module displays the next product receipt date
+This module displays the next product receipt date based on incoming
+pickings.
+
+|Product Next Reception Date field|
+
+.. |Product Next Reception Date field| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_next_reception_date/static/description/my_product.png
 
 **Table of contents**
 
@@ -57,6 +62,7 @@ Contributors
 ------------
 
 -  Mathieu Delva <mathieu.delva@akretion.com>
+-  David BEAL <david.beal@akretion.com>
 
 Maintainers
 -----------
@@ -70,6 +76,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-bealdav| image:: https://github.com/bealdav.png?size=40px
+    :target: https://github.com/bealdav
+    :alt: bealdav
+.. |maintainer-mathieudelva| image:: https://github.com/mathieudelva.png?size=40px
+    :target: https://github.com/mathieudelva
+    :alt: mathieudelva
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-bealdav| |maintainer-mathieudelva| 
 
 This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_next_reception_date>`_ project on GitHub.
 

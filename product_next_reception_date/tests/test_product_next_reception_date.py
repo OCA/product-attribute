@@ -6,59 +6,47 @@ from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
+from odoo import Command as cmd
 from odoo.tests.common import TransactionCase
 
 
-class TestProductReceptionDate(TransactionCase):
+class Test(TransactionCase):
     def setUp(self):
         super().setUp()
-        self.partner = self.env.ref("base.res_partner_12")
-        self.product_id = self.env.ref("product.product_product_5")
+        self.partner = self.env["res.partner"].create({"name": "test"})
+        self.product = self.env["product.product"].create({"name": "test"})
+        self.purchase = create_purchase(self, relative_days=10)
 
-        self.purchase_order = self.env["purchase.order"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_order": datetime.today() + relativedelta(days=10),
-                "order_line": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.product_id.id,
-                            "product_qty": 5,
-                        },
-                    )
-                ],
-            }
-        )
-
-    def test_date_next_reception(self):
-        self.purchase_order.button_confirm()
+    def test_next_reception_date(self):
+        self.purchase.button_confirm()
         self.assertEqual(
-            self.purchase_order.date_planned.date(),
-            self.product_id.date_next_reception,
+            self.purchase.date_planned.date(),
+            self.product.next_reception_date,
         )
 
-    def test_2_date_next_reception(self):
-        self.purchase_order.button_confirm()
-        self.purchase_order2 = self.env["purchase.order"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_order": datetime.today() + relativedelta(days=4),
-                "order_line": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.product_id.id,
-                            "product_qty": 5,
-                        },
-                    )
-                ],
-            }
-        )
-        self.purchase_order2.button_confirm()
+    def test_2_next_reception_date(self):
+        self.purchase.button_confirm()
+        self.purchase2 = create_purchase(self, relative_days=4)
+        self.purchase2.button_confirm()
+        # The next reception date should be updated to the earliest one
         self.assertEqual(
-            self.purchase_order2.date_planned.date(),
-            self.product_id.date_next_reception,
+            self.purchase2.date_planned.date(),
+            self.product.next_reception_date,
         )
+
+
+def create_purchase(self, relative_days):
+    return self.env["purchase.order"].create(
+        {
+            "partner_id": self.partner.id,
+            "date_order": datetime.today() + relativedelta(days=relative_days),
+            "order_line": [
+                cmd.create(
+                    {
+                        "product_id": self.product.id,
+                        "product_qty": 5,
+                    }
+                ),
+            ],
+        }
+    )
