@@ -25,12 +25,11 @@ class ProductProduct(models.Model):
                 ),
             ],
         )
-        move_dict = {}
-        for move in moves:
-            if move_dict.get(move.product_id):
-                if move.picking_id.scheduled_date < move_dict[move.product_id]:
-                    move_dict[move.product_id] = move.picking_id.scheduled_date
-            else:
-                move_dict[move.product_id] = move.picking_id.scheduled_date
+        move_dict = {
+            move.product_id: move.picking_id.scheduled_date
+            for move in sorted(
+                moves, key=lambda m: m.picking_id.scheduled_date, reverse=True
+            )
+        }
         for record in self:
             record.next_reception_date = move_dict.get(record)
