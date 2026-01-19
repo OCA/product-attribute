@@ -18,6 +18,7 @@
         "views/product_state_views.xml",
     ],
     "application": False,
+    "auto_install": True, # TRESCLOUD: Util para instalación automática desde el autoinstaller. Módulo: Product Tier Validation (product_tier_validation)
     "maintainers": ["emagdalenaC2i"],
     "post_init_hook": "post_init_hook",
 }
