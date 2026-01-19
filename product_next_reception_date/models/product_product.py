@@ -24,9 +24,13 @@ class ProductProduct(models.Model):
                     ["waiting", "confirmed", "partially_available", "assigned"],
                 ),
             ],
-            order="date desc",
         )
-        # because of order by desc the last move by product is the earlier
-        move_dict = {move.product_id: move.date for move in moves}
+        move_dict = {}
+        for move in moves:
+            if move_dict.get(move.product_id):
+                if move.picking_id.scheduled_date < move_dict[move.product_id]:
+                    move_dict[move.product_id] = move.picking_id.scheduled_date
+            else:
+                move_dict[move.product_id] = move.picking_id.scheduled_date
         for record in self:
             record.next_reception_date = move_dict.get(record)
