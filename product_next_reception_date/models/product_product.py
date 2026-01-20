@@ -13,18 +13,7 @@ class ProductProduct(models.Model):
     )
 
     def _compute_next_reception_date(self):
-        moves = self.env["stock.move"].search(
-            [
-                ("company_id", "=", self.env.company.id),
-                ("product_id", "in", self.ids),
-                ("picking_type_id.code", "=", "incoming"),
-                (
-                    "state",
-                    "in",
-                    ["waiting", "confirmed", "partially_available", "assigned"],
-                ),
-            ],
-        )
+        moves = self.env["stock.move"].search(self._get_next_reception_domain())
         move_dict = {
             move.product_id: move.picking_id.scheduled_date
             for move in sorted(
@@ -33,3 +22,13 @@ class ProductProduct(models.Model):
         }
         for record in self:
             record.next_reception_date = move_dict.get(record)
+
+    def _get_next_reception_domain(self):
+        """In case of several warehouses by company,
+        you may choose to refine these conditions"""
+        return [
+            ("picking_id.state", "in", ["confirmed", "waiting", "assigned"]),
+            ("picking_type_id.code", "=", "incoming"),
+            ("company_id", "=", self.env.company.id),
+            ("product_id", "in", self.ids),
+        ]
