@@ -13,6 +13,7 @@ class ProductPricelistItem(models.Model):
     multi_price_name = fields.Many2one(
         comodel_name="product.multi.price.name",
         string="Other Price Name",
+        ondelete="set null",
     )
 
     def _compute_price(self, product, quantity, uom, date, currency=None):
