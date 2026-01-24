@@ -26,7 +26,7 @@ class IrRule(models.Model):
         """
         res = super()._compute_domain(model_name, mode=mode)
         user = self.env.user
-        if model_name == "ir.filters" and not self.env.su:
+        if model_name == "ir.filters" and not self.env.is_superuser():
             if not user.has_group(
                 "product_assortment.group_product_assortment_manager"
             ):
