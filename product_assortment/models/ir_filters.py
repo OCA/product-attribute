@@ -38,6 +38,7 @@ class IrFilters(models.Model):
         compute="_compute_all_partner_ids",
         # Make it store=True because we will need this field to search by involved
         # partners
+        compute_sudo=True,
         store=True,
         relation="ir_filter_all_partner_rel",
         column1="filter_id",
@@ -88,13 +89,14 @@ class IrFilters(models.Model):
     @api.depends("partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
         """Summarize selected partners and partners from partner domain field"""
-        for ir_filter in self.sudo():
+        for ir_filter in self:
             if not ir_filter.is_assortment:
                 ir_filter.all_partner_ids = False
-            if ir_filter.partner_domain != []:
+                continue
+            if ir_filter.partner_domain and ir_filter.partner_domain != []:
+                domain = ir_filter._get_eval_partner_domain()
                 ir_filter.all_partner_ids = (
-                    self.env["res.partner"].search(ir_filter._get_eval_partner_domain())
-                    + ir_filter.partner_ids
+                    self.env["res.partner"].search(domain) + ir_filter.partner_ids
                 )
             else:
                 ir_filter.all_partner_ids = ir_filter.partner_ids
