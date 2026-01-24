@@ -21,19 +21,25 @@ class ProductProduct(models.Model):
         """Method for getting the price from multi price."""
         self.ensure_one()
         company = rule.company_id or self.env.user.company_id
-        price = (
+        # Search for multi price considering company-specific vs global
+        multi_price_record = (
             self.env["product.multi.price"]
             .sudo()
             .search(
                 [
+                    "|",
                     ("company_id", "=", company.id),
+                    ("company_id", "=", False),
                     ("name", "=", rule.multi_price_name.id),
                     ("product_id", "=", self.id),
-                ]
+                ],
+                order="company_id DESC",
+                limit=1,
             )
-            .price
-            or 0
-        )
+        )  # Prefer company-specific over global
+
+        price = multi_price_record.price or 0
+
         if price:
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
