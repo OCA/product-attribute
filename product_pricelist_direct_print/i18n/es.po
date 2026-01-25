@@ -86,6 +86,11 @@ msgstr "<strong>Descripción</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Image</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>List Price</strong>"
 msgstr "<strong>Precio de tarifa</strong>"
 
@@ -242,6 +247,17 @@ msgid ""
 msgstr ""
 "Si introduce un número X aquí, entonces, para cada cliente seleccionado, se "
 "tendrán en cuanta los últimos X productos pedidos."
+
+#. module: product_pricelist_direct_print
+#: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Image"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "Img"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
@@ -434,6 +450,11 @@ msgid "Show internal categories"
 msgstr "Mostrar categorías internas"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_images
+msgid "Show product images"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
 msgid "Show the products defined on pricelist"
 msgstr "Mostrar los productos definidos en la tarifa"
@@ -470,11 +491,13 @@ msgstr "Debe seleccionar una tarifa o alguna opción mostrar precio."
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
 msgid ""
-"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
-"name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+"{{ object.pricelist_id.company_id.name or "
+"object.write_uid.company_id.name }} Pricelist (Ref "
+"{{ object.pricelist_id.name or 'n/a' }})"
 msgstr ""
-"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
-"name }} Tarifa (Ref {{ object.pricelist_id.name or 'n/a' }})"
+"{{ object.pricelist_id.company_id.name or "
+"object.write_uid.company_id.name }} Tarifa (Ref {{ object.pricelist_id.name "
+"or 'n/a' }})"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
@@ -501,8 +524,8 @@ msgstr "{{ object.pricelist_id.name }}"
 #~ "        "
 #~ msgstr ""
 #~ "<div style=\"margin: 0px; padding: 0px;\">\n"
-#~ "    <p>Estimado <span t-out=\"object.partner_id and object.partner_id."
-#~ "name or 'customer'\"/>,</p>\n"
+#~ "    <p>Estimado <span t-out=\"object.partner_id and "
+#~ "object.partner_id.name or 'customer'\"/>,</p>\n"
 #~ "    <p>\n"
 #~ "    El fichero adjunto es un PDF que contiene la tarifa\n"
 #~ "    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
