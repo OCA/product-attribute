@@ -6,9 +6,10 @@
     "name": "Pricelist Filter",
     "summary": "Add domain on pricelist Item",
     "version": "18.0.1.0.0",
-    "category": "",
+    "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": " Akretion, Odoo Community Association (OCA)",
+    "maintainers": ["mathieudelva"],
     "license": "AGPL-3",
     "application": False,
     "installable": True,
@@ -18,6 +19,7 @@
     },
     "depends": [
         "product",
+        "sale_management",
     ],
     "data": ["views/product_pricelist.xml"],
 }

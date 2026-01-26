@@ -11,7 +11,7 @@
                         name="filter_domain"
                         widget="domain"
                         options="{'model': 'product.product', 'in_dialog': True}"
-                        attrs="{'invisible': [('applied_on','!=','3_global')]}"
+                        invisible="applied_on != '3_global'"
                     />
                 </group>
             </group>

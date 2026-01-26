@@ -13,19 +13,20 @@ class ProductPricelistItem(models.Model):
         default="[]",
         compute="_compute_filter_domain",
         readonly=False,
+        store=True,
     )
 
     def _is_applicable_for(self, product, qty_in_product_uom):
-        if self.filter_domain:
+        self.ensure_one()
+        if self.filter_domain and self.filter_domain != "[]":
             domain = safe_eval.safe_eval(self.filter_domain)
-            prd = product.filtered_domain(domain)
-            if prd:
-                return super()._is_applicable_for(prd, qty_in_product_uom)
-            return False
+            if not product.filtered_domain(domain):
+                return False
+
         return super()._is_applicable_for(product, qty_in_product_uom)
 
     @api.depends("applied_on")
     def _compute_filter_domain(self):
         for record in self:
             if record.applied_on != "3_global":
-                record.filter_domain = ""
+                record.filter_domain = "[]"
