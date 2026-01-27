@@ -320,28 +320,50 @@ class TestProductSupplierinfo(BaseCommon):
                 "applied_on": "0_product_variant",
                 "product_id": self.product_with_diff_uom.id,
                 "price_discount": -20,
+                # Remember that formula's computed price is expressed in the
+                # product's default UoM
+                "price_surcharge": 3.0,
             }
         )
 
         product_seller_price = self.product_with_diff_uom.seller_ids[0].price
-        uom_dozen = self.env.ref("uom.product_uom_dozen")
-        product_pricelist_price_dozen = self.pricelist._get_product_price(
-            self.product_with_diff_uom.with_context(uom=uom_dozen.id), 1
-        )
-        uom_unit = self.env.ref("uom.product_uom_unit")
-        product_pricelist_price_unit = self.pricelist._get_product_price(
-            self.product_with_diff_uom.with_context(uom=uom_unit.id), 1
-        )
-        # The price with the will be 1200 on the seller (1 Dozen)
+        # The price with the pricelist will be 1200 on the seller (1 Dozen)
         self.assertEqual(product_seller_price, 1200)
 
-        # The price with the will be 1200 plus the increment of the 20% which will
-        # give us a total of 1440 (1 Dozen)
-        self.assertEqual(product_pricelist_price_dozen, 1440)
+        uom_dozen = self.env.ref("uom.product_uom_dozen")
+        product_pricelist_price_dozen = self.pricelist._get_product_price(
+            self.product_with_diff_uom, 1, uom=uom_dozen
+        )
 
+        # The price with the pricelist will be 1200 plus the increment of the 20% plus
+        # a surcharge of 36 which will give us a total of 1476 (for 1 Dozen)
+        self.assertEqual(product_pricelist_price_dozen, 1476)
+
+        uom_unit = self.env.ref("uom.product_uom_unit")
+        product_pricelist_price_unit = self.pricelist._get_product_price(
+            self.product_with_diff_uom, 1, uom=uom_unit
+        )
         # And the price with the pricelist and the uom of Units (Instead of Dozen)
-        # will be 100, plus the 20% the total will be 120 per Unit
-        self.assertEqual(product_pricelist_price_unit, 120)
+        # will be 100, plus the 20%, plus 3.0 of sucharge, the total will be 123 per
+        # Unit
+        self.assertEqual(product_pricelist_price_unit, 123)
+
+        # Add an intermediate UoM (half-dozen) to ensure valid results when the wanted
+        # UoM is not one of the product's default (uom_id, uom_po_id)
+        uom_half_dozen = self.env["uom.uom"].create(
+            {
+                "name": "Half-dozens",
+                "category_id": self.env.ref("uom.product_uom_categ_unit").id,
+                "factor_inv": 6.0,
+                "uom_type": "bigger",
+            }
+        )
+        product_pricelist_price_half_dozen = self.pricelist._get_product_price(
+            self.product_with_diff_uom, 1, uom=uom_half_dozen
+        )
+        # Same logic as before, but now for half-dozen, so the base price will be 600,
+        # plus 20% (120), +3.0/unit surcharge (18), totaling 738
+        self.assertEqual(product_pricelist_price_half_dozen, 738)
 
     def test_pricelist_exclude_supplier_info_discount(self):
         """Test the scenario where the product supplier info includes a discount, to

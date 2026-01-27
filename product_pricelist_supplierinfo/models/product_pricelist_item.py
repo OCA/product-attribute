@@ -37,14 +37,17 @@ class ProductPricelistItem(models.Model):
         return self.env.context.get("force_filter_supplier_id", self.filter_supplier_id)
 
     def _compute_base_price(self, product, quantity, uom, date, currency):
+        """Compute the base price for Odoo that will be used for the full price
+        computation (surcharge/discount/etc.)
+        """
+        price = super()._compute_base_price(product, quantity, uom, date, currency)
         rule_base = self.base or "list_price"
         if rule_base == "supplierinfo":
             context = self.env.context
             price = product.sudo()._get_supplierinfo_pricelist_price(
                 self,
-                date=date or context.get("date", fields.Date.today()),
                 quantity=quantity,
+                uom=uom,
+                date=date or context.get("date", fields.Date.today()),
             )
-        else:
-            price = super()._compute_base_price(product, quantity, uom, date, currency)
         return price

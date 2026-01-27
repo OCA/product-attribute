@@ -5,14 +5,14 @@
 
 from datetime import datetime
 
-from odoo import fields, models
+from odoo import models
 
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     def _get_supplierinfo_pricelist_price(
-        self, rule, date=None, quantity=None, product_id=None
+        self, rule, quantity=None, product_id=None, uom=None, date=None
     ):
         """Method for getting the price from supplier info."""
         self.ensure_one()
@@ -47,21 +47,17 @@ class ProductTemplate(models.Model):
             # We need to convert the price if the pricelist and seller have
             # different currencies so the price have the pricelist currency
             if rule.currency_id != seller.currency_id:
-                convert_date = date or self.env.context.get("date", fields.Date.today())
                 price = seller.currency_id._convert(
-                    price, rule.currency_id, seller.company_id, convert_date
+                    price, rule.currency_id, seller.company_id, date
                 )
-
-            # We have to replicate this logic in this method as pricelist
-            # method are atomic and we can't hack inside.
-            # Verbatim copy of part of product.pricelist._compute_price_rule.
-            qty_uom_id = self._context.get("uom") or self.uom_id.id
-            price_uom = self.env["uom.uom"].browse([qty_uom_id])
 
             # We need to convert the price to the uom used on the sale, if the
             # uom on the seller is a different one that the one used there.
-            if seller and seller.product_uom != price_uom:
-                price = seller.product_uom._compute_price(price, price_uom)
+            if seller:
+                # If no uom is specified, fall back on the product uom
+                target_uom = uom or self.uom_id
+                if seller.product_uom != target_uom:
+                    price = seller.product_uom._compute_price(price, target_uom)
         return price
 
     def _price_compute(

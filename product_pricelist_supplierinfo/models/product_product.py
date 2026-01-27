@@ -20,9 +20,11 @@ class ProductProduct(models.Model):
             sellers = sellers.sorted("min_qty")
         return sellers
 
-    def _get_supplierinfo_pricelist_price(self, rule, date=None, quantity=None):
+    def _get_supplierinfo_pricelist_price(
+        self, rule, quantity=None, date=None, uom=None
+    ):
         return self.product_tmpl_id._get_supplierinfo_pricelist_price(
-            rule, date=date, quantity=quantity, product_id=self.id
+            rule, quantity=quantity, product_id=self.id, uom=uom, date=date
         )
 
     def _price_compute(
