@@ -91,7 +91,8 @@ class ProductTemplate(models.Model):
         correct values.
         """
         if price_type == "supplierinfo":
-            return dict.fromkeys(self.ids, 1.0)
+            # Do not use self.ids because of possible NewId values
+            return dict.fromkeys(self.mapped("id"), 1.0)
         return super()._price_compute(
             price_type, uom=uom, currency=currency, company=company, date=date
         )
