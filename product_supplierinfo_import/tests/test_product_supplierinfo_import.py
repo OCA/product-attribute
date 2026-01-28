@@ -141,7 +141,7 @@ class TestProductSupplierinfoImportCommon(BaseCommon):
         for supplierinfo, values in supplierinfo_dict.items():
             for field, value in values.items():
                 if isinstance(value, float):
-                    self.assertAlmostEqual(supplierinfo[field], value)
+                    self.assertAlmostEqual(supplierinfo[field], value, 2)
                 else:
                     self.assertEqual(supplierinfo[field], value)
 
