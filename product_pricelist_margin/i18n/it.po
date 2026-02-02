@@ -17,32 +17,19 @@ msgstr ""
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__cost
 #: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__cost
 msgid "Cost"
 msgstr "Costo"
 
 #. module: product_pricelist_margin
-#: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_item__cost
-msgid ""
-"In Standard Price & AVCO: value of the product (automatically computed in AVCO).\n"
-"        In FIFO: value of the next unit that will leave the stock (automatically computed).\n"
-"        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
-"        Used to compute margins on sale orders."
-msgstr ""
-"Nei prezzi standard & costi medi: valore del prodotto (calcolato "
-"automaticamente nei costi medi).\n"
-"        In FIFO: valore dell'unità successiva che lascerà il magazzino ("
-"calcolato automaticamente).\n"
-"        Utilizzato per valutare il prodotto quando il costo di acquisto non "
-"è noto (es. rettifiche di inventario).\n"
-"        Utilizzato per calcolare i margini negli ordini di vendita."
-
-#. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__margin
 #: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__margin
 msgid "Margin"
 msgstr "Margine"
 
 #. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__margin_percent
 #: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__margin_percent
 msgid "Margin (%)"
 msgstr "Margine (%)"
@@ -51,3 +38,30 @@ msgstr "Margine (%)"
 #: model:ir.model,name:product_pricelist_margin.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Regola listino prezzi"
+
+#. module: product_pricelist_margin
+#: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_assortment_item__cost
+#: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_item__cost
+msgid ""
+"Value of the product (automatically computed in AVCO).\n"
+"        Used to value the product when the purchase cost is not known (e.g. "
+"inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+
+#~ msgid ""
+#~ "In Standard Price & AVCO: value of the product (automatically computed in "
+#~ "AVCO).\n"
+#~ "        In FIFO: value of the next unit that will leave the stock "
+#~ "(automatically computed).\n"
+#~ "        Used to value the product when the purchase cost is not known "
+#~ "(e.g. inventory adjustment).\n"
+#~ "        Used to compute margins on sale orders."
+#~ msgstr ""
+#~ "Nei prezzi standard & costi medi: valore del prodotto (calcolato "
+#~ "automaticamente nei costi medi).\n"
+#~ "        In FIFO: valore dell'unità successiva che lascerà il magazzino "
+#~ "(calcolato automaticamente).\n"
+#~ "        Utilizzato per valutare il prodotto quando il costo di acquisto "
+#~ "non è noto (es. rettifiche di inventario).\n"
+#~ "        Utilizzato per calcolare i margini negli ordini di vendita."
