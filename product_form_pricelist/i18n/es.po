@@ -28,13 +28,6 @@ msgid "Config Settings"
 msgstr "Ajustes Config"
 
 #. module: product_form_pricelist
-#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__display_name
-#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template__display_name
-#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr "Mostrar Nombre"
-
-#. module: product_form_pricelist
 #: model_terms:ir.ui.view,arch_db:product_form_pricelist.product_template_view_form
 msgid "Fixed Price"
 msgstr "Precio Fijo"
@@ -61,13 +54,6 @@ msgid "Hide list price on product"
 msgstr "Ocultar el precio de lista sobre el producto"
 
 #. module: product_form_pricelist
-#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__id
-#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template__id
-#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings__id
-msgid "ID"
-msgstr "ID"
-
-#. module: product_form_pricelist
 #: model_terms:ir.ui.view,arch_db:product_form_pricelist.res_config_settings_view_form
 msgid ""
 "In case that you only manage your price using fixed pricelist, you can hide "
@@ -75,13 +61,6 @@ msgid ""
 msgstr ""
 "En caso de que sólo gestione sus precios mediante listas de precios fijas, "
 "puede ocultar el campo \"Precio de venta\""
-
-#. module: product_form_pricelist
-#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item____last_update
-#: model:ir.model.fields,field_description:product_form_pricelist.field_product_template____last_update
-#: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__applied_on
@@ -95,15 +74,11 @@ msgid "Pricelist Rule"
 msgstr "Regla de la Lista de Precios"
 
 #. module: product_form_pricelist
+#: model:ir.model,name:product_form_pricelist.model_product_template
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_assortment_item__product_tmpl_id
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__product_tmpl_id
 msgid "Product"
 msgstr "Producto"
-
-#. module: product_form_pricelist
-#: model:ir.model,name:product_form_pricelist.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de Producto"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__product_tmpl_id
@@ -119,3 +94,15 @@ msgstr ""
 #: model:ir.model.fields,help:product_form_pricelist.field_res_config_settings__group_no_list_price
 msgid "Use fixed price and hide the native 'Sales Price' field"
 msgstr "Utilizar el precio fijo y ocultar el campo nativo \"Precio de venta\""
+
+#~ msgid "Display Name"
+#~ msgstr "Mostrar Nombre"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de Producto"
