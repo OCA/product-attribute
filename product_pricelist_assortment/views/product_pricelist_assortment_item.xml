@@ -117,7 +117,7 @@
             <search>
                 <field name="pricelist_id" />
                 <field name="assortment_filter_id" />
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Pricelist"
                         name="groupby_pricelist"

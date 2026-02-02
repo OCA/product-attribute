@@ -3,6 +3,7 @@
 
 from uuid import uuid4
 
+from odoo import Command
 from odoo.tests.common import tagged
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -31,7 +32,9 @@ class TestPricelistAssortment(BaseCommon):
             {
                 "name": "User Company 2 Ass",
                 "login": "ass_user_2",
-                "groups_id": [(4, cls.env.ref("base.group_system").id)],
+                "group_ids": [
+                    Command.link(cls.env.ref("base.group_system").id),
+                ],
                 "email": "ass_user_2@example.com",
                 "company_id": cls.company_2.id,
                 "company_ids": [cls.company_2.id],
@@ -47,7 +50,7 @@ class TestPricelistAssortment(BaseCommon):
             "name": str(uuid4()),
             "model_id": "product.product",
             "domain": [("default_code", "in", self.default_codes)],
-            "user_id": False,
+            "user_ids": False,
             "is_assortment": True,
         }
         return self.Assortment.create(values)
@@ -78,7 +81,7 @@ class TestPricelistAssortment(BaseCommon):
                 "name": str(uuid4()),
                 "active": True,
                 "company_id": self.Pricelist.env.company.id,
-                "item_ids": [(0, 0, {})],
+                "item_ids": [Command.create({})],
             }
         )
         return values
