@@ -20,9 +20,11 @@ class ProductProduct(models.Model):
             sellers = sellers.sorted("min_qty")
         return sellers
 
-    def _get_supplierinfo_pricelist_price(self, rule, date=None, quantity=None):
+    def _get_supplierinfo_pricelist_price(
+        self, rule, quantity=None, date=None, uom=None
+    ):
         return self.product_tmpl_id._get_supplierinfo_pricelist_price(
-            rule, date=date, quantity=quantity, product_id=self.id
+            rule, quantity=quantity, product_id=self.id, uom=uom, date=date
         )
 
     def _price_compute(
@@ -33,7 +35,8 @@ class ProductProduct(models.Model):
         correct values.
         """
         if price_type == "supplierinfo":
-            return dict.fromkeys(self.ids, 1.0)
+            # Do not use self.ids because of possible NewId values
+            return dict.fromkeys(self.mapped("id"), 1.0)
         return super()._price_compute(
             price_type,
             uom=uom,

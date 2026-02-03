@@ -32,13 +32,22 @@ class ProductPricelistItem(models.Model):
         help="Based on supplierinfo price without sale margin applied"
     )
 
-    def _compute_price(self, product, quantity, uom, date, currency=None):
-        result = super()._compute_price(product, quantity, uom, date, currency)
-        context = self.env.context
-        if self.compute_price == "formula" and self.base == "supplierinfo":
-            result = product.sudo()._get_supplierinfo_pricelist_price(
+    def get_supplier_id(self):
+        self.ensure_one()
+        return self.env.context.get("force_filter_supplier_id", self.filter_supplier_id)
+
+    def _compute_base_price(self, product, quantity, uom, date, currency):
+        """Compute the base price for Odoo that will be used for the full price
+        computation (surcharge/discount/etc.)
+        """
+        price = super()._compute_base_price(product, quantity, uom, date, currency)
+        rule_base = self.base or "list_price"
+        if rule_base == "supplierinfo":
+            context = self.env.context
+            price = product.sudo()._get_supplierinfo_pricelist_price(
                 self,
-                date=date or context.get("date", fields.Date.today()),
                 quantity=quantity,
+                uom=uom,
+                date=date or context.get("date", fields.Date.today()),
             )
-        return result
+        return price

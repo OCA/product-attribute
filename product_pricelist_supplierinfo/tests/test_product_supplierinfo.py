@@ -130,11 +130,51 @@ class TestProductSupplierinfo(BaseCommon):
             10,
         )
 
+    def test_pricelist_select_supplier(self):
+        supplier3 = self.partner_obj.create({"name": "Supplier #3"})
+        self.product.write(
+            {
+                "seller_ids": [
+                    Command.create(
+                        {"partner_id": supplier3.id, "min_qty": 1, "price": 9},
+                    )
+                ]
+            }
+        )
+        for seller, expected_price in [
+            (self.product.seller_ids[0], 50),
+            (self.product.seller_ids[1], 10),
+            (self.product.seller_ids[2], 9),
+        ]:
+            price = self.pricelist.with_context(
+                force_filter_supplier_id=seller.partner_id
+            )._get_product_price(
+                product=seller.product_id or seller.product_tmpl_id,
+                quantity=seller.min_qty,
+                partner=False,
+                uom_id=seller.product_uom.id,
+            )
+            self.assertEqual(price, expected_price)
+            self.assertEqual(price, seller.price)
+
     def test_pricelist_dates(self):
         """Test pricelist and supplierinfo dates"""
+
+        # Set a start date for the supplier #1
         self.product.seller_ids.filtered(lambda x: x.min_qty == 5)[
             0
         ].date_start = "2018-12-31"
+        # If today is before this date, supplier #1 is ignored and we fallback on
+        # selecting supplier #2
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(
+                self.product,
+                5,
+                date=date(2018, 12, 30),
+            ),
+            10,
+        )
+        # If today is after this date, supplier #1 is selected
         self.assertAlmostEqual(
             self.pricelist._get_product_price(
                 self.product,
@@ -142,6 +182,42 @@ class TestProductSupplierinfo(BaseCommon):
                 date=date(2019, 1, 1),
             ),
             50,
+        )
+        # Now create a new and more interesting supplier offer (same min. quantities)
+        # with a starting date already set
+        supplier3 = self.partner_obj.create({"name": "Supplier #3"})
+        self.product.write(
+            {
+                "seller_ids": [
+                    Command.create(
+                        {
+                            "partner_id": supplier3.id,
+                            "min_qty": 5,
+                            "price": 45,
+                            "date_start": "2019-01-02",
+                        }
+                    ),
+                ]
+            }
+        )
+        # If today is before this date, supplier #3 is ignored and we fallback on
+        # selecting supplier #1
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(
+                self.product,
+                5,
+                date=date(2019, 1, 1),
+            ),
+            50,
+        )
+        # If today is after this date, the new supplier #3 is selected
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(
+                self.product,
+                5,
+                date=date(2019, 1, 3),
+            ),
+            45,
         )
 
     def test_pricelist_based_price_round(self):
@@ -293,28 +369,50 @@ class TestProductSupplierinfo(BaseCommon):
                 "applied_on": "0_product_variant",
                 "product_id": self.product_with_diff_uom.id,
                 "price_discount": -20,
+                # Remember that formula's computed price is expressed in the
+                # product's default UoM
+                "price_surcharge": 3.0,
             }
         )
 
         product_seller_price = self.product_with_diff_uom.seller_ids[0].price
-        uom_dozen = self.env.ref("uom.product_uom_dozen")
-        product_pricelist_price_dozen = self.pricelist._get_product_price(
-            self.product_with_diff_uom.with_context(uom=uom_dozen.id), 1
-        )
-        uom_unit = self.env.ref("uom.product_uom_unit")
-        product_pricelist_price_unit = self.pricelist._get_product_price(
-            self.product_with_diff_uom.with_context(uom=uom_unit.id), 1
-        )
-        # The price with the will be 1200 on the seller (1 Dozen)
+        # The price with the pricelist will be 1200 on the seller (1 Dozen)
         self.assertEqual(product_seller_price, 1200)
 
-        # The price with the will be 1200 plus the increment of the 20% which will
-        # give us a total of 1440 (1 Dozen)
-        self.assertEqual(product_pricelist_price_dozen, 1440)
+        uom_dozen = self.env.ref("uom.product_uom_dozen")
+        product_pricelist_price_dozen = self.pricelist._get_product_price(
+            self.product_with_diff_uom, 1, uom=uom_dozen
+        )
 
+        # The price with the pricelist will be 1200 plus the increment of the 20% plus
+        # a surcharge of 36 which will give us a total of 1476 (for 1 Dozen)
+        self.assertEqual(product_pricelist_price_dozen, 1476)
+
+        uom_unit = self.env.ref("uom.product_uom_unit")
+        product_pricelist_price_unit = self.pricelist._get_product_price(
+            self.product_with_diff_uom, 1, uom=uom_unit
+        )
         # And the price with the pricelist and the uom of Units (Instead of Dozen)
-        # will be 100, plus the 20% the total will be 120 per Unit
-        self.assertEqual(product_pricelist_price_unit, 120)
+        # will be 100, plus the 20%, plus 3.0 of sucharge, the total will be 123 per
+        # Unit
+        self.assertEqual(product_pricelist_price_unit, 123)
+
+        # Add an intermediate UoM (half-dozen) to ensure valid results when the wanted
+        # UoM is not one of the product's default (uom_id, uom_po_id)
+        uom_half_dozen = self.env["uom.uom"].create(
+            {
+                "name": "Half-dozens",
+                "category_id": self.env.ref("uom.product_uom_categ_unit").id,
+                "factor_inv": 6.0,
+                "uom_type": "bigger",
+            }
+        )
+        product_pricelist_price_half_dozen = self.pricelist._get_product_price(
+            self.product_with_diff_uom, 1, uom=uom_half_dozen
+        )
+        # Same logic as before, but now for half-dozen, so the base price will be 600,
+        # plus 20% (120), +3.0/unit surcharge (18), totaling 738
+        self.assertEqual(product_pricelist_price_half_dozen, 738)
 
     def test_pricelist_exclude_supplier_info_discount(self):
         """Test the scenario where the product supplier info includes a discount, to
