@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Tecnativa - Carlos Dauden
+     Copyright 2020 Tecnativa - João Marques
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="view_product_pricelist_print" model="ir.ui.view">
+        <field name="name">Product pricelist print</field>
+        <field name="model">product.pricelist.print</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group string="Main Settings">
+                        <field
+                            name="pricelist_id"
+                            options="{'no_create': True, 'no_create_edit': True}"
+                            invisible="partner_count != 0"
+                            required="partner_count == 0"
+                        />
+                        <field name="date" />
+                        <field name="lang" />
+                        <field name="show_pricelist_name" />
+                        <field name="context_active_model" invisible="1" />
+                    </group>
+                    <group string="Column Options">
+                        <field name="vat_mode" />
+                        <field name="show_sale_price" />
+                        <field name="show_standard_price" />
+                        <field name="show_product_uom" />
+                    </group>
+                    <group string="Order Options">
+                        <field name="order_field" />
+                        <field name="group_field" />
+                        <field name="max_categ_level" />
+                    </group>
+                    <group string="Product Options">
+                        <field name="show_description_sale" />
+                        <field
+                            name="categ_ids"
+                            widget="many2many_tags"
+                            invisible="product_tmpl_ids or product_ids"
+                        />
+                        <field
+                            name="print_child_categories"
+                            invisible="not categ_ids"
+                        />
+                        <field name="show_only_defined_products" />
+                        <field
+                            name="show_variants"
+                            invisible="last_ordered_products != 0"
+                        />
+                        <field name="last_categ_level_to_print" />
+                        <field
+                            name="last_ordered_products"
+                            invisible="partner_count == 0"
+                        />
+                        <field
+                            name="product_selling_date_threshold"
+                            invisible="partner_count == 0"
+                        />
+                    </group>
+                </group>
+                <notebook>
+                    <page
+                        string="Products"
+                        invisible="categ_ids != [] or last_ordered_products != 0 or context_active_model in ['product.template','product.product']"
+                    >
+                        <field
+                            name="product_tmpl_ids"
+                            nolabel="1"
+                            invisible="show_variants"
+                        >
+                            <list>
+                                <field name="name" />
+                            </list>
+                        </field>
+                        <field name="product_ids" invisible="not show_variants">
+                            <list>
+                                <field name="name" />
+                            </list>
+                        </field>
+                    </page>
+                    <page
+                        string="Customers"
+                        invisible="pricelist_id or context_active_model == 'res.partner'"
+                    >
+                        <field name="partner_ids" />
+                        <field name="partner_count" invisible="1" />
+                    </page>
+                    <page string="Summary">
+                        <field name="summary" nolabel="1" />
+                    </page>
+                </notebook>
+                <footer>
+                    <button
+                        name="print_report"
+                        string="Print"
+                        type="object"
+                        class="btn-primary"
+                        invisible="partner_count > 1"
+                    />
+                    <button
+                        name="action_pricelist_send"
+                        string="Send by email"
+                        type="object"
+                        class="btn-primary"
+                        invisible="not pricelist_id and partner_count == 0"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_product_template_pricelist_print" model="ir.actions.act_window">
+        <field name="name">Price List</field>
+        <field name="res_model">product.pricelist.print</field>
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_product_product_pricelist_print" model="ir.actions.act_window">
+        <field name="name">Price List</field>
+        <field name="res_model">product.pricelist.print</field>
+        <field name="binding_model_id" ref="product.model_product_product" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_product_pricelist_print" model="ir.actions.act_window">
+        <field name="name">Price List</field>
+        <field name="res_model">product.pricelist.print</field>
+        <field name="binding_model_id" ref="product.model_product_pricelist" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_partner_pricelist_print" model="ir.actions.act_window">
+        <field name="name">Send customer pricelist by E-mail</field>
+        <field name="res_model">product.pricelist.print</field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_pricelist_print" model="ir.actions.act_window">
+        <field name="name">Print Price List</field>
+        <field name="res_model">product.pricelist.print</field>
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_item_pricelist_print" model="ir.actions.act_window">
+        <field name="name">Price List</field>
+        <field name="res_model">product.pricelist.print</field>
+        <field name="binding_model_id" ref="product.model_product_pricelist_item" />
+        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        action="action_pricelist_print"
+        id="menu_product_pricelist_print"
+        parent="sale.product_menu_catalog"
+        sequence="200"
+        groups="product.group_product_pricelist"
+    />
+    <record id="product_pricelist_form_view_inherited" model="ir.ui.view">
+        <field name="name">product.pricelist.form.view.inherited</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='action_open_pricelist_report']"
+                position="after"
+            >
+                <button
+                    string="Advanced Print"
+                    name="product_pricelist_direct_print.action_product_pricelist_print"
+                    type="action"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

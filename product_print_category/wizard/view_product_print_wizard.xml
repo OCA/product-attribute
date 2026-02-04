@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8' ?>
 <!--
 Copyright (C) 2012-Today GRAP (http://www.grap.coop)
 @author Julien WESTE
@@ -17,7 +17,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <list editable="bottom">
                         <field name="product_id" />
                         <field name="quantity" />
-                        <field name="print_category_id" attrs="{'required': True}" />
+                        <field name="print_category_id" required="True" />
                     </list>
                 </field>
                 <footer>

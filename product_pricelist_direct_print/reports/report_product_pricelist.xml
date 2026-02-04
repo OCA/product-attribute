@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <template id="report_product_pricelist_document">
+        <t t-call="web.html_container">
+            <t t-set="o" t-value="o.with_context(lang=o.lang)" />
+            <t t-set="pricelist" t-value="o.get_pricelist_to_print()" />
+            <t t-set="company" t-value="pricelist.company_id or env.company" />
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Price List</h2>
+                    <div class="row mt32 mb32">
+                        <div class="col-7">
+                        <strong>Price List Name</strong>:<br />
+                        <t t-if="o.show_pricelist_name">
+                            <span t-field="pricelist.name" />
+                        </t>
+                        <t t-else="">
+                            <span>Special Pricelist</span>
+                        </t>
+                    </div>
+                        <div class="col-2">
+                        <strong>Currency</strong>:<br />
+                        <span t-field="pricelist.currency_id" />
+                    </div>
+                        <div class="col-3">
+                        <strong>Date</strong>:<br />
+                        <span t-field="o.date" t-options="{'widget': 'datetime'}" />
+                    </div>
+                    </div>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr t-if="o.partner_id">
+                                <th colspan="100" class="text-center">
+                                    <span t-field="o.partner_id.name" />
+                                </th>
+                            </tr>
+                            <tr t-if="not o.partner_id">
+                                <tr t-if="o.partner_ids">
+                                    <th colspan="100" class="text-center">
+                                        <span t-field="o.partner_ids[0].name" />
+                                    </th>
+                                </tr>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <strong>Description</strong>
+                                </th>
+                                <th t-if="o.show_standard_price" class="text-right">
+                                    <strong>Cost Price</strong>
+                                </th>
+                                <th t-if="o.show_sale_price" class="text-right">
+                                    <strong>Sale Price</strong>
+                                </th>
+                                <th t-if="pricelist" class="text-right">
+                                    <strong>List Price</strong>
+                                </th>
+                                <th t-if="o.show_product_uom" class="text-right">
+                                    <strong>UoM</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-foreach="o.get_groups_to_print()"
+                                t-as="category_group"
+                            >
+                                <t
+                                    t-set="category_products"
+                                    t-value="category_group['products']"
+                                />
+                                <td colspan="100" t-if="o.breakage_per_category">
+                                    <strong
+                                        t-esc="o.get_group_name(category_group['group_name'])"
+                                    />
+                                </td>
+                                <tr t-foreach="category_products" t-as="product">
+                                    <td>
+                                        <span t-field="product.display_name" />
+                                        <span t-if="o.show_description_sale">
+                                            <br />
+                                            <span t-out="product.description_sale" />
+                                        </span>
+                                    </td>
+                                    <td t-if="o.show_standard_price" class="text-right">
+                                        <span
+                                            t-field="product.standard_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
+                                    </td>
+                                    <td t-if="o.show_sale_price" class="text-right">
+                                        <span
+                                            t-field="product.list_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
+                                    </td>
+                                    <td t-if="pricelist" class="text-right">
+                                        <strong
+                                            t-field="o.with_context(product=product).product_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
+                                    </td>
+                                    <td t-if="o.show_product_uom" class="text-right">
+                                        <span t-field="product.uom_id.name" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <p class="text-right text-muted" t-field="o.summary" />
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="report_product_pricelist">
+        <t t-foreach="docs" t-as="o">
+            <t
+                t-call="product_pricelist_direct_print.report_product_pricelist_document"
+                t-lang="o.lang"
+            />
+        </t>
+    </template>
+    <record id="action_report_product_pricelist" model="ir.actions.report">
+        <field name="model">product.pricelist.print</field>
+        <field name="name">Product Price List</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >product_pricelist_direct_print.report_product_pricelist</field>
+        <field
+            name="report_file"
+        >product_pricelist_direct_print.report_product_pricelist</field>
+        <field
+            name="print_report_name"
+        >'Pricelist- %s' % (object.pricelist_id.name or '')</field>
+    </record>
+</odoo>

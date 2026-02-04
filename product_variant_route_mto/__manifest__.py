@@ -5,7 +5,7 @@
 {
     "name": "Product Variant Route MTO",
     "summary": "Allow to individually set variants as MTO",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "development_status": "Alpha",
     "category": "Inventory",
     "website": "https://github.com/OCA/product-attribute",

@@ -1,0 +1,58 @@
+<odoo>
+    <!-- Copyright 2025 Patryk Pyczko (APSL-Nagarro)<ppyczko@apsl.net>
+       License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+    <record id="view_product_category_tag_list" model="ir.ui.view">
+        <field name="name">product.category.tag.list</field>
+        <field name="model">product.category.tag</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="color" widget="color_picker" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_product_category_tag_form" model="ir.ui.view">
+        <field name="name">product.category.tag.form</field>
+        <field name="model">product.category.tag</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <div class="oe_title">
+                        <div class="oe_edit_only">
+                            <label for="name" />
+                        </div>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="color" required="True" widget="color_picker" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_category_tag" model="ir.actions.act_window">
+        <field name="name">Category Tags</field>
+        <field name="res_model">product.category.tag</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+        Create new tags for your product categories.
+      </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_product_category_tag_root"
+        name="Category Tags"
+        parent="stock.menu_product_in_config_stock"
+        action="action_product_category_tag"
+        sequence="3"
+    />
+</odoo>

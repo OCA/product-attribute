@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_template_manager,product.template manager,product.model_product_template,group_product_creation,1,1,1,1
+access_product_product_manager,product.product manager,product.model_product_product,group_product_creation,1,1,1,1
+access_product_attribute_manager,product.attribute manager,product.model_product_attribute,group_product_attribute_creation,1,1,1,1
+access_product_attribute_value_manager,product.attribute.value manager,product.model_product_attribute_value,group_product_attribute_creation,1,1,1,1
+access_product_template_attribute_line_manager,product.template.attribute.line manager,product.model_product_template_attribute_line,group_product_creation,1,1,1,1
+access_product_template_attribute_value_manager,product.template.attribute.value manager,product.model_product_template_attribute_value,group_product_creation,1,1,1,1
+access_product_tag_manager,product.tag manager,product.model_product_tag,group_product_tag_creation,1,1,1,1
+access_product_category_manager,product.category manager,product.model_product_category,group_product_category_creation,1,1,1,1
+access_product_supplierinfo_manager,product.supplierinfo manager,product.model_product_supplierinfo,group_product_supplierinfo_creation,1,1,1,1
+access_uom_uom_manager,uom.uom  manager,uom.model_uom_uom,group_uom_creation,1,1,1,1
+access_uom_category_manager,uom.category manager,uom.model_uom_category,group_uom_creation,1,1,1,1

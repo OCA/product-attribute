@@ -35,7 +35,10 @@
             </xpath>
             <field name="name" position="attributes">
                 <attribute name="force_save">1</attribute>
-                <attribute name="readonly">name_policy != 'user_defined'</attribute>
+                <attribute name="invisible">name_policy != 'user_defined'</attribute>
+            </field>
+            <field name="name" position="after">
+                <field name="display_name" invisible="name_policy == 'user_defined'" />
             </field>
         </field>
     </record>

@@ -1,0 +1,591 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_direct_print
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-09-04 14:43+0000\n"
+"Last-Translator: Bosd <c5e2fd43-d292-4c90-9d1f-74ff3436329a@anonaddy.me>\n"
+"Language-Team: none\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.report,print_report_name:product_pricelist_direct_print.action_report_product_pricelist
+msgid "'Pricelist- %s' % (object.pricelist_id.name or '')"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p>Dear <span t-out=\"object.partner_id and object."
+"partner_id.name or 'customer'\"/>,</p>\n"
+"                <p>\n"
+"    The attached file is a PDF document containg the\n"
+"    <strong t-out=\"object.pricelist_id.name\"/> pricelist.\n"
+"    </p>\n"
+"                <p>You can reply to this email if you have any questions.</"
+"p>\n"
+"                <p>Thank you,</p>\n"
+"\n"
+"                <p style=\"color:#888888;\">\n"
+"                    <t t-if=\"object.write_uid and object.write_uid."
+"signature\">\n"
+"                        <span t-out=\"object.write_uid.signature or ''\"/>\n"
+"                    </t>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<span>Special Pricelist</span>"
+msgstr "<span>Speciale prijslijst</span>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Cost Price</strong>"
+msgstr "<strong>Kostprijs</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Currency</strong>:<br/>"
+msgstr "<strong>Valuta</strong>:<br/>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Date</strong>:<br/>"
+msgstr "<strong>Datum</strong>:<br/>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Beschrijving</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>List Price</strong>"
+msgstr "<strong>Prijs</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Price List Name</strong>:<br/>"
+msgstr "<strong>Prijslijstnaam</strong>:<br/>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Sale Price</strong>"
+msgstr "<strong>Verkoopprijs</strong>"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>UoM</strong>"
+msgstr "<strong>Eenheid</strong>"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_needaction
+msgid "Action Needed"
+msgstr "Actie vereist"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_ids
+msgid "Activities"
+msgstr "Activiteiten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activiteit uitzondering decoratie"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_state
+msgid "Activity State"
+msgstr "Activiteit status"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Activiteit type icoon"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.product_pricelist_form_view_inherited
+msgid "Advanced Print"
+msgstr "geavanceerd printen"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_attachment_count
+msgid "Attachment Count"
+msgstr "Aantal bijlagen"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
+msgid "Breakage Per Category"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__categ_ids
+msgid "Categories"
+msgstr "Categorieën"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid ""
+"Check this field to print only the products defined in the pricelist. The "
+"entries in the list referring to all products will not be displayed."
+msgstr ""
+"Vink dit veld aan om alleen de producten af te drukken die in de prijslijst "
+"staan. De items in de lijst die verwijzen naar alle producten worden niet "
+"weergegeven."
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Column Options"
+msgstr "Kolomopties"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
+msgid "Context Active Model"
+msgstr "Context actief model"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_uid
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_date
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_id
+msgid "Customer"
+msgstr "Klant"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_ids
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Customers"
+msgstr "Klanten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Filter only the products ordered since this date"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_follower_ids
+msgid "Followers"
+msgstr "Volgers"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Volgers (Partners)"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome icoon bijv. fa-tasks"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__group_field
+msgid "Group Field"
+msgstr "Groepeer veld"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__has_message
+msgid "Has Message"
+msgstr "Heeft bericht"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_icon
+msgid "Icon"
+msgstr "Icoon"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icoon om een uitzonderingsactiviteit aan te geven."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Indien aangevinkt, vereisen nieuwe berichten uw aandacht."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Indien aangevinkt, hebben sommige berichten een bezorgfout."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "If this field is not 0, print last n category path"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid ""
+"If this field is not 0, products are grouped at max level of category tree."
+msgstr ""
+"Als dit veld niet 0 is, worden producten gegroepeerd op max niveau van "
+"categorieboom."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
+msgid ""
+"If you enter an X number here, then, for each selected customer, the last X "
+"ordered products will be obtained for the report."
+msgstr ""
+"Als u hier een X-nummer invoert, worden voor elke geselecteerde klant de "
+"laatste X bestelde producten opgehaald voor het rapport."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
+msgid "Internal Reference"
+msgstr "Interne referentie"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_is_follower
+msgid "Is Follower"
+msgstr "Is Volger"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_ids
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
+msgid "Keep empty for all products"
+msgstr "Leeg laten voor alle producten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
+msgid "Language"
+msgstr "Taal"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
+msgid "Last Categ Level To Print"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
+msgid "Last Ordered Products"
+msgstr "Laatst bestelde producten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Main Settings"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
+msgid "Max category level"
+msgstr "Max categorie niveau"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_has_error
+msgid "Message Delivery error"
+msgstr "Fout bij berichtbezorging"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_ids
+msgid "Messages"
+msgstr "Berichten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Mijn activiteit deadline"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
+msgid "Name"
+msgstr "Naam"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Volgende activiteit deadline"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_summary
+msgid "Next Activity Summary"
+msgstr "Volgende activiteit samenvatting"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_type_id
+msgid "Next Activity Type"
+msgstr "Volgende activiteit type"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Aantal acties"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_has_error_counter
+msgid "Number of errors"
+msgstr "Aantal fouten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Aantal berichten die actie vereisen"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Aantal berichten met bezorgfout"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__order_field
+msgid "Order"
+msgstr "Volgorde"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Order Options"
+msgstr "Volgorde Opties"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_count
+msgid "Partner Count"
+msgstr "Aantal partners"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_item_pricelist_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_pricelist_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_product_pricelist_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "Price List"
+msgstr "Prijslijst"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__pricelist_id
+msgid "Pricelist"
+msgstr "Prijslijst"
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,name:product_pricelist_direct_print.email_template_edi_pricelist
+msgid "Pricelist - Send by Email"
+msgstr "Prijslijst - Verzenden per e-mail"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Print"
+msgstr "Print"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__print_child_categories
+msgid "Print Child Categories"
+msgstr "Toon subcategorieën"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_pricelist_print
+#: model:ir.ui.menu,name:product_pricelist_direct_print.menu_product_pricelist_print
+msgid "Print Price List"
+msgstr "Prijslijst afdrukken"
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Product Options"
+msgstr "Productopties"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_price
+msgid "Product Price"
+msgstr "Product Prijs"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.report,name:product_pricelist_direct_print.action_report_product_pricelist
+msgid "Product Price List"
+msgstr "Productprijslijst"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model,name:product_pricelist_direct_print.model_product_pricelist_print
+msgid "Product Pricelist Print"
+msgstr "Productprijslijst afdrukken"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
+msgid "Product Templates"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Products"
+msgstr "Producten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_user_id
+msgid "Responsible User"
+msgstr "Verantwoordelijke"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
+msgid "Selling date threshold"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Send by email"
+msgstr "Verzenden per e-mail"
+
+#. module: product_pricelist_direct_print
+#: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
+msgid "Send customer pricelist by E-mail"
+msgstr "Prijslijst per e-mail naar klant verzenden"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_standard_price
+msgid "Show Cost Price"
+msgstr "Toon kostprijs"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_pricelist_name
+msgid "Show Pricelist Name"
+msgstr "Toon prijslijst naam"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_uom
+msgid "Show Product UoM"
+msgstr "Toon product eenheid"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_sale_price
+msgid "Show Sale Price"
+msgstr "Toon verkoopprijs"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_description_sale
+msgid "Show Sales Description"
+msgstr "Toon verkoop omschrijving"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants
+msgid "Show Variants"
+msgstr "Toon varianten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
+msgid "Show only the products defined on pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status gebaseerd op activiteiten\n"
+"Achterstallig: Vervaldatum is al verstreken\n"
+"Vandaag: Activiteitsdatum is vandaag\n"
+"Gepland: Toekomstige activiteiten."
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
+msgid "Summary"
+msgstr "Samenvatting"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type activiteit uitzondering op record."
+
+#. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
+msgid "Undefined"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__vat_mode__vat_excl
+msgid "Vat Excluded"
+msgstr "Exclusief BTW"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__vat_mode__vat_incl
+msgid "Vat Included"
+msgstr "Inclusief BTW"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__vat_mode
+msgid "Vat Mode"
+msgstr "BTW Mode"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__website_message_ids
+msgid "Website Messages"
+msgstr "Websiteberichten"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__website_message_ids
+msgid "Website communication history"
+msgstr "Communicatie Historie"
+
+#. module: product_pricelist_direct_print
+#. odoo-python
+#: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
+msgid "You must set price list or any customer or any show price option."
+msgstr "U dient een prijslijst, een klant of een prijsoptie instellen."
+
+#. module: product_pricelist_direct_print
+#: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
+msgid ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
+msgstr ""
+"{{ object.pricelist_id.company_id.name or object.write_uid.company_id."
+"name }} Prijslijst (Ref {{ object.pricelist_id.name or 'n/a' }})"
