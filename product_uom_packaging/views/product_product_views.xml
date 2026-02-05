@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Product Variant Form View - Add packaging to inventory tab -->
+    <record id="view_product_form_packaging" model="ir.ui.view">
+        <field name="name">product.product.form.packaging</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']" position="inside">
+                <group
+                    string="Packaging Configurations"
+                    name="packaging_configurations"
+                >
+                    <div class="alert alert-info mb16" role="status">
+                        Packaging configurations are managed on the product template.
+                        <button
+                        type="object"
+                        class="btn btn-sm btn-primary ml8"
+                        name="action_open_template"
+                        string="Edit Template"
+                    />
+                    </div>
+                    <field
+                        name="packaging_ids"
+                        nolabel="1"
+                        context="{'default_product_tmpl_id': product_tmpl_id}"
+                    >
+                        <list>
+                            <field name="sequence" widget="handle" />
+                            <field name="uom_id" />
+                            <field name="package_type_id" />
+                            <field
+                                name="company_id"
+                                optional="hide"
+                                groups="base.group_multi_company"
+                            />
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Product Template Form View - Add packaging to inventory tab -->
+    <record id="view_product_template_form_packaging" model="ir.ui.view">
+        <field name="name">product.template.form.packaging</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']" position="inside">
+                <group
+                    string="Packaging Configurations"
+                    name="packaging_configurations"
+                >
+                    <field name="packaging_ids" nolabel="1">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle" />
+                            <field name="uom_id" options="{'no_create': True}" />
+                            <field
+                                name="package_type_id"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="product_variant_ids"
+                                widget="many2many_tags"
+                                placeholder="Leave empty to apply to all variants"
+                            />
+                            <field
+                                name="company_id"
+                                optional="hide"
+                                groups="base.group_multi_company"
+                            />
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

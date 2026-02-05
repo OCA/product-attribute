@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_product_uom_packaging_user,product.uom.packaging.user,model_product_uom_packaging,base.group_user,1,0,0,0
+access_product_uom_packaging_manager,product.uom.packaging.manager,model_product_uom_packaging,stock.group_stock_manager,1,1,1,1
