@@ -34,12 +34,18 @@ class TestPricelistAssortment(BaseCommon):
                 "login": "ass_user_2",
                 "group_ids": [
                     Command.link(cls.env.ref("base.group_system").id),
+                    Command.link(
+                        cls.env.ref(
+                            "product_assortment.group_product_assortment_manager"
+                        ).id
+                    ),
                 ],
                 "email": "ass_user_2@example.com",
                 "company_id": cls.company_2.id,
                 "company_ids": [cls.company_2.id],
             }
         )
+        cls.Product.create({"name": "Normal product", "default_code": "test1234"})
 
     def _create_assortment(self):
         """
@@ -173,6 +179,7 @@ class TestPricelistAssortment(BaseCommon):
         * Launch cron update
         * New pricelist items should have been created
         """
+        self.products_assortment.write({"company_id": self.company_2})
         self.Pricelist = self.Pricelist.with_user(self.user_cmp2).with_company(
             self.company_2
         )
@@ -181,7 +188,9 @@ class TestPricelistAssortment(BaseCommon):
         pricelist = self.Pricelist.create(pricelist_values)
         self._add_assortment_item_fixed_price(pricelist)
         pricelist.flush_recordset()
-        self.env["product.pricelist"].with_user(self.user_cmp2).cron_assortment_update()
+        self.env["product.pricelist"].with_user(self.user_cmp2).with_company(
+            self.company_2
+        ).cron_assortment_update()
         self._test_values(pricelist)
 
     def test_update_pricelist_assortment(self):
