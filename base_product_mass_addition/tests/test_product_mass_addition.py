@@ -24,6 +24,15 @@ class TestProductMassAddition(SavepointCase):
         cls.product = cls.env.ref("product.product_product_8").with_context(
             **cls.quick_ctx
         )
+        cls.other_product = (
+            cls.env["product.product"]
+            .with_context(**cls.quick_ctx)
+            .create(
+                {
+                    "name": "Test Product",
+                }
+            )
+        )
 
     @classmethod
     def tearDownClass(cls):
@@ -59,3 +68,15 @@ class TestProductMassAddition(SavepointCase):
         self.product.name = "Testing"
         self.env["base"].flush()
         self.assertEqual(self.product.write_uid, self.env.user)
+
+    def test_complete_multiple_lines(self):
+        """When adding multiple lines, all the lines are completed."""
+        # pre-condition
+        self.assertFalse(self.order.line_ids)
+
+        # Act
+        self.product.qty_to_process = 5.0
+        self.other_product.qty_to_process = 5.0
+
+        # Assert
+        self.assertTrue(all(self.order.line_ids.mapped("changed")))
