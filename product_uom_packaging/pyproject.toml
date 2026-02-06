@@ -1,0 +1,6 @@
+[project]
+name = "odoo-addon-product_uom_packaging"
+
+[build-system]
+requires = ["whool"]
+build-backend = "whool.buildapi"

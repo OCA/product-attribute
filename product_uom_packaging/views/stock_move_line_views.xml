@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Add warning decoration to tree views -->
+    <record id="view_move_line_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.move.line.tree.inherit</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-warning">is_package_incompatible</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_id']" position="after">
+                <field name="package_type_id" optional="show" />
+                <field name="is_package_incompatible" column_invisible="True" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_tree_detailed_inherit" model="ir.ui.view">
+        <field name="name">stock.move.line.tree.detailed.inherit</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_tree_detailed" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-warning">is_package_incompatible</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_id']" position="after">
+                <field name="package_type_id" optional="show" />
+                <field name="is_package_incompatible" column_invisible="True" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_form_inherit" model="ir.ui.view">
+        <field name="name">stock.move.line.form.inherit</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='result_package_id']" position="after">
+                <field name="package_type_id" />
+                <field
+                    name="package_compatibility_warning"
+                    readonly="1"
+                    invisible="not is_package_incompatible"
+                    decoration-warning="is_package_incompatible"
+                />
+                <field name="is_package_incompatible" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Operations tree view (used in detailed operations modal) -->
+    <record id="view_stock_move_line_operation_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.move.line.operations.tree.inherit</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-warning">is_package_incompatible</attribute>
+            </xpath>
+            <xpath expr="//field[@name='quantity']" position="after">
+                <field name="package_type_id" optional="show" />
+                <field name="is_package_incompatible" column_invisible="True" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_mobile_form_inherit" model="ir.ui.view">
+        <field name="name">stock.move.line.mobile.form.inherit</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_mobile_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='result_package_id']" position="after">
+                <field name="package_type_id" />
+                <field
+                    name="package_compatibility_warning"
+                    readonly="1"
+                    invisible="not is_package_incompatible"
+                />
+                <field name="is_package_incompatible" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

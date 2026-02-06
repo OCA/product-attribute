@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_move_form_inherit" model="ir.ui.view">
+        <field name="name">stock.move.form.inherit</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom']" position="after">
+                <field name="package_type_id" options="{'no_create': True}" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_move_operations_inherit" model="ir.ui.view">
+        <field name="name">stock.move.operations.form.inherit</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_stock_move_operations" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom']" position="after">
+                <field name="package_type_id" options="{'no_create': True}" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.move.tree.inherit</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom']" position="after">
+                <field name="package_type_id" optional="show" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

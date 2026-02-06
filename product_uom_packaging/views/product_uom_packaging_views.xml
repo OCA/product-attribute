@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- List View -->
+    <record id="product_uom_packaging_view_list" model="ir.ui.view">
+        <field name="name">product.uom.packaging.list</field>
+        <field name="model">product.uom.packaging</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="product_tmpl_id" optional="show" />
+                <field
+                    name="product_variant_ids"
+                    widget="many2many_tags"
+                    optional="show"
+                />
+                <field
+                    name="uom_id"
+                    widget="many2one_uom"
+                    options="{'product_field': 'product_tmpl_id', 'quantity_field': 'qty'}"
+                />
+                <field name="qty" />
+                <field name="package_type_id" />
+                <field
+                    name="company_id"
+                    optional="hide"
+                    groups="base.group_multi_company"
+                />
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="product_uom_packaging_view_form" model="ir.ui.view">
+        <field name="name">product.uom.packaging.form</field>
+        <field name="model">product.uom.packaging</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group name="name_group" colspan="2">
+                            <field name="name" />
+                        </group>
+                        <group name="product_group">
+                            <field
+                                name="product_tmpl_id"
+                                invisible="context.get('default_product_variant_ids')"
+                            />
+                            <field
+                                name="product_variant_ids"
+                                widget="many2many_tags"
+                                invisible="context.get('default_product_tmpl_id')"
+                            />
+                        </group>
+                        <group name="details_group">
+                            <field
+                                name="uom_id"
+                                widget="many2one_uom"
+                                options="{'product_field': 'product_tmpl_id', 'quantity_field': 'qty'}"
+                            />
+                            <field name="qty" />
+                            <field name="package_type_id" />
+                            <field name="sequence" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="product_uom_packaging_view_search" model="ir.ui.view">
+        <field name="name">product.uom.packaging.search</field>
+        <field name="model">product.uom.packaging</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_tmpl_id" />
+                <field name="uom_id" />
+                <field name="package_type_id" />
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="product_uom_packaging_action" model="ir.actions.act_window">
+        <field name="name">Product UoM Packaging</field>
+        <field name="res_model">product.uom.packaging</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define packaging configurations for your products
+            </p>
+            <p>
+                Link products to units of measure with package types
+                to specify physical dimensions for each packaging configuration.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu - under Inventory > Configuration > Products -->
+    <menuitem
+        id="product_uom_packaging_menu"
+        name="Product UoM Packaging"
+        parent="stock.menu_product_in_config_stock"
+        action="product_uom_packaging_action"
+        sequence="25"
+    />
+</odoo>
