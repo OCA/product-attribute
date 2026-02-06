@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Product Variant Form - Unit Conversions on Inventory tab -->
+    <record id="view_product_form_uom_factor" model="ir.ui.view">
+        <field name="name">product.product.form.uom.factor</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']" position="inside">
+                <group string="Unit Conversions" name="uom_conversions" colspan="2">
+                    <field name="uom_factor_ids" nolabel="1" colspan="2">
+                        <list>
+                            <field name="product_tmpl_id" column_invisible="True" />
+                            <field name="uom_id" readonly="1" />
+                            <field name="factor" />
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
