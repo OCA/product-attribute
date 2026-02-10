@@ -4,7 +4,7 @@
 
 {
     "name": "Base Product Mass Addition",
-    "version": "14.0.1.2.0",
+    "version": "14.0.1.2.1",
     "author": "Akretion, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",

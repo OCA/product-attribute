@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[base_product_mass_addition](base_product_mass_addition/) | 14.0.1.2.0 |  | Base Product Mass Addition
+[base_product_mass_addition](base_product_mass_addition/) | 14.0.1.2.1 |  | Base Product Mass Addition
 [packaging_uom](packaging_uom/) | 14.0.1.0.1 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> | Use uom in package
 [pos_product_cost_security](pos_product_cost_security/) | 14.0.1.0.2 |  | Compatibility between Point of Sale and Product Cost Security
 [product_assortment](product_assortment/) | 14.0.1.1.1 |  | Adds the ability to manage products assortment
