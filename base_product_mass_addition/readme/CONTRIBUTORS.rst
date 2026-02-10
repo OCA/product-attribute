@@ -8,3 +8,6 @@ Akretion
 * `Camptocamp <https://www.camptocamp.com>`_
 
     * Iván Todorovich <ivan.todorovich@camptocamp.com>
+* `PyTech <https://www.pytech.it>`_:
+
+  * Simone Rubino <simone.rubino@pytech.it>

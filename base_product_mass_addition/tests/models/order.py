@@ -2,7 +2,7 @@
 # @author Iván Todorovich <ivan.todorovich@camptocamp.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ModelOrder(models.Model):
@@ -34,3 +34,8 @@ class ModelOrderLine(models.Model):
     order_id = fields.Many2one("model.order")
     product_id = fields.Many2one("product.product")
     product_qty = fields.Float()
+    changed = fields.Boolean()
+
+    @api.onchange("product_qty")
+    def onchange_product_qty(self):
+        self.changed = True
