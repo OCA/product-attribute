@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-02-10 14:48+0000\n"
+"PO-Revision-Date: 2026-02-11 10:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -26,13 +26,13 @@ msgstr "%(percentage)s %% %(discount_type)s su %(base)s %(extra)s"
 #. odoo-python
 #: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
 msgid "+ %(amount)s extra fee"
-msgstr ""
+msgstr "+ %(amount)s tariffa extra"
 
 #. module: product_pricelist_supplierinfo
 #. odoo-python
 #: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
 msgid "- %(amount)s rebate"
-msgstr ""
+msgstr "- %(amount)s sconto"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
@@ -139,7 +139,7 @@ msgstr "Filtro fornitore"
 #. odoo-python
 #: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
 msgid "supplier's price"
-msgstr ""
+msgstr "prezzo fornitore"
 
 #~ msgid ""
 #~ "Base price for computation.\n"
