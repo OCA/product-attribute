@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_product_attribute_template_list" model="ir.ui.view">
+        <field name="name">product.attribute.template.list</field>
+        <field name="model">product.attribute.template</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="active" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_product_attribute_template_form" model="ir.ui.view">
+        <field name="name">product.attribute.template.form</field>
+        <field name="model">product.attribute.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="company_id" groups="base.group_multi_company" />
+                        <field name="active" />
+                    </group>
+                    <notebook>
+                        <page string="Attributes">
+                            <field
+                                name="line_ids"
+                                context="{'default_template_id': id}"
+                            >
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle" />
+                                    <field name="attribute_id" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_attribute_template" model="ir.actions.act_window">
+        <field name="name">Attribute Templates</field>
+        <field name="res_model">product.attribute.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="menu_product_attribute_template"
+        name="Attribute Templates"
+        parent="sale.prod_config_main"
+        action="action_product_attribute_template"
+        sequence="12"
+    />
+</odoo>

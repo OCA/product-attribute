@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="rule_product_attribute_template_company" model="ir.rule">
+        <field name="name">Attribute templates: multi-company</field>
+        <field name="model_id" ref="model_product_attribute_template" />
+        <field
+            name="domain_force"
+        >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('product.group_product_manager'))]" />
+    </record>
+
+    <record id="rule_product_attribute_template_line_company" model="ir.rule">
+        <field name="name">Attribute template lines: multi-company</field>
+        <field name="model_id" ref="model_product_attribute_template_line" />
+        <field name="domain_force">
+            ['|', ('template_id.company_id', '=', False), ('template_id.company_id', 'in', company_ids)]
+        </field>
+        <field name="groups" eval="[(4, ref('product.group_product_manager'))]" />
+    </record>
+</odoo>
