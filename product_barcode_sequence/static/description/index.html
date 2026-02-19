@@ -1,0 +1,57 @@
+# Product Barcode Sequence
+
+This module allows automatic assignment of EAN barcodes to products based on their category.
+It uses sequences to generate unique barcode numbers and adds the correct GTIN check digit.
+
+## Features
+
+* Configure barcode generation per product category
+* Automatic barcode generation when creating products
+* Support for EAN-13 format with GTIN check digit
+* Configurable barcode prefixes per category
+* Manual barcode generation action for existing products
+
+## Configuration
+
+1. Go to **Products > Configuration > Product Categories**
+2. Select or create a category
+3. In the **Barcode Configuration** section:
+   * Enable **Auto Generate Barcode**
+   * Set a **Barcode Prefix** (1-12 digits)
+   * The system will automatically create a barcode sequence
+
+## Usage
+
+### Automatic Generation
+When you create a new product in a category configured for barcode generation,
+the system will automatically assign a unique EAN-13 barcode.
+
+### Manual Generation
+For existing products without barcodes:
+1. Select the products from the product list
+2. Use the **Generate Barcode** action
+3. The system will generate barcodes based on their category configuration
+
+### Barcode Format
+* EAN-13 format (13 digits total)
+* First digits: Category prefix (configurable)
+* Middle digits: Sequential number
+* Last digit: GTIN check digit (automatically calculated)
+
+### Example
+If a category has prefix "123456":
+* First product: 1234560000018
+* Second product: 1234560000025
+* Third product: 1234560000032
+
+## Dependencies
+
+* `product` - Base product module
+
+## License
+
+AGPL-3
+
+## Author
+
+Open Source Integrators
