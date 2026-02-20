@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.orm.domains import Domain
 
 
 class ProductState(models.Model):
@@ -25,25 +26,24 @@ class ProductState(models.Model):
         compute="_compute_products_count",
     )
     default = fields.Boolean("Default state")
-    _sql_constraints = [
-        ("code_unique", "UNIQUE(code)", "Product State Code must be unique.")
-    ]
+
+    _code_unique = models.Constraint(
+        "UNIQUE(code)", "Product State Code must be unique."
+    )
 
     @api.depends("product_ids")
     def _compute_products_count(self):
-        data = self.env["product.template"].read_group(
-            [("product_state_id", "in", self.ids)],
-            ["product_state_id"],
-            ["product_state_id"],
+        data = dict(
+            self.env["product.template"]._read_group(
+                domain=Domain("product_state_id", "in", self.ids),
+                groupby=["product_state_id"],
+                aggregates=["__count"],
+            )
         )
-        mapped_data = {
-            record["product_state_id"][0]: record["product_state_id_count"]
-            for record in data
-        }
         for state in self:
-            state.products_count = mapped_data.get(state.id, 0)
+            state.products_count = data.get(state, 0)
 
     @api.constrains("default")
     def _check_default(self):
-        if self.search_count([("default", "=", True)]) > 1:
+        if self.search_count(Domain("default", "=", True)) > 1:
             raise ValidationError(self.env._("There should be only one default state"))
