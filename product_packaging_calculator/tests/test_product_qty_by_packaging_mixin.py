@@ -5,21 +5,19 @@ from .common import TestCommon
 
 
 class TestPQPackagingMixin(TestCommon):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
+    def setUp(self):
+        super().setUp()
         # Load a test model using odoo_test_helper
-        cls.loader = FakeModelLoader(cls.env, cls.__module__)
-        cls.loader.backup_registry()
+        self.loader = FakeModelLoader(self.env, self.__module__)
+        self.loader.backup_registry()
         from .models import TestProductQtyByPackagingMixin
 
-        cls.loader.update_registry((TestProductQtyByPackagingMixin,))
-        cls.model = cls.env[TestProductQtyByPackagingMixin._name]
+        self.loader.update_registry((TestProductQtyByPackagingMixin,))
+        self.model = self.env[TestProductQtyByPackagingMixin._name]
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.loader.restore_registry()
-        return super().tearDownClass()
+    def tearDown(self):
+        self.loader.restore_registry()
+        return super().tearDown()
 
     def test_1_quantity_packaging(self):
         record = self.model.create({"product_id": self.product_a.id, "quantity": 10})
