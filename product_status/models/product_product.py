@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 from odoo import api, fields, models
+from odoo.orm.domains import Domain
 
 
 class ProductProduct(models.Model):
@@ -91,7 +92,7 @@ class ProductProduct(models.Model):
 
     @api.model
     def _read_group_state_id(self, states, domain):
-        return states.search([])
+        return states.search(Domain.TRUE)
 
     def _compute_has_status_date(self):
         for rec in self:

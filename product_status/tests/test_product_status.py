@@ -3,21 +3,30 @@
 from freezegun import freeze_time
 
 from odoo.exceptions import ValidationError
-from odoo.tests import Form, tagged
+from odoo.fields import Command
+from odoo.tests.common import new_test_user, tagged
+from odoo.tests.form import Form
 
-from odoo.addons.product.tests.common import TestProductCommon
+from odoo.addons.product.tests.common import ProductVariantsCommon
 
 
 @tagged("post_install", "-at_install")
-class TestProductStatusCase(TestProductCommon):
+class TestProductStatusCase(ProductVariantsCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.product = cls.env.ref("product.product_product_4")
-        cls.product2 = cls.env.ref("product.product_product_4b")
-        cls.product_tmpl = cls.product.product_tmpl_id
+        cls.product = cls.product_sofa_red
+        cls.product2 = cls.product_sofa_blue
+        cls.product_tmpl = cls.product_template_sofa
+        # Add user to check without superuser permissions
+        cls.demo_user = new_test_user(
+            env=cls.env,
+            login="product_status_demo_user",
+            groups="base.group_user,product_state.group_product_state_manager",
+        )
         # To avoid error with filestore and Form test
-        cls.product.image_1920 = False
+        (cls.product | cls.product2).image_1920 = False
+        cls.product_tmpl.image_1920 = False
         cls.state_model = cls.env["product.state"]
 
     def test_default(self):
@@ -106,9 +115,10 @@ class TestProductStatusCase(TestProductCommon):
         group_product_state_manager = self.env.ref(
             "product_state.group_product_state_manager"
         )
-        self.env.user.write({"groups_id": [(4, group_product_state_manager.id)]})
-        product = self.product
-        with Form(product.product_tmpl_id) as form:
+        self.env.user.write(
+            {"group_ids": [Command.link(group_product_state_manager.id)]}
+        )
+        with Form(self.product_tmpl) as form:
             form.new_until = "2020-09-16"
             self.assertEqual(form.product_state_id.code, "new")
             form.discontinued_until = "2020-09-16"
@@ -123,9 +133,9 @@ class TestProductStatusCase(TestProductCommon):
 
     def test_modified_default_data(self):
         st_env = self.env["product.state"]
-        demo_user = self.env.ref("base.user_demo")
-        demo_user.groups_id = [
-            (4, self.env.ref("product_state.group_product_state_manager").id)
+        demo_user = self.demo_user
+        demo_user.group_ids = [
+            Command.link(self.env.ref("product_state.group_product_state_manager").id)
         ]
         default_state = st_env._get_module_data()
         vals = {

@@ -12,17 +12,19 @@
                         <field name="end_of_life_date" />
                         <field name="state" />
                     </group>
+                    <!-- prettier-ignore-start -->
+                    <!-- prettier will mess up the code and make it harder to read -->
                     <div class="alert alert-info" role="alert" colspan="2">
-            By order of importance, the status is computed by:<br />
-            <ul>
-                        <li>End-of-life</li>
-                        <li>Discontinued until</li>
-                        <li>New until</li>
-                    </ul>
-            <strong>End-of-life</strong> has priority over the other dates.<br />
-            <strong>Discontinued-until</strong> has priority over <strong
-                    >New until</strong>.
-          </div>
+                        By order of importance, the status is computed by:<br />
+                        <ul>
+                            <li>End-of-life</li>
+                            <li>Discontinued until</li>
+                            <li>New until</li>
+                        </ul>
+                        <strong>End-of-life</strong> has priority over the other dates.<br />
+                        <strong>Discontinued-until</strong> has priority over <strong>New until</strong>.
+                    </div>
+                    <!-- prettier-ignore-end -->
                 </group>
             </group>
         </field>
@@ -50,17 +52,19 @@
                         />
                         <field name="state" />
                     </group>
+                    <!-- prettier-ignore-start -->
+                    <!-- prettier will mess up the code and make it harder to read -->
                     <div class="alert alert-info" role="alert" colspan="2">
-            By order of importance, the status is computed by:<br />
-            <ul>
-                        <li>End-of-life</li>
-                        <li>Discontinued until</li>
-                        <li>New until</li>
-                    </ul>
-            <strong>End-of-life</strong> has priority over the other dates.<br />
-            <strong>Discontinued-until</strong> has priority over <strong
-                    >New until</strong>.
-          </div>
+                        By order of importance, the status is computed by:<br />
+                        <ul>
+                            <li>End-of-life</li>
+                            <li>Discontinued until</li>
+                            <li>New until</li>
+                        </ul>
+                        <strong>End-of-life</strong> has priority over the other dates.<br />
+                        <strong>Discontinued-until</strong> has priority over <strong>New until</strong>.
+                    </div>
+                    <!-- prettier-ignore-end -->
                 </group>
             </group>
         </field>
