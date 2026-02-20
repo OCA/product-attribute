@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="product_state_search_form_view">
+    <record id="product_state_search_form_view" model="ir.ui.view">
         <field name="name">product.state.search.form</field>
         <field name="model">product.state</field>
         <field name="arch" type="xml">
@@ -7,15 +8,6 @@
                 <field name="name" />
             </search>
         </field>
-    </record>
-    <record model="ir.actions.act_window" id="action_open_single_product_state">
-        <field name="name">Product State</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">product.state</field>
-        <field name="view_mode">kanban,form,list</field>
-        <field name="context">{}</field>
-        <field name="domain">[('id', '=', product_state_id)]</field>
-        <field name="target">current</field>
     </record>
     <record id="view_product_state_form" model="ir.ui.view">
         <field name="name">product.state.form</field>
@@ -25,7 +17,7 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button
-                            name="%(action_open_state_products)d"
+                            name="%(product_state.action_open_state_products)d"
                             type="action"
                             class="oe_stat_button"
                             icon="fa-cubes"
@@ -94,7 +86,16 @@
             </kanban>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_product_state">
+    <record id="action_open_single_product_state" model="ir.actions.act_window">
+        <field name="name">Product State</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.state</field>
+        <field name="view_mode">kanban,form,list</field>
+        <field name="context">{}</field>
+        <field name="domain">[('id', '=', product_state_id)]</field>
+        <field name="target">current</field>
+    </record>
+    <record id="action_product_state" model="ir.actions.act_window">
         <field name="name">State</field>
         <field name="res_model">product.state</field>
         <field name="view_mode">kanban,form,list</field>

@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models
 from odoo.exceptions import UserError
+from odoo.orm.domains import Domain
 
 
 class ProductTemplate(models.Model):
@@ -29,14 +30,14 @@ class ProductTemplate(models.Model):
     )
 
     def _inverse_product_state_id(self):
-        """
-        Allow to ease triggering other stuff when product state changes
-        without a write()
+        """Allow triggering custom behaviors on ``product_state_id`` updates
+
+        Hook method, can be overridden by inheriting modules
         """
 
     @api.model
     def _get_default_product_state(self):
-        return self.env["product.state"].search([("default", "=", True)], limit=1)
+        return self.env["product.state"].search(Domain("default", "=", True), limit=1)
 
     @api.depends("product_state_id")
     def _compute_product_state(self):
@@ -47,21 +48,24 @@ class ProductTemplate(models.Model):
         for product_tmpl in self:
             self._set_product_state_id(product_tmpl)
 
-    # This method can be called by variant so the record is either
-    # product.template or product.product
     @api.model
-    def _set_product_state_id(self, record):
-        """The record param is for similar state field at product.product model."""
+    def _set_product_state_id(self, record: models.Model):
+        """Updates ``product_state_id`` on ``record``
+
+        :param record: any recordset whose model defines field ``product_state_id``
+            (eg: ``product.template`` or ``product.product``)
+        """
         ProductState = record.env["product.state"]
-        product_state = ProductState.search([("code", "=", record.state)], limit=1)
+        product_state = ProductState.search(Domain("code", "=", record.state), limit=1)
         if record.state and not product_state:
-            msg = self.env._(
-                "The product state code %(product_state)s could not be found.",
-                product_state=record.state,
+            raise UserError(
+                self.env._(
+                    "The product state code %(product_state)s could not be found.",
+                    product_state=record.state,
+                )
             )
-            raise UserError(msg)
         record.product_state_id = product_state.id
 
     @api.model
     def _read_group_state_id(self, states, domain):
-        return states.search([])
+        return states.search(Domain.TRUE)
