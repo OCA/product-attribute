@@ -7,27 +7,26 @@ from odoo.tests import TransactionCase
 
 
 class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.loader = FakeModelLoader(cls.env, cls.__module__)
-        cls.loader.backup_registry()
+    def setUp(self):
+        super().setUp()
+        self.loader = FakeModelLoader(self.env, self.__module__)
+        self.loader.backup_registry()
         from .models import SecondaryUnitFake
 
-        cls.loader.update_registry((SecondaryUnitFake,))
-        cls.product_uom_unit = cls.env.ref("uom.product_uom_unit")
-        cls.product_uom_dozen = cls.env.ref("uom.product_uom_dozen")
-        cls.product_template = cls.env["product.template"].create(
+        self.loader.update_registry((SecondaryUnitFake,))
+        self.product_uom_unit = self.env.ref("uom.product_uom_unit")
+        self.product_uom_dozen = self.env.ref("uom.product_uom_dozen")
+        self.product_template = self.env["product.template"].create(
             {
                 "name": "test",
-                "uom_id": cls.product_uom_unit.id,
-                "uom_po_id": cls.product_uom_unit.id,
+                "uom_id": self.product_uom_unit.id,
+                "uom_po_id": self.product_uom_unit.id,
                 "secondary_uom_ids": [
                     Command.create(
                         {
                             "code": "C5",
                             "name": "box 5",
-                            "uom_id": cls.product_uom_unit.id,
+                            "uom_id": self.product_uom_unit.id,
                             "factor": 5,
                         }
                     ),
@@ -35,7 +34,7 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
                         {
                             "code": "C10",
                             "name": "box 10",
-                            "uom_id": cls.product_uom_unit.id,
+                            "uom_id": self.product_uom_unit.id,
                             "factor": 10,
                         }
                     ),
@@ -44,29 +43,28 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
                             "code": "C20",
                             "name": "box 20",
                             "dependency_type": "independent",
-                            "uom_id": cls.product_uom_unit.id,
+                            "uom_id": self.product_uom_unit.id,
                             "factor": 20,
                         }
                     ),
                 ],
             }
         )
-        cls.secondary_unit_box_5 = cls.product_template.secondary_uom_ids[0]
-        cls.secondary_unit_box_10 = cls.product_template.secondary_uom_ids[1]
-        cls.secondary_unit_box_20 = cls.product_template.secondary_uom_ids[2]
+        self.secondary_unit_box_5 = self.product_template.secondary_uom_ids[0]
+        self.secondary_unit_box_10 = self.product_template.secondary_uom_ids[1]
+        self.secondary_unit_box_20 = self.product_template.secondary_uom_ids[2]
         # Fake model which inherit from
-        cls.secondary_unit_fake = cls.env["secondary.unit.fake"].create(
+        self.secondary_unit_fake = self.env["secondary.unit.fake"].create(
             {
                 "name": "Secondary unit fake",
-                "product_id": cls.product_template.product_variant_ids.id,
-                "product_uom_id": cls.product_uom_unit.id,
+                "product_id": self.product_template.product_variant_ids.id,
+                "product_uom_id": self.product_uom_unit.id,
             }
         )
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.loader.restore_registry()
-        return super().tearDownClass()
+    def tearDown(self):
+        self.loader.restore_registry()
+        return super().tearDown()
 
     def test_product_secondary_unit_mixin(self):
         fake_model = self.secondary_unit_fake
