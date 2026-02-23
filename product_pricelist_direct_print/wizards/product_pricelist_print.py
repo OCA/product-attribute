@@ -196,13 +196,10 @@ class ProductPricelistPrint(models.TransientModel):
             or self.show_sale_price
         ):
             raise ValidationError(
-                _(
-                    "You must set price list or any customer "
-                    "or any show price option."
-                )
+                _("You must set price list or any customer or any show price option.")
             )
         return self.env.ref(
-            "product_pricelist_direct_print." "action_report_product_pricelist"
+            "product_pricelist_direct_print.action_report_product_pricelist"
         ).report_action(self)
 
     def action_pricelist_send(self):
