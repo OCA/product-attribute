@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_category_search_view" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view" />
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <filter
+                    name="inactive"
+                    string="Archived"
+                    domain="[('active','=',False)]"
+                />
+                <filter
+                    name="active_and_inactive"
+                    string="Archived or Active"
+                    context="{'active_test': False}"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="after">
+                <widget
+                    name="web_ribbon"
+                    text="Archived"
+                    bg_color="bg-danger"
+                    invisible="active"
+                />
+            </div>
+        </field>
+    </record>
+    <record id="product_category_list_view" model="ir.ui.view">
+        <field name="name">product.category.list</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view" />
+        <field name="arch" type="xml">
+            <list position="attributes">
+                <attribute name="decoration-info">not active</attribute>
+            </list>
+            <list position="inside">
+                <field name="active" widget="boolean_toggle" />
+            </list>
+        </field>
+    </record>
+</odoo>
