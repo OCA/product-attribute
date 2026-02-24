@@ -2,10 +2,10 @@
 # Copyright 2023 PESOL - Angel Moya
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests import TransactionCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductCategoryActive(TransactionCase):
+class TestUomCategoryActive(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
