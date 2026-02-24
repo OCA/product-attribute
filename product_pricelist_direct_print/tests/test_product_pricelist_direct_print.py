@@ -1,6 +1,8 @@
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from lxml import html
+
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase, tagged
 
@@ -123,7 +125,7 @@ class TestProductPricelistDirectPrint(TransactionCase):
                             "name": self.product.name,
                             "product_id": self.product.id,
                             "product_uom_qty": 10.0,
-                            "product_uom": self.product.uom_id.id,
+                            "product_uom_id": self.product.uom_id.id,
                             "price_unit": 1000.00,
                         },
                     ),
@@ -134,7 +136,7 @@ class TestProductPricelistDirectPrint(TransactionCase):
                             "name": product2.name,
                             "product_id": product2.id,
                             "product_uom_qty": 10.0,
-                            "product_uom": product2.uom_id.id,
+                            "product_uom_id": product2.uom_id.id,
                             "price_unit": 300.00,
                         },
                     ),
@@ -147,14 +149,41 @@ class TestProductPricelistDirectPrint(TransactionCase):
         wiz = self.wiz_obj.with_context(
             active_model="res.partner", active_ids=self.partner.ids
         ).create({"last_ordered_products": 2})
-        products = wiz.get_last_ordered_products_to_print()
-        self.assertEqual(len(products), 2)
+        products = wiz.get_products_to_print()
+        self.assertEqual(products, self.product | product2)
 
         wiz = self.wiz_obj.with_context(
             active_model="res.partner", active_ids=self.partner.ids
         ).create({"last_ordered_products": 1})
-        products = wiz.get_last_ordered_products_to_print()
-        self.assertEqual(len(products), 1)
+        products = wiz.get_products_to_print()
+        self.assertEqual(products, self.product)
+
+        sale_order.date_order = "2026-01-10 12:00:00"
+        recent_order = sale_order.copy(
+            {
+                "order_line": [
+                    (5, 0, 0),
+                    (
+                        0,
+                        0,
+                        {
+                            "product_id": product2.id,
+                            "product_uom_qty": 1,
+                            "price_unit": 300,
+                        },
+                    ),
+                ]
+            }
+        )
+        recent_order.action_confirm()
+        recent_order.date_order = "2026-02-10 12:00:00"
+        wiz.write(
+            {
+                "last_ordered_products": 0,
+                "product_selling_date_threshold": "2026-02-01 00:00:00",
+            }
+        )
+        self.assertEqual(wiz.get_products_to_print(), product2)
 
     def test_show_only_defined_products(self):
         self.pricelist.item_ids.write(
@@ -201,10 +230,41 @@ class TestProductPricelistDirectPrint(TransactionCase):
         self.assertIn(product_category_child.id, product_ids.ids)
 
     def test_report(self):
+        tax = self.env["account.tax"].create(
+            {
+                "name": "Sales tax 10%",
+                "amount": 10,
+                "amount_type": "percent",
+                "type_tax_use": "sale",
+                "price_include_override": "tax_excluded",
+            }
+        )
+        self.product.write({"list_price": 100, "taxes_id": [(6, 0, tax.ids)]})
         wiz = self.wiz_obj.with_context(
             active_model="product.pricelist",
             active_id=self.pricelist.id,
         ).create({})
+        wiz.write(
+            {
+                "product_tmpl_ids": [(6, 0, self.product.product_tmpl_id.ids)],
+                "lang": "en_US",
+            }
+        )
+        report = self.env.ref(
+            "product_pricelist_direct_print.action_report_product_pricelist"
+        )
+        for vat_mode, expected_price in [("vat_excl", "95.00"), ("vat_incl", "104.50")]:
+            with self.subTest(vat_mode=vat_mode):
+                wiz.vat_mode = vat_mode
+                content, _ = report._render_qweb_html(report.report_name, wiz.ids)
+                document = html.fromstring(content)
+                rows = document.xpath("//tbody/tr[td/span]")
+                self.assertEqual(len(rows), 1)
+                self.assertIn(self.product.name, rows[0].text_content())
+                self.assertEqual(
+                    rows[0].xpath("./td/strong")[0].text_content().strip(),
+                    expected_price,
+                )
         # Print PDF
         report_pdf = self.env.ref(
             "product_pricelist_direct_print.action_report_product_pricelist"
