@@ -29,7 +29,7 @@
                         <span t-field="o.date" t-options="{'widget': 'datetime'}" />
                     </div>
                     </div>
-                    <table class="table table-sm">
+                    <table class="table table-borderless">
                         <thead>
                             <tr t-if="o.partner_id">
                                 <th colspan="100" class="text-center">
@@ -47,16 +47,16 @@
                                 <th>
                                     <strong>Description</strong>
                                 </th>
-                                <th t-if="o.show_standard_price" class="text-right">
+                                <th t-if="o.show_standard_price" class="text-end">
                                     <strong>Cost Price</strong>
                                 </th>
-                                <th t-if="o.show_sale_price" class="text-right">
+                                <th t-if="o.show_sale_price" class="text-end">
                                     <strong>Sale Price</strong>
                                 </th>
-                                <th t-if="pricelist" class="text-right">
+                                <th t-if="pricelist" class="text-end">
                                     <strong>List Price</strong>
                                 </th>
-                                <th t-if="o.show_product_uom" class="text-right">
+                                <th t-if="o.show_product_uom" class="text-end">
                                     <strong>UoM</strong>
                                 </th>
                             </tr>
@@ -83,32 +83,32 @@
                                             <span t-out="product.description_sale" />
                                         </span>
                                     </td>
-                                    <td t-if="o.show_standard_price" class="text-right">
+                                    <td t-if="o.show_standard_price" class="text-end">
                                         <span
                                             t-field="product.standard_price"
                                             t-options="{'decimal_precision': 'Product Price'}"
                                         />
                                     </td>
-                                    <td t-if="o.show_sale_price" class="text-right">
+                                    <td t-if="o.show_sale_price" class="text-end">
                                         <span
                                             t-field="product.list_price"
                                             t-options="{'decimal_precision': 'Product Price'}"
                                         />
                                     </td>
-                                    <td t-if="pricelist" class="text-right">
+                                    <td t-if="pricelist" class="text-end">
                                         <strong
                                             t-field="o.with_context(product=product).product_price"
                                             t-options="{'decimal_precision': 'Product Price'}"
                                         />
                                     </td>
-                                    <td t-if="o.show_product_uom" class="text-right">
+                                    <td t-if="o.show_product_uom" class="text-end">
                                         <span t-field="product.uom_id.name" />
                                     </td>
                                 </tr>
                             </t>
                         </tbody>
                     </table>
-                    <p class="text-right text-muted" t-field="o.summary" />
+                    <p class="text-end text-muted" t-field="o.summary" />
                 </div>
             </t>
         </t>

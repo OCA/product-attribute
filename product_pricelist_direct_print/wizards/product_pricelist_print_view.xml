@@ -114,7 +114,6 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_template" />
-        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -122,7 +121,6 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_product" />
-        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -130,7 +128,6 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_pricelist" />
-        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -138,14 +135,12 @@
         <field name="name">Send customer pricelist by E-mail</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="base.model_res_partner" />
-        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
     <record id="action_pricelist_print" model="ir.actions.act_window">
         <field name="name">Print Price List</field>
         <field name="res_model">product.pricelist.print</field>
-        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
@@ -153,7 +148,6 @@
         <field name="name">Price List</field>
         <field name="res_model">product.pricelist.print</field>
         <field name="binding_model_id" ref="product.model_product_pricelist_item" />
-        <field name="groups_id" eval="[(4, ref('product.group_product_pricelist'))]" />
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
