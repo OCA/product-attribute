@@ -4,9 +4,9 @@
 
 from collections import defaultdict
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 @api.model
@@ -22,7 +22,7 @@ class ProductPricelistPrint(models.TransientModel):
     context_active_model = fields.Char(
         store=False, compute="_compute_context_active_model"
     )
-    pricelist_id = fields.Many2one(comodel_name="product.pricelist", string="Pricelist")
+    pricelist_id = fields.Many2one(comodel_name="product.pricelist")
     partner_id = fields.Many2one(comodel_name="res.partner", string="Customer")
     partner_ids = fields.Many2many(comodel_name="res.partner", string="Customers")
     categ_ids = fields.Many2many(comodel_name="product.category", string="Categories")
@@ -196,7 +196,9 @@ class ProductPricelistPrint(models.TransientModel):
             or self.show_sale_price
         ):
             raise ValidationError(
-                _("You must set price list or any customer or any show price option.")
+                self.env._(
+                    "You must set price list or any customer or any show price option."
+                )
             )
         return self.env.ref(
             "product_pricelist_direct_print.action_report_product_pricelist"
@@ -276,7 +278,7 @@ class ProductPricelistPrint(models.TransientModel):
             ("partner_id", "child_of", partner.id),
         ]
         if self.product_selling_date_threshold:
-            domain = expression.AND(
+            domain = Domain.AND(
                 [domain, [("date_order", ">=", self.product_selling_date_threshold)]]
             )
         return domain
@@ -319,40 +321,40 @@ class ProductPricelistPrint(models.TransientModel):
                 if item.applied_on == "2_product_category":
                     items_dic["categ_ids"].append(item.categ_id.id)
             if items_dic["categ_ids"]:
-                aux_domain = expression.OR(
+                aux_domain = Domain.OR(
                     [aux_domain, [("categ_id", "in", items_dic["categ_ids"])]]
                 )
             if items_dic["product_ids"]:
                 if self.show_variants:
-                    aux_domain = expression.OR(
+                    aux_domain = Domain.OR(
                         [
                             aux_domain,
                             [("product_tmpl_id", "in", items_dic["product_ids"])],
                         ]
                     )
                 else:
-                    aux_domain = expression.OR(
+                    aux_domain = Domain.OR(
                         [aux_domain, [("id", "in", items_dic["product_ids"])]]
                     )
             if items_dic["variant_ids"]:
                 if self.show_variants:
-                    aux_domain = expression.OR(
+                    aux_domain = Domain.OR(
                         [aux_domain, [("id", "in", items_dic["variant_ids"])]]
                     )
                 else:
-                    aux_domain = expression.OR(
+                    aux_domain = Domain.OR(
                         [
                             aux_domain,
                             [("product_variant_ids", "in", items_dic["variant_ids"])],
                         ]
                     )
-            domain = expression.AND([domain, aux_domain])
+            domain = Domain.AND([domain, aux_domain])
         if self.print_child_categories:
-            domain = expression.AND(
+            domain = Domain.AND(
                 [domain, [("categ_id", "child_of", self.categ_ids.ids)]]
             )
         elif self.categ_ids:
-            domain = expression.AND([domain, [("categ_id", "in", self.categ_ids.ids)]])
+            domain = Domain.AND([domain, [("categ_id", "in", self.categ_ids.ids)]])
         return domain
 
     def get_products_to_print(self):
@@ -372,9 +374,9 @@ class ProductPricelistPrint(models.TransientModel):
 
     def get_group_key(self, product):
         group_field = getattr(product, self.group_field)
-        complete_name = getattr(group_field, "complete_name", group_field.name) or _(
-            "Undefined"
-        )
+        complete_name = getattr(
+            group_field, "complete_name", group_field.name
+        ) or self.env._("Undefined")
         if not self.max_categ_level:
             return complete_name
         return " / ".join(complete_name.split(" / ")[: self.max_categ_level])
