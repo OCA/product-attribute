@@ -19,7 +19,6 @@ class TestProductSecondaryUnit(TransactionCase):
             {
                 "name": "test",
                 "uom_id": cls.product_uom_kg.id,
-                "uom_po_id": cls.product_uom_kg.id,
                 "secondary_uom_ids": [
                     Command.create(
                         {
@@ -45,7 +44,6 @@ class TestProductSecondaryUnit(TransactionCase):
                 "name": "Piece of woods",
                 "list_price": 2000,
                 "uom_id": cls.product_uom_kg.id,
-                "uom_po_id": cls.product_uom_kg.id,
                 "secondary_uom_ids": [
                     Command.create(
                         {
@@ -111,7 +109,7 @@ class TestProductSecondaryUnit(TransactionCase):
                 self.product.product_variant_ids.ids,
             )
         ]
-        results = self.env["product.secondary.unit"].name_search(name="A", args=args)
+        results = self.env["product.secondary.unit"].name_search(name="A", domain=args)
         self.assertEqual(len(results), 1)
         self.assertEqual(
             results[0][1],
@@ -120,7 +118,7 @@ class TestProductSecondaryUnit(TransactionCase):
             .sudo()
             .display_name,
         )
-        results = self.env["product.secondary.unit"].name_search(name="X", args=args)
+        results = self.env["product.secondary.unit"].name_search(name="X", domain=args)
         self.assertEqual(len(results), 0)
 
     def test_multi_variant_product_secondary_unit(self):
