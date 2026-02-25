@@ -43,4 +43,24 @@ class ProductPricelistItem(models.Model):
                 date=date or context.get("date", fields.Date.today()),
                 quantity=quantity,
             )
+            # When ignoring the supplier discount, the raw seller price is used
+            # which is expressed in the seller's purchase UoM. Convert it to the
+            # product's sale UoM so that _compute_price_rule receives a
+            # consistent price regardless of the seller's UoM.
+            if result and self.no_supplierinfo_discount:
+                seller = (
+                    product.sudo()
+                    .with_context(override_min_qty=self.no_supplierinfo_min_quantity)
+                    ._select_seller(
+                        partner_id=context.get(
+                            "force_filter_supplier_id", self.sudo().filter_supplier_id
+                        ),
+                        quantity=quantity,
+                        date=date or context.get("date", fields.Date.today()),
+                    )
+                )
+                if seller and seller.product_uom_id != product.uom_id:
+                    result = seller.product_uom_id._compute_price(
+                        result, product.uom_id
+                    )
         return result

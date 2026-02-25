@@ -57,12 +57,15 @@ class ProductTemplate(models.Model):
                 price = seller.currency_id._convert(
                     price, rule.currency_id, seller.company_id, convert_date
                 )
-
+            # price_discounted (used when no_supplierinfo_discount=False) already
+            # converts from seller's purchase UoM to the product's sale UoM.
+            # When no_supplierinfo_discount=True the raw seller price is used and
+            # the caller (product.pricelist.item._compute_price) is responsible
+            # for the UoM conversion to ensure the returned price is in the
+            # product's sale UoM as expected by _compute_price_rule.
             # We have to replicate this logic in this method as pricelist
             # method are atomic and we can't hack inside.
             # Verbatim copy of part of product.pricelist._compute_price_rule.
-            # TODO: check if the conversion to uom is needed, so far it seems it is not
-            # because we are giving unit price in the uom of the product
             price_limit = price
             price = (price - (price * (rule.price_discount / 100))) or 0.0
             if rule.price_round:

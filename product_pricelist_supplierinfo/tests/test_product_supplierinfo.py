@@ -359,6 +359,26 @@ class TestProductSupplierinfo(BaseCommon):
             expected_price[product_template.id],
         )
 
+    def test_pricelist_uom_conversion_ignore_discount(self):
+        """When ignoring the supplier discount the raw price is still
+        returned in the product's sale UoM, not in the seller's purchase UoM."""
+        seller = self.product_with_diff_uom.seller_ids[0]
+        seller.discount = 20
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "0_product_variant",
+                "product_id": self.product_with_diff_uom.id,
+                "price_discount": 0,
+                "no_supplierinfo_discount": True,
+            }
+        )
+        # Seller raw price is 1200 per dozen (discount ignored).
+        # 1200 / 12 = 100 per unit
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product_with_diff_uom, 1),
+            100.0,
+        )
+
     def test_pricelist_price_no_sellers(self):
         """Test scenario where there are no sellers linked to the product."""
         product_template = self.product.product_tmpl_id
