@@ -49,7 +49,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         comodel_name="product.secondary.unit",
         string="Second unit",
         ondelete="restrict",
-        default=_get_default_secondary_uom,
+        default=lambda self: self._get_default_secondary_uom(),
     )
 
     def _get_uom_line(self):
