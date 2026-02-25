@@ -1,32 +1,38 @@
 # Copyright 2021 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo_test_helper import FakeModelLoader
-
 from odoo.fields import Command
+from odoo.orm.model_classes import add_to_registry
 from odoo.tests import TransactionCase
 
 
-class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
-    def setUp(self):
-        super().setUp()
-        self.loader = FakeModelLoader(self.env, self.__module__)
-        self.loader.backup_registry()
+class TestProductSecondaryUnitMixin(TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
         from .models import SecondaryUnitFake
 
-        self.loader.update_registry((SecondaryUnitFake,))
-        self.product_uom_unit = self.env.ref("uom.product_uom_unit")
-        self.product_uom_dozen = self.env.ref("uom.product_uom_dozen")
-        self.product_template = self.env["product.template"].create(
+        add_to_registry(cls.registry, SecondaryUnitFake)
+        cls.registry._setup_models__(cls.env.cr, ["secondary.unit.fake"])
+        cls.registry.init_models(
+            cls.env.cr,
+            model_names=["secondary.unit.fake"],
+            context={"models_to_check": True},
+        )
+        cls.addClassCleanup(cls.registry.__delitem__, "secondary.unit.fake")
+
+        cls.product_uom_unit = cls.env.ref("uom.product_uom_unit")
+        cls.product_uom_dozen = cls.env.ref("uom.product_uom_dozen")
+        cls.product_template = cls.env["product.template"].create(
             {
                 "name": "test",
-                "uom_id": self.product_uom_unit.id,
-                "uom_po_id": self.product_uom_unit.id,
+                "uom_id": cls.product_uom_unit.id,
                 "secondary_uom_ids": [
                     Command.create(
                         {
                             "code": "C5",
                             "name": "box 5",
-                            "uom_id": self.product_uom_unit.id,
+                            "uom_id": cls.product_uom_unit.id,
                             "factor": 5,
                         }
                     ),
@@ -34,7 +40,7 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
                         {
                             "code": "C10",
                             "name": "box 10",
-                            "uom_id": self.product_uom_unit.id,
+                            "uom_id": cls.product_uom_unit.id,
                             "factor": 10,
                         }
                     ),
@@ -43,28 +49,24 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
                             "code": "C20",
                             "name": "box 20",
                             "dependency_type": "independent",
-                            "uom_id": self.product_uom_unit.id,
+                            "uom_id": cls.product_uom_unit.id,
                             "factor": 20,
                         }
                     ),
                 ],
             }
         )
-        self.secondary_unit_box_5 = self.product_template.secondary_uom_ids[0]
-        self.secondary_unit_box_10 = self.product_template.secondary_uom_ids[1]
-        self.secondary_unit_box_20 = self.product_template.secondary_uom_ids[2]
+        cls.secondary_unit_box_5 = cls.product_template.secondary_uom_ids[0]
+        cls.secondary_unit_box_10 = cls.product_template.secondary_uom_ids[1]
+        cls.secondary_unit_box_20 = cls.product_template.secondary_uom_ids[2]
         # Fake model which inherit from
-        self.secondary_unit_fake = self.env["secondary.unit.fake"].create(
+        cls.secondary_unit_fake = cls.env["secondary.unit.fake"].create(
             {
                 "name": "Secondary unit fake",
-                "product_id": self.product_template.product_variant_ids.id,
-                "product_uom_id": self.product_uom_unit.id,
+                "product_id": cls.product_template.product_variant_ids.id,
+                "product_uom_id": cls.product_uom_unit.id,
             }
         )
-
-    def tearDown(self):
-        self.loader.restore_registry()
-        return super().tearDown()
 
     def test_product_secondary_unit_mixin(self):
         fake_model = self.secondary_unit_fake
@@ -151,21 +153,11 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
 
     def test_secondary_uom_qty_conversion_with_different_line_uom(self):
         product_uom_litre = self.env.ref("uom.product_uom_litre")
-        volume_category = self.env.ref("uom.product_uom_categ_vol")
-        product_uom_millilitre = self.env["uom.uom"].create(
-            {
-                "name": "mL",
-                "category_id": volume_category.id,
-                "uom_type": "smaller",
-                "factor": 1000.0,
-                "rounding": 0.01,
-            }
-        )
+        product_uom_millilitre = self.env.ref("uom.product_uom_milliliter")
         product_template = self.env["product.template"].create(
             {
                 "name": "Test",
                 "uom_id": product_uom_millilitre.id,
-                "uom_po_id": product_uom_millilitre.id,
                 "secondary_uom_ids": [
                     Command.create(
                         {
