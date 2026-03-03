@@ -40,26 +40,28 @@ A secondary unit is defined by a conversion ``factor`` against the
 record's own primary UoM, plus a ``dependency_type`` that controls
 **which direction** that factor is allowed to drive:
 
-- **Dependent** (the default): the two quantities stay in lock-step in
-  both directions - entering one recomputes the other from the factor.
-  Use it when the conversion is a fixed, reliable ratio, e.g. a product
-  sold in boxes of 12 units, where the weight/quantity always equals
-  ``pieces × 12``.
-- **Independent**: the two quantities are completely decoupled - setting
-  one never touches the other. Use it when the secondary quantity is
-  informational and unrelated to the primary one, e.g. selling a service
-  by a fixed package (primary quantity always ``1``) while also
-  recording the real hours it will take to schedule an employee.
-- **Secondary unit priority**: a middle ground. The primary quantity is
-  still *estimated* from the secondary one through the factor (like
-  "Dependent"), but the secondary quantity is **never** recomputed back
-  from the primary one (like "Independent"). Use it when the secondary
-  unit is the one that must stay an *exact count*, while the primary
-  quantity is only ever an estimate derived from it - the canonical
-  example is fish sold by weight but counted in pieces: the average
-  weight per piece is just an estimate, so the piece count must never be
-  silently overwritten by a weight-derived guess, while the weight is
-  still usefully pre-filled from the piece count when a line is created.
+-  **Dependent** (the default): the two quantities stay in lock-step in
+   both directions - entering one recomputes the other from the factor.
+   Use it when the conversion is a fixed, reliable ratio, e.g. a product
+   sold in boxes of 12 units, where the weight/quantity always equals
+   ``pieces × 12``.
+-  **Independent**: the two quantities are completely decoupled -
+   setting one never touches the other. Use it when the secondary
+   quantity is informational and unrelated to the primary one, e.g.
+   selling a service by a fixed package (primary quantity always ``1``)
+   while also recording the real hours it will take to schedule an
+   employee.
+-  **Secondary unit priority**: a middle ground. The primary quantity is
+   still *estimated* from the secondary one through the factor (like
+   "Dependent"), but the secondary quantity is **never** recomputed back
+   from the primary one (like "Independent"). Use it when the secondary
+   unit is the one that must stay an *exact count*, while the primary
+   quantity is only ever an estimate derived from it - the canonical
+   example is fish sold by weight but counted in pieces: the average
+   weight per piece is just an estimate, so the piece count must never
+   be silently overwritten by a weight-derived guess, while the weight
+   is still usefully pre-filled from the piece count when a line is
+   created.
 
 Other modules build on top of this one (via the
 ``product.secondary.unit.mixin`` this module provides) to carry the
@@ -79,12 +81,33 @@ Configuration
 To configure this module, go to **Settings** and locate the **Units of
 Measure** section.
 
+Secondary Unit Price Display
+----------------------------
+
+Configure how unit prices and quantities are shown in reports when
+secondary units are used.
+
+-  **Sales**: Select the display policy for sales order and customer
+   invoice reports and portal views.
+-  **Purchase**: Select the display policy for purchase order and vendor
+   bill reports and portal views.
+
+Available options:
+
+-  **Primary Unit Price Only**: Show only the primary unit price.
+-  **Prioritize Secondary Unit Price**: Show the secondary unit price
+   when available, otherwise fall back to the primary unit price.
+-  **Both Primary and Secondary Unit Prices**: Show both primary and
+   secondary unit prices.
+
 Hide Secondary Qty Column
 -------------------------
 
 Hide the separate **Second Qty** column in reports.
 
--  When enabled, the **Second Qty** column is hidden in reports.
+-  When enabled, the **Second Qty** column is hidden in reports. The
+   secondary quantity can still be shown in the main **Qty** column
+   depending on the selected price display policy above.
 -  Apply the setting per document type:
 
    -  **Sales**
@@ -115,20 +138,20 @@ Defining a secondary unit on a product
 Choosing the right dependency type
 ----------------------------------
 
-- **Dependent** - entering either quantity on a document line recomputes
-  the other through the factor, in both directions. Good for a fixed,
-  reliable packaging ratio (a box always has 12 units).
-- **Independent** - the two quantities never influence each other. Good
-  for a secondary quantity that is purely informational (hours of work
-  behind a fixed "1 package" sale).
-- **Secondary unit priority** - the secondary quantity pre-fills the
-  primary one via the factor when a line is first created (or when the
-  secondary quantity/unit changes), but once the primary quantity has
-  been entered or measured on its own, editing it never overwrites the
-  secondary quantity, and the secondary quantity is never silently
-  recomputed from a later primary-quantity change either. Good for a
-  count that must stay exact (pieces) alongside a primary quantity that
-  is only ever an estimate (weight).
+-  **Dependent** - entering either quantity on a document line
+   recomputes the other through the factor, in both directions. Good for
+   a fixed, reliable packaging ratio (a box always has 12 units).
+-  **Independent** - the two quantities never influence each other. Good
+   for a secondary quantity that is purely informational (hours of work
+   behind a fixed "1 package" sale).
+-  **Secondary unit priority** - the secondary quantity pre-fills the
+   primary one via the factor when a line is first created (or when the
+   secondary quantity/unit changes), but once the primary quantity has
+   been entered or measured on its own, editing it never overwrites the
+   secondary quantity, and the secondary quantity is never silently
+   recomputed from a later primary-quantity change either. Good for a
+   count that must stay exact (pieces) alongside a primary quantity that
+   is only ever an estimate (weight).
 
 For module developers
 ---------------------
@@ -140,13 +163,13 @@ way this module's own product records do), inherit
 ``_secondary_unit_fields = {"qty_field": "<your quantity field>", "uom_field": "<your UoM field>"}``
 on your model, then:
 
-- Make ``qty_field`` a stored, ``readonly=False`` compute depending on
-  ``secondary_uom_id``/``secondary_uom_qty``, whose body just calls
-  ``self._compute_helper_target_field_qty()``.
-- Add an ``onchange`` on your UoM field that calls
-  ``self._onchange_helper_product_uom_for_secondary()``, so switching
-  the primary UoM keeps the secondary quantity consistent for
-  "Dependent" lines.
+-  Make ``qty_field`` a stored, ``readonly=False`` compute depending on
+   ``secondary_uom_id``/``secondary_uom_qty``, whose body just calls
+   ``self._compute_helper_target_field_qty()``.
+-  Add an ``onchange`` on your UoM field that calls
+   ``self._onchange_helper_product_uom_for_secondary()``, so switching
+   the primary UoM keeps the secondary quantity consistent for
+   "Dependent" lines.
 
 See ``purchase_order_secondary_unit`` (purchase-workflow) or
 ``stock_secondary_unit`` (stock-logistics-warehouse) for real examples,
