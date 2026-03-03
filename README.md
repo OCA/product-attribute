@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [product_code_unique](product_code_unique/) | 19.0.1.0.0 |  | Set Product Internal Reference as Unique
 [product_company_default](product_company_default/) | 19.0.1.0.0 |  | Product Company Default
 [product_dimension](product_dimension/) | 19.0.1.0.0 |  | Product Dimension
+[product_drained_weight](product_drained_weight/) | 19.0.1.0.0 |  | Add 'Drained Weight' on product models
 [product_manufacturer](product_manufacturer/) | 19.0.1.0.0 |  | Adds manufacturers and attributes on the product view.
 [product_net_weight](product_net_weight/) | 19.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Add 'Net Weight' on product models
 [purchase_product_template_tags](purchase_product_template_tags/) | 19.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Show product tags menu in Purchase app
