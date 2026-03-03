@@ -149,3 +149,30 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         ):
             defaults["secondary_uom_qty"] = 1.0
         return defaults
+
+    def _get_secondary_uom_report_type(self):
+        """Return 'sale', 'purchase', or None."""
+        self.ensure_one()
+        if self._name == "sale.order.line" or (
+            self._name == "account.move.line"
+            and self.move_id.is_sale_document(include_receipts=True)
+        ):
+            return "sale"
+        if self._name == "purchase.order.line" or (
+            self._name == "account.move.line"
+            and self.move_id.is_purchase_document(include_receipts=True)
+        ):
+            return "purchase"
+        return None
+
+    def _get_secondary_uom_hide_col(self):
+        """Return whether secondary UoM column should be hidden on reports."""
+        self.ensure_one()
+        if not self.secondary_uom_id:
+            return True
+        report_type = self._get_secondary_uom_report_type()
+        if report_type == "purchase":
+            return self.company_id.hide_secondary_uom_column_purchase
+        if report_type == "sale":
+            return self.company_id.hide_secondary_uom_column_sale
+        return True
