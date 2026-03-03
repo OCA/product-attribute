@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-31 14:36+0000\n"
+"PO-Revision-Date: 2026-03-03 14:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_secondary_unit
 #: model:ir.model.fields,field_description:product_secondary_unit.field_product_secondary_unit__active
@@ -73,8 +73,8 @@ msgid ""
 msgstr ""
 "Se il tipo dipendenza è 'dipendente' il fattore è utilizzato per calcolare "
 "la quantità nell'unità principale, altrimenti l'unità principale e "
-"secondaria sono indipendenti. Per esempio se si vende un servizio per collo ("
-"una unità per esempio) e si vuole inserire il tempo reale (es.: 4 ore) per "
+"secondaria sono indipendenti. Per esempio se si vende un servizio per collo "
+"(una unità per esempio) e si vuole inserire il tempo reale (es.: 4 ore) per "
 "consentire la schedulazione dipendente"
 
 #. module: product_secondary_unit
