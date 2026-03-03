@@ -176,3 +176,29 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         if report_type == "sale":
             return self.company_id.hide_secondary_uom_column_sale
         return True
+
+    def get_secondary_uom_display_mode(self):
+        """Return display mode for secondary UoM price on reports."""
+        self.ensure_one()
+        if not self.secondary_uom_id:
+            return "primary"
+        report_type = self._get_secondary_uom_report_type()
+        if report_type == "purchase":
+            return self.company_id.secondary_uom_price_display_purchase
+        if report_type == "sale":
+            return self.company_id.secondary_uom_price_display_sale
+        return "primary"
+
+    def report_show_price_uom(self, uom_source=None):
+        """Return True if UoM should be shown in price column.
+
+        UoM is shown when the line displays multiple UoMs.
+        """
+        self.ensure_one()
+        if not self.secondary_uom_id:
+            return False
+        hide_col = self._get_secondary_uom_hide_col()
+        display_mode = self.get_secondary_uom_display_mode()
+        if uom_source == "primary_uom" and display_mode == "secondary":
+            return False
+        return not hide_col or display_mode == "both"
