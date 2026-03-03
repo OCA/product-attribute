@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 15:09+0000\n"
-"PO-Revision-Date: 2026-02-25 16:15+0100\n"
+"POT-Creation-Date: 2026-03-03 12:15+0000\n"
+"PO-Revision-Date: 2026-03-03 13:19+0100\n"
 "Last-Translator: Andrii Kompaniiets <andrii.kompaniiets@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -18,22 +18,42 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 
 #. module: product_pricelist_discount_by_range
+#: code:addons/product_pricelist_discount_by_range/models/product_pricelist_item.py:0
+#, python-format
+msgid ""
+"%(base)s from %(min)s to %(max)s: %(discount)s%% discount and %(surcharge)s "
+"extra fee\n"
+" - Example: %(amount)s * %(discount_charge)s + %(price_surcharge)s → "
+"%(total_amount)s \n"
+msgstr ""
+"%(base)s desde %(min)s hasta %(max)s: %(discount)s%% descuento y "
+"%(surcharge)s tarifa extra\n"
+" - Ejemplo: %(amount)s * %(discount_charge)s + %(price_surcharge)s → "
+"%(total_amount)s \n"
+
+#. module: product_pricelist_discount_by_range
 #: model:ir.model.fields.selection,name:product_pricelist_discount_by_range.selection__product_pricelist_item__discount_type__range
 msgid "By range"
 msgstr "Por rango"
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__create_uid
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__create_date
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__create_date
 msgid "Created on"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item__discount_range_ids
+#, fuzzy
+#| msgid "Discount Ranges"
+msgid "Discount Range"
+msgstr "Rango de descuento"
+
+#. module: product_pricelist_discount_by_range
 #: model_terms:ir.ui.view,arch_db:product_pricelist_discount_by_range.product_pricelist_supplier_item_form_view
 msgid "Discount Ranges"
 msgstr "Rangos de descuento"
@@ -50,53 +70,57 @@ msgid "Discount range not found for the given price."
 msgstr "No se ha encontrado el rango de descuento para el precio indicado."
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__display_name
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__id
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__id
 msgid "ID"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range____last_update
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__write_uid
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__write_date
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__max
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__max
 msgid "Max"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__min
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__min
 msgid "Min"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: code:addons/product_pricelist_discount_by_range/models/product_pricelist_discount_rage.py:0
-#, python-format
+#: model:ir.model.constraint,message:product_pricelist_discount_by_range.constraint_product_pricelist_item_discount_range_min_gt_max
 msgid "Min value must be less than max value."
 msgstr "El valor mínimo debe ser inferior al valor máximo."
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__percentage
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__percentage
 msgid "Percentage"
 msgstr "Porcentaje"
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_discount_range__pricelist_item_id
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item__price_discount
+msgid "Price Discount"
+msgstr ""
+
+#. module: product_pricelist_discount_by_range
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__pricelist_item_id
 msgid "Pricelist Item"
 msgstr ""
 
@@ -106,8 +130,8 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: model:ir.model,name:product_pricelist_discount_by_range.model_product_pricelist_discount_range
-msgid "Product Discount Range"
+#: model:ir.model,name:product_pricelist_discount_by_range.model_product_pricelist_item_discount_range
+msgid "Product Pricelist Item Discount Range"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
@@ -116,19 +140,23 @@ msgid "Simple"
 msgstr ""
 
 #. module: product_pricelist_discount_by_range
-#: code:addons/product_pricelist_discount_by_range/models/product_pricelist_discount_rage.py:0
-#, python-format
-msgid "The discount range %s - %s overlaps with an existing one %s - %s."
+#: code:addons/product_pricelist_discount_by_range/models/product_pricelist_item_discount_range.py:0
+#, fuzzy, python-format
+#| msgid "The discount range %s - %s overlaps with an existing one %s - %s."
+msgid ""
+"The discount range %(min)s - %(max)s overlaps with an existing one "
+"%(overlap_min)s - %(overlap_max)s."
 msgstr "El rango de descuento %s - %s se solapa con uno ya existente %s - %s."
 
 #. module: product_pricelist_discount_by_range
-#: code:addons/product_pricelist_discount_by_range/models/product_pricelist_discount_rage.py:0
-#, python-format
-msgid "The minimum cannot be greater than the maximum."
-msgstr "El mínimo no puede ser mayor que el máximo."
+#: model:ir.model.fields,help:product_pricelist_discount_by_range.field_product_pricelist_item__price_discount
+msgid "You can apply a mark-up by setting a negative discount."
+msgstr ""
 
-#. module: product_pricelist_discount_by_range
-#: code:addons/product_pricelist_discount_by_range/models/product_pricelist_discount_rage.py:0
 #, python-format
-msgid "Values must be non-negative."
-msgstr "Los valores deben ser no negativos."
+#~ msgid "The minimum cannot be greater than the maximum."
+#~ msgstr "El mínimo no puede ser mayor que el máximo."
+
+#, python-format
+#~ msgid "Values must be non-negative."
+#~ msgstr "Los valores deben ser no negativos."
