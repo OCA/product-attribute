@@ -3,10 +3,28 @@
 
 from odoo import fields, models
 
+PRICE_DISPLAY_SELECTION = [
+    ("primary", "Primary Unit Price Only"),
+    ("secondary", "Prioritize Secondary Unit Price"),
+    ("both", "Both Primary and Secondary Unit Prices"),
+]
+
 
 class ResCompany(models.Model):
     _inherit = "res.company"
 
+    secondary_uom_price_display_sale = fields.Selection(
+        selection=PRICE_DISPLAY_SELECTION,
+        string="Secondary Unit Price Display (Sales)",
+        default="primary",
+        required=True,
+    )
+    secondary_uom_price_display_purchase = fields.Selection(
+        selection=PRICE_DISPLAY_SELECTION,
+        string="Secondary Unit Price Display (Purchase)",
+        default="primary",
+        required=True,
+    )
     # Added for supporting the existing report presentation. We can drop this together
     # with the second qty column in reports if the community agrees with it.
     hide_secondary_uom_column_sale = fields.Boolean(
