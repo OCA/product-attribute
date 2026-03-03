@@ -3,7 +3,7 @@
 {
     "name": "Products - Drained Weight",
     "summary": "Add 'Drained Weight' on product models",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "author": "Tecnativa,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
