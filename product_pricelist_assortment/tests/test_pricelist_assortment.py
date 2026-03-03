@@ -211,7 +211,9 @@ class TestPricelistAssortment(BaseCommon):
         )
         self.default_codes.append("NEW")
         # 3. Remove a product from the assortment
-        product_to_remove = self.products_assortment[0]
+        product_to_remove = items.filtered(lambda i: i.id != manual_item.id)[
+            0
+        ].product_id
         self.default_codes.remove(product_to_remove.default_code)
 
         self.assortment.domain = [("default_code", "in", self.default_codes)]
