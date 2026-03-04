@@ -1,7 +1,7 @@
 # Copyright 2023 ForgeFlow S.L. (https://www.forgeflow.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class ProductPricelist(models.Model):
@@ -86,8 +86,10 @@ class ProductPricelist(models.Model):
             else:
                 curr_from = rec.base_pricelist_id.currency_id
                 curr_to = rec.pricelist_id.currency_id
-            rec.currency_rate_tooltip = _("({curr_from} to {curr_to} rates)").format(
-                curr_from=curr_from.name, curr_to=curr_to.name
+            rec.currency_rate_tooltip = self.env._(
+                "(%(curr_from)s to %(curr_to)s rates)",
+                curr_from=curr_from.name,
+                curr_to=curr_to.name,
             )
 
     @api.depends("fixed_currency_rate")
