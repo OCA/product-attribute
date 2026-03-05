@@ -15,6 +15,7 @@ class ProductPricelistItemDiscountRange(models.Model):
     min = fields.Float(required=True)
     max = fields.Float(required=True)
     percentage = fields.Float(required=True)
+    surcharge = fields.Float()
 
     _sql_constraints = [
         ("min_gt_max", "CHECK(min < max)", "Min value must be less than max value."),

@@ -35,7 +35,7 @@ class PricelistItem(models.Model):
                     discount = discount_range.percentage
                     break
             if discount is not None:
-                price = price * (1 - discount / 100)
+                price = price * (1 - discount / 100) + discount_range.surcharge
             else:
                 raise ValidationError(
                     _("Discount range not found for the given price.")
@@ -51,22 +51,26 @@ class PricelistItem(models.Model):
         for record in self:
             text = ""
             base_amount = 100
-            surcharge = tools.format_amount(
+            price_surcharge = tools.format_amount(
                 record.env, record.price_surcharge, record.currency_id
             )
             if record.discount_type == "range":
                 for discount_range in record.discount_range_ids:
                     discount_factor = (100 - discount_range.percentage) / 100
                     discounted_price = base_amount * discount_factor
+                    surcharge = tools.format_amount(
+                        record.env, discount_range.surcharge, record.currency_id
+                    )
                     if record.price_round:
                         discounted_price = tools.float_round(
                             discounted_price, precision_rounding=record.price_round
                         )
                     text += _(
                         "%(base)s from %(min)s to %(max)s: %(discount)s%% "
-                        "discount and %(surcharge)s extra fee\n"
-                        " - Example: %(amount)s * %(discount_charge)s + "
-                        "%(price_surcharge)s → %(total_amount)s \n",
+                        "discount and %(price_surcharge)s extra fee and "
+                        "%(surcharge)s surcharge\n"
+                        " - Example: %(amount)s * %(discount_charge)s + %(price_surcharge)s + "
+                        "%(surcharge)s → %(total_amount)s \n",
                         base=base_selection_vals[record.base],
                         discount=discount_range.percentage,
                         surcharge=surcharge,
@@ -74,11 +78,12 @@ class PricelistItem(models.Model):
                             record.env, base_amount, record.currency_id
                         ),
                         discount_charge=discount_factor,
-                        price_surcharge=surcharge,
+                        price_surcharge=price_surcharge,
                         total_amount=tools.format_amount(
                             record.env,
                             base_amount * (1 - discount_range.percentage / 100)
-                            + record.price_surcharge,
+                            + record.price_surcharge
+                            + discount_range.surcharge,
                             record.currency_id,
                         ),
                         min=tools.format_amount(

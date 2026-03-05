@@ -6,28 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-03 12:15+0000\n"
-"PO-Revision-Date: 2026-03-03 14:28+0000\n"
-"Last-Translator: \"Pedro M. Baeza\" <pedro.baeza@tecnativa.com>\n"
+"POT-Creation-Date: 2026-03-05 09:39+0000\n"
+"PO-Revision-Date: 2026-03-05 10:45+0100\n"
+"Last-Translator: Andrii Kompaniiets <andrii.kompaniiets@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #. module: product_pricelist_discount_by_range
 #: code:addons/product_pricelist_discount_by_range/models/product_pricelist_item.py:0
 #, python-format
 msgid ""
-"%(base)s from %(min)s to %(max)s: %(discount)s%% discount and %(surcharge)s "
-"extra fee\n"
-" - Example: %(amount)s * %(discount_charge)s + %(price_surcharge)s → "
-"%(total_amount)s \n"
+"%(base)s from %(min)s to %(max)s: %(discount)s%% discount and "
+"%(price_surcharge)s extra fee and %(surcharge)s surcharge\n"
+" - Example: %(amount)s * %(discount_charge)s + %(price_surcharge)s + "
+"%(surcharge)s → %(total_amount)s \n"
 msgstr ""
 "%(base)s desde %(min)s hasta %(max)s: %(discount)s%% descuento y "
-"%(surcharge)s tarifa extra\n"
+"%(price_surcharge)s tarifa extra y %(surcharge)s fijo (recargo)\n"
 " - Ejemplo: %(amount)s * %(discount_charge)s + %(price_surcharge)s → "
 "%(total_amount)s \n"
 
@@ -140,14 +140,20 @@ msgid "Simple"
 msgstr "Simple"
 
 #. module: product_pricelist_discount_by_range
+#: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__surcharge
+#: model_terms:ir.ui.view,arch_db:product_pricelist_discount_by_range.product_pricelist_supplier_item_form_view
+msgid "Surcharge"
+msgstr "Fijo"
+
+#. module: product_pricelist_discount_by_range
 #: code:addons/product_pricelist_discount_by_range/models/product_pricelist_item_discount_range.py:0
 #, python-format
 msgid ""
 "The discount range %(min)s - %(max)s overlaps with an existing one "
 "%(overlap_min)s - %(overlap_max)s."
 msgstr ""
-"El rango de descuento %(min)s -%(max)s se solapa con uno ya existente %"
-"(overlap_min)s -%(overlap_max)s."
+"El rango de descuento %(min)s -%(max)s se solapa con uno ya existente "
+"%(overlap_min)s -%(overlap_max)s."
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,help:product_pricelist_discount_by_range.field_product_pricelist_item__price_discount
