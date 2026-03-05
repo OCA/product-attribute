@@ -7,29 +7,27 @@ from odoo.tests import TransactionCase
 
 
 class TestProductSetWizard(TransactionCase, FakeModelLoader):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.loader = FakeModelLoader(cls.env, cls.__module__)
-        cls.loader.backup_registry()
+    def setUp(self):
+        super().setUp()
+        self.loader = FakeModelLoader(self.env, self.__module__)
+        self.loader.backup_registry()
         from .models import FakeProductSetWizard
 
-        cls.loader.update_registry((FakeProductSetWizard,))
-        cls.partner_1 = cls.env["res.partner"].create({"name": "Test Partner One"})
-        cls.partner_2 = cls.env["res.partner"].create({"name": "Test Partner Two"})
-        cls.product_set_1 = cls.env.ref("product_set.product_set_i5_computer")
-        cls.product_set_2 = cls.env.ref("product_set.product_set_services")
-        cls.wizard = cls.env["fake.product.set.wizard"].create(
+        self.loader.update_registry((FakeProductSetWizard,))
+        self.partner_1 = self.env["res.partner"].create({"name": "Test Partner One"})
+        self.partner_2 = self.env["res.partner"].create({"name": "Test Partner Two"})
+        self.product_set_1 = self.env.ref("product_set.product_set_i5_computer")
+        self.product_set_2 = self.env.ref("product_set.product_set_services")
+        self.wizard = self.env["fake.product.set.wizard"].create(
             {
-                "product_set_id": cls.product_set_1.id,
+                "product_set_id": self.product_set_1.id,
                 "quantity": 1,
             }
         )
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.loader.restore_registry()
-        return super().tearDownClass()
+    def tearDown(self):
+        self.loader.restore_registry()
+        return super().tearDown()
 
     def test_product_set_wizard_compute_lines(self):
         # Check if the wizard lines are updated when the product set changes

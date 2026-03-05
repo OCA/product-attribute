@@ -86,6 +86,7 @@ msgid "Name"
 msgstr ""
 
 #. module: product_multi_price
+#: model:ir.model.fields.selection,name:product_multi_price.selection__product_pricelist_assortment_item__base__multi_price
 #: model:ir.model.fields.selection,name:product_multi_price.selection__product_pricelist_item__base__multi_price
 msgid "Other Price"
 msgstr ""

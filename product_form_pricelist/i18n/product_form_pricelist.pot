@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_form_pricelist
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_assortment_item__applied_on
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__applied_on
 msgid "Apply On"
 msgstr ""
@@ -57,6 +58,7 @@ msgid ""
 msgstr ""
 
 #. module: product_form_pricelist
+#: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__applied_on
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_item__applied_on
 msgid "Pricelist Item applicable on selected option"
 msgstr ""
@@ -68,11 +70,13 @@ msgstr ""
 
 #. module: product_form_pricelist
 #: model:ir.model,name:product_form_pricelist.model_product_template
+#: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_assortment_item__product_tmpl_id
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__product_tmpl_id
 msgid "Product"
 msgstr ""
 
 #. module: product_form_pricelist
+#: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__product_tmpl_id
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_item__product_tmpl_id
 msgid ""
 "Specify a template if this rule only applies to one product template. Keep "

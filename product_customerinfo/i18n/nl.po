@@ -198,6 +198,7 @@ msgid "Other Information"
 msgstr ""
 
 #. module: product_customerinfo
+#: model:ir.model.fields.selection,name:product_customerinfo.selection__product_pricelist_assortment_item__base__partner
 #: model:ir.model.fields.selection,name:product_customerinfo.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
 msgstr ""

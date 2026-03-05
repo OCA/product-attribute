@@ -42,6 +42,7 @@ msgid ""
 msgstr ""
 
 #. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_assortment_item__alternative_pricelist_policy__ignore
 #: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__ignore
 msgid "Ignore alternatives"
 msgstr ""
@@ -82,6 +83,7 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_alternative
+#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_assortment_item__alternative_pricelist_policy__use_lower_price
 #: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__use_lower_price
 msgid "Use lower price"
 msgstr ""

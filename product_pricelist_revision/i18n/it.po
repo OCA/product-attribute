@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 10:31+0000\n"
+"PO-Revision-Date: 2026-02-04 11:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
@@ -67,6 +67,7 @@ msgid "Duplicate Item"
 msgstr "Duplica elemento"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Explicit rule name for this pricelist line."
 msgstr "Nome esplicito della regola per questa riga listino."
@@ -82,11 +83,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -97,6 +93,7 @@ msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Name"
 msgstr "Nome"
@@ -107,11 +104,13 @@ msgid "Percent"
 msgstr "Percentuale"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_price
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
 msgid "Previous Fixed Price"
 msgstr "Prezzo fisso precedente"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Previous Item"
 msgstr "Elemento precedente"
@@ -143,6 +142,7 @@ msgid "Product Variant"
 msgstr "Variante prodotto"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Relation with previous item when duplicate line"
 msgstr "Relazione con l'elemento precedente quando si duplica la riga"
@@ -154,16 +154,29 @@ msgid ""
 "                    This process set start date previous day as end date of\n"
 "                    origin record.\n"
 "                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Note:</strong>\n"
+"                    Only works with fixed price items. The variation %\n"
+"                    will be applied to calculate the new price.\n"
+"                    <br/>\n"
 "                    <br/>"
 msgstr ""
-"Imposta nuova data inizio e percentuale variazione da duplicare.\n"
-"                    Questo processo imposta il giorno precedente la data "
-"inizio come data fine del \n"
-"                    record origine.\n"
+"Imposta una nuova data di inizio e una percentuale di variazione da "
+"duplicare.\n"
+"                    Questo processo imposta la data di inizio del giorno "
+"precedente come data di fine del\n"
+"                    record di origine.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Nota:</strong>\n"
+"                    funziona solo con articoli a prezzo fisso. La "
+"percentuale di variazione\n"
+"                    verrà applicata per calcolare il nuovo prezzo.\n"
 "                    <br/>\n"
 "                    <br/>"
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
 msgid "Variation %"
@@ -173,3 +186,21 @@ msgstr "Variazione %"
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
 msgid "Wizard Product Pricelist Item Duplicate"
 msgstr "Procedura guidata duplicazione elemento listino prodotto"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid ""
+#~ "Set new start date and variation percent to duplicate.\n"
+#~ "                    This process set start date previous day as end date "
+#~ "of\n"
+#~ "                    origin record.\n"
+#~ "                    <br/>\n"
+#~ "                    <br/>"
+#~ msgstr ""
+#~ "Imposta nuova data inizio e percentuale variazione da duplicare.\n"
+#~ "                    Questo processo imposta il giorno precedente la data "
+#~ "inizio come data fine del \n"
+#~ "                    record origine.\n"
+#~ "                    <br/>\n"
+#~ "                    <br/>"

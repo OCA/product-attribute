@@ -17,6 +17,24 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: product_pricelist_supplierinfo
+#. odoo-python
+#: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
+msgid "%(percentage)s %% %(discount_type)s on %(base)s %(extra)s"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#. odoo-python
+#: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
+msgid "+ %(amount)s extra fee"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#. odoo-python
+#: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
+msgid "- %(amount)s rebate"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
 msgid ""
 "Base price for computation.\n"
@@ -74,6 +92,7 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_supplierinfo
+#: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_assortment_item__base__supplierinfo
 #: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_item__base__supplierinfo
 msgid "Prices based on supplier info"
 msgstr "Section Achats/Fournisseurs de la fiche produit"
@@ -109,6 +128,12 @@ msgstr "Liste de prix du fournisseur"
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
 msgid "Supplier filter"
+msgstr ""
+
+#. module: product_pricelist_supplierinfo
+#. odoo-python
+#: code:addons/product_pricelist_supplierinfo/models/product_pricelist_item.py:0
+msgid "supplier's price"
 msgstr ""
 
 #~ msgid "Pricelist"

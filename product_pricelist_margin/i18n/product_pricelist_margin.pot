@@ -14,16 +14,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__cost
 #: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__cost
 msgid "Cost"
 msgstr ""
 
 #. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__margin
 #: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__margin
 msgid "Margin"
 msgstr ""
 
 #. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__margin_percent
 #: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__margin_percent
 msgid "Margin (%)"
 msgstr ""
@@ -34,6 +37,7 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_margin
+#: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_assortment_item__cost
 #: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_item__cost
 msgid ""
 "Value of the product (automatically computed in AVCO).\n"

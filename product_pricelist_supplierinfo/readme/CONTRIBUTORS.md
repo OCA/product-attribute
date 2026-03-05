@@ -6,3 +6,4 @@
 - [TAKOBI](https://takobi.online/):
   - Lorenzo Battistini
 - Andrea Gidalti \<<andreag@vauxoo.com>\>
+- Maciej Wichowski \<<maciej@versada.eu>\>

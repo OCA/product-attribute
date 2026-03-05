@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-product-attribute"
-version = "18.0.20260108.0"
+version = "18.0.20260203.0"
 dependencies = [
     "odoo-addon-product_abc_classification==18.0.*",
     "odoo-addon-product_assortment==18.0.*",
@@ -35,6 +35,7 @@ dependencies = [
     "odoo-addon-product_multi_category==18.0.*",
     "odoo-addon-product_multi_price==18.0.*",
     "odoo-addon-product_net_weight==18.0.*",
+    "odoo-addon-product_next_reception_date==18.0.*",
     "odoo-addon-product_origin==18.0.*",
     "odoo-addon-product_packaging_archive==18.0.*",
     "odoo-addon-product_packaging_calculator==18.0.*",
@@ -45,6 +46,7 @@ dependencies = [
     "odoo-addon-product_packaging_level_vendor==18.0.*",
     "odoo-addon-product_packaging_unit_price_calculator==18.0.*",
     "odoo-addon-product_pricelist_alternative==18.0.*",
+    "odoo-addon-product_pricelist_assortment==18.0.*",
     "odoo-addon-product_pricelist_by_contact==18.0.*",
     "odoo-addon-product_pricelist_direct_print==18.0.*",
     "odoo-addon-product_pricelist_direct_print_company_group==18.0.*",
@@ -57,6 +59,7 @@ dependencies = [
     "odoo-addon-product_pricelist_supplierinfo==18.0.*",
     "odoo-addon-product_print_category==18.0.*",
     "odoo-addon-product_product_template_link==18.0.*",
+    "odoo-addon-product_profile==18.0.*",
     "odoo-addon-product_route_mto==18.0.*",
     "odoo-addon-product_sale_manufactured_for==18.0.*",
     "odoo-addon-product_sale_team==18.0.*",
@@ -75,6 +78,7 @@ dependencies = [
     "odoo-addon-product_supplierinfo_import_margin==18.0.*",
     "odoo-addon-product_supplierinfo_revision==18.0.*",
     "odoo-addon-product_supplierinfo_stock_picking_type==18.0.*",
+    "odoo-addon-product_tag_view==18.0.*",
     "odoo-addon-product_tags_code==18.0.*",
     "odoo-addon-product_total_weight_from_packaging==18.0.*",
     "odoo-addon-product_uom_updatable==18.0.*",

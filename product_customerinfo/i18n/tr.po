@@ -197,8 +197,8 @@ msgid ""
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
 msgstr ""
-"Satınalma siparişi ve ürünlerin deponuza girişi arasındaki hazırlık süresi ("
-"gün olarak). Sistem tarafından satınalma siparişi planlamasının otomatik "
+"Satınalma siparişi ve ürünlerin deponuza girişi arasındaki hazırlık süresi "
+"(gün olarak). Sistem tarafından satınalma siparişi planlamasının otomatik "
 "hesaplanmasında kullanılır."
 
 #. module: product_customerinfo
@@ -207,6 +207,7 @@ msgid "Other Information"
 msgstr "Diğer Bilgiler"
 
 #. module: product_customerinfo
+#: model:ir.model.fields.selection,name:product_customerinfo.selection__product_pricelist_assortment_item__base__partner
 #: model:ir.model.fields.selection,name:product_customerinfo.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
 msgstr "Ürün formunda iş ortağı fiyatları"
@@ -285,8 +286,8 @@ msgstr "Tedarikçi Fiyat Listesi"
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
 msgid ""
 "The minimum quantity to purchase for this customer to benefit from the "
-"price. Expressed in the customer's Product Unit of Measure if set, otherwise"
-" in the default Product Unit of Measure."
+"price. Expressed in the customer's Product Unit of Measure if set, otherwise "
+"in the default Product Unit of Measure."
 msgstr ""
 "Bu müşterinin fiyattan yararlanabilmesi için satın alması gereken minimum "
 "miktar. Belirtilmişse müşterinin Ürün Ölçü Birimi cinsinden, aksi takdirde "
