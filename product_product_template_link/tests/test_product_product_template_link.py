@@ -6,7 +6,7 @@ class TestCommon(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
 
-        cls.products = cls.env["product.product"].create([{"name": "product1"}])
+        cls.products = cls.env["product.product"].search([], limit=1)
 
     def test_action_open_product_template(self):
         actual = {

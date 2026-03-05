@@ -76,6 +76,8 @@ Contributors
 
 - PyTech SRL <info@pytech.it>
 
+- aravindh admin <dustinpinkman00@gmail.com>
+
 Maintainers
 -----------
 
