@@ -1,0 +1,3 @@
+- Simone Orsi \<simone.orsi@camptocamp.com\>
+- Julien Coux \<julien.coux@camptocamp.com\>
+- Prabakaran \<prabakaran@tradesolutions.digital\>
