@@ -9,7 +9,8 @@
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
-    "auto_install": True, # TRESCLOUD: Util para instalación automática desde el autoinstaller
+    # TRESCLOUD: Util para instalación automática desde el autoinstaller
+    "auto_install": True,
     "maintainers": ["dreispt"],
     "development_status": "Beta",
     "depends": ["product_state", "base_tier_validation"],

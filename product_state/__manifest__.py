@@ -7,7 +7,7 @@
     "author": "ACSONE SA/NV, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Product",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "license": "AGPL-3",
     "depends": ["product"],
     "data": [
@@ -18,7 +18,9 @@
         "views/product_state_views.xml",
     ],
     "application": False,
-    "auto_install": True, # TRESCLOUD: Util para instalación automática desde el autoinstaller. Módulo: Product Tier Validation (product_tier_validation)
+    # TRESCLOUD: Util para instalación automática desde el autoinstaller.
+    # Módulo: Product Tier Validation (product_tier_validation)
+    "auto_install": True,
     "maintainers": ["emagdalenaC2i"],
     "post_init_hook": "post_init_hook",
 }
