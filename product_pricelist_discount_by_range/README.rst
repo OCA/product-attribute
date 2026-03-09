@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================================
 Product Pricelist Discount by Range
 ===================================
@@ -17,27 +13,27 @@ Product Pricelist Discount by Range
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/15.0/product_pricelist_discount_by_range
+    :target: https://github.com/OCA/product-attribute/tree/18.0/product_pricelist_discount_by_range
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-15-0/product-attribute-15-0-product_pricelist_discount_by_range
+    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_pricelist_discount_by_range
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows you to define discount ranges in a pricelist based 
-on a reference price (e.g., cost).
-Instead of applying a single discount percentage to all products, 
-you can configure different discount percentages for specific price intervals.
-If the reference price is out of the ranges, the pricelist will not be applied 
-and Odoo will show a warning.
+This module allows you to define discount ranges in a pricelist based on
+a reference price (e.g., cost). Instead of applying a single discount
+percentage to all products, you can configure different discount
+percentages for specific price intervals. If the reference price is out
+of the ranges, the pricelist will not be applied and Odoo will show a
+warning.
 
 **Table of contents**
 
@@ -47,29 +43,30 @@ and Odoo will show a warning.
 Configuration
 =============
 
-To configure pricelists with the new feature of this module, you need to:
+To configure pricelists with the new feature of this module, you need
+to:
 
-#. Go to *Sales > Configuration > Settings* and check
-   "Pricelists" option and "Advanced price rules (discounts, formulas)"
-   after that. You must have correct permissions and you must install
-   **Sales Management** app (sale) and **Purchase** app to see these settings.
-#. Create or edit a Sales Pricelist at *Sales > Products > Pricelists*.
-#. Add or edit a pricelist item and check "Formula" option in
-   "Price Computation" section and set **Discount Type** to "By range".
-#. You will see the new option "Discount Ranges".
-#. Add discount ranges and save Pricelist.
+1. Go to *Sales > Configuration > Settings* and check "Pricelists"
+   option and "Advanced price rules (discounts, formulas)" after that.
+   You must have correct permissions and you must install **Sales
+   Management** app (sale) and **Purchase** app to see these settings.
+2. Create or edit a Sales Pricelist at *Sales > Products > Pricelists*.
+3. Add or edit a pricelist item and check "Formula" option in "Price
+   Computation" section and set **Discount Type** to "By range".
+4. You will see the new option "Discount Ranges".
+5. Add discount ranges and save Pricelist.
 
 Usage
 =====
 
-For checking pricelists in action, you can (with `sale` module installed):
+For checking pricelists in action, you can (with sale module installed):
 
-#. Go to *Sales > Orders > Quotations*
-#. Create or edit a quotation.
-#. Select a correct pricelist (with discount ranges).
-#. Add a line.
-#. Select a product with the criteria to match the pricelist.
-#. See the proper price appears in the line.
+1. Go to *Sales > Orders > Quotations*
+2. Create or edit a quotation.
+3. Select a correct pricelist (with discount ranges).
+4. Add a line.
+5. Select a product with the criteria to match the pricelist.
+6. See the proper price appears in the line.
 
 Bug Tracker
 ===========
@@ -77,7 +74,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_discount_by_range%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_pricelist_discount_by_range%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -85,20 +82,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com/>`_:
+- `Tecnativa <https://www.tecnativa.com/>`__:
 
-  * Andrii Kompaniiets
-  * Pedro M. Baeza
+  - Andrii Kompaniiets
+  - Pedro M. Baeza
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -110,6 +107,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/15.0/product_pricelist_discount_by_range>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_pricelist_discount_by_range>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

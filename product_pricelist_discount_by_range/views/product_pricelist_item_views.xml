@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='base']" position="after">
-                    <field
+                <field
                     name="discount_type"
                     widget="radio"
                     options="{'horizontal': true}"
