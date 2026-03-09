@@ -2,3 +2,4 @@
 - Carlos Serra-Toro \<<carlos.serra@camptocamp.com>\>
 - Simone Orsi \<<simone.orsi@camptocamp.com>\>
 - Nhan Tran \<<nhant@trobz.com>\>
+- Thomas Herbin \<<the@apik.cloud>\>
