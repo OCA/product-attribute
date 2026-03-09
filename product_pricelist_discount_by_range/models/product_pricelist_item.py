@@ -1,7 +1,7 @@
 # Copyright 2026 Tecnativa - Andrii Kompaniiets
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models, tools
+from odoo import api, fields, models, tools
 from odoo.exceptions import ValidationError
 
 
@@ -27,7 +27,8 @@ class PricelistItem(models.Model):
             if record.discount_type == "range":
                 record.price_discount = 0.0
 
-    def _compute_price(self, price, price_uom, product, quantity=1.0, partner=False):
+    def _compute_base_price(self, product, quantity, uom, date, currency):
+        price = super()._compute_base_price(product, quantity, uom, date, currency)
         if self.discount_type == "range":
             discount = None
             for discount_range in self.discount_range_ids:
@@ -38,9 +39,9 @@ class PricelistItem(models.Model):
                 price = price * (1 - discount / 100) + discount_range.surcharge
             else:
                 raise ValidationError(
-                    _("Discount range not found for the given price.")
+                    self.env._("Discount range not found for the given price.")
                 )
-        return super()._compute_price(price, price_uom, product, quantity, partner)
+        return price
 
     @api.depends("discount_type", "discount_range_ids")
     def _compute_rule_tip(self):
@@ -65,11 +66,12 @@ class PricelistItem(models.Model):
                         discounted_price = tools.float_round(
                             discounted_price, precision_rounding=record.price_round
                         )
-                    text += _(
+                    text += self.env._(
                         "%(base)s from %(min)s to %(max)s: %(discount)s%% "
                         "discount and %(price_surcharge)s extra fee and "
                         "%(surcharge)s surcharge\n"
-                        " - Example: %(amount)s * %(discount_charge)s + %(price_surcharge)s + "
+                        " - Example: %(amount)s * %(discount_charge)s + "
+                        "%(price_surcharge)s + "
                         "%(surcharge)s → %(total_amount)s \n",
                         base=base_selection_vals[record.base],
                         discount=discount_range.percentage,
@@ -95,4 +97,4 @@ class PricelistItem(models.Model):
                     )
                 record.rule_tip = text
             else:
-                return super(PricelistItem, record)._compute_rule_tip()
+                return super()._compute_rule_tip()

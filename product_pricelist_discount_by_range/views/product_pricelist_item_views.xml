@@ -10,37 +10,37 @@
                     name="discount_type"
                     widget="radio"
                     options="{'horizontal': true}"
-                    attrs="{'invisible': [('compute_price', '!=', 'formula')]}"
+                    invisible="compute_price != 'formula'"
                 />
                 <div class="o_row" />
                 <field
                     name="discount_range_ids"
                     nolabel="1"
                     string="Discount Ranges"
-                    attrs="{'invisible': [('discount_type', '!=', 'range')]}"
+                    invisible="discount_type != 'range'"
                 >
-                    <tree editable="bottom" create="true" delete="true" edit="true">
+                    <list editable="bottom" create="true" delete="true" edit="true">
                         <field name="min" />
                         <field name="max" />
                         <field name="percentage" string="%" />
                         <field name="surcharge" string="Surcharge" />
-                    </tree>
+                    </list>
                 </field>
             </xpath>
             <xpath expr="//field[@name='price_discount']/.." position="attributes">
-                <attribute name="attrs">
-                    {'invisible': ['|',
+                <attribute name="invisible">
+                    ['|',
                         ('compute_price', '!=', 'formula'),
                         ('discount_type', '=', 'range')
-                    ]}
+                    ]
                 </attribute>
             </xpath>
             <xpath expr="//label[@for='price_discount']" position="attributes">
-                <attribute name="attrs">
-                    {'invisible': ['|',
+                <attribute name="invisible">
+                    ['|',
                         ('compute_price', '!=', 'formula'),
                         ('discount_type', '=', 'range')
-                    ]}
+                    ]
                 </attribute>
             </xpath>
         </field>

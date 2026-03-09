@@ -77,10 +77,7 @@ class TestDiscountRange(TransactionCase):
             )
 
     def _calculate_price(self):
-        products_qty_partner = [
-            (self.product, 1.0, False),
-        ]
-        product_price = self.pricelist._compute_price_rule(products_qty_partner)
+        product_price = self.pricelist._compute_price_rule(self.product, 1.0)
         return product_price[self.product.id][0]
 
     def test_discount_application_for_standard_price(self):

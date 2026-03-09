@@ -1,7 +1,7 @@
 # Copyright 2026 Tecnativa - Andrii Kompaniiets
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -33,14 +33,13 @@ class ProductPricelistItemDiscountRange(models.Model):
             overlap = self.search(domain, limit=1)
             if overlap:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The discount range %(min)s - %(max)s "
-                        "overlaps with an existing one %(overlap_min)s - %(overlap_max)s."
+                        "overlaps with an existing one %(overlap_min)s - "
+                        "%(overlap_max)s.",
+                        min=record.min,
+                        max=record.max,
+                        overlap_min=overlap.min,
+                        overlap_max=overlap.max,
                     )
-                    % {
-                        "min": record.min,
-                        "max": record.max,
-                        "overlap_min": overlap.min,
-                        "overlap_max": overlap.max,
-                    }
                 )
