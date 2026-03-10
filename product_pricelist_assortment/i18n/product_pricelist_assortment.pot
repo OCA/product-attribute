@@ -139,6 +139,16 @@ msgid "Currency Rate Tooltip"
 msgstr ""
 
 #. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_range_ids
+msgid "Discount Range"
+msgstr ""
+
+#. module: product_pricelist_assortment
+#: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_type
+msgid "Discount Type"
+msgstr ""
+
+#. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_applied_on
 msgid "Display Applied On"
 msgstr ""
