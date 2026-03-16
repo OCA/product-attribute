@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_pricelist_item_history_list" model="ir.ui.view">
+        <field name="name">product.pricelist.item.history.list</field>
+        <field name="model">product.pricelist.item.history</field>
+        <field name="arch" type="xml">
+            <list string="Price History" create="false" edit="false" delete="true">
+                <header>
+                    <button
+                        string="Print Labels"
+                        type="object"
+                        name="action_open_label_layout"
+                    />
+                </header>
+                <field name="product_id" widget="many2one_clickable" />
+                <field name="pricelist_id" widget="many2one_clickable" />
+                <field name="old_price" widget="monetary" />
+                <field name="new_price" widget="monetary" />
+                <field name="change_date" optional="hide" />
+                <field name="user_id" optional="hide" widget="many2one_avatar_user" />
+                <field name="active" column_invisible="True" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pricelist_item_history_search" model="ir.ui.view">
+        <field name="name">product.pricelist.item.history.search</field>
+        <field name="model">product.pricelist.item.history</field>
+        <field name="arch" type="xml">
+            <search string="Search History">
+                <field name="product_id" />
+                <field name="pricelist_id" />
+                <field name="user_id" />
+                <separator />
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Pricelist"
+                        name="group_by_pricelist"
+                        context="{'group_by': 'pricelist_id'}"
+                    />
+                    <filter
+                        string="Product"
+                        name="group_by_product"
+                        context="{'group_by': 'product_id'}"
+                    />
+                    <filter
+                        string="User"
+                        name="group_by_user"
+                        context="{'group_by': 'user_id'}"
+                    />
+                    <filter
+                        string="Date"
+                        name="group_by_date"
+                        context="{'group_by': 'change_date:day'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_product_pricelist_history" model="ir.actions.act_window">
+        <field name="name">Historical Pricelist</field>
+        <field name="res_model">product.pricelist.item.history</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_active': 1}</field>
+    </record>
+
+    <menuitem
+        id="menu_product_pricelist_history"
+        name="Historical Pricelist"
+        parent="sale.product_menu_catalog"
+        action="action_product_pricelist_history"
+        sequence="100"
+    />
+</odoo>
