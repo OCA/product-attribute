@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-03-17 11:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_discount_by_range
 #. odoo-python
@@ -21,115 +23,119 @@ msgid ""
 "%(base)s from %(min)s to %(max)s: %(discount)s%% discount and %(price_surcharge)s extra fee and %(surcharge)s surcharge\n"
 " - Example: %(amount)s * %(discount_charge)s + %(price_surcharge)s + %(surcharge)s → %(total_amount)s \n"
 msgstr ""
+"%(base)s da %(min)s a %(max)s: %(discount)s%% di sconto e %(price_surcharge)"
+"s costo aggiuntivo e %(surcharge)s supplemento\n"
+"- Esempio: %(amount)s * %(discount_charge)s + %(price_surcharge)s + %"
+"(surcharge)s → %(total_amount.BKP)s \n"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields.selection,name:product_pricelist_discount_by_range.selection__product_pricelist_assortment_item__discount_type__range
 #: model:ir.model.fields.selection,name:product_pricelist_discount_by_range.selection__product_pricelist_item__discount_type__range
 msgid "By range"
-msgstr ""
+msgstr "Per intervallo"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item__discount_range_ids
 msgid "Discount Range"
-msgstr ""
+msgstr "Intervallo sconto"
 
 #. module: product_pricelist_discount_by_range
 #: model_terms:ir.ui.view,arch_db:product_pricelist_discount_by_range.product_pricelist_supplier_item_form_view
 msgid "Discount Ranges"
-msgstr ""
+msgstr "Intervalli sconto"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item__discount_type
 msgid "Discount Type"
-msgstr ""
+msgstr "Tipo sconto"
 
 #. module: product_pricelist_discount_by_range
 #. odoo-python
 #: code:addons/product_pricelist_discount_by_range/models/product_pricelist_item.py:0
 msgid "Discount range not found for the given price."
-msgstr ""
+msgstr "Nessun intervallo sconto trovato per il prezzo dato."
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__max
 msgid "Max"
-msgstr ""
+msgstr "Massimo"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__min
 msgid "Min"
-msgstr ""
+msgstr "Minimo"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.constraint,message:product_pricelist_discount_by_range.constraint_product_pricelist_item_discount_range_min_gt_max
 msgid "Min value must be less than max value."
-msgstr ""
+msgstr "Il valore minimo deve essere inferiore al massimo."
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__percentage
 msgid "Percentage"
-msgstr ""
+msgstr "Percentuale"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item__price_discount
 msgid "Price Discount"
-msgstr ""
+msgstr "Sconto sul prezzo"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__pricelist_item_id
 msgid "Pricelist Item"
-msgstr ""
+msgstr "Articolo listino prezzi"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model,name:product_pricelist_discount_by_range.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Regola listino prezzi"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model,name:product_pricelist_discount_by_range.model_product_pricelist_item_discount_range
 msgid "Product Pricelist Item Discount Range"
-msgstr ""
+msgstr "Intervallo sconto elemento listino prodotto"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields.selection,name:product_pricelist_discount_by_range.selection__product_pricelist_assortment_item__discount_type__simple
 #: model:ir.model.fields.selection,name:product_pricelist_discount_by_range.selection__product_pricelist_item__discount_type__simple
 msgid "Simple"
-msgstr ""
+msgstr "Semplice"
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,field_description:product_pricelist_discount_by_range.field_product_pricelist_item_discount_range__surcharge
 #: model_terms:ir.ui.view,arch_db:product_pricelist_discount_by_range.product_pricelist_supplier_item_form_view
 msgid "Surcharge"
-msgstr ""
+msgstr "Supplemento"
 
 #. module: product_pricelist_discount_by_range
 #. odoo-python
@@ -138,8 +144,10 @@ msgid ""
 "The discount range %(min)s - %(max)s overlaps with an existing one "
 "%(overlap_min)s - %(overlap_max)s."
 msgstr ""
+"L'intervallo di sconto %(min)s - %(max)s si sovrappone a un intervallo "
+"esistente %(overlap_min)s - %(overlap_max)s."
 
 #. module: product_pricelist_discount_by_range
 #: model:ir.model.fields,help:product_pricelist_discount_by_range.field_product_pricelist_item__price_discount
 msgid "You can apply a mark-up by setting a negative discount."
-msgstr ""
+msgstr "Su può applicare un supplemento impostando uno sconto negativo."
