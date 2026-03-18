@@ -23,6 +23,7 @@
                         <field name="min" />
                         <field name="max" />
                         <field name="percentage" string="%" />
+                        <field name="surcharge" string="Surcharge" />
                     </tree>
                 </field>
             </xpath>
