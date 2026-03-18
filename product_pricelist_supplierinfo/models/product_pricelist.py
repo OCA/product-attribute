@@ -20,12 +20,21 @@ class ProductPricelist(models.Model):
         for product, qty, _partner in products_qty_partner:
             rule = rule_obj.browse(result[product.id][1])
             if rule.compute_price == "formula" and rule.base == "supplierinfo":
-                result[product.id] = (
+                qty_uom_id = self._context.get("uom") or product.uom_id.id
+                price_uom = self.env["uom.uom"].browse([qty_uom_id])
+                price = rule._compute_price(
                     product.sudo()._get_supplierinfo_pricelist_price(
                         rule,
                         date=date or context.get("date", fields.Date.today()),
                         quantity=qty,
                     ),
+                    price_uom,
+                    product,
+                    quantity=qty,
+                    partner=_partner,
+                )
+                result[product.id] = (
+                    price,
                     rule.id,
                 )
         return result
