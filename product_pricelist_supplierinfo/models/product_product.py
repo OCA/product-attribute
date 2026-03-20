@@ -3,7 +3,7 @@
 # Copyright 2019 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models
+from odoo import fields, models
 
 
 class ProductProduct(models.Model):
@@ -28,12 +28,18 @@ class ProductProduct(models.Model):
     def _price_compute(
         self, price_type, uom=None, currency=None, company=None, date=False
     ):
-        """Return dummy not falsy prices when computation is done from supplier
-        info for avoiding error on super method. We will later fill these with
-        correct values.
-        """
         if price_type == "supplierinfo":
-            return dict.fromkeys(self.ids, 1.0)
+            prices = dict.fromkeys(self.ids, 0.0)
+            rule = self.env["product.pricelist.item"].browse(
+                self.env.context.get("supplierinfo_rule")
+            )
+            for product in self:
+                prices[product.id] = product._get_supplierinfo_pricelist_price(
+                    rule,
+                    date=date or self.env.context.get("date", fields.Date.today()),
+                    quantity=self.env.context.get("supplierinfo_quantity", 1),
+                )
+            return prices
         return super()._price_compute(
             price_type,
             uom=uom,
