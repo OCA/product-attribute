@@ -29,7 +29,12 @@
                     </group>
                     <group string="Order Options">
                         <field name="order_field" />
-                        <field name="group_field" />
+                        <field name="group_field" invisible="not show_variants" />
+                        <field
+                            name="group_field_template"
+                            invisible="show_variants"
+                            string="Group Field"
+                        />
                         <field name="max_categ_level" />
                     </group>
                     <group string="Product Options">

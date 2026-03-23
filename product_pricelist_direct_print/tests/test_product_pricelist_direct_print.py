@@ -1,6 +1,7 @@
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from odoo import Command
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase, tagged
 
@@ -38,11 +39,25 @@ class TestProductPricelistDirectPrint(TransactionCase):
         cls.category_child = cls.env["product.category"].create(
             {"name": "Test category child", "parent_id": cls.category.id}
         )
+        cls.tag_01 = cls.env["product.tag"].create({"name": "Test 01"})
+        cls.tag_02 = cls.env["product.tag"].create({"name": "Test 02"})
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Product for test",
                 "categ_id": cls.category.id,
                 "default_code": "TESTPROD01",
+                "product_tag_ids": [
+                    Command.link(cls.tag_01.id),
+                    Command.link(cls.tag_02.id),
+                ],
+            }
+        )
+        cls.product2 = cls.env["product.product"].create(
+            {
+                "name": "Product for test New",
+                "categ_id": cls.category.id,
+                "default_code": "TESTPRODNEW",
+                "product_tag_ids": [Command.link(cls.tag_02.id)],
             }
         )
         cls.partner = cls.env["res.partner"].create(
@@ -175,6 +190,25 @@ class TestProductPricelistDirectPrint(TransactionCase):
         wiz.show_variants = True
         products = wiz.get_products_to_print()
         self.assertIn(self.product, products)
+
+    def test_group_field_m2m(self):
+        wiz = self.wiz_obj.with_context(
+            active_model="product.pricelist",
+            active_id=self.pricelist.id,
+        ).create({})
+        wiz.group_field_template = "product_tag_ids"
+        groups = wiz.get_groups_to_print()
+        group_names = [x["group_name"] for x in groups]
+        self.assertIn("Test 01", group_names)
+        self.assertIn("Test 02", group_names)
+        for group in groups:
+            if group["group_name"] == "Test 01":
+                self.assertEqual(group["products"], self.product.product_tmpl_id)
+            if group["group_name"] == "Test 02":
+                self.assertEqual(
+                    group["products"],
+                    self.product.product_tmpl_id + self.product2.product_tmpl_id,
+                )
 
     def test_parent_categories(self):
         product_category_child = self.env["product.template"].create(

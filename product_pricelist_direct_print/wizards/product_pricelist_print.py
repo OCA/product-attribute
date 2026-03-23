@@ -61,6 +61,11 @@ class ProductPricelistPrint(models.TransientModel):
         default="categ_id",
         required=True,
     )
+    group_field_template = fields.Selection(
+        selection=lambda x: x._selection_group_field(model="product.template"),
+        default="categ_id",
+        required=True,
+    )
     partner_count = fields.Integer(compute="_compute_partner_count")
     date = fields.Datetime(required=True, default=fields.Datetime.now)
     last_ordered_products = fields.Integer(
@@ -173,14 +178,14 @@ class ProductPricelistPrint(models.TransientModel):
                 res["categ_ids"] = [(6, 0, category_items.mapped("categ_id").ids)]
         return res
 
-    def _selection_group_field(self):
+    def _selection_group_field(self, model="product.product"):
         fields = (
             self.env["ir.model.fields"]
             .sudo()
             .search(
                 [
-                    ("model", "=", "product.product"),
-                    ("ttype", "=", "many2one"),
+                    ("model", "=", model),
+                    ("ttype", "in", ["many2one", "many2many"]),
                 ]
             )
         )
@@ -374,13 +379,22 @@ class ProductPricelistPrint(models.TransientModel):
         return products
 
     def get_group_key(self, product):
-        group_field = getattr(product, self.group_field)
-        complete_name = getattr(group_field, "complete_name", group_field.name) or _(
-            "Undefined"
+        group_field_name = (
+            self.group_field if self.show_variants else self.group_field_template
         )
-        if not self.max_categ_level:
-            return complete_name
-        return " / ".join(complete_name.split(" / ")[: self.max_categ_level])
+        group_fields = getattr(product, group_field_name)
+        res = []
+        for group_field in group_fields:
+            complete_name = getattr(group_field, "complete_name", group_field.name)
+            if not self.max_categ_level:
+                res.append(complete_name)
+            else:
+                res.append(
+                    " / ".join(complete_name.split(" / ")[: self.max_categ_level])
+                )
+        if len(res) == 0:
+            res.append(_("Undefined"))
+        return res
 
     def get_sorted_products(self, products):
         if self.order_field:
@@ -395,8 +409,9 @@ class ProductPricelistPrint(models.TransientModel):
             return []
         group_dict = defaultdict(lambda: products.browse())
         for product in products:
-            key = self.get_group_key(product)
-            group_dict[key] |= product
+            keys = self.get_group_key(product)
+            for key in keys:
+                group_dict[key] |= product
         group_list = []
         for key in sorted(group_dict.keys()):
             group_list.append(
