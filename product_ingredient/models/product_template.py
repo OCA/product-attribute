@@ -6,9 +6,10 @@ from odoo import fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    allergen_id = fields.Many2many(related="product_variant_ids.allergen_id")
+    allergen_ids = fields.Many2many(related="product_variant_ids.allergen_ids")
     ingredient_ids = fields.One2many(
-        related="product_variant_ids.ingredient_ids", readonly=False
+        related="product_variant_ids.ingredient_ids",
+        readonly=False,
     )
     ingredient_allergen_trace_ids = fields.Many2many(
         related="product_variant_ids.ingredient_allergen_trace_ids", readonly=False
