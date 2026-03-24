@@ -6,11 +6,15 @@ from odoo import api, fields, models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    allergen_id = fields.Many2many(
-        comodel_name="product.attribute.value", compute="_compute_allergen_id"
+    allergen_ids = fields.Many2many(
+        comodel_name="product.attribute.value",
+        compute="_compute_allergen_id",
+        string="Allergens",
     )
     ingredient_ids = fields.One2many(
-        comodel_name="product.ingredient.value", inverse_name="product_id"
+        comodel_name="product.ingredient.value",
+        inverse_name="product_id",
+        string="Ingredients",
     )
     ingredient_allergen_trace_ids = fields.Many2many(
         comodel_name="product.attribute.value",
@@ -25,7 +29,7 @@ class ProductProduct(models.Model):
     @api.depends("ingredient_ids", "ingredient_allergen_trace_ids")
     def _compute_allergen_id(self):
         for product in self:
-            product.allergen_id = (
+            product.allergen_ids = (
                 product.ingredient_ids.mapped("allergen_id")
                 + product.ingredient_allergen_trace_ids
             )

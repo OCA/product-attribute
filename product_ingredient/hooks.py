@@ -5,7 +5,6 @@ from openupgradelib import openupgrade
 
 def pre_init_hook(cr):
     """
-    Create product_allergen_attribute to can be used in get_allergen_id() used in compute
-    methods
+    Create product_allergen_attribute used in compute methods with get_allergen_id()
     """
     openupgrade.load_data(cr, "product_ingredient", "data/product_allergen_data.xml")

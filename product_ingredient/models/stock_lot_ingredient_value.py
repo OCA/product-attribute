@@ -4,13 +4,13 @@ from odoo import fields, models
 
 
 class ProductionLotIngredientValue(models.Model):
-    _name = "production.lot.ingredient.value"
+    _name = "stock.lot.ingredient.value"
     _description = "Ingredient values for a product lots."
     _rec_name = "ingredient_id"
     _order = "sequence, id"
 
     sequence = fields.Integer()
-    lot_id = fields.Many2one(comodel_name="stock.production.lot")
+    lot_id = fields.Many2one(comodel_name="stock.lot")
     # product_id = fields.Many2one(related='lot_id.product_id')
     ingredient_id = fields.Many2one(comodel_name="product.ingredient")
     scientific_name = fields.Char(related="ingredient_id.scientific_name")

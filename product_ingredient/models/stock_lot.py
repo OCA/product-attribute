@@ -1,13 +1,13 @@
 # Copyright 2023 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models
+from odoo import Command, api, fields, models
 
 
-class StockProductionLot(models.Model):
-    _inherit = "stock.production.lot"
+class StockLot(models.Model):
+    _inherit = "stock.lot"
 
     ingredient_ids = fields.One2many(
-        comodel_name="production.lot.ingredient.value",
+        comodel_name="stock.lot.ingredient.value",
         inverse_name="lot_id",
         compute="_compute_ingredient_values",
         store=True,
@@ -30,12 +30,10 @@ class StockProductionLot(models.Model):
     @api.depends("product_id")
     def _compute_ingredient_values(self):
         for lot in self:
-            ingredient_list = [(5, 0, 0)]
+            ingredient_list = [Command.clear()]
             for ingredient_line in lot.product_id.ingredient_ids:
                 ingredient_list.append(
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "sequence": ingredient_line.sequence,
                             "ingredient_id": ingredient_line.ingredient_id.id,

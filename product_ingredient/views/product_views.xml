@@ -7,21 +7,21 @@
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
             <page name="inventory" position="after">
-                <page string="Ingredients">
+                <page string="Ingredients" invisible="type != 'consu'">
                     <group>
                         <field
                             name="ingredient_ids"
                             nolabel="1"
                             context="{'show_attribute': False}"
                         >
-                            <tree editable="bottom" default_order="sequence, id">
+                            <list editable="bottom" default_order="sequence, id">
                                 <field name="sequence" widget="handle" />
-                                <field name="product_id" invisible="1" />
+                                <field name="product_id" column_invisible="1" />
                                 <field name="ingredient_id" />
                                 <field name="allergen_id" optional="show" />
                                 <field name="scientific_name" optional="show" />
                                 <field name="percentage" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group>
@@ -30,7 +30,7 @@
                             widget="many2many_tags"
                         />
                         <field name="ingredient_additional_info" />
-                        <field name="allergen_id" widget="many2many_tags" />
+                        <field name="allergen_ids" widget="many2many_tags" />
                     </group>
                 </page>
             </page>
@@ -44,7 +44,7 @@
             <page name="inventory" position="after">
                 <page
                     string="Ingredients"
-                    attrs="{'invisible': [['product_variant_count', '!=', 1]]}"
+                    invisible="product_variant_count != 1 or type != 'consu'"
                 >
                     <group>
                         <field
@@ -52,14 +52,14 @@
                             nolabel="1"
                             context="{'show_attribute': False}"
                         >
-                            <tree editable="bottom" default_order="sequence, id">
+                            <list editable="bottom" default_order="sequence, id">
                                 <field name="sequence" widget="handle" />
-                                <field name="product_id" invisible="1" />
+                                <field name="product_id" column_invisible="1" />
                                 <field name="ingredient_id" />
                                 <field name="allergen_id" optional="show" />
                                 <field name="scientific_name" optional="show" />
                                 <field name="percentage" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group>
