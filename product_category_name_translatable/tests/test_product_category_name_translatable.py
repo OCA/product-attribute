@@ -9,11 +9,11 @@ class TestProductCategoryNameTranslatable(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        categ_obj = cls.env["product.category"]
-        cls.parent_categ = categ_obj.create({"name": "Test Category"})
-        lang_es = cls.env.ref("base.lang_es")
-        if not lang_es.active:
-            lang_es.toggle_active()
+        cls.categ_obj = cls.env["product.category"]
+        cls.parent_categ = cls.categ_obj.create({"name": "Test Category"})
+        cls.lang_es = cls.env.ref("base.lang_es")
+        if not cls.lang_es.active:
+            cls.lang_es.toggle_active()
 
     def test_product_category_name_translatable(self):
         # Update translated name
@@ -24,3 +24,20 @@ class TestProductCategoryNameTranslatable(BaseCommon):
             self.parent_categ.with_context(lang="es_ES").name, "Categoria de Prueba"
         )
         self.assertEqual(self.parent_categ.name, "Test Category")
+
+    def test_product_category_name_translatable_complete_name(self):
+        # Create child category
+        categ = self.categ_obj.create(
+            {"name": "Child Category", "parent_id": self.parent_categ.id}
+        )
+        # Set translations
+        self.parent_categ.with_context(lang="es_ES").write(
+            {"name": "Categoria de Prueba"}
+        )
+        categ.with_context(lang="es_ES").write({"name": "Categoria Hija"})
+        # Update language in settings and check complete name
+        self.env["ir.config_parameter"].set_param(
+            "product_category_name_translatable.complete_name_lang_id", self.lang_es.id
+        )
+        (categ | self.parent_categ)._compute_complete_name()
+        self.assertEqual(categ.complete_name, "Categoria de Prueba / Categoria Hija")

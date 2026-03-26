@@ -10,5 +10,5 @@
     "website": "https://github.com/OCA/product-attribute",
     "license": "AGPL-3",
     "depends": ["product"],
-    "data": [],
+    "data": ["views/res_config_settings_views.xml"],
 }
