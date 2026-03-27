@@ -375,29 +375,126 @@ model to establish dependencies on specific product attribute values. By
 inheriting from this mixin, developers can easily link business rules,
 configurations, or records to precise product variants without
 duplicating complex filtering logic.</p>
-<ul class="simple">
-<li>Automatically computes available products and attribute values based
-on the selected product.template.</li>
-<li>Supports domain construction to filter attribute values based on
-context.</li>
-<li>Matching Logic: Includes a is_matching_product(product) method to
-validate whether a specific product variant satisfies the configured
-attribute constraints.</li>
-</ul>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#bug-tracker" id="toc-entry-1">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="toc-entry-2">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="toc-entry-3">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="toc-entry-4">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="toc-entry-5">Maintainers</a></li>
+<li><a class="reference internal" href="#usage" id="toc-entry-1">Usage</a><ul>
+<li><a class="reference internal" href="#fields" id="toc-entry-2">Fields</a></li>
+<li><a class="reference internal" href="#inheriting-the-mixin" id="toc-entry-3">Inheriting the Mixin</a></li>
+<li><a class="reference internal" href="#using-the-domain-fields-in-a-form-view" id="toc-entry-4">Using the Domain Fields in a Form View</a></li>
+<li><a class="reference internal" href="#matching-logic" id="toc-entry-5">Matching Logic</a></li>
+<li><a class="reference internal" href="#using-is-matching-product" id="toc-entry-6">Using <tt class="docutils literal">is_matching_product</tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-7">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-8">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-9">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-10">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-11">Maintainers</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="usage">
+<h1><a class="toc-backref" href="#toc-entry-1">Usage</a></h1>
+<div class="section" id="fields">
+<h2><a class="toc-backref" href="#toc-entry-2">Fields</a></h2>
+<p>The mixin exposes the following fields:</p>
+<ul class="simple">
+<li><tt class="docutils literal">product_tmpl_id</tt>: the product template to filter on (optional).</li>
+<li><tt class="docutils literal">product_id</tt>: a specific product variant (optional).</li>
+<li><tt class="docutils literal">attribute_value_ids</tt>: a set of attribute values to filter on
+(optional).</li>
+<li><tt class="docutils literal">available_product_domain</tt>: a computed domain to restrict the
+selection of <tt class="docutils literal">product_id</tt> in views, based on <tt class="docutils literal">product_tmpl_id</tt>.</li>
+<li><tt class="docutils literal">available_attribute_value_domain</tt>: a computed domain to restrict
+the selection of <tt class="docutils literal">attribute_value_ids</tt> in views, based on
+<tt class="docutils literal">product_tmpl_id</tt>.</li>
+</ul>
+</div>
+<div class="section" id="inheriting-the-mixin">
+<h2><a class="toc-backref" href="#toc-entry-3">Inheriting the Mixin</a></h2>
+<p>To use this mixin, inherit from <tt class="docutils literal">attribute.value.dependent.mixin</tt> in
+your model alongside your base model:</p>
+<pre class="code python literal-block">
+<span class="kn">from</span><span class="w"> </span><span class="nn">odoo</span><span class="w"> </span><span class="kn">import</span> <span class="n">fields</span><span class="p">,</span> <span class="n">models</span><span class="w">
+
+
+</span><span class="k">class</span><span class="w"> </span><span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span><span class="w">
+</span>    <span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;my.model&quot;</span><span class="w">
+</span>    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my.model&quot;</span><span class="p">,</span> <span class="s2">&quot;attribute.value.dependent.mixin&quot;</span><span class="p">]</span>
+</pre>
+<p>All fields from the mixin (<tt class="docutils literal">product_tmpl_id</tt>, <tt class="docutils literal">product_id</tt>,
+<tt class="docutils literal">attribute_value_ids</tt>, <tt class="docutils literal">available_product_domain</tt>,
+<tt class="docutils literal">available_attribute_value_domain</tt>) are automatically available on
+your model.</p>
+</div>
+<div class="section" id="using-the-domain-fields-in-a-form-view">
+<h2><a class="toc-backref" href="#toc-entry-4">Using the Domain Fields in a Form View</a></h2>
+<p>The computed domain fields must be referenced in the <tt class="docutils literal">domain</tt>
+attribute of the corresponding fields in the view. Odoo 18.0
+automatically loads fields referenced in <tt class="docutils literal">domain</tt> attributes, so no
+additional declaration is needed.</p>
+<pre class="code xml literal-block">
+<span class="nt">&lt;record</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;view_my_model_form&quot;</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span><span class="w">
+    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>my.model.form<span class="nt">&lt;/field&gt;</span><span class="w">
+    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>my.model<span class="nt">&lt;/field&gt;</span><span class="w">
+    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arch&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span><span class="w">
+        </span><span class="nt">&lt;form&gt;</span><span class="w">
+            </span><span class="nt">&lt;group&gt;</span><span class="w">
+                </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;product_tmpl_id&quot;</span><span class="nt">/&gt;</span><span class="w">
+                </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;product_id&quot;</span><span class="w">
+                       </span><span class="na">domain=</span><span class="s">&quot;available_product_domain&quot;</span><span class="w">
+                       </span><span class="na">context=</span><span class="s">&quot;{'default_product_tmpl_id': product_tmpl_id}&quot;</span><span class="nt">/&gt;</span><span class="w">
+                </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;attribute_value_ids&quot;</span><span class="w">
+                       </span><span class="na">domain=</span><span class="s">&quot;available_attribute_value_domain&quot;</span><span class="w">
+                       </span><span class="na">widget=</span><span class="s">&quot;many2many_tags&quot;</span><span class="nt">/&gt;</span><span class="w">
+            </span><span class="nt">&lt;/group&gt;</span><span class="w">
+        </span><span class="nt">&lt;/form&gt;</span><span class="w">
+    </span><span class="nt">&lt;/field&gt;</span><span class="w">
+</span><span class="nt">&lt;/record&gt;</span>
+</pre>
+</div>
+<div class="section" id="matching-logic">
+<h2><a class="toc-backref" href="#toc-entry-5">Matching Logic</a></h2>
+<p>The <tt class="docutils literal">is_matching_product(product)</tt> method validates whether a given
+product variant satisfies the configured constraints. All fields are
+optional and act as independent filters combined with AND logic:</p>
+<ul class="simple">
+<li>If <tt class="docutils literal">product_id</tt> is set, it is the most restrictive criterion: the
+method returns <tt class="docutils literal">True</tt> only if the given product is exactly that
+variant, regardless of other fields.</li>
+<li>If <tt class="docutils literal">product_tmpl_id</tt> is set, the given product must belong to that
+template.</li>
+<li>If <tt class="docutils literal">attribute_value_ids</tt> is set, the given product must match the
+configured attribute values with the following logic:<ul>
+<li>Values belonging to the <strong>same attribute</strong> are combined with <strong>OR</strong>
+(e.g. size S <em>or</em> M).</li>
+<li>Values belonging to <strong>different attributes</strong> are combined with
+<strong>AND</strong> (e.g. size S or M <em>and</em> color Red).</li>
+<li>Since an attribute value can exist across multiple templates,
+<tt class="docutils literal">product_tmpl_id</tt> and <tt class="docutils literal">attribute_value_ids</tt> should be used
+together to avoid unintended matches across templates.</li>
+</ul>
+</li>
+<li>If no field is set, the method returns <tt class="docutils literal">True</tt> for any product (no
+constraint).</li>
+</ul>
+</div>
+<div class="section" id="using-is-matching-product">
+<h2><a class="toc-backref" href="#toc-entry-6">Using <tt class="docutils literal">is_matching_product</tt></a></h2>
+<p>The <tt class="docutils literal">is_matching_product(product)</tt> method can be called from Python
+code to check whether a given <tt class="docutils literal">product.product</tt> record satisfies the
+constraints defined on a mixin record:</p>
+<pre class="code python literal-block">
+<span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s2">&quot;my.model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([]):</span><span class="w">
+</span>    <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">is_matching_product</span><span class="p">(</span><span class="n">product</span><span class="p">):</span><span class="w">
+</span>        <span class="c1"># apply rule</span>
+</pre>
+</div>
+</div>
 <div class="section" id="bug-tracker">
-<h1><a class="toc-backref" href="#toc-entry-1">Bug Tracker</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-7">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
@@ -405,24 +502,25 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h1><a class="toc-backref" href="#toc-entry-2">Credits</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-8">Credits</a></h1>
 <div class="section" id="authors">
-<h2><a class="toc-backref" href="#toc-entry-3">Authors</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-9">Authors</a></h2>
 <ul class="simple">
 <li>Akretion</li>
 </ul>
 </div>
 <div class="section" id="contributors">
-<h2><a class="toc-backref" href="#toc-entry-4">Contributors</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-10">Contributors</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.akretion.com">Akretion</a><ul>
 <li>Chafique Delli &lt;<a class="reference external" href="mailto:chafique.delli&#64;akretion.com">chafique.delli&#64;akretion.com</a>&gt;</li>
+<li>Guillaume Masson &lt;<a class="reference external" href="mailto:guillaume.masson&#64;akretion.com">guillaume.masson&#64;akretion.com</a>&gt;</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="maintainers">
-<h2><a class="toc-backref" href="#toc-entry-5">Maintainers</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-11">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org">
 <img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
