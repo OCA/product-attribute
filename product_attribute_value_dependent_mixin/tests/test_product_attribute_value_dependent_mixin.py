@@ -33,7 +33,7 @@ class TestProductAttributeValueDependentMixin(TransactionCase, FakeModelLoader):
     @classmethod
     def tearDownClass(cls):
         cls.loader.restore_registry()
-        super(TestProductAttributeValueDependentMixin, cls).tearDownClass()
+        super().tearDownClass()
 
     def test_product_attribute_value_dependent_mixin(self):
         fake_model = self.product_supplierinfo_fake
