@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <function
+        model="product.state"
+        name="write"
+        eval="[
+            [
+                ref('product_state.product_state_draft'),
+                ref('product_state.product_state_end'),
+                ref('product_state.product_state_obsolete'),
+            ],
+            {'active': False},
+        ]"
+    />
+</odoo>
