@@ -14,7 +14,7 @@
                 />
             </xpath>
             <xpath expr="//field[@name='name']" position="after">
-                <field name="active" options='{"always_reload": True}' />
+                <field name="active" />
             </xpath>
         </field>
     </record>
