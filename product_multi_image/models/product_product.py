@@ -23,8 +23,8 @@ class ProductProduct(models.Model):
     def _compute_image_ids(self):
         for product in self:
             images = product.product_tmpl_id.image_ids.filtered(
-                lambda x: (
-                    not x.product_variant_ids or product.id in x.product_variant_ids.ids
+                lambda x, p=product: (
+                    not x.product_variant_ids or p.id in x.product_variant_ids.ids
                 )
             )
             product.image_ids = [(6, 0, images.ids)]
@@ -39,13 +39,13 @@ class ProductProduct(models.Model):
         for product in self:
             # Priority: variant-specific images first, then generic template images
             images = product.product_tmpl_id.image_ids.filtered(
-                lambda x: product.id in x.product_variant_ids.ids
+                lambda x, p=product: p.id in x.product_variant_ids.ids
             )
-            
+
             # If no variant-specific images, use generic template images
             if not images:
                 images = product.product_tmpl_id.image_ids.filtered(
-                    lambda x: not x.product_variant_ids
+                    lambda x, p=product: not x.product_variant_ids
                 )
 
             if images:
@@ -66,8 +66,8 @@ class ProductProduct(models.Model):
         for product in self:
             # Remember the list of images that were before changes
             previous_images = product.product_tmpl_id.image_ids.filtered(
-                lambda x: (
-                    not x.product_variant_ids or product.id in x.product_variant_ids.ids
+                lambda x, p=product: (
+                    not x.product_variant_ids or p.id in x.product_variant_ids.ids
                 )
             )
             for image in product.image_ids:
@@ -103,8 +103,8 @@ class ProductProduct(models.Model):
         # Remove images that are linked only to the product variant
         for product in self:
             images2remove = product.image_ids.filtered(
-                lambda image: (
-                    product in image.product_variant_ids
+                lambda image, p=product: (
+                    p in image.product_variant_ids
                     and len(image.product_variant_ids) == 1
                 )
             )

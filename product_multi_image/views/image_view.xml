@@ -2,14 +2,13 @@
 <!-- © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
 <odoo>
-
     <record id="image_form_view" model="ir.ui.view">
         <field name="name">Multi image form</field>
         <field name="model">base_multi_image.image</field>
         <field name="inherit_id" ref="base_multi_image.image_form_view" />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <field name="load_from" position="after">
+            <field name="name" position="after">
                 <field
                     name="product_variant_ids"
                     widget="many2many_tags"
@@ -38,13 +37,12 @@
                         </span>
                         <span t-if="record.product_variant_count.value != 0">
                             <i>Visible in <field
-                                    name="product_variant_count"
-                                /> variant(s)</i>
+                                name="product_variant_count"
+                            /> variant(s)</i>
                         </span>
                     </td>
                 </tr>
             </xpath>
         </field>
     </record>
-
 </odoo>

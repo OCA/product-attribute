@@ -7,19 +7,19 @@ _logger = logging.getLogger(__name__)
 
 try:
     from odoo.addons.base_multi_image.hooks import (
-        post_init_hook_for_submodules,
+        pre_init_hook_for_submodules,
         uninstall_hook_for_submodules,
     )
 except ImportError:
     _logger.info("Cannot import base_multi_image hooks")
 
 
-def post_init_hook(cr, registry):
-    post_init_hook_for_submodules(cr, "product.template", "image_1920")
-    post_init_hook_for_submodules(cr, "product.product", "image_variant_1920")
+def post_init_hook(env):
+    pre_init_hook_for_submodules(env, "product.template", "image_1920")
+    pre_init_hook_for_submodules(env, "product.product", "image_variant_1920")
 
 
-def uninstall_hook(cr, registry):
+def uninstall_hook(env):
     """Remove multi images for models that no longer use them."""
-    uninstall_hook_for_submodules(cr, "product.template", "image_1920")
-    uninstall_hook_for_submodules(cr, "product.product", "image_variant_1920")
+    uninstall_hook_for_submodules(env, "product.template", "image_1920")
+    uninstall_hook_for_submodules(env, "product.product", "image_variant_1920")

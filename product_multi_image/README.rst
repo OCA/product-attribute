@@ -17,19 +17,19 @@ Multiple Images in Products
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/16.0/product_multi_image
+    :target: https://github.com/OCA/product-attribute/tree/18.0/product_multi_image
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-16-0/product-attribute-16-0-product_multi_image
+    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_multi_image
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module implements the possibility to have multiple images for a product
-template, a.k.a. an image gallery.
+This module implements the possibility to have multiple images for a
+product template, a.k.a. an image gallery.
 
 **Table of contents**
 
@@ -41,57 +41,61 @@ Installation
 
 To install this module, you need to:
 
-* Install ``base_multi_image`` from
-  `OCA/server-tools <https://github.com/OCA/server-tools>`_.
+- Install ``base_multi_image`` from
+  `OCA/server-tools <https://github.com/OCA/server-tools>`__.
 
 Configuration
 =============
 
 You can manage your images at Product template level:
 
-#. Go to *Sales > Products > Products* and choose a product template.
-#. Go to the *Images* tab.
-#. Add a new image or edit the existing ones.
-#. You can select for which variants you want to make available the image.
-   Keep it empty for making visible in all.
-#. Refresh the page.
-#. The first image in the collection is the main image for the product
+1. Go to *Sales > Products > Products* and choose a product template.
+2. Go to the *Images* tab.
+3. Add a new image or edit the existing ones.
+4. You can select for which variants you want to make available the
+   image. Keep it empty for making visible in all.
+5. Refresh the page.
+6. The first image in the collection is the main image for the product
    template.
 
-Going to product variants form, you can manage also your images, but take
-into account this behaviour:
+Going to product variants form, you can manage also your images, but
+take into account this behaviour:
 
-#. Go to *Sales > Products > Product Variants* and choose a product variant.
-#. If you add an image here, the image is actually added to the product
+1. Go to *Sales > Products > Product Variants* and choose a product
+   variant.
+2. If you add an image here, the image is actually added to the product
    template, and restricted to this variant.
-#. When editing an existing image, the image is changed generally for all
-   the variants where is enabled, not only for this variant.
-#. When removing an image from this form, if the image is only in this variant,
-   the image is removed. Otherwise, the image gets restricted to the rest of
-   the variants where is available.
+3. When editing an existing image, the image is changed generally for
+   all the variants where is enabled, not only for this variant.
+4. When removing an image from this form, if the image is only in this
+   variant, the image is removed. Otherwise, the image gets restricted
+   to the rest of the variants where is available.
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
+|Try me on Runbot|
+
+.. |Try me on Runbot| image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :target: https://runbot.odoo-community.org/runbot/135/9.0
 
 Known issues / Roadmap
 ======================
 
-* When you change the image on the product variant, the preview image of the
-  *Images* tab doesn't get refreshed until you refresh the browser, or if you
-  go to its template, but the image has been actually saved!
-* The field "Available in these variants" appears when opening the image
+- When you change the image on the product variant, the preview image of
+  the *Images* tab doesn't get refreshed until you refresh the browser,
+  or if you go to its template, but the image has been actually saved!
+- The field "Available in these variants" appears when opening the image
   from the product variant.
-* Add logic for handling to add images with the same name that another variant
-  of the same template, renaming the new image to a unique name.
-* Add logic for handling to add the same image in several variants to a
+- Add logic for handling to add images with the same name that another
+  variant of the same template, renaming the new image to a unique name.
+- Add logic for handling to add the same image in several variants to a
   already in another variant for not duplicating bytes.
-* Provide proper migration scripts from module product_images from 7.0.
-* Migrate to v8 api when https://github.com/odoo/odoo/issues/10799 gets fixed.
-* If you try to sort images before saving the product variant or template, you
-  will get an error similar to ``DataError: invalid input syntax for integer:
-  "one2many_v_id_62"``. This bug has not been fixed yet, but a workaround is to
-  save and edit again to sort images.
+- Provide proper migration scripts from module product_images from 7.0.
+- Migrate to v8 api when https://github.com/odoo/odoo/issues/10799 gets
+  fixed.
+- If you try to sort images before saving the product variant or
+  template, you will get an error similar to
+  ``DataError: invalid input syntax for integer: "one2many_v_id_62"``.
+  This bug has not been fixed yet, but a workaround is to save and edit
+  again to sort images.
 
 Bug Tracker
 ===========
@@ -99,7 +103,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_multi_image%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_multi_image%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -107,39 +111,40 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Antiun Ingeniería
 * Tecnativa
 * LasLabs
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-* Rafael Blasco <rafabn@antiun.com>
-* Jairo Llopis <yajo.sk8@gmail.com>
-* Dave Lasley <dave@laslabs.com>
-* Shepilov Vladislav <shepilov.v@protonmail.com>
-* Marc Poch Mallandrich <mpoch@planetatic.com>
-* Hai Lang <hailn@trobz.com>
-* `Greenice <https://www.greenice.com>`_:
+- Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+- Rafael Blasco <rafabn@antiun.com>
+- Jairo Llopis <yajo.sk8@gmail.com>
+- Dave Lasley <dave@laslabs.com>
+- Shepilov Vladislav <shepilov.v@protonmail.com>
+- Marc Poch Mallandrich <mpoch@planetatic.com>
+- Hai Lang <hailn@trobz.com>
+- `Greenice <https://www.greenice.com>`__:
 
-  * Fernando La Chica <fernandolachica@gmail.com>
+  - Fernando La Chica <fernandolachica@gmail.com>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
-* The migration of this module from 12.0 to 14.0 was financially supported by
-  Camptocamp.
+- The migration of this module from 12.0 to 14.0 was financially
+  supported by Camptocamp.
 
 Original implementation
------------------------
-* This module is inspired in previous module *product_images* from OpenLabs
-  and Akretion.
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- This module is inspired in previous module *product_images* from
+  OpenLabs and Akretion.
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -151,6 +156,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/16.0/product_multi_image>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_multi_image>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

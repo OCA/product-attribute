@@ -55,7 +55,7 @@ class TestProductMultiImage(common.TransactionCase):
                         0,
                         {
                             "name": "Image 1",
-                            "image_1920": self.transparent_image,
+                            "attachment_image": self.transparent_image,
                             "owner_model": "product.template",
                         },
                     ),
@@ -64,7 +64,7 @@ class TestProductMultiImage(common.TransactionCase):
                         0,
                         {
                             "name": "Image 2",
-                            "image_1920": self.black_image,
+                            "attachment_image": self.black_image,
                             "owner_model": "product.template",
                         },
                     ),
@@ -93,10 +93,10 @@ class TestProductMultiImage(common.TransactionCase):
             (
                 0,
                 0,
-                {"image_1920": self.grey_image},
+                {"attachment_image": self.grey_image},
             )
         ]
-        self.product_template.refresh()
+        self.product_template.invalidate_recordset()
         self.assertEqual(len(self.product_template.image_ids), 3)
         self.assertEqual(
             self.product_template.image_ids[-1].product_variant_ids, self.product_1
@@ -104,7 +104,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_remove_image_variant(self):
         self.product_1.image_ids = [(3, self.product_1.image_ids[0].id)]
-        self.product_template.refresh()
+        self.product_template.invalidate_recordset()
         self.assertEqual(len(self.product_template.image_ids), 2)
         self.assertEqual(
             self.product_template.image_ids[0].product_variant_ids, self.product_2
@@ -113,13 +113,13 @@ class TestProductMultiImage(common.TransactionCase):
     def test_remove_image_all_variants(self):
         self.product_1.image_ids = [(3, self.product_1.image_ids[0].id)]
         self.product_2.image_ids = [(3, self.product_2.image_ids[0].id)]
-        self.product_template.refresh()
+        self.product_template.invalidate_recordset()
         self.assertEqual(len(self.product_template.image_ids), 1)
 
     def test_edit_image_variant(self):
         text = "Test name changed"
         self.product_1.image_ids[0].name = text
-        self.product_template.refresh()
+        self.product_template.invalidate_recordset()
         self.assertEqual(self.product_template.image_ids[0].name, text)
 
     def test_create_variant_afterwards(self):
@@ -135,7 +135,7 @@ class TestProductMultiImage(common.TransactionCase):
                         0,
                         {
                             "name": "Image 1",
-                            "image_1920": self.transparent_image,
+                            "attachment_image": self.transparent_image,
                             "owner_model": "product.template",
                         },
                     )
@@ -145,8 +145,7 @@ class TestProductMultiImage(common.TransactionCase):
         self.assertEqual(
             len(template.image_ids),
             1,
-            "Product template did not start with singleton image_ids. "
-            "Got %s" % (template.image_ids,),
+            "Product template did not start with singleton image_ids.",
         )
         template.write(
             {
@@ -165,15 +164,14 @@ class TestProductMultiImage(common.TransactionCase):
         self.assertEqual(
             len(template.image_ids),
             1,
-            "Product template did not retain the singleton image_ids. "
-            "Got %s" % (template.image_ids,),
+            "Product template did not retain the singleton image_ids.",
         )
         for variant in template.product_variant_ids:
             self.assertEqual(
                 len(variant.image_ids),
                 1,
-                "Product variant did not receive the image_ids. Got %s"
-                % (variant.image_ids,),
+                "Product variant did not receive the image_ids."
+                f" Got {variant.image_ids}",
             )
 
     def test_remove_variant_with_image(self):
@@ -210,7 +208,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_uninstall_hook_product(self):
         """It should remove ``image_ids`` associated with products"""
-        hooks.uninstall_hook(self.env.cr, self.registry)
+        hooks.uninstall_hook(self.env)
         images = self.env["base_multi_image.image"].search(
             [("owner_model", "=", "product.product")],
         )
@@ -218,7 +216,7 @@ class TestProductMultiImage(common.TransactionCase):
 
     def test_uninstall_hook_teplate(self):
         """It should remove ``image_ids`` associated with templates"""
-        hooks.uninstall_hook(self.env.cr, self.registry)
+        hooks.uninstall_hook(self.env)
         images = self.env["base_multi_image.image"].search(
             [("owner_model", "=", "product.template")],
         )
