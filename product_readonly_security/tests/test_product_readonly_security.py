@@ -1,4 +1,4 @@
-# Copyright 2024 Tecnativa - Víctor Martínez
+# Copyright 2024-2026 Tecnativa - Víctor Martínez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 
@@ -28,7 +28,7 @@ class TestProductReadonlySecurity(BaseCommon):
         cls.user_readonly = new_test_user(
             cls.env,
             login="test_user_readonly",
-            groups="base.group_user,base.group_system",
+            groups="base.group_user",
         )
         cls.product_tmpl = (
             cls.env["product.template"].sudo().create({"name": "Test product"})
@@ -49,6 +49,7 @@ class TestProductReadonlySecurity(BaseCommon):
         self.assertTrue(new_product_tmpl.exists())
 
     @users("test_user_readonly")
+    @mute_logger("odoo.addons.base.models.ir_model")
     def test_product_template_readonly(self):
         """Read allowed. Write, unlink and create not allowed."""
         product_tmpls = self.env["product.template"].search([])
@@ -72,6 +73,7 @@ class TestProductReadonlySecurity(BaseCommon):
         self.assertTrue(new_product.exists())
 
     @users("test_user_readonly")
+    @mute_logger("odoo.addons.base.models.ir_model")
     def test_product_product_readonly(self):
         """Read allowed. Write, unlink and create not allowed."""
         products = self.env["product.product"].search([])

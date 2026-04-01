@@ -47,15 +47,3 @@ msgid ""
 msgstr ""
 "Lo sentimos, no tiene permiso para crear/editar productos. Para más "
 "información, póngase en contacto con su administrador."
-
-#~ msgid "Display Name"
-#~ msgstr "Nombre mostrado"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Última Modificación el"
-
-#~ msgid "Product Template"
-#~ msgstr "Plantilla de producto"
