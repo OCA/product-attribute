@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-04 14:43+0000\n"
+"PO-Revision-Date: 2026-04-01 15:45+0000\n"
 "Last-Translator: Bosd <c5e2fd43-d292-4c90-9d1f-74ff3436329a@anonaddy.me>\n"
 "Language-Team: none\n"
 "Language: nl_NL\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.report,print_report_name:product_pricelist_direct_print.action_report_product_pricelist
 msgid "'Pricelist- %s' % (object.pricelist_id.name or '')"
-msgstr ""
+msgstr "'Prijslijst- %s' % (object.pricelist_id.name or '')"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -44,6 +44,35 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"\n"
+"<p>Beste <span t-out=\"object.partner_id and object.partner_id.name or "
+"'customer'\"/>,</p>\n"
+"\n"
+"<p>\n"
+"\n"
+"Het bijgevoegde bestand is een PDF-document met de\n"
+"\n"
+"<strong t-out=\"object.pricelist_id.name\"/>prijslijst.\n"
+"\n"
+"</p>\n"
+"\n"
+"<p>U kunt op deze e-mail reageren als u vragen heeft.</p>\n"
+"\n"
+"<p>Hartelijk dank,</p>\n"
+"\n"
+"<p style=\"color:#888888;\">\n"
+"\n"
+"<t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"\n"
+"<span t-out=\"object.write_uid.signature or ''\"/>\n"
+"\n"
+"</t>\n"
+"\n"
+"</p>\n"
+"\n"
+"</div>\n"
+"        "
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -128,7 +157,7 @@ msgstr "Aantal bijlagen"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
 msgid "Breakage Per Category"
-msgstr ""
+msgstr "Breuk per categorie"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -194,7 +223,7 @@ msgstr "Weergavenaam"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
 msgid "Filter only the products ordered since this date"
-msgstr ""
+msgstr "Filter alleen de producten die sinds deze datum zijn besteld"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_follower_ids
@@ -249,7 +278,7 @@ msgstr "Indien aangevinkt, hebben sommige berichten een bezorgfout."
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
 msgid "If this field is not 0, print last n category path"
-msgstr ""
+msgstr "Als dit veld niet 0 is, print dan het pad van de laatste n categorieën"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
@@ -292,7 +321,7 @@ msgstr "Taal"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
 msgid "Last Categ Level To Print"
-msgstr ""
+msgstr "Laatste categorieniveau om af te drukken"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
@@ -302,17 +331,17 @@ msgstr "Laatst bestelde producten"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Main Settings"
-msgstr ""
+msgstr "Hoofdinstellingen"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
@@ -342,7 +371,7 @@ msgstr "Naam"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
-msgstr ""
+msgstr "Volgende activiteit in de agenda"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_date_deadline
@@ -452,7 +481,7 @@ msgstr "Productprijslijst afdrukken"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Product Templates"
-msgstr ""
+msgstr "Product Templates"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
@@ -463,7 +492,7 @@ msgstr "Producten"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__rating_ids
 msgid "Ratings"
-msgstr ""
+msgstr "Waarderingen"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__activity_user_id
@@ -473,7 +502,7 @@ msgstr "Verantwoordelijke"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
 msgid "Selling date threshold"
-msgstr ""
+msgstr "Verkoopdatum drempel"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -518,7 +547,7 @@ msgstr "Toon varianten"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
 msgid "Show only the products defined on pricelist"
-msgstr ""
+msgstr "Toon alleen de producten die in de prijslijst staan vermeld."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_state
