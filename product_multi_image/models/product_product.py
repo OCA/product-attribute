@@ -15,8 +15,6 @@ class ProductProduct(models.Model):
         inverse="_inverse_image_ids",
     )
 
-    # image, image_medium, image_small fields are not available since 13.0
-
     @api.depends(
         "product_tmpl_id",
         "product_tmpl_id.image_ids",
@@ -30,10 +28,39 @@ class ProductProduct(models.Model):
                 )
             )
             product.image_ids = [(6, 0, images.ids)]
-            if product.image_ids:
-                product.image_1920 = (
-                    product.with_context(bin_size=False).image_ids[0].image_1920
+
+    @api.depends(
+        "product_tmpl_id",
+        "product_tmpl_id.image_ids",
+        "product_tmpl_id.image_ids.product_variant_ids",
+        "product_tmpl_id.image_ids.image_1920",
+    )
+    def _compute_image_1920(self):
+        for product in self:
+            # Priority: variant-specific images first, then generic template images
+            images = product.product_tmpl_id.image_ids.filtered(
+                lambda x: product.id in x.product_variant_ids.ids
+            )
+            
+            # If no variant-specific images, use generic template images
+            if not images:
+                images = product.product_tmpl_id.image_ids.filtered(
+                    lambda x: not x.product_variant_ids
                 )
+
+            if images:
+                gallery_image = images[0].with_context(bin_size=False).image_1920
+                product.image_1920 = gallery_image
+
+                # Update the stored field that POS uses
+                if product.image_variant_1920 != gallery_image:
+                    product.image_variant_1920 = gallery_image
+            else:
+                # No gallery images - Odoo Core will fallback to template.image_1920
+                product.image_1920 = False
+                # Clear stored field when no gallery images
+                if product.image_variant_1920:
+                    product.image_variant_1920 = False
 
     def _inverse_image_ids(self):
         for product in self:
@@ -52,8 +79,11 @@ class ProductProduct(models.Model):
                     image.create(image._convert_to_write(image._cache))
                 else:
                     previous_images -= image
-                    # Update existing records
-                    image.write(image._convert_to_write(image._cache))
+                    # Update existing records only if there are actual changes
+                    # to avoid unnecessary write_date updates on parent product
+                    vals = image._convert_to_write(image._cache)
+                    if vals:
+                        image.write(vals)
             for image in previous_images:
                 # Images removed
                 if not image.product_variant_ids:
@@ -67,9 +97,6 @@ class ProductProduct(models.Model):
                 else:
                     # Leave the images for the rest of the variants
                     image.product_variant_ids = [(6, 0, variants.ids)]
-            product.image_1920 = (
-                False if len(product.image_ids) < 1 else product.image_ids[0].image_1920
-            )
 
     def unlink(self):
         obj = self.with_context(bypass_image_removal=True)
