@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-product-attribute"
-version = "18.0.20260330.0"
+version = "18.0.20260407.0"
 dependencies = [
     "odoo-addon-nutritional_info==18.0.*",
     "odoo-addon-product_abc_classification==18.0.*",
@@ -87,6 +87,7 @@ dependencies = [
     "odoo-addon-product_supplierinfo_stock_picking_type==18.0.*",
     "odoo-addon-product_tag_view==18.0.*",
     "odoo-addon-product_tags_code==18.0.*",
+    "odoo-addon-product_tier_validation==18.0.*",
     "odoo-addon-product_total_weight_from_packaging==18.0.*",
     "odoo-addon-product_uom_updatable==18.0.*",
     "odoo-addon-product_usability==18.0.*",
