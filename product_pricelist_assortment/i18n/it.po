@@ -6,20 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-11-22 16:44+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2026-04-14 14:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_variant_count
 msgid "# Product Variants"
-msgstr ""
+msgstr "Nr. varianti prodotto"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
@@ -28,6 +28,9 @@ msgid ""
 "                        New Price =\n"
 "                    </span>"
 msgstr ""
+"<span class=\"o_form_label\">\n"
+"                        Nuovo prezzo =\n"
+"                    </span>"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
@@ -39,52 +42,58 @@ msgid ""
 "                        <span invisible=\"base != 'pricelist'\">\n"
 "                        Other Pricelist  -  </span>"
 msgstr ""
+"<span invisible=\"base != 'list_price'\">\n"
+"                        Prezzo di vendita  -  </span>\n"
+"                        <span invisible=\"base != 'standard_price'\">\n"
+"                        Costo -  </span>\n"
+"                        <span invisible=\"base != 'pricelist'\">\n"
+"                        altro listino  -  </span>"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "<span>%</span>"
-msgstr ""
+msgstr "<span>%</span>"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__actual_currency_rate
 msgid "Actual Currency Rate"
-msgstr ""
+msgstr "Tasso di cambio attuale"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__alternative_pricelist_policy
 msgid "Alternative Pricelist Policy"
-msgstr ""
+msgstr "Politica listino alternativo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__applied_on
 msgid "Apply On"
-msgstr ""
+msgstr "Applica a"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__assortment_filter_id
 msgid "Assortment"
-msgstr ""
+msgstr "Assortimento"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_search
 msgid "Assortment Filter"
-msgstr ""
+msgstr "Filtro assortimento"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_form_view
 msgid "Assortment Items"
-msgstr ""
+msgstr "Oggetti assortimento"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__assortment_item_id
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_item__assortment_item_id
 msgid "Assortment item"
-msgstr ""
+msgstr "Oggetto assortimento"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist__item_assortment_ids
 msgid "Assortment items"
-msgstr ""
+msgstr "Oggetti assortimento"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__base
@@ -94,67 +103,72 @@ msgid ""
 "Cost Price: The base price will be the cost price.\n"
 "Other Pricelist: Computation of the base price based on another Pricelist."
 msgstr ""
+"Prezzo base per il calcolo.\n"
+"Prezzo di vendita: il prezzo base sarà il prezzo di vendita.\n"
+"Prezzo di costo: il prezzo base sarà il prezzo di costo.\n"
+"Altri listini prezzi: il calcolo del prezzo base sarà basato su un altro "
+"listino prezzi."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base
 msgid "Based on"
-msgstr ""
+msgstr "Basato su"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__ignore_supplierinfo_margin
 msgid "Based on supplierinfo price without sale margin applied"
-msgstr ""
+msgstr "In base al prezzo fornitore senza il margine vendite applicato"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__categ_id
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__compute_price
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Compute Price"
-msgstr ""
+msgstr "Calcola prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__currency_rate_tooltip
 msgid "Currency Rate Tooltip"
-msgstr ""
+msgstr "Nota tasso di cambio"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_range_ids
 msgid "Discount Range"
-msgstr ""
+msgstr "Intervallo sconto"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_type
 msgid "Discount Type"
-msgstr ""
+msgstr "Tipo sconto"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_applied_on
 msgid "Display Applied On"
-msgstr ""
+msgstr "Visualizza applicato a"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_name
@@ -164,12 +178,12 @@ msgstr "Nome visualizzato"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__do_inverse_currency_rate
 msgid "Do Inverse Currency Rate"
-msgstr ""
+msgstr "Inverti tasso di cambio"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__date_end
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__date_end
@@ -177,27 +191,29 @@ msgid ""
 "Ending datetime for the pricelist item validation\n"
 "The displayed value depends on the timezone set in your preferences."
 msgstr ""
+"Data di fine per la validazione riga di listino\n"
+"Il valore mostrato dipende dal fuso orario impostato nelle tue preferenze."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price
 msgid "Explicit rule name for this pricelist line."
-msgstr ""
+msgstr "Nome esplicito della regola per questa riga listino."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
 msgid "Extra Fee"
-msgstr ""
+msgstr "Tariffa extra"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_currency_rate
 msgid "Fixed Currency Rate"
-msgstr ""
+msgstr "Tasso di cambio fisso"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_price
 msgid "Fixed Price"
-msgstr ""
+msgstr "Prezzo fisso"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__min_quantity
@@ -206,11 +222,14 @@ msgid ""
 "the minimum quantity specified in this field.\n"
 "Expressed in the default unit of measure of the product."
 msgstr ""
+"Per rendere applicabile la regola, la quantità acquistata/venduta deve "
+"essere superiore o uguale a quella minima specificata \n"
+"in questo campo, espressa nell'unità di misura predefinita del prodotto."
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_search
 msgid "Group By"
-msgstr ""
+msgstr "Raggruppa per"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__id
@@ -223,6 +242,8 @@ msgid ""
 "If checked, the discount set on the supplier info will be ignored in price "
 "calculation."
 msgstr ""
+"Se selezionata, lo sconto impostato nelle informazioni fornitore verrà "
+"ignorato nel calcolo del prezzo."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_currency_rate
@@ -231,185 +252,187 @@ msgid ""
 "If set (different to 0.0), the currency conversion will ignore the actual "
 "currency rate and always use the fixed currency rate."
 msgstr ""
+"Se impostata (diversa da 0,0), la conversione di valuta ignorerà il tasso di "
+"cambio attuale e userà sempre il tasso di cambio fisso."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_discount
 msgid "Ignore Supplier Info Discount"
-msgstr ""
+msgstr "Ignora sconto informazioni fornitore"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
-msgstr ""
+msgstr "Ignorare la quantità min del listino fornitore"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__ignore_supplierinfo_margin
 msgid "Ignore Supplierinfo Margin"
-msgstr ""
+msgstr "Ignora il margine informazioni fornitore"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__inverse_actual_currency_rate
 msgid "Inverse Actual Currency Rate"
-msgstr ""
+msgstr "Inverso tasso di cambio attuale"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__inverse_fixed_currency_rate
 msgid "Inverse Fixed Currency Rate"
-msgstr ""
+msgstr "Inverso tasso di cambio fisso"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__is_fixed_currency_rate_applicable
 msgid "Is Fixed Currency Rate Applicable"
-msgstr ""
+msgstr "È applicabile il tasso di cambio fisso"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_form_view
 msgid "Launch assortment update"
-msgstr ""
+msgstr "Applica aggiornamento assortimento"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_markup
 msgid "Markup"
-msgstr ""
+msgstr "Ricarico"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Max. Margin"
-msgstr ""
+msgstr "Margine massimo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_max_margin
 msgid "Max. Price Margin"
-msgstr ""
+msgstr "Margine massimo prezzo"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Min. Margin"
-msgstr ""
+msgstr "Margine minimo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_min_margin
 msgid "Min. Price Margin"
-msgstr ""
+msgstr "Margine minimo prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__min_quantity
 msgid "Min. Quantity"
-msgstr ""
+msgstr "Quantità minima"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__filter_supplier_id
 msgid "Only match prices from the selected supplier"
-msgstr ""
+msgstr "Solo prezzi corrispondenti dal fornitore selezionato"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__multi_price_name
 msgid "Other Price Name"
-msgstr ""
+msgstr "Altro nome prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base_pricelist_id
 msgid "Other Pricelist"
-msgstr ""
+msgstr "Altro listino"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__percent_price
 msgid "Percentage Price"
-msgstr ""
+msgstr "Prezzo percentuale"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_tree
 msgid "Price"
-msgstr ""
+msgstr "Prezzo"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Price Computation"
-msgstr ""
+msgstr "Calcolo prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_discount
 msgid "Price Discount"
-msgstr ""
+msgstr "Sconto sul prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_round
 msgid "Price Rounding"
-msgstr ""
+msgstr "Arrotondamento prezzo"
 
 #. module: product_pricelist_assortment
 #: model:ir.model,name:product_pricelist_assortment.model_product_pricelist
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__pricelist_id
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_search
 msgid "Pricelist"
-msgstr ""
+msgstr "Listino prezzi"
 
 #. module: product_pricelist_assortment
 #: model:ir.actions.server,name:product_pricelist_assortment.ir_cron_product_pricelist_assortment_ir_actions_server
 msgid "Pricelist Assortment - Launch update"
-msgstr ""
+msgstr "Assortimento listino - applica aggiornamento"
 
 #. module: product_pricelist_assortment
 #: model:ir.actions.act_window,name:product_pricelist_assortment.product_pricelist_assortment_item_action
 msgid "Pricelist Assortment Items"
-msgstr ""
+msgstr "Elementi assortimento listino prezzi"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__pricelist_item_ids
 msgid "Pricelist Item"
-msgstr ""
+msgstr "Articolo listino prezzi"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__applied_on
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__display_applied_on
 msgid "Pricelist Item applicable on selected option"
-msgstr ""
+msgstr "Riga listino applicabile all'opzione selezionata"
 
 #. module: product_pricelist_assortment
 #: model:ir.model,name:product_pricelist_assortment.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Regola listino prezzi"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__pricelist_item_ids
 msgid "Pricelist items created automatically"
-msgstr ""
+msgstr "Righe listino create automaticamente"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_tmpl_id
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_pricelist_assortment
 #: model:ir.model,name:product_pricelist_assortment.model_product_pricelist_assortment_item
 msgid "Product Pricelist Assortment Item"
-msgstr ""
+msgstr "Elemento assortimento listino prodotto"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Rounding Method"
-msgstr ""
+msgstr "Metodo arrotondamento"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__rule_tip
 msgid "Rule Tip"
-msgstr ""
+msgstr "Suggerimento regola"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_round
@@ -418,6 +441,10 @@ msgid ""
 "Rounding is applied after the discount and before the surcharge.\n"
 "To have prices that end in 9.99, round off to 10.00 and set an extra at -0.01"
 msgstr ""
+"Imposta il prezzo in modo che sia un multiplo di questo valore.\n"
+"L'arrotondamento viene applicato dopo lo sconto e prima del sovrapprezzo.\n"
+"Per avere prezzi che terminano con 9,99, arrotonda a 10,00 e imposta un "
+"sovrapprezzo di -0,01"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__categ_id
@@ -425,6 +452,9 @@ msgid ""
 "Specify a product category if this rule only applies to products belonging "
 "to this category or its children categories. Keep empty otherwise."
 msgstr ""
+"Specificare una categoria prodotto se questa regola si applica solo ai "
+"prodotti appartenenti a questa categoria o alle sue categorie figlie, "
+"altrimenti lasciare vuoto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__product_id
@@ -432,6 +462,8 @@ msgid ""
 "Specify a product if this rule only applies to one product. Keep empty "
 "otherwise."
 msgstr ""
+"Specificare un prodotto se questa regola si applica solo ad un prodotto, "
+"altrimenti lasciare vuoto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__product_tmpl_id
@@ -439,6 +471,8 @@ msgid ""
 "Specify a template if this rule only applies to one product template. Keep "
 "empty otherwise."
 msgstr ""
+"Specificare un modello prodotto se questa regola si applica solo ad un "
+"modello prodotto, altrimenti lasciare vuoto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
@@ -446,21 +480,23 @@ msgid ""
 "Specify the fixed amount to add or subtract (if negative) to the amount "
 "calculated with the discount."
 msgstr ""
+"Specificare l'importo fisso da aggiungere o sottrarre (se negativo) "
+"dall'importo calcolato con lo sconto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_max_margin
 msgid "Specify the maximum amount of margin over the base price."
-msgstr ""
+msgstr "Specificare l'importo massimo del margine sul prezzo base."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_min_margin
 msgid "Specify the minimum amount of margin over the base price."
-msgstr ""
+msgstr "Specificare l'importo minimo del margine sul prezzo base."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__date_start
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__date_start
@@ -468,11 +504,13 @@ msgid ""
 "Starting datetime for the pricelist item validation\n"
 "The displayed value depends on the timezone set in your preferences."
 msgstr ""
+"Data di inizio per la validazione riga di listino\n"
+"Il valore mostrato dipende dal fuso orario impostato nelle tue preferenze."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__filter_supplier_id
 msgid "Supplier filter"
-msgstr ""
+msgstr "Filtro fornitore"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
@@ -480,11 +518,12 @@ msgid ""
 "The computed price is expressed in the default Unit of Measure of the "
 "product."
 msgstr ""
+"Il prezzo calcolato è espresso nell'unità di misura predefinita del prodotto."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_uom
 msgid "Unit of Measure Name"
-msgstr ""
+msgstr "Nome unità di misura"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__compute_price
@@ -492,22 +531,24 @@ msgid ""
 "Use the discount rules and activate the discount settings in order to show "
 "discount to customer."
 msgstr ""
+"Utilizza le regole di sconto e attiva le impostazioni di sconto per mostrare "
+"lo sconto al cliente."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_id
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__percent_price
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_discount
 msgid "You can apply a mark-up by setting a negative discount."
-msgstr ""
+msgstr "Su può applicare un supplemento impostando uno sconto negativo."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_markup
 msgid "You can apply a mark-up on the cost"
-msgstr ""
+msgstr "Si può applicare un margine al costo"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Ultima modifica il"
