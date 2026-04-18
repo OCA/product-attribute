@@ -16,4 +16,4 @@ def migrate(env, version):
         ("product.product", "product_product", "allergen_id", "allergen_ids"),
         ("product.template", "product_template", "allergen_id", "allergen_ids"),
     ]
-    openupgrade.rename_fields(fields_rename_spec)
+    openupgrade.rename_fields(env, fields_rename_spec)
