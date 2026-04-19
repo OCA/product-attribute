@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-15 07:00+0000\n"
-"PO-Revision-Date: 2024-04-15 09:01+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-04-19 09:13+0000\n"
+"Last-Translator: Ed-Spain <eduamoros@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_attachment_zipped_download
 #: model:ir.actions.server,name:product_attachment_zipped_download.action_download_product_product_attachements
@@ -25,11 +25,10 @@ msgstr "Descargar adjuntos"
 
 #. module: product_attachment_zipped_download
 #: model:ir.model,name:product_attachment_zipped_download.model_product_template
-#, fuzzy
 msgid "Product"
 msgstr "Producto"
 
 #. module: product_attachment_zipped_download
 #: model:ir.model,name:product_attachment_zipped_download.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante de producto"
