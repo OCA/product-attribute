@@ -61,15 +61,13 @@ class ProductPricelist(models.Model):
                 rec.actual_currency_rate = 1.0
                 rec.inverse_actual_currency_rate = 1.0
 
-    def _compute_base_price(self, product, quantity, uom, date, target_currency):
+    def _compute_base_price(self, product, quantity, uom, date, currency):
         if self.is_fixed_currency_rate_applicable and self.fixed_currency_rate:
             return super(
                 ProductPricelist,
                 self.with_context(fixed_currency_rate=self.fixed_currency_rate),
-            )._compute_base_price(product, quantity, uom, date, target_currency)
-        return super()._compute_base_price(
-            product, quantity, uom, date, target_currency
-        )
+            )._compute_base_price(product, quantity, uom, date, currency)
+        return super()._compute_base_price(product, quantity, uom, date, currency)
 
     @api.depends("base_pricelist_id", "base_pricelist_id.currency_id")
     def _compute_do_inverse_currency_rate(self):
