@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2026-04-19 07:45+0000\n"
+"PO-Revision-Date: 2026-04-19 09:13+0000\n"
 "Last-Translator: Ed-Spain <eduamoros@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -41,17 +41,16 @@ msgstr "Asigna la prioridad a la lista de productos de proveedor."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_pricelist_item__base
-#, fuzzy
 msgid ""
 "Base price for computation.\n"
 "Sales Price: The base price will be the Sales Price.\n"
 "Cost Price: The base price will be the cost price.\n"
 "Other Pricelist: Computation of the base price based on another Pricelist."
 msgstr ""
-"Precio base para el cálculo.\n"
-"Precio de venta: El precio base será el Precio de venta.\n"
-"Precio de coste: El precio base será el precio de coste.\n"
-"Otra tarifa: Cálculo del precio base basado en otra tarifa."
+"Precio Base para el cálculo.\n"
+"Precio de Venta: El precio base será el Precio de Venta.\n"
+"Precio de Coste: El precio base será el Precio de Coste.\n"
+"Otra Tarifa: Cálculo del precio base basado en otra Tarifa."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_pricelist_item__base
