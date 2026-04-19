@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-02-09 19:09+0000\n"
-"Last-Translator: Pilar Vargas <pilar.vargas@tecnativa.com>\n"
+"PO-Revision-Date: 2026-04-19 07:45+0000\n"
+"Last-Translator: Ed-Spain <eduamoros@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -24,9 +24,9 @@ msgstr "Evitar rellenar todos los valores"
 #. module: product_attribute_value_avoid_auto_fill
 #: model:ir.model,name:product_attribute_value_avoid_auto_fill.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Atributo del producto"
 
 #. module: product_attribute_value_avoid_auto_fill
 #: model:ir.model,name:product_attribute_value_avoid_auto_fill.model_product_template_attribute_line
 msgid "Product Template Attribute Line"
-msgstr ""
+msgstr "Línea de atributo de plantilla de producto"
