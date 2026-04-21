@@ -1,1 +1,2 @@
 odoo_test_helper
+odoo-addon-lot_catalog @ git+https://github.com/OCA/product-attribute.git@refs/pull/2266/head#subdirectory=lot_catalog
