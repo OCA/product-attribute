@@ -1,0 +1,110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* lot_catalog
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-21 08:45+0000\n"
+"PO-Revision-Date: 2026-04-21 08:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/order_line/order_line.xml:0
+msgid "Add"
+msgstr ""
+
+#. module: lot_catalog
+#: model:ir.model.fields,field_description:lot_catalog.field_stock_lot__product_template_attribute_value_ids
+msgid "Attribute Values"
+msgstr ""
+
+#. module: lot_catalog
+#: model_terms:ir.ui.view,arch_db:lot_catalog.lot_view_search_catalog
+msgid "Attributes"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/kanban_controller.esm.js:0
+msgid "Back to Order"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/kanban_controller.esm.js:0
+msgid "Back to Quotation"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/kanban_renderer.xml:0
+msgid "Create a lot"
+msgstr ""
+
+#. module: lot_catalog
+#: model_terms:ir.ui.view,arch_db:lot_catalog.lot_view_search_catalog
+msgid "Group By"
+msgstr ""
+
+#. module: lot_catalog
+#: model_terms:ir.ui.view,arch_db:lot_catalog.lot_view_search_catalog
+msgid "Location"
+msgstr ""
+
+#. module: lot_catalog
+#: model_terms:ir.ui.view,arch_db:lot_catalog.lot_view_search_catalog
+msgid "Lot"
+msgstr ""
+
+#. module: lot_catalog
+#: model:ir.model,name:lot_catalog.model_lot_catalog_mixin
+msgid "Lot Catalog Mixin"
+msgstr ""
+
+#. module: lot_catalog
+#: model:ir.model,name:lot_catalog.model_stock_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-python
+#: code:addons/lot_catalog/models/lot_catalog_mixin.py:0
+msgid "Lots"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/kanban_renderer.xml:0
+msgid "No lots could be found."
+msgstr ""
+
+#. module: lot_catalog
+#: model_terms:ir.ui.view,arch_db:lot_catalog.lot_view_search_catalog
+msgid "Product"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/order_line/order_line.xml:0
+msgid "Remove"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/order_line/order_line.xml:0
+msgid "Unit price:"
+msgstr ""
+
+#. module: lot_catalog
+#. odoo-javascript
+#: code:addons/lot_catalog/static/src/lot_catalog/order_line/order_line.xml:0
+msgid "You can't edit this lot in the catalog."
+msgstr ""
