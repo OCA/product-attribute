@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="lot_view_kanban_catalog" model="ir.ui.view">
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="lot_catalog.lot_view_kanban_catalog" />
+        <field name="arch" type="xml">
+            <div name="o_kanban_product_id" position="after">
+                <div
+                    name="o_kanban_condition_id"
+                    t-if="record.condition_id.value"
+                >Condition: <field name="condition_id" /></div>
+            </div>
+        </field>
+    </record>
+    <record id="lot_view_search_catalog" model="ir.ui.view">
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="lot_catalog.lot_view_search_catalog" />
+        <field name="arch" type="xml">
+            <filter name="group_by_product_id" position="after">
+                <filter
+                    string="Condition"
+                    name="group_by_condition_id"
+                    context="{'group_by':'condition_id'}"
+                />
+            </filter>
+            <xpath expr="//searchpanel/field[@name='location_id']" position="after">
+                <field name="condition_id" string="Condition" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
