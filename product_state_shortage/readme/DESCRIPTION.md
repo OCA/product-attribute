@@ -1,0 +1,1 @@
+This module extends the `product.state` model to manage product states during stock operations. It introduces the concept of a shortage state, allowing products to automatically revert to their default state when their available quantity becomes positive.
