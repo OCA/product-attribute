@@ -10,6 +10,7 @@ class AbcClassificationProductLevel(models.Model):
     _inherit = "mail.thread"
     _description = "Abc Classification Product Level"
     _rec_name = "level_id"
+    _check_company_auto = True
 
     manual_level_id = fields.Many2one(
         "abc.classification.level",
@@ -43,6 +44,7 @@ class AbcClassificationProductLevel(models.Model):
         index=True,
         required=True,
         ondelete="cascade",
+        check_company=True,
     )
     product_tmpl_id = fields.Many2one(
         "product.template",
@@ -50,11 +52,19 @@ class AbcClassificationProductLevel(models.Model):
         index=True,
         readonly=True,
     )
+    company_id = fields.Many2one(
+        "res.company",
+        compute="_compute_company_id",
+        store=True,
+        readonly=True,
+        index=True,
+    )
     # percentage
     profile_id = fields.Many2one(
         "abc.classification.profile",
         string="Profile",
         required=True,
+        check_company=True,
     )
     profile_type = fields.Selection(
         related="profile_id.profile_type",
@@ -122,6 +132,13 @@ class AbcClassificationProductLevel(models.Model):
         for rec in self:
             rec.flag = (
                 rec.computed_level_id and rec.manual_level_id != rec.computed_level_id
+            )
+
+    @api.depends("product_id.company_id", "profile_id.company_id")
+    def _compute_company_id(self):
+        for rec in self:
+            rec.company_id = (
+                rec.profile_id.company_id or rec.product_id.company_id or False
             )
 
     @api.model_create_multi

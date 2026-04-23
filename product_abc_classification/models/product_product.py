@@ -17,6 +17,7 @@ class ProductProduct(models.Model):
         column1="product_id",
         column2="profile_id",
         index=True,
+        check_company=True,
     )
     abc_classification_profile_updatable_from_category = fields.Boolean(default=True)
 
