@@ -14,14 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_lot_sequence
-#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\"/>"
-msgstr ""
-
-#. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_res_company
 msgid "Companies"
 msgstr ""
@@ -117,6 +109,11 @@ msgstr ""
 #. module: product_lot_sequence
 #: model:ir.model.fields,help:product_lot_sequence.field_stock_lot__name
 msgid "Unique Lot/Serial Number"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid "Values set here are company-specific."
 msgstr ""
 
 #. module: product_lot_sequence
