@@ -34,14 +34,12 @@ class ProductPricelistItem(models.Model):
     )
 
     def _compute_price(self, product, quantity, uom, date, currency=None):
+        # We need to pass the rule and quantity to the product to be able to
+        # get the right price from _get_supplierinfo_pricelist_price.
+        product = product.with_context(
+            supplierinfo_rule=self.id, supplierinfo_quantity=quantity
+        )
         result = super()._compute_price(product, quantity, uom, date, currency)
-        context = self.env.context
-        if self.compute_price == "formula" and self.base == "supplierinfo":
-            result = product.sudo()._get_supplierinfo_pricelist_price(
-                self,
-                date=date or context.get("date", fields.Date.today()),
-                quantity=quantity,
-            )
         return result
 
     def _compute_price_label(self):
