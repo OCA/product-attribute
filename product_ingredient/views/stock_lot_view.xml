@@ -11,14 +11,14 @@
                         nolabel="1"
                         context="{'show_attribute': False}"
                     >
-                        <list editable="bottom" default_order="sequence, id">
+                        <tree editable="bottom" default_order="sequence, id">
                             <field name="sequence" widget="handle" />
-                            <field name="lot_id" column_invisible="1" />
+                            <field name="lot_id" invisible="1" />
                             <field name="ingredient_id" />
                             <field name="allergen_id" optional="show" />
                             <field name="scientific_name" optional="show" />
                             <field name="percentage" />
-                        </list>
+                        </tree>
                     </field>
                     <group>
                         <field

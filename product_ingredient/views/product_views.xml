@@ -7,23 +7,24 @@
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
             <page name="inventory" position="after">
-                <page string="Ingredients" invisible="type != 'consu'">
-                    <group>
-                        <field
-                            name="ingredient_ids"
-                            nolabel="1"
-                            context="{'show_attribute': False}"
-                        >
-                            <list editable="bottom" default_order="sequence, id">
-                                <field name="sequence" widget="handle" />
-                                <field name="product_id" column_invisible="1" />
-                                <field name="ingredient_id" />
-                                <field name="allergen_id" optional="show" />
-                                <field name="scientific_name" optional="show" />
-                                <field name="percentage" />
-                            </list>
-                        </field>
-                    </group>
+                <page
+                    string="Ingredients"
+                    attrs="{'invisible': [('type', '=', 'service')]}"
+                >
+                    <field
+                        name="ingredient_ids"
+                        nolabel="1"
+                        context="{'show_attribute': False}"
+                    >
+                        <tree editable="bottom" default_order="sequence, id">
+                            <field name="sequence" widget="handle" />
+                            <field name="product_id" invisible="1" />
+                            <field name="ingredient_id" />
+                            <field name="allergen_id" optional="show" />
+                            <field name="scientific_name" optional="show" />
+                            <field name="percentage" />
+                        </tree>
+                    </field>
                     <group>
                         <field
                             name="ingredient_allergen_trace_ids"
@@ -44,24 +45,22 @@
             <page name="inventory" position="after">
                 <page
                     string="Ingredients"
-                    invisible="product_variant_count != 1 or type != 'consu'"
+                    attrs="{'invisible': ['|', ('product_variant_count', '!=', 1), ('type', 'not in', ['consu', 'product'])]}"
                 >
-                    <group>
-                        <field
-                            name="ingredient_ids"
-                            nolabel="1"
-                            context="{'show_attribute': False}"
-                        >
-                            <list editable="bottom" default_order="sequence, id">
-                                <field name="sequence" widget="handle" />
-                                <field name="product_id" column_invisible="1" />
-                                <field name="ingredient_id" />
-                                <field name="allergen_id" optional="show" />
-                                <field name="scientific_name" optional="show" />
-                                <field name="percentage" />
-                            </list>
-                        </field>
-                    </group>
+                    <field
+                        name="ingredient_ids"
+                        nolabel="1"
+                        context="{'show_attribute': False}"
+                    >
+                        <tree editable="bottom" default_order="sequence, id">
+                            <field name="sequence" widget="handle" />
+                            <field name="product_id" invisible="1" />
+                            <field name="ingredient_id" />
+                            <field name="allergen_id" optional="show" />
+                            <field name="scientific_name" optional="show" />
+                            <field name="percentage" />
+                        </tree>
+                    </field>
                     <group>
                         <field
                             name="ingredient_allergen_trace_ids"
