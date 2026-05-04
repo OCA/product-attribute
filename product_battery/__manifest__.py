@@ -3,7 +3,7 @@
 {
     "name": "Product battery",
     "summary": "Register batteries on products",
-    "version": "16.0.1.0.0",
+    "version": "16.0.2.0.0",
     "category": "product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Therp BV, Odoo Community Association (OCA)",
