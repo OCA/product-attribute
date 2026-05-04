@@ -35,10 +35,10 @@ Product State
 This module introduces the state field on product template and allows
 simple product life cycle:
 
-- draft: In Development
-- sellable: Normal
-- end: End of Lifecycle
-- obsolete: Obsolete
+-  draft: In Development
+-  sellable: Normal
+-  end: End of Lifecycle
+-  obsolete: Obsolete
 
 **Table of contents**
 
@@ -75,18 +75,18 @@ Authors
 Contributors
 ------------
 
-- Cedric Pigeon <cedric.pigeon@acsone.eu>
-- Alexandre Saunier <alexandre.saunier@camptocamp.com>
-- Nikul Chaudhary <nikulchaudhary2112@gmail.com>
-- Eduardo Magdalena <emagdalena@c2i.es> (C2i Change 2 improve
-  http://www.c2i.es)
-- Andrii Skrypka <andrijskrypa@ukr.net>
-- Denis Roussel <denis.roussel@acsone.eu>
-- Riccardo Fresco <riccardo.fresco@bt-group.com>
-- Nils Coenen <nils.coenen@nico-solutions.de>
-- `Trobz <https://trobz.com>`__:
+-  Cedric Pigeon <cedric.pigeon@acsone.eu>
+-  Alexandre Saunier <alexandre.saunier@camptocamp.com>
+-  Nikul Chaudhary <nikulchaudhary2112@gmail.com>
+-  Eduardo Magdalena <emagdalena@c2i.es> (C2i Change 2 improve
+   http://www.c2i.es)
+-  Andrii Skrypka <andrijskrypa@ukr.net>
+-  Denis Roussel <denis.roussel@acsone.eu>
+-  Riccardo Fresco <riccardo.fresco@bt-group.com>
+-  Nils Coenen <nils.coenen@nico-solutions.de>
+-  `Trobz <https://trobz.com>`__:
 
-  - Tuan Nguyen <tuanna@trobz.com>
+   -  Tuan Nguyen <tuanna@trobz.com>
 
 Other credits
 -------------
