@@ -10,6 +10,7 @@
                 <page string="Battery" name="battery_information">
                     <field name="battery_ids" nolabel="1">
                         <tree editable="bottom">
+                            <field name="regulatory_category" option="show" />
                             <field name="battery_type" optional="show" />
                             <field name="battery_chemistry" optional="show" />
                             <field name="battery_form" optional="show" />
@@ -40,6 +41,9 @@
                                 name="reference_to_battery_product"
                                 optional="show"
                             />
+                            <field name="lead_exceed" optional="hide" />
+                            <field name="cadmium_exceed" optional="hide" />
+                            <field name="mercury_exceed" optional="hide" />
                         </tree>
                     </field>
                 </page>
