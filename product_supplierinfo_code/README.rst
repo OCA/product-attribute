@@ -60,7 +60,11 @@ Authors
 Contributors
 ------------
 
-- Denis Roussel <denis.roussel@acsone.eu>
+- `ACSONE <https://www.acsone.eu/>`__:
+
+  - Denis Roussel <denis.roussel@acsone.eu>
+  - Raphaël Vicini <raphael.vicini@acsone.eu>
+
 - `360ERP <https://www.360erp.com>`__:
 
   - Andrea Stirpe

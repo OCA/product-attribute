@@ -51,11 +51,11 @@
             <field name="currency_id" position="after">
                 <field name="supplier_product_code" />
             </field>
-            <div name="product_lst_price" position="before">
+            <field name="list_price" position="before">
                 <div name="supplier_product_code" class="mt-1">
                     Supplier Code: <field name="supplier_product_code" />
                 </div>
-            </div>
+            </field>
         </field>
     </record>
 </odoo>
