@@ -35,6 +35,7 @@ class TestBarcodeTemplateRequired(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env.user.group_ids += cls.env.ref("product.group_product_variant")
         cls.env.company.product_variant_barcode_required = True
         cls.product_attribute = cls.env["product.attribute"].create(
             {"name": "Test Attribute"}

@@ -46,5 +46,8 @@ class BarcodeRequiredMixin(models.AbstractModel):
         if failing:
             failed_list = "\n  * " + "\n  * ".join(failing)
             raise exceptions.ValidationError(
-                self.env._("These products have no barcode:\n{}").format(failed_list)
+                self.env._(
+                    "These products have no barcode:\n%s",
+                    failed_list,
+                )
             )

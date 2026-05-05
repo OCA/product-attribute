@@ -3,7 +3,7 @@
 {
     "name": "Product barcode required",
     "summary": "Make product barcode required when enabled",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "maintainers": ["simahawk"],
     "development_status": "Beta",
     "website": "https://github.com/OCA/product-attribute",
