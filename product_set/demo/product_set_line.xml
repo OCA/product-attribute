@@ -3,6 +3,7 @@
     <record id="product_set_line_computer_1" model="product.set.line">
         <field name="product_set_id" ref="product_set_i5_computer" />
         <field name="product_id" ref="product.product_product_5" />
+        <field name="name">Corner Desk Right Sit Description</field>
         <field name="quantity">1</field>
         <field name="sequence">30</field>
     </record>

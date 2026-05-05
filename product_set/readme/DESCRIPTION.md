@@ -6,5 +6,5 @@ later being added in a quick way into other document.
 After a *product set* is added, each line can be updated or removed as
 any other lines.
 
-This differs from packing products as you don't follow *product set* are
-not linked to sale order other project once they are added.
+This differs from packing products as *product sets* are not linked to
+sale orders or other projects once they are added.

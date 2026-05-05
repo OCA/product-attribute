@@ -12,3 +12,4 @@
 - Akim Juillerat \<<akim.juillerat@camptocamp.com>\>
 - Son (Ho Dac) \<<hodacson.6491@gmail.com>\>
 - Tris Doan \<<tridm@trobz.com>\>
+- Christopher Rogos \<<crogos@gmail.com>\>
