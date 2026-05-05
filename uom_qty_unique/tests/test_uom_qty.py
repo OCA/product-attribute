@@ -2,16 +2,18 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from psycopg2 import IntegrityError
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.tools.misc import mute_logger
 
 
-class TestUomQtyUnique(SavepointCase):
+class TestUomQtyUnique(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
 
-        cls.unit = cls.env.ref("uom.product_uom_categ_unit")
+        cls.unit = cls.env.ref("uom.product_uom_unit")
+        cls.uom_dozen = cls.env.ref("uom.product_uom_dozen")
+        cls.uom_dozen.active = True
 
     @mute_logger("odoo.sql_db")
     def test_uom_qty_unique(self):
@@ -20,21 +22,18 @@ class TestUomQtyUnique(SavepointCase):
             self.env["uom.uom"].create(
                 {
                     "name": "Dozen",
-                    "factor_inv": 12.0,
-                    "uom_type": "bigger",
-                    "category_id": self.unit.id,
+                    "relative_factor": 12.0,
+                    "relative_uom_id": self.unit.id,
                 }
             )
 
     def test_uom_qty_unique_archived(self):
         # Archive the dozen unit of measure
-        uom_dozen = self.env.ref("uom.product_uom_dozen")
-        uom_dozen.active = False
+        self.uom_dozen.active = False
         self.env["uom.uom"].create(
             {
                 "name": "Dozen",
-                "factor_inv": 12.0,
-                "uom_type": "bigger",
-                "category_id": self.unit.id,
+                "relative_factor": 12.0,
+                "relative_uom_id": self.unit.id,
             }
         )
