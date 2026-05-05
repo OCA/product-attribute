@@ -2,8 +2,6 @@
 # Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools import float_is_zero
 
 
 class ProductSetLine(models.Model):
@@ -40,15 +38,19 @@ class ProductSetLine(models.Model):
         "res.company", related="product_set_id.company_id", store=True, readonly=True
     )
     name = fields.Char()
-    product_packaging_id = fields.Many2one(
-        "product.packaging", domain="[('product_id', '=', product_id)]"
-    )
-    product_packaging_qty = fields.Float(
-        compute="_compute_product_packaging_qty",
-        inverse="_inverse_product_packaging_qty",
-        digits="Product Unit of Measure",
+    product_uom_id = fields.Many2one(
+        "product.uom", domain="[('product_id', '=', product_id)]"
     )
 
+    @api.onchange("product_id")
+    def _onchange_product_id(self):
+        """On product change, set the product_uom_id to the default UoM of the
+        new product."""
+        for line in self:
+            if not line.product_id:
+                line.product_uom_id = False
+
+    @api.depends("product_set_id.active")
     def _compute_active(self):
         """Compute the active field based on the product_set_id by default."""
         for line in self:
@@ -56,38 +58,3 @@ class ProductSetLine(models.Model):
                 line.active = line.product_set_id.active
             else:
                 line.active = True
-
-    @api.depends(
-        "quantity",
-        "product_packaging_id",
-        "product_packaging_id.qty",
-        "product_id.packaging_ids",
-    )
-    def _compute_product_packaging_qty(self):
-        for line in self:
-            uom_rounding = line.product_id.uom_id.rounding
-            if not line.product_packaging_id or float_is_zero(
-                line.quantity, precision_rounding=uom_rounding
-            ):
-                line.product_packaging_qty = 0
-                continue
-            line.product_packaging_qty = line.quantity / line.product_packaging_id.qty
-            line.update(line._prepare_product_packaging_qty_values())
-
-    def _inverse_product_packaging_qty(self):
-        for line in self:
-            if line.product_packaging_qty and not line.product_packaging_id:
-                raise UserError(
-                    self.env._(
-                        "You must define a package before setting a quantity "
-                        "of said package."
-                    )
-                )
-            if line.product_packaging_id and line.product_packaging_qty:
-                line.write(line._prepare_product_packaging_qty_values())
-
-    def _prepare_product_packaging_qty_values(self):
-        self.ensure_one()
-        return {
-            "quantity": self.product_packaging_id.qty * self.product_packaging_qty,
-        }

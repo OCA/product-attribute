@@ -2,10 +2,10 @@
 # Copyright 2016-2020 Camptocamp SA
 # @author Simone Orsi <simahawk@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
+from odoo import api, exceptions, fields, models
 
 
-class ProductSetWizard(models.AbstractModel):
+class ProductSetWizard(models.TransientModel):
     _name = "product.set.wizard"
     _rec_name = "product_set_id"
     _description = "Transient base model to define custom wizards"
@@ -37,11 +37,18 @@ class ProductSetWizard(models.AbstractModel):
         yield from self.product_set_line_ids
 
     def _check_partner(self):
-        """This method may be extended in other modules that use product_set as a
-        base.
+        """Validate that the wizard partner matches the product set partner.
+
+        Raises a ValidationError when the product set is restricted to a specific
+        partner and the wizard partner does not match it.  Override in submodules
+        to adjust the partner-matching logic.
         """
         if not self.product_set_id.partner_id:
             return
+        if self.partner_id != self.product_set_id.partner_id:
+            raise exceptions.ValidationError(
+                self.env._("This set of products is restricted for this user.")
+            )
 
     def add_set(self):
         """This method may be extended in other modules that use product_set as a
