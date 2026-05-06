@@ -46,6 +46,7 @@ addon | version | maintainers | summary
 [product_customerinfo](product_customerinfo/) | 18.0.1.3.0 | <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Allows to define prices for customers in the products
 [product_dimension](product_dimension/) | 18.0.1.0.0 |  | Product Dimension
 [product_drained_weight](product_drained_weight/) | 18.0.1.0.0 |  | Add 'Drained Weight' on product models
+[product_eprel](product_eprel/) | 18.0.1.0.0 |  | Manage EPREL model identifiers and energy label data for products.
 [product_form_pricelist](product_form_pricelist/) | 18.0.1.0.0 |  | Show/edit pricelist in product form
 [product_get_price_helper](product_get_price_helper/) | 18.0.1.1.0 |  | This module provides a helper function to compute product prices.
 [product_ingredient](product_ingredient/) | 18.0.1.0.1 | <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Product ingredients
