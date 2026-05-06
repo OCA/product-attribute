@@ -11,12 +11,9 @@ class TestProductCategoryUoM(BaseCommon):
         cls.product_tmpl_obj = cls.env["product.template"]
         cls.default_uom = cls.product_tmpl_obj._get_default_uom_id()
         cls.uom = cls.env.ref("uom.product_uom_gram")
-        vals = {
-            "name": "Category Test",
-            "code": "TEST",
-            "uom_id": cls.uom.id,
-        }
-        cls.category = cls.env["product.category"].create(vals)
+        cls.category = cls.env["product.category"].create(
+            {"name": "Category Test", "uom_id": cls.uom.id}
+        )
 
     def test_01_create(self):
         """Default UoM taken from the category"""
