@@ -3,7 +3,7 @@
 from collections import defaultdict
 
 from odoo import api, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class StockPicking(models.Model):
@@ -24,12 +24,7 @@ class StockPicking(models.Model):
         return {**default_data, **new_default_data}
 
     def _get_product_catalog_domain(self):
-        return expression.AND(
-            [
-                super()._get_product_catalog_domain(),
-                [("type", "in", ["consu", "product"])],
-            ]
-        )
+        return super()._get_product_catalog_domain() & Domain("type", "!=", "service")
 
     def _get_product_catalog_record_lines(self, product_ids, **kwargs):
         grouped_moves = defaultdict(lambda: self.env["stock.move"])
@@ -55,7 +50,6 @@ class StockPicking(models.Model):
         self.ensure_one()
         product_id = self.env["product.product"].browse(product_id)
         return {
-            "name": product_id.display_name,
             "product_id": product_id.id,
             "product_uom_qty": quantity,
             "product_uom": product_id.uom_id.id,
