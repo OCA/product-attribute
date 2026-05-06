@@ -21,13 +21,13 @@ Product Category Type
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/18.0/product_category_type
+    :target: https://github.com/OCA/product-attribute/tree/19.0/product_category_type
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_category_type
+    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_category_type
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -35,7 +35,7 @@ Product Category Type
 Add 'Type' field on Product Categories to distinguish between parent and
 final categories.
 
-figure:: ../static/description/product_category_tree.png
+|Product Category Tree|
 
 - Categories (type view) can contain only categories.
 - Categories (type normal) can contain only products.
@@ -43,7 +43,7 @@ figure:: ../static/description/product_category_tree.png
 It is so impossible to select a category (type view) in the product
 template form view.
 
-figure:: ../static/description/product_template_form.png
+|Product Template Form|
 
 Note
 ----
@@ -53,6 +53,9 @@ Edition until the V10 revision.
 
 Ref:
 https://github.com/odoo/odoo/blob/10.0/addons/product/models/product.py#L24
+
+.. |Product Category Tree| image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_category_type/static/description/product_category_tree.png
+.. |Product Template Form| image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_category_type/static/description/product_template_form.png
 
 **Table of contents**
 
@@ -65,7 +68,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_category_type%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_category_type%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -82,6 +85,9 @@ Contributors
 
 - Sylvain LE GAL (https://www.twitter.com/legalsylvain)
 - Fabian Semal (fabian@digital-serenity.net)
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
@@ -104,6 +110,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_category_type>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_category_type>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
