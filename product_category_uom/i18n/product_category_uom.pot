@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,6 +26,18 @@ msgstr ""
 #. module: product_category_uom
 #: model:ir.model.fields,help:product_category_uom.field_product_category__uom_id
 msgid "Default unit of measure used for products in this category."
+msgstr ""
+
+#. module: product_category_uom
+#: model:ir.model.fields,field_description:product_category_uom.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_category_uom.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_category_uom
+#: model:ir.model.fields,field_description:product_category_uom.field_product_category__id
+#: model:ir.model.fields,field_description:product_category_uom.field_product_template__id
+msgid "ID"
 msgstr ""
 
 #. module: product_category_uom
