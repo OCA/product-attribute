@@ -4,14 +4,11 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_form" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//field[@name='move_ids_without_package']//list"
-                position="inside"
-            >
+            <xpath expr="//field[@name='move_ids']//list" position="inside">
                 <control>
                     <create string="Add a line" />
                     <button
-                        invisible="parent.state == 'draft'"
+                        invisible="parent.state in ('done', 'cancel')"
                         name="action_add_from_catalog_picking"
                         string="Catalog"
                         type="object"
