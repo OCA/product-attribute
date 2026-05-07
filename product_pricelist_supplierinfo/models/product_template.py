@@ -71,7 +71,8 @@ class ProductTemplate(models.Model):
                 self.env.context.get("supplierinfo_rule")
             )
             for product in self:
-                prices[product.id] = product._get_supplierinfo_pricelist_price(
+                # Use sudo due to avoid access error to public user in e-commerce
+                prices[product.id] = product.sudo()._get_supplierinfo_pricelist_price(
                     rule,
                     date=date or self.env.context.get("date", fields.Date.today()),
                     quantity=self.env.context.get("supplierinfo_quantity", 1),
