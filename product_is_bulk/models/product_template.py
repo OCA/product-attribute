@@ -2,7 +2,7 @@
 # @author: Quentin DUPONT (quentin.dupont@grap.coop)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
@@ -19,9 +19,14 @@ class ProductTemplate(models.Model):
         " priced per unit but sold in bulk (such as cookies, bread, etc.)",
     )
 
+    @api.onchange("uom_id")
+    def _onchange_uom_id_is_bulk(self):
+        self.is_bulk = self.uom_id.category_id.measure_type in [
+            "weight",
+            "volume",
+        ]
+
     def _get_related_fields_variant_template(self):
         res = super()._get_related_fields_variant_template()
-        res += [
-            "is_bulk",
-        ]
+        res += ["is_bulk"]
         return res
