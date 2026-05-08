@@ -1,0 +1,178 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_revision
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-11-15 12:38+0000\n"
+"Last-Translator: sofien-moalla <s.moalla@cadrinsitu.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Category Rule"
+msgstr "Règle de catégorie"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
+msgid "Created on"
+msgstr "Crée le"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Current"
+msgstr "Actuel"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
+msgid "Date End"
+msgstr "Date Fin"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_start
+msgid "Date Start"
+msgstr "Date Début"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.pricelist_item_duplicate_wizard_action
+msgid "Duplicate Item"
+msgstr "Article en double"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Explicit rule name for this pricelist line."
+msgstr "Nom explicite pour cette ligne de la liste de prix."
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Global Rule"
+msgstr "Règle Globale"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+msgid "Percent"
+msgstr "Pourcentage"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
+msgid "Previous Fixed Price"
+msgstr "Prix fixe précédent"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
+msgid "Previous Item"
+msgstr "Élément précédent"
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.product_pricelist_item_action
+#: model:ir.ui.menu,name:product_pricelist_revision.menu_product_pricelist_item_action
+msgid "Pricelist Items"
+msgstr "Élément précédent"
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Ligne de la liste de prix"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Category"
+msgstr "Catégorie de produits"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Template"
+msgstr "Modèle de produit"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Variant"
+msgstr "Variante du produit"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
+msgid "Relation with previous item when duplicate line"
+msgstr "Relation avec l'élément précédent en cas de ligne dupliquée"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
+"                    This process set start date previous day as end date of\n"
+"                    origin record.\n"
+"                    <br/>\n"
+"                    <br/>"
+msgstr ""
+"Définissez une nouvelle date de début et un pourcentage de variation pour la "
+"duplication.\\n"
+"\"\n"
+"\"                    Ce processus définit la date de début comme la veille "
+"de la date de fin de\\n"
+"\"\n"
+"\"                    l'enregistrement d'origine.\"\n"
+"\"                    <br/>\"\n"
+"\"                    <br/>"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
+msgid "Variation %"
+msgstr "Variation %"
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
+msgid "Wizard Product Pricelist Item Duplicate"
+msgstr "Assistant Produit Liste de prix Elément dupliqué"
