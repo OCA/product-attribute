@@ -1,7 +1,7 @@
 # Copyright 2019 Tecnativa - Ernesto Tejeda
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -94,7 +94,7 @@ class TestProductPricelistRevision(BaseCommon):
         wizard = wizard_obj.with_context(active_ids=active_ids).create(
             {
                 "date_start": datetime.now(),
-                "date_end": datetime.now(),
+                "date_end": datetime.now() + timedelta(hours=1),
                 "variation_percent": 50,
             }
         )
