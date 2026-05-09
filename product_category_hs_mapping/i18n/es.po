@@ -1,0 +1,340 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_hs_mapping
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-09 20:31+0000\n"
+"PO-Revision-Date: 2026-05-09 20:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_template.py:0
+msgid ""
+"%(updated)d re-categorised, %(unchanged)d already correct, %(no_code)d "
+"without HS code, %(no_rule)d with no matching rule."
+msgstr ""
+"%(updated)d recategorizados, %(unchanged)d ya correctos, %(no_code)d sin "
+"código SA, %(no_rule)d sin regla coincidente."
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.ui.view,arch_db:product_category_hs_mapping.product_category_hs_mapping_form
+msgid "(intrastat code preview)"
+msgstr "(vista previa de código intrastat)"
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.actions.act_window,help:product_category_hs_mapping.product_category_hs_mapping_act_window
+msgid ""
+") or\n"
+"                prefix wildcards ("
+msgstr ""
+") o\n"
+"                comodines de prefijo ("
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.actions.act_window,help:product_category_hs_mapping.product_category_hs_mapping_act_window
+msgid ""
+"). Longest literal\n"
+"                prefix wins at resolution time, so a more specific\n"
+"                rule beats a more general one."
+msgstr ""
+"). El prefijo literal más largo\n"
+"                gana al resolverse, por lo que una regla más\n"
+"                específica vence a una más general."
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_category_hs_mapping.py:0
+msgid ""
+"An HS-code mapping rule for pattern '%(pat)s' and the same company scope "
+"already exists. Patterns must be unique per company (or globally, when no "
+"company is set)."
+msgstr ""
+"Ya existe una regla de mapeo SA para el patrón '%(pat)s' en el mismo ámbito "
+"de empresa. Los patrones deben ser únicos por empresa (o globales, cuando no"
+" se establece empresa)."
+
+#. module: product_category_hs_mapping
+#: model:ir.actions.server,name:product_category_hs_mapping.action_apply_hs_mapping
+msgid "Apply HS Code → Category Mapping"
+msgstr "Aplicar mapeo Código SA → categoría"
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.ui.view,arch_db:product_category_hs_mapping.product_category_hs_mapping_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__category_id
+#: model_terms:ir.ui.view,arch_db:product_category_hs_mapping.product_category_hs_mapping_search
+msgid "Category"
+msgstr "Categoría"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__display_name
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_template__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_category_hs_mapping
+#: model:ir.ui.menu,name:product_category_hs_mapping.menu_edi_mappings_root
+msgid "EDI Mappings"
+msgstr "Mapeos EDI"
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_template.py:0
+msgid "HS Code Mapping"
+msgstr "Mapeo de código SA"
+
+#. module: product_category_hs_mapping
+#: model:ir.ui.menu,name:product_category_hs_mapping.menu_product_category_hs_mapping
+msgid "HS Code → Category"
+msgstr "Código SA → categoría"
+
+#. module: product_category_hs_mapping
+#: model:ir.actions.act_window,name:product_category_hs_mapping.product_category_hs_mapping_act_window
+msgid "HS Code → Category Mappings"
+msgstr "Mapeos código SA → categoría"
+
+#. module: product_category_hs_mapping
+#: model:ir.model,name:product_category_hs_mapping.model_product_category_hs_mapping
+msgid "HS Code → Product Category Mapping"
+msgstr "Mapeo código SA → categoría de producto"
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_category_hs_mapping.py:0
+msgid ""
+"HS code pattern '%(pat)s' has a '*' that isn't the last character. Only "
+"trailing wildcard is supported (e.g. '8421*'). Use a longer literal prefix "
+"instead."
+msgstr ""
+"El patrón de código SA '%(pat)s' contiene un '*' que no es el último "
+"carácter. Solo se admite un comodín al final (p. ej. '8421*'). Use un "
+"prefijo literal más largo en su lugar."
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_category_hs_mapping.py:0
+msgid ""
+"HS code pattern '%(pat)s' must contain only digits (and an optional trailing"
+" '*'); got non-digit characters."
+msgstr ""
+"El patrón de código SA '%(pat)s' debe contener solo dígitos (y opcionalmente"
+" un '*' al final); se encontraron caracteres no numéricos."
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_category_hs_mapping.py:0
+msgid "HS code pattern is required."
+msgstr "El patrón de código SA es obligatorio."
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_category_hs_mapping.py:0
+msgid ""
+"HS code pattern must contain at least one digit before any '*' wildcard."
+msgstr ""
+"El patrón de código SA debe contener al menos un dígito antes de cualquier "
+"comodín '*'."
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__hs_code_pattern
+msgid ""
+"HS tariff code pattern. Treated as a prefix at lookup time — a rule with "
+"literal '84312000' matches both '84312000' and '8431200080' (longer national"
+" tariff lines roll up to the same chapter / subheading). The trailing '*' is"
+" purely visual; '84312000' and '84312000*' behave identically. Longest "
+"literal wins."
+msgstr ""
+"Patrón de código arancelario SA. Se trata como un prefijo en la búsqueda — "
+"una regla con literal '84312000' coincide tanto con '84312000' como con "
+"'8431200080' (líneas arancelarias nacionales más largas suben al mismo "
+"capítulo / subpartida). El '*' final es puramente visual; '84312000' y "
+"'84312000*' se comportan de forma idéntica. Gana el literal más largo."
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__hs_code_pattern
+msgid "Hs Code Pattern"
+msgstr "Patrón de código SA"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__name
+msgid ""
+"Human-readable label combining the HS pattern and the category — used in "
+"Many2one displays and audit trails."
+msgstr ""
+"Etiqueta legible que combina el patrón SA y la categoría — usada en "
+"presentaciones Many2one y rastros de auditoría."
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__id
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__intrastat_description
+msgid "Intrastat Description"
+msgstr "Descripción intrastat"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__specificity
+msgid ""
+"Length of the literal portion of the pattern (the part before any '*'). Used"
+" to order matches longest-first so an exact code beats a prefix wildcard."
+msgstr ""
+"Longitud de la porción literal del patrón (la parte antes de cualquier '*')."
+" Se usa para ordenar las coincidencias por longitud descendente, de modo que"
+" un código exacto vence a un comodín de prefijo."
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.actions.act_window,help:product_category_hs_mapping.product_category_hs_mapping_act_window
+msgid "Map HS tariff codes to product categories"
+msgstr "Mapear códigos arancelarios SA a categorías de producto"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_template.py:0
+msgid ""
+"No HS-code mapping rule matches %(hs)s for %(name)s. Add a rule in Settings "
+"→ Technical → Product Category HS Mapping, or extend the parent prefix."
+msgstr ""
+"Ninguna regla de mapeo SA coincide con %(hs)s para %(name)s. Añada una regla"
+" en Configuración → Técnico → Mapeo SA de categoría de producto, o extienda "
+"el prefijo padre."
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.actions.act_window,help:product_category_hs_mapping.product_category_hs_mapping_act_window
+msgid "Patterns can be exact codes ("
+msgstr "Los patrones pueden ser códigos exactos ("
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__intrastat_description
+msgid ""
+"Plain-language description of what the rule's HS-code pattern actually "
+"covers, looked up against the installed ``account.intrastat.code`` records. "
+"Lets a buyer eyeball whether ``8539299*`` mapped to 'Hydraulics' is wrong "
+"(it is — it's Filament lamps) without consulting a tariff manual. Computed, "
+"not stored — refreshes when the pattern changes or new intrastat codes get "
+"loaded."
+msgstr ""
+"Descripción en lenguaje claro de lo que el patrón de código SA de la regla "
+"cubre realmente, buscada contra los registros ``account.intrastat.code`` "
+"instalados. Permite al comprador ver de un vistazo si por ejemplo "
+"``8539299*`` asignado a 'Hidráulica' es incorrecto (lo es — son Lámparas de "
+"filamento) sin consultar un manual arancelario. Calculado, no almacenado — "
+"se actualiza cuando cambia el patrón o se cargan nuevos códigos intrastat."
+
+#. module: product_category_hs_mapping
+#: model:ir.model,name:product_category_hs_mapping.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_template.py:0
+msgid ""
+"Product %(name)s has no HS code set. Fill ``hs_code`` first (Product form → "
+"Purchase tab) or via TVH enrichment."
+msgstr ""
+"El producto %(name)s no tiene código SA establecido. Rellene primero "
+"``hs_code`` (formulario de producto → pestaña Compra) o vía enriquecimiento "
+"desde el proveedor."
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_template.py:0
+msgid "Product %(name)s is already in the matched category (%(cat)s)."
+msgstr "El producto %(name)s ya está en la categoría coincidente (%(cat)s)."
+
+#. module: product_category_hs_mapping
+#. odoo-python
+#: code:addons/product_category_hs_mapping/models/product_template.py:0
+msgid "Re-categorised via HS-code mapping: %(hs)s — %(old)s → %(new)s"
+msgstr "Recategorizado vía mapeo de código SA: %(hs)s — %(old)s → %(new)s"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__company_id
+msgid ""
+"Restrict this rule to a specific company. Empty = applies to all companies. "
+"Multi-company customers can ship different mapping tables per legal entity."
+msgstr ""
+"Restringir esta regla a una empresa específica. Vacío = se aplica a todas "
+"las empresas. Los clientes multi-empresa pueden mantener tablas de mapeo "
+"distintas por entidad jurídica."
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,field_description:product_category_hs_mapping.field_product_category_hs_mapping__specificity
+msgid "Specificity"
+msgstr "Especificidad"
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__category_id
+msgid "Target product category for products matching this pattern."
+msgstr ""
+"Categoría de producto objetivo para los productos que coinciden con este "
+"patrón."
+
+#. module: product_category_hs_mapping
+#: model:ir.model.fields,help:product_category_hs_mapping.field_product_category_hs_mapping__sequence
+msgid ""
+"Tiebreaker among same-specificity rules — lower wins. Specificity (longer "
+"pattern → higher) takes precedence."
+msgstr ""
+"Desempate entre reglas con la misma especificidad — menor gana. La "
+"especificidad (patrón más largo → mayor) tiene prioridad."
+
+#. module: product_category_hs_mapping
+#: model_terms:ir.ui.view,arch_db:product_category_hs_mapping.product_category_hs_mapping_form
+msgid "e.g. 8421* or 8421230090"
+msgstr "p. ej. 8421* o 8421230090"
