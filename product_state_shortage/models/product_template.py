@@ -11,6 +11,9 @@ class ProductTemplate(models.Model):
         if default_state := self._get_default_product_state():
             self.write({"product_state_id": default_state.id})
 
+    def _before_reset_default_state_hook(self):
+        pass
+
     @api.model
     def cron_reset_shortage_states(self):
         """
@@ -27,4 +30,6 @@ class ProductTemplate(models.Model):
             lambda t: any(p.qty_available > 0 for p in t.product_variant_ids)
         )
 
-        templates_to_reset._reset_default_state()
+        if templates_to_reset:
+            templates_to_reset._before_reset_default_state_hook()
+            templates_to_reset._reset_default_state()
