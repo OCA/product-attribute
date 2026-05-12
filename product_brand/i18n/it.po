@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-29 02:55+0000\n"
-"PO-Revision-Date: 2024-02-12 10:35+0000\n"
+"PO-Revision-Date: 2026-05-12 08:45+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
@@ -32,7 +32,7 @@ msgstr "Marca"
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_name
 #: model:ir.ui.view,arch_db:product_brand.view_product_brand_form
 msgid "Brand Name"
-msgstr "Marchio"
+msgstr "Nome marca"
 
 #. module: product_brand
 #: model:ir.actions.act_window,name:product_brand.action_open_brand_products
@@ -84,7 +84,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_logo
 msgid "Logo File"
-msgstr "File del Logo"
+msgstr "File del logo"
 
 #. module: product_brand
 #: model:ir.model.fields,field_description:product_brand.field_product_brand_products_count
