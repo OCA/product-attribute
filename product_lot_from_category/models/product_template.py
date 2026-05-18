@@ -4,7 +4,6 @@ from odoo import api, models
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     @api.onchange("categ_id")

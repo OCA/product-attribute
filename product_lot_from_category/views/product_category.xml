@@ -2,7 +2,6 @@
 <!-- Copyright 2021 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="product_category_form_view">
         <field name="name">product.category.form (in product_lot_from_category)</field>
         <field name="model">product.category</field>
@@ -13,5 +12,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
