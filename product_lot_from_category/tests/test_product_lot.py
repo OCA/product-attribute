@@ -1,16 +1,21 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo.tests import Form
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestProductAssortment(SavepointCase):
+class TestProductAssortment(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.product_obj = cls.env["product.template"]
         cls.categ_obj = cls.env["product.category"]
-        cls.product = cls.env.ref("product.product_product_4").product_tmpl_id
+        cls.product_4 = cls.env["product.product"].create(
+            {
+                "name": "Test Product 4",
+            }
+        )
+        cls.product = cls.product_4.product_tmpl_id
 
         vals = {
             "name": "Category Lot",
