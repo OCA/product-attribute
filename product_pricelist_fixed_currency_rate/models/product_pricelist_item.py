@@ -1,10 +1,10 @@
 # Copyright 2023 ForgeFlow S.L. (https://www.forgeflow.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
-class ProductPricelist(models.Model):
+class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
     fixed_currency_rate = fields.Float(
@@ -39,7 +39,12 @@ class ProductPricelist(models.Model):
         compute="_compute_currency_rate_tooltip",
     )
 
-    @api.depends("base_pricelist_id", "base_pricelist_id.currency_id", "base")
+    @api.depends(
+        "base_pricelist_id",
+        "base_pricelist_id.currency_id",
+        "base",
+        "pricelist_id.currency_id",
+    )
     def _compute_is_fixed_currency_rate_applicable(self):
         for rec in self:
             applicable = (
@@ -61,13 +66,15 @@ class ProductPricelist(models.Model):
                 rec.actual_currency_rate = 1.0
                 rec.inverse_actual_currency_rate = 1.0
 
-    def _compute_base_price(self, product, quantity, uom, date, currency):
+    def _compute_base_price(self, product, quantity, uom, date, currency, **kwargs):
         if self.is_fixed_currency_rate_applicable and self.fixed_currency_rate:
             return super(
-                ProductPricelist,
+                ProductPricelistItem,
                 self.with_context(fixed_currency_rate=self.fixed_currency_rate),
-            )._compute_base_price(product, quantity, uom, date, currency)
-        return super()._compute_base_price(product, quantity, uom, date, currency)
+            )._compute_base_price(product, quantity, uom, date, currency, **kwargs)
+        return super()._compute_base_price(
+            product, quantity, uom, date, currency, **kwargs
+        )
 
     @api.depends("base_pricelist_id", "base_pricelist_id.currency_id")
     def _compute_do_inverse_currency_rate(self):
@@ -84,8 +91,10 @@ class ProductPricelist(models.Model):
             else:
                 curr_from = rec.base_pricelist_id.currency_id
                 curr_to = rec.pricelist_id.currency_id
-            rec.currency_rate_tooltip = _("({curr_from} to {curr_to} rates)").format(
-                curr_from=curr_from.name, curr_to=curr_to.name
+            rec.currency_rate_tooltip = rec.env._(
+                "(%(curr_from)s to %(curr_to)s rates)",
+                curr_from=curr_from.name,
+                curr_to=curr_to.name,
             )
 
     @api.depends("fixed_currency_rate")

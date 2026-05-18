@@ -1,22 +1,20 @@
 # Copyright 2023 ForgeFlow S.L. (https://www.forgeflow.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo.tests import common
+from odoo.fields import Command
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestProductPricelistFixedCurrencyRate(common.TransactionCase):
+class TestProductPricelistFixedCurrencyRate(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.pricelist_model = cls.env["product.pricelist"]
         cls.product_model = cls.env["product.product"]
 
-        cls.company = cls.env["res.company"].create(
-            {
-                "name": "Test",
-                "currency_id": cls.env.ref("base.EUR").id,
-            }
-        )
+        cls.company = cls.env.company
+        cls.company.currency_id = cls.env.ref("base.EUR").id
         cls.env.user.company_id = cls.company
 
         cls.product_1 = cls.product_model.create(
@@ -40,9 +38,7 @@ class TestProductPricelistFixedCurrencyRate(common.TransactionCase):
                 "currency_id": cls.env.ref("base.EUR").id,
                 "company_id": cls.company.id,
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "0_product_variant",
                             "compute_price": "fixed",
@@ -59,9 +55,7 @@ class TestProductPricelistFixedCurrencyRate(common.TransactionCase):
                 "currency_id": cls.env.ref("base.USD").id,
                 "company_id": cls.company.id,
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -78,9 +72,7 @@ class TestProductPricelistFixedCurrencyRate(common.TransactionCase):
                 "currency_id": cls.env.ref("base.USD").id,
                 "company_id": cls.company.id,
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -167,24 +159,46 @@ class TestProductPricelistFixedCurrencyRate(common.TransactionCase):
 
         # Case 1
         item.fixed_currency_rate = 0.5
-        fixed_currency_rate = (
-            1 / item.inverse_fixed_currency_rate
-            if item.inverse_fixed_currency_rate
-            else 0.0
-        )
-        self.assertEqual(item.fixed_currency_rate, fixed_currency_rate)
+        self.assertEqual(item.inverse_fixed_currency_rate, 2.0)
 
         # Case 2
-        item.fixed_currency_rate = 1
-        fixed_currency_rate = (
-            1 / item.inverse_fixed_currency_rate
-            if item.inverse_fixed_currency_rate
-            else 0.0
-        )
-        self.assertEqual(item.fixed_currency_rate, fixed_currency_rate)
+        item.fixed_currency_rate = 1.0
+        self.assertEqual(item.inverse_fixed_currency_rate, 1.0)
+
+        # Case 3 (Zero fixed rate)
+        item.fixed_currency_rate = 0.0
+        self.assertEqual(item.inverse_fixed_currency_rate, 0.0)
 
     def test_06_do_inverse_currency_rate(self):
         item = self.pricelist_usd_fixed_rate.item_ids
         do_inverse_currency_rate = not item.do_inverse_currency_rate
         item.toggle_do_inverse_currency_rate()
         self.assertEqual(item.do_inverse_currency_rate, do_inverse_currency_rate)
+
+    def test_07_inverse_fixed_currency_rate_setter(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+        item.inverse_fixed_currency_rate = 0.5
+        self.assertEqual(item.fixed_currency_rate, 2.0)
+
+        item.inverse_fixed_currency_rate = 0.0
+        self.assertEqual(item.fixed_currency_rate, 0.0)
+
+    def test_08_is_fixed_currency_rate_applicable_false(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+        item.base = "list_price"
+        item._compute_is_fixed_currency_rate_applicable()
+        self.assertFalse(item.is_fixed_currency_rate_applicable)
+        self.assertEqual(item.actual_currency_rate, 1.0)
+        self.assertEqual(item.inverse_actual_currency_rate, 1.0)
+
+    def test_09_actual_currency_rate_zero(self):
+        item = self.pricelist_usd_fixed_rate.item_ids
+        from unittest.mock import patch
+
+        # Mock _get_conversion_rate to return 0.0 to simulate zero currency rate
+        with patch.object(
+            type(self.env["res.currency"]), "_get_conversion_rate", return_value=0.0
+        ):
+            item._compute_is_fixed_currency_rate_applicable()
+            self.assertEqual(item.actual_currency_rate, 0.0)
+            self.assertEqual(item.inverse_actual_currency_rate, 0.0)

@@ -4,11 +4,11 @@
 from odoo import api, models
 
 
-class ProductPricelist(models.Model):
+class ResCurrency(models.Model):
     _inherit = "res.currency"
 
     @api.model
-    def _get_conversion_rate(self, from_currency, to_currency, company, date):
+    def _get_conversion_rate(self, from_currency, to_currency, company=None, date=None):
         fixed_rate = self.env.context.get("fixed_currency_rate")
         if fixed_rate:
             return fixed_rate
