@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_set_tree" model="ir.ui.view">
+        <field name="name">product.set.list</field>
+        <field name="model">product.set</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="ref" />
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+            </list>
+        </field>
+    </record>
+    <record id="view_product_set_form" model="ir.ui.view">
+        <field name="name">product.set.form</field>
+        <field name="model">product.set</field>
+        <field name="arch" type="xml">
+            <form string="Product set">
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        invisible="active"
+                    />
+                    <div class="oe_button_box" name="button_box" />
+                    <group name="main">
+                        <group name="name">
+                            <field name="active" invisible="1" />
+                            <field name="name" select="1" />
+                            <field name="ref" />
+                        </group>
+                        <group name="partner">
+                            <field name="partner_id" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                        <notebook>
+                            <page name="set_line_ids" string="Set">
+                                <field
+                                    name="set_line_ids"
+                                    widget="section_and_note_one2many"
+                                >
+                                    <list editable="bottom">
+                                        <control>
+                                            <create
+                                                name="add_line_control"
+                                                string="Add a line"
+                                            />
+                                            <create
+                                                name="add_section_control"
+                                                string="Add a section"
+                                                context="{'default_display_type': 'line_section'}"
+                                            />
+                                            <create
+                                                name="add_note_control"
+                                                string="Add a note"
+                                                context="{'default_display_type': 'line_note'}"
+                                            />
+                                        </control>
+                                        <field name="sequence" widget="handle" />
+                                        <field
+                                            name="product_id"
+                                            widget="product_label_section_and_note_field"
+                                            required="not display_type"
+                                        />
+                                        <field
+                                            name="name"
+                                            widget="section_and_note_text"
+                                        />
+                                        <field
+                                            name="product_uom_id"
+                                            groups="uom.group_uom"
+                                            context="{'default_product_id': product_id}"
+                                        />
+                                        <field name="quantity" />
+                                        <field
+                                            name="display_type"
+                                            column_invisible="1"
+                                        />
+                                        <field name="active" widget="boolean_toggle" />
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_set_search" model="ir.ui.view">
+        <field name="name">product.set.search</field>
+        <field name="model">product.set</field>
+        <field name="arch" type="xml">
+            <search string="Product set">
+                <field name="name" />
+                <field name="ref" />
+                <field name="partner_id" />
+                <separator />
+                <filter
+                    string="All"
+                    name="all"
+                    domain="['|', ('active', '=', False), ('active', '=', True)]"
+                />
+                <filter
+                    string="Active"
+                    name="active"
+                    domain="[('active', '=', True)]"
+                />
+                <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active', '=', False)]"
+                />
+                <group>
+                    <filter
+                        name="group_by_partner_id"
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="act_open_product_set_view" model="ir.actions.act_window">
+        <field name="name">Product set</field>
+        <field name="res_model">product.set</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_product_set_search" />
+        <field name="domain">[]</field>
+        <field name="context">{'active_test': False, 'search_default_all': 1}</field>
+    </record>
+</odoo>
