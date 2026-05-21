@@ -4,7 +4,7 @@
 {
     "name": "Products - Next Reception Date",
     "summary": "Add 'Next Reception date' on product models",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "author": "Akretion,Odoo Community Association (OCA)",
     "maintainers": ["bealdav", "mathieudelva"],

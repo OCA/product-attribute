@@ -7,15 +7,16 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from odoo import Command as cmd
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class Test(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.partner = self.env["res.partner"].create({"name": "test"})
-        self.product = self.env["product.product"].create({"name": "test"})
-        self.purchase = create_purchase(self, relative_days=10)
+class Test(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product = cls.env["product.product"].create({"name": "test"})
+        cls.purchase = create_purchase(cls, relative_days=10)
 
     def test_next_reception_date(self):
         self.purchase.button_confirm()
