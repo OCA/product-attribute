@@ -68,15 +68,19 @@ class ProductSupplierInfoImport(models.TransientModel):
 
     def _detect_template(self, workbook):
         """Detect the template to be used from the sheet header"""
-        templates = self.env["product.supplierinfo.import.template"].search([])
+        templates = self.env["product.supplierinfo.import.template"].search(
+            [("id", "!=", False)]
+        )
         template_headers = [(t, t._template_headers()) for t in templates]
         header_values = []
         for template, header in template_headers:
             if template.sheet_number - 1 >= workbook.nsheets:
                 raise UserError(
                     self.env._(
-                        f"Sheet number {template.sheet_number} is out of range. "
-                        f"The workbook only has {workbook.nsheets} sheets."
+                        "Sheet number %(sheet_number)s is out of range. "
+                        "The workbook only has %(nsheets)s sheets.",
+                        sheet_number=template.sheet_number,
+                        nsheets=workbook.nsheets,
                     )
                 )
             sheet = workbook.sheet_by_index(template.sheet_number - 1)
@@ -87,8 +91,9 @@ class ProductSupplierInfoImport(models.TransientModel):
         if not self.template_id:
             raise UserError(
                 self.env._(
-                    f"No matching template for these header columns.\n"
-                    f"Total header columns: {', '.join(header_values)}"
+                    "No matching template for these header columns.\n"
+                    "Total header columns: %(headers)s",
+                    headers=", ".join(header_values),
                 )
             )
 
