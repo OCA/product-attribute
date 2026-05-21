@@ -20,7 +20,6 @@ class ProductSupplierInfoImport(models.TransientModel):
 
     supplier_id = fields.Many2one(
         comodel_name="res.partner",
-        string="Supplier",
         compute="_compute_supplier_id",
         store=True,
         readonly=False,

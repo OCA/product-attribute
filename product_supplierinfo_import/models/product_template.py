@@ -1,7 +1,6 @@
 # Copyright 2024 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.fields import first
 
 
 class ProductTemplate(models.Model):
@@ -22,7 +21,7 @@ class ProductTemplate(models.Model):
     @api.depends("seller_ids", "seller_ids.product_code")
     def _compute_product_code(self):
         for prod in self:
-            seller = first(prod.seller_ids)
+            seller = prod.seller_ids[:1]
             prod.product_code = seller.product_code
 
     @api.model
