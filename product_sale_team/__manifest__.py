@@ -4,7 +4,7 @@
 {
     "name": "Product Sale Team",
     "summary": "Sale Team for products",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "author": "Cetmix, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
