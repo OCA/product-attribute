@@ -7,32 +7,26 @@
 <odoo>
     <record id="group_product_creation" model="res.groups">
         <field name="name">Product Creation</field>
-        <field name="category_id" ref="base.module_category_usability" />
     </record>
 
     <record id="group_product_attribute_creation" model="res.groups">
         <field name="name">Product Attribute Creation</field>
-        <field name="category_id" ref="base.module_category_usability" />
     </record>
 
     <record id="group_product_tag_creation" model="res.groups">
         <field name="name">Product Tag Creation</field>
-        <field name="category_id" ref="base.module_category_usability" />
     </record>
 
     <record id="group_product_category_creation" model="res.groups">
         <field name="name">Product Category Creation</field>
-        <field name="category_id" ref="base.module_category_usability" />
     </record>
 
     <record id="group_product_supplierinfo_creation" model="res.groups">
         <field name="name">Product Supplier Pricelist Creation</field>
-        <field name="category_id" ref="base.module_category_usability" />
     </record>
 
     <record id="group_uom_creation" model="res.groups">
         <field name="name">Units of Measure Creation</field>
-        <field name="category_id" ref="base.module_category_usability" />
         <field name="implied_ids" eval="[Command.link(ref('uom.group_uom'))]" />
     </record>
 

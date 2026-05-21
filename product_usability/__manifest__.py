@@ -4,7 +4,7 @@
 
 {
     "name": "Product - Missing Menus and Groups",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "license": "AGPL-3",
     "summary": "Adds missing menu entries for Product module and"
