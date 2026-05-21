@@ -20,6 +20,7 @@ dependencies = [
     "odoo-addon-product_net_weight==19.0.*",
     "odoo-addon-product_origin==19.0.*",
     "odoo-addon-product_pricelist_item_list_view==19.0.*",
+    "odoo-addon-product_pricelist_item_uom==19.0.*",
     "odoo-addon-product_pricelist_revision==19.0.*",
     "odoo-addon-product_pricelist_supplierinfo==19.0.*",
     "odoo-addon-product_sale_team==19.0.*",

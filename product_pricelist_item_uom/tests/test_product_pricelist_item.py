@@ -16,11 +16,11 @@ class TestProductPricelistItem(BaseCommon):
         cls.kg_uom = cls.env.ref("uom.product_uom_kgm")
 
         # Converting g to kg needs to increase accuracy
-        cls.uom_accuracy = cls.env.ref("product.decimal_product_uom")
-        cls.uom_accuracy.digits = log10(cls.g_uom.factor)
+        cls.uom_accuracy = cls.env.ref("uom.decimal_product_uom")
+        cls.uom_accuracy.digits = log10(cls.kg_uom.factor)
 
         # UoM group needed to see UoM field
-        cls.env.user.groups_id += cls.env.ref("uom.group_uom")
+        cls.env.user.group_ids += cls.env.ref("uom.group_uom")
         product_1000_kg_form = Form(cls.env["product.product"])
         product_1000_kg_form.name = "Test product"
         product_1000_kg_form.uom_id = cls.kg_uom
@@ -28,19 +28,17 @@ class TestProductPricelistItem(BaseCommon):
         cls.product_1000_kg = product_1000_kg_form.save()
 
         # Activate advanced pricelist to apply surcharge
-        cls.env.user.groups_id += cls.env.ref("product.group_sale_pricelist")
+        cls.env.user.group_ids += cls.env.ref("product.group_product_pricelist")
         pricelist_g_kg_form = Form(cls.env["product.pricelist"])
         pricelist_g_kg_form.name = "Test pricelist"
         with pricelist_g_kg_form.item_ids.new() as item:
-            item.applied_on = "0_product_variant"
-            item.product_id = cls.product_1000_kg
+            item.product_tmpl_id = cls.product_1000_kg.product_tmpl_id
             item.compute_price = "formula"
             item.price_surcharge = 500
             item.uom_id = cls.g_uom
             item.uom_min_quantity = 1
         with pricelist_g_kg_form.item_ids.new() as item:
-            item.applied_on = "0_product_variant"
-            item.product_id = cls.product_1000_kg
+            item.product_tmpl_id = cls.product_1000_kg.product_tmpl_id
             item.compute_price = "formula"
             item.uom_id = cls.kg_uom
             item.uom_min_quantity = 1

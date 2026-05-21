@@ -17,13 +17,8 @@ class ProductPricelistItem(models.Model):
     )
     uom_min_quantity = fields.Float(
         string="Min. Quantity in UoM",
-        digits="Product Unit of Measure",
+        digits="Product Unit",
         compute="_compute_uom_min_quantity",
-        store=True,
-        readonly=False,
-    )
-    min_quantity = fields.Float(
-        compute="_compute_min_quantity",
         store=True,
         readonly=False,
     )
