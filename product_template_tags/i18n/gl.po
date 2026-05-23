@@ -6,129 +6,131 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
 msgid "# of Products"
-msgstr ""
+msgstr "# de Produtos"
 
 #. module: product_template_tags
 #: model_terms:ir.actions.act_window,help:product_template_tags.product_template_tag_act_window
 msgid "Add tags"
-msgstr ""
+msgstr "Engadir etiquetas"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__child_ids
 msgid "Child"
-msgstr ""
+msgstr "Fillo"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__color
 msgid "Color Index"
-msgstr ""
+msgstr "Cor"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__company_id
 #: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
 msgid "Company"
-msgstr ""
+msgstr "Compañia"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado o"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome mostrado"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación o"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última modificación o"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_id
 msgid "Parent"
-msgstr ""
+msgstr "Parental"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Roteiro Parental"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template_tag
 msgid "Product Tag"
-msgstr ""
+msgstr "Etiqueta de produto"
 
 #. module: product_template_tags
 #: model:ir.model,name:product_template_tags.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: product_template_tags
 #: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
 msgid "Product Template Tag"
-msgstr ""
+msgstr "Etiqueta de modelo de produto"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__product_tmpl_ids
 #: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_form_view
 msgid "Products"
-msgstr ""
+msgstr "Produtos"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Secuencia"
 
 #. module: product_template_tags
 #: model:ir.model.constraint,message:product_template_tags.constraint_product_template_tag_name_uniq
 msgid "Tag name must be unique inside a company"
-msgstr ""
+msgstr "O nome de etiqueta debe ser único dentro dunha compañía"
 
 #. module: product_template_tags
 #: model:ir.model.fields,field_description:product_template_tags.field_product_product__tag_ids
 #: model:ir.model.fields,field_description:product_template_tags.field_product_template__tag_ids
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetas"
 
 #. module: product_template_tags
 #: code:addons/product_template_tags/models/product_template_tag.py:0
 #, python-format
 msgid "Tags cannot be recursive."
-msgstr ""
+msgstr "As etiquetas non poden ser recursivas."
