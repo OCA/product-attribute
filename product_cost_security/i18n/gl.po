@@ -6,24 +6,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
 msgid "Access to product costs"
-msgstr ""
+msgstr "Acceso a ver o custo de produtos"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
-msgstr ""
+msgstr "Custo"
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -34,24 +36,31 @@ msgid ""
 "        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
 "        Used to compute margins on sale orders."
 msgstr ""
+"En Prezo estándar e AVCO: valor do produto (calculado automaticamente en "
+"AVCO).\n"
+"        En FIFO: valor da seguinte unidade que sairá do stock (calculado "
+"automaticamente).\n"
+"        Utilízase para valorar o produto cando non se coñece o custo de "
+"compra (por exemplo, axuste de inventario).\n"
+"        Utilízase para calcular as marxes dos pedidos de venda."
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_edit_cost
 msgid "Modify product costs"
-msgstr ""
+msgstr "Modificar os custos dos produtos"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produto"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
 msgid "User Can Update Cost"
-msgstr ""
+msgstr "O Usuario Pode Actualizar o Custo"
