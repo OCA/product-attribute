@@ -6,80 +6,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Axustes de configuración"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_length_uom_id
 msgid "Default Length Unit of Measure"
-msgstr ""
+msgstr "Unidade de Medida de Lonxitude por Defecto"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default Volume Unit of Measure"
-msgstr ""
+msgstr "Unidade de medida de volume predeterminada"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__product_default_weight_uom_id
 msgid "Default Weight Unit of Measure"
-msgstr ""
+msgstr "Unidade de medida de peso predeterminada"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_length_uom_id
 msgid "Default unit of measure to express product length"
-msgstr ""
+msgstr "Unidade de medida por defecto para expresar a lonxitude do produto"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_volume_uom_id
 msgid "Default unit of measure to express product volume"
-msgstr ""
+msgstr "Unidade de medida do volume do produto predeterminada"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,help:product_logistics_uom.field_res_config_settings__product_default_weight_uom_id
 msgid "Default unit of measure to express product weight"
-msgstr ""
+msgstr "Unidade de medida do peso do produto predeterminada"
 
 #. module: product_logistics_uom
 #: model:ir.model,name:product_logistics_uom.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__product_uom_readonly
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__product_uom_readonly
 msgid "Product Uom Readonly"
-msgstr ""
+msgstr "Udm Produto Só Lectura"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume_uom_id
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__volume_uom_id
 msgid "Volume Unit of Measure"
-msgstr ""
+msgstr "Unidade de medida de volume"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__volume_uom_name
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__volume_uom_name
 msgid "Volume unit of measure label"
-msgstr ""
+msgstr "Etiqueta de unidade de medida de volume"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_id
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_id
 msgid "Weight Unit of Measure"
-msgstr ""
+msgstr "Unidade de medida do peso"
 
 #. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight_uom_name
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight_uom_name
 msgid "Weight unit of measure label"
-msgstr ""
+msgstr "Etiqueta de unidade de medida do peso"
