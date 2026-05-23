@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,body_html:product_pricelist_direct_print.email_template_edi_pricelist
@@ -34,31 +36,49 @@ msgid ""
 "</div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Estimado <span t-out=\"object.partner_id and object.partner_id.name "
+"or 'customer'\"/>,</p>\n"
+"    <p>\n"
+"    O arquivo adxunto é un documento PDF que contén a\n"
+"    <strong t-out=\"object.pricelist_id.name\"/> lista de prezos.\n"
+"    </p>\n"
+"    <p>Vostede pode contestar a este correo electrónico se ten algunha "
+"pregunta.</p>\n"
+"    <p>Grazas,</p>\n"
+"\n"
+"    <p style=\"color:#888888;\">\n"
+"        <t t-if=\"object.write_uid and object.write_uid.signature\">\n"
+"            <span t-out=\"object.write_uid.signature or ''\"/>\n"
+"        </t>\n"
+"    </p>\n"
+"</div>\n"
+"        "
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<span>Special Pricelist</span>"
-msgstr ""
+msgstr "<span>Tarifa especial</span>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Cost Price</strong>"
-msgstr ""
+msgstr "<strong>Prezo custo</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Currency</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Moeda</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Date</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Data</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Description</strong>"
-msgstr ""
+msgstr "<strong>Descrición</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -68,37 +88,37 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>List Price</strong>"
-msgstr ""
+msgstr "<strong>Prezo de tarifa</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Price List Name</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Nomee tarifa</strong>:<br/>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Sale Price</strong>"
-msgstr ""
+msgstr "<strong>Prezo ficha</strong>"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_report_product_pricelist_direct_print_product_pricelist_xlsx
 msgid "Abstract model to export as xlsx the product pricelist"
-msgstr ""
+msgstr "Modelo abstracto para exportar os produtos de tarifa a xlsx"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__breakage_per_category
 msgid "Breakage Per Category"
-msgstr ""
+msgstr "Rotura por Categoría"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__categ_ids
 msgid "Categories"
-msgstr ""
+msgstr "Categorías"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
@@ -106,107 +126,114 @@ msgid ""
 "Check this field to print only the products defined in the pricelist. The "
 "entries in the list referring to all products will not be displayed."
 msgstr ""
+"Marca este campo para imprimir os produtos definidos na tarifa. Os elementos "
+"da lista de prezos que fan referencia a todos os produtos non se van a ter "
+"en conta."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__context_active_model
 msgid "Context Active Model"
-msgstr ""
+msgstr "Modelo Activo de Contexto"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Cost Price"
-msgstr ""
+msgstr "Prezo de custo"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Currency:"
-msgstr ""
+msgstr "Moeda:"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_id
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Customers"
-msgstr ""
+msgstr "Clientes"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__date
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Date:"
-msgstr ""
+msgstr "Data:"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Description"
-msgstr ""
+msgstr "Descrición"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome mostrado"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Export Options"
-msgstr ""
+msgstr "Opcións de exportación"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Filter Options"
-msgstr ""
+msgstr "Opcións de filtrado"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
 msgid "Filter only the products ordered since this date"
-msgstr ""
+msgstr "Filtrar só os produtos ordenados desde esta data"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_pricelist_name
 msgid "Hide Pricelist Name"
-msgstr ""
+msgstr "Ocultar nome de tarifa"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
 msgid "If this field is not 0, print last n category path"
 msgstr ""
+"Se este campo non é 0, imprimiranse os n últimos nodos do nome completo da "
+"categoría."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
 msgid ""
 "If this field is not 0, products are grouped at max level of category tree."
 msgstr ""
+"Se este campo non é 0, os produtos agrúpanse no nivel máximo da árbore de "
+"categorías."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
@@ -214,6 +241,8 @@ msgid ""
 "If you enter an X number here, then, for each selected customer, the last X "
 "ordered products will be obtained for the report."
 msgstr ""
+"Se introduce un número X aquí, entón, para cada cliente seleccionado, "
+"teranse en canta os últimos X produtos pedidos."
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
@@ -230,80 +259,80 @@ msgstr ""
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Internal Category"
-msgstr ""
+msgstr "Categoría interna"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "Referencia interna"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Keep empty for all products"
-msgstr ""
+msgstr "Deixar baleiro para mostrar todos os produtos"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__lang
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
 msgid "Last Categ Level To Print"
-msgstr ""
+msgstr "Último nivel de categoría a imprimir"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__last_ordered_products
 msgid "Last Ordered Products"
-msgstr ""
+msgstr "Últimos produtos pedidos"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización de"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "List Price"
-msgstr ""
+msgstr "Prezo de tarifa"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__max_categ_level
 msgid "Max category level"
-msgstr ""
+msgstr "Nivel máximo de categoría"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__order_field
 msgid "Order"
-msgstr ""
+msgstr "Orde"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "PRODUCTS"
-msgstr ""
+msgstr "PRODUTOS"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__partner_count
 msgid "Partner Count"
-msgstr ""
+msgstr "Número de partners"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_item_pricelist_print
@@ -312,55 +341,55 @@ msgstr ""
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_product_template_pricelist_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "Price List"
-msgstr ""
+msgstr "Tarifa"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Price List Name:"
-msgstr ""
+msgstr "Nomee tarifa:"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__pricelist_id
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Pricelist"
-msgstr ""
+msgstr "Tarifa"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "Pricelist - Send by Email"
-msgstr ""
+msgstr "Lista de prezos - Enviar por correo electrónico"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Print"
-msgstr ""
+msgstr "Imprimir"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_pricelist_print
 #: model:ir.ui.menu,name:product_pricelist_direct_print.menu_product_pricelist_print
 msgid "Print Price List"
-msgstr ""
+msgstr "Imprimir tarifa"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.report,name:product_pricelist_direct_print.action_report_product_pricelist
 msgid "Product Price List"
-msgstr ""
+msgstr "Tarifa de produtos"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model,name:product_pricelist_direct_print.model_product_pricelist_print
 msgid "Product Pricelist Print"
-msgstr ""
+msgstr "Impresión de tarifas"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.report,name:product_pricelist_direct_print.product_pricelist_xlsx
 msgid "Product Pricelist XLSX"
-msgstr ""
+msgstr "Exportar lista de prezos do produto"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Product Templates"
-msgstr ""
+msgstr "Produtos"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
@@ -368,38 +397,38 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 #, python-format
 msgid "Products"
-msgstr ""
+msgstr "Produtos"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Sale Price"
-msgstr ""
+msgstr "PVP"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_selling_date_threshold
 msgid "Selling date threshold"
-msgstr ""
+msgstr "Limiar de data de venda"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Send by email"
-msgstr ""
+msgstr "Enviar por email"
 
 #. module: product_pricelist_direct_print
 #: model:ir.actions.act_window,name:product_pricelist_direct_print.action_partner_pricelist_print
 msgid "Send customer pricelist by EMail"
-msgstr ""
+msgstr "Enviar tarifa de cliente por email"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_standard_price
 msgid "Show Cost Price"
-msgstr ""
+msgstr "Mostrar prezo de custo"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_sale_price
 msgid "Show Sale Price"
-msgstr ""
+msgstr "Mostrar prezo ficha"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_uom
@@ -409,12 +438,12 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants
 msgid "Show Variants"
-msgstr ""
+msgstr "Mostrar variantes"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_internal_category
 msgid "Show internal categories"
-msgstr ""
+msgstr "Mostrar categorías internas"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_images
@@ -424,24 +453,24 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
 msgid "Show the products defined on pricelist"
-msgstr ""
+msgstr "Mostrar os produtos definidos na tarifa"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Special Pricelist"
-msgstr ""
+msgstr "Tarifa especial"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__summary
 msgid "Summary"
-msgstr ""
+msgstr "Resumo"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
 #, python-format
 msgid "Summary:"
-msgstr ""
+msgstr "Resumo:"
 
 #. module: product_pricelist_direct_print
 #: code:addons/product_pricelist_direct_print/report/product_pricelist_xlsx.py:0
@@ -453,7 +482,7 @@ msgstr ""
 #: code:addons/product_pricelist_direct_print/wizards/product_pricelist_print.py:0
 #, python-format
 msgid "You must set price list or any customer or any show price option."
-msgstr ""
+msgstr "Debe seleccionar unha tarifa ou algunha opción mostrar prezo."
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,subject:product_pricelist_direct_print.email_template_edi_pricelist
@@ -461,8 +490,11 @@ msgid ""
 "{{ object.pricelist_id.company_id.name or object.write_uid.company_id.name "
 "}} Pricelist (Ref {{ object.pricelist_id.name or 'n/a' }})"
 msgstr ""
+"{{ object.pricelist_id.company_id.name or "
+"object.write_uid.company_id.name }} Tarifa (Ref {{ object.pricelist_id.name "
+"or 'n/a' }})"
 
 #. module: product_pricelist_direct_print
 #: model:mail.template,report_name:product_pricelist_direct_print.email_template_edi_pricelist
 msgid "{{ object.pricelist_id.name }}"
-msgstr ""
+msgstr "{{ object.pricelist_id.name }}"
