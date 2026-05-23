@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__base
@@ -22,73 +24,78 @@ msgid ""
 "Cost Price : The base price will be the cost price.\n"
 "Other Pricelist : Computation of the base price based on another Pricelist."
 msgstr ""
+"Prezo base de cálculo.\n"
+"Prezo de venda: O prezo basee será o Prezo de Venda.\n"
+"Prezo de Custo : O prezo basee será o prezo de custo.\n"
+"Outra Lista de Prezos : Cálculo do prezo basee baseado noutra Lista de "
+"Prezos."
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__base
 msgid "Based on"
-msgstr ""
+msgstr "Baseado en"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
-msgstr ""
+msgstr "Ignorar cantidade mínima da info de provedor"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
 msgid "Margin to apply on price to obtain sale price"
-msgstr ""
+msgstr "Marxe a aplicar sobre o prezo para obter prezo de venda"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,help:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
 msgid "Only match prices from the selected supplier"
-msgstr ""
+msgstr "Igualar só os prezos do provedor seleccionado"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist
 msgid "Pricelist"
-msgstr ""
+msgstr "Tarifa"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Regra da lista de prezos"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields.selection,name:product_pricelist_supplierinfo.selection__product_pricelist_item__base__supplierinfo
 msgid "Prices based on supplier info"
-msgstr ""
+msgstr "Prezos baseados na información do provedor"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produto"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_supplierinfo__sale_margin
 msgid "Sale Margin"
-msgstr ""
+msgstr "Marxe de Venda"
 
 #. module: product_pricelist_supplierinfo
 #: model_terms:ir.ui.view,arch_db:product_pricelist_supplierinfo.product_supplierinfo_tree_view
 msgid "Sale margin"
-msgstr ""
+msgstr "Marxe de venda"
 
 #. module: product_pricelist_supplierinfo
 #: model:res.groups,name:product_pricelist_supplierinfo.group_supplierinfo_pricelist_sale_margin
 msgid "Show sale margin on Product Supplierinfo"
-msgstr ""
+msgstr "Mostrar marxe de venda en Produto Proveedorinfo"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model,name:product_pricelist_supplierinfo.model_product_supplierinfo
 msgid "Supplier Pricelist"
-msgstr ""
+msgstr "Lista de prezos de Provedor"
 
 #. module: product_pricelist_supplierinfo
 #: model:ir.model.fields,field_description:product_pricelist_supplierinfo.field_product_pricelist_item__filter_supplier_id
 msgid "Supplier filter"
-msgstr ""
+msgstr "Filtro de Provedor"
