@@ -6,144 +6,146 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__active
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado o"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__default
 msgid "Default state"
-msgstr ""
+msgstr "Estado por defecto"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__description
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "Description"
-msgstr ""
+msgstr "Descrición"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nome"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_end
 msgid "End of Lifecycle"
-msgstr ""
+msgstr "Fin do ciclo de vida"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_draft
 msgid "In Development"
-msgstr ""
+msgstr "En desenvolvemento"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación o"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Actualización por"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Actualización o"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_sellable
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__products_count
 msgid "Number of products"
-msgstr ""
+msgstr "Número de produtos"
 
 #. module: product_state
 #: model:product.state,name:product_state.product_state_obsolete
 msgid "Obsolete"
-msgstr ""
+msgstr "Obsoleto"
 
 #. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_single_product_state
 #: model:ir.model,name:product_state.model_product_state
 #: model_terms:ir.ui.view,arch_db:product_state.product_state_search_form_view
 msgid "Product State"
-msgstr ""
+msgstr "Estado do Produto"
 
 #. module: product_state
 #: model:ir.model.constraint,message:product_state.constraint_product_state_code_unique
 msgid "Product State Code must be unique."
-msgstr ""
+msgstr "O Código de Estado do Produto debe ser único."
 
 #. module: product_state
 #: model:ir.ui.menu,name:product_state.menu_product_state
 msgid "Product States"
-msgstr ""
+msgstr "Estados do Produto"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_product__state
 #: model:ir.model.fields,field_description:product_state.field_product_template__state
 msgid "Product Status"
-msgstr ""
+msgstr "Estado do Produto"
 
 #. module: product_state
 #: model:ir.model,name:product_state.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_kanban
 msgid "Products"
-msgstr ""
+msgstr "Produtos"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_product__product_state_id
 #: model:ir.model.fields,help:product_state.field_product_template__product_state_id
 msgid "Select a state for this product"
-msgstr ""
+msgstr "Selecciona un estado para este produto"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Secuencia"
 
 #. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_product_state
@@ -151,37 +153,37 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_state.field_product_template__product_state_id
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_template_search_state
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: product_state
 #: model:ir.model.fields,field_description:product_state.field_product_state__code
 msgid "State Code"
-msgstr ""
+msgstr "Código de Estado"
 
 #. module: product_state
 #: model_terms:ir.ui.view,arch_db:product_state.view_product_state_form
 msgid "State Name"
-msgstr ""
+msgstr "Nome do Estado"
 
 #. module: product_state
 #: model:ir.actions.act_window,name:product_state.action_open_state_products
 #: model:ir.model.fields,field_description:product_state.field_product_state__product_ids
 msgid "State Products"
-msgstr ""
+msgstr "Produtos do Estado"
 
 #. module: product_state
 #: code:addons/product_state/models/product_template.py:0
 #, python-format
 msgid "The product state code %s could not be found."
-msgstr ""
+msgstr "Non se atopou o código de estado do produto %s."
 
 #. module: product_state
 #: code:addons/product_state/models/product_state.py:0
 #, python-format
 msgid "There should be only one default state"
-msgstr ""
+msgstr "Só debería haber un estado predeterminado"
 
 #. module: product_state
 #: model:ir.model.fields,help:product_state.field_product_state__sequence
 msgid "Used to order the States"
-msgstr ""
+msgstr "Utilizado para pedir os estados"
