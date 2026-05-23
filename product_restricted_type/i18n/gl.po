@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product.py:0
@@ -21,21 +23,23 @@ msgid ""
 "A product (or multiple products) in the category have different type than "
 "the selected restricted product type"
 msgstr ""
+"Un produto (ou varios produtos) da categoría teñen un tipo diferente ao tipo "
+"de produto restrinxido seleccionado"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoría de produto"
 
 #. module: product_restricted_type
 #: model:ir.model,name:product_restricted_type.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: product_restricted_type
 #: model:ir.model.fields,field_description:product_restricted_type.field_product_category__restricted_product_type
 msgid "Restricted Product Type "
-msgstr ""
+msgstr "Tipo de Produto Restrinxido "
 
 #. module: product_restricted_type
 #: code:addons/product_restricted_type/models/product_template.py:0
@@ -44,3 +48,5 @@ msgid ""
 "The product type must be equal to the restricted product type defined in the"
 " product category"
 msgstr ""
+"O tipo de produto debe ser igual ao tipo de produto restrinxido definido na "
+"categoría de produto"
