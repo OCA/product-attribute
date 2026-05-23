@@ -6,96 +6,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:27+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_supplierinfo_revision
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #. module: product_supplierinfo_revision
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__date_end
 msgid "Date End"
-msgstr ""
+msgstr "Data final"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__date_start
 msgid "Date Start"
-msgstr ""
+msgstr "Data inicio"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome mostrado"
 
 #. module: product_supplierinfo_revision
 #: model:ir.actions.act_window,name:product_supplierinfo_revision.supplierinfo_duplicate_wizard_action
 msgid "Duplicate Supplier Info"
-msgstr ""
+msgstr "Crear revisión de prezo"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización de"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "Previous Price"
-msgstr ""
+msgstr "Prezo anterior"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Previous info"
-msgstr ""
+msgstr "Información anterior"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model,name:product_supplierinfo_revision.model_product_supplierinfo_duplicate_wizard
 msgid "Product Supplier Duplicate Wizard"
-msgstr ""
+msgstr "Asistente para duplicados de provedores de produtos"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_info_id
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_info_id
 msgid "Relation with previous info when duplicate line"
-msgstr ""
+msgstr "Relación coa información anterior cando se duplica a liña"
 
 #. module: product_supplierinfo_revision
 #: model_terms:ir.ui.view,arch_db:product_supplierinfo_revision.supplierinfo_duplicate_wizard_view
@@ -106,21 +108,27 @@ msgid ""
 "                    <br/>\n"
 "                    <br/>"
 msgstr ""
+"Establece nova data de inicio e porcentaxe de variación para duplicar.\n"
+"                    Este proceso establecerá como data final o día previo á "
+"data final no\n"
+"                    rexistro orixinal.\n"
+"                    <br/>\n"
+"                    <br/>"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model,name:product_supplierinfo_revision.model_product_supplierinfo
 msgid "Supplier Pricelist"
-msgstr ""
+msgstr "Tarifa de provedor"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_customerinfo__previous_price
 #: model:ir.model.fields,help:product_supplierinfo_revision.field_product_supplierinfo__previous_price
 msgid "The price to purchase a product"
-msgstr ""
+msgstr "O prezo ao que se compra un produto"
 
 #. module: product_supplierinfo_revision
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_customerinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo__variation_percent
 #: model:ir.model.fields,field_description:product_supplierinfo_revision.field_product_supplierinfo_duplicate_wizard__variation_percent
 msgid "Variation %"
-msgstr ""
+msgstr "Variación %"
