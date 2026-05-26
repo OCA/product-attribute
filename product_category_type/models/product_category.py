@@ -13,6 +13,7 @@ class ProductCategory(models.Model):
         selection=[("view", "View"), ("normal", "Normal")],
         string="Category Type",
         default="normal",
+        required=True,
         help="A category of the view type is a virtual category"
         " that can be used as the parent of another category"
         " to create a hierarchical structure.",
