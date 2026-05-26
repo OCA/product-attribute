@@ -3,7 +3,7 @@
 {
     "name": "Product packaging calculator packaging level",
     "summary": "Glue module for packaging level",
-    "version": "18.0.1.0.0",
+    "version": "17.0.1.0.0",
     "development_status": "Beta",
     "category": "Warehouse Management",
     "website": "https://github.com/OCA/product-attribute",
@@ -12,5 +12,5 @@
     "application": False,
     "installable": True,
     "auto_install": False,
-    "depends": ["product_packaging_calculator", "product_packaging_level"],
+    "depends": ["stock_packaging_calculator", "product_packaging_level"],
 }

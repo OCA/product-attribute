@@ -1,7 +1,7 @@
 # Copyright 2021 Camptocamp SA
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl)
-from odoo.addons.product_packaging_calculator.tests.common import TestCommon
-from odoo.addons.product_packaging_calculator.tests.utils import make_pkg_values
+from odoo.addons.stock_packaging_calculator.tests.common import TestCommon
+from odoo.addons.stock_packaging_calculator.tests.utils import make_pkg_values
 
 
 class TestCalc(TestCommon):
