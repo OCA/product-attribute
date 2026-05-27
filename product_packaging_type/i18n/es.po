@@ -1,0 +1,136 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_packaging_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-13 06:39+0000\n"
+"PO-Revision-Date: 2026-01-13 06:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_packaging_type
+#: model:product.packaging.type,name:product_packaging_type.product_packaging_type_default
+msgid "Caja pequeña"
+msgstr "Caja pequeña"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_code
+msgid "Code"
+msgstr "Código"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_has_gtin
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_has_gtin_5005
+msgid "Has Gtin"
+msgstr "Tiene GTIN"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_is_default
+msgid "Is Default"
+msgstr "Es predeterminado"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type___last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_packaging_type
+#: code:addons/product_packaging_type/models/product_packaging_type.py:28
+#, python-format
+msgid "Only one product packaging type can be set as \"Is Default\"."
+msgstr "Solo se puede establecer un tipo de empaque como \"Predeterminado\"."
+
+#. module: product_packaging_type
+#: model:ir.model,name:product_packaging_type.model_product_packaging
+#: model:ir.ui.view,arch_db:product_packaging_type.product_packaging_tree_view_inherit
+msgid "Packaging"
+msgstr "Empaque"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_packaging_type_id
+#: model:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_form
+msgid "Packaging Type"
+msgstr "Tipo de empaque"
+
+#. module: product_packaging_type
+#: model:ir.actions.act_window,name:product_packaging_type.act_open_product_packaging_type_view
+#: model:ir.ui.menu,name:product_packaging_type.menu_product_packaging_type
+#: model:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_form
+#: model:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_search
+#: model:ir.ui.view,arch_db:product_packaging_type.view_product_packaging_type_tree
+msgid "Product Packaging Type"
+msgstr "Tipo de empaque de producto"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_qty_per_type
+msgid "Qty per package type"
+msgstr "Ctd. por tipo de empaque"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_packaging_type
+#: code:addons/product_packaging_type/models/product_packaging_type.py:26
+#, python-format
+msgid "There must be one product packaging type set as \"Is Default\"."
+msgstr "Debe haber un tipo de empaque de producto configurado como \"Predeterminado\"."
+
+#. module: product_packaging_type
+#: model:ir.model,name:product_packaging_type.model_product_packaging_type
+msgid "Type management for product.packaging"
+msgstr "Gestión de tipos para empaque de producto"
+
+#. module: product_packaging_type
+#: model:ir.model.fields,field_description:product_packaging_type.field_product_packaging_type_sequence_5006
+msgid "Type sequence"
+msgstr "Secuencia de tipo"
