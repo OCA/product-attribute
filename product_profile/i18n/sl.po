@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-27 03:49+0000\n"
-"PO-Revision-Date: 2026-01-22 16:59+0000\n"
+"PO-Revision-Date: 2026-05-31 06:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -34,12 +34,12 @@ msgstr ""
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Consumable"
-msgstr ""
+msgstr "Potrošni material"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__create_uid
@@ -127,10 +127,10 @@ msgid ""
 "%s"
 msgstr ""
 "Problem\n"
-"------\n"
+"-------\n"
 "%s\n"
 "'%s' vrednosti se ne more uveljaviti za polje '%s' .\n"
-"Med 'Product Profiles'  in '%s' modeli za to\n"
+"Med 'Product Profiles' in '%s' modeli za to\n"
 "polje ni ujemajočih se vrednosti.\n"
 "\n"
 "Rešitev\n"
@@ -156,9 +156,8 @@ msgstr "Zadnja posodobitev"
 
 #. module: product_profile
 #: model:res.groups,name:product_profile.group_product_profile_manager
-#, fuzzy
 msgid "Manage Product Profiles"
-msgstr "Profili proizvodov"
+msgstr "Upravljaj profile proizvodov"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__name
@@ -177,9 +176,8 @@ msgstr "Profil proizvoda"
 
 #. module: product_profile
 #: model:ir.model,name:product_profile.model_product_mixin_profile
-#, fuzzy
 msgid "Product Profile Mixin"
-msgstr "Profil proizvoda"
+msgstr "Vmesni model profila proizvoda"
 
 #. module: product_profile
 #: model:ir.actions.act_window,name:product_profile.product_profile_action
@@ -234,7 +232,7 @@ msgstr "Zaporedje"
 #. module: product_profile
 #: selection:product.profile,type:0
 msgid "Service"
-msgstr ""
+msgstr "Storitev"
 
 #. module: product_profile
 #: model:ir.model.fields,field_description:product_profile.field_product_profile__type
