@@ -45,16 +45,19 @@ msgid "Group By"
 msgstr "Grupo por"
 
 #. module: product_attribute_value_menu
-#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__product_count
-msgid "Product"
-msgstr "Producto"
-
-#. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.pt_attribute_value_inherit_view_form
 msgid "Product Attribute"
 msgstr "Atributo de Producto"
 
 #. module: product_attribute_value_menu
+#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__product_count
+msgid "Product Count"
+msgstr ""
+
+#. module: product_attribute_value_menu
 #: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
 msgid "Products"
 msgstr "Productos"
+
+#~ msgid "Product"
+#~ msgstr "Producto"
