@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-01 05:20+0000\n"
+"PO-Revision-Date: 2026-06-01 05:25+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -30,123 +30,123 @@ msgstr "Prekliči"
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Category Rule"
-msgstr ""
+msgstr "Pravilo kategorije"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Current"
-msgstr ""
+msgstr "Trenutno"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
 msgid "Date End"
-msgstr ""
+msgstr "Končni datum"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_start
 msgid "Date Start"
-msgstr ""
+msgstr "Začetni datum"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: product_pricelist_revision
 #: model:ir.actions.act_window,name:product_pricelist_revision.pricelist_item_duplicate_wizard_action
 msgid "Duplicate Item"
-msgstr ""
+msgstr "Podvoji postavko"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Explicit rule name for this pricelist line."
-msgstr ""
+msgstr "Izrecno pravilo za to vrstico cenika."
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Global Rule"
-msgstr ""
+msgstr "Globalno pravilo"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
 msgid "Percent"
-msgstr ""
+msgstr "Odstotek"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_price
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
 msgid "Previous Fixed Price"
-msgstr ""
+msgstr "Prejšnja fiksna cena"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Previous Item"
-msgstr ""
+msgstr "Prejšnja postavka"
 
 #. module: product_pricelist_revision
 #: model:ir.actions.act_window,name:product_pricelist_revision.product_pricelist_item_action
 #: model:ir.ui.menu,name:product_pricelist_revision.menu_product_pricelist_item_action
 msgid "Pricelist Items"
-msgstr ""
+msgstr "Postavke cenika"
 
 #. module: product_pricelist_revision
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Pravilo cenika"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Category"
-msgstr ""
+msgstr "Kategorija proizvoda"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Template"
-msgstr ""
+msgstr "Predloga proizvoda"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Variant"
-msgstr ""
+msgstr "Različica proizvoda"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Relation with previous item when duplicate line"
-msgstr ""
+msgstr "Povezava s prejšnjo postavko ob podvajanju vrstice"
 
 #. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
@@ -162,15 +162,27 @@ msgid ""
 "                    <br/>\n"
 "                    <br/>"
 msgstr ""
+"Nastavite nov začetni datum in odstotek spremembe za podvajanje.\n"
+"                    Ta postopek nastavi začetni datum prejšnjega dne kot "
+"končni datum\n"
+"                    izvornega zapisa.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Opomba:</strong>\n"
+"                    Deluje samo pri postavkah s fiksno ceno. Odstotek "
+"spremembe\n"
+"                    se uporabi za izračun nove cene.\n"
+"                    <br/>\n"
+"                    <br/>"
 
 #. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
 msgid "Variation %"
-msgstr ""
+msgstr "Variacija %"
 
 #. module: product_pricelist_revision
 #: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
 msgid "Wizard Product Pricelist Item Duplicate"
-msgstr ""
+msgstr "Čarovnik za podvajanje postavke cenika izdelkov"
