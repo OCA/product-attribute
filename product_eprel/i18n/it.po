@@ -6,198 +6,200 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-03 09:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_res_company__eprel_api_key
 #: model:ir.model.fields,field_description:product_eprel.field_res_config_settings__eprel_api_key
 msgid "API Key"
-msgstr ""
+msgstr "Chiave API"
 
 #. module: product_eprel
 #: model_terms:ir.ui.view,arch_db:product_eprel.res_config_settings_view_form
 msgid "Authentication key for accessing EPREL product data via API"
-msgstr ""
+msgstr "Chiave autenticazione per accedere ai dati prodotto EPREL via API"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__code
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #. module: product_eprel
 #: model:ir.model,name:product_eprel.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Aziende"
 
 #. module: product_eprel
 #: model:ir.model,name:product_eprel.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_eprel
 #: model_terms:ir.ui.view,arch_db:product_eprel.view_product_template_form_eprel
 msgid "EPREL"
-msgstr ""
+msgstr "EPREL"
 
 #. module: product_eprel
 #. odoo-python
 #: code:addons/product_eprel/models/product_template.py:0
 msgid "EPREL API Key is not configured."
-msgstr ""
+msgstr "La chiave API EPREL non è configurata."
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category__eprel_category_id
 msgid "EPREL Category"
-msgstr ""
+msgstr "Categoria EPREL"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_enabled
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_enabled
 msgid "EPREL Enabled"
-msgstr ""
+msgstr "EPREL abilitato"
 
 #. module: product_eprel
 #: model:ir.model,name:product_eprel.model_product_category_eprel
 msgid "EPREL Product Category"
-msgstr ""
+msgstr "Categoria prodotto EPREL"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_registration_number
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_registration_number
 msgid "EPREL Registration Number"
-msgstr ""
+msgstr "Numero registrazione EPREL"
 
 #. module: product_eprel
 #: model:ir.actions.server,name:product_eprel.ir_cron_eprel_sync_products_ir_actions_server
 msgid "EPREL: Sync Product Data"
-msgstr ""
+msgstr "EPREL: sincronizza dati prodotto"
 
 #. module: product_eprel
 #: model:product.template,name:product_eprel.product_template_edge_60_pro
 msgid "Edge 60 Pro"
-msgstr ""
+msgstr "Edge 60 Pro"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_energy_class
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_energy_class
 msgid "Energy Class"
-msgstr ""
+msgstr "Classe energetica"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_energy_class_image
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_energy_class_image
 msgid "Energy Class Image"
-msgstr ""
+msgstr "Immagine classe energetica"
 
 #. module: product_eprel
 #: model:ir.model.fields,help:product_eprel.field_product_product__eprel_energy_class
 #: model:ir.model.fields,help:product_eprel.field_product_template__eprel_energy_class
 msgid "Energy class label fetched from EPREL (e.g. A, B, C)."
-msgstr ""
+msgstr "Etichetta classe energetica ottenuta da EPREL (es. A, B, C)."
 
 #. module: product_eprel
 #: model_terms:ir.ui.view,arch_db:product_eprel.res_config_settings_view_form
 msgid "Eprel Integration"
-msgstr ""
+msgstr "Integrazione EPREL"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__fiche_url
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__fiche_url
 msgid "Fiche URL"
-msgstr ""
+msgstr "URL etichetta"
 
 #. module: product_eprel
 #: model_terms:ir.ui.view,arch_db:product_eprel.view_product_template_form_eprel
 msgid "Get EPREL data"
-msgstr ""
+msgstr "Ottieni dati EPREL"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__label_arrow_url
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__label_arrow_url
 msgid "Label Arrow URL"
-msgstr ""
+msgstr "URL freccia etichetta"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__label_url
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__label_url
 msgid "Label URL"
-msgstr ""
+msgstr "URL etichetta"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_product__eprel_model_identifier
 #: model:ir.model.fields,field_description:product_eprel.field_product_template__eprel_model_identifier
 msgid "Model Identifier"
-msgstr ""
+msgstr "Identificatore modello"
 
 #. module: product_eprel
 #. odoo-python
 #: code:addons/product_eprel/models/product_template.py:0
 msgid "Model Identifier and EPREL Category must be set."
-msgstr ""
+msgstr "L'identificatore modello e la categoria EPREL devono essere impostati."
 
 #. module: product_eprel
 #: model:ir.model,name:product_eprel.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_eprel
 #: model:ir.model,name:product_eprel.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria prodotto"
 
 #. module: product_eprel
 #: model:ir.model,name:product_eprel.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: product_eprel
 #: model:ir.model.fields,field_description:product_eprel.field_product_category_eprel__name
 msgid "Product group"
-msgstr ""
+msgstr "Gruppo prodotto"
 
 #. module: product_eprel
 #: model:product.category,name:product_eprel.product_category_smartphones
 msgid "Smartphones"
-msgstr ""
+msgstr "Smartphone"
 
 #. module: product_eprel
 #: model:ir.model.fields,help:product_eprel.field_product_product__eprel_registration_number
 #: model:ir.model.fields,help:product_eprel.field_product_template__eprel_registration_number
 msgid "The EPREL registration number fetched from the API."
-msgstr ""
+msgstr "Il numero registrazione EPREL ottenuto da API."
