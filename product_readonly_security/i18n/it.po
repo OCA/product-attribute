@@ -36,13 +36,10 @@ msgstr "Variante prodotto"
 msgid "Product edition"
 msgstr "Edizione prodotto"
 
-#. module: product_readonly_security
-#. odoo-python
-#: code:addons/product_readonly_security/models/product_readonly_security_mixin.py:0
 #, python-format
-msgid ""
-"Sorry, you are not allowed to create/edit products. Please contact your "
-"administrator for further information."
-msgstr ""
-"Spiacenti, non è consentito creare/modificare prodotti. Contattare il tuo "
-"amministratore per ulteriori informazioni."
+#~ msgid ""
+#~ "Sorry, you are not allowed to create/edit products. Please contact your "
+#~ "administrator for further information."
+#~ msgstr ""
+#~ "Spiacenti, non è consentito creare/modificare prodotti. Contattare il tuo "
+#~ "amministratore per ulteriori informazioni."
