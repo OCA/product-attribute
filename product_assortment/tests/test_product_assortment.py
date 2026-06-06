@@ -185,12 +185,14 @@ class TestProductAssortment(TransactionCase):
         )
         self.assertNotIn(excluded_product, allowed_products)
 
-    def _create_user(self, login, manager=False):
+    def _create_user(self, login, manager=False, admin=False):
         groups = [self.env.ref("base.group_user").id]
         if manager:
             groups.append(
                 self.env.ref("product_assortment.group_product_assortment_manager").id
             )
+        if admin:
+            groups.append(self.env.ref("base.group_system").id)
         return (
             self.env["res.users"]
             .with_context(no_reset_password=True)
@@ -219,6 +221,21 @@ class TestProductAssortment(TransactionCase):
         domain = [("id", "=", self.assortment.id)]
         self.assertIn(self.assortment.id, filter_model.search(domain).ids)
         self.assertEqual(filter_model.search_count(domain), 1)
+
+    def test_search_visible_for_admin(self):
+        """Administrators (Settings) keep full access to assortment filters.
+
+        This is required so automated processes running as a non-superuser
+        administrator (e.g. the pricelist assortment cron) can still read the
+        filters, consistent with the base ``ir.filters`` security.
+        """
+        user = self._create_user("assortment_admin", admin=True)
+        filter_model = self.filter_obj.with_user(user)
+        domain = [("id", "=", self.assortment.id)]
+        self.assertIn(self.assortment.id, filter_model.search(domain).ids)
+        self.assertEqual(filter_model.search_count(domain), 1)
+        # Reading a field must not raise an AccessError either
+        self.assertTrue(self.assortment.with_user(user).active)
 
     def test_search_with_count(self):
         """The _search override returns an integer count when count=True."""

@@ -52,11 +52,27 @@ class IrFilters(models.Model):
     )
 
     @api.model
+    def _hide_assortments_in_search(self):
+        """Whether assortment filters must be hidden for the current user.
+
+        Assortments are hidden from regular users, but superusers and
+        administrators (Settings) keep full access, consistent with the base
+        ``ir.filters`` security. This is required because ``_search`` is also
+        used by the ORM to check read access while fetching fields, so
+        restricting it for administrators would deny legitimate access to the
+        records (e.g. the pricelist assortment cron reading the filter).
+        """
+        return (
+            not self.env.is_superuser()
+            and not self.env.user.has_group("base.group_system")
+            and not self.env.user.has_group(
+                "product_assortment.group_product_assortment_manager"
+            )
+        )
+
+    @api.model
     def _search(self, args, offset=0, limit=None, order=None, count=False):
-        # Check if user is NOT a manager and NOT a superuser
-        if not self.env.is_superuser() and not self.env.user.has_group(
-            "product_assortment.group_product_assortment_manager"
-        ):
+        if self._hide_assortments_in_search():
             # Inject the domain directly into the search arguments
             args = expression.AND([args, [("is_assortment", "=", False)]])
 
@@ -83,9 +99,7 @@ class IrFilters(models.Model):
     @api.model
     def search_count(self, args):
         # Apply the same access control as in _search
-        if not self.env.is_superuser() and not self.env.user.has_group(
-            "product_assortment.group_product_assortment_manager"
-        ):
+        if self._hide_assortments_in_search():
             # Inject the domain directly into the search arguments
             args = expression.AND([args, [("is_assortment", "=", False)]])
 
