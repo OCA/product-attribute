@@ -184,3 +184,43 @@ class TestProductAssortment(TransactionCase):
             assortment._get_eval_domain()
         )
         self.assertNotIn(excluded_product, allowed_products)
+
+    def _create_user(self, login, manager=False):
+        groups = [self.env.ref("base.group_user").id]
+        if manager:
+            groups.append(
+                self.env.ref("product_assortment.group_product_assortment_manager").id
+            )
+        return (
+            self.env["res.users"]
+            .with_context(no_reset_password=True)
+            .create(
+                {
+                    "name": login,
+                    "login": login,
+                    "email": f"{login}@example.org",
+                    "groups_id": [(6, 0, groups)],
+                }
+            )
+        )
+
+    def test_search_hidden_for_non_manager(self):
+        """Non-manager users must not see assortment filters when searching."""
+        user = self._create_user("assortment_non_manager")
+        filter_model = self.filter_obj.with_user(user)
+        domain = [("id", "=", self.assortment.id)]
+        self.assertFalse(filter_model.search(domain))
+        self.assertEqual(filter_model.search_count(domain), 0)
+
+    def test_search_visible_for_manager(self):
+        """Manager users can see assortment filters when searching."""
+        user = self._create_user("assortment_manager", manager=True)
+        filter_model = self.filter_obj.with_user(user)
+        domain = [("id", "=", self.assortment.id)]
+        self.assertIn(self.assortment.id, filter_model.search(domain).ids)
+        self.assertEqual(filter_model.search_count(domain), 1)
+
+    def test_search_with_count(self):
+        """The _search override returns an integer count when count=True."""
+        count = self.filter_obj._search([("id", "=", self.assortment.id)], count=True)
+        self.assertEqual(count, 1)
