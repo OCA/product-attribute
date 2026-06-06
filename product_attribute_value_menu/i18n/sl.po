@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_value_menu
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-03 19:03+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
+msgid "Attribute"
+msgstr "Atribut"
+
+#. module: product_attribute_value_menu
+#: model:ir.model,name:product_attribute_value_menu.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Vrednost atributa"
+
+#. module: product_attribute_value_menu
+#: model:ir.actions.act_window,name:product_attribute_value_menu.import_product_attribute_value_action
+#: model:ir.ui.menu,name:product_attribute_value_menu.import_product_attribute_value_configuration_action_menu
+msgid "Attribute Values Extra Prices"
+msgstr "Vrednost atributa dodatne cene"
+
+#. module: product_attribute_value_menu
+#: model:ir.actions.act_window,name:product_attribute_value_menu.attribute_value_action
+#: model:ir.ui.menu,name:product_attribute_value_menu.sale_menu_product_archived_attribute_action
+#: model:ir.ui.menu,name:product_attribute_value_menu.stock_menu_product_archived_attribute_action
+msgid "Attributes Values"
+msgstr "Vrednosti atributa"
+
+#. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_search_view
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.pt_attribute_value_inherit_view_form
+msgid "Product Attribute"
+msgstr "Atribut proizvoda"
+
+#. module: product_attribute_value_menu
+#: model:ir.model.fields,field_description:product_attribute_value_menu.field_product_attribute_value__product_count
+msgid "Product Count"
+msgstr "Št. proizvodov"
+
+#. module: product_attribute_value_menu
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_menu.product_attribute_value_tree_view
+msgid "Products"
+msgstr "Proizvodi"
+
+#~ msgid "Product"
+#~ msgstr "Proizvod"

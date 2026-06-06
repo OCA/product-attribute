@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_list_price_from_pricelist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-05-31 03:18+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_list_price_from_pricelist
+#: model_terms:ir.ui.view,arch_db:product_list_price_from_pricelist.view_res_config_settings_form
+msgid ""
+"Are you sure you want to update the prices for all products?. This "
+"operations cannot be undone."
+msgstr ""
+"Ali ste prepričani, da želite posodobiti cene vseh izdelkov? Te spremembe ni "
+"mogoče razveljaviti."
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model,name:product_list_price_from_pricelist.model_res_company
+msgid "Companies"
+msgstr "Družbe"
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model,name:product_list_price_from_pricelist.model_res_config_settings
+msgid "Config Settings"
+msgstr "Nastavitve"
+
+#. module: product_list_price_from_pricelist
+#: model_terms:ir.ui.view,arch_db:product_list_price_from_pricelist.view_res_config_settings_form
+msgid ""
+"If set, prices will be computed only if the company in the product matches the company specified here or is empty.\n"
+"                                Otherwise, prices will be computed based on the current company."
+msgstr ""
+"Če je ta možnost izbrana, se cene izračunajo le, če se podjetje v izdelku "
+"ujema s tukaj navedenim podjetjem ali če je polje prazno.\n"
+"                                V nasprotnem primeru se cene izračunajo na "
+"podlagi trenutno izbranega podjetja."
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model.fields,field_description:product_list_price_from_pricelist.field_res_config_settings__main_company_compute_price_id
+msgid "Main company for compute sale price"
+msgstr "Glavna družba za izračun prodajne cene"
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model,name:product_list_price_from_pricelist.model_product_pricelist
+msgid "Pricelist"
+msgstr "Cenik"
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model,name:product_list_price_from_pricelist.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Pravilo cenika"
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model.fields,help:product_list_price_from_pricelist.field_res_company__base_pricelist_compute_price_id
+#: model:ir.model.fields,help:product_list_price_from_pricelist.field_res_config_settings__base_pricelist_compute_price_id
+msgid "Pricelist used to calculate the price of all products"
+msgstr "Cenik, na podlagi katerega se izračuna cena vseh proizvodov"
+
+#. module: product_list_price_from_pricelist
+#: model:ir.actions.server,name:product_list_price_from_pricelist.ir_cron_update_product_sale_price_ir_actions_server
+msgid "Product sale price: Update price from pricelist"
+msgstr "Prodajna cena proizvoda: posodobi ceno iz cenika"
+
+#. module: product_list_price_from_pricelist
+#: model:ir.model.fields,field_description:product_list_price_from_pricelist.field_res_company__base_pricelist_compute_price_id
+#: model:ir.model.fields,field_description:product_list_price_from_pricelist.field_res_config_settings__base_pricelist_compute_price_id
+msgid "Recomputing pricelist"
+msgstr "Ponovni izračun cenika"
+
+#. module: product_list_price_from_pricelist
+#: model_terms:ir.ui.view,arch_db:product_list_price_from_pricelist.view_res_config_settings_form
+msgid ""
+"Set the base pricelist to compute the sales price for all the products.\n"
+"                        <br/>"
+msgstr ""
+"Nastavite osnovni cenik za izračun prodajne cene vseh proizvodov.\n"
+"                        <br/>"
+
+#. module: product_list_price_from_pricelist
+#: model_terms:ir.ui.view,arch_db:product_list_price_from_pricelist.view_res_config_settings_form
+msgid "Update product prices"
+msgstr "Posodobi cene proizvoda"
+
+#. module: product_list_price_from_pricelist
+#: model_terms:ir.ui.view,arch_db:product_list_price_from_pricelist.view_res_config_settings_form
+msgid ""
+"WARNING: Prices are always computed for a quantity of 1, so rules with a "
+"minimum quantity higher than that won't be taken into account"
+msgstr ""
+"OPOZORILO: Cene se vedno izračunajo za količino 1, zato se pravila, ki "
+"predvidevajo večjo minimalno količino, ne upoštevajo"

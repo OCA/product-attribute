@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_product_price_history
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-03-17 11:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: product_pricelist_product_price_history
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "Archived"
+msgstr "In archivio"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__change_date
+msgid "Change Date"
+msgstr "Modifica data"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_pricelist_product_price_history
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "Date"
+msgstr "Data"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_pricelist_product_price_history
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.actions.act_window,name:product_pricelist_product_price_history.action_product_pricelist_history
+#: model:ir.ui.menu,name:product_pricelist_product_price_history.menu_product_pricelist_history
+msgid "Historical Pricelist"
+msgstr "Listino storico"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__new_price
+msgid "New Price"
+msgstr "Nuovo prezzo"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__old_price
+msgid "Old Price"
+msgstr "Prezzo vecchio"
+
+#. module: product_pricelist_product_price_history
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_list
+msgid "Price History"
+msgstr "Storico prezzo"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__pricelist_id
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "Pricelist"
+msgstr "Listino prezzi"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model,name:product_pricelist_product_price_history.model_product_pricelist_item_history
+msgid "Pricelist Item Price History"
+msgstr "Storico prezzo elemento listino"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model,name:product_pricelist_product_price_history.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regola listino prezzi"
+
+#. module: product_pricelist_product_price_history
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_list
+msgid "Print Labels"
+msgstr "Stampa etichette"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__product_id
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_pricelist_product_price_history
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "Search History"
+msgstr "Cerca storico"
+
+#. module: product_pricelist_product_price_history
+#: model:ir.model.fields,field_description:product_pricelist_product_price_history.field_product_pricelist_item_history__user_id
+#: model_terms:ir.ui.view,arch_db:product_pricelist_product_price_history.view_pricelist_item_history_search
+msgid "User"
+msgstr "Utente"

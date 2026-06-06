@@ -43,9 +43,14 @@ class ProductProduct(models.Model):
             return 0.0
         partner = self.env["res.partner"].browse(partner_id)
         customerinfo = self._select_customerinfo(partner=partner)
-        if customerinfo:
-            return customerinfo.price
-        return 0.0
+        if not customerinfo:
+            return 0.0
+        price = customerinfo.price
+        if self.env.context.get("include_customerinfo_discount") and price:
+            price = customerinfo.currency_id.round(
+                price - (price * (customerinfo.discount / 100))
+            )
+        return price
 
     def _price_compute(
         self, price_type, uom=False, currency=False, company=None, date=False

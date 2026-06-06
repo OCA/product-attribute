@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_pricelist_supplier_item_form_view" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='base']" position="after">
+                <field
+                    name="discount_type"
+                    widget="radio"
+                    options="{'horizontal': true}"
+                    invisible="compute_price != 'formula'"
+                />
+                <div class="o_row" />
+                <field
+                    name="discount_range_ids"
+                    nolabel="1"
+                    string="Discount Ranges"
+                    invisible="discount_type != 'range'"
+                >
+                    <list editable="bottom" create="true" delete="true" edit="true">
+                        <field name="min" />
+                        <field name="max" />
+                        <field name="percentage" string="%" />
+                        <field name="surcharge" string="Surcharge" />
+                    </list>
+                </field>
+            </xpath>
+            <xpath expr="//field[@name='price_discount']/.." position="attributes">
+                <attribute name="invisible">
+                    ['|',
+                        ('compute_price', '!=', 'formula'),
+                        ('discount_type', '=', 'range')
+                    ]
+                </attribute>
+            </xpath>
+            <xpath expr="//label[@for='price_discount']" position="attributes">
+                <attribute name="invisible">
+                    ['|',
+                        ('compute_price', '!=', 'formula'),
+                        ('discount_type', '=', 'range')
+                    ]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

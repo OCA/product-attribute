@@ -9,6 +9,7 @@ from dateutil.relativedelta import relativedelta
 from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import parse_version
+from odoo.tools.float_utils import float_round
 
 _logger = logging.getLogger(__name__)
 
@@ -140,6 +141,14 @@ class ProductSupplierInfoImport(models.TransientModel):
                 "date_start": self.date_start,
             }
         )
+        # Round price
+        if "price" in values:
+            values["price"] = float_round(
+                values["price"],
+                precision_digits=self.env["decimal.precision"].precision_get(
+                    "Product Price"
+                ),
+            )
         return values
 
     def _update_create_supplierinfo_data(self, parsed_data):

@@ -1,0 +1,188 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_revision
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-01 05:25+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid "Apply"
+msgstr "Uveljavi"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid "Cancel"
+msgstr "Prekliči"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Category Rule"
+msgstr "Pravilo kategorije"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Current"
+msgstr "Trenutno"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
+msgid "Date End"
+msgstr "Končni datum"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_start
+msgid "Date Start"
+msgstr "Začetni datum"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__display_name
+msgid "Display Name"
+msgstr "Prikazani naziv"
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.pricelist_item_duplicate_wizard_action
+msgid "Duplicate Item"
+msgstr "Podvoji postavko"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__name
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Explicit rule name for this pricelist line."
+msgstr "Izrecno pravilo za to vrstico cenika."
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Global Rule"
+msgstr "Globalno pravilo"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__name
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Name"
+msgstr "Naziv"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+msgid "Percent"
+msgstr "Odstotek"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_price
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
+msgid "Previous Fixed Price"
+msgstr "Prejšnja fiksna cena"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
+msgid "Previous Item"
+msgstr "Prejšnja postavka"
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.product_pricelist_item_action
+#: model:ir.ui.menu,name:product_pricelist_revision.menu_product_pricelist_item_action
+msgid "Pricelist Items"
+msgstr "Postavke cenika"
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Pravilo cenika"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Category"
+msgstr "Kategorija proizvoda"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Variant"
+msgstr "Različica proizvoda"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
+msgid "Relation with previous item when duplicate line"
+msgstr "Povezava s prejšnjo postavko ob podvajanju vrstice"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
+"                    This process set start date previous day as end date of\n"
+"                    origin record.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Note:</strong>\n"
+"                    Only works with fixed price items. The variation %\n"
+"                    will be applied to calculate the new price.\n"
+"                    <br/>\n"
+"                    <br/>"
+msgstr ""
+"Nastavite nov začetni datum in odstotek spremembe za podvajanje.\n"
+"                    Ta postopek nastavi začetni datum prejšnjega dne kot "
+"končni datum\n"
+"                    izvornega zapisa.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Opomba:</strong>\n"
+"                    Deluje samo pri postavkah s fiksno ceno. Odstotek "
+"spremembe\n"
+"                    se uporabi za izračun nove cene.\n"
+"                    <br/>\n"
+"                    <br/>"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__variation_percent
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
+msgid "Variation %"
+msgstr "Variacija %"
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
+msgid "Wizard Product Pricelist Item Duplicate"
+msgstr "Čarovnik za podvajanje postavke cenika izdelkov"

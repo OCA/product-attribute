@@ -202,6 +202,7 @@ msgstr ""
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Set"
 msgstr "集合"
 
