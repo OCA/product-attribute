@@ -71,39 +71,18 @@ class IrFilters(models.Model):
         )
 
     @api.model
-    def _search(self, args, offset=0, limit=None, order=None, count=False):
+    def _search(self, domain, offset=0, limit=None, order=None):
         if self._hide_assortments_in_search():
-            # Inject the domain directly into the search arguments
-            args = expression.AND([args, [("is_assortment", "=", False)]])
-
-        # Call the parent _search method without the count parameter
-        result = super()._search(args, offset=offset, limit=limit, order=order)
-
-        # If count is requested, return the count of the result
-        if count:
-            # The result of _search is typically a list of IDs
-            if isinstance(result, list):
-                return len(result)
-            # If result is not a list, it might be a query object,
-            # so we need to handle differently
-            # In most cases, we should return the length of the result
-            try:
-                return len(result)
-            except TypeError:
-                # If we can't get the length, fall back to calling search_count
-                # with the modified args
-                return self.search_count(args)
-
-        return result
+            # Hide assortment filters from regular users
+            domain = expression.AND([domain, [("is_assortment", "=", False)]])
+        return super()._search(domain, offset=offset, limit=limit, order=order)
 
     @api.model
-    def search_count(self, args):
+    def search_count(self, domain, limit=None):
         # Apply the same access control as in _search
         if self._hide_assortments_in_search():
-            # Inject the domain directly into the search arguments
-            args = expression.AND([args, [("is_assortment", "=", False)]])
-
-        return super().search_count(args)
+            domain = expression.AND([domain, [("is_assortment", "=", False)]])
+        return super().search_count(domain, limit=limit)
 
     @api.model
     def _get_default_is_assortment(self):

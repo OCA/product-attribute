@@ -236,8 +236,3 @@ class TestProductAssortment(TransactionCase):
         self.assertEqual(filter_model.search_count(domain), 1)
         # Reading a field must not raise an AccessError either
         self.assertTrue(self.assortment.with_user(user).active)
-
-    def test_search_with_count(self):
-        """The _search override returns an integer count when count=True."""
-        count = self.filter_obj._search([("id", "=", self.assortment.id)], count=True)
-        self.assertEqual(count, 1)
