@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-31 03:42+0000\n"
+"PO-Revision-Date: 2026-06-07 11:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -150,7 +150,7 @@ msgstr "Uvozi cenike dobavitelja"
 #: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__write_uid
 #: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__write_uid
 msgid "Last Updated by"
-msgstr "Zadnjič posodobil"
+msgstr "Zadnji posodobil"
 
 #. module: product_supplierinfo_import
 #: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__write_date
