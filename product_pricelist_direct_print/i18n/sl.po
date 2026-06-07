@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-07 14:46+0000\n"
+"PO-Revision-Date: 2026-06-07 19:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -255,12 +255,14 @@ msgstr "Ikona za prikaz izjem pri aktivnostih."
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Če je označeno, zahtevajo nova sporočila vašo pozornost."
+msgstr "Če označeno pomeni, da nova sporočila zahtevajo vašo pozornost."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Če je označeno, imajo nekatera sporočila napako pri dostavi."
+msgstr ""
+"Kadar je označeno, pomeni, da je pri nekaterih sporočilih prišlo do napake "
+"pri dostavi."
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__last_categ_level_to_print
@@ -337,7 +339,7 @@ msgstr "Največja raven kategorije"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_has_error
 msgid "Message Delivery error"
-msgstr "Napaka pri dostavi sporočila"
+msgstr "Napaka ob dostavi sporočila"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__message_ids
@@ -467,13 +469,13 @@ msgstr "Tisk cenika izdelkov"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_tmpl_ids
 msgid "Product Templates"
-msgstr "Predloge izdelkov"
+msgstr "Predloge proizvodov"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_ids
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Products"
-msgstr "Izdelki"
+msgstr "Proizvodi"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__rating_ids
