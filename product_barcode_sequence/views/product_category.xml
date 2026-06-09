@@ -1,0 +1,18 @@
+<!-- Copyright 2026 Open Source Integrators
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form - product_barcode_sequence</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="stock.product_category_form_view_inherit" />
+        <field name="arch" type="xml">
+
+            <group name="logistics" position="inside">
+                    <field name="auto_generate_barcode" />
+                    <field name="barcode_prefix" />
+                    <field name="barcode_sequence_id" groups="base.group_no_one" />
+            </group>
+
+        </field>
+    </record>
+</odoo>
