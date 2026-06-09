@@ -19,7 +19,7 @@ class ProductTemplate(models.Model):
         # default category. After that, the assignation is restricted
         # with the `allowed_categ_ids`
         if self.categ_id and self.categ_id.restricted_product_type:
-            self.detailed_type = self.categ_id.restricted_product_type
+            self.type = self.categ_id.restricted_product_type
 
     @api.depends("type")
     def _compute_allowed_categ_ids(self):
