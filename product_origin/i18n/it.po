@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_origin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-05-22 17:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_origin
+#: model:ir.model.fields,field_description:product_origin.field_product_product__state_id
+#: model:ir.model.fields,field_description:product_origin.field_product_template__state_id
+msgid "Country State of Origin"
+msgstr "Nazione paese di orgine"
+
+#. module: product_origin
+#: model:ir.model.fields,field_description:product_origin.field_product_product__country_id
+#: model:ir.model.fields,field_description:product_origin.field_product_template__country_id
+#: model_terms:ir.ui.view,arch_db:product_origin.product_template_search_view
+msgid "Country of Origin"
+msgstr "Paese di origine"
+
+#. module: product_origin
+#: model_terms:ir.ui.view,arch_db:product_origin.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_origin.view_product_product_form
+#: model_terms:ir.ui.view,arch_db:product_origin.view_product_product_form_variant
+msgid "Origin"
+msgstr "Origine"
+
+#. module: product_origin
+#: model:ir.model,name:product_origin.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_origin
+#: model:ir.model,name:product_origin.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_origin
+#: model:ir.model.fields,field_description:product_origin.field_product_product__state_id_domain
+#: model:ir.model.fields,field_description:product_origin.field_product_template__state_id_domain
+msgid "State Id Domain"
+msgstr "Dominio ID stato"
+
+#. module: product_origin
+#: model:ir.model.fields,help:product_origin.field_product_product__state_id_domain
+#: model:ir.model.fields,help:product_origin.field_product_template__state_id_domain
+msgid ""
+"Technical field, used to compute dynamically state domain depending on the "
+"country."
+msgstr ""
+"Campo tecnico, utilizzato per calcolare dinamicamente il dominio dello stato "
+"in funzione della nazione."
+
+#. module: product_origin
+#. odoo-python
+#: code:addons/product_origin/models/product_product.py:0
+#: code:addons/product_origin/models/product_template.py:0
+#, python-format
+msgid ""
+"The state '%(state_name)s' doesn't belong to the country '%(country_name)s'"
+msgstr ""
+"Lo stato '%(state_name)s' non appartiene alla nazione '%(country_name)s'"
