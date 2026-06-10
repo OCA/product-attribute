@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Camptocamp SA (https://www.camptocamp.com).
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="product_packaging_list_view" model="ir.ui.view">
+        <field name="model">product.packaging</field>
+        <field name="arch" type="xml">
+            <list string="Packagings" editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field
+                    name="uom_id"
+                    domain="[('id', '!=', parent.uom_id)]"
+                    options="{'no_quick_create': True}"
+                    context="{'product_id': product_id}"
+                />
+                <field name="qty" />
+                <field name="product_uom_id" />
+                <field name="weight" optional="show" />
+                <field name="volume" optional="show" />
+                <field
+                    name="barcode_ids"
+                    widget="many2many_barcode_tags"
+                    options="{'no_create_edit': True, 'no_open': True}"
+                    context="{'default_product_id': product_id, 'default_uom_id': uom_id}"
+                    force_save="1"
+                />
+            </list>
+        </field>
+    </record>
+
+    <record id="product_packaging_form_view" model="ir.ui.view">
+        <field name="model">product.packaging</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group name="product">
+                            <field name="product_id" />
+                            <field name="product_tmpl_id" />
+                        </group>
+                        <group name="uom">
+                            <field name="uom_id" options="{'no_quick_create': True}" />
+                            <label for="qty" />
+                            <div class="o_row">
+                                <field name="qty" />
+                                <field
+                                    name="product_uom_id"
+                                    options="{'no_open': True, 'no_create': True}"
+                                    groups="uom.group_uom"
+                                />
+                            </div>
+                        </group>
+                        <group name="barcodes">
+                            <field
+                                name="barcode_ids"
+                                widget="many2many_barcode_tags"
+                                options="{'no_create_edit': True, 'no_open': True}"
+                                context="{'default_product_id': product_id, 'default_uom_id': uom_id}"
+                                force_save="1"
+                            />
+                        </group>
+                        <group name="package">
+                            <label for="weight" />
+                            <div class="o_row">
+                                <field name="weight" />
+                                <field name="weight_uom_name" groups="uom.group_uom" />
+                            </div>
+                            <label for="volume" />
+                            <div class="o_row">
+                                <field name="volume" />
+                                <field name="volume_uom_name" groups="uom.group_uom" />
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
