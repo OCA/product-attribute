@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- === REGULATION (EU) 2017/1369 === -->
+    <record id="eprel_electronicdisplays" model="product.category.eprel">
+        <field name="name">Electronic displays</field>
+        <field name="code">electronicdisplays</field>
+    </record>
+    <record id="eprel_washingmachines2019" model="product.category.eprel">
+        <field name="name">Household washing machines</field>
+        <field name="code">washingmachines2019</field>
+    </record>
+    <record id="eprel_washerdriers2019" model="product.category.eprel">
+        <field name="name">Household washer-dryers</field>
+        <field name="code">washerdriers2019</field>
+    </record>
+    <record id="eprel_lightsources" model="product.category.eprel">
+        <field name="name">Light sources</field>
+        <field name="code">lightsources</field>
+    </record>
+    <record id="eprel_refrigeratingappliances2019" model="product.category.eprel">
+        <field name="name">Refrigerating appliances</field>
+        <field name="code">refrigeratingappliances2019</field>
+    </record>
+    <record id="eprel_dishwashers2019" model="product.category.eprel">
+        <field name="name">Household dishwashers</field>
+        <field name="code">dishwashers2019</field>
+    </record>
+    <record
+        id="eprel_refrigeratingappliancesdirectsalesfunction"
+        model="product.category.eprel"
+    >
+        <field name="name">Refrigerating appliances with a direct sales function</field>
+        <field name="code">refrigeratingappliancesdirectsalesfunction</field>
+    </record>
+    <record id="eprel_tyres" model="product.category.eprel">
+        <field name="name">Tyres</field>
+        <field name="code">tyres</field>
+    </record>
+    <record id="eprel_smartphonestablets20231669" model="product.category.eprel">
+        <field name="name">Smartphones and slate tablets</field>
+        <field name="code">smartphonestablets20231669</field>
+    </record>
+    <record id="eprel_tumbledryers20232534" model="product.category.eprel">
+        <field name="name">Household tumble dryers</field>
+        <field name="code">tumbledryers20232534</field>
+    </record>
+    <!-- === DIRECTIVE 2010/30/EU === -->
+    <record id="eprel_airconditioners" model="product.category.eprel">
+        <field name="name">Air conditioners</field>
+        <field name="code">airconditioners</field>
+    </record>
+    <record id="eprel_ovens" model="product.category.eprel">
+        <field name="name">Domestic Ovens</field>
+        <field name="code">ovens</field>
+    </record>
+    <record id="eprel_rangehoods" model="product.category.eprel">
+        <field name="name">Range hoods</field>
+        <field name="code">rangehoods</field>
+    </record>
+    <record id="eprel_tumbledriers" model="product.category.eprel">
+        <field name="name">Household tumble driers</field>
+        <field name="code">tumbledriers</field>
+    </record>
+    <record id="eprel_localspaceheaters" model="product.category.eprel">
+        <field name="name">Local space heaters</field>
+        <field name="code">localspaceheaters</field>
+    </record>
+    <record
+        id="eprel_professionalrefrigeratedstoragecabinets"
+        model="product.category.eprel"
+    >
+        <field name="name">Professional refrigerating storage cabinets</field>
+        <field name="code">professionalrefrigeratedstoragecabinets</field>
+    </record>
+    <record id="eprel_residentialventilationunits" model="product.category.eprel">
+        <field name="name">Residential Ventilation Units</field>
+        <field name="code">residentialventilationunits</field>
+    </record>
+    <record id="eprel_solidfuelboilers" model="product.category.eprel">
+        <field name="name">Solid fuel boilers</field>
+        <field name="code">solidfuelboilers</field>
+    </record>
+    <record id="eprel_solidfuelboilerpackages" model="product.category.eprel">
+        <field name="name">Packages of solid fuel boilers</field>
+        <field name="code">solidfuelboilerpackages</field>
+    </record>
+    <record id="eprel_spaceheaters" model="product.category.eprel">
+        <field name="name">Space heaters/Combination heaters</field>
+        <field name="code">spaceheaters</field>
+    </record>
+    <record id="eprel_spaceheaterpackages" model="product.category.eprel">
+        <field name="name">Packages of space heaters/combinations heaters</field>
+        <field name="code">spaceheaterpackages</field>
+    </record>
+    <record id="eprel_spaceheatertemperaturecontrol" model="product.category.eprel">
+        <field name="name">Temperature controls for space heaters</field>
+        <field name="code">spaceheatertemperaturecontrol</field>
+    </record>
+    <record id="eprel_spaceheatersolardevice" model="product.category.eprel">
+        <field name="name">Solar devices for space heaters</field>
+        <field name="code">spaceheatersolardevice</field>
+    </record>
+    <record id="eprel_waterheaters" model="product.category.eprel">
+        <field name="name">Water heaters</field>
+        <field name="code">waterheaters</field>
+    </record>
+    <record id="eprel_waterheaterpackages" model="product.category.eprel">
+        <field name="name">Packages of water heaters</field>
+        <field name="code">waterheaterpackages</field>
+    </record>
+    <record id="eprel_hotwaterstoragetanks" model="product.category.eprel">
+        <field name="name">Hot water storage tanks for water heaters</field>
+        <field name="code">hotwaterstoragetanks</field>
+    </record>
+    <record id="eprel_waterheatersolardevices" model="product.category.eprel">
+        <field name="name">Solar devices for water heaters</field>
+        <field name="code">waterheatersolardevices</field>
+    </record>
+    <!-- === REPEALED REGULATIONS === -->
+    <record id="eprel_lamps" model="product.category.eprel">
+        <field name="name">Electrical Lamps</field>
+        <field name="code">lamps</field>
+    </record>
+    <record id="eprel_washerdriers_old" model="product.category.eprel">
+        <field name="name">Household combined washer-driers</field>
+        <field name="code">washerdriers</field>
+    </record>
+    <record id="eprel_dishwashers_old" model="product.category.eprel">
+        <field name="name">Household dishwashers</field>
+        <field name="code">dishwashers</field>
+    </record>
+    <record id="eprel_refrigeratingappliances_old" model="product.category.eprel">
+        <field name="name">Household refrigerating appliances</field>
+        <field name="code">refrigeratingappliances</field>
+    </record>
+    <record id="eprel_washingmachines_old" model="product.category.eprel">
+        <field name="name">Household washing machines</field>
+        <field name="code">washingmachines</field>
+    </record>
+    <record id="eprel_televisions" model="product.category.eprel">
+        <field name="name">Televisions</field>
+        <field name="code">televisions</field>
+    </record>
+</odoo>
