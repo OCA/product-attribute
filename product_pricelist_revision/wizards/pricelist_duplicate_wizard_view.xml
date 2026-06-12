@@ -19,6 +19,7 @@
                         <field name="date_start" />
                         <field name="date_end" />
                         <field name="variation_percent" />
+                        <field name="rounding_digits" />
                     </group>
                 </group>
                 <footer>

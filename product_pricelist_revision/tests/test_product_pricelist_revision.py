@@ -103,3 +103,19 @@ class TestProductPricelistRevision(SavepointCase):
         self.assertEqual(new_item.previous_price, 100)
         self.assertEqual(new_item.fixed_price, 150)
         self.assertEqual(new_item.variation_percent, 50)
+
+    def test_wizard_rounding_digits(self):
+        wizard_obj = self.env["product.pricelist.item.duplicate.wizard"]
+        active_ids = self.pricelist_item_product_product.ids
+        items_before_wizard = self.pricelist.item_ids
+        wizard = wizard_obj.with_context(active_ids=active_ids).create(
+            {
+                "date_start": datetime.now(),
+                "date_end": datetime.now(),
+                "variation_percent": 10,
+                "rounding_digits": 2,
+            }
+        )
+        wizard.action_apply()
+        new_item = self.pricelist.item_ids - items_before_wizard
+        self.assertEqual(new_item.fixed_price, 110.00)
