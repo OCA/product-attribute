@@ -44,6 +44,7 @@ addon | version | maintainers | summary
 [product_cost_security](product_cost_security/) | 14.0.1.0.0 | <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Product cost security restriction view
 [product_custom_info](product_custom_info/) | 14.0.1.0.1 |  | Add custom field in products
 [product_dimension](product_dimension/) | 14.0.1.0.0 |  | Product Dimension
+[product_eprel](product_eprel/) | 14.0.1.0.0 |  | Manage EPREL model identifiers and energy label data for products.
 [product_expiry_configurable](product_expiry_configurable/) | 14.0.1.0.0 |  | This model allows setting expiry times on category and to use the 'end_of_life' date for the computation of lot dates
 [product_form_pricelist](product_form_pricelist/) | 14.0.1.0.1 |  | Show/edit pricelist in product form
 [product_internal_reference_generator](product_internal_reference_generator/) | 14.0.1.1.1 | <a href='https://github.com/ilyasProgrammer'><img src='https://github.com/ilyasProgrammer.png' width='32' height='32' style='border-radius:50%;' alt='ilyasProgrammer'/></a> | Product template and variant reference based on sequence
