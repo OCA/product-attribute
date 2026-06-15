@@ -13,21 +13,22 @@ class ProductTemplate(models.Model):
         string="Other Prices",
     )
 
+    @api.depends_context("company")
     @api.depends("product_variant_ids", "product_variant_ids.price_ids")
     def _compute_price_ids(self):
         for p in self:
-            if len(p.product_variant_ids) == 1:
+            if p.product_variant_count == 1:
                 p.price_ids = p.product_variant_ids.price_ids
             else:
                 p.price_ids = False
 
     def _inverse_price_ids(self):
         for p in self:
-            if len(p.product_variant_ids) == 1:
+            if p.product_variant_count == 1:
                 p.product_variant_ids.price_ids = p.price_ids
 
     def _get_multiprice_pricelist_price(self, rule):
-        if len(self.product_variant_ids) == 1:
+        if self.product_variant_count == 1:
             return self.product_variant_ids._get_multiprice_pricelist_price(rule)
         return 0
 
