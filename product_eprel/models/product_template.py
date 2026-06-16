@@ -63,7 +63,7 @@ class ProductTemplate(models.Model):
                 else False
             )
             rec.label_url = (
-                f"{API_URL}labels/{cat}/Label_{reg_num}.png"
+                f"{API_URL}labels/{cat}/Label_{reg_num}.pdf"
                 if cat and reg_num
                 else False
             )
