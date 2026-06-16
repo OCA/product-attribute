@@ -4,3 +4,4 @@
 - Fernando La Chica \<<fernandolachica@gmail.com>\>
 - Denis Roussel \<<denis.roussel@acsone.eu>\>
 - Nhan Tran \<<nhant@trobz.com>\>
+- Maksym Yankin \<<maksym.yankin@camptocamp.com>\>
