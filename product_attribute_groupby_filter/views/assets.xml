@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2026 Akretion (<http://www.akretion.com>).
+     @author Kévin Roche <kevin.roche@akretion.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+       <xpath expr="." position="inside">
+           <script
+                type="text/javascript"
+                src="/product_attribute_groupby_filter/static/src/js/control_panel_model.js"
+            />
+           <script
+                type="text/javascript"
+                src="/product_attribute_groupby_filter/static/src/js/product_attribute_groupby.js"
+            />
+       </xpath>
+   </template>
+</odoo>
