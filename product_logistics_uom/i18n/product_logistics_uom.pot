@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,23 +16,14 @@ msgstr ""
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid ""
-"<span invisible=\"not show_volume_uom_warning\" groups=\"!uom.group_uom\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
-"                </span>"
+"<i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for "
+"the selected uom. Select another uom to display the value.\"/>"
 msgstr ""
 
 #. module: product_logistics_uom
 #: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
 msgid ""
 "<span invisible=\"not show_volume_uom_warning\">\n"
-"                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
-"                </span>"
-msgstr ""
-
-#. module: product_logistics_uom
-#: model_terms:ir.ui.view,arch_db:product_logistics_uom.product_template_form_view
-msgid ""
-"<span invisible=\"not show_weight_uom_warning\" groups=\"!uom.group_uom\">\n"
 "                    <i class=\"fa fa-fw fa-warning text-warning\" title=\"Value too small for the selected uom. Select another uom to display the value.\"/>\n"
 "                </span>"
 msgstr ""
@@ -86,9 +77,23 @@ msgid "Define your length unit of measure"
 msgstr ""
 
 #. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_logistics_uom
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__weight
 #: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__weight
 msgid "Gross Weight"
+msgstr ""
+
+#. module: product_logistics_uom
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_product__id
+#: model:ir.model.fields,field_description:product_logistics_uom.field_product_template__id
+#: model:ir.model.fields,field_description:product_logistics_uom.field_res_config_settings__id
+msgid "ID"
 msgstr ""
 
 #. module: product_logistics_uom
