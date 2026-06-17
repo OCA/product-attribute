@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.product</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="product.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <field name="product_weight_in_lbs" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="product_weight_in_lbs" position="after">
+                <field name="product_default_weight_uom_id" />
+            </field>
+            <field name="product_volume_volume_in_cubic_feet" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="product_volume_volume_in_cubic_feet" position="after">
+                <field name="product_default_volume_uom_id" />
+            </field>
+            <xpath expr="//setting[@id='manage_volume_uom_setting']" position="after">
+                <setting
+                    id="length_uom_setting"
+                    string="Length"
+                    help="Define your length unit of measure"
+                >
+                    <field
+                        name="product_default_length_uom_id"
+                        class="o_light_label"
+                        options="{'horizontal': true}"
+                    />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
