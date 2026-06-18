@@ -3,7 +3,7 @@
 {
     "name": "Product Pricelist Discount by Range",
     "summary": "Allows to create priceslists with discount ranges",
-    "version": "15.0.1.1.0",
+    "version": "15.0.1.1.1",
     "category": "Sales",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",
