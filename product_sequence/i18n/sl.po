@@ -9,42 +9,43 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-27 03:49+0000\n"
-"PO-Revision-Date: 2018-01-27 03:49+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2026-05-31 06:46+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_sequence
 #. odoo-python
 #: code:addons/product_sequence/models/product_product.py:0
 #, python-format
 msgid "-copy"
-msgstr ""
+msgstr "-kopija"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Družbe"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "Interni sklic"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
 msgid "Prefix for Product Internal Reference"
-msgstr ""
+msgstr "Predpona za interni sklic proizvoda"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
@@ -52,53 +53,56 @@ msgid ""
 "Prefix used to generate the internal reference for products created with "
 "this category. If blank the default sequence will be used."
 msgstr ""
+"Predpona, ki se uporablja za ustvarjanje notranje reference za proizvode, "
+"ustvarjene v tej kategoriji. Če je polje prazno, se uporabi privzeto "
+"zaporedje."
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_category
-#, fuzzy
 msgid "Product Category"
-msgstr "Proizvod"
+msgstr "Kategorija proizvoda"
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
-#, fuzzy
 msgid "Product Sequence"
-msgstr "Proizvod"
+msgstr "Zaporedje proizvoda"
 
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid "Product Sequences"
-msgstr ""
+msgstr "Zaporedja proizvodov"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Različica proizvoda"
 
 #. module: product_sequence
 #: model:ir.model,name:product_sequence.model_ir_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Zaporedje"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_product__default_code
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
+"Nastavite na '/' in shranite, če želite, da se predlaga nova notranja "
+"referenca."
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
 msgid ""
 "This field contains the information related to the numbering of the journal "
 "entries of this journal."
-msgstr ""
+msgstr "To polje vsebuje podatke o številčenju knjižb v tem dnevniku."
 
 #. module: product_sequence
 #: model:ir.model.fields,field_description:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
 #: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
 msgid "Use parent categories to determine the prefix"
-msgstr ""
+msgstr "Za določitev predpone uporabite nadrejene kategorije"
 
 #. module: product_sequence
 #: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
@@ -106,6 +110,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix"
 msgstr ""
+"Če kategorija nima nastavitev za predpono, uporabi predpono nadrejenih "
+"kategorij"
 
 #. module: product_sequence
 #: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
@@ -114,6 +120,8 @@ msgid ""
 "Use parent categories to determine the prefix if the category has no "
 "settings for the prefix."
 msgstr ""
+"Če kategorija nima nastavitev za predpono, uporabi nadrejene kategorije za "
+"določitev predpone."
 
 #~ msgid "Product"
 #~ msgstr "Proizvod"
