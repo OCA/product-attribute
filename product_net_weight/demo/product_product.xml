@@ -8,7 +8,6 @@ deLicense AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record id="product_strawberry_jam" model="product.product">
         <field name="name">Strawberry Jam (Jar of 250 grams)</field>
         <field name="uom_id" ref="uom.product_uom_unit" />
-        <field name="uom_po_id" ref="uom.product_uom_unit" />
         <field name="net_weight">0.250</field>
         <field name="weight">0.410</field>
         <field name="standard_price">1.97</field>
