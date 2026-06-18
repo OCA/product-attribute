@@ -30,8 +30,18 @@ class PricelistItem(models.Model):
     def _compute_price(self, price, price_uom, product, quantity=1.0, partner=False):
         if self.discount_type == "range":
             discount = None
+            rounding = self.currency_id.rounding
             for discount_range in self.discount_range_ids:
-                if discount_range.min <= price <= discount_range.max:
+                if (
+                    tools.float_compare(
+                        price, discount_range.min, precision_rounding=rounding
+                    )
+                    >= 0
+                    and tools.float_compare(
+                        price, discount_range.max, precision_rounding=rounding
+                    )
+                    <= 0
+                ):
                     discount = discount_range.percentage
                     break
             if discount is not None:
