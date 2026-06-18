@@ -53,3 +53,7 @@ class TestProductModelIdentifier(BaseCommon):
             "https://eprel.ec.europa.eu/fiches/smartphonestablets20231669/Fiche_2266111_EN.pdf",
             self.product.fiche_url,
         )
+        self.assertEqual(
+            "https://eprel.ec.europa.eu/labels/smartphonestablets20231669/Label_2266111.pdf",
+            self.product.label_url,
+        )
