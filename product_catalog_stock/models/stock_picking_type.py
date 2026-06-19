@@ -1,7 +1,6 @@
 # Copyright 2024 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo import models
-from odoo.tests import Form
 
 
 class StockPickingType(models.Model):
@@ -9,6 +8,11 @@ class StockPickingType(models.Model):
 
     def action_new_draft_picking_from_catalog(self):
         """Create a new draft picking from the catalog view"""
+        # Import diferido: importar odoo.tests a nivel de modulo dispara un
+        # _logger.error en odoo.sh (CI lo marca como build fallido) aunque la
+        # carga funcione. Diferirlo al uso evita ese ERROR sin cambiar la logica.
+        from odoo.tests import Form
+
         picking_form = Form(
             self.env["stock.picking"].with_context(
                 search_default_picking_type_id=self.ids,
