@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_product_stock_tree_inherit_stock_account" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock_account.product_product_stock_tree_inherit_stock_account" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='avg_cost']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='total_value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_view_list_at_date" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock_account.product_product_view_list_at_date" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='avg_cost']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='total_value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_production_lot_form_stock_account" model="ir.ui.view">
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock_account.view_production_lot_form_stock_account" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='total_value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='avg_cost']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_move_view_list" model="ir.ui.view">
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock_account.stock_move_view_list" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='remaining_value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_move_view_list_valuation" model="ir.ui.view">
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock_account.stock_move_view_list_valuation" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+            <xpath expr="//field[@name='remaining_value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_account.stock_move_valuation_action" model="ir.actions.act_window">
+        <field name="group_ids" eval="[(4, ref('product_cost_security.group_product_cost'))]" />
+    </record>
+
+    <record id="stock_account.stock_avco_report_action" model="ir.actions.act_window">
+        <field name="group_ids" eval="[(4, ref('product_cost_security.group_product_cost'))]" />
+    </record>
+</odoo>
