@@ -18,13 +18,19 @@ class ProductTemplate(models.Model):
         readonly=False,
     )
     product_length = fields.Float(
-        related="product_variant_ids.product_length", readonly=False
+        related="product_variant_ids.product_length",
+        readonly=False,
+        digits="Product Unit of Measure",
     )
     product_height = fields.Float(
-        related="product_variant_ids.product_height", readonly=False
+        related="product_variant_ids.product_height",
+        readonly=False,
+        digits="Product Unit of Measure",
     )
     product_width = fields.Float(
-        related="product_variant_ids.product_width", readonly=False
+        related="product_variant_ids.product_width",
+        readonly=False,
+        digits="Product Unit of Measure",
     )
     volume = fields.Float(
         compute="_compute_volume",
