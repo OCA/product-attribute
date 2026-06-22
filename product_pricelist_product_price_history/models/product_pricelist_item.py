@@ -16,8 +16,9 @@ class ProductPricelistItem(models.Model):
                 ):
                     self.env["product.pricelist.item.history"].create(
                         {
-                            "product_id": item.product_tmpl_id.product_variant_id.id
-                            or item.product_id.id,
+                            # Prioritize the specific variant first.
+                            "product_id": item.product_id.id
+                            or item.product_tmpl_id.product_variant_id.id,
                             "pricelist_id": item.pricelist_id.id,
                             "old_price": item.fixed_price,
                             "new_price": new_price,
