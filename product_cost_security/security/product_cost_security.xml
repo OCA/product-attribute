@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="ir.module.category" id="module_category">
+        <field name="name">Product costs</field>
+    </record>
+
+    <record model="res.groups.privilege" id="res_groups_privilege_product_cost">
+        <field name="name">Product costs</field>
+        <field name="category_id" ref="module_category" />
+    </record>
+
+    <!--
+    Only users with this group can view the fields with this security group.
+    Add group to user_root to avoid errors when other modules install and
+    add fields to views with this group defined as field attribute.
+    -->
+    <record model="res.groups" id="group_product_cost">
+        <field name="name">Mostrar costo de producto</field>
+        <field name="sequence">10</field>
+        <field name="privilege_id" ref="res_groups_privilege_product_cost" />
+        <field name="user_ids" eval="[Command.link(ref('base.user_root'))]" />
+    </record>
+    <!--
+    Only users within this group can edit costs.
+    -->
+    <record model="res.groups" id="group_product_edit_cost">
+        <field name="name">Editar costo de producto</field>
+        <field name="sequence">20</field>
+        <field name="privilege_id" ref="res_groups_privilege_product_cost" />
+        <field
+            name="implied_ids"
+            eval="[Command.link(ref('product_cost_security.group_product_cost'))]"
+        />
+        <field name="user_ids" eval="[Command.link(ref('base.user_root'))]" />
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field
+            name="implied_ids"
+            eval="[Command.link(ref('product_cost_security.group_product_edit_cost'))]"
+        />
+    </record>
+</odoo>
