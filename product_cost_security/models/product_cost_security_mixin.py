@@ -6,10 +6,19 @@ from contextlib import suppress
 from lxml import etree
 
 from odoo import api, fields, models
-from odoo.exceptions import AccessError
 
 _STANDARD_PRICE_RE = re.compile(r"\bstandard_price\b")
 _EXPR_ATTRS = ("context", "invisible", "readonly", "required", "column_invisible")
+_EXTRA_COST_FIELD_NAMES = frozenset(
+    {
+        "fc_standard_price",
+        "fc_avg_cost",
+        "fc_total_value",
+        "avg_cost",
+        "total_value",
+        "alt_cost_foreign_currency",
+    }
+)
 
 class ProductCostSecurityMixin(models.AbstractModel):
     """Automatic security for models related with product costs.
@@ -45,6 +54,11 @@ class ProductCostSecurityMixin(models.AbstractModel):
         return self.env.user.has_group("product_cost_security.group_product_edit_cost")
 
     @api.model
+    def _product_cost_security_extra_fields(self):
+        """Cost-like fields from other modules without field-level groups."""
+        return _EXTRA_COST_FIELD_NAMES.intersection(self._fields)
+
+    @api.model
     def _product_cost_security_fields(self):
         """Fields that should be hidden if the user has no cost permissions.
 
@@ -58,38 +72,22 @@ class ProductCostSecurityMixin(models.AbstractModel):
         }
 
     @api.model
-    def check_field_access_rights(self, operation, fields):
-        """Forbid users from updating product costs if they have no permissions.
-
-        The field's `groups` attribute restricts always R/W access. We apply an
-        extra protection to prevent only editing if the user is not in the
-        `product_cost_security.group_product_edit_cost` group.
-        """
-        valid_fields = super().check_field_access_rights(operation, fields)
+    def _has_field_access(self, field, operation):
+        """Extend Odoo 19 field ACLs for Kreilabs cost-like fields."""
+        if not super()._has_field_access(field, operation):
+            return False
         if self.env.su:
-            return valid_fields
-        product_cost_fields = self._product_cost_security_fields().intersection(
-            valid_fields
-        )
+            return True
+        if field.name in self._product_cost_security_extra_fields():
+            if not self.env.user.has_group("product_cost_security.group_product_cost"):
+                return False
         if (
-            operation != "read"
-            and product_cost_fields
+            operation == "write"
+            and field.name in self._product_cost_security_fields()
             and not self._user_can_update_cost()
         ):
-            description = self.env["ir.model"]._get(self._name).name
-            raise AccessError(
-                self.env._(
-                    'You do not have enough rights to access the fields "%(fields)s"'
-                    " on %(document_kind)s (%(document_model)s). "
-                    "Please contact your system administrator."
-                    "\n\n(Operation: %(operation)s)",
-                    fields=",".join(sorted(product_cost_fields)),
-                    document_kind=description,
-                    document_model=self._name,
-                    operation=operation,
-                )
-            )
-        return valid_fields
+            return False
+        return True
 
     @api.model
     def fields_get(self, allfields=None, attributes=None):
@@ -102,17 +100,29 @@ class ProductCostSecurityMixin(models.AbstractModel):
         return result
 
     @api.model
+    def _product_cost_security_protected_field_names(self):
+        return {"standard_price", *self._product_cost_security_extra_fields()}
+
+    @api.model
     def _product_cost_security_strip_arch(self, arch_str):
         """Hide cost fields and sanitize view expressions for users without access."""
         tree = etree.fromstring(arch_str.encode() if isinstance(arch_str, str) else arch_str)
         changed = False
+        removed_fields = []
 
-        for xpath in ("//field[@name='standard_price']", "//label[@for='standard_price']"):
-            for node in tree.xpath(xpath):
-                parent = node.getparent()
-                if parent is not None:
-                    parent.remove(node)
-                    changed = True
+        for field_name in self._product_cost_security_protected_field_names():
+            xpaths = (
+                f"//field[@name='{field_name}']",
+                f"//label[@for='{field_name}']",
+                f"//div[@name='{field_name}_uom']",
+            )
+            for xpath in xpaths:
+                for node in tree.xpath(xpath):
+                    parent = node.getparent()
+                    if parent is not None:
+                        parent.remove(node)
+                        changed = True
+                        removed_fields.append(field_name)
 
         for node in tree.iter():
             for attr in _EXPR_ATTRS:
@@ -124,16 +134,16 @@ class ProductCostSecurityMixin(models.AbstractModel):
                         changed = True
 
         if not changed:
-            return arch_str
-        return etree.tostring(tree, encoding="unicode").replace("\t", "")
+            return arch_str, removed_fields
+        return etree.tostring(tree, encoding="unicode").replace("\t", ""), removed_fields
 
     @api.model
     def _product_cost_security_strip_view_models(self, models_data):
         if isinstance(models_data, dict):
+            protected = self._product_cost_security_protected_field_names()
             cleaned = {}
             for model_name, model_fields in models_data.items():
-                fields_set = set(model_fields)
-                fields_set.discard("standard_price")
+                fields_set = set(model_fields) - protected
                 cleaned[model_name] = tuple(fields_set)
             return cleaned
         return models_data
@@ -145,7 +155,7 @@ class ProductCostSecurityMixin(models.AbstractModel):
             return result
         result = dict(result)
         if result.get("arch"):
-            result["arch"] = self._product_cost_security_strip_arch(result["arch"])
+            result["arch"], _ = self._product_cost_security_strip_arch(result["arch"])
         if result.get("models"):
             result["models"] = self._product_cost_security_strip_view_models(
                 dict(result["models"])
