@@ -17,6 +17,11 @@ class ProductPricelistXlsx(models.AbstractModel):
         self = self.with_context(
             lang=book.lang or self.env["res.users"].browse(book.create_uid.id).lang
         )
+        # Precompute every product price in a single batched call so the price
+        # column does not recompute (and re-search the pricelist rules) per row.
+        book = book.with_context(
+            product_prices=book._get_product_prices(book.get_products_to_print())
+        )
         pricelist = book.get_pricelist_to_print()
         sheet = self._create_product_pricelist_sheet(workbook, book, pricelist, formats)
         sheet = self._fill_data(workbook, sheet, book, pricelist, formats)

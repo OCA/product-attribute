@@ -5,6 +5,10 @@
     <template id="report_product_pricelist_document">
         <t t-call="web.html_container">
             <t t-set="o" t-value="o.with_context(lang=o.lang)" />
+            <t
+                t-set="o"
+                t-value="o.with_context(product_prices=o._get_product_prices(o.get_products_to_print()))"
+            />
             <t t-set="pricelist" t-value="o.get_pricelist_to_print()" />
             <t t-set="company" t-value="pricelist.company_id or env.company" />
             <t t-call="web.external_layout">

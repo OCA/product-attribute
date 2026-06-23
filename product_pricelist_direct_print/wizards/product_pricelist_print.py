@@ -97,12 +97,36 @@ class ProductPricelistPrint(models.TransientModel):
     def _onchange_categ_ids(self):
         self.print_child_categories = len(self.categ_ids) > 0
 
+    def _get_product_prices(self, products):
+        """Return ``{product_id: price}`` computing every product in a single
+        batched call.
+
+        The native ``_compute_price_rule`` fetches the applicable rules once for
+        the whole recordset, so calling it once for all the products avoids the
+        N+1 of recomputing the price (and re-searching the rules) per report
+        row. The result is meant to be injected in the context as
+        ``product_prices`` so ``_compute_product_price`` reads it instead of
+        recomputing.
+        """
+        self.ensure_one()
+        if not products:
+            return {}
+        return self.get_pricelist_to_print()._get_products_price(
+            products, 1, date=self.date
+        )
+
     @api.depends_context("product")
     def _compute_product_price(self):
         product = self.env.context["product"]
-        price = self.get_pricelist_to_print()._get_product_price(
-            product, 1, date=self.date
-        )
+        # Reuse the batched prices injected by the report when available to
+        # avoid recomputing the price (and re-searching the rules) per product.
+        prices = self.env.context.get("product_prices")
+        if prices is not None and product.id in prices:
+            price = prices[product.id]
+        else:
+            price = self.get_pricelist_to_print()._get_product_price(
+                product, 1, date=self.date
+            )
         if self.vat_mode == "vat_excl":
             self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
         elif self.vat_mode == "vat_incl":
