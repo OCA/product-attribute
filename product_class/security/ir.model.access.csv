@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
+access_product_class_user,product.class User,model_product_class,base.group_user,1,1,1,0
+access_product_class_manager,product.class Manager,model_product_class,base.group_system,1,1,1,1
+access_product_class_attribute_line_user,product.class.attribute.line User,model_product_class_attribute_line,base.group_user,1,1,1,0
+access_product_class_attribute_line_manager,product.class.attribute.line Manager,model_product_class_attribute_line,base.group_system,1,1,1,1

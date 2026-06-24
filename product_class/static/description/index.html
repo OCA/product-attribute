@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>README.rst</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<a class="reference external image-reference" href="https://odoo-community.org/get-involved?utm_source=readme">
+<img alt="Odoo Community Association" src="https://odoo-community.org/readme-banner-image" />
+</a>
+<div class="section" id="product-class">
+<h1>Product Class</h1>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:86503509d193aed6557f152cd812109c5ebc9c92c3d83812aa48459f5d0208f2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree//product_class"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-/product-attribute--product_class"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch="><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<div class="section" id="product-class-1">
+<h2>Product Class</h2>
+<p>This module introduces <strong>Product Classes</strong> for standardizing product
+setup and attribute management. It allows you to:</p>
+<ol class="arabic simple">
+<li><strong>Define Product Classes</strong> — Group related products into classes
+(e.g., “Furniture”, “Electronics”)</li>
+<li><strong>Constrain Attributes per Class</strong> — Specify which attributes are
+allowed for each class</li>
+<li><strong>Mark Required Attributes</strong> — Designate certain attributes as
+mandatory for products in that class</li>
+<li><strong>Enforce Validation</strong> — Prevent products from using attributes
+outside their class or missing required attributes</li>
+</ol>
+<div class="section" id="key-features">
+<h3>Key Features</h3>
+<ul class="simple">
+<li><strong>Bridge Model (``product.class.attribute.line``)</strong> — Manages the
+relationship between classes and attributes, storing both allowed
+attributes and a <tt class="docutils literal">required</tt> flag</li>
+<li><strong>Strict Validation</strong> — Products assigned to a class must:<ul>
+<li>Use only attributes defined in that class</li>
+<li>Provide values for all required attributes</li>
+</ul>
+</li>
+<li><strong>UI Enforcement</strong> — Attribute selection in product forms is
+restricted by the class domain filter</li>
+<li><strong>Management Views</strong> — Full CRUD interface for product classes
+(Inventory &gt; Configuration &gt; Product Classes, Sales &gt; Configuration &gt;
+Product Classes)</li>
+</ul>
+</div>
+<div class="section" id="technical-architecture">
+<h3>Technical Architecture</h3>
+<ul class="simple">
+<li><tt class="docutils literal">product.class</tt> — Main product classification model</li>
+<li><tt class="docutils literal">product.class.attribute.line</tt> — Bridge model linking classes to
+attributes with a <tt class="docutils literal">required</tt> flag</li>
+<li><tt class="docutils literal">product.attribute</tt> (inherited) — Extended with reverse one-to-many
+to track which classes use it</li>
+<li><tt class="docutils literal">product.template</tt> (inherited) — Added class validation and computed
+required-attribute tracking</li>
+</ul>
+<p><strong>Table of contents</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#usage" id="toc-entry-1">Usage</a></li>
+</ul>
+</div>
+<div class="section" id="usage">
+<h4><a class="toc-backref" href="#toc-entry-1">Usage</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="usage-1">
+<h2>Usage</h2>
+<div class="section" id="create-a-product-class">
+<h3>1. Create a Product Class</h3>
+<p><strong>Navigation:</strong> Inventory → Configuration → Product Classes (or Sales →
+Configuration → Product Classes)</p>
+<ol class="arabic simple">
+<li>Click <strong>Create</strong> button</li>
+<li>Enter a <strong>Product Class Name</strong> (e.g., “Chairs”)</li>
+<li>In the <strong>Attributes</strong> section:<ul>
+<li>Click <strong>Add a line</strong></li>
+<li>Select an <strong>Attribute</strong> from the dropdown</li>
+<li>Check <strong>Required</strong> if products of this class must define this
+attribute</li>
+<li>Repeat to add more attributes</li>
+</ul>
+</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<p><strong>Example: “Furniture” Class</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Attribute</th>
+<th class="head">Required</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Color</td>
+<td>✓</td>
+<td>All furniture must have a color</td>
+</tr>
+<tr><td>Size</td>
+<td>✓</td>
+<td>Sizes vary by product</td>
+</tr>
+<tr><td>Material</td>
+<td>&nbsp;</td>
+<td>Optional (not all items specify)</td>
+</tr>
+<tr><td>Finish</td>
+<td>&nbsp;</td>
+<td>Optional polish/coating</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="assign-a-product-to-a-class">
+<h3>2. Assign a Product to a Class</h3>
+<p><strong>Navigation:</strong> Inventory → Products → Products</p>
+<ol class="arabic simple">
+<li>Create or edit a product</li>
+<li>Find the <strong>Product Class</strong> field in the Attributes &amp; Variants tab
+(added by this module)</li>
+<li>Select the class (e.g., “Furniture”)</li>
+<li>The form will now restrict <strong>Attributes</strong> to only those allowed by
+the class</li>
+</ol>
+</div>
+<div class="section" id="add-attribute-lines-to-a-classed-product">
+<h3>3. Add Attribute Lines to a Classed Product</h3>
+<p>Once a class is selected, you can add attribute lines:</p>
+<ol class="arabic simple">
+<li>Go to the <strong>Attributes &amp; Variants</strong> tab</li>
+<li>In <strong>Attribute Lines</strong>, click <strong>Add a line</strong></li>
+<li>The <strong>Attribute</strong> field dropdown is now filtered to show only
+class-allowed attributes</li>
+<li>Select an attribute and provide values</li>
+<li><strong>Validation will fail if:</strong><ul>
+<li>You select an attribute not in the class → Error: “has attribute
+lines that do not belong”</li>
+<li>You leave out a required attribute → Error: “is missing required
+attributes”</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="remove-an-attribute-from-a-class">
+<h3>4. Remove an Attribute from a Class</h3>
+<p><strong>Scenario:</strong> Your “Furniture” class allowed “Color” but wants to retire
+it.</p>
+<ol class="arabic simple">
+<li>Navigate to the class</li>
+<li>In <strong>Attributes</strong>, find the “Color” line and delete it</li>
+<li><strong>Odoo will raise an error if products in this class still use
+Color</strong><ul>
+<li>Fix: Remove Color from all products in the class first, then retry
+the class update</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="workflow-example">
+<h3>Workflow Example</h3>
+<p><strong>Step 1: Set Up “Chairs” Class</strong></p>
+<ul class="simple">
+<li>Color (required)</li>
+<li>Size (required)</li>
+<li>Leg Material (optional)</li>
+</ul>
+<p><strong>Step 2: Create a “Wooden Chair” Product</strong></p>
+<ul class="simple">
+<li>Assign class: “Chairs”</li>
+<li>Add attribute “Color” = Red (satisfies required)</li>
+<li>Add attribute “Size” = Large (satisfies required)</li>
+<li>Add attribute “Leg Material” = Oak (optional, still valid)</li>
+<li><strong>Save</strong> ✓ Success</li>
+</ul>
+<p><strong>Step 3: Try Invalid Assignment</strong></p>
+<ul class="simple">
+<li>Assign class: “Chairs”</li>
+<li>Add attribute “Color” = Blue (satisfies required)</li>
+<li><strong>Try to save without Size</strong> → Error: “is missing required attributes
+for the selected class ‘Chairs’: Size”</li>
+<li>Add Size = Medium</li>
+<li><strong>Save</strong> ✓ Success</li>
+</ul>
+</div>
+<div class="section" id="class-attribute-line-model">
+<h3>Class Attribute Line Model</h3>
+<p>The bridge model <tt class="docutils literal">product.class.attribute.line</tt> stores:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="13%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Purpose</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>class_id</td>
+<td>Many2one</td>
+<td>Product class (required, cascade delete)</td>
+</tr>
+<tr><td>attribute_id</td>
+<td>Many2one</td>
+<td>Product attribute (required)</td>
+</tr>
+<tr><td>required</td>
+<td>Boolean</td>
+<td>If true, products must define it</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraint:</strong> A class cannot configure the same attribute twice
+(unique on class_id + attribute_id).</p>
+</div>
+<div class="section" id="constraints-validations">
+<h3>Constraints &amp; Validations</h3>
+<ol class="arabic simple">
+<li><strong>Class Constraint</strong> (<tt class="docutils literal">_check_attribute_ids_used_by_products</tt>)<ul>
+<li>Prevents removing an attribute from a class if products still use
+it</li>
+<li>Error: “Cannot remove attributes used in products assigned to
+class…”</li>
+</ul>
+</li>
+<li><strong>Product Constraint</strong> (<tt class="docutils literal">_check_class_attributes</tt>)<ul>
+<li>Ensures all attribute lines belong to the class</li>
+<li>Ensures all required attributes are defined</li>
+<li>Error: “Product ‘…’ has attribute lines that do not belong to the
+selected class ‘…’”</li>
+<li>Error: “Product ‘…’ is missing required attributes for the
+selected class ‘…’”</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="advanced-access-control">
+<h3>Advanced: Access Control</h3>
+<ul class="simple">
+<li><strong>User (base.group_user):</strong> Can create/read/write product classes and
+their attributes</li>
+<li><strong>System/Admin (base.group_system):</strong> Full CRUD including delete</li>
+</ul>
+<p>Product class attribute lines follow the same access rules.</p>
+<div class="section" id="bug-tracker">
+<h4>Bug Tracker</h4>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_class%0Aversion:%20%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h4>Credits</h4>
+</div>
+</div>
+</div>
+<div class="section" id="authors">
+<h2>Authors</h2>
+<ul class="simple">
+<li>Camptocamp</li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h2>Maintainers</h2>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainers</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/Ricardoalso"><img alt="Ricardoalso" src="https://github.com/Ricardoalso.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/ivantodorovich"><img alt="ivantodorovich" src="https://github.com/ivantodorovich.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree//product_class">OCA/product-attribute</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</body>
+</html>
