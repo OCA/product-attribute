@@ -8,4 +8,4 @@ class NutritionalValue(models.Model):
     _name = "nutritional.value.lot"
     _description = "Nutritional values for a given lot"
 
-    lot_id = fields.Many2one(comodel_name="stock.production.lot")
+    lot_id = fields.Many2one(comodel_name="stock.lot")

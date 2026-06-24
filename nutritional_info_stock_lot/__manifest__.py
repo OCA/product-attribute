@@ -3,7 +3,7 @@
 {
     "name": "Nutritional Info Stock Lot",
     "summary": "Nutritional information for lots.",
-    "version": "15.0.1.1.0",
+    "version": "18.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Technical Settings",
     "website": "https://github.com/OCA/product-attribute",
@@ -15,7 +15,7 @@
         "security/ir.model.access.csv",
         "report/report_nutritional_info.xml",
         "views/stock_menu_views.xml",
-        "views/stock_production_lot_view.xml",
+        "views/stock_lot_view.xml",
     ],
     "application": False,
     "installable": True,
