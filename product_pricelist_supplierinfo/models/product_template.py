@@ -1,0 +1,83 @@
+# Copyright 2018 Tecnativa - Vicent Cubells
+# Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2019-2025 Tecnativa - Carlos Dauden
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from datetime import datetime
+
+from odoo import fields, models
+
+
+class ProductTemplate(models.Model):
+    _inherit = "product.template"
+
+    def _get_supplierinfo_pricelist_price(
+        self, rule, date=None, quantity=None, product_id=None
+    ):
+        """Method for getting the price from supplier info."""
+        self.ensure_one()
+        price = 0.0
+        product = self.product_variant_id
+        if product_id:
+            product = product.browse(product_id)
+        if rule.no_supplierinfo_min_quantity:
+            # No matter which minimum qty, we'll get every seller. We set a
+            # number absurdidly high
+            quantity = 1e9
+        # The product_variant_id returns empty recordset if template is not
+        # active, so we must ensure variant exists or _select_seller fails.
+        if product:
+            if isinstance(date, datetime):
+                date = date.date()
+            seller = product.with_context(
+                override_min_qty=rule.no_supplierinfo_min_quantity
+            )._select_seller(
+                # For a public user this record could be not accessible, but we
+                # need to get the price anyway
+                partner_id=self.env.context.get(
+                    "force_filter_supplier_id", rule.sudo().filter_supplier_id
+                ),
+                quantity=quantity,
+                date=date,
+            )
+            if seller:
+                price = seller._get_supplierinfo_pricelist_price(
+                    rule.no_supplierinfo_discount,
+                    ignore_margin=rule.ignore_supplierinfo_margin,
+                )
+        if price:
+            # We need to convert the price if the pricelist and seller have
+            # different currencies so the price have the pricelist currency
+            if rule.currency_id != seller.currency_id:
+                convert_date = date or self.env.context.get("date", fields.Date.today())
+                price = seller.currency_id._convert(
+                    price, rule.currency_id, seller.company_id, convert_date
+                )
+            qty_uom_id = self._context.get("uom") or self.uom_id.id
+            price_uom = self.env["uom.uom"].browse([qty_uom_id])
+
+            # We need to convert the price to the uom used on the sale, if the
+            # uom on the seller is a different one that the one used there.
+            if seller and seller.product_uom_id != price_uom:
+                price = seller.product_uom_id._compute_price(price, price_uom)
+        return price
+
+    def _price_compute(
+        self, price_type, uom=None, currency=None, company=False, date=False
+    ):
+        if price_type == "supplierinfo":
+            prices = dict.fromkeys(self.ids, 0.0)
+            rule = self.env["product.pricelist.item"].browse(
+                self.env.context.get("supplierinfo_rule")
+            )
+            for product in self:
+                # Use sudo due to avoid access error to public user in e-commerce
+                prices[product.id] = product.sudo()._get_supplierinfo_pricelist_price(
+                    rule,
+                    date=date or self.env.context.get("date", fields.Date.today()),
+                    quantity=self.env.context.get("supplierinfo_quantity", 1),
+                )
+            return prices
+        return super()._price_compute(
+            price_type, uom=uom, currency=currency, company=company, date=date
+        )
