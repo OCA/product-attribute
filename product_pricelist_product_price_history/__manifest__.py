@@ -3,7 +3,7 @@
 {
     "name": "Product Pricelist Product Price History",
     "summary": "Track product price history within pricelists",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.1.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "APSL-Nagarro, Odoo Community Association (OCA)",
