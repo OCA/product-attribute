@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 05:01+0000\n"
+"PO-Revision-Date: 2026-06-27 05:05+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. module: product_get_price_helper
 #: model:account.fiscal.position,name:product_get_price_helper.fiscal_position_1
 msgid "Business"
-msgstr ""
+msgstr "Poslovno"
 
 #. module: product_get_price_helper
 #: model:product.pricelist,name:product_get_price_helper.pricelist_1
 msgid "Business Pricelist"
-msgstr ""
+msgstr "Poslovni cenik"
 
 #. module: product_get_price_helper
 #: model:account.fiscal.position,name:product_get_price_helper.fiscal_position_0
@@ -40,9 +40,9 @@ msgstr "Različica proizvoda"
 #. module: product_get_price_helper
 #: model:account.tax,name:product_get_price_helper.tax_2
 msgid "Tax exc demo"
-msgstr ""
+msgstr "Demo brez vključenega davka"
 
 #. module: product_get_price_helper
 #: model:account.tax,name:product_get_price_helper.tax_1
 msgid "Tax inc demo"
-msgstr ""
+msgstr "Demo z vključenim davkom"
