@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 04:01+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,11 +15,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.view_partner_form
 msgid "<span class=\"o_stat_text\">Product Assortments</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Asortiment proizvodov</span>"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
@@ -30,148 +32,154 @@ msgid ""
 "                                    Product\n"
 "                                </span>"
 msgstr ""
+"<span invisible=\"record_count == 1\">\n"
+"                                    Proizvodi\n"
+"                                    </span>\n"
+"                                    <span invisible=\"record_count != 1\">\n"
+"                                    Proizvod\n"
+"                                    </span>"
 
 #. module: product_assortment
 #: model:res.groups,comment:product_assortment.group_product_assortment_manager
 msgid "Access to all product assortment"
-msgstr ""
+msgstr "Dostop do celotnega asortimenta proizvodov"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__all_partner_ids
 msgid "All Partner"
-msgstr ""
+msgstr "Vsi partnerji"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Allowed product domain"
-msgstr ""
+msgstr "Domena dovoljenih proizvodov"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__whitelist_product_ids
 msgid "Allowed products"
-msgstr ""
+msgstr "Dovoljeni proizvodi"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_res_partner__applied_assortment_ids
 #: model:ir.model.fields,field_description:product_assortment.field_res_users__applied_assortment_ids
 msgid "Applied Assortment"
-msgstr ""
+msgstr "Aplicirani asortiment"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__apply_black_list_product_domain
 msgid "Apply restricted product domain"
-msgstr ""
+msgstr "Uporabi omejeno domeno proizvoda"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortment Name"
-msgstr ""
+msgstr "Naziv asortimenta"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_search
 msgid "Assortments"
-msgstr ""
+msgstr "Asortimenti"
 
 #. module: product_assortment
 #: model:ir.model,name:product_assortment.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Stik"
 
 #. module: product_assortment
 #: model:ir.model,name:product_assortment.model_ir_filters
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Filters"
-msgstr ""
+msgstr "Filtri"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__is_assortment
 msgid "Is Assortment"
-msgstr ""
+msgstr "Je asortiment"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_ids
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__partner_domain
 msgid "Partner Domain"
-msgstr ""
+msgstr "Domena partnerja"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Partner domain"
-msgstr ""
+msgstr "Domena partnerja"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Partners to apply"
-msgstr ""
+msgstr "Partnerji za apliciranje"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_product_view_list
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_assortment
 #: model:ir.ui.menu,name:product_assortment.menu_product_assortments
 msgid "Product Assortment"
-msgstr ""
+msgstr "Asortiment proizvodov"
 
 #. module: product_assortment
 #: model:res.groups,name:product_assortment.group_product_assortment_manager
 msgid "Product Assortment Manager"
-msgstr ""
+msgstr "Upravitelj asortimenta proizvodov"
 
 #. module: product_assortment
 #: model:ir.actions.act_window,name:product_assortment.actions_product_assortment_view
 msgid "Product assortment"
-msgstr ""
+msgstr "Asortiment proizvodov"
 
 #. module: product_assortment
 #: model:ir.actions.server,name:product_assortment.action_product_assortment_recompute_all_partners
 msgid "Product assortment recompute all partners"
-msgstr ""
+msgstr "Asortiment proizvodov - ponovno izračunaj vse partnerje"
 
 #. module: product_assortment
 #. odoo-python
 #: code:addons/product_assortment/models/ir_filters.py:0
 msgid "Products"
-msgstr ""
+msgstr "Proizvodi"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to exclude"
-msgstr ""
+msgstr "Proizvodi, ki jih je treba izključiti"
 
 #. module: product_assortment
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Products to include"
-msgstr ""
+msgstr "Proizvodi, ki jih je treba vključiti"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__record_count
 msgid "Record Count"
-msgstr ""
+msgstr "Število zapisov"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__black_list_product_domain
 #: model_terms:ir.ui.view,arch_db:product_assortment.product_assortment_view_form
 msgid "Restricted product domain"
-msgstr ""
+msgstr "Omejena domena proizvoda"
 
 #. module: product_assortment
 #: model:ir.model.fields,field_description:product_assortment.field_ir_filters__blacklist_product_ids
 msgid "Restricted products"
-msgstr ""
+msgstr "Omejeni proizvodi"
 
 #. module: product_assortment
 #: model:ir.model.fields,help:product_assortment.field_ir_filters__partner_ids
 msgid "This field allow to relate a partner to a domain of products"
-msgstr ""
+msgstr "To polje omogoča povezavo partnerja z domeno proizvodov"
