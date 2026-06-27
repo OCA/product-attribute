@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:25+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,49 +15,50 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__standard_price
 msgid "Cost"
-msgstr ""
+msgstr "Lastna cena"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_edit_cost
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Različica proizvoda"
 
 #. module: product_cost_security
 #: model:ir.model,name:product_cost_security.model_product_cost_security_mixin
 msgid "Product cost access control mixin"
-msgstr ""
+msgstr "Mixin za nadzor dostopa do lastne cene proizvoda"
 
 #. module: product_cost_security
 #: model:ir.module.category,name:product_cost_security.module_category
 msgid "Product costs"
-msgstr ""
+msgstr "Stroški proizvoda"
 
 #. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_cost
 msgid "Read"
-msgstr ""
+msgstr "Branje"
 
 #. module: product_cost_security
 #: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_product__user_can_update_cost
 #: model:ir.model.fields,field_description:product_cost_security.field_product_template__user_can_update_cost
 msgid "User Can Update Cost"
-msgstr ""
+msgstr "Uporabnik lahko posodobi lastno ceno"
 
 #. module: product_cost_security
 #: model:ir.model.fields,help:product_cost_security.field_product_product__standard_price
@@ -66,6 +68,10 @@ msgid ""
 "        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
 "        Used to compute margins on sale orders."
 msgstr ""
+"Vrednost proizvoda (samodejno izračunana v AVCO).\n"
+"        Uporablja se za vrednotenje proizvoda, kadar nabavna cena ni znana "
+"(npr. prilagoditev zalog).\n"
+"        Uporablja se za izračun marž pri prodajnih naročilih."
 
 #. module: product_cost_security
 #. odoo-python
@@ -75,3 +81,7 @@ msgid ""
 "\n"
 "(Operation: %(operation)s)"
 msgstr ""
+"Nimate dovolj pravic za dostop do polj \"%(fields)s\" na %(document_kind)s (%"
+"(document_model)s). Obrnite se na skrbnika sistema.\n"
+"\n"
+"(Operacija: %(operation)s)"
