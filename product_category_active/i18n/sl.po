@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:16+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,21 +15,22 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_category_active
 #: model:ir.model.fields,field_description:product_category_active.field_product_category__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: product_category_active
 #: model_terms:ir.ui.view,arch_db:product_category_active.product_category_search_view
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: product_category_active
 #: model_terms:ir.ui.view,arch_db:product_category_active.product_category_search_view
 msgid "Archived or Active"
-msgstr ""
+msgstr "Arhivirano ali aktivno"
 
 #. module: product_category_active
 #. odoo-python
@@ -37,6 +39,8 @@ msgid ""
 "At least one category that you are trying to archive or one of its children "
 "has one or more product linked to it."
 msgstr ""
+"Vsaj ena kategorija, ki jo poskušate arhivirati, ali eden od njenih "
+"podrejenih elementov ima povezanega enega ali več proizvodov."
 
 #. module: product_category_active
 #: model:ir.model.fields,help:product_category_active.field_product_category__active
@@ -44,8 +48,10 @@ msgid ""
 "If unchecked, it will allow you to hide the product category without "
 "removing it."
 msgstr ""
+"Če polje ni označeno, lahko kategorijo proizvodov skrijete, ne da bi jo "
+"odstranili."
 
 #. module: product_category_active
 #: model:ir.model,name:product_category_active.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Kategorija proizvoda"
