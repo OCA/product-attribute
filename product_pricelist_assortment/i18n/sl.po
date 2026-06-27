@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 04:11+0000\n"
+"PO-Revision-Date: 2026-06-27 04:15+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -153,12 +153,12 @@ msgstr "Valuta"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__currency_rate_tooltip
 msgid "Currency Rate Tooltip"
-msgstr ""
+msgstr "Namig za valutni tečaj"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_range_ids
 msgid "Discount Range"
-msgstr ""
+msgstr "Razpon popusta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_type
@@ -168,7 +168,7 @@ msgstr "Tip popusta"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_applied_on
 msgid "Display Applied On"
-msgstr ""
+msgstr "Prikaži, pri čem se uporabi"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_name
@@ -178,7 +178,7 @@ msgstr "Prikazani naziv"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__do_inverse_currency_rate
 msgid "Do Inverse Currency Rate"
-msgstr ""
+msgstr "Uporabi obratni valutni tečaj"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__date_end
@@ -191,6 +191,9 @@ msgid ""
 "Ending datetime for the pricelist item validation\n"
 "The displayed value depends on the timezone set in your preferences."
 msgstr ""
+"Končni datum in čas veljavnosti postavke cenika\n"
+"Prikazana vrednost je odvisna od časovnega pasu, nastavljenega v vaših "
+"nastavitvah."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__name
@@ -201,12 +204,12 @@ msgstr "Izrecno pravilo za to vrstico cenika."
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
 msgid "Extra Fee"
-msgstr ""
+msgstr "Dodatna pristojbina"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_currency_rate
 msgid "Fixed Currency Rate"
-msgstr ""
+msgstr "Fiksni valutni tečaj"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_price
@@ -219,6 +222,9 @@ msgid ""
 "For the rule to apply, bought/sold quantity must be greater than or equal to the minimum quantity specified in this field.\n"
 "Expressed in the default unit of measure of the product."
 msgstr ""
+"Da se pravilo uporabi, mora biti kupljena/prodana količina večja ali enaka "
+"minimalni količini, določeni v tem polju.\n"
+"Izraženo v privzeti merski enoti proizvoda."
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_search
@@ -246,6 +252,8 @@ msgid ""
 "If set (different to 0.0), the currency conversion will ignore the actual "
 "currency rate and always use the fixed currency rate."
 msgstr ""
+"Če je nastavljeno (različno od 0,0), bo pretvorba valute prezrla dejanski "
+"valutni tečaj in vedno uporabila fiksni valutni tečaj."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_discount
@@ -265,17 +273,17 @@ msgstr "Ne upoštevaj marže v podatkih dobavitelja"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__inverse_actual_currency_rate
 msgid "Inverse Actual Currency Rate"
-msgstr ""
+msgstr "Obratni dejanski valutni tečaj"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__inverse_fixed_currency_rate
 msgid "Inverse Fixed Currency Rate"
-msgstr ""
+msgstr "Obratni fiksni valutni tečaj"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__is_fixed_currency_rate_applicable
 msgid "Is Fixed Currency Rate Applicable"
-msgstr ""
+msgstr "Ali je fiksni valutni tečaj uporaben"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__write_uid
@@ -290,7 +298,7 @@ msgstr "Zadnjič posodobljeno"
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_form_view
 msgid "Launch assortment update"
-msgstr ""
+msgstr "Zaženi posodobitev asortimenta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_markup
@@ -335,7 +343,7 @@ msgstr "Upoštevaj le cene izbranega dobavitelja"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__multi_price_name
 msgid "Other Price Name"
-msgstr ""
+msgstr "Naziv druge cene"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base_pricelist_id
@@ -345,7 +353,7 @@ msgstr "Drugi cenik"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__percent_price
 msgid "Percentage Price"
-msgstr ""
+msgstr "Odstotna cena"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price
@@ -361,7 +369,7 @@ msgstr "Izračun cene"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_discount
 msgid "Price Discount"
-msgstr ""
+msgstr "Popust na ceno"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_round
@@ -378,12 +386,12 @@ msgstr "Cenik"
 #. module: product_pricelist_assortment
 #: model:ir.actions.server,name:product_pricelist_assortment.ir_cron_product_pricelist_assortment_ir_actions_server
 msgid "Pricelist Assortment - Launch update"
-msgstr ""
+msgstr "Asortiment cenika - zaženi posodobitev"
 
 #. module: product_pricelist_assortment
 #: model:ir.actions.act_window,name:product_pricelist_assortment.product_pricelist_assortment_item_action
 msgid "Pricelist Assortment Items"
-msgstr ""
+msgstr "Postavke asortimenta cenika"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__pricelist_item_ids
@@ -404,7 +412,7 @@ msgstr "Pravilo cenika"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__pricelist_item_ids
 msgid "Pricelist items created automatically"
-msgstr ""
+msgstr "Samodejno ustvarjene postavke cenika"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_tmpl_id
@@ -414,7 +422,7 @@ msgstr "Proizvod"
 #. module: product_pricelist_assortment
 #: model:ir.model,name:product_pricelist_assortment.model_product_pricelist_assortment_item
 msgid "Product Pricelist Assortment Item"
-msgstr ""
+msgstr "Postavka asortimenta cenika proizvoda"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
@@ -424,7 +432,7 @@ msgstr "Način zaokroževanja"
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__rule_tip
 msgid "Rule Tip"
-msgstr ""
+msgstr "Namig pravila"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_round
@@ -433,6 +441,10 @@ msgid ""
 "Rounding is applied after the discount and before the surcharge.\n"
 "To have prices that end in 9.99, round off to 10.00 and set an extra at -0.01"
 msgstr ""
+"Nastavi ceno tako, da je mnogokratnik te vrednosti.\n"
+"Zaokroževanje se uporabi po popustu in pred pribitkom.\n"
+"Če želite cene, ki se končajo z 9,99, zaokrožite na 10,00 in nastavite "
+"dodatek na -0,01"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__categ_id
@@ -440,6 +452,9 @@ msgid ""
 "Specify a product category if this rule only applies to products belonging "
 "to this category or its children categories. Keep empty otherwise."
 msgstr ""
+"Določite kategorijo proizvoda, če to pravilo velja samo za proizvode, ki "
+"pripadajo tej kategoriji ali njenim podrejenim kategorijam. Sicer pustite "
+"prazno."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__product_id
@@ -447,6 +462,8 @@ msgid ""
 "Specify a product if this rule only applies to one product. Keep empty "
 "otherwise."
 msgstr ""
+"Določite proizvod, če to pravilo velja samo za en proizvod. Sicer pustite "
+"prazno."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__product_tmpl_id
@@ -454,6 +471,8 @@ msgid ""
 "Specify a template if this rule only applies to one product template. Keep "
 "empty otherwise."
 msgstr ""
+"Določite predlogo, če to pravilo velja samo za eno predlogo proizvoda. Sicer "
+"pustite prazno."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
@@ -461,6 +480,8 @@ msgid ""
 "Specify the fixed amount to add or subtract (if negative) to the amount "
 "calculated with the discount."
 msgstr ""
+"Določite fiksni znesek za prištevanje ali odštevanje (če je negativen) od "
+"zneska, izračunanega s popustom."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_max_margin
@@ -483,6 +504,9 @@ msgid ""
 "Starting datetime for the pricelist item validation\n"
 "The displayed value depends on the timezone set in your preferences."
 msgstr ""
+"Začetni datum in čas veljavnosti postavke cenika\n"
+"Prikazana vrednost je odvisna od časovnega pasu, nastavljenega v vaših "
+"nastavitvah."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__filter_supplier_id
@@ -494,7 +518,7 @@ msgstr "Filter dobavitelja"
 msgid ""
 "The computed price is expressed in the default Unit of Measure of the "
 "product."
-msgstr ""
+msgstr "Izračunana cena je izražena v privzeti merski enoti proizvoda."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_uom
@@ -507,6 +531,8 @@ msgid ""
 "Use the discount rules and activate the discount settings in order to show "
 "discount to customer."
 msgstr ""
+"Uporabite pravila popustov in aktivirajte nastavitve popustov, da stranki "
+"prikažete popust."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_id
@@ -517,9 +543,9 @@ msgstr "Različica"
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__percent_price
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_discount
 msgid "You can apply a mark-up by setting a negative discount."
-msgstr ""
+msgstr "Pribitek lahko uporabite tako, da nastavite negativni popust."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price_markup
 msgid "You can apply a mark-up on the cost"
-msgstr ""
+msgstr "Pribitek lahko uporabite na nabavni ceni"
