@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:16+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,39 +15,40 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_catalog_stock
 #: model_terms:ir.ui.view,arch_db:product_catalog_stock.view_picking_form
 msgid "Add a line"
-msgstr ""
+msgstr "Dodaj vrstico"
 
 #. module: product_catalog_stock
 #. odoo-javascript
 #: code:addons/product_catalog_stock/static/src/components/product_catalog/kanban_controller.esm.js:0
 msgid "Back to picking"
-msgstr ""
+msgstr "Nazaj na prevzem"
 
 #. module: product_catalog_stock
 #: model_terms:ir.ui.view,arch_db:product_catalog_stock.view_picking_form
 msgid "Catalog"
-msgstr ""
+msgstr "Katalog"
 
 #. module: product_catalog_stock
 #: model:ir.model,name:product_catalog_stock.model_stock_picking_type
 msgid "Picking Type"
-msgstr ""
+msgstr "Tip dobavnice"
 
 #. module: product_catalog_stock
 #: model_terms:ir.ui.view,arch_db:product_catalog_stock.stock_picking_type_kanban
 msgid "Planned transfer from catalog"
-msgstr ""
+msgstr "Načrtovana premestitev iz kataloga"
 
 #. module: product_catalog_stock
 #: model:ir.model,name:product_catalog_stock.model_stock_move
 msgid "Stock Move"
-msgstr ""
+msgstr "Premik zaloge"
 
 #. module: product_catalog_stock
 #: model:ir.model,name:product_catalog_stock.model_stock_picking
 msgid "Transfer"
-msgstr ""
+msgstr "Premestitev"
