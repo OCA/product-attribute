@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:27+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,22 +15,23 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_assortment_item__applied_on
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__applied_on
 msgid "Apply On"
-msgstr ""
+msgstr "Uporabi pri"
 
 #. module: product_form_pricelist
 #: model:ir.model,name:product_form_pricelist.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #. module: product_form_pricelist
 #: model_terms:ir.ui.view,arch_db:product_form_pricelist.product_template_view_form
 msgid "Fixed Price"
-msgstr ""
+msgstr "Fiksna cena"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_product__fixed_pricelist_item_ids
@@ -50,7 +52,7 @@ msgstr ""
 #. module: product_form_pricelist
 #: model:res.groups,name:product_form_pricelist.group_no_list_price
 msgid "Hide list price on product"
-msgstr ""
+msgstr "Skrij lastno ceno na proizvodu"
 
 #. module: product_form_pricelist
 #: model_terms:ir.ui.view,arch_db:product_form_pricelist.res_config_settings_view_form
@@ -63,19 +65,19 @@ msgstr ""
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__applied_on
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_item__applied_on
 msgid "Pricelist Item applicable on selected option"
-msgstr ""
+msgstr "Postavka cenika, ki velja za izbrano možnost"
 
 #. module: product_form_pricelist
 #: model:ir.model,name:product_form_pricelist.model_product_pricelist_item
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Pravilo cenika"
 
 #. module: product_form_pricelist
 #: model:ir.model,name:product_form_pricelist.model_product_template
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_assortment_item__product_tmpl_id
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_pricelist_item__product_tmpl_id
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__product_tmpl_id
@@ -84,6 +86,8 @@ msgid ""
 "Specify a template if this rule only applies to one product template. Keep "
 "empty otherwise."
 msgstr ""
+"Določite predlogo, če to pravilo velja samo za eno predlogo proizvoda. Sicer "
+"pustite prazno."
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,help:product_form_pricelist.field_res_config_settings__group_no_list_price
