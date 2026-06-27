@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:34+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,114 +15,115 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_packaging_dimension
 #: model_terms:ir.ui.view,arch_db:product_packaging_dimension.product_packaging_form_view_inherit
 msgid "Dimensions"
-msgstr ""
+msgstr "Dimenzije"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__length_uom_id
 msgid "Dimensions Units of Measure"
-msgstr ""
+msgstr "EM dimenzij"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__height
 msgid "Height"
-msgstr ""
+msgstr "Višina"
 
 #. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_height
 msgid "Height must be positive"
-msgstr ""
+msgstr "Višina mora biti pozitivna"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__packaging_length
 msgid "Length"
-msgstr ""
+msgstr "Dolžina"
 
 #. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_length
 msgid "Length must be positive"
-msgstr ""
+msgstr "Dolžina mora biti pozitivna"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__length_uom_name
 msgid "Length unit of measure label"
-msgstr ""
+msgstr "Etiketa EM dolžine"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume_uom_id
 msgid "Packaging volume unit of measure"
-msgstr ""
+msgstr "EM prostornine pakiranja"
 
 #. module: product_packaging_dimension
 #: model:ir.model,name:product_packaging_dimension.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Pakiranje proizvoda"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__volume
 msgid "The Packaging volume"
-msgstr ""
+msgstr "Prostornina pakiranja"
 
 #. module: product_packaging_dimension
 #: model_terms:ir.ui.view,arch_db:product_packaging_dimension.product_packaging_form_view_inherit
 msgid "Units of Measure"
-msgstr ""
+msgstr "Merske enote"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__length_uom_id
 msgid "UoM for packaging length, height, width (based on lenght UoM)"
-msgstr ""
+msgstr "EM za dolžino, višino in širino embalaže (na podlagi dolžinske enote)"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume
 msgid "Volume"
-msgstr ""
+msgstr "Prostornina"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume_uom_name
 msgid "Volume Unit of Measure label"
-msgstr ""
+msgstr "Oznaka merske enote za prostornino"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__volume_uom_id
 msgid "Volume Units of Measure"
-msgstr ""
+msgstr "Prostornina - enote mere"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight
 #: model_terms:ir.ui.view,arch_db:product_packaging_dimension.product_packaging_form_view_inherit
 msgid "Weight"
-msgstr ""
+msgstr "Masa"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,help:product_packaging_dimension.field_product_packaging__weight_uom_id
 msgid "Weight Unit of Measure"
-msgstr ""
+msgstr "EM mase"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_id
 msgid "Weight Units of Measure"
-msgstr ""
+msgstr "EM mase"
 
 #. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_weight
 msgid "Weight must be positive"
-msgstr ""
+msgstr "Masa mora biti pozitivna"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__weight_uom_name
 msgid "Weight unit of measure label"
-msgstr ""
+msgstr "Enota mere za maso"
 
 #. module: product_packaging_dimension
 #: model:ir.model.fields,field_description:product_packaging_dimension.field_product_packaging__width
 msgid "Width"
-msgstr ""
+msgstr "Širina"
 
 #. module: product_packaging_dimension
 #: model:ir.model.constraint,message:product_packaging_dimension.constraint_product_packaging_positive_width
 msgid "Width must be positive"
-msgstr ""
+msgstr "Širina mora biti pozitivna"
