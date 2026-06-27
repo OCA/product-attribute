@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:16+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,26 +15,27 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_packaging_level_salable
 #: model:ir.model.fields,field_description:product_packaging_level_salable.field_product_packaging_level__can_be_sold
 msgid "Can be sold"
-msgstr ""
+msgstr "Lahko se proda"
 
 #. module: product_packaging_level_salable
 #: model:ir.model.fields,help:product_packaging_level_salable.field_product_packaging__sales
 msgid "If true, the packaging can be used for sales orders"
-msgstr ""
+msgstr "Če je res, se pakiranje lahko uporablja za prodajna naročila"
 
 #. module: product_packaging_level_salable
 #: model:ir.model,name:product_packaging_level_salable.model_product_packaging_level
 msgid "Level management for product.packaging"
-msgstr ""
+msgstr "Upravljanje nivojev za product.packaging"
 
 #. module: product_packaging_level_salable
 #: model:ir.model.fields,field_description:product_packaging_level_salable.field_product_packaging_level__packaging_ids
 msgid "Packaging"
-msgstr ""
+msgstr "Pakiranje"
 
 #. module: product_packaging_level_salable
 #. odoo-python
@@ -42,18 +44,20 @@ msgid ""
 "Packaging %(packaging)s on product %(product)s must be set as 'Sales' in "
 "order to be used on a sale order."
 msgstr ""
+"Pakiranje %(packaging)s za proizvod %(product)s mora biti nastavljeno kot "
+"'Prodaja', da se lahko uporabi v prodajnem naročilu."
 
 #. module: product_packaging_level_salable
 #: model:ir.model,name:product_packaging_level_salable.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Pakiranje proizvoda"
 
 #. module: product_packaging_level_salable
 #: model:ir.model.fields,field_description:product_packaging_level_salable.field_product_packaging__sales
 msgid "Sales"
-msgstr ""
+msgstr "Prodaja"
 
 #. module: product_packaging_level_salable
 #: model:ir.model,name:product_packaging_level_salable.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Prodajna postavka"
