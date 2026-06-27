@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 04:08+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,11 +15,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__product_variant_count
 msgid "# Product Variants"
-msgstr ""
+msgstr "Št. različic proizvoda"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
@@ -27,6 +29,9 @@ msgid ""
 "                        New Price =\n"
 "                    </span>"
 msgstr ""
+"<span class=\"o_form_label\">\n"
+"                        Nova cena =\n"
+"                    </span>"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
@@ -38,52 +43,58 @@ msgid ""
 "                        <span invisible=\"base != 'pricelist'\">\n"
 "                        Other Pricelist  -  </span>"
 msgstr ""
+"<span invisible=\"base != 'list_price'\">\n"
+"                        Prodajna cena  -  </span>\n"
+"                        <span invisible=\"base != 'standard_price'\">\n"
+"                        Lastna cena  -  </span>\n"
+"                        <span invisible=\"base != 'pricelist'\">\n"
+"                        Drugi cenik  -  </span>"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "<span>%</span>"
-msgstr ""
+msgstr "<span>%</span>"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__actual_currency_rate
 msgid "Actual Currency Rate"
-msgstr ""
+msgstr "Dejanski valutni tečaj"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__alternative_pricelist_policy
 msgid "Alternative Pricelist Policy"
-msgstr ""
+msgstr "Pravilnik alternativnih cenikov"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__applied_on
 msgid "Apply On"
-msgstr ""
+msgstr "Uporabi pri"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__assortment_filter_id
 msgid "Assortment"
-msgstr ""
+msgstr "Asortiment"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_search
 msgid "Assortment Filter"
-msgstr ""
+msgstr "Filter asortimenta"
 
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_form_view
 msgid "Assortment Items"
-msgstr ""
+msgstr "Artikli asortimenta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__assortment_item_id
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_item__assortment_item_id
 msgid "Assortment item"
-msgstr ""
+msgstr "Artikel asortimenta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist__item_assortment_ids
 msgid "Assortment items"
-msgstr ""
+msgstr "Artikli asortimenta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__base
@@ -93,47 +104,51 @@ msgid ""
 "Cost Price: The base price will be the cost price.\n"
 "Other Pricelist: Computation of the base price based on another Pricelist."
 msgstr ""
+"Osnovna cena za izračun.\n"
+"Prodajna cena: Osnovna cena bo enaka prodajni ceni.\n"
+"Nabavna cena: Osnovna cena bo enaka nabavni ceni.\n"
+"Drugi cenik: Izračun osnovne cene na podlagi drugega cenika."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__base
 msgid "Based on"
-msgstr ""
+msgstr "Na osnovi"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__ignore_supplierinfo_margin
 msgid "Based on supplierinfo price without sale margin applied"
-msgstr ""
+msgstr "Na podlagi cene iz podatkov dobavitelja brez upoštevanja prodajne marže"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__categ_id
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__company_id
 msgid "Company"
-msgstr ""
+msgstr "Družba"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__compute_price
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_form_view
 msgid "Compute Price"
-msgstr ""
+msgstr "Izračunaj ceno"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__currency_rate_tooltip
@@ -148,7 +163,7 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__discount_type
 msgid "Discount Type"
-msgstr ""
+msgstr "Tip popusta"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_applied_on
@@ -158,7 +173,7 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__do_inverse_currency_rate
@@ -168,7 +183,7 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__date_end
 msgid "End Date"
-msgstr ""
+msgstr "Končni datum"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__date_end
@@ -181,7 +196,7 @@ msgstr ""
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__price
 msgid "Explicit rule name for this pricelist line."
-msgstr ""
+msgstr "Izrecno pravilo za to vrstico cenika."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__price_surcharge
@@ -196,7 +211,7 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_price
 msgid "Fixed Price"
-msgstr ""
+msgstr "Fiksna cena"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__min_quantity
@@ -208,12 +223,12 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model_terms:ir.ui.view,arch_db:product_pricelist_assortment.product_pricelist_assortment_item_search
 msgid "Group By"
-msgstr ""
+msgstr "Združi po"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_discount
@@ -221,6 +236,8 @@ msgid ""
 "If checked, the discount set on the supplier info will be ignored in price "
 "calculation."
 msgstr ""
+"Če je ta možnost izbrana, se popust, določen v podatkih o dobavitelju, pri "
+"izračunu cene ne upošteva."
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,help:product_pricelist_assortment.field_product_pricelist_assortment_item__fixed_currency_rate
@@ -233,17 +250,17 @@ msgstr ""
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_discount
 msgid "Ignore Supplier Info Discount"
-msgstr ""
+msgstr "Ne upoštevaj popusta iz podatkov o dobavitelju"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__no_supplierinfo_min_quantity
 msgid "Ignore Supplier Info Min. Quantity"
-msgstr ""
+msgstr "Ne upoštevaj minimalne količine v podatkih dobavitelja"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__ignore_supplierinfo_margin
 msgid "Ignore Supplierinfo Margin"
-msgstr ""
+msgstr "Ne upoštevaj marže v podatkih dobavitelja"
 
 #. module: product_pricelist_assortment
 #: model:ir.model.fields,field_description:product_pricelist_assortment.field_product_pricelist_assortment_item__inverse_actual_currency_rate
