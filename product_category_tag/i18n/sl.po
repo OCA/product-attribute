@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 05:38+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,77 +15,78 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_category_tag
 #: model:ir.actions.act_window,name:product_category_tag.action_product_category_tag
 #: model:ir.ui.menu,name:product_category_tag.menu_product_category_tag_root
 #: model_terms:ir.ui.view,arch_db:product_category_tag.product_category_form_view
 msgid "Category Tags"
-msgstr ""
+msgstr "Oznake kategorij"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__color
 msgid "Color"
-msgstr ""
+msgstr "Barva"
 
 #. module: product_category_tag
 #: model_terms:ir.actions.act_window,help:product_category_tag.action_product_category_tag
 msgid "Create new tags for your product categories."
-msgstr ""
+msgstr "Ustvarite nove oznake za kategorije izdelkov."
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category_tag__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: product_category_tag
 #: model:ir.model,name:product_category_tag.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Kategorija proizvoda"
 
 #. module: product_category_tag
 #: model:ir.model,name:product_category_tag.model_product_category_tag
 msgid "Product Category Tag"
-msgstr ""
+msgstr "Oznaka kategorije proizvoda"
 
 #. module: product_category_tag
 #: model:ir.model.constraint,message:product_category_tag.constraint_product_category_tag_category_tag_name_uniq
 msgid "Tag name already exists!"
-msgstr ""
+msgstr "Naziv oznake že obstaja!"
 
 #. module: product_category_tag
 #: model:ir.model.fields,field_description:product_category_tag.field_product_category__tag_ids
 #: model_terms:ir.ui.view,arch_db:product_category_tag.product_category_search_view
 #: model_terms:ir.ui.view,arch_db:product_category_tag.view_product_category_tag_form
 msgid "Tags"
-msgstr ""
+msgstr "Oznake"
