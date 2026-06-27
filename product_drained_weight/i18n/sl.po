@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-27 03:46+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,31 +15,32 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_drained_weight
 #: model:ir.model.fields,field_description:product_drained_weight.field_product_product__drained_weight
 #: model:ir.model.fields,field_description:product_drained_weight.field_product_template__drained_weight
 msgid "Drained Weight"
-msgstr ""
+msgstr "Odcejena teža"
 
 #. module: product_drained_weight
 #: model:ir.model.fields,help:product_drained_weight.field_product_product__drained_weight
 #: model:ir.model.fields,help:product_drained_weight.field_product_template__drained_weight
 msgid "Drained Weight of the product, fluid excluded."
-msgstr ""
+msgstr "Odcejena teža proizvoda, brez tekočine."
 
 #. module: product_drained_weight
 #: model:ir.model,name:product_drained_weight.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_drained_weight
 #: model:ir.model,name:product_drained_weight.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Različica proizvoda"
 
 #. module: product_drained_weight
 #. odoo-python
 #: code:addons/product_drained_weight/models/product_product.py:0
 msgid "The drained weight of product must be lower than net_weight."
-msgstr ""
+msgstr "Odcejena teža proizvoda mora biti nižja od neto mase."
