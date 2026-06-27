@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 05:46+0000\n"
+"PO-Revision-Date: 2026-06-27 05:48+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -46,7 +46,7 @@ msgstr ""
 #. module: product_status
 #: model:product.state,name:product_status.product_state_discontinued
 msgid "Discontinued"
-msgstr ""
+msgstr "Ukinjeno"
 
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__discontinued_until
@@ -54,12 +54,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
 msgid "Discontinued until"
-msgstr ""
+msgstr "Ukinjeno do"
 
 #. module: product_status
 #: model:product.state,name:product_status.product_state_endoflife
 msgid "End-Of-Life"
-msgstr ""
+msgstr "Konec življenjske dobe"
 
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__end_of_life_date
@@ -67,12 +67,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
 msgid "End-of-life"
-msgstr ""
+msgstr "Konec življenjske dobe"
 
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__has_status_date
 msgid "Has Status Date"
-msgstr ""
+msgstr "Ima datum statusa"
 
 #. module: product_status
 #: model:product.state,name:product_status.product_state_new
@@ -84,7 +84,7 @@ msgstr "Novo"
 #: model:ir.model.fields,help:product_status.field_product_product__tmpl_new_until
 #: model:ir.model.fields,help:product_status.field_product_template__new_until
 msgid "New product, and you want to warn your client for a certain time"
-msgstr ""
+msgstr "Nov proizvod, pri katerem želite stranko opozarjati določeno obdobje"
 
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__new_until
@@ -92,12 +92,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_status.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product_status.product_template_only_form_view
 msgid "New until"
-msgstr ""
+msgstr "Novo do"
 
 #. module: product_status
 #: model:product.state,name:product_status.product_state_phaseout
 msgid "Phase Out"
-msgstr ""
+msgstr "Postopno opuščanje"
 
 #. module: product_status
 #: model:ir.model,name:product_status.model_product_template
@@ -139,17 +139,17 @@ msgstr "Stanje"
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__tmpl_discontinued_until
 msgid "Template Discontinued until"
-msgstr ""
+msgstr "Ukinjeno do na predlogi"
 
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__tmpl_end_of_life_date
 msgid "Template End-of-life"
-msgstr ""
+msgstr "Konec življenjske dobe na predlogi"
 
 #. module: product_status
 #: model:ir.model.fields,field_description:product_status.field_product_product__tmpl_new_until
 msgid "Template New until"
-msgstr ""
+msgstr "Novo do na predlogi"
 
 #. module: product_status
 #: model:ir.model.fields,help:product_status.field_product_product__discontinued_until
@@ -159,6 +159,8 @@ msgid ""
 "When the product is discontinued for a certain time, to warn your "
 "client/avoid order during this downtime."
 msgstr ""
+"Ko je proizvod za določen čas ukinjen, da opozorite stranko oziroma "
+"preprečite naročilo v času nedobavljivosti."
 
 #. module: product_status
 #: model:ir.model.fields,help:product_status.field_product_product__end_of_life_date
@@ -168,3 +170,5 @@ msgid ""
 "When the product is end-of-life, and you want to warn your client/avoid "
 "order in the future."
 msgstr ""
+"Ko je proizvod ob koncu življenjske dobe in želite opozoriti stranko oziroma "
+"preprečiti prihodnja naročila."
