@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 05:27+0000\n"
+"PO-Revision-Date: 2026-06-27 05:30+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -37,17 +37,17 @@ msgstr "Fiksna cena"
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_product__fixed_pricelist_item_ids
 #: model:ir.model.fields,field_description:product_form_pricelist.field_product_template__fixed_pricelist_item_ids
 msgid "Fixed Pricelist Items"
-msgstr ""
+msgstr "Postavke fiksnega cenika"
 
 #. module: product_form_pricelist
 #: model_terms:ir.ui.view,arch_db:product_form_pricelist.res_config_settings_view_form
 msgid "Hide 'Sales Price' in product form"
-msgstr ""
+msgstr "Skrij 'Prodajno ceno' v obrazcu proizvoda"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,field_description:product_form_pricelist.field_res_config_settings__group_no_list_price
 msgid "Hide field 'Sales price'"
-msgstr ""
+msgstr "Skrij polje 'Prodajna cena'"
 
 #. module: product_form_pricelist
 #: model:res.groups,name:product_form_pricelist.group_no_list_price
@@ -60,6 +60,8 @@ msgid ""
 "In case that you only manage your price using fixed pricelist, you can hide "
 "the field 'Sales Price'"
 msgstr ""
+"Če cene upravljate samo s fiksnim cenikom, lahko skrijete polje 'Prodajna "
+"cena'"
 
 #. module: product_form_pricelist
 #: model:ir.model.fields,help:product_form_pricelist.field_product_pricelist_assortment_item__applied_on
@@ -92,4 +94,4 @@ msgstr ""
 #. module: product_form_pricelist
 #: model:ir.model.fields,help:product_form_pricelist.field_res_config_settings__group_no_list_price
 msgid "Use fixed price and hide the native 'Sales Price' field"
-msgstr ""
+msgstr "Uporabi fiksno ceno in skrij izvorno polje 'Prodajna cena'"
