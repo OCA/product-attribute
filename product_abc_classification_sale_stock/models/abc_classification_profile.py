@@ -38,8 +38,9 @@ class AbcClassificationProfile(models.Model):
         for rec in self:
             if rec.profile_type == "sale_stock" and not rec.warehouse_id:
                 raise ValidationError(
-                    _("You must specify a warehouse for {profile_name}").forman(
-                        profile_name=rec.name
+                    _(
+                        "You must specify a warehouse for %(profile_name)s",
+                        profile_name=rec.name,
                     )
                 )
 
