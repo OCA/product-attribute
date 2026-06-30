@@ -1,0 +1,210 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_class
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_class
+#: model:ir.model.constraint,message:product_class.constraint_product_class_name_uniq
+msgid "A product class with this name already exists."
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__active
+msgid "Active"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,help:product_class.field_product_class__attribute_line_ids
+msgid ""
+"Allowed attributes for products of thisclass and whether they are required."
+msgstr ""
+
+#. module: product_class
+#: model_terms:ir.ui.view,arch_db:product_class.product_class_search
+msgid "Archived"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__attribute_id
+msgid "Attribute"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__attribute_line_ids
+#: model_terms:ir.ui.view,arch_db:product_class.product_class_form
+msgid "Attributes"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,help:product_class.field_product_product__class_attribute_ids
+#: model:ir.model.fields,help:product_class.field_product_template__class_attribute_ids
+msgid "Attributes allowed by the selected product class"
+msgstr ""
+
+#. module: product_class
+#. odoo-python
+#: code:addons/product_class/models/product_class.py:0
+msgid ""
+"Cannot remove attributes used in products assigned to class "
+"'%(product_class)s': %(attrs)s. Please remove these attributes or change the"
+" product class."
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_attribute__class_attribute_line_ids
+msgid "Class Attribute Lines"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_product__class_attribute_ids
+#: model:ir.model.fields,field_description:product_class.field_product_template__class_attribute_ids
+msgid "Class Attributes"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_product__class_required_attribute_ids
+#: model:ir.model.fields,field_description:product_class.field_product_template__class_required_attribute_ids
+msgid "Class Required Attributes"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__create_uid
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__create_date
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_attribute__display_name
+#: model:ir.model.fields,field_description:product_class.field_product_class__display_name
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__display_name
+#: model:ir.model.fields,field_description:product_class.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.constraint,message:product_class.constraint_product_class_attribute_line_class_attribute_uniq
+msgid "Each attribute can be configured only once per product class."
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_attribute__id
+#: model:ir.model.fields,field_description:product_class.field_product_class__id
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__id
+#: model:ir.model.fields,field_description:product_class.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,help:product_class.field_product_class_attribute_line__required
+msgid "If enabled, products of this class must define this attribute."
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__write_uid
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__write_date
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class__name
+msgid "Name"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model,name:product_class.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_class
+#. odoo-python
+#: code:addons/product_class/models/product_template.py:0
+msgid ""
+"Product '%(product)s' has attribute lines that do not belong to the selected"
+" class '%(product_class)s': %(attrs)s. Please remove these attributes or "
+"change the product class."
+msgstr ""
+
+#. module: product_class
+#. odoo-python
+#: code:addons/product_class/models/product_template.py:0
+msgid ""
+"Product '%(product)s' is missing required attributes for the selected class "
+"'%(product_class)s': %(attrs)s."
+msgstr ""
+
+#. module: product_class
+#: model:ir.model,name:product_class.model_product_attribute
+msgid "Product Attribute"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model,name:product_class.model_product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__class_id
+#: model:ir.model.fields,field_description:product_class.field_product_product__class_id
+#: model:ir.model.fields,field_description:product_class.field_product_template__class_id
+#: model_terms:ir.ui.view,arch_db:product_class.product_class_search
+msgid "Product Class"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model,name:product_class.model_product_class_attribute_line
+msgid "Product Class Attribute Line"
+msgstr ""
+
+#. module: product_class
+#: model:ir.actions.act_window,name:product_class.product_class_action
+#: model:ir.ui.menu,name:product_class.menu_product_class_sale_config
+#: model:ir.ui.menu,name:product_class.menu_product_class_stock_config
+#: model_terms:ir.ui.view,arch_db:product_class.product_attribute_view_form
+msgid "Product Classes"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_attribute__classes_count
+msgid "Product Classes Count"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,help:product_class.field_product_product__class_id
+#: model:ir.model.fields,help:product_class.field_product_template__class_id
+msgid "Product class that constrains which attributes can be used"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,help:product_class.field_product_attribute__class_attribute_line_ids
+msgid "Product classes that include this attribute."
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__required
+msgid "Required"
+msgstr ""
+
+#. module: product_class
+#: model:ir.model.fields,help:product_class.field_product_product__class_required_attribute_ids
+#: model:ir.model.fields,help:product_class.field_product_template__class_required_attribute_ids
+msgid "Required attributes for the selected product class."
+msgstr ""
