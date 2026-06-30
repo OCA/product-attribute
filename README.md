@@ -24,7 +24,7 @@ addon | version | maintainers | summary
 [nutritional_info](nutritional_info/) | 18.0.1.0.0 | <a href='https://github.com/CarlosRoca13'><img src='https://github.com/CarlosRoca13.png' width='32' height='32' style='border-radius:50%;' alt='CarlosRoca13'/></a> | Nutritional information.
 [nutritional_info_stock_lot](nutritional_info_stock_lot/) | 18.0.1.0.0 | <a href='https://github.com/CarlosRoca13'><img src='https://github.com/CarlosRoca13.png' width='32' height='32' style='border-radius:50%;' alt='CarlosRoca13'/></a> | Nutritional information for lots.
 [pos_product_cost_security](pos_product_cost_security/) | 18.0.1.0.0 |  | Compatibility between Point of Sale and Product Cost Security
-[product_abc_classification](product_abc_classification/) | 18.0.1.0.0 |  | ABC classification for sales and warehouse management
+[product_abc_classification](product_abc_classification/) | 18.0.2.0.0 |  | ABC classification for sales and warehouse management
 [product_assortment](product_assortment/) | 18.0.1.0.1 |  | Adds the ability to manage products assortment
 [product_attachment_zipped_download](product_attachment_zipped_download/) | 18.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Product Attachment Zipped Download
 [product_attribute_archive](product_attribute_archive/) | 18.0.1.0.0 |  | Add an active field on product attributes
