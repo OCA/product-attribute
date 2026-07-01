@@ -1,0 +1,389 @@
+# Copyright 2018 Tecnativa - Vicent Cubells
+# Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2025 Tecnativa - Carlos Dauden
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
+from datetime import date
+
+from odoo import Command
+from odoo.tests import tagged
+
+from odoo.addons.base.tests.common import BaseCommon
+
+
+@tagged("product_supplier_info")
+class TestProductSupplierinfo(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.partner_obj = cls.env["res.partner"]
+        cls.currency_rate_obj = cls.env["res.currency.rate"]
+        cls.partner = cls.partner_obj.create({"name": "Partner Test"})
+        cls.supplier1 = cls.partner_obj.create({"name": "Supplier #1"})
+        cls.supplier2 = cls.partner_obj.create({"name": "Supplier #2"})
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "Product Test",
+                "seller_ids": [
+                    Command.create(
+                        {"partner_id": cls.supplier1.id, "min_qty": 5, "price": 50},
+                    ),
+                    Command.create(
+                        {"partner_id": cls.supplier2.id, "min_qty": 1, "price": 10},
+                    ),
+                ],
+                "categ_id": cls.env.ref("product.product_category_goods").id,
+            }
+        )
+        cls.product_with_diff_uom = cls.env["product.product"].create(
+            {
+                "name": "Product UOM Test",
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
+                "seller_ids": [
+                    Command.create(
+                        {
+                            "partner_id": cls.supplier1.id,
+                            "min_qty": 1,
+                            "price": 1200,
+                            "product_uom_id": cls.env.ref("uom.product_uom_dozen").id,
+                        }
+                    ),
+                ],
+            }
+        )
+        cls.pricelist = cls.env["product.pricelist"].create(
+            {
+                "name": "Supplierinfo Pricelist",
+                "item_ids": [
+                    Command.create(
+                        {
+                            "compute_price": "formula",
+                            "base": "supplierinfo",
+                            "price_discount": 0,
+                            "min_quantity": 1.0,
+                        },
+                    )
+                ],
+            }
+        )
+        cls.product_attribute_1 = cls.env["product.attribute"].create(
+            {
+                "name": "Material",
+                "sequence": 10,
+            }
+        )
+        cls.product_attribute_value_1 = cls.env["product.attribute.value"].create(
+            {
+                "name": "Steel",
+                "attribute_id": cls.product_attribute_1.id,
+                "sequence": 1,
+            }
+        )
+        cls.product_attribute_value_2 = cls.env["product.attribute.value"].create(
+            {
+                "name": "Aluminium",
+                "attribute_id": cls.product_attribute_1.id,
+                "sequence": 2,
+            }
+        )
+
+    def test_pricelist_based_on_product_category(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "price_discount": 50,
+                "applied_on": "2_product_category",
+                "categ_id": self.env.ref("product.product_category_goods").id,
+            }
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            5.0,
+        )
+
+    def test_pricelist_based_on_product(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "1_product",
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+            }
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            10.0,
+        )
+
+    def test_pricelist_based_on_product_variant(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "price_discount": -25,
+                "applied_on": "0_product_variant",
+                "product_id": self.product.id,
+            }
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            12.5,
+        )
+
+    def test_pricelist_min_quantity(self):
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            10,
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 5),
+            50,
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 10),
+            50,
+        )
+        self.pricelist.item_ids[0].no_supplierinfo_min_quantity = True
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 5),
+            10,
+        )
+
+    def test_pricelist_supplier_filter(self):
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 5),
+            50,
+        )
+        self.pricelist.item_ids[0].filter_supplier_id = self.supplier2.id
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 5),
+            10,
+        )
+
+    def test_pricelist_dates(self):
+        """Test pricelist and supplierinfo dates"""
+        self.product.seller_ids.filtered(lambda x: x.min_qty == 5)[
+            0
+        ].date_start = "2018-12-31"
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(
+                self.product,
+                5,
+                date=date(2019, 1, 1),
+            ),
+            50,
+        )
+
+    def test_pricelist_based_price_round(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "price_discount": 50,
+                "applied_on": "2_product_category",
+                "categ_id": self.product.categ_id.id,
+                "price_round": 1,
+                "price_surcharge": 5,
+                "price_min_margin": 10,
+                "price_max_margin": 100,
+            }
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            20.0,
+        )
+
+    def test_pricelist_based_on_sale_margin(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "1_product",
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+            }
+        )
+        seller = self.product.seller_ids[0]
+        seller.sale_margin = 50
+        self.assertAlmostEqual(
+            seller._get_supplierinfo_pricelist_price(),
+            75.0,
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 6),
+            75.0,
+        )
+
+    def test_pricelist_based_on_supplierinfo_wo_sale_margin(self):
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "1_product",
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+                "ignore_supplierinfo_margin": True,
+            }
+        )
+        seller = self.product.seller_ids[0]
+        seller.sale_margin = 20
+        self.assertAlmostEqual(
+            seller._get_supplierinfo_pricelist_price(ignore_margin=True),
+            50.0,
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 6),
+            50.0,
+        )
+
+    def test_supplierinfo_per_variant(self):
+        tmpl = self.env["product.template"].create(
+            {
+                "name": "Test Product",
+                "attribute_line_ids": [
+                    Command.create(
+                        {
+                            "attribute_id": self.product_attribute_1.id,
+                            "value_ids": [
+                                Command.link(self.product_attribute_value_1.id),
+                                Command.link(self.product_attribute_value_2.id),
+                            ],
+                        },
+                    )
+                ],
+            }
+        )
+        variant1 = tmpl.product_variant_ids[0]
+        variant2 = tmpl.product_variant_ids[1]
+        tmpl.write(
+            {
+                "seller_ids": [
+                    Command.create(
+                        {
+                            "partner_id": self.supplier1.id,
+                            "product_id": variant1.id,
+                            "price": 15,
+                        }
+                    ),
+                    Command.create(
+                        {
+                            "partner_id": self.supplier1.id,
+                            "product_id": variant2.id,
+                            "price": 25,
+                        },
+                    ),
+                ]
+            }
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(variant1, 1),
+            15.0,
+        )
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(variant2, 1),
+            25.0,
+        )
+
+    def test_pricelist_and_supplierinfo_currencies(self):
+        """Test when we have 2 records of supplierinfo in two currencies, on a same
+        pricelist as pricelist items, the currency on the supplier that have a
+        different currency will be converted to the pricelist's currency.
+        """
+        # Setting the currencies and rates for the test, so we can have a supplierinfo
+        # and pricelist with different currencies
+        currency_usd = self.setup_other_currency("USD", rates=[(date.today(), 1)])
+        currency_mxn = self.setup_other_currency("MXN", rates=[(date.today(), 20)])
+
+        # Setting the item with the product
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "0_product_variant",
+                "product_id": self.product.id,
+            }
+        )
+        self.product.seller_ids[0].currency_id = currency_mxn
+        self.pricelist.currency_id = currency_usd
+
+        product_seller_price = self.product.seller_ids[0].price
+        product_pricelist_price = self.pricelist._get_product_price(self.product, 5)
+        # The price with MXN Currency will be 50 as is set in the setup
+        self.assertEqual(product_seller_price, 50)
+        # And the price with the pricelist  (USD Currency) will be 2.5
+        self.assertEqual(product_pricelist_price, 2.5)
+
+    def test_line_uom_and_supplierinfo_uom(self):
+        """Test when we have a product is sold in a different uom from the one on set
+        for purchase.
+        """
+        # Setting the item with the product
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "0_product_variant",
+                "product_id": self.product_with_diff_uom.id,
+                "price_discount": -20,
+            }
+        )
+
+        product_seller_price = self.product_with_diff_uom.seller_ids[0].price
+        uom_dozen = self.env.ref("uom.product_uom_dozen")
+        uom_unit = self.env.ref("uom.product_uom_unit")
+        product_pricelist_price_dozen = self.pricelist._get_product_price(
+            product=self.product_with_diff_uom, uom=uom_dozen, quantity=1
+        )
+        product_pricelist_price_unit = self.pricelist._get_product_price(
+            product=self.product_with_diff_uom, uom=uom_unit, quantity=12
+        )
+        # The price with the will be 1200 on the seller (1 Dozen)
+        self.assertEqual(product_seller_price, 1200)
+        uom_unit = self.env.ref("uom.product_uom_unit")
+        # The price in the SO will always be the one
+        # for the unit of measure of the product
+        self.assertEqual(product_pricelist_price_dozen, 120)
+
+        # And the price with the pricelist and the uom of Units (Instead of Dozen)
+        # will be 100, plus the 20% the total will be 120 per Unit
+        self.assertEqual(product_pricelist_price_unit, 120)
+
+    def test_pricelist_exclude_supplier_info_discount(self):
+        """Test the scenario where the product supplier info includes a discount, to
+        verify the functionality of the option to exclude this discount from the price
+        calculation.
+        """
+        self.product.seller_ids[1].discount = 10
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            9,
+        )
+        self.pricelist.item_ids[0].no_supplierinfo_discount = True
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            10,
+        )
+
+    def test_pricelist_price_not_based_on_supplierinfo(self):
+        """Test the scenario where the pricelist is not based on the supplier info,
+        so the price should be calculated as expected natively.
+        """
+        self.pricelist.item_ids[0].base = "list_price"
+        product_template = self.product.product_tmpl_id
+        expected_price = product_template._price_compute("list_price")
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product, 1),
+            expected_price[product_template.id],
+        )
+
+    def test_pricelist_uom_conversion_ignore_discount(self):
+        """When ignoring the supplier discount the raw price is still
+        returned in the product's sale UoM, not in the seller's purchase UoM."""
+        seller = self.product_with_diff_uom.seller_ids[0]
+        seller.discount = 20
+        self.pricelist.item_ids[0].write(
+            {
+                "applied_on": "0_product_variant",
+                "product_id": self.product_with_diff_uom.id,
+                "price_discount": 0,
+                "no_supplierinfo_discount": True,
+            }
+        )
+        # Seller raw price is 1200 per dozen (discount ignored).
+        # 1200 / 12 = 100 per unit
+        self.assertAlmostEqual(
+            self.pricelist._get_product_price(self.product_with_diff_uom, 1),
+            100.0,
+        )
+
+    def test_pricelist_price_no_sellers(self):
+        """Test scenario where there are no sellers linked to the product."""
+        product_template = self.product.product_tmpl_id
+        self.product.seller_ids = False
+        price = product_template._get_supplierinfo_pricelist_price(
+            self.pricelist.item_ids[0]
+        )
+        self.assertAlmostEqual(price, 0)
