@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 02:43+0000\n"
-"PO-Revision-Date: 2017-05-05 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2026-07-01 16:46+0000\n"
+"Last-Translator: Laura V <laura.valls@forgeflow.com>\n"
 "Language-Team: Swedish (https://www.transifex.com/oca/teams/23907/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_id
@@ -30,26 +31,26 @@ msgstr "Tillverkare"
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pref
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pref
 msgid "Manufacturer Product Code"
-msgstr ""
+msgstr "Tillverkarens produktkod"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_pname
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_pname
 msgid "Manufacturer Product Name"
-msgstr ""
+msgstr "Tillverkarens produktnamn"
 
 #. module: product_manufacturer
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_product__manufacturer_purl
 #: model:ir.model.fields,field_description:product_manufacturer.field_product_template__manufacturer_purl
 msgid "Manufacturer Product URL"
-msgstr ""
+msgstr "Tillverkarens produkt-URL"
 
 #. module: product_manufacturer
 #: model:ir.model,name:product_manufacturer.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #. module: product_manufacturer
 #: model:ir.model,name:product_manufacturer.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Produktvariant"
