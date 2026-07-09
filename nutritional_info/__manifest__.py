@@ -3,7 +3,7 @@
 {
     "name": "Nutritional Info",
     "summary": "Nutritional information.",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Technical Settings",
     "website": "https://github.com/OCA/product-attribute",

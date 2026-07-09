@@ -1,6 +1,7 @@
 # Copyright 2026 Takahiro SUNAGA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.exceptions import UserError
+from odoo.fields import Command
 from odoo.tests.common import TransactionCase
 
 
@@ -29,8 +30,10 @@ class TestNutritionalInfo(TransactionCase):
                 "nutritional_reference_qty": 250,
                 "nutritional_reference_uom": self.uom_kg.id,
                 "nutritional_value_ids": [
-                    (0, 0, {"type_id": self.type_energy.id, "value": "200kcal"}),
-                    (0, 0, {"type_id": self.type_fat.id, "value": "6g"}),
+                    Command.create(
+                        {"type_id": self.type_energy.id, "value": "200kcal"}
+                    ),
+                    Command.create({"type_id": self.type_fat.id, "value": "6g"}),
                 ],
             }
         )
@@ -61,12 +64,10 @@ class TestNutritionalInfo(TransactionCase):
             {
                 "name": "Multi variant nutrition test",
                 "attribute_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": attribute.id,
-                            "value_ids": [(6, 0, [value_s.id, value_m.id])],
+                            "value_ids": [Command.set([value_s.id, value_m.id])],
                         },
                     )
                 ],
@@ -82,7 +83,7 @@ class TestNutritionalInfo(TransactionCase):
                 "nutritional_reference_qty": 123,
                 "nutritional_reference_uom": self.uom_kg.id,
                 "nutritional_value_ids": [
-                    (0, 0, {"type_id": self.type_energy.id, "value": "120kcal"})
+                    Command.create({"type_id": self.type_energy.id, "value": "120kcal"})
                 ],
             }
         )
@@ -91,7 +92,7 @@ class TestNutritionalInfo(TransactionCase):
                 "nutritional_reference_qty": 456,
                 "nutritional_reference_uom": self.uom_gram.id,
                 "nutritional_value_ids": [
-                    (0, 0, {"type_id": self.type_fat.id, "value": "12g"})
+                    Command.create({"type_id": self.type_fat.id, "value": "12g"})
                 ],
             }
         )
@@ -123,8 +124,12 @@ class TestNutritionalInfo(TransactionCase):
             template.write(
                 {
                     "nutritional_value_ids": [
-                        (0, 0, {"type_id": self.type_energy.id, "value": "100kcal"}),
-                        (0, 0, {"type_id": self.type_energy.id, "value": "200kcal"}),
+                        Command.create(
+                            {"type_id": self.type_energy.id, "value": "100kcal"}
+                        ),
+                        Command.create(
+                            {"type_id": self.type_energy.id, "value": "200kcal"}
+                        ),
                     ]
                 }
             )
