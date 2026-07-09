@@ -4,8 +4,8 @@
         <field name="inherit_id" ref="stock.view_production_lot_form" />
         <field name="model">stock.lot</field>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='description']" position="after">
-                <page name="ingredients" string="Ingredients">
+            <xpath expr="//group[@name='description']" position="after">
+                <group name="ingredients" string="Ingredients">
                     <field
                         name="ingredient_ids"
                         nolabel="1"
@@ -27,7 +27,7 @@
                         />
                         <field name="ingredient_additional_info" />
                     </group>
-                </page>
+                </group>
             </xpath>
         </field>
     </record>
