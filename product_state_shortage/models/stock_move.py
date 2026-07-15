@@ -10,13 +10,15 @@ class StockMove(models.Model):
     def _action_done(self, cancel_backorder=False):
         res = super()._action_done(cancel_backorder=cancel_backorder)
 
-        incoming_moves = self.filtered(lambda m: m.picking_code == "incoming")
-        if not incoming_moves:
+        done_incoming_moves = self.filtered(
+            lambda m: m.picking_code == "incoming" and m.state == "done"
+        )
+        if not done_incoming_moves:
             return res
 
         shortage_products = self.env["product.product"].search(
             [
-                ("id", "in", incoming_moves.product_id.ids),
+                ("id", "in", done_incoming_moves.product_id.ids),
                 ("product_state_id.is_shortage", "=", True),
             ]
         )

@@ -47,7 +47,9 @@ class TestProductStateShortage(TransactionCase):
             [("usage", "=", "customer")], limit=1
         )
 
-    def _create_picking(self, pick_type, product, qty, loc_from, loc_to):
+    def _create_picking(
+        self, pick_type, products_and_qties: list[tuple], loc_from, loc_to
+    ):
         picking = self.env["stock.picking"].create(
             {
                 "picking_type_id": pick_type.id,
@@ -63,6 +65,7 @@ class TestProductStateShortage(TransactionCase):
                             "location_dest_id": loc_to.id,
                         }
                     )
+                    for product, qty in products_and_qties
                 ],
             }
         )
@@ -77,8 +80,7 @@ class TestProductStateShortage(TransactionCase):
     def _do_reception_picking(self, product, qty=1):
         picking = self._create_picking(
             pick_type=self.wh.in_type_id,
-            product=self.product,
-            qty=qty,
+            products_and_qties=[(product, qty)],
             loc_from=self.loc_supplier,
             loc_to=self.wh.wh_input_stock_loc_id,
         )
@@ -98,8 +100,7 @@ class TestProductStateShortage(TransactionCase):
         # Internal should not reset "shortage"
         picking = self._create_picking(
             pick_type=self.wh.int_type_id,
-            product=self.product,
-            qty=5,
+            products_and_qties=[(self.product, 5)],
             loc_from=self.loc_shelf_1,
             loc_to=self.loc_shelf_2,
         )
@@ -109,8 +110,7 @@ class TestProductStateShortage(TransactionCase):
         # Outgoing should not reset "shortage"
         picking = self._create_picking(
             pick_type=self.wh.out_type_id,
-            product=self.product,
-            qty=5,
+            products_and_qties=[(self.product, 5)],
             loc_from=self.loc_shelf_1,
             loc_to=self.loc_customer,
         )
@@ -127,3 +127,32 @@ class TestProductStateShortage(TransactionCase):
         self.product.product_state_id = self.shortage_product_state
         self._do_reception_picking(self.product, qty=1)
         self.assertEqual(self.product.product_state_id, self.default_product_state)
+
+    def test_shortage_not_reset_on_backorder(self):
+        product_shortage = self.product
+        product_no_shortage = self.env["product.product"].create(
+            {
+                "name": "Test Product",
+                "product_state_id": self.test_product_state.id,
+                "detailed_type": "product",
+            }
+        )
+
+        picking = self._create_picking(
+            pick_type=self.wh.in_type_id,
+            products_and_qties=[(self.product, 1), (product_no_shortage, 1)],
+            loc_from=self.loc_supplier,
+            loc_to=self.wh.wh_input_stock_loc_id,
+        )
+
+        move_no_shortage = picking.move_ids.filtered(
+            lambda m: m.product_id == product_no_shortage
+        )
+        move_no_shortage.quantity_done = 1
+        picking._action_done()
+
+        backorder = picking.backorder_ids
+        self.assertTrue(backorder)
+        self.assertEqual(backorder.move_ids.product_id, product_shortage)
+
+        self.assertEqual(product_shortage.product_state_id, self.shortage_product_state)
