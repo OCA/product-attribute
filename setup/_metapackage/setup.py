@@ -77,6 +77,7 @@ setuptools.setup(
         'odoo-addon-product_print_category>=16.0dev,<16.1dev',
         'odoo-addon-product_product_template_link>=16.0dev,<16.1dev',
         'odoo-addon-product_profile>=16.0dev,<16.1dev',
+        'odoo-addon-product_restricted_type>=16.0dev,<16.1dev',
         'odoo-addon-product_route_mto>=16.0dev,<16.1dev',
         'odoo-addon-product_sale_description>=16.0dev,<16.1dev',
         'odoo-addon-product_secondary_unit>=16.0dev,<16.1dev',
