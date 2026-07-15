@@ -99,6 +99,27 @@ class TestProductCostSecurityStockAccount(BaseCommon):
         picking.button_validate()
         return picking, move
 
+    def test_stock_user_can_create_product_without_cost_group(self):
+        """Create storable product without cost ACL must not raise AccessError."""
+        product_manager = new_test_user(
+            self.env,
+            login="user_product_no_cost",
+            groups="stock.group_stock_user,product.group_product_manager",
+        )
+        template = (
+            self.env["product.template"]
+            .with_user(product_manager)
+            .create(
+                {
+                    "name": "Product created without cost access",
+                    "type": "consu",
+                    "is_storable": True,
+                    "categ_id": self.category2.id,
+                }
+            )
+        )
+        self.assertTrue(template.product_variant_ids)
+
     @users("__system__", "user_test")
     def test_avco_picking_flow(self):
         picking, move = self._generate_and_validate_picking(self.product)

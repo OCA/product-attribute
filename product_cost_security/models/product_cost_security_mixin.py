@@ -73,7 +73,19 @@ class ProductCostSecurityMixin(models.AbstractModel):
 
     @api.model
     def _has_field_access(self, field, operation):
-        """Extend Odoo 19 field ACLs for Kreilabs cost-like fields."""
+        """Extend Odoo 19 field ACLs for Kreilabs cost-like fields.
+
+        Odoo 19 checks field groups on every attribute get, even when the
+        value is already in cache. Internal stock valuation therefore needs a
+        context flag to allow cost reads without granting the Product costs
+        group to warehouse users.
+        """
+        if (
+            operation == "read"
+            and self.env.context.get("_product_cost_security_valuation")
+            and field.name in self._product_cost_security_protected_field_names()
+        ):
+            return True
         if not super()._has_field_access(field, operation):
             return False
         if self.env.su:
