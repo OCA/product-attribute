@@ -228,5 +228,5 @@ msgstr ""
 #. odoo-python
 #: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:0
 #, python-format
-msgid "You must specify a warehouse for {profile_name}"
+msgid "You must specify a warehouse for %(profile_name)s"
 msgstr ""
