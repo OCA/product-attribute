@@ -53,6 +53,7 @@ setuptools.setup(
         'odoo-addon-product_manufacturer>=16.0dev,<16.1dev',
         'odoo-addon-product_multi_category>=16.0dev,<16.1dev',
         'odoo-addon-product_multi_image>=16.0dev,<16.1dev',
+        'odoo-addon-product_multi_price>=16.0dev,<16.1dev',
         'odoo-addon-product_net_weight>=16.0dev,<16.1dev',
         'odoo-addon-product_optional_product_quantity>=16.0dev,<16.1dev',
         'odoo-addon-product_origin>=16.0dev,<16.1dev',
