@@ -21,10 +21,13 @@ class ProductProduct(models.Model):
         partner = self.env["res.partner"].browse(partner_id)
         if not partner.supplier_rank:
             # if partner is not a supplier
-            extra_domain = Domain(
-                "product_tmpl_id.seller_ids.product_code", operator, value
-            )
+            extra_domain = [
+                ("product_tmpl_id.seller_ids.product_code", operator, value)
+            ]
             # NEGATIVE_OPERATORS are : not ... in/like, !=
             is_positive = operator not in Domain.NEGATIVE_OPERATORS
-            domain = (domain | extra_domain) if is_positive else (domain & extra_domain)
+            if is_positive:
+                domain = Domain.OR([domain, extra_domain])
+            else:
+                domain = Domain.AND([domain, extra_domain])
         return domain

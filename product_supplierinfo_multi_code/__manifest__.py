@@ -11,6 +11,8 @@
     "maintainers": ["bealdav"],
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product"],
-    "data": [],
+    "data": [
+        "views/product.xml",
+    ],
     "installable": True,
 }
