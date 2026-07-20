@@ -6,51 +6,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-20 08:44+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_class
 #: model:ir.model.constraint,message:product_class.constraint_product_class_name_uniq
 msgid "A product class with this name already exists."
-msgstr ""
+msgstr "Una classe prodotto con questo nome esiste già."
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__active
 msgid "Active"
-msgstr ""
+msgstr "Attiva"
 
 #. module: product_class
 #: model:ir.model.fields,help:product_class.field_product_class__attribute_line_ids
 msgid ""
 "Allowed attributes for products of thisclass and whether they are required."
 msgstr ""
+"Attributi consentiti per i prodotti di questa classe e se sono richiesti."
 
 #. module: product_class
 #: model_terms:ir.ui.view,arch_db:product_class.product_class_search
 msgid "Archived"
-msgstr ""
+msgstr "In archivio"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__attribute_id
 msgid "Attribute"
-msgstr ""
+msgstr "Attributo"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__attribute_line_ids
 #: model_terms:ir.ui.view,arch_db:product_class.product_class_form
 msgid "Attributes"
-msgstr ""
+msgstr "Attributi"
 
 #. module: product_class
 #: model:ir.model.fields,help:product_class.field_product_product__class_attribute_ids
 #: model:ir.model.fields,help:product_class.field_product_template__class_attribute_ids
 msgid "Attributes allowed by the selected product class"
-msgstr ""
+msgstr "Attributi consentiti dalla classe prodotto selezionata"
 
 #. module: product_class
 #. odoo-python
@@ -60,35 +63,38 @@ msgid ""
 "'%(product_class)s': %(attrs)s. Please remove these attributes or change the"
 " product class."
 msgstr ""
+"Non si possono rimuovere attributi utilizzati in prodotti assegnati alla "
+"lasse '%(product_class)s': %(attrs)s. Rimuovere questi attributi o "
+"modificare la classe prodotto."
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_attribute__class_attribute_line_ids
 msgid "Class Attribute Lines"
-msgstr ""
+msgstr "Righe attributo classe"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_product__class_attribute_ids
 #: model:ir.model.fields,field_description:product_class.field_product_template__class_attribute_ids
 msgid "Class Attributes"
-msgstr ""
+msgstr "Attributi classe"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_product__class_required_attribute_ids
 #: model:ir.model.fields,field_description:product_class.field_product_template__class_required_attribute_ids
 msgid "Class Required Attributes"
-msgstr ""
+msgstr "Attributi richiesti dalla classe"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__create_uid
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__create_date
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_attribute__display_name
@@ -96,12 +102,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__display_name
 #: model:ir.model.fields,field_description:product_class.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_class
 #: model:ir.model.constraint,message:product_class.constraint_product_class_attribute_line_class_attribute_uniq
 msgid "Each attribute can be configured only once per product class."
-msgstr ""
+msgstr "Ogni attributo può essere configurato una sola volta per classe."
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_attribute__id
@@ -109,34 +115,36 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__id
 #: model:ir.model.fields,field_description:product_class.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_class
 #: model:ir.model.fields,help:product_class.field_product_class_attribute_line__required
 msgid "If enabled, products of this class must define this attribute."
 msgstr ""
+"Se abilitata, i prodotti di questa categoria devono definire questo "
+"attributo."
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__write_uid
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__write_date
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_class
 #: model:ir.model,name:product_class.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_class
 #. odoo-python
@@ -146,6 +154,9 @@ msgid ""
 " class '%(product_class)s': %(attrs)s. Please remove these attributes or "
 "change the product class."
 msgstr ""
+"Il prodotto '%(product)s' ha righe attributo che non appartengono alla "
+"classe '%(product_class)s' selezionata: %(attrs)s. Rimuovere questi "
+"attributi o modificare la classe del prodotto."
 
 #. module: product_class
 #. odoo-python
@@ -154,11 +165,13 @@ msgid ""
 "Product '%(product)s' is missing required attributes for the selected class "
 "'%(product_class)s': %(attrs)s."
 msgstr ""
+"Al prodotto '%(product)s' mancano gli attributi richiesti per la classe '%"
+"(product_class)s' selezionata: %(attrs)s."
 
 #. module: product_class
 #: model:ir.model,name:product_class.model_product_attribute
 msgid "Product Attribute"
-msgstr ""
+msgstr "Attributo prodotto"
 
 #. module: product_class
 #: model:ir.model,name:product_class.model_product_class
@@ -167,12 +180,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_class.field_product_template__class_id
 #: model_terms:ir.ui.view,arch_db:product_class.product_class_search
 msgid "Product Class"
-msgstr ""
+msgstr "Classe prodotto"
 
 #. module: product_class
 #: model:ir.model,name:product_class.model_product_class_attribute_line
 msgid "Product Class Attribute Line"
-msgstr ""
+msgstr "Riga attributo classe prodotto"
 
 #. module: product_class
 #: model:ir.actions.act_window,name:product_class.product_class_action
@@ -180,31 +193,31 @@ msgstr ""
 #: model:ir.ui.menu,name:product_class.menu_product_class_stock_config
 #: model_terms:ir.ui.view,arch_db:product_class.product_attribute_view_form
 msgid "Product Classes"
-msgstr ""
+msgstr "Classi prodotto"
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_attribute__classes_count
 msgid "Product Classes Count"
-msgstr ""
+msgstr "Conteggio classi prodotto"
 
 #. module: product_class
 #: model:ir.model.fields,help:product_class.field_product_product__class_id
 #: model:ir.model.fields,help:product_class.field_product_template__class_id
 msgid "Product class that constrains which attributes can be used"
-msgstr ""
+msgstr "Classe prodotto che contiene gli attributi che possono essere usati"
 
 #. module: product_class
 #: model:ir.model.fields,help:product_class.field_product_attribute__class_attribute_line_ids
 msgid "Product classes that include this attribute."
-msgstr ""
+msgstr "Classi prodotto che includono questo attributo."
 
 #. module: product_class
 #: model:ir.model.fields,field_description:product_class.field_product_class_attribute_line__required
 msgid "Required"
-msgstr ""
+msgstr "Richiesto"
 
 #. module: product_class
 #: model:ir.model.fields,help:product_class.field_product_product__class_required_attribute_ids
 #: model:ir.model.fields,help:product_class.field_product_template__class_required_attribute_ids
 msgid "Required attributes for the selected product class."
-msgstr ""
+msgstr "Attributi richiesti per la classe prodotto selezionata."
