@@ -236,8 +236,12 @@ msgstr "Entrepôt"
 #. odoo-python
 #: code:addons/product_abc_classification_sale_stock/models/abc_classification_profile.py:0
 #, python-format
-msgid "You must specify a warehouse for {profile_name}"
-msgstr "Vous devez specifier un entrepôt pour le profil {profile_name}"
+msgid "You must specify a warehouse for %(profile_name)s"
+msgstr ""
+
+#, python-format
+#~ msgid "You must specify a warehouse for {profile_name}"
+#~ msgstr "Vous devez specifier un entrepôt pour le profil {profile_name}"
 
 #~ msgid "Sale stock level history ids"
 #~ msgstr "Historique des données de vente collectées"
