@@ -32,6 +32,10 @@
                     <group>
                         <group name="information" string="Profile Information">
                             <field name="profile_type" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
                         </group>
                         <group name="computation" string="Computation">
                             <field name="period" />
@@ -67,6 +71,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name" />
+                <field name="company_id" groups="base.group_multi_company" />
             </list>
         </field>
     </record>
