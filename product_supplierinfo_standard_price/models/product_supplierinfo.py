@@ -49,11 +49,12 @@ class SupplierInfo(models.Model):
                 or supplierinfo.product_tmpl_id.uom_po_id
                 or supplierinfo.product_id.uom_po_id
             )
-            currency = supplierinfo.currency_id
-            destination_uom = (
-                supplierinfo.product_tmpl_id.uom_id or supplierinfo.product_id.uom_id
-            )
             if uom:
+                currency = supplierinfo.currency_id
+                destination_uom = (
+                    supplierinfo.product_tmpl_id.uom_id
+                    or supplierinfo.product_id.uom_id
+                )
                 price = supplierinfo.price
                 if "discount" in self._fields:
                     price *= 1 - supplierinfo.discount / 100
@@ -64,6 +65,8 @@ class SupplierInfo(models.Model):
                 supplierinfo.theoritical_standard_price = currency.round(
                     uom._compute_price(price, destination_uom)
                 )
+            else:
+                supplierinfo.theoritical_standard_price = False
 
     @api.depends("theoritical_standard_price", "product_standard_price")
     def _compute_diff_supplierinfo_product_standard_price(self):
