@@ -13,14 +13,17 @@ class SupplierInfo(models.Model):
         related="product_tmpl_id.standard_price",
     )
 
-    theoritical_standard_price = fields.Float(
-        string="Supplier info price with discount",
+    theoritical_standard_price = fields.Monetary(
+        string="Theoritical Cost",
         compute="_compute_theoritical_standard_price",
+        currency_field="currency_id",
     )
 
-    diff_supplierinfo_product_standard_price = fields.Float(
-        digits="Product Price",
+    diff_supplierinfo_product_standard_price = fields.Monetary(
+        string="current cost difference",
+        currency_field="currency_id",
         compute="_compute_diff_supplierinfo_product_standard_price",
+        help="Difference between the cost of this supplierinfo and the cost of the product",
     )
 
     #
