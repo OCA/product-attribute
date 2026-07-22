@@ -6,8 +6,16 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_lots_and_weight']" position="after">
                 <group name="treshold" string="Stock Threshold">
-                    <field name="stock_state_threshold" />
-                    <field name="manual_stock_state_threshold" class="oe_edit_only" />
+                    <field name="on_demand" />
+                    <field
+                        name="stock_state_threshold"
+                        attrs="{'invisible': [('on_demand', '=', True)]}"
+                    />
+                    <field
+                        name="manual_stock_state_threshold"
+                        class="oe_edit_only"
+                        attrs="{'invisible': [('on_demand', '=', True)]}"
+                    />
                 </group>
             </xpath>
         </field>
