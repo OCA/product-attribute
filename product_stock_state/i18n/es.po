@@ -47,13 +47,9 @@ msgid ""
 "Define custom value under which the stock state will pass from 'In Stock' to "
 "'In Limited Stock' State. If not set, Odoo will use the value defined in the "
 "product category. If no value is defined in product category, it will use "
-"the value defined for the company"
+"the value defined for the company. If on_demand is checked, stock state will "
+"pass to 'On Demand' regardless stock state threshold and stock quantity"
 msgstr ""
-"Defina el valor personalizado por debajo del cual el estado de stock pasará "
-"del estado 'En stock' al estado 'En stock limitado'. Si no se establece, "
-"Odoo utilizará el valor definido en la categoría de producto. Si no se "
-"define ningún valor en la categoría de producto, se utilizará el valor "
-"definido para la empresa"
 
 #. module: product_stock_state
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__in_limited_stock
@@ -71,6 +67,13 @@ msgstr "Disponible"
 #: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
 msgid "Manual Stock State Threshold"
 msgstr "Umbral Manual del Estado de las Existencias"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__on_demand
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__on_demand
+#: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__on_demand
+msgid "On Demand"
+msgstr ""
 
 #. module: product_stock_state
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__out_of_stock
@@ -162,3 +165,21 @@ msgstr ""
 "El valor personalizado bajo el cual el estado de stock de los productos de "
 "esta categoría pasará de 'En Stock' a 'En Existencias Limitadas'. Si no se "
 "establece, Odoo utilizará el umbral definido a nivel de empresa."
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_product__on_demand
+#: model:ir.model.fields,help:product_stock_state.field_product_template__on_demand
+msgid "This field allows you to force the stock state to the on-demand value"
+msgstr ""
+
+#~ msgid ""
+#~ "Define custom value under which the stock state will pass from 'In Stock' "
+#~ "to 'In Limited Stock' State. If not set, Odoo will use the value defined "
+#~ "in the product category. If no value is defined in product category, it "
+#~ "will use the value defined for the company"
+#~ msgstr ""
+#~ "Defina el valor personalizado por debajo del cual el estado de stock "
+#~ "pasará del estado 'En stock' al estado 'En stock limitado'. Si no se "
+#~ "establece, Odoo utilizará el valor definido en la categoría de producto. "
+#~ "Si no se define ningún valor en la categoría de producto, se utilizará el "
+#~ "valor definido para la empresa"
