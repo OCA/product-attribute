@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-03 10:07+0000\n"
-"PO-Revision-Date: 2026-07-25 06:05+0000\n"
+"PO-Revision-Date: 2026-07-25 06:14+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -103,28 +103,25 @@ msgstr "Cenik kupca"
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_code
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
-#, fuzzy
 msgid "Customer Product Code"
-msgstr "Partnerjeva koda proizvoda"
+msgstr "Koda proizvoda kupca"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_name
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
-#, fuzzy
 msgid "Customer Product Name"
-msgstr "Partnerjev naziv proizvoda"
+msgstr "Naziv proizvoda kupca"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__partner_id
-#, fuzzy
 msgid "Customer of this product"
-msgstr "Partnerjeva koda proizvoda"
+msgstr "Kupec tega proizvoda"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
 msgid "Customer specific unit of measure."
-msgstr ""
+msgstr "Specifična enota mere za kupca."
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
@@ -134,32 +131,32 @@ msgstr "Kupci"
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__delay
 msgid "Delivery Lead Time"
-msgstr ""
+msgstr "Dobavni rok"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__discount
 msgid "Discount (%)"
-msgstr ""
+msgstr "Popust (%)"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__price_discounted
 msgid "Discounted Price"
-msgstr ""
+msgstr "Cena s popustom"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__date_end
 msgid "End Date"
-msgstr ""
+msgstr "Končni datum"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
 msgid "End date for this customer price"
-msgstr ""
+msgstr "Končni datum za to ceno kupca"
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
@@ -169,34 +166,36 @@ msgstr "Združi po"
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_id
 msgid ""
 "If not set, the vendor price will apply to all variants of this product."
 msgstr ""
+"Če ta nastavitev ni izbrana, se za vse različice tega proizvoda uporabi cena "
+"dobavitelja."
 
 #. module: product_customerinfo
 #. odoo-python
 #: code:addons/product_customerinfo/models/product_customerinfo.py:0
 msgid "Import Template for Customer Pricelists"
-msgstr ""
+msgstr "Predloga za uvoz cenikov kupcev"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__last_purchase_date
 msgid "Last Purchase"
-msgstr ""
+msgstr "Zadnji nakup"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__delay
@@ -205,49 +204,47 @@ msgid ""
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
 msgstr ""
+"Čas dobave v dneh od potrditve naročila do prejema izdelkov v vašem "
+"skladišču. Načrtovalec ga uporablja za samodejni izračun načrtovanja naročil."
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 msgid "Other Information"
-msgstr ""
+msgstr "Drugi podatki"
 
 #. module: product_customerinfo
 #: model:ir.model.fields.selection,name:product_customerinfo.selection__product_pricelist_item__base__partner
 msgid "Partner Prices on the product form"
-msgstr ""
+msgstr "Partnerjeve cene na obrazcu proizvoda"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__price
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
-#, fuzzy
 msgid "Price"
-msgstr "Cenik"
+msgstr "Cena"
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
-#, fuzzy
 msgid "Price List"
 msgstr "Cenik"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
 msgid "Price at which the product is sold to this customer."
-msgstr ""
+msgstr "Cena, po kateri se proizvod prodaja temu kupcu."
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_pricelist_item
-#, fuzzy
 msgid "Pricelist Rule"
-msgstr "Cenik"
+msgstr "Pravilo cenika"
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_template
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
-#, fuzzy
 msgid "Product"
-msgstr "Predloga proizvoda"
+msgstr "Proizvod"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_tmpl_id
@@ -257,40 +254,38 @@ msgstr "Predloga proizvoda"
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_product
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_id
-#, fuzzy
 msgid "Product Variant"
-msgstr "Predloga proizvoda"
+msgstr "Različica proizvoda"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__min_qty
 msgid "Quantity"
-msgstr ""
+msgstr "Količina"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Zaporedje"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__show_set_supplier_button
 msgid "Show Set Supplier Button"
-msgstr ""
+msgstr "Prikaži gumb 'nastavi dobavitelja'"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__date_start
 msgid "Start Date"
-msgstr ""
+msgstr "Začetni datum"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
 msgid "Start date for this customer price"
-msgstr ""
+msgstr "Začetni datum cene za tega kupca"
 
 #. module: product_customerinfo
 #: model:ir.model,name:product_customerinfo.model_product_supplierinfo
-#, fuzzy
 msgid "Supplier Pricelist"
-msgstr "Cenik"
+msgstr "Cenik dobavitelja"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
@@ -299,6 +294,9 @@ msgid ""
 "price. Expressed in the customer's Product Unit of Measure if set, otherwise "
 "in the default Product Unit of Measure."
 msgstr ""
+"Najmanjša količina, ki jo mora ta kupec kupiti, da lahko izkoristi to ceno. "
+"Izražena je v kupčevi merski enoti za izdelek, če je ta nastavljena, sicer "
+"pa v privzeti merski enoti za izdelek."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_code
@@ -306,6 +304,8 @@ msgid ""
 "This vendor's product code will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
+"Ta koda proizvoda dobavitelja se bo uporabila pri tiskanju povpraševanja. Če "
+"želite uporabiti interno kodo, to polje pustite prazno."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_name
@@ -313,34 +313,34 @@ msgid ""
 "This vendor's product name will be used when printing a request for "
 "quotation. Keep empty to use the internal one."
 msgstr ""
+"Pri tiskanju povpraševanja po ponudbi se bo uporabil naziv proizvoda tega "
+"dobavitelja. Če želite uporabiti interni naziv, to polje pustite prazno."
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_uom
-#, fuzzy
 msgid "Unit of Measure"
-msgstr "Partnerjeva EM"
+msgstr "Enota mere"
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 msgid "Validity"
-msgstr ""
+msgstr "Veljavnost"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_variant_count
 msgid "Variant Count"
-msgstr ""
+msgstr "Št. različic"
 
 #. module: product_customerinfo
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_product__variant_customer_ids
 #: model:ir.model.fields,field_description:product_customerinfo.field_product_template__variant_customer_ids
-#, fuzzy
 msgid "Variant Customer"
-msgstr "Kupec"
+msgstr "Kupec različice"
 
 #. module: product_customerinfo
 #: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
 msgid "to"
-msgstr ""
+msgstr "do"
 
 #, fuzzy
 #~ msgid "Vendor Product Code"
