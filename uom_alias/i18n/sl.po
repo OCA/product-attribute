@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-25 06:31+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,65 +15,66 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__code
 msgid "Code"
-msgstr ""
+msgstr "Koda"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__display_name
 #: model:ir.model.fields,field_description:uom_alias.field_uom_uom__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__id
 #: model:ir.model.fields,field_description:uom_alias.field_uom_uom__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: uom_alias
 #: model:ir.model,name:uom_alias.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "EM proizvoda"
 
 #. module: uom_alias
 #: model:ir.model,name:uom_alias.model_uom_alias
 msgid "UOM Alias"
-msgstr ""
+msgstr "EM vzdevek"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_alias__uom_id
 msgid "Uom"
-msgstr ""
+msgstr "EM"
 
 #. module: uom_alias
 #: model:ir.model.fields,field_description:uom_alias.field_uom_uom__alias_ids
 msgid "Uom Alias"
-msgstr ""
+msgstr "EM vzdevek"
 
 #. module: uom_alias
 #: model:ir.model.constraint,message:uom_alias.constraint_uom_alias_uom_alias_unique
 msgid "You cannot repeat the alias name"
-msgstr ""
+msgstr "Naziva vzdevka ne morete ponoviti"
