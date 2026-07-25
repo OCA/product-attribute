@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-16 03:41+0000\n"
-"PO-Revision-Date: 2023-03-31 21:25+0000\n"
+"PO-Revision-Date: 2026-07-25 06:14+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__active
@@ -26,41 +26,41 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a line"
-msgstr ""
+msgstr "Dodaj vrstico"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a note"
-msgstr ""
+msgstr "Dodaj opombo"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 msgid "Add a section"
-msgstr ""
+msgstr "Dodaj sekcijo"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "All"
-msgstr ""
+msgstr "Vse"
 
 #. module: product_set
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__company_id
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__company_id
 msgid "Company"
-msgstr ""
+msgstr "Družba"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__create_uid
@@ -83,7 +83,7 @@ msgstr "Prikazani naziv"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
 msgid "Display Type"
-msgstr ""
+msgstr "Tip prikaza"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__id
@@ -94,7 +94,7 @@ msgstr "ID"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__ref
 msgid "Internal Reference"
-msgstr ""
+msgstr "Interni sklic"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
@@ -117,14 +117,14 @@ msgstr "Naziv"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
 msgid "Note"
-msgstr ""
+msgstr "Opomba"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
 #: model:ir.model.fields,field_description:product_set.field_product_set_wizard__partner_id
 #: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_id
@@ -135,12 +135,12 @@ msgstr "Proizvod"
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_id
 msgid "Product Packaging"
-msgstr ""
+msgstr "Pakiranje proizvoda"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_qty
 msgid "Product Packaging Qty"
-msgstr ""
+msgstr "Količina pakiranj proizvoda"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_view
@@ -154,9 +154,8 @@ msgstr "Sklop proizvodov"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__ref
-#, fuzzy
 msgid "Product set internal reference"
-msgstr "Postavka sklopa proizvodov"
+msgstr "Interni sklic sklopa proizvodov"
 
 #. module: product_set
 #: model:ir.actions.act_window,name:product_set.act_open_product_set_line_view
@@ -189,7 +188,7 @@ msgstr "Količina"
 #. module: product_set
 #: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
 msgid "Section"
-msgstr ""
+msgstr "Sekcija"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
@@ -199,7 +198,7 @@ msgstr "Zaporedje"
 #. module: product_set
 #: model:product.set,name:product_set.product_set_services
 msgid "Services"
-msgstr ""
+msgstr "Storitve"
 
 #. module: product_set
 #: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
@@ -210,12 +209,12 @@ msgstr "Sklop"
 #. odoo-python
 #: code:addons/product_set/tests/models.py:0
 msgid "This set of products is restricted for this user."
-msgstr ""
+msgstr "Ta sklop proizvodov je za tega uporabnika omejen."
 
 #. module: product_set
 #: model:ir.model,name:product_set.model_product_set_wizard
 msgid "Transient base model to define custom wizards"
-msgstr ""
+msgstr "Začasni osnovni model za opredelitev čarovnikov po meri"
 
 #. module: product_set
 #: model:ir.model.fields,help:product_set.field_product_set__partner_id
@@ -223,17 +222,19 @@ msgid ""
 "You can attache the set to a specific partner or no one. If you don't "
 "specify one, it's going to be available for all of them."
 msgstr ""
+"Sklop lahko dodelite določenemu partnerju ali pa nikomur. Če ne izberete "
+"nikogar, bo na voljo vsem."
 
 #. module: product_set
 #. odoo-python
 #: code:addons/product_set/models/product_set_line.py:0
 msgid "You must define a package before setting a quantity of said package."
-msgstr ""
+msgstr "Preden lahko določite količino, morate določiti pakiranje."
 
 #. module: product_set
 #: model:product.set,name:product_set.product_set_i5_computer
 msgid "i5 computer offer"
-msgstr ""
+msgstr "Ponudba računalnikov i5"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Zadnjič spremenjeno"
