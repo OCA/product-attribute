@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-25 06:31+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,45 +15,46 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_category_uom
 #: model_terms:ir.ui.view,arch_db:product_category_uom.product_category_form_view
 msgid "-> Apply to Products"
-msgstr ""
+msgstr "-> Uporabi za proizvode"
 
 #. module: product_category_uom
 #: model:ir.model.fields,field_description:product_category_uom.field_product_category__uom_id
 msgid "Default Unit of Measure"
-msgstr ""
+msgstr "Privzeta enota mere"
 
 #. module: product_category_uom
 #: model:ir.model.fields,help:product_category_uom.field_product_category__uom_id
 msgid "Default unit of measure used for products in this category."
-msgstr ""
+msgstr "Privzeta merska enota, ki se uporablja za proizvode v tej kategoriji."
 
 #. module: product_category_uom
 #: model:ir.model.fields,field_description:product_category_uom.field_product_category__display_name
 #: model:ir.model.fields,field_description:product_category_uom.field_product_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: product_category_uom
 #: model:ir.model.fields,field_description:product_category_uom.field_product_category__id
 #: model:ir.model.fields,field_description:product_category_uom.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_category_uom
 #: model:ir.model,name:product_category_uom.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_category_uom
 #: model:ir.model,name:product_category_uom.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Kategorija proizvoda"
 
 #. module: product_category_uom
 #: model_terms:ir.ui.view,arch_db:product_category_uom.product_category_form_view
 msgid "This will apply to all products in the category"
-msgstr ""
+msgstr "To bo veljalo za vse proizvode v tej kategoriji"
