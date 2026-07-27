@@ -1,9 +1,10 @@
 # Copyright 2026 APSL-Nagarro Antoni Marroig
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, tagged
 
 
+@tagged("post_install", "-at_install")
 class TestPricelistHistorySimple(TransactionCase):
     @classmethod
     def setUpClass(cls):
@@ -14,6 +15,14 @@ class TestPricelistHistorySimple(TransactionCase):
         cls.product_simple = cls.env["product.product"].create(
             {"name": "Simple Product", "lst_price": 10.0}
         )
+        cls.attribute = cls.env["product.attribute"].create({"name": "Test Attribute"})
+        cls.attr_value_1 = cls.env["product.attribute.value"].create(
+            {"name": "Value 1", "attribute_id": cls.attribute.id}
+        )
+        cls.attr_value_2 = cls.env["product.attribute.value"].create(
+            {"name": "Value 2", "attribute_id": cls.attribute.id}
+        )
+
         cls.template_variants = cls.env["product.template"].create(
             {
                 "name": "Configurable Product",
@@ -22,22 +31,9 @@ class TestPricelistHistorySimple(TransactionCase):
                         0,
                         0,
                         {
-                            "attribute_id": cls.env.ref(
-                                "product.product_attribute_1"
-                            ).id,
+                            "attribute_id": cls.attribute.id,
                             "value_ids": [
-                                (
-                                    6,
-                                    0,
-                                    [
-                                        cls.env.ref(
-                                            "product.product_attribute_value_1"
-                                        ).id,
-                                        cls.env.ref(
-                                            "product.product_attribute_value_2"
-                                        ).id,
-                                    ],
-                                )
+                                (6, 0, [cls.attr_value_1.id, cls.attr_value_2.id])
                             ],
                         },
                     )
@@ -179,3 +175,18 @@ class TestPricelistHistorySimple(TransactionCase):
         )
         self.assertEqual(len(history2), 1)
         self.assertEqual(history2.new_price, 50.0)
+
+    def test_07_action_open_label_layout(self):
+        history = self.env["product.pricelist.item.history"].create(
+            {
+                "product_id": self.product_simple.id,
+                "pricelist_id": self.pricelist.id,
+                "old_price": 50.0,
+                "new_price": 60.0,
+            }
+        )
+        action = history.action_open_label_layout()
+        self.assertEqual(
+            action["context"]["default_product_ids"], [self.product_simple.id]
+        )
+        self.assertEqual(action["res_model"], "product.label.layout")
