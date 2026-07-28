@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version='1.0' encoding='utf-8' ?>
 <!-- Copyright 2024 Akretion
-     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.model.access" id="campaign_seasonality_access_settings">
         <field name="name">Seasonality config</field>
@@ -11,7 +11,6 @@
         <field name="perm_write" eval="1" />
         <field name="perm_unlink" eval="1" />
     </record>
-
     <record model="ir.model.access" id="campaign_seasonality_access_user">
         <field name="name">Seasonality user</field>
         <field name="model_id" ref="model_seasonality" />

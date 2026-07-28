@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version='1.0' encoding='utf-8' ?>
 <!-- Copyright 2024 Akretion
-     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.ui.view" id="seasonality_form_view">
         <field name="name">seasonality.form (in product_simple_seasonality)</field>
@@ -16,7 +16,6 @@
             </form>
         </field>
     </record>
-
     <record model="ir.ui.view" id="seasonality_search_view">
         <field name="name">seasonality.search (in product_simple_seasonality)</field>
         <field name="model">seasonality</field>
@@ -27,7 +26,6 @@
             </search>
         </field>
     </record>
-
     <record model="ir.ui.view" id="seasonality_tree_view">
         <field name="name">seasonality.tree (in product_simple_seasonality)</field>
         <field name="model">seasonality</field>
@@ -38,7 +36,6 @@
             </list>
         </field>
     </record>
-
     <record model="ir.actions.act_window" id="seasonality_act_window">
         <field name="name">Seasonality</field>
         <field name="res_model">seasonality</field>
@@ -46,13 +43,11 @@
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
-
     <record model="ir.ui.menu" id="seasonality_submenu">
         <field name="name">Seasonality</field>
         <field name="parent_id" ref="base.menu_custom" />
         <field name="action" ref="seasonality_act_window" />
     </record>
-
     <record model="ir.ui.menu" id="seasonality_menu_act">
         <field name="name">Seasonalities</field>
         <field name="parent_id" ref="seasonality_submenu" />

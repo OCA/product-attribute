@@ -5,15 +5,15 @@
     "name": "Product Simple Seasonality",
     "summary": """
         Product seasonality""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Akretion,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "depends": ["product"],
     "data": [
-        "views/product_packaging.xml",
         "views/product_template.xml",
         "views/seasonality.xml",
+        "views/product_packaging.xml",
         "security/seasonality.xml",
     ],
     "maintainers": ["bealdav", "kevinkhao"],

@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class ProductPackaging(models.Model):
-    _inherit = "product.packaging"
+class ProductUom(models.Model):
+    _inherit = "product.uom"
 
     seasonality_ids = fields.Many2many(
         "seasonality",
