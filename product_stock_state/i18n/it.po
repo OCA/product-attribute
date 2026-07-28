@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 09:36+0000\n"
+"PO-Revision-Date: 2026-07-28 08:31+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_stock_state
 #: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
@@ -50,6 +50,13 @@ msgid ""
 "the value defined for the company. If on_demand is checked, stock state will "
 "pass to 'On Demand' regardless stock state threshold and stock quantity"
 msgstr ""
+"Definire un valore personalizzato in base al quale lo stato delle scorte "
+"passerà da 'Disponibile' a 'Scorte limitate'. Se non specificato, Odoo "
+"utilizzerà il valore definito nella categoria di prodotto. Se non viene "
+"definito alcun valore nella categoria di prodotto, verrà utilizzato il "
+"valore definito per l'azienda. Se l'opzione on_demand è selezionata, lo "
+"stato delle scorte passerà a 'Su richiesta' indipendentemente dalla soglia "
+"dello stato delle scorte e dalla quantità in magazzino"
 
 #. module: product_stock_state
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__in_limited_stock
@@ -73,7 +80,7 @@ msgstr "Soglia maunale stato giacenza"
 #: model:ir.model.fields,field_description:product_stock_state.field_product_template__on_demand
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__on_demand
 msgid "On Demand"
-msgstr ""
+msgstr "Su richiesta"
 
 #. module: product_stock_state
 #: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__out_of_stock
@@ -171,6 +178,8 @@ msgstr ""
 #: model:ir.model.fields,help:product_stock_state.field_product_template__on_demand
 msgid "This field allows you to force the stock state to the on-demand value"
 msgstr ""
+"Questo campo consente di forzare lo stato della giacenza al valore su "
+"richesta"
 
 #~ msgid ""
 #~ "Define custom value under which the stock state will pass from 'In Stock' "
