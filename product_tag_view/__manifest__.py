@@ -3,7 +3,7 @@
 {
     "name": "Product Tag View",
     "summary": "Show product tags on General Information tab",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
