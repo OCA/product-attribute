@@ -4,7 +4,7 @@
 {
     "name": "Product Form Pricelist",
     "summary": "Show/edit pricelist in product form",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": " Akretion,Odoo Community Association (OCA)",

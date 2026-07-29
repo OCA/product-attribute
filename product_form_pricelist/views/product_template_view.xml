@@ -4,9 +4,6 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <button name="open_pricelist_rules" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </button>
             <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
                 <separator string="Fixed Price" />
                 <field name="fixed_pricelist_item_ids" nolabel="1">
@@ -15,7 +12,7 @@
                         <field
                             name="product_id"
                             domain="[('product_tmpl_id', '=', parent.id)]"
-                            attrs="{'invisible': [('parent.product_variant_count', '&lt;=', 1)]}"
+                            invisible="parent.product_variant_count &lt;= 1"
                         />
                         <field name="min_quantity" />
                         <field name="fixed_price" />

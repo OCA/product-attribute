@@ -2,7 +2,6 @@
 # @author Sébastien BEAU <sebastien.beau@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-
 from odoo.tests import TransactionCase
 
 
@@ -72,3 +71,18 @@ class TestPricelist(TransactionCase):
         )
         self.assertEqual(price.applied_on, "1_product")
         self.assertFalse(price.product_id)
+
+    def test_compute_applied_on_and_tmpl_on_write(self):
+        price = self.env["product.pricelist.item"].create(
+            {
+                "pricelist_id": self.pricelist.id,
+                "applied_on": "3_global",
+                "fixed_price": 100,
+            }
+        )
+        self.assertEqual(price.applied_on, "3_global")
+
+        # Set product_tmpl_id
+        price.write({"product_tmpl_id": self.tmpl.id})
+        price._compute_applied_on_and_tmpl()
+        self.assertEqual(price.applied_on, "1_product")
