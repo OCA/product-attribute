@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class ProductSticker(models.Model):
@@ -102,87 +102,51 @@ class ProductSticker(models.Model):
     @api.model
     def _build_sticker_domain_company(self):
         """Build domain for companies"""
-        return expression.OR(
+        return Domain([("company_id", "=", False)]) | Domain(
             [
-                [("company_id", "=", False)],
-                [
-                    (
-                        "company_id",
-                        "in",
-                        self.env.context.get(
-                            "allowed_company_ids", self.env.company.ids
-                        ),
-                    )
-                ],
+                (
+                    "company_id",
+                    "in",
+                    self.env.context.get("allowed_company_ids", self.env.company.ids),
+                )
             ]
         )
 
     @api.model
     def _build_sticker_domain_category(self, categories=None):
         """Build domain for categories"""
-        category_domain = [("product_category_id", "=", False)]
+        category_domain = Domain([("product_category_id", "=", False)])
         if categories:
-            category_domain = expression.OR(
-                [
-                    category_domain,
-                    [("product_category_id", "child_of", categories.ids)],
-                ]
+            category_domain = category_domain | Domain(
+                [("product_category_id", "child_of", categories.ids)]
             )
         return category_domain
 
     @api.model
     def _build_sticker_domain_attributes(self, attributes=None, attribute_values=None):
         """Build domain for attributes and attribute values"""
-        attribute_domain = [
-            ("product_attribute_id", "=", False),
-            ("product_attribute_value_id", "=", False),
-        ]
+        attribute_domain = Domain(
+            [
+                ("product_attribute_id", "=", False),
+                ("product_attribute_value_id", "=", False),
+            ]
+        )
         if attribute_values:
             full_attributes = attributes | attribute_values.mapped("attribute_id")
-            attribute_domain = expression.OR(
-                [
-                    attribute_domain,
-                    expression.OR(
-                        [
-                            [
-                                (
-                                    "product_attribute_value_id",
-                                    "in",
-                                    attribute_values.ids,
-                                )
-                            ],
-                            expression.AND(
-                                [
-                                    [("product_attribute_value_id", "=", False)],
-                                    [
-                                        (
-                                            "product_attribute_id",
-                                            "in",
-                                            full_attributes.ids,
-                                        )
-                                    ],
-                                ]
-                            ),
-                        ]
-                    ),
-                ]
+            attribute_domain = attribute_domain | (
+                Domain([("product_attribute_value_id", "in", attribute_values.ids)])
+                | (
+                    Domain([("product_attribute_value_id", "=", False)])
+                    & Domain([("product_attribute_id", "in", full_attributes.ids)])
+                )
             )
         elif attributes:
-            attribute_domain = expression.OR(
-                [
-                    attribute_domain,
-                    expression.AND(
-                        [
-                            [("product_attribute_value_id", "=", False)],
-                            expression.OR(
-                                [
-                                    [("product_attribute_id", "in", attributes.ids)],
-                                    [("product_attribute_id", "=", False)],
-                                ]
-                            ),
-                        ]
-                    ),
-                ]
+            attribute_domain = attribute_domain | (
+                Domain([("product_attribute_value_id", "=", False)])
+                & (
+                    Domain([("product_attribute_id", "in", attributes.ids)])
+                    | Domain([("product_attribute_id", "=", False)])
+                )
             )
         return attribute_domain
 
@@ -197,7 +161,7 @@ class ProductSticker(models.Model):
         attribute_domain = self._build_sticker_domain_attributes(
             attributes, attribute_values
         )
-        return expression.AND([company_domain, category_domain, attribute_domain])
+        return company_domain & category_domain & attribute_domain
 
     @api.model
     def _get_stickers(self, products, extra_domain=None):
@@ -218,4 +182,6 @@ class ProductSticker(models.Model):
             attributes=no_variant_attribute_lines.attribute_id | pp_pavs.attribute_id,
             attribute_values=no_variant_attribute_lines.value_ids | pp_pavs,
         )
-        return self.search(expression.AND([product_sticker_domain, extra_domain or []]))
+        if extra_domain:
+            product_sticker_domain = product_sticker_domain & Domain(extra_domain)
+        return self.search(product_sticker_domain)

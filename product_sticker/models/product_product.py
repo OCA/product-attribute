@@ -1,4 +1,4 @@
-from odoo import api, models
+from odoo import models
 
 
 class ProductProduct(models.Model):
@@ -11,7 +11,6 @@ class ProductProduct(models.Model):
         action["domain"] = [("id", "in", stickers.ids)]
         return action
 
-    @api.returns("product.sticker")
     def get_product_stickers(self, extra_domain=None):
         """Product Stickers related to this Product Variant and
         its Template for certain models"""

@@ -104,3 +104,40 @@ class TestStickersOnProducts(ProductStickerCommon):
         )
         stickers = product.product_variant_ids.get_product_stickers()
         self.assertIn(new_sticker, stickers, "New sticker must be present")
+
+    def test_actions_coverage(self):
+        # Template action
+        action = self.product_as400.action_view_stickers()
+        self.assertEqual(action["res_model"], "product.sticker")
+        # Variant action
+        action = self.product_as400.product_variant_ids[0].action_view_stickers()
+        self.assertEqual(action["res_model"], "product.sticker")
+
+    def test_onchanges_coverage(self):
+        # Attribute onchange
+        self.ps_global.product_attribute_id = self.att_platform
+        self.ps_global.product_attribute_value_id = self.att_platform_linux
+        res = self.ps_global._onchange_product_attribute_id()
+        self.assertIn("domain", res)
+        self.assertEqual(
+            res["value"]["product_attribute_value_id"], self.att_platform_linux.id
+        )
+        # Attribute value onchange
+        self.ps_global.product_attribute_value_id = self.att_platform_linux
+        res = self.ps_global._onchange_product_attribute_value_id()
+        self.assertEqual(res["value"]["product_attribute_id"], self.att_platform.id)
+        # Empty attribute value onchange
+        self.ps_global.product_attribute_value_id = False
+        res = self.ps_global._onchange_product_attribute_value_id()
+        self.assertEqual(res, {})
+
+    def test_domains_coverage(self):
+        # Test _build_sticker_domain_category with categories (line 116)
+        categories = self.env["product.category"].search([], limit=1)
+        domain = self.env["product.sticker"]._build_sticker_domain_category(categories)
+        self.assertTrue(domain)
+        # Test _build_sticker_domain_attributes with attributes but no values (line 135)
+        domain = self.env["product.sticker"]._build_sticker_domain_attributes(
+            attributes=self.att_platform
+        )
+        self.assertTrue(domain)
