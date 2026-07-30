@@ -51,3 +51,30 @@ class TestMargin(BaseCommon):
     def test_margin_with_discount_computation(self):
         self.line.write({"compute_price": "percentage", "percent_price": 0.5})
         self.assertAlmostEqual(self.line.margin_percent, 49.75)
+
+    def test_margin_global_applied_on(self):
+        # Coverage for applied_on not in ("1_product", "0_product_variant")
+        global_line = self.env["product.pricelist.item"].create(
+            {
+                "pricelist_id": self.pricelist.id,
+                "compute_price": "fixed",
+                "applied_on": "3_global",
+                "fixed_price": 35,
+            }
+        )
+        self.assertEqual(global_line.margin, 0)
+        self.assertEqual(global_line.margin_percent, 0)
+
+    def test_margin_zero_price(self):
+        # Coverage for float_is_zero(price)
+        zero_line = self.env["product.pricelist.item"].create(
+            {
+                "pricelist_id": self.pricelist.id,
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+                "compute_price": "fixed",
+                "applied_on": "1_product",
+                "fixed_price": 0,
+            }
+        )
+        self.assertEqual(zero_line.margin, 0)
+        self.assertEqual(zero_line.margin_percent, 0)
