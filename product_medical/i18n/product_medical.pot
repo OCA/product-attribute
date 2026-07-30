@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -119,7 +119,7 @@ msgid "Declaration of Conformity"
 msgstr ""
 
 #. module: product_medical
-#: model:ir.model.constraint,message:product_medical.constraint_in_vitro_diagnostic_name_uniq
+#: model:ir.model.constraint,message:product_medical.constraint_in_vitro_diagnostic__name_uniq
 msgid "Diagnostic type already exists"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgid "Medical Device Class"
 msgstr ""
 
 #. module: product_medical
-#: model:ir.model.constraint,message:product_medical.constraint_medical_class_name_uniq
+#: model:ir.model.constraint,message:product_medical.constraint_medical_class__name_uniq
 msgid "Medical class already exists"
 msgstr ""
 
@@ -252,7 +252,7 @@ msgid "Medicine Category"
 msgstr ""
 
 #. module: product_medical
-#: model:ir.model.constraint,message:product_medical.constraint_medicine_category_name_uniq
+#: model:ir.model.constraint,message:product_medical.constraint_medicine_category__name_uniq
 msgid "Medicine category already exists"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgid "PPE category"
 msgstr ""
 
 #. module: product_medical
-#: model:ir.model.constraint,message:product_medical.constraint_ppe_category_name_uniq
+#: model:ir.model.constraint,message:product_medical.constraint_ppe_category__name_uniq
 msgid "PPE category already exists"
 msgstr ""
 

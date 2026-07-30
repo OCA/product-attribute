@@ -7,10 +7,7 @@ class InVitroDiagnostics(models.Model):
 
     name = fields.Char(required=True, translate=True)
 
-    _sql_constraints = [
-        (
-            "name_uniq",
-            "unique(name)",
-            "Diagnostic type already exists",
-        )
-    ]
+    _name_uniq = models.Constraint(
+        "UNIQUE(name)",
+        "Diagnostic type already exists",
+    )

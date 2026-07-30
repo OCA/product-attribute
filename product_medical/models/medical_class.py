@@ -10,10 +10,7 @@ class MedicalClass(models.Model):
 
     name = fields.Char(required=True, translate=True)
 
-    _sql_constraints = [
-        (
-            "name_uniq",
-            "unique(name)",
-            "Medical class already exists",
-        )
-    ]
+    _name_uniq = models.Constraint(
+        "UNIQUE(name)",
+        "Medical class already exists",
+    )

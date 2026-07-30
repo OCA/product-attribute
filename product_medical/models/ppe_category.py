@@ -7,10 +7,7 @@ class PPECategory(models.Model):
 
     name = fields.Char(required=True)
 
-    _sql_constraints = [
-        (
-            "name_uniq",
-            "unique(name)",
-            "PPE category already exists",
-        )
-    ]
+    _name_uniq = models.Constraint(
+        "UNIQUE(name)",
+        "PPE category already exists",
+    )
