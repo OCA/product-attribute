@@ -32,6 +32,7 @@ addon | version | maintainers | summary
 [product_attribute_archive](product_attribute_archive/) | 16.0.1.0.0 |  | Add an active field on product attributes
 [product_attribute_company_favorite](product_attribute_company_favorite/) | 16.0.1.0.0 | <a href='https://github.com/victor-champonnois'><img src='https://github.com/victor-champonnois.png' width='32' height='32' style='border-radius:50%;' alt='victor-champonnois'/></a> | Possibility to set favorite product attributes per company
 [product_attribute_model_link](product_attribute_model_link/) | 16.0.1.0.1 |  | Use any model records as product attribute values
+[product_attribute_value_dependent_mixin](product_attribute_value_dependent_mixin/) | 16.0.1.2.0 |  | Mixin to make product attribute values fields on models
 [product_attribute_value_menu](product_attribute_value_menu/) | 16.0.1.0.1 |  | Product attributes values tree and form. Import attribute values.
 [product_catalog](product_catalog/) | 16.0.1.0.0 |  | Backport of Odoos v17 product catalog
 [product_catalog_sale](product_catalog_sale/) | 16.0.1.0.0 |  | Backport of Odoos v17 product catalog for sale orders

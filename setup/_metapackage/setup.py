@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo-addon-product_attribute_archive>=16.0dev,<16.1dev',
         'odoo-addon-product_attribute_company_favorite>=16.0dev,<16.1dev',
         'odoo-addon-product_attribute_model_link>=16.0dev,<16.1dev',
+        'odoo-addon-product_attribute_value_dependent_mixin>=16.0dev,<16.1dev',
         'odoo-addon-product_attribute_value_menu>=16.0dev,<16.1dev',
         'odoo-addon-product_catalog>=16.0dev,<16.1dev',
         'odoo-addon-product_catalog_sale>=16.0dev,<16.1dev',
