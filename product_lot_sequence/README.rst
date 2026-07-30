@@ -48,6 +48,9 @@ There are two ways you can configure this module through the use of System Param
   same than in previous Odoo versions with this module installed, i.e. it allows
   to define a dedicated sequence on each product.
 
+  You can configure products to avoid this behavior though. Just unset the *Use specific
+  sequence* flag in the product template form and it will have Odoo's default behavior.
+
 - "global": This was the default behaviour from previous Odoo versions when this
   module was not installed, i.e it will always use the same global sequence for every product.
 

@@ -31,6 +31,7 @@ class StockLot(models.Model):
             seq_policy == "product"
             and self.product_id
             and self.product_id.product_tmpl_id.lot_sequence_id
+            and self.product_id.product_tmpl_id.use_specific_lot_sequence
         ):
             self.name = self.product_id.product_tmpl_id.lot_sequence_id._next()
 
@@ -44,7 +45,11 @@ class StockLot(models.Model):
                         product = self.env["product.product"].browse(
                             lot_vals["product_id"]
                         )
-                        if product and product.product_tmpl_id.lot_sequence_id:
+                        if (
+                            product
+                            and product.product_tmpl_id.lot_sequence_id
+                            and product.product_tmpl_id.use_specific_lot_sequence
+                        ):
                             lot_vals[
                                 "name"
                             ] = product.product_tmpl_id.lot_sequence_id._next()
@@ -61,7 +66,7 @@ class StockLot(models.Model):
         seq_policy = self._get_sequence_policy()
         if seq_policy == "product":
             seq = product.product_tmpl_id.lot_sequence_id
-            if seq:
+            if seq and product.product_tmpl_id.use_specific_lot_sequence:
                 return seq._next()
         elif seq_policy == "global":
             return self.env["ir.sequence"].next_by_code("stock.lot.serial")
