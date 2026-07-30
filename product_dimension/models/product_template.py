@@ -71,6 +71,8 @@ class ProductTemplate(models.Model):
         we catch the variant values preparation to update them
         """
         res = super()._prepare_variant_values(combination)
+        if self.dimensional_uom_id:
+            res.update({"dimensional_uom_id": self.dimensional_uom_id.id})
         if self.product_length:
             res.update({"product_length": self.product_length})
         if self.product_height:
