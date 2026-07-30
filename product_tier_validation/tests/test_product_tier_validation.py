@@ -14,7 +14,7 @@ class TestProductTierValidation(TransactionCase):
             {
                 "name": "John",
                 "login": "test1",
-                "groups_id": [(6, 0, group_ids)],
+                "group_ids": [(6, 0, group_ids)],
                 "email": "test@examlple.com",
             }
         )
