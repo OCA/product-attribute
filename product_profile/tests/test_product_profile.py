@@ -1,9 +1,10 @@
 # Copyright 2025 360ERP (https://www.360erp.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from lxml import etree
 
+from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests import Form, TransactionCase
 
@@ -180,7 +181,7 @@ class TestProductProfile(TransactionCase):
 
     def test_product_variant_with_group(self):
         """Users in the profile group can see, but not set profile fields"""
-        self.env.user.groups_id += self.group
+        self.env.user.group_ids += self.group
         res = self.env["product.product"].get_view(view_type="form")
         root = etree.fromstring(res["arch"])
         field = root.find(".//field[@name='type']")
@@ -189,8 +190,8 @@ class TestProductProfile(TransactionCase):
 
     def test_product_variant_without_group(self):
         """Users not in the profile group cannot see the fields if profile is set"""
-        self.env.user.groups_id -= self.group
-        self.assertNotIn(self.group, self.env.user.groups_id)
+        self.env.user.group_ids -= self.group
+        self.assertNotIn(self.group, self.env.user.group_ids)
         res = self.env["product.product"].get_view(view_type="form")
         root = etree.fromstring(res["arch"])
         field = root.find(".//field[@name='type']")
@@ -240,3 +241,50 @@ class TestProductProfile(TransactionCase):
 
     def test_product_profile_get_view(self):
         self.env["product.profile"].get_view(view_type="form")
+
+    def test_profile_methods_coverage(self):
+        profile = self.profile_consu
+
+        # 1. check_useless_key_in_vals for m2o
+        with patch.object(profile._fields["type"], "type", "many2one"):
+            with patch(
+                "odoo.models.BaseModel.__getitem__", return_value=MagicMock(id="consu")
+            ):
+                profile.check_useless_key_in_vals({"type": "consu"}, "type")
+
+        # 2. check_useless_key_in_vals for m2m
+        with patch.object(profile._fields["type"], "type", "many2many"):
+            with patch(
+                "odoo.models.BaseModel.__getitem__",
+                return_value=MagicMock(ids=["consu"]),
+            ):
+                profile.check_useless_key_in_vals(
+                    {"type": [fields.Command.set(["consu"])]}, "type"
+                )
+
+        # 3. _reformat_relationals for m2o and m2m
+        with patch.object(profile._fields["type"], "type", "many2one"):
+            res = self.product1._reformat_relationals({"type": (1, "consu")})
+            self.assertEqual(res["type"], 1)
+
+        with patch.object(profile._fields["type"], "type", "many2many"):
+            res = self.product1._reformat_relationals({"type": [1, 2]})
+            self.assertEqual(res["type"], [fields.Command.set([1, 2])])
+
+        # 4. _get_vals_from_profile with profile_default_
+        profile_vals = {"id": profile.id, "profile_default_type": "service"}
+        with patch.object(
+            type(self.product1),
+            "_get_profile_fields",
+            return_value=["profile_default_type"],
+        ):
+            with patch.object(type(profile), "read", return_value=[profile_vals]):
+                with patch.object(
+                    type(self.product1),
+                    "_reformat_relationals",
+                    side_effect=lambda x: x,
+                ):
+                    res = self.product1._get_vals_from_profile(
+                        {"profile_id": profile.id}, ignore_defaults=False
+                    )
+                    self.assertEqual(res.get("type"), "service")

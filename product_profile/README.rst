@@ -21,13 +21,13 @@ Product Profile
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/18.0/product_profile
+    :target: https://github.com/OCA/product-attribute/tree/19.0/product_profile
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_profile
+    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_profile
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -56,7 +56,7 @@ fields creation within the ERP framework.
 Additional feature: a default value can be attached to a profile (see §
 Configuration, part 3)
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_profile/static/img/field.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_profile/static/img/field.png
 
 **Table of contents**
 
@@ -121,8 +121,8 @@ if the profile is modified, changes are not propagated to all the
 records that have this profile - if the record previously had another
 profile, changing profile will not influence default values
 
-.. |Product Profile List View| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_profile/static/img/list.png
-.. |New Product Profile| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_profile/static/img/create.png
+.. |Product Profile List View| image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_profile/static/img/list.png
+.. |New Product Profile| image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_profile/static/img/create.png
 
 Usage
 =====
@@ -151,7 +151,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_profile%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_profile%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -199,6 +199,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-bealdav| |maintainer-sebastienbeau| |maintainer-kevinkhao| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/18.0/product_profile>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_profile>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

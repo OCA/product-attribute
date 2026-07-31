@@ -20,7 +20,7 @@ _logger = logging.getLogger(__name__)
 def format_except_message(error, field, self):
     value = self.profile_id[field]
     model = type(self)._name
-    message = self.env._(
+    message_tmpl = self.env._(
         "Issue\n------\n"
         "%(error)s\n %(value)s value can't be applied to %(field)s field."
         "\nThere is no matching value between 'Product Profiles' "
@@ -28,13 +28,13 @@ def format_except_message(error, field, self):
         "Resolution\n----------\n"
         "Check your settings on Profile model:\n Sales > Configuration \n> Products"
         "\n> Product Profiles"
-    ) % {
+    )
+    return message_tmpl % {
         "error": error,
         "value": value,
         "field": field,
         "model": model,
     }
-    return message
 
 
 def get_profile_fields_to_exclude():
