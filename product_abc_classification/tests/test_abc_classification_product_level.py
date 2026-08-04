@@ -4,6 +4,8 @@
 from psycopg2 import IntegrityError
 
 from odoo.exceptions import ValidationError
+from odoo.fields import Domain
+from odoo.tests import new_test_user
 from odoo.tools import mute_logger
 
 from .common import ABCClassificationLevelCase
@@ -17,7 +19,6 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             {
                 "name": "Test 1",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
         cls.product_level = cls.ProductLevel.create(
@@ -34,7 +35,6 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             {
                 "name": "Test 2",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
 
@@ -42,7 +42,6 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             {
                 "name": "Test 3",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
         cls.ProductLevel.create(
@@ -284,7 +283,7 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
         self.classification_profile.auto_apply_computed_value = True
 
         levels = self.ProductLevel.search(
-            [("profile_id", "=", self.classification_profile.id)]
+            Domain("profile_id", "=", self.classification_profile.id)
         )
         levels.write(
             {
@@ -304,7 +303,7 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
         self.classification_profile_bis.auto_apply_computed_value = True
 
         levels = self.ProductLevel.search(
-            [("profile_id", "=", self.classification_profile.id)]
+            Domain("profile_id", "=", self.classification_profile.id)
         )
         levels.write(
             {
@@ -338,7 +337,7 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
         self._create_product_levels()
 
         levels = self.ProductLevel.search(
-            [("profile_id", "=", self.classification_profile.id)]
+            Domain("profile_id", "=", self.classification_profile.id)
         )
         level0 = levels[0]
         level1 = levels[1]
@@ -363,3 +362,43 @@ class TestABCClassificationProductLevel(ABCClassificationLevelCase):
             self.assertEqual(level.manual_level_id, self.classification_level_a)
             self.assertEqual(level.computed_level_id, self.classification_level_a)
             self.assertEqual(level.level_id, self.classification_level_a)
+
+    def test_12_level_falls_back_on_computed(self):
+        self.assertEqual(
+            self.product_level.manual_level_id, self.classification_level_a
+        )
+        self.product_level.manual_level_id = False
+        self.assertEqual(self.product_level.level_id, self.classification_level_a)
+        self.assertEqual(
+            self.product_level.computed_level_id, self.classification_level_a
+        )
+
+    def test_13_onchange_product_tmpl_id(self):
+        level = self.ProductLevel.new(
+            {
+                "product_tmpl_id": self.product_template.id,
+                "profile_id": self.classification_profile.id,
+            }
+        )
+        level._onchange_product_tmpl_id()
+        self.assertEqual(level.product_id, self.product_product)
+
+    def test_14_inventory_manager_can_manage_product_levels(self):
+        """The classification is maintained by hand from the product form.
+
+        The access rights must therefore allow an inventory manager to create
+        and delete the levels, not only to read and update them.
+        """
+        manager = new_test_user(
+            self.env, login="abc_manager", groups="stock.group_stock_manager"
+        )
+        level = self.ProductLevel.with_user(manager).create(
+            {
+                "product_id": self.product_1.id,
+                "profile_id": self.classification_profile.id,
+                "manual_level_id": self.classification_level_a.id,
+            }
+        )
+        self.assertEqual(level.level_id, self.classification_level_a)
+        level.manual_level_id = self.classification_level_b
+        level.unlink()

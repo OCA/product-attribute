@@ -13,7 +13,6 @@ class ProductTemplate(models.Model):
         compute="_compute_abc_classification_profile_ids",
         inverse="_inverse_abc_classification_profile_ids",
         store=True,
-        check_company=True,
     )
     abc_classification_product_level_ids = fields.One2many(
         "abc.classification.product.level",
@@ -22,6 +21,28 @@ class ProductTemplate(models.Model):
         inverse_name="product_tmpl_id",
         store=True,
     )
+
+    def action_open_abc_classification_variants(self):
+        """Open the variants, where a multi-variant product is classified."""
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window",
+            "name": self.env._("Product Variants"),
+            "res_model": "product.product",
+            "view_mode": "list,form",
+            "domain": [("product_tmpl_id", "=", self.id)],
+        }
+
+    @api.constrains("company_id")
+    def _check_abc_classification_profile_company(self):
+        """Restricting a product to a company cannot contradict its profiles.
+
+        The company lives on the template while the enrolment lives on the
+        variants, so the check has to start from here to catch a product being
+        reserved to a company after it was classified.
+        """
+        variants = self.product_variant_ids
+        variants.abc_classification_profile_ids._check_company_products()
 
     @api.depends(
         "product_variant_ids",

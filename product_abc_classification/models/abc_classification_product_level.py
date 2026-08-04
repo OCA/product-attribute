@@ -40,7 +40,6 @@ class AbcClassificationProductLevel(models.Model):
     )
     product_id = fields.Many2one(
         "product.product",
-        string="Product",
         index=True,
         required=True,
         ondelete="cascade",
@@ -62,7 +61,6 @@ class AbcClassificationProductLevel(models.Model):
     # percentage
     profile_id = fields.Many2one(
         "abc.classification.profile",
-        string="Profile",
         required=True,
         check_company=True,
     )
@@ -76,13 +74,10 @@ class AbcClassificationProductLevel(models.Model):
         related="product_id.abc_classification_profile_ids",
     )
 
-    _sql_constraints = [
-        (
-            "product_level_uniq",
-            "UNIQUE(profile_id, product_id)",
-            "Only one level by profile by product allowed",
-        )
-    ]
+    _product_level_uniq = models.Constraint(
+        "UNIQUE(profile_id, product_id)",
+        "Only one level by profile by product allowed",
+    )
 
     @api.constrains("computed_level_id", "manual_level_id", "product_id")
     def _check_level(self):
@@ -144,6 +139,11 @@ class AbcClassificationProductLevel(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
+            if not vals.get("product_id") and vals.get("product_tmpl_id"):
+                template = self.env["product.template"].browse(vals["product_tmpl_id"])
+                if len(template.product_variant_ids) == 1:
+                    vals["product_id"] = template.product_variant_id.id
+
             if "manual_level_id" not in vals and "computed_level_id" in vals:
                 # at creation the manual level is set to the same value as the
                 # computed one

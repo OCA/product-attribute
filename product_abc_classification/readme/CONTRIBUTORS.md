@@ -3,3 +3,4 @@
 - Laurent Mignon \<<laurent.mignon@acsone.eu>\>
 - Denis Roussel \<<denis.roussel@acsone.eu>\>
 - Hoang Diep \<<hoang@trobz.com>\>
+- [arielbarreiros96](https://www.github.com/arielbarreiros96)

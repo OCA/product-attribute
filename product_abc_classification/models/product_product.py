@@ -17,9 +17,19 @@ class ProductProduct(models.Model):
         column1="product_id",
         column2="profile_id",
         index=True,
-        check_company=True,
     )
     abc_classification_profile_updatable_from_category = fields.Boolean(default=True)
+
+    @api.constrains("abc_classification_profile_ids")
+    def _check_abc_classification_profile_company(self):
+        """Enrolling a product must respect the companies of the profiles.
+
+        The rule belongs to the profile, so it is asked rather than restated:
+        a profile of a company refuses the products of another one, and takes
+        the products shared between them, which is how the same product is
+        classified differently in each company.
+        """
+        self.abc_classification_profile_ids._check_company_products()
 
     def _update_abc_classification_profile_from_category(self):
         for rec in self:

@@ -2,26 +2,39 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.fields import Command
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class ABCClassificationCase(TransactionCase):
+class ABCClassificationCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         # add a fake profile_type
         cls.ABCClassificationProfile = cls.env["abc.classification.profile"]
-        cls.ABCClassificationProfile._fields["profile_type"].selection = [
-            ("test_type", "Test Type")
-        ]
-        cls.ABCClassificationProfile._fields["profile_type"]._selection = {
-            "test_type",
-            "Test Type",
-        }
+        cls._patch_profile_type_selection([("test_type", "Test Type")])
         cls.classification_profile = cls.ABCClassificationProfile.create(
             {"name": "Profile test", "profile_type": "test_type"}
         )
+
+    @classmethod
+    def _patch_profile_type_selection(cls, selection):
+        """Register a fake profile type on the registry field.
+
+        The field is shared by the whole registry, so the original values are
+        restored once the test class is done.
+        """
+        field = cls.ABCClassificationProfile._fields["profile_type"]
+        original_selection = field.selection
+        original_values = field._selection
+        field.selection = selection
+        field._selection = dict(selection)
+
+        def _restore():
+            field.selection = original_selection
+            field._selection = original_values
+
+        cls.addClassCleanup(_restore)
 
 
 class ABCClassificationLevelCase(ABCClassificationCase):
@@ -31,23 +44,19 @@ class ABCClassificationLevelCase(ABCClassificationCase):
         cls.classification_profile.write(
             {
                 "level_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 60,
                             "percentage_products": 40,
                             "name": "a",
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 40,
                             "percentage_products": 60,
                             "name": "b",
-                        },
+                        }
                     ),
                 ]
             }
@@ -61,23 +70,19 @@ class ABCClassificationLevelCase(ABCClassificationCase):
                 "name": "Profile test bis",
                 "profile_type": "test_type",
                 "level_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 80,
                             "percentage_products": 40,
                             "name": "a",
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 20,
                             "percentage_products": 60,
                             "name": "b",
-                        },
+                        }
                     ),
                 ],
             }
@@ -96,25 +101,29 @@ class ABCClassificationLevelCase(ABCClassificationCase):
             {
                 "name": "Size",
                 "create_variant": "no_variant",
-                "value_ids": [(0, 0, {"name": "S"}), (0, 0, {"name": "M"})],
+                "value_ids": [
+                    Command.create({"name": "S"}),
+                    Command.create({"name": "M"}),
+                ],
             }
         )
         cls.size_attr_value_s = cls.size_attr.value_ids[0]
         cls.size_attr_value_m = cls.size_attr.value_ids[1]
         cls.uom_unit = cls.env.ref("uom.product_uom_unit")
+        cls.product_category = cls.env["product.category"].create(
+            {"name": "Test ABC Classification"}
+        )
         cls.product_template = cls.env["product.template"].create(
             {
                 "name": "Test sized",
+                "categ_id": cls.product_category.id,
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
                 "attribute_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": cls.size_attr.id,
-                            "value_ids": [(6, 0, cls.size_attr.value_ids.ids)],
-                        },
+                            "value_ids": [Command.set(cls.size_attr.value_ids.ids)],
+                        }
                     )
                 ],
             }

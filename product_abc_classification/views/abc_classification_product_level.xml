@@ -18,12 +18,12 @@
                     <group name="main_info">
                         <field name="display_name" />
                         <field name="allowed_profile_ids" invisible="1" />
-                        <field
-                            name="profile_id"
-                            domain="[('id', 'in', allowed_profile_ids and allowed_profile_ids[0] and allowed_profile_ids[0][2] or False)]"
-                        />
                         <field name="product_id" />
                         <field name="product_tmpl_id" invisible="1" />
+                        <field
+                            name="profile_id"
+                            domain="[('id', 'in', allowed_profile_ids)]"
+                        />
                         <field name="computed_level_id" />
                         <field name="level_id" />
                         <field name="manual_level_id" class="oe_edit_only" />
@@ -66,7 +66,7 @@
                     name="has_flag"
                     domain="[('flag','=',True)]"
                 />
-                <group expand="1" string="Group By">
+                <group name="group_by">
                     <filter
                         string="Level"
                         name="group_by_level"

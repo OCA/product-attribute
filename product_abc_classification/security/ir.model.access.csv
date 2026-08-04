@@ -4,4 +4,4 @@ access_abc_classification_profile_manager,abc.classification.profile.manager,mod
 access_abc_classification_level_user,abc.classification.level.user,model_abc_classification_level,base.group_user,1,0,0,0
 access_abc_classification_level_manager,abc.classification.level.manager,model_abc_classification_level,stock.group_stock_manager,1,1,1,1
 access_abc_classification_product_level_user,abc.classification.product.level.user,model_abc_classification_product_level,base.group_user,1,0,0,0
-access_abc_classification_product_level_manager,abc.classification.product.level.manager,model_abc_classification_product_level,stock.group_stock_manager,1,1,0,0
+access_abc_classification_product_level_manager,abc.classification.product.level.manager,model_abc_classification_product_level,stock.group_stock_manager,1,1,1,1

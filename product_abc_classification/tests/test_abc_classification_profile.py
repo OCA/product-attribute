@@ -4,6 +4,7 @@
 from psycopg2 import IntegrityError
 
 from odoo.exceptions import ValidationError
+from odoo.fields import Command
 from odoo.tools.misc import mute_logger
 
 from .common import ABCClassificationCase
@@ -22,23 +23,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
         self.classification_profile.write(
             {
                 "level_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 60,
                             "percentage_products": 40,
                             "name": "A",
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 40,
                             "percentage_products": 60,
                             "name": "B",
-                        },
+                        }
                     ),
                 ]
             }
@@ -58,23 +55,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 60,
                                 "percentage_products": 40,
                                 "name": "A",
-                            },
+                            }
                         ),
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 30,
                                 "percentage_products": 60,
                                 "name": "B",
-                            },
+                            }
                         ),
                     ]
                 }
@@ -93,23 +86,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 60,
                                 "percentage_products": 40,
                                 "name": "A",
-                            },
+                            }
                         ),
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 50,
                                 "percentage_products": 60,
                                 "name": "B",
-                            },
+                            }
                         ),
                     ]
                 }
@@ -128,23 +117,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 50,
                                 "percentage_products": 40,
                                 "name": "A",
-                            },
+                            }
                         ),
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 50,
                                 "percentage_products": 60,
                                 "name": "B",
-                            },
+                            }
                         ),
                     ]
                 }
@@ -164,23 +149,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 150,
                                 "percentage_products": 40,
                                 "name": "A",
-                            },
+                            }
                         ),
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": -50,
                                 "percentage_products": 60,
                                 "name": "B",
-                            },
+                            }
                         ),
                     ]
                 }
@@ -200,23 +181,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
             self.classification_profile.write(
                 {
                     "level_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 60,
                                 "percentage_products": 40,
                                 "name": "A",
-                            },
+                            }
                         ),
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "percentage": 40,
                                 "percentage_products": 60,
                                 "name": "A",
-                            },
+                            }
                         ),
                     ]
                 }
@@ -235,23 +212,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
         self.classification_profile.write(
             {
                 "level_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 60,
                             "percentage_products": 40,
                             "name": "A",
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 40,
                             "percentage_products": 60,
                             "name": "B",
-                        },
+                        }
                     ),
                 ]
             }
@@ -261,23 +234,19 @@ class TestABCClassificationProfile(ABCClassificationCase):
                 "name": "New Profile test",
                 "profile_type": "test_type",
                 "level_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 60,
                             "percentage_products": 40,
                             "name": "A",
-                        },
+                        }
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "percentage": 40,
                             "percentage_products": 60,
                             "name": "B",
-                        },
+                        }
                     ),
                 ],
             }
@@ -301,3 +270,107 @@ class TestABCClassificationProfile(ABCClassificationCase):
                     "profile_type": "test_type",
                 }
             )
+
+    def test_08(self):
+        """
+        Data:
+            A test profile
+        Test case:
+            Create a level with a negative percentage
+        Expected result:
+            ValidationError (the percentage should be a positive number)
+        """
+        with self.assertRaises(ValidationError):
+            self.env["abc.classification.level"].create(
+                {
+                    "name": "A",
+                    "percentage": -50,
+                    "percentage_products": 40,
+                }
+            )
+
+    def test_09(self):
+        """
+        Data:
+            A test profile
+        Test case:
+            Create a level with a products percentage above 100
+        Expected result:
+            ValidationError (the percentage of products cannot be greater
+            than 100)
+        """
+        with self.assertRaises(ValidationError):
+            self.env["abc.classification.level"].create(
+                {
+                    "name": "A",
+                    "percentage": 50,
+                    "percentage_products": 150,
+                }
+            )
+
+    def test_10(self):
+        """
+        Data:
+            A test profile
+        Test case:
+            Create a level with a negative products percentage
+        Expected result:
+            ValidationError (the percentage of products should be a positive
+            number)
+        """
+        with self.assertRaises(ValidationError):
+            self.env["abc.classification.level"].create(
+                {
+                    "name": "A",
+                    "percentage": 50,
+                    "percentage_products": -40,
+                }
+            )
+
+    def test_11(self):
+        """
+        Data:
+            A test profile
+        Test case:
+            Assign levels whose percentages total 100% but whose products
+            percentages do not
+        Expected result:
+            ValidationError
+        """
+        with self.assertRaises(ValidationError):
+            self.classification_profile.write(
+                {
+                    "level_ids": [
+                        Command.create(
+                            {
+                                "percentage": 60,
+                                "percentage_products": 40,
+                                "name": "A",
+                            }
+                        ),
+                        Command.create(
+                            {
+                                "percentage": 40,
+                                "percentage_products": 50,
+                                "name": "B",
+                            }
+                        ),
+                    ]
+                }
+            )
+
+    def test_12(self):
+        """
+        Data:
+            A test profile
+        Test case:
+            Duplicate the profile, once letting the name be generated and once
+            forcing it
+        Expected result:
+            Both copies are created, the generated one being suffixed since the
+            profile name must be unique
+        """
+        copy = self.classification_profile.copy()
+        self.assertEqual(copy.name, f"{self.classification_profile.name} (copy)")
+        forced_copy = self.classification_profile.copy({"name": "Profile forced"})
+        self.assertEqual(forced_copy.name, "Profile forced")

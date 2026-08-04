@@ -6,6 +6,7 @@ from psycopg2.extensions import AsIs
 
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.fields import Domain
 
 
 class AbcClassificationProfile(models.Model):
@@ -30,7 +31,6 @@ class AbcClassificationProfile(models.Model):
     )
     company_id = fields.Many2one(
         comodel_name="res.company",
-        string="Company",
     )
 
     product_variant_ids = fields.Many2many(
@@ -49,7 +49,7 @@ class AbcClassificationProfile(models.Model):
         "profile.",
     )
 
-    _sql_constraints = [("name_uniq", "UNIQUE(name)", "Profile name must be unique")]
+    _name_uniq = models.Constraint("UNIQUE(name)", "Profile name must be unique")
 
     @api.constrains("company_id", "product_variant_ids")
     def _check_company_products(self):
@@ -57,11 +57,9 @@ class AbcClassificationProfile(models.Model):
             if not profile.company_id:
                 continue
             bad = self.env["product.product"].search(
-                [
-                    ("id", "in", profile.product_variant_ids.ids),
-                    ("company_id", "!=", False),
-                    ("company_id", "!=", profile.company_id.id),
-                ]
+                Domain("id", "in", profile.product_variant_ids.ids)
+                & Domain("company_id", "!=", False)
+                & Domain("company_id", "!=", profile.company_id.id)
             )
             if bad:
                 raise ValidationError(
@@ -106,7 +104,7 @@ class AbcClassificationProfile(models.Model):
             default_level = profile.level_ids[0]
             profile_products = profile.product_variant_ids
             classified_products = ProductClassification.search(
-                [("profile_id", "=", profile.id)]
+                Domain("profile_id", "=", profile.id)
             ).mapped("product_id")
             missing_classification = profile_products - classified_products
             vals_list = []
@@ -134,7 +132,7 @@ class AbcClassificationProfile(models.Model):
         )
         del action["context"]
         if len(products) > 1:
-            action["domain"] = [("id", "in", products.ids)]
+            action["domain"] = Domain("id", "in", products.ids)
         elif len(products) == 1:
             form_view = [
                 (self.env.ref("product.product_variant_easy_edit_view").id, "form")
@@ -152,6 +150,9 @@ class AbcClassificationProfile(models.Model):
 
     @api.model
     def _cron_compute_abc_classification(self):
+        # pylint: disable=no-search-all
+        # The cron is meant to process every profile; profiles are few by
+        # nature (one per classification policy), so no limit applies.
         self.search([])._compute_abc_classification()
 
     def write(self, vals):

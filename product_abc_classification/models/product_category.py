@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
+from odoo.fields import Command, Domain
 
 
 class ProductCategory(models.Model):
@@ -17,10 +18,8 @@ class ProductCategory(models.Model):
 
     def update_product_abc_classification_profile(self):
         category_products = self.env["product.product"]._read_group(
-            [
-                ("abc_classification_profile_updatable_from_category", "=", True),
-                ("categ_id", "in", self.ids),
-            ],
+            Domain("abc_classification_profile_updatable_from_category", "=", True)
+            & Domain("categ_id", "in", self.ids),
             ["categ_id"],
             ["id:recordset"],
         )
@@ -28,7 +27,7 @@ class ProductCategory(models.Model):
             products.write(
                 {
                     "abc_classification_profile_ids": [
-                        (6, 0, categ.abc_classification_profile_ids.ids)
+                        Command.set(categ.abc_classification_profile_ids.ids)
                     ]
                 }
             )
