@@ -3,7 +3,7 @@
 {
     "name": "Product packaging calculator",
     "summary": "Compute product quantity to pick by packaging",
-    "version": "18.0.1.0.1",
+    "version": "19.0.1.0.0",
     "development_status": "Beta",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
@@ -11,7 +11,7 @@
     "license": "LGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["product"],
+    "depends": ["base_sparse_field", "product"],
     "external_dependencies": {
         "python": [
             "openupgradelib",
