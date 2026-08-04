@@ -43,7 +43,11 @@ class ProductQtyByPackagingMixin(models.AbstractModel):
             record.product_qty_by_packaging_display = value
 
     def _qty_by_packaging_get_product(self):
+        if not self._qty_by_pkg__product_field_name:
+            return self.env["product.product"].browse()
         return self[self._qty_by_pkg__product_field_name]
 
     def _qty_by_packaging_get_qty(self):
+        if not self._qty_by_pkg__qty_field_name:
+            return 0.0
         return self[self._qty_by_pkg__qty_field_name]

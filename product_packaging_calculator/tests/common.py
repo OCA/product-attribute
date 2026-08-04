@@ -16,25 +16,28 @@ class TestCommon(BaseCommon):
             {
                 "name": "Product A",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
             }
         )
-        cls.pkg_box = cls.env["product.packaging"].create(
-            {"name": "Box", "product_id": cls.product_a.id, "qty": 50, "barcode": "BOX"}
-        )
-        cls.pkg_big_box = cls.env["product.packaging"].create(
+        cls.pkg_box = cls._create_packaging("Box", 50, "BOX")
+        cls.pkg_big_box = cls._create_packaging("Big Box", 200, "BIGBOX")
+        cls.pkg_pallet = cls._create_packaging("Pallet", 2000, "PALLET")
+
+    @classmethod
+    def _create_packaging(cls, name, qty, barcode):
+        """Create a packaging as a UoM linked to product_a with a barcode."""
+        uom = cls.env["uom.uom"].create(
             {
-                "name": "Big Box",
-                "product_id": cls.product_a.id,
-                "qty": 200,
-                "barcode": "BIGBOX",
+                "name": name,
+                "relative_uom_id": cls.uom_unit.id,
+                "relative_factor": qty,
             }
         )
-        cls.pkg_pallet = cls.env["product.packaging"].create(
+        cls.product_a.uom_ids = [(4, uom.id)]
+        cls.env["product.uom"].create(
             {
-                "name": "Pallet",
                 "product_id": cls.product_a.id,
-                "qty": 2000,
-                "barcode": "PALLET",
+                "uom_id": uom.id,
+                "barcode": barcode,
             }
         )
+        return uom

@@ -1,23 +1,22 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
-from odoo_test_helper import FakeModelLoader
+from odoo.orm.model_classes import add_to_registry
 
 from .common import TestCommon
 
 
 class TestPQPackagingMixin(TestCommon):
-    def setUp(self):
-        super().setUp()
-        # Load a test model using odoo_test_helper
-        self.loader = FakeModelLoader(self.env, self.__module__)
-        self.loader.backup_registry()
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        # Load a test model natively (odoo_test_helper is not needed on Odoo 19+)
         from .models import TestProductQtyByPackagingMixin
 
-        self.loader.update_registry((TestProductQtyByPackagingMixin,))
-        self.model = self.env[TestProductQtyByPackagingMixin._name]
-
-    def tearDown(self):
-        self.loader.restore_registry()
-        return super().tearDown()
+        model_name = TestProductQtyByPackagingMixin._name
+        add_to_registry(cls.registry, TestProductQtyByPackagingMixin)
+        cls.addClassCleanup(cls.registry.__delitem__, model_name)
+        cls.registry._setup_models__(cls.env.cr, [model_name])
+        cls.registry.init_models(cls.env.cr, [model_name], {"models_to_check": True})
+        cls.model = cls.env[model_name]
 
     def test_1_quantity_packaging(self):
         record = self.model.create({"product_id": self.product_a.id, "quantity": 10})

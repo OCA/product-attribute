@@ -22,7 +22,7 @@ class Product(models.Model):
     )
 
     @api.depends_context("lang")
-    @api.depends("packaging_ids.qty")
+    @api.depends("uom_ids.factor", "uom_id.factor")
     def _compute_packaging_contained_mapping(self):
         for rec in self:
             rec.packaging_contained_mapping = rec._packaging_contained_mapping()
@@ -48,8 +48,6 @@ class Product(models.Model):
         """Calculate quantity by packaging.
 
         The minimal quantity is always represented by the UoM of the product.
-
-        Limitation: fractional quantities are lost.
 
         :prod_qty: total qty to satisfy.
         :with_contained: include calculation of contained packagings.
@@ -85,24 +83,36 @@ class Product(models.Model):
         name_getter = self.env.context.get(
             "_packaging_name_getter", self._packaging_name_getter
         )
-        packagings = sorted(
-            (
-                Packaging(x.id, name_getter(x), x.qty, x.barcode, False)
-                for x in self.packaging_ids.filtered(custom_filter)
-                # Exclude the ones w/ zero qty as they are useless for the math
-                if x.qty
-            ),
-            reverse=True,
-            key=lambda x: x.qty,
-        )
+        base_uom = self.uom_id
+        packagings = []
+        for uom in self.uom_ids.filtered(custom_filter):
+            # Packagings unrelated to the product UoM cannot be used for the math
+            if not uom._has_common_reference(base_uom):
+                continue
+            qty = uom._compute_quantity(1, base_uom, round=False)
+            # Exclude the ones w/ zero qty as they are useless for the math
+            if not qty:
+                continue
+            packagings.append(
+                Packaging(
+                    uom.id, name_getter(uom), qty, self._packaging_barcode(uom), False
+                )
+            )
+        packagings.sort(reverse=True, key=lambda x: x.qty)
         # Add minimal unit
         packagings.append(
             # NOTE: the ID here could clash w/ one of the packaging's.
             # If you create a mapping based on IDs, keep this in mind.
             # You can use `is_unit` to check this.
-            Packaging(self.uom_id.id, self.uom_id.name, self.uom_id.factor, None, True)
+            Packaging(base_uom.id, base_uom.name, base_uom.factor, None, True)
         )
         return packagings
+
+    def _packaging_barcode(self, uom):
+        """Return the barcode assigned to the given packaging UoM, if any."""
+        self.ensure_one()
+        link = self.product_uom_ids.filtered(lambda p: p.uom_id == uom)[:1]
+        return link.barcode or None
 
     def _packaging_name_getter(self, packaging):
         return packaging.name
@@ -203,9 +213,7 @@ class Product(models.Model):
             has_only_units = False
             _qty_by_packaging.append(pkg_qty)
         # Browse them all at once
-        records = self.env["product.packaging"].browse(
-            [x["id"] for x in _qty_by_packaging]
-        )
+        records = self.env["uom.uom"].browse([x["id"] for x in _qty_by_packaging])
         _qty_by_packaging_as_str = self.env.context.get(
             "_qty_by_packaging_as_str", self._qty_by_packaging_as_str
         )
