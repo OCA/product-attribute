@@ -96,6 +96,10 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(categ_car.sequence_id.prefix, "KIA")
 
     def test_product_parent_category_sequence(self):
+        # The first half of this test asserts the behaviour when the fallback
+        # is disabled, so do not rely on the ambient company setting (the demo
+        # data enables it).
+        self.env.user.company_id.use_parent_categories_to_determine_prefix = False
         parent_categ = self.product_category.create(
             dict(
                 name="Parents",

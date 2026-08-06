@@ -17,6 +17,11 @@
         "views/product_category.xml",
         "views/res_config_settings_views.xml",
     ],
+    "demo": [
+        "demo/res_company_demo.xml",
+        "demo/product_category_demo.xml",
+        "demo/product_template_demo.xml",
+    ],
     "pre_init_hook": "pre_init_hook",
     "installable": True,
 }

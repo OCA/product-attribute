@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 bosd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- The internal reference of these products is left empty on purpose:
+         it is assigned by the sequence of their category (or by the default
+         product sequence when no prefix applies). -->
+    <record id="product_template_demo_floor_lamp" model="product.template">
+        <field name="name">Floor Lamp</field>
+        <field name="categ_id" ref="product_category_demo_lamps" />
+        <field name="list_price">75.0</field>
+    </record>
+    <record id="product_template_demo_desk_lamp" model="product.template">
+        <field name="name">Desk Lamp</field>
+        <field name="categ_id" ref="product_category_demo_desk_lamps" />
+        <field name="list_price">45.0</field>
+    </record>
+    <record id="product_template_demo_office_chair" model="product.template">
+        <field name="name">Office Chair</field>
+        <field name="categ_id" ref="product_category_demo_furniture" />
+        <field name="list_price">120.0</field>
+    </record>
+    <!-- No category at all: the default product sequence is used. -->
+    <record id="product_template_demo_extension_cord" model="product.template">
+        <field name="name">Extension Cord</field>
+        <field name="list_price">15.0</field>
+    </record>
+</odoo>
