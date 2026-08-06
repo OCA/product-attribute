@@ -10,3 +10,9 @@ follows:
     Sequences), you can specify whether the prefix of the parent
     category should be used if no prefix has been specified for the
     category.
+
+When the module is installed on a database with demo data, a few product
+categories (*Lamps*, *Desk Lamps* and *Furniture*) and products are
+created to illustrate the three cases: a category with its own prefix, a
+category inheriting the prefix of its parent, and a product without
+category falling back on the default product sequence.

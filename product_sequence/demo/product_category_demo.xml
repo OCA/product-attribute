@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 bosd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- A category with its own prefix: products get a "LAMP" reference. -->
+    <record id="product_category_demo_lamps" model="product.category">
+        <field name="name">Lamps</field>
+        <field name="code_prefix">LAMP</field>
+    </record>
+    <!-- A child category without prefix: it reuses the parent prefix when
+         "Use parent categories to determine the prefix" is enabled. -->
+    <record id="product_category_demo_desk_lamps" model="product.category">
+        <field name="name">Desk Lamps</field>
+        <field name="parent_id" ref="product_category_demo_lamps" />
+    </record>
+    <!-- Another independent category with its own prefix. -->
+    <record id="product_category_demo_furniture" model="product.category">
+        <field name="name">Furniture</field>
+        <field name="code_prefix">FURN</field>
+    </record>
+</odoo>
