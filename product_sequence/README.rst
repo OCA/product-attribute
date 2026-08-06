@@ -58,6 +58,10 @@ follows:
    Sequences), you can specify whether the prefix of the parent category
    should be used if no prefix has been specified for the category.
 
+Duplicating a product gives the copy its own new reference, drawn from
+the sequence of its category, just like any other new product. Odoo
+already appends *(copy)* to the name, which is what tells the two apart.
+
 When the module is installed on a database with demo data, a few product
 categories (*Lamps*, *Desk Lamps* and *Furniture*) and products are
 created to illustrate the three cases: a category with its own prefix, a
