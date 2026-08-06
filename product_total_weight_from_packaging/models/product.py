@@ -7,41 +7,43 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     def get_total_weight_from_packaging(self, qty):
+        """Estimate the weight of `qty` using the weight of its packagings.
+
+        Packagings without a weight are ignored, hence the quantity they would
+        have covered is spread over the smaller packagings and, in the end,
+        over the product's own weight.
+        """
         self.ensure_one()
+        weight_by_uom = self._packaging_weight_by_uom()
         qty_by_packaging_with_weight = self.with_context(
-            **{
-                "_packaging_filter": lambda p: p.weight,
-                "_packaging_values_handler": self._prepare_qty_by_packaging_values_with_weight,  # noqa
-            }
+            _packaging_filter=lambda uom: uom.id in weight_by_uom,
+            _packaging_values_handler=lambda packaging, qty_per_pkg: (
+                self._prepare_qty_by_packaging_values_with_weight(
+                    packaging, qty_per_pkg, weight_by_uom
+                )
+            ),
         ).product_qty_by_packaging(qty)
-        # Convert to the uom of the product
-        total_weight = 0
+        return sum(
+            values["qty"] * values["weight"] for values in qty_by_packaging_with_weight
+        )
 
-        for packaging in qty_by_packaging_with_weight:
-            weight_uom_id = packaging.get("weight_uom_id")
-            quantity = packaging.get("qty", 0)
-            weight = packaging.get("weight", 0)
-
-            uom = self.env["uom.uom"].browse(weight_uom_id)
-            weight_in_product_uom = uom._compute_quantity(
-                qty=quantity * weight,
-                to_unit=self.product_tmpl_id.weight_uom_id,
-                round=False,
-            )
-            total_weight += weight_in_product_uom
-        return total_weight
+    def _packaging_weight_by_uom(self):
+        """Return the weight of the packagings having one, by packaging UoM id."""
+        self.ensure_one()
+        return {
+            packaging.uom_id.id: packaging.weight
+            for packaging in self.packaging_ids
+            if packaging.weight
+        }
 
     def _prepare_qty_by_packaging_values_with_weight(
-        self, packaging_tuple, qty_per_pkg
+        self, packaging_tuple, qty_per_pkg, weight_by_uom
     ):
-        res = {
-            "qty": qty_per_pkg,
-        }
-        if packaging_tuple.is_unit:
-            res["weight"] = self.product_weight
-            res["weight_uom_id"] = self.product_tmpl_id.weight_uom_id.id
-        else:
-            packaging = self.env["product.packaging"].browse(packaging_tuple.id)
-            res["weight"] = packaging.weight
-            res["weight_uom_id"] = packaging.weight_uom_id.id
-        return res
+        # Packaging weights and the product weight are both expressed in the
+        # product's weight UoM, no conversion is needed.
+        weight = (
+            self.weight
+            if packaging_tuple.is_unit
+            else weight_by_uom.get(packaging_tuple.id, 0.0)
+        )
+        return {"qty": qty_per_pkg, "weight": weight}

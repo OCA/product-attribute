@@ -2,3 +2,4 @@
 - Hughes Damry \<<hughes.damry@acsone.eu>\>
 - Duong (Tran Quoc) \<<duongtq@trobz.com>\>
 - Khoi (Kien Kim) \<<khoikk@trobz.com>\>
+- Jasmin Solanki \<<jasmin.solanki@forgeflow.com>\>
