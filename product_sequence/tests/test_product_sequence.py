@@ -34,13 +34,46 @@ class TestProductSequence(TransactionCase):
         product_1 = self.product_product.create(dict(name="Orange", default_code="/"))
         self.assertRegex(str(product_1.default_code), r"PR/*")
 
-    def _tests_product_copy(self):
-        product_2 = self.product_template.create(
-            dict(name="Apple", default_code="PROD02")
-        )
-        product_2.flush_recordset()
-        copy_product_2 = product_2.product_variant_id.copy()
-        self.assertEqual(copy_product_2.default_code, "PROD02-copy")
+    def _create_variant(self, default_code, categ=None):
+        """Return a single variant product carrying ``default_code``.
+
+        The variant is fetched from its template on purpose:
+        ``product.product.create()`` returns records bound to a
+        ``create_product_product=False`` context, which would prevent the
+        copied template from getting a variant at all.
+        """
+        vals = {"name": "Apple"}
+        if categ:
+            vals["categ_id"] = categ.id
+        template = self.env["product.template"].create(vals)
+        variant = template.product_variant_id
+        variant.default_code = default_code
+        variant.flush_recordset()
+        return variant
+
+    def test_product_copy(self):
+        """A copied product gets its own brand new reference."""
+        categ = self.product_category.create(dict(name="Fruits", code_prefix="FRU"))
+        product_2 = self._create_variant("PROD02", categ)
+        copy_product_2 = product_2.copy()
+        self.assertEqual(copy_product_2.default_code[:3], "FRU")
+        self.assertNotEqual(copy_product_2.default_code, product_2.default_code)
+
+    def test_product_copy_without_default_code(self):
+        """A product without reference is copied to a new reference as well."""
+        product_2 = self._create_variant(False)
+        self.assertFalse(product_2.default_code)
+        copy_product_2 = product_2.copy()
+        self.assertRegex(copy_product_2.default_code, r"^PR/")
+
+    def test_product_copy_does_not_waste_a_sequence_number(self):
+        """Exactly one number is drawn from the sequence per copied product."""
+        categ = self.product_category.create(dict(name="Veggies", code_prefix="VEG"))
+        product_2 = self._create_variant("/", categ)
+        sequence = categ.sequence_id
+        before = sequence.number_next_actual
+        product_2.copy()
+        self.assertEqual(sequence.number_next_actual, before + 1)
 
     def test_pre_init_hook(self):
         product_3 = self.product_product.create(
@@ -133,12 +166,39 @@ class TestProductSequence(TransactionCase):
         self.assertEqual(product_claudia.default_code[:3], "PAR")
         self.assertEqual(product_claudia.product_tmpl_id.default_code[:3], "PAR")
 
-    def _tests_product_copy_with_default_values(self):
-        product_2 = self.product_template.create(
-            dict(name="Apple", default_code="PROD02")
+    def test_product_multi_variant_reference(self):
+        """On a multi variant product the reference stays on the variant."""
+        attribute = self.env["product.attribute"].create(
+            {
+                "name": "Color",
+                "value_ids": [
+                    (0, 0, {"name": "Red"}),
+                    (0, 0, {"name": "Blue"}),
+                ],
+            }
         )
-        product_2.flush_recordset()
-        copy_product_2 = product_2.product_variant_id.copy(
-            {"default_code": "product test sequence"}
+        categ = self.product_category.create(dict(name="Shirts", code_prefix="SHI"))
+        template = self.env["product.template"].create(
+            {
+                "name": "Shirt",
+                "categ_id": categ.id,
+                "attribute_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "attribute_id": attribute.id,
+                            "value_ids": [(6, 0, attribute.value_ids.ids)],
+                        },
+                    )
+                ],
+            }
         )
-        self.assertEqual(copy_product_2.default_code, "product test sequence")
+        self.assertEqual(len(template.product_variant_ids), 2)
+        variant, other_variant = template.product_variant_ids
+        variant.write({"default_code": "/"})
+        self.assertEqual(variant.default_code[:3], "SHI")
+        self.assertNotEqual(variant.default_code, other_variant.default_code)
+        # The template reference is not overwritten: it is only meaningful
+        # when the product has a single variant.
+        self.assertFalse(template.default_code)

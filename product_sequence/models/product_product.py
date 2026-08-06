@@ -56,10 +56,3 @@ class ProductProduct(models.Model):
                 super(ProductProduct, product).write(vals)
             return True
         return super().write(vals)
-
-    def copy(self, default=None):
-        if default is None:
-            default = {}
-        if self.default_code and "default_code" not in default:
-            default.update({"default_code": self.default_code + self.env._("-copy")})
-        return super().copy(default)
