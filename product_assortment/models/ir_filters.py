@@ -2,8 +2,8 @@
 # Copyright 2023 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
-from odoo.osv import expression
+from odoo import api, fields, models
+from odoo.fields import Domain
 from odoo.tools import ormcache
 from odoo.tools.safe_eval import datetime, safe_eval
 
@@ -105,19 +105,17 @@ class IrFilters(models.Model):
         res = super()._get_eval_domain()
         if self.apply_black_list_product_domain:
             black_list_domain = self._get_eval_black_list_domain()
-            res = expression.AND(
-                [expression.distribute_not(["!"] + black_list_domain), res]
-            )
+            res = Domain.AND([~Domain(black_list_domain), res])
 
         if self.whitelist_product_ids:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
-            res = expression.OR([result_domain, res])
+            res = Domain.OR([result_domain, res])
 
         if self.blacklist_product_ids:
             result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
-            res = expression.AND([result_domain, res])
+            res = Domain.AND([result_domain, res])
 
-        return res
+        return list(res)
 
     def _get_eval_black_list_domain(self):
         self.ensure_one()
@@ -152,9 +150,9 @@ class IrFilters(models.Model):
             embedded_action_id=embedded_action_id,
             embedded_parent_res_id=embedded_parent_res_id,
         )
-        domain = expression.AND([[("is_assortment", "=", False)], domain])
+        domain = Domain.AND([[("is_assortment", "=", False)], domain])
 
-        return domain
+        return list(domain)
 
     def write(self, vals):
         res = super().write(vals)
@@ -169,7 +167,7 @@ class IrFilters(models.Model):
         action.update(
             {
                 "domain": self._get_eval_domain(),
-                "name": _("Products"),
+                "name": self.env._("Products"),
                 "context": self.env.context,
                 "target": "current",
             }
