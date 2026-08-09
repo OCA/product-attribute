@@ -51,6 +51,37 @@ class TestProductSequence(TransactionCase):
         variant.flush_recordset()
         return variant
 
+    def _create_multi_variant_template(self):
+        """Return a two variants product in a category with a prefix."""
+        attribute = self.env["product.attribute"].create(
+            {
+                "name": "Color",
+                "value_ids": [
+                    (0, 0, {"name": "Red"}),
+                    (0, 0, {"name": "Blue"}),
+                ],
+            }
+        )
+        categ = self.product_category.create(dict(name="Shirts", code_prefix="SHI"))
+        template = self.env["product.template"].create(
+            {
+                "name": "Shirt",
+                "categ_id": categ.id,
+                "attribute_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "attribute_id": attribute.id,
+                            "value_ids": [(6, 0, attribute.value_ids.ids)],
+                        },
+                    )
+                ],
+            }
+        )
+        self.assertEqual(len(template.product_variant_ids), 2)
+        return template
+
     def test_product_copy(self):
         """A copied product gets its own brand new reference."""
         categ = self.product_category.create(dict(name="Fruits", code_prefix="FRU"))
@@ -74,6 +105,42 @@ class TestProductSequence(TransactionCase):
         before = sequence.number_next_actual
         product_2.copy()
         self.assertEqual(sequence.number_next_actual, before + 1)
+
+    def test_product_copy_with_default_code(self):
+        """An explicitly given reference wins over the sequence."""
+        categ = self.product_category.create(dict(name="Herbs", code_prefix="HRB"))
+        product_2 = self._create_variant("/", categ)
+        sequence = categ.sequence_id
+        before = sequence.number_next_actual
+        copy_product_2 = product_2.copy({"default_code": "PROD02-bis"})
+        self.assertEqual(copy_product_2.default_code, "PROD02-bis")
+        self.assertEqual(copy_product_2.product_tmpl_id.default_code, "PROD02-bis")
+        # No number is drawn from the sequence for a reference nothing uses.
+        self.assertEqual(sequence.number_next_actual, before)
+
+    def test_template_copy_with_default_code(self):
+        """Same, when the template itself is the one being copied."""
+        template = self._create_variant("PROD02").product_tmpl_id
+        copy_template = template.copy({"default_code": "PROD02-bis"})
+        self.assertEqual(copy_template.default_code, "PROD02-bis")
+        self.assertEqual(copy_template.product_variant_id.default_code, "PROD02-bis")
+
+    def test_product_copy_with_slash_default_code(self):
+        """Asking for "/" still means "give me a new reference"."""
+        categ = self.product_category.create(dict(name="Spices", code_prefix="SPI"))
+        product_2 = self._create_variant("/", categ)
+        copy_product_2 = product_2.copy({"default_code": "/"})
+        self.assertEqual(copy_product_2.default_code[:3], "SPI")
+        self.assertNotEqual(copy_product_2.default_code, product_2.default_code)
+
+    def test_multi_variant_copy_with_default_code(self):
+        """Variants of a copied product each keep their own reference."""
+        template = self._create_multi_variant_template()
+        copy_template = template.copy({"default_code": "SHIRT-bis"})
+        codes = copy_template.product_variant_ids.mapped("default_code")
+        self.assertEqual(len(codes), 2)
+        self.assertNotIn("SHIRT-bis", codes)
+        self.assertEqual(len(set(codes)), 2, "Variants share the same reference")
 
     def test_pre_init_hook(self):
         product_3 = self.product_product.create(
@@ -168,33 +235,7 @@ class TestProductSequence(TransactionCase):
 
     def test_product_multi_variant_reference(self):
         """On a multi variant product the reference stays on the variant."""
-        attribute = self.env["product.attribute"].create(
-            {
-                "name": "Color",
-                "value_ids": [
-                    (0, 0, {"name": "Red"}),
-                    (0, 0, {"name": "Blue"}),
-                ],
-            }
-        )
-        categ = self.product_category.create(dict(name="Shirts", code_prefix="SHI"))
-        template = self.env["product.template"].create(
-            {
-                "name": "Shirt",
-                "categ_id": categ.id,
-                "attribute_line_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "attribute_id": attribute.id,
-                            "value_ids": [(6, 0, attribute.value_ids.ids)],
-                        },
-                    )
-                ],
-            }
-        )
-        self.assertEqual(len(template.product_variant_ids), 2)
+        template = self._create_multi_variant_template()
         variant, other_variant = template.product_variant_ids
         variant.write({"default_code": "/"})
         self.assertEqual(variant.default_code[:3], "SHI")
