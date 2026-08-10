@@ -1,6 +1,7 @@
 # Copyright 2026 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-from odoo import api, fields, models
+
+from odoo import Command, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -45,6 +46,28 @@ class ProductTemplate(models.Model):
             product.class_required_attribute_ids = class_lines.filtered(
                 "required"
             ).attribute_id
+
+    @api.onchange("class_id")
+    def _onchange_class_id_prefill_attribute_lines(self):
+        """Suggest the class required attributes on the product.
+
+        Values are deliberately left empty: the user must pick them before the
+        product can be saved. The suggestions are dropped when the class is
+        changed or cleared, as long as the user didn't fill any line in.
+        """
+        if self.attribute_line_ids.value_ids:
+            # The user already started filling lines in, leave their work alone.
+            return
+        attributes = self.class_required_attribute_ids
+        if not (attributes or self.attribute_line_ids):
+            return
+        self.attribute_line_ids = [
+            Command.clear(),
+            *(
+                Command.create({"attribute_id": attribute.id})
+                for attribute in attributes
+            ),
+        ]
 
     @api.constrains("class_id", "attribute_line_ids")
     def _check_class_attributes(self):

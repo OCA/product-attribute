@@ -4,6 +4,7 @@ from psycopg2 import IntegrityError
 
 from odoo import Command
 from odoo.exceptions import ValidationError
+from odoo.tests import Form
 from odoo.tests.common import TransactionCase
 from odoo.tools import mute_logger
 
@@ -13,6 +14,9 @@ class TestProductClass(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        # The class and attribute line fields live in the "Attributes &
+        # Variants" page, only shown to users having the variants group.
+        cls.env.user.group_ids += cls.env.ref("product.group_product_variant")
         cls.size_attr = cls.env["product.attribute"].create({"name": "Size"})
         cls.size_value = cls.env["product.attribute.value"].create(
             {"name": "M", "attribute_id": cls.size_attr.id}
@@ -274,6 +278,155 @@ class TestProductClass(TransactionCase):
         product.class_id = product_class
         # No exception should be raised
         self.assertEqual(product.class_id, product_class)
+
+    def test_product_prefills_required_class_attributes(self):
+        """Picking a class on a product suggests its required attributes.
+
+        Scenario:
+            1. Create a class requiring one attribute and allowing another one.
+            2. On a brand new product form, select that class.
+        Expected:
+            - Only the required attribute is added as a line.
+            - No value is selected on it, so the user must fill it in.
+        """
+        product_class = self._create_product_class(
+            "Prefill Class",
+            [
+                self._make_class_attribute_line(self.size_attr, required=True),
+                self._make_class_attribute_line(self.color_attr),
+            ],
+        )
+        form = Form(self.env["product.template"])
+        form.class_id = product_class
+
+        self.assertEqual(len(form.attribute_line_ids), 1)
+        with form.attribute_line_ids.edit(0) as line:
+            self.assertEqual(line.attribute_id, self.size_attr)
+            self.assertFalse(line.value_ids)
+
+    def test_saved_product_without_attributes_prefills_them(self):
+        """Saved products without attributes are filled in as well.
+
+        Scenario:
+            1. Create and save a product without attributes.
+            2. Select a class requiring an attribute on its form.
+        Expected:
+            - The required attribute is suggested, with no value selected.
+        """
+        product_class = self._create_product_class(
+            "Prefill Saved Class",
+            [self._make_class_attribute_line(self.size_attr, required=True)],
+        )
+        product = self.env["product.template"].create({"name": "Product 10"})
+
+        form = Form(product)
+        form.class_id = product_class
+
+        self.assertEqual(len(form.attribute_line_ids), 1)
+        with form.attribute_line_ids.edit(0) as line:
+            self.assertEqual(line.attribute_id, self.size_attr)
+            self.assertFalse(line.value_ids)
+
+    def test_saved_product_with_attributes_is_not_prefilled(self):
+        """Attributes of a saved product are left alone.
+
+        Scenario:
+            1. Create a product having one attribute with a value.
+            2. Select a class requiring another attribute on its form.
+        Expected:
+            - The existing attribute is kept and nothing is suggested.
+        """
+        product_class = self._create_product_class(
+            "Prefill Filled Class",
+            [self._make_class_attribute_line(self.color_attr, required=True)],
+        )
+        product = self.env["product.template"].create({"name": "Product 11"})
+        self._create_product_attribute_line(product, self.size_attr, self.size_value)
+
+        form = Form(product)
+        form.class_id = product_class
+
+        self.assertEqual(len(form.attribute_line_ids), 1)
+        with form.attribute_line_ids.edit(0) as line:
+            self.assertEqual(line.attribute_id, self.size_attr)
+
+    def test_clearing_class_drops_suggested_attributes(self):
+        """Removing the class removes the attributes suggested for it.
+
+        Scenario:
+            1. On a new product form, select a class requiring one attribute.
+            2. Without filling anything in, clear the class.
+        Expected:
+            - The suggested attribute line is removed.
+        """
+        product_class = self._create_product_class(
+            "Cleared Class",
+            [self._make_class_attribute_line(self.size_attr, required=True)],
+        )
+        form = Form(self.env["product.template"])
+        form.class_id = product_class
+
+        form.class_id = self.env["product.class"]
+
+        self.assertFalse(form.attribute_line_ids)
+
+    def test_switching_class_replaces_suggested_attributes(self):
+        """Suggested attributes follow the class as long as they are untouched.
+
+        Scenario:
+            1. On a new product form, select a class requiring one attribute.
+            2. Without filling anything in, select another class requiring a
+               different attribute.
+        Expected:
+            - The first suggestion is dropped and replaced by the new one.
+        """
+        size_class = self._create_product_class(
+            "Prefill Size Class",
+            [self._make_class_attribute_line(self.size_attr, required=True)],
+        )
+        color_class = self._create_product_class(
+            "Prefill Color Class",
+            [self._make_class_attribute_line(self.color_attr, required=True)],
+        )
+        form = Form(self.env["product.template"])
+        form.class_id = size_class
+
+        form.class_id = color_class
+
+        self.assertEqual(len(form.attribute_line_ids), 1)
+        with form.attribute_line_ids.edit(0) as line:
+            self.assertEqual(line.attribute_id, self.color_attr)
+
+    def test_switching_class_keeps_filled_attributes(self):
+        """Attributes the user filled in are never discarded.
+
+        Scenario:
+            1. On a new product form, select a class requiring one attribute.
+            2. Pick a value on the suggested line.
+            3. Select another class requiring a different attribute.
+        Expected:
+            - The filled line is kept as it is, and nothing is suggested for
+              the new class.
+        """
+        size_class = self._create_product_class(
+            "Keep Size Class",
+            [self._make_class_attribute_line(self.size_attr, required=True)],
+        )
+        color_class = self._create_product_class(
+            "Keep Color Class",
+            [self._make_class_attribute_line(self.color_attr, required=True)],
+        )
+        form = Form(self.env["product.template"])
+        form.class_id = size_class
+        with form.attribute_line_ids.edit(0) as line:
+            line.value_ids.add(self.size_value)
+
+        form.class_id = color_class
+
+        self.assertEqual(len(form.attribute_line_ids), 1)
+        with form.attribute_line_ids.edit(0) as line:
+            self.assertEqual(line.attribute_id, self.size_attr)
+            self.assertEqual(list(line.value_ids), [self.size_value])
 
     def test_class_attribute_line_is_unique_per_class(self):
         """A class cannot configure the same attribute more than once."""
