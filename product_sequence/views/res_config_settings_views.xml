@@ -1,0 +1,22 @@
+<!-- Copyright 2018 Eficent Business and IT Consulting Services S.L.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.product</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="product.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='product_general_settings']" position="after">
+                <block title="Product Sequences" id="product_sequence_general_settings">
+                    <setting
+                        id="parent_categories_prefix"
+                        string="Use parent categories to determine the prefix"
+                        help="Use parent categories to determine the prefix if the category has no settings for the prefix"
+                    >
+                        <field name="use_parent_categories_to_determine_prefix" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
