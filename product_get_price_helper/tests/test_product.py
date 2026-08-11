@@ -13,9 +13,69 @@ class ProductCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.template = cls.env.ref("product.product_product_4_product_template")
-        cls.variant = cls.env.ref("product.product_product_4b")
-        cls.template.taxes_id = cls.env.ref("product_get_price_helper.tax_1")
+        cls.env.company.country_id = cls.env.ref("base.us")
+        cls.tax_group = cls.env["account.tax.group"].create(
+            {
+                "name": "Test Tax Group",
+            }
+        )
+        cls.tax_1 = cls.env["account.tax"].create(
+            {
+                "name": "Tax inc demo",
+                "amount": 15.0,
+                "amount_type": "percent",
+                "type_tax_use": "sale",
+                "price_include": True,
+                "tax_group_id": cls.tax_group.id,
+            }
+        )
+        cls.tax_2 = cls.env["account.tax"].create(
+            {
+                "name": "Tax exc demo",
+                "amount": 15.0,
+                "amount_type": "percent",
+                "type_tax_use": "sale",
+                "price_include": False,
+                "original_tax_ids": [(6, 0, [cls.tax_1.id])],
+                "tax_group_id": cls.tax_group.id,
+            }
+        )
+        cls.fiscal_position_0 = cls.env["account.fiscal.position"].create(
+            {
+                "name": "Default",
+            }
+        )
+        cls.fiscal_position_1 = cls.env["account.fiscal.position"].create(
+            {
+                "name": "Business",
+                "tax_ids": [(6, 0, [cls.tax_2.id])],
+            }
+        )
+        cls.pricelist_1 = cls.env["product.pricelist"].create(
+            {
+                "name": "Business Pricelist",
+                "currency_id": cls.env.ref("base.USD").id,
+                "item_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "base": "list_price",
+                            "compute_price": "percentage",
+                            "percent_price": 20.0,
+                        },
+                    )
+                ],
+            }
+        )
+        cls.template = cls.env["product.template"].create(
+            {
+                "name": "Test Product",
+                "list_price": 750.0,
+            }
+        )
+        cls.variant = cls.template.product_variant_ids[0]
+        cls.template.taxes_id = cls.tax_1
         cls.env.user.company_id.currency_id = cls.env.ref("base.USD")
         cls.base_pricelist = cls.env["product.pricelist"].create(
             {"name": "Base Pricelist", "currency_id": cls.env.ref("base.USD").id}
@@ -64,7 +124,7 @@ class ProductCase(TransactionCase):
 
     def test_product_get_price(self):
         # self.base_pricelist doesn't define a tax mapping. We are tax included
-        fiscal_position_fr = self.env.ref("product_get_price_helper.fiscal_position_0")
+        fiscal_position_fr = self.fiscal_position_0
         self.variant.taxes_id.price_include = True
         price = self.variant._get_price(
             pricelist=self.base_pricelist, fposition=fiscal_position_fr
@@ -79,7 +139,7 @@ class ProductCase(TransactionCase):
             },
         )
         # promotion price list define a discount of 20% on all product
-        promotion_price_list = self.env.ref("product_get_price_helper.pricelist_1")
+        promotion_price_list = self.pricelist_1
         price = self.variant._get_price(
             pricelist=promotion_price_list, fposition=fiscal_position_fr
         )
@@ -94,9 +154,7 @@ class ProductCase(TransactionCase):
         )
         # use a fiscal position defining a mapping from tax included to tax
         # excluded
-        tax_exclude_fiscal_position = self.env.ref(
-            "product_get_price_helper.fiscal_position_1"
-        )
+        tax_exclude_fiscal_position = self.fiscal_position_1
         price = self.variant._get_price(
             pricelist=self.base_pricelist, fposition=tax_exclude_fiscal_position
         )
@@ -132,7 +190,7 @@ class ProductCase(TransactionCase):
                 "fixed_price": 10,
             }
         )
-        fiscal_position_fr = self.env.ref("product_get_price_helper.fiscal_position_0")
+        fiscal_position_fr = self.fiscal_position_0
         self.variant.taxes_id.price_include = True
         price = self.variant.with_context(foo=1)._get_price(
             pricelist=self.base_pricelist, fposition=fiscal_position_fr
@@ -152,14 +210,11 @@ class ProductCase(TransactionCase):
     # See https://github.com/odoo/odoo/issues/202035
     # The test should be updated when the issue is fixed to use
     # self.env.user.groups_id |= self.env.ref("sale.group_discount_per_so_line")
-    @mock.patch(
-        "odoo.addons.product.models.product_pricelist_item.PricelistItem._show_discount"
-    )
-    def test_product_get_price_per_qty(self, show_discount):
-        show_discount.return_value = False
+    def test_product_get_price_per_qty(self):
+        PlItem = type(self.env["product.pricelist.item"])
         self.variant.taxes_id.price_include = True
         # Define a promotion price for the product with min_qty = 10
-        fposition = self.env.ref("product_get_price_helper.fiscal_position_0")
+        fposition = self.fiscal_position_0
         pricelist = self.base_pricelist
         self.env["product.pricelist.item"].create(
             {
@@ -173,103 +228,144 @@ class ProductCase(TransactionCase):
                 "min_quantity": 10.0,
             }
         )
-        # Case 1 (qty = 1.0). No discount is applied
-        price = self.variant._get_price(
-            qty=1.0, pricelist=pricelist, fposition=fposition
-        )
-        self.assertDictEqual(
-            price,
-            {
-                "discount": 0.0,
-                "original_value": 750.0,
-                "tax_included": True,
-                "value": 750.0,
-            },
-        )
-        # Case 2 (qty = 10.0). Discount is applied
-        # promotion price list define a discount of 20% on all product
-        price = self.variant._get_price(
-            qty=10.0, pricelist=pricelist, fposition=fposition
-        )
-        self.assertDictEqual(
-            price,
-            {
-                "discount": 0.0,
-                "original_value": 600.0,
-                "tax_included": True,
-                "value": 600.0,
-            },
-        )
+        with mock.patch.object(
+            PlItem, "_show_discount", return_value=False, create=True
+        ):
+            # Case 1 (qty = 1.0). No discount is applied
+            price = self.variant._get_price(
+                qty=1.0, pricelist=pricelist, fposition=fposition
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "discount": 0.0,
+                    "original_value": 750.0,
+                    "tax_included": True,
+                    "value": 750.0,
+                },
+            )
+            # Case 2 (qty = 10.0). Discount is applied
+            # promotion price list define a discount of 20% on all product
+            price = self.variant._get_price(
+                qty=10.0, pricelist=pricelist, fposition=fposition
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "discount": 0.0,
+                    "original_value": 600.0,
+                    "tax_included": True,
+                    "value": 600.0,
+                },
+            )
 
-    @mock.patch(
-        "odoo.addons.product.models.product_pricelist_item.PricelistItem._show_discount"
-    )
-    def test_product_get_price_discount_policy(self, show_discount):
+    def test_product_get_price_discount_policy(self):
+        PlItem = type(self.env["product.pricelist.item"])
         self.variant.taxes_id.price_include = True
-        show_discount.return_value = False
         # Ensure that discount is with 2 digits
         self.env.ref("product.decimal_discount").digits = 2
         # self.base_pricelist doesn't define a tax mapping. We are tax included
         # Discount policy: do not show the discount.
-        fiscal_position_fr = self.env.ref("product_get_price_helper.fiscal_position_0")
-        price = self.variant._get_price(
-            pricelist=self.base_pricelist, fposition=fiscal_position_fr
-        )
-        self.assertDictEqual(
-            price,
-            {
-                "tax_included": True,
-                "value": 750.0,
-                "discount": 0.0,
-                "original_value": 750.0,
-            },
-        )
+        fiscal_position_fr = self.fiscal_position_0
+        with mock.patch.object(
+            PlItem, "_show_discount", return_value=False, create=True
+        ):
+            price = self.variant._get_price(
+                pricelist=self.base_pricelist, fposition=fiscal_position_fr
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "tax_included": True,
+                    "value": 750.0,
+                    "discount": 0.0,
+                    "original_value": 750.0,
+                },
+            )
         # promotion price list define a discount of 20% on all product
         # Discount policy: show the discount.
-        show_discount.return_value = True
-        promotion_price_list = self.env.ref("product_get_price_helper.pricelist_1")
-        price = self.variant._get_price(
-            pricelist=promotion_price_list, fposition=fiscal_position_fr
-        )
-        self.assertDictEqual(
-            price,
-            {
-                "tax_included": True,
-                "value": 600.0,
-                "discount": 20.0,
-                "original_value": 750.0,
-            },
-        )
+        promotion_price_list = self.pricelist_1
+        with mock.patch.object(
+            PlItem, "_show_discount", return_value=True, create=True
+        ):
+            price = self.variant._get_price(
+                pricelist=promotion_price_list, fposition=fiscal_position_fr
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "tax_included": True,
+                    "value": 600.0,
+                    "discount": 20.0,
+                    "original_value": 750.0,
+                },
+            )
         # use the fiscal position defining a mapping from tax included to tax
         # excluded
         # Tax mapping should not impact the computation of the discount and
         # the original value
-        tax_exclude_fiscal_position = self.env.ref(
-            "product_get_price_helper.fiscal_position_1"
-        )
-        show_discount.return_value = False
-        price = self.variant._get_price(
-            pricelist=self.base_pricelist, fposition=tax_exclude_fiscal_position
-        )
-        self.assertDictEqual(
-            price,
+        tax_exclude_fiscal_position = self.fiscal_position_1
+        with mock.patch.object(
+            PlItem, "_show_discount", return_value=False, create=True
+        ):
+            price = self.variant._get_price(
+                pricelist=self.base_pricelist, fposition=tax_exclude_fiscal_position
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "tax_included": False,
+                    "value": 652.17,
+                    "discount": 0.0,
+                    "original_value": 652.17,
+                },
+            )
+        with mock.patch.object(
+            PlItem, "_show_discount", return_value=True, create=True
+        ):
+            price = self.variant._get_price(
+                pricelist=promotion_price_list, fposition=tax_exclude_fiscal_position
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "tax_included": False,
+                    "value": 521.74,
+                    "discount": 20.0,
+                    "original_value": 652.17,
+                },
+            )
+        # Test the zero-discount branch: show_discount=True but pricelist computes
+        # the same price as lst_price (original == pricelist price) → discount = 0.00
+        pricelist_nodiscount = self.env["product.pricelist"].create(
             {
-                "tax_included": False,
-                "value": 652.17,
-                "discount": 0.0,
-                "original_value": 652.17,
-            },
+                "name": "Zero Discount Pricelist",
+                "currency_id": self.env.ref("base.USD").id,
+                "item_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "base": "list_price",
+                            "compute_price": "percentage",
+                            "percent_price": 0.0,  # 0% discount → same price as list
+                        },
+                    )
+                ],
+            }
         )
-        show_discount.return_value = True
-        price = self.variant._get_price(
-            pricelist=promotion_price_list, fposition=tax_exclude_fiscal_position
-        )
-        self.assertDictEqual(
-            price,
-            {
-                "tax_included": False,
-                "value": 521.74,
-                "discount": 20.0,
-                "original_value": 652.17,
-            },
-        )
+        with mock.patch.object(
+            PlItem, "_show_discount", return_value=True, create=True
+        ):
+            price = self.variant._get_price(
+                pricelist=pricelist_nodiscount, fposition=fiscal_position_fr
+            )
+            self.assertDictEqual(
+                price,
+                {
+                    "tax_included": True,
+                    "value": 750.0,
+                    "discount": 0.0,
+                    "original_value": 750.0,
+                },
+            )

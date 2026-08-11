@@ -13,6 +13,7 @@
         <field eval="15" name="amount" />
         <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
+        <field name="original_tax_ids" eval="[(6, 0, [ref('tax_1')])]" />
     </record>
 
     <record id="fiscal_position_0" model="account.fiscal.position">
@@ -26,11 +27,6 @@
         <field eval="1" name="auto_apply" />
         <field eval="1" name="vat_required" />
         <field name="country_id" ref="base.fr" />
-    </record>
-
-    <record id="position_tax_1" model="account.fiscal.position.tax">
-        <field name="position_id" ref="fiscal_position_1" />
-        <field name="tax_src_id" ref="tax_1" />
-        <field name="tax_dest_id" ref="tax_2" />
+        <field name="tax_ids" eval="[(6, 0, [ref('tax_2')])]" />
     </record>
 </odoo>
