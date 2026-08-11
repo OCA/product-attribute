@@ -82,7 +82,14 @@ class ProductProduct(models.Model):
             if not pl_item.exists():
                 return res
             original_price_unit = product.lst_price
-            if not pl_item._show_discount():
+            # _show_discount is provided by the `sale` module; fall back to
+            # always-hide behaviour when that module is not installed.
+            show_discount = (
+                pl_item._show_discount()
+                if hasattr(pl_item, "_show_discount")
+                else False
+            )
+            if not show_discount:
                 # If the pricelist does not show the discount, we return the price as is
                 if float_is_zero(original_price_unit, precision_digits=price_dp):
                     res["original_value"] = 0.0
