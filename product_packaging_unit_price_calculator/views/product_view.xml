@@ -7,14 +7,14 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <button name="open_pricelist_rules" position="after">
+            <field name="list_price" position="after">
                 <button
                     name="open_packaging_price"
                     icon="fa-calculator"
                     type="object"
                     class="oe_inline"
                 >Packaging Prices</button>
-            </button>
+            </field>
         </field>
     </record>
 </odoo>

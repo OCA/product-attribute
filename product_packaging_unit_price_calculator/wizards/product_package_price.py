@@ -10,22 +10,28 @@ class ProductPackagePrice(models.TransientModel):
     _description = "Wizard to compute unit price from packaging price"
 
     def _default_product_tmpl_id(self):
-        return self.env["product.template"].browse(self._context.get("product_tmpl_id"))
+        return self.env["product.template"].browse(
+            self.env.context.get("product_tmpl_id")
+        )
 
     def _default_product_pricelist_item_id(self):
-        if self._context.get("active_model") != "product.pricelist.item":
+        if self.env.context.get("active_model") != "product.pricelist.item":
             return False
-        return self.env["product.pricelist.item"].browse(self._context.get("active_id"))
+        return self.env["product.pricelist.item"].browse(
+            self.env.context.get("active_id")
+        )
 
     def _default_product_supplierinfo_id(self):
-        if self._context.get("active_model") != "product.supplierinfo":
+        if self.env.context.get("active_model") != "product.supplierinfo":
             return False
-        return self.env["product.supplierinfo"].browse(self._context.get("active_id"))
+        return self.env["product.supplierinfo"].browse(
+            self.env.context.get("active_id")
+        )
 
     def _default_product_id(self):
-        if self._context.get("active_model") != "product.product":
+        if self.env.context.get("active_model") != "product.product":
             return False
-        return self.env["product.product"].browse(self._context.get("active_id"))
+        return self.env["product.product"].browse(self.env.context.get("active_id"))
 
     product_tmpl_id = fields.Many2one(
         "product.template", default=lambda self: self._default_product_tmpl_id()
@@ -47,8 +53,8 @@ class ProductPackagePrice(models.TransientModel):
         related="product_tmpl_id.product_variant_ids",
     )
     selected_packaging_id = fields.Many2one(
-        "product.packaging",
-        domain="[('product_id', 'in', product_variant_ids)]",
+        "uom.uom",
+        domain="[('id', 'in', packaging_ids)]",
     )
     packaging_price = fields.Float("Package Price", default=0.0, digits="Product Price")
     unit_price = fields.Float(
@@ -58,8 +64,8 @@ class ProductPackagePrice(models.TransientModel):
     current_unit_price = fields.Float(
         compute="_compute_current_unit_price", digits="Product Price"
     )
-    packaging_ids = fields.One2many(
-        "product.packaging",
+    packaging_ids = fields.Many2many(
+        "uom.uom",
         string="Product Packages",
         compute="_compute_packaging_ids",
     )
@@ -67,18 +73,16 @@ class ProductPackagePrice(models.TransientModel):
 
     @api.depends("packaging_price", "selected_packaging_id")
     def _compute_unit_price(self):
-        if not self.selected_packaging_id:
-            self.unit_price = self.current_unit_price
-        elif not self.selected_packaging_id.qty:
-            self.unit_price = self.current_unit_price
-            self.warning_message = self.env._(
-                "Unit price cannot be computed because the selected"
-                "packaging has no quantity set."
-            )
-        else:
-            self.unit_price = self.packaging_price / self.selected_packaging_id.qty
-            self.warning_message = " "
-        self._compute_package_prices()
+        for record in self:
+            if not record.selected_packaging_id:
+                record.unit_price = record.current_unit_price
+                record.warning_message = " "
+            else:
+                record.unit_price = (
+                    record.packaging_price / record.selected_packaging_id.factor
+                )
+                record.warning_message = " "
+            record._compute_package_prices()
 
     @api.depends(
         "product_pricelist_item_id", "product_supplierinfo_id", "product_tmpl_id"
@@ -96,23 +100,23 @@ class ProductPackagePrice(models.TransientModel):
 
     @api.depends("unit_price")
     def _compute_package_prices(self):
-        for pack in self.packaging_ids:
-            pack.packaging_wizard_price = self.unit_price * pack.qty
+        for record in self:
+            for pack in record.packaging_ids:
+                pack.packaging_wizard_price = record.unit_price * pack.factor
 
     @api.depends("product_tmpl_id")
     def _compute_packaging_ids(self):
-        self.packaging_ids = self.product_tmpl_id.mapped(
-            "product_variant_ids.packaging_ids"
-        )
+        for record in self:
+            record.packaging_ids = record.product_tmpl_id.uom_ids
 
     def action_set_price(self):
         if not self.packaging_price:
             return
-        if not self.selected_packaging_id.qty:
+        if not self.selected_packaging_id.factor:
             raise UserError(
                 self.env._(
                     "Unit price cannot be computed because the selected"
-                    "packaging has no quantity set."
+                    " packaging has no quantity set."
                 )
             )
         if self.product_pricelist_item_id:
@@ -128,8 +132,8 @@ class ProductPackagePrice(models.TransientModel):
         xmlid = "product_packaging_unit_price_calculator.action_unit_price_wizard"
         action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         action["context"] = {
-            "product_tmpl_id": self._context.get("product_tmpl_id"),
-            "active_model": self._context.get("active_model"),
-            "active_id": self._context.get("active_id"),
+            "product_tmpl_id": self.env.context.get("product_tmpl_id"),
+            "active_model": self.env.context.get("active_model"),
+            "active_id": self.env.context.get("active_id"),
         }
         return action

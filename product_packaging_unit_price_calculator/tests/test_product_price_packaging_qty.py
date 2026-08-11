@@ -7,27 +7,57 @@ class TestProductPricePackagingQty(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
-        cls.product = cls.env.ref("product.product_product_1")
-        cls.product.list_price = 222
+
+        # Create a dummy product to avoid missing external ID error
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "Test Product",
+                "list_price": 222,
+            }
+        )
+
         cls.wizard = cls.env["product.package.price.wizard"]
-        cls.pkg_box = cls.env["product.packaging"].create(
-            {"name": "Box", "product_id": cls.product.id}
+
+        # Find a reference UoM
+        ref_uom = cls.env["uom.uom"].search([("relative_uom_id", "=", False)], limit=1)
+
+        # Create UoMs instead of product.packaging
+        cls.pkg_box = cls.env["uom.uom"].create(
+            {
+                "name": "Box",
+                "relative_factor": 50.0,
+                "relative_uom_id": ref_uom.id,
+            }
         )
-        # Qty is not added on create because it breaks on Travis with
-        # packaging_uom installed
-        cls.pkg_box.qty = 50
-        cls.pkg_big_box = cls.env["product.packaging"].create(
-            {"name": "Big Box", "product_id": cls.product.id}
+        cls.pkg_big_box = cls.env["uom.uom"].create(
+            {
+                "name": "Big Box",
+                "relative_factor": 200.0,
+                "relative_uom_id": ref_uom.id,
+            }
         )
-        cls.pkg_big_box.qty = 200
-        cls.pkg_pallet = cls.env["product.packaging"].create(
-            {"name": "Pallet", "product_id": cls.product.id}
+        cls.pkg_pallet = cls.env["uom.uom"].create(
+            {
+                "name": "Pallet",
+                "relative_factor": 2000.0,
+                "relative_uom_id": ref_uom.id,
+            }
         )
-        cls.pkg_pallet.qty = 2000
+
+        # Link UoMs to product
+        cls.product.product_tmpl_id.uom_ids = [
+            (6, 0, [cls.pkg_box.id, cls.pkg_big_box.id, cls.pkg_pallet.id])
+        ]
+
         cls.wizard_1 = cls.wizard.with_context(
             product_tmpl_id=cls.product.product_tmpl_id.id
         ).create({})
-        cls.supplier = cls.env.ref("base.res_partner_1")
+
+        cls.supplier = cls.env["res.partner"].create(
+            {
+                "name": "Test Supplier",
+            }
+        )
         cls.supplier_info = cls.env["product.supplierinfo"].create(
             {
                 "product_tmpl_id": cls.product.product_tmpl_id.id,
@@ -91,5 +121,51 @@ class TestProductPricePackagingQty(TransactionCase):
     def test_open_package_product_supplier_info(self):
         open_package = self.supplier_info.open_packaging_price()
         self.assertEqual(open_package.get("res_model"), "product.package.price.wizard")
+
+    def test_open_package_product_pricelist_item(self):
+        pricelist = self.env["product.pricelist"].create({"name": "Test Pricelist"})
+        item = self.env["product.pricelist.item"].create(
+            {
+                "pricelist_id": pricelist.id,
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+                "fixed_price": 100,
+            }
+        )
+        open_package = item.open_packaging_price()
+        self.assertEqual(open_package.get("res_model"), "product.package.price.wizard")
+
+        # Test defaults and setting price on pricelist item
+        wizard = self.wizard.with_context(
+            active_model="product.pricelist.item",
+            active_id=item.id,
+            product_tmpl_id=self.product.product_tmpl_id.id,
+        ).create({})
+        self.assertEqual(wizard.product_pricelist_item_id, item)
+        self.assertEqual(wizard.current_unit_price, 100)
+        wizard.packaging_price = 100
+        wizard.selected_packaging_id = self.pkg_box
+        wizard.action_set_price()
+        self.assertEqual(item.fixed_price, 2)
+
+    def test_active_model_product_product(self):
+        wizard = self.wizard.with_context(
+            active_model="product.product",
+            active_id=self.product.id,
+            product_tmpl_id=self.product.product_tmpl_id.id,
+        ).create({})
+        self.assertEqual(wizard.product_id, self.product)
+        self.assertEqual(wizard.current_unit_price, 222)
+        wizard.packaging_price = 100
+        wizard.selected_packaging_id = self.pkg_box
+        wizard.action_set_price()
+        self.assertEqual(self.product.lst_price, 2)
+
+    def test_active_model_product_supplierinfo(self):
+        wizard = self.wizard.with_context(
+            active_model="product.supplierinfo",
+            active_id=self.supplier_info.id,
+            product_tmpl_id=self.product.product_tmpl_id.id,
+        ).create({})
+        self.assertEqual(wizard.product_supplierinfo_id, self.supplier_info)
 
     # BizzAppDev Customization: End
