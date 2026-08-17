@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ======================
 Product Secondary Unit
 ======================
@@ -17,7 +13,7 @@ Product Secondary Unit
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -39,6 +35,48 @@ other units with their conversion factor.
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+To configure this module, go to **Settings** and locate the **Units of
+Measure** section.
+
+Secondary Unit Price Display
+----------------------------
+
+Configure how unit prices and quantities are shown in reports when
+secondary units are used.
+
+-  **Sales**: Select the display policy for sales order and customer
+   invoice reports and portal views.
+-  **Purchase**: Select the display policy for purchase order and vendor
+   bill reports and portal views.
+
+Available options:
+
+-  **Primary Unit Price Only**: Show only the primary unit price.
+-  **Prioritize Secondary Unit Price**: Show the secondary unit price
+   when available, otherwise fall back to the primary unit price.
+-  **Both Primary and Secondary Unit Prices**: Show both primary and
+   secondary unit prices.
+
+Hide Secondary Qty Column
+-------------------------
+
+Hide the separate **Second Qty** column in reports.
+
+-  When enabled, the **Second Qty** column is hidden in reports. The
+   secondary quantity can still be shown in the main **Qty** column
+   depending on the selected price display policy above.
+-  Apply the setting per document type:
+
+   -  **Sales**
+   -  **Purchase**
+
+These settings are intended to be used by dependency modules (for
+example, ``purchase_order_secondary_unit`` and
+``account_move_secondary_unit``).
 
 Usage
 =====
@@ -70,11 +108,15 @@ Authors
 Contributors
 ------------
 
-- Carlos Dauden <carlos.dauden@tecnativa.com>
-- Sergio Teruel <sergio.teruel@tecnativa.com>
-- Kitti Upariphutthiphong <kittiu@ecosoft.co.th>
-- Pimolnat Suntian <pimolnats@ecosoft.co.th>
-- Alan Ramos <alan.ramos@jarsa.com.mx>
+-  Carlos Dauden <carlos.dauden@tecnativa.com>
+-  Sergio Teruel <sergio.teruel@tecnativa.com>
+-  Kitti Upariphutthiphong <kittiu@ecosoft.co.th>
+-  Pimolnat Suntian <pimolnats@ecosoft.co.th>
+-  Alan Ramos <alan.ramos@jarsa.com.mx>
+-  `Quartile <https://www.quartile.co>`__:
+
+   -  Yoshi Tashiro
+   -  Aung Ko Ko Lin
 
 Maintainers
 -----------

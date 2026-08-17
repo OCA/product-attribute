@@ -149,3 +149,56 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         ):
             defaults["secondary_uom_qty"] = 1.0
         return defaults
+
+    def _get_secondary_uom_report_type(self):
+        """Return 'sale', 'purchase', or None."""
+        self.ensure_one()
+        if self._name == "sale.order.line" or (
+            self._name == "account.move.line"
+            and self.move_id.is_sale_document(include_receipts=True)
+        ):
+            return "sale"
+        if self._name == "purchase.order.line" or (
+            self._name == "account.move.line"
+            and self.move_id.is_purchase_document(include_receipts=True)
+        ):
+            return "purchase"
+        return None
+
+    def _get_secondary_uom_hide_col(self):
+        """Return whether secondary UoM column should be hidden on reports."""
+        self.ensure_one()
+        if not self.secondary_uom_id:
+            return True
+        report_type = self._get_secondary_uom_report_type()
+        if report_type == "purchase":
+            return self.company_id.hide_secondary_uom_column_purchase
+        if report_type == "sale":
+            return self.company_id.hide_secondary_uom_column_sale
+        return True
+
+    def get_secondary_uom_display_mode(self):
+        """Return display mode for secondary UoM price on reports."""
+        self.ensure_one()
+        if not self.secondary_uom_id:
+            return "primary"
+        report_type = self._get_secondary_uom_report_type()
+        if report_type == "purchase":
+            return self.company_id.secondary_uom_price_display_purchase
+        if report_type == "sale":
+            return self.company_id.secondary_uom_price_display_sale
+        return "primary"
+
+    def report_show_price_uom(self, uom_source=None):
+        """Return True if UoM should be shown in price column.
+
+        UoM is shown when the line displays multiple UoMs.
+        """
+        self.ensure_one()
+        if not self.secondary_uom_id:
+            return False
+        hide_col = self._get_secondary_uom_hide_col()
+        display_mode = self.get_secondary_uom_display_mode()
+        if uom_source == "primary_uom" and display_mode == "secondary":
+            return False
+        return not hide_col or display_mode == "both"

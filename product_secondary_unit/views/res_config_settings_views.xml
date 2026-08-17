@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.secondary.unit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="product.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <setting id="manage_volume_uom_setting" position="after">
+                <setting
+                    id="secondary_uom_price_display"
+                    company_dependent="1"
+                    string="Secondary Unit Price Display"
+                    help="Configure how unit prices and quantities are shown in reports when secondary units are used."
+                    groups="product_secondary_unit.group_sale_secondary_unit,product_secondary_unit.group_purchase_secondary_unit"
+                >
+                    <div
+                        class="row mt8"
+                        groups="product_secondary_unit.group_sale_secondary_unit"
+                    >
+                        <label
+                            for="secondary_uom_price_display_sale"
+                            class="col-lg-3 o_light_label"
+                            string="Sales"
+                        />
+                        <field name="secondary_uom_price_display_sale" />
+                    </div>
+                    <div
+                        class="row mt8"
+                        groups="product_secondary_unit.group_purchase_secondary_unit"
+                    >
+                        <label
+                            for="secondary_uom_price_display_purchase"
+                            class="col-lg-3 o_light_label"
+                            string="Purchase"
+                        />
+                        <field name="secondary_uom_price_display_purchase" />
+                    </div>
+                </setting>
+                <setting
+                    id="hide_secondary_uom_column"
+                    company_dependent="1"
+                    string="Hide Secondary Qty Column"
+                    help="If selected, the 'Second Qty' column will be hidden in reports. Enable this when you choose to show the secondary unit price in 'Secondary Unit Price Display' setting."
+                    groups="product_secondary_unit.group_sale_secondary_unit,product_secondary_unit.group_purchase_secondary_unit"
+                >
+                    <div class="d-flex gap-4 mt8">
+                        <span groups="product_secondary_unit.group_sale_secondary_unit">
+                            <field
+                                name="hide_secondary_uom_column_sale"
+                                class="oe_inline"
+                            />
+                            <label
+                                for="hide_secondary_uom_column_sale"
+                                string="Sales"
+                            />
+                        </span>
+                        <span
+                            groups="product_secondary_unit.group_purchase_secondary_unit"
+                        >
+                            <field
+                                name="hide_secondary_uom_column_purchase"
+                                class="oe_inline"
+                            />
+                            <label
+                                for="hide_secondary_uom_column_purchase"
+                                string="Purchase"
+                            />
+                        </span>
+                    </div>
+                </setting>
+            </setting>
+        </field>
+    </record>
+</odoo>
