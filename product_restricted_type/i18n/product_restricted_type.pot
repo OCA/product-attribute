@@ -16,7 +16,6 @@ msgstr ""
 #. module: product_restricted_type
 #. odoo-python
 #: code:addons/product_restricted_type/models/product_category.py:0
-#, python-format
 msgid ""
 "A product (or multiple products) in the category have different type than "
 "the selected restricted product type"
@@ -52,7 +51,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/product_restricted_type/models/product_product.py:0
 #: code:addons/product_restricted_type/models/product_template.py:0
-#, python-format
 msgid ""
 "The Product Type (%(product_type)s) must be equal to the Restricted Product "
 "Type defined in the Product Category (%(product_categ_restricted_type)s)."
