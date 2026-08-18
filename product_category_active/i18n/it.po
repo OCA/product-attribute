@@ -27,10 +27,8 @@ msgstr "Attivo"
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
-"has one or more product linked to it."
+"has one or more active products linked to it."
 msgstr ""
-"Almeno una categoria che si sta cercando di archiviare oppure uno dei suoi "
-"figli ha uno o più prodotti associati ad essa."
 
 #. module: product_category_active
 #: model:ir.model.fields,help:product_category_active.field_product_category__active
@@ -45,3 +43,11 @@ msgstr ""
 #: model:ir.model,name:product_category_active.model_product_category
 msgid "Product Category"
 msgstr "Categoria prodotto"
+
+#, python-format
+#~ msgid ""
+#~ "At least one category that you are trying to archive or one of its "
+#~ "children has one or more product linked to it."
+#~ msgstr ""
+#~ "Almeno una categoria che si sta cercando di archiviare oppure uno dei "
+#~ "suoi figli ha uno o più prodotti associati ad essa."
