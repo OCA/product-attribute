@@ -79,6 +79,9 @@ Contributors
   - Carlos Roca
 
 - Denis Roussel <denis.roussel@acsone.eu>
+  `APSL-Nagarro <https://apsl.tech>`__:
+
+  - Antoni Marroig <antoni.marroig@nagarro.com>
 
 Maintainers
 -----------
