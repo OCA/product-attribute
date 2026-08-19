@@ -1,28 +1,44 @@
-/** @odoo-module **/
+/* Copyright 2024 Tecnativa - David Vidal
+ * License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). */
 
 import {ProductMatrixDialog} from "@product_matrix/js/product_matrix_dialog";
 import {patch} from "@web/core/utils/patch";
 
 patch(ProductMatrixDialog.prototype, {
+    setup() {
+        super.setup(...arguments);
+        this.secondaryUnits = [];
+        this.secondaryUnitId = false;
+        this.uomName = "";
+        const gridInfo = this.props.record.data.grid;
+        if (gridInfo) {
+            const infos = JSON.parse(gridInfo);
+            this.secondaryUnits = infos.secondary_units || [];
+            this.secondaryUnitId = infos.secondary_unit_id || false;
+            this.uomName = infos.uom_name || "";
+        }
+    },
+
+    /**
+     * @override
+     * Send the selected secondary unit along with the matrix changes.
+     */
     _onConfirm() {
-        let secondary_unit = document.getElementsByClassName("o_matrix_secondary_unit");
-        if (!secondary_unit || !secondary_unit.length) {
+        if (!this.secondaryUnits.length) {
             return super._onConfirm(...arguments);
         }
-        let secondary_unit_changed = false;
-        secondary_unit = parseInt(secondary_unit[0].value || 0, 10);
-        // TODO: enviar datos al server cuando solo cambie la UdM secundaria y no las cantidades
-        if (secondary_unit !== self.secondary_unit_id) {
-            secondary_unit_changed = true;
-        }
-        // Override the original _onConfirm method to include secondary unit changes
-        const inputs = document.getElementsByClassName("o_matrix_input");
+        const select = document.querySelector("select.o_matrix_secondary_unit");
+        const secondaryUnit = (select && parseInt(select.value, 10)) || false;
+        const secondaryUnitChanged = secondaryUnit !== this.secondaryUnitId;
         const matrixChanges = [];
-        for (const matrixInput of inputs) {
+        for (const matrixInput of document.getElementsByClassName("o_matrix_input")) {
+            const initialValue = matrixInput.attributes.value.nodeValue;
+            const changed = matrixInput.value && matrixInput.value !== initialValue;
+            // When the secondary unit changes, every filled cell has to be sent back
+            // so that the quantities get recomputed with the new factor.
             if (
-                (matrixInput.value &&
-                    matrixInput.value !== matrixInput.attributes.value.nodeValue) ||
-                matrixInput.attributes.value.nodeValue > 0
+                changed ||
+                (secondaryUnitChanged && parseFloat(initialValue || 0) > 0)
             ) {
                 matrixChanges.push({
                     qty: parseFloat(matrixInput.value),
@@ -32,23 +48,18 @@ patch(ProductMatrixDialog.prototype, {
                 });
             }
         }
-        if (matrixChanges.length > 0 || secondary_unit_changed) {
+        if (matrixChanges.length > 0 || secondaryUnitChanged) {
             // NB: server also removes current line opening the matrix
             this.props.record.update({
                 grid: JSON.stringify({
                     changes: matrixChanges,
                     product_template_id: this.props.product_template_id,
-                    secondary_unit: secondary_unit || false,
+                    secondary_unit: secondaryUnit,
                 }),
-                grid_update: true, // To say that the changes to grid have to be applied to the SO.
+                // To say that the changes to grid have to be applied to the SO.
+                grid_update: true,
             });
         }
         this.props.close();
     },
 });
-ProductMatrixDialog.props = {
-    ...ProductMatrixDialog.props,
-    secondary_unit_id: {optional: true},
-    secondary_units: {type: Array, optional: true},
-    uom_name: {type: String, optional: true},
-};

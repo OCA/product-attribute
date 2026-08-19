@@ -36,7 +36,6 @@ class TestSaleProductMatrixSecondaryUnit(HttpCase):
             {
                 "name": "SecondaryUnitMatrix",
                 "uom_id": cls.uom_unit.id,
-                "uom_po_id": cls.uom_unit.id,
                 "product_add_mode": "matrix",
                 "attribute_line_ids": [
                     Command.create(
@@ -67,7 +66,7 @@ class TestSaleProductMatrixSecondaryUnit(HttpCase):
             }
         )
         with RecordCapturer(self.env["sale.order"], []) as capture:
-            self.start_tour("/web", "sale_matrix_with_secondary_unit", login="admin")
+            self.start_tour("/odoo", "sale_matrix_with_secondary_unit", login="admin")
         new_sale = capture.records
         # Ensures a SO has been created with exactly 4 lines
         self.assertEqual(len(new_sale.order_line), 4)
@@ -86,7 +85,9 @@ class TestSaleProductMatrixSecondaryUnit(HttpCase):
 
     def test_sale_matrix_without_secondary_unit(self):
         with RecordCapturer(self.env["sale.order"], []) as capture:
-            self.start_tour("/web", "sale_matrix_without_secondary_unit", login="admin")
+            self.start_tour(
+                "/odoo", "sale_matrix_without_secondary_unit", login="admin"
+            )
         new_sale = capture.records
         # Ensures a SO has been created with exactly 4 lines
         self.assertEqual(len(new_sale.order_line), 4)

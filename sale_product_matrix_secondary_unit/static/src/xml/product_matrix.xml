@@ -7,19 +7,19 @@
     >
         <!-- Add selector with the secondary units available-->
         <xpath expr="//table" position="before">
-            <div class="input-group p-3" t-if="secondary_units">
-                <div class="input-group-prepend">
-                    <label
-                        class="input-group-text"
-                        for="secondary_unit"
-                    >Secondary Unit</label>
-                </div>
+            <div
+                class="input-group p-3"
+                t-if="secondary_units and secondary_units.length"
+            >
+                <label
+                    class="input-group-text"
+                    for="secondary_unit"
+                >Secondary Unit</label>
                 <select class="form-select o_matrix_secondary_unit" id="secondary_unit">
                     <option
                         value=""
                         t-att-selected="!secondary_unit_id ? 'selected' : undefined"
-                        placeholder="Secondary unit"
-                        class="font-italic"
+                        class="fst-italic"
                     ><t t-out="uom_name" /> (main unit of measure)
                     </option>
                     <option
@@ -27,9 +27,9 @@
                         t-as="unit"
                         t-key="unit.id"
                         t-att-value="unit.id"
-                        t-att-selected="secondary_unit_id == unit.id ? 'selected' : undefined"
+                        t-att-selected="secondary_unit_id === unit.id ? 'selected' : undefined"
                     >
-                        <t t-esc="unit.name" />
+                        <t t-out="unit.name" />
                     </option>
                 </select>
             </div>

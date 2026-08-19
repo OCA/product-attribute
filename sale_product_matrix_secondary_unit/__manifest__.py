@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Secondary unit in product matrix",
-    "version": "17.0.1.0.0",
+    "version": "19.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
@@ -12,9 +12,6 @@
         "sale_management",
         "sale_product_matrix",
         "sale_order_secondary_unit",
-    ],
-    "data": [
-        "views/sale_order_views.xml",
     ],
     "assets": {
         "web.assets_backend": [

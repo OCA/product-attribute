@@ -1,86 +1,77 @@
-/** @odoo-module */
 /* Copyright 2025 Carlos Lopez - Tecnativa
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
 import {registry} from "@web/core/registry";
-import {stepUtils} from "@web_tour/tour_service/tour_utils";
+import {stepUtils} from "@web_tour/tour_utils";
+import tourUtils from "@sale/js/tours/tour_utils";
 
-const common_steps = [
-    stepUtils.showAppsMenuItem(),
-    {
-        trigger: ".o_app[data-menu-xmlid='sale.sale_menu_root']",
-    },
-    {
-        trigger: ".o_list_button_add",
-        extra_trigger: ".o_sale_order",
-    },
-    {
-        trigger: "div[name=partner_id] input",
-        run: "text Deco Addict",
-    },
-    {
-        trigger: ".ui-menu-item > a:contains('Deco Addict')",
-        auto: true,
-    },
-    {
-        trigger: "a:contains('Add a product')",
-    },
-    {
-        trigger: "div[name='product_template_id'] input",
-        run: "text SecondaryUnitMatrix",
-    },
-    {
-        trigger: "ul.ui-autocomplete a:contains('SecondaryUnitMatrix')",
-    },
+const commonSteps = () => [
+    ...stepUtils.goToAppSteps("sale.sale_menu_root", "Go to the Sales App"),
+    ...tourUtils.createNewSalesOrder(),
+    ...tourUtils.selectCustomer("Deco Addict"),
+    ...tourUtils.addProduct("SecondaryUnitMatrix"),
 ];
+
+const fillMatrixWithOnes = {
+    content: "Fill the whole matrix with 1",
+    trigger: ".modal .o_matrix_input_table",
+    run: function () {
+        [...document.querySelectorAll(".o_matrix_input")].forEach((el) => {
+            el.value = 1;
+        });
+    },
+};
+
+const waitForMatrixLines = {
+    content: "Wait for the matrix to be applied on the order lines",
+    trigger: "div[name='order_line'] .o_data_row:nth-child(4)",
+};
+
+const confirmMatrix = {
+    content: "Apply the matrix",
+    trigger: ".modal button:contains('Confirm')",
+    run: "click",
+};
+
 registry.category("web_tour.tours").add("sale_matrix_with_secondary_unit", {
-    url: "/web",
-    test: true,
+    url: "/odoo",
     steps: () => [
-        ...common_steps,
+        ...commonSteps(),
         {
-            trigger: "#secondary_unit",
             content: "Select the secondary unit",
+            trigger: ".modal select.o_matrix_secondary_unit",
             run: function () {
-                const select = $("select.o_matrix_secondary_unit");
-                const option = select.find("option").filter(function () {
-                    return $(this).text().includes("Unit 1 12.0 Units");
-                });
-                select.val(option.val()).change();
+                const select = this.anchor;
+                const option = [...select.options].find((el) =>
+                    el.text.includes("Unit 1 12.0 Units")
+                );
+                select.value = option.value;
+                select.dispatchEvent(new Event("change", {bubbles: true}));
             },
         },
-        {
-            trigger: ".o_matrix_input_table",
-            run: function () {
-                // Fill the whole matrix with 1
-                $(".o_matrix_input").val(1);
-            },
-        },
-        {
-            trigger: "button:contains('Confirm')",
-        },
+        fillMatrixWithOnes,
+        confirmMatrix,
+        waitForMatrixLines,
         ...stepUtils.saveForm(),
     ],
 });
+
 registry.category("web_tour.tours").add("sale_matrix_without_secondary_unit", {
-    url: "/web",
-    test: true,
+    url: "/odoo",
     steps: () => [
-        ...common_steps,
+        ...commonSteps(),
         {
-            // This product does not have a secondary unit
-            trigger: ":not(select#secondary_unit)",
-        },
-        {
-            trigger: ".o_matrix_input_table",
+            content: "This product has no secondary units, so no selector is shown",
+            trigger: ".modal .o_matrix_input_table",
             run: function () {
-                // Fill the whole matrix with 1
-                $(".o_matrix_input").val(1);
+                if (document.querySelector("select.o_matrix_secondary_unit")) {
+                    throw new Error("The secondary unit selector shouldn't be shown");
+                }
             },
         },
-        {
-            trigger: "button:contains('Confirm')",
-        },
+        fillMatrixWithOnes,
+        confirmMatrix,
+        waitForMatrixLines,
         ...stepUtils.saveForm(),
     ],
 });

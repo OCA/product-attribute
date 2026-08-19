@@ -11,11 +11,13 @@ class ProductTemplate(models.Model):
         # The default secondary unit
         if self.sale_secondary_uom_id:
             matrix["secondary_unit_id"] = self.sale_secondary_uom_id.id
-        # Optional secondary units
-        if self.secondary_uom_ids:
+        # Optional secondary units. The field is defined with `active_test=False`,
+        # so we must filter out the archived ones.
+        active_secondary_uoms = self.secondary_uom_ids.filtered("active")
+        if active_secondary_uoms:
             matrix["secondary_units"] = [
                 {"name": f"{su.name} {su.factor} {su.sudo().uom_id.name}", "id": su.id}
-                for su in self.secondary_uom_ids
+                for su in active_secondary_uoms
             ]
         matrix["uom_name"] = self.uom_id.name
         return matrix

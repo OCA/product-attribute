@@ -21,6 +21,7 @@ class SaleOrder(models.Model):
         if not is_same_secondary_uom:
             matrix = super()._get_matrix(product_template)
             matrix.pop("secondary_units", None)
+            matrix.pop("secondary_unit_id", None)
             return matrix
         # Whether true or false...
         matrix = super(
@@ -45,22 +46,24 @@ class SaleOrder(models.Model):
         grid = json.loads(self.grid)
         if "secondary_unit" not in grid:
             return super()._apply_grid()
-        # In case that only the secondary unit is changed we need to set it manually
         secondary_unit = self.env["product.secondary.unit"].browse(
-            grid["secondary_unit"]
+            grid["secondary_unit"] or []
         )
-        if not grid.get("changed"):
-            lines = self.order_line.filtered(
-                lambda x, grid_template=self.grid_product_tmpl_id: grid_template
-                == x.product_template_id
-            )
-            lines.secondary_uom_id = secondary_unit
-        res = super()._apply_grid()
-        Attrib = self.env["product.template.attribute.value"]
-        dirty_cells = grid["changes"]
         product_template = self.env["product.template"].browse(
             grid["product_template_id"]
         )
+        # The unit selector applies to the whole matrix, so every line of this
+        # template gets it, even if its cell wasn't touched.
+        self.order_line.filtered(
+            lambda x, tmpl=product_template: x.product_template_id == tmpl
+        ).secondary_uom_id = secondary_unit
+        res = super()._apply_grid()
+        if not secondary_unit:
+            # Quantities in the matrix are expressed in the main unit of measure,
+            # so the standard behavior already did the job.
+            return res
+        Attrib = self.env["product.template.attribute.value"]
+        dirty_cells = grid["changes"]
         for cell in dirty_cells:
             combination = Attrib.browse(cell["ptav_ids"])
             no_variant_attr_values = (
@@ -89,25 +92,27 @@ class SaleOrderLine(models.Model):
         compute="_compute_force_product_configurator"
     )
 
-    @api.depends("secondary_uom_id")
+    @api.depends(
+        "product_template_id",
+        "order_id.order_line.product_id",
+        "order_id.order_line.secondary_uom_id",
+    )
     def _compute_force_product_configurator(self):
-        """Checks if there are matrix products with the same template and different
-        secondary unit for every order"""
-        self.force_product_configurator = False
-        for order in self.order_id:
-            product_templates = order.order_line.product_template_id.filtered(
-                lambda x: x.product_add_mode == "matrix"
-            )
-            for product_template in product_templates:
-                order_lines = order.order_line.filtered(
-                    lambda x, product_template=product_template: x.product_template_id
-                    == product_template
+        """Checks if the order has lines of the same matrix template with different
+        secondary units. In that case the matrix can't represent them, so we fall
+        back to the regular product configurator."""
+        for line in self:
+            template = line.product_template_id
+            force = False
+            if template.product_add_mode == "matrix":
+                # Lines without a variant yet (e.g. the placeholder line that opens
+                # the configurator) aren't representative of any matrix cell.
+                template_lines = line.order_id.order_line.filtered(
+                    lambda x, tmpl=template: x.product_id
+                    and x.product_template_id == tmpl
                 )
-                if not all(
-                    x.secondary_uom_id == order_lines[0].secondary_uom_id
-                    for x in order_lines
-                ):
-                    self.force_product_configurator = True
+                force = len({x.secondary_uom_id.id for x in template_lines}) > 1
+            line.force_product_configurator = force
 
     def mapped(self, func):
         # HACK: Use secondary_uom_qty when needed to avoid reparsing the matrix

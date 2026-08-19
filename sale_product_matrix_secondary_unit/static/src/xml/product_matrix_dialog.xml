@@ -7,9 +7,9 @@
     >
         <!-- Add additional info to render-->
         <xpath expr="//t[@t-call='product_matrix.matrix']" position="inside">
-            <t t-set="secondary_unit_id" t-value="props.secondary_unit_id" />
-            <t t-set="secondary_units" t-value="props.secondary_units" />
-            <t t-set="uom_name" t-value="props.uom_name" />
+            <t t-set="secondary_unit_id" t-value="secondaryUnitId" />
+            <t t-set="secondary_units" t-value="secondaryUnits" />
+            <t t-set="uom_name" t-value="uomName" />
         </xpath>
     </t>
 </templates>
