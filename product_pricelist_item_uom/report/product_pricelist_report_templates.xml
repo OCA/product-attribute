@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Camptocamp SA (https://www.camptocamp.com).
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="report_pricelist_page" inherit_id="product.report_pricelist_page">
+        <xpath expr="//tbody/t[@t-foreach='products']/tr" position="attributes">
+            <attribute name="t-foreach">product['uoms']</attribute>
+            <attribute name="t-as">product_uom</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/tr/td[@groups='uom.group_uom']"
+            position="attributes"
+        >
+            <attribute name="t-out">product_uom['name']</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/tr/t/td/span"
+            position="attributes"
+        >
+            <attribute name="t-out">product['price'][product_uom['id']][qty]</attribute>
+        </xpath>
+
+        <!--
+            Same, for each (variant, packaging) pair of a multi-variant
+            template. The pairs are pre-flattened in Python
+            (`data['variant_rows']`) so this stays a single t-foreach on the
+            existing row, patched via `attributes` only. No position
+            "replace" is needed, which would otherwise discard whatever any
+            other module's inheritance of this same row had added.
+        -->
+        <xpath expr="//tbody/t[@t-foreach='products']/t/tr" position="attributes">
+            <attribute name="t-foreach">product['variant_rows']</attribute>
+            <attribute name="t-as">row</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/t/tr/td/a[@t-if='is_html_type']"
+            position="attributes"
+        >
+            <attribute name="t-att-data-res-id">row['variant_id']</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/t/tr/td/a[@t-if='is_html_type']/span"
+            position="attributes"
+        >
+            <attribute name="t-out">row['variant_name']</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/t/tr/td/span[@t-else='']"
+            position="attributes"
+        >
+            <attribute name="t-out">row['variant_name']</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/t/tr/td[@groups='uom.group_uom']"
+            position="attributes"
+        >
+            <attribute name="t-out">row['uom_name']</attribute>
+        </xpath>
+        <xpath
+            expr="//tbody/t[@t-foreach='products']/t/tr/t/td/span"
+            position="attributes"
+        >
+            <attribute name="t-out">row['price'][qty]</attribute>
+        </xpath>
+    </template>
+</odoo>
