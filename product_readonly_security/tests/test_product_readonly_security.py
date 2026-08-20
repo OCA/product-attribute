@@ -4,13 +4,11 @@
 
 from odoo.exceptions import AccessError
 from odoo.tests import new_test_user
-from odoo.tests.common import users
+from odoo.tests.common import TransactionCase, users
 from odoo.tools import mute_logger
 
-from odoo.addons.base.tests.common import BaseCommon
 
-
-class TestProductReadonlySecurity(BaseCommon):
+class TestProductReadonlySecurity(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
