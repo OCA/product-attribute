@@ -120,3 +120,41 @@ class TestMTOVariant(TestMTOVariantCommon):
             _logger.info("No warning raised")
         self.assertVariantsMTO(black_pen)
         self.assertVariantsNotMTO(blue_pen | green_pen | red_pen)
+
+    def test_coverage_additional(self):
+        # 1. Cover tests/common.py lines 65 and 71 by passing route=None
+        pen_template = self.template_pen
+        self.add_route(pen_template, None)
+        self.remove_route(pen_template, None)
+
+        # 2. Cover models/product_template.py line 40: no active mto route
+        # Deactivate MTO routes temporarily
+        mto_routes = self.env["stock.route"].search([("is_mto", "=", True)])
+        mto_routes.write({"active": False})
+        # Trigger onchange
+        pen_template.onchange_route_ids()
+        # Restore active state
+        mto_routes.write({"active": True})
+
+        # 3. Cover models/product_product.py line 74: non-MTO route inverse change
+        blue_pen = self.blue_pen
+        random_route = self.mto_route.create(
+            {"name": "unrelated route", "product_selectable": True}
+        )
+        blue_pen.route_ids = [Command.link(random_route.id)]
+        self.assertIn(random_route, blue_pen.product_tmpl_id.route_ids)
+
+        # 4. Cover models/product_product.py lines 50-61 (Search route_ids)
+        Product = self.env["product.product"]
+        # operator '=' with recordset
+        Product._search_route_ids(operator="=", value=self.mto_route)
+        # operator '=' with list/iterable
+        Product._search_route_ids(operator="=", value=[self.mto_route.id])
+        # operator '=' with single integer ID
+        Product._search_route_ids(operator="=", value=self.mto_route.id)
+        # operator 'in' with single integer ID (covers line 66)
+        Product._search_route_ids(operator="in", value=self.mto_route.id)
+        # operator 'in' with recordset (covers line 62)
+        Product._search_route_ids(operator="in", value=self.mto_route)
+        # Search using 'in' operator with a list of routes including MTO route
+        Product.search([("route_ids", "in", [self.mto_route.id, random_route.id])])
