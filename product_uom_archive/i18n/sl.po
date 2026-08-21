@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_packaging_archive
+# 	* product_uom_archive
 #
 msgid ""
 msgstr ""
@@ -17,18 +17,18 @@ msgstr ""
 "n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 5.15.2\n"
 
-#. module: product_packaging_archive
-#: model:ir.model.fields,field_description:product_packaging_archive.field_product_packaging__active
+#. module: product_uom_archive
+#: model:ir.model.fields,field_description:product_uom_archive.field_product_uom__active
 msgid "Active"
 msgstr "Aktivno"
 
-#. module: product_packaging_archive
-#: model_terms:ir.ui.view,arch_db:product_packaging_archive.product_packaging_form_view_inherit
-#: model_terms:ir.ui.view,arch_db:product_packaging_archive.product_packaging_search_view_inherit
+#. module: product_uom_archive
+#: model_terms:ir.ui.view,arch_db:product_uom_archive.product_uom_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:product_uom_archive.product_uom_search_view_inherit
 msgid "Archived"
 msgstr "Arhivirano"
 
-#. module: product_packaging_archive
-#: model:ir.model,name:product_packaging_archive.model_product_packaging
+#. module: product_uom_archive
+#: model:ir.model,name:product_uom_archive.model_product_uom
 msgid "Product Packaging"
 msgstr "Pakiranje proizvoda"
