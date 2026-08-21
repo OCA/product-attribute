@@ -12,7 +12,12 @@ class ProductTemplate(models.Model):
         store=True,
     )
 
-    @api.depends("route_ids.is_mto", "categ_id.route_ids.is_mto")
+    @api.depends(
+        "route_ids",
+        "categ_id.route_ids",
+        "route_ids.is_mto",
+        "categ_id.route_ids.is_mto",
+    )
     def _compute_is_mto(self):
         for template in self:
             template.is_mto = bool(

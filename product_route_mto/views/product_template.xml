@@ -22,7 +22,7 @@
         <field name="inherit_id" ref="product.product_template_search_view" />
         <field name="arch" type="xml">
             <xpath
-                expr="//filter[@name='filter_to_purchase']/following::separator"
+                expr="//filter[@name='filter_to_sell']/following-sibling::separator[1]"
                 position="after"
             >
                 <filter string="MTO" name="is_mto" domain="[('is_mto', '=', True)]" />
