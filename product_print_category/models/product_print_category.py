@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class ProductPrintCategory(models.Model):
@@ -88,7 +88,5 @@ class ProductPrintCategory(models.Model):
         )
         action["domain"] = [("print_category_id", "=", self.id)]
         if self.env.context.get("to_print"):
-            action["domain"] = expression.AND(
-                [action["domain"], [("to_print", "=", True)]]
-            )
+            action["domain"] = Domain.AND([action["domain"], [("to_print", "=", True)]])
         return action

@@ -14,7 +14,6 @@ class ProductPrintCategoryMixin(models.AbstractModel):
         ProductProduct = self.env["product.product"].with_context(
             active_test=False, to_print_ok=True
         )
-        ProductPrintCategory = self.env["product.print.category"]
 
         if "to_print" in vals or self.env.get("to_print_ok", False):
             # "to_print" is explicitely set, nothing to do
@@ -49,18 +48,18 @@ class ProductPrintCategoryMixin(models.AbstractModel):
             ]
         else:
             raise NotImplementedError()
-        product_groups = ProductProduct.read_group(
-            domain=domain, fields=["print_category_id"], groupby="print_category_id"
+        product_groups = ProductProduct._read_group(
+            domain=domain, groupby=["print_category_id"]
         )
         products_to_update = ProductProduct
-        for product_group in product_groups:
-            category = ProductPrintCategory.browse(
-                product_group["print_category_id"][0]
-            )
+        for row in product_groups:
+            category = row[0]
             triggering_fields = category.field_ids.sudo().mapped("name")
             if len(list(set(vals.keys()) & set(triggering_fields))):
                 # Value present in the label changed
-                products_to_update |= ProductProduct.search(product_group["__domain"])
+                products_to_update |= ProductProduct.search(
+                    domain + [("print_category_id", "=", category.id)]
+                )
 
         if products_to_update:
             products_to_update.write({"to_print": True})
