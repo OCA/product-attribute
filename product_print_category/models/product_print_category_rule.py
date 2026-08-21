@@ -13,7 +13,6 @@ class ProductPrintCategoryRule(models.Model):
     sequence = fields.Integer(string="Priority", required=True)
 
     company_id = fields.Many2one(
-        string="Company",
         comodel_name="res.company",
         index=True,
         default=lambda x: x._default_company_id(),
@@ -21,7 +20,6 @@ class ProductPrintCategoryRule(models.Model):
     )
 
     main_category_id = fields.Many2one(
-        string="Main Category",
         comodel_name="product.category",
         help="This rule will be applied only to products that belong to"
         " the given category, or to its children.",

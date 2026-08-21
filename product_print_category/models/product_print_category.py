@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class ProductPrintCategory(models.Model):
@@ -18,7 +18,6 @@ class ProductPrintCategory(models.Model):
     active = fields.Boolean(default=True)
 
     company_id = fields.Many2one(
-        string="Company",
         comodel_name="res.company",
         index=True,
         default=lambda x: x._default_company_id(),
@@ -51,7 +50,6 @@ class ProductPrintCategory(models.Model):
 
     qweb_view_id = fields.Many2one(
         comodel_name="ir.ui.view",
-        string="Qweb View",
         domain="[('type', '=', 'qweb')]",
         required=True,
     )
@@ -88,7 +86,5 @@ class ProductPrintCategory(models.Model):
         )
         action["domain"] = [("print_category_id", "=", self.id)]
         if self.env.context.get("to_print"):
-            action["domain"] = expression.AND(
-                [action["domain"], [("to_print", "=", True)]]
-            )
+            action["domain"] = Domain.AND([action["domain"], [("to_print", "=", True)]])
         return action

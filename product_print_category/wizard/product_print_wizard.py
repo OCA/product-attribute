@@ -3,7 +3,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -61,8 +61,10 @@ class ProductPrintWizard(models.TransientModel):
         )
         if lines_without_category:
             raise ValidationError(
-                _("Please set a print category for the following lines \n\n- %s")
-                % ("\n- ".join(lines_without_category.mapped("product_id.name")))
+                self.env._(
+                    "Please set a print category for the following lines \n\n- %s",
+                    "\n- ".join(lines_without_category.mapped("product_id.name")),
+                )
             )
         self._prepare_data()
         return self.env.ref("product_print_category.pricetag").report_action(

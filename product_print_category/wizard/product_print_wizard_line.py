@@ -13,9 +13,7 @@ class ProductPrintWizardLine(models.TransientModel):
 
     wizard_id = fields.Many2one(comodel_name="product.print.wizard")
 
-    product_id = fields.Many2one(
-        comodel_name="product.product", string="Product", required=True
-    )
+    product_id = fields.Many2one(comodel_name="product.product", required=True)
 
     print_category_id = fields.Many2one(
         comodel_name="product.print.category",

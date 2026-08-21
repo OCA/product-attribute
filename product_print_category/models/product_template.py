@@ -12,7 +12,6 @@ class ProductTemplate(models.Model):
     _inherit = ["product.template", "product.print.category.mixin"]
 
     print_category_id = fields.Many2one(
-        string="Print Category",
         comodel_name="product.print.category",
         compute="_compute_print_category_id",
         inverse="_inverse_print_category_id",

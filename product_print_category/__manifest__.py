@@ -9,15 +9,12 @@
     "name": "Product - Print Categories",
     "summary": "Define print categories for products"
     " and automate products print, when data has changed",
-    "version": "18.0.1.0.1",
+    "version": "19.0.1.0.1",
     "category": "Product",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/product-attribute",
     "maintainers": ["legalsylvain"],
-    "author": "GRAP, "
-    "La Louve, "
-    "Coop IT Easy SC, "
-    "Odoo Community Association (OCA)",
+    "author": "GRAP, La Louve, Coop IT Easy SC, Odoo Community Association (OCA)",
     "depends": [
         "sale_management",
         "product",

@@ -8,6 +8,5 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 <odoo>
     <record id="manager" model="res.groups">
         <field name="name">Print Category Manager</field>
-        <field name="category_id" ref="base.module_category_hidden" />
     </record>
 </odoo>

@@ -12,7 +12,6 @@ class ProductProduct(models.Model):
 
     # Columns Section
     print_category_id = fields.Many2one(
-        string="Print Category",
         comodel_name="product.print.category",
     )
 
