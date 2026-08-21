@@ -1,33 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="product_packaging_form_view_inherit" model="ir.ui.view">
-        <field name="name">product.packaging.form.view.inherit</field>
-        <field name="model">product.packaging</field>
-        <field name="inherit_id" ref="product.product_packaging_form_view" />
+    <!-- 1. Create the Search View first (needed by the action) -->
+    <record id="product_uom_search_view" model="ir.ui.view">
+        <field name="name">product.uom.search</field>
+        <field name="model">product.uom</field>
         <field name="arch" type="xml">
-            <xpath expr="//sheet//h1" position="before">
-                <widget
-                    name="web_ribbon"
-                    title="Archived"
-                    bg_color="bg-danger"
-                    invisible="active == True"
-                />
-            </xpath>
-        </field>
-    </record>
-
-    <record id="product_packaging_search_view_inherit" model="ir.ui.view">
-        <field name="name">product.packaging.search.view.inherit</field>
-        <field name="model">product.packaging</field>
-        <field name="inherit_id" ref="product.product_packaging_search_view" />
-        <field name="arch" type="xml">
-            <field name="product_id" position="after">
+            <search string="Packaging Barcodes">
+                <field name="product_id" />
+                <field name="barcode" />
                 <filter
                     name="inactive"
                     string="Archived"
                     domain="[('active', '=', False)]"
                 />
+            </search>
+        </field>
+    </record>
+
+    <!-- 2. Define the Window Action (Required for the button to work) -->
+    <record id="action_product_uom_packaging" model="ir.actions.act_window">
+        <field name="name">Packaging Barcodes</field>
+        <field name="res_model">product.uom</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="product_uom_search_view" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new packaging barcode
+            </p>
+            <p>
+                Manage your product packagings and their barcodes here.
+            </p>
+        </field>
+    </record>
+
+    <!-- 3. Add Active toggle to the standard list view -->
+    <record id="product_uom_list_view_inherit" model="ir.ui.view">
+        <field name="name">product.uom.list.view.inherit</field>
+        <field name="model">product.uom</field>
+        <field name="inherit_id" ref="product.product_uom_list_view" />
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="active" widget="boolean_toggle" />
             </field>
+        </field>
+    </record>
+
+    <!-- 4. Add the Stat Button to the Product Template Form -->
+    <record id="product_template_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.archive</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    class="oe_stat_button"
+                    name="%(action_product_uom_packaging)d"
+                    type="action"
+                    icon="fa-barcode"
+                    context="{'search_default_product_id': id, 'default_product_id': id}"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Packaging Barcodes</span>
+                    </div>
+                </button>
+            </div>
         </field>
     </record>
 </odoo>

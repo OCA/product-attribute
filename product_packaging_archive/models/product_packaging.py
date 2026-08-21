@@ -5,6 +5,6 @@ from odoo import fields, models
 
 
 class ProductPackaging(models.Model):
-    _inherit = "product.packaging"
+    _inherit = "product.uom"
 
     active = fields.Boolean(default=True)

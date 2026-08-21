@@ -4,7 +4,7 @@
 {
     "name": "Product Packaging Archive",
     "summary": """Add an active field on product packaging""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "depends": ["product"],
