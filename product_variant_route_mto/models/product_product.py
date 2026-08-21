@@ -48,16 +48,34 @@ class ProductProduct(models.Model):
 
     def _search_route_ids(self, operator, value):
         mto_routes = self.env["stock.route"].search([("is_mto", "=", True)])
-        if operator in ("=", "!=") and value in mto_routes:
-            return [("is_mto", operator, True)]
+        if operator in ("=", "!="):
+            if hasattr(value, "ids"):
+                val_ids = value.ids
+            elif hasattr(value, "__iter__") and not isinstance(value, (str, bytes)):
+                val_ids = [
+                    r if isinstance(r, int) else getattr(r, "id", r) for r in value
+                ]
+            else:
+                val_ids = [value]
+            if set(val_ids) & set(mto_routes.ids):
+                return [("is_mto", operator, True)]
         domain = []
-        route_ids = value.copy()
-        for idx, route_id in enumerate(route_ids):
-            if route_id in mto_routes.ids:
-                route_ids.pop(idx)
-                domain = [("is_mto", "=" if operator == "in" else "!=", True)]
+        if hasattr(value, "ids"):
+            route_ids = set(value.ids)
+        elif hasattr(value, "__iter__") and not isinstance(value, (str, bytes)):
+            route_ids = {
+                r if isinstance(r, int) else getattr(r, "id", r) for r in value
+            }
+        else:
+            route_ids = {value}
+        mto_route_ids = mto_routes.ids
+        intersection = route_ids & set(mto_route_ids)
+        if intersection:
+            domain = [("is_mto", "=" if operator == "in" else "!=", True)]
+            route_ids -= intersection
         if route_ids:
-            domain += [("product_tmpl_id.route_ids", operator, route_ids)]
+            search_val = list(route_ids) if len(route_ids) > 1 else list(route_ids)[0]
+            domain += [("product_tmpl_id.route_ids", operator, search_val)]
         return domain
 
     def _inverse_route_ids(self):
