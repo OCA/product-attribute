@@ -1,0 +1,68 @@
+<odoo>
+    <record id="view_product_category_form_inherit" model="ir.ui.view">
+        <field
+            name="name"
+        >product.category.form.inherit (in product_category_pricelist_button)</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_view_pricelists"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-th-list"
+                    invisible="pricelist_count == 0"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="pricelist_count" />
+                        </span>
+                        <span class="o_stat_text">Price rules</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_product_category_list_inherit" model="ir.ui.view">
+        <field
+            name="name"
+        >product.category.list.inherit (in product_category_pricelist_button)</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field
+                    name="pricelist_count"
+                    string="Pricelist count"
+                    optional="show"
+                />
+            </xpath>
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-bf">pricelist_count &gt; 0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_product_category_search_inherit" model="ir.ui.view">
+        <field
+            name="name"
+        >product.category.search.inherit (in product_category_pricelist_button)</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter
+                    string="With pricelists items"
+                    name="with_pricelists"
+                    domain="[('pricelist_count', '>', 0)]"
+                />
+
+                <filter
+                    string="Without pricelists items"
+                    name="without_pricelists"
+                    domain="[('pricelist_count', '=', 0)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
