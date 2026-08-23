@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_production_lot_expired_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-04-27 15:33+0000\n"
+"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Alert date"
+msgstr "Data di avviso"
+
+#. module: stock_production_lot_expired_date
+#: model:ir.model.fields,field_description:stock_production_lot_expired_date.field_res_config_settings__production_lot_base_date
+msgid "Base date to compute expiration dates"
+msgstr "Data base da cui computare la data di scadenza"
+
+#. module: stock_production_lot_expired_date
+#: model:ir.model,name:stock_production_lot_expired_date.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni di configurazione"
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Expiration date"
+msgstr "Data di scadenza"
+
+#. module: stock_production_lot_expired_date
+#: model:ir.model,name:stock_production_lot_expired_date.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Lotto/seriale"
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Removal date"
+msgstr "Data rimozione"
+
+#. module: stock_production_lot_expired_date
+#. odoo-python
+#: code:addons/stock_production_lot_expired_date/models/res_config_settings.py:0
+#, python-format
+msgid "Use date"
+msgstr "Data d'uso"
