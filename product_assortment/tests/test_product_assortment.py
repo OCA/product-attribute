@@ -84,7 +84,10 @@ class TestProductAssortment(TransactionCase):
         search_domain = self.partner.action_define_product_assortment()["domain"]
         self.assertEqual(
             search_domain,
-            [("partner_ids", "in", [self.partner.id]), ("is_assortment", "=", True)],
+            [
+                ("all_partner_ids", "in", [self.partner.id]),
+                ("is_assortment", "=", True),
+            ],
         )
 
     def test_product_assortment_view(self):
@@ -114,6 +117,21 @@ class TestProductAssortment(TransactionCase):
         )
         res = self.assortment.show_products()
         self.assertEqual(res["domain"], [("id", "not in", excluded_product.ids)])
+
+    def test_product_assortment_filter_combination(self):
+        """Combine a whitelisted and a blacklisted product in order
+        to validate the combination of both filters. The result should be a
+        simple domain with the excluded product.
+        """
+        # Add a default no product filter to the assortment
+        self.assortment.write({"domain": [("id", "=", 0)]})
+        included_product = self.env.ref("product.product_product_7")
+        self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        excluded_product = self.env.ref("product.product_product_2")
+        self.assortment.write({"blacklist_product_ids": [(4, excluded_product.id)]})
+        res = self.assortment.show_products()
+        self.assertIn(("id", "not in", [excluded_product.id]), res["domain"])
+        self.assertIn(("id", "in", [included_product.id]), res["domain"])
 
     def test_record_count(self):
         products = self.product_obj.search([])
@@ -166,3 +184,55 @@ class TestProductAssortment(TransactionCase):
             assortment._get_eval_domain()
         )
         self.assertNotIn(excluded_product, allowed_products)
+
+    def _create_user(self, login, manager=False, admin=False):
+        groups = [self.env.ref("base.group_user").id]
+        if manager:
+            groups.append(
+                self.env.ref("product_assortment.group_product_assortment_manager").id
+            )
+        if admin:
+            groups.append(self.env.ref("base.group_system").id)
+        return (
+            self.env["res.users"]
+            .with_context(no_reset_password=True)
+            .create(
+                {
+                    "name": login,
+                    "login": login,
+                    "email": f"{login}@example.org",
+                    "groups_id": [(6, 0, groups)],
+                }
+            )
+        )
+
+    def test_search_hidden_for_non_manager(self):
+        """Non-manager users must not see assortment filters when searching."""
+        user = self._create_user("assortment_non_manager")
+        filter_model = self.filter_obj.with_user(user)
+        domain = [("id", "=", self.assortment.id)]
+        self.assertFalse(filter_model.search(domain))
+        self.assertEqual(filter_model.search_count(domain), 0)
+
+    def test_search_visible_for_manager(self):
+        """Manager users can see assortment filters when searching."""
+        user = self._create_user("assortment_manager", manager=True)
+        filter_model = self.filter_obj.with_user(user)
+        domain = [("id", "=", self.assortment.id)]
+        self.assertIn(self.assortment.id, filter_model.search(domain).ids)
+        self.assertEqual(filter_model.search_count(domain), 1)
+
+    def test_search_visible_for_admin(self):
+        """Administrators (Settings) keep full access to assortment filters.
+
+        This is required so automated processes running as a non-superuser
+        administrator (e.g. the pricelist assortment cron) can still read the
+        filters, consistent with the base ``ir.filters`` security.
+        """
+        user = self._create_user("assortment_admin", admin=True)
+        filter_model = self.filter_obj.with_user(user)
+        domain = [("id", "=", self.assortment.id)]
+        self.assertIn(self.assortment.id, filter_model.search(domain).ids)
+        self.assertEqual(filter_model.search_count(domain), 1)
+        # Reading a field must not raise an AccessError either
+        self.assertTrue(self.assortment.with_user(user).active)
