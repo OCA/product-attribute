@@ -12,7 +12,6 @@ class ProductPricelistItem(models.Model):
 
     previous_item_id = fields.Many2one(
         comodel_name="product.pricelist.item",
-        string="Previous Item",
         help="Relation with previous item when duplicate line",
     )
     previous_price = fields.Float(
