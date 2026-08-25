@@ -25,7 +25,6 @@ class ProductClassAttributeLine(models.Model):
         required=True,
         ondelete="restrict",
         index=True,
-        string="Attribute",
     )
     required = fields.Boolean(
         default=False,

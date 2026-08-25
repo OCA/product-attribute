@@ -79,7 +79,6 @@ class PricelistSimulationLine(models.TransientModel):
     _description = "wizard - Preview Pricelist Line"
 
     simulation_id = fields.Many2one(
-        string="Simulation",
         comodel_name="wizard.preview.pricelist",
     )
     product_id = fields.Many2one(
@@ -89,7 +88,6 @@ class PricelistSimulationLine(models.TransientModel):
     )
     pricelist_id = fields.Many2one(
         comodel_name="product.pricelist",
-        string="Pricelist",
         readonly=True,
     )
     currency_id = fields.Many2one(
