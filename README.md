@@ -28,11 +28,11 @@ addon | version | maintainers | summary
 [product_category_code](product_category_code/) | 19.0.1.0.0 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> | Allows to define a code on product categories
 [product_category_type](product_category_type/) | 19.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Add Type field on Product Categories to distinguish between parent and final categories
 [product_category_uom](product_category_uom/) | 19.0.1.0.0 |  | Define default product UoM at product category level
-[product_class](product_class/) | 19.0.1.1.0 | <a href='https://github.com/Ricardoalso'><img src='https://github.com/Ricardoalso.png' width='32' height='32' style='border-radius:50%;' alt='Ricardoalso'/></a> <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Product classification and attribute constraints
+[product_class](product_class/) | 19.0.1.1.1 | <a href='https://github.com/Ricardoalso'><img src='https://github.com/Ricardoalso.png' width='32' height='32' style='border-radius:50%;' alt='Ricardoalso'/></a> <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Product classification and attribute constraints
 [product_code_mandatory](product_code_mandatory/) | 19.0.1.0.0 |  | Set Product Internal Reference as a required field
 [product_code_unique](product_code_unique/) | 19.0.1.0.0 |  | Set Product Internal Reference as Unique
 [product_company_default](product_company_default/) | 19.0.1.0.0 |  | Product Company Default
-[product_customerinfo](product_customerinfo/) | 19.0.1.0.0 | <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Allows to define prices for customers in the products
+[product_customerinfo](product_customerinfo/) | 19.0.1.0.1 | <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Allows to define prices for customers in the products
 [product_dimension](product_dimension/) | 19.0.1.0.0 |  | Product Dimension
 [product_drained_weight](product_drained_weight/) | 19.0.1.0.0 |  | Add 'Drained Weight' on product models
 [product_logistics_uom](product_logistics_uom/) | 19.0.1.0.0 | <a href='https://github.com/hparfr'><img src='https://github.com/hparfr.png' width='32' height='32' style='border-radius:50%;' alt='hparfr'/></a> | Configure product weights and volume UoM
@@ -40,13 +40,13 @@ addon | version | maintainers | summary
 [product_net_weight](product_net_weight/) | 19.0.1.0.2 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Add 'Net Weight' on product models
 [product_origin](product_origin/) | 19.0.1.0.0 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Adds the origin of the product
 [product_pricelist_item_list_view](product_pricelist_item_list_view/) | 19.0.1.0.0 | <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> | View and search the list of pricelist items
-[product_pricelist_revision](product_pricelist_revision/) | 19.0.1.0.0 |  | Product Pricelist Revision
-[product_pricelist_simulation](product_pricelist_simulation/) | 19.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Simulate the product price for all pricelists
+[product_pricelist_revision](product_pricelist_revision/) | 19.0.1.0.1 |  | Product Pricelist Revision
+[product_pricelist_simulation](product_pricelist_simulation/) | 19.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Simulate the product price for all pricelists
 [product_pricelist_supplierinfo](product_pricelist_supplierinfo/) | 19.0.1.0.0 | <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Allows to create priceslists based on supplier info
 [product_sale_team](product_sale_team/) | 19.0.1.0.0 |  | Sale Team for products
-[product_secondary_unit](product_secondary_unit/) | 19.0.1.0.0 | <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Set a secondary unit per product
+[product_secondary_unit](product_secondary_unit/) | 19.0.1.0.1 | <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Set a secondary unit per product
 [product_sequence](product_sequence/) | 19.0.1.0.0 |  | Product Sequence
-[product_set](product_set/) | 19.0.1.0.0 |  | Product set
+[product_set](product_set/) | 19.0.1.0.1 |  | Product set
 [product_state](product_state/) | 19.0.1.0.1 | <a href='https://github.com/emagdalenaC2i'><img src='https://github.com/emagdalenaC2i.png' width='32' height='32' style='border-radius:50%;' alt='emagdalenaC2i'/></a> | Module introducing a state field on product template
 [product_state_sale](product_state_sale/) | 19.0.1.0.0 |  | This module add the use of Product State in Sale
 [product_status](product_status/) | 19.0.1.0.0 |  | Product Status Computed From Fields
