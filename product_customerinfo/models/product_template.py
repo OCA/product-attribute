@@ -14,13 +14,11 @@ class ProductTemplate(models.Model):
     customer_ids = fields.One2many(
         comodel_name="product.customerinfo",
         inverse_name="product_tmpl_id",
-        string="Customer",
     )
 
     variant_customer_ids = fields.One2many(
         comodel_name="product.customerinfo",
         inverse_name="product_tmpl_id",
-        string="Variant Customer",
     )
 
     @api.depends_context("display_default_code", "company_id", "partner_id")
