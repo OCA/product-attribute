@@ -10,6 +10,8 @@ class ProductProduct(models.Model):
     from_default_level_packaging_id = fields.Many2one(
         comodel_name="product.packaging",
         compute="_compute_from_default_level_packaging_id",
+        store=True,
+        index=True,
         string="Default packaging",
         help="This is the default packaging of this product coming "
         "from the default packaging level.",
