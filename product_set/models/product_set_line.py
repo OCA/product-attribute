@@ -20,7 +20,6 @@ class ProductSetLine(models.Model):
     product_id = fields.Many2one(
         comodel_name="product.product",
         domain=[("sale_ok", "=", True)],
-        string="Product",
         required=False,
     )
     quantity = fields.Float(
