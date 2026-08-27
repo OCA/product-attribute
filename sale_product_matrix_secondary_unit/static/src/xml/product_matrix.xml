@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+    <t
+        t-name="sale_product_matrix_secondary_unit.matrix"
+        t-inherit="product_matrix.matrix"
+        t-inherit-mode="extension"
+    >
+        <!-- Add selector with the secondary units available-->
+        <xpath expr="//table" position="before">
+            <div
+                class="input-group p-3"
+                t-if="secondary_units and secondary_units.length"
+            >
+                <label
+                    class="input-group-text"
+                    for="secondary_unit"
+                >Secondary Unit</label>
+                <select class="form-select o_matrix_secondary_unit" id="secondary_unit">
+                    <option
+                        value=""
+                        t-att-selected="!secondary_unit_id ? 'selected' : undefined"
+                        class="fst-italic"
+                    ><t t-out="uom_name" /> (main unit of measure)
+                    </option>
+                    <option
+                        t-foreach="secondary_units"
+                        t-as="unit"
+                        t-key="unit.id"
+                        t-att-value="unit.id"
+                        t-att-selected="secondary_unit_id === unit.id ? 'selected' : undefined"
+                    >
+                        <t t-out="unit.name" />
+                    </option>
+                </select>
+            </div>
+        </xpath>
+    </t>
+</templates>
