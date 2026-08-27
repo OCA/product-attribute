@@ -1,0 +1,2 @@
+odoo-addon-base-substate @ git+https://github.com/OCA/server-ux.git@refs/pull/1198/head#subdirectory=base_substate
+odoo-addon-product_state @ git+https://github.com/OCA/product-attribute.git@refs/pull/2142/head#subdirectory=product_state

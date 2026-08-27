@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Add a new product state for machine maintenance -->
+    <record id="machine_maintenance_state" model="product.state">
+        <field name="code">maintenance</field>
+        <field name="name">Under Maintenance</field>
+        <field name="sequence">25</field>
+        <field name="description">Product is under maintenance</field>
+    </record>
+
+    <!-- Create email template for when service is completed -->
+    <record id="email_template_service_completed" model="mail.template">
+        <field name="name">Machine Service Completed Notification</field>
+        <field name="model_id" ref="product.model_product_template" />
+        <field
+            name="subject"
+        >Machine Service Completed - "{{ object.name or 'N/A' }}"</field>
+        <field name="body_html" type="html">
+            <div>
+                <p>Dear Team,</p>
+                <p>The service for machine <span
+                    style="font-weight: bold;"
+                    t-out="object.name"
+                /> has been completed successfully.</p>
+                <p>
+                    <strong>Machine Details:</strong>
+                </p>
+                <ul>
+                    <li>Machine Name: <span
+                        style="font-weight: bold;"
+                        t-out="object.name"
+                    /></li>
+                    <li>Current State: <span
+                        style="font-weight: bold;"
+                        t-out="object.product_state_id.name"
+                    /></li>
+                    <li>Current Substate: <span
+                        style="font-weight: bold;"
+                        t-out="object.substate_id.name"
+                    /></li>
+                    <li>Internal Reference: <span
+                        style="font-weight: bold;"
+                        t-out="object.default_code"
+                    /></li>
+                </ul>
+                <p>The machine is now ready for use.</p>
+                <p>Best regards,<br />Maintenance System</p>
+            </div>
+        </field>
+        <field name="email_from">${object.company_id.email|safe}</field>
+        <field name="email_to">maintenance@company.com</field>
+    </record>
+
+    <!-- Create substate type for product.template model -->
+    <record id="product_substate_type_maintenance" model="base.substate.type">
+        <field name="name">Product Maintenance Substate</field>
+        <field name="model">product.template</field>
+        <field name="target_state_field">product_state_id</field>
+    </record>
+
+    <!-- Create target state values for the maintenance state -->
+    <record id="target_state_maintenance" model="target.state.value">
+        <field name="name">Maintenance Substates</field>
+        <field name="base_substate_type_id" ref="product_substate_type_maintenance" />
+        <field name="target_state_value">maintenance</field>
+        <!-- <field name="model">product.template</field> -->
+    </record>
+
+    <!-- Create substates for machine maintenance workflow -->
+    <record id="substate_service_required" model="base.substate">
+        <field name="name">Service Required</field>
+        <field name="description">Machine requires service</field>
+        <field name="target_state_value_id" ref="target_state_maintenance" />
+        <field name="sequence">10</field>
+        <field name="model">product.template</field>
+    </record>
+
+    <record id="substate_in_service" model="base.substate">
+        <field name="name">In Service</field>
+        <field name="description">Machine is currently being serviced</field>
+        <field name="target_state_value_id" ref="target_state_maintenance" />
+        <field name="sequence">20</field>
+        <field name="model">product.template</field>
+    </record>
+
+    <record id="substate_service_completed" model="base.substate">
+        <field name="name">Service Completed</field>
+        <field name="description">Machine service has been completed</field>
+        <field name="target_state_value_id" ref="target_state_maintenance" />
+        <field name="sequence">30</field>
+        <field name="mail_template_id" ref="email_template_service_completed" />
+        <field name="model">product.template</field>
+    </record>
+
+    <record id="substate_cleaning_required" model="base.substate">
+        <field name="name">Cleaning Required</field>
+        <field name="description">Machine requires cleaning</field>
+        <field name="target_state_value_id" ref="target_state_maintenance" />
+        <field name="sequence">40</field>
+        <field name="model">product.template</field>
+    </record>
+
+    <record id="substate_cleaned" model="base.substate">
+        <field name="name">Cleaned</field>
+        <field name="description">Machine has been cleaned</field>
+        <field name="target_state_value_id" ref="target_state_maintenance" />
+        <field name="sequence">50</field>
+        <field name="model">product.template</field>
+    </record>
+
+    <!-- Create a demo product template for machine maintenance -->
+    <record id="demo_machine_1" model="product.template">
+        <field name="name">Industrial Printer Machine</field>
+        <field name="default_code">MCH-PRINTER-001</field>
+        <field name="type">consu</field>
+        <field name="product_state_id" ref="machine_maintenance_state" />
+        <field name="substate_id" ref="substate_service_required" />
+        <field name="list_price">15000.0</field>
+        <field name="categ_id" ref="product.product_category_goods" />
+    </record>
+
+    <record id="demo_machine_2" model="product.template">
+        <field name="name">CNC Milling Machine</field>
+        <field name="default_code">MCH-CNC-001</field>
+        <field name="type">consu</field>
+        <field name="product_state_id" ref="machine_maintenance_state" />
+        <field name="substate_id" ref="substate_in_service" />
+        <field name="list_price">25000.0</field>
+        <field name="categ_id" ref="product.product_category_goods" />
+    </record>
+
+    <record id="demo_machine_3" model="product.template">
+        <field name="name">Laser Cutting Machine</field>
+        <field name="default_code">MCH-LASER-001</field>
+        <field name="type">consu</field>
+        <field name="product_state_id" ref="machine_maintenance_state" />
+        <field name="substate_id" ref="substate_cleaned" />
+        <field name="list_price">35000.0</field>
+        <field name="categ_id" ref="product.product_category_goods" />
+    </record>
+</odoo>
