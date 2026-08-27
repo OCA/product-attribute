@@ -61,7 +61,12 @@ class ProductCostSecurityMixin(models.AbstractModel):
         `product_cost_security.group_product_edit_cost` group.
         """
         valid_fields = super().check_field_access_rights(operation, fields)
-        if self.env.su:
+        # When called without explicit fields (e.g. an empty ``write({})``),
+        # ``super()`` expands ``valid_fields`` to *all* accessible fields. Such
+        # an operation does not actually touch the cost fields, so it must not
+        # be blocked: only enforce the extra protection on the fields the
+        # caller explicitly requested.
+        if self.env.su or not fields:
             return valid_fields
         product_cost_fields = self._product_cost_security_fields().intersection(
             valid_fields
