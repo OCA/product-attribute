@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="product_cost_security_stock_account.ForecastedHeader"
+       t-inherit="stock.ForecastedHeader"
+       t-inherit-mode="extension">
+        <xpath expr="//h3[@name='product_name']/following-sibling::h6" position="attributes">
+            <attribute name="t-if">() => env.user.has_group('stock.group_stock_manager') &amp;&amp; env.user.has_group('product_cost_security.group_product_cost')</attribute>
+        </xpath>
+    </t>
+</templates>

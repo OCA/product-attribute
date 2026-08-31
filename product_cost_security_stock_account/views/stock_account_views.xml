@@ -95,6 +95,30 @@
         </field>
     </record>
 
+    <record id="view_stock_quant_tree_inherit" model="ir.ui.view">
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock_account.view_stock_quant_tree_inherit" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_quant_tree_editable_inherit" model="ir.ui.view">
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock_account.view_stock_quant_tree_editable_inherit" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='value']" position="attributes">
+                <attribute
+                    name="groups"
+                >product_cost_security.group_product_cost</attribute>
+            </xpath>
+        </field>
+    </record>
+
     <record id="stock_account.stock_move_valuation_action" model="ir.actions.act_window">
         <field name="group_ids" eval="[(4, ref('product_cost_security.group_product_cost'))]" />
     </record>

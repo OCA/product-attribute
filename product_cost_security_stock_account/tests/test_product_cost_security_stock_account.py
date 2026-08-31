@@ -87,7 +87,6 @@ class TestProductCostSecurityStockAccount(BaseCommon):
         )
         move = self.env["stock.move"].create(
             {
-                "name": "/",
                 "picking_id": picking.id,
                 "product_uom_qty": 10,
                 "product_uom": product.uom_id.id,
@@ -155,3 +154,68 @@ class TestProductCostSecurityStockAccount(BaseCommon):
             self.env["ir.actions.actions"].with_user(self.stock_user)._for_xml_id(
                 "stock_account.stock_move_valuation_action"
             )
+
+    def test_stock_manager_can_open_quants_without_cost_group(self):
+        """Inventory admin without cost ACL can open On Hand / quants."""
+        manager = new_test_user(
+            self.env,
+            login="stock_manager_no_cost",
+            groups="stock.group_stock_manager,product.group_product_manager",
+        )
+        product = self.product2.with_user(manager)
+        action = product.action_open_quants()
+        self.assertTrue(action)
+        quant_env = self.env["stock.quant"].with_user(manager)
+        records = quant_env.search_read(
+            [("product_id", "=", self.product2.id)],
+            ["quantity", "location_id"],
+        )
+        self.assertTrue(records)
+        quants = quant_env.search([("product_id", "=", self.product2.id)])
+        with self.assertRaises(AccessError):
+            quants.read(["value"])
+        with self.assertRaises(AccessError):
+            product.read(["total_value"])
+
+    def test_stock_manager_can_open_forecasted_report_without_cost_group(self):
+        """Inventory admin without cost ACL can open the replenishment report."""
+        warehouse = self.env["stock.warehouse"].search(
+            [("company_id", "=", self.env.company.id)],
+            limit=1,
+        )
+        self.env["stock.quant"]._update_available_quantity(
+            self.product2, warehouse.lot_stock_id, 3.0
+        )
+        manager = new_test_user(
+            self.env,
+            login="stock_manager_forecasted_no_cost",
+            groups="stock.group_stock_manager,product.group_product_manager",
+        )
+        docs = (
+            self.env["stock.forecasted_product_product"]
+            .with_user(manager)
+            .get_report_values(docids=self.product2.ids)["docs"]
+        )
+        self.assertNotIn("value", docs)
+        product_data = docs["product"][self.product2.id]
+        self.assertIn("draft_picking_qty", product_data)
+        self.assertIn("in", product_data["draft_picking_qty"])
+        self.assertIn("qty", product_data)
+
+    def test_stock_tree_hides_valuation_fields_without_cost_group(self):
+        manager = new_test_user(
+            self.env,
+            login="stock_manager_no_cost_view",
+            groups="stock.group_stock_manager,product.group_product_manager",
+        )
+        view = (
+            self.env["product.product"]
+            .with_user(manager)
+            .get_view(
+                view_id=self.env.ref("stock.product_product_stock_tree").id,
+                view_type="list",
+            )
+        )
+        arch = view.get("arch") or ""
+        self.assertNotIn('name="total_value"', arch)
+        self.assertNotIn('name="avg_cost"', arch)
