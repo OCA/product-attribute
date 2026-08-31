@@ -188,3 +188,41 @@ class TestProductTemplateAttributeValue(TransactionCase):
             variant_names,
             "Variant name extension not correct",
         )
+
+    def test_display_no_variant_attribute(self):
+        material_attribute = self.product_attr_obj.create(
+            {
+                "name": "Material",
+                "create_variant": "no_variant",
+                "display_attribute_name": True,
+                "sequence": 5,
+            }
+        )
+        material_wood = self.product_attr_value_obj.create(
+            {"name": "Wood", "attribute_id": material_attribute.id}
+        )
+        material_steel = self.product_attr_value_obj.create(
+            {"name": "Steel", "attribute_id": material_attribute.id}
+        )
+        material_line = self.env["product.template.attribute.line"].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": material_attribute.id,
+                "value_ids": [Command.set([material_wood.id, material_steel.id])],
+                "sequence": 5,
+            }
+        )
+        wood_ptav = material_line.product_template_value_ids.filtered(
+            lambda ptav: ptav.product_attribute_value_id == material_wood
+        )
+        variant = self.env["product.product"].search(
+            [("product_tmpl_id", "=", self.computer.id)], limit=1
+        )
+        combination = variant.product_template_attribute_value_ids | wood_ptav
+
+        name = combination._get_combination_name()
+        self.assertNotIn("Wood", name)
+
+        material_attribute.display_no_variant_attribute = True
+        name = combination._get_combination_name()
+        self.assertIn("Material: Wood", name)
