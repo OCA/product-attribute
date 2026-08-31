@@ -64,7 +64,9 @@ class TestProductTemplateAttributeValue(TransactionCase):
             {
                 "product_tmpl_id": self.computer.id,
                 "attribute_id": self.ram_attribute.id,
-                "value_ids": [Command.set([self.ram_8.id, self.ram_16.id, self.ram_32.id])],
+                "value_ids": [
+                    Command.set([self.ram_8.id, self.ram_16.id, self.ram_32.id])
+                ],
                 "sequence": 3,
             }
         )

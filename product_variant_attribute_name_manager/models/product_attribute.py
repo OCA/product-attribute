@@ -8,7 +8,8 @@ class ProductAttribute(models.Model):
     display_attribute_value = fields.Boolean(
         "Display Attribute Value on Product Variant",
         default=True,
-        help="If checked, it will display the variant attribute value in the product name.",
+        help="If checked, it will display the variant attribute value "
+        "in the product name.",
     )
     display_attribute_name = fields.Boolean(
         "Display Attribute Name/Short Name on Product Variant",
@@ -42,12 +43,8 @@ class ProductTemplateAttributeValue(models.Model):
                 if not ptav._without_no_variant_attributes():
                     continue
             if ptav.attribute_id.display_attribute_name:
-                display_ptav_list.append(
-                    "{}: {}".format(
-                        ptav.attribute_id.short_name or ptav.attribute_id.name,
-                        ptav.name,
-                    )
-                )
+                name = ptav.attribute_id.short_name or ptav.attribute_id.name
+                display_ptav_list.append(f"{name}: {ptav.name}")
             else:
                 display_ptav_list.append(ptav.name)
         return ", ".join(display_ptav_list)

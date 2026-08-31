@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ======================================
 Product Variant Attribute Name Manager
 ======================================
@@ -13,7 +17,7 @@ Product Variant Attribute Name Manager
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -30,11 +34,13 @@ Product Variant Attribute Name Manager
 
 Manage how to display the attributes on the product variant name.
 
-* Choose if you want to display the name of the attribute before its value.
-* Choose if you want to display the attribute value in the product name.
-* Set a short name to be displayed as the attribute's name.
-* Set the order of the attributes for each product.
-* Choose if you want to display attribute value name for Single Variant Attribute
+- Choose if you want to display the name of the attribute before its
+  value.
+- Choose if you want to display the attribute value in the product name.
+- Set a short name to be displayed as the attribute's name.
+- Set the order of the attributes for each product.
+- Choose if you want to display attribute value name for Single Variant
+  Attribute
 
 **Table of contents**
 
@@ -55,21 +61,21 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * ForgeFlow
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Oriol Villamayor <oriol.villamayor@forgeflow.com>
-* Daniel Reis <dreis@opensourceintegrators.com>
-* Nikul Chaudhary <nchaudhary@opensourceintegrators.com>
-* Jordi Masvidal <jordi.masvidal@forgeflow.com>
-* Neelima Patwal <neelima.p@chef-pixel.com>
+- Oriol Villamayor <oriol.villamayor@forgeflow.com>
+- Daniel Reis <dreis@opensourceintegrators.com>
+- Nikul Chaudhary <nchaudhary@opensourceintegrators.com>
+- Jordi Masvidal <jordi.masvidal@forgeflow.com>
+- Neelima Patwal <neelima.p@chef-pixel.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
