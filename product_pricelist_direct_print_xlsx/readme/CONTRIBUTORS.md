@@ -1,0 +1,10 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Carlos Dauden
+  - David Vidal
+  - Sergio Teruel
+  - João Marques
+  - Carlos Roca
+- [CorporateHub](https://corporatehub.eu/):
+  - Alexey Pelykh \<alexey.pelykh@corphub.eu\>
+- [GRAP](http://www.grap.coop/):
+  - Sylvain LE GAL \<https://twitter.com/legalsylvain\>
