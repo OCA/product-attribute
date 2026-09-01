@@ -2,11 +2,9 @@
 # Copyright 2020 Camptocamp
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from itertools import groupby
-
 from odoo import models
 from odoo.exceptions import UserError
-from odoo.tools import SQL
+from odoo.tools import SQL, groupby
 
 
 class ProductTemplate(models.Model):
@@ -14,11 +12,8 @@ class ProductTemplate(models.Model):
 
     def write(self, vals):
         uom_id = vals.pop("uom_id", False)
-        uom_po_id = vals.pop("uom_po_id", False)
         if uom_id:
             self._update_uom(uom_id, "uom_id")
-        if uom_po_id:
-            self._update_uom(uom_po_id, "uom_po_id")
         res = super().write(vals)
         return res
 
@@ -30,10 +25,7 @@ class ProductTemplate(models.Model):
         for key, products_group in groupby(sorted_items, key=lambda r: r[field_name]):
             product_ids = [p.id for p in products_group]
 
-            if (
-                key.category_id == new_uom.category_id
-                and key.factor_inv == new_uom.factor_inv
-            ):
+            if key._has_common_reference(new_uom) and key.factor == new_uom.factor:
                 # pylint: disable=sql-injection
                 self.env.cr.execute(
                     SQL(
