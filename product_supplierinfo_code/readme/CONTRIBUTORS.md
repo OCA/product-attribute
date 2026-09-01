@@ -1,0 +1,5 @@
+- [ACSONE](https://www.acsone.eu/):
+  - Denis Roussel \<<denis.roussel@acsone.eu>\>
+  - Raphaël Vicini \<<raphael.vicini@acsone.eu>\>
+- [360ERP](https://www.360erp.com):
+  - Andrea Stirpe
