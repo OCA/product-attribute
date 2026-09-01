@@ -1,0 +1,304 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_supplierinfo_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-06-23 12:25+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: product_supplierinfo_import
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_import.product_supplierinfo_import_form
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_supplierinfo_import_template_line__header_name
+msgid "Copy it directly from the origin cell so it matches right"
+msgstr "Copia dalla cella origine per una corrispondenza corretta"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__create_new_products
+msgid "Create New Products"
+msgstr "Crea nuovi prodotti"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_product__created_from_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_template__created_from_supplierinfo_import
+msgid "Created From Supplierinfo Import"
+msgstr "Creato da maschera importazione informazioni fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__create_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__create_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__create_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__create_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__delay
+msgid "Delay"
+msgstr "Ritardo"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__display_name
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__field_id
+msgid "Field"
+msgstr "Campo"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__header_name
+msgid "Header Name"
+msgstr "Nome intestazione"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__header_offset
+msgid "Header Offset"
+msgstr "Offset intestazione"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__template_line_ids
+msgid "Headers mapping"
+msgstr "Mappatura intestazioni"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__id
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__id
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_supplierinfo_import__create_new_products
+msgid ""
+"If a product isn't found by its Search Field, it will be created with the "
+"provided data"
+msgstr ""
+"Se un prodotto non viene trovato con il suo campo ricerca, verrà creato con "
+"i dati forniti"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_supplierinfo_import_template__show_not_updated_rates
+msgid ""
+"If checked, at the end of the import, it will display the supplier's rate "
+"records that were not updated."
+msgstr ""
+"Se selezionata, alla fine dell'importazione, visualizzerà i record del tasso "
+"fornitore che non sono stati aggiornati."
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_supplierinfo_import_template__only_update_existing
+msgid ""
+"If enabled, only existing supplierinfo records will be updated. New ones "
+"will not be created."
+msgstr ""
+"Se abilitata, solo i record delle informazioni fornitore esistenti verranno "
+"aggiornate. Non verranno create le nuove."
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__import_criteria_field_id
+msgid "Import Criteria Field"
+msgstr "Campo criterio importazione"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_customerinfo__import_status
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo__import_status
+msgid "Import Status"
+msgstr "Stato importazione"
+
+#. module: product_supplierinfo_import
+#: model_terms:ir.ui.view,arch_db:product_supplierinfo_import.product_supplierinfo_import_form
+msgid "Import and View"
+msgstr "Importa e visualizza"
+
+#. module: product_supplierinfo_import
+#: model:ir.model,name:product_supplierinfo_import.model_product_supplierinfo_import
+msgid "Import supplier info records"
+msgstr "Importa record informazioni fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.actions.act_window,name:product_supplierinfo_import.product_supplierinfo_import_action
+#: model:ir.ui.menu,name:product_supplierinfo_import.product_supplierinfo_import_menu
+msgid "Import vendor pricelists"
+msgstr "Importa listino fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template____last_update
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__write_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__write_uid
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__write_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__write_date
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields.selection,name:product_supplierinfo_import.selection__product_customerinfo__import_status__new_or_updated
+#: model:ir.model.fields.selection,name:product_supplierinfo_import.selection__product_supplierinfo__import_status__new_or_updated
+msgid "New or Updated"
+msgstr "Nuovo o aggiornato"
+
+#. module: product_supplierinfo_import
+#. odoo-python
+#: code:addons/product_supplierinfo_import/wizards/product_supplierinfo_import.py:0
+#, python-format
+msgid "Only .xlsx files are supported."
+msgstr "Solo file .xlsx supportati."
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__only_update_existing
+msgid "Only Update Existing"
+msgstr "Aggiorna solo gli esistenti"
+
+#. module: product_supplierinfo_import
+#: model:ir.model,name:product_supplierinfo_import.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_product__product_code
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_template__product_code
+msgid "Product Code"
+msgstr "Codice prodotto"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__search_header_name
+msgid "Search Header Name"
+msgstr "Nome testata ricerca"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__sheet_number
+msgid "Sheet Number"
+msgstr "Numero foglio"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__show_not_updated_rates
+msgid "Show Not Updated Rates"
+msgstr "Visualizza tariffe non aggiornate"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__supplier_id
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template__supplier_id
+msgid "Supplier"
+msgstr "Fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model,name:product_supplierinfo_import.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Listino prezzi fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__supplierinfo_file
+msgid "Supplierinfo File"
+msgstr "File informazioni fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__supplierinfo_filename
+msgid "Supplierinfo Filename"
+msgstr "Nome file informazioni fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__template_id
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import_template_line__template_id
+msgid "Template"
+msgstr "Modello"
+
+#. module: product_supplierinfo_import
+#: model:ir.model,name:product_supplierinfo_import.model_product_supplierinfo_import_template
+msgid "Templates to be detected when importing vendor pricelist"
+msgstr "Modelli da rilevare quando si importa il listino fornitore"
+
+#. module: product_supplierinfo_import
+#. odoo-python
+#: code:addons/product_supplierinfo_import/models/product_supplierinfo_import_template.py:0
+#, python-format
+msgid "The Sheet Number cannot be less than 1."
+msgstr "Il numero di foglio non può essere inferiore a 1."
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_supplierinfo_import_template__import_criteria_field_id
+msgid ""
+"The field that will be used to match the productsfrom the excel file with "
+"the ones in the Odoo database"
+msgstr ""
+"Il campo che verrà usato per far corrispondere i prodotti dal file Excel con "
+"quelli nel database Odoo"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_supplierinfo_import_template__sheet_number
+msgid "The number of the sheet page in the spreadsheet where the pricelist are"
+msgstr "Il numero della pagina foglio nel foglio di calcolo dove è il listino"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_product__product_code
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_template__product_code
+msgid "This is the supplier product code from Main Supplier."
+msgstr "Questo è il codice prodotto fornitore da fornitore principale."
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_product__created_from_supplierinfo_import
+#: model:ir.model.fields,help:product_supplierinfo_import.field_product_template__created_from_supplierinfo_import
+msgid "This product was created with the vendor import wizard"
+msgstr ""
+"Questo prodotto è stato creato con la procedura guidata importazione "
+"fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields.selection,name:product_supplierinfo_import.selection__product_customerinfo__import_status__unchanged
+#: model:ir.model.fields.selection,name:product_supplierinfo_import.selection__product_supplierinfo__import_status__unchanged
+msgid "Unchanged"
+msgstr "Invariato"
+
+#. module: product_supplierinfo_import
+#: model:ir.model.fields,field_description:product_supplierinfo_import.field_product_supplierinfo_import__date_start
+msgid "Validity"
+msgstr "Validità"
+
+#. module: product_supplierinfo_import
+#: model:ir.model,name:product_supplierinfo_import.model_product_supplierinfo_import_template_line
+msgid "Vendor import columns and fields"
+msgstr "Campi e colonne importazione fornitore"
+
+#. module: product_supplierinfo_import
+#: model:ir.actions.act_window,name:product_supplierinfo_import.product_supplierinfo_import_template_action
+#: model:ir.ui.menu,name:product_supplierinfo_import.product_supplierinfo_import_template_menu
+msgid "Vendor pricelists import templates"
+msgstr "Modelli importazione listini fornitore"
