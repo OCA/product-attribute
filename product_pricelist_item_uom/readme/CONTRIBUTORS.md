@@ -1,0 +1,4 @@
+- [Aion Tech](https://aiontech.company/):
+  - Simone Rubino \<simone.rubino@aion-tech.it\>
+- [Camptocamp](https://www.camptocamp.com):
+  - Ricardo Almeida Soares \<<ricardo.almeidasoares@camptocamp.com>\>
