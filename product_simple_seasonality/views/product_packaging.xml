@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Akretion
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_uom_list_view">
+        <field name="name">product.uom.list (in product_simple_seasonality)</field>
+        <field name="model">product.uom</field>
+        <field name="inherit_id" ref="product.product_uom_list_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="seasonality_ids" widget="many2many_tags" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
