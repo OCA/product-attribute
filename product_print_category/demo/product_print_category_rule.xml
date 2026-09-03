@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2023-Today: GRAP (<http://www.grap.coop>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record model="product.print.category.rule" id="demo_rule_1">
+        <field name="sequence">1</field>
+        <field name="company_id" eval="False" />
+        <field name="main_category_id" ref="product.product_category_1" />
+        <field name="print_category_id" ref="demo_category_1" />
+    </record>
+
+    <record model="product.print.category.rule" id="demo_rule_2">
+        <field name="sequence">2</field>
+        <field name="company_id" eval="False" />
+        <field name="main_category_id" ref="product.product_category_consumable" />
+        <field name="print_category_id" ref="demo_category_2" />
+    </record>
+
+    <record model="product.print.category.rule" id="demo_rule_general">
+        <field name="sequence">100</field>
+        <field name="company_id" eval="False" />
+        <field name="main_category_id" ref="product.product_category_all" />
+        <field name="print_category_id" eval="False" />
+    </record>
+</odoo>
