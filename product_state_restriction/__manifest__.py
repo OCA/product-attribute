@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product State Restriction",
-    "summary":"""
+    "summary": """
     """,
     "author": "AGF Vector GmbH, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
@@ -11,8 +11,8 @@
     "depends": [
         "product_state",
         "product_state_sale",
-        "sale",        
-        "mrp",         
+        "sale",
+        "mrp",
         "stock",
     ],
     "data": [

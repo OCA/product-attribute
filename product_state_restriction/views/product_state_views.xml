@@ -2,7 +2,7 @@
     <record id="view_product_state_form_restriction" model="ir.ui.view">
         <field name="name">product.state.form.restriction</field>
         <field name="model">product.state</field>
-        <field name="inherit_id" ref="product_state.view_product_state_form"/>
+        <field name="inherit_id" ref="product_state.view_product_state_form" />
         <field name="arch" type="xml">
             <xpath expr="//sheet/group[last()]" position="after">
                 <group string="Restrictions">

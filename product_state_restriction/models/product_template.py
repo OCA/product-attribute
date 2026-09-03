@@ -13,3 +13,4 @@ class ProductTemplate(models.Model):
         for template in self:
             if template.product_state_id:
                 template.sale_ok = not template.product_state_id.restrict_sale
+        return
