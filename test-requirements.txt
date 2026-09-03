@@ -1,0 +1,2 @@
+odoo-addon-product_pricelist_direct_print  @ git+https://github.com/OCA/product-attribute.git@refs/pull/2220/head#subdirectory=product_pricelist_direct_print
+odoo-addon-product_pricelist_direct_print_xlsx  @ git+https://github.com/OCA/product-attribute.git@refs/pull/2246/head#subdirectory=product_pricelist_direct_print_xlsx
