@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_route_mto
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-27 04:56+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_route_mto
+#: model:ir.model.fields,help:product_route_mto.field_product_product__is_mto
+msgid ""
+"\n"
+"    Check or Uncheck this field to enable the Make To Order on the variant,\n"
+"    independantly from its template configuration.\n"
+"\n"
+"    Please note that activating or deactivating Make To Order on the template,\n"
+"    will reset this setting on its variants.\n"
+msgstr ""
+"\n"
+"    Označite to polje, da omogočite možnost 'Izdelava po naročilu' za "
+"različico,\n"
+"    neodvisno od konfiguracije predloge.\n"
+"\n"
+"    Upoštevajte, da bo aktiviranje ali deaktiviranje možnosti 'Izdelava po "
+"naročilu' za predlogo,\n"
+"    ponastavilo to nastavitev za njene različice.\n"
+
+#. module: product_route_mto
+#: model:ir.model.fields,field_description:product_route_mto.field_product_template__is_mto
+msgid "Is Mto"
+msgstr "Po naročilu"
+
+#. module: product_route_mto
+#: model_terms:ir.ui.view,arch_db:product_route_mto.product_template_search_view
+msgid "Is not MTO"
+msgstr "Ni po naročilu"
+
+#. module: product_route_mto
+#: model_terms:ir.ui.view,arch_db:product_route_mto.product_template_search_view
+msgid "MTO"
+msgstr "Po naročilu"
+
+#. module: product_route_mto
+#: model:ir.model,name:product_route_mto.model_product_template
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_route_mto
+#: model:ir.model.fields,field_description:product_route_mto.field_product_product__is_mto
+msgid "Variant is MTO"
+msgstr "Različica je po naročilu"
