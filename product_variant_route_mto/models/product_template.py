@@ -8,6 +8,14 @@ from odoo import api, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        templates = super().create(vals_list)
+        # variants are created before route_ids is written, so their is_mto has been
+        # computed on a not yet mto template
+        templates.filtered("is_mto").product_variant_ids._compute_is_mto()
+        return templates
+
     def write(self, values):
         if "route_ids" not in values:
             return super().write(values)
