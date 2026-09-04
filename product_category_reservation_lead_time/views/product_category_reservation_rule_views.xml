@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_category_reservation_rule_view_tree" model="ir.ui.view">
+        <field name="name">product.category.reservation.rule.tree</field>
+        <field name="model">product.category.reservation.rule</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="category_id" />
+                <field
+                    name="company_id"
+                    groups="base.group_multi_company"
+                    optional="show"
+                />
+                <field name="reservation_days" />
+                <field name="active" widget="boolean_toggle" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_category_reservation_rule_view_form" model="ir.ui.view">
+        <field name="name">product.category.reservation.rule.form</field>
+        <field name="model">product.category.reservation.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="category_id" />
+                            <field name="reservation_days" />
+                        </group>
+                        <group>
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field name="active" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_category_reservation_rule_view_search" model="ir.ui.view">
+        <field name="name">product.category.reservation.rule.search</field>
+        <field name="model">product.category.reservation.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="category_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <group expand="0" string="Group By">
+                    <filter
+                        name="group_company"
+                        string="Company"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_category_reservation_rule_action" model="ir.actions.act_window">
+        <field name="name">Reservation Lead Times</field>
+        <field name="res_model">product.category.reservation.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a reservation lead time rule
+            </p>
+            <p>
+                Define, per product category and company, how many days before the
+                delivery date a line enters the stock reservation window.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="product_category_reservation_rule_menu"
+        action="product_category_reservation_rule_action"
+        parent="stock.menu_product_in_config_stock"
+        sequence="90"
+    />
+
+</odoo>

@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_reservation_lead_time
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model,name:product_category_reservation_lead_time.model_product_category_reservation_rule
+msgid "Product Category Reservation Lead Time Rule"
+msgstr "Regla de plazo de reserva por categoría de producto"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model,name:product_category_reservation_lead_time.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model,name:product_category_reservation_lead_time.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,field_description:product_category_reservation_lead_time.field_product_category_reservation_rule__category_id
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,field_description:product_category_reservation_lead_time.field_product_category_reservation_rule__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,field_description:product_category_reservation_lead_time.field_product_category_reservation_rule__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,field_description:product_category_reservation_lead_time.field_product_category_reservation_rule__reservation_days
+msgid "Reservation Lead Time (days)"
+msgstr "Plazo de reserva (días)"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,help:product_category_reservation_lead_time.field_product_category_reservation_rule__reservation_days
+msgid ""
+"Number of days before the delivery date within which the line enters the "
+"reservation window. 0 = reserve only on the delivery date."
+msgstr ""
+"Número de días antes de la fecha de entrega en los que la línea entra en la "
+"ventana de reserva. 0 = reservar solo el día de la entrega."
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,field_description:product_category_reservation_lead_time.field_res_company__reservation_lead_days
+#: model:ir.model.fields,field_description:product_category_reservation_lead_time.field_res_config_settings__reservation_lead_days
+msgid "Default Reservation Lead Time (days)"
+msgstr "Plazo de reserva por defecto (días)"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.fields,help:product_category_reservation_lead_time.field_res_company__reservation_lead_days
+msgid ""
+"Global reservation lead time used when a product's category (or its "
+"ancestors) has no specific rule"
+msgstr ""
+"Plazo de reserva global usado cuando la categoría de un producto (o sus "
+"ancestros) no tiene una regla propia"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.constraint,message:product_category_reservation_lead_time.constraint_product_category_reservation_rule_category_company_uniq
+msgid ""
+"A reservation lead time rule already exists for this category and company"
+msgstr ""
+"Ya existe una regla de plazo de reserva para esta categoría y compañía"
+
+#. module: product_category_reservation_lead_time
+#: model:ir.model.constraint,message:product_category_reservation_lead_time.constraint_product_category_reservation_rule_reservation_days_positive
+msgid "The reservation lead time cannot be negative."
+msgstr "El plazo de reserva no puede ser negativo."
+
+#. module: product_category_reservation_lead_time
+#: model:ir.actions.act_window,name:product_category_reservation_lead_time.product_category_reservation_rule_action
+#: model_terms:ir.ui.view,arch_db:product_category_reservation_lead_time.product_category_reservation_rule_menu
+msgid "Reservation Lead Times"
+msgstr "Plazos de reserva"
+
+#. module: product_category_reservation_lead_time
+#: model_terms:ir.actions.act_window,help:product_category_reservation_lead_time.product_category_reservation_rule_action
+msgid "Create a reservation lead time rule"
+msgstr "Cree una regla de plazo de reserva"
+
+#. module: product_category_reservation_lead_time
+#: model_terms:ir.actions.act_window,help:product_category_reservation_lead_time.product_category_reservation_rule_action
+msgid ""
+"Define, per product category and company, how many days before the delivery "
+"date a line enters the stock reservation window."
+msgstr ""
+"Defina, por categoría de producto y compañía, cuántos días antes de la fecha "
+"de entrega una línea entra en la ventana de reserva de stock."
+
+#. module: product_category_reservation_lead_time
+#: model_terms:ir.ui.view,arch_db:product_category_reservation_lead_time.res_config_settings_view_form
+msgid "Reservation Lead Time"
+msgstr "Plazo de reserva"
+
+#. module: product_category_reservation_lead_time
+#: model_terms:ir.ui.view,arch_db:product_category_reservation_lead_time.res_config_settings_view_form
+msgid ""
+"Default number of days before delivery to reserve stock when a product "
+"category has no specific rule"
+msgstr ""
+"Número de días por defecto antes de la entrega para reservar stock cuando una "
+"categoría de producto no tiene una regla específica"
+
+#. module: product_category_reservation_lead_time
+#: model_terms:ir.ui.view,arch_db:product_category_reservation_lead_time.res_config_settings_view_form
+msgid "Default lead time (days)"
+msgstr "Plazo por defecto (días)"
+
+#. module: product_category_reservation_lead_time
+#: model_terms:ir.ui.view,arch_db:product_category_reservation_lead_time.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr "Los valores establecidos aquí son específicos de cada compañía."
