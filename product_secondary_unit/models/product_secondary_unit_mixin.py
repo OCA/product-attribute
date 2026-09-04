@@ -55,6 +55,16 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     def _get_uom_line(self):
         return self[self._secondary_unit_fields["uom_field"]]
 
+    def _get_product_uom(self):
+        """Return the UoM the secondary unit factor refers to.
+
+        Models where ``product_id`` is optional (a bill of materials defined at
+        template level, for instance) can override this to fall back on the
+        product template.
+        """
+        self.ensure_one()
+        return self.product_id[self._product_uom_field]
+
     # TODO: This method is now not used in this module. Deprecate it in future.
     def _get_factor_line(self):
         uom_line = self._get_uom_line()
@@ -78,7 +88,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         # Intended to be called from other operations if needed.
         self.ensure_one()
         uom_line = self._get_uom_line()
-        uom_product = self.product_id[self._product_uom_field]
+        uom_product = self._get_product_uom()
         if uom_line != uom_product:
             qty = uom_line._compute_quantity(qty, uom_product)
         return float_round(
@@ -125,7 +135,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             )
             qty_base = rec.secondary_uom_qty * rec.secondary_uom_id.factor
             uom_line = rec._get_uom_line()
-            uom_product = rec.product_id[rec._product_uom_field]
+            uom_product = rec._get_product_uom()
             qty_line = uom_product._compute_quantity(qty_base, uom_line)
             rec[rec._secondary_unit_fields["qty_field"]] = qty_line
 
