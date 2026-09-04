@@ -33,6 +33,9 @@ class ProductProduct(models.Model):
         inverse="_inverse_route_ids",
     )
 
+    # depending on product_tmpl_id, so that is_mto is computed when the
+    # variant is created
+    @api.depends("product_tmpl_id")
     def _compute_is_mto(self):
         for product in self:
             product.is_mto = product.product_tmpl_id.is_mto
