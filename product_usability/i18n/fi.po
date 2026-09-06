@@ -6,43 +6,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-09-06 09:25+0000\n"
+"Last-Translator: painkin <pasi.inkinen@iodo.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_attribute
 msgid "Attributes"
-msgstr ""
+msgstr "Attribuutit"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_configuration
 msgid "Configuration"
-msgstr ""
+msgstr "Asetukset"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_pricelist
 msgid "Pricelists"
-msgstr ""
+msgstr "Hinnastot"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_attribute_creation
 msgid "Product Attribute Creation"
-msgstr ""
+msgstr "Tuoteominaisuuksien luominen"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_category
 msgid "Product Categories"
-msgstr ""
+msgstr "Tuotekategoriat"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_category_creation
 msgid "Product Category Creation"
-msgstr ""
+msgstr "Tuotekategorian luominen"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_creation
@@ -52,46 +54,46 @@ msgstr ""
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_packaging
 msgid "Product Packagings"
-msgstr ""
+msgstr "Tuotteen pakkaukset"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_supplierinfo_creation
 msgid "Product Supplier Pricelist Creation"
-msgstr ""
+msgstr "Tuotetoimittajan hinnaston luominen"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_tag_creation
 msgid "Product Tag Creation"
-msgstr ""
+msgstr "Tuotteen tunnisteiden luonti"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_tag
 msgid "Product Tags"
-msgstr ""
+msgstr "Tuotteen tunnisteet"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_product
 msgid "Product Variants"
-msgstr ""
+msgstr "Tuote variaatiot"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product
 #: model:ir.ui.menu,name:product_usability.menu_product_main
 #: model:ir.ui.menu,name:product_usability.menu_product_template
 msgid "Products"
-msgstr ""
+msgstr "Tuotteet"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_uom_uom
 msgid "Units of Measure"
-msgstr ""
+msgstr "Mittayksikkö"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_uom_category
 msgid "Units of Measure Categories"
-msgstr ""
+msgstr "Mittayksiköiden kategoriat"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_uom_creation
 msgid "Units of Measure Creation"
-msgstr ""
+msgstr "Mittayksikön luonti"
