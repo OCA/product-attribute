@@ -99,6 +99,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 continue
             qty_line = line._get_quantity_from_line()
             line.secondary_uom_qty = line._convert_qty_to_secondary_uom(qty_line)
+        # To avoid recompute uom qty_field when secondary_uom_qty changes.
+        self.env.remove_to_compute(
+            field=self._fields[self._secondary_unit_fields["qty_field"]], records=self
+        )
 
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
