@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,6 +12,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__alternative_pricelist_ids
+msgid "Alternative Pricelist"
+msgstr ""
 
 #. module: product_pricelist_alternative
 #: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist_item__alternative_pricelist_policy
@@ -24,13 +29,15 @@ msgid "Alternative Pricelists"
 msgstr ""
 
 #. module: product_pricelist_alternative
-#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__alternative_pricelist_ids
-msgid "Alternative pricelists"
+#: model_terms:ir.ui.view,arch_db:product_pricelist_alternative.product_pricelist_view
+msgid "Alternative to Pricelist"
 msgstr ""
 
 #. module: product_pricelist_alternative
-#: model_terms:ir.ui.view,arch_db:product_pricelist_alternative.product_pricelist_view
-msgid "Alternative to Pricelist"
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__display_name
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_template__display_name
+msgid "Display Name"
 msgstr ""
 
 #. module: product_pricelist_alternative
@@ -42,9 +49,20 @@ msgid ""
 msgstr ""
 
 #. module: product_pricelist_alternative
-#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_assortment_item__alternative_pricelist_policy__ignore
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__id
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist_item__id
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_pricelist_alternative
 #: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__ignore
 msgid "Ignore alternatives"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_ids
+msgid "Is Alternative To Pricelist"
 msgstr ""
 
 #. module: product_pricelist_alternative
@@ -56,11 +74,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
 msgid "Is Alternative to Pricelist"
-msgstr ""
-
-#. module: product_pricelist_alternative
-#: model:ir.model.fields,field_description:product_pricelist_alternative.field_product_pricelist__is_alternative_to_pricelist_ids
-msgid "Is alternative to pricelists"
 msgstr ""
 
 #. module: product_pricelist_alternative
@@ -83,7 +96,17 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_alternative
-#: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_assortment_item__alternative_pricelist_policy__use_lower_price
+#: model:ir.model,name:product_pricelist_alternative.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_pricelist_alternative
 #: model:ir.model.fields.selection,name:product_pricelist_alternative.selection__product_pricelist_item__alternative_pricelist_policy__use_lower_price
 msgid "Use lower price"
+msgstr ""
+
+#. module: product_pricelist_alternative
+#. odoo-python
+#: code:addons/product_pricelist_alternative/models/product_pricelist.py:0
+msgid "id"
 msgstr ""
