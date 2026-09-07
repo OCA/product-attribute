@@ -1,0 +1,1 @@
+from . import test_product_visibility_by_user_group
