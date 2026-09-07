@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,8 +20,24 @@ msgid "Cost"
 msgstr ""
 
 #. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_ir_ui_view__display_name
+#: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__display_name
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_cost_security
 #: model:res.groups,name:product_cost_security.group_product_edit_cost
 msgid "Edit"
+msgstr ""
+
+#. module: product_cost_security
+#: model:ir.model.fields,field_description:product_cost_security.field_ir_ui_view__id
+#: model:ir.model.fields,field_description:product_cost_security.field_product_cost_security_mixin__id
+#: model:ir.model.fields,field_description:product_cost_security.field_product_product__id
+#: model:ir.model.fields,field_description:product_cost_security.field_product_template__id
+msgid "ID"
 msgstr ""
 
 #. module: product_cost_security
@@ -40,7 +56,7 @@ msgid "Product cost access control mixin"
 msgstr ""
 
 #. module: product_cost_security
-#: model:ir.module.category,name:product_cost_security.module_category
+#: model:res.groups.privilege,name:product_cost_security.module_privilege
 msgid "Product costs"
 msgstr ""
 
@@ -66,10 +82,14 @@ msgid ""
 msgstr ""
 
 #. module: product_cost_security
+#: model:ir.model,name:product_cost_security.model_ir_ui_view
+msgid "View"
+msgstr ""
+
+#. module: product_cost_security
 #. odoo-python
 #: code:addons/product_cost_security/models/product_cost_security_mixin.py:0
 msgid ""
-"You do not have enough rights to access the fields \"%(fields)s\" on %(document_kind)s (%(document_model)s). Please contact your system administrator.\n"
-"\n"
-"(Operation: %(operation)s)"
+"You do not have enough rights to update product costs. Please contact your "
+"system administrator."
 msgstr ""
