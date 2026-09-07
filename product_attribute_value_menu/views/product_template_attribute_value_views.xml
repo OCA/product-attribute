@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record
+        id="product_template_attribute_value_inherited_view_tree"
+        model="ir.ui.view"
+    >
+        <field name="name">product.template.attribute.value.inherit.view.tree</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list delete="0" create="0" multi_edit="1">
+                <field name="product_tmpl_id" />
+                <field name="attribute_id" />
+                <field name="name" />
+                <field name="html_color" />
+                <field name="price_extra" class="oe_inline" />
+            </list>
+        </field>
+    </record>
+
+    <record id="pt_attribute_value_inherit_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >inherit.product.template.attribute.value.inherit.view.form</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Product Attribute" create="0">
+                <group>
+                    <field name="product_tmpl_id" />
+                    <field name="name" readonly="1" />
+                    <field name="html_color" readonly="1" />
+                    <field name="price_extra" />
+                    <field name="exclude_for" widget="one2many_list" mode="list">
+                        <list editable="bottom">
+                            <field name="product_tmpl_id" />
+                            <field
+                                name="value_ids"
+                                widget="many2many_tags"
+                                options="{'no_create': true}"
+                            />
+                        </list>
+                    </field>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="import_product_attribute_value_action" model="ir.actions.act_window">
+        <field name="name">Attribute Values Extra Prices</field>
+        <field name="res_model">product.template.attribute.value</field>
+        <field name="view_mode">list,form</field>
+        <field
+            name="view_ids"
+            eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('product_attribute_value_menu.product_template_attribute_value_inherited_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product_attribute_value_menu.pt_attribute_value_inherit_view_form')})]"
+        />
+    </record>
+
+    <menuitem
+        id="import_product_attribute_value_configuration_action_menu"
+        name="Attribute Values Extra Prices"
+        parent="sale.prod_config_main"
+        sequence="1"
+        groups="product.group_product_variant"
+        action="product_attribute_value_menu.import_product_attribute_value_action"
+    />
+</odoo>
