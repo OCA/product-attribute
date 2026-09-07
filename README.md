@@ -37,7 +37,7 @@ addon | version | maintainers | summary
 [product_catalog](product_catalog/) | 16.0.1.0.0 |  | Backport of Odoos v17 product catalog
 [product_catalog_sale](product_catalog_sale/) | 16.0.1.0.0 |  | Backport of Odoos v17 product catalog for sale orders
 [product_catalog_stock](product_catalog_stock/) | 16.0.1.0.0 |  | Use the product catalog on stock pickings
-[product_category_active](product_category_active/) | 16.0.2.0.1 |  | Add option to archive product categories
+[product_category_active](product_category_active/) | 16.0.2.0.2 |  | Add option to archive product categories
 [product_category_code](product_category_code/) | 16.0.1.0.0 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> | Allows to define a code on product categories
 [product_category_code_unique](product_category_code_unique/) | 16.0.1.0.0 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Allows to set product category code field as unique
 [product_category_description](product_category_description/) | 16.0.1.0.0 | <a href='https://github.com/MarcBForgeFlow'><img src='https://github.com/MarcBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='MarcBForgeFlow'/></a> | Allows to add a detailed description for a product category.
