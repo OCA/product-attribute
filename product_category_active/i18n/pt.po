@@ -38,7 +38,9 @@ msgstr ""
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
-"has one or more product linked to it."
+"has one or more product linked to it. Categories containing active "
+"products:\n"
+"- %(categ_list)s"
 msgstr ""
 
 #. module: product_category_active
