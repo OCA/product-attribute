@@ -28,6 +28,10 @@ class AbcClassificationProfile(models.Model):
         string="Period on which to compute the classification (Days)",
         required=True,
     )
+    company_id = fields.Many2one(
+        comodel_name="res.company",
+        string="Company",
+    )
 
     product_variant_ids = fields.Many2many(
         comodel_name="product.product",
@@ -46,6 +50,30 @@ class AbcClassificationProfile(models.Model):
     )
 
     _sql_constraints = [("name_uniq", "UNIQUE(name)", "Profile name must be unique")]
+
+    @api.constrains("company_id", "product_variant_ids")
+    def _check_company_products(self):
+        for profile in self:
+            if not profile.company_id:
+                continue
+            bad = self.env["product.product"].search(
+                [
+                    ("id", "in", profile.product_variant_ids.ids),
+                    ("company_id", "!=", False),
+                    ("company_id", "!=", profile.company_id.id),
+                ]
+            )
+            if bad:
+                raise ValidationError(
+                    self.env._(
+                        "The ABC Classification Profile %(profile)s is assigned "
+                        "to company %(company)s, but the following products "
+                        "belong to another company: %(products)s.",
+                        profile=profile.display_name,
+                        company=profile.company_id.display_name,
+                        products=", ".join(bad.mapped("display_name")),
+                    )
+                )
 
     @api.constrains("level_ids")
     def _check_levels(self):

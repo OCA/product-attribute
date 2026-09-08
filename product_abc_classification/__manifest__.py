@@ -6,7 +6,7 @@
     "name": "Product Abc Classification",
     "summary": """
         ABC classification for sales and warehouse management""",
-    "version": "18.0.2.0.0",
+    "version": "18.0.2.1.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV, ForgeFlow, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
@@ -18,6 +18,7 @@
         "views/product_product.xml",
         "views/product_category.xml",
         "security/ir.model.access.csv",
+        "security/security.xml",
         "data/ir_cron.xml",
     ],
 }

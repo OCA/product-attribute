@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_wizard_preview_pricelist","access.wizard.preview.pricelist","model_wizard_preview_pricelist","base.group_system",1,1,1,0
+"access_wizard_preview_pricelist_line","access.wizard.preview.pricelist.line","model_wizard_preview_pricelist_line","base.group_system",1,1,1,0

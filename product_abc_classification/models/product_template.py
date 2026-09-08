@@ -13,6 +13,7 @@ class ProductTemplate(models.Model):
         compute="_compute_abc_classification_profile_ids",
         inverse="_inverse_abc_classification_profile_ids",
         store=True,
+        check_company=True,
     )
     abc_classification_product_level_ids = fields.One2many(
         "abc.classification.product.level",
