@@ -11,35 +11,18 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
         <field name="arch" type="xml">
           <xpath expr="//tree//field[@name='currency_id']" position="before">
-              <field
-                    name="theoritical_standard_price"
-                    string="New Price"
-                    widget="monetary"
-                    options="{'display_currency': 'currency_id'}"
-                />
+              <field name="theoritical_standard_price" optional="show" />
               <button
                     name="set_product_standard_price_from_supplierinfo"
-                    help="Use this price for product standard price"
-                    string="Use this price 🎯"
-                    class="btn_price_from_supplierinfo"
+                    help="Apply this cost to the product"
+                    string="Apply"
                     type="object"
                     attrs="{'invisible': [('diff_supplierinfo_product_standard_price', '=', 0)]}"
                 />
               <field
-                    name="product_standard_price"
-                    string="Product price"
-                    widget="monetary"
-                    options="{'display_currency': 'currency_id'}"
-                />
-              <field
                     name="diff_supplierinfo_product_standard_price"
-                    groups="base.group_no_one"
-                    string="Diff"
-                />
-              <field
-                    name="diff_supplierinfo_product_standard_price"
-                    groups="!base.group_no_one"
-                    invisible="1"
+                    attrs="{'invisible': [('diff_supplierinfo_product_standard_price', '=', 0)]}"
+                    optional="hide"
                 />
           </xpath>
         </field>
