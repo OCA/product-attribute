@@ -3,7 +3,7 @@
 
 {
     "name": "Product Packaging Level",
-    "version": "16.0.1.2.1",
+    "version": "16.0.1.2.2",
     "development_status": "Beta",
     "category": "Product",
     "summary": "This module binds a product packaging to a packaging level",
