@@ -53,4 +53,16 @@
             </group>
         </field>
     </record>
+    <record id="product_packaging_tree_view2_dimensions" model="ir.ui.view">
+        <field name="name">product.packaging.tree.view2.dimensions</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_tree_view2" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree[@name='packaging']" position="inside">
+                <field name="packaging_length" optional="hide" />
+                <field name="width" optional="hide" />
+                <field name="height" optional="hide" />
+            </xpath>
+        </field>
+    </record>
 </odoo>
