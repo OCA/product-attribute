@@ -17,6 +17,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. module: product_user
+#: model:ir.model.fields,field_description:product_user.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_user
+#: model:ir.model.fields,field_description:product_user.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_user
+#: model:ir.model,name:product_user.model_product_template
+#, fuzzy
+msgid "Product"
+msgstr "Responsabile prodotto"
+
+#. module: product_user
+#: model:ir.model.fields,field_description:product_user.field_product_product__user_id
 #: model:ir.model.fields,field_description:product_user.field_product_template__user_id
 msgid "Product Manager"
 msgstr "Responsabile prodotto"
