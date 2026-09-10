@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="uom_category_form_view" model="ir.ui.view">
+        <field name="name">uom.category.form.inherit</field>
+        <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.product_uom_categ_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="before">
+                <widget
+                    name="web_ribbon"
+                    text="Archived"
+                    bg_color="bg-danger"
+                    invisible="active == True"
+                />
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="active" />
+            </xpath>
+        </field>
+    </record>
+    <record id="uom_categ_view_search" model="ir.ui.view">
+        <field name="name">uom.category.view.search</field>
+        <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.uom_categ_view_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='uom_ids']" position="after">
+                <filter
+                    name="inactive"
+                    string="Archived"
+                    domain="[('active', '=', False)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
