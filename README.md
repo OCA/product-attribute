@@ -124,6 +124,7 @@ addon | version | maintainers | summary
 [sale_product_template_tags](sale_product_template_tags/) | 18.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Show product tags menu in Sale app
 [stock_lot_production_date](stock_lot_production_date/) | 18.0.1.0.0 | <a href='https://github.com/atchuthan'><img src='https://github.com/atchuthan.png' width='32' height='32' style='border-radius:50%;' alt='atchuthan'/></a> <a href='https://github.com/sebalix'><img src='https://github.com/sebalix.png' width='32' height='32' style='border-radius:50%;' alt='sebalix'/></a> | Stock Lot Production Date
 [uom_alias](uom_alias/) | 18.0.1.0.0 | <a href='https://github.com/renatonlima'><img src='https://github.com/renatonlima.png' width='32' height='32' style='border-radius:50%;' alt='renatonlima'/></a> | Adds alias for UOM
+[uom_category_active](uom_category_active/) | 18.0.1.0.0 |  | Add option to archive UoM categories
 
 [//]: # (end addons)
 
