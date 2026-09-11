@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Binhex <https://www.binhex.cloud>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <menuitem
+        name="Product UOM Reference"
+        id="product_uom_reference_menu"
+        action="product_uom_reference.product_uom_reference_act_window_list"
+        parent="stock.menu_product_in_config_stock"
+        groups="uom.group_uom"
+        sequence="100"
+    />
+</odoo>
