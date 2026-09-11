@@ -1,0 +1,3 @@
+- Denis Roussel \<denis.roussel@acsone.eu\>
+- [Komit](https://komit-consulting.com):
+  - Cai Hoang Huynh
