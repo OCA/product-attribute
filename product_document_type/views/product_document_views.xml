@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Camptocamp SA
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_document_form_view" model="ir.ui.view">
+        <field name="model">product.document</field>
+        <field name="inherit_id" ref="product.product_document_form" />
+        <field name="arch" type="xml">
+            <field name="url" position="after">
+                <field name="document_type_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_document_list_view" model="ir.ui.view">
+        <field name="model">product.document</field>
+        <field name="inherit_id" ref="product.product_document_list" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="document_type_id" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_document_search_view" model="ir.ui.view">
+        <field name="model">product.document</field>
+        <field name="inherit_id" ref="product.product_document_search" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="document_type_id" />
+                <filter
+                    name="group_by_document_type"
+                    string="Document Type"
+                    context="{'group_by': 'document_type_id'}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

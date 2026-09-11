@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Camptocamp SA
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_document_type_view_list" model="ir.ui.view">
+        <field name="model">product.document.type</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="company_id" groups="base.group_multi_company" />
+            </list>
+        </field>
+    </record>
+
+    <record id="product_document_type_action" model="ir.actions.act_window">
+        <field name="name">Document Types</field>
+        <field name="res_model">product.document.type</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem
+        id="product_document_type_menu"
+        name="Document Types"
+        action="product_document_type_action"
+        parent="sale.prod_config_main"
+        sequence="32"
+    />
+</odoo>
