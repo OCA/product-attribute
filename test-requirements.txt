@@ -1,0 +1,2 @@
+odoo-addon-product_supplierinfo_import  @ git+https://github.com/OCA/product-attribute.git@refs/pull/2305/head#subdirectory=product_supplierinfo_import
+odoo-addon-product_pricelist_supplierinfo  @ git+https://github.com/OCA/product-attribute.git@refs/pull/2331/head#subdirectory=product_pricelist_supplierinfo
