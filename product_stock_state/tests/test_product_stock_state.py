@@ -53,3 +53,17 @@ class TestProductStockState(TransactionCase):
     def test_05_state_out_of_stock(self):
         """Test Stock State computation"""
         self.assertEqual(self.product_threshold_on_product.stock_state, "out_of_stock")
+
+    def test_06_state_on_demand_computation(self):
+        """Test on_demand = True Stock State computation
+        stock_state is set to 'on_demand' :
+        - regardless of the previous state
+        - regardless of the relative value of stock_state_threshold vs qty_available"""
+
+        stock_state_threshold = 30
+        self.product_threshold_on_product.stock_state_threshold = stock_state_threshold
+        self.product_threshold_on_product.on_demand = True
+
+        for qty in [stock_state_threshold + 1, stock_state_threshold - 1]:
+            self.product_threshold_on_product.qty_available = qty
+            self.assertEqual(self.product_threshold_on_product.stock_state, "on_demand")
