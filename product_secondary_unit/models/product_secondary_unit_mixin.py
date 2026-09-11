@@ -102,10 +102,17 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             if not line.secondary_uom_id:
                 line.secondary_uom_qty = 0.0
                 continue
-            elif line.secondary_uom_id.dependency_type == "independent":
+            elif line.secondary_uom_id.dependency_type in (
+                "independent",
+                "secondary_priority",
+            ):
                 continue
             qty_line = line._get_quantity_from_line()
             line.secondary_uom_qty = line._convert_qty_to_secondary_uom(qty_line)
+        # To avoid recompute uom qty_field when secondary_uom_qty changes.
+        self.env.remove_to_compute(
+            field=self._fields[self._secondary_unit_fields["qty_field"]], records=self
+        )
 
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
@@ -128,6 +135,12 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                         default_qty_field_value
                     )
                 continue
+            # "dependent" and "secondary_priority" both compute the target
+            # field from the secondary qty here - they only differ in
+            # _compute_secondary_uom_qty()/_onchange_helper_product_uom_for_
+            # secondary() above, which "secondary_priority" skips like
+            # "independent" so the secondary unit is never itself derived
+            # back from the target field.
             # To avoid recompute secondary_uom_qty field when
             # secondary_uom_id changes.
             rec.env.remove_to_compute(
@@ -146,7 +159,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         if not self.secondary_uom_id:
             self.secondary_uom_qty = 0.0
             return
-        elif self.secondary_uom_id.dependency_type == "independent":
+        elif self.secondary_uom_id.dependency_type in (
+            "independent",
+            "secondary_priority",
+        ):
             return
         qty_line = self._get_quantity_from_line()
         self.secondary_uom_qty = self._convert_qty_to_secondary_uom(qty_line)

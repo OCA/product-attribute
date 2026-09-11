@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ======================
 Product Secondary Unit
 ======================
@@ -17,7 +13,7 @@ Product Secondary Unit
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -32,8 +28,45 @@ Product Secondary Unit
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of product module to allow define
-other units with their conversion factor.
+This module lets you define one or more secondary units of measure per
+product (template or variant), independent of the product's own Unit of
+Measure category. It solves a problem the standard multi-UoM feature
+cannot: relating two units that live in **different UoM categories** and
+are **not a fixed physical conversion** - for example selling a product
+by weight while also tracking it in pieces, boxes, or hours, where the
+exact relationship between the two can vary from one line to the next.
+
+A secondary unit is defined by a conversion ``factor`` against the
+record's own primary UoM, plus a ``dependency_type`` that controls
+**which direction** that factor is allowed to drive:
+
+- **Dependent** (the default): the two quantities stay in lock-step in
+  both directions - entering one recomputes the other from the factor.
+  Use it when the conversion is a fixed, reliable ratio, e.g. a product
+  sold in boxes of 12 units, where the weight/quantity always equals
+  ``pieces × 12``.
+- **Independent**: the two quantities are completely decoupled - setting
+  one never touches the other. Use it when the secondary quantity is
+  informational and unrelated to the primary one, e.g. selling a service
+  by a fixed package (primary quantity always ``1``) while also
+  recording the real hours it will take to schedule an employee.
+- **Secondary unit priority**: a middle ground. The primary quantity is
+  still *estimated* from the secondary one through the factor (like
+  "Dependent"), but the secondary quantity is **never** recomputed back
+  from the primary one (like "Independent"). Use it when the secondary
+  unit is the one that must stay an *exact count*, while the primary
+  quantity is only ever an estimate derived from it - the canonical
+  example is fish sold by weight but counted in pieces: the average
+  weight per piece is just an estimate, so the piece count must never be
+  silently overwritten by a weight-derived guess, while the weight is
+  still usefully pre-filled from the piece count when a line is created.
+
+Other modules build on top of this one (via the
+``product.secondary.unit.mixin`` this module provides) to carry the
+secondary unit and its quantity through sale, purchase and stock
+documents - see ``sale_order_secondary_unit``,
+``purchase_order_secondary_unit``, ``stock_secondary_unit`` and related
+modules.
 
 **Table of contents**
 
@@ -43,11 +76,64 @@ other units with their conversion factor.
 Usage
 =====
 
-To use this module you need to:
+Defining a secondary unit on a product
+--------------------------------------
 
-1. Go to a *Product > General Information tab*.
-2. Create any record in "Secondary unit of measure".
-3. Set the conversion factor.
+1. Enable *Settings > Units of Measure* (this module's field is only
+   shown when the ``uom.group_uom`` feature is active).
+2. Go to a product's *General Information* tab. A *Secondary Unit of
+   Measure* section lists any secondary units already defined for it.
+3. Add a line: pick a *Secondary Unit of Measure* (a standard Odoo UoM,
+   e.g. ``Units``), a *Secondary Unit Factor*, and a *dependency type*.
+   Optionally restrict the line to one specific variant instead of the
+   whole template.
+4. A product can have several secondary units at once (e.g. "box of 5"
+   and "box of 10" for the same product); each other document that uses
+   this mixin lets the user pick which one applies to a given line.
+
+Choosing the right dependency type
+----------------------------------
+
+- **Dependent** - entering either quantity on a document line recomputes
+  the other through the factor, in both directions. Good for a fixed,
+  reliable packaging ratio (a box always has 12 units).
+- **Independent** - the two quantities never influence each other. Good
+  for a secondary quantity that is purely informational (hours of work
+  behind a fixed "1 package" sale).
+- **Secondary unit priority** - the secondary quantity pre-fills the
+  primary one via the factor when a line is first created (or when the
+  secondary quantity/unit changes), but once the primary quantity has
+  been entered or measured on its own, editing it never overwrites the
+  secondary quantity, and the secondary quantity is never silently
+  recomputed from a later primary-quantity change either. Good for a
+  count that must stay exact (pieces) alongside a primary quantity that
+  is only ever an estimate (weight).
+
+For module developers
+---------------------
+
+To make another model participate in secondary units (compute a quantity
+field from a ``secondary_uom_id``/``secondary_uom_qty`` pair the same
+way this module's own product records do), inherit
+``product.secondary.unit.mixin`` and declare
+``_secondary_unit_fields = {"qty_field": "<your quantity field>", "uom_field": "<your UoM field>"}``
+on your model, then:
+
+- Make ``qty_field`` a stored, ``readonly=False`` compute depending on
+  ``secondary_uom_id``/``secondary_uom_qty``, whose body just calls
+  ``self._compute_helper_target_field_qty()``.
+- Add an ``onchange`` on your UoM field that calls
+  ``self._onchange_helper_product_uom_for_secondary()``, so switching
+  the primary UoM keeps the secondary quantity consistent for
+  "Dependent" lines.
+
+See ``purchase_order_secondary_unit`` (purchase-workflow) or
+``stock_secondary_unit`` (stock-logistics-warehouse) for real examples,
+including how a ``dependency_type`` of "Independent"/"Secondary unit
+priority" needs extra protection at the points where the target model
+would otherwise recompute a quantity that must be preserved exactly
+(e.g. splitting a line, merging two lines, or a stored compute
+retriggering a sibling compute).
 
 Bug Tracker
 ===========
