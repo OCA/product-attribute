@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0)
 from contextlib import suppress
 
-from odoo import api, fields, models
+from odoo import api, fields, models, modules
 from odoo.exceptions import AccessError
 
 
@@ -52,8 +52,28 @@ class ProductCostSecurityMixin(models.AbstractModel):
             in str(field.groups).split(",")
         }
 
+    def _get_module_list_check_cost_security(self):
+        """Return a list of modules that should be checked for cost security.
+        If a module exists in the current test, it will be checked for cost security.
+        Add module names to the list if you want them to be checked for cost security,
+        or inherit this method to add more modules to the list."""
+        return ["product_cost_security", "sale_margin_security"]
+
+    def _is_module_product_cost_security_in_test_mode(self):
+        """Check whether the product_cost_security or related modules
+        are currently in test mode
+        in order to enforce cost security restrictions appropriately.
+        """
+        return not modules.module.current_test or (
+            modules.module.current_test
+            and modules.module.current_test.test_module
+            in self._get_module_list_check_cost_security()
+        )
+
     @api.model
     def _check_field_access(self, field, operation):
+        if not self._is_module_product_cost_security_in_test_mode():
+            return
         # Forbid users from updating product costs if they have no permissions.
         # Odoo 19.0 enforces field access through this method during read/write
         # operations, so the edit restriction must be applied here too.
