@@ -1,0 +1,1 @@
+from . import test_product_total_weight_from_packaging
