@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_document_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__active
+msgid "Active"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__company_id
+msgid "Company"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_document_type
+#: model:product.document.type,name:product_document_type.datasheet
+msgid "Data Sheet"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document__display_name
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_document_type
+#: model:product.document.type,name:product_document_type.document
+msgid "Document"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document__document_type_id
+#: model_terms:ir.ui.view,arch_db:product_document_type.product_document_search_view
+msgid "Document Type"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.actions.act_window,name:product_document_type.product_document_type_action
+#: model:ir.ui.menu,name:product_document_type.product_document_type_menu
+msgid "Document Types"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document__id
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__id
+msgid "ID"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__name
+msgid "Name"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model,name:product_document_type.model_product_document
+msgid "Product Document"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model,name:product_document_type.model_product_document_type
+msgid "Product Document Type"
+msgstr ""
+
+#. module: product_document_type
+#: model:product.document.type,name:product_document_type.sds
+msgid "Safety Data Sheet"
+msgstr ""
+
+#. module: product_document_type
+#: model:ir.model.fields,field_description:product_document_type.field_product_document_type__sequence
+msgid "Sequence"
+msgstr ""
