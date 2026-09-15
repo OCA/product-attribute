@@ -73,26 +73,35 @@ class TestProductCostSecurityStockAccount(BaseCommon):
             cls.product2, cls.location_dest, 5.0
         )
 
-    def _generate_and_validate_picking(self, product):
+    def _generate_and_validate_picking(
+        self, product, picking_type=None, loc_orig=None, loc_dest=None
+    ):
+        picking_type = picking_type or self.stock_picking_type
+        loc_orig = loc_orig or self.location_orig
+        loc_dest = loc_dest or self.location_dest
+
         picking = self.env["stock.picking"].create(
             {
-                "picking_type_id": self.stock_picking_type.id,
-                "location_id": self.location_orig.id,
-                "location_dest_id": self.location_dest.id,
+                "picking_type_id": picking_type.id,
+                "location_id": loc_orig.id,
+                "location_dest_id": loc_dest.id,
                 "partner_id": self.partner.id,
             }
         )
         move = self.env["stock.move"].create(
             {
-                "name": "/",
                 "picking_id": picking.id,
                 "product_uom_qty": 10,
-                "product_uom": self.product.uom_id.id,
-                "location_id": self.location_orig.id,
-                "location_dest_id": self.location_dest.id,
+                "product_uom": product.uom_id.id,
+                "location_id": loc_orig.id,
+                "location_dest_id": loc_dest.id,
                 "product_id": product.id,
             }
         )
+        # Odoo 19 Validation
+        picking.action_confirm()
+        move.picked = True
+
         # Validate picking to ensure that error is not thrown
         picking.button_validate()
         return picking, move
@@ -100,10 +109,40 @@ class TestProductCostSecurityStockAccount(BaseCommon):
     @users("__system__", "user_test")
     def test_avco_picking_flow(self):
         picking, move = self._generate_and_validate_picking(self.product)
-        self.assertEqual(move.stock_valuation_layer_ids.unit_cost, 5)
+        # Odoo 19: stock.valuation.layer replaced by direct value on stock.move
+        # unit_cost = move.value / move.quantity
+        self.assertEqual(move.value / move.quantity, 5)
 
     @users("__system__", "user_test")
     def test_change_category(self):
         self._generate_and_validate_picking(self.product2)
         # Change category of product to avco to recompute the svls
         self.product2.categ_id = self.category1
+
+    @users("__system__", "user_test")
+    def test_outgoing_picking_flow(self):
+        loc_customer = self.env["stock.location"].create(
+            {"name": "Customer", "usage": "customer"}
+        )
+        picking_type_out = self.env["stock.picking.type"].create(
+            {
+                "name": "Test Out",
+                "code": "outgoing",
+                "sequence_id": self.sequence.id,
+                "sequence_code": "test_out",
+            }
+        )
+
+        # Update available quantity so we can deliver it
+        self.env["stock.quant"]._update_available_quantity(
+            self.product, self.location_dest, 10.0
+        )
+
+        picking, move = self._generate_and_validate_picking(
+            self.product,
+            picking_type=picking_type_out,
+            loc_orig=self.location_dest,
+            loc_dest=loc_customer,
+        )
+        # Odoo 19: stock.valuation.layer replaced by is_valued field on stock.move
+        self.assertTrue(move.is_valued)
