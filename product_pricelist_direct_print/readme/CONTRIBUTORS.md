@@ -1,0 +1,17 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Carlos Dauden
+  - David Vidal
+  - Sergio Teruel
+  - João Marques
+  - Carlos Roca
+- [CorporateHub](https://corporatehub.eu/):
+  - Alexey Pelykh \<<alexey.pelykh@corphub.eu>\>
+- [GRAP](http://www.grap.coop/):
+  - Sylvain LE GAL \<<https://twitter.com/legalsylvain>\>
+- [FactorLibre](https://factorlibre.com/):
+  - Juan Carlos Bonilla
+- [Trobz](https://trobz.com/):
+  - Tris Doan
+  - Chau Le
+- [Apik](https://apik.cloud/):
+  - Thomas Herbin
