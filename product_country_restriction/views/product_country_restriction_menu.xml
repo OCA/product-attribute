@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <menuitem
+        id="product_country_restriction_menu"
+        name="Product Embargoes"
+        parent="stock.menu_stock_config_settings"
+        action="product_country_restriction_act_window"
+        sequence="99"
+    />
+</odoo>
