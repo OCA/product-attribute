@@ -139,6 +139,55 @@ class TestCountryRestriction(CountryRestrictionCommon):
             messages,
         )
 
+    def test_country_restriction_helpers(self):
+        self.assertEqual(
+            self.au | self.env.ref("base.ph"),
+            self.restriction_1.resulting_country_ids,
+        )
+        self.assertEqual(
+            self.restriction_2,
+            self.restriction_obj.search(
+                self.restriction_obj._get_country_restriction_domain(
+                    self.kp, self.restriction_2
+                )
+            ),
+        )
+        self.assertFalse(
+            self.product_2._get_country_restrictions(
+                self.kp,
+                date=Date.to_date("2018-03-20"),
+                restriction_id=self.restriction_1,
+            )
+        )
+        self.assertTrue(self.product_2._get_country_restrictions(self.au))
+        self.assertTrue(self.product_2._has_country_restriction(self.au))
+        self.assertFalse(self.product_5._has_country_restriction(self.be))
+        self.product_2.company_id = self.env.company
+        self.assertTrue(
+            self.product_2._get_country_restrictions(
+                self.kp, date=Date.to_date("2018-03-20")
+            )
+        )
+        self.assertIn(
+            ("restrict", "Restrict"),
+            self.env.company._get_country_restriction_strategy(),
+        )
+
+    def test_country_restriction_action(self):
+        action = self.kp.action_view_country_restrictions()
+        self.assertEqual(
+            "product.country.restriction",
+            action["res_model"],
+        )
+        self.assertEqual(
+            [
+                "|",
+                ("country_group_ids.country_ids", "in", [self.kp.id]),
+                ("country_ids", "in", [self.kp.id]),
+            ],
+            action["domain"],
+        )
+
     def test_sale_order_line_country_restriction_warning(self):
         self.partner.country_id = self.kp
         order = self.env["sale.order"].create(
@@ -157,3 +206,13 @@ class TestCountryRestriction(CountryRestrictionCommon):
         self.assertEqual("Country Restriction", res["warning"]["title"])
         self.assertIn(self.product_2.name, res["warning"]["message"])
         self.assertIn(self.kp.name, res["warning"]["message"])
+
+    def test_sale_order_line_country_restriction_warning_empty(self):
+        order = self.env["sale.order"].create({"partner_id": self.partner.id})
+        line = self.env["sale.order.line"].new({"order_id": order.id})
+        self.assertFalse(line._get_country_restriction_warning())
+
+        self.partner.country_id = self.be
+        line.product_id = self.product_2
+        self.assertFalse(line._get_country_restriction_warning())
+        self.assertIsNone(line._onchange_product_id_warning())
