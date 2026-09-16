@@ -1,0 +1,5 @@
+- David BEAL \<<david.beal@akretion.com>\>
+- Sébastien BEAU \<<sebastien.beau@akretion.com>\>
+- Abdessamad HILALI
+- Kevin Khao \<<kevinkhao@gmail.com>\>
+- Stefan Rijnhart \<<stefan.rijnhart@opener.amsterdam>\>
