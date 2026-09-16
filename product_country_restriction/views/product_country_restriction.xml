@@ -2,7 +2,6 @@
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="product_country_restriction_form_view">
         <field
             name="name"
@@ -10,9 +9,7 @@
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-
-                </header>
+                <header />
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button
@@ -23,7 +20,7 @@
                         >
                             <field
                                 name="active"
-                                widget="boolean_button"
+                                widget="boolean_toggle"
                                 options='{"terminology": "active"}'
                             />
                         </button>
@@ -40,27 +37,23 @@
                     </group>
                     <group>
                         <field name="country_ids">
-                            <tree>
+                            <list>
                                 <field name="name" />
-                            </tree>
+                            </list>
                         </field>
                         <field name="item_ids">
-                             <tree>
-                                 <field name="sequence" widget="handle" />
-                                 <field name="rule_id" />
-                                 <field name="start_date" />
-                                 <field name="end_date" />
-                                 <field name="product_id" />
-                                 <field name="product_template_id" />
-                                 <field name="product_category_id" />
-                            </tree>
+                            <list>
+                                <field name="sequence" widget="handle" />
+                                <field name="rule_id" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                                <field name="product_id" />
+                                <field name="product_template_id" />
+                                <field name="product_category_id" />
+                            </list>
                         </field>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
             </form>
         </field>
     </record>
@@ -83,18 +76,17 @@
         >product.country.restriction.tree (in product_country_restriction)</field>
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="product_country_restriction_act_window">
         <field name="name">Product Embargoes</field>
         <field name="res_model">product.country.restriction</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
-
 </odoo>

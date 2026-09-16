@@ -2,7 +2,6 @@
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo noupdate="1">
-
     <record
         id="country_restriction_rule_global"
         model="product.country.restriction.rule"
@@ -35,5 +34,4 @@
         <field name="code">variant</field>
         <field name="sequence">4</field>
     </record>
-
 </odoo>

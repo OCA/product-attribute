@@ -6,7 +6,6 @@ from odoo.exceptions import ValidationError
 
 
 class ProductCountryRestrictionItem(models.Model):
-
     _name = "product.country.restriction.item"
     _description = "Product Country Restriction Item"
     _order = "sequence asc, id desc"

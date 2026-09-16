@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ResCountry(models.Model):
-
     _inherit = "res.country"
 
     product_country_restriction_ids = fields.Many2many(

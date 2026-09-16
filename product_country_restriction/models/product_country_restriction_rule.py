@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductCountryRestrictionRule(models.Model):
-
     _name = "product.country.restriction.rule"
     _description = "Product Country Restriction Rule"
     _order = "sequence asc, id desc"
@@ -40,7 +39,7 @@ class ProductCountryRestrictionRule(models.Model):
         """
         self.ensure_one()
         res = {}
-        method = "_apply_rule_%s" % self.code
+        method = f"_apply_rule_{self.code}"
         if hasattr(self, method):
             res = getattr(self, method)(products, item)
         return res

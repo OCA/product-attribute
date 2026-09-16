@@ -2,7 +2,6 @@
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="product_country_restriction_item_form_view">
         <field
             name="name"
@@ -15,23 +14,23 @@
                         <group>
                             <field name="rule_id" />
                             <field name="rule_code" invisible="1" />
+                            <field
+                                name="product_id"
+                                invisible="rule_code != 'variant'"
+                            />
+                            <field
+                                name="product_template_id"
+                                invisible="rule_code != 'product'"
+                            />
+                            <field
+                                name="product_category_id"
+                                invisible="rule_code != 'category'"
+                            />
                         </group>
                         <group>
                             <field name="start_date" />
                             <field name="end_date" />
                         </group>
-                        <field
-                            name="product_id"
-                            attrs="{'invisible': [('rule_code', '!=', 'variant')]}"
-                        />
-                        <field
-                            name="product_template_id"
-                            attrs="{'invisible': [('rule_code', '!=', 'product')]}"
-                        />
-                        <field
-                            name="product_category_id"
-                            attrs="{'invisible': [('rule_code', '!=', 'category')]}"
-                        />
                     </group>
                 </sheet>
             </form>
@@ -71,7 +70,7 @@
         >product.country.restriction.item.tree (in product_country_restriction)</field>
         <field name="model">product.country.restriction.item</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="display_name" />
                 <field name="rule_id" />
                 <field name="start_date" />
@@ -79,7 +78,7 @@
                 <field name="product_id" />
                 <field name="product_template_id" />
                 <field name="product_category_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -89,7 +88,6 @@
     >
         <field name="name">Product Country Restriction Items</field>
         <field name="res_model">product.country.restriction.item</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
-
 </odoo>

@@ -19,7 +19,6 @@
                             name="product_country_restriction_count"
                             widget="statinfo"
                             help="Product Country Restrictions"
-                            modifiers="{'readonly': true}"
                             string="Product Country Restrictions"
                         />
                     </button>

@@ -121,9 +121,12 @@ class TestCountryRestriction(CountryRestrictionCommon):
             self.kp, Date.to_date("2018-03-20")
         )
         messages = restriction_obj._get_country_restriction_messages(restrictions)
+        expected_message = (
+            f"The product {self.product_2.name} has country restriction "
+            f"for {self.kp.name}.(Rule : {self.variant_item.name})"
+        )
         self.assertEqual(
-            "The product %s has country restriction for %s.(Rule : %s)"
-            % (self.product_2.name, self.kp.name, self.variant_item.name),
+            expected_message,
             messages,
         )
         self.env.company.country_restriction_strategy = "restrict"
@@ -132,6 +135,25 @@ class TestCountryRestriction(CountryRestrictionCommon):
         )
         messages = restriction_obj._get_country_restriction_messages(restrictions)
         self.assertEqual(
-            "The product %s has no rule that authorize it." % self.product_5.name,
+            f"The product {self.product_5.name} has no rule that authorize it.",
             messages,
         )
+
+    def test_sale_order_line_country_restriction_warning(self):
+        self.partner.country_id = self.kp
+        order = self.env["sale.order"].create(
+            {
+                "partner_id": self.partner.id,
+                "date_order": Date.to_date("2018-03-20"),
+            }
+        )
+        line = self.env["sale.order.line"].new(
+            {
+                "order_id": order.id,
+                "product_id": self.product_2.id,
+            }
+        )
+        res = line._onchange_product_id_warning()
+        self.assertEqual("Country Restriction", res["warning"]["title"])
+        self.assertIn(self.product_2.name, res["warning"]["message"])
+        self.assertIn(self.kp.name, res["warning"]["message"])
