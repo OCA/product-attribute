@@ -1,0 +1,136 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_barcode_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-19 13:07+0000\n"
+"PO-Revision-Date: 2026-02-19 13:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,field_description:product_barcode_sequence.field_product_category__auto_generate_barcode
+msgid "Auto Generate Barcode"
+msgstr "Générer automatiquement le code-barres"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,help:product_barcode_sequence.field_product_category__auto_generate_barcode
+msgid ""
+"Automatically generate EAN barcode when creating products in this category."
+msgstr ""
+"Générer automatiquement le code-barres EAN lors de la création de produits "
+"dans cette catégorie."
+
+#. module: product_barcode_sequence
+#: model_terms:ir.ui.view,arch_db:product_barcode_sequence.product_category_form_view
+msgid "Barcode Configuration"
+msgstr "Configuration du code-barres"
+
+#. module: product_barcode_sequence
+#. odoo-python
+#: code:addons/product_barcode_sequence/models/product_product.py:0
+#, python-format
+msgid "Barcode Generation"
+msgstr "Génération du code-barres"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,field_description:product_barcode_sequence.field_product_category__barcode_prefix
+msgid "Barcode Prefix"
+msgstr "Préfixe du code-barres"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,field_description:product_barcode_sequence.field_product_category__barcode_sequence_id
+msgid "Barcode Sequence"
+msgstr "Séquence du code-barres"
+
+#. module: product_barcode_sequence
+#. odoo-python
+#: code:addons/product_barcode_sequence/models/product_product.py:0
+#, python-format
+msgid "Barcode must be 12 digits to calculate GTIN check digit"
+msgstr ""
+"Le code-barres doit contenir 12 chiffres pour calculer le chiffre de contrôle "
+"GTIN"
+
+#. module: product_barcode_sequence
+#. odoo-python
+#: code:addons/product_barcode_sequence/models/product_category.py:0
+#, python-format
+msgid "Barcode prefix cannot be empty"
+msgstr "Le préfixe du code-barres ne peut pas être vide"
+
+#. module: product_barcode_sequence
+#. odoo-python
+#: code:addons/product_barcode_sequence/models/product_category.py:0
+#, python-format
+msgid "Barcode prefix cannot exceed 12 digits"
+msgstr "Le préfixe du code-barres ne peut pas dépasser 12 chiffres"
+
+#. module: product_barcode_sequence
+#. odoo-python
+#: code:addons/product_barcode_sequence/models/product_category.py:0
+#, python-format
+msgid "Barcode prefix must contain only digits"
+msgstr "Le préfixe du code-barres doit contenir uniquement des chiffres"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,field_description:product_barcode_sequence.field_product_product__can_generate_barcode
+msgid "Can Generate Barcode"
+msgstr "Peut générer un code-barres"
+
+#. module: product_barcode_sequence
+#: model:ir.actions.server,name:product_barcode_sequence.action_generate_barcode
+msgid "Generate Barcode"
+msgstr "Générer le code-barres"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,help:product_barcode_sequence.field_product_product__can_generate_barcode
+msgid ""
+"Indicates if this product can have a barcode automatically generated based "
+"on its category configuration"
+msgstr ""
+"Indique si ce produit peut avoir un code-barres généré automatiquement en "
+"fonction de la configuration de sa catégorie"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,help:product_barcode_sequence.field_product_category__barcode_prefix
+msgid ""
+"Prefix used to generate EAN barcodes for products created with this "
+"category. Should be 1-12 digits."
+msgstr ""
+"Préfixe utilisé pour générer les codes-barres EAN des produits créés avec "
+"cette catégorie. Doit contenir 1-12 chiffres."
+
+#. module: product_barcode_sequence
+#: model:ir.model,name:product_barcode_sequence.model_product_category
+msgid "Product Category"
+msgstr "Catégorie de produit"
+
+#. module: product_barcode_sequence
+#: model:ir.model,name:product_barcode_sequence.model_product_product
+msgid "Product Variant"
+msgstr "Variante de produit"
+
+#. module: product_barcode_sequence
+#: model:ir.model.fields,help:product_barcode_sequence.field_product_category__barcode_sequence_id
+msgid ""
+"Sequence used to generate unique barcode numbers for products in this "
+"category."
+msgstr ""
+"Séquence utilisée pour générer des numéros de code-barres uniques pour les "
+"produits de cette catégorie."
+
+#. module: product_barcode_sequence
+#. odoo-python
+#: code:addons/product_barcode_sequence/models/product_product.py:0
+#, python-format
+msgid "Successfully generated barcodes for %d products"
+msgstr "Code-barres générés avec succès pour %d produits"
