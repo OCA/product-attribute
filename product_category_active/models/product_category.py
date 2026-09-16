@@ -17,14 +17,15 @@ class ProductCategory(models.Model):
     @api.constrains("active")
     def _check_archive(self):
         to_archive = self.filtered(lambda r: not r.active)
-        if (
-            self.env["product.template"]
-            .with_context(active_test=False)
-            .search([("categ_id", "child_of", to_archive.ids)])
+        if self.env["product.template"].search(
+            [
+                ("categ_id", "child_of", to_archive.ids),
+                ("active", "=", True),
+            ]
         ):
             raise ValidationError(
                 _(
                     "At least one category that you are trying to archive or one "
-                    "of its children has one or more product linked to it."
+                    "of its children has one or more active products linked to it."
                 )
             )

@@ -17,18 +17,6 @@ msgstr ""
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: product_lot_sequence
-#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title="
-"\"Waarden die hier zijn ingesteld zijn bedrijfs-specifiek.\" aria-label="
-"\"Waarden die hier zijn ingesteld zijn bedrijfs-specifiek.\" groups="
-"\"base.group_multi_company\"/>"
-
-#. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_res_company
 msgid "Companies"
 msgstr "Bedrijven"
@@ -121,7 +109,8 @@ msgstr "Het volgende volgnummer wordt gebruikt voor het volgende lot."
 #: model:ir.model.fields,help:product_lot_sequence.field_product_product__lot_sequence_id
 #: model:ir.model.fields,help:product_lot_sequence.field_product_template__lot_sequence_id
 msgid "This field contains the information related to the numbering of lots."
-msgstr "Dit veld bevat de informatie met betrekking tot de nummering van loten."
+msgstr ""
+"Dit veld bevat de informatie met betrekking tot de nummering van loten."
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,help:product_lot_sequence.field_stock_lot__name
@@ -130,5 +119,19 @@ msgstr "Uniek lot-/serienummer"
 
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr ""
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
 msgid "digits"
 msgstr "cijfers"
+
+#~ msgid ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are "
+#~ "company-specific.\" aria-label=\"Values set here are company-specific.\" "
+#~ "groups=\"base.group_multi_company\"/>"
+#~ msgstr ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Waarden die hier zijn "
+#~ "ingesteld zijn bedrijfs-specifiek.\" aria-label=\"Waarden die hier zijn "
+#~ "ingesteld zijn bedrijfs-specifiek.\" groups=\"base.group_multi_company\"/>"

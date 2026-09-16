@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-11-24 12:28+0000\n"
+"PO-Revision-Date: 2026-08-19 14:19+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_category_active
 #: model:ir.model.fields,field_description:product_category_active.field_product_category__active
@@ -27,10 +27,10 @@ msgstr "Attivo"
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
-"has one or more product linked to it."
+"has one or more active products linked to it."
 msgstr ""
-"Almeno una categoria che si sta cercando di archiviare oppure uno dei suoi "
-"figli ha uno o più prodotti associati ad essa."
+"Almeno una delle categorie che stai cercando di archiviare, o una delle sue "
+"sottocategorie, ha uno o più prodotti attivi collegati."
 
 #. module: product_category_active
 #: model:ir.model.fields,help:product_category_active.field_product_category__active
@@ -45,3 +45,11 @@ msgstr ""
 #: model:ir.model,name:product_category_active.model_product_category
 msgid "Product Category"
 msgstr "Categoria prodotto"
+
+#, python-format
+#~ msgid ""
+#~ "At least one category that you are trying to archive or one of its "
+#~ "children has one or more product linked to it."
+#~ msgstr ""
+#~ "Almeno una categoria che si sta cercando di archiviare oppure uno dei "
+#~ "suoi figli ha uno o più prodotti associati ad essa."

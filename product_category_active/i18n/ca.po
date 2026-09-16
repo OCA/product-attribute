@@ -4,18 +4,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-22 08:57+0100\n"
-"Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
-"Language-Team: none\n"
-"Language: ca\n"
+"POT-Creation-Date: 2026-07-31 10:58+0000\n"
+"PO-Revision-Date: 2026-07-31 10:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0.6\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: product_category_active
 #: model:ir.model.fields,field_description:product_category_active.field_product_category__active
@@ -28,10 +27,10 @@ msgstr "Actiu"
 #, python-format
 msgid ""
 "At least one category that you are trying to archive or one of its children "
-"has one or more product linked to it."
+"has one or more active products linked to it."
 msgstr ""
-"Almenys una categoria que intenteu arxivar o un dels seus fills hi té un o "
-"més productes vinculats."
+"Almenys una categoria que intentes arxivar o una de les seves filles té un o "
+"més productes actius vinculats."
 
 #. module: product_category_active
 #: model:ir.model.fields,help:product_category_active.field_product_category__active
@@ -45,4 +44,4 @@ msgstr ""
 #. module: product_category_active
 #: model:ir.model,name:product_category_active.model_product_category
 msgid "Product Category"
-msgstr "Categoria de producte"
+msgstr "Categoria del producte"

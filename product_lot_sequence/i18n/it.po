@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-05-08 09:36+0000\n"
+"PO-Revision-Date: 2026-04-27 12:45+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,18 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
-
-#. module: product_lot_sequence
-#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"I valori qui impostati sono "
-"specifici per azienda.\" aria-label=\"I valori qui impostati sono specifici "
-"per azienda.\" groups=\"base.group_multi_company\"/>"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_res_company
@@ -130,5 +119,19 @@ msgstr "Numero di lotto/serie univoco"
 
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr "I valori impostati qui sono specifici per azienda."
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
 msgid "digits"
 msgstr "cifre"
+
+#~ msgid ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are "
+#~ "company-specific.\" aria-label=\"Values set here are company-specific.\" "
+#~ "groups=\"base.group_multi_company\"/>"
+#~ msgstr ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"I valori qui impostati "
+#~ "sono specifici per azienda.\" aria-label=\"I valori qui impostati sono "
+#~ "specifici per azienda.\" groups=\"base.group_multi_company\"/>"
