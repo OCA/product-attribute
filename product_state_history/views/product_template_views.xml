@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 AGF Vector GmbH
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.product.state.history</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product_state.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='product_state_id']" position="before">
+                <button
+                    name="action_change_product_state"
+                    type="object"
+                    string="Change State"
+                    class="btn-primary"
+                    groups="product_state_history.group_product_state_change"
+                    invisible="not id"
+                />
+            </xpath>
+            <xpath
+                expr="//header/field[@name='product_state_id']"
+                position="attributes"
+            >
+                <attribute name="options">{'clickable': 0}</attribute>
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.only.form.product.state.history</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_open_product_state_history"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-history"
+                >
+                    <field
+                        name="product_state_history_count"
+                        widget="statinfo"
+                        string="State History"
+                    />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

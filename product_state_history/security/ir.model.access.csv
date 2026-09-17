@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_state_history_user","product.state.history.user","model_product_state_history","base.group_user",1,0,0,0
+"access_product_state_history_change","product.state.history.change","model_product_state_history","group_product_state_change",1,0,1,0
+"access_product_state_history_manager","product.state.history.manager","model_product_state_history","product_state.group_product_state_manager",1,1,1,1
+"access_product_state_change_wizard","product.state.change.wizard","model_product_state_change_wizard","group_product_state_change",1,1,1,1
