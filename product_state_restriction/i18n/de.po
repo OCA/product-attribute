@@ -1,0 +1,129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_state_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260810\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-21 19:23+0000\n"
+"PO-Revision-Date: 2026-08-21 19:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_state_restriction
+#. odoo-python
+#: code:addons/product_state_restriction/models/mrp_production.py:0
+msgid ""
+"Component '%(product)s' is restricted for manufacturing (state: %(state)s).\n"
+"Manufacturing Order: %(mo)s"
+msgstr ""
+"Die Komponente '%(product)s' unterliegt Fertigungsbeschränkungen (Status: %(state)s).\n"
+"Fertigungsauftrag: %(mo)s"
+
+#. module: product_state_restriction
+#: model:ir.model.fields,field_description:product_state_restriction.field_mrp_production__display_name
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_state__display_name
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_template__display_name
+#: model:ir.model.fields,field_description:product_state_restriction.field_sale_order__display_name
+#: model:ir.model.fields,field_description:product_state_restriction.field_stock_move__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: product_state_restriction
+#: model:ir.model.fields,field_description:product_state_restriction.field_mrp_production__id
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_state__id
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_template__id
+#: model:ir.model.fields,field_description:product_state_restriction.field_sale_order__id
+#: model:ir.model.fields,field_description:product_state_restriction.field_stock_move__id
+msgid "ID"
+msgstr ""
+
+#. module: product_state_restriction
+#: model:ir.model,name:product_state_restriction.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Fertigungsauftrag"
+
+#. module: product_state_restriction
+#: model:ir.model,name:product_state_restriction.model_product_template
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_state_restriction
+#. odoo-python
+#: code:addons/product_state_restriction/models/mrp_production.py:0
+msgid ""
+"Product '%(product)s' is in state '%(state)s' and cannot be manufactured.\n"
+"Manufacturing Order: %(mo)s"
+msgstr ""
+"Das Produkt '%(product)s' befindet sich im Status '%(state)s' und kann nicht hergestellt werden.\n"
+"Fertigungsauftrag: %(mo)s"
+
+#. module: product_state_restriction
+#. odoo-python
+#: code:addons/product_state_restriction/models/sale_order.py:0
+msgid "Product '%(product)s' is in state '%(state)s' and cannot be sold."
+msgstr "Das Produkt '%(product)s' befindet sich im Status '%(state)s' und kann nicht verkauft werden."
+
+#. module: product_state_restriction
+#. odoo-python
+#: code:addons/product_state_restriction/models/stock_move.py:0
+msgid ""
+"Product '%(product)s' is in state '%(state)s' and cannot leave the "
+"warehouse."
+msgstr ""
+"Das Produkt '%(product)s' befindet sich im Status '%(state)s' und kann das Lager nicht verlassen."
+
+#. module: product_state_restriction
+#: model:ir.model,name:product_state_restriction.model_product_state
+msgid "Product State"
+msgstr "Produkt Zustand"
+
+#. module: product_state_restriction
+#: model:ir.model.fields,help:product_state_restriction.field_product_state__restrict_manufacture
+msgid "Products in this state cannot be manufactured / used as components."
+msgstr "Produkte in diesem Zustand dürfen nicht hergestellt bzw. als Bauteile verwendet werden."
+
+#. module: product_state_restriction
+#: model:ir.model.fields,help:product_state_restriction.field_product_state__restrict_sale
+msgid "Products in this state cannot be sold (sale_ok = False)."
+msgstr "Produkte in diesem Status dürfen nicht verkauft werden (sale_ok = False)."
+
+#. module: product_state_restriction
+#: model:ir.model.fields,help:product_state_restriction.field_product_state__restrict_outgoing
+msgid "Products in this state cannot leave the warehouse."
+msgstr "Produkte in diesem Zustand dürfen das Lager nicht verlassen."
+
+#. module: product_state_restriction
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_state__restrict_manufacture
+msgid "Restrict Manufacturing"
+msgstr "Fertigung gesperrt"
+
+#. module: product_state_restriction
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_state__restrict_outgoing
+msgid "Restrict Outgoing Moves"
+msgstr "Ausgehende Lieferungen gesperrt"
+
+#. module: product_state_restriction
+#: model:ir.model.fields,field_description:product_state_restriction.field_product_state__restrict_sale
+msgid "Restrict Sales"
+msgstr "Verkauf gesperrt"
+
+#. module: product_state_restriction
+#: model_terms:ir.ui.view,arch_db:product_state_restriction.view_product_state_form_restriction
+msgid "Restrictions"
+msgstr "Beschränkungen"
+
+#. module: product_state_restriction
+#: model:ir.model,name:product_state_restriction.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: product_state_restriction
+#: model:ir.model,name:product_state_restriction.model_stock_move
+msgid "Stock Move"
+msgstr "Lagerbuchung"
