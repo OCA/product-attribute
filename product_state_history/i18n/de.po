@@ -1,0 +1,205 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_state_history
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260810\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 12:55+0000\n"
+"PO-Revision-Date: 2026-09-17 12:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/models/product_state_history.py:0
+msgid "A reason is required to change the product state."
+msgstr "Für die Änderung des Produktstatus ist ein Grund anzugeben."
+
+#. module: product_state_history
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_change_wizard_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/models/product_template.py:0
+#: model:ir.model,name:product_state_history.model_product_state_change_wizard
+#: model:res.groups,name:product_state_history.group_product_state_change
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_change_wizard_form
+msgid "Change Product State"
+msgstr "Produktstatus ändern"
+
+#. module: product_state_history
+#: model_terms:ir.ui.view,arch_db:product_state_history.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_change_wizard_form
+msgid "Change State"
+msgstr "Status ändern"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__user_id
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_history_search
+msgid "Changed by"
+msgstr "Geändert durch"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__create_uid
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__create_uid
+msgid "Created by"
+msgstr "Erstellt durch"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__create_date
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__old_state_id
+msgid "Current State"
+msgstr "Aktueller Status"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__date
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_history_search
+msgid "Date"
+msgstr "Datum"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__display_name
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__display_name
+#: model:ir.model.fields,field_description:product_state_history.field_product_template__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: product_state_history
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_change_wizard_form
+msgid "Explain why the product state is changing."
+msgstr "Erläutern Sie, warum sich der Produktstatus ändert."
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_product__id
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__id
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__id
+#: model:ir.model.fields,field_description:product_state_history.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__write_uid
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__write_date
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: product_state_history
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_history_search
+msgid "My Changes"
+msgstr "Meine Änderungen"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__new_state_id
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__new_state_id
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_history_search
+msgid "New State"
+msgstr "Neuer Status"
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/models/product_state_history.py:0
+msgid "None"
+msgstr ""
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/wizards/product_state_change.py:0
+msgid "Please provide a reason for this state change."
+msgstr "Bitte geben Sie einen Grund für diese Statusänderung an."
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/wizards/product_state_change.py:0
+msgid "Please select a different state."
+msgstr "Bitte wählen Sie einen anderen Status aus."
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__old_state_id
+msgid "Previous State"
+msgstr "Vorheriger Status"
+
+#. module: product_state_history
+#: model:ir.model,name:product_state_history.model_product_template
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__product_tmpl_id
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__product_tmpl_id
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_history_search
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_state_history
+#: model:ir.actions.act_window,name:product_state_history.action_product_state_history
+#: model:ir.model,name:product_state_history.model_product_state_history
+msgid "Product State History"
+msgstr "Produktstatusverlauf"
+
+#. module: product_state_history
+#: model:ir.model,name:product_state_history.model_product_product
+msgid "Product Variant"
+msgstr "Produktvariante"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_change_wizard__reason
+#: model:ir.model.fields,field_description:product_state_history.field_product_state_history__reason
+#: model_terms:ir.ui.view,arch_db:product_state_history.view_product_state_history_form
+msgid "Reason"
+msgstr "Grund"
+
+#. module: product_state_history
+#: model:ir.model.fields,help:product_state_history.field_product_product__product_state_id
+#: model:ir.model.fields,help:product_state_history.field_product_state_change_wizard__old_state_id
+#: model:ir.model.fields,help:product_state_history.field_product_template__product_state_id
+msgid "Select a state for this product"
+msgstr "Wählen Sie einen Status für dieses Produkt"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_product__product_state_id
+#: model:ir.model.fields,field_description:product_state_history.field_product_template__product_state_id
+msgid "State"
+msgstr "Status"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_product__product_state_history_ids
+#: model:ir.model.fields,field_description:product_state_history.field_product_template__product_state_history_ids
+#: model_terms:ir.ui.view,arch_db:product_state_history.product_template_only_form_view
+msgid "State History"
+msgstr "Status History"
+
+#. module: product_state_history
+#: model:ir.model.fields,field_description:product_state_history.field_product_product__product_state_history_count
+#: model:ir.model.fields,field_description:product_state_history.field_product_template__product_state_history_count
+msgid "State History Count"
+msgstr "Status History Anzahl"
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/models/product_template.py:0
+msgid ""
+"The product state can only be changed by providing a reason. Use the Change "
+"State button."
+msgstr "Der Produktstatus kann nur unter Angabe eines Grundes geändert werden. Klicken Sie dazu auf die Schaltfläche Status ändern."
+
+#. module: product_state_history
+#. odoo-python
+#: code:addons/product_state_history/models/product_template.py:0
+msgid "You are not allowed to change the product state."
+msgstr "Es ist Ihnen nicht gestattet, den Produktstatus zu ändern."

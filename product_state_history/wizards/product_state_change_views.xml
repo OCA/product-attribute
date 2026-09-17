@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 AGF Vector GmbH
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="view_product_state_change_wizard_form" model="ir.ui.view">
+        <field name="name">product.state.change.wizard.form</field>
+        <field name="model">product.state.change.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Change Product State">
+                <group>
+                    <field name="product_tmpl_id" invisible="1" />
+                    <field name="old_state_id" />
+                    <field name="new_state_id" />
+                    <field
+                        name="reason"
+                        placeholder="Explain why the product state is changing."
+                    />
+                </group>
+                <footer>
+                    <button
+                        name="action_apply"
+                        type="object"
+                        string="Change State"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
