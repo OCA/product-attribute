@@ -1,9 +1,8 @@
-This module allows to link product attributes to models and populate attribute values from the model records and vice versa.
+Create attribute values from another Odoo application ("a model").
 
-When a record is created in a model that is linked to an attribute new attribute value will be created automatically.
+This module allows to link product attributes to models and populate attribute values from the model records and vice versa. If a model is linked to an attribute :
 
-When a record that is linked to an attribute value is deleted linked attribute value will be deleted if it is not used or archived otherwise.
-
-If a related record field value linked to an attribute value is updated the attribute value name is updated accordingly.
-
-If a module that implements a model linked to attribute(s) is uninstalled all the linked attribute values remain in place.
+- creating a record in the model will create a new corresponding attribute value,
+- deleting a record in the model will archive or delete the corresponding attribute value depending of it's used or not,
+- updating a record in the model will update the attribute value name,
+- if the model is deleted (the app is uninstalled), all the linked attribute values remain in place.
