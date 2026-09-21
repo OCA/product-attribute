@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="product.category" id="demo_category_parent">
+        <field name="name">Demo Parent Category</field>
+    </record>
+
+    <record model="product.category" id="demo_category_child_1">
+        <field name="name">Demo Category child 1</field>
+        <field name="parent_id" ref="demo_category_parent" />
+    </record>
+
+    <record model="product.category" id="demo_category_child_2">
+        <field name="name">Demo Category child 2</field>
+        <field name="parent_id" ref="demo_category_child_1" />
+    </record>
+
+</odoo>
