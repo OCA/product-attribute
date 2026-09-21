@@ -34,7 +34,7 @@ addon | version | maintainers | summary
 [product_attribute_value_dependent_mixin](product_attribute_value_dependent_mixin/) | 18.0.1.0.0 |  | Mixin to make product attribute values fields on models
 [product_attribute_value_menu](product_attribute_value_menu/) | 18.0.1.0.1 |  | Product attributes values tree and form. Import attribute values.
 [product_barcode_required](product_barcode_required/) | 18.0.1.0.0 | <a href='https://github.com/simahawk'><img src='https://github.com/simahawk.png' width='32' height='32' style='border-radius:50%;' alt='simahawk'/></a> | Make product barcode required when enabled
-[product_catalog_stock](product_catalog_stock/) | 18.0.1.0.1 |  | Use the product catalog on stock pickings
+[product_catalog_stock](product_catalog_stock/) | 18.0.1.0.2 |  | Use the product catalog on stock pickings
 [product_category_active](product_category_active/) | 18.0.1.0.0 |  | Add option to archive product categories
 [product_category_code](product_category_code/) | 18.0.1.0.1 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> | Allows to define a code on product categories
 [product_category_name_translatable](product_category_name_translatable/) | 18.0.1.0.0 |  | Translate Product Category Names
