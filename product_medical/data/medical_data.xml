@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="medical_class_1" model="medical.class">
+        <field name="name">CE Class I</field>
+    </record>
+    <record id="medical_class_2" model="medical.class">
+        <field name="name">CE Class Im</field>
+    </record>
+    <record id="medical_class_3" model="medical.class">
+        <field name="name">CE Class Is</field>
+    </record>
+    <record id="medical_class_4" model="medical.class">
+        <field name="name">CE Class Ir</field>
+    </record>
+    <record id="medical_class_5" model="medical.class">
+        <field name="name">CE Class IIa</field>
+    </record>
+    <record id="medical_class_6" model="medical.class">
+        <field name="name">CE Class IIb</field>
+    </record>
+    <record id="medical_class_7" model="medical.class">
+        <field name="name">CE Class III</field>
+    </record>
+</odoo>

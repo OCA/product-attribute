@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//form/sheet/notebook/page[@name='general_information']/group[1]/group[@name='group_general']/field[@name='type']"
+                position="after"
+            >
+                <field name="is_medical" />
+            </xpath>
+            <xpath expr="//form/sheet/notebook" position="inside">
+                <page name="conformity" string="Conformity">
+                    <group name="medical_conformity">
+                        <group name="conformity_left" string="Categories">
+                            <field name="medical_class_id" />
+                            <field name="medicine_category_id" />
+                            <field name="medical_ppe_category_id" />
+                            <field name="medical_in_vitro_diagnostic" />
+                            <field name="medical_notified_body_id" />
+                        </group>
+                        <group name="conformity_right" string="Documents">
+                            <field
+                                name="medical_conformity_declaration_ids"
+                                widget="many2many_binary"
+                            />
+                            <field name="medical_doc_validity_date" />
+                            <field
+                                name="medical_ce_certificate_class_ids"
+                                widget="many2many_binary"
+                            />
+                            <field name="medical_ce_certificate_validity_date" />
+                            <field name="medical_doc_lot_related" />
+                            <field name="medical_certificate_url" widget="url" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
