@@ -3,7 +3,7 @@
 from odoo_test_helper import FakeModelLoader
 
 from odoo.fields import Command
-from odoo.tests import TransactionCase
+from odoo.tests import Form, TransactionCase
 
 
 class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
@@ -148,6 +148,37 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model.write({"secondary_uom_qty": 4})
         self.assertEqual(fake_model.product_uom_qty, 17)
         self.assertEqual(fake_model.secondary_uom_qty, 4)
+
+    def test_secondary_priority_type(self):
+        # "secondary_priority": primary IS computed from secondary (like
+        # "dependent"), but secondary is NEVER recomputed from primary
+        # (like "independent") - e.g. counting pieces of a product sold
+        # by weight, where the piece count must stay exact.
+        fake_model = self.secondary_unit_fake
+        fake_model.secondary_uom_id = self.secondary_unit_box_5
+        fake_model.secondary_uom_id.write({"dependency_type": "secondary_priority"})
+        fake_model.write({"secondary_uom_qty": 2})
+        self.assertEqual(fake_model.product_uom_qty, 10.0)
+        self.assertEqual(fake_model.secondary_uom_qty, 2)
+
+        fake_model.write({"product_uom_qty": 17})
+        self.assertEqual(fake_model.product_uom_qty, 17)
+        self.assertEqual(fake_model.secondary_uom_qty, 2)
+
+        fake_model.write({"secondary_uom_qty": 4})
+        self.assertEqual(fake_model.product_uom_qty, 20.0)
+        self.assertEqual(fake_model.secondary_uom_qty, 4)
+
+    def test_onchange_secondary_uom_id_for_qty(self):
+        """The onchange wired to secondary_uom_id recomputes the target qty
+        field, so any consuming model gets that behavior for free without
+        having to declare it itself. Exercised through Form() so it goes
+        through the same onchange() machinery a real client would use.
+        """
+        with Form(self.secondary_unit_fake) as form:
+            form.secondary_uom_qty = 2
+            form.secondary_uom_id = self.secondary_unit_box_5
+        self.assertEqual(form.product_uom_qty, 10.0)
 
     def test_secondary_uom_qty_conversion_with_different_line_uom(self):
         product_uom_litre = self.env.ref("uom.product_uom_litre")

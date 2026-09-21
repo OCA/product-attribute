@@ -24,6 +24,12 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
     you must add an onchange method on uom field and call to
     ``self._onchange_helper_product_uom_for_secondary()``
 
+    The reverse direction (recomputing ``qty_field`` when the user picks
+    ``secondary_uom_id`` in an onchange session, e.g. on a form with no sale
+    order behind it) is handled automatically by this mixin's own
+    ``_onchange_secondary_uom_id_for_qty()`` below - no per-model onchange
+    needed for that one.
+
     You can see an example in ``purchase_order_secondary_unit`` on purchase-workflow
     repository.
     """
@@ -102,10 +108,17 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
             if not line.secondary_uom_id:
                 line.secondary_uom_qty = 0.0
                 continue
-            elif line.secondary_uom_id.dependency_type == "independent":
+            elif line.secondary_uom_id.dependency_type in (
+                "independent",
+                "secondary_priority",
+            ):
                 continue
             qty_line = line._get_quantity_from_line()
             line.secondary_uom_qty = line._convert_qty_to_secondary_uom(qty_line)
+        # To avoid recompute uom qty_field when secondary_uom_qty changes.
+        self.env.remove_to_compute(
+            field=self._fields[self._secondary_unit_fields["qty_field"]], records=self
+        )
 
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
@@ -128,6 +141,12 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                         default_qty_field_value
                     )
                 continue
+            # "dependent" and "secondary_priority" both compute the target
+            # field from the secondary qty here - they only differ in
+            # _compute_secondary_uom_qty()/_onchange_helper_product_uom_for_
+            # secondary() above, which "secondary_priority" skips like
+            # "independent" so the secondary unit is never itself derived
+            # back from the target field.
             # To avoid recompute secondary_uom_qty field when
             # secondary_uom_id changes.
             rec.env.remove_to_compute(
@@ -146,10 +165,26 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         if not self.secondary_uom_id:
             self.secondary_uom_qty = 0.0
             return
-        elif self.secondary_uom_id.dependency_type == "independent":
+        elif self.secondary_uom_id.dependency_type in (
+            "independent",
+            "secondary_priority",
+        ):
             return
         qty_line = self._get_quantity_from_line()
         self.secondary_uom_qty = self._convert_qty_to_secondary_uom(qty_line)
+
+    @api.onchange("secondary_uom_id")
+    def _onchange_secondary_uom_id_for_qty(self):
+        # When the secondary unit is picked *after* the secondary quantity
+        # (the natural tab order on a manually-built record with no other
+        # onchange behind it), the @api.depends-driven recompute of the
+        # target qty field is silently skipped: the client's onchange
+        # payload still carries the stale qty_field value it got back from
+        # the first call (made while secondary_uom_id was still empty), and
+        # being readonly=False the compute engine treats that as a
+        # user-provided value and protects it from being overwritten. An
+        # explicit onchange assignment isn't subject to that protection.
+        self._compute_helper_target_field_qty()
 
     @api.model
     def default_get(self, fields_list):
