@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nutritional_value_employee,access_nutritional_value_employee,model_nutritional_value,base.group_user,1,0,0,0
+access_nutritional_value_manager,access_nutritional_value_manager,model_nutritional_value,base.group_system,1,1,1,1
+access_nutritional_type_employee,access_nutritional_type_employee,model_nutritional_type,base.group_user,1,0,0,0
+access_nutritional_type_manager,access_nutritional_type_manager,model_nutritional_type,base.group_system,1,1,1,1
