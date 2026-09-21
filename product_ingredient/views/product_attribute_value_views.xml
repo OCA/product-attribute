@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_attribute_value_form_view" model="ir.ui.view">
+        <field name="name">product.attribute.value.form</field>
+        <field name="model">product.attribute.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="attribute_id" readonly="1" force_save="1" />
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
