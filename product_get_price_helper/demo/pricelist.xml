@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- pylint:disable=xml-duplicate-record-id -->
+<odoo>
+    <record id="pricelist_1" model="product.pricelist">
+        <field name="name">Business Pricelist</field>
+        <field name="currency_id" ref="base.USD" />
+    </record>
+
+    <record id="item_1" model="product.pricelist.item">
+        <field name="base">list_price</field>
+        <field name="percent_price" eval="20" />
+        <field name="name">Default Business Pricelist Line</field>
+        <field name="pricelist_id" ref="pricelist_1" />
+        <field name="compute_price">percentage</field>
+    </record>
+
+    <!--
+        FORCE ONLY ONE ITEM ON THE PRICE LIST
+        When a price list is created, odoo assign a default price list item/
+        To be sure that only our new item is assigned to the price list
+        we reassign the item_ids....
+    -->
+    <record id="pricelist_1" model="product.pricelist">
+        <field
+            name="item_ids"
+            eval="[Command.set(ref('product_get_price_helper.item_1'))]"
+        />
+    </record>
+</odoo>
