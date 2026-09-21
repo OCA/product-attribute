@@ -1,0 +1,1 @@
+This module extends the `product.state` and `stock.move` models to manage product states during stock operations. It introduces the concept of a shortage state, allowing products to automatically revert to their default state when stock receipts are validated.
