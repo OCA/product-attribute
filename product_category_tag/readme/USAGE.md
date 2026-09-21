@@ -1,0 +1,3 @@
+- Navigate to Inventoy > Configuration > Product Categories.
+- Open the product category you want to tag.
+- In the "Tags" tab, you can add or remove tags for that category.
