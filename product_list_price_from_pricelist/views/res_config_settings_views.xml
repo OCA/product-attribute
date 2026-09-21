@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">view.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='pricelist_configuration']" position="after">
+                <setting
+                    id="pricelist_configuration"
+                    groups="product.group_product_pricelist"
+                >
+                    <div class="text-muted">
+                        Set the base pricelist to compute the sales price for all the products.
+                        <br />
+                        <div class="alert alert-warning mt8" role="alert">
+                            WARNING: Prices are always computed for a quantity of 1, so rules with a minimum quantity higher than that won't be taken into account
+                        </div>
+                    </div>
+                    <div class="content-group">
+                        <div class="mt16">
+                            <field
+                                name="base_pricelist_compute_price_id"
+                                options="{'no_create': True}"
+                                class="o_light_label"
+                            />
+                        </div>
+                        <div class="mt8">
+                            <button
+                                name="action_update_product_price_from_pricelist"
+                                icon="fa-arrow-right"
+                                type="object"
+                                string="Update product prices"
+                                groups="product.group_product_pricelist"
+                                invisible="not base_pricelist_compute_price_id"
+                                confirm="Are you sure you want to update the prices for all products?. This operations cannot be undone."
+                                class="btn-link"
+                            />
+                        </div>
+                    </div>
+                    <div class="content-group" groups="base.group_multi_company">
+                        <div class="mt16">
+                            <label for="main_company_compute_price_id" />
+                            <div class="text-muted">
+                                If set, prices will be computed only if the company in the product matches the company specified here or is empty.
+                                Otherwise, prices will be computed based on the current company.
+                            </div>
+                            <field
+                                name="main_company_compute_price_id"
+                                options="{'no_create': True}"
+                                class="o_light_label"
+                            />
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
