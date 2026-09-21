@@ -1,0 +1,1 @@
+This module provides an automated audit trail for price changes across all product pricelists. It tracks modifications to fixed prices, capturing the previous and new values, the user responsible, and the timestamp. It includes a dedicated view for managers to review pricing trends and a bulk-action feature to print product labels immediately after price adjustments.
