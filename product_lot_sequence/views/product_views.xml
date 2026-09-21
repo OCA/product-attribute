@@ -9,6 +9,10 @@
             <field name="tracking" position="after">
                 <field name="display_lot_sequence_fields" invisible="1" />
                 <field
+                    name="use_specific_lot_sequence"
+                    attrs="{'invisible': [('tracking', 'not in', ['lot', 'serial'])]}"
+                />
+                <field
                     name="lot_sequence_prefix"
                     attrs="{'invisible': ['|', '|', ('tracking', 'not in', ['lot', 'serial']), ('display_lot_sequence_fields', '=', False), ('lot_sequence_id', '!=', False)]}"
                 />
@@ -20,10 +24,32 @@
                     name="lot_sequence_number_next"
                     attrs="{'readonly': [('lot_sequence_id', '!=', False)], 'invisible': ['|', ('tracking', 'not in', ['lot', 'serial']), ('display_lot_sequence_fields', '=', False)]}"
                 />
-                <field
-                    name="lot_sequence_id"
-                    attrs="{'invisible': ['|', ('tracking', 'not in', ['lot', 'serial']), ('display_lot_sequence_fields', '=', False)]}"
-                />
+                <label for="lot_sequence_id" />
+                <div>
+                    <field
+                        name="lot_sequence_id"
+                        attrs="{'invisible': ['|', ('tracking', 'not in', ['lot', 'serial']), '&amp;', ('display_lot_sequence_fields', '=', False), ('lot_sequence_id', '=', False)]}"
+                    />
+                    <button
+                        name="remove_lot_sequence"
+                        type="object"
+                        role="button"
+                        class="oe_link oe_inline"
+                        confirm="This will remove the lot sequence for this product"
+                        attrs="{'invisible': ['|', ('use_specific_lot_sequence', '=', True), ('lot_sequence_id', '=', False)]}"
+                    ><i
+                            class="fa fa-fw o_button_icon fa-arrow-right"
+                        /> Remove sequence</button>
+                    <button
+                        name="create_lot_sequence"
+                        type="object"
+                        role="button"
+                        class="oe_link oe_inline"
+                        attrs="{'invisible': ['|', ('use_specific_lot_sequence', '=', False), ('lot_sequence_id', '!=', False)]}"
+                    ><i
+                            class="fa fa-fw o_button_icon fa-arrow-right"
+                        /> Create sequence</button>
+                </div>
             </field>
         </field>
     </record>
