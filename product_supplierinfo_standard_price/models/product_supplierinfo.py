@@ -13,14 +13,17 @@ class SupplierInfo(models.Model):
         related="product_tmpl_id.standard_price",
     )
 
-    theoritical_standard_price = fields.Float(
-        string="Supplier info price with discount",
+    theoritical_standard_price = fields.Monetary(
+        string="Theoritical Cost",
         compute="_compute_theoritical_standard_price",
+        currency_field="currency_id",
     )
 
-    diff_supplierinfo_product_standard_price = fields.Float(
-        digits="Product Price",
+    diff_supplierinfo_product_standard_price = fields.Monetary(
+        string="current cost difference",
+        currency_field="currency_id",
         compute="_compute_diff_supplierinfo_product_standard_price",
+        help="Difference between the cost of this supplierinfo and the cost of the product",
     )
 
     #
@@ -49,11 +52,12 @@ class SupplierInfo(models.Model):
                 or supplierinfo.product_tmpl_id.uom_po_id
                 or supplierinfo.product_id.uom_po_id
             )
-            currency = supplierinfo.currency_id
-            destination_uom = (
-                supplierinfo.product_tmpl_id.uom_id or supplierinfo.product_id.uom_id
-            )
             if uom:
+                currency = supplierinfo.currency_id
+                destination_uom = (
+                    supplierinfo.product_tmpl_id.uom_id
+                    or supplierinfo.product_id.uom_id
+                )
                 price = supplierinfo.price
                 if "discount" in self._fields:
                     price *= 1 - supplierinfo.discount / 100
@@ -64,6 +68,8 @@ class SupplierInfo(models.Model):
                 supplierinfo.theoritical_standard_price = currency.round(
                     uom._compute_price(price, destination_uom)
                 )
+            else:
+                supplierinfo.theoritical_standard_price = False
 
     @api.depends("theoritical_standard_price", "product_standard_price")
     def _compute_diff_supplierinfo_product_standard_price(self):
