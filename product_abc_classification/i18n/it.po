@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 18:37+0000\n"
+"PO-Revision-Date: 2026-09-21 20:54+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_level__percentage
@@ -30,12 +30,12 @@ msgstr "% prodotti"
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_profile.py:0
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.view_product_category_form
 msgid "-> Apply to Products"
-msgstr ""
+msgstr "-> Applica ai prodotti"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.product_template_form_view
@@ -83,7 +83,7 @@ msgstr "Profilo classificazione ABC"
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_product_product__abc_classification_profile_updatable_from_category
 msgid "Abc Classification Profile Updatable From Category"
-msgstr ""
+msgstr "Profilo classificazione ABC aggiornabile dalla categoria"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_product_level_search_view
@@ -144,7 +144,7 @@ msgstr "Classificazione non sincronizzata con il calcolo"
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__company_id
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.abc_classification_profile_form_view
@@ -276,7 +276,7 @@ msgstr "Livelli"
 #. module: product_abc_classification
 #: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__profile_type__manual
 msgid "Manual"
-msgstr ""
+msgstr "Manuale"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__manual_level_id
@@ -353,7 +353,7 @@ msgstr "Prodotto"
 #. module: product_abc_classification
 #: model:ir.model,name:product_abc_classification.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria prodotto"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_profile__product_count
@@ -402,7 +402,7 @@ msgstr "Il nome profilo deve essere univoco"
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__rating_ids
 msgid "Ratings"
-msgstr ""
+msgstr "Valutazioni"
 
 #. module: product_abc_classification
 #. odoo-python
@@ -412,6 +412,9 @@ msgid ""
 "(company)s, but the following products belong to another company: %"
 "(products)s."
 msgstr ""
+"Il profilo di classificazione ABC %(profile)s è assegnato all'azienda %"
+"(company)s, ma i seguenti prodotti appartengono a un'altra azienda: %"
+"(products)s."
 
 #. module: product_abc_classification
 #. odoo-python
@@ -458,7 +461,7 @@ msgstr "La somma delle percentuali dei prodotti dei livelli deve essere 100."
 #. module: product_abc_classification
 #: model_terms:ir.ui.view,arch_db:product_abc_classification.view_product_category_form
 msgid "This will apply to all products in the category"
-msgstr ""
+msgstr "Questo si applicherà a tutti i prodotti nella categoria"
 
 #. module: product_abc_classification
 #: model:ir.model.fields,field_description:product_abc_classification.field_abc_classification_product_level__profile_type
