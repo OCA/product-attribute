@@ -1,0 +1,79 @@
+# Copyright 2024 Camptocamp SA
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo import api, fields, models
+from odoo.tools.float_utils import float_is_zero, float_round
+
+
+class ProductPricelistItem(models.Model):
+    _inherit = "product.pricelist.item"
+
+    cost = fields.Float(
+        related="product_tmpl_id.standard_price",
+        digits="Product Price",
+    )
+    margin = fields.Float(
+        compute="_compute_margin",
+        digits="Product Price",
+    )
+    margin_percent = fields.Float(
+        string="Margin (%)",
+        compute="_compute_margin",
+    )
+
+    @api.depends(
+        "compute_price",
+        "applied_on",
+        "percent_price",
+        "base",
+        "price_discount",
+        "price_surcharge",
+        "price_round",
+        "price_min_margin",
+        "product_tmpl_id",
+        "cost",
+        "min_quantity",
+        "fixed_price",
+    )
+    def _compute_margin(self):
+        current_company = self.env.company
+        for item in self:
+            if (
+                item.applied_on not in ("1_product", "0_product_variant")
+                or not item.product_tmpl_id
+            ):
+                item.margin = 0
+                item.margin_percent = 0
+                continue
+
+            price = item._compute_price(
+                item.product_tmpl_id,
+                item.min_quantity,
+                item.product_tmpl_id.uom_id,
+                fields.Datetime.now(),
+            )
+
+            if float_is_zero(price, precision_rounding=item.currency_id.rounding):
+                item.margin = 0
+                item.margin_percent = 0
+                continue
+
+            res = item.product_tmpl_id.taxes_id.filtered(
+                lambda t: t.company_id and t.company_id == current_company
+            ).compute_all(
+                price,
+                item.currency_id,
+                product=item.product_tmpl_id,
+            )
+
+            price_vat_excl = res["total_excluded"]
+
+            cost = self.env.user.company_id.currency_id._convert(
+                item.cost, item.currency_id
+            )
+
+            item.margin = price_vat_excl - cost
+            item.margin_percent = float_round(
+                price_vat_excl and (item.margin / price_vat_excl) * 100,
+                self.env["decimal.precision"].precision_get("Product Unit of Measure"),
+            )

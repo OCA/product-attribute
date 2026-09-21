@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_margin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-27 03:40+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__cost
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__cost
+msgid "Cost"
+msgstr "Lastna cena"
+
+#. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__margin
+msgid "Margin"
+msgstr "Marža"
+
+#. module: product_pricelist_margin
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_assortment_item__margin_percent
+#: model:ir.model.fields,field_description:product_pricelist_margin.field_product_pricelist_item__margin_percent
+msgid "Margin (%)"
+msgstr "Marža (%)"
+
+#. module: product_pricelist_margin
+#: model:ir.model,name:product_pricelist_margin.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Pravilo cenika"
+
+#. module: product_pricelist_margin
+#: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_assortment_item__cost
+#: model:ir.model.fields,help:product_pricelist_margin.field_product_pricelist_item__cost
+msgid ""
+"Value of the product (automatically computed in AVCO).\n"
+"        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+"Vrednost proizvoda (samodejno izračunana v AVCO).\n"
+"        Uporablja se za vrednotenje proizvoda, kadar nabavna cena ni znana "
+"(npr. prilagoditev zalog).\n"
+"        Uporablja se za izračun marž pri prodajnih naročilih."
