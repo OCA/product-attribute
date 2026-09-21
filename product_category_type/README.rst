@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 =====================
 Product Category Type
 =====================
@@ -13,7 +17,7 @@ Product Category Type
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -40,6 +44,12 @@ It is so impossible to select a category (type view) in the product
 template form view.
 
 figure:: ../static/description/product_template_form.png
+
+When installing the module, the categories that contain child categories
+and that don't have any product related will be set as 'view'. Otherwise,
+categories will be set as 'normal'.
+If your database already contains products and categories data,
+maybe you should fix some misconfigurations.
 
 Note
 ----

@@ -14,6 +14,7 @@
     "depends": [
         "product",
     ],
+    "post_init_hook": "post_init_hook",
     "data": [
         "views/product_category.xml",
     ],
