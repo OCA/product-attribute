@@ -104,6 +104,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
 
     @api.depends(lambda x: x._get_secondary_uom_qty_depends())
     def _compute_secondary_uom_qty(self):
+        converted_lines = self.browse()
         for line in self:
             if not line.secondary_uom_id:
                 line.secondary_uom_qty = 0.0
@@ -115,10 +116,14 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
                 continue
             qty_line = line._get_quantity_from_line()
             line.secondary_uom_qty = line._convert_qty_to_secondary_uom(qty_line)
-        # To avoid recompute uom qty_field when secondary_uom_qty changes.
-        self.env.remove_to_compute(
-            field=self._fields[self._secondary_unit_fields["qty_field"]], records=self
-        )
+            converted_lines |= line
+        # Only suppress the reverse computation after converting the primary
+        # quantity. Other lines may still need it, e.g. after changing packaging.
+        if converted_lines:
+            self.env.remove_to_compute(
+                field=self._fields[self._secondary_unit_fields["qty_field"]],
+                records=converted_lines,
+            )
 
     def _get_default_value_for_qty_field(self):
         return self.default_get([self._secondary_unit_fields["qty_field"]]).get(
