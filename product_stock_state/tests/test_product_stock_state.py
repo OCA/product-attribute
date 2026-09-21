@@ -12,14 +12,30 @@ class TestProductStockState(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.company = cls.env.ref("base.main_company")
-        cls.category_furniture = cls.env.ref("product.product_category_5")
-        cls.category_saleable = cls.env.ref("product.product_category_1")
-        cls.product_chair = cls.env.ref("product.product_product_12")
-        cls.product_threshold_on_company = cls.env.ref(
-            "product_stock_state.product_setting_by_company"
+        cls.company.stock_state_threshold = 66
+        cls.category_furniture = cls.env["product.category"].create(
+            {"name": "Test Furniture", "manual_stock_state_threshold": 20}
         )
-        cls.product_threshold_on_product = cls.env.ref(
-            "product_stock_state.product_setting_by_product"
+        cls.category_office = cls.env["product.category"].create(
+            {"name": "Test Office", "parent_id": cls.category_furniture.id}
+        )
+        cls.category_plain = cls.env["product.category"].create({"name": "Test Plain"})
+        cls.product_chair = cls.env["product.product"].create(
+            {"name": "Test Chair", "categ_id": cls.category_office.id}
+        )
+        cls.product_threshold_on_company = cls.env["product.product"].create(
+            {
+                "name": "Product with threshold set on the company",
+                "categ_id": cls.category_plain.id,
+                "company_id": cls.company.id,
+            }
+        )
+        cls.product_threshold_on_product = cls.env["product.product"].create(
+            {
+                "name": "Product with threshold set on the product",
+                "categ_id": cls.category_plain.id,
+                "manual_stock_state_threshold": 30,
+            }
         )
 
     def test_01_global_product(self):
@@ -31,17 +47,17 @@ class TestProductStockState(TransactionCase):
 
     def test_02_category_setting_direct(self):
         """Test Category Setting (Setting on the product category)"""
-        self.category_furniture.stock_state_threshold = 77
+        self.category_office.stock_state_threshold = 77
         self.assertEqual(
             self.product_chair._get_stock_state_threshold(),
-            self.category_furniture.stock_state_threshold,
+            self.category_office.stock_state_threshold,
         )
 
     def test_03_category_setting_inherit(self):
         """Test Category Setting (Setting on a parent category)"""
         self.assertEqual(
             self.product_chair._get_stock_state_threshold(),
-            self.category_saleable.stock_state_threshold,
+            self.category_furniture.stock_state_threshold,
         )
 
     def test_04_category_setting_inherit(self):
