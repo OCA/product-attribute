@@ -9,7 +9,7 @@
     "category": "Product",
     "version": "16.0.1.2.0",
     "license": "AGPL-3",
-    "depends": ["product", "sale"],
+    "depends": ["product", "sale", "stock"],
     "data": [
         "data/product_state_data.xml",
         "security/ir.model.access.csv",
