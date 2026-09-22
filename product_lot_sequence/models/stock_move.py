@@ -7,20 +7,17 @@ class StockMove(models.Model):
     _inherit = "stock.move"
 
     def action_show_details(self):
-        """Avoid calling and incrementing the sequence if not needed or already done"""
-        seq_policy = self.env["stock.lot"]._get_sequence_policy()
-
-        if seq_policy in ("product", "global"):
-            # If move is not supposed to assign serial pass empty string for next serial
-            if not self.display_assign_serial:
-                self = self.with_context(force_next_serial="")
-            # If the sequence was already called once, avoid calling it another time
-            elif self.next_serial:
-                self = self.with_context(force_next_serial=self.next_serial)
-            elif self.product_id.tracking == "serial" and self.state == "assigned":
-                self.next_serial = self.env["stock.lot"]._get_next_serial(
-                    self.company_id, self.product_id
-                )
+        # propose the next serial of the sequence
+        self.ensure_one()
+        lot_model = self.env["stock.lot"]
+        if (
+            self.display_assign_serial
+            and self.product_id.tracking == "serial"
+            and self.state == "assigned"
+            # if the name is not yet consumed, can peek a fresh one
+            and (lot_model._consume_on_create() or not self.next_serial)
+        ):
+            self.next_serial = lot_model._propose_next_name(self.product_id)
         return super().action_show_details()
 
     @api.model
@@ -30,9 +27,7 @@ class StockMove(models.Model):
             product = self.env["product.product"].browse(
                 context.get("default_product_id")
             )
-            first_lot = self.env["stock.lot"]._get_next_serial(
-                self.env.company, product
-            )
+            first_lot = self.env["stock.lot"]._propose_next_name(product)
         return super().action_generate_lot_line_vals(
             context, mode, first_lot, count, lot_text
         )
