@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_stock_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-27 05:59+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_res_company
+msgid "Companies"
+msgstr "Družbe"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_res_config_settings
+msgid "Config Settings"
+msgstr "Nastavitve"
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_res_config_settings__stock_state_threshold
+msgid ""
+"Define custom value under which the stock state will pass from 'In Stock' to"
+" 'In Limited Stock' State."
+msgstr ""
+"Določite vrednost po meri, pod katero se stanje zaloge spremeni iz 'Na "
+"zalogi' v 'Omejena zaloga'."
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_product__stock_state_threshold
+#: model:ir.model.fields,help:product_stock_state.field_product_template__stock_state_threshold
+msgid ""
+"Define custom value under which the stock state will pass from 'In Stock' to"
+" 'In Limited Stock' State. If not set, Odoo will use the value defined in "
+"the product category. If no value is defined in product category, it will "
+"use the value defined for the company"
+msgstr ""
+"Določite vrednost po meri, pod katero se bo stanje zaloge spremenilo iz 'Na "
+"zalogi' v 'Omejena zaloga'. Če ni nastavljena, bo Odoo uporabil vrednost, "
+"določeno v kategoriji proizvoda. Če v kategoriji proizvoda ni določene "
+"vrednosti, bo uporabil vrednost, določeno za družbo"
+
+#. module: product_stock_state
+#: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__in_limited_stock
+msgid "In Limited Stock"
+msgstr "Omejena zaloga"
+
+#. module: product_stock_state
+#: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__in_stock
+msgid "In Stock"
+msgstr "Na zalogi"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__manual_stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__manual_stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__manual_stock_state_threshold
+msgid "Manual Stock State Threshold"
+msgstr "Ročni prag stanja zaloge"
+
+#. module: product_stock_state
+#: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__out_of_stock
+msgid "Out Of Stock"
+msgstr "Ni na zalogi"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_template
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_category
+msgid "Product Category"
+msgstr "Kategorija proizvoda"
+
+#. module: product_stock_state
+#: model:ir.model,name:product_stock_state.model_product_product
+msgid "Product Variant"
+msgstr "Različica proizvoda"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Product stock thresholds"
+msgstr "Pragovi zalog proizvodov"
+
+#. module: product_stock_state
+#: model:product.template,name:product_stock_state.product_setting_by_company_product_template
+msgid "Product with threshold set on the company"
+msgstr "Proizvod s pragom, določenim na nivoju družbe"
+
+#. module: product_stock_state
+#: model:product.template,name:product_stock_state.product_setting_by_product_product_template
+msgid "Product with threshold set on the product"
+msgstr "Proizvod s pragom nastavljenim na proizvodu"
+
+#. module: product_stock_state
+#: model:ir.model.fields.selection,name:product_stock_state.selection__product_product__stock_state__resupplying
+msgid "Resupplying"
+msgstr "Obnavljanje zalog"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_config_settings_view_form_threshold
+msgid "Set stock state threshold"
+msgstr "Nastavi prag stanja zaloge"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state
+msgid "Stock State"
+msgstr "Stanje zalog"
+
+#. module: product_stock_state
+#: model:ir.model.fields,field_description:product_stock_state.field_product_category__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_product__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_product_template__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_res_company__stock_state_threshold
+#: model:ir.model.fields,field_description:product_stock_state.field_res_config_settings__stock_state_threshold
+msgid "Stock State Threshold"
+msgstr "Prag stanja zalog"
+
+#. module: product_stock_state
+#: model:res.groups,name:product_stock_state.group_stock_state_by_category
+msgid "Stock State Threshold by Category"
+msgstr "Prag stanja zalog po kategorijah"
+
+#. module: product_stock_state
+#: model:res.groups,name:product_stock_state.group_stock_state_by_product
+msgid "Stock State Threshold by Product"
+msgstr "Prag stanja zalog po proizvodih"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_category_form
+#: model_terms:ir.ui.view,arch_db:product_stock_state.view_product_template_form
+msgid "Stock Threshold"
+msgstr "Prag zalog"
+
+#. module: product_stock_state
+#: model_terms:ir.ui.view,arch_db:product_stock_state.res_company_view_form_threshold
+msgid "Stock parameters"
+msgstr "Parametri zalog"
+
+#. module: product_stock_state
+#: model:ir.model.fields,help:product_stock_state.field_product_category__stock_state_threshold
+msgid ""
+"The custom value under which the stock state of the products of this "
+"category will pass from 'In Stock' to 'In Limited Stock' State. If not set, "
+"Odoo will use the threshold defined at the company level."
+msgstr ""
+"Vrednost po meri, pod katero se stanje zaloge proizvodov v tej kategoriji "
+"spremeni iz stanja 'Na zalogi' v stanje 'Omejena zaloga'. Če ni nastavljena, "
+"bo Odoo uporabil prag, določen na ravni družbe."
