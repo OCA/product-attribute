@@ -1,6 +1,8 @@
 # Copyright 2020 ForgeFlow S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from collections import defaultdict
+
 from odoo import api, fields, models
 
 
@@ -56,6 +58,30 @@ class StockLot(models.Model):
             for index in range(count)
         ]
 
+    def _lots_by_sequence(self):
+        """Group the lots by the sequence their names should follow"""
+        seq_policy = self._get_sequence_policy()
+        if seq_policy == "global":
+            sequence = self._get_name_sequence()
+            return {sequence: self} if sequence else {}
+        if seq_policy == "product":
+            lot_ids_by_sequence = defaultdict(list)
+            for lot in self:
+                seq = lot.product_id.product_tmpl_id.lot_sequence_id
+                if not seq:
+                    continue
+                lot_ids_by_sequence[seq].append(lot.id)
+            return {
+                seq: self.browse(lot_ids)
+                for seq, lot_ids in lot_ids_by_sequence.items()
+            }
+        return {}
+
+    def _resync_sequence(self):
+        """Advance each sequence past the names carried by these lots"""
+        for sequence, lots in self._lots_by_sequence().items():
+            sequence._resync_from_lot_names(lots.mapped("name"))
+
     @api.onchange("product_id")
     def onchange_product_id(self):
         if self._get_sequence_policy() == "product" and self.product_id:
@@ -75,7 +101,9 @@ class StockLot(models.Model):
             sequence = self._get_name_sequence(product)
             if sequence:
                 lot_vals["name"] = sequence._next()
-        return super().create(vals_list)
+        lots = super().create(vals_list)
+        lots._resync_sequence()
+        return lots
 
     @api.model
     def _get_next_serial(self, company, product):
