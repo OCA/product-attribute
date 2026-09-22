@@ -80,3 +80,28 @@ class IrSequence(models.Model):
                 ir_sequence_date_range=self._get_current_sequence().date_from
             )
         return sequence.get_next_char(number)
+
+    def _lock(self):
+        """Serialise transactions that read this sequence"""
+        self.ensure_one()
+        self.env.cr.execute(
+            "SELECT id FROM ir_sequence WHERE id = %s FOR NO KEY UPDATE", [self.id]
+        )
+
+    def _resync_from_lot_names(self, names):
+        """Move the sequence past ``names`` so none of them is ever reissued.
+
+        Only names this sequence could have produced are considered, and the
+        counter is never moved backwards.
+        """
+        self.ensure_one()
+        regex = self._lot_name_regex()
+        numbers = [int(match.group(1)) for match in map(regex.match, names) if match]
+        if not numbers:
+            return
+        self._lock()
+        current = self._get_current_sequence()
+        current.invalidate_recordset(["number_next_actual"])
+        highest = max(numbers)
+        if current.number_next_actual <= highest:
+            current.sudo().number_next_actual = highest + 1
