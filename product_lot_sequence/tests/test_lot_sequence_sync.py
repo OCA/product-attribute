@@ -42,6 +42,48 @@ class LotSequenceCase(TransactionCase):
 
 
 class TestLotSequenceSync(LotSequenceCase):
+    """consume_on_create on, for gap-free sequences"""
+
+    def setUp(self):
+        super().setUp()
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.consume_on_create", "True"
+        )
+
+    def test_peek_does_not_consume(self):
+        name = self.env["stock.lot"]._peek_next_name(self.product)
+        self.assertEqual(name, "ABC0000101")
+        self.assertEqual(self._next_number(), 101)
+        self.assertEqual(
+            self.env["stock.lot"]._peek_next_name(self.product), "ABC0000101"
+        )
+        self.assertEqual(self._next_number(), 101)
+
+    def test_default_name_does_not_consume(self):
+        self.assertEqual(self.env["stock.lot"]._default_name(), "ABC0000101")
+        self.assertEqual(self._next_number(), 101)
+
+    def test_second_batch_does_not_collide(self):
+        self._create_lots([f"ABC{101 + index:07d}" for index in range(20)])
+        self.assertEqual(
+            self.env["stock.lot"]._peek_next_name(self.product), "ABC0000121"
+        )
+
+    def test_create_without_name_consumes_one(self):
+        lot = self.env["stock.lot"].create({"product_id": self.product.id})
+        self.assertEqual(lot.name, "ABC0000101")
+        self.assertEqual(self._next_number(), 102)
+
+    def test_unparseable_option_reads_as_off(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.consume_on_create", "maybe"
+        )
+        self.assertEqual(
+            self.env["stock.lot"]._propose_next_name(self.product), "ABC0000101"
+        )
+        # proposing the name incremented the next number
+        self.assertEqual(self._next_number(), 102)
+
     def test_mass_create_advances_past_whole_batch(self):
         names = [f"ABC{101 + index:07d}" for index in range(20)]
         lots = self._create_lots(names)
@@ -133,8 +175,15 @@ class TestLotSequenceSync(LotSequenceCase):
             [vals["lot_name"] for vals in vals_list],
             ["ABC0000101", "ABC0000102", "ABC0000103"],
         )
-        # seeding the dialog takes one number from the sequence
-        self.assertEqual(self._next_number(), 102)
+        self.assertEqual(self._next_number(), 101)
+
+
+class TestLotSequenceDefaults(LotSequenceCase):
+    """Default configurations"""
+
+    def test_mass_create_still_advances_past_whole_batch(self):
+        self._create_lots([f"ABC{101 + index:07d}" for index in range(20)])
+        self.assertEqual(self._next_number(), 121)
 
 
 class TestLotSequencePerProduct(LotSequenceCase):

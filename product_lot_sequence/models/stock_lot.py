@@ -4,6 +4,7 @@
 from collections import defaultdict
 
 from odoo import api, fields, models
+from odoo.tools.misc import str2bool
 
 
 class StockLot(models.Model):
@@ -19,6 +20,16 @@ class StockLot(models.Model):
             .get_param("product_lot_sequence.policy")
         )
         return policy if policy in ["product", "global"] else "global"
+
+    @api.model
+    def _consume_on_create(self):
+        """Whether a proposed name only takes its number once the lot exists"""
+        return str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("product_lot_sequence.consume_on_create"),
+            default=False,
+        )
 
     @api.model
     def _get_name_sequence(self, product=None):
@@ -39,9 +50,32 @@ class StockLot(models.Model):
         return self.env["ir.sequence"]
 
     @api.model
-    def _default_name(self):
-        sequence = self._get_name_sequence()
+    def _peek_next_name(self, product=None):
+        """Get the next name without consuming it to avoid gaps"""
+        sequence = self._get_name_sequence(product)
+        if not sequence:
+            return ""
+        return sequence._lot_name_for(
+            sequence._get_current_sequence().number_next_actual
+        )
+
+    @api.model
+    def _propose_next_name(self, product=None):
+        """Propose name for a lot that does not exist yet
+
+        With ``consume_on_create`` the number is only read, so canceling doesn't leave
+        a gap, the sequence is consumed only in ``create`` instead.
+        Without ``consume_on_create`` the number is consumed here, which was the
+        original behaviour
+        """
+        if self._consume_on_create():
+            return self._peek_next_name(product)
+        sequence = self._get_name_sequence(product)
         return sequence._next() if sequence else ""
+
+    @api.model
+    def _default_name(self):
+        return self._propose_next_name()
 
     @api.model
     def generate_lot_names(self, first_lot, count):
@@ -85,9 +119,9 @@ class StockLot(models.Model):
     @api.onchange("product_id")
     def onchange_product_id(self):
         if self._get_sequence_policy() == "product" and self.product_id:
-            sequence = self._get_name_sequence(self.product_id)
-            if sequence:
-                self.name = sequence._next()
+            name = self._propose_next_name(self.product_id)
+            if name:
+                self.name = name
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -109,7 +143,7 @@ class StockLot(models.Model):
     def _get_next_serial(self, company, product):
         if "force_next_serial" in self.env.context:
             return self.env.context.get("force_next_serial")
-        sequence = self._get_name_sequence(product)
-        if sequence:
-            return sequence._next()
+        name = self._propose_next_name(product)
+        if name:
+            return name
         return super()._get_next_serial(company, product)
