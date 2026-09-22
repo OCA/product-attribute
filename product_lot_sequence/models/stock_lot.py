@@ -40,6 +40,21 @@ class StockLot(models.Model):
         sequence = self._get_name_sequence()
         return sequence._next() if sequence else ""
 
+    @api.model
+    def generate_lot_names(self, first_lot, count):
+        # number the batch from the sequence, not from the name's digits: core
+        # increments the last run of digits it finds, which merges with prefix
+        # (ABC2026) and suffix (3M) digits into one number, "ABC20260000013M"
+        sequence = self._get_name_sequence()
+        match = sequence and sequence._lot_name_regex().match(first_lot or "")
+        if not match:
+            return super().generate_lot_names(first_lot, count)
+        first = int(match.group(1))
+        return [
+            {"lot_name": sequence._lot_name_for(first + index)}
+            for index in range(count)
+        ]
+
     @api.onchange("product_id")
     def onchange_product_id(self):
         if self._get_sequence_policy() == "product" and self.product_id:
