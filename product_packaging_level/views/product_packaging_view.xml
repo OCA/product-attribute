@@ -16,7 +16,7 @@
                 <attribute name="required">barcode_required_for_gtin</attribute>
             </xpath>
             <field name="name" position="attributes">
-                <attribute name="column_invisible">1</attribute>
+                <attribute name="readonly">name_policy != 'user_defined'</attribute>
             </field>
         </field>
     </record>
