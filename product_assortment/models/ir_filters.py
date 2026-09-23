@@ -2,6 +2,8 @@
 # Copyright 2023 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from datetime import date
+
 from odoo import _, api, fields, models
 from odoo.osv import expression
 from odoo.tools import ormcache
@@ -128,10 +130,12 @@ class IrFilters(models.Model):
 
     def _get_eval_partner_domain(self):
         self.ensure_one()
-        return safe_eval(
-            self.partner_domain,
-            {"datetime": datetime, "context_today": datetime.datetime.now},
-        )
+        eval_context = {
+            "datetime": datetime,
+            "context_today": date.today,
+            "current_date": date.today().strftime("%Y-%m-%d"),
+        }
+        return safe_eval(self.partner_domain or "[]", eval_context)
 
     def _compute_record_count(self):
         for record in self:
