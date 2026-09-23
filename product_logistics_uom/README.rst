@@ -112,18 +112,18 @@ Authors
 Contributors
 ------------
 
-- Raphaël Reverdy <raphael.reverdy@akretion.com>
-- Fernando La Chica <fernandolachica@gmail.com>
-- Laurent Mignon <laurent.mignon@acsone.eu>
-- Nhan Tran <nhant@trobz.com>
+-  Raphaël Reverdy <raphael.reverdy@akretion.com>
+-  Fernando La Chica <fernandolachica@gmail.com>
+-  Laurent Mignon <laurent.mignon@acsone.eu>
+-  Nhan Tran <nhant@trobz.com>
 
 Other credits
 -------------
 
 The development of this module has been financially supported by:
 
-- Akretion <https://akretion.com>
-- La Base <https://labase.coop>
+-  Akretion <https://akretion.com>
+-  La Base <https://labase.coop>
 
 Maintainers
 -----------
