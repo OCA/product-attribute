@@ -1,0 +1,125 @@
+# Copyright 2020 Akretion France (http://www.akretion.com)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+from copy import deepcopy
+
+import lxml.etree as etree
+
+from odoo.tests import common
+
+
+class Test(common.TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product_sofa = cls.env.ref("product.consu_delivery_01_product_template")
+        cls.vendor_gemini = cls.env.ref("base.res_partner_3")
+
+    @property
+    def supplierinfo_vals(self):
+        return {
+            "partner_id": self.vendor_gemini.id,
+            "product_tmpl_id": self.product_sofa.id,
+            "product_name": "aProductName",
+            "product_code": "aProductCode",
+            "min_qty": 5.0,
+            "price": 10.0,
+            "delay": 1,
+        }.copy()
+
+    def test_no_group(self):
+        """
+        If we try to create a supplierinfo and there is no group yet,
+        create a group
+        """
+        group_before = self.env["product.supplierinfo.group"].search([])
+        self.env["product.supplierinfo"].create(self.supplierinfo_vals)
+        group = self.env["product.supplierinfo.group"].search(
+            [("id", "not in", group_before.ids)]
+        )
+        self.assertTrue(group)
+
+    def test_has_group(self):
+        """
+        If we try to create a supplierinfo and there is already a group,
+        just add a new line to that group
+        """
+        group_before = self.env["product.supplierinfo.group"].search([])
+        self.env["product.supplierinfo"].create(
+            [self.supplierinfo_vals, self.supplierinfo_vals]
+        )
+        group = self.env["product.supplierinfo.group"].search(
+            [("id", "not in", group_before.ids)]
+        )
+        self.assertEqual(len(group.ids), 1)
+        self.assertEqual(len(group.supplierinfo_ids.ids), 2)
+
+    def test_price_note(self):
+        """
+        Test our price note (Char field display to inform user) is correct
+        """
+        group_before = self.env["product.supplierinfo.group"].search([])
+        self.env["product.supplierinfo"].create([self.supplierinfo_vals])
+        group = self.env["product.supplierinfo.group"].search(
+            [("id", "not in", group_before.ids)]
+        )
+        # minimal case
+        self.assertIn(pretty_html(group.unit_price_note), PATTERN1)
+        # more complex case
+        min_50 = deepcopy(self.supplierinfo_vals)
+        min_50.update({"min_qty": 50.0, "price": 8.0})
+        min_500 = deepcopy(self.supplierinfo_vals)
+        min_500.update({"min_qty": 500.0, "price": 6.0})
+        self.env["product.supplierinfo"].create([min_500, min_50])
+        self.assertIn(pretty_html(group.unit_price_note), PATTERN2)
+
+
+def pretty_html(html_markup):
+    return etree.tostring(
+        etree.fromstring(html_markup.__str__()),
+        method="html",
+        pretty_print=True,
+        encoding=str,
+    )
+
+
+PATTERN1 = """
+<table class="table_price_note">
+  <tr class="table_price_note_row">
+    <td class="table_price_note_cell">
+      5.0
+    </td>
+    <td class="table_price_note_cell">
+      10.0 Units
+    </td>
+  </tr>
+</table>\n"""
+
+
+PATTERN2 = """
+<table class="table_price_note">
+  <tr class="table_price_note_row">
+    <td class="table_price_note_cell">
+      5.0
+    </td>
+    <td class="table_price_note_cell">
+      10.0 Units
+    </td>
+  </tr>
+  <tr class="table_price_note_row">
+    <td class="table_price_note_cell">
+      50.0
+    </td>
+    <td class="table_price_note_cell">
+      8.0 Units
+    </td>
+  </tr>
+  <tr class="table_price_note_row">
+    <td class="table_price_note_cell">
+      500.0
+    </td>
+    <td class="table_price_note_cell">
+      6.0 Units
+    </td>
+  </tr>
+</table>\n"""
