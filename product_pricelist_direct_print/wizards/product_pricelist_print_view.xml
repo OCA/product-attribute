@@ -26,6 +26,7 @@
                         <field name="show_sale_price" />
                         <field name="show_standard_price" />
                         <field name="show_product_uom" />
+                        <field name="show_product_images" />
                     </group>
                     <group string="Order Options">
                         <field name="order_field" />
