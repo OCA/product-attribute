@@ -71,13 +71,12 @@ class ProductMultiPriceName(models.Model):
     @api.constrains("name", "company_id")
     def _check_name_company_id(self):
         for rec in self:
-            if not rec.company_id:
-                continue
             domain = [
                 ("id", "!=", rec.id),
                 ("name", "=", rec.name),
-                ("company_id", "=", rec.company_id.id),
             ]
+            if rec.company_id:
+                domain.append(("company_id", "=", rec.company_id.id))
             if self.with_context(active_test=False).search_count(domain):
                 raise ValidationError(
                     self.env._("Prices Names must be unique per company")
