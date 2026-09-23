@@ -1,0 +1,3 @@
+- Akretion:
+  - Kevin Khao
+  - Sébastien Beau \<<sebastien.beau@akretion.com>\>
