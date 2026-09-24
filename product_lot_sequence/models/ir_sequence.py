@@ -81,8 +81,8 @@ class IrSequence(models.Model):
             )
         return sequence.get_next_char(number)
 
+    # TODO: replace with try_lock_for_update in migration to 19.0+
     def _lock(self):
-        """Serialise transactions that read this sequence"""
         self.ensure_one()
         self.env.cr.execute(
             "SELECT id FROM ir_sequence WHERE id = %s FOR NO KEY UPDATE", [self.id]
