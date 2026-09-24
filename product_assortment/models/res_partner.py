@@ -12,6 +12,7 @@ class ResPartner(models.Model):
         relation="ir_filter_all_partner_rel",
         column1="partner_id",
         column2="filter_id",
+        copy=False,
     )
 
     def action_define_product_assortment(self):
@@ -19,7 +20,7 @@ class ResPartner(models.Model):
         xmlid = "product_assortment.actions_product_assortment_view"
         action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
         action["domain"] = [
-            ("partner_ids", "in", self.ids),
+            ("all_partner_ids", "in", self.ids),
             ("is_assortment", "=", True),
         ]
         ctx = self.env.context.copy()
@@ -41,9 +42,7 @@ class ResPartner(models.Model):
             # Use ids instead of record to improve performance (Remove in next versions)
             partner_assortment_ids = []
             for assortment in assortments:
-                if partner in assortment.partner_ids or partner.filtered_domain(
-                    assortment._get_eval_partner_domain()
-                ):
+                if partner in assortment.all_partner_ids:
                     partner_assortment_ids.append(assortment.id)
             partner.applied_assortment_ids = assortments.browse(partner_assortment_ids)
 
