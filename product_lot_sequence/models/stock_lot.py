@@ -1,6 +1,8 @@
 # Copyright 2020 ForgeFlow S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from collections import defaultdict
+
 from odoo import api, fields, models
 from odoo.tools.misc import str2bool
 
@@ -96,17 +98,16 @@ class StockLot(models.Model):
             sequence = self._get_name_sequence()
             return {sequence: self} if sequence else {}
         if seq_policy == "product":
-            by_sequence = {}
-            grouped = self.grouped(lambda lot: lot.product_id.product_tmpl_id)
-            for template, lots in grouped.items():
-                sequence = template.lot_sequence_id
-                if not sequence:
+            lot_ids_by_sequence = defaultdict(list)
+            for lot in self:
+                seq = lot.product_id.product_tmpl_id.lot_sequence_id
+                if not seq:
                     continue
-                # several templates may point at one sequence, so accumulate
-                by_sequence[sequence] = by_sequence.get(sequence, self.browse()) | lots
-            # callers lock these in order: sort so two batches holding the same
-            # sequences cannot take them in opposite order and deadlock
-            return dict(sorted(by_sequence.items(), key=lambda item: item[0].id))
+                lot_ids_by_sequence[seq].append(lot.id)
+            return {
+                seq: self.browse(lot_ids)
+                for seq, lot_ids in lot_ids_by_sequence.items()
+            }
         return {}
 
     def _resync_sequence(self):
