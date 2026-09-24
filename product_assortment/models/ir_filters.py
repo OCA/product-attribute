@@ -32,6 +32,7 @@ class IrFilters(models.Model):
     record_count = fields.Integer(compute="_compute_record_count")
 
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
+    use_partner_domain = fields.Boolean()
     partner_domain = fields.Text(default="[]", required=True)
     all_partner_ids = fields.Many2many(
         comodel_name="res.partner",
@@ -42,6 +43,9 @@ class IrFilters(models.Model):
         relation="ir_filter_all_partner_rel",
         column1="filter_id",
         column2="partner_id",
+    )
+    apply_white_list_product_domain = fields.Boolean(
+        string="Apply allowed product domain", default=True
     )
     apply_black_list_product_domain = fields.Boolean(
         string="Apply restricted product domain"
@@ -87,13 +91,13 @@ class IrFilters(models.Model):
                     field_set.add(item[0].split(".")[0])
         return field_set
 
-    @api.depends("partner_ids", "partner_domain")
+    @api.depends("use_partner_domain", "partner_ids", "partner_domain")
     def _compute_all_partner_ids(self):
         """Summarize selected partners and partners from partner domain field"""
         for ir_filter in self:
             if not ir_filter.is_assortment:
                 ir_filter.all_partner_ids = False
-            elif ir_filter.partner_domain != "[]":
+            elif ir_filter.use_partner_domain:
                 ir_filter.all_partner_ids = (
                     self.env["res.partner"].search(ir_filter._get_eval_partner_domain())
                     + ir_filter.partner_ids
@@ -102,21 +106,22 @@ class IrFilters(models.Model):
                 ir_filter.all_partner_ids = ir_filter.partner_ids
 
     def _get_eval_domain(self):
-        res = super()._get_eval_domain()
-        if self.apply_black_list_product_domain:
-            black_list_domain = self._get_eval_black_list_domain()
-            res = expression.AND(
-                [expression.distribute_not(["!"] + black_list_domain), res]
-            )
-
+        # If the domain is not active start it as nothing, the user will not be able
+        # to set blacklisted products if there is not whitelisted domain.
+        res = [expression.FALSE_LEAF]
+        if self.apply_white_list_product_domain:
+            res = super()._get_eval_domain()
+            if self.apply_black_list_product_domain:
+                black_list_domain = self._get_eval_black_list_domain()
+                res = expression.AND(
+                    [expression.distribute_not(["!"] + black_list_domain), res]
+                )
         if self.whitelist_product_ids:
             result_domain = [("id", "in", self.whitelist_product_ids.ids)]
             res = expression.OR([result_domain, res])
-
-        if self.blacklist_product_ids:
+        if self.apply_white_list_product_domain and self.blacklist_product_ids:
             result_domain = [("id", "not in", self.blacklist_product_ids.ids)]
             res = expression.AND([result_domain, res])
-
         return res
 
     def _get_eval_black_list_domain(self):
