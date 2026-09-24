@@ -6,20 +6,6 @@ from odoo import api, models
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    def action_show_details(self):
-        # propose the next serial of the sequence
-        self.ensure_one()
-        lot_model = self.env["stock.lot"]
-        if (
-            self.display_assign_serial
-            and self.product_id.tracking == "serial"
-            and self.state == "assigned"
-            # if the name is not yet consumed, can peek a fresh one
-            and (lot_model._consume_on_create() or not self.next_serial)
-        ):
-            self.next_serial = lot_model._propose_next_name(self.product_id)
-        return super().action_show_details()
-
     @api.model
     def action_generate_lot_line_vals(self, context, mode, first_lot, count, lot_text):
         # populate the serial generate dialog default value
