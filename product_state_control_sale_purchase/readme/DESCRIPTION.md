@@ -1,0 +1,1 @@
+This module extends the functionality of the product state management by adding controls  on Sales and Purchase orders confirmation based on the product's lifecycle state
