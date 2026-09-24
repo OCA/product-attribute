@@ -14,11 +14,12 @@ class StockLot(models.Model):
 
     @api.model
     def _get_sequence_policy(self):
-        return (
+        policy = (
             self.env["ir.config_parameter"]
             .sudo()
             .get_param("product_lot_sequence.policy")
         )
+        return policy if policy in ["product", "global"] else "global"
 
     @api.model
     def _consume_on_create(self):
