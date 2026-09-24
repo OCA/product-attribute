@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_pricelist_button
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-28 14:46+0000\n"
+"PO-Revision-Date: 2024-10-28 15:48+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: product_category_pricelist_button
+#: model_terms:ir.ui.view,arch_db:product_category_pricelist_button.view_product_category_form_inherit
+msgid "<span class=\"o_stat_text\">Price rules</span>"
+msgstr "<span class=\"o_stat_text\">Normas de precio</span>"
+
+#. module: product_category_pricelist_button
+#: model:ir.model.fields,field_description:product_category_pricelist_button.field_product_category__pricelist_count
+msgid "Pricelist Count"
+msgstr "Nº de listas de precios"
+
+#. module: product_category_pricelist_button
+#: model:ir.model.fields,field_description:product_category_pricelist_button.field_product_category__pricelist_item_ids
+msgid "Pricelist Item"
+msgstr ""
+
+#. module: product_category_pricelist_button
+#: model_terms:ir.ui.view,arch_db:product_category_pricelist_button.view_product_category_list_inherit
+msgid "Pricelist count"
+msgstr "Nº de listas de precios"
+
+#. module: product_category_pricelist_button
+#: model:ir.model,name:product_category_pricelist_button.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: product_category_pricelist_button
+#: model:ir.model.fields,help:product_category_pricelist_button.field_product_category__pricelist_count
+msgid "The number of pricelists associated with products under this category."
+msgstr "Número de listas de precios asociadas con productos de esta categoría."
+
+#. module: product_category_pricelist_button
+#: model_terms:ir.ui.view,arch_db:product_category_pricelist_button.view_product_category_search_inherit
+msgid "With pricelists items"
+msgstr "Con listas de precios"
+
+#. module: product_category_pricelist_button
+#: model_terms:ir.ui.view,arch_db:product_category_pricelist_button.view_product_category_search_inherit
+msgid "Without pricelists items"
+msgstr "Sin listas de precios"
