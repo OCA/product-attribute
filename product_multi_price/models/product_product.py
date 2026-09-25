@@ -1,5 +1,5 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models, tools
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -12,46 +12,29 @@ class ProductProduct(models.Model):
         index=True,
     )
 
-    def _convert_to_price_uom(self, price):
-        qty_uom_id = self._context.get("uom") or self.uom_id.id
-        price_uom = self.env["uom.uom"].browse([qty_uom_id])
-        return self.uom_id._compute_price(price, price_uom)
+    # Read through the record cache: one query for all the products priced
+    # together. It holds the prices of every company, so it is only read with
+    # sudo, and its cache never holds a list filtered by record rules.
+    all_multi_price_ids = fields.One2many(
+        comodel_name="product.multi.price",
+        inverse_name="product_id",
+        string="All Other Prices",
+        readonly=True,
+        groups="base.group_system",
+    )
 
-    def _get_multiprice_pricelist_price(self, rule):
-        """Method for getting the price from multi price."""
+    def _get_multiprice_base_price(self, rule, date=None):
+        """Return the multi price of the price name of ``rule``, or 0."""
         self.ensure_one()
         company = rule.company_id or self.env.user.company_id
-        price = (
-            self.env["product.multi.price"]
-            .sudo()
-            .search(
-                [
-                    ("company_id", "=", company.id),
-                    ("name", "=", rule.multi_price_name.id),
-                    ("product_id", "=", self.id),
-                ]
+        return (
+            self.sudo()
+            .all_multi_price_ids.filtered(
+                lambda p: p.company_id == company and p.name == rule.multi_price_name
             )
             .price
             or 0
         )
-        if price:
-            # We have to replicate this logic in this method as pricelist
-            # method are atomic and we can't hack inside.
-            # Verbatim copy of part of product.pricelist._compute_price_rule.
-            price_limit = price
-            price = (price - (price * (rule.price_discount / 100))) or 0.0
-            if rule.price_round:
-                price = tools.float_round(price, precision_rounding=rule.price_round)
-            if rule.price_surcharge:
-                price_surcharge = self._convert_to_price_uom(rule.price_surcharge)
-                price += price_surcharge
-            if rule.price_min_margin:
-                price_min_margin = self._convert_to_price_uom(rule.price_min_margin)
-                price = max(price, price_limit + price_min_margin)
-            if rule.price_max_margin:
-                price_max_margin = self._convert_to_price_uom(rule.price_max_margin)
-                price = min(price, price_limit + price_max_margin)
-        return price
 
     def price_compute(
         self, price_type, uom=None, currency=None, company=None, date=False

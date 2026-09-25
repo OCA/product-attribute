@@ -26,20 +26,21 @@ class ProductTemplate(models.Model):
             if len(p.product_variant_ids) == 1:
                 p.product_variant_ids.price_ids = p.price_ids
 
-    def _get_multiprice_pricelist_price(self, rule):
+    def _get_multiprice_base_price(self, rule, date=None):
         if len(self.product_variant_ids) == 1:
-            return self.product_variant_ids._get_multiprice_pricelist_price(rule)
+            return self.product_variant_ids._get_multiprice_base_price(rule, date)
         return 0
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """Overwrite creation for rewriting the prices (if set and having only
         one variant), after the variant creation, that is performed in super.
         """
-        template = super().create(vals)
-        if vals.get("price_ids"):
-            template.write({"price_ids": vals.get("price_ids")})
-        return template
+        templates = super().create(vals_list)
+        for template, vals in zip(templates, vals_list):
+            if vals.get("price_ids"):
+                template.write({"price_ids": vals["price_ids"]})
+        return templates
 
     def price_compute(
         self, price_type, uom=None, currency=None, company=None, date=False
