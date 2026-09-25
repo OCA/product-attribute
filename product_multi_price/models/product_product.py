@@ -12,6 +12,17 @@ class ProductProduct(models.Model):
         index=True,
     )
 
+    # Read through the record cache: one query for all the products priced
+    # together. It holds the prices of every company, so it is only read with
+    # sudo, and its cache never holds a list filtered by record rules.
+    all_multi_price_ids = fields.One2many(
+        comodel_name="product.multi.price",
+        inverse_name="product_id",
+        string="All Other Prices",
+        readonly=True,
+        groups="base.group_system",
+    )
+
     def _convert_to_price_uom(self, price):
         qty_uom_id = self._context.get("uom") or self.uom_id.id
         price_uom = self.env["uom.uom"].browse([qty_uom_id])
@@ -22,14 +33,9 @@ class ProductProduct(models.Model):
         self.ensure_one()
         company = rule.company_id or self.env.user.company_id
         price = (
-            self.env["product.multi.price"]
-            .sudo()
-            .search(
-                [
-                    ("company_id", "=", company.id),
-                    ("name", "=", rule.multi_price_name.id),
-                    ("product_id", "=", self.id),
-                ]
+            self.sudo()
+            .all_multi_price_ids.filtered(
+                lambda p: p.company_id == company and p.name == rule.multi_price_name
             )
             .price
             or 0

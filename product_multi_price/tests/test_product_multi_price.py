@@ -122,3 +122,48 @@ class TestProductMultiPrice(TransactionCase):
             )
             self.assertEqual(template.price_ids, prices)
         self.assertFalse(templates[3].product_variant_ids.price_ids)
+
+    def test_product_multi_price_of_another_company(self):
+        """A price of a company the user has not selected is still found"""
+        company_b = self.env["res.company"].create({"name": "Multi Price Company B"})
+        price_name_b = self.price_name_obj.create(
+            {"name": "test_field_b", "company_id": company_b.id}
+        )
+        product = self.prod_1.product_variant_ids
+        product.write({"price_ids": [(0, 0, {"name": price_name_b.id, "price": 3.0})]})
+        pricelist_b = self.env["product.pricelist"].create(
+            {
+                "name": "Company B pricelist",
+                "company_id": company_b.id,
+                "item_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "compute_price": "formula",
+                            "base": "multi_price",
+                            "multi_price_name": price_name_b.id,
+                            "applied_on": "3_global",
+                        },
+                    )
+                ],
+            }
+        )
+        rule = pricelist_b.item_ids
+        user = self.env["res.users"].create(
+            {
+                "name": "Multi Price User",
+                "login": "multi_price_user",
+                "company_id": self.env.company.id,
+                "company_ids": [(6, 0, (self.env.company | company_b).ids)],
+                "groups_id": [(6, 0, self.env.ref("base.group_user").ids)],
+            }
+        )
+        self.env.invalidate_all()
+        user_product = product.with_user(user).with_context(
+            allowed_company_ids=self.env.company.ids
+        )
+        self.assertEqual(
+            user_product.price_ids.name, self.price_field_1 | self.price_field_2
+        )
+        self.assertAlmostEqual(user_product._get_multiprice_pricelist_price(rule), 3.0)
