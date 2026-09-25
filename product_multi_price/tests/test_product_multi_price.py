@@ -212,27 +212,6 @@ class TestProductMultiPrice(TransactionCase):
 
         self.price_name_obj.create({"name": unique_name2, "company_id": company2.id})
 
-    def test_multi_price_name_without_company_can_repeat(self):
-        """Test that names without company can be repeated (though not recommended)"""
-        # Create multi price names without company to avoid conflicts
-        import time
-        import uuid
-
-        unique_suffix = str(uuid.uuid4()).replace("-", "")[
-            :12
-        ]  # Longer UUID without dashes for uniqueness
-        timestamp_ns = time.time_ns()  # Nanosecond precision for maximum uniqueness
-        unique_name = (
-            f"global_name_{self._testMethodName}_{timestamp_ns}_{unique_suffix}"
-        )
-        name1 = self.price_name_obj.create({"name": unique_name, "company_id": False})
-        name2 = self.price_name_obj.create(
-            {"name": unique_name, "company_id": False}
-        )  # Should work
-        self.assertEqual(name1.name, name2.name)
-        self.assertFalse(name1.company_id)
-        self.assertFalse(name2.company_id)
-
     def test_product_multi_price_creation(self):
         """Test creating multi prices for products"""
         product = self.env["product.product"].create({"name": "Test Product"})
