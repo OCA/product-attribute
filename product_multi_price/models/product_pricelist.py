@@ -15,13 +15,19 @@ class ProductPricelistItem(models.Model):
         string="Other Price Name",
     )
 
-    def _compute_price(self, product, quantity, uom, date, currency=None):
-        result = super()._compute_price(product, quantity, uom, date, currency)
-        is_reprice = self.env.context.get("is_reprice", False)
-        if (
-            self.compute_price == "formula"
-            and self.base == "multi_price"
-            and not is_reprice
-        ):
-            result = product.sudo()._get_multiprice_pricelist_price(self)
-        return result
+    def _compute_base_price(self, product, quantity, uom, date, target_currency):
+        """A multi price base comes from the price name of the rule, which
+        price_compute() does not know, in the unit and currency asked for."""
+        if self.base != "multi_price" or self.env.context.get("is_reprice", False):
+            return super()._compute_base_price(
+                product, quantity, uom, date, target_currency
+            )
+        target_currency.ensure_one()
+        price = product.sudo()._get_multiprice_base_price(self, date)
+        if uom and uom != product.uom_id:
+            price = product.uom_id._compute_price(price, uom)
+        if product.currency_id != target_currency:
+            price = product.currency_id._convert(
+                price, target_currency, self.env.company, date, round=False
+            )
+        return price

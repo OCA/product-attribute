@@ -26,9 +26,9 @@ class ProductTemplate(models.Model):
             if len(p.product_variant_ids) == 1:
                 p.product_variant_ids.price_ids = p.price_ids
 
-    def _get_multiprice_pricelist_price(self, rule):
+    def _get_multiprice_base_price(self, rule, date=None):
         if len(self.product_variant_ids) == 1:
-            return self.product_variant_ids._get_multiprice_pricelist_price(rule)
+            return self.product_variant_ids._get_multiprice_base_price(rule, date)
         return 0
 
     @api.model_create_multi
