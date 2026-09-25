@@ -95,3 +95,28 @@ class TestProductMultiPrice(TransactionCase):
             pricelist=self.pricelist.id
         )._get_products_price(self.prod_prod_2_2, 1)
         self.assertAlmostEqual(price.get(self.prod_prod_2_2.id), 7.92)
+
+    def test_product_multi_price_create_multi(self):
+        """Prices given on a batch create reach each single variant"""
+        templates = self.env["product.template"].create(
+            [
+                {
+                    "name": "Batch Product %s" % i,
+                    "price_ids": [
+                        (0, 0, {"name": self.price_field_1.id, "price": i}),
+                        (0, 0, {"name": self.price_field_2.id, "price": i * 10}),
+                    ],
+                }
+                for i in range(1, 4)
+            ]
+            + [{"name": "Batch Product Without Prices"}]
+        )
+        self.assertEqual(len(templates), 4)
+        for i, template in enumerate(templates[:3], start=1):
+            prices = template.product_variant_ids.price_ids
+            self.assertEqual(
+                sorted(prices.mapped(lambda p: (p.name.id, p.price))),
+                sorted([(self.price_field_1.id, i), (self.price_field_2.id, i * 10)]),
+            )
+            self.assertEqual(template.price_ids, prices)
+        self.assertFalse(templates[3].product_variant_ids.price_ids)
