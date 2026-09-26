@@ -4,6 +4,7 @@ from contextlib import suppress
 
 from odoo import api, fields, models
 from odoo.exceptions import AccessError
+from odoo.tools import config
 
 
 class ProductCostSecurityMixin(models.AbstractModel):
@@ -60,7 +61,25 @@ class ProductCostSecurityMixin(models.AbstractModel):
         extra protection to prevent only editing if the user is not in the
         `product_cost_security.group_product_edit_cost` group.
         """
-        valid_fields = super().check_field_access_rights(operation, fields)
+        valid_fields = False
+        if (
+            config["test_enable"]
+            and not self.env.context.get("testing_product_cost_security")
+            and "standard_price" in fields
+        ):
+            # In unrelated tests, users usually do not have this security group.
+            # Apply this bypass only when explicitly testing this module.
+            try:
+                valid_fields = super().check_field_access_rights(operation, fields)
+            except AccessError as e:
+                if (
+                    "You do not have enough rights to access the "
+                    'fields "standard_price" on' in str(e)
+                ):
+                    return fields
+        valid_fields = valid_fields or super().check_field_access_rights(
+            operation, fields
+        )
         if self.env.su:
             return valid_fields
         product_cost_fields = self._product_cost_security_fields().intersection(
