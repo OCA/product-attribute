@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 08:46+0000\n"
+"PO-Revision-Date: 2026-09-26 04:20+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -77,6 +77,15 @@ msgid ""
 "example counting pieces of a product sold by weight, where the real weight "
 "of each piece varies but the piece count must stay exact."
 msgstr ""
+"Če je vrsta odvisnosti ‘dependent’, se faktor uporabi za izračun količine v "
+"osnovni enoti in obratno. Če je ‘independent’, osnovna in sekundarna enota "
+"nista povezani – na primer, če storitev prodajate po paketu (1 enota) in "
+"želite določiti dejanski čas (npr. 4 ure) za načrtovanje zaposlenih. Če je ‘"
+"secondary unit priority’, se faktor uporabi le za oceno osnovne enote iz "
+"sekundarne (kot pri ‘dependent’), sekundarna enota pa se nikoli ne izračuna "
+"nazaj iz osnovne (kot pri ‘independent’) – na primer štetje kosov izdelka, "
+"prodanega po teži, kjer se dejanska teža vsakega kosa razlikuje, število "
+"kosov pa mora ostati natančno."
 
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__independent
@@ -150,7 +159,7 @@ msgstr "Sekundarna enota mere"
 #. module: product_secondary_unit
 #: model:ir.model.fields.selection,name:product_secondary_unit.selection__product_secondary_unit__dependency_type__secondary_priority
 msgid "Secondary unit priority"
-msgstr ""
+msgstr "Prioriteta sekundarne enote"
 
 #~ msgid ""
 #~ "If dependency type is 'dependent' the factor is used to compute quantity "
