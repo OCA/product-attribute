@@ -15,6 +15,20 @@ class ProductPricelistItem(models.Model):
         string="Other Price Name",
     )
 
+    def _is_applicable_for(self, product, qty_in_product_uom):
+        """A multi price rule prices only a product with a multi price of its
+        price name: the other products go on to the next rule instead of being
+        priced from 0."""
+        res = super()._is_applicable_for(product, qty_in_product_uom)
+        if (
+            res
+            and self.base == "multi_price"
+            and self.compute_price != "fixed"
+            and not self.env.context.get("is_reprice", False)
+        ):
+            res = bool(product._get_multiprice_prices(self))
+        return res
+
     def _compute_base_price(self, product, quantity, uom, date, target_currency):
         """A multi price base comes from the price name of the rule, which
         price_compute() does not know, in the unit and currency asked for."""

@@ -97,6 +97,26 @@ class TestProductMultiPrice(TransactionCase):
         )._get_products_price(self.prod_prod_2_2, 1)
         self.assertAlmostEqual(price.get(self.prod_prod_2_2.id), 7.92)
 
+    def test_product_multi_price_rule_needs_a_price_of_the_product(self):
+        """A multi price rule prices only a product with a price of its price
+        name: another product, alone or priced with one that has the price,
+        and a template of several variants go on with their list price."""
+        product = self.env["product.product"].create(
+            {"name": "Test Product Without Multi Prices", "list_price": 30.0}
+        )
+        with_price = self.prod_1.product_variant_id
+        pricelist = self.pricelist.with_context(pricelist=self.pricelist.id)
+        self.assertAlmostEqual(
+            pricelist._get_products_price(product, 1)[product.id], 30
+        )
+        prices = pricelist._get_products_price(with_price | product, 1)
+        self.assertAlmostEqual(prices[with_price.id], 4.95)
+        self.assertAlmostEqual(prices[product.id], 30)
+        self.assertAlmostEqual(
+            pricelist._get_products_price(self.prod_2, 1)[self.prod_2.id],
+            self.prod_2.list_price,
+        )
+
     def test_product_multi_price_percentage_rule(self):
         """A percentage rule on a multi price base starts from the multi price"""
         pricelist = self.env["product.pricelist"].create(
@@ -179,6 +199,43 @@ class TestProductMultiPrice(TransactionCase):
             )
             self.assertEqual(template.price_ids, prices)
         self.assertFalse(templates[3].product_variant_ids.price_ids)
+
+    def test_product_multi_price_of_the_selected_company(self):
+        """A rule without a company prices from the prices of the company the
+        user works in, not of the user's default company"""
+        company_b = self.env["res.company"].create({"name": "Multi Price Company C"})
+        price_name_b = self.price_name_obj.create(
+            {"name": "test_field_c", "company_id": company_b.id}
+        )
+        product = self.prod_1.product_variant_ids
+        product.write({"price_ids": [(0, 0, {"name": price_name_b.id, "price": 3.0})]})
+        rule = (
+            self.env["product.pricelist"]
+            .create(
+                {
+                    "name": "Pricelist without company",
+                    "company_id": False,
+                    "item_ids": [
+                        (
+                            0,
+                            0,
+                            {
+                                "compute_price": "formula",
+                                "base": "multi_price",
+                                "multi_price_name": price_name_b.id,
+                                "applied_on": "3_global",
+                            },
+                        )
+                    ],
+                }
+            )
+            .item_ids
+        )
+        self.assertNotEqual(self.env.user.company_id, company_b)
+        self.assertEqual(
+            product.with_company(company_b)._get_multiprice_base_price(rule), 3.0
+        )
+        self.assertEqual(product._get_multiprice_base_price(rule), 0)
 
     def test_product_multi_price_of_another_company(self):
         """A price of a company the user has not selected is still found"""

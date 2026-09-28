@@ -23,18 +23,20 @@ class ProductProduct(models.Model):
         groups="base.group_system",
     )
 
+    def _get_multiprice_prices(self, rule, date=None):
+        """Return the multi prices of these products that ``rule`` prices from:
+        of its price name and of its company, or else the current company."""
+        company = rule.company_id or self.env.company
+        return self.sudo().all_multi_price_ids.filtered(
+            lambda p: p.company_id == company and p.name == rule.multi_price_name
+        )
+
     def _get_multiprice_base_price(self, rule, date=None):
         """Return the multi price of the price name of ``rule``, or 0."""
         self.ensure_one()
-        company = rule.company_id or self.env.user.company_id
-        return (
-            self.sudo()
-            .all_multi_price_ids.filtered(
-                lambda p: p.company_id == company and p.name == rule.multi_price_name
-            )
-            .price
-            or 0
-        )
+        # the first of the prices the rule prices from: a module keeping
+        # several prices of a name, e.g. per validity period, orders them
+        return self._get_multiprice_prices(rule, date)[:1].price
 
     def price_compute(
         self, price_type, uom=None, currency=None, company=None, date=False
