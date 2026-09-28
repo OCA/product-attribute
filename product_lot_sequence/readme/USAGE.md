@@ -9,3 +9,10 @@ To use this module:
 - Create new Lot/Serial number
 - Select the product and the next number of the product sequence will be
   automatically proposed
+
+To number a whole batch from the sequence:
+
+- Open a transfer and click "Generate Serials/Lots" on the product line
+- Leave "First Serial Number" empty and the sequence provides it
+- The sequence then continues after the last number of the batch, rather
+  than after the first one
