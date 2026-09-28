@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <group name="packaging" position="after">
+                <group
+                    name="packaging_template"
+                    string="Packaging Templates"
+                    colspan="4"
+                    invisible="is_product_variant or type != 'consu' or product_variant_count &lt;= 1"
+                    groups="product_packaging_template.group_can_manage_packaging_templates"
+                >
+                    <field
+                        colspan="2"
+                        name="packaging_tmpl_ids"
+                        nolabel="1"
+                        context="{'default_company_id': company_id}"
+                    />
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
