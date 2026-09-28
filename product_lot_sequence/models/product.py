@@ -8,6 +8,10 @@ from odoo import api, fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
+    use_specific_lot_sequence = fields.Boolean(
+        help="Use an specific lot sequence for this product",
+        default=True,
+    )
     lot_sequence_id = fields.Many2one(
         "ir.sequence",
         string="Entry Sequence",
@@ -33,11 +37,15 @@ class ProductTemplate(models.Model):
         compute="_compute_display_lot_sequence_fields"
     )
 
-    @api.depends("tracking")  # For products being created (before saved).
+    @api.depends("tracking", "use_specific_lot_sequence")
     def _compute_display_lot_sequence_fields(self):
-        self.display_lot_sequence_fields = (
+        product_sequence_policy = (
             self.env["stock.lot"]._get_sequence_policy() == "product"
         )
+        for product in self:
+            product.display_lot_sequence_fields = (
+                product_sequence_policy and product.use_specific_lot_sequence
+            )
 
     @api.model
     def _create_lot_sequence(self, vals):
@@ -59,6 +67,18 @@ class ProductTemplate(models.Model):
             "lot_sequence_number_next", 1
         )
         return seq
+
+    def create_lot_sequence(self):
+        self.ensure_one()
+        if self.lot_sequence_id:
+            return
+        self.lot_sequence_id = self._create_lot_sequence({})
+
+    def remove_lot_sequence(self):
+        self.ensure_one()
+        if not self.lot_sequence_id:
+            return
+        self.lot_sequence_id.unlink()
 
     # do not depend on 'lot_sequence_id.date_range_ids', because
     # lot_sequence_id._get_current_sequence() may invalidate it!
@@ -86,8 +106,13 @@ class ProductTemplate(models.Model):
 
     def write(self, vals):
         seq_policy = self.env["stock.lot"]._get_sequence_policy()
+        # We want to remove the sequence when the user decides that the product won't
+        # use it.
+        add_lot_sequence = vals.get("use_specific_lot_sequence")
         if seq_policy == "product":
             for template in self:
+                if not template.use_specific_lot_sequence and not add_lot_sequence:
+                    continue
                 tracking = vals.get("tracking", False) or template.tracking
                 if tracking in ["lot", "serial"]:
                     if (
@@ -103,7 +128,8 @@ class ProductTemplate(models.Model):
                         )
                         vals["lot_sequence_prefix"] = lot_sequence_id.prefix
                         vals["lot_sequence_padding"] = lot_sequence_id.padding
-        return super().write(vals)
+        res = super().write(vals)
+        return res
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -113,6 +139,11 @@ class ProductTemplate(models.Model):
                 "lot",
                 "serial",
             ]:
+                if (
+                    "use_specific_lot_sequence" in vals
+                    and not vals["use_specific_lot_sequence"]
+                ):
+                    continue
                 if not vals.get("lot_sequence_id", False):
                     vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
                 else:
