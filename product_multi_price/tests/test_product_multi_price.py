@@ -97,6 +97,32 @@ class TestProductMultiPrice(TransactionCase):
         )._get_products_price(self.prod_prod_2_2, 1)
         self.assertAlmostEqual(price.get(self.prod_prod_2_2.id), 7.92)
 
+    def test_product_multi_price_pricelist_item(self):
+        """Pricelists based on multi prices using the pricelist items"""
+        pricelist_item = self.pricelist.item_ids[0]
+        today = fields.Date.context_today(self.env.user)
+        price = pricelist_item._compute_price(
+            self.prod_1,
+            1.0,
+            self.prod_1.uom_id,
+            today,
+        )
+        self.assertAlmostEqual(price, 4.95)
+        price = pricelist_item._compute_price(
+            self.prod_prod_2_1,
+            1.0,
+            self.prod_prod_2_1.uom_id,
+            today,
+        )
+        self.assertAlmostEqual(price, 5.94)
+        price = pricelist_item._compute_price(
+            self.prod_prod_2_2,
+            1.0,
+            self.prod_prod_2_2.uom_id,
+            today,
+        )
+        self.assertAlmostEqual(price, 7.92)
+
     def test_product_multi_price_rule_needs_a_price_of_the_product(self):
         """A multi price rule prices only a product with a price of its price
         name: another product, alone or priced with one that has the price,
