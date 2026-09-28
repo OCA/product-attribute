@@ -10,6 +10,7 @@ class ProductProduct(models.Model):
         inverse_name="product_id",
         string="Other Prices",
         index=True,
+        depends_context=("company",),
     )
 
     # Read through the record cache: one query for all the products priced
