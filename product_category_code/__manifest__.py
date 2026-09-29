@@ -3,9 +3,8 @@
 
 {
     "name": "Product Category Code",
-    "summary": """
-        Allows to define a code on product categories""",
-    "version": "19.0.1.0.0",
+    "summary": "Allows to define a code on product categories",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "maintainers": ["rousseldenis"],
