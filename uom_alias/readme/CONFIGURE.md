@@ -1,5 +1,6 @@
-To configure an alias in a UoM, you can access Inventory \> Settings \>
-UoM Categories. When editing a UoM you can add one or more alias in
-column UoM Alias.
+Enable **Units of Measure & Packagings** in the settings. Then open
+*Inventory \> Configuration \> Products \> Units & Packagings* (or
+*Purchase \> Configuration \> Units & Packagings*), open a unit of measure
+and add one or more codes in the **Uom Alias** field.
 
-.. image:: ../static/img/screenshot-1.png
+![Aliases on a unit of measure](../static/img/screenshot-1.png)
