@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-09-24 14:06+0000\n"
+"Last-Translator: uvid-gordana <gordana@uvid.hr>\n"
+"Language-Team: none\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: product_category_type
+#: model:ir.model.fields,help:product_category_type.field_product_category__type
+msgid ""
+"A category of the view type is a virtual category that can be used as the "
+"parent of another category to create a hierarchical structure."
+msgstr ""
+"Kategorija vrste prikaza je virtualna kategorija koja se može koristiti kao "
+"nadređena drugoj kategoriji za stvaranje hijerarhijske strukture."
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__type
+msgid "Category Type"
+msgstr "Vrsta kategorije"
+
+#. module: product_category_type
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__normal
+msgid "Normal"
+msgstr "Obična"
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__parent_id
+msgid "Parent Category"
+msgstr "Nadređena kategorija"
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_template
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_category
+#: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
+msgid "Product Category"
+msgstr "Kategorija proizvoda"
+
+#. module: product_category_type
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__view
+msgid "View"
+msgstr "Pogled"
