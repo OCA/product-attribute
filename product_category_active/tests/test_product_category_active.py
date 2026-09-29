@@ -2,14 +2,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
+from odoo.tests.common import TransactionCase
 
-from odoo.addons.base.tests.common import BaseCommon
 
-
-class TestProductCategoryActive(BaseCommon):
+class TestProductCategoryActive(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         categ_obj = cls.env["product.category"]
         cls.parent_categ = categ_obj.create({"name": "Parent category"})
         cls.child_1 = categ_obj.create(
