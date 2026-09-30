@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="supplierinfo_group_view_form" model="ir.ui.view">
+        <field name="model">product.supplierinfo.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field
+                                name="product_tmpl_id"
+                                invisible="context.get('from_template')"
+                            />
+                            <field name="company_id" />
+                            <field
+                                name="partner_id"
+                                context="{'res_partner_search_mode': 'supplier'}"
+                            />
+                            <field name="has_multiple_variants" invisible="1" />
+                            <field
+                                name="product_id"
+                                domain="[('product_tmpl_id', '=', context.get('from_template') and parent.id or product_tmpl_id)]"
+                                invisible="not has_multiple_variants"
+                            />
+                        </group>
+                        <group>
+                            <field name="product_name" />
+                            <field name="product_code" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="supplierinfo_ids" nolabel="1">
+                            <list editable="bottom">
+                                <field name="min_qty" optional="show" />
+                                <field name="price" />
+                                <field name="discount" />
+                                <field name="date_start" optional="show" />
+                                <field name="date_end" optional="show" />
+                                <field name="delay" />
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="supplierinfo_group_view_list" model="ir.ui.view">
+        <field name="model">product.supplierinfo.group</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle" />
+                <field name="partner_id" />
+                <field
+                    name="product_id"
+                    invisible="context.get('product_template_invisible_variant')"
+                />
+                <field name="product_name" optional="hide" />
+                <field name="product_code" optional="show" />
+                <field name="company_id" optional="hide" />
+                <field name="unit_price_note" />
+            </list>
+        </field>
+    </record>
+</odoo>
