@@ -7,7 +7,6 @@ from odoo.osv import expression
 
 
 class ProductCountryRestriction(models.Model):
-
     _name = "product.country.restriction"
     _inherit = ["mail.thread"]
     _description = "Product Country Restriction"

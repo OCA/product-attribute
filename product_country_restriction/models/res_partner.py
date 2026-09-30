@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
-
     _inherit = "res.partner"
 
     country_restriction_id = fields.Many2one(

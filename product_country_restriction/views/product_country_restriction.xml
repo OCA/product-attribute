@@ -2,7 +2,6 @@
 <!-- Copyright 2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="product_country_restriction_form_view">
         <field
             name="name"
@@ -10,9 +9,7 @@
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-
-                </header>
+                <header />
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button
@@ -45,14 +42,14 @@
                             </tree>
                         </field>
                         <field name="item_ids">
-                             <tree>
-                                 <field name="sequence" widget="handle" />
-                                 <field name="rule_id" />
-                                 <field name="start_date" />
-                                 <field name="end_date" />
-                                 <field name="product_id" />
-                                 <field name="product_template_id" />
-                                 <field name="product_category_id" />
+                            <tree>
+                                <field name="sequence" widget="handle" />
+                                <field name="rule_id" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                                <field name="product_id" />
+                                <field name="product_template_id" />
+                                <field name="product_category_id" />
                             </tree>
                         </field>
                     </group>
@@ -96,5 +93,4 @@
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
-
 </odoo>

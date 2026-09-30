@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class CountryRestrictionMixin(models.AbstractModel):
-
     _name = "country.restriction.mixin"
     _description = "Country Restriction Mixin"
 

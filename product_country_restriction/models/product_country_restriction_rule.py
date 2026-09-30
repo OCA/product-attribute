@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductCountryRestrictionRule(models.Model):
-
     _name = "product.country.restriction.rule"
     _description = "Product Country Restriction Rule"
     _order = "sequence asc, id desc"
