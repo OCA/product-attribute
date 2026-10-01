@@ -1,7 +1,7 @@
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.fields import first
 from odoo.osv import expression
 
@@ -13,7 +13,6 @@ class ProductCountryRestriction(models.Model):
     _order = "sequence asc, id desc"
 
     name = fields.Char(
-        required=True,
         translate=True,
     )
     active = fields.Boolean(
@@ -54,7 +53,6 @@ class ProductCountryRestriction(models.Model):
     resulting_country_ids = fields.Many2many(
         comodel_name="res.country",
         compute="_compute_resulting_country_ids",
-        readonly=True,
     )
 
     @api.model
@@ -171,8 +169,9 @@ class ProductCountryRestriction(models.Model):
             if strategy == "authorize":
                 for restriction in restrictions:
                     messages.append(
-                        _(
-                            "The product {name} has country restriction for {restriction}."
+                        self.env._(
+                            "The product {name} has country restriction "
+                            "for {restriction}."
                             "(Rule : {rule})"
                         ).format(
                             name=product.name,
@@ -182,7 +181,8 @@ class ProductCountryRestriction(models.Model):
                     )
             elif strategy == "restrict":
                 messages.append(
-                    _("The product %s has no rule that authorize it.") % product.name
+                    self.env._("The product %s has no rule that authorize it.")
+                    % product.name
                 )
         res = "\n".join(messages)
         return res

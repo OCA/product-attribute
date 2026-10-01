@@ -37,12 +37,12 @@
                     </group>
                     <group>
                         <field name="country_ids">
-                            <tree>
+                            <list>
                                 <field name="name" />
-                            </tree>
+                            </list>
                         </field>
                         <field name="item_ids">
-                            <tree>
+                            <list>
                                 <field name="sequence" widget="handle" />
                                 <field name="rule_id" />
                                 <field name="start_date" />
@@ -50,14 +50,14 @@
                                 <field name="product_id" />
                                 <field name="product_template_id" />
                                 <field name="product_category_id" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
+                <chatter>
                     <field name="message_follower_ids" widget="mail_followers" />
                     <field name="message_ids" widget="mail_thread" />
-                </div>
+                </chatter>
             </form>
         </field>
     </record>
@@ -80,16 +80,16 @@
         >product.country.restriction.tree (in product_country_restriction)</field>
         <field name="model">product.country.restriction</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="product_country_restriction_act_window">
         <field name="name">Product Embargoes</field>
         <field name="res_model">product.country.restriction</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>

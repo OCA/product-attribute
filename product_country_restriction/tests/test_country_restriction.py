@@ -7,6 +7,34 @@ from .common import CountryRestrictionCommon
 
 
 class TestCountryRestriction(CountryRestrictionCommon):
+    def test_rule_lookup_and_item_names(self):
+        self.assertEqual(
+            self.global_item.rule_id,
+            self.rule_obj._get_by_code("global"),
+        )
+        self.assertFalse(self.rule_obj._get_by_code("unknown"))
+        self.assertEqual(
+            f"{self.restriction_1.name} - {self.global_item.rule_id.name}",
+            self.global_item.name,
+        )
+        self.assertEqual(
+            f"{self.restriction_2.name} - {self.variant_item.rule_id.name} - "
+            "2018-03-01 : 2018-04-30",
+            self.variant_item.name,
+        )
+
+    def test_country_restriction_action(self):
+        action = self.kp.action_view_country_restrictions()
+
+        self.assertEqual(
+            [
+                "|",
+                ("country_group_ids.country_ids", "in", [self.kp.id]),
+                ("country_ids", "in", [self.kp.id]),
+            ],
+            action["domain"],
+        )
+
     def test_restriction(self):
         self.assertEqual(
             self.restriction_1,
@@ -122,8 +150,8 @@ class TestCountryRestriction(CountryRestrictionCommon):
         )
         messages = restriction_obj._get_country_restriction_messages(restrictions)
         self.assertEqual(
-            "The product %s has country restriction for %s.(Rule : %s)"
-            % (self.product_2.name, self.kp.name, self.variant_item.name),
+            f"The product {self.product_2.name} has country restriction for "
+            f"{self.kp.name}.(Rule : {self.variant_item.name})",
             messages,
         )
         self.env.company.country_restriction_strategy = "restrict"
@@ -132,6 +160,6 @@ class TestCountryRestriction(CountryRestrictionCommon):
         )
         messages = restriction_obj._get_country_restriction_messages(restrictions)
         self.assertEqual(
-            "The product %s has no rule that authorize it." % self.product_5.name,
+            f"The product {self.product_5.name} has no rule that authorize it.",
             messages,
         )

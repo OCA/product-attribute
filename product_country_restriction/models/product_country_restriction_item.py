@@ -1,7 +1,7 @@
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -26,12 +26,10 @@ class ProductCountryRestrictionItem(models.Model):
     rule_id = fields.Many2one(
         comodel_name="product.country.restriction.rule",
         string="Rule",
-        required=True,
         ondelete="restrict",
     )
     rule_code = fields.Char(
         related="rule_id.code",
-        readonly=True,
     )
     product_template_id = fields.Many2one(
         comodel_name="product.template",
@@ -95,5 +93,5 @@ class ProductCountryRestrictionItem(models.Model):
             i.start_date > i.end_date for i in self if (i.start_date and i.end_date)
         ):
             raise ValidationError(
-                _("The start date cannot be greater than the end date!")
+                self.env._("The start date cannot be greater than the end date!")
             )

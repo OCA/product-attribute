@@ -13,7 +13,6 @@ class ResCountry(models.Model):
     )
     product_country_restriction_count = fields.Integer(
         compute="_compute_product_country_restriction_count",
-        readonly=True,
     )
 
     @api.depends("product_country_restriction_ids")

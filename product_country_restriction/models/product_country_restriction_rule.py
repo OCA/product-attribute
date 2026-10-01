@@ -9,10 +9,8 @@ class ProductCountryRestrictionRule(models.Model):
     _description = "Product Country Restriction Rule"
     _order = "sequence asc, id desc"
 
-    name = fields.Char(required=True, translate=True)
-    code = fields.Char(
-        required=True,
-    )
+    name = fields.Char(translate=True)
+    code = fields.Char()
     sequence = fields.Integer(
         default=10,
     )
@@ -39,7 +37,7 @@ class ProductCountryRestrictionRule(models.Model):
         """
         self.ensure_one()
         res = {}
-        method = "_apply_rule_%s" % self.code
+        method = f"_apply_rule_{self.code}"
         if hasattr(self, method):
             res = getattr(self, method)(products, item)
         return res
