@@ -71,7 +71,9 @@
                     <tr>
                         <td class="col-left" name="measure">
                             <t t-foreach="langs" t-as="lang">
-                                <span t-field="val.with_context(lang=lang).type_id" />
+                                <span
+                                    t-out="val.type_id.with_context(lang=lang).display_name"
+                                />
                                 <span t-if="lang != langs[-1]"> / </span>
                             </t>
                         </td>
