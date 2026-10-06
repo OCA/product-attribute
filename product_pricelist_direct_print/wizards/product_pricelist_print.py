@@ -48,6 +48,7 @@ class ProductPricelistPrint(models.TransientModel):
             ("vat_incl", "Vat Included"),
         ]
     )
+    show_alternative_price = fields.Boolean(string="Show Un/taxed Price")
     show_product_uom = fields.Boolean(string="Show Product UoM")
     show_standard_price = fields.Boolean(string="Show Cost Price")
     show_sale_price = fields.Boolean()
@@ -92,10 +93,19 @@ class ProductPricelistPrint(models.TransientModel):
     )
 
     product_price = fields.Float(compute="_compute_product_price")
+    product_alternative_price = fields.Float(compute="_compute_product_price")
 
     @api.onchange("categ_ids")
     def _onchange_categ_ids(self):
         self.print_child_categories = len(self.categ_ids) > 0
+
+    def _show_untaxed_price(self):
+        self.ensure_one()
+        return self.show_alternative_price and self.vat_mode == "vat_incl"
+
+    def _show_taxed_price(self):
+        self.ensure_one()
+        return self.show_alternative_price and self.vat_mode == "vat_excl"
 
     def _get_product_prices(self, products):
         """Return ``{product_id: price}`` computing every product in a single
@@ -128,11 +138,16 @@ class ProductPricelistPrint(models.TransientModel):
                 product, 1, date=self.date
             )
         if self.vat_mode == "vat_excl":
-            self.product_price = product.taxes_id.compute_all(price)["total_excluded"]
+            prices = product.taxes_id.compute_all(price)
+            self.product_price = prices["total_excluded"]
+            self.product_alternative_price = prices["total_included"]
         elif self.vat_mode == "vat_incl":
-            self.product_price = product.taxes_id.compute_all(price)["total_included"]
+            prices = product.taxes_id.compute_all(price)
+            self.product_price = prices["total_included"]
+            self.product_alternative_price = prices["total_excluded"]
         else:
             self.product_price = price
+            self.product_alternative_price = price
 
     @api.depends("partner_ids")
     def _compute_partner_count(self):
