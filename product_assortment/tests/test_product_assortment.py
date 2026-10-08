@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from psycopg2 import IntegrityError
 
+from odoo import Command
 from odoo.tests.common import TransactionCase
 from odoo.tools.misc import mute_logger
 
@@ -62,6 +63,34 @@ class TestProductAssortment(TransactionCase):
     def test_create_assortment_with_context(self):
         assortment = self.filter_obj.with_context(product_assortment=True).create(
             {"name": "Test Assortment Context", "domain": []}
+        )
+        self.assertTrue(assortment.is_assortment)
+        self.assertEqual(assortment.model_id, "product.product")
+
+    def test_create_assortment_as_assortment_manager(self):
+        """An assortment manager without ir.model read access can create
+        an assortment (no model_id given, like the form view)."""
+        user = self.env["res.users"].create(
+            {
+                "name": "Assortment Manager",
+                "login": "assortment_manager_test",
+                "groups_id": [
+                    Command.set(
+                        [
+                            self.env.ref("base.group_user").id,
+                            self.env.ref(
+                                "product_assortment.group_product_assortment_manager"
+                            ).id,
+                        ]
+                    )
+                ],
+            }
+        )
+        self.assertFalse(user.has_group("base.group_erp_manager"))
+        assortment = (
+            self.filter_obj.with_user(user)
+            .with_context(product_assortment=True)
+            .create({"name": "Test Assortment Manager", "domain": []})
         )
         self.assertTrue(assortment.is_assortment)
         self.assertEqual(assortment.model_id, "product.product")
