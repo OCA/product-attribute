@@ -7,6 +7,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductNetWeight(BaseCommon):
+    _test_user_groups = ("product.group_product_manager", "stock.group_stock_user")
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
