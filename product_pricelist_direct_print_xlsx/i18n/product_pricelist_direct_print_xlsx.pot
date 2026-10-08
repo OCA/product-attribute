@@ -107,6 +107,18 @@ msgstr ""
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+msgid "Taxed Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+msgid "Untaxed Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 msgid "UoM"
 msgstr ""
 
