@@ -21,13 +21,13 @@ Products - Net Weight
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/19.0/product_net_weight
+    :target: https://github.com/OCA/product-attribute/tree/20.0/product_net_weight
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_net_weight
+    :target: https://translation.odoo-community.org/projects/product-attribute-20-0/product-attribute-20-0-product_net_weight
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=19.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=20.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -43,15 +43,15 @@ weight. (container excluded)
 Usage
 =====
 
-- Go to 'Inventory > Master Data > Product' and edit items.
-- Go to 'Inventory' tab, and fill the "Net Weight" value.
+-  Go to 'Inventory > Master Data > Product' and edit items.
+-  Go to 'Inventory' tab, and fill the "Net Weight" value.
 
 |image1|
 
 **Note**: The original weight field is renamed to "Gross Weight", to be
 more explicit.
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_net_weight/static/description/product_form.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/20.0/product_net_weight/static/description/product_form.png
 
 Known issues / Roadmap
 ======================
@@ -68,7 +68,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_net_weight%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_net_weight%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -83,14 +83,14 @@ Authors
 Contributors
 ------------
 
-- Sylvain LE GAL (https://www.twitter.com/legalsylvain)
-- `Greenice <https://www.greenice.com>`__:
+-  Sylvain LE GAL (https://www.twitter.com/legalsylvain)
+-  `Greenice <https://www.greenice.com>`__:
 
-  - Fernando La Chica <fernandolachica@gmail.com>
+   -  Fernando La Chica <fernandolachica@gmail.com>
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Sergio Teruel
+   -  Sergio Teruel
 
 Maintainers
 -----------
@@ -113,6 +113,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_net_weight>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/20.0/product_net_weight>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
