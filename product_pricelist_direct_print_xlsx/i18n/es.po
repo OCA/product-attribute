@@ -25,28 +25,24 @@ msgstr ""
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Cost Price"
 msgstr "Precio de coste"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Currency:"
 msgstr "Divisa:"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Date:"
 msgstr "Fecha:"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Description"
 msgstr "Descripción"
 
@@ -58,28 +54,24 @@ msgstr "Exportación"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Internal Category"
 msgstr "Categoría interna"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "List Price"
 msgstr "Lista de Precios"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "PRODUCTS"
 msgstr "PRODUCTOS"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Price List Name:"
 msgstr "Nombre de la lista de precios:"
 
@@ -96,7 +88,6 @@ msgstr "Lista de precios XLSX de productos"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Sale Price"
 msgstr "Precio de Venta"
 
@@ -108,21 +99,30 @@ msgstr "Mostrar categorías internas"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Special Pricelist"
 msgstr "Lista de precios especial"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Summary:"
 msgstr "Resumen:"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
+msgid "Taxed Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+msgid "Untaxed Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 msgid "UoM"
 msgstr "UdM (Unidad De Medida)"
 

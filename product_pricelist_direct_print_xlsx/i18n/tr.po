@@ -24,28 +24,24 @@ msgstr "Ürün fiyat listesini xlsx olarak dışa aktaracak model"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Cost Price"
 msgstr "Maliyet"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Currency:"
 msgstr "Para Birimi:"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Date:"
 msgstr "Tarih:"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Description"
 msgstr "Açıklama"
 
@@ -57,28 +53,24 @@ msgstr "Dışa Aktar"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Internal Category"
 msgstr "İç Kategori"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "List Price"
 msgstr "Liste Fiyatı"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "PRODUCTS"
 msgstr "ÜRÜNLER"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Price List Name:"
 msgstr "Fiyat Listesi Adı:"
 
@@ -95,7 +87,6 @@ msgstr "Ürün Fiyat Listesi XLSX"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Sale Price"
 msgstr "Satış Fiyatı"
 
@@ -107,21 +98,30 @@ msgstr "İç kategorileri göster"
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Special Pricelist"
 msgstr "Özel Fiyat Listesi"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
 msgid "Summary:"
 msgstr "Özet:"
 
 #. module: product_pricelist_direct_print_xlsx
 #. odoo-python
 #: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
-#, python-format
+msgid "Taxed Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+msgid "Untaxed Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
 msgid "UoM"
 msgstr "Birim"
 
