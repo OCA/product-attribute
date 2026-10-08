@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+deLicense AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="product_strawberry_jam" model="product.product">
+        <field name="name">Strawberry Jam (Jar of 250 grams)</field>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="net_weight">0.250</field>
+        <field name="weight" eval="0.410" />
+        <field name="standard_price" eval="1.97" />
+        <field name="list_price" eval="2.70" />
+    </record>
+</odoo>
