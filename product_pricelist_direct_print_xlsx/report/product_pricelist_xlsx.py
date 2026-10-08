@@ -116,7 +116,11 @@ class ProductPricelistXlsx(models.AbstractModel):
             row.append(_("Cost Price"))
         if book.show_sale_price:
             row.append(_("Sale Price"))
+        if book._show_untaxed_price():
+            row.append(_("Untaxed Price"))
         row.append(_("List Price"))
+        if book._show_taxed_price():
+            row.append(_("Taxed Price"))
         if book.show_product_uom:
             row.append(_("UoM"))
         return row
@@ -129,12 +133,26 @@ class ProductPricelistXlsx(models.AbstractModel):
             row.append((product.standard_price, formats["decimal"]))
         if book.show_sale_price:
             row.append((product.list_price, formats["decimal"]))
+        if book._show_untaxed_price():
+            row.append(
+                (
+                    book.with_context(product=product).product_alternative_price,
+                    formats["decimal_bold"],
+                )
+            )
         row.append(
             (
                 book.with_context(product=product).product_price,
                 formats["decimal_bold"],
             )
         )
+        if book._show_taxed_price():
+            row.append(
+                (
+                    book.with_context(product=product).product_alternative_price,
+                    formats["decimal_bold"],
+                )
+            )
         if book.show_product_uom:
             row.append((product.uom_id.name, formats["bold"]))
         return row

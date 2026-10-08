@@ -181,6 +181,8 @@ class TestProductPricelistDirectPrint(TransactionCase):
         ).create({})
         wiz.show_only_defined_products = True
         wiz.show_variants = True
+        wiz.show_alternative_price = True
+        wiz.vat_mode = "vat_incl"
         products = wiz.get_products_to_print()
         self.assertIn(products, self.pricelist.item_ids.mapped("product_id"))
         self.pricelist.item_ids.write(

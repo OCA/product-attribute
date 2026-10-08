@@ -57,8 +57,14 @@
                                 <th t-if="o.show_sale_price" class="text-right">
                                     <strong>Sale Price</strong>
                                 </th>
+                                <th t-if="o._show_untaxed_price()" class="text-right">
+                                    <strong>Untaxed Price</strong>
+                                </th>
                                 <th t-if="pricelist" class="text-right">
                                     <strong>List Price</strong>
+                                </th>
+                                <th t-if="o._show_taxed_price()" class="text-right">
+                                    <strong>Taxed Price</strong>
                                 </th>
                                 <th t-if="o.show_product_uom" class="text-right">
                                     <strong>UoM</strong>
@@ -99,9 +105,24 @@
                                             t-options="{'decimal_precision': 'Product Price'}"
                                         />
                                     </td>
+                                    <td
+                                        t-if="o._show_untaxed_price()"
+                                        class="text-right"
+                                    >
+                                        <strong
+                                            t-field="o.with_context(product=product).product_alternative_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
+                                    </td>
                                     <td t-if="pricelist" class="text-right">
                                         <strong
                                             t-field="o.with_context(product=product).product_price"
+                                            t-options="{'decimal_precision': 'Product Price'}"
+                                        />
+                                    </td>
+                                    <td t-if="o._show_taxed_price()" class="text-right">
+                                        <strong
+                                            t-field="o.with_context(product=product).product_alternative_price"
                                             t-options="{'decimal_precision': 'Product Price'}"
                                         />
                                     </td>
