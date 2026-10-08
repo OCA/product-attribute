@@ -1,0 +1,1 @@
+Create some product attributes
