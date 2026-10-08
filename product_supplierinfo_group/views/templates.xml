@@ -1,19 +1,12 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="table_price_note">
-<div>
-<table class="table_price_note">
+<div class="table_price_note">
 <t t-foreach="supinfos" t-as="rec">
-  <tr class="table_price_note_row">
-    <td class="table_price_note_cell">
-      <t t-esc="rec.min_qty" />
-    </td>
-    <td class="table_price_note_cell">
-      <t t-esc="rec.rounded_discount" /> <t t-esc="rec.product_uom.name" />
-    </td>
-  </tr>
+  <div class="table_price_note_row">
+    <span class="table_price_note_cell"><t t-esc="rec.min_qty" /></span>
+    <span class="table_price_note_cell"><t t-esc="rec.rounded_discount" /> <t t-esc="rec.product_uom.name" /></span>
+  </div>
 </t>
-</table>
 </div>
     </template>
 </odoo>
