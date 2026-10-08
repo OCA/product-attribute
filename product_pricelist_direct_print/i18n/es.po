@@ -111,6 +111,16 @@ msgstr "<strong>Precio ficha</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Taxed Price</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Untaxed Price</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>UoM</strong>"
 msgstr "<strong>UDM</strong>"
 
@@ -462,6 +472,11 @@ msgid "Print Price List"
 msgstr "Imprimir tarifa"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_alternative_price
+msgid "Product Alternative Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Product Options"
 msgstr "Opciones de producto"
@@ -541,6 +556,11 @@ msgstr "Mostrar precio ficha"
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_description_sale
 msgid "Show Sales Description"
 msgstr "Mostrar descripción de ventas"
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_alternative_price
+msgid "Show Un/taxed Price"
+msgstr ""
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants

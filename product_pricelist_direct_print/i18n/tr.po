@@ -87,6 +87,16 @@ msgstr "<strong>Satış Fiyatı</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Taxed Price</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
+msgid "<strong>Untaxed Price</strong>"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>UoM</strong>"
 msgstr "<strong>Birim</strong>"
 
@@ -434,6 +444,11 @@ msgid "Print Price List"
 msgstr "Fiyat Listesini Yazdır"
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_alternative_price
+msgid "Product Alternative Price"
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Product Options"
 msgstr "Ürün Seçenekleri"
@@ -512,6 +527,11 @@ msgstr "Satış Fiyatını Göster"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_description_sale
 msgid "Show Sales Description"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_alternative_price
+msgid "Show Un/taxed Price"
 msgstr ""
 
 #. module: product_pricelist_direct_print
