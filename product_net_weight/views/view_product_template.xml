@@ -13,15 +13,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='responsible_id']" position="after">
-                <label
-                    for="net_weight"
-                    invisible="product_variant_count > 1 and not is_product_variant"
-                />
-                <div
-                    class="o_row"
-                    name="net_weight"
-                    invisible="product_variant_count > 1 and not is_product_variant"
-                >
+                <label for="net_weight" />
+                <div class="o_row" name="net_weight">
                     <field
                         name="net_weight"
                         class="oe_inline"
