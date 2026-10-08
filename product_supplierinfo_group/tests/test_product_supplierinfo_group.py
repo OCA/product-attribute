@@ -83,40 +83,27 @@ def pretty_html(html_markup):
     )
 
 
-PATTERN1 = """<table class="table_price_note">
-                    <tr class="table_price_note_row">
-                        <td class="table_price_note_cell">
-                            5.0
-                        </td>
-                        <td class="table_price_note_cell">
-                            10.0
-                        </td>
-                    </tr>
-            </table>\n"""
+PATTERN1 = """
+<div class="table_price_note">
+  <div class="table_price_note_row">
+    <span class="table_price_note_cell">5.0</span>
+    <span class="table_price_note_cell">10.0</span>
+  </div>
+</div>\n"""
 
-PATTERN2 = """<table class="table_price_note">
-                    <tr class="table_price_note_row">
-                        <td class="table_price_note_cell">
-                            5.0
-                        </td>
-                        <td class="table_price_note_cell">
-                            10.0
-                        </td>
-                    </tr>
-                    <tr class="table_price_note_row">
-                        <td class="table_price_note_cell">
-                            50.0
-                        </td>
-                        <td class="table_price_note_cell">
-                            8.0
-                        </td>
-                    </tr>
-                    <tr class="table_price_note_row">
-                        <td class="table_price_note_cell">
-                            500.0
-                        </td>
-                        <td class="table_price_note_cell">
-                            6.0
-                        </td>
-                    </tr>
-            </table>\n"""
+
+PATTERN2 = """
+<div class="table_price_note">
+  <div class="table_price_note_row">
+    <span class="table_price_note_cell">5.0</span>
+    <span class="table_price_note_cell">10.0</span>
+  </div>
+  <div class="table_price_note_row">
+    <span class="table_price_note_cell">50.0</span>
+    <span class="table_price_note_cell">8.0</span>
+  </div>
+  <div class="table_price_note_row">
+    <span class="table_price_note_cell">500.0</span>
+    <span class="table_price_note_cell">6.0</span>
+  </div>
+</div>\n"""
