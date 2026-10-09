@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="product_template_tree_view" model="ir.ui.view">
         <field name="model">product.template</field>
@@ -19,12 +18,22 @@
                 <attribute name="readonly">1</attribute>
             </field>
             <field name="variant_seller_ids" position="after">
-                <separator string="Vendor data" />
                 <field
                     name="supplierinfo_group_ids"
                     nolabel="1"
                     context="{'from_template': True}"
                 />
+            </field>
+        </field>
+    </record>
+    <record id="product_product_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <field name="supplierinfo_group_ids" position="attributes">
+                <attribute
+                    name="context"
+                >{'default_product_tmpl_id': product_tmpl_id, 'default_product_id': id, 'from_variant': True}</attribute>
             </field>
         </field>
     </record>

@@ -26,15 +26,19 @@ class ProductSupplierinfo(models.Model):
         required=True,
         ondelete="cascade",
     )
-    company_id = fields.Many2one(related="group_id.company_id", store=True)
+    company_id = fields.Many2one(
+        related="group_id.company_id", store=True, default=None
+    )
     product_tmpl_id = fields.Many2one(related="group_id.product_tmpl_id", store=True)
     partner_id = fields.Many2one(
         related="group_id.partner_id", store=True, required=False
     )
-    product_id = fields.Many2one(related="group_id.product_id", store=True)
+    product_id = fields.Many2one(
+        related="group_id.product_id", store=True, default=None
+    )
     product_name = fields.Char(related="group_id.product_name", store=True)
     product_code = fields.Char(related="group_id.product_code", store=True)
-    sequence = fields.Integer(related="group_id.sequence", store=True)
+    sequence = fields.Integer(related="group_id.sequence", store=True, default=None)
     rounded_discount = fields.Float(
         "Rounded discount", compute="_compute_rounded_discount"
     )

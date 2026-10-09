@@ -31,10 +31,10 @@ Product Supplierinfo Group
 Product price values can be tedious and error-prone to enter one by one
 when you need to repeat the same values:
 
--  vendor,
--  product name
--  variant
--  product code
+- vendor,
+- product name
+- variant
+- product code
 
 Whereas most of the time you just want to enter the minimum quantities,
 price, dates, delay.
@@ -100,11 +100,11 @@ Authors
 Contributors
 ------------
 
--  Akretion
+- Akretion
 
-   -  Kevin Khao
-   -  Sebastien Beau <sebastien.beau@akretion.com>
-   -  Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
+  - Kevin Khao
+  - Sebastien Beau <sebastien.beau@akretion.com>
+  - Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
 
 Maintainers
 -----------

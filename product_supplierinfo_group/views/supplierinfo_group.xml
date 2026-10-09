@@ -8,15 +8,14 @@
                     <group>
                         <group>
                             <field
-                                name="product_tmpl_id"
-                                invisible="context.get('from_template')"
-                            />
-                            <field name="company_id" />
-                            <field
                                 name="partner_id"
                                 context="{'res_partner_search_mode': 'supplier'}"
                             />
-                            <field name="has_multiple_variants" invisible="1" />
+                            <field
+                                name="product_tmpl_id"
+                                invisible="context.get('from_template')"
+                                readonly="context.get('from_variant')"
+                            />
                             <field
                                 name="product_id"
                                 domain="[('product_tmpl_id', '=', context.get('from_template') and parent.id or product_tmpl_id)]"
@@ -26,6 +25,7 @@
                         <group>
                             <field name="product_name" />
                             <field name="product_code" />
+                            <field name="company_id" />
                         </group>
                     </group>
                     <group>
