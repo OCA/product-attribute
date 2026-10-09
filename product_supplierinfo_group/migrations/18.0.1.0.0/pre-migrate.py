@@ -9,5 +9,9 @@ def migrate(env, version):
             "product_supplier_info_group.supplierinfo_group_view_tree",
             "product_supplier_info_group.supplierinfo_group_view_list",
         ),
+        (
+            "product_supplier_info_group.product_template_tree_view",
+            "product_supplier_info_group.product_template_form_view",
+        ),
     ]
     openupgrade.rename_xmlids(env.cr, xml_spec)
