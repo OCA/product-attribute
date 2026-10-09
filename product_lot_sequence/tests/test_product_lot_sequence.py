@@ -1,3 +1,4 @@
+from odoo.exceptions import AccessError
 from odoo.tests import Form
 from odoo.tests.common import TransactionCase
 
@@ -44,6 +45,34 @@ class TestProductLotSequence(TransactionCase):
         )
         next_serial = self.env["stock.lot"]._get_next_serial(self.env.company, product)
         self.assertRegex(next_serial, r"foo/\d{5}/bar")
+
+    def test_manual_product_sequence_creation(self):
+        self.env["ir.config_parameter"].set_param(
+            "product_lot_sequence.auto_create", "False"
+        )
+        product = self.product_product.create(
+            {"name": "The original product", "tracking": "serial"}
+        )
+        template = product.product_tmpl_id
+        # The ir.sequence isn't created with the product
+        self.assertFalse(template.lot_sequence_id)
+        self.assertFalse(template.copy().lot_sequence_id)
+        template.write({"name": "The renamed product"})
+        # Nor with the copied product
+        self.assertFalse(template.lot_sequence_id)
+        # Sequence creation is prevented for non product managers
+        user = self.env["res.users"].create(
+            {
+                "name": "No Product Creation",
+                "login": "no_product_creation",
+                "groups_id": [(6, 0, [self.env.ref("base.group_user").id])],
+            }
+        )
+        with self.assertRaises(AccessError):
+            template.with_user(user).create_lot_sequence()
+        # Manual creation with admin
+        template.create_lot_sequence()
+        self.assertEqual(template.lot_sequence_id.name, template.name)
 
     def test_lot_onchange_product_id(self):
         self.assertEqual(self.stock_production_lot._get_sequence_policy(), "product")

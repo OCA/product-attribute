@@ -2,7 +2,9 @@
 # Copyright 2024 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import AccessError
+from odoo.tools.misc import str2bool
 
 
 class ProductTemplate(models.Model):
@@ -35,7 +37,8 @@ class ProductTemplate(models.Model):
 
     @api.depends("tracking")  # For products being created (before saved).
     def _compute_display_lot_sequence_fields(self):
-        self.display_lot_sequence_fields = (
+        self.display_lot_sequence_fields = False
+        self.filtered(lambda x: x.tracking != "none").display_lot_sequence_fields = (
             self.env["stock.lot"]._get_sequence_policy() == "product"
         )
 
@@ -59,6 +62,23 @@ class ProductTemplate(models.Model):
             "lot_sequence_number_next", 1
         )
         return seq
+
+    @api.model
+    def _auto_create_lot_sequence(self):
+        return str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("product_lot_sequence.auto_create", "True")
+        )
+
+    def create_lot_sequence(self):
+        self.ensure_one()
+        if not self.env.user.has_group("product.group_product_manager"):
+            raise AccessError(
+                _("Only product creation users can create lot sequences.")
+            )
+        if not self.lot_sequence_id:
+            self.lot_sequence_id = self.sudo()._create_lot_sequence({})
 
     # do not depend on 'lot_sequence_id.date_range_ids', because
     # lot_sequence_id._get_current_sequence() may invalidate it!
@@ -90,19 +110,19 @@ class ProductTemplate(models.Model):
             for template in self:
                 tracking = vals.get("tracking", False) or template.tracking
                 if tracking in ["lot", "serial"]:
-                    if (
-                        not vals.get("lot_sequence_id", False)
-                        and not template.lot_sequence_id
-                    ):
-                        vals["lot_sequence_id"] = (
-                            template.sudo()._create_lot_sequence(vals).id
-                        )
-                    elif vals.get("lot_sequence_id", False):
+                    if vals.get("lot_sequence_id", False):
                         lot_sequence_id = self.env["ir.sequence"].browse(
                             vals["lot_sequence_id"]
                         )
                         vals["lot_sequence_prefix"] = lot_sequence_id.prefix
                         vals["lot_sequence_padding"] = lot_sequence_id.padding
+                    elif (
+                        self._auto_create_lot_sequence()
+                        and not template.lot_sequence_id
+                    ):
+                        vals["lot_sequence_id"] = (
+                            template.sudo()._create_lot_sequence(vals).id
+                        )
         return super().write(vals)
 
     @api.model_create_multi
@@ -113,12 +133,12 @@ class ProductTemplate(models.Model):
                 "lot",
                 "serial",
             ]:
-                if not vals.get("lot_sequence_id", False):
-                    vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
-                else:
+                if vals.get("lot_sequence_id", False):
                     lot_sequence_id = self.env["ir.sequence"].browse(
                         vals["lot_sequence_id"]
                     )
                     vals["lot_sequence_prefix"] = lot_sequence_id.prefix
                     vals["lot_sequence_padding"] = lot_sequence_id.padding
+                elif self._auto_create_lot_sequence():
+                    vals["lot_sequence_id"] = self.sudo()._create_lot_sequence(vals).id
         return super().create(vals_list)
