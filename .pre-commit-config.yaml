@@ -18,6 +18,8 @@ exclude: |
   /build/|/dist/|
   # Ignore test files in addons
   /tests/samples/.*|
+  # We want to handle XML files ourselves to save bytes as it's a duplicated template
+  product_supplierinfo_group/views/templates.xml|
   # You don't usually want a bot to modify your legal texts
   (LICENSE.*|COPYING.*)
 default_language_version:
