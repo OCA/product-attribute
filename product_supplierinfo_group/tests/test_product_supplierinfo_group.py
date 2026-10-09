@@ -75,35 +75,41 @@ class Test(common.TransactionCase):
 
 
 def pretty_html(html_markup):
+    # The currency non-breaking space is stored as ``&nbsp;`` by the Html
+    # field; normalize it to a regular space before parsing.
     return etree.tostring(
-        etree.fromstring(html_markup.__str__()),
+        etree.fromstring(html_markup.__str__().replace("&nbsp;", " ")),
         method="html",
         pretty_print=True,
         encoding=str,
     )
 
 
-PATTERN1 = """
+PRICE_10 = "$ 10.00"
+PRICE_8 = "$ 8.00"
+PRICE_6 = "$ 6.00"
+
+PATTERN1 = f"""
 <div class="table_price_note">
   <div class="table_price_note_row">
-    <span class="table_price_note_cell">5.0</span>
-    <span class="table_price_note_cell">10.0</span>
+    <span class="table_price_note_cell">5.0 Units</span>
+    <span class="table_price_note_cell">{PRICE_10}</span>
   </div>
 </div>\n"""
 
 
-PATTERN2 = """
+PATTERN2 = f"""
 <div class="table_price_note">
   <div class="table_price_note_row">
-    <span class="table_price_note_cell">5.0</span>
-    <span class="table_price_note_cell">10.0</span>
+    <span class="table_price_note_cell">5.0 Units</span>
+    <span class="table_price_note_cell">{PRICE_10}</span>
   </div>
   <div class="table_price_note_row">
-    <span class="table_price_note_cell">50.0</span>
-    <span class="table_price_note_cell">8.0</span>
+    <span class="table_price_note_cell">50.0 Units</span>
+    <span class="table_price_note_cell">{PRICE_8}</span>
   </div>
   <div class="table_price_note_row">
-    <span class="table_price_note_cell">500.0</span>
-    <span class="table_price_note_cell">6.0</span>
+    <span class="table_price_note_cell">500.0 Units</span>
+    <span class="table_price_note_cell">{PRICE_6}</span>
   </div>
 </div>\n"""
