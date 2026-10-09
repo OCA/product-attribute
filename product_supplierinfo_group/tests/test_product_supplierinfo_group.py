@@ -5,6 +5,7 @@ from copy import deepcopy
 
 import lxml.etree as etree
 
+from odoo import Command
 from odoo.tests import common
 
 
@@ -72,6 +73,45 @@ class Test(common.TransactionCase):
         min_500.update({"min_qty": 500.0, "price": 6.0})
         self.env["product.supplierinfo"].create([min_500, min_50])
         self.assertIn(pretty_html(group.unit_price_note), PATTERN2)
+
+    def test_delete_supplierinfo_line_from_variant_form(self):
+        """A supplierinfo line deleted from a group via the variant form must
+        be removed exactly once.
+
+        If no fix, the unlink command is played twice because
+        supplierinfo_group_ids is a non-stored related field: the first run
+        already unlinks the supplierinfo line in database, then the framework
+        re-plays the whole write once the related cache is invalidated.
+
+        For a non-superuser, the second unlink raises MissingError (the
+        access check evaluates the company rule on the record that no longer
+        exists).
+        """
+        variant = self.product_sofa.product_variant_id
+        group = self.env["product.supplierinfo.group"].create(
+            {
+                "product_tmpl_id": self.product_sofa.id,
+                "partner_id": self.vendor_gemini.id,
+            }
+        )
+        lines = self.env["product.supplierinfo"].create(
+            [
+                dict(self.supplierinfo_vals, group_id=group.id),
+                dict(self.supplierinfo_vals, group_id=group.id, min_qty=50.0),
+            ]
+        )
+        # with_user() drops superuser mode (su=False), so the replayed unlink may raise
+        # MissingError if no fix.
+        variant.with_user(self.env.ref("base.user_admin")).write(
+            {
+                "supplierinfo_group_ids": [
+                    Command.update(
+                        group.id, {"supplierinfo_ids": [Command.delete(lines[0].id)]}
+                    )
+                ]
+            }
+        )
+        self.assertEqual(group.supplierinfo_ids.ids, [lines[1].id])
 
 
 def pretty_html(html_markup):
