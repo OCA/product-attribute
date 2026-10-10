@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record
+        forcecreate="True"
+        id="decimal_secondary_unit_factor"
+        model="decimal.precision"
+    >
+        <field name="name">Secondary Unit Factor</field>
+        <field name="digits">6</field>
+    </record>
+</odoo>
