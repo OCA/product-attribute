@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-30 09:12+0000\n"
+"PO-Revision-Date: 2026-10-11 09:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -107,12 +107,12 @@ msgstr "<strong>Prezzo di vendita</strong>"
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Taxed Price</strong>"
-msgstr ""
+msgstr "<strong>Prezzo con imposte</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Untaxed Price</strong>"
-msgstr ""
+msgstr "<strong>Prezzo senza imposte</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -466,7 +466,7 @@ msgstr "Stampa listino prezzi"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__product_alternative_price
 msgid "Product Alternative Price"
-msgstr ""
+msgstr "Prezzo alternativo prodotto"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
@@ -552,7 +552,7 @@ msgstr "Visualizza descrizione vendite"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_alternative_price
 msgid "Show Un/taxed Price"
-msgstr ""
+msgstr "Visualizza prezzo senza/con imposte"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_variants
