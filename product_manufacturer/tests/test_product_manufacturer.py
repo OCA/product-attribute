@@ -1,10 +1,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import Command
 
 from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductManufacturer(BaseCommon):
+    _test_user_groups = ("product.group_product_manager",)
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -49,12 +52,12 @@ class TestProductManufacturer(BaseCommon):
         self.product1.update(
             {
                 "attribute_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "attribute_id": self.attr1.id,
-                            "value_ids": [(6, 0, [self.attr1_1.id, self.attr1_2.id])],
+                            "value_ids": [
+                                Command.set([self.attr1_1.id, self.attr1_2.id])
+                            ],
                         },
                     ),
                 ],
