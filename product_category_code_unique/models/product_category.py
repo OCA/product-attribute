@@ -81,5 +81,5 @@ class ProductCategory(models.Model):
             code = value.setdefault("code", category.code)
             if code in [False, "/"]:
                 value["code"] = self._get_next_code()
-            super().write(value)
+            super(ProductCategory, category).write(value)
         return True
