@@ -2,8 +2,6 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 
 
-from unittest.mock import patch
-
 from odoo.tests.common import TransactionCase
 
 
@@ -61,19 +59,10 @@ class TestProductLogisticsUom(TransactionCase):
         template = self.product.product_tmpl_id
         template.volume_uom_id = self.volume_uom_l
         # Volume calculation from product_dimension module has compatibility issue.
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
-            return_value=1,
-        ):
-            template.volume = 1
-            self.assertEqual(template.product_volume, 1000)
-
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
-            return_value=0.01,
-        ):
-            template.product_volume = 10
-            self.assertEqual(template.volume, 0.01)
+        template.volume = 1
+        self.assertEqual(template.product_volume, 1000)
+        template.product_volume = 10
+        self.assertEqual(template.volume, 0.01)
         template.volume_uom_id = self.volume_uom_m3
         self.assertEqual(template.product_volume, template.volume)
 
@@ -120,11 +109,7 @@ class TestProductLogisticsUom(TransactionCase):
         self.assertFalse(template.show_weight_uom_warning)  # for coverage
         variant.unlink()
         # Volume calculation from product_dimension module has compatibility issue.
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
-            return_value=10.0,
-        ):
-            self.assertEqual(template.volume, 10.0)
+        self.assertEqual(template.volume, 10.0)
         self.assertEqual(template.weight, 10.0)
         self.assertEqual(template.product_volume, 10.0)
         self.assertEqual(template.product_weight, 10.0)
