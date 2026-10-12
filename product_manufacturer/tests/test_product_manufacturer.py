@@ -5,6 +5,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductManufacturer(BaseCommon):
+    _test_user_groups = ("product.group_product_manager",)
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
