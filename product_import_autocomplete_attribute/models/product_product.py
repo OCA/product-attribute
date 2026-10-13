@@ -8,10 +8,10 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     attribute_value_ids = fields.Many2many(
-        "product.attribute.value",
-        compute="_compute_attribute_value_ids",
+        "product.attribute.value", compute="_compute_attribute_value_ids"
     )
 
+    @api.depends("product_template_attribute_value_ids.product_attribute_value_id")
     def _compute_attribute_value_ids(self):
         for record in self:
             record.attribute_value_ids = (

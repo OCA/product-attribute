@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo noupdate="1">
     <!-- Attributes -->
     <record id="demo_product_attribute_cut" model="product.attribute">
