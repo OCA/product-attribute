@@ -49,8 +49,8 @@ msgstr "Ustvarjanje kategorij proizvodov"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_creation
-msgid "Product Creation"
-msgstr "Ustvarjanje proizvoda"
+msgid "Product Creation (Limited)"
+msgstr ""
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_packaging
@@ -98,3 +98,6 @@ msgstr "Kategorije merskih enot"
 #: model:res.groups,name:product_usability.group_uom_creation
 msgid "Units of Measure Creation"
 msgstr "Ustvarjanje merskih enot"
+
+#~ msgid "Product Creation"
+#~ msgstr "Ustvarjanje proizvoda"

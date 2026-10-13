@@ -48,8 +48,8 @@ msgstr "Creazione categoria prodotto"
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_creation
-msgid "Product Creation"
-msgstr "Creazione prodotto"
+msgid "Product Creation (Limited)"
+msgstr ""
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_packaging
@@ -97,3 +97,6 @@ msgstr "Categorie unità di misura"
 #: model:res.groups,name:product_usability.group_uom_creation
 msgid "Units of Measure Creation"
 msgstr "Creazione unità di misura"
+
+#~ msgid "Product Creation"
+#~ msgstr "Creazione prodotto"
