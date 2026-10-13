@@ -2,7 +2,7 @@ Product price values can be tedious and error-prone to enter one by one
 when you need to repeat the same values:
 
 - vendor,
-- product name,
+- product name
 - variant
 - product code
 
@@ -18,13 +18,9 @@ price/quantities deals.
 
 Here are some screenshots for before/after comparison.
 
-Before:
+Before: boring and error prone !
 
-![](static/description/before_1.png)
-
-Boring and error prone !
-
-![](static/description/before_2.png)
+![](static/description/before.png)
 
 After:
 
