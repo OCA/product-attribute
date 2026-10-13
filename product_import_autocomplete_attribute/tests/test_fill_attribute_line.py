@@ -1,33 +1,58 @@
 # © 2020 Akretion France
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
 
 class TestFillAttributeLine(TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        product_attribute = cls.env["product.attribute"]
+        product_attribute_value = cls.env["product.attribute.value"]
+        cls.attr_cut = product_attribute.create({"name": "Cut"})
+        cls.attr_cut_short = product_attribute_value.create(
+            {"name": "Short sleeves", "attribute_id": cls.attr_cut.id}
+        )
+        cls.attr_cut_long = product_attribute_value.create(
+            {"name": "Long sleeves", "attribute_id": cls.attr_cut.id}
+        )
+        # Not linked to the template, used in test_import_new_value
+        cls.attr_cut_tanktop = product_attribute_value.create(
+            {"name": "Tanktop", "attribute_id": cls.attr_cut.id}
+        )
+        # Not linked to the template, used in test_import_new_attr
+        cls.attr_embroidery = product_attribute.create({"name": "Embroidery"})
+        cls.attr_emb_cheap = product_attribute_value.create(
+            {"name": "Cheap", "attribute_id": cls.attr_embroidery.id}
+        )
+        cls.tmpl = cls.env["product.template"].create(
+            {
+                "name": "T-shirt",
+                "type": "consu",
+                "attribute_line_ids": [
+                    fields.Command.create(
+                        {
+                            "attribute_id": cls.attr_cut.id,
+                            "value_ids": [
+                                fields.Command.set(
+                                    [cls.attr_cut_short.id, cls.attr_cut_long.id]
+                                )
+                            ],
+                        }
+                    )
+                ],
+            }
+        )
+
     def _create_product(self, value_ids):
         return self.env["product.product"].create(
             {
                 "product_tmpl_id": self.tmpl.id,
-                "attribute_value_ids": [(6, 0, value_ids)],
+                "attribute_value_ids": [fields.Command.set(value_ids)],
             }
-        )
-
-    def setUp(self):
-        super().setUp()
-        self.tmpl = self.env.ref(
-            "product_import_autocomplete_attribute.demo_product_tmpl_tshirt"
-        )
-        self.attr_cut_tanktop = self.env.ref(
-            "product_import_autocomplete_attribute.demo_product_attribute_cut_tanktop"
-        )
-        self.attr_cut_long = self.env.ref(
-            "product_import_autocomplete_attribute.demo_product_attribute_cut_long"
-        )
-        self.attr_emb_cheap = self.env.ref(
-            "product_import_autocomplete_attribute."
-            "demo_product_attribute_embroidery_cheap"
         )
 
     def test_import_existing_product(self):
