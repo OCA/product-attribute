@@ -127,7 +127,7 @@ PATTERN1 = """
 <div class="table_price_note">
   <div class="table_price_note_row">
     <span class="table_price_note_cell">5.0</span>
-    <span class="table_price_note_cell">10.0 Units</span>
+    <span class="table_price_note_cell">10.00 Units</span>
   </div>
 </div>\n"""
 
@@ -136,14 +136,14 @@ PATTERN2 = """
 <div class="table_price_note">
   <div class="table_price_note_row">
     <span class="table_price_note_cell">5.0</span>
-    <span class="table_price_note_cell">10.0 Units</span>
+    <span class="table_price_note_cell">10.00 Units</span>
   </div>
   <div class="table_price_note_row">
     <span class="table_price_note_cell">50.0</span>
-    <span class="table_price_note_cell">8.0 Units</span>
+    <span class="table_price_note_cell">8.00 Units</span>
   </div>
   <div class="table_price_note_row">
     <span class="table_price_note_cell">500.0</span>
-    <span class="table_price_note_cell">6.0 Units</span>
+    <span class="table_price_note_cell">6.00 Units</span>
   </div>
 </div>\n"""

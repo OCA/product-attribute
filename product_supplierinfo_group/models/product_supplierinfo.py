@@ -37,13 +37,6 @@ class ProductSupplierinfo(models.Model):
     product_name = fields.Char(related="group_id.product_name", store=True)
     product_code = fields.Char(related="group_id.product_code", store=True)
     sequence = fields.Integer(related="group_id.sequence", store=True, default=None)
-    rounded_discount = fields.Float(
-        "Rounded discount", compute="_compute_rounded_discount"
-    )
-
-    def _compute_rounded_discount(self):
-        for rec in self:
-            rec.rounded_discount = round(rec.price_discounted, 2)
 
     _sql_constraints = [
         (

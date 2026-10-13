@@ -4,7 +4,7 @@
 # @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, tools
 
 
 class ProductSupplierinfoGroup(models.Model):
@@ -76,14 +76,29 @@ class ProductSupplierinfoGroup(models.Model):
         for rec in self:
             rec.has_multiple_variants = len(rec.product_tmpl_id.product_variant_ids) > 1
 
-    @api.depends("supplierinfo_ids")
+    @api.depends(
+        "supplierinfo_ids.min_qty",
+        "supplierinfo_ids.price_discounted",
+        "supplierinfo_ids.product_uom",
+    )
     def _compute_unit_price_note(self):
         for rec in self:
             if len(rec.supplierinfo_ids) == 0:
                 rec.unit_price_note = "-"
             else:
-                sorted_supinfos = rec.supplierinfo_ids.sorted(key=lambda r: r.min_qty)
-                vals = {"supinfos": [rec for rec in sorted_supinfos]}
+                sorted_suppinfos = rec.supplierinfo_ids.sorted(key=lambda r: r.min_qty)
+                vals = {
+                    "suppinfos": [
+                        {
+                            "min_qty": suppinfo.min_qty,
+                            "price": tools.formatLang(
+                                self.env, suppinfo.price_discounted, dp="Product Price"
+                            ),
+                            "uom": suppinfo.product_uom.name,
+                        }
+                        for suppinfo in sorted_suppinfos
+                    ]
+                }
                 rec.unit_price_note = self.env["ir.qweb"]._render(
                     "product_supplierinfo_group.table_price_note", vals
                 )

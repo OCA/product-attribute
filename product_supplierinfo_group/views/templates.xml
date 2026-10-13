@@ -1,10 +1,10 @@
 <odoo>
     <template id="table_price_note">
 <div class="table_price_note">
-<t t-foreach="supinfos" t-as="rec">
+<t t-foreach="suppinfos" t-as="suppinfo">
   <div class="table_price_note_row">
-    <span class="table_price_note_cell"><t t-esc="rec.min_qty" /></span>
-    <span class="table_price_note_cell"><t t-esc="rec.rounded_discount" /> <t t-esc="rec.product_uom.name" /></span>
+    <span class="table_price_note_cell"><t t-esc="suppinfo['min_qty']" /></span>
+    <span class="table_price_note_cell"><t t-esc="suppinfo['price']" /> <t t-esc="suppinfo['uom']" /></span>
   </div>
 </t>
 </div>
