@@ -6,7 +6,7 @@
 -->
 <odoo>
     <record id="group_product_creation" model="res.groups">
-        <field name="name">Product Creation</field>
+        <field name="name">Product Creation (Limited)</field>
         <field name="category_id" ref="base.module_category_usability" />
     </record>
 
