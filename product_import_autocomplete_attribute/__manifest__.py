@@ -11,7 +11,7 @@
     "website": "https://github.com/OCA/product-attribute",
     "maintainers": ["bealdav"],
     "demo": [
-        "data/product_demo.xml",
+        "demo/product_demo.xml",
     ],
     "installable": True,
     "license": "AGPL-3",

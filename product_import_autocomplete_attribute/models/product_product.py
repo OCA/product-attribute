@@ -13,6 +13,7 @@ class ProductProduct(models.Model):
         readonly=False,
     )
 
+    @api.depends("product_template_attribute_value_ids.product_attribute_value_id")
     def _compute_attribute_value_ids(self):
         for record in self:
             record.attribute_value_ids = (
