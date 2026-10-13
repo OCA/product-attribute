@@ -22,9 +22,7 @@ class ProductSupplierinfo(models.Model):
     _inherit = "product.supplierinfo"
 
     group_id = fields.Many2one(
-        comodel_name="product.supplierinfo.group",
-        required=True,
-        ondelete="cascade",
+        comodel_name="product.supplierinfo.group", required=True, ondelete="cascade"
     )
     company_id = fields.Many2one(
         related="group_id.company_id", store=True, default=None

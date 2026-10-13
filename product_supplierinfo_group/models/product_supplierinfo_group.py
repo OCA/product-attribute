@@ -31,15 +31,14 @@ class ProductSupplierinfoGroup(models.Model):
     )
     product_name = fields.Char(
         help="This vendor's product name will be used when printing "
-        "a request for quotation. Keep empty to use the internal one.",
+        "a request for quotation. Keep empty to use the internal one."
     )
     product_code = fields.Char(
         help="This vendor's product code will be used when printing "
-        "a request for quotation. Keep empty to use the internal one.",
+        "a request for quotation. Keep empty to use the internal one."
     )
     sequence = fields.Integer(
-        default=1,
-        help="Assigns the priority to the list of product vendor.",
+        default=1, help="Assigns the priority to the list of product vendor."
     )
     unit_price_note = fields.Html(
         compute="_compute_unit_price_note",
