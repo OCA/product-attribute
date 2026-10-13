@@ -45,7 +45,7 @@ msgstr ""
 
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_creation
-msgid "Product Creation"
+msgid "Product Creation (Limited)"
 msgstr ""
 
 #. module: product_usability
