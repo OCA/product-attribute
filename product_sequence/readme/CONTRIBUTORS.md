@@ -11,3 +11,4 @@
 - Chris Bergman \<<chris.bergman@codeforward.nl>\>
 - Foram Darji \<<fd@oerp.ca>\>
 - bosd \<<ebo@stefcy.com>\>
+- Alan Ramos \<<alan.ramos@jarsa.com>\>
