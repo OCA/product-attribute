@@ -17,15 +17,6 @@ class ProductSupplierinfoGroup(models.Model):
         readonly=False,
     )
 
-    _sql_constraints = [
-        (
-            "product_partner_company_uniq",
-            "unique(product_tmpl_id, product_id, company_id, partner_id, incoterm_id)",
-            "A supplier group already exist for the partner, product, company "
-            "and incoterm",
-        )
-    ]
-
     @api.depends("partner_id.purchase_incoterm_id")
     def _compute_incoterm_id(self):
         for rec in self:
