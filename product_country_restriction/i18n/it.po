@@ -1,0 +1,390 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_country_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-12-06 14:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_needaction
+msgid "Action Needed"
+msgstr "Azione richiesta"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__active
+msgid "Active"
+msgstr "Attiva"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteggio allegati"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_res_company__country_restriction_strategy
+msgid ""
+"Choose here how your country rules apply.[Authorize]: Authorize all products"
+" but those for which strategyapply.[Restrict]: Restrict all products but "
+"those for which strategy apply."
+msgstr ""
+"Scegliere qui come si applicano le regole della sua nazione. [Aturizza]: "
+"aturoizza tutti i prodotti tranne quelli ai quali si applica la "
+"strategia.[Limitare]: limita tutti i prodtti tranne quelli ai quali si "
+"applica la strategia."
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__rule_code
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__code
+msgid "Code"
+msgstr "Codice"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_res_company
+msgid "Companies"
+msgstr "Aziende"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__company_id
+msgid "Company"
+msgstr "Azienda"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__country_ids
+msgid "Countries"
+msgstr "Nazioni"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_res_country
+msgid "Country"
+msgstr "Nazione"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__country_group_ids
+msgid "Country Groups"
+msgstr "Gruppi nazione"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_res_company__country_restriction_id
+#: model:ir.model.fields,field_description:product_country_restriction.field_res_partner__country_restriction_id
+#: model:ir.model.fields,field_description:product_country_restriction.field_res_users__country_restriction_id
+#: model_terms:ir.ui.view,arch_db:product_country_restriction.view_partner_form
+msgid "Country Restriction"
+msgstr "Limitazione nazionale"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__item_ids
+msgid "Country Restriction Items"
+msgstr "Elementi limitazione nazionale"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_country_restriction_mixin
+msgid "Country Restriction Mixin"
+msgstr "Mixin limitazione nazionale"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_res_company__country_restriction_strategy
+msgid "Country Restriction Strategy"
+msgstr "Strategia limitazione nazionale"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__create_uid
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__create_uid
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__create_date
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__create_date
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__display_name
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__display_name
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__end_date
+msgid "End Date"
+msgstr "Data fine"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__country_ids
+msgid ""
+"Fill in this if you want that restriction apply on these(in addition to "
+"country groups)."
+msgstr ""
+"Compilare questo campo se si vuole che a questi si applichi la limitazione ("
+"in aggiunta ai gruppi nazione)."
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__country_group_ids
+msgid ""
+"Fill in this if you want that retriction apply on these groups(in addition "
+"to particular countries)."
+msgstr ""
+"Compilare questo campo se si vuole che a questi truppi si applichi la "
+"limitazione (in aggiunta a nazioni particolari)."
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_follower_ids
+msgid "Followers"
+msgstr "Seguito da"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguito da (partner)"
+
+#. module: product_country_restriction
+#: model:product.country.restriction.rule,name:product_country_restriction.country_restriction_rule_global
+#: model_terms:ir.ui.view,arch_db:product_country_restriction.product_country_restriction_item_search_view
+msgid "Global"
+msgstr "Globale"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__has_message
+msgid "Has Message"
+msgstr "Ha un messaggio"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__id
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__id
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_is_follower
+msgid "Is Follower"
+msgstr "Segue"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction____last_update
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item____last_update
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__write_uid
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__write_uid
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__write_date
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__write_date
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Allegato principale"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_has_error
+msgid "Message Delivery error"
+msgstr "Errore di consegna messaggio"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_ids
+msgid "Messages"
+msgstr "Messaggi"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__name
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__name
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: product_country_restriction
+#: model:product.country.restriction,name:product_country_restriction.product_country_restriction_kp
+msgid "North Korea Embargo"
+msgstr "Embargo Corea del nord"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero di azioni"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero di errori"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Numero di messaggi che richiedono un'azione"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero di messaggi con errore di consegna"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_product_template
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__product_template_id
+#: model:product.country.restriction.rule,name:product_country_restriction.country_restriction_rule_product
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__product_category_id
+#: model:product.country.restriction.rule,name:product_country_restriction.country_restriction_rule_category
+msgid "Product Category"
+msgstr "Categoria prodotto"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_res_country__product_country_restriction_ids
+msgid "Product Country Restriction"
+msgstr "Limitazione nazionale prdotto"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_res_country__product_country_restriction_count
+msgid "Product Country Restriction Count"
+msgstr "Conteggio limitazione nazionale prdotto"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_product_country_restriction_item
+msgid "Product Country Restriction Item"
+msgstr "Elemento limitazione nazionale prdotto"
+
+#. module: product_country_restriction
+#: model:ir.actions.act_window,name:product_country_restriction.product_country_restriction_item_act_window
+msgid "Product Country Restriction Items"
+msgstr "Elementi limitazione nazionale prdotto"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_product_country_restriction_rule
+msgid "Product Country Restriction Rule"
+msgstr "Regola limitazione nazionale prdotto"
+
+#. module: product_country_restriction
+#: model:ir.model.constraint,message:product_country_restriction.constraint_product_country_restriction_rule_code_unique
+msgid "Product Country Restriction Rule Code has to be unique !"
+msgstr "Il codice regola limitazione nazionale prodotto deve essere univoco!"
+
+#. module: product_country_restriction
+#: model:ir.actions.act_window,name:product_country_restriction.product_country_restriction_rule_act_window
+msgid "Product Country Restriction Rules"
+msgstr "Regole limitazione nazionale prdotto"
+
+#. module: product_country_restriction
+#: model_terms:ir.ui.view,arch_db:product_country_restriction.view_country_form
+msgid "Product Country Restrictions"
+msgstr "Limitazioni nazionali prdotto"
+
+#. module: product_country_restriction
+#: model:ir.actions.act_window,name:product_country_restriction.product_country_restriction_act_window
+msgid "Product Embargoes"
+msgstr "Embarghi prodotto"
+
+#. module: product_country_restriction
+#: model:ir.model,name:product_country_restriction.model_product_product
+#: model:product.country.restriction.rule,name:product_country_restriction.country_restriction_rule_variant
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__restriction_id
+msgid "Restriction"
+msgstr "Restrizione"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__resulting_country_ids
+msgid "Resulting Country"
+msgstr "Nazione risultante"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__rule_id
+#: model_terms:ir.ui.view,arch_db:product_country_restriction.product_country_restriction_item_search_view
+msgid "Rule"
+msgstr "Regola"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__sequence
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__sequence
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_rule__sequence
+msgid "Sequence"
+msgstr "Sequenza"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__start_date
+msgid "Start Date"
+msgstr "Data inizio"
+
+#. module: product_country_restriction
+#. odoo-python
+#: code:addons/product_country_restriction/models/product_country_restriction.py:0
+#, python-format
+msgid "The product %s has no rule that authorize it."
+msgstr "Il prodotto %s non ha una regola che lo autorizza."
+
+#. module: product_country_restriction
+#. odoo-python
+#: code:addons/product_country_restriction/models/product_country_restriction.py:0
+#, python-format
+msgid ""
+"The product {name} has country restriction for {restriction}.(Rule : {rule})"
+msgstr ""
+"Il prodooto {name} ha una limitazione nazionale per {restriction}.(Regola : "
+"{rule})"
+
+#. module: product_country_restriction
+#. odoo-python
+#: code:addons/product_country_restriction/models/product_country_restriction_item.py:0
+#, python-format
+msgid "The start date cannot be greater than the end date!"
+msgstr "La data di partenza non può essere posteriore alla data di fine!"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction_item__product_id
+msgid "Variant"
+msgstr "Variante"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,field_description:product_country_restriction.field_product_country_restriction__website_message_ids
+msgid "Website Messages"
+msgstr "Messaggi sito web"
+
+#. module: product_country_restriction
+#: model:ir.model.fields,help:product_country_restriction.field_product_country_restriction__website_message_ids
+msgid "Website communication history"
+msgstr "Cronologia comunicazioni sito web"
