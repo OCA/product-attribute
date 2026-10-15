@@ -91,7 +91,7 @@ class ProductPricelistPrint(models.TransientModel):
         string="Selling date threshold",
         help="Filter only the products ordered since this date",
     )
-
+    show_product_images = fields.Boolean(string="Show product images")
     product_price = fields.Float(compute="_compute_product_price")
     product_alternative_price = fields.Float(compute="_compute_product_price")
 
