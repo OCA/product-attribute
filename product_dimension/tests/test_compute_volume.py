@@ -7,6 +7,7 @@ class TestComputeVolumeOnProduct(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.env["product.product"].new()
         cls.uom_m = cls.env["uom.uom"].search([("name", "=", "m")])
         # uom cm is archived by default
@@ -33,6 +34,7 @@ class TestComputeVolumeOnTemplate(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.template = cls.env["product.template"].new()
         cls.uom_m = cls.env["uom.uom"].search([("name", "=", "m")])
         cls.uom_mm = cls.env["uom.uom"].search([("name", "=", "mm")])

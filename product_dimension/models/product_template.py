@@ -29,11 +29,6 @@ class ProductTemplate(models.Model):
     product_width = fields.Float(
         related="product_variant_ids.product_width", readonly=False
     )
-    volume = fields.Float(
-        compute="_compute_volume",
-        readonly=False,
-        store=True,
-    )
 
     @api.model
     def _calc_volume(self, product_length, product_height, product_width, uom_id):
@@ -54,16 +49,23 @@ class ProductTemplate(models.Model):
         self._set_product_variant_field("dimensional_uom_id")
 
     @api.depends(
-        "product_length", "product_height", "product_width", "dimensional_uom_id"
+        "product_variant_ids.volume",
+        "product_length",
+        "product_height",
+        "product_width",
+        "dimensional_uom_id",
     )
     def _compute_volume(self):
+        res = super()._compute_volume()
         for template in self:
-            template.volume = template._calc_volume(
-                template.product_length,
-                template.product_height,
-                template.product_width,
-                template.dimensional_uom_id,
-            )
+            if not template.product_variant_ids:
+                template.volume = template._calc_volume(
+                    template.product_length,
+                    template.product_height,
+                    template.product_width,
+                    template.dimensional_uom_id,
+                )
+        return res
 
     def convert_to_meters(self, measure, dimensional_uom):
         uom_meters = self.env.ref("uom.product_uom_meter")
