@@ -7,6 +7,7 @@ class TestTemplateValues(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
 
         cls.product_template = cls.env["product.template"].create(
             {
