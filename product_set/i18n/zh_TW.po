@@ -1,0 +1,238 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * sale_product_set
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-13 01:19+0000\n"
+"PO-Revision-Date: 2024-08-09 21:58+0000\n"
+"Last-Translator: Andrew Shen <wildfootw@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/oca/teams/23907/"
+"zh_TW/)\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__active
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__active
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Active"
+msgstr "有效"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+msgid "Add a line"
+msgstr "新增一行"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+msgid "Add a note"
+msgstr "新增備註"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+msgid "Add a section"
+msgstr "新增段落"
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "All"
+msgstr ""
+
+#. module: product_set
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Archived"
+msgstr "封存"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__company_id
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__create_uid
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__create_uid
+msgid "Created by"
+msgstr "建立者"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__create_date
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__create_date
+msgid "Created on"
+msgstr "建立於"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__display_name
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__display_type
+msgid "Display Type"
+msgstr "顯示類型"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__id
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__id
+msgid "ID"
+msgstr "編號"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__ref
+msgid "Internal Reference"
+msgstr "內部參考"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__write_uid
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__write_uid
+msgid "Last Updated by"
+msgstr "最後更新者"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__write_date
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__write_date
+msgid "Last Updated on"
+msgstr "最後更新於"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__name
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__name
+msgid "Name"
+msgstr "名稱"
+
+#. module: product_set
+#: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_note
+msgid "Note"
+msgstr "備註"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__partner_id
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__partner_id
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Partner"
+msgstr "夥伴"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_id
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+msgid "Product"
+msgstr "產品"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_id
+msgid "Product Packaging"
+msgstr ""
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_packaging_qty
+msgid "Product Packaging Qty"
+msgstr ""
+
+#. module: product_set
+#: model:ir.actions.act_window,name:product_set.act_open_product_set_view
+#: model:ir.model,name:product_set.model_product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_id
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_form
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_search
+msgid "Product set"
+msgstr "產品集"
+
+#. module: product_set
+#: model:ir.model.fields,help:product_set.field_product_set__ref
+msgid "Product set internal reference"
+msgstr "產品集內部參考"
+
+#. module: product_set
+#: model:ir.actions.act_window,name:product_set.act_open_product_set_line_view
+#: model:ir.model,name:product_set.model_product_set_line
+#: model_terms:ir.ui.view,arch_db:product_set.view_product_set_line_search
+msgid "Product set line"
+msgstr "產品集行"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__product_set_line_ids
+msgid "Product set lines"
+msgstr "產品集行"
+
+#. module: product_set
+#: model:ir.model.fields,help:product_set.field_product_set__name
+msgid "Product set name"
+msgstr "產品集名稱"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set__set_line_ids
+msgid "Products"
+msgstr "產品"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__quantity
+#: model:ir.model.fields,field_description:product_set.field_product_set_wizard__quantity
+msgid "Quantity"
+msgstr "數量"
+
+#. module: product_set
+#: model:ir.model.fields.selection,name:product_set.selection__product_set_line__display_type__line_section
+msgid "Section"
+msgstr "段落"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__sequence
+msgid "Sequence"
+msgstr "序列"
+
+#. module: product_set
+#: model:product.set,name:product_set.product_set_services
+msgid "Services"
+msgstr "服務"
+
+#. module: product_set
+#: model:ir.model.fields,field_description:product_set.field_product_set_line__product_set_id
+msgid "Set"
+msgstr "集合"
+
+#. module: product_set
+#. odoo-python
+#: code:addons/product_set/tests/models.py:0
+msgid "This set of products is restricted for this user."
+msgstr "這個產品集僅限於此使用者。"
+
+#. module: product_set
+#: model:ir.model,name:product_set.model_product_set_wizard
+msgid "Transient base model to define custom wizards"
+msgstr ""
+
+#. module: product_set
+#: model:ir.model.fields,help:product_set.field_product_set__partner_id
+msgid ""
+"You can attache the set to a specific partner or no one. If you don't "
+"specify one, it's going to be available for all of them."
+msgstr "你可以將此集合連接給特定的合作夥伴，若是留空，此集合將會揭露給所有人。"
+
+#. module: product_set
+#. odoo-python
+#: code:addons/product_set/models/product_set_line.py:0
+msgid "You must define a package before setting a quantity of said package."
+msgstr ""
+
+#. module: product_set
+#: model:product.set,name:product_set.product_set_i5_computer
+msgid "i5 computer offer"
+msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "最後修改:"
