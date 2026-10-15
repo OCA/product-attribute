@@ -21,14 +21,14 @@
                     <widget
                         name="web_ribbon"
                         title="Archived"
-                        bg_color="bg-danger"
+                        bg_color="text-bg-danger"
                         invisible="active"
                     />
                     <div class="oe_button_box" name="button_box" />
                     <group name="main">
                         <group name="name">
                             <field name="active" invisible="1" />
-                            <field name="name" select="1" />
+                            <field name="name" />
                             <field name="ref" />
                         </group>
                         <group name="partner">
@@ -62,21 +62,28 @@
                                             />
                                         </control>
                                         <field name="sequence" widget="handle" />
-                                        <field
-                                            name="product_id"
-                                            widget="product_label_section_and_note_field"
-                                            required="not display_type"
-                                        />
-                                        <field
-                                            name="name"
-                                            widget="section_and_note_text"
-                                        />
+                                        <column name="product_and_description">
+                                            <field
+                                                name="product_id"
+                                                required="not display_type"
+                                                invisible="display_type"
+                                            />
+                                            <field
+                                                name="name"
+                                                widget="text"
+                                                placeholder="Section or Note"
+                                            />
+                                        </column>
                                         <field
                                             name="product_uom_id"
                                             groups="uom.group_uom"
                                             context="{'default_product_id': product_id}"
+                                            invisible="display_type"
                                         />
-                                        <field name="quantity" />
+                                        <field
+                                            name="quantity"
+                                            invisible="display_type"
+                                        />
                                         <field
                                             name="display_type"
                                             column_invisible="1"

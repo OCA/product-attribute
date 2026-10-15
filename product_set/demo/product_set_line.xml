@@ -5,19 +5,19 @@
         <field name="product_id" ref="product.product_product_5" />
         <field name="name">Corner Desk Right Sit Description</field>
         <field name="quantity">1</field>
-        <field name="sequence">30</field>
+        <field name="sequence" eval="30" />
     </record>
     <record id="product_set_line_computer_3" model="product.set.line">
         <field name="product_set_id" ref="product_set_i5_computer" />
         <field name="product_id" ref="product.product_product_22" />
         <field name="quantity">1</field>
-        <field name="sequence">50</field>
+        <field name="sequence" eval="50" />
     </record>
     <record id="product_set_line_computer_4" model="product.set.line">
         <field name="product_set_id" ref="product_set_i5_computer" />
         <field name="product_id" ref="product.product_product_13" />
         <field name="quantity">2</field>
-        <field name="sequence">20</field>
+        <field name="sequence" eval="20" />
     </record>
     <record id="product_set_line_services_1" model="product.set.line">
         <field name="product_set_id" ref="product_set_services" />
