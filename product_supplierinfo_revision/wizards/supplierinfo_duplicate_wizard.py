@@ -1,6 +1,8 @@
 # Copyright 2017 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from ast import literal_eval
+
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, models
@@ -19,7 +21,7 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
 
     def action_apply(self):
         Supplierinfo = self.env["product.supplierinfo"]
-        new_ids = list()
+        new_ids = []
         for item in Supplierinfo.browse(self.env.context.get("active_ids")):
             new_ids.append(
                 item.copy(
@@ -39,6 +41,9 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
         )
         if len(new_ids) > 0:
             action["domain"] = [("id", "in", new_ids)]
+            # The "Active" filter hides revisions starting in the future
+            action["context"] = literal_eval(action.get("context") or "{}")
+            action["context"].pop("search_default_active", None)
         else:  # pragma: no cover
             action = {"type": "ir.actions.act_window_close"}
         return action
