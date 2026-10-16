@@ -6,6 +6,7 @@ from odoo import api, fields, models
 
 class ProductBattery(models.Model):
     _name = "product.battery"
+    _description = "Product Battery"
 
     product_tmpl_id = fields.Many2one("product.template")
     battery_type = fields.Selection(
