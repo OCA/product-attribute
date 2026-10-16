@@ -10,6 +10,4 @@ class ProductProduct(models.Model):
     def _get_default_code(self):
         return self.env["ir.sequence"].next_by_code("product.default.code")
 
-    default_code = fields.Char(
-        "Internal Reference", index=True, default=lambda self: self._get_default_code()
-    )
+    default_code = fields.Char(default=lambda self: self._get_default_code())
