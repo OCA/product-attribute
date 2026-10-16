@@ -1,2 +1,0 @@
-* lfreeke <lfreeke@therp.nl>
-
