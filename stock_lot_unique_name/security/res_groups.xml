@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_allow_duplicate_lot_name" model="res.groups">
+        <field name="name">Allow duplicate lot/serial numbers</field>
+        <field
+            name="comment"
+        >Members may assign a lot or serial number that another product already holds.</field>
+    </record>
+</odoo>
