@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
     <record id="product_default_code_seq" model="ir.sequence">
         <field name="name">Product Default Code Mandatory</field>
