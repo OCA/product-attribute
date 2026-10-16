@@ -13,10 +13,7 @@
                 <attribute name="invisible">1</attribute>
             </label>
             <label for="weight" position="after">
-                <label
-                    for="product_weight"
-                    invisible="product_variant_count &gt; 1 and not is_product_variant"
-                />
+                <label for="product_weight" />
             </label>
             <field name="weight" position="after">
                 <field name="show_weight_uom_warning" invisible="1" />
@@ -53,11 +50,7 @@
                 <attribute name="invisible">1</attribute>
             </label>
             <label for="volume" position="after">
-                <label
-                    for="product_volume"
-                    string="Volume"
-                    invisible="product_variant_count &gt; 1 and not is_product_variant"
-                />
+                <label for="product_volume" string="Volume" />
             </label>
             <field name="volume" position="after">
                 <field name="show_volume_uom_warning" invisible="1" />

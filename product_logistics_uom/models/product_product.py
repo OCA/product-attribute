@@ -2,7 +2,6 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 
 from odoo import api, fields, models
-from odoo.tools import float_is_zero
 
 
 class ProductProduct(models.Model):
@@ -97,9 +96,7 @@ class ProductProduct(models.Model):
         )
         for product in self:
             product.show_volume_uom_warning = (
-                float_is_zero(
-                    product.product_volume, precision_rounding=odoo_volume_uom.rounding
-                )
+                odoo_volume_uom.is_zero(product.product_volume)
                 and product.volume != 0.0
             )
 
@@ -110,8 +107,6 @@ class ProductProduct(models.Model):
         )
         for product in self:
             product.show_weight_uom_warning = (
-                float_is_zero(
-                    product.product_weight, precision_rounding=odoo_weight_uom.rounding
-                )
+                odoo_weight_uom.is_zero(product.product_weight)
                 and product.weight != 0.0
             )

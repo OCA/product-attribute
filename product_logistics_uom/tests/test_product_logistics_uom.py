@@ -4,10 +4,21 @@
 
 from unittest.mock import patch
 
+from odoo.tests import Form
+
 from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductLogisticsUom(BaseCommon):
+    _test_user_groups = (
+        "base.group_user",
+        "product.group_product_manager",
+        # The weight and volume units on the product form
+        "uom.group_uom",
+        # The Inventory page of the product form, when stock is installed
+        "stock.group_stock_user",
+    )
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,12 +32,11 @@ class TestProductLogisticsUom(BaseCommon):
         cls.volume_uom_m3 = cls.env.ref("uom.product_uom_cubic_meter")
         cls.volume_uom_l = cls.env.ref("uom.product_uom_litre")
         # set volume in m3 and weight in kg
-        cls.env["ir.config_parameter"].set_param("product.weight_in_lbs", "0")
-        cls.env["ir.config_parameter"].set_param("product.volume_in_cubic_feet", "0")
+        config_parameter = cls.env["ir.config_parameter"].sudo()
+        config_parameter.set_str("product.weight_in_lbs", "0")
+        config_parameter.set_str("product.volume_in_cubic_feet", "0")
         cls.length_uom = cls.env["uom.uom"].create({"name": "Meter"})
-        cls.env["ir.config_parameter"].set_param(
-            "product_default_length_uom_id", str(cls.length_uom.id)
-        )
+        config_parameter.set_int("product_default_length_uom_id", cls.length_uom.id)
         cls.product_template = cls.env["product.template"].create(
             {"name": "Test Product Template"}
         )
@@ -67,15 +77,19 @@ class TestProductLogisticsUom(BaseCommon):
         template = self.product.product_tmpl_id
         template.volume_uom_id = self.volume_uom_l
         # Volume calculation from product_dimension module has compatibility issue.
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
+        with patch.object(
+            self.env.registry["product.template"],
+            "_calc_volume",
+            create=True,
             return_value=1,
         ):
             template.volume = 1
             self.assertEqual(template.product_volume, 1000)
 
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
+        with patch.object(
+            self.env.registry["product.template"],
+            "_calc_volume",
+            create=True,
             return_value=0.01,
         ):
             template.product_volume = 10
@@ -101,6 +115,26 @@ class TestProductLogisticsUom(BaseCommon):
         template.weight_uom_id = self.weigh_uom_kg
         self.assertEqual(template.product_weight, template.weight)
 
+    def test_template_create_with_product_weight(self):
+        product_form = Form(self.env["product.template"])
+        product_form.name = "Spice 25 g"
+        product_form.weight_uom_id = self.weigh_uom_g
+        product_form.product_weight = 25
+        template = product_form.save()
+        self.assertEqual(template.product_weight, 25)
+        self.assertEqual(template.weight, 0.025)
+        self.assertEqual(template.product_variant_ids.weight, 0.025)
+
+    def test_template_create_with_product_volume(self):
+        template = self.env["product.template"].create(
+            {
+                "name": "Oil 1 L",
+                "volume_uom_id": self.volume_uom_l.id,
+                "product_volume": 1,
+            }
+        )
+        self.assertEqual(template.product_variant_ids.volume, 0.001)
+
     def test_template_show_weight_uom_warning(self):
         template = self.product.product_tmpl_id
         template.weight_uom_id = self.weigh_uom_kg
@@ -118,16 +152,24 @@ class TestProductLogisticsUom(BaseCommon):
         variant.product_weight = 10
         self.product.product_volume = 10
         self.product.product_weight = 10
-        self.assertEqual(template.volume, 0.0)
-        self.assertEqual(template.volume, 0.0)
-        self.assertEqual(template.product_volume, 0.0)
-        self.assertEqual(template.product_weight, 0.0)
+        # The variants share a weight: the template shows it
+        self.assertEqual(template.weight, 10.0)
+        self.assertEqual(template.product_weight, 10.0)
         self.assertFalse(template.show_volume_uom_warning)  # for coverage
         self.assertFalse(template.show_weight_uom_warning)  # for coverage
+        # Writing the weight on the template updates every variant
+        template.weight_uom_id = self.weigh_uom_g
+        template.product_weight = 2000
+        self.assertEqual(variant.weight, 2.0)
+        self.assertEqual(self.product.weight, 2.0)
+        template.product_weight = 10000
+        template.weight_uom_id = self.weigh_uom_kg
         variant.unlink()
         # Volume calculation from product_dimension module has compatibility issue.
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
+        with patch.object(
+            self.env.registry["product.template"],
+            "_calc_volume",
+            create=True,
             return_value=10.0,
         ):
             self.assertEqual(template.volume, 10.0)
@@ -140,8 +182,8 @@ class TestProductLogisticsUom(BaseCommon):
         self.assertEqual(uom.id, self.length_uom.id)
 
     def test_compute_product_volume_single_variant(self):
-        self.env["ir.config_parameter"].set_param(
-            "product_default_volume_uom_id", str(self.volume_uom_l.id)
+        self.env["ir.config_parameter"].sudo().set_int(
+            "product_default_volume_uom_id", self.volume_uom_l.id
         )
         product_template = self.product_template
         product_template.product_variant_ids.write(
@@ -149,13 +191,13 @@ class TestProductLogisticsUom(BaseCommon):
         )
         self.assertEqual(product_template.product_volume, 7.5)
 
-    def test_inverse_product_volume_single_variant(self):
-        self.env["ir.config_parameter"].set_param(
-            "product_default_weight_uom_id", str(self.weigh_uom_kg.id)
+    def test_inverse_product_weight_single_variant(self):
+        self.env["ir.config_parameter"].sudo().set_int(
+            "product_default_weight_uom_id", self.weigh_uom_kg.id
         )
         product_template = self.product_template
         product_template.product_variant_ids.write(
-            {"weight": 5.0, "volume_uom_id": self.weigh_uom_kg.id}
+            {"weight": 5.0, "weight_uom_id": self.weigh_uom_kg.id}
         )
-        product_template.write({"weight": 12.0, "volume_uom_id": self.weigh_uom_kg.id})
+        product_template.write({"weight": 12.0, "weight_uom_id": self.weigh_uom_kg.id})
         self.assertEqual(product_template.product_variant_ids.product_weight, 12.0)
