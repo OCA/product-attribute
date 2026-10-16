@@ -4,7 +4,7 @@
 
 {
     "name": "Product Supplierinfo Revision",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -12,8 +12,8 @@
     "installable": True,
     "depends": ["product"],
     "data": [
-        "security/ir.model.access.csv",
         "views/product_supplierinfo_view.xml",
         "wizards/supplierinfo_duplicate_wizard_view.xml",
+        "security/ir.access.csv",
     ],
 }
