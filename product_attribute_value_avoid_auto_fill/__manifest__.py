@@ -3,7 +3,7 @@
 
 {
     "name": "Product Attribute Value Avoid Auto Fill Option",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Product",
     "summary": "Add option allow filling automatically the values",
     "author": "Tecnativa, Odoo Community Association (OCA)",
