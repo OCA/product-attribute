@@ -1,0 +1,1 @@
+from . import test_product_attribute_value_avoid_auto_fill
