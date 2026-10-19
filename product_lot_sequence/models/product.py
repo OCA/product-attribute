@@ -47,6 +47,7 @@ class ProductTemplate(models.Model):
         padding = vals.get("lot_sequence_padding") or self.lot_sequence_padding
         seq = {
             "name": name,
+            "code": "product_lot_sequence",
             "implementation": "no_gap",
             "prefix": prefix,
             "padding": padding,

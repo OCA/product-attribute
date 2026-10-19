@@ -1,0 +1,45 @@
+<odoo>
+    <record model="res.groups" id="group_product_lot_sequence_manager">
+        <field name="name">Manage Product Lot Sequence</field>
+    </record>
+    <record id="rule_ir_sequence_product_lot_sequence_only" model="ir.rule">
+        <field
+            name="name"
+        >Product Lot Sequence Manager: only product lot sequences</field>
+        <field name="model_id" ref="base.model_ir_sequence" />
+        <field
+            name="groups"
+            eval="[Command.link(ref('product_lot_sequence.group_product_lot_sequence_manager'))]"
+        />
+        <field name="domain_force">
+            [
+                ("code", "=", "product_lot_sequence"),
+                ("company_id", "in", company_ids + [False]),
+            ]
+        </field>
+    </record>
+    <record id="rule_ir_sequence_readonly" model="ir.rule">
+        <field name="name">Read-Only Access to All Sequences</field>
+        <field name="model_id" ref="base.model_ir_sequence" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('product_lot_sequence.group_product_lot_sequence_manager'))]"
+        />
+        <field name="perm_write" eval="False" />
+        <field name="perm_create" eval="False" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+    <record id="access_ir_sequence_product_lot_sequence" model="ir.model.access">
+        <field name="name">ir.sequence access for Product Lot Sequence Manager</field>
+        <field name="model_id" ref="base.model_ir_sequence" />
+        <field
+            name="group_id"
+            ref="product_lot_sequence.group_product_lot_sequence_manager"
+        />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+</odoo>
