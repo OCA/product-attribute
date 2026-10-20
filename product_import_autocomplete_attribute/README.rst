@@ -28,18 +28,16 @@ Product Import Autocomplete Attribute
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Although product template attribute choices are synced from template to
-product variant, the reverse is not true.
+This module updates the attribute lines of product templates when
+importing product variants.
 
-In other words,
+Natively, product template attribute values are synced from the template
+to its variants, but the reverse is not true:
 
-- Base function ``product_template.create_variant_ids()`` uses product
-  template's product.attribute to create variants (tmpl->variant)
-- Inversely, this module uses the product.attribute on variants, to
-  update product.attribute on the product template (variant->tmpl)
-
-This product.attribute sync is triggered when you do an import of
-product variants.
+- the base method ``product_template.create_variant_ids()`` uses the
+  template attributes to create the variants (template -> variant)
+- this module uses the attributes of the imported variants to update the
+  attribute values of the linked template (variant -> template)
 
 **Table of contents**
 
@@ -49,91 +47,100 @@ product variants.
 Configuration
 =============
 
-Create some product attributes
+Install this module and the purchase or sale module to get product
+menus.
+
+Prepare CSV files to import variants with attribute values which are not
+available on their related product template.
 
 Usage
 =====
 
-In order to better test and illustrate this module, an example CSV file
-is provided in the example folder (you will need the demo data).
+In order to better test and illustrate this module, example CSV files
+are provided in the ``example`` folder to import some variants (you will
+need the demo data).
 
-First, the setup:
+The demo data provides 2 attributes, each with 3 possible values:
 
-- We have a product attribute named "Cut" which has 3 possible values:
-  "Short sleeved", "Long sleeved", "Tanktop"
-- We have a product attribute named "Embroidery" which has 3 possible
-  values: "Cheap", "High quality", "Average"
+- Cut: Short sleeves, Long sleeves, Tanktop
+- Embroidery: Cheap, High quality, Average
 
-Next, for our example:
+At the beginning, the product template "T-shirt" declares only one
+attribute with two values:
 
-- Install this module and the purchase or sale module so that you have
-  product menus
+.. code:: text
 
-- Observe on product template "T-shirt" the attribute lines and possible
-  values. We have:
-
-     Cut: Short-sleeved, Long-sleeved
+   Cut: Short sleeves, Long sleeves
 
 |image1|
 
-- Go to product variants page, import the provided CSV file in the
-  "examples" folder This will create a new T-shirt variant with the
-  attributes:
-  Cut: Tanktop; Embroidery: Cheap
+Its variants are:
+
+1. Cut: Short sleeves
+2. Cut: Long sleeves
+
+**First import**
+
+Go to the product variants page and import the first CSV file of the
+``example`` folder. It creates a new "T-shirt" variant:
+``Cut: Tanktop, Embroidery: Cheap``.
+
+The template "T-shirt" now declares a new attribute and two new values:
+
+.. code:: text
+
+   Cut: Short sleeves, Long sleeves, Tanktop
+   Embroidery: Cheap
 
 |image2|
 
-- Observe on product template "T-shirt" the attribute lines and possible
-  values. Because imported the variant with new attributes, we now have:
+   **Note**: the new "Embroidery" attribute has a single value, so Odoo
+   automatically adds "Embroidery: Cheap" to all the existing variants
+   (the two original ones included). Indeed, a variant always carries
+   one value per attribute line of its template.
 
-  Cut: Short-sleeved, Long-sleeved, Tanktop
+The variants are now:
 
-  Embroidery: Cheap
+1. Cut: Short sleeves, Embroidery: Cheap
+2. Cut: Long sleeves, Embroidery: Cheap
+3. Cut: Tanktop, Embroidery: Cheap
+
+**Second import**
+
+Go to the product variants page and import the second CSV file of the
+``example`` folder. It creates 2 new "T-shirt" variants:
+``Cut: Short sleeves, Embroidery: Average``, and
+``Cut: Long sleeves, Embroidery: High quality``.
+
+The template "T-shirt" now declares 2 attributes, each with 3 possible
+values:
+
+.. code:: text
+
+   Cut: Short sleeves, Long sleeves, Tanktop
+   Embroidery: Cheap, High quality, Average
 
 |image3|
 
-Thus we have synced product variant attributes -> product template
-attributes.
+The resulting variants of the template are then:
 
-Let's continue:
-
-- Go to product variants page, import the 2nd provided CSV file in the
-  "examples" folder
-
-  This will create 2 new T-shirt variants as follows:
-
-     Cut: Short-sleeved; Embroidery: Average
-
-     Cut: Long-sleeved; Embroidery: High quality
+1. Cut: Short sleeves, Embroidery: Cheap
+2. Cut: Long sleeves, Embroidery: Cheap
+3. Cut: Tanktop, Embroidery: Cheap
+4. Cut: Short sleeves, Embroidery: Average
+5. Cut: Long sleeves, Embroidery: High quality
 
 |image4|
 
-- Observe on product template "T-shirt" the attribute lines and possible
-  values. Because we imported the new attributes, we now have:
-
-     Cut: Short-sleeved, Long-sleeved, Tanktop
-
-     Embroidery: Cheap, Average, High Quality
-
-|image5|
-
-- Because this module prevents creating all the possible variants to
-  prevent exponential growth of variants, we only have the following
-  variants that we imported according to the following matrix:
-
-======================= ===== ============ =======
-(Attribute combination) Cheap High quality Average
-======================= ===== ============ =======
-Short sleeve            No    No           Yes
-Long sleeve             No    Yes          No
-Tanktop                 Yes   No           No
-======================= ===== ============ =======
+   **Note**: even if both attributes are configured with
+   ``Variant Creation: Instantly``, importing variants only creates the
+   imported combinations. For example, no
+   ``Cut: Tanktop, Embroidery: Average`` variant is created.
 
 .. |image1| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_1.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_variant.png
-.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_tmpl.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_tmpl.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_tmpl.png
 .. |image4| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_variant.png
-.. |image5| image:: https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_tmpl.png
 
 Bug Tracker
 ===========

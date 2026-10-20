@@ -370,17 +370,16 @@ ul.auto-toc {
 !! source digest: sha256:5df6349436326e9d444929acd749fdd08f1c84c2eaf59e387523e743d144ee18
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/18.0/product_import_autocomplete_attribute"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-18-0/product-attribute-18-0-product_import_autocomplete_attribute"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>Although product template attribute choices are synced from template to
-product variant, the reverse is not true.</p>
-<p>In other words,</p>
+<p>This module updates the attribute lines of product templates when
+importing product variants.</p>
+<p>Natively, product template attribute values are synced from the template
+to its variants, but the reverse is not true:</p>
 <ul class="simple">
-<li>Base function <tt class="docutils literal">product_template.create_variant_ids()</tt> uses product
-template’s product.attribute to create variants (tmpl-&gt;variant)</li>
-<li>Inversely, this module uses the product.attribute on variants, to
-update product.attribute on the product template (variant-&gt;tmpl)</li>
+<li>the base method <tt class="docutils literal">product_template.create_variant_ids()</tt> uses the
+template attributes to create the variants (template -&gt; variant)</li>
+<li>this module uses the attributes of the imported variants to update the
+attribute values of the linked template (variant -&gt; template)</li>
 </ul>
-<p>This product.attribute sync is triggered when you do an import of
-product variants.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -397,108 +396,79 @@ product variants.</p>
 </div>
 <div class="section" id="configuration">
 <h1><a class="toc-backref" href="#toc-entry-1">Configuration</a></h1>
-<p>Create some product attributes</p>
+<p>Install this module and the purchase or sale module to get product
+menus.</p>
+<p>Prepare CSV files to import variants with attribute values which are not
+available on their related product template.</p>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-2">Usage</a></h1>
-<p>In order to better test and illustrate this module, an example CSV file
-is provided in the example folder (you will need the demo data).</p>
-<p>First, the setup:</p>
+<p>In order to better test and illustrate this module, example CSV files
+are provided in the <tt class="docutils literal">example</tt> folder to import some variants (you will
+need the demo data).</p>
+<p>The demo data provides 2 attributes, each with 3 possible values:</p>
 <ul class="simple">
-<li>We have a product attribute named “Cut” which has 3 possible values:
-“Short sleeved”, “Long sleeved”, “Tanktop”</li>
-<li>We have a product attribute named “Embroidery” which has 3 possible
-values: “Cheap”, “High quality”, “Average”</li>
+<li>Cut: Short sleeves, Long sleeves, Tanktop</li>
+<li>Embroidery: Cheap, High quality, Average</li>
 </ul>
-<p>Next, for our example:</p>
-<ul>
-<li><p class="first">Install this module and the purchase or sale module so that you have
-product menus</p>
-</li>
-<li><p class="first">Observe on product template “T-shirt” the attribute lines and possible
-values. We have:</p>
-<blockquote>
-<p>Cut: Short-sleeved, Long-sleeved</p>
-</blockquote>
-</li>
-</ul>
+<p>At the beginning, the product template “T-shirt” declares only one
+attribute with two values:</p>
+<pre class="code text literal-block">
+Cut: Short sleeves, Long sleeves
+</pre>
 <p><img alt="image1" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_1.png" /></p>
-<ul class="simple">
-<li>Go to product variants page, import the provided CSV file in the
-“examples” folder This will create a new T-shirt variant with the
-attributes:
-Cut: Tanktop; Embroidery: Cheap</li>
-</ul>
-<p><img alt="image2" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_variant.png" /></p>
-<ul>
-<li><p class="first">Observe on product template “T-shirt” the attribute lines and possible
-values. Because imported the variant with new attributes, we now have:</p>
-<p>Cut: Short-sleeved, Long-sleeved, Tanktop</p>
-<p>Embroidery: Cheap</p>
-</li>
-</ul>
-<p><img alt="image3" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_tmpl.png" /></p>
-<p>Thus we have synced product variant attributes -&gt; product template
-attributes.</p>
-<p>Let’s continue:</p>
-<ul>
-<li><p class="first">Go to product variants page, import the 2nd provided CSV file in the
-“examples” folder</p>
-<p>This will create 2 new T-shirt variants as follows:</p>
+<p>Its variants are:</p>
+<ol class="arabic simple">
+<li>Cut: Short sleeves</li>
+<li>Cut: Long sleeves</li>
+</ol>
+<p><strong>First import</strong></p>
+<p>Go to the product variants page and import the first CSV file of the
+<tt class="docutils literal">example</tt> folder. It creates a new “T-shirt” variant:
+<tt class="docutils literal">Cut: Tanktop, Embroidery: Cheap</tt>.</p>
+<p>The template “T-shirt” now declares a new attribute and two new values:</p>
+<pre class="code text literal-block">
+Cut: Short sleeves, Long sleeves, Tanktop
+Embroidery: Cheap
+</pre>
+<p><img alt="image2" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_2_tmpl.png" /></p>
 <blockquote>
-<p>Cut: Short-sleeved; Embroidery: Average</p>
-<p>Cut: Long-sleeved; Embroidery: High quality</p>
-</blockquote>
-</li>
-</ul>
+<strong>Note</strong>: the new “Embroidery” attribute has a single value, so Odoo
+automatically adds “Embroidery: Cheap” to all the existing variants
+(the two original ones included). Indeed, a variant always carries
+one value per attribute line of its template.</blockquote>
+<p>The variants are now:</p>
+<ol class="arabic simple">
+<li>Cut: Short sleeves, Embroidery: Cheap</li>
+<li>Cut: Long sleeves, Embroidery: Cheap</li>
+<li>Cut: Tanktop, Embroidery: Cheap</li>
+</ol>
+<p><strong>Second import</strong></p>
+<p>Go to the product variants page and import the second CSV file of the
+<tt class="docutils literal">example</tt> folder. It creates 2 new “T-shirt” variants:
+<tt class="docutils literal">Cut: Short sleeves, Embroidery: Average</tt>, and
+<tt class="docutils literal">Cut: Long sleeves, Embroidery: High quality</tt>.</p>
+<p>The template “T-shirt” now declares 2 attributes, each with 3 possible
+values:</p>
+<pre class="code text literal-block">
+Cut: Short sleeves, Long sleeves, Tanktop
+Embroidery: Cheap, High quality, Average
+</pre>
+<p><img alt="image3" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_tmpl.png" /></p>
+<p>The resulting variants of the template are then:</p>
+<ol class="arabic simple">
+<li>Cut: Short sleeves, Embroidery: Cheap</li>
+<li>Cut: Long sleeves, Embroidery: Cheap</li>
+<li>Cut: Tanktop, Embroidery: Cheap</li>
+<li>Cut: Short sleeves, Embroidery: Average</li>
+<li>Cut: Long sleeves, Embroidery: High quality</li>
+</ol>
 <p><img alt="image4" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_variant.png" /></p>
-<ul>
-<li><p class="first">Observe on product template “T-shirt” the attribute lines and possible
-values. Because we imported the new attributes, we now have:</p>
 <blockquote>
-<p>Cut: Short-sleeved, Long-sleeved, Tanktop</p>
-<p>Embroidery: Cheap, Average, High Quality</p>
-</blockquote>
-</li>
-</ul>
-<p><img alt="image5" src="https://raw.githubusercontent.com/OCA/product-attribute/18.0/product_import_autocomplete_attribute/static/description/step_3_tmpl.png" /></p>
-<ul class="simple">
-<li>Because this module prevents creating all the possible variants to
-prevent exponential growth of variants, we only have the following
-variants that we imported according to the following matrix:</li>
-</ul>
-<table border="1" class="docutils">
-<colgroup>
-<col width="49%" />
-<col width="11%" />
-<col width="26%" />
-<col width="15%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">(Attribute combination)</th>
-<th class="head">Cheap</th>
-<th class="head">High quality</th>
-<th class="head">Average</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Short sleeve</td>
-<td>No</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr><td>Long sleeve</td>
-<td>No</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr><td>Tanktop</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
+<strong>Note</strong>: even if both attributes are configured with
+<tt class="docutils literal">Variant Creation: Instantly</tt>, importing variants only creates the
+imported combinations. For example, no
+<tt class="docutils literal">Cut: Tanktop, Embroidery: Average</tt> variant is created.</blockquote>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h1>

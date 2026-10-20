@@ -1,72 +1,77 @@
-In order to better test and illustrate this module, an example CSV file
-is provided in the example folder (you will need the demo data).
+In order to better test and illustrate this module, example CSV files are
+provided in the `example` folder to import some variants (you will need the demo
+data).
 
-First, the setup:
+The demo data provides 2 attributes, each with 3 possible values:
 
-- We have a product attribute named "Cut" which has 3 possible values:
-  "Short sleeved", "Long sleeved", "Tanktop"
-- We have a product attribute named "Embroidery" which has 3 possible
-  values: "Cheap", "High quality", "Average"
+- Cut: Short sleeves, Long sleeves, Tanktop
+- Embroidery: Cheap, High quality, Average
 
-Next, for our example:
+At the beginning, the product template "T-shirt" declares only one attribute
+with two values:
 
-- Install this module and the purchase or sale module so that you have
-  product menus
-
-- Observe on product template "T-shirt" the attribute lines and possible
-  values. We have:
-
-  > Cut: Short-sleeved, Long-sleeved
+```text
+Cut: Short sleeves, Long sleeves
+```
 
 ![](static/description/step_1.png)
 
-- Go to product variants page, import the provided CSV file in the
-  "examples" folder
-  This will create a new T-shirt variant with the attributes:  
-  Cut: Tanktop; Embroidery: Cheap
+Its variants are:
 
-![](static/description/step_2_variant.png)
+1. Cut: Short sleeves
+2. Cut: Long sleeves
 
-- Observe on product template "T-shirt" the attribute lines and possible
-  values. Because imported the variant with new attributes, we now have:
+**First import**
 
-  Cut: Short-sleeved, Long-sleeved, Tanktop
+Go to the product variants page and import the first CSV file of the `example`
+folder. It creates a new "T-shirt" variant: `Cut: Tanktop, Embroidery: Cheap`.
 
-  Embroidery: Cheap
+The template "T-shirt" now declares a new attribute and two new values:
+
+```text
+Cut: Short sleeves, Long sleeves, Tanktop
+Embroidery: Cheap
+```
 
 ![](static/description/step_2_tmpl.png)
 
-Thus we have synced product variant attributes -\> product template
-attributes.
+> **Note**: the new "Embroidery" attribute has a single value, so Odoo
+> automatically adds "Embroidery: Cheap" to all the existing variants (the two
+> original ones included). Indeed, a variant always carries one value per
+> attribute line of its template.
 
-Let's continue:
+The variants are now:
 
-- Go to product variants page, import the 2nd provided CSV file in the
-  "examples" folder
+1. Cut: Short sleeves, Embroidery: Cheap
+2. Cut: Long sleeves, Embroidery: Cheap
+3. Cut: Tanktop, Embroidery: Cheap
 
-  This will create 2 new T-shirt variants as follows:
+**Second import**
 
-  > Cut: Short-sleeved; Embroidery: Average
-  >
-  > Cut: Long-sleeved; Embroidery: High quality
+Go to the product variants page and import the second CSV file of the `example`
+folder. It creates 2 new "T-shirt" variants: `Cut: Short sleeves, Embroidery:
+Average`, and `Cut: Long sleeves, Embroidery: High quality`.
 
-![](static/description/step_3_variant.png)
+The template "T-shirt" now declares 2 attributes, each with 3 possible values:
 
-- Observe on product template "T-shirt" the attribute lines and possible
-  values. Because we imported the new attributes, we now have:
-
-  > Cut: Short-sleeved, Long-sleeved, Tanktop
-  >
-  > Embroidery: Cheap, Average, High Quality
+```text
+Cut: Short sleeves, Long sleeves, Tanktop
+Embroidery: Cheap, High quality, Average
+```
 
 ![](static/description/step_3_tmpl.png)
 
-- Because this module prevents creating all the possible variants to
-  prevent exponential growth of variants, we only have the following
-  variants that we imported according to the following matrix:
+The resulting variants of the template are then:
 
-| (Attribute combination) | Cheap | High quality | Average |
-| --- | --- | --- | --- |
-| Short sleeve | No | No | Yes |
-| Long sleeve | No | Yes | No |
-| Tanktop | Yes | No | No |
+1. Cut: Short sleeves, Embroidery: Cheap
+2. Cut: Long sleeves, Embroidery: Cheap
+3. Cut: Tanktop, Embroidery: Cheap
+4. Cut: Short sleeves, Embroidery: Average
+5. Cut: Long sleeves, Embroidery: High quality
+
+![](static/description/step_3_variant.png)
+
+> **Note**: even if both attributes are configured with
+> `Variant Creation: Instantly`, importing variants only creates the imported
+> combinations. For example, no `Cut: Tanktop, Embroidery: Average` variant is
+> created.

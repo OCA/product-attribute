@@ -1,12 +1,10 @@
-Although product template attribute choices are synced from template to
-product variant, the reverse is not true.
-
-In other words,
-
-- Base function `product_template.create_variant_ids()` uses product
-  template's product.attribute to create variants (tmpl-\>variant)
-- Inversely, this module uses the product.attribute on variants, to
-  update product.attribute on the product template (variant-\>tmpl)
-
-This product.attribute sync is triggered when you do an import of
+This module updates the attribute lines of product templates when importing
 product variants.
+
+Natively, product template attribute values are synced from the template to its
+variants, but the reverse is not true:
+
+- the base method `product_template.create_variant_ids()` uses the template
+  attributes to create the variants (template -\> variant)
+- this module uses the attributes of the imported variants to update the
+  attribute values of the linked template (variant -\> template)
