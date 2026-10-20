@@ -10,6 +10,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductSupplierinfoForCustomer(BaseCommon):
+    _test_user_groups = ()
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -104,20 +106,20 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
 
     def test_product_supplierinfo_discount(self):
         self.customerinfo.write({"discount": 10.0})
-        self.pricelist_item.write({"base": "partner", "compute_price": "formula"})
+        self.pricelist_item.write({"base": "partner", "compute_price": "discount"})
         price = self.pricelist_item._compute_price(
             self.product.with_context(partner_id=self.customer.id),
             1,
             self.product.uom_id,
-            Datetime.now(),
-            self.company.currency_id,
+            date=Datetime.now(),
+            currency=self.company.currency_id,
         )
         base_price = self.pricelist_item._compute_base_price(
             self.product.with_context(partner_id=self.customer.id),
             1,
             self.product.uom_id,
-            Datetime.now(),
-            self.company.currency_id,
+            date=Datetime.now(),
+            currency=self.company.currency_id,
         )
         self.assertEqual(
             base_price, 100.0, "Error: Wrong base price for product and customer"
@@ -182,7 +184,7 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
                 "base": "partner",
                 "name": "Test Pricelist Item",
                 "pricelist_id": pricelist.id,
-                "compute_price": "formula",
+                "compute_price": "discount",
             }
         )
         self._create_partnerinfo("customer", self.customer, product)
@@ -235,7 +237,7 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
         )
 
         # Test pricelist with child customer
-        price, rule_id = self.pricelist._get_product_price_rule(
+        price, _rule_id = self.pricelist._get_product_price_rule(
             self.product, 1, partner=child_customer
         )
         self.assertEqual(price, 100.0, "Error: Price not found for child customer")

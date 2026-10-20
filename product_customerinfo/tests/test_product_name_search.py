@@ -10,6 +10,8 @@ class TestProductNameSearch(BaseCommon):
     - Test product name_search
     """
 
+    _test_user_groups = ()
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -18,7 +20,7 @@ class TestProductNameSearch(BaseCommon):
         cls.product = (
             cls.env["product.product"]
             .create({"name": "Name_product", "default_code": "code_product"})
-            .with_context(**{"partner_id": cls.customer.id})
+            .with_context(partner_id=cls.customer.id)
         )
         cls.supplierinfo = cls.env["product.supplierinfo"]
         cls.customerinfo = cls.env["product.customerinfo"]
@@ -73,7 +75,7 @@ class TestProductNameSearch(BaseCommon):
         self.product_1 = (
             self.env["product.product"]
             .create({"name": "Name_test_1", "default_code": "code_test_1"})
-            .with_context(**{"partner_id": self.customer.id})
+            .with_context(partner_id=self.customer.id)
         )
 
         self.assertFalse(self.product_1.customer_ids)

@@ -2,9 +2,7 @@
 # Copyright 2015 AvanzOSC
 # Copyright 2015 Tecnativa
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-import datetime
-
-from odoo import api, models
+from odoo import api, fields, models
 from odoo.fields import Domain
 
 
@@ -80,7 +78,7 @@ class ProductProduct(models.Model):
                         prices[product.id], uom
                     )
                 if currency:
-                    date = self.env.context.get("date", datetime.datetime.now())
+                    date = self.env.context.get("date", fields.Datetime.now())
                     prices[product.id] = product.currency_id._convert(
                         prices[product.id], currency, company, date
                     )
@@ -122,7 +120,7 @@ class ProductProduct(models.Model):
         #  can be changed in future migrations to be more in line Odoo
         #  standard way to select supplierinfo's.
         if not params:
-            params = dict()
+            params = {}
         params.update({"partner_id": partner.id})
         domain = self._prepare_domain_customerinfo(params)
         # Search for customerinfo records based on the domain
