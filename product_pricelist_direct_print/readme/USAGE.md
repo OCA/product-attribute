@@ -14,4 +14,7 @@ To use this module, you have several options:
     - Select customers in list view
     - Press *Action \> Send customer pricelist by EMail*
 
+In the wizard, check *Hide Zero Price Lines* to skip the products whose
+price list price is zero (e.g. products not covered by the price list).
+
 ![](../static/description/wizard_form.png)

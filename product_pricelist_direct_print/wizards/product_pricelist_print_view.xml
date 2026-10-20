@@ -50,6 +50,7 @@
                             invisible="not categ_ids"
                         />
                         <field name="show_only_defined_products" />
+                        <field name="hide_zero_price" />
                         <field
                             name="show_variants"
                             invisible="last_ordered_products != 0"

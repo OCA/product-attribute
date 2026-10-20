@@ -152,6 +152,11 @@ msgid ""
 msgstr ""
 
 #. module: product_pricelist_direct_print
+#: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__hide_zero_price
+msgid "Check this field to skip the products whose price list price is zero."
+msgstr ""
+
+#. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print
 msgid "Column Options"
 msgstr ""
@@ -226,6 +231,11 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__has_message
 msgid "Has Message"
+msgstr ""
+
+#. module: product_pricelist_direct_print
+#: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__hide_zero_price
+msgid "Hide Zero Price Lines"
 msgstr ""
 
 #. module: product_pricelist_direct_print
