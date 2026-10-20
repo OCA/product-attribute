@@ -20,10 +20,5 @@
     "data": [
         "views/view_product_supplierinfo.xml",
     ],
-    "assets": {
-        "web.assets_backend": [
-            "product_supplierinfo_standard_price/static/src/scss/**",
-        ],
-    },
     "installable": True,
 }
