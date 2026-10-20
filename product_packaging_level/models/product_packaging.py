@@ -37,17 +37,9 @@ class ProductPackaging(models.Model):
         )
         for packaging in packages_name_by_level:
             product = packaging.product_id
-            # do not use a mapped/filtered because it would union the duplicates
-            packaging_level_ids = [
-                packaging.packaging_level_id.id
-                for packaging in product.packaging_ids
-                # We have to allow several packaging using the default type,
-                # because when we install the module on an existing database,
-                # the default value will be set to default and we'll have
-                # duplicates. Anyway "default" is not meant to be used as a
-                # real type.
-                if not packaging.packaging_level_id.is_default
-            ]
+            packaging_level_ids = (
+                packaging._check_one_packaging_level_per_product_filter_ids()
+            )
             if len(set(packaging_level_ids)) != len(packaging_level_ids):
                 raise ValidationError(
                     self.env._(
@@ -55,6 +47,19 @@ class ProductPackaging(models.Model):
                         "with the same level for a given product ({})."
                     ).format(product.display_name)
                 )
+
+    def _check_one_packaging_level_per_product_filter_ids(self):
+        # do not use a mapped/filtered because it would union the duplicates
+        return [
+            packaging.packaging_level_id.id
+            for packaging in self.product_id.packaging_ids
+            # We have to allow several packaging using the default type,
+            # because when we install the module on an existing database,
+            # the default value will be set to default and we'll have
+            # duplicates. Anyway "default" is not meant to be used as a
+            # real type.
+            if not packaging.packaging_level_id.is_default
+        ]
 
     @api.depends("packaging_level_id")
     def _compute_sequence(self):
