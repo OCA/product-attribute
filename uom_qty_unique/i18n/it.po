@@ -6,23 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-10-21 15:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: uom_qty_unique
 #: model:ir.model.fields,field_description:uom_qty_unique.field_uom_uom__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: uom_qty_unique
 #: model:ir.model.fields,field_description:uom_qty_unique.field_uom_uom__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: uom_qty_unique
 #: model:ir.model.constraint,message:uom_qty_unique.constraint_uom_uom_uom_qty_category_unique
@@ -30,8 +32,10 @@ msgid ""
 "Only one active unit of measure per factor and per category should be "
 "active."
 msgstr ""
+"Per ogni fattore e per ogni categoria dovrebbe essere attiva una sola unità "
+"di misura."
 
 #. module: uom_qty_unique
 #: model:ir.model,name:uom_qty_unique.model_uom_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unità di misura del prodotto"
