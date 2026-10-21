@@ -194,3 +194,18 @@ class TestProductPackagingLevel(common.TransactionCase):
         self.assertEqual(self.packaging_10.qty_per_level, "6.0 TEST2; 2.0 TEST3")
         # Base packaging has no qty per level
         self.assertEqual(self.packaging.qty_per_level, "")
+
+    def test_packaging_default_from_level(self):
+        self.assertFalse(self.product.from_default_level_packaging_id)
+        self.packaging_10_product_1 = self.env["product.packaging"].create(
+            {
+                "name": "Box 10",
+                "product_id": self.product.product_variant_ids.id,
+                "packaging_level_id": self.default_level.id,
+                "qty": 10.0,
+            }
+        )
+
+        self.assertEqual(
+            self.packaging_10_product_1, self.product.from_default_level_packaging_id
+        )
