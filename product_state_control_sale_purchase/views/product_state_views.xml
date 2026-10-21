@@ -1,0 +1,13 @@
+<odoo>
+    <record model="ir.ui.view" id="view_product_state_form">
+        <field name="name">product.state.form</field>
+        <field name="model">product.state</field>
+        <field name="inherit_id" ref="product_state.view_product_state_form" />
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="authorized_to_be_sold" widget="boolean_toggle" />
+                <field name="authorized_to_be_bought" widget="boolean_toggle" />
+            </field>
+        </field>
+    </record>
+</odoo>
