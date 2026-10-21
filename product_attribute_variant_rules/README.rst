@@ -28,32 +28,19 @@ Product Attribute Variant Rules
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds a more powerful way to describe your product attributes
-combinations than the default exclusions.
+This module lets you write rules on a product template to control which
+variants are generated from its attributes.
 
-It allows to write rules like:
+Each rule is made of:
 
-   - All products with blue or green color in XL size will appear only
-     with a V neck collar and a short sleeve.
-   - All L size products will never appear with a sailor collar.
+- **preconditions:** attribute values that must be matched for the rule
+  to apply. An empty precondition means the rule always applies.
+- **type:** "Only With" keeps the combinations matching the
+  postconditions, "Never With" removes them.
+- **postconditions:** values the combination must (or must not) contain.
 
-The rules are split between a precondition a type and a postcondition.
-
-Different attributes are ANDed and same attributes are ORed.
-
-For instance the rule:
-
-::
-
-   All products with blue or green color in XL size will appear only with a V neck collar and a short sleeve.
-
-Will be written as:
-
-::
-
-   Precondition: (color: blue), (color: green), (size: XL)
-   Type: Only With
-   Postcondition: (collar: V neck), (sleeve: short)
+In preconditions and postconditions, values of the same attribute are
+**ORed** while values of different attributes are **ANDed**.
 
 **Table of contents**
 
@@ -63,14 +50,43 @@ Will be written as:
 Usage
 =====
 
-After saving your product click on the Use Attribute Rules checkbox in
-the product variants tab.
+1. Open the product template and go to the *Attributes & Variants* tab.
+2. Tick **Use Attribute Rules**.
+3. Add your rules (preconditions are optional) and choose their type.
+4. Save the product: the variants are generated again according to the
+   rules.
 
-Then add your different rules, specifying optionally some rule
-preconditions, a type of inclusion/exclusion and the rule
-postconditions.
+A rule like:
 
-When you save your product the variant will be recomputed.
+   "All products with blue or green color in XL size will appear only
+   with a V neck collar and a short sleeve."
+
+is written as:
+
+.. code:: text
+
+   Preconditions: (color: blue), (color: green), (size: XL)
+   Type: Only With
+   Postconditions: (collar: V neck), (sleeve: short)
+
+When the preconditions are empty the rule always applies. To only keep
+the variants with a short sleeve:
+
+.. code:: text
+
+   Preconditions: (none)
+   Type: Only With
+   Postconditions: (sleeve: short)
+
+To remove all the variants with a sailor collar:
+
+.. code:: text
+
+   Preconditions: (none)
+   Type: Never With
+   Postconditions: (collar: sailor)
+
+When several rules are defined, they are ANDed together.
 
 Bug Tracker
 ===========
