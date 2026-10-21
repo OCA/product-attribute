@@ -67,7 +67,13 @@
                             <field name="is_assortment" invisible="1" />
                         </group>
                     </group>
-                    <group string="Allowed product domain">
+                    <group>
+                        <field name="apply_white_list_product_domain" />
+                    </group>
+                    <group
+                        string="Allowed product domain"
+                        invisible="not apply_white_list_product_domain"
+                    >
                         <field
                             name="domain"
                             widget="domain"
@@ -76,12 +82,12 @@
                             colspan="2"
                         />
                     </group>
-                    <group>
+                    <group invisible="not apply_white_list_product_domain">
                         <field name="apply_black_list_product_domain" />
                     </group>
                     <group
                         string="Restricted product domain"
-                        invisible="not apply_black_list_product_domain"
+                        invisible="not apply_white_list_product_domain or not apply_black_list_product_domain"
                     >
                         <field
                             name="black_list_product_domain"
@@ -91,7 +97,10 @@
                             colspan="2"
                         />
                     </group>
-                    <group string="Partner domain">
+                    <group>
+                        <field name="use_partner_domain" />
+                    </group>
+                    <group string="Partner domain" invisible="not use_partner_domain">
                         <field
                             name="partner_domain"
                             widget="domain"
@@ -109,7 +118,11 @@
                                 context="{'list_view_ref': 'product_assortment.product_product_view_list'}"
                             />
                         </group>
-                        <group name="to_exclude" string="Products to exclude">
+                        <group
+                            name="to_exclude"
+                            string="Products to exclude"
+                            invisible="not apply_white_list_product_domain"
+                        >
                             <field
                                 name="blacklist_product_ids"
                                 nolabel="1"
