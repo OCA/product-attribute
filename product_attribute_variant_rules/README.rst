@@ -33,9 +33,9 @@ combinations than the default exclusions.
 
 It allows to write rules like:
 
-   -  All products with blue or green color in XL size will appear only
-      with a V neck collar and a short sleeve.
-   -  All L size products will never appear with a sailor collar.
+   - All products with blue or green color in XL size will appear only
+     with a V neck collar and a short sleeve.
+   - All L size products will never appear with a sailor collar.
 
 The rules are split between a precondition a type and a postcondition.
 
@@ -93,7 +93,7 @@ Authors
 Contributors
 ------------
 
--  Florian Mounier <florian.mounier@akretion.com>
+- Florian Mounier <florian.mounier@akretion.com>
 
 Maintainers
 -----------
