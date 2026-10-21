@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page string="Medical Description" name="medical_description">
+                    <group>
+                        <field name="medical_usage" />
+                        <field name="medical_contra_indication" />
+                        <field name="medical_properties" />
+                        <field name="medical_composition" />
+                        <field name="medical_full_description" />
+                        <field name="medical_indication" />
+                        <field name="medical_nutritional_value" />
+                        <field name="medical_legal_text" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
