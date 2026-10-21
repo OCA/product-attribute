@@ -17,7 +17,13 @@ class TestProductCostSecurity(BaseCommon):
         # and attempting to change standard_price
         # Without this flag in the context,
         # the system tries to access stock.move, which the user may not have permission.
-        cls.env = cls.env(context=dict(cls.env.context, disable_auto_svl=True))
+        cls.env = cls.env(
+            context=dict(
+                cls.env.context,
+                disable_auto_svl=True,
+                testing_product_cost_security=True,
+            )
+        )
         cls.base_group_user_id = cls.env.ref("base.group_user").id
         cls.product_edit_cost_group_id = cls.env.ref(
             "product_cost_security.group_product_edit_cost"
