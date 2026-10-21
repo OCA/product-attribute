@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record
+        id="res_config_settings_view_form_product_packaging_level_salable"
+        model="ir.ui.view"
+    >
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <setting id="order_warnings" position="after">
+                <setting
+                    id="sale_check_packaging_multiple"
+                    help="Allow selling products if quantity is multiple of packaging units."
+                    company_dependent="1"
+                >
+                    <field name="sale_check_packaging_multiple" />
+                </setting>
+            </setting>
+        </field>
+    </record>
+</odoo>
