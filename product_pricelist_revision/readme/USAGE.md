@@ -4,7 +4,8 @@ To use this module, you need to:
 2.  Add a Pricelist Items to that Price List. Set 'Fixed Price' value on
     the field 'Price type' and set a fixed price.
 3.  Go to the new menu *Sales \> Products \> Pricelist Items*, select
-    the previously created item and click on *Action \> Duplicate Item*.
+    the previously created item and click on the *Revise Prices* button
+    (also available in *Action \> Revise Prices*).
 4.  In the wizard set 'Date Start', set 'Date End' and set 'Variation %'
     to a value different from 100.
 5.  Click on 'Apply' and you will see a new Price List Item that is a
