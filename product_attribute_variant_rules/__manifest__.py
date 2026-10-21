@@ -6,7 +6,7 @@
     "summary": "Add better rules for product variants generation from attributes",
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Akretion,Odoo Community Association (OCA)",
+    "author": "Akretion, Odoo Community Association (OCA)",
     "depends": ["product"],
     "data": [
         "security/ir.model.access.csv",
