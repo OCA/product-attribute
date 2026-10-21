@@ -63,14 +63,16 @@ class ProductTemplate(models.Model):
     def write(self, vals):
         res = super().write(vals)
 
-        # Recreate variants if the rules have changed
-        empty = vals.get("active") and len(self.product_variant_ids) == 0
-        if "attribute_line_ids" in vals or empty:
-            # Already done in super
-            return res
-
-        if "use_attribute_rules" in vals or "product_attribute_rule_ids" in vals:
-            # Recreate variants
+        # super() already recreates the variants when the attribute lines
+        # change or when (re)activating a product that has no variant yet.
+        handled_by_super = "attribute_line_ids" in vals or (
+            vals.get("active") and not self.product_variant_ids
+        )
+        rules_updated = (
+            "use_attribute_rules" in vals or "product_attribute_rule_ids" in vals
+        )
+        if rules_updated and not handled_by_super:
+            # Recreate the variants according to the updated rules
             self._create_variant_ids()
 
         return res
