@@ -4,4 +4,8 @@
         <field name="key">product_lot_sequence.policy</field>
         <field name="value">product</field>
     </record>
+    <record model="ir.config_parameter" id="lot_sequence_consume_on_create">
+        <field name="key">product_lot_sequence.consume_on_create</field>
+        <field name="value">False</field>
+    </record>
 </odoo>

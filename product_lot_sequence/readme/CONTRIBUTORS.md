@@ -3,6 +3,7 @@
 - [Camptocamp](https://www.camptocamp.com):
   - Akim Juillerat \<<akim.juillerat@camptocamp.com>\>
   - Vincent Van Rossem \<<vincent.vanrossem@camptocamp.com>\>
+  - Henry Backman \<<henry.backman@camptocamp.com>\>
 - [Quartile](https://www.quartile.co):
   - Yoshi Tashiro
 - [Apik](https://www.apik.cloud):
