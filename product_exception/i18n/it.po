@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_exception
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-04-29 12:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "<strong>There are exceptions for this Product:</strong>"
+msgstr "<strong>Ci sno eccezioni per questo prodotto:</strong>"
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_exception_rule__model
+msgid "Apply on"
+msgstr "Applica a"
+
+#. module: product_exception
+#: model:ir.actions.server,name:product_exception.check_product_template_exception_ir_actions_server
+#: model:ir.cron,cron_name:product_exception.check_product_template_exception
+#: model:ir.cron,name:product_exception.check_product_template_exception
+msgid "Check Product Template Exceptions"
+msgstr "Controllare eccezioni modello prodotto"
+
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Click here to ignore the current exceptions for this product."
+msgstr "Fare clic qui per ignorare le eccezioni attuali per questo prodotto."
+
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Detect Exceptions"
+msgstr ""
+
+#. module: product_exception
+#: model:ir.model,name:product_exception.model_exception_rule
+msgid "Exception Rule"
+msgstr "Regola eccezione"
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_product_product__exception_ids
+msgid "Exceptions"
+msgstr "Eccezioni"
+
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_form_view
+msgid "Ignore Exceptions"
+msgstr "Ignora eccezioni"
+
+#. module: product_exception
+#: model:exception.rule,name:product_exception.excep_no_dump
+msgid "No dumping"
+msgstr "Non ribassare"
+
+#. module: product_exception
+#: model:ir.model,name:product_exception.model_product_product
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: product_exception
+#: model:ir.actions.act_window,name:product_exception.action_product_exception_rule
+msgid "Product Exception Rules"
+msgstr "Regole eccezioni prdotto"
+
+#. module: product_exception
+#: model:ir.ui.menu,name:product_exception.menu_product_exception_rule
+msgid "Product Exceptions Rules"
+msgstr "Regole eccezioni prdotto"
+
+#. module: product_exception
+#: model:ir.model,name:product_exception.model_product_template
+#: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_template
+msgid "Product Template"
+msgstr "Modello prodotto"
+
+#. module: product_exception
+#: model:ir.model.fields,field_description:product_exception.field_exception_rule__product_tmpl_ids
+msgid "Product Templates"
+msgstr "Modelli prodotto"
+
+#. module: product_exception
+#: model:ir.model.fields.selection,name:product_exception.selection__exception_rule__model__product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: product_exception
+#: model:exception.rule,description:product_exception.excep_no_dump
+msgid "Public price should be greather than purchase price"
+msgstr "Il prezzo al pubblico deve essere superiore al prezzo di acquIsto"
+
+#. module: product_exception
+#: model_terms:ir.ui.view,arch_db:product_exception.product_template_search_view
+msgid "With Exception"
+msgstr ""
+
+#~ msgid "Test button"
+#~ msgstr "Pulsante test"
+
+#~ msgid "With exception"
+#~ msgstr "Con eccezione"
