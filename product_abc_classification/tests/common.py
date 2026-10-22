@@ -12,12 +12,19 @@ class ABCClassificationCase(TransactionCase):
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         # add a fake profile_type
         cls.ABCClassificationProfile = cls.env["abc.classification.profile"]
-        cls.ABCClassificationProfile._fields["profile_type"].selection = [
+        cls.ABCClassificationProfile._fields["profile_type"].selection.append(
             ("test_type", "Test Type")
-        ]
+        )
+        cls.addClassCleanup(cls._reset_abc_classification_profile)
         cls.classification_profile = cls.ABCClassificationProfile.create(
             {"name": "Profile test", "profile_type": "test_type"}
         )
+
+    @classmethod
+    def _reset_abc_classification_profile(cls):
+        selection = cls.ABCClassificationProfile._fields["profile_type"].selection
+        selection = [s for s in selection if s[0] != "test_type"]
+        cls.ABCClassificationProfile._fields["profile_type"].selection = selection
 
 
 class ABCClassificationLevelCase(ABCClassificationCase):
