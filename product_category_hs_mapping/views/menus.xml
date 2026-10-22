@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Bosd
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Top-level "EDI Mappings" container, parented under Settings/
+         Technical so it sits next to other admin-config records. The
+         HS-code mapping is its first member; future EDI-mapping
+         tables (UoM, country codes, ...) can land alongside. -->
+    <menuitem
+        id="menu_edi_mappings_root"
+        name="EDI Mappings"
+        parent="base.menu_custom"
+        sequence="160"
+        groups="base.group_system"
+    />
+    <menuitem
+        id="menu_product_category_hs_mapping"
+        name="HS Code → Category"
+        parent="menu_edi_mappings_root"
+        action="product_category_hs_mapping_act_window"
+        sequence="10"
+        groups="base.group_system"
+    />
+</odoo>
