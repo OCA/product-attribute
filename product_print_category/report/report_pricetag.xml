@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <template id="report_pricetag">
+        <t t-call="web.basic_layout">
+            <t t-foreach="categories_data" t-as="category_data">
+                <div class="page">
+                    <t
+                        t-call="#{ category_data['print_category'].get_xml_id_view() }"
+                    />
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
