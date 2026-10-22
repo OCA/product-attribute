@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="group_product_assortment_manager" model="res.groups">
+        <field name="name">Product Assortment Manager</field>
+        <field name="comment">Access to all product assortment</field>
+    </record>
+
+    <record id="ir_filters_product_assortment_rule" model="ir.rule">
+        <field name="name">ir.filters.product.assortment.manager.rule</field>
+        <field name="model_id" ref="model_ir_filters" />
+        <field name="domain_force">[('is_assortment','=', True)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('product_assortment.group_product_assortment_manager'))]"
+        />
+        <field name="perm_unlink" eval="False" />
+    </record>
+</odoo>
