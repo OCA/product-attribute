@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        id="nutritional_value_menu"
+        name="Nutritional Values"
+        parent="stock.menu_stock_config_settings"
+        sequence="10"
+        groups="stock.group_stock_user"
+    />
+
+    <menuitem
+        id="nutritional_value_type_menu"
+        action="nutritional_info.action_nutritional_type"
+        name="Types"
+        parent="nutritional_value_menu"
+        sequence="1"
+        groups="stock.group_stock_user"
+    />
+</odoo>
