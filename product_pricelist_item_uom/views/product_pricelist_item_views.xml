@@ -4,26 +4,51 @@
   ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
   -->
 <odoo>
+    <!--
+        Priority is raised because ``sale`` replaces the whole
+        ``pricelist_rule_limits`` group of this form; this inheritance has to be
+        applied after it so that the packaging field is not dropped.
+    -->
     <record id="product_pricelist_item_form_view" model="ir.ui.view">
-        <field
-            name="name"
-        >Add Pricelist Rule UoM fields to Pricelist Rule form view</field>
         <field name="model">product.pricelist.item</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="priority">110</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='min_quantity']" position="after">
-                <label
-                    for="uom_min_quantity"
-                    invisible="applied_on not in ['1_product', '0_product_variant']"
+            <field name="min_quantity" position="after">
+                <field name="allowed_uom_ids" invisible="1" />
+                <field
+                    name="uom_id"
+                    widget="many2one_uom"
+                    groups="uom.group_uom"
+                    invisible="display_applied_on != '1_product'"
+                    domain="[('id', 'in', allowed_uom_ids)] if allowed_uom_ids else []"
+                    options="{'no_create': 1, 'product_field': 'product_tmpl_id'}"
+                    placeholder="Product unit"
                 />
-                <div
-                    class="o_row"
-                    invisible="applied_on not in ['1_product', '0_product_variant']"
-                >
-                    <field name="uom_min_quantity" />
-                    <field name="uom_id" />
-                </div>
-            </xpath>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_view_list_from_product" model="ir.ui.view">
+        <field name="model">product.pricelist.item</field>
+        <field
+            name="inherit_id"
+            ref="product.product_pricelist_item_tree_view_from_product"
+        />
+        <field name="arch" type="xml">
+            <field name="min_quantity" position="after">
+                <field name="display_applied_on" column_invisible="True" />
+                <field name="allowed_uom_ids" column_invisible="True" />
+                <field
+                    name="uom_id"
+                    widget="many2one_uom"
+                    groups="uom.group_uom"
+                    invisible="display_applied_on != '1_product'"
+                    domain="[('id', 'in', allowed_uom_ids)] if allowed_uom_ids else []"
+                    options="{'no_create': 1, 'product_field': 'product_tmpl_id'}"
+                    optional="show"
+                />
+            </field>
         </field>
     </record>
 </odoo>
