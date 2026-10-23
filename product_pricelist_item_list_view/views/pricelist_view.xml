@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="product_pricelist_item_form_view" model="ir.ui.view">
         <field name="name">product.pricelist.item.form</field>
@@ -53,8 +53,8 @@
     </record>
 
     <menuitem
-        action="product.product_pricelist_item_action"
         id="product_pricelist_items_action_menu"
+        action="product.product_pricelist_item_action"
         parent="sale.product_menu_catalog"
         sequence="40"
         groups="product.group_product_pricelist"
