@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="group_supplierinfo_stock_availability" model="res.groups">
+        <field name="name">Stock Availability Manager</field>
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+</odoo>
