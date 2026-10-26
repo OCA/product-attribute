@@ -4,10 +4,17 @@
 
 from unittest.mock import patch
 
+from odoo.exceptions import ValidationError
+
 from odoo.addons.base.tests.common import BaseCommon
+from odoo.addons.product.models.product_template import (
+    ProductTemplate as CoreProductTemplate,
+)
 
 
 class TestProductLogisticsUom(BaseCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,11 +28,11 @@ class TestProductLogisticsUom(BaseCommon):
         cls.volume_uom_m3 = cls.env.ref("uom.product_uom_cubic_meter")
         cls.volume_uom_l = cls.env.ref("uom.product_uom_litre")
         # set volume in m3 and weight in kg
-        cls.env["ir.config_parameter"].set_param("product.weight_in_lbs", "0")
-        cls.env["ir.config_parameter"].set_param("product.volume_in_cubic_feet", "0")
-        cls.length_uom = cls.env["uom.uom"].create({"name": "Meter"})
-        cls.env["ir.config_parameter"].set_param(
-            "product_default_length_uom_id", str(cls.length_uom.id)
+        cls.env["ir.config_parameter"].set_str("product.weight_in_lbs", "0")
+        cls.env["ir.config_parameter"].set_str("product.volume_in_cubic_feet", "0")
+        cls.length_uom = cls.env.ref("uom.product_uom_meter")
+        cls.env["ir.config_parameter"].set_int(
+            "product_default_length_uom_id", cls.length_uom.id
         )
         cls.product_template = cls.env["product.template"].create(
             {"name": "Test Product Template"}
@@ -66,22 +73,12 @@ class TestProductLogisticsUom(BaseCommon):
     def test_template_volume(self):
         template = self.product.product_tmpl_id
         template.volume_uom_id = self.volume_uom_l
-        # Volume calculation from product_dimension module has compatibility issue.
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
-            return_value=1,
-        ):
-            template.volume = 1
-            self.assertEqual(template.product_volume, 1000)
-
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
-            return_value=0.01,
-        ):
-            template.product_volume = 10
-            self.assertEqual(template.volume, 0.01)
+        self.product.volume = 1
+        self.assertEqual(template.product_volume, 1000)
+        template.product_volume = 10
+        self.assertEqual(self.product.volume, 0.01)
         template.volume_uom_id = self.volume_uom_m3
-        self.assertEqual(template.product_volume, template.volume)
+        self.assertEqual(template.product_volume, self.product.volume)
 
     def test_template_show_volume_uom_warning(self):
         template = self.product.product_tmpl_id
@@ -118,20 +115,13 @@ class TestProductLogisticsUom(BaseCommon):
         variant.product_weight = 10
         self.product.product_volume = 10
         self.product.product_weight = 10
-        self.assertEqual(template.volume, 0.0)
-        self.assertEqual(template.volume, 0.0)
+        self.assertEqual(template.volume, 10.0)
+        self.assertEqual(template.weight, 10.0)
         self.assertEqual(template.product_volume, 0.0)
         self.assertEqual(template.product_weight, 0.0)
         self.assertFalse(template.show_volume_uom_warning)  # for coverage
         self.assertFalse(template.show_weight_uom_warning)  # for coverage
         variant.unlink()
-        # Volume calculation from product_dimension module has compatibility issue.
-        with patch(
-            "odoo.addons.product_dimension.models.product_template.ProductTemplate._calc_volume",
-            return_value=10.0,
-        ):
-            self.assertEqual(template.volume, 10.0)
-        self.assertEqual(template.weight, 10.0)
         self.assertEqual(template.product_volume, 10.0)
         self.assertEqual(template.product_weight, 10.0)
 
@@ -139,9 +129,93 @@ class TestProductLogisticsUom(BaseCommon):
         uom = self.product_template._get_length_uom_id_from_ir_config_parameter()
         self.assertEqual(uom.id, self.length_uom.id)
 
+    def test_get_volume_uom_id_from_ir_config_parameter(self):
+        self.env["ir.config_parameter"].set_int(
+            "product_default_volume_uom_id", self.volume_uom_l.id
+        )
+        self.assertEqual(
+            self.product_template._get_volume_uom_id_from_ir_config_parameter(),
+            self.volume_uom_l,
+        )
+
+        with patch.object(
+            CoreProductTemplate,
+            "_get_volume_uom_id_from_ir_config_parameter",
+            return_value=self.volume_uom_m3,
+        ):
+            self.env["ir.config_parameter"].set_int(
+                "product_default_volume_uom_id", 999999
+            )
+            self.assertEqual(
+                self.product_template._get_volume_uom_id_from_ir_config_parameter(),
+                self.volume_uom_m3,
+            )
+
+    def test_get_weight_uom_id_from_ir_config_parameter(self):
+        self.env["ir.config_parameter"].set_int(
+            "product_default_weight_uom_id", self.weigh_uom_g.id
+        )
+        self.assertEqual(
+            self.product_template._get_weight_uom_id_from_ir_config_parameter(),
+            self.weigh_uom_g,
+        )
+
+        with patch.object(
+            CoreProductTemplate,
+            "_get_weight_uom_id_from_ir_config_parameter",
+            return_value=self.weigh_uom_kg,
+        ):
+            self.env["ir.config_parameter"].set_int(
+                "product_default_weight_uom_id", 999999
+            )
+            self.assertEqual(
+                self.product_template._get_weight_uom_id_from_ir_config_parameter(),
+                self.weigh_uom_kg,
+            )
+
+    def test_get_length_uom_id_from_ir_config_parameter_fallback(self):
+        with patch.object(
+            CoreProductTemplate,
+            "_get_length_uom_id_from_ir_config_parameter",
+            return_value=self.length_uom,
+        ):
+            self.env["ir.config_parameter"].set_int("product_default_length_uom_id", 0)
+            self.assertEqual(
+                self.product_template._get_length_uom_id_from_ir_config_parameter(),
+                self.length_uom,
+            )
+
+    def test_get_length_uom_id_from_invalid_config_parameter(self):
+        with patch.object(
+            CoreProductTemplate,
+            "_get_length_uom_id_from_ir_config_parameter",
+            return_value=self.length_uom,
+        ):
+            self.env["ir.config_parameter"].set_int(
+                "product_default_length_uom_id", 999999
+            )
+            self.assertEqual(
+                self.product_template._get_length_uom_id_from_ir_config_parameter(),
+                self.length_uom,
+            )
+
+    def test_get_core_uom_reference_rejects_unknown_type(self):
+        with self.assertRaisesRegex(ValueError, "Unsupported unit type"):
+            self.product_template._get_core_uom_reference("unknown")
+
+    def test_compatible_uom_domain_without_reference(self):
+        empty_uom = self.env["uom.uom"].browse()
+        with patch.object(
+            type(self.product_template),
+            "_get_core_uom_reference",
+            return_value=empty_uom,
+        ):
+            domain = self.product_template._get_compatible_uom_domain("weight")
+        self.assertEqual(domain, [("id", "=", False)])
+
     def test_compute_product_volume_single_variant(self):
-        self.env["ir.config_parameter"].set_param(
-            "product_default_volume_uom_id", str(self.volume_uom_l.id)
+        self.env["ir.config_parameter"].set_int(
+            "product_default_volume_uom_id", self.volume_uom_l.id
         )
         product_template = self.product_template
         product_template.product_variant_ids.write(
@@ -150,12 +224,58 @@ class TestProductLogisticsUom(BaseCommon):
         self.assertEqual(product_template.product_volume, 7.5)
 
     def test_inverse_product_volume_single_variant(self):
-        self.env["ir.config_parameter"].set_param(
-            "product_default_weight_uom_id", str(self.weigh_uom_kg.id)
+        self.env["ir.config_parameter"].set_int(
+            "product_default_volume_uom_id", self.volume_uom_m3.id
         )
         product_template = self.product_template
         product_template.product_variant_ids.write(
-            {"weight": 5.0, "volume_uom_id": self.weigh_uom_kg.id}
+            {"volume": 5.0, "volume_uom_id": self.volume_uom_l.id}
         )
-        product_template.write({"weight": 12.0, "volume_uom_id": self.weigh_uom_kg.id})
-        self.assertEqual(product_template.product_variant_ids.product_weight, 12.0)
+        product_template.write(
+            {"product_volume": 12.0, "volume_uom_id": self.volume_uom_l.id}
+        )
+        self.assertEqual(product_template.product_variant_ids.product_volume, 12.0)
+
+    def test_inverse_product_volume_multiple_variants(self):
+        template = self.product.product_tmpl_id
+        other_variant = self.product.create(
+            {"name": "Other Variant", "product_tmpl_id": template.id}
+        )
+        variants = template.product_variant_ids
+        variants.write({"product_volume": 4.0})
+        original_values = variants.mapped("product_volume")
+        template.product_volume = 15.0
+        self.assertEqual(variants.mapped("product_volume"), original_values)
+        self.assertIn(other_variant, variants)
+
+    def test_inverse_product_weight_multiple_variants(self):
+        template = self.product.product_tmpl_id
+        other_variant = self.product.create(
+            {"name": "Other Variant", "product_tmpl_id": template.id}
+        )
+        variants = template.product_variant_ids
+        variants.write({"product_weight": 4.0})
+        original_values = variants.mapped("product_weight")
+        template.product_weight = 15.0
+        self.assertEqual(variants.mapped("product_weight"), original_values)
+        self.assertIn(other_variant, variants)
+
+    def test_reject_incompatible_product_uoms(self):
+        with self.assertRaises(ValidationError):
+            self.product.product_tmpl_id.write({"volume_uom_id": self.weigh_uom_kg.id})
+
+    def test_reject_incompatible_default_uoms(self):
+        with self.assertRaises(ValidationError):
+            self.env["res.config.settings"].create(
+                {"product_default_weight_uom_id": self.volume_uom_l.id}
+            )
+
+    def test_accept_compatible_default_uoms(self):
+        settings = self.env["res.config.settings"].create(
+            {
+                "product_default_weight_uom_id": self.weigh_uom_g.id,
+                "product_default_volume_uom_id": self.volume_uom_l.id,
+                "product_default_length_uom_id": self.length_uom.id,
+            }
+        )
+        self.assertTrue(settings)

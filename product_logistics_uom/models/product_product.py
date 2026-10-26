@@ -46,7 +46,7 @@ class ProductProduct(models.Model):
         compute="_compute_show_weight_uom_warning",
     )
 
-    @api.depends("product_volume", "product_tmpl_id.volume_uom_id")
+    @api.depends("volume", "product_tmpl_id.volume_uom_id")
     def _compute_product_volume(self):
         odoo_volume_uom = (
             self.product_tmpl_id._get_volume_uom_id_from_ir_config_parameter()
@@ -69,7 +69,7 @@ class ProductProduct(models.Model):
                 round=False,  # avoid losing information
             )
 
-    @api.depends("product_weight", "product_tmpl_id.weight_uom_id")
+    @api.depends("weight", "product_tmpl_id.weight_uom_id")
     def _compute_product_weight(self):
         odoo_weight_uom = (
             self.product_tmpl_id._get_weight_uom_id_from_ir_config_parameter()
@@ -92,26 +92,18 @@ class ProductProduct(models.Model):
 
     @api.depends("product_volume", "product_tmpl_id.volume_uom_id", "volume")
     def _compute_show_volume_uom_warning(self):
-        odoo_volume_uom = (
-            self.product_tmpl_id._get_volume_uom_id_from_ir_config_parameter()
-        )
+        precision = self.env["decimal.precision"].precision_get("Volume")
         for product in self:
             product.show_volume_uom_warning = (
-                float_is_zero(
-                    product.product_volume, precision_rounding=odoo_volume_uom.rounding
-                )
+                float_is_zero(product.product_volume, precision_digits=precision)
                 and product.volume != 0.0
             )
 
     @api.depends("product_weight", "product_tmpl_id.weight_uom_id", "weight")
     def _compute_show_weight_uom_warning(self):
-        odoo_weight_uom = (
-            self.product_tmpl_id._get_weight_uom_id_from_ir_config_parameter()
-        )
+        precision = self.env["decimal.precision"].precision_get("Stock Weight")
         for product in self:
             product.show_weight_uom_warning = (
-                float_is_zero(
-                    product.product_weight, precision_rounding=odoo_weight_uom.rounding
-                )
+                float_is_zero(product.product_weight, precision_digits=precision)
                 and product.weight != 0.0
             )
