@@ -4,14 +4,14 @@
 from odoo import Command
 from odoo.exceptions import ValidationError
 from odoo.tests import Form
+from odoo.tests.common import TransactionCase
 
-from odoo.addons.base.tests.common import BaseCommon
 
-
-class TestProductDrainedWeight(BaseCommon):
+class TestProductDrainedWeight(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.attribute = cls.env["product.attribute"].create(
             {
                 "name": "test attribute",
