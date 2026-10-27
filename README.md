@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [product_attribute_value_avoid_auto_fill](product_attribute_value_avoid_auto_fill/) | 20.0.1.0.0 |  | Add option allow filling automatically the values
 [product_category_active](product_category_active/) | 20.0.1.0.0 |  | Add option to archive product categories
+[product_code_mandatory](product_code_mandatory/) | 20.0.1.0.0 |  | Set Product Internal Reference as a required field
 [product_manufacturer](product_manufacturer/) | 20.0.1.0.0 |  | Adds manufacturers and attributes on the product view.
 
 [//]: # (end addons)

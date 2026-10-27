@@ -1,9 +1,10 @@
 [project]
 name = "odoo-addons-oca-product-attribute"
-version = "20.0.20261027.1"
+version = "20.0.20261027.2"
 dependencies = [
     "odoo-addon-product_attribute_value_avoid_auto_fill==20.0.*",
     "odoo-addon-product_category_active==20.0.*",
+    "odoo-addon-product_code_mandatory==20.0.*",
     "odoo-addon-product_manufacturer==20.0.*",
 ]
 classifiers=[
