@@ -413,6 +413,11 @@ msgid "Profile name must be unique"
 msgstr "El nombre del perfil debe ser único"
 
 #. module: product_abc_classification
+#: model:ir.model.fields.selection,name:product_abc_classification.selection__abc_classification_profile__profile_type__test_type
+msgid "Test Type"
+msgstr ""
+
+#. module: product_abc_classification
 #. odoo-python
 #: code:addons/product_abc_classification/models/abc_classification_level.py:0
 #, python-format
