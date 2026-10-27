@@ -1,0 +1,118 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_variant_attribute_name_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-24 08:18+0000\n"
+"PO-Revision-Date: 2024-07-24 08:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_template_attribute_line__sequence
+msgid "Determine the display order"
+msgstr "Determina el orden de visualización"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_attribute_name
+msgid "Display Attribute Name/Short Name on Product Variant"
+msgstr "Mostrar Nombre Atributo/Nombre Corto en Variante de Producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_attribute_value
+msgid "Display Attribute Value on Product Variant"
+msgstr "Mostrar Valor de Atributo en Variante de Producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_no_variant_attribute
+msgid "Display No Variant Attributes on Product Variant"
+msgstr "No Mostrar Atributos de Variante en Variante de Producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__display_single_variant_attribute
+msgid "Display Single Variant Attributes on Product Variant"
+msgstr "Mostrar Atributos de Variante Única en Variante de Producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__single_variant_attribute
+msgid ""
+"Display the attribute value of the variant when the variant has only one "
+"value"
+msgstr "Mostrar el valor del atributo de la variante cuando ésta sólo tiene un valor"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__short_name
+msgid "Displayed as the variant attribute name."
+msgstr "Se visualiza como variante del nombre del atributo."
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_no_variant_attribute
+msgid "If checked, it will display the no variant attribute."
+msgstr "Si está marcada, se mostrará el atributo no variante."
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_single_variant_attribute
+msgid "If checked, it will display the single variant attribute."
+msgstr "Si está marcada, se mostrará el atributo de variante única."
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_attribute_name
+msgid ""
+"If checked, it will display the variant attribute name before its value."
+msgstr ""
+"Si está marcada, mostrará el nombre del atributo variante antes de su valor."
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__display_attribute_value
+msgid ""
+"If checked, it will display the variant attribute value in the product name."
+msgstr ""
+"Si está marcada, mostrará el valor del atributo variante en el nombre del "
+"producto."
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,help:product_variant_attribute_name_manager.field_product_attribute__single_variant_attribute
+msgid "If checked, it will display variants that have only one variant."
+msgstr "Si está marcada, mostrará las variantes que sólo tengan una variante."
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model,name:product_variant_attribute_name_manager.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atributo de producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model,name:product_variant_attribute_name_manager.model_product_template_attribute_line
+msgid "Product Template Attribute Line"
+msgstr "Línea de atributo de la plantilla de producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model,name:product_variant_attribute_name_manager.model_product_template_attribute_value
+msgid "Product Template Attribute Value"
+msgstr "Valor de Atributo del Modelo de Producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model,name:product_variant_attribute_name_manager.model_product_product
+msgid "Product Variant"
+msgstr "Producto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_template_attribute_line__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_attribute__short_name
+msgid "Short Name"
+msgstr "Nombre Corto"
+
+#. module: product_variant_attribute_name_manager
+#: model:ir.model.fields,field_description:product_variant_attribute_name_manager.field_product_product__product_template_variant_value_ids
+msgid "Variant Values"
+msgstr "Valores de las variantes"
