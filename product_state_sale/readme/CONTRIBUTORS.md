@@ -1,2 +1,4 @@
 - [Trobz](https://trobz.com):
   - Tuan Nguyen \<<tuanna@trobz.com>\>
+- [glueckkanja AG](https://www.glueckkanja.com):
+  - Christopher Rogos
