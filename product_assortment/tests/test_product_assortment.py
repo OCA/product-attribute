@@ -151,6 +151,16 @@ class TestProductAssortment(TransactionCase):
         self.assertIn(assortment.id, self.partner.applied_assortment_ids.ids)
         self.assertEqual(assortment.all_partner_ids, self.partner + self.partner2)
 
+    def test_assortment_applied_on_partner_create(self):
+        assortment = self.filter_obj.with_context(product_assortment=True).create(
+            {
+                "name": "Test Assortment partner create",
+                "partner_domain": "[('name', '=', 'Created partner')]",
+            }
+        )
+        partner = self.env["res.partner"].create({"name": "Created partner"})
+        self.assertIn(assortment, partner.applied_assortment_ids)
+
     def test_assortment_with_black_list_product_domain(self):
         excluded_product = self.env.ref("product.product_product_7")
         assortment = self.filter_obj.with_context(product_assortment=True).create(
