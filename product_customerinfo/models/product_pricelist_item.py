@@ -13,13 +13,11 @@ class ProductPricelistItem(models.Model):
         ondelete={"partner": "set default"},
     )
 
-    def _compute_price(self, product, quantity, uom, date, currency=None, **kwargs):
+    def _compute_price(self, product, quantity, uom, **kwargs):
         return super()._compute_price(
             product.with_context(include_customerinfo_discount=True),
             quantity,
             uom,
-            date,
-            currency,
             **kwargs,
         )
 
@@ -29,7 +27,7 @@ class ProductPricelistItem(models.Model):
         if (
             self
             and self._is_discount_feature_enabled()
-            and self.compute_price == "formula"
+            and self.compute_price in ("discount", "markup")
             and self.base == "partner"
         ):
             return True

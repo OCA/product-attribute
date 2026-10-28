@@ -22,7 +22,7 @@ class ProductCustomerInfo(models.Model):
     price = fields.Float(help="Price at which the product is sold to this customer.")
     date_start = fields.Date(help="Start date for this customer price")
     date_end = fields.Date(help="End date for this customer price")
-    product_uom_id = fields.Many2one(help="Customer specific unit of measure.")
+    uom_id = fields.Many2one(help="Customer specific unit of measure.")
 
     @api.model
     def get_import_templates(self):
