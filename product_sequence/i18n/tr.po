@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_sequence
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 20:03+0000\n"
+"PO-Revision-Date: 2026-02-13 13:09+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
+"Language-Team: Turkish (https://www.transifex.com/oca/teams/23907/tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_sequence
+#. odoo-python
+#: code:addons/product_sequence/models/product_product.py:0
+#, python-format
+msgid "-copy"
+msgstr "-kopyala"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_res_company
+msgid "Companies"
+msgstr "Şirketler"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_res_config_settings
+msgid "Config Settings"
+msgstr "Yapılandırma Ayarları"
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_product__default_code
+msgid "Internal Reference"
+msgstr "İç Referans"
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__code_prefix
+msgid "Prefix for Product Internal Reference"
+msgstr "Ürün İç Referansı için Önek"
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_category__code_prefix
+msgid ""
+"Prefix used to generate the internal reference for products created with "
+"this category. If blank the default sequence will be used."
+msgstr ""
+"Bu kategoriyle oluşturulan ürünler için dahili referans oluşturmak için "
+"kullanılan önek. Boş bırakılırsa, varsayılan sıra kullanılacaktır."
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_category
+msgid "Product Category"
+msgstr "Ürün Karegorisi"
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_product_category__sequence_id
+msgid "Product Sequence"
+msgstr "Ürün Sırası"
+
+#. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Product Sequences"
+msgstr "Ürün Sıraları"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_product_product
+msgid "Product Variant"
+msgstr "Ürün Varyantı"
+
+#. module: product_sequence
+#: model:ir.model,name:product_sequence.model_ir_sequence
+msgid "Sequence"
+msgstr "Sıra"
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_product__default_code
+msgid ""
+"Set to '/' and save if you want a new internal reference to be proposed."
+msgstr ""
+"Yeni bir dahili referans önerilmesini istiyorsanız '/' olarak ayarlayın ve "
+"kaydedin."
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_product_category__sequence_id
+msgid ""
+"This field contains the information related to the numbering of the journal "
+"entries of this journal."
+msgstr ""
+"Bu alan, bu yevmiyeye ait yevmiye girişleri numaralarının verilmesiyle "
+"ilgili bilgi içerir."
+
+#. module: product_sequence
+#: model:ir.model.fields,field_description:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
+#: model:ir.model.fields,field_description:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid "Use parent categories to determine the prefix"
+msgstr "Örnekleri tanımlamak için üst kategorileri kullan"
+
+#. module: product_sequence
+#: model_terms:ir.ui.view,arch_db:product_sequence.res_config_settings_view_form
+msgid ""
+"Use parent categories to determine the prefix if the category has no "
+"settings for the prefix"
+msgstr ""
+"Bir kategori için önek ayarı yoksa, öneki belirlemek için üst kategorileri "
+"kullanın"
+
+#. module: product_sequence
+#: model:ir.model.fields,help:product_sequence.field_res_company__use_parent_categories_to_determine_prefix
+#: model:ir.model.fields,help:product_sequence.field_res_config_settings__use_parent_categories_to_determine_prefix
+msgid ""
+"Use parent categories to determine the prefix if the category has no "
+"settings for the prefix."
+msgstr ""
+"Eğer bir kategori için önek ayarı yoksa, öneki belirlemek için üst "
+"kategorileri kullanın."
+
+#~ msgid "Manufacturer"
+#~ msgstr "Üretici"
