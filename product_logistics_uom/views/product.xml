@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <!-- weight -->
+            <field name="weight" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <label for="weight" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </label>
+            <label for="weight" position="after">
+                <label
+                    for="product_weight"
+                    invisible="product_variant_count &gt; 1 and not is_product_variant"
+                />
+            </label>
+            <field name="weight" position="after">
+                <field name="show_weight_uom_warning" invisible="1" />
+                <field name="product_weight" string="Weight" class="oe_inline" />
+                <span invisible="not show_weight_uom_warning">
+                    <i
+                        class="fa fa-fw fa-warning text-warning"
+                        title="Value too small for the selected uom. Select another uom to display the value."
+                    />
+                </span>
+                <field
+                    name="weight_uom_id"
+                    options="{'no_open': True, 'no_create': True}"
+                    groups="uom.group_uom"
+                />
+            </field>
+            <field name="weight_uom_name" position="before">
+                <span invisible="not show_weight_uom_warning" groups="!uom.group_uom">
+                    <i
+                        class="fa fa-fw fa-warning text-warning"
+                        title="Value too small for the selected uom. Select another uom to display the value."
+                    />
+                </span>
+            </field>
+            <field name="weight_uom_name" position="attributes">
+                <attribute name="groups">!uom.group_uom</attribute>
+            </field>
+
+            <!-- volume -->
+            <field name="volume" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <label for="volume" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </label>
+            <label for="volume" position="after">
+                <label
+                    for="product_volume"
+                    string="Volume"
+                    invisible="product_variant_count &gt; 1 and not is_product_variant"
+                />
+            </label>
+            <field name="volume" position="after">
+                <field name="show_volume_uom_warning" invisible="1" />
+                <field name="product_volume" class="oe_inline" />
+                <span invisible="not show_volume_uom_warning">
+                    <i
+                        class="fa fa-fw fa-warning text-warning"
+                        title="Value too small for the selected uom. Select another uom to display the value."
+                    />
+                </span>
+                <field
+                    name="volume_uom_id"
+                    options="{'no_open': True, 'no_create': True}"
+                    groups="uom.group_uom"
+                />
+            </field>
+            <field name="volume_uom_name" position="before">
+                <span invisible="not show_volume_uom_warning" groups="!uom.group_uom">
+                    <i
+                        class="fa fa-fw fa-warning text-warning"
+                        title="Value too small for the selected uom. Select another uom to display the value."
+                    />
+                </span>
+            </field>
+            <field name="volume_uom_name" position="attributes">
+                <attribute name="groups">!uom.group_uom</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
