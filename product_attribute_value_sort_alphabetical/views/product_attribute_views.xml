@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2026 Akretion (<http://www.akretion.com>).
+     @author Kévin Roche <kevin.roche@akretion.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <group name="main_fields" position="inside">
+                <group name="alphabetical_sort" string="Values Sorting">
+                    <field name="is_value_sequence_computed" invisible="1" />
+                    <field name="keep_manual_sort" />
+                    <field name="sort_alphabetically" invisible="keep_manual_sort" />
+                    <field name="sort_field" invisible="not sort_alphabetically" />
+                </group>
+            </group>
+            <xpath
+                expr="//field[@name='value_ids']/list/field[@name='sequence']"
+                position="attributes"
+            >
+                <attribute
+                    name="column_invisible"
+                >parent.is_value_sequence_computed</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='value_ids']/list/field[@name='sequence']"
+                position="after"
+            >
+                <field
+                    name="display_sequence"
+                    column_invisible="not parent.is_value_sequence_computed"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

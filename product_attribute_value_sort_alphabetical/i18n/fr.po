@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_value_sort_alphabetical
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+"Language: fr\n"
+
+#. module: product_attribute_value_sort_alphabetical
+#: model:ir.model.fields,field_description:product_attribute_value_sort_alphabetical.field_product_attribute__keep_manual_sort
+msgid "Keep Manual Sort"
+msgstr "Garder un tri manuel"
+
+#. module: product_attribute_value_sort_alphabetical
+#: model:ir.model.fields,help:product_attribute_value_sort_alphabetical.field_product_attribute__keep_manual_sort
+msgid ""
+"Safety lock: freeze the current sequence of the values and allow to reorder "
+"them manually, even if the alphabetical sort is enabled."
+msgstr ""
+"Sécurité : fige la séquence actuelle des valeurs et permet de les réordonner "
+"manuellement, même si le tri alphabétique est activé."
+
+#. module: product_attribute_value_sort_alphabetical
+#: model:ir.model.fields,field_description:product_attribute_value_sort_alphabetical.field_product_attribute__sort_alphabetically
+msgid "Sort Values Alphabetically"
+msgstr "Trier par ordre alphabétique"
+
+#. module: product_attribute_value_sort_alphabetical
+#: model:ir.model.fields,help:product_attribute_value_sort_alphabetical.field_product_attribute__sort_alphabetically
+msgid "Values sequence is automatically computed in alphabetical order."
+msgstr ""
+"La séquence des valeurs est calculée automatiquement par ordre alphabétique."
+
+#. module: product_attribute_value_sort_alphabetical
+#: model:ir.model.fields,field_description:product_attribute_value_sort_alphabetical.field_product_attribute__sort_field
+msgid "Sort Alphabetically On"
+msgstr "Trier par ordre alphabétique sur le champ"
+
+#. module: product_attribute_value_sort_alphabetical
+#: code:addons/product_attribute_value_sort_alphabetical/models/product_attribute.py:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_attribute_value_sort_alphabetical
+#: model:ir.model.fields,field_description:product_attribute_value_sort_alphabetical.field_product_attribute_value__display_sequence
+msgid "Seq."
+msgstr "Séq."
+
+#. module: product_attribute_value_sort_alphabetical
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_sort_alphabetical.product_attribute_view_form
+msgid "Values Sorting"
+msgstr "Tri des valeurs"
