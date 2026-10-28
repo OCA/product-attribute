@@ -54,6 +54,10 @@ class ProductPricelistPrint(models.TransientModel):
     show_sale_price = fields.Boolean()
     show_pricelist_name = fields.Boolean(default=True)
     show_description_sale = fields.Boolean(string="Show Sales Description")
+    hide_zero_price = fields.Boolean(
+        string="Hide Zero Price Lines",
+        help="Check this field to skip the products whose price list price is zero.",
+    )
     order_field = fields.Selection(
         [("name", "Name"), ("default_code", "Internal Reference")], string="Order"
     )
@@ -441,9 +445,25 @@ class ProductPricelistPrint(models.TransientModel):
             return products.sorted(lambda x: getattr(x, self.order_field) or "")
         return products
 
+    def _filter_zero_price_products(self, products):
+        """Drop the products whose price list price rounds to zero.
+
+        Reuse the batched prices injected by the report in the context when
+        available to avoid recomputing them.
+        """
+        self.ensure_one()
+        prices = self.env.context.get("product_prices")
+        if prices is None or not set(products.ids) <= set(prices):
+            prices = self._get_product_prices(products)
+        pricelist = self.get_pricelist_to_print()
+        currency = pricelist.currency_id or self.env.company.currency_id
+        return products.filtered(lambda p: not currency.is_zero(prices[p.id]))
+
     def get_groups_to_print(self):
         self.ensure_one()
         products = self.get_products_to_print()
+        if products and self.hide_zero_price:
+            products = self._filter_zero_price_products(products)
         if not products:
             return []
         group_dict = defaultdict(lambda: products.browse())

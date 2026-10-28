@@ -248,3 +248,33 @@ class TestProductPricelistDirectPrint(TransactionCase):
             "product_pricelist_direct_print.report_product_pricelist", wiz.ids
         )
         self.assertGreaterEqual(len(report_pdf[0]), 1)
+
+    def test_hide_zero_price(self):
+        self.pricelist.item_ids = [
+            Command.create(
+                {
+                    "applied_on": "1_product",
+                    "product_tmpl_id": self.product2.product_tmpl_id.id,
+                    "compute_price": "fixed",
+                    "fixed_price": 0.0,
+                }
+            )
+        ]
+        templates = self.product.product_tmpl_id + self.product2.product_tmpl_id
+        wiz = self.wiz_obj.with_context(
+            active_model="product.pricelist",
+            active_id=self.pricelist.id,
+        ).create({"product_tmpl_ids": [Command.set(templates.ids)]})
+        groups = wiz.get_groups_to_print()
+        self.assertEqual(groups[0]["products"], templates)
+        wiz.hide_zero_price = True
+        groups = wiz.get_groups_to_print()
+        self.assertEqual(groups[0]["products"], self.product.product_tmpl_id)
+        # Batched prices injected by the report are reused
+        groups = wiz.with_context(
+            product_prices=wiz._get_product_prices(templates)
+        ).get_groups_to_print()
+        self.assertEqual(groups[0]["products"], self.product.product_tmpl_id)
+        # Nothing left to print when every price is zero
+        wiz.product_tmpl_ids = self.product2.product_tmpl_id
+        self.assertEqual(wiz.get_groups_to_print(), [])

@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ==============================
 Product Pricelist Direct Print
 ==============================
@@ -17,7 +13,7 @@ Product Pricelist Direct Print
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -86,6 +82,9 @@ To use this module, you have several options:
 
    - Select customers in list view
    - Press *Action > Send customer pricelist by EMail*
+
+In the wizard, check *Hide Zero Price Lines* to skip the products whose
+price list price is zero (e.g. products not covered by the price list).
 
 |image1|
 
