@@ -22,9 +22,7 @@ class ProductSetLine(models.Model):
         domain=[("sale_ok", "=", True)],
         required=False,
     )
-    quantity = fields.Float(
-        digits="Product Unit of Measure", required=True, default=1.0
-    )
+    quantity = fields.Float(digits="Product Unit", required=True, default=1.0)
     product_set_id = fields.Many2one("product.set", string="Set", ondelete="cascade")
     active = fields.Boolean(
         compute="_compute_active",
