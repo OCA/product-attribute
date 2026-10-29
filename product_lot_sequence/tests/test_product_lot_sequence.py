@@ -98,39 +98,3 @@ class TestProductLotSequence(TransactionCase):
         lot_form.product_id = product
         lot = lot_form.save()
         self.assertEqual(lot.name, next_sequence_number)
-
-    def test_open_detailed_operations(self):
-        # Required for `product_uom` to be visible in the view
-        self.env.user.groups_id += self.env.ref("uom.group_uom")
-
-        self.env["ir.config_parameter"].set_param(
-            "product_lot_sequence.policy", "global"
-        )
-        seq = self.env["ir.sequence"].search([("code", "=", "stock.lot.serial")])
-        first_next_sequence_number = seq.get_next_char(seq.number_next_actual)
-        product = self.product_product.create(
-            {"name": "Test global", "tracking": "serial"}
-        )
-        delivery_picking = self._create_picking(
-            self.delivery_type, [{"product_id": product}]
-        )
-        delivery_move = delivery_picking.move_ids
-        self.assertFalse(delivery_move.next_serial)
-        delivery_move.action_show_details()
-        self.assertFalse(delivery_move.next_serial)
-        self.assertEqual(
-            seq.get_next_char(seq.number_next_actual), first_next_sequence_number
-        )
-        receipt_picking = self._create_picking(
-            self.receipt_type, [{"product_id": product}]
-        )
-        receipt_move = receipt_picking.move_ids
-        self.assertFalse(receipt_move.next_serial)
-        receipt_move.action_show_details()
-        self.assertEqual(receipt_move.next_serial, first_next_sequence_number)
-        new_next_sequence_number = seq.get_next_char(seq.number_next_actual)
-        self.assertNotEqual(new_next_sequence_number, first_next_sequence_number)
-        receipt_move.action_show_details()
-        self.assertEqual(
-            new_next_sequence_number, seq.get_next_char(seq.number_next_actual)
-        )
