@@ -18,6 +18,13 @@ msgstr ""
 "X-Generator: Weblate 5.15.2\n"
 
 #. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
+msgid ""
+"<i class=\"fa fa-cogs me-1\" aria-hidden=\"true\"/>\n"
+"                    Lot sequence settings"
+msgstr ""
+
+#. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
 msgid "<span>digits</span>"
 msgstr "<span>znakov</span>"
@@ -31,6 +38,11 @@ msgstr "Družbe"
 #: model:ir.model,name:product_lot_sequence.model_res_config_settings
 msgid "Config Settings"
 msgstr "Nastavitve"
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
+msgid "Create sequence"
+msgstr ""
 
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
@@ -70,9 +82,25 @@ msgid "Next Number"
 msgstr "Naslednja številka"
 
 #. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
+msgid "Next:"
+msgstr ""
+
+#. module: product_lot_sequence
+#. odoo-python
+#: code:addons/product_lot_sequence/models/product.py:0
+msgid "Only product creation users can create lot sequences."
+msgstr ""
+
+#. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_product_template
 msgid "Product"
 msgstr "Proizvod"
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_padding

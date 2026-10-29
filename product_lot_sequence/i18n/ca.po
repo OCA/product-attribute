@@ -17,11 +17,15 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: product_lot_sequence
-#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
 msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\"/>"
+"<i class=\"fa fa-cogs me-1\" aria-hidden=\"true\"/>\n"
+"                    Lot sequence settings"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
+msgid "<span>digits</span>"
 msgstr ""
 
 #. module: product_lot_sequence
@@ -32,6 +36,11 @@ msgstr ""
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_res_config_settings
 msgid "Config Settings"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
+msgid "Create sequence"
 msgstr ""
 
 #. module: product_lot_sequence
@@ -70,8 +79,24 @@ msgid "Next Number"
 msgstr "Següent Número"
 
 #. module: product_lot_sequence
+#: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
+msgid "Next:"
+msgstr ""
+
+#. module: product_lot_sequence
+#. odoo-python
+#: code:addons/product_lot_sequence/models/product.py:0
+msgid "Only product creation users can create lot sequences."
+msgstr ""
+
+#. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_product_template
 msgid "Product"
+msgstr ""
+
+#. module: product_lot_sequence
+#: model:ir.model,name:product_lot_sequence.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: product_lot_sequence
@@ -120,11 +145,6 @@ msgstr "Aquest camp conté la informació relacionada amb la numeració de lots.
 #. module: product_lot_sequence
 #: model:ir.model.fields,help:product_lot_sequence.field_stock_lot__name
 msgid "Unique Lot/Serial Number"
-msgstr ""
-
-#. module: product_lot_sequence
-#: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
-msgid "digits"
 msgstr ""
 
 #~ msgid "Product Template"
