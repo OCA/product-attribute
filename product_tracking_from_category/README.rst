@@ -21,10 +21,10 @@ Product Lot Category
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
-    :target: https://github.com/OCA/product-attribute/tree/19.0/product_lot_from_category
+    :target: https://github.com/OCA/product-attribute/tree/19.0/product_tracking_from_category
     :alt: OCA/product-attribute
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_lot_from_category
+    :target: https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_tracking_from_category
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
     :target: https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&target_branch=19.0
@@ -43,13 +43,21 @@ tracking value.
 .. contents::
    :local:
 
+Usage
+=====
+
+To use this module:
+
+1. Create a product category and set its tracking.
+2. Create a product and set the proper category.
+
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/product-attribute/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_lot_from_category%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/product-attribute/issues/new?body=module:%20product_tracking_from_category%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -65,6 +73,7 @@ Contributors
 ------------
 
 - Denis Roussel <denis.roussel@acsone.eu>
+- Raphaël Vicini <raphael.vicini@acsone.eu>
 
 Maintainers
 -----------
@@ -87,6 +96,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-rousseldenis| 
 
-This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_lot_from_category>`_ project on GitHub.
+This module is part of the `OCA/product-attribute <https://github.com/OCA/product-attribute/tree/19.0/product_tracking_from_category>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
