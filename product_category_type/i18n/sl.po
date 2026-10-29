@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_category_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-25 06:32+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_category_type
+#: model:ir.model.fields,help:product_category_type.field_product_category__type
+msgid ""
+"A category of the view type is a virtual category that can be used as the "
+"parent of another category to create a hierarchical structure."
+msgstr ""
+"Kategorija tipa prikaza je navidezna kategorija, ki se lahko uporablja kot "
+"nadrejena drugi kategoriji pri pripravi hierarhične strukture."
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__type
+msgid "Category Type"
+msgstr "Tip kategorije"
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__display_name
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__display_name
+msgid "Display Name"
+msgstr "Prikazani naziv"
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__id
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_category_type
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__normal
+msgid "Normal"
+msgstr "Običajno"
+
+#. module: product_category_type
+#: model:ir.model.fields,field_description:product_category_type.field_product_category__parent_id
+msgid "Parent Category"
+msgstr "Nadrejena kategorija"
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_template
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_category_type
+#: model:ir.model,name:product_category_type.model_product_category
+#: model:ir.model.fields,field_description:product_category_type.field_product_product__categ_id
+#: model:ir.model.fields,field_description:product_category_type.field_product_template__categ_id
+msgid "Product Category"
+msgstr "Kategorija proizvoda"
+
+#. module: product_category_type
+#: model:ir.model.fields.selection,name:product_category_type.selection__product_category__type__view
+msgid "View"
+msgstr "Prikaz"
