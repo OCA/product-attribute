@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_product_set,access_product_set,product.set,base.group_user,r,
+product_set_comp_rule,Product Set multi company rule,product.set,,crud,"[('company_id', 'in', [False] + company_ids)]"
+access_product_set_line,access_product_set_line,product.set.line,base.group_user,r,
+product_set_line_comp_rule,Product Set Line multi company rule,product.set.line,,crud,"[('company_id', 'in', [False] + company_ids)]"
+access_product_set_wizard,access_product_set_wizard,product.set.wizard,base.group_user,crud,
