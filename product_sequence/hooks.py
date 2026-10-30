@@ -16,3 +16,12 @@ def pre_init_hook(env):
         "SET default_code = '!!mig!!' || id "
         "WHERE default_code IS NULL OR default_code = '/';"
     )
+
+
+def uninstall_hook(env):
+    """
+    Resets the default_code column to allow NULL values.
+    """
+    env.cr.execute(
+        "ALTER TABLE product_product ALTER COLUMN default_code DROP NOT NULL;"
+    )
