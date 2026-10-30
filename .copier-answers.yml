@@ -25,3 +25,5 @@ repo_website: https://github.com/OCA/product-attribute
 use_pyproject_toml: true
 use_ruff: true
 
+
+#copier updated
