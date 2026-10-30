@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =========================
 PoS Product Cost Security
 =========================
@@ -17,7 +13,7 @@ PoS Product Cost Security
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github
@@ -34,7 +30,8 @@ PoS Product Cost Security
 
 This is a glue module to avoid permission errors when loading data in
 the Point of Sale if the user has no ``standard_price`` (cost) field
-permissions.
+permissions. It also hides the margin and cost fields in Pos Orders and
+Pos Sale Report for non-allowed users
 
 **Table of contents**
 
@@ -69,6 +66,10 @@ Contributors
 - `SerpentCS <https://www.serpentcs.com>`__:
 
   - Parvez Qureshi <parvez.qureshi@serpentcs.com>
+
+- `Invitu <https://www.invitu.com>`__:
+
+  - Cyril Vinh-Tung <cyril@invitu.com>
 
 Maintainers
 -----------
