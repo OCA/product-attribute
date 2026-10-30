@@ -2,7 +2,7 @@
 # Copyright 2022 Tecnativa - Ernesto Tejeda
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import Form, common
+from odoo.tests import Form, common, new_test_user
 
 
 class TestProductPricelistSimulation(common.TransactionCase):
@@ -107,3 +107,15 @@ class TestProductPricelistSimulation(common.TransactionCase):
         )
         self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 80.0)
         self.assertAlmostEqual(wizard_form.line_ids._records[1]["price"], 50.0)
+
+    def test_pricelist_simulation_internal_user(self):
+        # the button is in the header of the product form, shown to all users
+        user = new_test_user(
+            self.env, login="simulation_user", groups="base.group_user"
+        )
+        wizard_form = Form(
+            self.env["wizard.preview.pricelist"]
+            .with_user(user)
+            .with_context(active_model="product.template", active_id=self.template_1.id)
+        )
+        self.assertAlmostEqual(wizard_form.line_ids._records[0]["price"], 80.0)
