@@ -39,7 +39,7 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
 
     secondary_uom_qty = fields.Float(
         string="Secondary Qty",
-        digits="Product Unit of Measure",
+        digits="Product Unit",
         store=True,
         readonly=False,
         compute="_compute_secondary_uom_qty",
