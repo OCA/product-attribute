@@ -21,7 +21,7 @@ class ProductProduct(models.Model):
         ondelete="restrict",
     )
 
-    state_id_domain = fields.Binary(
+    state_id_domain = fields.Json(
         compute="_compute_state_id_domain",
         help="Technical field, used to compute dynamically state domain"
         " depending on the country.",
@@ -55,4 +55,4 @@ class ProductProduct(models.Model):
         for product in self.filtered(lambda x: x.country_id):
             product.state_id_domain = [("country_id", "=", product.country_id.id)]
         for product in self.filtered(lambda x: not x.country_id):
-            product.state_id_domain = []
+            product.state_id_domain = False

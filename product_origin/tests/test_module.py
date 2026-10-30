@@ -3,14 +3,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
+from odoo.tests.common import TransactionCase
 
-from odoo.addons.base.tests.common import BaseCommon
 
-
-class TestModule(BaseCommon):
+class TestModule(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.country_us = cls.env.ref("base.us")
         cls.state_tarapaca = cls.env.ref("base.state_cl_01")
         cls.state_us = cls.env.ref("base.state_us_1")
@@ -27,11 +27,11 @@ class TestModule(BaseCommon):
     def _test_compute_and_constrains(self, model):
         # Set state should set country
         product = model.create({"name": "Test Name"})
-        self.assertEqual(product.state_id_domain, [])
+        self.assertFalse(product.state_id_domain)
 
         product.country_id = self.country_us
         self.assertEqual(
-            product.state_id_domain, [("country_id", "=", self.country_us.id)]
+            product.state_id_domain, [["country_id", "=", self.country_us.id]]
         )
 
         with self.assertRaises(ValidationError):
