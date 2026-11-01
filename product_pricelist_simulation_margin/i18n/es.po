@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_simulation_margin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-19 09:16+0000\n"
+"PO-Revision-Date: 2023-08-29 08:30+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model.fields,field_description:product_pricelist_simulation_margin.field_wizard_preview_pricelist__standard_price
+msgid "Cost"
+msgstr "Coste"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model.fields,field_description:product_pricelist_simulation_margin.field_wizard_preview_pricelist_line__margin
+msgid "Margin"
+msgstr "Margen"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model.fields,field_description:product_pricelist_simulation_margin.field_wizard_preview_pricelist_line__margin_percent
+msgid "Margin (%)"
+msgstr "Margen (%)"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model.fields,field_description:product_pricelist_simulation_margin.field_wizard_preview_pricelist_line__price_vat_excl
+msgid "Unit Sales Price (Excl.)"
+msgstr "Precio de venta unitario (Excl.)"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model.fields,field_description:product_pricelist_simulation_margin.field_wizard_preview_pricelist_line__price_vat_incl
+msgid "Unit Sales Price (Incl.)"
+msgstr "Precio de venta unitario (Incl.)"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model,name:product_pricelist_simulation_margin.model_wizard_preview_pricelist
+msgid "wizard - Preview Pricelist"
+msgstr "asistente - Vista previa de la Lista de Precios"
+
+#. module: product_pricelist_simulation_margin
+#: model:ir.model,name:product_pricelist_simulation_margin.model_wizard_preview_pricelist_line
+msgid "wizard - Preview Pricelist Line"
+msgstr "asistente - Vista previa de línea de lista de precios"
