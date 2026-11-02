@@ -6,122 +6,124 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-11-02 17:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_attribute_line_template
 #: model:ir.model.constraint,message:product_attribute_line_template.constraint_product_attribute_template_name_company_uniq
 msgid "A template with the same name already exists for this company."
-msgstr ""
+msgstr "Esiste già un modello con lo stesso nome per questa azienda."
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_product__attribute_template_id
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_template__attribute_template_id
 msgid "Apply attribute template"
-msgstr ""
+msgstr "Applica modello attributo"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__attribute_id
 msgid "Attribute"
-msgstr ""
+msgstr "Attributo"
 
 #. module: product_attribute_line_template
 #: model:ir.actions.act_window,name:product_attribute_line_template.action_product_attribute_template
 #: model:ir.ui.menu,name:product_attribute_line_template.menu_product_attribute_template
 msgid "Attribute Templates"
-msgstr ""
+msgstr "Modelli attributo"
 
 #. module: product_attribute_line_template
 #: model_terms:ir.ui.view,arch_db:product_attribute_line_template.view_product_template_form_inherit_attribute_templates
 msgid "Attribute templates"
-msgstr ""
+msgstr "Modelli attributo"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,help:product_attribute_line_template.field_product_attribute_template_line__attribute_id
 msgid "Attribute to be added to the product when applying this template."
-msgstr ""
+msgstr "Attributo da aggiungere al prodotto quando si applica questo modello."
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__line_ids
 #: model_terms:ir.ui.view,arch_db:product_attribute_line_template.view_product_attribute_template_form
 msgid "Attributes"
-msgstr ""
+msgstr "Attributi"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__create_uid
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__create_date
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__display_name
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__id
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__write_uid
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultima aggiornamento di"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__write_date
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultima aggiornamento il"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,help:product_attribute_line_template.field_product_attribute_template__company_id
 msgid "Leave empty to make it available for all companies."
-msgstr ""
+msgstr "Lasciare vuoto per renderlo disponibile a tutte le aziende."
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product_attribute_line_template
 #: model:ir.model,name:product_attribute_line_template.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: product_attribute_line_template
 #: model:ir.model,name:product_attribute_line_template.model_product_attribute_template
 msgid "Product Attribute Template"
-msgstr ""
+msgstr "Modello attributo del prodotto"
 
 #. module: product_attribute_line_template
 #: model:ir.model,name:product_attribute_line_template.model_product_attribute_template_line
 msgid "Product Attribute Template Line"
-msgstr ""
+msgstr "Riga del modello attributo del prodotto"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,help:product_attribute_line_template.field_product_product__attribute_template_id
@@ -130,18 +132,20 @@ msgid ""
 "Select a template to add its attributes to the product. The selection is "
 "cleared after applying."
 msgstr ""
+"Seleziona un modello per aggiungere i relativi attributi al prodotto. La "
+"selezione viene cancellata dopo l'applicazione."
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: product_attribute_line_template
 #: model:ir.model.fields,field_description:product_attribute_line_template.field_product_attribute_template_line__template_id
 msgid "Template"
-msgstr ""
+msgstr "Modello"
 
 #. module: product_attribute_line_template
 #: model:ir.model.constraint,message:product_attribute_line_template.constraint_product_attribute_template_line_template_attribute_uniq
 msgid "This attribute is already included in the template."
-msgstr ""
+msgstr "Questo attributo è già incluso nel modello."
