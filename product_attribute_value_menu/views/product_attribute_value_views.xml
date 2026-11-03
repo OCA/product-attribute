@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2021 ForgeFlow
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="product_attribute_value_tree_view" model="ir.ui.view">
         <field name="name">product.attribute.value.tree</field>
         <field name="model">product.attribute.value</field>
-        <field name="priority">1</field>
+        <field name="priority" eval="1" />
         <field name="arch" type="xml">
             <list>
                 <field name="attribute_id" widget="many2one" />
                 <field name="name" />
                 <field
                     name="product_count"
-                    class="text-right"
+                    class="text-end"
                     string="Products"
                     invisible="product_count==0"
                 />
@@ -20,7 +20,7 @@
                     type="object"
                     name="action_view_product"
                     title="Products"
-                    class="btn btn-link text-left"
+                    class="btn btn-link text-start"
                     icon="fa-wrench"
                     invisible="product_count==0"
                 />
@@ -35,7 +35,7 @@
             <search>
                 <field name="name" />
                 <field name="attribute_id" />
-                <group expand="1" string="Group By">
+                <group>
                     <filter
                         string="Attribute"
                         name="attribute"
@@ -55,9 +55,9 @@
     <menuitem
         id="sale_menu_product_archived_attribute_action"
         action="attribute_value_action"
-        parent="sale.prod_config_main"
+        parent="sale.product_menu_catalog"
         groups="product.group_product_variant"
-        sequence="2"
+        sequence="31"
     />
 
     <menuitem

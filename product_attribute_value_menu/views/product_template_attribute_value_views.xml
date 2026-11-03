@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record
         id="product_template_attribute_value_inherited_view_tree"
@@ -31,16 +31,11 @@
                     <field name="name" readonly="1" />
                     <field name="html_color" readonly="1" />
                     <field name="price_extra" />
-                    <field name="exclude_for" widget="one2many_list" mode="list">
-                        <list editable="bottom">
-                            <field name="product_tmpl_id" />
-                            <field
-                                name="value_ids"
-                                widget="many2many_tags"
-                                options="{'no_create': true}"
-                            />
-                        </list>
-                    </field>
+                    <field
+                        name="excluded_value_ids"
+                        widget="many2many_tags"
+                        options="{'no_create': True}"
+                    />
                 </group>
             </form>
         </field>
@@ -61,8 +56,8 @@
     <menuitem
         id="import_product_attribute_value_configuration_action_menu"
         name="Attribute Values Extra Prices"
-        parent="sale.prod_config_main"
-        sequence="1"
+        parent="sale.product_menu_catalog"
+        sequence="32"
         groups="product.group_product_variant"
         action="product_attribute_value_menu.import_product_attribute_value_action"
     />
