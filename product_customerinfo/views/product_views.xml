@@ -38,7 +38,7 @@
                         <div>
                             <field name="min_qty" class="oe_inline" />
                             <field
-                                name="product_uom_id"
+                                name="uom_id"
                                 class="oe_inline"
                                 groups="uom.group_uom"
                             />

@@ -1,4 +1,3 @@
-For these prices to be used in sale prices calculations, you will have
-to create a pricelist with a rule with option "Based on" with the value
-"Partner Prices: Take the price from the customer info on the 'product
-form')".
+To use these prices in sale price calculations, create a pricelist rule
+with *Apply* set to *Discount* or *Surcharge*, and select *Partner Prices
+on the product form* as its base.

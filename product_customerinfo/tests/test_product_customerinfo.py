@@ -10,6 +10,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductSupplierinfoForCustomer(BaseCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -104,20 +106,20 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
 
     def test_product_supplierinfo_discount(self):
         self.customerinfo.write({"discount": 10.0})
-        self.pricelist_item.write({"base": "partner", "compute_price": "formula"})
+        self.pricelist_item.write({"base": "partner", "compute_price": "discount"})
         price = self.pricelist_item._compute_price(
             self.product.with_context(partner_id=self.customer.id),
             1,
             self.product.uom_id,
-            Datetime.now(),
-            self.company.currency_id,
+            date=Datetime.now(),
+            currency=self.company.currency_id,
         )
         base_price = self.pricelist_item._compute_base_price(
             self.product.with_context(partner_id=self.customer.id),
             1,
             self.product.uom_id,
-            Datetime.now(),
-            self.company.currency_id,
+            date=Datetime.now(),
+            currency=self.company.currency_id,
         )
         self.assertEqual(
             base_price, 100.0, "Error: Wrong base price for product and customer"
@@ -182,7 +184,7 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
                 "base": "partner",
                 "name": "Test Pricelist Item",
                 "pricelist_id": pricelist.id,
-                "compute_price": "formula",
+                "compute_price": "discount",
             }
         )
         self._create_partnerinfo("customer", self.customer, product)
@@ -235,7 +237,56 @@ class TestProductSupplierinfoForCustomer(BaseCommon):
         )
 
         # Test pricelist with child customer
-        price, rule_id = self.pricelist._get_product_price_rule(
+        price, _rule_id = self.pricelist._get_product_price_rule(
             self.product, 1, partner=child_customer
         )
         self.assertEqual(price, 100.0, "Error: Price not found for child customer")
+
+    def test_import_templates(self):
+        templates = self.customerinfo_model.get_import_templates()
+        self.assertEqual(len(templates), 1)
+        self.assertEqual(
+            templates[0]["template"],
+            "/product_customerinfo/static/xls/product_customerinfo.xls",
+        )
+
+    def test_price_from_customerinfo_without_partner(self):
+        self.assertEqual(self.product._get_price_from_customerinfo(False), 0.0)
+
+    def test_price_compute_of_other_price_types(self):
+        res = self.product._price_compute("list_price")
+        self.assertEqual(res[self.product.id], self.product.list_price)
+
+    def test_price_compute_with_partner_record_in_context(self):
+        res = self.product.with_context(partner=self.customer)._price_compute("partner")
+        self.assertEqual(res[self.product.id], 100.0)
+
+    def test_price_compute_with_uom_and_currency_in_context(self):
+        res = self.product.with_context(
+            partner_id=self.customer.id,
+            uom=self.product.uom_id.id,
+            currency=self.company.currency_id.id,
+        )._price_compute("partner")
+        self.assertEqual(res[self.product.id], 100.0)
+
+    def test_domain_without_partner_matches_every_customer(self):
+        other = self._create_partnerinfo("customer", self.unknown, self.product)
+        domain = self.product._prepare_domain_customerinfo({})
+        self.assertEqual(
+            self.customerinfo_model.search(domain), self.customerinfo | other
+        )
+
+    def test_select_customerinfo_with_params(self):
+        customerinfo = self.product._select_customerinfo(
+            partner=self.customer, params={"min_qty": 1}
+        )
+        self.assertEqual(customerinfo, self.customerinfo)
+
+    def test_select_customerinfo_takes_the_first_template_match(self):
+        self.customerinfo.unlink()
+        template = self.product.product_tmpl_id
+        values = {"partner_id": self.customer.id, "product_tmpl_id": template.id}
+        first = self.customerinfo_model.create({**values, "sequence": 1, "price": 5})
+        self.customerinfo_model.create({**values, "sequence": 2, "price": 7})
+        customerinfo = self.product._select_customerinfo(partner=self.customer)
+        self.assertEqual(customerinfo, first)

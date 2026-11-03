@@ -10,6 +10,8 @@ class TestProductNameSearch(BaseCommon):
     - Test product name_search
     """
 
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -86,3 +88,29 @@ class TestProductNameSearch(BaseCommon):
         self.assertIn(self.product_1.id, product_names)
         self.assertIn("[code_test] Name_test", product_names)
         self.assertIn("[code_test_1] Name_test_1", product_names)
+
+    def test_20_name_search_without_partner(self):
+        self.customerinfo.create(self.customerinfo_dict)
+        product = self.product.with_context(partner_id=False)
+        self.assertFalse(product.name_search(name="code_test"))
+        template = product.product_tmpl_id
+        self.assertFalse(template.name_search(name="code_test"))
+
+    def test_30_name_search_stops_at_the_limit(self):
+        self.customerinfo.create(self.customerinfo_dict)
+        self.assertEqual(len(self.product.name_search(name="Name_product", limit=1)), 1)
+
+    def test_40_template_display_name_without_default_code(self):
+        self.customerinfo.create(self.customerinfo_dict)
+        template = self.product.product_tmpl_id.with_context(
+            partner_id=self.customer.id,
+            company_id=self.env.company.id,
+            display_default_code=False,
+        )
+        self.assertEqual(template.display_name, "Name_test")
+
+    def test_50_template_display_name_without_customerinfo(self):
+        template = self.product.product_tmpl_id.with_context(
+            partner_id=self.customer.id
+        )
+        self.assertEqual(template.display_name, "[code_product] Name_product")
