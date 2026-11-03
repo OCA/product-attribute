@@ -77,7 +77,7 @@
                                     name="%(product_state.action_open_state_products)d"
                                     type="action"
                                 >
-                                    <t t-esc="record.products_count.value" /> Products
+                                    <field name="products_count" /> Products
                                 </a>
                             </div>
                         </main>

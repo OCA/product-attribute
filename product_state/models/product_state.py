@@ -11,7 +11,7 @@ class ProductState(models.Model):
     _description = "Product State"
     _order = "sequence, id"
 
-    name = fields.Char(comodel_name="State Name", required=True, translate=True)
+    name = fields.Char(string="State Name", required=True, translate=True)
     code = fields.Char(string="State Code", required=True)
     sequence = fields.Integer(help="Used to order the States", default=25)
     active = fields.Boolean(default=True)
