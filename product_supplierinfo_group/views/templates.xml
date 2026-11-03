@@ -1,0 +1,12 @@
+<odoo>
+    <template id="table_price_note">
+<div class="table_price_note">
+<t t-foreach="suppinfos" t-as="suppinfo">
+  <div class="table_price_note_row">
+    <span class="table_price_note_cell"><t t-esc="suppinfo['min_qty']" /></span>
+    <span class="table_price_note_cell"><t t-esc="suppinfo['price']" /> <t t-esc="suppinfo['uom']" /></span>
+  </div>
+</t>
+</div>
+    </template>
+</odoo>
