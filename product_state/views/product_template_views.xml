@@ -41,7 +41,7 @@
         <field name="name">product.template.tree (product_state_id)</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_tree_view" />
-        <field name="priority">50</field>
+        <field name="priority" eval="50" />
         <field name="arch" type="xml">
             <field name="type" position="after">
                 <field name="state" />
