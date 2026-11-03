@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Tecnativa - Carlos Dauden
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="product_attribute_value_merge_finder_view_form" model="ir.ui.view">
+        <field name="model">product.attribute.value.merge.finder</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="attribute_id" readonly="1" />
+                    </group>
+                    <group>
+                        <field name="loose" />
+                        <field name="include_archived" />
+                        <field
+                            name="lang_ids"
+                            widget="many2many_tags"
+                            options="{'no_create': True}"
+                        />
+                    </group>
+                </group>
+                <field name="group_ids" nolabel="1" readonly="1">
+                    <list>
+                        <field name="value_ids" widget="many2many_tags" />
+                        <field name="names" />
+                        <field name="matches" />
+                        <field name="template_count" />
+                        <button
+                            name="action_merge"
+                            type="object"
+                            string="Merge"
+                            icon="fa-compress"
+                            class="btn-link"
+                        />
+                    </list>
+                </field>
+                <div class="text-muted" invisible="group_ids">
+                    No values of this attribute show the same name.
+                </div>
+                <footer>
+                    <button
+                        name="action_search"
+                        type="object"
+                        string="Search Again"
+                        class="btn-primary"
+                    />
+                    <button string="Close" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
