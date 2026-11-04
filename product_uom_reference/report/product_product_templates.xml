@@ -28,7 +28,7 @@
     <template id="product_uom_reference.show_uom">
         <t t-if="not uom_name" t-set="uom_name" t-value="product.uom_id.name" />
         <span t-att-class="class_show_uom or 'o_label_price_medium'" t-if="uom_name">
-            per <t t-out="uom_name" /></span>
+            / <t t-out="uom_name" /></span>
     </template>
 
     <template id="product_uom_reference.price_uom_reference">
@@ -106,34 +106,23 @@
         id="product_uom_reference.label_product_product_view"
         inherit_id="stock.label_product_product_view"
     >
-        <xpath expr="//t[@t-set='product']" position="after">
+        <xpath expr="//t[@t-set='show_price_per_unit']" position="after">
             <t
                 t-set="price_uom_reference"
                 t-value="(product.product_variant_id or product)._get_price_uom_reference(product,pricelist)"
             />
-            <t
-                t-set="uom_reference"
-                t-value="product.uom_reference_id.uom_reference_id"
-            />
+            <t t-if="price_uom_reference">
+                <t t-set="price" t-value="'%s / %s' % (price, product.uom_id.name)" />
+                <t
+                    t-set="price_per_unit"
+                    t-value="currency_id.format(price_uom_reference)"
+                />
+                <t
+                    t-set="reference_unit_name"
+                    t-value="product.uom_reference_id.uom_reference_id.name"
+                />
+                <t t-set="show_price_per_unit" t-value="True" />
+            </t>
         </xpath>
-
-        <xpath
-            expr="//t[@t-if='price_included']//t[contains(@t-if, 'after')]//t[contains(@t-esc, 'currency_id.symbol')]"
-            position="after"
-        > per <t t-esc="product.uom_id.name" /><t t-if="price_uom_reference">/ <t
-            t-esc="price_uom_reference"
-            t-options='{"widget": "float", "precision": 2}'
-        /><t t-esc="currency_id.symbol" /> per <t
-            t-esc="uom_reference.name"
-        /></t></xpath>
-        <xpath
-            expr="//t[@t-if='price_included']//t[contains(@t-if, 'before')]//t[contains(@t-esc, 'pricelist._get_product_price')]"
-            position="after"
-        > per <t t-esc="product.uom_id.name" /><t t-if="price_uom_reference"> / <t
-            t-esc="currency_id.symbol"
-        /><t
-            t-esc="price_uom_reference"
-            t-options='{"widget": "float", "precision": 2}'
-        /> per <t t-esc="uom_reference.name" /></t></xpath>
     </template>
 </odoo>

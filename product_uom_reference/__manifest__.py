@@ -3,7 +3,7 @@
 
 {
     "name": "Product uom reference",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Product",
     "summary": "Configure reference unit of measurement",
     "author": "Binhex, Odoo Community Association (OCA)",
