@@ -3,7 +3,7 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record id="pricelist_item_duplicate_wizard_view" model="ir.ui.view">
-        <field name="name">Pricelist Item Duplicate</field>
+        <field name="name">Pricelist Item Revise Prices</field>
         <field name="model">product.pricelist.item.duplicate.wizard</field>
         <field name="arch" type="xml">
             <form>
@@ -39,7 +39,7 @@
         </field>
     </record>
     <record id="pricelist_item_duplicate_wizard_action" model="ir.actions.act_window">
-        <field name="name">Duplicate Item</field>
+        <field name="name">Revise Prices</field>
         <field name="binding_model_id" ref="product.model_product_pricelist_item" />
         <field name="view_mode">form</field>
         <field name="res_model">product.pricelist.item.duplicate.wizard</field>
