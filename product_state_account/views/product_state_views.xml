@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_state_form" model="ir.ui.view">
+        <field name="name">product.state.form (product_state_account)</field>
+        <field name="model">product.state</field>
+        <field name="inherit_id" ref="product_state.view_product_state_form" />
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="can_be_invoiced" widget="boolean_toggle" />
+            </field>
+        </field>
+    </record>
+    <record id="view_product_state_tree" model="ir.ui.view">
+        <field name="name">product.state.list (product_state_account)</field>
+        <field name="model">product.state</field>
+        <field name="inherit_id" ref="product_state.view_product_state_tree" />
+        <field name="arch" type="xml">
+            <field name="description" position="after">
+                <field name="can_be_invoiced" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>
