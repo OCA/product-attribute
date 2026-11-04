@@ -20,3 +20,6 @@ Default Number of Digits for Product Sequence Generation
 
 The default is 7 digits.  To change that to something else, go to the inventory
 configuration, find "Sequence Number of Digits" and change the number.
+
+To allow a user without settings access rights to update generated lot sequence attributes,
+add them to the "Product Lot Sequence Manager: Only Product Lot Sequences" group.
