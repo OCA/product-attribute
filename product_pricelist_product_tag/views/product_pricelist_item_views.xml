@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2025 INVITU - Cyril VINH-TUNG
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field
+                    name="product_tag_id"
+                    options="{'no_create':1}"
+                    invisible="display_applied_on != 'product_tag'"
+                    placeholder="All tags"
+                />
+            </field>
+        </field>
+    </record>
+</data>
