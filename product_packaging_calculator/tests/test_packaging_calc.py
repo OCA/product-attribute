@@ -191,3 +191,105 @@ class TestCalc(TestCommon):
             self.product_a.product_qty_by_packaging(2655, with_contained=True),
             expected,
         )
+
+    def test_calc_variant_packaging(self):
+        """Test variant-specific packagings are considered."""
+        crate = self.env["uom.uom"].create(
+            {
+                "name": "Crate",
+                "relative_uom_id": self.uom_unit.id,
+                "relative_factor": 1000,
+            }
+        )
+        self.product_a.extra_uom_ids = [(4, crate.id)]
+        expected = [
+            make_pkg_values(self.product_a, crate, qty=1),
+            make_pkg_values(self.product_a, self.pkg_big_box, qty=2),
+            make_pkg_values(self.product_a, self.pkg_box, qty=2),
+        ]
+        self.assertEqual(self.product_a.product_qty_by_packaging(1500), expected)
+
+    def test_calc_product_uom_not_reference(self):
+        """Test product UoM which is not a reference unit (e.g. Dozens)."""
+        uom_dozen = self.env.ref("uom.product_uom_dozen")
+        pkg_case = self.env["uom.uom"].create(
+            {
+                "name": "Case",
+                "relative_uom_id": uom_dozen.id,
+                "relative_factor": 20,
+            }
+        )
+        product = self.env["product.product"].create(
+            {
+                "name": "Product B",
+                "uom_id": uom_dozen.id,
+                "uom_ids": [(4, pkg_case.id)],
+            }
+        )
+        expected = [
+            make_pkg_values(product, pkg_case, qty=1),
+            make_pkg_values(product, uom_dozen, qty=15),
+        ]
+        self.assertEqual(product.product_qty_by_packaging(35), expected)
+
+    def test_calc_ignored_packaging(self):
+        """Test product UoM and packagings smaller than it are ignored."""
+        expected = [
+            make_pkg_values(self.product_a, self.pkg_pallet, qty=1),
+            make_pkg_values(self.product_a, self.pkg_big_box, qty=3),
+            make_pkg_values(self.product_a, self.pkg_box, qty=1),
+            make_pkg_values(self.product_a, self.uom_unit, qty=5),
+        ]
+        half = self.env["uom.uom"].create(
+            {
+                "name": "Half",
+                "relative_uom_id": self.uom_unit.id,
+                "relative_factor": 0.5,
+            }
+        )
+        for uom in (self.uom_unit, half):
+            with self.subTest(uom=uom.name):
+                self.product_a.uom_ids = [(4, uom.id)]
+                self.assertEqual(
+                    self.product_a.product_qty_by_packaging(2655), expected
+                )
+                self.assertEqual(
+                    self.product_a.product_qty_by_packaging_as_str(
+                        10, only_packaging=True
+                    ),
+                    "",
+                )
+
+    def test_packaging_barcode_company(self):
+        """Test barcode of the current company prevails over shared ones."""
+        company_2 = self.env["res.company"].create({"name": "Company 2"})
+        product_uom = self.env["product.uom"]
+        product_uom.create(
+            {
+                "product_id": self.product_a.id,
+                "uom_id": self.pkg_box.id,
+                "barcode": "BOX-C2",
+                "company_id": company_2.id,
+            }
+        )
+        shared = product_uom.create(
+            {
+                "product_id": self.product_a.id,
+                "uom_id": self.pkg_pallet.id,
+                "barcode": "PALLET-SHARED",
+                "company_id": False,
+            }
+        )
+        product = self.product_a
+        product_2 = self.product_a.with_company(company_2)
+        self.assertEqual(product._packaging_barcode(self.pkg_box), "BOX")
+        self.assertEqual(product_2._packaging_barcode(self.pkg_box), "BOX-C2")
+        self.assertEqual(product._packaging_barcode(self.pkg_pallet), "PALLET")
+        self.assertEqual(product_2._packaging_barcode(self.pkg_pallet), shared.barcode)
+        self.assertIsNone(product_2._packaging_barcode(self.pkg_big_box))
+        self.assertEqual(
+            product_2.packaging_contained_mapping[str(self.pkg_big_box.id)][0][
+                "barcode"
+            ],
+            "BOX-C2",
+        )

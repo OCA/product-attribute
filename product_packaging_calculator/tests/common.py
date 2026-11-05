@@ -4,6 +4,7 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestCommon(BaseCommon):
+    _test_user_groups = None
     at_install = False
     post_install = True
     maxDiff = None

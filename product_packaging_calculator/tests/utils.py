@@ -10,7 +10,7 @@ def make_pkg_values(product, record, **kw):
     """
     is_unit = record == product.uom_id
     if is_unit:
-        qty = product.uom_id.factor
+        qty = 1.0
         barcode = None
         name = record.name
     else:

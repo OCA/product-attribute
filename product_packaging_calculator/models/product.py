@@ -5,7 +5,6 @@
 from collections import namedtuple
 
 from odoo import api, models
-from odoo.tools import float_compare, float_is_zero, float_round
 
 from odoo.addons.base_sparse_field.models.fields import Serialized
 
@@ -21,8 +20,8 @@ class Product(models.Model):
         help="Technical field to store contained packaging. ",
     )
 
-    @api.depends_context("lang")
-    @api.depends("uom_ids.factor", "uom_id.factor")
+    @api.depends_context("lang", "company")
+    @api.depends("uom_ids.factor", "extra_uom_ids.factor", "uom_id.factor")
     def _compute_packaging_contained_mapping(self):
         for rec in self:
             rec.packaging_contained_mapping = rec._packaging_contained_mapping()
@@ -85,13 +84,14 @@ class Product(models.Model):
         )
         base_uom = self.uom_id
         packagings = []
-        for uom in self.uom_ids.filtered(custom_filter):
+        for uom in (self.uom_ids | self.extra_uom_ids).filtered(custom_filter):
             # Packagings unrelated to the product UoM cannot be used for the math
             if not uom._has_common_reference(base_uom):
                 continue
             qty = uom._compute_quantity(1, base_uom, round=False)
-            # Exclude the ones w/ zero qty as they are useless for the math
-            if not qty:
+            # Exclude the product UoM itself (always added as minimal unit)
+            # and the ones smaller than it as they are useless for the math
+            if uom == base_uom or base_uom.compare(qty, 1) < 0:
                 continue
             packagings.append(
                 Packaging(
@@ -104,14 +104,21 @@ class Product(models.Model):
             # NOTE: the ID here could clash w/ one of the packaging's.
             # If you create a mapping based on IDs, keep this in mind.
             # You can use `is_unit` to check this.
-            Packaging(base_uom.id, base_uom.name, base_uom.factor, None, True)
+            Packaging(base_uom.id, base_uom.name, 1.0, None, True)
         )
         return packagings
 
     def _packaging_barcode(self, uom):
-        """Return the barcode assigned to the given packaging UoM, if any."""
+        """Return the barcode assigned to the given packaging UoM, if any.
+
+        Barcodes of the current company prevail over shared ones.
+        """
         self.ensure_one()
-        link = self.product_uom_ids.filtered(lambda p: p.uom_id == uom)[:1]
+        company = self.env.company
+        links = self.product_uom_ids.filtered(
+            lambda p: p.uom_id == uom and (not p.company_id or p.company_id == company)
+        )
+        link = links.filtered("company_id")[:1] or links[:1]
         return link.barcode or None
 
     def _packaging_name_getter(self, packaging):
@@ -123,31 +130,17 @@ class Product(models.Model):
         prepare_values = self.env.context.get(
             "_packaging_values_handler", self._prepare_qty_by_packaging_values
         )
-        uom_rounding = self.uom_id.rounding
+        uom = self.uom_id
         for pkg in pkg_by_qty:
             # Boost perf: no need to deduce the qty_per_pkg if the pkg_qty is 1
-            if float_compare(pkg.qty, 1, precision_rounding=uom_rounding) == 0:
+            if uom.compare(pkg.qty, 1) == 0:
                 # If qty is an integer, use int value, else round it
-                qty_diff = float_compare(
-                    qty - int(qty), 0.0, precision_rounding=uom_rounding
-                )
                 qty_per_pkg = (
-                    int(qty)
-                    if qty_diff == 0
-                    else float_round(qty, precision_rounding=uom_rounding)
+                    int(qty) if uom.is_zero(qty - int(qty)) else uom.round(qty)
                 )
                 qty = 0
             else:
                 qty_per_pkg, qty = self._qty_by_pkg(pkg.qty, qty)
-
-                # To handle fractional quantities (eg: 0.5 Kg)
-                if pkg.is_unit and not float_is_zero(
-                    qty, precision_rounding=uom_rounding
-                ):
-                    # `is_unit` package always be the last package by the sorting
-                    # it has the same uom with the product, just sum the quantity
-                    qty_per_pkg += float_round(qty, precision_rounding=uom_rounding)
-                    qty = 0
 
             if qty_per_pkg:
                 value = prepare_values(pkg, qty_per_pkg)
@@ -166,10 +159,7 @@ class Product(models.Model):
     def _qty_by_pkg(self, pkg_qty, qty):
         """Calculate qty needed for given package qty."""
         qty_per_pkg = 0
-        while (
-            float_compare(qty - pkg_qty, 0.0, precision_rounding=self.uom_id.rounding)
-            >= 0.0
-        ):
+        while self.uom_id.compare(qty, pkg_qty) >= 0:
             qty -= pkg_qty
             qty_per_pkg += 1
         return qty_per_pkg, qty

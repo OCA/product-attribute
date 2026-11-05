@@ -3,7 +3,7 @@
 {
     "name": "Product packaging calculator",
     "summary": "Compute product quantity to pick by packaging",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "development_status": "Beta",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
