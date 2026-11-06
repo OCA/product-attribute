@@ -23,6 +23,11 @@ msgid "Internal Reference"
 msgstr "Interni sklic"
 
 #. module: product_code_mandatory
+#: model:ir.model,name:product_code_mandatory.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
 msgid "Product Variant"
 msgstr "Različica proizvoda"

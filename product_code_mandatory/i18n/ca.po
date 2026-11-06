@@ -22,6 +22,11 @@ msgid "Internal Reference"
 msgstr "Referència interna"
 
 #. module: product_code_mandatory
+#: model:ir.model,name:product_code_mandatory.model_product_template
+msgid "Product"
+msgstr "Producte"
+
+#. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
 msgid "Product Variant"
 msgstr ""
@@ -31,6 +36,3 @@ msgstr ""
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
-
-#~ msgid "Product"
-#~ msgstr "Producte"
