@@ -18,11 +18,13 @@ msgstr ""
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__id
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -30,6 +32,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__default_code
 msgid "Internal Reference"
 msgstr "Référence interne"
+
+#. module: product_code_mandatory
+#: model:ir.model,name:product_code_mandatory.model_product_template
+msgid "Product"
+msgstr "Article"
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
@@ -43,9 +50,6 @@ msgid ""
 msgstr ""
 "Mettez '/' et sauvegardez si vous voulez qu'une nouvelle référence vous soit "
 "proposée."
-
-#~ msgid "Product"
-#~ msgstr "Article"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Dernière modification"

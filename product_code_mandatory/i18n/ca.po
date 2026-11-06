@@ -18,11 +18,13 @@ msgstr ""
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_template__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: product_code_mandatory
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__id
+#: model:ir.model.fields,field_description:product_code_mandatory.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -30,6 +32,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_code_mandatory.field_product_product__default_code
 msgid "Internal Reference"
 msgstr "Referència interna"
+
+#. module: product_code_mandatory
+#: model:ir.model,name:product_code_mandatory.model_product_template
+msgid "Product"
+msgstr "Producte"
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
@@ -41,6 +48,3 @@ msgstr ""
 msgid ""
 "Set to '/' and save if you want a new internal reference to be proposed."
 msgstr ""
-
-#~ msgid "Product"
-#~ msgstr "Producte"
