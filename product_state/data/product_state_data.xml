@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="product_state_draft" model="product.state">
+        <field name="code">draft</field>
+        <field name="name">In Development</field>
+        <field name="sequence" eval="10" />
+    </record>
+    <record id="product_state_sellable" model="product.state">
+        <field name="code">sellable</field>
+        <field name="name">Normal</field>
+        <field name="sequence" eval="20" />
+        <field name="default">True</field>
+    </record>
+    <record id="product_state_end" model="product.state">
+        <field name="code">end</field>
+        <field name="name">End of Lifecycle</field>
+        <field name="sequence" eval="30" />
+    </record>
+    <record id="product_state_obsolete" model="product.state">
+        <field name="code">obsolete</field>
+        <field name="name">Obsolete</field>
+        <field name="sequence" eval="40" />
+    </record>
+</odoo>
