@@ -1,0 +1,10 @@
+- Oihane Crucelaegui \<<oihanecrucelaegi@avanzosc.es>\>
+- Aaron Henriquez \<<ahenriquez@forgeflow.com>\>
+- Miquel Raïch \<<miquel.raich@forgeflow.com>\>
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - Sergio Teruel
+  - Carlos Lopez
+- [Komit](https://komit-consulting.com):
+  - Vang Nguyen Phu
+- Maksym Yankin \<<maksym.yankin@camptocamp.com>\>

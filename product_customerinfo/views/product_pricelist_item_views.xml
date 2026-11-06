@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.view</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <!-- Discount has no base selector in 20.0: offer only sales or partner prices -->
+            <xpath expr="//div[field[@name='price_discount']]" position="inside">
+                <field
+                    name="base"
+                    nolabel="1"
+                    class="oe_inline text-nowrap"
+                    widget="filterable_selection"
+                    options="{'whitelisted_values': ['list_price', 'partner']}"
+                />
+            </xpath>
+            <xpath
+                expr="//div[field[@name='price_discount']]/field[@name='base_pricelist_id']"
+                position="attributes"
+            >
+                <attribute name="invisible">base == 'partner'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
