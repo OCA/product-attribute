@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_sale_secondary_unit" model="res.groups">
+        <field name="name">Sale Secondary Unit</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+    <record id="group_purchase_secondary_unit" model="res.groups">
+        <field name="name">Purchase Secondary Unit</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+</odoo>
