@@ -76,9 +76,9 @@ To base pricelist rules on that fields, in the pricelist:
 Known issues / Roadmap
 ======================
 
--  Add mechanisms that allow to set multiprices values from external
-   flows. For example: having AVCO, FIFO and Standard prices computed
-   simultaneously in this table.
+- Add mechanisms that allow to set multiprices values from external
+  flows. For example: having AVCO, FIFO and Standard prices computed
+  simultaneously in this table.
 
 Bug Tracker
 ===========
@@ -101,12 +101,12 @@ Authors
 Contributors
 ------------
 
--  `Tecnativa <https://www.tecnativa.com>`__
+- `Tecnativa <https://www.tecnativa.com>`__
 
-   -  David Vidal
-   -  Pedro M. Baeza
-   -  Ernesto Tejeda
-   -  Sergio Teruel
+  - David Vidal
+  - Pedro M. Baeza
+  - Ernesto Tejeda
+  - Sergio Teruel
 
 Maintainers
 -----------
