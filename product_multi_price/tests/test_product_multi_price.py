@@ -96,6 +96,15 @@ class TestProductMultiPrice(TransactionCase):
         )._get_contextual_price()
         self.assertAlmostEqual(price, 7.92)
 
+    def test_compute_price_rule_extra_kwargs(self):
+        """Extra keyword arguments reach the price computation unharmed.
+
+        The field service product catalog passes ``task_id`` down to
+        ``_compute_price``; the override must accept and forward it.
+        """
+        res = self.pricelist._compute_price_rule(self.prod_prod_2_1, 1.0, task_id=False)
+        self.assertAlmostEqual(res[self.prod_prod_2_1.id][0], 5.94)
+
     def test_product_multi_price_pricelist_item(self):
         """Pricelists based on multi prices using the pricelist items"""
         pricelist_item = self.pricelist.item_ids[0]

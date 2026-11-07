@@ -16,10 +16,14 @@ class ProductPricelistItem(models.Model):
         ondelete="set null",
     )
 
-    def _compute_price(self, product, quantity, uom, date, currency=None):
+    def _compute_price(self, product, quantity, uom, date, currency=None, **kwargs):
         # Recompute price after calling the atomic super method for
-        # getting proper prices when based on multi price.
-        price = super()._compute_price(product, quantity, uom, date, currency)
+        # getting proper prices when based on multi price. Extra keyword
+        # arguments (e.g. ``task_id`` from the field service product catalog)
+        # are passed on, as the core signature accepts them.
+        price = super()._compute_price(
+            product, quantity, uom, date, currency=currency, **kwargs
+        )
         if self.compute_price == "formula" and self.base == "multi_price":
             price = product._get_multiprice_pricelist_price(self)
         return price
