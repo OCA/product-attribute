@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Bosd
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<!--
+    Server action: re-run the HS-code matcher against the selected
+    product(s) and write the result to ``categ_id``.
+
+    Bound to ``product.template`` so it shows up in the Action
+    (extra-context) menu on the product form AND on the product
+    list (multi-select). The variant model ``product.product``
+    isn't bound — buyers re-categorise at the template level since
+    ``hs_code`` lives on the template; if a future customer needs
+    per-variant tariff codes, mirror this entry on
+    ``model_product_product``.
+
+    ``noupdate="1"`` so deployers can rebind the action to a
+    different group / hide it without losing the change on
+    upgrade. The ``binding_*`` fields are what surface the entry
+    in the Action menu.
+-->
+<odoo noupdate="1">
+    <record id="action_apply_hs_mapping" model="ir.actions.server">
+        <field name="name">Apply HS Code → Category Mapping</field>
+        <field name="model_id" ref="product.model_product_template" />
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="binding_view_types">form,list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_apply_hs_mapping()</field>
+    </record>
+</odoo>

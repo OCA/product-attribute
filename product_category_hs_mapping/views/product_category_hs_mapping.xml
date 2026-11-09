@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Bosd
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_category_hs_mapping_form" model="ir.ui.view">
+        <field name="name">product.category.hs.mapping.form</field>
+        <field name="model">product.category.hs.mapping</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="hs_code_pattern" />
+                        <h1>
+                            <field
+                                name="hs_code_pattern"
+                                placeholder="e.g. 8421* or 8421230090"
+                            />
+                        </h1>
+                        <field
+                            name="intrastat_description"
+                            readonly="1"
+                            class="text-muted"
+                            placeholder="(intrastat code preview)"
+                        />
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                        <group>
+                            <field name="sequence" />
+                            <field name="specificity" readonly="1" />
+                            <field name="active" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_category_hs_mapping_list" model="ir.ui.view">
+        <field name="name">product.category.hs.mapping.list</field>
+        <field name="model">product.category.hs.mapping</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <!-- Drag handle for manual ordering — primary use is
+                     tiebreaking same-specificity rules; specificity
+                     itself wins, so the handle just expresses the
+                     rare manual override. -->
+                <field name="sequence" widget="handle" />
+                <field name="hs_code_pattern" />
+                <field name="intrastat_description" readonly="1" optional="show" />
+                <field name="category_id" />
+                <field name="specificity" optional="show" />
+                <field
+                    name="company_id"
+                    optional="hide"
+                    groups="base.group_multi_company"
+                />
+            </list>
+        </field>
+    </record>
+
+    <record id="product_category_hs_mapping_search" model="ir.ui.view">
+        <field name="name">product.category.hs.mapping.search</field>
+        <field name="model">product.category.hs.mapping</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="hs_code_pattern" />
+                <field name="category_id" />
+                <separator />
+                <filter
+                    name="archived"
+                    string="Archived"
+                    domain="[('active', '=', False)]"
+                />
+                <group name="groupby">
+                    <filter
+                        name="group_by_category"
+                        string="Category"
+                        context="{'group_by': 'category_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_category_hs_mapping_act_window" model="ir.actions.act_window">
+        <field name="name">HS Code → Category Mappings</field>
+        <field name="res_model">product.category.hs.mapping</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Map HS tariff codes to product categories
+            </p>
+            <p>
+                Patterns can be exact codes (<tt>8421230090</tt>) or
+                prefix wildcards (<tt>8421*</tt>). Longest literal
+                prefix wins at resolution time, so a more specific
+                rule beats a more general one.
+            </p>
+        </field>
+    </record>
+</odoo>
