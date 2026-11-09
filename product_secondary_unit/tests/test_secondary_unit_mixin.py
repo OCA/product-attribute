@@ -113,6 +113,15 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model.secondary_uom_qty = 23
         self.assertEqual(fake_model.product_uom_qty, 0)
 
+    def test_product_secondary_unit_mixin_no_uom_keep_zero_qty(self):
+        """Without secondary unit, a quantity of 0.0 is kept when it is
+        recomputed, also when the target field defaults to 1.0 (as on
+        sale.order.line)."""
+        fake_model = self.secondary_unit_fake.with_context(default_product_uom_qty=1.0)
+        fake_model.product_uom_qty = 0.0
+        fake_model.secondary_uom_qty = 0.0
+        self.assertEqual(fake_model.product_uom_qty, 0.0)
+
     def test_product_secondary_unit_mixin_no_uom_onchange(self):
         # If secondary_uom_id is not informed secondary_uom_qty on source
         # model is not computed.
