@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_import_autocomplete_attribute
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_import_autocomplete_attribute
+#: model:product.template,description_sale:product_import_autocomplete_attribute.demo_product_tmpl_tshirt
+msgid "A nice tshirt"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:ir.model.fields,field_description:product_import_autocomplete_attribute.field_product_product__attribute_value_ids
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute.value,name:product_import_autocomplete_attribute.demo_product_attribute_embroidery_average
+msgid "Average"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute.value,name:product_import_autocomplete_attribute.demo_product_attribute_embroidery_cheap
+msgid "Cheap"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute,name:product_import_autocomplete_attribute.demo_product_attribute_cut
+msgid "Cut"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute,name:product_import_autocomplete_attribute.demo_product_attribute_embroidery
+msgid "Embroidery"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute.value,name:product_import_autocomplete_attribute.demo_product_attribute_embroidery_hq
+msgid "High quality"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute.value,name:product_import_autocomplete_attribute.demo_product_attribute_cut_long
+msgid "Long sleeves"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#. odoo-python
+#: code:addons/product_import_autocomplete_attribute/models/product_template.py:0
+msgid "No matching variant found, maybe the attribute values are inconsistent"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:ir.model,name:product_import_autocomplete_attribute.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:ir.model,name:product_import_autocomplete_attribute.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute.value,name:product_import_autocomplete_attribute.demo_product_attribute_cut_short
+msgid "Short sleeves"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.template,name:product_import_autocomplete_attribute.demo_product_tmpl_tshirt
+msgid "T-shirt"
+msgstr ""
+
+#. module: product_import_autocomplete_attribute
+#: model:product.attribute.value,name:product_import_autocomplete_attribute.demo_product_attribute_cut_tanktop
+msgid "Tanktop"
+msgstr ""
