@@ -4,6 +4,9 @@
 load-plugins=pylint_odoo
 score=n
 
+[IMPORTS]
+deprecated-modules=pdb,pudb,ipdb,bs4
+
 [ODOOLINT]
 readme-template-url="https://github.com/OCA/maintainer-tools/blob/master/template/module/README.rst"
 manifest-required-authors=Odoo Community Association (OCA)
@@ -41,6 +44,7 @@ enable=anomalous-backslash-in-string,
     assignment-from-none,
     attribute-deprecated,
     dangerous-default-value,
+    deprecated-module,
     development-status-allowed,
     duplicate-key,
     eval-used,
@@ -99,22 +103,22 @@ enable=anomalous-backslash-in-string,
     translation-positional-used,
     website-manifest-key-not-valid-uri,
     external-request-timeout,
-    # messages that do not cause the lint step to fail
-    consider-merging-classes-inherited,
+    missing-manifest-dependency,
+    too-complex,
     create-user-wo-reset-password,
     dangerous-filter-wo-user,
-    deprecated-module,
     file-not-used,
-    invalid-commit,
-    missing-manifest-dependency,
     missing-newline-extrafiles,
-    missing-readme,
     no-utf8-coding-comment,
-    odoo-addons-relative-import,
     old-api7-method-defined,
-    redefined-builtin,
-    too-complex,
     unnecessary-utf8-coding-comment,
+    # messages that do not cause the lint step to fail
+    consider-merging-classes-inherited,
+    deprecated-module,
+    invalid-commit,
+    missing-readme,
+    odoo-addons-relative-import,
+    redefined-builtin,
     manifest-external-assets
 
 
