@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >product.template.product.form (from product_barcode_required)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <field name="barcode" position="attributes">
+                <!-- `product_variant_count` leaf comes from base view and we want to preserve it.
+           Maybe we can use the XYZ module from OCA that allows to update existing values
+           but I don't remember its name :) -->
+                <attribute name="invisible">product_variant_count &gt; 1</attribute>
+                <attribute name="required">is_barcode_required</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
