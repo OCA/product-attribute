@@ -185,3 +185,43 @@ class TestProductTemplateAttributeValue(TransactionCase):
             variant_names,
             "Variant name extension not correct",
         )
+
+    def test_display_no_variant_attribute(self):
+        attribute = self.product_attr_obj.create(
+            {"name": "Engraving", "create_variant": "no_variant"}
+        )
+        values = self.product_attr_value_obj.create(
+            [
+                {"name": "Yes", "attribute_id": attribute.id},
+                {"name": "No", "attribute_id": attribute.id},
+            ]
+        )
+        line = self.env["product.template.attribute.line"].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": attribute.id,
+                "value_ids": [(6, 0, values.ids)],
+            }
+        )
+        combination = line.product_template_value_ids[:1]
+        self.assertEqual(combination._get_combination_name(), "")
+        attribute.display_no_variant_attribute = True
+        self.assertEqual(combination._get_combination_name(), combination.name)
+
+    def test_single_variant_value_domain(self):
+        variant = self.computer.product_variant_ids[:1]
+        color_value = self.computer_color_attribute_lines.product_template_value_ids
+        domain = [
+            ("id", "in", color_value.ids)
+        ] + variant._get_domain_attribute_line_id()
+        matching_values = self.env["product.template.attribute.value"].search(domain)
+        self.assertNotIn(color_value, matching_values)
+        self.color_attribute.single_variant_attribute = True
+        matching_values = self.env["product.template.attribute.value"].search(domain)
+        self.assertIn(color_value, matching_values)
+        self.assertIn(color_value, variant.product_template_variant_value_ids)
+
+    def test_empty_combination(self):
+        self.assertEqual(
+            self.env["product.template.attribute.value"]._get_combination_name(), ""
+        )

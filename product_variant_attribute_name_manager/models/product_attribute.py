@@ -33,12 +33,6 @@ class ProductAttribute(models.Model):
     )
 
 
-class ProductTemplateAttributeLine(models.Model):
-    _inherit = "product.template.attribute.line"
-
-    sequence = fields.Integer(help="Determine the display order", index=True)
-
-
 class ProductTemplateAttributeValue(models.Model):
     _inherit = "product.template.attribute.value"
 
@@ -58,7 +52,8 @@ class ProductTemplateAttributeValue(models.Model):
                     continue
             if ptav.attribute_id.display_attribute_name:
                 display_ptav_list.append(
-                    f"{ptav.attribute_id.short_name or ptav.attribute_id.name}: {ptav.name}"
+                    f"{ptav.attribute_id.short_name or ptav.attribute_id.name}: "
+                    f"{ptav.name}"
                 )
             else:
                 display_ptav_list.append(ptav.name)

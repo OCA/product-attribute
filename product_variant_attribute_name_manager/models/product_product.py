@@ -9,9 +9,8 @@ class ProductProduct(models.Model):
     )
 
     def _get_domain_attribute_line_id(self):
-        domoain = [
+        return [
             "|",
             ("attribute_line_id.value_count", ">", 1),
             ("attribute_line_id.attribute_id.single_variant_attribute", "=", True),
         ]
-        return domoain
