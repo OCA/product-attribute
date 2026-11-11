@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-15 20:38+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"PO-Revision-Date: 2026-11-11 12:46+0000\n"
+"Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: product_pricelist_fixed_currency_rate
 #. odoo-python
@@ -30,7 +30,7 @@ msgstr "Tipo de Cambio Real"
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model,name:product_pricelist_fixed_currency_rate.model_res_currency
 msgid "Currency"
-msgstr "Divisa"
+msgstr "Moneda"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__currency_rate_tooltip
@@ -65,7 +65,7 @@ msgstr "Inverso"
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__inverse_actual_currency_rate
 msgid "Inverse Actual Currency Rate"
-msgstr "Tipo de Divisa Real Inverso"
+msgstr "Tipo de cambio real inverso"
 
 #. module: product_pricelist_fixed_currency_rate
 #: model:ir.model.fields,field_description:product_pricelist_fixed_currency_rate.field_product_pricelist_item__inverse_fixed_currency_rate
