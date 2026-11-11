@@ -81,9 +81,10 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         uom_product = self.product_id[self._product_uom_field]
         if uom_line != uom_product:
             qty = uom_line._compute_quantity(qty, uom_product)
+        digits = self.env["decimal.precision"].precision_get("Product Unit")
         return float_round(
-            qty / (self.secondary_uom_id.factor or 1.0),
-            precision_rounding=self.secondary_uom_id.uom_id.rounding,
+            value=qty / (self.secondary_uom_id.factor or 1.0),
+            precision_digits=digits,
         )
 
     @api.depends(lambda x: x._get_secondary_uom_qty_depends())

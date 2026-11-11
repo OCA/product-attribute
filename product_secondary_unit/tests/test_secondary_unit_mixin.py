@@ -48,8 +48,8 @@ class TestProductSecondaryUnitMixin(TransactionCase):
                         {
                             "code": "C20",
                             "name": "box 20",
-                            "dependency_type": "independent",
                             "uom_id": cls.product_uom_unit.id,
+                            "dependency_type": "independent",
                             "factor": 20,
                         }
                     ),
@@ -181,3 +181,14 @@ class TestProductSecondaryUnitMixin(TransactionCase):
             }
         )
         self.assertEqual(fake_model.secondary_uom_qty, 1.0)
+
+    def test_get_factor_line(self):
+        fake_model = self.secondary_unit_fake
+        fake_model.secondary_uom_id = self.secondary_unit_box_10
+        self.assertEqual(fake_model._get_factor_line(), 10.0)
+        fake_model.product_uom_id = self.product_uom_dozen
+        self.assertEqual(fake_model._get_factor_line(), 120.0)
+
+    def test_secondary_uom_qty_depends_without_fields(self):
+        mixin = self.env["product.secondary.unit.mixin"]
+        self.assertEqual(mixin._get_secondary_uom_qty_depends(), [])

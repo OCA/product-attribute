@@ -133,8 +133,8 @@ class TestProductSecondaryUnit(TransactionCase):
                         {
                             "code": "C",
                             "name": "unit-1000",
-                            "product_id": first_variant.id,
                             "uom_id": self.product_uom_unit.id,
+                            "product_id": first_variant.id,
                             "factor": 0.1,
                         }
                     )

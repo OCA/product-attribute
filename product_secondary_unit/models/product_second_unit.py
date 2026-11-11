@@ -8,7 +8,10 @@ class ProductSecondaryUnit(models.Model):
     _description = "Product Secondary Unit"
     _rec_names_search = ["name", "code"]
 
-    name = fields.Char(required=True, translate=True)
+    name = fields.Char(
+        required=True,
+        translate=True,
+    )
     code = fields.Char()
     product_tmpl_id = fields.Many2one(
         comodel_name="product.template",
@@ -24,7 +27,7 @@ class ProductSecondaryUnit(models.Model):
     uom_id = fields.Many2one(
         comodel_name="uom.uom",
         string="Secondary Unit of Measure",
-        required=True,
+        required=False,
         help="Default Secondary Unit of Measure.",
     )
     dependency_type = fields.Selection(
@@ -40,8 +43,14 @@ class ProductSecondaryUnit(models.Model):
         "by package (1 unit for example) and you want to put the "
         "real time (ex : 4 hours) to allows employee scheduling",
     )
-    factor = fields.Float(string="Secondary Unit Factor", default=1.0, required=True)
-    active = fields.Boolean(default=True)
+    factor = fields.Float(
+        string="Secondary Unit Factor",
+        default=1.0,
+        required=True,
+    )
+    active = fields.Boolean(
+        default=True,
+    )
 
     @api.depends("name", "factor")
     def _compute_display_name(self):
