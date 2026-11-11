@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_product_secondary_unit_user,access_product_second_unit_user,product.secondary.unit,base.group_user,crud,
