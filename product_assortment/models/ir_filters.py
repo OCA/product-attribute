@@ -2,7 +2,7 @@
 # Copyright 2023 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.osv import expression
 from odoo.tools import ormcache
 from odoo.tools.safe_eval import datetime, safe_eval
@@ -38,6 +38,7 @@ class IrFilters(models.Model):
         compute="_compute_all_partner_ids",
         # Make it store=True because we will need this field to search by involved
         # partners
+        compute_sudo=True,
         store=True,
         relation="ir_filter_all_partner_rel",
         column1="filter_id",
@@ -51,10 +52,41 @@ class IrFilters(models.Model):
     )
 
     @api.model
+    def _hide_assortments_in_search(self):
+        """Whether assortment filters must be hidden for the current user.
+
+        Assortments are hidden from regular users, but superusers and
+        administrators (Settings) keep full access, consistent with the base
+        ``ir.filters`` security. This is required because ``_search`` is also
+        used by the ORM to check read access while fetching fields, so
+        restricting it for administrators would deny legitimate access to the
+        records (e.g. the pricelist assortment cron reading the filter).
+        """
+        return (
+            not self.env.is_superuser()
+            and not self.env.user.has_group("base.group_system")
+            and not self.env.user.has_group(
+                "product_assortment.group_product_assortment_manager"
+            )
+        )
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None):
+        if self._hide_assortments_in_search():
+            # Hide assortment filters from regular users
+            domain = expression.AND([domain, [("is_assortment", "=", False)]])
+        return super()._search(domain, offset=offset, limit=limit, order=order)
+
+    @api.model
+    def search_count(self, domain, limit=None):
+        # Apply the same access control as in _search
+        if self._hide_assortments_in_search():
+            domain = expression.AND([domain, [("is_assortment", "=", False)]])
+        return super().search_count(domain, limit=limit)
+
+    @api.model
     def _get_default_is_assortment(self):
-        if self.env.context.get("product_assortment", False):
-            return True
-        return False
+        return self.env.context.get("product_assortment", False)
 
     @api.model
     def _update_assortment_default_values(self, vals_list):
@@ -93,10 +125,11 @@ class IrFilters(models.Model):
         for ir_filter in self:
             if not ir_filter.is_assortment:
                 ir_filter.all_partner_ids = False
-            elif ir_filter.partner_domain != "[]":
+                continue
+            if ir_filter.partner_domain and ir_filter.partner_domain != []:
+                domain = ir_filter._get_eval_partner_domain()
                 ir_filter.all_partner_ids = (
-                    self.env["res.partner"].search(ir_filter._get_eval_partner_domain())
-                    + ir_filter.partner_ids
+                    self.env["res.partner"].search(domain) + ir_filter.partner_ids
                 )
             else:
                 ir_filter.all_partner_ids = ir_filter.partner_ids
@@ -169,7 +202,7 @@ class IrFilters(models.Model):
         action.update(
             {
                 "domain": self._get_eval_domain(),
-                "name": _("Products"),
+                "name": self.env._("Products"),
                 "context": self.env.context,
                 "target": "current",
             }
