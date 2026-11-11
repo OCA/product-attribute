@@ -10,6 +10,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestProductCostSecurity(BaseCommon):
+    _test_user_groups = ("base.group_user", "product.group_product_manager")
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -19,6 +21,7 @@ class TestProductCostSecurity(BaseCommon):
         # the system tries to access stock.move, which the user may not have permission.
         cls.env = cls.env(context=dict(cls.env.context, disable_auto_svl=True))
         cls.base_group_user_id = cls.env.ref("base.group_user").id
+        cls.product_manager_group_id = cls.env.ref("product.group_product_manager").id
         cls.product_edit_cost_group_id = cls.env.ref(
             "product_cost_security.group_product_edit_cost"
         ).id
@@ -43,7 +46,13 @@ class TestProductCostSecurity(BaseCommon):
 
     def test_with_access_to_product_costs_group(self):
         self.env.user.group_ids = [
-            Command.set([self.product_cost_group_id, self.base_group_user_id])
+            Command.set(
+                [
+                    self.product_cost_group_id,
+                    self.base_group_user_id,
+                    self.product_manager_group_id,
+                ]
+            )
         ]
         sheet_form = Form(self.product_template_model.with_user(self.env.user))
         sheet_form.name = "Test Product"
@@ -65,7 +74,13 @@ class TestProductCostSecurity(BaseCommon):
 
     def test_with_access_to_modify_product_costs_group(self):
         self.env.user.group_ids = [
-            Command.set([self.product_edit_cost_group_id, self.base_group_user_id])
+            Command.set(
+                [
+                    self.product_edit_cost_group_id,
+                    self.base_group_user_id,
+                    self.product_manager_group_id,
+                ]
+            )
         ]
         sheet_form = Form(self.product_template_model.with_user(self.env.user))
         sheet_form.name = "Test Product"

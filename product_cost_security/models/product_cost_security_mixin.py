@@ -71,13 +71,13 @@ class ProductCostSecurityMixin(models.AbstractModel):
         )
 
     @api.model
-    def _check_field_access(self, field, operation):
+    def check_field_access(self, field, operation):
         if not self._is_module_product_cost_security_in_test_mode():
             return
         # Forbid users from updating product costs if they have no permissions.
-        # Odoo 19.0 enforces field access through this method during read/write
+        # Odoo 20.0 enforces field access through this method during read/write
         # operations, so the edit restriction must be applied here too.
-        super()._check_field_access(field, operation)
+        super().check_field_access(field, operation)
         if self.env.su:
             return
         if (
