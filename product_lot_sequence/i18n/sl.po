@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 04:53+0000\n"
+"PO-Revision-Date: 2026-11-12 05:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -23,6 +23,8 @@ msgid ""
 "<i class=\"fa fa-cogs me-1\" aria-hidden=\"true\"/>\n"
 "                    Lot sequence settings"
 msgstr ""
+"<i class=\"fa fa-cogs me-1\" aria-hidden=\"true\"/>\n"
+"                    Nastavitve zaporedij lotov"
 
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
@@ -42,7 +44,7 @@ msgstr "Nastavitve"
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
 msgid "Create sequence"
-msgstr ""
+msgstr "Ustvari zaporedje"
 
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.res_config_settings_view_form
@@ -84,13 +86,15 @@ msgstr "Naslednja številka"
 #. module: product_lot_sequence
 #: model_terms:ir.ui.view,arch_db:product_lot_sequence.view_template_property_form
 msgid "Next:"
-msgstr ""
+msgstr "Naslednji:"
 
 #. module: product_lot_sequence
 #. odoo-python
 #: code:addons/product_lot_sequence/models/product.py:0
 msgid "Only product creation users can create lot sequences."
 msgstr ""
+"Zaporedja serij lahko ustvarjajo le uporabniki z dovoljenjem za ustvarjanje "
+"proizvodov."
 
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_product_template
@@ -100,7 +104,7 @@ msgstr "Proizvod"
 #. module: product_lot_sequence
 #: model:ir.model,name:product_lot_sequence.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Različica proizvoda"
 
 #. module: product_lot_sequence
 #: model:ir.model.fields,field_description:product_lot_sequence.field_product_product__lot_sequence_padding
