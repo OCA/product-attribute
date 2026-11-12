@@ -12,7 +12,7 @@ class ProductMultiPrice(models.Model):
     name = fields.Many2one(
         "product.multi.price.name",
         required=True,
-        ondelete="cascade",
+        ondelete="restrict",
     )
     name_text = fields.Char(related="name.name")
     product_id = fields.Many2one(
@@ -77,6 +77,8 @@ class ProductMultiPriceName(models.Model):
             ]
             if rec.company_id:
                 domain.append(("company_id", "=", rec.company_id.id))
+            else:
+                domain.append(("company_id", "=", False))
             if self.with_context(active_test=False).search_count(domain):
                 raise ValidationError(
                     self.env._("Prices Names must be unique per company")

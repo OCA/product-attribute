@@ -21,9 +21,9 @@ class ProductProduct(models.Model):
     def _get_multiprice_pricelist_price(self, rule):
         """Method for getting the price from multi price."""
         self.ensure_one()
-        company = rule.company_id or self.env.user.company_id
+        company = rule.company_id or self.env.company
         # Search for multi price considering company-specific vs global
-        multi_price_record = (
+        multi_prices = (
             self.env["product.multi.price"]
             .sudo()
             .search(
@@ -33,11 +33,11 @@ class ProductProduct(models.Model):
                     ("company_id", "=", False),
                     ("name", "=", rule.multi_price_name.id),
                     ("product_id", "=", self.id),
-                ],
-                order="company_id DESC",
-                limit=1,
+                ]
             )
-        )  # Prefer company-specific over global
+        )
+        # Prefer company-specific over global
+        multi_price_record = multi_prices.sorted(lambda r: not r.company_id)[:1]
 
         price = multi_price_record.price or 0
 

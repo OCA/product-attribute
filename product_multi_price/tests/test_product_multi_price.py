@@ -1,8 +1,11 @@
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from psycopg2 import IntegrityError
+
 from odoo import Command, fields
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
+from odoo.tools import mute_logger
 
 
 class TestProductMultiPrice(TransactionCase):
@@ -457,27 +460,6 @@ class TestProductMultiPrice(TransactionCase):
                 }
             )
 
-    def test_pricelist_item_ondelete(self):
-        """Test that when a multi.price.name is deleted, the corresponding
-        pricelist item's multi_price_name is set to default (null)"""
-        pricelist_item = self.env["product.pricelist.item"].create(
-            {
-                "compute_price": "formula",
-                "base": "multi_price",
-                "multi_price_name": self.price_field_1.id,
-            }
-        )
-        self.price_field_1.unlink()
-        # Reload the record to see the updated value after unlinking the related record
-        pricelist_item.invalidate_recordset(["multi_price_name"])
-        # Access the field again to reload from DB
-        updated_multi_price_name = (
-            self.env["product.pricelist.item"]
-            .browse(pricelist_item.id)
-            .multi_price_name
-        )
-        self.assertFalse(updated_multi_price_name)
-
     def test_product_without_multiprice(self):
         """Test that a product without a specific multi-price returns a price of 0"""
         product_no_price = self.env["product.template"].create(
@@ -532,3 +514,30 @@ class TestProductMultiPrice(TransactionCase):
         prices = self.prod_1._price_compute("multi_price")
 
         self.assertEqual(prices[self.prod_1.id], 1.0)
+
+    def test_multi_price_name_uniqueness_symmetric(self):
+        """Global and company price names with the same name may coexist,
+        whatever the creation order"""
+        company = self.env.ref("base.main_company")
+        self.price_name_obj.create({"name": "sym_a"})
+        self.price_name_obj.create({"name": "sym_a", "company_id": company.id})
+        self.price_name_obj.create({"name": "sym_b", "company_id": company.id})
+        self.price_name_obj.create({"name": "sym_b"})
+        with self.assertRaises(ValidationError):
+            self.price_name_obj.create({"name": "sym_b"})
+
+    def test_unlink_price_name_restricted(self):
+        """A price name used by product prices or pricelist rules can't be
+        deleted"""
+        with self.assertRaises(IntegrityError), mute_logger("odoo.sql_db"):
+            with self.env.cr.savepoint():
+                self.price_field_2.unlink()
+        price_name = self.price_name_obj.create({"name": "only_in_pricelist"})
+        self.pricelist.item_ids.multi_price_name = price_name
+        with self.assertRaises(IntegrityError), mute_logger("odoo.sql_db"):
+            with self.env.cr.savepoint():
+                price_name.unlink()
+
+    def test_new_internal_user_gets_multi_price_group(self):
+        user = self.env["res.users"].create({"name": "Multi Price", "login": "mp"})
+        self.assertTrue(user.has_group("product_multi_price.group_show_multi_prices"))
