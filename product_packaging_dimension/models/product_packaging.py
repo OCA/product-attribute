@@ -19,9 +19,9 @@ class ProductPackaging(models.Model):
             "Weight must be positive",
         ),
     ]
-    height = fields.Integer()
-    width = fields.Integer()
-    packaging_length = fields.Integer(string="Length")
+    height = fields.Float()
+    width = fields.Float()
+    packaging_length = fields.Float(string="Length")
 
     length_uom_id = fields.Many2one(
         "uom.uom",
