@@ -3,10 +3,11 @@
 
 from lxml import html
 
+from odoo import Command
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase, tagged
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import DISABLED_MAIL_CREATE_CONTEXT
 
 
 @tagged("post_install", "-at_install")
@@ -14,7 +15,7 @@ class TestProductPricelistDirectPrint(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CREATE_CONTEXT))
         # Set report layout to void to wizard selection layout crashes the test
         report_layout = cls.env.ref("web.report_layout_standard")
         main_company = cls.env.ref("base.main_company")
@@ -24,13 +25,11 @@ class TestProductPricelistDirectPrint(TransactionCase):
             {
                 "name": "Pricelist for test",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
-                            "percent_price": 5.00,
-                            "compute_price": "percentage",
+                            "price_discount": 5.00,
+                            "compute_price": "discount",
                         },
                     )
                 ],
@@ -118,9 +117,7 @@ class TestProductPricelistDirectPrint(TransactionCase):
             {
                 "partner_id": self.partner.id,
                 "order_line": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": self.product.name,
                             "product_id": self.product.id,
@@ -129,9 +126,7 @@ class TestProductPricelistDirectPrint(TransactionCase):
                             "price_unit": 1000.00,
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": product2.name,
                             "product_id": product2.id,
@@ -162,10 +157,8 @@ class TestProductPricelistDirectPrint(TransactionCase):
         recent_order = sale_order.copy(
             {
                 "order_line": [
-                    (5, 0, 0),
-                    (
-                        0,
-                        0,
+                    Command.clear(),
+                    Command.create(
                         {
                             "product_id": product2.id,
                             "product_uom_qty": 1,
@@ -187,7 +180,11 @@ class TestProductPricelistDirectPrint(TransactionCase):
 
     def test_show_only_defined_products(self):
         self.pricelist.item_ids.write(
-            {"applied_on": "0_product_variant", "product_id": self.product.id}
+            {
+                "applied_on": "0_product_variant",
+                "product_id": self.product.id,
+                "product_tmpl_id": self.product.product_tmpl_id.id,
+            }
         )
         wiz = self.wiz_obj.with_context(
             active_model="product.pricelist",
@@ -239,14 +236,14 @@ class TestProductPricelistDirectPrint(TransactionCase):
                 "price_include_override": "tax_excluded",
             }
         )
-        self.product.write({"list_price": 100, "taxes_id": [(6, 0, tax.ids)]})
+        self.product.write({"list_price": 100, "taxes_id": [Command.set(tax.ids)]})
         wiz = self.wiz_obj.with_context(
             active_model="product.pricelist",
             active_id=self.pricelist.id,
         ).create({})
         wiz.write(
             {
-                "product_tmpl_ids": [(6, 0, self.product.product_tmpl_id.ids)],
+                "product_tmpl_ids": [Command.set(self.product.product_tmpl_id.ids)],
                 "lang": "en_US",
             }
         )
