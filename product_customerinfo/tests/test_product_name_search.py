@@ -86,3 +86,21 @@ class TestProductNameSearch(BaseCommon):
         self.assertIn(self.product_1.id, product_names)
         self.assertIn("[code_test] Name_test", product_names)
         self.assertIn("[code_test_1] Name_test_1", product_names)
+
+    def test_20_no_duplicate_when_name_and_customer_code_match(self):
+        """A product matching both by its name and by its customer code is
+        listed once"""
+        product = self.env["product.product"].create({"name": "Zyx Duplicate Check"})
+        self.customerinfo.create(
+            {
+                "product_code": "ZYX-DUP",
+                "partner_id": self.customer.id,
+                "product_tmpl_id": product.product_tmpl_id.id,
+            }
+        )
+        for record in (product, product.product_tmpl_id):
+            records = record.with_context(partner_id=self.customer.id)
+            result_ids = [
+                res_id for res_id, _display_name in records.name_search("Zyx")
+            ]
+            self.assertEqual(result_ids, [record.id])
