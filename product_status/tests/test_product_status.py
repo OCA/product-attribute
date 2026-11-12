@@ -15,6 +15,7 @@ class TestProductStatusCase(ProductVariantsCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.product_sofa_red
         cls.product2 = cls.product_sofa_blue
         cls.product_tmpl = cls.product_template_sofa
@@ -115,7 +116,7 @@ class TestProductStatusCase(ProductVariantsCommon):
         group_product_state_manager = self.env.ref(
             "product_state.group_product_state_manager"
         )
-        self.env.user.write(
+        self.env.user.sudo().write(
             {"group_ids": [Command.link(group_product_state_manager.id)]}
         )
         with Form(self.product_tmpl) as form:
@@ -134,7 +135,7 @@ class TestProductStatusCase(ProductVariantsCommon):
     def test_modified_default_data(self):
         st_env = self.env["product.state"]
         demo_user = self.demo_user
-        demo_user.group_ids = [
+        demo_user.sudo().group_ids = [
             Command.link(self.env.ref("product_state.group_product_state_manager").id)
         ]
         default_state = st_env._get_module_data()
@@ -171,7 +172,9 @@ class TestProductStatusCase(ProductVariantsCommon):
             {"active": False, "default": False},
         ]:
             self.assertTrue(current_default_state.write(vals))
-        new_state = st_env.create({"name": "New State", "code": "new_state"})
+        new_state = st_env.with_user(demo_user).create(
+            {"name": "New State", "code": "new_state"}
+        )
         new_state.unlink()
 
     def test_cron_recompute_product_state_endoflife(self):
