@@ -15,6 +15,7 @@ class TestProductStatusCase(ProductVariantsCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.product = cls.product_sofa_red
         cls.product2 = cls.product_sofa_blue
         cls.product_tmpl = cls.product_template_sofa
@@ -115,7 +116,7 @@ class TestProductStatusCase(ProductVariantsCommon):
         group_product_state_manager = self.env.ref(
             "product_state.group_product_state_manager"
         )
-        self.env.user.write(
+        self.env.user.sudo().write(
             {"group_ids": [Command.link(group_product_state_manager.id)]}
         )
         with Form(self.product_tmpl) as form:
@@ -134,7 +135,7 @@ class TestProductStatusCase(ProductVariantsCommon):
     def test_modified_default_data(self):
         st_env = self.env["product.state"]
         demo_user = self.demo_user
-        demo_user.group_ids = [
+        demo_user.sudo().group_ids = [
             Command.link(self.env.ref("product_state.group_product_state_manager").id)
         ]
         default_state = st_env._get_module_data()
@@ -171,8 +172,15 @@ class TestProductStatusCase(ProductVariantsCommon):
             {"active": False, "default": False},
         ]:
             self.assertTrue(current_default_state.write(vals))
-        new_state = st_env.create({"name": "New State", "code": "new_state"})
+        new_state = st_env.with_user(demo_user).create(
+            {"name": "New State", "code": "new_state"}
+        )
         new_state.unlink()
+        root_user = self.env.ref("base.user_root")
+        self.assertTrue(default_state.with_user(root_user)._check_module_data())
+        self.assertTrue(
+            default_state[0].with_user(root_user).write({"name": default_state[0].name})
+        )
 
     def test_cron_recompute_product_state_endoflife(self):
         self.product.end_of_life_date = "2020-09-15"
@@ -221,3 +229,30 @@ class TestProductStatusCase(ProductVariantsCommon):
             self.assertIn(self.product, variants)
             self.state_model._cron_recompute_product_state()
             self.assertEqual(self.product.state, "sellable")
+
+    def test_cron_recompute_product_template_endoflife(self):
+        self.product_tmpl.end_of_life_date = "2020-09-15"
+        with freeze_time("2020-09-15"):
+            self.product_tmpl._check_dates_of_states(self.product_tmpl)
+            self.assertEqual(self.product_tmpl.state, "phaseout")
+        with freeze_time("2020-09-16"):
+            templates, __ = self.state_model._get_products_recompute_product_state()
+            self.assertIn(self.product_tmpl, templates)
+            self.state_model._cron_recompute_product_state()
+            self.assertEqual(self.product_tmpl.state, "endoflife")
+
+    def test_has_status_date(self):
+        self.assertFalse(self.product.has_status_date)
+        self.product.new_until = "2020-09-16"
+        self.product.invalidate_recordset(["has_status_date"])
+        self.assertTrue(self.product.has_status_date)
+
+    def test_read_group_state_id(self):
+        states = self.env["product.state"]
+        res = self.env["product.product"]._read_group_state_id(states, [])
+        self.assertTrue(res)
+
+    def test_update_dates_of_states_empty(self):
+        self.product_tmpl.end_of_life_date = False
+        self.product_tmpl._update_dates_of_states(self.product_tmpl, "end_of_life_date")
+        self.product._inverse_product_state_id()
