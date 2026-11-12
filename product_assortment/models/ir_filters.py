@@ -74,7 +74,10 @@ class IrFilters(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         self._update_assortment_default_values(vals_list)
-        return super().create(vals_list)
+        records = super().create(vals_list)
+        if any(vals.get("partner_domain") for vals in vals_list):
+            self.env.registry.clear_cache()
+        return records
 
     @api.model
     @ormcache()
