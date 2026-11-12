@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-27 04:29+0000\n"
+"PO-Revision-Date: 2026-11-12 05:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -50,7 +50,7 @@ msgstr "Ustvarjanje kategorij proizvodov"
 #. module: product_usability
 #: model:res.groups,name:product_usability.group_product_creation
 msgid "Product Creation (Limited)"
-msgstr ""
+msgstr "Ustvarjanje proizvoda (omejeno)"
 
 #. module: product_usability
 #: model:ir.ui.menu,name:product_usability.menu_product_packaging
