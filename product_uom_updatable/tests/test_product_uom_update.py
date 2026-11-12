@@ -40,7 +40,7 @@ class TestProductUomUpdate(TransactionCase):
             {
                 "product_id": cls.product.id,
                 "product_uom_qty": 2,
-                "product_uom": cls.product.uom_id.id,
+                "uom_id": cls.product.uom_id.id,
                 "picking_id": cls.picking_in.id,
                 "location_id": cls.location_id.id,
                 "location_dest_id": cls.location_dest_id.id,
