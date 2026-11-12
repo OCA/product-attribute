@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA
+    @author Iván Todorovich <ivan.todorovich@gmail.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <menuitem
+        id="menu_product_template_tag"
+        name="Tags"
+        parent="purchase.menu_product_in_config_purchase"
+        action="product.product_tag_action"
+        sequence="10"
+    />
+</odoo>
