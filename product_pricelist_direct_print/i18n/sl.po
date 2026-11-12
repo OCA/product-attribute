@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-10-10 11:46+0000\n"
+"PO-Revision-Date: 2026-11-12 05:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -93,7 +93,7 @@ msgstr "<strong>Opis</strong>"
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "<strong>Image</strong>"
-msgstr ""
+msgstr "<strong>Slika</strong>"
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
@@ -312,7 +312,7 @@ msgstr ""
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.report_product_pricelist_document
 msgid "Img"
-msgstr ""
+msgstr "Slika"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields.selection,name:product_pricelist_direct_print.selection__product_pricelist_print__order_field__default_code
@@ -579,7 +579,7 @@ msgstr "Prikaži samo izdelke, določene na ceniku"
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,field_description:product_pricelist_direct_print.field_product_pricelist_print__show_product_images
 msgid "Show product images"
-msgstr ""
+msgstr "Prikaži slike proizvoda"
 
 #. module: product_pricelist_direct_print
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__activity_state
