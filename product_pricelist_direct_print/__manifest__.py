@@ -5,7 +5,7 @@
     "name": "Product Pricelist Direct Print",
     "summary": "Print price list from menu option, product templates, "
     "products variants or price lists",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Product",
     "website": "https://github.com/OCA/product-attribute",
     "author": "Tecnativa, GRAP, Odoo Community Association (OCA)",
@@ -13,7 +13,7 @@
     "license": "AGPL-3",
     "depends": ["sale"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "reports/report_product_pricelist.xml",
         "data/mail_template_data.xml",
         "wizards/product_pricelist_print_view.xml",

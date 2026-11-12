@@ -63,7 +63,7 @@
                 <notebook>
                     <page
                         string="Products"
-                        invisible="categ_ids != [] or last_ordered_products != 0 or context_active_model in ['product.template','product.product']"
+                        invisible="categ_ids or last_ordered_products != 0 or context_active_model in ['product.template','product.product']"
                     >
                         <field
                             name="product_tmpl_ids"
