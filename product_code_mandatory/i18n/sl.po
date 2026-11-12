@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-03 19:23+0000\n"
+"PO-Revision-Date: 2026-11-12 05:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -25,7 +25,7 @@ msgstr "Interni sklic"
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 #. module: product_code_mandatory
 #: model:ir.model,name:product_code_mandatory.model_product_product
