@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_wiz_product_pricelist_print_user,access_wiz_product_pricelist_print_user,product.pricelist.print,base.group_user,crud,
