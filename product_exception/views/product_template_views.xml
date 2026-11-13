@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product_template_form_view - product_exception</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    type="object"
+                    name="action_product_detect_exceptions"
+                    string="Detect Exceptions"
+                />
+            </header>
+            <sheet position="before">
+                <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-bottom:0px;"
+                    invisible="not exceptions_summary"
+                >
+                    <p>
+                        <strong>There are exceptions for this Product:</strong>
+                    </p>
+                    <field name="exceptions_summary" />
+                    <button
+                        name="action_ignore_exceptions"
+                        type="object"
+                        class="btn-danger"
+                        string="Ignore Exceptions"
+                        help="Click here to ignore the current exceptions for this product."
+                        groups="base_exception.group_exception_rule_manager"
+                    />
+                </div>
+            </sheet>
+        </field>
+    </record>
+    <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <field name="activity_exception_decoration" position="after">
+                <field name="main_exception_id" optional="hide" />
+            </field>
+        </field>
+    </record>
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <filter name="activities_exception" position="after">
+                <filter
+                    string="With Exception"
+                    name="with_exception"
+                    domain="[('exception_ids','!=',False)]"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
