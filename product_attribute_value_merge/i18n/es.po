@@ -1,0 +1,767 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_value_merge
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-04 12:54+0000\n"
+"PO-Revision-Date: 2026-11-03 20:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid ""
+"%(count)s %(model)s hold the merged values in %(field)s, which is company "
+"dependent: they are not moved."
+msgstr ""
+"%(count)s %(model)s tienen los valores fusionados en %(field)s, que depende "
+"de la compañía: no se mueven."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"%(count)s of %(total)s %(model)s (%(field)s) were changed after the merge "
+"and keep their current value."
+msgstr ""
+"%(count)s de %(total)s %(model)s (%(field)s) cambiaron después de la fusión "
+"y mantienen su valor actual."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid ""
+"%(count)s rows of the table %(table)s (column %(column)s) point to the "
+"merged values but belong to no installed module: they are not moved."
+msgstr ""
+"%(count)s filas de la tabla %(table)s (columna %(column)s) apuntan a los "
+"valores fusionados pero no pertenecen a ningún módulo instalado: no se "
+"mueven."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"%(field)s of %(value)s was changed after the merge and is left as it is."
+msgstr ""
+"%(field)s de %(value)s cambió después de la fusión y se deja como está."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"%(model)s (%(field)s) can no longer be restored: %(count)s records keep "
+"%(keeper)s."
+msgstr ""
+"%(model)s (%(field)s) ya no se puede restaurar: %(count)s registros "
+"mantienen %(keeper)s."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid ""
+"%(value)s has the external id %(xmlid)s: code or data using it will reach "
+"the archived value."
+msgstr ""
+"%(value)s tiene el ID externo %(xmlid)s: el código o los datos que lo usen "
+"llegarán al valor archivado."
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_view_form
+msgid "<span class=\"o_stat_text\">Merges</span>"
+msgstr "<span class=\"o_stat_text\">Fusiones</span>"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid "A merged value was deleted; %(count)s %(model)s keep %(keeper)s."
+msgstr ""
+"Se eliminó un valor fusionado; %(count)s %(model)s mantienen %(keeper)s."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__value_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge_finder__loose
+msgid ""
+"Also group names that only differ in accents or punctuation, such as "
+"\"2/3kg\" and \"2-3 kg\"."
+msgstr ""
+"Agrupa también los nombres que solo difieren en acentos o puntuación, como "
+"\"2/3kg\" y \"2-3 kg\"."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__attribute_id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__attribute_id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__attribute_id
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_search
+msgid "Attribute"
+msgstr "Atributo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Valor del Atributo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge
+msgid "Attribute Value Merge"
+msgstr "Fusión de valores de atributo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge_change
+msgid "Attribute Value Merge Change"
+msgstr "Cambio de fusión de valores de atributo"
+
+#. module: product_attribute_value_merge
+#: model:ir.actions.act_window,name:product_attribute_value_merge.product_attribute_value_merge_action
+msgid "Attribute Value Merges"
+msgstr "Fusiones de valores de atributo"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_wizard_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__change_ids
+msgid "Change"
+msgstr "Cambio"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid "Choose the value to keep."
+msgstr "Elija el valor que se conserva."
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_finder_view_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__lang_ids
+msgid "Compare Names In"
+msgstr "Comparar nombres en"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__conflict
+msgid "Conflict"
+msgstr "Conflicto"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__create_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__create_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__create_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__create_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__create_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__create_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__create_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__create_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__create_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__create_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__create_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__create_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__display_name
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__display_name
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__display_name
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__display_name
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__display_name
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__display_name
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge_finder_group
+msgid "Duplicated Attribute Values"
+msgstr "Valores de atributo duplicados"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_finder.py:0
+msgid "Duplicated Values of %s"
+msgstr "Valores duplicados de %s"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_view_form
+msgid "Duplicates"
+msgstr "Duplicados"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__external_id
+msgid "External"
+msgstr "ID externo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__fallback
+msgid "Fallback"
+msgstr "Respaldo"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_form
+msgid "Field"
+msgstr "Campo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__field_description
+msgid "Field Description"
+msgstr "Descripción del campo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__field_name
+msgid "Field Name"
+msgstr "Nombre del campo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge_finder
+msgid "Find Duplicated Attribute Values"
+msgstr "Buscar valores de atributo duplicados"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__finder_id
+msgid "Finder"
+msgstr "Buscador"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__group_ids
+msgid "Group"
+msgstr "Grupo"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__loose
+msgid "Ignore Accents and Punctuation"
+msgstr "Ignorar acentos y puntuación"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__include_archived
+msgid "Include Archived Values"
+msgstr "Incluir valores archivados"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__is_keeper
+msgid "Kept"
+msgstr "Conservado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__name
+msgid "Kept Name"
+msgstr "Nombre conservado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__keeper_id
+msgid "Kept Value"
+msgstr "Valor conservado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__added_ids
+msgid "Kept Value Added To"
+msgstr "Valor conservado añadido a"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__kind
+msgid "Kind"
+msgstr "Tipo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__lang
+msgid "Lang"
+msgstr "Idioma"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__lang_name
+msgid "Language"
+msgstr "Idioma"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__write_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__write_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__write_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__write_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__write_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__write_uid
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__write_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__write_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder__write_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__write_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__write_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__write_date
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__line_ids
+msgid "Line"
+msgstr "Línea"
+
+#. module: product_attribute_value_merge
+#: model:ir.actions.act_window,name:product_attribute_value_merge.product_attribute_value_merge_wizard_action
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__merge_id
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_finder_view_form
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_wizard_view_form
+msgid "Merge"
+msgstr "Fusionar"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value.py:0
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge_wizard
+msgid "Merge Attribute Values"
+msgstr "Fusionar valores de atributo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge_wizard_line
+msgid "Merge Attribute Values: Candidate"
+msgstr "Fusionar valores de atributo: candidato"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute_value_merge_wizard_name
+msgid "Merge Attribute Values: Name"
+msgstr "Fusionar valores de atributo: nombre"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_view_form
+msgid "Merge with other values"
+msgstr "Fusionar con otros valores"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge__state__done
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_search
+msgid "Merged"
+msgstr "Fusionada"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__user_id
+msgid "Merged By"
+msgstr "Fusionada por"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value__merged_into_id
+msgid "Merged Into"
+msgstr "Fusionado en"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__value_id
+msgid "Merged Value"
+msgstr "Valor fusionado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__value_ids
+msgid "Merged Values"
+msgstr "Valores fusionados"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge__kept_value_ids
+msgid ""
+"Merged values that stay active because a product has them next to the kept "
+"value on the same attribute line."
+msgstr ""
+"Valores fusionados que siguen activos porque un producto los tiene junto al "
+"valor conservado en la misma línea de atributo."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__model
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_form
+msgid "Model"
+msgstr "Modelo"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__model_description
+msgid "Model Description"
+msgstr "Descripción del modelo"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_form
+msgid "Moved Records"
+msgstr "Registros movidos"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__name_ids
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__name_after
+msgid "Name After"
+msgstr "Nombre después"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__name_before
+msgid "Name Before"
+msgstr "Nombre antes"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_wizard_view_form
+msgid "Name of the kept value"
+msgstr "Nombre del valor conservado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__names
+msgid "Names"
+msgstr "Nombres"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_finder_view_form
+msgid "No values of this attribute show the same name."
+msgstr "Ningún valor de este atributo muestra el mismo nombre."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"Nothing to merge: every product using these values also has the kept value "
+"on the same attribute line."
+msgstr ""
+"No hay nada que fusionar: todos los productos que usan estos valores tienen "
+"también el valor conservado en la misma línea de atributo."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid "Only values of the same attribute can be merged."
+msgstr "Solo se pueden fusionar valores del mismo atributo."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__alternatives
+msgid "Other Names"
+msgstr "Otros nombres"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__record_count
+msgid "Other Records"
+msgstr "Otros registros"
+
+#. module: product_attribute_value_merge
+#: model:ir.model,name:product_attribute_value_merge.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atributo de producto"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge_change__kind__line
+msgid "Product attribute lines"
+msgstr "Líneas de atributo de producto"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge_change__kind__ptav
+msgid "Product values"
+msgstr "Valores de producto"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__template_count
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__template_count
+msgid "Products"
+msgstr "Productos"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__shared_product_tmpl_ids
+msgid "Products Using Both"
+msgstr "Productos que usan ambos"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__proposed_name
+msgid "Proposed Name"
+msgstr "Nombre propuesto"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__record_count
+msgid "Record Count"
+msgstr "Número de registros"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge_change__kind__many2many
+msgid "Record lists"
+msgstr "Listas de registros"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_change__res_ids
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge_change__kind__many2one
+msgid "Records"
+msgstr "Registros"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge_change__added_ids
+msgid "Records that did not hold the kept value before the merge."
+msgstr "Registros que no tenían el valor conservado antes de la fusión."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__role
+msgid "Role"
+msgstr "Rol"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__matches
+msgid "Same Name In"
+msgstr "Mismo nombre en"
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_finder_view_form
+msgid "Search Again"
+msgstr "Buscar de nuevo"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid "Select at least two values to merge."
+msgstr "Seleccione al menos dos valores para fusionar."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid ""
+"Some products have the kept value and a merged one on the same attribute "
+"line. There the merged value is not merged, it stays active: rename it "
+"afterwards so both can be told apart, or remove one of them from those "
+"products."
+msgstr ""
+"Algunos productos tienen el valor conservado y uno fusionado en la misma "
+"línea de atributo. Ahí el valor fusionado no se fusiona y sigue activo: "
+"renómbrelo después para poder distinguirlos, o quite uno de los dos de esos "
+"productos."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"Someone else is changing these values right now. Try again in a moment."
+msgstr ""
+"Otra persona está modificando estos valores ahora mismo. Inténtelo de nuevo "
+"en un momento."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__state
+msgid "State"
+msgstr "Estado"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge__attribute_id
+msgid ""
+"The attribute cannot be changed once the value is used on at least one "
+"product."
+msgstr ""
+"El atributo no puede modificarse una vez que el valor se utiliza en al menos"
+" un producto."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__fallback
+msgid "The kept value shows the en_US name here."
+msgstr "El valor conservado muestra aquí el nombre en en_US."
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_form
+msgid ""
+"The merged values will be restored on the records the merge moved. Records "
+"created or changed later keep their current value. Continue?"
+msgstr ""
+"Los valores fusionados se restaurarán en los registros que movió la fusión. "
+"Los registros creados o modificados después mantienen su valor actual. "
+"¿Continuar?"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"The name of %(value)s in %(lang)s was changed after the merge and is left as"
+" it is."
+msgstr ""
+"El nombre de %(value)s en %(lang)s cambió después de la fusión y se deja "
+"como está."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge_wizard__keeper_id
+msgid ""
+"The other values are merged into this one. Change it here: the list of "
+"values and the names follow."
+msgstr ""
+"Los demás valores se fusionan en este. Cámbielo aquí: la lista de valores y "
+"los nombres se actualizan."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid "The value to keep must be active."
+msgstr "El valor que se conserva debe estar activo."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/wizards/product_attribute_value_merge_wizard.py:0
+msgid ""
+"The values do not agree on free text; the kept value decides it for every "
+"product."
+msgstr ""
+"Los valores no coinciden en texto libre; el valor conservado lo decide para "
+"todos los productos."
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid "These values were already merged: %(values)s"
+msgstr "Estos valores ya se fusionaron: %(values)s"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid ""
+"These values were merged again later. Undo these merges first: %(merges)s"
+msgstr ""
+"Estos valores se fusionaron de nuevo más tarde. Deshaga primero estas "
+"fusiones: %(merges)s"
+
+#. module: product_attribute_value_merge
+#. odoo-python
+#: code:addons/product_attribute_value_merge/models/product_attribute_value_merge.py:0
+msgid "This merge is already undone."
+msgstr "Esta fusión ya está deshecha."
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge_wizard_line__role__keep
+msgid "To Keep"
+msgstr "Se conserva"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge_wizard_line__role__merge
+msgid "To Merge"
+msgstr "Se fusiona"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,help:product_attribute_value_merge.field_product_attribute_value_merge_finder__lang_ids
+msgid ""
+"Two values are proposed as duplicates when they show the same name in any of"
+" these languages. By default, the languages of the internal users: "
+"translations nobody reviews can give two different values the same name."
+msgstr ""
+"Dos valores se proponen como duplicados cuando muestran el mismo nombre en "
+"alguno de estos idiomas. Por defecto, los idiomas de los usuarios internos: "
+"traducciones que nadie revisa pueden dar el mismo nombre a dos valores "
+"distintos."
+
+#. module: product_attribute_value_merge
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_form
+msgid "Undo"
+msgstr "Deshacer"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__undo_date
+msgid "Undo Date"
+msgstr "Fecha de deshacer"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__undo_report
+msgid "Undo Report"
+msgstr "Informe de deshacer"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields.selection,name:product_attribute_value_merge.selection__product_attribute_value_merge__state__undone
+#: model_terms:ir.ui.view,arch_db:product_attribute_value_merge.product_attribute_value_merge_view_search
+msgid "Undone"
+msgstr "Deshecha"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__undo_user_id
+msgid "Undone By"
+msgstr "Deshecha por"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__value_id
+msgid "Value"
+msgstr "Valor"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute__value_merge_count
+msgid "Value Merge Count"
+msgstr "Número de fusiones de valores"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__keeper_id
+msgid "Value to Keep"
+msgstr "Valor que se conserva"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_finder_group__value_ids
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__value_ids
+msgid "Values"
+msgstr "Valores"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__values_after
+msgid "Values After"
+msgstr "Valores después"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__archived_value_ids
+msgid "Values Archived by the Merge"
+msgstr "Valores archivados por la fusión"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__values_before
+msgid "Values Before"
+msgstr "Valores antes"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge__kept_value_ids
+msgid "Values Left on Some Products"
+msgstr "Valores que quedan en algunos productos"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__variant_count
+msgid "Variants"
+msgstr "Variantes"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard__warning
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: product_attribute_value_merge
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:product_attribute_value_merge.field_product_attribute_value_merge_wizard_name__wizard_id
+msgid "Wizard"
+msgstr "Asistente"

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Tecnativa - Carlos Dauden
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="product_attribute_value_merge_wizard_view_form" model="ir.ui.view">
+        <field name="model">product.attribute.value.merge.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="attribute_id" invisible="1" />
+                <div class="alert alert-warning" role="alert" invisible="not warning">
+                    <field name="warning" />
+                </div>
+                <group>
+                    <field
+                        name="value_ids"
+                        widget="many2many_tags"
+                        domain="[('attribute_id', '=?', attribute_id), ('merged_into_id', '=', False)]"
+                        context="{'active_test': False}"
+                        options="{'no_create': True}"
+                    />
+                    <field
+                        name="keeper_id"
+                        required="1"
+                        options="{'no_create': True, 'no_open': True}"
+                    />
+                </group>
+                <field name="line_ids" nolabel="1">
+                    <list
+                        create="0"
+                        delete="0"
+                        decoration-bf="is_keeper"
+                        decoration-muted="not value_active"
+                    >
+                        <field name="is_keeper" column_invisible="1" />
+                        <field
+                            name="role"
+                            widget="badge"
+                            decoration-success="role == 'keep'"
+                            decoration-muted="role == 'merge'"
+                        />
+                        <field name="value_id" />
+                        <field name="value_active" optional="hide" />
+                        <field name="template_count" />
+                        <field name="variant_count" />
+                        <field name="record_count" />
+                        <field name="external_id" optional="hide" />
+                    </list>
+                </field>
+                <separator string="Name of the kept value" />
+                <field name="name_ids" nolabel="1">
+                    <list
+                        editable="bottom"
+                        create="0"
+                        delete="0"
+                        decoration-warning="conflict"
+                    >
+                        <field name="lang" column_invisible="1" />
+                        <field name="conflict" column_invisible="1" />
+                        <field name="fallback" column_invisible="1" />
+                        <field name="proposed_name" column_invisible="1" />
+                        <field name="lang_name" readonly="1" force_save="1" />
+                        <field name="name" />
+                        <field name="alternatives" readonly="1" force_save="1" />
+                    </list>
+                </field>
+                <group invisible="not shared_product_tmpl_ids">
+                    <field
+                        name="shared_product_tmpl_ids"
+                        widget="many2many_tags"
+                        readonly="1"
+                    />
+                </group>
+                <footer>
+                    <button
+                        name="action_merge"
+                        type="object"
+                        string="Merge"
+                        class="btn-primary"
+                        data-hotkey="q"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
