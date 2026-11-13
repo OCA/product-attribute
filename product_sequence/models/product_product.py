@@ -4,6 +4,8 @@
 #   (http://www.forgeflow.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from collections import Counter
+
 from odoo import api, fields, models
 
 
@@ -20,6 +22,9 @@ class ProductProduct(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         vals_list_updated = []
+        variants_per_template = Counter(
+            vals["product_tmpl_id"] for vals in vals_list if vals.get("product_tmpl_id")
+        )
         for vals in vals_list:
             if "default_code" not in vals or vals["default_code"] == "/":
                 categ_id = vals.get("categ_id", False)
@@ -32,6 +37,21 @@ class ProductProduct(models.Model):
                     # Created from a product.template
                     template = self.env["product.template"].browse(template_id)
                     category = template.categ_id
+                    # The first variant of a template created with an internal
+                    # reference gets that reference, not a sequence number
+                    # (Odoo only gives it to the variant afterwards if the
+                    # template has no reference yet).
+                    code = template.default_code
+                    if (
+                        code
+                        and code != "/"
+                        and variants_per_template[template_id] == 1
+                        and not template.with_context(
+                            active_test=False
+                        ).product_variant_ids
+                    ):
+                        vals_list_updated.append(dict(vals, default_code=code))
+                        continue
                 sequence = self.env["ir.sequence"].get_category_sequence_id(category)
                 vals_list_updated.append(dict(vals, default_code=sequence.next_by_id()))
             else:
