@@ -1,7 +1,9 @@
 from odoo.fields import Command
+from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
 
 
+@tagged("post_install", "-at_install")
 class TestProductMultiCategory(TransactionCase):
     @classmethod
     def setUpClass(cls):
