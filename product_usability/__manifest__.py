@@ -4,7 +4,7 @@
 
 {
     "name": "Product - Missing Menus and Groups",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Product",
     "license": "AGPL-3",
     "summary": "Adds missing menu entries for Product module and"
@@ -15,7 +15,7 @@
     "depends": ["product"],
     "data": [
         "security/res_groups.xml",
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "views/menu.xml",
     ],
     "installable": True,

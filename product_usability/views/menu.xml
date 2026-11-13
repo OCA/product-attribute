@@ -29,11 +29,19 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     />
 
     <!-- Product Variants -->
+    <record id="product_normal_action" model="ir.actions.act_window">
+        <field name="name">Product Variants</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="view_id" ref="product.product_kanban_view" />
+        <field name="search_view_id" ref="product.product_search_form_view" />
+    </record>
+
     <menuitem
         id="menu_product_product"
         sequence="20"
         parent="menu_product"
-        action="product.product_normal_action"
+        action="product_normal_action"
         groups="product.group_product_variant"
     />
 
@@ -84,7 +92,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         id="menu_uom_uom"
         sequence="30"
         parent="menu_configuration"
-        action="uom.product_uom_form_action"
+        action="uom.uom_uom_action_list"
         groups="uom.group_uom"
     />
 </odoo>

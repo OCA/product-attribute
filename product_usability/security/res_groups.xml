@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
     Copyright (C) 2024-Today GRAP (http://www.grap.coop)
     @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -33,7 +33,7 @@
     <record id="product.group_product_manager" model="res.groups">
         <field
             name="implied_ids"
-            eval="[(4, ref('group_product_creation')), (4, ref('group_product_attribute_creation')), (4, ref('group_product_tag_creation')), (4, ref('group_product_category_creation')), (4, ref('group_product_supplierinfo_creation')), (4, ref('group_uom_creation'))]"
+            eval="[Command.link(ref('group_product_creation')), Command.link(ref('group_product_attribute_creation')), Command.link(ref('group_product_tag_creation')), Command.link(ref('group_product_category_creation')), Command.link(ref('group_product_supplierinfo_creation')), Command.link(ref('group_uom_creation'))]"
         />
     </record>
 </odoo>
