@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_usability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-25 06:42+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_attribute
+msgid "Attributes"
+msgstr "Atributi"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_category
+msgid "Categories"
+msgstr "Kategorije"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_configuration
+msgid "Configuration"
+msgstr "Nastavitve"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_pricelist
+msgid "Pricelists"
+msgstr "Ceniki"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_attribute_creation
+msgid "Product Attribute Creation"
+msgstr "Ustvarjanje atributov proizvoda"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_category_creation
+msgid "Product Category Creation"
+msgstr "Ustvarjanje kategorij proizvodov"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_creation
+msgid "Product Creation"
+msgstr "Ustvarjanje proizvoda"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_supplierinfo_creation
+msgid "Product Supplier Pricelist Creation"
+msgstr "Ustvarjanje cenika dobavitelja proizvoda"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_product_tag_creation
+msgid "Product Tag Creation"
+msgstr "Ustvarjanje oznake proizvoda"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_tag
+msgid "Product Tags"
+msgstr "Oznake proizvodov"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product_product
+msgid "Product Variants"
+msgstr "Različice proizvodov"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_product
+#: model:ir.ui.menu,name:product_usability.menu_product_main
+#: model:ir.ui.menu,name:product_usability.menu_product_template
+msgid "Products"
+msgstr "Proizvodi"
+
+#. module: product_usability
+#: model:ir.ui.menu,name:product_usability.menu_uom_uom
+msgid "Units & Packagings"
+msgstr "Enote in pakiranja"
+
+#. module: product_usability
+#: model:res.groups,name:product_usability.group_uom_creation
+msgid "Units of Measure Creation"
+msgstr "Ustvarjanje merskih enot"
