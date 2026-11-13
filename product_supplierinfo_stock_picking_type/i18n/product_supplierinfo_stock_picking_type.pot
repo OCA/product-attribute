@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_supplierinfo_stock_picking_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_supplierinfo_stock_picking_type
+#: model:ir.model.fields,field_description:product_supplierinfo_stock_picking_type.field_product_customerinfo__picking_type_id
+#: model:ir.model.fields,field_description:product_supplierinfo_stock_picking_type.field_product_supplierinfo__picking_type_id
+msgid "Picking Type"
+msgstr ""
+
+#. module: product_supplierinfo_stock_picking_type
+#: model:ir.model,name:product_supplierinfo_stock_picking_type.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: product_supplierinfo_stock_picking_type
+#: model:ir.model,name:product_supplierinfo_stock_picking_type.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: product_supplierinfo_stock_picking_type
+#: model:ir.model,name:product_supplierinfo_stock_picking_type.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr ""
