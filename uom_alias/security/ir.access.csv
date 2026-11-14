@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_uom_alias_user,uom.alias.user,uom.alias,base.group_user,r,
+access_uom_alias_admin,uom.alias.admin,uom.alias,base.group_system,crud,
