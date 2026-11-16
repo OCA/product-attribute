@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_supplierinfo_stock_availability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-23 13:34+0000\n"
+"PO-Revision-Date: 2026-10-23 13:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model.fields.selection,name:product_supplierinfo_stock_availability.selection__product_supplierinfo__stock_availability__available
+msgid "Available"
+msgstr "Disponible"
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model.fields.selection,name:product_supplierinfo_stock_availability.selection__product_supplierinfo__stock_availability__limited
+msgid "Limited"
+msgstr "Limité"
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model.fields,field_description:product_supplierinfo_stock_availability.field_product_supplierinfo__stock_availability
+msgid "Stock Availability"
+msgstr "Disponibilité de Stock"
+
+#. module: product_supplierinfo_stock_availability
+#: model:res.groups,name:product_supplierinfo_stock_availability.group_supplierinfo_stock_availability
+msgid "Stock Availability Manager"
+msgstr "Responsable de Deisponibilité de Stock"
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model.fields,field_description:product_supplierinfo_stock_availability.field_product_supplierinfo__stock_availability_readonly
+msgid "Stock Availability Readonly"
+msgstr "Disponibilité de Stock en Lecture Seule"
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model,name:product_supplierinfo_stock_availability.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Liste de prix du fournisseur"
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model.fields,help:product_supplierinfo_stock_availability.field_product_supplierinfo__stock_availability
+msgid ""
+"This is the stock availability of this product for the supplier. If this is "
+"not managed, don't fill it in."
+msgstr ""
+"Ceci est la disponibilité de stock pour le fournisseur. Si ce n'est pas géré, ne "
+"le remplissez pas."
+
+#. module: product_supplierinfo_stock_availability
+#: model:ir.model.fields.selection,name:product_supplierinfo_stock_availability.selection__product_supplierinfo__stock_availability__unavailable
+msgid "Unavailable"
+msgstr "Indisponible"
