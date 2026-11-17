@@ -16,6 +16,16 @@ class StockPicking(models.Model):
             "order_id": self.id,
         }
 
+    def action_add_from_catalog(self):
+        action = super().action_add_from_catalog()
+        # The move list field context carries form_view_ref pointing to a
+        # stock.move view. ViewService forwards *_view_ref keys to get_views,
+        # so the wrong arch would be compiled against product.product.
+        action["context"] = {
+            k: v for k, v in action["context"].items() if not k.endswith("_view_ref")
+        }
+        return action
+
     def _default_order_line_values(self, child_field=False):
         default_data = super()._default_order_line_values(child_field)
         new_default_data = self.env["stock.move"]._get_product_catalog_lines_data(
