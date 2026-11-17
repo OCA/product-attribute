@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Tecnativa - Carlos Dauden
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="action_find_duplicate_values"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-clone"
+                    string="Duplicates"
+                    groups="product.group_product_manager"
+                />
+                <button
+                    name="action_view_value_merges"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-history"
+                    invisible="not value_merge_count"
+                    groups="product.group_product_manager"
+                >
+                    <div class="o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="value_merge_count" />
+                        </span>
+                        <span class="o_stat_text">Merges</span>
+                    </div>
+                </button>
+            </div>
+            <xpath expr="//field[@name='value_ids']/list" position="inside">
+                <button
+                    name="action_merge"
+                    type="object"
+                    icon="fa-compress"
+                    title="Merge with other values"
+                    groups="product.group_product_manager"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
