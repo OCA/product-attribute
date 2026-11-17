@@ -65,7 +65,9 @@ class IrFilters(models.Model):
         product_assortment = self.env.context.get("product_assortment", False)
         if not product_assortment:
             return vals_list
-        model = self.env.ref("product.model_product_product")
+        # sudo: reading ir.model needs base.group_erp_manager, which
+        # assortment managers do not always have.
+        model = self.env.ref("product.model_product_product").sudo()
         for vals in vals_list:
             if not vals.get("model_id"):
                 vals.update({"model_id": model.model})
