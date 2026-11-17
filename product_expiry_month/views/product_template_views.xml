@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_product_form_expiry_month" model="ir.ui.view">
+        <field name="name">product.template.expiry.month.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product_expiry.view_product_form_expiry" />
+        <field name="arch" type="xml">
+            <label for="expiration_time" position="before">
+                <label for="expiration_time_months" />
+                <div>
+                    <field name="expiration_time_months" class="oe_inline" />
+                    <span> months</span>
+                </div>
+            </label>
+        </field>
+    </record>
+</odoo>
