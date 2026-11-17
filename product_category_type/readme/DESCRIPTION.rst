@@ -11,6 +11,12 @@ template form view.
 
 figure:: ../static/description/product_template_form.png
 
+When installing the module, the categories that contain child categories
+and that don't have any product related will be set as 'view'. Otherwise,
+categories will be set as 'normal'.
+If your database already contains products and categories data,
+maybe you should fix some misconfigurations.
+
 Note
 ----
 
