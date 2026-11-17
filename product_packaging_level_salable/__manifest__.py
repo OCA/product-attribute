@@ -14,5 +14,6 @@
     "depends": ["product_packaging_level", "sale_stock"],
     "data": [
         "views/product_packaging_level.xml",
+        "views/res_config_settings.xml",
     ],
 }
