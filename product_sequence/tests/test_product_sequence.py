@@ -30,6 +30,30 @@ class TestProductSequence(TransactionCase):
         )
         self.assertTrue(product_new.default_code)
 
+    def test_template_create_with_default_code(self):
+        """A product created from the product form (or imported) with an
+        internal reference keeps it."""
+        template = self.env["product.template"].create(
+            {"name": "Banana", "default_code": "PROD03"}
+        )
+        self.assertEqual(template.default_code, "PROD03")
+        self.assertEqual(template.product_variant_id.default_code, "PROD03")
+        template = self.env["product.template"].create({"name": "Cherry"})
+        self.assertRegex(template.default_code, r"^PR/")
+
+    def test_variant_create_with_slash_on_template_with_code(self):
+        """A variant created with "/" gets a sequence number, even when its
+        template has a reference"""
+        template = (
+            self.env["product.template"]
+            .with_context(create_product_product=False)
+            .create({"name": "Banana", "default_code": "PROD04"})
+        )
+        variant = self.product_product.create(
+            {"product_tmpl_id": template.id, "default_code": "/"}
+        )
+        self.assertRegex(variant.default_code, r"^PR/")
+
     def test_product_create_without_default_code(self):
         product_1 = self.product_product.create(dict(name="Orange", default_code="/"))
         self.assertRegex(str(product_1.default_code), r"PR/*")
