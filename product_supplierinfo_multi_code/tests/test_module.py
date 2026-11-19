@@ -5,12 +5,11 @@ class Test(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.supplier = cls.env["res.partner"].create(
-            {
-                "name": "Supplier Test",
-                "supplier_rank": 1,
-            }
-        )
+        vals = {"name": "Supplier Test"}
+        # supplier_rank is defined by account, not a dependency of this module
+        if "supplier_rank" in cls.env["res.partner"]._fields:
+            vals["supplier_rank"] = 1
+        cls.supplier = cls.env["res.partner"].create(vals)
         cls.customer = cls.env["res.partner"].create(
             {
                 "name": "Customer Test",
