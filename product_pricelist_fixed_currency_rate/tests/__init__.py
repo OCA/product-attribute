@@ -1,0 +1,1 @@
+from . import test_product_pricelist_fixed_currency_rate
