@@ -1,0 +1,13 @@
+<odoo>
+    <record id="product_product_view_form" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='purchase']" position="inside">
+                <group>
+                    <field name="next_reception_date" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
