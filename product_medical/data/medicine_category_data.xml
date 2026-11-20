@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="category_d" model="medicine.category">
+        <field name="name">Drug-D</field>
+    </record>
+    <record id="category_e" model="medicine.category">
+        <field name="name">Drug-E</field>
+    </record>
+</odoo>
