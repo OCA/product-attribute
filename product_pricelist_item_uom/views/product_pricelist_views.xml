@@ -5,23 +5,18 @@
   -->
 <odoo>
     <record id="product_pricelist_view" model="ir.ui.view">
-        <field name="name">Add Pricelist Rule UoM fields to Pricelist form view</field>
         <field name="model">product.pricelist</field>
         <field name="inherit_id" ref="product.product_pricelist_view" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//field[@name='item_ids']/list/field[@name='min_quantity']"
-                position="attributes"
-            >
-                <attribute name="column_invisible">True</attribute>
-            </xpath>
-            <xpath
-                expr="//field[@name='item_ids']/list/field[@name='min_quantity']"
-                position="after"
-            >
-                <field name="uom_min_quantity" string="Min. Quantity" />
-                <field name="uom_id" />
-            </xpath>
+            <field name="min_quantity" position="after">
+                <field name="display_applied_on" column_invisible="True" />
+                <field
+                    name="uom_id"
+                    groups="uom.group_uom"
+                    invisible="display_applied_on != '1_product'"
+                    optional="show"
+                />
+            </field>
         </field>
     </record>
 </odoo>
