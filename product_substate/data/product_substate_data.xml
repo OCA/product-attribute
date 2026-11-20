@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="base_substate_type_product" model="base.substate.type">
+        <field name="name">Product Substate</field>
+        <field name="model">product.template</field>
+        <field name="target_state_field">state</field>
+    </record>
+    <!-- Product related substates to product states (product_state codes) -->
+    <record id="target_state_value_draft" model="target.state.value">
+        <field name="name">In Development</field>
+        <field name="base_substate_type_id" ref="base_substate_type_product" />
+        <field name="target_state_value">draft</field>
+    </record>
+    <record id="target_state_value_sellable" model="target.state.value">
+        <field name="name">Normal</field>
+        <field name="base_substate_type_id" ref="base_substate_type_product" />
+        <field name="target_state_value">sellable</field>
+    </record>
+    <record id="target_state_value_end" model="target.state.value">
+        <field name="name">End of Lifecycle</field>
+        <field name="base_substate_type_id" ref="base_substate_type_product" />
+        <field name="target_state_value">end</field>
+    </record>
+    <record id="target_state_value_obsolete" model="target.state.value">
+        <field name="name">Obsolete</field>
+        <field name="base_substate_type_id" ref="base_substate_type_product" />
+        <field name="target_state_value">obsolete</field>
+    </record>
+</odoo>
