@@ -1,0 +1,423 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_supplierinfo_for_customer
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-03 10:07+0000\n"
+"PO-Revision-Date: 2023-11-18 17:35+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
+msgid "Active Products"
+msgstr ""
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__sequence
+msgid "Assigns the priority to the list of product vendor."
+msgstr "Asigna la prioridad a la lista de productos de proveedor."
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_pricelist_item__base
+msgid ""
+"Base price for computation.\n"
+"Sales Price: The base price will be the Sales Price.\n"
+"Cost Price: The base price will be the cost price.\n"
+"Other Pricelist: Computation of the base price based on another Pricelist."
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_pricelist_item__base
+msgid "Based on"
+msgstr "Basado en"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: product_customerinfo
+#: model:ir.model,name:product_customerinfo.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__partner_id
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_product__customer_ids
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_template__customer_ids
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: product_customerinfo
+#: model:ir.model,name:product_customerinfo.model_product_customerinfo
+msgid "Customer Pricelist"
+msgstr "Tarifa de cliente"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_code
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
+msgid "Customer Product Code"
+msgstr "Código de producto para la empresa"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_name
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
+msgid "Customer Product Name"
+msgstr "Nombre Producto Cliente"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__partner_id
+msgid "Customer of this product"
+msgstr "Cliente de este producto"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_uom
+msgid "Customer specific unit of measure."
+msgstr ""
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_template_form_view
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__delay
+msgid "Delivery Lead Time"
+msgstr "Tiempo inicial entrega"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__discount
+msgid "Discount (%)"
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__price_discounted
+msgid "Discounted Price"
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__date_end
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_end
+msgid "End date for this customer price"
+msgstr ""
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_id
+msgid ""
+"If not set, the vendor price will apply to all variants of this product."
+msgstr ""
+"Si no se fija, el precio de proveedor se aplicará a todas las variantes de "
+"este producto."
+
+#. module: product_customerinfo
+#. odoo-python
+#: code:addons/product_customerinfo/models/product_customerinfo.py:0
+msgid "Import Template for Customer Pricelists"
+msgstr "Importar plantilla para tarifas de clientes"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__last_purchase_date
+msgid "Last Purchase"
+msgstr "Última Compra"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__delay
+msgid ""
+"Lead time in days between the confirmation of the purchase order and the "
+"receipt of the products in your warehouse. Used by the scheduler for "
+"automatic computation of the purchase order planning."
+msgstr ""
+"Tiempo de espera en días entre la confirmación del pedido de compra y la "
+"recepción de los productos en su almacén. Usado por el planificador para el "
+"cálculo automático de la planificación de pedidos de compra."
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+msgid "Other Information"
+msgstr "Otra información"
+
+#. module: product_customerinfo
+#: model:ir.model.fields.selection,name:product_customerinfo.selection__product_pricelist_item__base__partner
+msgid "Partner Prices on the product form"
+msgstr "Precios de cliente en el formulario del producto"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__price
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
+msgid "Price"
+msgstr "Precio"
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+msgid "Price List"
+msgstr "Tarifa"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__price
+msgid "Price at which the product is sold to this customer."
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model,name:product_customerinfo.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Elemento de tarifa"
+
+#. module: product_customerinfo
+#: model:ir.model,name:product_customerinfo.model_product_template
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_tree_view
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_tmpl_id
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_customerinfo
+#: model:ir.model,name:product_customerinfo.model_product_product
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_id
+msgid "Product Variant"
+msgstr "Variante de producto"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__min_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__show_set_supplier_button
+msgid "Show Set Supplier Button"
+msgstr "Mostrar Botón Establecer Proveedor"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__date_start
+msgid "Start Date"
+msgstr "Fecha inicial"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__date_start
+msgid "Start date for this customer price"
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model,name:product_customerinfo.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Tarifa de proveedor"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__min_qty
+msgid ""
+"The minimum quantity to purchase for this customer to benefit from the "
+"price. Expressed in the customer's Product Unit of Measure if set, otherwise "
+"in the default Product Unit of Measure."
+msgstr ""
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_code
+msgid ""
+"This vendor's product code will be used when printing a request for "
+"quotation. Keep empty to use the internal one."
+msgstr ""
+"El código de producto de proveedor se usará al imprimir una solicitud de "
+"presupuesto. Déjelo vacío para usar el código interno."
+
+#. module: product_customerinfo
+#: model:ir.model.fields,help:product_customerinfo.field_product_customerinfo__product_name
+msgid ""
+"This vendor's product name will be used when printing a request for "
+"quotation. Keep empty to use the internal one."
+msgstr ""
+"El nombre de producto del proveedor se usará al imprimir una solicitud de "
+"presupuesto. Déjelo vacío para usar el nombre interno."
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_uom
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+msgid "Validity"
+msgstr "Validez"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_customerinfo__product_variant_count
+msgid "Variant Count"
+msgstr "Contador de variantes"
+
+#. module: product_customerinfo
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_product__variant_customer_ids
+#: model:ir.model.fields,field_description:product_customerinfo.field_product_template__variant_customer_ids
+msgid "Variant Customer"
+msgstr "Variante de cliente"
+
+#. module: product_customerinfo
+#: model_terms:ir.ui.view,arch_db:product_customerinfo.product_customerinfo_form_view
+msgid "to"
+msgstr "para"
+
+#~ msgid ""
+#~ "Default unit of measure used for purchase orders. It must be in the same "
+#~ "category as the default unit of measure."
+#~ msgstr ""
+#~ "Unidad de medida por defecto utilizada para los pedidos de compra. Debe "
+#~ "pertenecer a la misma categoría que la unidad de medida por defecto."
+
+#~ msgid "End date for this vendor price"
+#~ msgstr "Fecha final para este precio de proveedor"
+
+#~ msgid "Start date for this vendor price"
+#~ msgstr "Fecha inicial para este precio de proveedor"
+
+#~ msgid "The price to purchase a product"
+#~ msgstr "El precio al que se compra un producto"
+
+#~ msgid ""
+#~ "The quantity to purchase from this vendor to benefit from the price, "
+#~ "expressed in the vendor Product Unit of Measure if not any, in the "
+#~ "default unit of measure of the product otherwise."
+#~ msgstr ""
+#~ "Cantidad mínima a comprar de este proveedor, expresada en la unidad de "
+#~ "producto del proveedor si existe o, en otro caso, en la unidad de medida "
+#~ "por defecto del producto."
+
+#~ msgid "Customer Information"
+#~ msgstr "Información de Cliente"
+
+#~ msgid "Margin to apply on price to obtain sale price"
+#~ msgstr "Margen a aplicar sobre el precio para obtener precio de venta"
+
+#~ msgid "Sale Margin"
+#~ msgstr "Margen de venta"
+
+#~ msgid "Vendor Product Code"
+#~ msgstr "Código de producto del proveedor"
+
+#~ msgid "Vendor Product Name"
+#~ msgstr "Nombre del producto del proveedor"
+
+#~ msgid ""
+#~ "Base price for computation.\n"
+#~ "Sales Price: The base price will be the Sales Price.\n"
+#~ "Cost Price : The base price will be the cost price.\n"
+#~ "Other Pricelist : Computation of the base price based on another "
+#~ "Pricelist."
+#~ msgstr ""
+#~ "Precio base para el cálculo.\n"
+#~ "Precio venta: El precio base será el precio de venta.\n"
+#~ "Precio de coste: El precio base será el precio de coste.\n"
+#~ "Otras tarifas: Cálculo del precio base basado en otra lista de precios."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
+
+#~ msgid "This comes from the product form."
+#~ msgstr "Esto proviene del formulario del producto."
+
+#, fuzzy
+#~| msgid "Price List"
+#~ msgid "Other Pricelist"
+#~ msgstr "Lista de Precios"
+
+#~ msgid "Information about a product vendor"
+#~ msgstr "Información sobre proveedor"
+
+#~ msgid "Supplier"
+#~ msgstr "Proveedor"
+
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                    Click to define a new product.supplierinfo.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "Pulse para definir una nueva definición de producto-empresa.\n"
+#~ "</p>\n"
+
+#~ msgid "Partner"
+#~ msgstr "Empresa"
+
+#~ msgid "Supplierinfo search"
+#~ msgstr "Búsqueda de producto-empresa"
