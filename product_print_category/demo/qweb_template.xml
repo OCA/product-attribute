@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <template id="qweb_template_demo_1">
+        <t t-foreach="category_data['lines']" t-as="line">
+            <t t-foreach="line.quantity" t-as="q">
+                <div
+                    style="border: 1px solid; background-color:#eee; display: inline-block; width: 200px; height: 100px; margin: 1em;"
+                >
+                    <div>
+                        <b>
+                            <span t-field="line.product_id.name" />
+                        </b>
+                    </div>
+                    <div>
+                        <t t-if="line.product_id.code">
+                            <span style="color: #555;">Code:</span>
+                            <span t-field="line.product_id.code" />
+                            <br />
+                        </t>
+                    </div>
+                    <div class="product_price">
+                        <span style="color: #555;">Price:</span>
+                        <span t-field="line.product_id.list_price" />
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="qweb_template_demo_2">
+        <t t-foreach="category_data['lines']" t-as="line">
+            <t t-foreach="line.quantity" t-as="q">
+                <div
+                    style="border: 1px solid; background-color:#ee2; display: inline-block; width: 200px; height: 100px; margin: 1em;"
+                >
+                    <div>
+                        <b>
+                            <span t-field="line.product_id.name" />
+                        </b>
+                    </div>
+                    <div>
+                        <t t-if="line.product_id.code">
+                            <span style="color: #555;">Code:</span>
+                            <span t-field="line.product_id.code" />
+                            <br />
+                        </t>
+                    </div>
+                    <div class="product_price">
+                        <span style="color: #555;">Price:</span>
+                        <span t-field="line.product_id.list_price" />
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
