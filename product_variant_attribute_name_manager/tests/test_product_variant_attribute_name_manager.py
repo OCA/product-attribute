@@ -1,0 +1,228 @@
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+from odoo.fields import Command
+from odoo.tests import tagged
+from odoo.tests.common import TransactionCase
+
+
+@tagged("post_install", "-at_install")
+class TestProductTemplateAttributeValue(TransactionCase):
+    def setUp(self):
+        super().setUp()
+
+        self.product_attr_value_obj = self.env["product.attribute.value"]
+        self.product_attr_obj = self.env["product.attribute"]
+        self.computer = self.env["product.template"].create({"name": "Super Computer"})
+
+        self._add_ssd_attribute()
+        self._add_ram_attribute()
+        self._add_hdd_attribute()
+        self._add_color_attribute()
+
+    def _add_ssd_attribute(self):
+        self.ssd_attribute = self.product_attr_obj.create(
+            {
+                "name": "Memory",
+                "short_name": "Mem",
+                "display_attribute_name": True,
+                "sequence": 1,
+            }
+        )
+        self.ssd_256 = self.product_attr_value_obj.create(
+            {"name": "256 GB", "attribute_id": self.ssd_attribute.id, "sequence": 1}
+        )
+        self.ssd_512 = self.product_attr_value_obj.create(
+            {"name": "512 GB", "attribute_id": self.ssd_attribute.id, "sequence": 2}
+        )
+
+        self.computer_ssd_attribute_lines = self.env[
+            "product.template.attribute.line"
+        ].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": self.ssd_attribute.id,
+                "value_ids": [Command.set([self.ssd_256.id, self.ssd_512.id])],
+                "sequence": 2,
+            }
+        )
+
+    def _add_ram_attribute(self):
+        self.ram_attribute = self.product_attr_obj.create(
+            {"name": "RAM", "display_attribute_name": True, "sequence": 2}
+        )
+        self.ram_8 = self.product_attr_value_obj.create(
+            {"name": "8 GB", "attribute_id": self.ram_attribute.id, "sequence": 1}
+        )
+        self.ram_16 = self.product_attr_value_obj.create(
+            {"name": "16 GB", "attribute_id": self.ram_attribute.id, "sequence": 2}
+        )
+        self.ram_32 = self.product_attr_value_obj.create(
+            {"name": "32 GB", "attribute_id": self.ram_attribute.id, "sequence": 3}
+        )
+        self.computer_ram_attribute_lines = self.env[
+            "product.template.attribute.line"
+        ].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": self.ram_attribute.id,
+                "value_ids": [
+                    Command.set([self.ram_8.id, self.ram_16.id, self.ram_32.id])
+                ],
+                "sequence": 3,
+            }
+        )
+
+    def _add_hdd_attribute(self):
+        self.hdd_attribute = self.product_attr_obj.create(
+            {"name": "HDD", "sequence": 3}
+        )
+        self.hdd_1 = self.product_attr_value_obj.create(
+            {"name": "1 To", "attribute_id": self.hdd_attribute.id, "sequence": 1}
+        )
+        self.hdd_2 = self.product_attr_value_obj.create(
+            {"name": "2 To", "attribute_id": self.hdd_attribute.id, "sequence": 2}
+        )
+
+        self.computer_hdd_attribute_lines = self.env[
+            "product.template.attribute.line"
+        ].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": self.hdd_attribute.id,
+                "value_ids": [Command.set([self.hdd_1.id, self.hdd_2.id])],
+                "sequence": 1,
+            }
+        )
+
+    def _add_color_attribute(self):
+        self.color_attribute = self.env["product.attribute"].create(
+            {
+                "name": "COLOR",
+                "sequence": 4,
+                "display_attribute_name": True,
+            }
+        )
+        self.color_white = self.env["product.attribute.value"].create(
+            {"name": "White", "attribute_id": self.color_attribute.id, "sequence": 1}
+        )
+
+        self.computer_color_attribute_lines = self.env[
+            "product.template.attribute.line"
+        ].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": self.color_attribute.id,
+                "value_ids": [Command.set([self.color_white.id])],
+                "sequence": 4,
+            }
+        )
+
+    def test_display_attribute_name(self):
+        variant_names = [
+            variant.product_template_attribute_value_ids._get_combination_name()
+            for variant in self.env["product.product"].search(
+                [("product_tmpl_id", "=", self.computer.id)]
+            )
+        ]
+
+        self.assertIn(
+            "1 To, Mem: 256 GB, RAM: 8 GB",
+            variant_names,
+            "Variant name extension not found",
+        )
+        self.assertIn(
+            "2 To, Mem: 512 GB, RAM: 16 GB",
+            variant_names,
+            "Variant name extension not found",
+        )
+        self.assertNotIn(
+            "1 To, 256 GB, 8 GB", variant_names, "Variant name extension not correct"
+        )
+        self.assertNotIn(
+            "Mem: 256 GB, 1 To, RAM: 8 GB",
+            variant_names,
+            "Variant name extension not correct",
+        )
+
+        self.color_attribute.display_single_variant_attribute = True
+
+        variant_names = [
+            variant.product_template_attribute_value_ids._get_combination_name()
+            for variant in self.env["product.product"].search(
+                [("product_tmpl_id", "=", self.computer.id)]
+            )
+        ]
+
+        self.assertIn(
+            "1 To, Mem: 256 GB, RAM: 8 GB, COLOR: White",
+            variant_names,
+            "Variant name extension not found",
+        )
+
+    def test_display_attribute_value(self):
+        # Do not display RAM Attribute value
+        self.ram_attribute.write({"display_attribute_value": False})
+        variant_names = [
+            variant.product_template_attribute_value_ids._get_combination_name()
+            for variant in self.env["product.product"].search(
+                [("product_tmpl_id", "=", self.computer.id)]
+            )
+        ]
+
+        self.assertIn(
+            "1 To, Mem: 256 GB",
+            variant_names,
+            "Variant name extension not found",
+        )
+        self.assertIn(
+            "2 To, Mem: 512 GB",
+            variant_names,
+            "Variant name extension not found",
+        )
+        self.assertNotIn(
+            "1 To, Mem: 256 GB, RAM: 8 GB",
+            variant_names,
+            "Variant name extension not correct",
+        )
+        self.assertNotIn(
+            "2 To, Mem: 512 GB, RAM: 8 GB",
+            variant_names,
+            "Variant name extension not correct",
+        )
+
+    def test_display_no_variant_attribute(self):
+        material_attribute = self.product_attr_obj.create(
+            {
+                "name": "Material",
+                "create_variant": "no_variant",
+                "display_attribute_name": True,
+                "sequence": 5,
+            }
+        )
+        material_wood = self.product_attr_value_obj.create(
+            {"name": "Wood", "attribute_id": material_attribute.id}
+        )
+        material_steel = self.product_attr_value_obj.create(
+            {"name": "Steel", "attribute_id": material_attribute.id}
+        )
+        material_line = self.env["product.template.attribute.line"].create(
+            {
+                "product_tmpl_id": self.computer.id,
+                "attribute_id": material_attribute.id,
+                "value_ids": [Command.set([material_wood.id, material_steel.id])],
+                "sequence": 5,
+            }
+        )
+        wood_ptav = material_line.product_template_value_ids.filtered(
+            lambda ptav: ptav.product_attribute_value_id == material_wood
+        )
+        variant = self.env["product.product"].search(
+            [("product_tmpl_id", "=", self.computer.id)], limit=1
+        )
+        combination = variant.product_template_attribute_value_ids | wood_ptav
+
+        name = combination._get_combination_name()
+        self.assertNotIn("Wood", name)
+
+        material_attribute.display_no_variant_attribute = True
+        name = combination._get_combination_name()
+        self.assertIn("Material: Wood", name)
