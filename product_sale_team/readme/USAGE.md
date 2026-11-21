@@ -1,0 +1,4 @@
+- Open the product
+- Select a sales team in the corresponding field located in the "General Information" tab
+- Go to *Sales > Products*
+- Use the *Sales Team* filter/group by option from the search view to find products assigned to a specific sales team
