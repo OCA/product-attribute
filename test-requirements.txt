@@ -1,0 +1,1 @@
+odoo-addon-product_net_weight @ git+https://github.com/OCA/product-attribute.git@refs/pull/2435/head#subdirectory=product_net_weight
