@@ -33,7 +33,7 @@
                     t-out="object.partner_id and object.partner_id.name or 'customer'"
                 />,</p>
                 <p>
-    The attached file is a PDF document containg the
+    The attached file is a PDF document containing the
     <strong t-out="object.pricelist_id.name" /> pricelist.
     </p>
                 <p>You can reply to this email if you have any questions.</p>
