@@ -278,3 +278,41 @@ class TestProductPricelistDirectPrint(TransactionCase):
         # Nothing left to print when every price is zero
         wiz.product_tmpl_ids = self.product2.product_tmpl_id
         self.assertEqual(wiz.get_groups_to_print(), [])
+
+    def _assert_pricelist_logged(self, partner):
+        message = partner.message_ids.filtered(
+            lambda m: m.message_type == "comment" and m.attachment_ids
+        )
+        self.assertEqual(len(message), 1)
+        self.assertTrue(message.is_internal)
+        self.assertIn(self.pricelist.name, message.subject)
+        self.assertEqual(message.attachment_ids.res_model, "res.partner")
+        self.assertEqual(message.attachment_ids.res_id, partner.id)
+
+    def test_send_logs_on_partner_chatter(self):
+        wiz = self.wiz_obj.with_context(
+            active_model="res.partner", active_ids=[self.partner.id]
+        ).create({})
+        action = wiz.action_pricelist_send()
+        composer = (
+            self.env["mail.compose.message"]
+            .with_context(**action["context"])
+            .create({})
+        )
+        composer.action_send_mail()
+        self._assert_pricelist_logged(self.partner)
+
+    def test_send_batch_logs_on_partners_chatter(self):
+        partner_2 = self.env["res.partner"].create(
+            {
+                "name": "Partner for test 2",
+                "property_product_pricelist": self.pricelist.id,
+                "email": "test2@test.com",
+            }
+        )
+        wiz = self.wiz_obj.with_context(
+            active_model="res.partner", active_ids=[self.partner.id, partner_2.id]
+        ).create({})
+        wiz.action_pricelist_send()
+        self._assert_pricelist_logged(self.partner)
+        self._assert_pricelist_logged(partner_2)

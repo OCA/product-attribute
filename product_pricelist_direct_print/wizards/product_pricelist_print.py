@@ -4,7 +4,7 @@
 
 from collections import defaultdict
 
-from odoo import _, api, fields, models
+from odoo import Command, _, api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.osv import expression
 
@@ -319,6 +319,57 @@ class ProductPricelistPrint(models.TransientModel):
             .create({})
         )
         composer.action_send_mail()
+
+    def _message_post_after_hook(self, message, msg_values):
+        """Single send (composer in comment mode): the message is posted on
+        this transient wizard, so keep a trace on the customers."""
+        res = super()._message_post_after_hook(message, msg_values)
+        if message.message_type == "comment" and not message.is_internal:
+            self._log_pricelist_sent_on_partners(
+                self.partner_id | message.partner_ids,
+                message.subject,
+                message.body,
+                message.attachment_ids,
+                message.author_id,
+            )
+        return res
+
+    def _message_mail_after_hook(self, mails):
+        """Batch send (composer in mass mail mode)."""
+        res = super()._message_mail_after_hook(mails)
+        for mail in mails:
+            record = self.browse(mail.res_id)
+            record._log_pricelist_sent_on_partners(
+                record.partner_id | mail.recipient_ids,
+                mail.subject,
+                mail.body_html,
+                mail.attachment_ids,
+                mail.author_id,
+            )
+        return res
+
+    def _log_pricelist_sent_on_partners(
+        self, partners, subject, body, attachments, author
+    ):
+        """Log the sent pricelist (with its PDF) in the chatter of the
+        customers, as the wizard and its messages are transient."""
+        for partner in partners:
+            partner._message_log(
+                subject=subject,
+                body=body,
+                message_type="comment",
+                author_id=author.id,
+                attachment_ids=[
+                    Command.set(
+                        [
+                            attachment.copy(
+                                {"res_model": partner._name, "res_id": partner.id}
+                            ).id
+                            for attachment in attachments.sudo()
+                        ]
+                    )
+                ],
+            )
 
     @api.model
     def _get_sale_order_domain(self, partner):
