@@ -183,11 +183,13 @@ msgstr "Categorieën"
 #: model:ir.model.fields,help:product_pricelist_direct_print.field_product_pricelist_print__show_only_defined_products
 msgid ""
 "Check this field to print only the products defined in the pricelist. The "
-"entries in the list referring to all products will not be displayed."
+"entries in the list referring to all products will not be displayed. Only "
+"the pricelist items valid on the print date are taken into account."
 msgstr ""
 "Vink dit veld aan om alleen de producten af te drukken die in de prijslijst "
 "staan. De items in de lijst die verwijzen naar alle producten worden niet "
-"weergegeven."
+"weergegeven. Alleen de prijslijstregels die op de afdrukdatum geldig zijn "
+"worden meegenomen."
 
 #. module: product_pricelist_direct_print
 #: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print.view_product_pricelist_print

@@ -1,7 +1,9 @@
 # Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import Command
+from datetime import timedelta
+
+from odoo import Command, fields
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase, tagged
 
@@ -192,6 +194,38 @@ class TestProductPricelistDirectPrint(TransactionCase):
         wiz.show_variants = True
         products = wiz.get_products_to_print()
         self.assertIn(self.product, products)
+
+    def test_show_only_defined_products_valid_on_date(self):
+        self.pricelist.item_ids.unlink()
+        now = fields.Datetime.now()
+        self.env["product.pricelist.item"].create(
+            [
+                {
+                    "pricelist_id": self.pricelist.id,
+                    "applied_on": "0_product_variant",
+                    "product_id": self.product.id,
+                    "compute_price": "fixed",
+                    "fixed_price": 10,
+                    "date_end": now - timedelta(days=1),
+                },
+                {
+                    "pricelist_id": self.pricelist.id,
+                    "applied_on": "0_product_variant",
+                    "product_id": self.product2.id,
+                    "compute_price": "fixed",
+                    "fixed_price": 20,
+                    "date_start": now - timedelta(days=1),
+                },
+            ]
+        )
+        wiz = self.wiz_obj.with_context(
+            active_model="product.pricelist", active_id=self.pricelist.id
+        ).create({"show_only_defined_products": True, "show_variants": True})
+        wiz.date = now
+        self.assertEqual(wiz.get_products_to_print(), self.product2)
+        # Printed for a date when only the expired item was valid
+        wiz.date = now - timedelta(days=2)
+        self.assertEqual(wiz.get_products_to_print(), self.product)
 
     def test_group_field_m2m(self):
         wiz = self.wiz_obj.with_context(

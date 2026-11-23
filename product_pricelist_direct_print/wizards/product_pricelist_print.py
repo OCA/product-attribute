@@ -29,7 +29,8 @@ class ProductPricelistPrint(models.TransientModel):
     show_only_defined_products = fields.Boolean(
         string="Show only the products defined on pricelist",
         help="Check this field to print only the products defined in the pricelist. "
-        "The entries in the list referring to all products will not be displayed.",
+        "The entries in the list referring to all products will not be displayed. "
+        "Only the pricelist items valid on the print date are taken into account.",
     )
     show_variants = fields.Boolean()
     product_tmpl_ids = fields.Many2many(
@@ -413,7 +414,10 @@ class ProductPricelistPrint(models.TransientModel):
         if self.show_only_defined_products:
             aux_domain = [(0, "=", 1)]
             items_dic = {"categ_ids": [], "product_ids": [], "variant_ids": []}
-            for item in self.pricelist_id.item_ids:
+            for item in self.pricelist_id.item_ids.filtered(
+                lambda i: (not i.date_start or i.date_start <= self.date)
+                and (not i.date_end or i.date_end >= self.date)
+            ):
                 if item.applied_on == "0_product_variant":
                     items_dic["variant_ids"].append(item.product_id.id)
                 if item.applied_on == "1_product":
