@@ -14,6 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_pricelist_revision
+#. odoo-python
+#: code:addons/product_pricelist_revision/wizards/pricelist_duplicate_wizard.py:0
+msgid ""
+"%(skipped)s item(s) were skipped because they are not fixed price items."
+msgstr ""
+
+#. module: product_pricelist_revision
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
 msgid "Apply"
 msgstr ""
@@ -59,12 +66,6 @@ msgid "Display Name"
 msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.actions.act_window,name:product_pricelist_revision.pricelist_item_duplicate_wizard_action
-msgid "Duplicate Item"
-msgstr ""
-
-#. module: product_pricelist_revision
-#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Explicit rule name for this pricelist line."
 msgstr ""
@@ -90,9 +91,15 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__name
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
 msgid "Name"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__categ_id
+msgid ""
+"Only revise the items of products in this category (child categories "
+"included)."
 msgstr ""
 
 #. module: product_pricelist_revision
@@ -101,15 +108,18 @@ msgid "Percent"
 msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_price
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
 msgid "Previous Fixed Price"
 msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Previous Item"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__pricelist_id
+msgid "Pricelist"
 msgstr ""
 
 #. module: product_pricelist_revision
@@ -124,6 +134,7 @@ msgid "Pricelist Rule"
 msgstr ""
 
 #. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__categ_id
 #: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
 msgid "Product Category"
 msgstr ""
@@ -139,9 +150,16 @@ msgid "Product Variant"
 msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_assortment_item__previous_item_id
 #: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
 msgid "Relation with previous item when duplicate line"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.pricelist_item_duplicate_wizard_action
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_tree_view_from_product
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_view
+msgid "Revise Prices"
 msgstr ""
 
 #. module: product_pricelist_revision
@@ -160,10 +178,22 @@ msgid ""
 msgstr ""
 
 #. module: product_pricelist_revision
-#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_assortment_item__variation_percent
+#. odoo-python
+#: code:addons/product_pricelist_revision/wizards/pricelist_duplicate_wizard.py:0
+msgid "There are no fixed price items to revise."
+msgstr ""
+
+#. module: product_pricelist_revision
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
 #: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
 msgid "Variation %"
+msgstr ""
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__pricelist_id
+msgid ""
+"When set, all the fixed price items of this pricelist that are still valid "
+"at the start date are revised."
 msgstr ""
 
 #. module: product_pricelist_revision

@@ -1,0 +1,219 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_revision
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: product_pricelist_revision
+#. odoo-python
+#: code:addons/product_pricelist_revision/wizards/pricelist_duplicate_wizard.py:0
+msgid ""
+"%(skipped)s item(s) were skipped because they are not fixed price items."
+msgstr ""
+"%(skipped)s regel(s) overgeslagen omdat dit geen regels met een vaste prijs "
+"zijn."
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid "Apply"
+msgstr "Toepassen"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Category Rule"
+msgstr "Categorieregel"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Current"
+msgstr "Actueel"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_end
+msgid "Date End"
+msgstr "Einddatum"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__date_start
+msgid "Date Start"
+msgstr "Startdatum"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Explicit rule name for this pricelist line."
+msgstr "Expliciete regelnaam voor deze prijslijstregel."
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Global Rule"
+msgstr "Algemene regel"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__name
+msgid "Name"
+msgstr "Naam"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__categ_id
+msgid ""
+"Only revise the items of products in this category (child categories "
+"included)."
+msgstr ""
+"Herzie alleen de regels van producten in deze categorie (inclusief "
+"subcategorieën)."
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+msgid "Percent"
+msgstr "Percentage"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_price
+msgid "Previous Fixed Price"
+msgstr "Vorige vaste prijs"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__previous_item_id
+msgid "Previous Item"
+msgstr "Vorige regel"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__pricelist_id
+msgid "Pricelist"
+msgstr "Prijslijst"
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.product_pricelist_item_action
+#: model:ir.ui.menu,name:product_pricelist_revision.menu_product_pricelist_item_action
+msgid "Pricelist Items"
+msgstr "Prijslijstregels"
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Prijslijstregel"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__categ_id
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Category"
+msgstr "Productcategorie"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_view_search
+msgid "Product Variant"
+msgstr "Productvariant"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item__previous_item_id
+msgid "Relation with previous item when duplicate line"
+msgstr "Relatie met de vorige regel bij het dupliceren van een regel"
+
+#. module: product_pricelist_revision
+#: model:ir.actions.act_window,name:product_pricelist_revision.pricelist_item_duplicate_wizard_action
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_revision_tree_view
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_item_tree_view_from_product
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.product_pricelist_view
+msgid "Revise Prices"
+msgstr "Prijzen herzien"
+
+#. module: product_pricelist_revision
+#: model_terms:ir.ui.view,arch_db:product_pricelist_revision.pricelist_item_duplicate_wizard_view
+msgid ""
+"Set new start date and variation percent to duplicate.\n"
+"                    This process set start date previous day as end date of\n"
+"                    origin record.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Note:</strong>\n"
+"                    Only works with fixed price items. The variation %\n"
+"                    will be applied to calculate the new price.\n"
+"                    <br/>\n"
+"                    <br/>"
+msgstr ""
+"Stel een nieuwe startdatum en wijzigingspercentage in om te dupliceren.\n"
+"                    Dit proces zet de dag vóór de startdatum als einddatum van\n"
+"                    de oorspronkelijke regel.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    <strong>Let op:</strong>\n"
+"                    Werkt alleen met regels met een vaste prijs. Het wijzigingspercentage\n"
+"                    wordt gebruikt om de nieuwe prijs te berekenen.\n"
+"                    <br/>\n"
+"                    <br/>"
+
+#. module: product_pricelist_revision
+#. odoo-python
+#: code:addons/product_pricelist_revision/wizards/pricelist_duplicate_wizard.py:0
+msgid "There are no fixed price items to revise."
+msgstr "Er zijn geen regels met een vaste prijs om te herzien."
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item__variation_percent
+#: model:ir.model.fields,field_description:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__variation_percent
+msgid "Variation %"
+msgstr "Wijziging %"
+
+#. module: product_pricelist_revision
+#: model:ir.model.fields,help:product_pricelist_revision.field_product_pricelist_item_duplicate_wizard__pricelist_id
+msgid ""
+"When set, all the fixed price items of this pricelist that are still valid "
+"at the start date are revised."
+msgstr ""
+"Indien ingesteld worden alle regels met een vaste prijs van deze prijslijst "
+"herzien die op de startdatum nog geldig zijn."
+
+#. module: product_pricelist_revision
+#: model:ir.model,name:product_pricelist_revision.model_product_pricelist_item_duplicate_wizard
+msgid "Wizard Product Pricelist Item Duplicate"
+msgstr "Wizard prijslijstregel dupliceren"

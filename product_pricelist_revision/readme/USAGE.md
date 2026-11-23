@@ -13,3 +13,19 @@ To use this module, you need to:
     Price' field will be the previous price plus that price multiplied
     by the variation percentage and the value of the 'Variation %' will
     contain that value.
+
+To revise (index) all the prices of a pricelist at once:
+
+1.  Open the pricelist in *Sales \> Products \> Pricelists* and click on
+    the *Revise Prices* button in the header.
+2.  Optionally set a 'Product Category' to only revise the items of
+    products in that category (child categories included).
+3.  Set 'Date Start', optionally 'Date End', and the 'Variation %', then
+    click on 'Apply'.
+4.  Every fixed price item of the pricelist that is still valid at the
+    start date gets a new revised item; the original items end one
+    second before the start date. Items that are not fixed price, that
+    already ended or that start later are left untouched.
+
+Items that are not fixed price are never revised; when such items are
+selected, they are skipped and a warning is shown.

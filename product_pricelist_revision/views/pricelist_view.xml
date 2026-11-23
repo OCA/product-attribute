@@ -69,6 +69,20 @@
             </list>
         </field>
     </record>
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    name="%(product_pricelist_revision.pricelist_item_duplicate_wizard_action)d"
+                    type="action"
+                    string="Revise Prices"
+                    groups="product.group_product_pricelist"
+                />
+            </header>
+        </field>
+    </record>
     <record id="product_pricelist_item_view_search" model="ir.ui.view">
         <field name="model">product.pricelist.item</field>
         <field name="inherit_id" ref="product.product_pricelist_item_view_search" />

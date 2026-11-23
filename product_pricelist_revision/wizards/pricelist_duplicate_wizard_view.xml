@@ -20,6 +20,10 @@
                     <br />
                 </div>
                 <group>
+                    <group invisible="not pricelist_id">
+                        <field name="pricelist_id" readonly="1" />
+                        <field name="categ_id" />
+                    </group>
                     <group>
                         <field name="date_start" />
                         <field name="date_end" />
