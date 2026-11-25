@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="menu_product_state" model="ir.ui.menu">
+        <field name="name">Product States</field>
+        <field name="action" ref="product_state.action_product_state" />
+        <field name="parent_id" ref="sale.menu_sale_config" />
+    </record>
+</odoo>
