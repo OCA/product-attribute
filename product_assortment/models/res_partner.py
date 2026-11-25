@@ -50,7 +50,7 @@ class ResPartner(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         partners = super().create(vals_list)
-        self._update_partner_assortments()
+        partners._update_partner_assortments()
         return partners
 
     def write(self, vals):
