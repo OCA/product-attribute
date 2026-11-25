@@ -1,0 +1,176 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_groupby_filter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 21:43+0000\n"
+"PO-Revision-Date: 2026-03-13 22:48+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+#. module: product_attribute_groupby_filter
+#. openerp-web
+#: code:addons/product_attribute_groupby_filter/static/src/xml/product_attribute_groupby.xml:0
+#, python-format
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_product__attribute_group_by_1
+msgid "Attribute Group By 1"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_product__attribute_group_by_2
+msgid "Attribute Group By 2"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_product__attribute_group_by_3
+msgid "Attribute Group By 3"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_company__product_groupby_attribute_sort
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_config_settings__product_groupby_attribute_sort
+msgid "Attribute Group By Sort Order"
+msgstr "Ordre de Regrouper par Caractéristique"
+
+#. module: product_attribute_groupby_filter
+#: model_terms:ir.ui.view,arch_db:product_attribute_groupby_filter.product_product_view_search_attribute_groupby
+msgid "Attribute Value 1"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model_terms:ir.ui.view,arch_db:product_attribute_groupby_filter.product_product_view_search_attribute_groupby
+msgid "Attribute Value 2"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model_terms:ir.ui.view,arch_db:product_attribute_groupby_filter.product_product_view_search_attribute_groupby
+msgid "Attribute Value 3"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model_terms:ir.ui.view,arch_db:product_attribute_groupby_filter.res_config_settings_view_form_groupby
+msgid "Attribute values sort order"
+msgstr "Ordre de Tri des Valeurs de Caractéristique"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model,name:product_attribute_groupby_filter.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model,name:product_attribute_groupby_filter.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,help:product_attribute_groupby_filter.field_res_config_settings__product_groupby_attribute_sort
+msgid ""
+"Defines the sort order applied to attribute values when grouping products "
+"by attribute in the searchbar.\n"
+"- Sequence: values are sorted by their sequence field.\n"
+"- Name: values are sorted alphabetically."
+msgstr ""
+"Définit l'ordre de tri appliqué aux valeurs d'attribut lors du regroupement "
+"des produits par attribut dans la barre de recherche.\n"
+" - Séquence : les valeurs sont triées en fonction de leur séquence. \n"
+"- Nom : les valeurs sont triées par ordre alphabétique."
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_attribute__display_name
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_company__display_name
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_attribute__exclude_from_groupby
+msgid "Exclude from Group By"
+msgstr "Exclure du filtre regrouper par Caractéristique"
+
+#. module: product_attribute_groupby_filter
+#. openerp-web
+#: code:addons/product_attribute_groupby_filter/static/src/xml/product_attribute_groupby.xml:0
+#, python-format
+msgid "Group by Attribute"
+msgstr "Regrouper par Caractéristique"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_attribute__id
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_product__id
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_company__id
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_config_settings__id
+msgid "ID"
+msgstr "Identifiant"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,help:product_attribute_groupby_filter.field_product_attribute__exclude_from_groupby
+msgid ""
+"If checked, this attribute will not appear in the  'Group by attribute' "
+"search menu."
+msgstr ""
+"Si coché, cette caractéristique n'apparait pas dans le filtre regrouper par "
+"Caractéristique."
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_attribute____last_update
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_company____last_update
+#: model:ir.model.fields,field_description:product_attribute_groupby_filter.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields.selection,name:product_attribute_groupby_filter.selection__res_company__product_groupby_attribute_sort__name
+msgid "Name"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model,name:product_attribute_groupby_filter.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model,name:product_attribute_groupby_filter.model_product_attribute
+msgid "Product Attribute"
+msgstr "Caractéristique de l'article"
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields.selection,name:product_attribute_groupby_filter.selection__res_company__product_groupby_attribute_sort__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model_terms:ir.ui.view,arch_db:product_attribute_groupby_filter.res_config_settings_view_form_groupby
+msgid ""
+"Sort order applied to attribute values when\n"
+"                            grouping products by attribute in the searchbar."
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,help:product_attribute_groupby_filter.field_product_product__attribute_group_by_1
+msgid "Technical field for attribute groupBy slot 1."
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,help:product_attribute_groupby_filter.field_product_product__attribute_group_by_2
+msgid "Technical field for attribute groupBy slot 2."
+msgstr ""
+
+#. module: product_attribute_groupby_filter
+#: model:ir.model.fields,help:product_attribute_groupby_filter.field_product_product__attribute_group_by_3
+msgid "Technical field for attribute groupBy slot 3."
+msgstr ""

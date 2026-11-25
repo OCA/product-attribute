@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-name="product_attribute_groupby.ProductAttributeGroupBy" owl="1">
+        <div class="o_generator_menu">
+            <button
+                type="button"
+                class="o_add_attribute_group_by dropdown-item"
+                aria-expanded="false"
+                t-ref="fallback-focus"
+                t-on-click="() => this.state.open = !this.state.open"
+                t-on-keydown="_onKeydown"
+            >
+                <t>Group by Attribute</t>
+            </button>
+            <div t-if="state.open" class="dropdown-item-text">
+                <select
+                    class="w-auto o_input o_group_by_attribute_selector"
+                    t-on-change="_onChangeSelect"
+                >
+                    <t
+                        t-foreach="state.attributes"
+                        t-as="attribute"
+                        t-key="attribute.id"
+                    >
+                        <option
+                            t-att-value="attribute.id"
+                            t-att-selected="
+                                attribute.id === state.selectedId
+                                    ? 'selected'
+                                    : false
+                            "
+                        >
+                            <t t-esc="attribute.label" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div t-if="state.open" class="o_add_group_by_menu dropdown-item-text">
+                <button
+                    type="button"
+                    class="btn btn-primary o_apply_group_by"
+                    t-on-click="_onApply"
+                >
+                    <t>Apply</t>
+                </button>
+            </div>
+        </div>
+    </t>
+
+    <t t-inherit="web.GroupByMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//CustomGroupByItem" position="before">
+            <ProductAttributeGroupBy
+                t-if="env.searchModel.config.modelName === 'product.product'"
+            />
+            <li class="dropdown-divider" role="separator" />
+        </xpath>
+    </t>
+
+</templates>

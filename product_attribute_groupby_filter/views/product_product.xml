@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2026 Akretion (<http://www.akretion.com>).
+@author Kévin Roche <kevin.roche@akretion.com>
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="product_product_view_search_attribute_groupby" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_search_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <!-- Three invisible filters for attributes groupBy -->
+                <filter
+                    string="Attribute Value 1"
+                    name="groupby_attribute_1"
+                    context="{'group_by': 'attribute_group_by_1'}"
+                    invisible="1"
+                />
+                <filter
+                    string="Attribute Value 2"
+                    name="groupby_attribute_2"
+                    context="{'group_by': 'attribute_group_by_2'}"
+                    invisible="1"
+                />
+                <filter
+                    string="Attribute Value 3"
+                    name="groupby_attribute_3"
+                    context="{'group_by': 'attribute_group_by_3'}"
+                    invisible="1"
+                />
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
