@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_product_state_manager,product.state,product.state,product_state.group_product_state_manager,crud,
+access_product_state_internal_user,product.state.internal.user,product.state,base.group_user,r,
+access_product_state_public,product.state.public,product.state,base.group_public,r,
