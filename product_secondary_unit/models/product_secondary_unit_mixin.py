@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.tools.float_utils import float_round
+from odoo.tools.float_utils import float_compare, float_round
 
 
 class ProductSecondaryUnitMixin(models.AbstractModel):
@@ -189,7 +189,49 @@ class ProductSecondaryUnitMixin(models.AbstractModel):
         # being readonly=False the compute engine treats that as a
         # user-provided value and protects it from being overwritten. An
         # explicit onchange assignment isn't subject to that protection.
-        self._compute_helper_target_field_qty()
+        # Changing the unit queues a recompute of the quantity from the secondary
+        # qty, which would zero the quantity while the secondary qty is still 0.
+        qty_field = self._secondary_unit_fields["qty_field"]
+        for fname in (qty_field, "secondary_uom_qty"):
+            self.env.remove_to_compute(self._fields[fname], self)
+        if self[qty_field] and not self.secondary_uom_qty:
+            self._compute_secondary_uom_qty()
+        else:
+            self._compute_helper_target_field_qty()
+
+    def _is_secondary_qty_derived(self, vals):
+        # The form sends the secondary qty it derived, not the unchanged quantity.
+        self.ensure_one()
+        if "secondary_uom_qty" not in vals:
+            return True
+        # The quantity is still in the previous product's unit of measure.
+        if {"product_id", self._secondary_unit_fields["uom_field"]} & vals.keys():
+            return False
+        unit = self.env["product.secondary.unit"].browse(vals["secondary_uom_id"])
+        qty_field = self._secondary_unit_fields["qty_field"]
+        # Only dependent units have their secondary qty derived.
+        return unit.dependency_type == "dependent" and not float_compare(
+            unit._get_secondary_qty(
+                self[qty_field], self._get_uom_line(), self._product_uom_field
+            ),
+            vals["secondary_uom_qty"],
+            precision_rounding=unit.uom_id.rounding,
+        )
+
+    def write(self, vals):
+        qty_field = self._secondary_unit_fields.get("qty_field")
+        if not qty_field or "secondary_uom_id" not in vals or qty_field in vals:
+            return super().write(vals)
+        to_keep = self.filtered(
+            lambda r: r[qty_field]
+            and not r.secondary_uom_qty
+            and r._is_secondary_qty_derived(vals)
+        )
+        with self.env.protecting([self._fields[qty_field]], to_keep):
+            res = super().write(vals)
+        if "secondary_uom_qty" not in vals:
+            self.env.add_to_compute(self._fields["secondary_uom_qty"], to_keep)
+        return res
 
     @api.model
     def default_get(self, fields_list):

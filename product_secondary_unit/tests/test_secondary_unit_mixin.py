@@ -47,12 +47,21 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
                             "factor": 20,
                         }
                     ),
+                    Command.create(
+                        {
+                            "code": "C3",
+                            "name": "box 3",
+                            "uom_id": self.product_uom_unit.id,
+                            "factor": 3,
+                        }
+                    ),
                 ],
             }
         )
         self.secondary_unit_box_5 = self.product_template.secondary_uom_ids[0]
         self.secondary_unit_box_10 = self.product_template.secondary_uom_ids[1]
         self.secondary_unit_box_20 = self.product_template.secondary_uom_ids[2]
+        self.secondary_unit_box_3 = self.product_template.secondary_uom_ids[3]
         # Fake model which inherit from
         self.secondary_unit_fake = self.env["secondary.unit.fake"].create(
             {
@@ -131,6 +140,114 @@ class TestProductSecondaryUnitMixin(TransactionCase, FakeModelLoader):
         fake_model.secondary_uom_id = self.secondary_unit_box_10
         self.assertEqual(fake_model.product_uom_qty, 20.0)
         self.assertEqual(fake_model.secondary_uom_qty, 2.0)
+
+    def test_set_secondary_uom_keeps_qty(self):
+        """Setting the secondary unit after the quantity must not reset it to 0
+        nor round it through a factor that does not divide it."""
+        fake_model = self.secondary_unit_fake
+        for dependency_type, secondary_qty in (
+            ("dependent", 3.33),
+            ("secondary_priority", 0.0),
+        ):
+            self.secondary_unit_box_3.dependency_type = dependency_type
+            fake_model.write({"secondary_uom_id": False, "product_uom_qty": 10.0})
+            fake_model.secondary_uom_id = self.secondary_unit_box_3
+            self.assertEqual(fake_model.product_uom_qty, 10.0)
+            self.assertEqual(fake_model.secondary_uom_qty, secondary_qty)
+
+    def test_set_secondary_uom_keeps_qty_form(self):
+        """Same in the form, with the quantity typed or already saved."""
+        with Form(self.secondary_unit_fake) as form:
+            form.product_uom_qty = 10.0
+            form.secondary_uom_id = self.secondary_unit_box_3
+            self.assertEqual(form.product_uom_qty, 10.0)
+            self.assertEqual(form.secondary_uom_qty, 3.33)
+            form.secondary_uom_qty = 0.0
+            self.assertEqual(form.product_uom_qty, 0.0)
+        for dependency_type, secondary_qty in (
+            ("dependent", 3.33),
+            ("secondary_priority", 0.0),
+        ):
+            self.secondary_unit_box_3.dependency_type = dependency_type
+            self.secondary_unit_fake.write(
+                {"secondary_uom_id": False, "product_uom_qty": 10.0}
+            )
+            with Form(self.secondary_unit_fake) as form:
+                form.secondary_uom_id = self.secondary_unit_box_3
+                self.assertEqual(form.product_uom_qty, 10.0)
+                self.assertEqual(form.secondary_uom_qty, secondary_qty)
+            self.assertEqual(self.secondary_unit_fake.product_uom_qty, 10.0)
+            self.assertEqual(self.secondary_unit_fake.secondary_uom_qty, secondary_qty)
+
+    def test_typed_secondary_qty_converts_rounded_qty(self):
+        """A typed secondary qty sets the quantity even when it is what the
+        quantity rounds to."""
+        self.secondary_unit_box_5.uom_id.rounding = 1.0
+        fake_model = self.secondary_unit_fake
+        fake_model.write(
+            {
+                "secondary_uom_id": self.secondary_unit_box_5.id,
+                "secondary_uom_qty": 3,
+                "product_uom_qty": 12.0,
+            }
+        )
+        fake_model.secondary_uom_qty = 2
+        self.assertEqual(fake_model.product_uom_qty, 10.0)
+
+    def test_write_secondary_uom_with_other_product(self):
+        """A write that also changes the product does not mix units of measure."""
+        uom_kg = self.env.ref("uom.product_uom_kgm")
+        template_kg = self.env["product.template"].create(
+            {
+                "name": "test kg",
+                "uom_id": uom_kg.id,
+                "uom_po_id": uom_kg.id,
+                "secondary_uom_ids": [
+                    Command.create({"name": "bag 5", "uom_id": uom_kg.id, "factor": 5})
+                ],
+            }
+        )
+        fake_model = self.secondary_unit_fake
+        fake_model.write({"secondary_uom_id": False, "product_uom_qty": 10.0})
+        fake_model.write(
+            {
+                "product_id": template_kg.product_variant_ids.id,
+                "product_uom_id": uom_kg.id,
+                "secondary_uom_id": template_kg.secondary_uom_ids.id,
+                "secondary_uom_qty": 3,
+            }
+        )
+        self.assertEqual(fake_model.product_uom_qty, 15.0)
+        self.assertEqual(fake_model.secondary_uom_qty, 3.0)
+
+    def test_write_secondary_uom_with_secondary_qty(self):
+        """Only a dependent unit's secondary qty matching the quantity keeps it."""
+        fake_model = self.secondary_unit_fake
+        for dependency_type, secondary_qty, qty in (
+            ("dependent", 3.33, 10.0),
+            ("dependent", 2.0, 6.0),
+            ("secondary_priority", 3.33, 9.99),
+        ):
+            self.secondary_unit_box_3.dependency_type = dependency_type
+            fake_model.write({"secondary_uom_id": False, "product_uom_qty": 10.0})
+            fake_model.write(
+                {
+                    "secondary_uom_id": self.secondary_unit_box_3.id,
+                    "secondary_uom_qty": secondary_qty,
+                }
+            )
+            self.assertEqual(fake_model.product_uom_qty, qty)
+            self.assertEqual(fake_model.secondary_uom_qty, secondary_qty)
+
+    def test_set_secondary_uom_keeps_qty_batch(self):
+        """Each record of a batch derives its own secondary qty."""
+        fake_models = self.secondary_unit_fake + self.secondary_unit_fake.copy()
+        fake_models.secondary_uom_id = False
+        fake_models[0].product_uom_qty = 10.0
+        fake_models[1].product_uom_qty = 11.0
+        fake_models.secondary_uom_id = self.secondary_unit_box_3
+        self.assertEqual(fake_models.mapped("product_uom_qty"), [10.0, 11.0])
+        self.assertEqual(fake_models.mapped("secondary_uom_qty"), [3.33, 3.67])
 
     def test_independent_type(self):
         # dependent type is already tested as dependency_type by default
