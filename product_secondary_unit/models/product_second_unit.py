@@ -47,7 +47,12 @@ class ProductSecondaryUnit(models.Model):
         "counting pieces of a product sold by weight, where the real "
         "weight of each piece varies but the piece count must stay exact.",
     )
-    factor = fields.Float(string="Secondary Unit Factor", default=1.0, required=True)
+    factor = fields.Float(
+        string="Secondary Unit Factor",
+        default=1.0,
+        required=True,
+        digits="Secondary Unit Factor",
+    )
     active = fields.Boolean(default=True)
 
     @api.depends("name", "factor")
