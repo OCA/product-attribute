@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_fifo_cost
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-26 17:31+0000\n"
+"PO-Revision-Date: 2026-11-26 17:31+0000\n"
+"Last-Translator: Marcos Mendez <m@pop.coop>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: product_pricelist_fifo_cost
+#: model:ir.model.fields,help:product_pricelist_fifo_cost.field_product_pricelist_item__base
+msgid ""
+"Base price for computation.\n"
+"Sales Price: The base price will be the Sales Price.\n"
+"Cost Price: The base price will be the cost price.\n"
+"Other Pricelist: Computation of the base price based on another Pricelist."
+msgstr ""
+"Preço de base para cálculo.\n"
+"Preço de venda: o preço de base será o preço de venda.\n"
+"Preço de custo: o preço de base será o preço de custo.\n"
+"Outra lista de preços: cálculo do preço de base a partir de outra lista de "
+"preços."
+
+#. module: product_pricelist_fifo_cost
+#: model:ir.model.fields,field_description:product_pricelist_fifo_cost.field_product_pricelist_item__base
+msgid "Based on"
+msgstr "Baseado em"
+
+#. module: product_pricelist_fifo_cost
+#: model:ir.model.fields.selection,name:product_pricelist_fifo_cost.selection__product_pricelist_item__base__fifo_oldest_cost
+msgid "FIFO Cost (oldest lot in stock)"
+msgstr "Custo FIFO (lote mais antigo em estoque)"
+
+#. module: product_pricelist_fifo_cost
+#. odoo-python
+#: code:addons/product_pricelist_fifo_cost/models/product_pricelist_item.py:0
+msgid "FIFO cost of the oldest lot"
+msgstr "custo FIFO do lote mais antigo"
+
+#. module: product_pricelist_fifo_cost
+#: model:ir.model,name:product_pricelist_fifo_cost.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regra de lista de preços"
