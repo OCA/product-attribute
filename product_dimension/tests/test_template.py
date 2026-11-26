@@ -36,3 +36,19 @@ class TestTemplateValues(TransactionCase):
         self.assertEqual(product.product_length, 10.0)
         self.assertEqual(product.product_width, 5.0)
         self.assertEqual(product.product_height, 3.0)
+
+    def test_template_dimensional_uom(self):
+        """The dimensional UoM given on the template is kept on its variant"""
+        uom_cm = self.env.ref("uom.product_uom_cm")
+        template = self.env["product.template"].create(
+            {
+                "name": "Unittest P2",
+                "product_length": 10.0,
+                "product_width": 20.0,
+                "product_height": 50.0,
+                "dimensional_uom_id": uom_cm.id,
+            }
+        )
+        self.assertEqual(template.product_variant_ids.dimensional_uom_id, uom_cm)
+        self.assertEqual(template.dimensional_uom_id, uom_cm)
+        self.assertAlmostEqual(template.product_variant_ids.volume, 0.01)
