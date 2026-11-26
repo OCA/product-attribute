@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_attribute_variant_rules
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__available_postcondition_attribute_ids
+msgid "Available postconditions"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__available_precondition_attribute_ids
+msgid "Available preconditions"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__display_name
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__id
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,help:product_attribute_variant_rules.field_product_product__use_attribute_rules
+#: model:ir.model.fields,help:product_attribute_variant_rules.field_product_template__use_attribute_rules
+msgid ""
+"If checked, the product variants will be generated based on the rules "
+"defined below."
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule____last_update
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields.selection,name:product_attribute_variant_rules.selection__product_attribute_rule__rule_type__never
+msgid "Never With"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields.selection,name:product_attribute_variant_rules.selection__product_attribute_rule__rule_type__only
+msgid "Only With"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model,name:product_attribute_variant_rules.model_product_attribute_rule
+msgid "Product Attribute Rule"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_product__product_attribute_rule_ids
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_template__product_attribute_rule_ids
+#: model_terms:ir.ui.view,arch_db:product_attribute_variant_rules.product_template_only_form_view
+msgid "Product Attribute Rules"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model,name:product_attribute_variant_rules.model_product_template
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__product_tmpl_id
+msgid "Product Template"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__product_attribute_value_postcondition_ids
+msgid "Rule postconditions"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__product_attribute_value_precondition_ids
+msgid "Rule preconditions"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_product__product_attribute_value_ids
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_template__product_attribute_value_ids
+msgid "Technical Attributes"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,help:product_attribute_variant_rules.field_product_attribute_rule__product_attribute_value_postcondition_ids
+msgid ""
+"The product variant will exist only if these conditions are met if the precondition is met.\n"
+"The attribute values are ANDed together except if they are from the same attribute in which case they are ORed."
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,help:product_attribute_variant_rules.field_product_attribute_rule__product_attribute_value_precondition_ids
+msgid ""
+"This rule will only be applied if all the preconditions are met.\n"
+"The attribute values are ANDed together except if they are from the same attribute in which case they are ORed.\n"
+"If empty, the rule will always be applied."
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_attribute_rule__rule_type
+msgid "Type"
+msgstr ""
+
+#. module: product_attribute_variant_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_product__use_attribute_rules
+#: model:ir.model.fields,field_description:product_attribute_variant_rules.field_product_template__use_attribute_rules
+#: model_terms:ir.ui.view,arch_db:product_attribute_variant_rules.product_template_only_form_view
+msgid "Use Attribute Rules"
+msgstr ""
