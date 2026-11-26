@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Tecnativa - Carlos Dauden
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="product_attribute_value_merge_view_form" model="ir.ui.view">
+        <field name="model">product.attribute.value.merge</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <header>
+                    <button
+                        name="action_undo"
+                        type="object"
+                        string="Undo"
+                        class="btn-primary"
+                        invisible="state != 'done'"
+                        confirm="The merged values will be restored on the records the merge moved. Records created or changed later keep their current value. Continue?"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="attribute_id" />
+                            <field name="keeper_id" />
+                            <field name="value_ids" widget="many2many_tags" />
+                            <field
+                                name="kept_value_ids"
+                                widget="many2many_tags"
+                                invisible="not kept_value_ids"
+                            />
+                        </group>
+                        <group>
+                            <field name="user_id" />
+                            <field name="date" />
+                            <field name="undo_user_id" invisible="state != 'undone'" />
+                            <field name="undo_date" invisible="state != 'undone'" />
+                        </group>
+                    </group>
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        invisible="not undo_report"
+                    >
+                        <field name="undo_report" />
+                    </div>
+                    <notebook>
+                        <page string="Moved Records" name="changes">
+                            <field name="change_ids">
+                                <list>
+                                    <field name="value_id" />
+                                    <field name="kind" />
+                                    <field name="model_description" string="Model" />
+                                    <field name="field_description" string="Field" />
+                                    <field name="record_count" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_attribute_value_merge_view_list" model="ir.ui.view">
+        <field name="model">product.attribute.value.merge</field>
+        <field name="arch" type="xml">
+            <list create="0" delete="0" decoration-muted="state == 'undone'">
+                <field name="date" />
+                <field name="attribute_id" />
+                <field name="keeper_id" />
+                <field name="value_ids" widget="many2many_tags" />
+                <field name="user_id" />
+                <field name="state" />
+            </list>
+        </field>
+    </record>
+
+    <record id="product_attribute_value_merge_view_search" model="ir.ui.view">
+        <field name="model">product.attribute.value.merge</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="keeper_id" />
+                <field name="value_ids" />
+                <field name="attribute_id" />
+                <filter string="Merged" name="done" domain="[('state', '=', 'done')]" />
+                <filter
+                    string="Undone"
+                    name="undone"
+                    domain="[('state', '=', 'undone')]"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Attribute"
+                        name="group_attribute"
+                        context="{'group_by': 'attribute_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_attribute_value_merge_action" model="ir.actions.act_window">
+        <field name="name">Attribute Value Merges</field>
+        <field name="res_model">product.attribute.value.merge</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record
+        id="product_attribute_value_merge_wizard_action"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Merge</field>
+        <field name="res_model">product.attribute.value.merge.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_attribute_value" />
+        <field name="binding_view_types">list</field>
+        <field
+            name="groups_id"
+            eval="[Command.link(ref('product.group_product_manager'))]"
+        />
+    </record>
+</odoo>
