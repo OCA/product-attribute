@@ -16,7 +16,8 @@ class Uom(models.Model):
 
     @property
     def _rec_names_search(self):
-        return list(set(super()._rec_names_search or [] + ["alias_ids.code"]))
+        names = super()._rec_names_search or [self._rec_name]
+        return list(dict.fromkeys(names + ["alias_ids.code"]))
 
     @api.model
     def search(self, domain, *args, **kwargs):

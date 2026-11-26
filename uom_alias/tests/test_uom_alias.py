@@ -45,3 +45,8 @@ class TestUomAlias(TransactionCase):
         # Test name_search with alias "ZZZ"
         uom = self.env["uom.uom"].name_search("ZZZ")
         self.assertTrue(uom)
+
+    def test_name_search_by_name(self):
+        """name_search still finds a unit by its own name"""
+        result = self.env["uom.uom"].name_search(self.uom_unit.name, limit=100)
+        self.assertIn(self.uom_unit.id, [rec_id for rec_id, _name in result])
