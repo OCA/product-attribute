@@ -1,0 +1,1 @@
+odoo-addon-nutritional_info @ git+https://github.com/OCA/product-attribute@refs/pull/2342/head#subdirectory=nutritional_info
