@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--
+        Purchase sets 'default_price': standard_price in the context of the
+        vendor price lines. The web client evaluates that context, so users
+        without access to the product cost cannot open the product form.
+        We remove only that key, so context keys added by other modules are
+        kept. The default price is set in product.supplierinfo.default_get()
+        instead, and only for users who may read the cost.
+    -->
+    <record id="view_product_supplier_inherit" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="purchase.view_product_supplier_inherit" />
+        <field name="arch" type="xml">
+            <field name="seller_ids" position="attributes">
+                <attribute
+                    name="context"
+                    remove="'default_price': standard_price"
+                    separator=","
+                />
+            </field>
+        </field>
+    </record>
+    <record id="view_product_product_supplier_inherit" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="purchase.view_product_product_supplier_inherit" />
+        <field name="arch" type="xml">
+            <field name="seller_ids" position="attributes">
+                <attribute
+                    name="context"
+                    remove="'default_price': standard_price"
+                    separator=","
+                />
+            </field>
+            <field name="variant_seller_ids" position="attributes">
+                <attribute
+                    name="context"
+                    remove="'default_price': standard_price"
+                    separator=","
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
