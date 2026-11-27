@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>README.rst</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<a class="reference external image-reference" href="https://odoo-community.org/get-involved?utm_source=readme">
+<img alt="Odoo Community Association" src="https://odoo-community.org/readme-banner-image" />
+</a>
+<div class="section" id="product-category-hs-code-mapping">
+<h1>Product Category — HS Code Mapping</h1>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:37e22232ce3d83cca7d6f1d0fb8e4d8b26bd5f05dd3ced94b3a0d2fc2f6fe1ee
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/19.0/product_category_hs_mapping"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_category_hs_mapping"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>Maps customs HS (Harmonized System) tariff codes to Odoo
+<tt class="docutils literal">product.category</tt> records, so EDI / supplier integrations can
+auto-categorise newly-created products without hard-coding mapping logic
+per integration.</p>
+<p>The mapping table supports two pattern shapes:</p>
+<ul class="simple">
+<li><strong>Exact code</strong> — e.g. <tt class="docutils literal">8421230090</tt> matches only that exact code.</li>
+<li><strong>Prefix wildcard</strong> — e.g. <tt class="docutils literal">8421*</tt> matches any code starting with
+<tt class="docutils literal">8421</tt>.</li>
+</ul>
+<p>At resolution time, the longest literal prefix wins. So a rule for
+<tt class="docutils literal">8421230090</tt> (specificity 10) beats a rule for <tt class="docutils literal">8421*</tt> (specificity
+4) which itself beats <tt class="docutils literal">84*</tt> (specificity 2).</p>
+<p>Multi-company aware: rules can be scoped to a specific company or left
+global (apply to all companies).</p>
+<p>Ships with a sensible default mapping table covering common spare-parts
+HS chapters relevant to material-handling and industrial-equipment
+maintenance. Customers will typically redirect the targets to their own
+product-category tree.</p>
+<p><strong>Table of contents</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#use-cases-context" id="toc-entry-1">Use Cases / Context</a></li>
+<li><a class="reference internal" href="#why-this-module-exists" id="toc-entry-2">Why this module exists</a><ul>
+<li><a class="reference internal" href="#the-problem" id="toc-entry-3">The problem</a></li>
+<li><a class="reference internal" href="#what-this-module-does" id="toc-entry-4">What this module does</a></li>
+<li><a class="reference internal" href="#why-it-s-distinct-from-existing-oca-work" id="toc-entry-5">Why it’s distinct from existing OCA work</a></li>
+<li><a class="reference internal" href="#use-cases-that-drive-this-design" id="toc-entry-6">Use cases that drive this design</a></li>
+<li><a class="reference internal" href="#bootstrap-data-is-not-shipped-here" id="toc-entry-7">Bootstrap data is <em>not</em> shipped here</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#known-issues-roadmap" id="toc-entry-8">Known issues / Roadmap</a></li>
+<li><a class="reference internal" href="#changelog" id="toc-entry-9">Changelog</a><ul>
+<li><a class="reference internal" href="#section-1" id="toc-entry-10">19.0.1.0.0 (2026-05)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-11">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-12">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-13">Authors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-14">Maintainers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="use-cases-context">
+<h2><a class="toc-backref" href="#toc-entry-1">Use Cases / Context</a></h2>
+</div>
+<div class="section" id="why-this-module-exists">
+<h2><a class="toc-backref" href="#toc-entry-2">Why this module exists</a></h2>
+<div class="section" id="the-problem">
+<h3><a class="toc-backref" href="#toc-entry-3">The problem</a></h3>
+<p>When products land in Odoo from a supplier integration (cXML / OCI
+punchout cart, REST-API enrichment, EDI feed, IDoc import, …) they
+typically arrive with:</p>
+<ul class="simple">
+<li>a <strong>customs HS code</strong> (<tt class="docutils literal">commodityCode</tt> in the supplier’s payload,
+populated on <tt class="docutils literal">product.template.hs_code</tt> via OCA
+<tt class="docutils literal">account_intrastat</tt> or equivalent),</li>
+<li>but <strong>no product category</strong> — or a placeholder category the
+integration uses as a landing zone (<tt class="docutils literal">All / Imported</tt> or the
+supplier-specific bucket the punchout backend defaults to).</li>
+</ul>
+<p>The category drives downstream behaviour: which warehouse location the
+product lands in, which procurement rules fire, which analytic account a
+reorder hits, which sales tax applies, which sequence the auto-generated
+internal reference uses. Leaving thousands of imported SKUs in a single
+placeholder category breaks every one of those flows.</p>
+</div>
+<div class="section" id="what-this-module-does">
+<h3><a class="toc-backref" href="#toc-entry-4">What this module does</a></h3>
+<p>A small mapping table: HS-code patterns → <tt class="docutils literal">product.category</tt>. Designed
+to plug into any flow that sets <tt class="docutils literal">hs_code</tt> on a product:</p>
+<pre class="code python literal-block">
+<span class="n">mapped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s2">&quot;product.category.hs.mapping&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">_get_category_for_hs_code</span><span class="p">(</span><span class="w">
+</span>    <span class="s2">&quot;84314100&quot;</span><span class="p">,</span>        <span class="c1"># Forks for fork-lift trucks</span><span class="w">
+</span>    <span class="n">company</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">company_id</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="k">if</span> <span class="n">mapped</span><span class="p">:</span><span class="w">
+</span>    <span class="n">template</span><span class="o">.</span><span class="n">categ_id</span> <span class="o">=</span> <span class="n">mapped</span>
+</pre>
+<p>Patterns can be:</p>
+<ul class="simple">
+<li><strong>Full HS heading or subheading</strong>: <tt class="docutils literal">8431</tt> (parts of fork-lifts),
+<tt class="docutils literal">843141</tt> (specific fork-lift parts), <tt class="docutils literal">84314100</tt> (forks). Longer
+literals win — a rule with <tt class="docutils literal">84314100</tt> beats a rule with <tt class="docutils literal">8431</tt> for
+input <tt class="docutils literal">8431410080</tt>.</li>
+<li><strong>Wildcard</strong>: <tt class="docutils literal">8431*</tt> is identical in behaviour to <tt class="docutils literal">8431</tt> (the
+trailing <tt class="docutils literal">*</tt> is purely visual). The bare <tt class="docutils literal">*</tt> pattern is a
+deliberate catch-all (specificity 0), matched last when nothing else
+fits.</li>
+</ul>
+<p>Per-company scope: rules with <tt class="docutils literal">company_id</tt> set apply only to that
+company; rules with no <tt class="docutils literal">company_id</tt> apply to all companies.
+Multi-company customers can ship different mapping tables per legal
+entity.</p>
+</div>
+<div class="section" id="why-it-s-distinct-from-existing-oca-work">
+<h3><a class="toc-backref" href="#toc-entry-5">Why it’s distinct from existing OCA work</a></h3>
+<p>OCA already provides:</p>
+<ul class="simple">
+<li><tt class="docutils literal">account_intrastat</tt> — the source of HS codes themselves
+(<tt class="docutils literal">account.intrastat.code</tt> records mapped to
+<tt class="docutils literal">product.template.hs_code</tt>).</li>
+<li><tt class="docutils literal">account_intrastat_oss</tt> and friends — declaration-level consumers of
+those codes.</li>
+</ul>
+<p>Neither maps HS codes to <strong>product categories</strong>. The closest adjacent
+module, <tt class="docutils literal">product_category_active</tt>, manages category lifecycle but
+doesn’t classify products by HS. This module fills the gap between “we
+have a customs code on the product” and “we want the product in the
+right Odoo category”.</p>
+</div>
+<div class="section" id="use-cases-that-drive-this-design">
+<h3><a class="toc-backref" href="#toc-entry-6">Use cases that drive this design</a></h3>
+<ul class="simple">
+<li><strong>Punchout cart imports</strong>: every line in the cart enters with
+<tt class="docutils literal">hs_code</tt> from the supplier’s cXML / OCI payload. The
+punchout-purchase glue calls <tt class="docutils literal">_get_category_for_hs_code(hs_code)</tt> on
+the freshly created <tt class="docutils literal">product.template</tt> and writes the result to
+<tt class="docutils literal">categ_id</tt>.</li>
+<li><strong>REST-API product enrichment</strong> (OEM parts catalogues): when Odoo
+enriches a stub product with <tt class="docutils literal">GET /items</tt>-style data from the
+supplier, the response carries <tt class="docutils literal">commodityCode</tt>; same lookup
+populates the category at the same time.</li>
+<li><strong>EDI imports</strong> (Pricat, custom CSV, …): an import wizard sets
+<tt class="docutils literal">hs_code</tt> first and the category after, using the matcher.</li>
+<li><strong>Manual buyer override</strong>: the bundled
+<tt class="docutils literal">Apply HS Code → Category Mapping</tt> server action lets a buyer re-run
+the resolver against any selected product (Action menu, form + list
+view) — useful for retroactively classifying a pre-existing catalogue,
+or for debugging a rule that doesn’t match what the buyer expected.</li>
+</ul>
+</div>
+<div class="section" id="bootstrap-data-is-not-shipped-here">
+<h3><a class="toc-backref" href="#toc-entry-7">Bootstrap data is <em>not</em> shipped here</a></h3>
+<p>The module deliberately ships <strong>no rules</strong>. Each customer’s mapping
+table reflects their own catalogue scope (different HS chapters,
+different category trees, different language preferences). A
+customer-side bootstrap module sits on top:</p>
+<pre class="code python literal-block">
+<span class="s2">&quot;depends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="w">
+</span>    <span class="s2">&quot;product&quot;</span><span class="p">,</span><span class="w">
+</span>    <span class="s2">&quot;product_category_hs_mapping&quot;</span><span class="p">,</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="w">
+</span>    <span class="s2">&quot;data/product.category.csv&quot;</span><span class="p">,</span><span class="w">
+</span>    <span class="s2">&quot;data/product_category_hs_mapping.xml&quot;</span><span class="p">,</span><span class="w">
+</span><span class="p">],</span>
+</pre>
+<p>That bootstrap module carries the customer’s <tt class="docutils literal"><span class="pre">noupdate=&quot;1&quot;</span></tt> seed
+records, marked so buyer edits survive future upgrades. Customer
+adoption pattern: install this matcher module from OCA, then ship a tiny
+private module with your own category tree + HS rules.</p>
+</div>
+</div>
+<div class="section" id="known-issues-roadmap">
+<h2><a class="toc-backref" href="#toc-entry-8">Known issues / Roadmap</a></h2>
+<ul>
+<li><p class="first"><strong>Auto-populate stub rules for unknown HS codes + assignee activity.</strong>
+When the matcher receives an HS code it can’t resolve, optionally
+create a draft rule (empty <tt class="docutils literal">category_id</tt>, <tt class="docutils literal">sequence=999</tt>) and
+spawn a <tt class="docutils literal">mail.activity</tt> on a configurable responsible group / user —
+surfacing the gap in someone’s “to-categorise” inbox instead of
+leaving it in the matcher’s INFO log only.</p>
+<p>Off by default. Toggle via <tt class="docutils literal">res.config.settings</tt> Boolean (system
+parameter <tt class="docutils literal">product_category_hs_mapping.auto_create_unknown</tt>) so the
+feature is opt-in per-database. Auto-creation is idempotent on
+(<tt class="docutils literal">hs_code_pattern</tt>, <tt class="docutils literal">company_id</tt>, <tt class="docutils literal">category_id IS NULL</tt>): one
+stub per unknown code, no duplicates on subsequent imports.</p>
+<p><strong>Multi-company nuance</strong>: in a multi-company environment different
+people / groups may be responsible for the category mapping per
+company (a product manager for the industrial entity, a procurement
+lead for the agri entity, etc). The activity-assignee target is
+therefore PER company, not a single global group. Concrete shape: a
+Many2one <tt class="docutils literal">hs_mapping_responsible_user_id</tt> (or group) on
+<tt class="docutils literal">res.company</tt> with a fallback chain — company-level setting → global
+system parameter
+<tt class="docutils literal">product_category_hs_mapping.responsible_group_xmlid</tt> → log+skip if
+neither is set.</p>
+<p>When the responsible user fills <tt class="docutils literal">category_id</tt> on the stub, the
+activity auto-marks Done (<tt class="docutils literal">mail.activity._action_done</tt> hook). The
+chatter on the rule shows <em>which</em> product triggered the stub creation
+so the assignee can sanity-check the proposed category against a real
+example.</p>
+<p>Not implemented yet — pending real demand. The manual
+<tt class="docutils literal">Apply HS Code → Category Mapping</tt> server action covers the
+buyer-driven re-categorise flow today.</p>
+</li>
+<li><p class="first"><strong>Per-line / variant override</strong>. <tt class="docutils literal">product.product</tt> doesn’t inherit
+<tt class="docutils literal">hs_code</tt> separately, so the manual server action is currently bound
+to <tt class="docutils literal">product.template</tt>. If a customer ever ships variants with
+different tariff codes (rare in OEM-parts catalogues but conceivable
+for raw-material multipacks), surface the action on
+<tt class="docutils literal">product.product</tt> too with a per-variant <tt class="docutils literal">hs_code</tt> field.</p>
+</li>
+<li><p class="first"><strong>Bulk re-categorisation cron / queued-job</strong>. When the upstream HS
+mapping table changes (e.g. a new EU tariff line), a buyer may want to
+re-run the matcher across the entire product catalogue. Today they can
+multi-select in the product list and trigger the existing action — but
+for thousands of products that’s a single heavy transaction. A
+cron-driven or <tt class="docutils literal">queue_job</tt>-backed variant with progress feedback
+would be more operator-friendly.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="changelog">
+<h2><a class="toc-backref" href="#toc-entry-9">Changelog</a></h2>
+<div class="section" id="section-1">
+<h3><a class="toc-backref" href="#toc-entry-10">19.0.1.0.0 (2026-05)</a></h3>
+<ul class="simple">
+<li>Initial OCA-bound release. Provides:<ul>
+<li><tt class="docutils literal">product.category.hs.mapping</tt> model with HS-code-pattern →
+<tt class="docutils literal">product.category</tt> rules (longest-literal-prefix wins, optional
+<tt class="docutils literal">*</tt> wildcard, per-company scope, security ACL).</li>
+<li><tt class="docutils literal">intrastat_description</tt> computed Char on each rule — 3-tier lookup
+(exact → shortest extending → parent prefix) against the installed
+<tt class="docutils literal">account.intrastat.code</tt> records, so buyers can sanity-check what
+a pattern actually covers without reaching for a tariff manual.</li>
+<li><tt class="docutils literal">Apply HS Code → Category Mapping</tt> server action on
+<tt class="docutils literal">product.template</tt> (Action menu, form + list). Re-runs the matcher
+against the product’s <tt class="docutils literal">hs_code</tt> and writes the result to
+<tt class="docutils literal">categ_id</tt>. Single-product invocations raise a specific
+<tt class="docutils literal">UserError</tt> for each “nothing happened” reason (no HS code / no
+rule / already in matched category). Multi-product invocations show
+a summary toast with the breakdown and a <tt class="docutils literal">soft_reload</tt> so the list
+refreshes.</li>
+</ul>
+</li>
+<li>Pre-OCA development was driven by a real-world customer deployment
+with a multi-thousand-SKU parts catalogue; the matcher graduated to
+OCA-shape after several rounds of buyer testing.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bug-tracker">
+<h2><a class="toc-backref" href="#toc-entry-11">Bug Tracker</a></h2>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_category_hs_mapping%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h2><a class="toc-backref" href="#toc-entry-12">Credits</a></h2>
+<div class="section" id="authors">
+<h3><a class="toc-backref" href="#toc-entry-13">Authors</a></h3>
+<ul class="simple">
+<li>Bosd</li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h3><a class="toc-backref" href="#toc-entry-14">Maintainers</a></h3>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/bosd"><img alt="bosd" src="https://github.com/bosd.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/19.0/product_category_hs_mapping">OCA/product-attribute</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
