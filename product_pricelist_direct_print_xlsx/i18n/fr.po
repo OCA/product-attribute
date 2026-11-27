@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_pricelist_direct_print_xlsx
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-05-13 14:55+0000\n"
+"Last-Translator: phuard23 <pauline.huard@camptocamp.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: product_pricelist_direct_print_xlsx
+#: model:ir.model,name:product_pricelist_direct_print_xlsx.model_report_product_pricelist_direct_print_xlsx_report
+msgid "Abstract model to export as xlsx the product pricelist"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Cost Price"
+msgstr "Coût"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Currency:"
+msgstr "Devise :"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Date:"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Description"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print_xlsx.view_product_pricelist_print
+msgid "Export"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Internal Category"
+msgstr "Catégorie interne"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "List Price"
+msgstr "Liste de prix"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "PRODUCTS"
+msgstr "PRODUITS"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Price List Name:"
+msgstr "Liste de prix :"
+
+#. module: product_pricelist_direct_print_xlsx
+#: model:ir.model,name:product_pricelist_direct_print_xlsx.model_product_pricelist_print
+msgid "Product Pricelist Print"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#: model:ir.actions.report,name:product_pricelist_direct_print_xlsx.report
+msgid "Product Pricelist XLSX"
+msgstr ""
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Sale Price"
+msgstr "Prix de vente"
+
+#. module: product_pricelist_direct_print_xlsx
+#: model:ir.model.fields,field_description:product_pricelist_direct_print_xlsx.field_product_pricelist_print__show_internal_category
+msgid "Show internal categories"
+msgstr "Montrer les catégories internes"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Special Pricelist"
+msgstr "Liste de prix spéciale"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "Summary:"
+msgstr "Résumé :"
+
+#. module: product_pricelist_direct_print_xlsx
+#. odoo-python
+#: code:addons/product_pricelist_direct_print_xlsx/report/product_pricelist_xlsx.py:0
+#, python-format
+msgid "UoM"
+msgstr "UdM"
+
+#. module: product_pricelist_direct_print_xlsx
+#: model_terms:ir.ui.view,arch_db:product_pricelist_direct_print_xlsx.view_product_pricelist_print
+msgid "XLSX Export Options"
+msgstr ""
