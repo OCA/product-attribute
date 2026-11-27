@@ -13,7 +13,7 @@
     "depends": ["sale_management"],
     "data": [
         "security/ir.model.access.csv",
-        "views/pricelist_view.xml",
         "wizards/pricelist_duplicate_wizard_view.xml",
+        "views/pricelist_view.xml",
     ],
 }
