@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* uom_alias
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-04-29 19:24+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__code
+msgid "Code"
+msgstr "Codice"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__id
+msgid "ID"
+msgstr "ID"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: uom_alias
+#: model:ir.model,name:uom_alias.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Unità di misura del prodotto"
+
+#. module: uom_alias
+#: model:ir.model,name:uom_alias.model_uom_alias
+msgid "UOM Alias"
+msgstr "Alias UdM"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_alias__uom_id
+msgid "Uom"
+msgstr "UdM"
+
+#. module: uom_alias
+#: model:ir.model.fields,field_description:uom_alias.field_uom_uom__alias_ids
+msgid "Uom Alias"
+msgstr "Alias UdM"
+
+#. module: uom_alias
+#: model:ir.model.constraint,message:uom_alias.constraint_uom_alias_uom_alias_unique
+msgid "You cannot repeat the alias name"
+msgstr "Non si può ripetere il nome alias"
