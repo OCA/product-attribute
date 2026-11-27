@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>README.rst</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<a class="reference external image-reference" href="https://odoo-community.org/get-involved?utm_source=readme">
+<img alt="Odoo Community Association" src="https://odoo-community.org/readme-banner-image" />
+</a>
+<div class="section" id="product-state-restriction">
+<h1>Product State Restriction</h1>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:3e30c523236f2069b7cb586a19012b9471aeac0ec7f240181c8941df6bd00e38
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/product-attribute/tree/19.0/product_state_restriction"><img alt="OCA/product-attribute" src="https://img.shields.io/badge/github-OCA%2Fproduct--attribute-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/product-attribute-19-0/product-attribute-19-0-product_state_restriction"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/product-attribute&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<div class="section" id="product-state-restrictions">
+<h2>Product State Restrictions</h2>
+<p>This module extends the OCA <strong>Product State</strong> lifecycle with
+configurable operational restrictions.</p>
+<p>It builds on the standard product states. On each state you can define
+whether products in that state are allowed to be sold, manufactured, or
+moved out of the warehouse. When a product is assigned to a restricted
+state (or when the restriction flags on a state are changed), the system
+enforces the rules automatically.</p>
+<div class="section" id="features">
+<h3>Features</h3>
+<ul class="simple">
+<li><strong>Restrict Sales</strong>: products cannot be sold; <tt class="docutils literal">sale_ok</tt> is kept in
+sync and sales order confirmation is blocked.</li>
+<li><strong>Restrict Manufacturing</strong>: finished products and components cannot be
+used in manufacturing (blocked on MO confirm and on Produce / Mark as
+Done).</li>
+<li><strong>Restrict Outgoing Moves</strong>: products cannot leave the warehouse
+(customer deliveries and other outgoing stock moves are blocked).</li>
+</ul>
+</div>
+<div class="section" id="why-this-module">
+<h3>Why this module</h3>
+<p><tt class="docutils literal">product_state</tt> only provides the lifecycle field. It does not lock
+sales, manufacturing, or inventory flows. This module adds the missing
+operational control in a modular, upgrade-safe way, using official
+extension points (for example the <tt class="docutils literal">_inverse_product_state_id</tt> hook)
+instead of patching core code.</p>
+</div>
+<div class="section" id="dependencies">
+<h3>Dependencies</h3>
+<ul class="simple">
+<li><tt class="docutils literal">product_state</tt> (OCA)</li>
+<li><tt class="docutils literal">sale</tt> (for sales restrictions)</li>
+<li><tt class="docutils literal">mrp</tt> (for manufacturing restrictions)</li>
+<li><tt class="docutils literal">stock</tt> (for outgoing move restrictions)</li>
+</ul>
+</div>
+<div class="section" id="technical-notes">
+<h3>Technical notes</h3>
+<ul class="simple">
+<li>Restriction flags live on <tt class="docutils literal">product.state</tt>.</li>
+<li>Changing a product’s state updates <tt class="docutils literal">sale_ok</tt> via the inverse method
+on <tt class="docutils literal">product.template</tt>.</li>
+<li>Changing <tt class="docutils literal">restrict_sale</tt> on a state updates <tt class="docutils literal">sale_ok</tt> on all
+products currently in that state.</li>
+<li>Hard checks run on:<ul>
+<li><tt class="docutils literal">sale.order</tt> → <tt class="docutils literal">action_confirm</tt></li>
+<li><tt class="docutils literal">mrp.production</tt> → <tt class="docutils literal">action_confirm</tt> and <tt class="docutils literal">button_mark_done</tt></li>
+<li><tt class="docutils literal">stock.move</tt> → <tt class="docutils literal">_action_done</tt> (outgoing destinations)</li>
+</ul>
+</li>
+</ul>
+<p>This keeps behaviour consistent whether the user works from the UI,
+imports, or automated flows.</p>
+<p><strong>Table of contents</strong></p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+</div>
+<div class="section" id="usage-1">
+<h2>Usage</h2>
+<div class="section" id="install">
+<h3>1. Install</h3>
+<ol class="arabic simple">
+<li>Install <strong>Product State</strong> (<tt class="docutils literal">product_state</tt>) if it is not already
+installed.</li>
+<li>Install this module (<strong>Product State Restrictions</strong>).</li>
+<li>Optional: install <tt class="docutils literal">product_state_sale</tt> if you want the Product
+States menu under <strong>Sales → Configuration → Products</strong>.</li>
+</ol>
+</div>
+<div class="section" id="configure-product-states">
+<h3>2. Configure product states</h3>
+<ol class="arabic">
+<li><div class="first line-block">
+<div class="line">Go to <strong>Sales → Configuration → Products → Product States</strong></div>
+<div class="line">(or the equivalent menu under Inventory / Product, depending on
+installed modules).</div>
+</div>
+</li>
+<li><p class="first">Open an existing state (for example <em>Obsolete</em> or <em>End of Lifecycle</em>)
+or create a new one (for example <em>On Hold</em> / <em>Issue</em>).</p>
+</li>
+<li><p class="first">In the <strong>Restrictions</strong> section, enable the rules you need:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Flag</th>
+<th class="head">Effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><strong>Restrict Sales</strong></td>
+<td>Products in this state cannot be sold.
+<tt class="docutils literal">sale_ok</tt> is set to <tt class="docutils literal">False</tt> and
+confirming a sales order that contains
+the product is blocked.</td>
+</tr>
+<tr><td><strong>Restrict Manufacturing</strong></td>
+<td>Products cannot be manufactured as
+finished goods and cannot be consumed
+as components. Blocked when confirming
+an MO and when clicking <strong>Produce</strong> /
+<strong>Mark as Done</strong>.</td>
+</tr>
+<tr><td><strong>Restrict Outgoing Moves</strong></td>
+<td>Products cannot leave the warehouse
+(e.g. customer deliveries). Validation
+of the corresponding stock move is
+blocked.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Save the state.</p>
+</li>
+</ol>
+<p>Typical setup examples:</p>
+<ul class="simple">
+<li><strong>sellable (Normal)</strong>: all restrictions off</li>
+<li><strong>draft (In Development)</strong>: Restrict Sales (+ optionally Restrict
+Outgoing)</li>
+<li><strong>end / obsolete</strong>: Restrict Sales, Restrict Manufacturing, Restrict
+Outgoing</li>
+<li><strong>custom “Issue / On Hold”</strong>: all three restrictions on until the
+problem is resolved</li>
+</ul>
+</div>
+<div class="section" id="assign-a-state-to-a-product">
+<h3>3. Assign a state to a product</h3>
+<ol class="arabic simple">
+<li>Open a product template.</li>
+<li>Set the <strong>State</strong> field (status bar / many2one provided by
+<tt class="docutils literal">product_state</tt>).</li>
+<li>Save.</li>
+</ol>
+<p>Effects:</p>
+<ul class="simple">
+<li>If the state has <strong>Restrict Sales</strong>, <tt class="docutils literal">Can be Sold</tt> (<tt class="docutils literal">sale_ok</tt>) is
+turned off automatically.</li>
+<li>Moving the product back to a non-restricted state turns <tt class="docutils literal">sale_ok</tt>
+back on (unless you changed it manually for other reasons).</li>
+</ul>
+<p>You can also change restriction flags on a state that already has
+products assigned: all those products are updated in batch (for
+<tt class="docutils literal">sale_ok</tt>).</p>
+</div>
+<div class="section" id="what-users-will-see">
+<h3>4. What users will see</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Action</th>
+<th class="head">When restricted</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Confirm sales order</td>
+<td>Error: product is in a
+restricted state and cannot be
+sold.</td>
+</tr>
+<tr><td>Confirm manufacturing order</td>
+<td>Error: finished product or a
+component is restricted for
+manufacturing.</td>
+</tr>
+<tr><td>Produce / Mark as Done on MO</td>
+<td>Same manufacturing restriction
+check (so production cannot
+bypass planning).</td>
+</tr>
+<tr><td>Validate outgoing transfer /
+delivery</td>
+<td>Error: product cannot leave the
+warehouse in this state.</td>
+</tr>
+</tbody>
+</table>
+<p>Messages include the product name and the state name so warehouse and
+sales users can react quickly (change state, remove the line, or
+escalate).</p>
+</div>
+<div class="section" id="recommended-process">
+<h3>5. Recommended process</h3>
+<ol class="arabic simple">
+<li>Define which lifecycle states should block which operations.</li>
+<li>Train users to move products to <em>On Hold</em> / <em>Issue</em> (or <em>Obsolete</em>)
+when there is a quality or master-data problem.</li>
+<li>After the issue is resolved, move the product back to <em>sellable</em> (or
+the appropriate open state).</li>
+<li>Restrictions are lifted automatically according to the flags on the
+new state.</li>
+</ol>
+</div>
+<div class="section" id="notes">
+<h3>6. Notes</h3>
+<ul class="simple">
+<li>Restrictions are <strong>product-level</strong> (via the product’s state), not
+lot/serial-level. For lot holds, use Quality or a dedicated
+lot-blocking module.</li>
+<li><tt class="docutils literal">sale_ok = False</tt> hides the product from normal sales selection; the
+confirm check is an extra safety net.</li>
+<li>Manufacturing is checked both at confirm and at produce time, so users
+cannot skip the rule by producing without a prior confirm step in
+atypical flows.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bug-tracker">
+<h2>Bug Tracker</h2>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/product-attribute/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/product-attribute/issues/new?body=module:%20product_state_restriction%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h2>Credits</h2>
+<div class="section" id="authors">
+<h3>Authors</h3>
+<ul class="simple">
+<li>AGF Vector GmbH</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h3>Contributors</h3>
+<ul class="simple">
+<li>Florian Gruber &lt;<a class="reference external" href="mailto:florian.gruber&#64;agfvector.at">florian.gruber&#64;agfvector.at</a>&gt;</li>
+</ul>
+</div>
+<div class="section" id="other-credits">
+<h3>Other credits</h3>
+<div class="section" id="credits-1">
+<h4>Credits</h4>
+<div class="section" id="authors-1">
+<h5>Authors</h5>
+<ul class="simple">
+<li>Florian Gruber</li>
+<li>AGF Vector GmbH</li>
+</ul>
+</div>
+<div class="section" id="other-credits-1">
+<h5>Other credits</h5>
+<p>The development of this module was supported by AGF Vector GmbH.</p>
+</div>
+</div>
+</div>
+<div class="section" id="maintainers">
+<h3>Maintainers</h3>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/flogruber"><img alt="flogruber" src="https://github.com/flogruber.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/product-attribute/tree/19.0/product_state_restriction">OCA/product-attribute</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
