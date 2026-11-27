@@ -1,0 +1,5 @@
+- Simone Orsi \<<simahawk@gmail.com>\>
+- Christopher Ormaza \<<chris.ormaza@forgeflow.com>\>
+- Nguyen Minh Chien \<<chien@trobz.com>\>
+- Tran Quoc Duong \<<duongtq@trobz.com>\>
+- Jasmin Solanki \<<jasmin.solanki@forgeflow.com>\>
