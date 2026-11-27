@@ -23,9 +23,7 @@ class ProductSetWizard(models.TransientModel):
         compute="_compute_product_set_line_ids",
         readonly=False,
     )
-    quantity = fields.Float(
-        digits="Product Unit of Measure", required=True, default=1.0
-    )
+    quantity = fields.Float(digits="Product Unit", required=True, default=1.0)
 
     @api.depends("product_set_id")
     def _compute_product_set_line_ids(self):
