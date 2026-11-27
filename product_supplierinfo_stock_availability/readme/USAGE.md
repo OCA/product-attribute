@@ -1,0 +1,3 @@
+- Go to Product form in Purchase tab.
+- If the column is hidden, activate it (Stock Availability).
+- Choose the product availability.
