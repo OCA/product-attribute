@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_template_visibility_group_rule" model="ir.rule">
+        <field name="name">Product template visibility by user group</field>
+        <field name="model_id" ref="product.model_product_template" />
+        <field
+            name="domain_force"
+        >['|', ('visibility_group_ids', '=', False), ('visibility_group_ids', 'in', user.all_group_ids.ids)]</field>
+        <field
+            name="groups"
+            eval="[(4, ref('base.group_user')), (4, ref('base.group_portal')), (4, ref('base.group_public'))]"
+        />
+    </record>
+
+    <record id="product_template_visibility_group_manager_rule" model="ir.rule">
+        <field name="name">Product template visibility manager access</field>
+        <field name="model_id" ref="product.model_product_template" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('product.group_product_manager'))]" />
+    </record>
+</odoo>
