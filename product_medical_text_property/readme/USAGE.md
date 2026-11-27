@@ -1,0 +1,1 @@
+- Go to a product form, then open the *Medical Description* tab to view and edit medical properties.
