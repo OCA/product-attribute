@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_drained_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-25 06:25+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_drained_weight
+#: model:ir.model.fields,field_description:product_drained_weight.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_drained_weight.field_product_template__display_name
+msgid "Display Name"
+msgstr "Prikazani naziv"
+
+#. module: product_drained_weight
+#: model:ir.model.fields,field_description:product_drained_weight.field_product_product__drained_weight
+#: model:ir.model.fields,field_description:product_drained_weight.field_product_template__drained_weight
+msgid "Drained Weight"
+msgstr "Odcejena teža"
+
+#. module: product_drained_weight
+#: model:ir.model.fields,help:product_drained_weight.field_product_product__drained_weight
+#: model:ir.model.fields,help:product_drained_weight.field_product_template__drained_weight
+msgid "Drained Weight of the product, fluid excluded."
+msgstr "Odcejena teža proizvoda, brez tekočine."
+
+#. module: product_drained_weight
+#: model:ir.model.fields,field_description:product_drained_weight.field_product_product__id
+#: model:ir.model.fields,field_description:product_drained_weight.field_product_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_drained_weight
+#: model:ir.model,name:product_drained_weight.model_product_template
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: product_drained_weight
+#: model:ir.model,name:product_drained_weight.model_product_product
+msgid "Product Variant"
+msgstr "Različica proizvoda"
+
+#. module: product_drained_weight
+#. odoo-python
+#: code:addons/product_drained_weight/models/product_product.py:0
+msgid "The drained weight of product must be lower than net_weight."
+msgstr "Odcejena teža proizvoda mora biti nižja od neto mase."
