@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="param_days_per_year" model="ir.config_parameter">
+        <field name="key">product_expiry_month.days_per_year</field>
+        <field name="value">365</field>
+    </record>
+</odoo>
