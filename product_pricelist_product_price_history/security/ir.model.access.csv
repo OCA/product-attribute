@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_pricelist_item_history_user,product.pricelist.item.history.user,model_product_pricelist_item_history,sales_team.group_sale_salesman,1,1,1,1
