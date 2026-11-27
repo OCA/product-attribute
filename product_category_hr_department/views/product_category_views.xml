@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="product_category_form_add_hr_department" model="ir.ui.view">
+        <field name="name">product.category.view.form.add.hr.department</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view" />
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="hr_department_id" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
