@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <page name="sales" position="inside">
+                <group name="manufactured_for" string="Manufactured for">
+                    <field
+                        name="manufactured_for_partner_ids"
+                        widget="many2many_tags"
+                        options="{'no_create_edit': True}"
+                        context="{'active_test': False}"
+                    />
+                </group>
+            </page>
+        </field>
+    </record>
+</odoo>
