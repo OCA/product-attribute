@@ -102,8 +102,12 @@ class ProductTemplate(models.Model):
         customer_domain = self.env["product.customerinfo"]._get_name_search_domain(
             self.env.context.get("partner_id"), operator, name
         )
+        # Skip the products already found, so that none is listed twice
+        found_ids = [res_id for res_id, _display_name in res]
         products = self.search_fetch(
-            Domain("customer_ids", "any", customer_domain) & domain,
+            Domain("customer_ids", "any", customer_domain)
+            & Domain("id", "not in", found_ids)
+            & domain,
             ["display_name"],
             limit=limit,
         )
