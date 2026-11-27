@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_medical_class_user,access_medical_class,model_medical_class,base.group_user,1,1,1,1
+access_in_vitro_diagnostic_user,access_in_vitro_diagnostic,model_in_vitro_diagnostic,base.group_user,1,1,1,1
+access_medicine_category_user,access_medicine_category,model_medicine_category,base.group_user,1,1,1,1
+access_ppe_category_user,access_ppe_category,model_ppe_category,base.group_user,1,1,1,1
