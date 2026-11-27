@@ -32,7 +32,12 @@ Product State Sale
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module add the use of product_state module in sale
+This module adds the use of the ``product_state`` module in Sale.
+
+It adds a *Can Be Sold* flag on product states. Products whose state
+does not allow sales are hidden from the product selection on quotations
+and sales orders, and adding such a product to an order line is refused.
+The flag is exposed on the product as *State Allows Sale*.
 
 **Table of contents**
 
@@ -46,6 +51,24 @@ To create a new state:
 
 1. Go to *Sales > Configuration > Products > Product States*.
 2. You can set its name and a description.
+
+To prevent products of a state from being sold:
+
+1. Open the state and untick *Can Be Sold*.
+2. Products in this state no longer appear in the product selection of
+   quotations and sales orders, and cannot be set on order lines.
+   Existing order lines are not modified.
+
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_state_sale/readme/static/description/product_state_form.png
+   :alt: Product state form with the Can Be Sold toggle
+
+The flag is enabled by default, so existing states keep their behaviour
+until you change them. The list view shows the flag for all states:
+
+.. image:: https://raw.githubusercontent.com/OCA/product-attribute/19.0/product_state_sale/readme/static/description/product_state_list.png
+   :alt: Product state list with the Can Be Sold column
+
+Editing states requires the *Product State Manager* group.
 
 Bug Tracker
 ===========
@@ -68,9 +91,13 @@ Authors
 Contributors
 ------------
 
-- `Trobz <https://trobz.com>`__:
+-  `Trobz <https://trobz.com>`__:
 
-  - Tuan Nguyen <tuanna@trobz.com>
+   -  Tuan Nguyen <tuanna@trobz.com>
+
+-  `glueckkanja AG <https://www.glueckkanja.com>`__:
+
+   -  Christopher Rogos
 
 Other credits
 -------------
