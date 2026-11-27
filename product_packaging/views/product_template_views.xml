@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Camptocamp SA (https://www.camptocamp.com).
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="product_template_form_view_packaging" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="uom_ids" position="attributes">
+                <attribute name="invisible">product_variant_count == 1</attribute>
+            </field>
+            <xpath expr="//page[@name='sales']/group[@name='sale']" position="after">
+                <group
+                    string="Packagings"
+                    name="packagings"
+                    colspan="2"
+                    groups="uom.group_uom"
+                    invisible="product_variant_count != 1"
+                >
+                    <field
+                        name="packaging_ids"
+                        nolabel="1"
+                        colspan="2"
+                        force_save="1"
+                        context="{'default_product_id': product_variant_id, 'uom_inline_field_labels': True}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
