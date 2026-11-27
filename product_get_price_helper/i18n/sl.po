@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_get_price_helper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-27 05:05+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: product_get_price_helper
+#: model:account.fiscal.position,name:product_get_price_helper.fiscal_position_1
+msgid "Business"
+msgstr "Poslovno"
+
+#. module: product_get_price_helper
+#: model:product.pricelist,name:product_get_price_helper.pricelist_1
+msgid "Business Pricelist"
+msgstr "Poslovni cenik"
+
+#. module: product_get_price_helper
+#: model:account.fiscal.position,name:product_get_price_helper.fiscal_position_0
+msgid "Default"
+msgstr "Privzeto"
+
+#. module: product_get_price_helper
+#: model:ir.model,name:product_get_price_helper.model_product_product
+msgid "Product Variant"
+msgstr "Različica proizvoda"
+
+#. module: product_get_price_helper
+#: model:account.tax,name:product_get_price_helper.tax_2
+msgid "Tax exc demo"
+msgstr "Demo brez vključenega davka"
+
+#. module: product_get_price_helper
+#: model:account.tax,name:product_get_price_helper.tax_1
+msgid "Tax inc demo"
+msgstr "Demo z vključenim davkom"
