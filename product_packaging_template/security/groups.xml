@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="group_can_manage_packaging_templates" model="res.groups">
+        <field name="name">Product: Can manage packaging at template level</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+        <field
+            name="implied_ids"
+            eval="[Command.set([ref('product.group_stock_packaging')])]"
+        />
+        <field name="users" eval="[Command.link(ref('base.user_root'))]" />
+    </record>
+</odoo>
